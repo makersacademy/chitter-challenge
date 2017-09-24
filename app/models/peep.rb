@@ -9,6 +9,6 @@ class Peep
   belongs_to :user, required: false
 
   def time_stamp
-    created_at.strftime('(on %F at %H:%M)')
+    created_at.strftime('on %F at %H:%M)')
   end
 end

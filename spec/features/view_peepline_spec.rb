@@ -3,8 +3,8 @@
 feature 'When reading the peepline' do
   let(:peep1) { 'And those who are first will be last' }
   let(:peep2) { 'So those who are last now will be first' }
-  let(:test_time_return) { ' (on 2017-09-22 at 09:00)' }
-  let(:test_time_return_plus_1hr) { ' (on 2017-09-22 at 10:00)' }
+  let(:test_time_return) { ' on 2017-09-22 at 09:00)' }
+  let(:test_time_return_plus_1hr) { ' on 2017-09-22 at 10:00)' }
 
   scenario 'Not signed up, visit home page called stranger' do
     # As a maker
@@ -32,7 +32,7 @@ feature 'When reading the peepline' do
     Timecop.freeze(new_time) do
       default_peepline
       visit '/peeps'
-      expect(find_by_id('peeps_list')).to have_content(peep2 + test_time_return)
+      expect(find_by_id('peeps_list')).to have_content(test_time_return)
     end
   end
 
@@ -44,10 +44,10 @@ feature 'When reading the peepline' do
     Timecop.freeze(new_time)
     default_peepline
     visit '/peeps'
-    expect(find_by_id('peeps_list')).to have_content(peep2 + test_time_return)
+    expect(find_by_id('peeps_list')).to have_content(test_time_return)
     Timecop.travel(new_time + 3600)
     default_peepline
     visit '/peeps'
-    expect(find_by_id('peeps_list')).to have_content(peep2 + test_time_return_plus_1hr)
+    expect(find_by_id('peeps_list')).to have_content(test_time_return_plus_1hr)
   end
 end

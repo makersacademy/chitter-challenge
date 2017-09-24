@@ -46,7 +46,10 @@
   <ol id='peeps_list'>
     <% @peeps.each do |peep| %>
       <li>
-        Peep: <%= peep.body %> <%= peep.time_stamp %> <%= Usep.user_id. %>
+        Peep: <%= peep.body %> (<%= User.first(:id => peep.user_id).real_name %> - @<%= User.first(:id => peep.user_id).username %> (
+        <%= peep.time_stamp %>
+
+
       </li>
     <% end %>
   </ol>
