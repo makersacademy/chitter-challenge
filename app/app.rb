@@ -11,6 +11,10 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
+    erb :main
+  end
+
+  get 'peeps/new' do
     erb :'peeps/new'
   end
 
