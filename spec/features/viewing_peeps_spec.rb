@@ -25,7 +25,7 @@ feature 'Viewing peeps' do
   scenario 'I can filter peeps by tag' do
     visit '/tags/greeting'
     expect(page.status_code).to eq(200)
-    within 'ul#links' do
+    within 'ul#peeps' do
       expect(page).to have_content('This is my first peep.')
       expect(page).to have_content('This is my second peep.')
       expect(page).not_to have_content('This is my third peep.')
