@@ -1,6 +1,7 @@
 require_relative './helpers/web_helper.rb'
 
 feature 'creating peep' do
+
   scenario 'I will be able to create a peep' do
     create_peep
   end
@@ -14,6 +15,8 @@ feature 'creating peep' do
 
   scenario 'I will be able to see the time the peep was created' do
     create_peep
-    expect(page).to have_content('created_at:')
+    time = Time.now
+    new_time = Timecop.freeze(time)
+    expect(page).to have_content(new_time)
   end
 end

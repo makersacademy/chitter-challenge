@@ -5,7 +5,7 @@
    <li id="peeps">
     Title: <%= peep.title %>
     Text:  <%= peep.text %>
-    created_at: <%= peep.created_at %>
+    created_at: <%= peep.created_at.to_time %>
   </li>
   <% end %>
 </ul>

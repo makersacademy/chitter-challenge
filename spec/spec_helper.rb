@@ -6,6 +6,7 @@ require 'capybara'
 require './app/models/peep.rb'
 require './app/app'
 require 'database_cleaner'
+require 'timecop'
 require_relative 'helpers/session'
 
 Capybara.app = Chitter
