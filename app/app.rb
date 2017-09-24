@@ -20,8 +20,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(peep_text: params[:peep_text])
-    redirect '/peeps'
+    @peep = Peep.new(peep_text: params[:peep_text])
+    if @peep.save
+      redirect '/peeps'
+    else
+      flash.now[:errors] = @peep.errors.full_messages
+      erb :'peeps/new'
+    end
   end
 
   get '/users/new' do
@@ -39,7 +44,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/peeps'
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
