@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] = "test"
+ENV['RACK_ENV'] = 'test'
 
 require 'simplecov'
 require 'simplecov-console'
@@ -11,25 +11,24 @@ require 'sinatra/flash'
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
+                                                                 SimpleCov::Formatter::Console,
+                                                                 # Want a nice code coverage website? Uncomment this next line!
+                                                                 # SimpleCov::Formatter::HTMLFormatter
+                                                               ])
 SimpleCov.start
 
 RSpec.configure do |config|
-
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
-   DatabaseCleaner.start
+    DatabaseCleaner.start
   end
 
   config.after(:each) do
-     DatabaseCleaner.clean
+    DatabaseCleaner.clean
   end
 
   config.after(:suite) do
