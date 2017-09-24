@@ -44,8 +44,12 @@ class ChitterClone < Sinatra::Base
   end
 
   post '/peep/new' do
-    peep = Peep.create(body: params[:peep_body])
+    peep = Peep.create(body: params[:peep_body],
+                      user_id: session[:user_id] )
+    $current_peeper = session[:user_id]
+    peep.user
     peep.save
+    $peep = peep
     redirect to('/peeps')
   end
 
