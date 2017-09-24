@@ -1,0 +1,13 @@
+<form action='/peeps' method='post'>
+  <label for='peep_text'>
+    Type Peep text:
+    <input type='text' name='peep_text'>
+  </label>
+  <input type='submit' value='Post!'>
+</form>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <li> <%= peep.text + peep.time.strftime(" -Posted at %I:%M%p")%> </li>
+  <% end %>
+</ul>
