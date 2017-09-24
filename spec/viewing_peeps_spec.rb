@@ -1,4 +1,4 @@
-require 'web_helper.rb'
+require_relative './helpers/web_helper.rb'
 
 feature 'Viewing peeps' do
   scenario 'I can see existing peeps on the peeps page' do

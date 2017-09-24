@@ -4,7 +4,6 @@ require 'bcrypt'
 require './app/app.rb'
 
 class User
-
   include DataMapper::Resource
 
   attr_reader :password
@@ -25,13 +24,8 @@ class User
 
   def self.authenticate(email, password)
     user = first(email: email)
-    if user && BCrypt::Password.new(user.password_digest) == password
-      user
-    else
-      nil
-    end
+    user if user && BCrypt::Password.new(user.password_digest) == password
   end
-
 end
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
