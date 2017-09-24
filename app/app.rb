@@ -5,12 +5,12 @@ require 'sinatra/flash'
 require_relative 'models/post'
 require_relative 'data_mapper_setup'
 
-
 class Blabber < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/posts' do
     @posts = Post.all
@@ -33,10 +33,10 @@ class Blabber < Sinatra::Base
                         password: params[:password],
                         password_confirmation: params[:password_confirmation])
     if @user.save
-        session[:user_id] = @user.id
-        redirect to '/posts'
+      session[:user_id] = @user.id
+      redirect to '/posts'
     else
-      flash.now[:notice] = "Passwords do not match"
+      flash.now[:notice] = 'Passwords do not match'
       erb :'users/new'
     end
   end
@@ -51,9 +51,15 @@ class Blabber < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/posts')
     else
-      flash.now[:notice] = "The email or password is incorrect"
+      flash.now[:error] = 'The email or password is incorrect'
       erb(:'sessions/new')
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'BLABBER OFF!'
+    redirect to '/posts'
   end
 
   helpers do

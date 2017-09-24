@@ -1,5 +1,6 @@
 feature 'Creating new BLABBER posts' do
   scenario 'I can make new BLABBER posts on page' do
+    sign_up
     visit('/posts')
     fill_in 'body', with: 'Hi, this is thomas!'
     click_button 'SEND!'
@@ -12,6 +13,7 @@ feature 'Creating new BLABBER posts' do
   end
 
   scenario 'New BLABBER posts are in reverse order' do
+    sign_up
     visit('/posts')
     fill_in 'body', with: 'First'
     click_button 'SEND!'
