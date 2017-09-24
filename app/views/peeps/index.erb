@@ -1,53 +1,170 @@
-<% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
+<head>
+  <style>
+
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+@import url('https://fonts.googleapis.com/css?family=The+Girl+Next+Door');
+
+  body {
+    background-color: #1A1110;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+}
+
+  #headline{
+    max-width: 100%;
+    margin: 0px;
+    border-bottom: 3px solid grey;
+    padding: 0px;
+    position: relative;
+    display:block;
+
+    text-align: center;
+  }
+
+  h1{
+    font-family:"Arvo", Times;
+    text-shadow: 1px 1px grey;
+    font-size: 40px;
+  }
+
+  h2{
+    font-family:'Arvo', Times;
+    text-shadow: 1px 1px grey;
+    font-size: 20px;
+    text-align: center;
+    }
+
+  h3{
+    font-family:'Arvo', Times;
+    font-family: ;
+    text-shadow: 1px 1px grey;
+    font-size: 10px;
+    text-align: center;
+    font-style: italic;
+  }
+
+  p{font-family:"Times New Roman", Times, serif;}
+
+  #peeping-form-container{
+    background-color: grey;
+    border: 2px dashed black;
+    /*position: relative;*/
+    height: auto;
+    margin: 0 auto;
+  }
+
+  #peeping-form{
+    margin: 10 auto;
+    text-align: center;
+  }
+
+  #centerised-buttons{
+    margin: 10 auto;
+    text-align: center;
+  }
+
+  #bigger-buttons{
+    font-size: 30px;
+    padding: 14px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    font-family: 'Arvo', serif;
+  }
+
+  #individual-peep{
+    font-size: 15px;
+    color: black;
+    font-family: 'The Girl Next Door', cursive;
+
+    background-color: white;
+    border-width: 2px 3px 2px 3px;
+    border-style: solid;
+    border-color: grey;
+
+    text-align: center;
+    padding: .1em 1em;
+    margin: 0px 40px 0px 0px;
+    list-style-type: none;
+
+    min-width: 50%;
+
+  }
+
+  #peeps-list{
+    border: 1px solid grey;
+    margin: 0px;
+    padding: 0px;
+
+    text-align: center;
+  }
+
+
+</style>
+
+</head>
+
+<body>
+
+  <div id="headline">
+    <% if flash[:notice] %>
+      <h1><%= flash[:notice] %></h1>
+    <% else %>
+      <h1><%=@welcome%><%=@current_user%>, let's peep together!</h1>
+    <% end %>
   </div>
-<% end %>
-
-
-<h1>
-  <%=@welcome%><%=@current_user%>, let's peep together!</h1>
-
-<h1>
-  Here are all the peeps.
-</h1>
-
-
-  <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
-
-
 
 
 <% if @no_peeping == nil %>
-  <form action="/peep/new" method="post">
 
-     <h2>What do you want to peep about today?</h2>
+  <h2>What do you want to peep about today?</h2>
+  <h3>Tell me everything. Now, pigdog!</h3>
 
-    <h2>Tell me everything. Now, pigdog!</h2>
-      <input type="text" name="peep_body" placeholder = "Today I ate a breakfast and did a toilet" style="width:225px">
+  <div id='peeping-form-container'>
 
+    <form action="/peep/new" method="post" id='peeping-form'>
+
+    <input type="text" name="peep_body" placeholder = "Today I ate a breakfast and did a toilet" style="width:225px">
     <input type="submit" value="Peep">
 
+    </form>
+
+  </div>
+
+<% else %>
+
+  <h2>If you were signed in you could peep here... would you... <i>like</i> to sign up?</h2>
+
+  <form method='get' action='/signup_to_peep' id='centerised-buttons'>
+    <input type='submit' value='Sign up' id='bigger-buttons' >
   </form>
 
+  <h2>Or maybe you have an account and therefore you would like to sign in to that account?</h2>
+  <form method='get' action='/sessions/new' id='centerised-buttons'>
+    <input type='submit' value='Sign in' id='bigger-buttons' >
+  </form>
 
-  <% else %>
-  <h2>If you were signed in you could peep here</h2>
-
-  <% end %>
+<% end %>
 
 
+<h2>Here are all the peeps:</h2>
 
-  <ol id='peeps_list'>
+  <div id='peeps-list'>
+  <ul>
     <% @peeps.each do |peep| %>
-      <li>
-        Peep: <%= peep.body %> (<%= User.first(:id => peep.user_id).real_name %> - @<%= User.first(:id => peep.user_id).username %> (
-        <%= peep.time_stamp %>
-
-
+      <li id='individual-peep'>
+        <b><%= peep.body %></b> (<%= User.first(:id => peep.user_id).real_name %> - @<%= User.first(:id => peep.user_id).username %> (
+        <i><%= peep.time_stamp %></i>
       </li>
     <% end %>
-  </ol>
+  </ul>
+  </div>
+
+  <% if @no_peeping == nil %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+  <% end %>
+
+</body>
