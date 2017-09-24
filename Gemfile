@@ -8,6 +8,8 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'capybara'
+gem 'database_cleaner'
+gem 'orderly'
 
 group :test do
   gem 'cucumber'
