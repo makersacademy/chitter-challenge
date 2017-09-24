@@ -3,6 +3,8 @@ require 'dm-postgres-adapter'
 require 'bcrypt'
 require './app/app.rb'
 
+# User class with authentication
+
 class User
   include DataMapper::Resource
 

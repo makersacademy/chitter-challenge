@@ -8,15 +8,13 @@ gem 'database_cleaner'
 gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'rake'
-gem 'rake'
 gem 'rspec'
-gem 'rubocop'
 gem 'rubocop'
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'sinatra-twitter-bootstrap', require: 'sinatra/twitter-bootstrap'
 gem 'timecop'
-gem 'sinatra-twitter-bootstrap', :require => 'sinatra/twitter-bootstrap'
 
 # ruby --> datamapper --> adapter --> database

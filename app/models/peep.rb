@@ -2,6 +2,8 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 class Peep
+  # Peep class
+
   include DataMapper::Resource
 
   property :id, Serial

@@ -6,6 +6,8 @@ require_relative './models/user.rb'
 require 'sinatra/twitter-bootstrap'
 ENV['RACK_ENV'] ||= 'development'
 
+# My Controller
+
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash

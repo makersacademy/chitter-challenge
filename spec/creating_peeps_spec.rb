@@ -1,7 +1,6 @@
 require_relative './helpers/web_helper.rb'
 
 feature 'creating peep' do
-
   scenario 'I will be able to create a peep' do
     create_peep
   end
