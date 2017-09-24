@@ -71,7 +71,7 @@ h2 {
   <% @posts.reverse.each do |post| %>
   <li>
     <%= post.body.capitalize %>
-    <span><%= post.created_at %></span>
+    <span>added on <%= post.created_at %></span>
   </li>
  <% end %>
 </ul></div>

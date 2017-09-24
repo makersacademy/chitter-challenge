@@ -1,12 +1,16 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'models/post'
 require_relative 'data_mapper_setup'
+
 
 class Blabber < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+
+  register Sinatra::Flash
 
   get '/posts' do
     @posts = Post.all
@@ -19,14 +23,25 @@ class Blabber < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb(:'users/new')
   end
 
   post '/users' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to '/posts'
+    @user = User.create(name: params[:name],
+                      email: params[:email],
+                      password: params[:password],
+                      password_confirmation: params[:password_confirmation])
+    if @user.save
+        session[:user_id] = @user.id
+        redirect to '/posts'
+    else
+      flash.now[:notice] = "Passwords do not match"
+      erb :'users/new'
+    end
   end
+
+
 
   helpers do
     def current_user

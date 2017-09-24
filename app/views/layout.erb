@@ -8,15 +8,30 @@ h4{font-family: helvetica;
   font-weight: bold;
   color: white;}
 
+  #notice{font-family: helvetica;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    margin-top: 400px;
+    z-index: 999;
+
+  }
+
 </style>
 
-
+<% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+<% end %>
   <body>
+
     <% if current_user %>
 
     <h4><center>  welcome, <%= current_user.email %></center></h4>
 
     <% end %>
+
+
+
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
 </html>

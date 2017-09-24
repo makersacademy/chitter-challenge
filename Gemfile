@@ -9,6 +9,7 @@ gem 'pg'
 gem 'rake'
 gem 'sinatra', '~> 1.4.8'
 gem 'thin'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
