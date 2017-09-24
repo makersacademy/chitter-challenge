@@ -1,5 +1,4 @@
 feature 'Viewing peeps' do
-
   scenario 'I can see existing peeps' do
     Peep.create(message: 'Test Peep', time: Time.now)
     visit '/peeps'

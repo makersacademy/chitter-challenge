@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] ||= "development"
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @ordered_peeps = Peep.all(:order => [:time.desc])
+    @ordered_peeps = Peep.all(order: [:time.desc])
     erb :'peeps/index'
   end
 
@@ -37,15 +37,15 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/peeps'
     else
-      flash.now[:notice] = "Passwords do not match"
+      flash.now[:notice] = 'Passwords do not match'
       erb :'users/new'
     end
   end
 
   helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
