@@ -1,13 +1,6 @@
 
 feature 'When visiting the signup page' do
-  scenario 'Not signed up, get called stranger' do
-    # As a maker
-    # So that I can see what others are saying
-    # I want to see all peeps in reverse chronological order
-    default_peepline
-    visit '/peeps'
-    expect(page).to have_content('Welcome to the peepline, Stranger')
-  end
+
 
   scenario 'I can  see a signup form, enter an email and password and submits the form' do
     # As a Maker

@@ -11,14 +11,34 @@ class ChitterClone < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
+  helpers do
+    def signed_in?
+      session[:user_id] != nil
+    end
+
+    def just_signed_in?
+      session[:welcome_back] == 'true'
+    end
+
+    def reset_returning_user_status
+      session[:welcome_back] = 'false'
+    end
+  end
+
+
+
 
   get '/peeps' do
     @peeps ||= Peep.all.reverse
+    @no_peeping = true unless signed_in?
     @current_user = session[:current_user]
     @current_user ||= 'Stranger'
-    @welcome = 'Welcome back' if session[:welcome_back] == 'true'
+
+    @welcome = 'Welcome back' if just_signed_in?
+      reset_returning_user_status
+
     @welcome ||= 'Welcome to the peepline, '
-    session[:welcome_back] = 'false'
+
     # refactor above three lines to two separate helpers
     erb :'peeps/index'
   end
@@ -72,6 +92,7 @@ class ChitterClone < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
+    session[:current_user] = nil
     flash.keep[:notice] = 'goodbye!'
     redirect to '/peeps'
   end
