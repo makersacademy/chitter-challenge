@@ -5,8 +5,10 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra', '~> 1.4.8'
 gem 'dm-timestamps'
+gem 'pg'
 gem 'rake'
-
+gem 'thin'
+gem 'bcrypt'
 
 
 group :test do

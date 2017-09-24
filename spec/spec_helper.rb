@@ -8,6 +8,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner'
 require 'pry'
+require 'web_helper'
 
 Capybara.app = Blabber
 

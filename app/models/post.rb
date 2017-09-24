@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-timestamps'
+require 'pg'
 
 class Post
   include DataMapper::Resource
@@ -10,9 +11,3 @@ class Post
   property :created_at, DateTime
 
 end
-
-DataMapper.setup(:default, "postgres://localhost/blabber_#{ENV['RACK_ENV']}")
-
-DataMapper.finalize
-
-DataMapper.auto_upgrade!
