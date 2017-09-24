@@ -2,15 +2,15 @@
 
 <form action='/users' method='post'>
   <label for='name'>
-    Your name: <input name='name' type='text' value='<%= @user.name %>'>
+    Your name: <input name='name' type='text' value='<%= @user.name %>' required>
   </label>
 
   <label for='user_name'>
-    User name: <input name='user_name' type='text' value='<%= @user.user_name %>'>
+    User name: <input name='user_name' type='text' value='<%= @user.user_name %>' required>
   </label>
 
   <label for='email'>
-    Email: <input name='email' type='text' value='<%= @user.email %>'>
+    Email: <input name='email' type='text' value='<%= @user.email %>' required>
   </label>
 
   <label for='password'>
