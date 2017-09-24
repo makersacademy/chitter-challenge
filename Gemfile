@@ -1,24 +1,23 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
+gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'sinatra', '~> 1.4.8'
 gem 'dm-timestamps'
 gem 'pg'
 gem 'rake'
+gem 'sinatra', '~> 1.4.8'
 gem 'thin'
-gem 'bcrypt'
-
 
 group :test do
-  gem 'cucumber'
   gem 'capybara'
-  gem 'rspec'
-  gem 'pry'
+  gem 'cucumber'
   gem 'database_cleaner'
-  gem 'rake'
+  gem 'pry'
+  gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'sinatra', '~> 1.4.8'
 end

@@ -1,5 +1,4 @@
 feature 'Viewing BLABBER posts' do
-
   scenario 'I can see existing BLABBER posts on page' do
     Post.create(body: 'Hi, this is thomas!')
 

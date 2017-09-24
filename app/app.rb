@@ -1,11 +1,10 @@
-ENV["RACK_ENV"] ||= "development"
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'models/post'
 require_relative 'data_mapper_setup'
 
 class Blabber < Sinatra::Base
-
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -14,9 +13,9 @@ class Blabber < Sinatra::Base
     erb(:'posts/index')
   end
 
-  get '/posts/new' do
-    erb(:'posts/new')
-  end
+  # get '/posts/new' do
+  #   erb(:'posts/new')
+  # end
 
   post '/posts' do
     Post.create(body: params[:body])
@@ -28,7 +27,7 @@ class Blabber < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password])
+    user = User.create(name: params[:name], email: params[:email], password: params[:password])
     session[:user_id] = user.id
     redirect to '/posts'
   end
@@ -39,5 +38,5 @@ class Blabber < Sinatra::Base
     end
   end
 
-    run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end

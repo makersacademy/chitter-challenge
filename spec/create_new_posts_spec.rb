@@ -1,10 +1,8 @@
 feature 'Creating new BLABBER posts' do
-
   scenario 'I can make new BLABBER posts on page' do
-
-    visit('/posts/new')
+    visit('/posts')
     fill_in 'body', with: 'Hi, this is thomas!'
-    click_button 'blab'
+    click_button 'SEND!'
 
     expect(current_path).to eq '/posts'
 
@@ -14,19 +12,18 @@ feature 'Creating new BLABBER posts' do
   end
 
   scenario 'New BLABBER posts are in reverse order' do
+    visit('/posts')
+    fill_in 'body', with: 'First'
+    click_button 'SEND!'
 
-    visit('/posts/new')
-    fill_in 'body', with: 'first'
-    click_button 'blab'
-
-    visit('/posts/new')
-    fill_in 'body', with: 'second'
-    click_button 'blab'
+    visit('/posts')
+    fill_in 'body', with: 'Second'
+    click_button 'SEND!'
 
     expect(current_path).to eq '/posts'
 
     within 'ul#posts' do
-       expect(page.body.index('second')).to be < page.body.index('first')
+      expect(page.body.index('Second')).to be < page.body.index('First')
     end
   end
 end

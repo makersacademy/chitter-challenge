@@ -9,5 +9,4 @@ class Post
   property :id, Serial
   property :body, String
   property :created_at, DateTime
-
 end
