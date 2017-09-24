@@ -46,12 +46,12 @@ class Blabber < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(params[:name], params[:password])
-    if user
-      session[:user_id] = user.id
+    @user = User.authenticate(params[:name], params[:password])
+    if @user
+      session[:user_id] = @user.id
       redirect to('/posts')
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash.now[:notice] = "The email or password is incorrect"
       erb(:'sessions/new')
     end
   end

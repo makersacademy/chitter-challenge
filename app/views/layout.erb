@@ -4,9 +4,19 @@
     <title>BLABBER</title>
   </head>
 <style>
-h4{font-family: helvetica;
+
+#signedin{font-family: helvetica;
   font-weight: bolder;
-  color: white;}
+  color: white;
+  margin-left: 90px;}
+
+#signout{font-family: helvetica;
+    font-weight: bolder;
+    color: white;
+    margin-top: -970px;
+    margin-left: 90px;
+    position: absolute;
+    z-index: 999;}
 
   #notice{font-family: helvetica;
     font-weight: bold;
@@ -15,7 +25,7 @@ h4{font-family: helvetica;
     margin-top: 400px;
     z-index: 999;}
 
-span{color: green;}
+span{color: black;}
 
 </style>
 
@@ -27,12 +37,14 @@ span{color: green;}
     <% if current_user %>
 
     <!-- <h4><center>  welcome, <%= current_user.email %></center></h4> -->
-    <h4><center>  SIGNED IN AS: <span><%= current_user.name %></span></center></h4>
+    <h3 id="signedin">ONLINE: <span><%= current_user.name %></span></h3>
 
     <% end %>
 
 
 
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+    <h3 id="signout">SIGN OUT</h3>
+
   </body>
 </html>

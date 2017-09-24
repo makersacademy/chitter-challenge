@@ -1,8 +1,8 @@
 <style>
 body {          background-color: skyblue;}
 
-#mainposts {           border: solid 1px black;
-                border-radius: 20px;
+#mainposts {    border: solid 1px black;
+                /*border-radius: 20px;*/
                 font-weight: bold;
                 position: relative;
                 margin-left: 450px;
@@ -70,6 +70,7 @@ h2 {
 <ul id='posts' style= "list-style:none" class = 'blabs';>
   <% @posts.reverse.each do |post| %>
   <li>
+    <span><%= current_user.name %></span>
     <%= post.body.capitalize %>
     <span>added on <%= post.created_at %></span>
   </li>
