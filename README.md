@@ -1,24 +1,28 @@
 Approach
+========
 
+I went into this weekend very unsure of databases, and so most of the construction was around simply making peeps appear and how they were displayed. I then worked my way up towards integrating users, before finally adding in the ability to assign peeps to users.
+
+I modelled mine after the bookmark manager earlier in the week. Rather than simply copy-paste over, I used it as reference when I wasn't sure the syntax or formatting of something or, if a test was failing, just to see if I was missing any required elements. I would then add those elements in to see what they did.
+
+The bookmark manager uses a many-to-many relationship, and I made the mistake at first of just using the same syntax without understanding what it did - this created a join table I didn't really need, and lead to my code not working. I then went back to the documentation and re-wrote. I figured out all I really needed was an association where one User could have many peeps, but I didn't actually need to assign all those tweets under any kind of join table between users and peeps; it was sufficient, in order to display user details next to peeps, to assign each peep the user id.
+
+I worked also on understanding the way ruby code functions inside those special <% %> tags in an erb page, which allowed me to introduce conditionals to hide or display content depending on whether a user was signed in or out, as well as to display a 'Welcome back' message when they were a returning user (versus a new sign-up).
+
+
+Difficulties/Challenges/Construction notes:
+
+- I got my code working and the front-end looking presentable, but I'd like to do some more refactoring. I'm not sure, but I think some things could either be written neater or passed back to the models. I tried this at least with peep-time-stamping method.
 
 - In order to check the order of items, I originally used a trick specified in here: launchware.com/articles/acceptance-testing-asserting-sort-order to check the index of items within the page. The same people point out they built a Gem to do this, so I installed that after trying their approach, and used that to test order
     - However, I'd have preferred a way that let me count the numbers inputted by the ordered list, which capybara seems to drop when examining item order
+    - Same deal with Timecop -- I figured out how to do it manually, but Timecop is so much more convenient
 
-- Not enough stubbing
-
-- Username sent to index, but would like it to be a monad, where the Post form assigns it, but that doesn't seem to do anything
-
-- Would like to make it so that peep-box disappaesr conditiomally
+- There isn't really any stubbing in my tests; I need to figure out how to construct tests in a doubles-way, to use fake versions of models outside the model I'm testing, but I've not got time left to figure it out at this stage
 
 
-Chitter Challenge
-=================
-
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+The Chitter Challenge I Was Set
+===============================
 
 Challenge:
 -------
@@ -89,9 +93,8 @@ If you have time you can implement the following:
 
 And/Or:
 
-* Work on the css to make it look good (we all like beautiful things).
+* Work on the css to make it look good (we all like beautiful things). <--- I selected this one instead
 
-Good luck and let the chitter begin!
 
 Code Review
 -----------
@@ -103,23 +106,3 @@ In code review we'll be hoping to see:
 * The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
