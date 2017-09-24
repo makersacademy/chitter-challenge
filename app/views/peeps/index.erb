@@ -1,10 +1,15 @@
-<h1> All Peeps </h1>
+<style>
+h1, h2, h3, h4, h5, h6{ line-height: 10px; margin-top:20px; margin-bottom:10px;}
+ul li { padding: 20px 10px; }
+</style>
 
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
+<h2 style="color:blue;font-family:courier;"> Your Peeps </h2>
+
+<ul style="list-style-type:none" id='peeps'>
+  <% @ordered_peeps.each do |peep| %>
     <li>
-      Message: <%= peep.message %>
-      Time:   <%= peep.time   %>
+      <h3 style="font-family:courier;"> <%= peep.message %> </h2>
+      <h5 style="font-family:courier;"> <%= peep.time.strftime("%d%B%Y, %H:%M")   %> </h5>
     </li>
   <% end %>
 </ul>
