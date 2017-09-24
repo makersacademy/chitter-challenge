@@ -1,6 +1,10 @@
 feature 'my peeps' do
   scenario 'so that user can click see only their own peeps' do
-    visit('/peeps')
+    visit('/login')
+    fill_in 'username', with: 'Jedward'
+    fill_in 'email', with: 'edward@makers.com'
+    click_button 'Sign in'
+    visit('/mypeeps')
     expect(page.status_code).to eq 200
   end
 

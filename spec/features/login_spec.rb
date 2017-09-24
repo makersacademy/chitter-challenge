@@ -6,6 +6,12 @@ feature 'login' do
   end
 
   scenario 'so that user can click sign in on landing page' do
+    visit('/create')
+    fill_in 'username', with: 'Jedward'
+    fill_in 'email', with: 'edward@makers.com'
+    click_button 'Create Account'
+    expect(page).to have_content('Login completed')
+    
     visit('/login')
     fill_in 'username', with: 'Jedward'
     fill_in 'email', with: 'edward@makers.com'

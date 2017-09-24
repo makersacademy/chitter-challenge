@@ -1,16 +1,7 @@
-<h1 align='center'> Login completed, what do you want to do next <%= @user %> ? </h1>
+<h1 align='center'> Login completed, what do you want to do next, <%= @user.username %> ? </h1>
 
-<form align='center' action='/peep'>
-  Need to get something off your chest?
-  <input type='submit' value='Peep!'>
-</form>
+<p>Need to get something off your chest? <a href="/peep">Peep!</a></p>
 
-<form align='center' action='/mypeep'>
-  Want to see your old peeps?
-  <input type='submit' value='My Peeps'>
-</form>
+<p>Want to see your old peeps?  <a href='/mypeeps'>My Peeps</a></p>
 
-<form align='center' action='/view'>
-  My chest is fine, I want to see what everyone else is whining about!
-  <input type='submit' value='The wall'>
-</form>
+<p>My chest is fine, I want to see what everyone else is whining about! <a href='/allpeeps'>The Wall</a></p>

@@ -8,6 +8,10 @@ require './models/user'
 
 # controller for Chitter app
 class Chitter < Sinatra::Base
+
+  enable :sessions
+  set :session_secret, 'super secret'
+
   get '/' do
     erb(:home)
   end
@@ -16,25 +20,29 @@ class Chitter < Sinatra::Base
     erb(:login)
   end
 
+  post '/login' do
+    @user = User.first(username: params[:username],
+                     email: params[:email])
+
+    session[:user_id] = @user.id
+    redirect '/home'
+  end
+
   get '/create' do
     erb(:create)
   end
 
-  post '/created' do
+  post '/create' do
     @user = User.first_or_create(username: params[:username],
                                  email: params[:email])
-    p @user
     @user.save
-    redirect '/home'
-  end
-
-  post '/loggedin' do
-    @user = User.get(username: params[:username], email: params[:email])
-    p @user
-    redirect '/home'
+    session[:user_id] = @user.id
+    erb(:homeoptions)
   end
 
   get '/home' do
+    user_id = session[:user_id]
+    @user = User.get(user_id)
     erb(:homeoptions)
   end
 
@@ -49,7 +57,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/mypeeps' do
-    @peeps = Peep.get(username: params[:username], email: params[:email])
+    user_id = session[:user_id]
+    @user = User.get(user_id)
+    puts '----------------'
+    puts @user
+    puts '----------------'
+    @peeps = @user.peeps
     erb(:view)
   end
 
@@ -57,5 +70,5 @@ class Chitter < Sinatra::Base
     @peeps = Peep.all
     erb(:view)
   end
-  run! if app_file == app.rb
+  run! if app_file == $0
 end

@@ -13,7 +13,7 @@ class User
   property :username, String
   property :email, String
 
-  validates_format :email, :email_address
+  # validates_format :email, :email_address
 end
 
 DataMapper.finalize
