@@ -6,6 +6,7 @@ ruby '2.4.0'
   gem 'database_cleaner'
   gem 'dm-postgres-adapter'
   gem 'sinatra'
+  gem 'sinatra-flash'
   gem 'shotgun'
 
 group :test do
