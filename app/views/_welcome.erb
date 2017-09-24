@@ -1,0 +1,50 @@
+<style>
+  .top_box {
+      width:1500px;
+      border-radius:5px;
+      padding:10px;
+      margin: auto auto 50px auto;
+      display:block;
+      background-color:LightGray;
+    }
+
+  .top_left {
+    text-align: left
+  }
+
+  .top_right {
+    text-align: right
+  }
+</style>
+
+<div class="top_box">
+  <% if current_user %>
+    <div class="top_left">
+      Welcome, <b><%= current_user.name %></b>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    </div>
+
+    <div class="top_right">
+      <form action='/peeps/new'>
+        <input type='submit' value='Peep!'>
+      </form>
+    </div>
+  <% else %>
+    <div class="top_left">
+      Have an account?
+      <form action='/sessions/new'>
+        <input type='submit' value='Log in'>
+      </form>
+    </div>
+
+    <div class="top_right">
+      New to Chitter?
+      <form action='/users/new'>
+        <input type='submit' value='Create an account'>
+      </form>
+    </div>
+  <% end %>
+</div>

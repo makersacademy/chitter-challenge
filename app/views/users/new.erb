@@ -1,0 +1,47 @@
+<style>
+  h1 {
+    text-align:center;
+    margin:30px auto 0 auto;
+    font-size: 40px;
+    font-weight:bold;
+  }
+
+  .box {
+    width:400px;
+    border-radius:5px;
+    padding: 10px;
+    box-shadow: -5px 5px 5px rgba(8,116,171,0.7);
+    margin:20px auto auto auto;
+    display:block;
+    background-color:LightGray;
+  }
+</style>
+
+<h1>Sign up to Chitter</h1>
+
+<div class="box">
+  <form action='/users' method='post'>
+    <label for='name'>
+      Your name: <input name='name' type='text' value='<%= @user.name %>' required>
+    </label>
+    <br>
+    <label for='user_name'>
+      User name: <input name='user_name' type='text' value='<%= @user.user_name %>' required>
+    </label>
+    <br>
+    <label for='email'>
+      Email: <input name='email' type='text' value='<%= @user.email %>' required>
+    </label>
+    <br>
+    <label for='password'>
+      Password: <input name='password' type='password'>
+    </label>
+    <br>
+    <label for='password_confirmation'>
+      Confirm Password: <input name='password_confirmation' type='password'>
+    </label>
+    <br>
+    <br>
+    <input type='submit' value='Sign up'>
+  </form>
+</div>
