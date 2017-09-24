@@ -9,7 +9,7 @@
   <%=@welcome%><%=@current_user%>, let's peep together!</h1>
 
 <h1>
-  Here are all the peeps. What do you want to peep about today?
+  Here are all the peeps.
 </h1>
 
 
@@ -23,6 +23,8 @@
 
 <% if @no_peeping == nil %>
   <form action="/peep/new" method="post">
+
+     <h2>What do you want to peep about today?</h2>
 
     <h2>Tell me everything. Now, pigdog!</h2>
       <input type="text" name="peep_body" placeholder = "Today I ate a breakfast and did a toilet" style="width:225px">

@@ -34,7 +34,7 @@ class ChitterClone < Sinatra::Base
     @current_user = session[:current_user]
     @current_user ||= 'Stranger'
 
-    @welcome = 'Welcome back' if just_signed_in?
+    @welcome = 'Welcome back ' if just_signed_in?
       reset_returning_user_status
 
     @welcome ||= 'Welcome to the peepline, '
@@ -64,6 +64,7 @@ class ChitterClone < Sinatra::Base
                        password_confirmation: params[:password_confirmation])
     if user.save
       session[:current_user] = user.real_name
+      session[:user_id] = user.id
       redirect to('/peeps')
     else
       session[:mismatch_password] = 'true'
