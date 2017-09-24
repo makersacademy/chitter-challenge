@@ -1,5 +1,18 @@
+ENV['RACK_ENV'] = "test"
+
+require './app/models/peep'
+
+require 'database_cleaner'
+require 'orderly'
+
 require 'simplecov'
 require 'simplecov-console'
+
+require 'capybara/rspec'
+require 'capybara/dsl'
+
+require File.join(File.dirname(__FILE__), "..", "./app/app.rb")
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
