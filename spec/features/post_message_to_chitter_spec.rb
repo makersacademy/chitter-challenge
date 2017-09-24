@@ -13,7 +13,7 @@ feature 'When creating peeps' do
     fill_in :peep_body, with: "I'm creeping and I'm peeping"
 
     click_button 'Peep'
-    expect(find_by_id('peeps-list')).to have_content("I'm creeping and I'm peeping" + ' (Harry Blackstone Copperfield Dresden - @Hoss')
+    expect(find_by_id('peeps-list')).to have_content("I'm creeping and I'm peeping" + ' Harry Blackstone Copperfield Dresden - @Hoss')
     expect(page).to_not have_content('If you were signed in you could peep here')
   end
 

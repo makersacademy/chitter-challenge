@@ -73,7 +73,7 @@
   }
 
   #individual-peep{
-    font-size: 15px;
+    font-size: 25px;
     color: black;
     font-family: 'The Girl Next Door', cursive;
 
@@ -91,13 +91,19 @@
 
   }
 
+
+  #peep-data{
+      font-family: monospace;
+      font-size: 15px;
+      font-weight: bold;
+    }
   #peeps-list{
     border: 1px solid grey;
     margin: 0px;
     padding: 0px;
-
     text-align: center;
   }
+
 
 
 </style>
@@ -110,14 +116,14 @@
     <% if flash[:notice] %>
       <h1><%= flash[:notice] %></h1>
     <% else %>
-      <h1><%=@welcome%><%=@current_user%>, let's peep together!</h1>
+      <h1><%=@welcome%><%=@current_user%>. Let's Peep together!</h1>
     <% end %>
   </div>
 
 
 <% if @no_peeping == nil %>
 
-  <h2>What do you want to peep about today?</h2>
+  <h2>What do you want to Peep about today?</h2>
   <h3>Tell me everything. Now, pigdog!</h3>
 
   <div id='peeping-form-container'>
@@ -147,14 +153,20 @@
 <% end %>
 
 
-<h2>Here are all the peeps:</h2>
+<h2>Here are all the Peeps:</h2>
 
   <div id='peeps-list'>
   <ul>
     <% @peeps.each do |peep| %>
       <li id='individual-peep'>
-        <b><%= peep.body %></b> (<%= User.first(:id => peep.user_id).real_name %> - @<%= User.first(:id => peep.user_id).username %> (
-        <i><%= peep.time_stamp %></i>
+        <%= peep.body %>
+
+        <div id='peep-data'>
+        <%= User.first(:id => peep.user_id).real_name %> - @<%= User.first(:id => peep.user_id).username %> (<%= peep.time_stamp %>
+        </div>
+
+
+
       </li>
     <% end %>
   </ul>
