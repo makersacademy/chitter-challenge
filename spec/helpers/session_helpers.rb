@@ -1,6 +1,6 @@
 module SessionHelpers
   def default_peepline
-    test_user = User.create(username: 'test123', real_name: 'Mr Test', email_address:'test@test.com', password_digest: 'test')
+    test_user = User.create(username: 'test123', real_name: 'Mr Test', email_address: 'test@test.com', password_digest: 'test')
     @peep1 = 'And those who are first will be last'
     @peep2 = 'So those who are last now will be first'
     peep_array = [@peep1, @peep2]

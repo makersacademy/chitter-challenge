@@ -1,7 +1,5 @@
 
 feature 'When visiting the signup page' do
-
-
   scenario 'I can  see a signup form, enter an email and password and submits the form' do
     # As a Maker
     # So that I can post messages on Chitter as me

@@ -25,9 +25,6 @@ class ChitterClone < Sinatra::Base
     end
   end
 
-
-
-
   get '/peeps' do
     @peeps ||= Peep.all.reverse
     @no_peeping = true unless signed_in?
@@ -35,7 +32,7 @@ class ChitterClone < Sinatra::Base
     @current_user ||= 'Stranger'
 
     @welcome = 'Welcome back ' if just_signed_in?
-      reset_returning_user_status
+    reset_returning_user_status
 
     @welcome ||= 'Welcome to the peepline, '
 
@@ -45,7 +42,7 @@ class ChitterClone < Sinatra::Base
 
   post '/peep/new' do
     peep = Peep.create(body: params[:peep_body],
-                      user_id: session[:user_id] )
+                       user_id: session[:user_id])
     peep.user
     peep.save
     redirect to('/peeps')
