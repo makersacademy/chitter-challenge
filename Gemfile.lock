@@ -161,6 +161,7 @@ DEPENDENCIES
   database_cleaner
   dm-migrations
   dm-postgres-adapter
+  dm-validations
   json
   pg
   rake

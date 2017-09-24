@@ -4,8 +4,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'sinatra/base'
 require './models/peep'
-
-# Chitter.setup(:default, "postgres://localhost/chitter")
+require './models/user'
 
 class Chitter < Sinatra::Base
 
@@ -22,14 +21,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/created' do
-    user = User.create(username: params[:username], email: params[:email])
-    user.save
+    @user = User.first_or_create(username: params[:username], email: params[:email])
+    p @user
+    @user.save
     redirect '/home'
   end
 
   post '/loggedin' do
-    user = User.get()
-
+    @user = User.get(username: params[:username], email: params[:email])
+    p @user
+    redirect '/home'
   end
 
   get '/home' do
@@ -44,6 +45,11 @@ class Chitter < Sinatra::Base
     peep = Peep.create(peep: params[:peep], timestamp: DateTime.now)
     peep.save
     redirect '/view'
+  end
+
+  get '/mypeeps' do
+    @peeps = Peep.get(username: params[:username], email: params[:email])
+    erb(:view)
   end
 
   get '/view' do
