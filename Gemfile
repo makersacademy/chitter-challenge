@@ -1,20 +1,18 @@
 source 'https://www.rubygems.org'
 
-  ruby '2.4.0'
+ruby '2.4.0'
 
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
-  gem 'json'
-  gem 'dm-migrations'
-  gem 'dm-validations'
-  gem 'sinatra'
-  gem 'selenium-webdriver'
-  gem 'pg'
-  gem 'rake'
-  gem 'shotgun'
-  gem 'bundler'
-
-
+gem 'bundler'
+gem 'data_mapper'
+gem 'dm-migrations'
+gem 'dm-postgres-adapter'
+gem 'dm-validations'
+gem 'json', '~>1.8.6'
+gem 'pg'
+gem 'rake'
+gem 'selenium-webdriver'
+gem 'shotgun'
+gem 'sinatra'
 
 group :test do
   gem 'capybara'

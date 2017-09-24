@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] ||= "development"
+ENV['RACK_ENV'] ||= 'development'
 
 require 'data_mapper'
 require 'dm-postgres-adapter'
@@ -6,8 +6,8 @@ require 'sinatra/base'
 require './models/peep'
 require './models/user'
 
+# controller for Chitter app
 class Chitter < Sinatra::Base
-
   get '/' do
     erb(:home)
   end
@@ -21,7 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/created' do
-    @user = User.first_or_create(username: params[:username], email: params[:email])
+    @user = User.first_or_create(username: params[:username],
+                                 email: params[:email])
     p @user
     @user.save
     redirect '/home'
@@ -41,7 +42,7 @@ class Chitter < Sinatra::Base
     erb(:peep)
   end
 
-  post '/wall' do
+  post '/allpeeps' do
     peep = Peep.create(peep: params[:peep], timestamp: DateTime.now)
     peep.save
     redirect '/view'
@@ -56,6 +57,5 @@ class Chitter < Sinatra::Base
     @peeps = Peep.all
     erb(:view)
   end
-
-  run! if app_file== $0
+  run! if app_file == app.rb
 end
