@@ -29,6 +29,10 @@ class Chitter < Sinatra::Base
     erb(:'users/new')
   end
 
+  get '/sessions/new' do
+    erb(:'sessions/new')
+  end
+
   post '/users' do
   @user = User.create(email: params[:email],
                     password: params[:password],
@@ -47,6 +51,17 @@ class Chitter < Sinatra::Base
     peep = Peep.new(title: params[:title], text: params[:text])
     peep.save
     redirect to('/peeps')
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb(:'sessions/new')
+    end
   end
 
   helpers do
