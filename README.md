@@ -1,3 +1,30 @@
+My Approach:
+
+The app as it stands was built using TDD principles. Due to time constraints,
+not all functionality is in place. At the moment, you are able to do the
+following:
+
+- Sign up as a user.
+- Write new peeps.
+- See a list of peeps in reverse chronological order.
+
+There is also a home page with links to other areas of the app. The next step
+is to implement a proper log in process that will restrict use of the app to
+just those who are registered users.
+
+How to use:
+
+- git clone https://github.com/Marcus-UK/chitter-challenge
+- bundle
+- createdb chitter_development using psql.
+- rake auto_migrate
+- rspec
+- rackup
+
+
+
+
+
 Chitter Challenge
 =================
 
