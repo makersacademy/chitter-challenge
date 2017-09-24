@@ -9,12 +9,15 @@ group :test do
   gem 'rspec'
   gem 'rake'
   gem 'rubocop'
-  gem 'data_mapper'
   gem 'database_cleaner'
-  gem 'dm-migrations'
-  gem 'dm-postgres-adapter'
-  gem 'sinatra'
-  gem 'sinatra-flash'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'orderly'
 end
+
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'json', '~>1.8.6', '<2.0.2'
+  gem 'sinatra'
+  gem 'sinatra-flash'
+  gem 'shotgun'

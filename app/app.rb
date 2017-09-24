@@ -1,5 +1,8 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
 require 'sinatra/flash'
+require_relative 'models/data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
@@ -7,13 +10,13 @@ class Chitter < Sinatra::Base
     erb :'peeps/new'
   end
 
-post '/users' do
-$peep = params[:peep]
+post '/peeps' do
+Peep.create(message: params[:message])
 redirect '/list'
 end
 
 get '/list' do
-  @peep = $peep
+  @peep = Peep.all
   erb :'peeps/list'
 end
 
