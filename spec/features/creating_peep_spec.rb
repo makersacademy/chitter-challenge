@@ -6,7 +6,7 @@ feature 'Creating Peeps' do
     expect(current_path).to eq '/peeps'
 
     within 'ul#peeps'
-    expect(page).to have_content ('Random title')
+    expect(page).to have_content 'Random title'
   end
 
   scenario 'I can see the time the peep was made' do
@@ -14,6 +14,6 @@ feature 'Creating Peeps' do
     expect(current_path).to eq '/peeps'
 
     within 'ul#peeps'
-    expect(page).to have_content("Peep_created_at:")
+    expect(page).to have_content('Peep_created_at:')
   end
 end
