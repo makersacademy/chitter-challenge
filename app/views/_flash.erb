@@ -1,0 +1,25 @@
+<style>
+  .flash_box {
+      text-align: center;
+      width:500px;
+      margin: auto auto 10px auto;
+      display:block;
+    }
+</style>
+
+<div class="flash_box">
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <b><%= error %></b>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

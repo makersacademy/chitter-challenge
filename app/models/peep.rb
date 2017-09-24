@@ -1,9 +1,9 @@
 class Peep
   include DataMapper::Resource
 
+  belongs_to :user
+
   property :id,           Serial
-#  property :name,         String
-#  property :user_name,    String
   property :peep_text,    Text, required: true,
                           length: 1..100,
                           messages: {
@@ -12,4 +12,7 @@ class Peep
                           }
   property :created_at,   DateTime
 
+  def format_time(time = @created_at)
+    "#{time.strftime("%R")} on #{time.strftime("%d/%-m")}"
+  end
 end

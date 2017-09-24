@@ -1,18 +1,20 @@
-Chitter Challenge
+Chitter
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+A Twitter clone that allows the users to post messages to a public stream.
 
-Challenge:
+Installation
 -------
 
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+```
+$ git clone git@github.com:mengchenwang/chitter-challenge.git
+$ bundle
+$ create chitter_development and chitter_test database with PSQL
+$ rake db:auto_migrate
+$ rake db:auto_migrate RACK_ENV=test
+$ rspec
+$ rackup
+```
 
 Features:
 -------

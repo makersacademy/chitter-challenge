@@ -6,6 +6,8 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
+  has n, :peeps
+
   property :id,         Serial
   property :email,      String, required: true,
                                 format: :email_address,

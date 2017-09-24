@@ -8,6 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require 'timecop'
 
 require './app/models/peep'
 require './app/models/user'
