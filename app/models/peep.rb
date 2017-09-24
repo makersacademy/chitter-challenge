@@ -6,5 +6,5 @@ class Peep
   property :id,     Serial # Serial means that it will be auto-incremented for every record
   property :title,  String
   property :message,    String
-
+  property :created_at, DateTime
 end
