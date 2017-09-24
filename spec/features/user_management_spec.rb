@@ -20,7 +20,13 @@ feature 'User Sign Up' do
       expect(User.first.email).to eq('hugjimbo77@gmail.com')
     end
 
-  scenario 'confirming matching password' do
-    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
-  end
+    scenario 'confirming matching password' do
+      expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    end
+
+    scenario 'with a password that does not match' do
+      sign_up(password_confirmation: 'wrong')
+      expect(current_path).to eq('/users') # current_path is a helper provided by Capybara
+      expect(page).to have_content('Password and confirmation password do not match')
+    end
 end
