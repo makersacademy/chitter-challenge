@@ -1,12 +1,12 @@
-<!--  -->
+
 
 <h1> Peeps </h1>
 
-<ul id='pipes'>
-    <% @peeps.each do |peep| %>
+<ul id='peeps'>
+    <% @peeps.reverse.each do |entry| %>
       <li>
-        Peep: <%= peep.peep %>
-
+        Peep: <%= entry.peep %>
+        Submitted: <%= entry.timestamp %>
       </li>
     <% end %>
 </ul>

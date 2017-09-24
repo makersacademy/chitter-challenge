@@ -8,7 +8,7 @@ class Peep
 
   property :id, Serial
   property :peep, String
-  property :timestamp, Date
+  property :timestamp, Time
 
 
 end
