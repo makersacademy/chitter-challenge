@@ -14,7 +14,7 @@ feature 'my peeps' do
     fill_in 'email', with: 'edward@makers.com'
     click_button 'Sign in'
     # instance of user not being created so not proceeding to next page
-    click_button 'Peep'
+    click_button 'Peep!'
     fill_in 'peep', with: 'latest'
     click_button 'my peeps'
     expect(page).to have_content('latest')

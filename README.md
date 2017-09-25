@@ -1,4 +1,4 @@
-The bit you probably won't read, but we put here anyway:
+Hi Ed, I will write this soon, I promise.
 
 Chitter, and how to use it.
 
