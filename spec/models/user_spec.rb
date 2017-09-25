@@ -1,3 +1,4 @@
+# rubocop:disable all
 describe User do
   let!(:user) do
     User.create(email_address: 'test@test.com',

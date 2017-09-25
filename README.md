@@ -1,3 +1,21 @@
+Instructions
+============
+
+Either:
+
+1) Visit https://chitter-rory.herokuapp.com/peeps
+
+or
+
+2)
+
+$ git clone https://github.com/rorybot/chitter-challenge/
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
+
 Approach
 ========
 
@@ -10,7 +28,12 @@ The bookmark manager uses a many-to-many relationship, and I made the mistake at
 I worked also on understanding the way ruby code functions inside those special <% %> tags in an erb page, which allowed me to introduce conditionals to hide or display content depending on whether a user was signed in or out, as well as to display a 'Welcome back' message when they were a returning user (versus a new sign-up).
 
 
-Difficulties/Challenges/Construction notes:
+Difficulties/Challenges/Construction Notes:
+===========================================
+
+- I didn't have time to implement functionality for users to tag each other, reply to each other, or to send email notifications
+
+- I didn't have time to figure out how to prevent duplicate registrations
 
 - I got my code working and the front-end looking presentable, but I'd like to do some more refactoring. I'm not sure, but I think some things could either be written neater or passed back to the models. I tried this at least with peep-time-stamping method.
 
@@ -19,6 +42,8 @@ Difficulties/Challenges/Construction notes:
     - Same deal with Timecop -- I figured out how to do it manually, but Timecop is so much more convenient
 
 - There isn't really any stubbing in my tests; I need to figure out how to construct tests in a doubles-way, to use fake versions of models outside the model I'm testing, but I've not got time left to figure it out at this stage
+
+- Rubocop was being a PIA, giving me errors about lines being too long where there's no way to shorten them. Ended up disabling rubocop on those files.
 
 
 The Chitter Challenge I Was Set

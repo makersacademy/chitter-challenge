@@ -1,4 +1,4 @@
-
+# Handle the generation of peeps in the database
 class Peep
   include DataMapper::Resource
 

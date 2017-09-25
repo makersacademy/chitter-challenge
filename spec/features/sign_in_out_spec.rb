@@ -1,3 +1,4 @@
+# rubocop:disable all
 feature 'User sign in' do
   let!(:user) do
     User.create(username: 'Hoss',

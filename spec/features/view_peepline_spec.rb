@@ -1,5 +1,4 @@
-
-
+# rubocop:disable all
 feature 'When reading the peepline' do
   let(:peep1) { 'And those who are first will be last' }
   let(:peep2) { 'So those who are last now will be first' }

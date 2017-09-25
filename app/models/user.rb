@@ -1,5 +1,6 @@
 require 'bcrypt'
 
+# Handle the generation of users in the database
 class User
   attr_reader :password
   attr_accessor :password_confirmation
@@ -24,9 +25,6 @@ class User
   def self.authenticate(email_address, password)
     user = first(email_address: email_address)
 
-    if user && BCrypt::Password.new(user.password_digest) == password
-      # return this user
-      user
-    end
+    user if user && BCrypt::Password.new(user.password_digest) == password
   end
 end

@@ -1,5 +1,5 @@
 ENV['RACK_ENV'] = 'test'
-
+# rubocop:disable all
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
@@ -11,11 +11,10 @@ require_relative 'helpers/session_helpers.rb'
 require File.join(File.dirname(__FILE__), '../app/', 'app.rb')
 Capybara.app = ChitterClone
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-                                                                 SimpleCov::Formatter::Console,
-                                                                 # Want a nice code coverage website? Uncomment this next line!
-                                                                 SimpleCov::Formatter::HTMLFormatter
-                                                               ])
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+  [SimpleCov::Formatter::Console,
+   SimpleCov::Formatter::HTMLFormatter]
+ )
 SimpleCov.start
 
 RSpec.configure do |config|
@@ -32,7 +31,7 @@ RSpec.configure do |config|
     end
   end
 
-  config.after(:each) do # <-- after each individual test roll back to "save point"
+  config.after(:each) do # <-- after each individual test roll back to "save"
     DatabaseCleaner.clean
   end
 

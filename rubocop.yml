@@ -1,0 +1,50 @@
+# This is the configuration used to check the rubocop source code.
+
+inherit_from: .rubocop_todo.yml
+require: rubocop/cop/internal_affairs
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.0
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Layout/IndentHeredoc:
+  EnforcedStyle: powerpack
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Lint/InterpolationCheck:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Lint/UselessAccessModifier:
+  MethodCreatingMethods:
+    - 'def_matcher'
+    - 'def_node_matcher'
+
+Lint/BooleanSymbol:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Performance/Caller:
+  Exclude:
+    - spec/rubocop/cop/performance/caller_spec.rb

@@ -1,8 +1,5 @@
 <head>
   <link rel="stylesheet" type="text/css" href="/style.css">
-
-
-
 </head>
 
 <body>
@@ -60,17 +57,15 @@
         <%= User.first(:id => peep.user_id).real_name %> - @<%= User.first(:id => peep.user_id).username %> (<%= peep.time_stamp %>
         </div>
 
-
-
       </li>
     <% end %>
   </ul>
   </div>
 
   <% if @no_peeping == nil %>
-    <form method='post' action='/sessions'>
+    <form method='post' action='/sessions' id=centerised-buttons>
       <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
+      <input type='submit' value='Sign out' id=bigger-buttons>
     </form>
   <% end %>
 

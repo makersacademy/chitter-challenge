@@ -2,9 +2,9 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'database_setup'
-require_relative 'models/name_getter'
 require 'sinatra/flash'
 
+# Controls logic of the webpage
 class ChitterClone < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
@@ -51,7 +51,8 @@ class ChitterClone < Sinatra::Base
   get '/signup_to_peep' do
     @user_email = session[:email_address]
     @user_real_name = session[:real_name]
-    flash.now[:notice] = 'Password and confirmation password do not match' if session[:mismatch_password] == 'true'
+    pw_mismatch = 'Password and confirmation password do not match'
+    flash.now[:notice] = pw_mismatch if session[:mismatch_password] == 'true'
     erb :'sign_up/signup_to_peep'
   end
 

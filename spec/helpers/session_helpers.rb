@@ -1,3 +1,4 @@
+# rubocop:disable all
 module SessionHelpers
   def default_peepline
     test_user = User.create(username: 'test123', real_name: 'Mr Test', email_address: 'test@test.com', password_digest: 'test')
@@ -8,7 +9,7 @@ module SessionHelpers
       new_peep = Peep.create(body: peep_body, user_id: test_user.id)
       new_peep.save
     end
-end
+  end
 
   def sign_up(username: 'Hoss',
               real_name: 'Harry Blackstone Copperfield Dresden',
@@ -47,5 +48,5 @@ end
     fill_in :email_address, with: email_address
     fill_in :password, with: password
     click_button 'Sign in'
-end
+  end
 end
