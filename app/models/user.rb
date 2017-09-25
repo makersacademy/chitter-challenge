@@ -3,8 +3,10 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
-  attr_reader :password
+  attr_reader :password, :name
   attr_accessor :password_confirmation
+
+  has n, :peeps
 
   property :id,              Serial
   property :name,            String

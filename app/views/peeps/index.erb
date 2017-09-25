@@ -16,6 +16,7 @@
                                 padding: 3rem 1.5rem;
                                 text-align: center;
                               }
+
   </style>
   </head>
 
@@ -29,10 +30,10 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="http://chitter-jstubbs.herokuapp.com/peeps">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/peeps">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://chitter-jstubbs.herokuapp.com/peeps/new">Post Peep</a>
+            <a class="nav-link" href="/peeps/new">Post Peep</a>
           </li>
         </ul>
       </div>
@@ -44,7 +45,7 @@
     <ul id='peeps'>
       <% @peeps.reverse.each do |peep| %>
       <li>
-        Peep: <%= peep.message %> (<%= peep.created_at %>)
+        <%= peep.user.name.upcase %> - <%= peep.message %> (<%= peep.created_at %>)
       </li>
       <% end %>
     </ul>

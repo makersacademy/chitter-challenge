@@ -30,7 +30,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message])
+
+    Peep.create(message: params[:message], user: current_user)
     redirect '/peeps'
   end
 
