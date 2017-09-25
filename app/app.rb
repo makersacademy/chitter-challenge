@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/post'
 require_relative 'data_mapper_setup'
+require 'pry'
 # for handling all site navigation as the controller
 class Blabber < Sinatra::Base
   enable :sessions
@@ -12,13 +13,17 @@ class Blabber < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
+  get '/' do
+    redirect '/users/new'
+  end
+
   get '/posts' do
     @posts = Post.all
     erb(:'posts/index')
   end
 
   post '/posts' do
-    Post.create(body: params[:body])
+    Post.create(body: params[:body], user: current_user)
     redirect '/posts'
   end
 

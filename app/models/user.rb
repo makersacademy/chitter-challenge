@@ -1,5 +1,6 @@
 require 'bcrypt'
 require 'dm-validations'
+require_relative 'post'
 # for handling users and their log ins
 class User
   include DataMapper::Resource
@@ -12,6 +13,8 @@ class User
   property :email, String
   property :name, String
   property :password_digest, Text
+
+  has n, :posts
 
   def password=(password)
     @password = password

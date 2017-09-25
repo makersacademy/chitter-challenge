@@ -71,7 +71,7 @@ h2 {
 <ul id='posts' style= "list-style:none" class = 'blabs';>
   <% @posts.reverse.each do |post| %>
   <li>
-    <span><%= current_user.name %></span>
+    <span><%= post.user.name %></span>
     <%= post.body.capitalize %>
     <span>added on <%= post.created_at %></span>
   </li>
