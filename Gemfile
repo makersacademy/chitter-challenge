@@ -20,5 +20,4 @@ group :test do
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
-  gem 'sinatra', '~> 1.4.8'
 end

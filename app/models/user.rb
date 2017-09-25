@@ -1,7 +1,6 @@
-
 require 'bcrypt'
 require 'dm-validations'
-
+# for handling users and their log ins
 class User
   include DataMapper::Resource
   attr_reader :password, :name

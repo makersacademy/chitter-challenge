@@ -4,7 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/post'
 require_relative 'data_mapper_setup'
-
+# for handling all site navigation as the controller
 class Blabber < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
@@ -51,7 +51,7 @@ class Blabber < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/posts')
     else
-      flash.now[:error] = 'The email or password is incorrect'
+      flash.now[:errors] = ['The email or password is incorrect']
       erb(:'sessions/new')
     end
   end
@@ -59,7 +59,7 @@ class Blabber < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'BLABBER OFF!'
-    redirect to '/posts'
+    redirect to '/sessions/new'
   end
 
   helpers do
