@@ -1,0 +1,109 @@
+
+
+
+<style>
+body
+{
+            background-color: skyblue;
+}
+
+
+#newpost {
+  margin : 0 auto 0 auto;
+  border: solid 1px black;
+                border-radius: 20px;
+                font-weight: bold;
+                /*position: relative;*/
+                /*margin: 50px auto 0 auto;*/
+                /*margin-left: 600px;*/
+                /*margin-top: 50px;*/
+                padding: 5px;
+                width: 170px;
+                text-align: center;
+                background-color: white;
+                font-family: helvetica;
+                font-weight: lighter;
+                color:       black;}
+
+
+.title {        font-family: helvetica;
+                color:       white;
+                font-weight: bolder;
+                /*position: relative;*/
+                /*margin-left: 590px;
+                margin-top: -10px;*/
+               text-align: center;
+                font-size: 50px;}
+
+#logo {
+  /*position: relative;
+                margin-left: 635px;
+                margin-top:  0px;*/
+                display: block;
+                margin: auto;
+                postion: relative;
+                margin-right: 125px;
+                height: 250px;}
+
+#form {      border: solid 1px black;
+                border-radius: 20px;
+                font-weight: bold;
+                /*position: relative;*/
+                /*margin-left: 70px;*/
+                /*margin: 20px auto 0 auto;*/
+                margin-top: 20px;
+                padding: 5px;
+                width: 350px;
+                background-color: lightgrey;
+                text-align: center;}
+
+h2 {            font-family: helvetica;
+                font-weight: lighter;
+                color:       black;}
+
+#welcome{       font-family: helvetica;
+                font-weight: bold;
+                text-align: center;
+                color:       yellow;}
+
+#main { margin: auto;
+        width: 600px;
+
+}
+</style>
+
+
+<body>
+  <div id="main">
+<h2 id='welcome'>SIGN UP AND START BLABBING!</h2>
+
+
+<img id="logo" src="https://www.shareicon.net/data/2016/07/19/798503_chat_512x512.png">
+<h1 class = 'title'>BLaBBeR</h1>
+
+
+
+    <div id='newpost'>
+    <h2> SIGN UP! </h2><form action='/users' method='post'>
+
+      <label for='email'>
+        EMAIL: <input name='email' type='text'>
+      </label>
+
+      <label for='name'>
+        USERNAME: <input name='name' type='text'>
+      </label>
+
+      <label for='password'>
+        PASSWORD: <input name='password' type='password'>
+      </label>
+
+      <label for='password_confirmation'>
+        CONFIRM PASSWORD: <input name='password_confirmation' type='password'>
+      </label>
+
+      <input type='submit' value='SIGN UP'>
+      </form>
+    </div>
+  </div>
+</body>

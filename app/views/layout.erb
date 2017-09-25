@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BLABBER</title>
+  </head>
+<style>
+
+#signedin{font-family: helvetica;
+  font-weight: bolder;
+  color: white;
+  margin-left: 90px;}
+
+
+#signout{margin-left: 90px;}
+
+  #notice{font-family: helvetica;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    margin-top: 365px;
+    z-index: 999;
+   text-align: center;}
+
+span{color: black;}
+
+</style>
+
+<% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+  <body>
+
+    <% if current_user %>
+
+    <!-- <h4><center>  welcome, <%= current_user.email %></center></h4> -->
+    <h3 id="signedin">ONLINE: <span><%= current_user.name %></span></h3>
+    <form id="signout" method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='SIGN OUT'>
+    </form>
+    <% end %>
+
+
+
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+    <!-- <h3 id="signout">SIGN OUT</h3> -->
+
+  </body>
+</html>
