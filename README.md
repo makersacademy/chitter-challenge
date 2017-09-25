@@ -1,3 +1,14 @@
+Hi Ed, I will write this soon, I promise.
+
+Chitter, and how to use it.
+
+On the chitter langing page you will have two options;
+
+'Sign in' or 'Sign up'
+
+
+
+
 Chitter Challenge
 =================
 
