@@ -3,14 +3,14 @@ require './app/app.rb'
 
 task default: %w[upgrade]
 
-desc "non descructive upgrade"
+desc 'non descructive upgrade'
 task :upgrade do
   DataMapper.auto_upgrade!
-  puts "Database upgraded!"
+  puts 'Database upgraded!'
 end
 
-desc "descructive upgrade"
+desc 'descructive upgrade'
 task :migrate do
   DataMapper.auto_migrate!
-  puts "Database migrated!"
+  puts 'Database migrated!'
 end

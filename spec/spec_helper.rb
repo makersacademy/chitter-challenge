@@ -8,7 +8,7 @@ require './app/app'
 
 Capybara.app = Chitter
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::Console,])
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::Console])
 SimpleCov.start
 
 DataMapper.auto_upgrade!
