@@ -5,3 +5,10 @@ def create_peep
   fill_in 'message', with: 'Random message'
   click_button 'Create peep'
 end
+
+def sign_in(email:, password:)
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end
