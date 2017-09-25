@@ -13,10 +13,6 @@ class Blabber < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
-  get '/' do
-    redirect '/users/new'
-  end
-
   get '/posts' do
     @posts = Post.all
     erb(:'posts/index')
