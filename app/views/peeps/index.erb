@@ -1,0 +1,13 @@
+<h1>Welcome to Chitterz</h1>
+
+<h2> Peeps </h2>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+      <p>Message: <%= peep.message %></p>
+      <p>Tags: <%= peep.tags.map(&:name).join(", ") %></p>
+      <p><span> Posted <%= peep_length_of_time(peep.created_at) %> </span</p>
+      <br>
+      <br>
+  <% end %>
+</ul>
