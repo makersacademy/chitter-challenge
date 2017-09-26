@@ -21,7 +21,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @current_user ||= User.get(session[:user_id])
     @peeps = Peep.all
     erb :'peeps/index'
   end
