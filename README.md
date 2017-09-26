@@ -30,6 +30,7 @@ How to set up the application
 ----
 ```
 $ git clone https://github.com/diaryofdiscoveries/chitter-challenge.git
+$ cd chitter-challenge
 $ bundle
 $ createdb chitterz_development
 $ rake db:auto_migrate
