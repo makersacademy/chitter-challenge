@@ -5,7 +5,7 @@ This is a lightweight chat application where users can post messages onto a webp
 as simple as possible at present with a form for posting messages and a page to display the timestamped messages.
 It's built using postgre to store the data, DataMapper for ORM functionality and Sinatra as the rack application.
 
-You can view the live demo on heroku at https://www.chitter-jstubbs.herokuapp.com.
+You can view the live demo on heroku at https://chitter-jstubbs.herokuapp.com.
 
 
 * Challenge time: rest of the day and weekend, until Monday 9am
