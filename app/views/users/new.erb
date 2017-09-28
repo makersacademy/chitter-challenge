@@ -1,0 +1,17 @@
+<h1>Please create your Chitter account</h1>
+
+<form action='/users' method='POST'>
+  <label for='name'>
+    Username: <input name='name' type='text'>
+  </label>
+  <label for='email'>
+    Email: <input name='email' type='text' value='<%= @user.email %>' required>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <label for='password_confirmation'>
+    Password Confirmation: <input name='password_confirmation' type='password'>
+  </label>
+  <input type='submit' value='Create account'>
+</form>
