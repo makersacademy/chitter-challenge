@@ -4,7 +4,6 @@ require 'web_helper'
 feature "Accounts" do
 
   before do
-    # Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
   end

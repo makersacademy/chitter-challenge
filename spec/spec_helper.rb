@@ -6,7 +6,6 @@ require './app/app'
 require 'database_cleaner'
 
 Capybara.app = ChitterWebsite
-Capybara.save_and_open_page_path = "../debugging_chitter"
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

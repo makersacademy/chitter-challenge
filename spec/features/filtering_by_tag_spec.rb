@@ -1,7 +1,6 @@
 feature "filtering by tag" do
 
   before do
-    # Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
   end
@@ -32,7 +31,6 @@ feature "filtering by tag" do
     click_button "Filter by tag"
     fill_in :searchtag, with: "holidays"
     click_button "Submit"
-    save_and_open_page
     expect(page).to have_content("I am in France")
     expect(page).to have_content("I am in Germany")
   end

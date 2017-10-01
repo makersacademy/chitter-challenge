@@ -13,7 +13,6 @@ class ChitterWebsite < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all(:order => [:id.desc])
-    # @tags = Tag.all
     erb :'peeps/index'
   end
 
@@ -74,7 +73,6 @@ class ChitterWebsite < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    # flash.keep[:notice] = 'goodbye!'
     redirect to '/goodbye'
   end
 
@@ -95,7 +93,6 @@ class ChitterWebsite < Sinatra::Base
     tag = Tag.first(:tagname => session[:searchtag])
     @searchtag = session[:searchtag]
     @peeps = tag.peeps
-    p @peeps
     erb :'tags/filtered'
   end
 

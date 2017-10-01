@@ -3,7 +3,6 @@ require 'launchy'
 feature "peep page" do
 
   before do
-    # Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
   end
@@ -43,7 +42,6 @@ feature "peep page" do
     click_button("Add peep")
     fill_in :message, with: "Third"
     click_button "Submit"
-    # save_and_open_page
     expect(page).to have_content("Third\n(posted by #{user.username} at #{t})\nSecond\n(posted by #{user.username} at #{t})\nFirst\n(posted by #{user.username} at #{t})")
   end
 
