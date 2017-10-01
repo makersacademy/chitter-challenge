@@ -6,18 +6,20 @@
 
       <h1> Peeps </h1>
 
-      <ul id='peeps'>
+      <div class='peepslist'>
         <% @peeps.each do |peep| %>
-          <li>
-            <h3><%= peep.message %></h3>
-            <% peep.tags.each do |tag| %>
-              <%= "##{tag.tagname}" %>
-            <% end %>
+            <div class="jumbotron">
+              <h3><%= peep.message %></h3>
+              <% peep.tags.each do |tag| %>
+                <%= "##{tag.tagname}" %>
+              <% end %>
 
 
-            <%= "(posted by #{peep.user.username} at #{peep.created_at.strftime("%H:%M")})" %>
+              <%= "(posted by #{peep.user.username} at #{peep.created_at.strftime("%H:%M")})" %>
+            </div>
         <% end %>
-      </ul>
+      </div>
+
 
       <% if current_user %>
         <form action='/peeps/new' method='get'>
