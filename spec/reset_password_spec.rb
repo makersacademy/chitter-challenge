@@ -35,6 +35,12 @@ feature 'password recovery' do
     expect(page).to have_content "Welcome to Chitter, example@example.com"
  end
 
+ scenario "you can't reset your password if the confirmation doesn't match" do
+   recover_password
+   set_password("newpassword", "wrongpassword")
+   expect(page).to have_content("Password does not match the confirmation")
+ end
+
   scenario "token is immediately reset upon successful pasword update" do
     recover_password
     set_password("newpassword", "newpassword")
