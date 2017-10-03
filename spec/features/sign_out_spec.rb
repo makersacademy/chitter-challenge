@@ -5,8 +5,8 @@ feature 'user can sign out' do
                   password_confirmation: 'example')
   end
   scenario 'when user is signed in, they can sign out' do
-    sign_in(email: 'example@example.com', password: 'example')
-    click_button 'Sign out'
+    log_in(email: 'example@example.com', password: 'example')
+    click_button 'Log out'
     expect(page).to have_content 'You are signed out'
     expect(page).not_to have_content 'Welcome to Chitter, example@example.com'
   end

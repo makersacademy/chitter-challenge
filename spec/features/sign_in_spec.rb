@@ -6,9 +6,9 @@ feature 'user can sign in' do
   end
 
   scenario 'user has correct information' do
-    sign_in(email: user.email, password: user.password)
+    log_in(email: user.email, password: user.password)
     expect(page).to have_content "Welcome to Chitter, #{user.email}"
   end
 
-  
+
 end

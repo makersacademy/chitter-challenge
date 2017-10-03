@@ -9,9 +9,9 @@ def sign_up(email: 'example@example.com',
   click_button 'Sign up to Chitter'
 end
 
-def sign_in(email:, password:)
+def log_in(email:, password:)
   visit('/sessions/new')
   fill_in :email, with: email
   fill_in :password, with: password
-  click_button 'Sign in'
+  click_button 'Log in'
 end
