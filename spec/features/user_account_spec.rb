@@ -28,4 +28,20 @@ feature 'user accounts' do
     expect { sign_up }.to_not change(User, :count)
     expect(page).to have_content "Email is already taken"
   end
+
+  scenario "user can see a reset link when they forget their password" do
+    visit '/sessions/new'
+    click_link 'I\'ve forgotten my password'
+    expect(page).to have_content("Please enter your email address")
+  end
+
+  scenario "Upon entering my email I have to check my inbox" do
+    recover_password
+    expect(page).to have_content "Thanks, please check your email for the link to reset your password."
+  end
+
+  scenario "A reset token is assigned to the user when they recover" do
+    sign_up
+    expect{recover_password}.to change{User.first.password_token}
+  end
 end

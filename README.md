@@ -1,7 +1,7 @@
 # Chitter - A Twitter clone
 #### (Makers Academy Week 4 - Weekend challenge)
 
-Users can sign up for an account and then post Peeps to the public stream. These are displayed in reverse chronological order and show the time at which they were posted.
+Users can sign up for an account and then post Peeps to the public stream. These are displayed in reverse chronological order and show the time at which they were posted. 
 
 Visit the app at https://chitter-krd.herokuapp.com/peeps.
 
