@@ -30,11 +30,15 @@ feature 'password recovery' do
 
   scenario "you can sign in after resetting your password" do
     recover_password
-    visit("/users/reset_password?token=#{user.password_token}")
-    fill_in :password, with: "newpassword"
-    fill_in :password_confirmation, with: "newpassword"
-    click_button "Submit"
+    set_password("newpassword", "newpassword")
     log_in(email: "example@example.com", password: "newpassword")
     expect(page).to have_content "Welcome to Chitter, example@example.com"
  end
+
+  scenario "token is immediately reset upon successful pasword update" do
+    recover_password
+    set_password("newpassword", "newpassword")
+    visit("/users/reset_password?token=#{user.password_token}")
+    expect(page).to have_content("Your token is invalid")
+  end
 end
