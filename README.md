@@ -5,7 +5,7 @@
 
 - Peeps can only be posted when a user is logged in.
 
-- The peeps are displayed in reverse chronological order and show the time at which they were posted.
+- The peeps are displayed in reverse chronological order and each one shows the time at which it was posted along with the user who wrote it. 
 
 Visit the app at https://chitter-krd.herokuapp.com
 
