@@ -1,0 +1,8 @@
+body {
+    background: linear-gradient(to top, #e0eafc, #cfdef3);
+}
+
+.title {
+  text-align: center;
+  margin: 0 auto;
+}
