@@ -17,6 +17,6 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'You are signed out'
-    redirect '/peeps'
+    redirect '/'
   end
 end
