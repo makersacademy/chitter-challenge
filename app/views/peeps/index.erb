@@ -1,0 +1,13 @@
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    <%= peep.user %>
+    <br>
+    <%= peep.message %>
+    <br>
+    Peeped at: <%= peep.created_at.strftime("%R") %> on <%= peep.created_at.strftime("%D") %>
+  </li>
+  <br></br>
+  <% end %>
+</ul>

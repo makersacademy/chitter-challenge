@@ -1,0 +1,10 @@
+<% if current_user %>
+  Welcome to Chitter, <%= current_user.email %>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Log out'>
+  </form>
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="Write a Peep">
+  </form>
+<% end%>
