@@ -3,20 +3,21 @@
 
 <body>
     <div class="container">
-
-      <h1> Peeps </h1>
-
       <div class='peepslist'>
         <% @peeps.each do |peep| %>
-            <div class="jumbotron">
+            <div class="peep">
               <h3><%= peep.message %></h3>
               <% peep.tags.each do |tag| %>
-                <%= "##{tag.tagname}" %>
+                <div><pre><%= " ##{tag.tagname}" %></pre></div>
               <% end %>
 
+              <span class "author">
+                <%= "Posted by #{peep.user.username} at #{peep.created_at.strftime("%H:%M")}" %>
+              </span>
 
-              <%= "(posted by #{peep.user.username} at #{peep.created_at.strftime("%H:%M")})" %>
             </div>
+            <br>
+            <br>
         <% end %>
       </div>
 
