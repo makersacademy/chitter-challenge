@@ -1,11 +1,15 @@
 # Chitter - A Twitter clone
 #### (Makers Academy Week 4 - Weekend challenge)
 
-Users can sign up for an account and then post Peeps to the public stream. These are displayed in reverse chronological order and show the time at which they were posted.
+- Users can sign up for an account and then post Peeps to the public stream.
 
-Visit the app at https://chitter-krd.herokuapp.com/peeps.
+- Peeps can only be posted when a user is logged in.
 
-### How to use
+- The peeps are displayed in reverse chronological order and show the time at which they were posted.
+
+Visit the app at https://chitter-krd.herokuapp.com
+
+#### How to use
 
 You will need to install PostgreSQL if you haven't already. In your terminal run ```brew install postgresql``` and follow the installation instructions.
 After installing, run these commands:
@@ -36,7 +40,6 @@ rackup
 ```
 In your browser visit https://localhost:9292
 
-###### Alternatively you can visit https://chitter-krd.herokuapp.com
 
 To run the tests:
 ```

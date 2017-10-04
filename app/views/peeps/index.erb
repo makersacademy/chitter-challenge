@@ -1,9 +1,10 @@
-<h1> Your peeps </h1>
 
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
   <li>
-    Peep: <%= peep.message %>
+    <%= peep.user %>
+    <br>
+    <%= peep.message %>
     <br>
     Peeped at: <%= peep.created_at.strftime("%R") %> on <%= peep.created_at.strftime("%D") %>
   </li>
