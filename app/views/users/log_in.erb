@@ -6,11 +6,11 @@
   <div id='errors'><%= flash[:errors] %></div>
 <% end %>
 
-<form action="/sessions" method="post">
+<form class="sign_in" action="/sessions" method="post">
   <label for="email">Email<label/>
   <input type="text" name="email"/>
   <label for="password">Password<label/>
   <input type="password" name="password"/>
-  <input type="submit" value="Log in"/>
+  <input class="submit"type="submit" value="Log in"/>
 </form>
 </div>
