@@ -1,8 +1,10 @@
 <%= erb :'partials/header' %>
 <%= erb :'partials/navbar' %>
 
-<form class="filter" action="/filtered" method="post">
+<div class='peepslist'>
+<form class="center_div" action="/filtered" method="post">
   <label for="searchtag">What tag do you want to search for?<label/>
   <input type="text" name="searchtag"/>
-  <input type='submit' value='Submit'/>
+  <input class = "submit" type='submit' value='Submit'/>
 </form>
+</div>
