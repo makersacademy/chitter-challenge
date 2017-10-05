@@ -1,4 +1,7 @@
 # Chitter Challenge
+https://chitter-challenge-jb.herokuapp.com/peeps
+-----
+
 This web application allows users to post 'peeps' to a public stream.
 ### Features
 - Once signed up, users can log in with the correct username and password.
