@@ -7,6 +7,7 @@ gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 
 group :test do
   gem 'capybara'
