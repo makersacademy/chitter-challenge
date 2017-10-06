@@ -1,0 +1,35 @@
+
+header {color: DarkOliveGreen;
+        font-family: fantasy;
+}
+
+h1 {color: DarkOliveGreen;
+    font-family: fantasy;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    border: 3px solid DarkOliveGreen;
+    padding: 10px;
+}
+
+h2 {color: DarkOliveGreen;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  padding: 10px;}
+
+h3 {color: DarkOliveGreen;}
+
+form {color: DarkOliveGreen;}
+
+input {color: DarkOliveGreen;
+      font-family: fantasy;
+      display: block;
+      margin: auto;
+      width: 40%;
+}
+
+body {color: DarkOliveGreen;
+      background-color: MediumAquaMarine;
+      font-family: fantasy;
+}
