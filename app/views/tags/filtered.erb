@@ -1,23 +1,31 @@
 <%= erb :'partials/header' %>
 <%= erb :'partials/navbar' %>
 
-<h1> Peeps with #<%= @searchtag %></h1>
+<div class="peepslist">
+<h3>Peeps with #<%= @searchtag %></h3>
 
 <ul id='peeps'>
-  <% if @peeps == [] %>
-    There aren't any posts with that tag.
-  <% else %>
+  <% if @peeps %>
     <% @peeps.each do |peep| %>
-      <li>
+      <div class="peep">
         <h3><%= peep.message %></h3>
         <% peep.tags.each do |tag| %>
           <%= "##{tag.tagname}" %>
         <% end %>
-        <%= "(posted by #{peep.user.username} at #{peep.created_at.strftime("%H:%M")})" %>
-    <% end %>
+        <span>
+          <%= "(posted by #{peep.user.username} at #{peep.created_at.strftime("%H:%M")})" %>
+        </span>
+
+      </div>
+      <br>
+      <br>
+    <%end%>
+  <% else %>
+      There aren't any posts with that tag.
   <%end%>
 </ul>
 
 <form action='/peeps' method='get'>
   <input type='submit' value='Unfilter'/>
 </form>
+</div>

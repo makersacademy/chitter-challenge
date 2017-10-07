@@ -92,7 +92,9 @@ class ChitterWebsite < Sinatra::Base
   get '/filtered' do
     tag = Tag.first(:tagname => session[:searchtag])
     @searchtag = session[:searchtag]
-    @peeps = tag.peeps
+    if tag
+      @peeps = tag.peeps
+    end
     erb :'tags/filtered'
   end
 
