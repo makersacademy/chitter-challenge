@@ -2,7 +2,7 @@ require 'data_mapper'
 require './app/app.rb'
 require './app/data_mapper_setup'
 
-if ENV['RACK_ENV'] != 'production' # why?
+if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
 
   RSpec::Core::RakeTask.new :spec
@@ -17,7 +17,6 @@ namespace :db do
     DataMapper.auto_upgrade!
     puts 'Upgrade complete (no data lost)'
   end
-  # rake db:upgrade RACK_ENV=test
 
   desc "Destructive update"
   task :migrate do

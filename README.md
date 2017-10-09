@@ -1,20 +1,25 @@
+# Chitter
 
-Instructions:
-------
-
+### Instructions:
+```
 * git clone https://github.com/artemisxen/chitter-challenge.git
-* bundle
-* createdb chitter_development
-* createdb chitter_test
+* bundle install
+* create database chitter_development
+* create database chitter_test
 * rake db:migrate
 * rackup
 * http://localhost:9292
-
+```
 
 or visit https://art-chitter.herokuapp.com/
 
-Features:
--------
+##### Tests
+```
+* rake db:upgrade RACK_ENV=test
+* rspec
+```
+
+### Features:
 ```
 STRAIGHT UP
 
@@ -45,3 +50,10 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 ```
+
+### Screenshots
+![signup](/img/sign_up.png)
+
+![login](/img/login.png)
+
+![newsfeed](/img/newsfeed.png)

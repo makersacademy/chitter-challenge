@@ -32,7 +32,6 @@ class Chitter < Sinatra::Base
 
     peep = Peep.new(message: params[:peep], user_id: current_user.id)
     if peep.valid?
-      flash  something
       peep.save
     else
       flash a notice
@@ -51,7 +50,7 @@ class Chitter < Sinatra::Base
                       password: params[:password],
                       password_confirmation: params[:password_confirmation])
     if @user.valid?
-      user.save
+      @user.save
       session[:current_user_id] = @user.id
       redirect to '/peeps'
     else
