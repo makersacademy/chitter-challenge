@@ -42,7 +42,7 @@ feature "peep page" do
     click_button("Add peep")
     fill_in :message, with: "Third"
     click_button "Submit"
-    expect(page).to have_content("Third\n(posted by #{user.username} at #{t})\nSecond\n(posted by #{user.username} at #{t})\nFirst\n(posted by #{user.username} at #{t})")
+    expect(page).to have_content("Third\nPosted by #{user.username} at #{t}\nSecond\nPosted by #{user.username} at #{t}\nFirst\nPosted by #{user.username} at #{t}")
   end
 
   scenario "User posts a peep and sees their username and the time it was posted" do
@@ -53,6 +53,6 @@ feature "peep page" do
     click_button("Add peep")
     fill_in :message, with: "Testing peep"
     click_button "Submit"
-    expect(page).to have_content("Testing peep\n(posted by #{user.username} at #{t})")
+    expect(page).to have_content("Testing peep\nPosted by #{user.username} at #{t}")
   end
 end
