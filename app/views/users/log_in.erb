@@ -1,0 +1,17 @@
+<%= erb :'partials/header' %>
+<%= erb :'partials/navbar' %>
+
+    <div class="container">
+    <% if flash[:errors] %>
+  <div id='errors'><%= flash[:errors] %></div>
+<% end %>
+
+<div class='peepslist'>
+<form class="sign_in" action="/sessions" method="post">
+  <label for="email">Email<label/>
+  <input type="text" name="email"/>
+  <label for="password">Password<label/>
+  <input type="password" name="password"/>
+  <input class="submit"type="submit" value="Log in"/>
+</form>
+</div>

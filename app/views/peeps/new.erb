@@ -1,0 +1,10 @@
+<%= erb :'partials/header' %>
+<%= erb :'partials/navbar' %>
+
+<form action="/peeps" method="post">
+  <label for="message">Message<label/>
+  <input type="text" name="message"/>
+  <label for="tags">Tag<label/>
+  <input type="text" name="tags"/>
+  <input type='submit' value='Submit'/>
+</form>
