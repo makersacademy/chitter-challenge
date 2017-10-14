@@ -4,20 +4,22 @@
 <body>
     <div class="container">
       <div class='peepslist'>
-        <% @peeps.each do |peep| %>
-            <div class="peep">
-              <h3><%= peep.message %></h3>
-              <% peep.tags.each do |tag| %>
-                <div><pre><%= " ##{tag.tagname}" %></pre></div>
-              <% end %>
+        <% if @peeps %>
+          <% @peeps.each do |peep| %>
+              <div class="peep">
+                <h3><%= peep.message %></h3>
+                <% peep.tags.each do |tag| %>
+                  <div><pre><%= " ##{tag.tagname}" %></pre></div>
+                <% end %>
 
-              <span>
-                <%= "Posted by #{peep.user.username} at #{peep.created_at.strftime("%H:%M")}" %>
-              </span>
+                <span>
+                  <%= "Posted by #{peep.user.username} at #{peep.created_at.strftime("%H:%M")}" %>
+                </span>
 
-            </div>
-            <br>
-            <br>
+              </div>
+              <br>
+              <br>
+          <% end %>
         <% end %>
       </div>
 
