@@ -1,0 +1,24 @@
+<div class="col-md-8 col-md-offset-2 panel panel-primary" style= "height: 52px">
+  <form action="/peep" method="post" class="form-inline">
+    <div class="form-group col-md-10">
+      <input class= "col-md-12" type="text" name="peep" placeholder="What's happening?"
+      style="margin: 7px; height: 35px">
+    </div>
+    <div class="form-group col-md-2">
+      <input class= "col-md-12 bg-primary" type="submit" value="Peep"
+      style="border: 0px; margin-top: 10px">
+    </div>
+  </form>
+</div>
+
+<div class="col-md-8 col-md-offset-2 panel panel-primary">
+  <ul class="list-group">
+    <% @peeps.each do |peep| %>
+    <li class="list-group-item">
+      <%= peep.user.name%> @<%=peep.user.username%> <%= peep.created_at.strftime("%d %b %H:%M") %>
+    </br>
+      <%= peep.message %>
+    </li>
+    <% end %>
+  </ul>
+</div>
