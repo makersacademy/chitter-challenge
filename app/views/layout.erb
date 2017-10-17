@@ -1,0 +1,58 @@
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%= url('/style.css') %>" >
+  </head>
+  <body>
+    <div class="container-fluid">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Chitter</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+          <p class="navbar-text">Signed in as <%= current_user.name %></p>
+          <li><a href="/peeps/new">New Peep</a></li>
+          <li>
+            <form class="navbar-form" action="/sessions" method="post">
+              <div class="form-group">
+                <input type="hidden" name="_method" value="delete">
+                <button class="btn btn-danger navbar-btn" type="submit" name="sign_out">Sign Out</button>
+              </div>
+            </form>
+          </li>
+          <% else %>
+          <li><a href="/sessions/new">Sign In</a></li>
+          <li><a href="/users/new">Sign Up</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <% if flash[:errors] && !flash[:errors].empty? %>
+        <div class="alert alert-danger" id="error">
+          <%= flash[:errors] %>
+        </div>
+    <% end %>
+    <div class="container-fluid text-center">
+        <% if flash[:notice] && !flash[:notice].empty? %>
+        <div class="alert alert-success" id="success">
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
+    <%= yield %>
+
+    <footer id="index-footer" class="navbar navbar-default navbar-fixed-bottom">
+        <p class="text-center">Makers Academy Weekend Challenge 4 | Made by <a href="https://github.com/Hempy49">Simon</a></p>
+      </footer>
+  </body>
+</div>
+</html>

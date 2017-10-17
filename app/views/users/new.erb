@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <h1> New user </h1>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    <form action='/users/new' method='POST'>
+      <div class="form-group">
+        <p><b> Name: </b></p>
+        <input class="input" type ='text' name='name'/>
+      </div>
+
+      <div class="form-group">
+        <p><b> Username: </b></p>
+        <input class='input' type ='text' name='user_name'/>
+      </div>
+
+      <div class='form-group'>
+        <p><b> Email: </b></p>
+        <input class='input' type ='email' name='email' required value='<%= @email %>'/>
+      </div>
+
+      <div class='form-group'>
+        <p><b> Password: </b></p>
+        <input class='input' type ='password' name='password' />
+      </div>
+
+      <div class='form-group'>
+        <p><b> Password confirmation: </b></p>
+        <input class='input' type ='password' name='password_confirmation' />
+      </div>
+      <button type="submit" class="btn btn-info" name="Sign up">Sign up</button>
+    </form>
+  </div>
+</div>
