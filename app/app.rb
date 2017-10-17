@@ -26,59 +26,64 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    peep = Peep.create(name: params[:name],
-    message: params[:message],
-    created_at: params[:created_at])
-    redirect '/'
-  end
-
-  get '/users/new' do
-    erb :'users/new'
-  end
-
-  post '/users/new' do
-    user = User.create(name: params[:name],
-    user_name: params[:user_name],
-    email: params[:email],
-    password: params[:password],
-    password_confirmation: params[:password_confirmation])
-    session[:name] = user.name
-    if user.save
-      session[:user_id] = user.id
-      redirect '/'
-    else
-      flash[:errors] = user.errors.full_messages
-      redirect '/users/new'
+    if current_user
+      Peep.create(user_id: session[:user_id],
+        message: params[:message],
+        created_at: params[:created_at])
+        redirect '/'
+      else
+        flash.now[:errors] = "You must be signed in to post a peep"
+        erb :'/peeps/new'
+      end
     end
-  end
 
-  get '/sessions/new' do
-    erb :'/sessions/new'
-  end
-
-  post '/sessions/new' do
-    user = User.authenticate(params[:email],
-    params[:password])
-    if user
-      session[:user_id] = user.id
-      redirect '/'
-    else
-      flash[:errors] = ['The email or password is incorrect']
-      redirect '/sessions/new'
+    get '/users/new' do
+      erb :'users/new'
     end
-  end
 
-  delete '/sessions' do
-    session[:user_id] = nil
-    flash.keep[:notice] = 'Goodbye!'
-    redirect '/'
-  end
+    post '/users/new' do
+      user = User.create(name: params[:name],
+        user_name: params[:user_name],
+        email: params[:email],
+        password: params[:password],
+        password_confirmation: params[:password_confirmation])
+        session[:name] = user.name
+        if user.save
+          session[:user_id] = user.id
+          redirect '/'
+        else
+          flash[:errors] = user.errors.full_messages
+          redirect '/users/new'
+        end
+      end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+      get '/sessions/new' do
+        erb :'/sessions/new'
+      end
 
-  run! if app_file == $0
-end
+      post '/sessions/new' do
+        user = User.authenticate(params[:email],
+          params[:password])
+          if user
+            session[:user_id] = user.id
+            redirect '/'
+          else
+            flash[:errors] = 'The email or password is incorrect'
+            redirect '/sessions/new'
+          end
+        end
+
+        delete '/sessions' do
+          session[:user_id] = nil
+          flash.keep[:notice] = 'Goodbye!'
+          redirect '/'
+        end
+
+        helpers do
+          def current_user
+            @current_user ||= User.get(session[:user_id])
+          end
+        end
+
+        run! if app_file == $0
+      end

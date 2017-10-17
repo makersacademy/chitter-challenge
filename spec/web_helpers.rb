@@ -1,6 +1,5 @@
 def create_peep
   visit '/peeps/new'
-  fill_in 'name', with: 'Jack'
   fill_in 'message', with: 'Another peep!'
   click_button 'Submit'
 end

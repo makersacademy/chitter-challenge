@@ -1,5 +1,4 @@
 <html>
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
   <head>
@@ -37,19 +36,23 @@
       </div>
     </nav>
 
-    <% if flash[:notice] %>
-    <div id="notice">
-      <%= flash[:notice] %>
-    </div>
+    <div class="container-fluid text-center">
+        <% if flash[:errors] && !flash[:errors].empty? %>
+        <div class="alert alert-danger" id="error">
+          <%= flash[:errors] %>
+        </div>
     <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-    <ul id="errors">
-      <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-    </ul>
+    <div class="container-fluid text-center">
+        <% if flash[:notice] && !flash[:notice].empty? %>
+        <div class="alert alert-success" id="success">
+          <%= flash[:notice] %>
+        </div>
     <% end %>
     <%= yield %>
+
+    <footer id="index-footer" class="navbar navbar-default navbar-fixed-bottom">
+        <p class="text-center">Makers Academy Weekend Challenge 4 | Made by <a href="https://github.com/Hempy49">Simon</a></p>
+      </footer>
   </body>
 </div>
 </html>
