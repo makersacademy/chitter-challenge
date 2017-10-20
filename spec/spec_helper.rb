@@ -3,6 +3,7 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require './app/models/post'
 require './app/app'
+require './spec/features/web_helpers'
 
 Capybara.app = Fitter
 

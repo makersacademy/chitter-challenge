@@ -3,6 +3,20 @@ require_relative 'models/post'
 
 class Fitter < Sinatra::Base
 
+  get '/' do
+    redirect '/posts'
+  end
+
+  get '/posts/new' do
+    erb :'posts/new'
+  end
+
+  post '/posts' do
+    post = Post.new(tip: params[:tip])
+    post.save
+    redirect '/posts'
+  end
+
   get '/posts' do
     @posts = Post.all
     erb :'posts/index'
