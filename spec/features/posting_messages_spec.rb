@@ -13,13 +13,4 @@ feature 'posting messages to chitter' do
     expect(page).to have_content text
   end
 
-  scenario 'user can view all messages in reverse chronological order' do
-    Peep.create(text: 'added first')
-    Peep.create(text: 'added second')
-    Peep.create(text: 'added third')
-    visit '/peeps'
-    expect(page.find('li:first-child')).to have_content 'added third'
-    expect(page.find('li:last-child')).to have_content 'added first'
-  end
-
 end
