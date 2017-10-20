@@ -2,7 +2,9 @@
 <ul>
 <% @peeps.reverse.each do |peep|  %>
 
-  <li><%= peep.text  %></li>
+  <li><%= peep.text %>
+      <%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %>
+  </li>
 
 <% end %>
 </ul>

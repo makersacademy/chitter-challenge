@@ -1,3 +1,4 @@
+require 'date'
 require 'data_mapper'
 
 class Peep
@@ -6,5 +7,6 @@ class Peep
 
   property :id, Serial
   property :text, Text
+  property :posted_on, DateTime
 
 end

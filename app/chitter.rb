@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(text: params[:peep])
+    Peep.create(text: params[:peep], posted_on: DateTime.now)
     redirect '/peeps'
   end
 
