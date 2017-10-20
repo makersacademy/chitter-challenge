@@ -18,8 +18,10 @@ class User
             String, 
             required: true, 
             unique: true, 
+            format: :email_address,
             messages: {
-              is_unique: "An account with this email already exists."
+              is_unique: "An account with this email already exists.",
+              format: "Please enter a valid email address"
 }
   property :password_digest, Text
 

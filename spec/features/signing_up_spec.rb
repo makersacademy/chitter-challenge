@@ -15,5 +15,10 @@ feature 'signing up for chitter' do
       expect { sign_up(handle: '#hashtag') }.to_not change(User, :count)
       expect(page).to have_content 'handle already exists'
     end
-
+    scenario 'I cannot sign up with an invalid email address' do
+      sign_up(email: 'no@email')
+      expect(current_path).to eq '/users'
+      expect(page).to have_content 'enter a valid email'
+    end
+  
   end
