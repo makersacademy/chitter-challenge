@@ -7,7 +7,7 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
+  property :handle, String
   property :email, String
   property :password_digest, Text
 
