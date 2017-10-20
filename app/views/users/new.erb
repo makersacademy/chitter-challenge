@@ -1,3 +1,7 @@
+<% if flash.now[:notice] %>
+<%= flash.now[:notice] %>
+<% end %>
+
 <form action="/users" method="post">
 <label for="name">name
   <input type="text" name="name" id="name"/>
