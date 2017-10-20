@@ -5,9 +5,11 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'rack'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'
+  gem 'launchy'
   gem 'rspec'
   gem 'rake'
   gem 'rubocop'

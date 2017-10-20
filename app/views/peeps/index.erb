@@ -1,4 +1,6 @@
-
+<% if current_user %>
+Welcome, <%=  @current_user.name %>
+<% end %>
 <ul>
 <% @peeps.reverse.each do |peep|  %>
 
