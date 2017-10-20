@@ -6,7 +6,7 @@ feature 'Viewing tips' do
     expect(page.status_code).to eq 200
 
     within 'ul#posts' do
-    expect(page).to have_content "drink 8 cups of water"
+      expect(page).to have_content 'drink 8 cups of water'
     end
   end
 end

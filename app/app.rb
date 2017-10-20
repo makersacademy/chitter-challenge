@@ -1,8 +1,8 @@
 require 'sinatra/base'
 require_relative 'models/post'
 
+# :nodoc:
 class Fitter < Sinatra::Base
-
   get '/' do
     redirect '/posts'
   end
@@ -22,5 +22,5 @@ class Fitter < Sinatra::Base
     erb :'posts/index'
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
