@@ -2,7 +2,7 @@ feature 'posting messages to chitter' do
 
   text = 'Consequat ea in voluptate magna est veniam non laboris pariatur reprehenderit culpa consectetur.'
 
-  scenario 'user can post a message to chitter' do
+  scenario 'I can post a message to chitter' do
     visit '/peeps/new'
     fill_in :peep, with: text
     fill_in :handle, with: '#ainsleybc'
