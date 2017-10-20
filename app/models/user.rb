@@ -7,8 +7,20 @@ class User
 
   property :id, Serial
   property :name, String
-  property :handle, String
-  property :email, String, required: true, unique: true
+  property :handle,
+            String,
+            required: true, 
+            unique: true, 
+            messages: {
+              is_unique: "An account with this handle already exists."
+}
+  property :email,
+            String, 
+            required: true, 
+            unique: true, 
+            messages: {
+              is_unique: "An account with this email already exists."
+}
   property :password_digest, Text
 
   def password=(password)
