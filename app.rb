@@ -1,16 +1,20 @@
+# ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
+require 'data_mapper'
+require './app/models/peep'
 
 class ChitterChallenge < Sinatra::Base
-  get '/' do
-    erb(:index)
-  end
+  # get '/' do
+  #   erb(:home)
+  # end
 
-  get '/composepeep' do
-    erb(:newpeep)
-  end
+  # get '/composepeep' do
+  #   erb(:'peeps/new')
+  # end
 
   get '/peeps' do
-    @peeps = peep.all
-    erb(:index)
+    @peeps = Peep.all
+    erb(:'peeps/index')
   end
 end
