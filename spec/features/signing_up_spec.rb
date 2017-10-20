@@ -30,6 +30,5 @@ feature 'signing up for chitter' do
       expect(current_path).to eq '/users'
       expect(page).to have_content 'handle already exists'
     end
-
   
   end
