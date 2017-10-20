@@ -1,13 +1,10 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
+require './app/models/post'
+require './app/app'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+Capybara.app = Fitter
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -18,3 +15,8 @@ RSpec.configure do |config|
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  ])
+  SimpleCov.start
