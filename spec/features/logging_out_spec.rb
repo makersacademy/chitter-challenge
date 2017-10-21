@@ -5,7 +5,7 @@ feature 'Logging out of Chitter' do
     end
   
     scenario 'I can log out of Chitter' do
-      visit '/sessions/new'
+      visit '/'
       fill_in :email, with: 'no@email.com'
       fill_in :password, with: 'password'
       click_button 'Log in'

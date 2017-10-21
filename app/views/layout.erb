@@ -6,9 +6,10 @@
     <title>Chitter</title>
   </head>
   <body>
+  <%= request.path_info %>
   <header>
     <nav>
-      <% if !current_user && request.path_info != '/sessions/new' && request.path_info != '/users/new' %>
+      <% if !current_user && request.path_info != '/sessions' && request.path_info != '/users/new' %>
         <ul>
           <li>
             <%= erb :'sessions/new' %>
