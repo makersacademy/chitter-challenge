@@ -1,0 +1,14 @@
+<h1>Chitter</h1>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <div class="message">
+        <%= peep.message %>
+      </div>
+      <div class="time_posted">
+        <%= peep.time_posted %>
+      </div>
+    </li>
+  <% end %>
+</ul>
