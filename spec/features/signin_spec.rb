@@ -5,7 +5,6 @@ feature "Signing in" do
   end
 
   scenario "User can sign in" do
-
     visit "/sign-in"
 
     within "form#sign-in" do
@@ -13,6 +12,7 @@ feature "Signing in" do
       fill_in("username", with: "LadyMacker123")
       click_button "submit"
     end
+
     expect(current_path).to eq "/"
     expect(page.status_code).to eq 200
     expect(page).to have_content("Welcome, LadyMacker123!")

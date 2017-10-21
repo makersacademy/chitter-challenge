@@ -8,6 +8,8 @@ class ChitterApp < Sinatra::Base
 
 attr_reader :current_user
 
+use Rack::MethodOverride
+
 enable :sessions
 set :session_secret, 'super secret'
 
@@ -45,6 +47,15 @@ post "/sign-in" do
     @error = "Your email or password is incorrect. Please try again."
     redirect "/sign-in"
   end
+end
+
+delete "/sign-out" do
+  session[:user_id] = nil
+  redirect "/goodbye"
+end
+
+get "/goodbye" do
+  erb :goodbye
 end
 
 helpers do

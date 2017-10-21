@@ -6,11 +6,6 @@ describe User do
     User.create(username: "LadyMacker123", email: "ladymacbeth@dunsinane.com", password: "damn3dSp0t")
   end
 
-it "should print the username & password" do
-  p user.username
-  p user.password
-end
-
 it "authenticates if username and password are correct" do
   authenticated_user = User.authenticate(user.username, user.password)
   expect(authenticated_user).to eq user

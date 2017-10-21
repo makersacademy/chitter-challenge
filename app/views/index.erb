@@ -1,6 +1,10 @@
 <h1>Chitter: Like Twitter, only chitter</h1>
 <h2>Click <a id="signup_link" href="/signup">here</a> to sign up.</h2>
 <div id="user_welcome">Welcome, <%= @username %>!</div>
+<form id="sign_out" method="post" action="/sign-out">
+<input type="hidden" name="_method" value="delete">
+<button type="submit" value="sign_out">Sign Out</button>
+</form>
 <form id="post_peep" action="/send_peep" method="post">
 <input type="text" name="message" value="Peep Away in Here">
 <button type="submit" value="post">Post Your Peep</button>
