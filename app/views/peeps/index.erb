@@ -1,10 +1,30 @@
-<h1>Peeps</h1>
+<!-- Top header -->
+<header class="w3-container w3-xlarge">
+  <p class="w3-left">Your Peeps</p>
+  <p class="w3-right">
+    <i id="newPeepBtn" onclick="document.getElementById('newPeep').style.display='block'" class="fa fa-plus w3-margin-right"></i>
+    <i class="fa fa-search"></i>
+  </p>
+</header>
 
-<ul id='peeps'>
+<div class="w3-container w3-text-grey w3-right" id="peeps_count">
+  <p><%= @peeps.length == 1 ? "#{@peeps.length} item" : "#{@peeps.length} items" %></p>
+</div>
+
+<ul id="peeps" class="w3-ul">
   <% @peeps.each do |peep| %>
-      <li>
-        Message: <%= peep.message %>
-        Created: <%= peep.created_at %>
-      </li>
+    <li class="w3-bar">
+      <span onclick="this.parentElement.style.display='none'"
+            class="w3-bar-item w3-button w3-xlarge w3-right">&times;</span>
+      <img src="/images/img_avatar2.png" class="w3-bar-item w3-circle" style="width:85px">
+      <div class="w3-bar-item">
+        <span class="w3-medium"><%= peep.created_on %></span><br>
+        <span><%= peep.message %></span>
+      </div>
+    </li>
   <% end %>
 </ul>
+
+<!-- New Peep Modal -->
+<%= erb :'peeps/_new' %>
+
