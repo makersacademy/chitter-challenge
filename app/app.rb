@@ -5,6 +5,10 @@ require './app/data_mapper_setup'
 class Chitter < Sinatra::Base
   enable :sessions
 
+  get '/' do
+    erb :index
+  end
+
   get '/infrastructure' do
     'infrastructure working'
   end
@@ -29,11 +33,18 @@ class Chitter < Sinatra::Base
 
   post '/users/new' do
     User.create(email: params[:user], password: params[:password])
+    session[:user_id] = User.last.id
     redirect '/users/confirmation'
   end
 
   get '/users/confirmation' do
     @user = User.last
     erb :'users/confirmation'
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.find(session[:user_id])
+    end
   end
 end
