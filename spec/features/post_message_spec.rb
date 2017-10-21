@@ -4,14 +4,9 @@
 
 feature 'Posting new Peeps' do
   scenario 'I want to write a Peep on new peep page' do
-
-    visit '/peeps/new'
-    fill_in :peep, with: "Remainers claim that leaving the EU..."
-    click_button "Submit"
-
+    make_new_peep_feature
     within 'ul#peeps' do
     expect(page).to have_content "Remainers claim that leaving the EU.."
-
     end
   end
 end

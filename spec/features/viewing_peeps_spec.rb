@@ -5,11 +5,8 @@
 feature 'viewing peeps' do
   scenario 'I can see peeps in reverse chronological order' do
     Peep.create(peep: 'My first peep: Global Warming is a hoax!')
-
     visit '/peeps'
-
     expect(page.status_code).to eq 200
-
     within 'ul#peeps' do
     expect(page).to have_content "My first peep: Global Warming is a hoax!"
     end
