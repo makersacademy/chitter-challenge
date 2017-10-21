@@ -2,11 +2,12 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative '../setup'
+require_relative '../lib/peep_deck'
 
 class ChitterApp < Sinatra::Base
 
 get "/" do
-  @peep_deck = Peep.any? ? Peep.all.sort_by! {|time| time[:created_at]}.reverse : []
+  @peep_deck = PeepDeck.new.display(Peep)
   erb :index
 end
 
