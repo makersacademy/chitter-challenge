@@ -2,10 +2,10 @@
 <h2> Do you have nothing better to do with your life? </h2>
 <h3> Seriously, I meant it! Go outside and talk to some real people!!</h3>
 
-<% @chits.reverse! %>
+<% p @chits.reverse! %>
 <ul id= 'chits'>
   <% @chits.each do |o| %>
-  <li><%= o.id %> <%= o.words %></li>
+  <li><%= o.id %> <%= o.words %> <%= o.created_at %></li>
 <% end %>
 </ul>
 
