@@ -19,7 +19,7 @@ feature "Signing out" do
     expect(page).to have_content("Welcome, LadyMacker123!")
 
     within "form#sign_out" do
-      click_button "sign_out"
+      click_button "Sign Out"
     end
 
     expect(current_path).to eq "/goodbye"

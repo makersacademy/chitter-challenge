@@ -1,14 +1,29 @@
 <h1>Chitter: Like Twitter, only chitter</h1>
-<h2>Click <a id="signup_link" href="/signup">here</a> to sign up.</h2>
-<div id="user_welcome">Welcome, <%= @username %>!</div>
-<form id="sign_out" method="post" action="/sign-out">
-<input type="hidden" name="_method" value="delete">
-<button type="submit" value="sign_out">Sign Out</button>
-</form>
+
+<div id="user_welcome">Welcome, <%= current_user ? current_user.username : "Stranger" %>!</div>
+<%  if current_user %>
+
 <form id="post_peep" action="/send_peep" method="post">
 <input type="text" name="message" value="Peep Away in Here">
 <button type="submit" value="post">Post Your Peep</button>
 </form>
+
+<form id="sign_out" method="post" action="/sign-out">
+<input type="hidden" name="_method" value="delete">
+<button type="submit" value="Sign Out">
+</form>
+
+<% else %>
+Got something to Peep about? Then sign in or sign up<br>
+<form id="sign_in" action="/sign-in">
+<input type="submit" value="Sign In">
+</form>
+
+<form id="sign_up" action="/signup">
+<input type="submit" value="Sign Up">
+</form>
+<% end %>
+
 <div id="peep_deck">
 <ul>
 <% @peep_deck.each do |peep| %>

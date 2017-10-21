@@ -15,7 +15,6 @@ set :session_secret, 'super secret'
 
 get "/" do
   @peep_deck = PeepDeck.new.display(Peep)
-  @username = current_user ? current_user.username : "Stranger"
   erb :index
 end
 
