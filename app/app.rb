@@ -32,12 +32,18 @@ class Chitter < Sinatra::Base
     erb :"users/welcome"
   end
 
-  helpers do
-   def current_user
-     @current_user ||= User.get(session[:current_user_id])
-   end
-end
+  get '/peeps' do
+    erb :"/peeps/index"
+  end
 
+  helpers do
+    def current_user
+     @current_user ||= User.get(session[:current_user_id])
+    end
+    def peeps
+      @peeps ||= Peep.all(:order => :created_at.desc)
+    end
+  end
 end
 
 include DataMapperSetup

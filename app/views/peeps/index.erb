@@ -1,0 +1,12 @@
+<h2>Newsfeed</h2>
+
+<ul id="peeps">
+  <% peeps.each do |peep| %>
+    <li>
+      <div>
+        <p><%= peep.content %></p>
+        <p class="timestamp"><%= peep.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
