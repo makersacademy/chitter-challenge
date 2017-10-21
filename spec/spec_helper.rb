@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require './app/app'
 require './spec/features/web_helpers'
 require 'database_cleaner'
+require 'timecop'
 
 Capybara.app = Fitter
 
