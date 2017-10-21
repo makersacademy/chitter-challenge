@@ -11,6 +11,8 @@ def sign_up
     fill_in("username", with: "LadyMacker123")
     click_button "submit"
   end
+  expect(current_path).to eq "/"
+  expect(page.status_code).to eq 200
 end
 
 def sign_in
@@ -24,4 +26,5 @@ def sign_in
   fill_in("password", with: "damn3dSp0t")
   click_button "submit"
   expect(current_path).to eq "/"
+  expect(page.status_code).to eq 200
 end

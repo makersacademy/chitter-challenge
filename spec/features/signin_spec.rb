@@ -1,20 +1,17 @@
-feature "Signing in" do
+feature "When I sign in" do
 
   let!(:user) do
     User.create(username: "LadyMacker123", email: "ladymacbeth@dunsinane.com", password: "damn3dSp0t")
   end
 
-  scenario "User can sign in" do
-    visit "/sign-in"
+  # scenario "a session is created" do
+  #   sign_in
+  #   expect(current_user).to be_truthy
+  # end
 
-    within "form#sign-in" do
-      fill_in("password", with: "damn3dSp0t")
-      fill_in("username", with: "LadyMacker123")
-      click_button "submit"
-    end
-
-    expect(current_path).to eq "/"
-    expect(page.status_code).to eq 200
+  scenario "the homepage shows my username" do
+    sign_in
+    expect(page).not_to have_content("Welcome, Stranger!")
     expect(page).to have_content("Welcome, LadyMacker123!")
   end
 end
