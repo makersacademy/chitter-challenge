@@ -15,4 +15,6 @@ post "/send_peep" do
   redirect "/"
 end
 
+run! if app_file == $0
+
 end
