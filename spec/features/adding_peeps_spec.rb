@@ -3,7 +3,7 @@ feature 'Adding Peeps' do
     visit '/peeps/new'
     fill_in :peep, with: 'peep1234'
     click_button 'Submit'
-    expect(current_path).to be '/feed'
+    expect(current_path).to eq '/feed'
     expect(page).to have_content 'peep1234'
   end
 end

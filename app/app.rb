@@ -1,14 +1,25 @@
-require 'sinatra/base'
-require_relative 'data_mapper_setup'
 ENV['RACK_ENV'] ||= 'development'
+require 'sinatra/base'
+
+
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/infrastructure' do
     'infrastructure working'
   end
 
   get '/peeps/new' do
-
+    erb :new_peep
   end
 
+  post '/feed' do
+    session[:peep] = params[:peep]
+    redirect '/feed'
+  end
+
+  get '/feed' do
+    @peep = session[:peep]
+    erb :feed
+  end
 end
