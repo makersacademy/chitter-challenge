@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
 
-  <h1> <%= @peep %> </h1>
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+    <h3>
+      <li>
+        Title: <%= peep.contents %><br>
+      </li>
+    </h3>
+    <% end %>
+  </ul>
 </html>

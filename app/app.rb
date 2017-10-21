@@ -16,12 +16,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/feed' do
-    session[:peep] = params[:peep]
+    Peep.create(contents: params[:peep])
     redirect '/feed'
   end
 
   get '/feed' do
-    @peep = session[:peep]
+    @peeps = Peep.all.reverse
     erb :feed
   end
 end
