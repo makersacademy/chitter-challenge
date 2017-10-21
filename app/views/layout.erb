@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+
+<form action="/sessions" method="post">
+  <input type='hidden' name='_method' value='delete'>
+  <button type="submit">Log out</button>
+</form>
+
+
+<%= yield %>
