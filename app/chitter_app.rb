@@ -29,7 +29,12 @@ post "/signup" do
 end
 
 post "/send_peep" do
-  Peep.create(message: params[:message])
+  peep = Peep.create(message: params[:message])
+
+  Tag.parse_tags(params[:message]).each do |tag|
+    peep.tags << Tag.first_or_create(name: tag)
+    link.save
+  end
   redirect "/"
 end
 

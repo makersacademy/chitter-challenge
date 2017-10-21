@@ -1,10 +1,10 @@
-feature "Posting a Peep" do
+feature "When I post a Peep" do
 
   let!(:user) do
     User.create(username: "LadyMacker123", email: "ladymacbeth@dunsinane.com", password: "damn3dSp0t")
   end
 
-  scenario "I can post a Peep and then see it displayed on the PeepDeck" do
+  scenario "I can see it displayed on the PeepDeck" do
     sign_in
 
     within "form#post_peep" do
@@ -27,7 +27,7 @@ feature "Posting a Peep" do
       fill_in("message", with: "Second Example Peep message")
       click_button "post"
     end
-    
+
     expect(current_path).to eq "/"
     expect(page.status_code).to eq 200
     within "div#peep_deck" do

@@ -3,7 +3,9 @@ require 'dm-postgres-adapter'
 
 #should these be below the Datamapper.setup?
 require_relative 'app/models/peep'
+require_relative 'app/models/tag'
 require_relative 'app/models/user'
+
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 
