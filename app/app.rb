@@ -9,6 +9,19 @@ class Chitter < Sinatra::Base
     @chits = Chit.all
     erb(:index)
   end
-  
+
+  get '/add' do
+    erb(:add)
+  end
+
+  post '/' do
+    Chit.create(words: params[:chit])
+    # params[:tag].split.each do |tag|
+    #   link.tags << Tag.first_or_create(tag: tag)
+    # end
+    # link.save
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
