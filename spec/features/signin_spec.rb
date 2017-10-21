@@ -11,7 +11,15 @@ feature "When I sign in" do
 
   scenario "the homepage shows my username" do
     sign_in
-    expect(page).not_to have_content("Welcome, Stranger!")
     expect(page).to have_content("Welcome, LadyMacker123!")
+  end
+
+  scenario "the homepage provides options to Peep and Sign Out" do
+    sign_in
+    expect(page).not_to have_css("form#sign_in")
+    expect(page).not_to have_css("form#sign_up")
+    expect(page).not_to have_content("Welcome, Stranger!")
+    expect(page).to have_css("form#post_peep")
+    expect(page).to have_css("form#sign_out")
   end
 end
