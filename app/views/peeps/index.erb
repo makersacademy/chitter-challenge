@@ -5,6 +5,7 @@
     <li>
       <div>
         <p><%= peep.content %></p>
+        <p>posted by <%= "#{peep.user.name}, @#{peep.user.username}"%></p> 
         <p class="timestamp"><%= peep.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
       </div>
     </li>
