@@ -4,7 +4,7 @@
 
 feature 'viewing peeps' do
   scenario 'I can see peeps in reverse chronological order' do
-    Peep.create(pop: 'My first peep: Global Warming is a hoax!')
+    Peep.create(peep: 'My first peep: Global Warming is a hoax!')
 
     visit '/peeps'
 
