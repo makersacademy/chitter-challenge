@@ -5,13 +5,12 @@
 <% end %>
 
 <% if flash[:login] %>
-  <div id='notice'>
+  <div id='login'>
     <%= flash[:login] %>
   </div>
 <% end %>
 
 <% if (flash[:errors] && !flash[:errors].empty?) %>
-  Please fix the following errors"
   <ul id='errors'>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>

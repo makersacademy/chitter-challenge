@@ -15,7 +15,7 @@ class Fitter < Sinatra::Base
       redirect '/posts'
     else
       flash.now[:errors] = user.errors.full_messages
-      erb :'users/new', :layout => :'users/layout'
+      erb :'users/new', :layout => :'layout'
     end
   end
 end
