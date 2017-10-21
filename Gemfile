@@ -10,6 +10,7 @@ gem 'dm-postgres-adapter'
 
 group :test do
   gem 'cucumber'
+  gem 'database_cleaner'
   gem 'capybara'
   gem 'rspec'
   gem 'rake'
