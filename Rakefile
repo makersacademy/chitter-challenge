@@ -1,13 +1,13 @@
 require 'data_mapper'
 require './app/chitter_app.rb'
 
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-
-  RSpec::Core::RakeTask.new :spec
-
-  task default: [:spec]
-end
+# if ENV['RACK_ENV'] != 'production'
+#   require 'rspec/core/rake_task'
+#
+#   RSpec::Core::RakeTask.new :spec
+#
+#   task default: [:spec]
+# end
 
 namespace :db do
   desc "Non destructive upgrade"
@@ -16,10 +16,9 @@ namespace :db do
     puts "Auto-upgrade complete"
   end
 
-
   desc "Destructive upgrade"
   task :auto_migrate do
     DataMapper.auto_migrate!
-    puts "Auto-migrate complete (data was lost)"
+    puts "Auto-migrate complete"
   end
 end
