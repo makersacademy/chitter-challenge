@@ -6,6 +6,8 @@ Welcome, <%=  @current_user.name %>
 
   <li><%= peep.text %>
       <%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %>
+      <%= peep.user.name %>
+      <%= peep.user.handle %>
   </li>
 
 <% end %>

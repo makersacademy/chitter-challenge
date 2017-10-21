@@ -14,5 +14,16 @@ feature 'posting messages to chitter' do
     visit '/peeps/new'
     expect(page).to have_content error
   end
+  scenario 'peeps show the user name and handle of the poster' do
+    sign_up
+    visit '/peeps/new'
+    fill_in :peep, with: text
+    click_button 'Post'
+    within 'ul' do
+      expect(page).to have_content text
+      expect(page).to have_content 'Ainsley'
+      expect(page).to have_content 'ainsleybc'
+    end
+  end
 
 end
