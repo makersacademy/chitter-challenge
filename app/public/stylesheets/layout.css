@@ -9,6 +9,25 @@ body {
   background-color: hsl(0, 0%, 93%);
 }
 
+#home_button {
+  background-color: transparent;
+  height: 100%;
+  border: none;
+  margin: 0;
+  line-height: 100%;
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 0.03em;
+  padding: 0;
+  color: white;
+  text-decoration: none;
+  outline: none;
+}
+
+#home_button:hover {
+  cursor: pointer;
+}
+
 header {
   margin: 0px auto;
   background-color: hsla(258, 96%, 56%, 1);
@@ -23,14 +42,18 @@ header > div {
   height: 100%;
   margin: 0;
   float: left;
-  width: 40%;
+  width: 42%;
   font-size: 30px;
   color: white;
   letter-spacing: 0.03em;
 }
 
+#sessions {
+  width: 57%;
+}
+
 #new_peep {
-  width: 10%;
+  width: 14%;
   text-align: center;
 }
 
@@ -41,38 +64,68 @@ header p {
 
 header nav {
   text-align: right;
+  height: 100%;
 }
 
 header ul {
 	list-style: none;
   padding-left: 0;
   margin: 0;
+  height: 100%;
   margin-right: 3%;
 }
 
 header li {
-  display: inline-block;
-  width: auto;
-	margin-left: 3%;
-	color: grey;
+  display: inline;
+	margin-left: 1%;
+  color: grey;
 }
 
-#home_button {
+#sign_up {
+  float: right;
+}
+
+#log_in {
+  float: right;
+  width: 80%;
+}
+
+#sessions input[type="text"] {
   background-color: transparent;
-  height: 100%;
   border: none;
+  border-bottom: 2px solid hsl(257, 90%, 68%);
+  height: 20px;
+  width: 130px;
+  outline: none;
+}
+
+#sessions input[type="text"]:focus {
+  border-color: white;
+}
+
+#sessions ::-webkit-input-placeholder {
+  color: hsl(257, 90%, 68%);
+  font-size: 12px;
+}
+
+#sessions button {
+  background-color: transparent;
+  border: none;
+  height: 37px;
+  width: 80px;
   margin: 0;
   line-height: 100%;
-  /* width: 200px; */
   text-align: center;
-  font-size: 50px;
+  font-size: 20px;
   letter-spacing: 0.03em;
-  padding: 0;
-  color: white;
+  padding: 2px;
+  color: hsl(257, 90%, 68%);
   text-decoration: none;
   outline: none;
 }
 
-#home_button:hover {
+#sessions button:hover {
   cursor: pointer;
+  color: white;
 }
+
