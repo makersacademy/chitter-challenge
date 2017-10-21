@@ -1,8 +1,8 @@
-def sign_up
+def sign_up name, username, email
   visit '/users/new'
-  fill_in 'name', with: "Ed Lowther"
-  fill_in 'username', with: "edlowther"
-  fill_in 'email', with: 'ed@geemail.com'
+  fill_in 'name', with: name
+  fill_in 'username', with: username
+  fill_in 'email', with: email
   fill_in 'password', with: 'very hard to guess word'
   click_button 'Create account'
 end
@@ -11,4 +11,4 @@ def post_peep text
   visit '/peeps/new'
   fill_in 'peep_content', with: text
   click_button 'Send'
-end 
+end

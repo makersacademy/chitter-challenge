@@ -5,9 +5,15 @@ require_relative 'data_mapper_setup'
 require_relative 'models/user'
 require_relative 'models/peep'
 require 'sinatra/base'
+require 'sinatra/flash'
+require 'sinatra/partial'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+  enable :partial_underscores
   set :session_secret, 'super secret'
 
   get '/' do
@@ -25,8 +31,12 @@ class Chitter < Sinatra::Base
       :email => params[:email],
       :password => params[:password]
     )
-    session[:current_user_id] = user.id
-    redirect '/users/welcome'
+    if user.save
+      session[:current_user_id] = user.id
+      redirect '/users/welcome'
+    else
+      flash.now[:errors]  = user.errors
+    end
   end
 
   get '/users/welcome' do
