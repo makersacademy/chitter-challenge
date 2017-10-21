@@ -6,11 +6,14 @@ require_relative '../lib/peep_deck'
 
 class ChitterApp < Sinatra::Base
 
+attr_reader :current_user
+
 enable :sessions
+set :session_secret, 'super secret'
 
 get "/" do
   @peep_deck = PeepDeck.new.display(Peep)
-  @username = session[:username]
+  @username = current_user ? current_user.username : "Stranger"
   erb :index
 end
 
@@ -20,7 +23,7 @@ end
 
 post "/signup" do
   user = User.create(username: params[:username], email: params[:email], password: params[:password])
-  session[:username] = user.username
+  session[:user_id] = user.id
   redirect "/"
 end
 
@@ -29,6 +32,13 @@ post "/send_peep" do
   redirect "/"
 end
 
+helpers do
+  def current_user
+    @current_user ||= User.get(session[:user_id])
+  end
+end
+
 run! if app_file == $0
+
 
 end
