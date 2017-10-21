@@ -1,9 +1,12 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 # :nodoc:
 class Fitter < Sinatra::Base
+  register Sinatra::Flash
+
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -27,8 +30,13 @@ class Fitter < Sinatra::Base
                 email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect '/posts'
+    if user.save
+      session[:user_id] = user.id
+      redirect '/posts'
+    else
+      flash.now[:notice] = 'Your passwords don\'t match!'
+      erb :'users/new', :layout => :'users/layout'
+    end
   end
 
   get '/posts/new' do
