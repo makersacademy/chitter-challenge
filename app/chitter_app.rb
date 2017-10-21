@@ -32,6 +32,15 @@ post "/send_peep" do
   redirect "/"
 end
 
+get "/sign-in" do
+  erb :sign_in
+end
+
+post "/sign-in" do
+  
+  redirect "/"
+end
+
 helpers do
   def current_user
     @current_user ||= User.get(session[:user_id])
