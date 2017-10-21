@@ -1,3 +1,4 @@
+require 'bcrypt'
 require 'data_mapper'
 
 class User
@@ -6,13 +7,13 @@ class User
   property :name,       String
   property :username,   String
   property :email,      String
-  property :password,   Text
+  property :password_digest,   Text
 
   # attr_reader :password
 
   # has n, :links
 
-  # def password=(password)
-  #   self.password_digest = BCrypt::Password.create(password)
-  # end
+  def password=(password)
+    self.password_digest = BCrypt::Password.create(password)
+  end
 end
