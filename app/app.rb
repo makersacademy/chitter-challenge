@@ -34,7 +34,7 @@ class Fitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/posts'
     else
-      flash.now[:notice] = 'Your passwords don\'t match!'
+      flash.now[:errors] = user.errors.full_messages
       erb :'users/new', :layout => :'users/layout'
     end
   end

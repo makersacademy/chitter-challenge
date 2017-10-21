@@ -3,9 +3,13 @@
   <% erb :header %>
 
   <body>
-    <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
     <% end %>
-    <%= yield %>
+  </ul>
+<% end %>
   </body>
 </html>
