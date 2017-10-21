@@ -5,7 +5,7 @@ require './app/models/peep'
 class Chitter < Sinatra::Base
 
   enable :sessions
-  
+
 get '/' do
 
 @peeps = Peep.all
@@ -19,7 +19,7 @@ erb :'peeps/new'
 end
 
 post '/peeps/message' do
-  Peep.create(message: params[:message] )
+  Peep.create(message: params[:message_input] )
 
 redirect('/')
 end
