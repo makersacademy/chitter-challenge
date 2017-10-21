@@ -21,15 +21,22 @@
     <i onclick="sidebar_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
     <h3 class="w3-wide"><b>Peeps</b></h3>
   </div>
-  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a onclick="expandPeepMenu()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="expandPeepMnu">
-      Peeps <i class="fa fa-caret-down"></i>
-    </a>
-    <div id="peepSort" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button">Recent</a>
-    </div>
-    <a href="#" class="w3-bar-item w3-button">Logout</a>
-  </div>
+  <% if current_user %>
+      <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+        <a onclick="expandPeepMenu()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="expandPeepMnu">
+          Peeps <i class="fa fa-caret-down"></i>
+        </a>
+        <div id="peepSort" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button">Recent</a>
+        </div>
+        <a href="#" class="w3-bar-item w3-button">Sign Out</a>
+      </div>
+  <% else %>
+      <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+        <a href="#" id="newUserBtn" onclick="document.getElementById('newUser').style.display='block'" class="w3-bar-item w3-button">Sign up</a>
+        <a href="#" class="w3-bar-item w3-button">Sign In</a>
+      </div>
+  <% end %>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -46,10 +53,21 @@
 
   <div class="w3-hide-large" style="margin-top:83px"></div>
 
+  <% if current_user %>
+      Welcome, <%= current_user.email %>
+  <% end %>
+
+  <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+
   <%= yield %>
 
   <!-- End page content -->
 </div>
+
+<%= erb :'users/_new' %>
+
 <script type="text/javascript" charset="utf-8" src="/javascripts/chitter.js"></script>
 </body>
 </html>
