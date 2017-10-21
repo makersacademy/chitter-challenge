@@ -22,7 +22,6 @@ header {
 header > div {
   height: 100%;
   margin: 0;
-  padding: 10px;
   float: left;
   width: 40%;
   font-size: 30px;
@@ -56,4 +55,24 @@ header li {
   width: auto;
 	margin-left: 3%;
 	color: grey;
+}
+
+#home_button {
+  background-color: transparent;
+  height: 100%;
+  border: none;
+  margin: 0;
+  line-height: 100%;
+  /* width: 200px; */
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 0.03em;
+  padding: 0;
+  color: white;
+  text-decoration: none;
+  outline: none;
+}
+
+#home_button:hover {
+  cursor: pointer;
 }

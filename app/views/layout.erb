@@ -9,17 +9,18 @@
   </head>
   <body>
   <header>
+    <div>
+      <form>
+        <button type="submit" formaction="/" formmethod="get" id="home_button">Chitter.</button>
+      </form>
+    </div>
     <% if current_user %>
-      <div id="welcome">
-        <p>Welcome, <%=  @current_user.name %></p>
-      </div>
       <div id="new_peep">
         <form>
           <button type="submit" formaction="/peeps/new">New Peep</button>
         </form>
       </div>
     <% else %>
-      <div id="welcome"></div>
       <div id="new_peep"></div>
     <% end %>
     <div id="sessions">
@@ -50,6 +51,9 @@
         </nav>
         </div>
     </header>
+     <% if current_user %>
+    <p>Welcome, <%=  @current_user.name %></p>
+    <% end %>
 <% if flash[:notice] %>
 <%= flash[:notice] %>
 <% end %>

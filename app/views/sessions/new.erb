@@ -1,5 +1,5 @@
-<section id="form_wrapper">
-  <form action='/sessions/new' method="post" id="form">
+<section <%= "id='form_wrapper'" if request.path_info == '/sessions/new' %>>
+  <form action='/sessions/new' method="post" <%= "id='form'" if request.path_info == '/sessions/new' %>>
     <ul>
       <li>
         <input type="text" name="email" placeholder="Email">
