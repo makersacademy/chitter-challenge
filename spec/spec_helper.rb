@@ -1,8 +1,9 @@
 require 'capybara/rspec'
+require './app/app'
 require 'simplecov'
 require 'simplecov-console'
 
-require './app/models/peep'
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
