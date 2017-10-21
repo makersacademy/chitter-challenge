@@ -1,0 +1,11 @@
+<h1>Welcome to Chitter!</h1>
+<form id="post_peep" action="/send_peep" method="post">
+<input type="text" name="message" value="Peep Away in Here">
+<button type="submit" value="Peep">
+<form>
+<div class="peep_deck">
+<ul>
+<% @peep_deck.each do |peep| %>
+<li> <%= peep.message %> </li>
+<% end unless @peep_deck.empty? %>
+</ul>
