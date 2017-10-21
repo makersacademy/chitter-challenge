@@ -1,4 +1,13 @@
 feature 'User sign up' do
+
+  scenario 'Sign up without an email address' do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'Sign up with an invalid email address' do
+    expect { sign_up(email: 'invalid@email') }.not_to change(User, :count)
+  end
+
   scenario 'Requires a matching confirmation password' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end

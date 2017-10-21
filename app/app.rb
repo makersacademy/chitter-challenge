@@ -5,7 +5,6 @@ require 'sinatra/flash'
 
 require_relative 'data_mapper_setup'
 
-
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
@@ -40,4 +39,3 @@ class Chitter < Sinatra::Base
     end
   end
 end
-
