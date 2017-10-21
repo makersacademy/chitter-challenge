@@ -1,6 +1,9 @@
 feature 'Sharing new tips' do
   scenario 'On the new post page I can share a tip' do
-    make_new_post
+    sign_up
+    click_button 'Add New Tip'
+    fill_in :tip, with: 'Remember to eat your greens!'
+    click_button 'Submit'
 
     within 'div#posts'
     expect(page).to have_content 'Remember to eat your greens!'
@@ -13,8 +16,11 @@ feature 'Sharing new tips' do
   end
 
   scenario 'I can see at what time and day a post was made' do
+    sign_up
     Timecop.freeze(time = DateTime.now) do
-      make_new_post
+      click_button 'Add New Tip'
+      fill_in :tip, with: 'Remember to eat your greens!'
+      click_button 'Submit'
     end
     within 'div#posts'
     expect(page).to have_content "Created at #{time.strftime("%R")} on #{time.strftime("%d/%-m/%-y")}"

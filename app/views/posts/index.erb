@@ -4,8 +4,11 @@
   <ul id='posts'>
     <% @posts.reverse.each do |post| %>
       <li class="dumbbell">
-        Tip: <%= post.tip %><sub><%= post.time_to_string %></sub>
-
+        <%= post.user_name %> posted the tip:
+        <br>
+        <%= post.tip %>
+        <br>
+        <sub><%= post.time_to_string %></sub>
       </li>
     <% end %>
   </ul>

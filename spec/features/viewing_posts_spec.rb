@@ -1,6 +1,7 @@
 feature 'Viewing tips' do
+
   scenario 'On the tips page I can see a list of tips' do
-    Post.create(tip: 'drink 8 cups of water')
+    Post.create(tip: 'drink 8 cups of water', user_id: 1)
     visit '/posts'
 
     expect(page.status_code).to eq 200
