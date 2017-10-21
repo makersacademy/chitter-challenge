@@ -3,4 +3,5 @@ class Peep
 
   property :id, Serial
   property :contents, Text
+  property :time, Time
 end

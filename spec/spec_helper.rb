@@ -6,22 +6,23 @@ require 'simplecov'
 require 'simplecov-console'
 require 'sinatra'
 require 'database_cleaner'
+require_relative 'web_helper'
 require_relative '../app/app'
 
 Capybara.app = Chitter
 
-# RSpec.configure do |config|
-#   config.before(:suite) do
-#     DatabaseCleaner.strategy = :transaction
-#     DatabaseCleaner.clean_with(:truncation)
-#   end
-#
-#   config.around(:each) do |example|
-#     DatabaseCleaner.cleaning do
-#       example.run
-#     end
-#   end
-# end
+RSpec.configure do |config|
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
