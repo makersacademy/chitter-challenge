@@ -3,11 +3,9 @@
 <div id='posts'>
   <ul id='posts'>
     <% @posts.reverse.each do |post| %>
-      <li class="dumbbell">
-        <%= post.user_name %> posted the tip:
-        <br>
-        <%= post.tip %>
-        <br>
+      <li id="tips">
+        <%= post.user_name %> posted the tip:<br>
+        <%= post.tip %><br>
         <sub><%= post.time_to_string %></sub>
       </li>
     <% end %>

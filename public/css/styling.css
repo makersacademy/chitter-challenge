@@ -1,0 +1,88 @@
+body {
+  background-color: rgb(74, 127, 226);
+  color: white;
+  font-family: 'Roboto Slab', sans-serif;
+  text-align: center
+}
+
+h1 {
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 400%;
+}
+
+ul#posts {
+  font-family: 'Roboto Slab', sans-serif;
+  color: rgb(74, 127, 226);
+  text-align: center;
+  list-style-position: inside;
+  font-size: 14px;
+}
+
+li#tips {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div#logo {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  -webkit-mask-box-image: url(https://image.flaticon.com/icons/png/512/34/34470.png);
+}
+
+div#posts {
+  background-color: white;
+  border-radius: 5px;
+  width: 40%;
+  margin: 0 auto;
+}
+
+div#new_link {
+  text-align: center;
+}
+
+.button {
+  background-color: white;
+  font-family: 'Roboto Slab', sans-serif;
+  color: rgb(74, 127, 226);
+  border: 2px solid white;
+  width: 120px;
+  height: 40px;
+  padding: 2px 2px 2px 2px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 50px
+}
+
+.button:hover {
+  background-color: rgb(74, 127, 226);
+  color: white;
+  border-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+#login {
+  text-align: center;
+}
+
+#link {
+  text-align: center;
+}
+
+input[type=text] {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Roboto Slab', cursive;
+  width: 250px;
+  height: 40px;
+  border: 0.5px
+  solid rgb(255, 255, 255);
+  border-radius: 50px
+}
+
+input[type=text]:focus {
+  border-color:rgb(201, 201, 200);
+  outline: none;
+}

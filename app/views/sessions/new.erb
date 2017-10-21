@@ -1,15 +1,11 @@
 <%= erb :header %>
 
-<h2>Please sign in</h2>
+<h2>Log In</h2>
 
 <div ='sign_in'>
   <form action='/sessions' method='post'>
-    <input name='email' type='email' placeholder ='Email'>
-    <br>
-    <br>
-    <input name='password' type='password' placeholder='Password'>
-    <br>
-    <br>
-    <input type='submit' value='Sign In'>
+    <input name='email' type='text' placeholder ='Email'><br><br>
+    <input name='password' type='text' placeholder='Password'><br><br>
+    <input type='submit' value='Sign In' class='button'>
   </form>
 </div>
