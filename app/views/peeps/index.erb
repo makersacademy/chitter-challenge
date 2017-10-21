@@ -1,0 +1,13 @@
+
+<form action='/peeps/new' method='GET'>
+    <input type="submit" value="Create message">
+  </form>
+
+
+<ul id='peeps'>
+<% @peeps.reverse.each do |peep| %>
+  <li>
+    Message: <%= peep.message %>
+  </li>
+  <% end %>
+</ul>
