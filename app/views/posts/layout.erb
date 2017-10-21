@@ -3,8 +3,19 @@
   <% erb :header %>
 
   <body>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <% if current_user %>
-      Welcome, <%= current_user.email %>
+      Welcome, <%= current_user.email %>!
+      <div ='log_out'>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign Out'>
+        </form>
+      </div>
     <% end %>
     <%= yield %>
   </body>

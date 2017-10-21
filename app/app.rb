@@ -5,6 +5,7 @@ require_relative 'data_mapper_setup'
 
 # :nodoc:
 class Fitter < Sinatra::Base
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   enable :sessions
@@ -68,6 +69,12 @@ class Fitter < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new', :layout => :'sessions/layout'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye, and stay healthy!'
+    redirect to '/posts'
   end
 
   run! if app_file == $PROGRAM_NAME
