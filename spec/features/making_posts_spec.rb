@@ -5,4 +5,10 @@ feature 'Sharing new tips' do
     within 'div#posts'
     expect(page).to have_content 'Remember to eat your greens!'
   end
+
+  scenario 'I can add a new post if logged in' do
+    sign_up
+    click_button 'Add New Tip'
+    expect(current_path).to eq '/posts/new'
+  end
 end

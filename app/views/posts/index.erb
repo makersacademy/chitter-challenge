@@ -9,3 +9,11 @@
     <% end %>
   </ul>
 </div>
+
+<% if @user %>
+  <div id='new_link'>
+    <form action='/posts/new'>
+      <input type="submit" value="Add New Tip" class="button">
+    </form>
+  </div>
+<% end %>
