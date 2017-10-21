@@ -6,22 +6,21 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
-get '/' do
+  get '/' do
 
-@peeps = Peep.all
+    @peeps = Peep.all
 
-erb :'peeps/index'
-end
+    erb :'peeps/index'
+  end
 
-get '/peeps/new' do
+  get '/peeps/new' do
 
-erb :'peeps/new'
-end
+    erb :'peeps/new'
+  end
 
-post '/peeps/message' do
-  Peep.create(message: params[:message_input] )
+  post '/peeps/message' do
+    Peep.create(message: params[:message_input])
 
-redirect('/')
-end
-
+    redirect('/')
+  end
 end

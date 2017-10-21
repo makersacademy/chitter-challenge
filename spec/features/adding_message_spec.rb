@@ -7,8 +7,8 @@ feature 'Adding message' do
     click_on('message_submit')
 
     within('ul#peeps') do
-    expect(page).to have_content('I love Sinatra!')
-  end
+      expect(page).to have_content('I love Sinatra!')
+    end
 
   end
 end
