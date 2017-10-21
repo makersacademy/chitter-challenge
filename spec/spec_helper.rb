@@ -5,6 +5,7 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require './app/app'
 require './app/models/peep'
+require 'database_cleaner'
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -31,6 +32,19 @@ SimpleCov.start
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Capybara::DSL
+
+  config.before(:suite) do # <-- before entire test run
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do # <-- create a "save point" before each test
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do # <-- after each individual test roll back to "save point"
+    DatabaseCleaner.clean
+  end
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
