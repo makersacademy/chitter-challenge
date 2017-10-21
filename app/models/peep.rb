@@ -6,6 +6,5 @@ class Peep
   property :content,   Text
   property :created_at, DateTime
 
-  # belongs to...
-
+  belongs_to :user
 end

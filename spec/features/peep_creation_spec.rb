@@ -1,8 +1,7 @@
-feature 'Newsfeed' do
+feature 'Peep' do
   scenario 'user is able to publish a peep' do
-    visit '/peeps/new'
-    fill_in 'peep_content', with: "Test peep"
-    click_button 'Send'
+    sign_up
+    post_peep "Test peep"
     expect(page).to have_content "Test peep"
   end
 end
