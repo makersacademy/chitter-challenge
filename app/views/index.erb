@@ -1,4 +1,6 @@
-<h1>Welcome to Chitter!</h1>
+<h1>Chitter: Like Twitter, only worse</h1>
+<h2>Click <a id="signup_link" href="/signup">here</a> to sign up.</h2>
+<div id="user_welcome">Welcome, <%=  @username ? @username : "Stranger" %>!</div>
 <form id="post_peep" action="/send_peep" method="post">
 <input type="text" name="message" value="Peep Away in Here">
 <button type="submit" value="post">Post Your Peep</button>
