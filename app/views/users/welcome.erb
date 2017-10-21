@@ -1,3 +1,7 @@
 <p>Welcome to Chitter, <%= current_user.name %></p>
 <p><a href="/peeps">Check your newsfeed</a></p>
 <p><a href="/peeps/new">Write a peep</a></p>
+<form action="/sessions" method="post">
+  <input type='hidden' name='_method' value='delete'>
+  <input type="submit" value="Sign out">
+</form>

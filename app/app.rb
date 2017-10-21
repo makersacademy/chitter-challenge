@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   set :partial_template_engine, :erb
   enable :partial_underscores
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
   get '/' do
     'bonjour'
@@ -70,9 +71,15 @@ class Chitter < Sinatra::Base
       session[:current_user_id] = user.id
       redirect '/users/welcome'
     else
-      flash.now[:errors] = [["Username and/or password do not match our records"]]
-      erb :"/sessions/new"
+      flash.keep[:errors] = [["Username and/or password do not match our records"]]
+      redirect "/sessions/new"
     end
+  end
+
+  delete '/sessions' do
+    session[:current_user_id] = nil
+    flash.keep[:notice] = "See you next time!"
+    redirect '/sessions/new'
   end
 
   helpers do
