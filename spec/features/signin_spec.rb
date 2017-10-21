@@ -1,8 +1,13 @@
 feature "Signing in" do
+
+  let!(:user) do
+    User.create(username: "LadyMacker123", email: "ladymacbeth@dunsinane.com", password: "damn3dSp0t")
+  end
+
   scenario "User can sign in" do
-    sign_up
-    #sign out?
+
     visit "/sign-in"
+
     within "form#sign-in" do
       fill_in("password", with: "damn3dSp0t")
       fill_in("username", with: "LadyMacker123")

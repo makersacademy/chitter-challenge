@@ -37,8 +37,14 @@ get "/sign-in" do
 end
 
 post "/sign-in" do
-  
-  redirect "/"
+  user = User.authenticate(params[:username], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect "/"
+  else
+    @error = "Your email or password is incorrect. Please try again."
+    redirect "/sign-in"
+  end
 end
 
 helpers do
