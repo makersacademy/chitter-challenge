@@ -1,5 +1,6 @@
 ENV["RACK_ENV"] ||= "development"
 
+require 'bcrypt'
 require 'data_mapper'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
@@ -35,7 +36,8 @@ class Chitter < Sinatra::Base
       session[:current_user_id] = user.id
       redirect '/users/welcome'
     else
-      flash.now[:errors]  = user.errors
+      flash.now[:errors] = user.errors
+      erb :"/users/new"
     end
   end
 
@@ -56,6 +58,21 @@ class Chitter < Sinatra::Base
     peep.user = current_user
     peep.save
     redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :"/sessions/new"
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:current_user_id] = user.id
+      redirect '/users/welcome'
+    else
+      flash.now[:errors] = [["Username and/or password do not match our records"]]
+      erb :"/sessions/new"
+    end
   end
 
   helpers do
