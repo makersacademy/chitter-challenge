@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'data_mapper'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
+require_relative 'models/peep'
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
@@ -34,6 +35,15 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     erb :"/peeps/index"
+  end
+
+  get '/peeps/new' do
+    erb :"/peeps/new"
+  end
+
+  post '/peeps' do
+    peep = Peep.create(content: params[:peep_content], created_at: Time.now)
+    redirect '/peeps'
   end
 
   helpers do
