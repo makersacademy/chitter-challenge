@@ -1,7 +1,7 @@
-feature 'viewing peeps' do
+feature 'View peeps' do
 
-  scenario 'I can view peeps on the peeps page' do
-    Peep.create(text: 'A test peep')
+  scenario 'View peeps on the peeps page' do
+    Peep.create(message: 'A test peep')
 
     visit '/peeps'
     expect(page.status_code).to eq 200

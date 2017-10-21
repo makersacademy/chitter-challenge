@@ -5,8 +5,9 @@ class Peep
   include DataMapper::Resource
 
   property :id,         Serial
-  property :text,       String
-  property :created_at, Date
+  property :message,    String
+  property :created_at, DateTime
+  property :created_on, Date
 end
 
 DataMapper.setup(:default, "postgres://localhost/chitter_test")
