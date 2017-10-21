@@ -1,19 +1,15 @@
-
-
 <section id="peep_list_wrapper">
   <ul id="peep_list">
-  <% @peeps.reverse.each do |peep|  %>
-
-    <div class="peep_box">
-      <li>
-        <div class="pic"></div>
-        <p class="name"><%= peep.user.name %></p>
-        <p class="handle"><%= peep.user.handle %></p>
-        <p class="peep"><%= peep.text %></p>
-        <p class="time"><%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %></p>
-      </li>
-    </div>
-
-  <% end %>
+    <% @peeps.reverse.each do |peep|  %>
+      <div class="peep_box">
+        <li>
+          <div class="pic"></div>
+          <p class="name"><%= peep.user.name %></p>
+          <p class="handle"><%= peep.user.handle %></p>
+          <p class="peep"><%= peep.text %></p>
+          <p class="time"><%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %></p>
+        </li>
+      </div>
+    <% end %>
   </ul>
 </section>

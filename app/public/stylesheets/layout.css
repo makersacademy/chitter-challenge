@@ -1,0 +1,59 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: left;
+  background-color: white;
+  color: black;
+  margin: 70px auto;
+  background-color: hsl(0, 0%, 93%);
+}
+
+header {
+  margin: 0px auto;
+  background-color: hsla(258, 96%, 56%, 1);
+  height: 40px;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header > div {
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+  float: left;
+  width: 40%;
+  font-size: 30px;
+  color: white;
+  letter-spacing: 0.03em;
+}
+
+#new_peep {
+  width: 10%;
+  text-align: center;
+}
+
+header p {
+  float: left;
+  margin: 0;
+}
+
+header nav {
+  text-align: right;
+}
+
+header ul {
+	list-style: none;
+  padding-left: 0;
+  margin: 0;
+  margin-right: 3%;
+}
+
+header li {
+  display: inline-block;
+  width: auto;
+	margin-left: 3%;
+	color: grey;
+}
