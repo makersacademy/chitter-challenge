@@ -1,0 +1,10 @@
+<h1> Here are your latest chits! </h1>
+<h2> Do you have nothing better to do with your life? </h2>
+<h3> Seriously, I meant it! Go outside and talk to some real people!!</h3>
+
+
+<ul id= 'chits'>
+  <% @chits.each do |o| %>
+  <li><%= o.id %> <%= o.words %></li>
+<% end %>
+</ul>
