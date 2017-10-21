@@ -12,7 +12,6 @@ end
 
 post "/send_peep" do
   Peep.create(message: params[:message])
-  p Peep.first.created_at.class
   redirect "/"
 end
 
