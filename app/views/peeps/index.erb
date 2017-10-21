@@ -1,0 +1,12 @@
+<h1> Here's what people are saying! </h1>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.name %>
+      (<%= peep.username %>) wrote
+      <%= peep.message %> at
+      <%= peep.time %>
+    </li>
+  <% end %>
+</ul>
