@@ -2,6 +2,9 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require_relative 'models/peep'
+require_relative 'database'
+
+Database.connect
 
 class Chitter < Sinatra::Base
   get '/peeps' do
@@ -14,3 +17,4 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 end
+

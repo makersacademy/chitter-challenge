@@ -1,5 +1,4 @@
 require 'data_mapper'
-require 'dm-postgres-adapter'
 
 class Peep
   include DataMapper::Resource
@@ -9,7 +8,3 @@ class Peep
   property :created_at, DateTime
   property :created_on, Date
 end
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!
