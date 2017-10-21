@@ -1,5 +1,15 @@
-<form action='/sessions/new' method="post">
-  <input type="text" name="email"/>
-  <input type="text" name="password"/>
-  <button type="submit">Log in</button>
-</form>
+<section id="form_wrapper">
+  <form action='/sessions/new' method="post" id="form">
+    <ul>
+      <li>
+        <input type="text" name="email" placeholder="Email">
+      </li>
+      <li>
+        <input type="text" name="password" placeholder="Password">
+      </li>
+      <li>
+        <button type="submit">Log in</button>
+      </li>
+    </ul>
+  </form>
+</section>

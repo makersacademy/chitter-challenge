@@ -9,7 +9,7 @@ def sign_up(args = {})
   fill_in :handle, with: handle
   fill_in :name, with: name
   fill_in :password, with: password
-  click_button 'Register'
+  click_button 'Sign Up!'
 end
 
 def log_in(args)

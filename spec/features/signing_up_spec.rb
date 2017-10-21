@@ -7,7 +7,7 @@ feature 'signing up for chitter' do
     end
     scenario 'I must fill in all fields' do
       visit '/users/new'
-      expect { click_button 'Register' }.to_not change(User, :count)
+      expect { click_button 'Sign Up!' }.to_not change(User, :count)
       expect(current_path).to eq '/users'
       expect(page).to have_content 'Email must not be blank'
       expect(page).to have_content 'Name must not be blank'
