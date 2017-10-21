@@ -2,9 +2,42 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat Alternates', sans-serif;
-  text-align: center;
-  background-color: #aed1fd;
+  text-align: left;
+  background-color: white;
+  color: black;
+  margin: 70px auto;
+  background-color: hsl(0, 0%, 93%);
+}
+
+header {
+  margin: 0px auto;
+  background-color: hsla(258, 96%, 56%, 1);
+  height: 40px;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header > div {
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+  float: left;
+  width: 40%;
+  font-size: 30px;
   color: white;
+  letter-spacing: 0.03em;
+}
+
+#new_peep {
+  width: 10%;
+  text-align: center;
+}
+
+header p {
+  float: left;
+  margin: 0;
 }
 
 header nav {
@@ -13,7 +46,8 @@ header nav {
 
 header ul {
 	list-style: none;
-	padding-left: 0;
+  padding-left: 0;
+  margin: 0;
   margin-right: 3%;
 }
 
@@ -24,4 +58,66 @@ header li {
 	color: grey;
 }
 
-/* transition: border 1s, color 1s; */
+#peep_list_wrapper {
+  padding: 10px;
+  max-width: 700px;
+  margin: auto;
+}
+
+#peep_list {
+  padding: 0;
+}
+
+.peep_box li {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 3px;
+  max-width: 600px;
+  min-height: 100px;
+  padding: 10px;
+  list-style: none;
+  margin: auto;
+  margin-bottom: 20px;
+  text-align: left;
+  overflow: hidden;
+  box-shadow: 0 0 3px #888888;
+}
+
+.peep_box {
+  margin: auto;
+  margin: 0;
+}
+
+.pic {
+  float: left;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 10%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.peep_box p {
+  margin: 0;
+  float: left;
+}
+
+.peep_box .name {
+  font-size: 20px;
+  width: 50%;
+}
+
+.peep_box .handle {
+  font-size: 16px;
+  width: 50%;
+}
+
+.peep_box .peep {
+  font-size: 24px;
+  width: 100%;
+}
+
+.peep_box .time {
+  font-size: 12px;
+  width: 100%;
+}
