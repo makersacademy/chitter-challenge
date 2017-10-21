@@ -1,9 +1,7 @@
-ENV["RACK_ENV"] = "test"
+ENV["RACK_ENV"] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
-require './app/models/post'
-require './app/models/user'
 require './app/app'
 require './spec/features/web_helpers'
 require 'database_cleaner'

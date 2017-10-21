@@ -1,5 +1,4 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
+require_relative '../data_mapper_setup'
 
 # :nodoc:
 class Post
@@ -8,7 +7,3 @@ class Post
   property :id,     Serial
   property :tip,    String
 end
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!
