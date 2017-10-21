@@ -4,11 +4,13 @@ Welcome, <%=  @current_user.name %>
 <ul>
 <% @peeps.reverse.each do |peep|  %>
 
-  <li><%= peep.text %>
-      <%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %>
-      <%= peep.user.name %>
-      <%= peep.user.handle %>
-  </li>
+  <div class="peep_box">
+    <li><%= peep.text %>
+        <%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %>
+        <%= peep.user.name %>
+        <%= peep.user.handle %>
+    </li>
+  </div>
 
 <% end %>
 </ul>

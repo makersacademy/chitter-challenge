@@ -1,11 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="stylesheets/general.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates|Roboto" rel="stylesheet">
+    <title>Chitter</title>
+  </head>
+  <body>
+  <header>
+    <nav>
+      <% if !current_user && request.path_info != '/sessions/new' && request.path_info != '/users/new' %>
+        <ul>
+          <li>
+            <%= erb :'sessions/new' %>
+          </li>
+          <li>
+            <form>
+              <button type="submit" formaction="/users/new" class="session_fields">Sign up</button>
+            </form>
+          </li>
+        </ul>    
+      <% elsif current_user %>
+        <form action="/sessions" method="post">
+          <ul>
+            <li>
+              <input type='hidden' name='_method' value='delete'>
+            </li>
+            <li>
+              <button type="submit" class="session_fields">Log out</button>
+            </li>
+          </ul>
+        </form>
+      <% end %>
+      </nav>
+    </header>
 <% if flash[:notice] %>
 <%= flash[:notice] %>
 <% end %>
-
-<form action="/sessions" method="post">
-  <input type='hidden' name='_method' value='delete'>
-  <button type="submit">Log out</button>
+<% if flash[:errors] %>
+<%= flash[:errors] %>
+<% end %>
+<% if current_user %>
+<form>
+ <button type="submit" formaction="/peeps/new">New Peep</button>
 </form>
+<% end %>
+
+
 
 
 <%= yield %>
+
+  </body>
+</html>

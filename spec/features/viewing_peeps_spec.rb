@@ -9,8 +9,8 @@ feature 'viewing peeps' do
     Peep.create(text: 'added second', posted_on: posted_time, user: user)
     Peep.create(text: 'added third', posted_on: posted_time, user: user)
     visit '/peeps'
-    expect(page.find('li:first-child')).to have_content 'added third'
-    expect(page.find('li:last-child')).to have_content 'added first'
+    expect(page.find('div:first-child')).to have_content 'added third'
+    expect(page.find('div:last-child')).to have_content 'added first'
   end
 
   scenario 'peep shows the time it was posted' do

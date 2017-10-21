@@ -19,7 +19,7 @@ feature 'posting messages to chitter' do
     visit '/peeps/new'
     fill_in :peep, with: text
     click_button 'Post'
-    within 'ul' do
+    within '.peep_box' do
       expect(page).to have_content text
       expect(page).to have_content 'Ainsley'
       expect(page).to have_content 'ainsleybc'

@@ -1,0 +1,27 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: center;
+  background-color: #aed1fd;
+  color: white;
+}
+
+header nav {
+  text-align: right;
+}
+
+header ul {
+	list-style: none;
+	padding-left: 0;
+  margin-right: 3%;
+}
+
+header li {
+  display: inline-block;
+  width: auto;
+	margin-left: 3%;
+	color: grey;
+}
+
+/* transition: border 1s, color 1s; */
