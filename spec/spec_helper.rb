@@ -8,6 +8,7 @@ require 'database_cleaner'
 require './app/models/peep'
 require './app/app'
 require './spec/features/web_helpers'
+require 'date'
 
 Capybara.app = Chitter
 
