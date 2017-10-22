@@ -57,13 +57,13 @@ CRC tables:
 ------
 
 
-|            User                 |--|
+|            User                 | |
 |---------------------------------|--|
 |**Responsibilities** | **Collaborators** |
 | sign in to Chitter | Chitter |
 
-|            Peep                 |
-|---------------------------------|
+|            Peep                 |  |
+|---------------------------------|--|
 |**Responsibilities** | **Collaborators**|
 | post a peep |  
 | display peep time |  
