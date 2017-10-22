@@ -20,11 +20,11 @@ Features:
 ```
 STRAIGHT UP
 
-As a Maker
+X- As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+X - As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
@@ -36,6 +36,14 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
+------------------------------------------------
+
+NOTES ON WEEKEND CHALLENGE
+I used Sinatra, Ruby, HTML, DataMapper, psql for the database and Rackup to conduct TDD and run my feature tests.
+I successfully ran both tests which would allow a user to send a peep on Chitter, view another user's Chitter timeline and see their peeps in descending order. 
+
+
+------------------------------------------------
 HARDER
 
 As a Maker
