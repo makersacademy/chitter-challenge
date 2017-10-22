@@ -2,10 +2,10 @@
   <form action='/sessions/new' method="post" <%= "id='form'" if request.path_info == '/sessions/new' %>>
     <ul>
       <li>
-        <input type="text" name="email" placeholder="Email">
+        <input type="email" name="email" placeholder="Email" required>
       </li>
       <li>
-        <input type="text" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Password" required>
       </li>
       <li>
         <button type="submit">Log in</button>

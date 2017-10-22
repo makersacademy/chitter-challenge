@@ -2,16 +2,16 @@
   <form action="/users" method="post" id="form">
     <ul>
       <li>
-        <input type="text" name="name" id="name" placeholder="Full Name"/>
+        <input type="text" name="name" id="name" placeholder="Full Name" required>
       </li>
       <li>
-        <input type="text" name="handle" id="handle" placeholder="Handle"/>
+        <input type="text" name="handle" id="handle" placeholder="Handle" required>
       </li>
       <li>
-        <input type="text" name="email" id="email"  placeholder="Email"/>
+        <input type="email" name="email" id="email"  placeholder="Email" required>
       </li>
       <li>
-        <input type="text" name="password" id="password"  placeholder="Password"/>
+        <input type="password" name="password" id="password"  placeholder="Password" required>
       </li>
       <li>
         <button type="submit" name="register">Sign Up!</button>

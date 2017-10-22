@@ -36,6 +36,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  box-shadow: 0 1px 3px #888888;
 }
 
 header > div {
@@ -90,16 +91,17 @@ header li {
   width: 80%;
 }
 
-#sessions input[type="text"] {
+#sessions input {
   background-color: transparent;
   border: none;
   border-bottom: 2px solid hsl(257, 90%, 68%);
   height: 20px;
   width: 130px;
   outline: none;
+  color: hsl(257, 90%, 68%);
 }
 
-#sessions input[type="text"]:focus {
+#sessions input:focus {
   border-color: white;
 }
 
