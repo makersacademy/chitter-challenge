@@ -6,11 +6,17 @@
 
   <body>
     <% if current_maker %>
-      <h1>WELCOME <br /><%= current_maker.email %></h1>
-    <% else %>
-      Please Sign up or Sign in
+    <h1>WELCOME
+      <br/><%= current_maker.email %></h1>
+  <% else %>
+    Please Sign up or Sign in
     <% end %>
   </body>
 
-  
+  <form action="/makers/new">
+    <input type="submit" name="submit" value="Sign Up">
+  </form>
+  <form action="/makers">
+    <input type="submit" name="submit" value="Sign In">
+  </form>
 </html>

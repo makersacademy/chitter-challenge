@@ -38,11 +38,16 @@ class Chitter < Sinatra::Base
                      password_confirmation: params[:password_confirmation])
     if @maker.save
       session[:maker_id] = @maker.id
-      redirect '/peeps'
+      redirect '/makers'
     else
-      flash.now[:notice] = 'Please ensure your email is valid and your passwords match'
+      flash.now[:errors] = @maker.errors.full_messages
       erb :'makers/new'
     end
+  end
+
+  get '/makers' do
+    @maker_email = current_maker.email
+    erb :'makers/index'
   end
 
   helpers do
