@@ -22,4 +22,10 @@ feature "When I sign in" do
     expect(page).to have_css("form#post_peep")
     expect(page).to have_css("form#sign_out")
   end
+
+  scenario "the PeepDeck isn't shown unless Peeps have been posted" do
+    sign_in
+    expect(page).not_to have_css("div#peep_deck")
+    expect(page).to have_css("div#no_peeps")
+  end
 end

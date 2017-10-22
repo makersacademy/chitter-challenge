@@ -24,17 +24,21 @@ Got something to Peep about? Then sign in or sign up<br>
 </form>
 <% end %>
 
+<% unless @peep_deck.empty? %>
 <div id="peep_deck">
 <ul>
 <% @peep_deck.each do |peep| %>
 <li> "<%= peep.message %>,"<br>
-  peeped <%= User.get(peep.user_id).username %> at <%= peep.created_at %><br>
+peeped <%= User.get(peep.user_id).username %> at <%= peep.created_at %><br>
 <br>
 Tags:<br>
 <% peep.tags.each do |tag| %>
 <div class="tag_link"><a href="/tags/<%=tag.name[1..-1]%>"><%=tag.name%></a></div><br>
 <% end %>
+<% end %>
 </li>
-<% end unless @peep_deck.empty? %>
 </ul>
 </div>
+<% else %>
+<div id="no_peeps">No one has posted any Peeps. Want to be the first?</div>
+<% end %>
