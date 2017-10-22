@@ -30,5 +30,7 @@ feature "When I tag a Peep" do
     end
     expect(current_path).to eq "/tags/regicide"
     expect(page).to have_content(example_peep_1)
+    click_link "home"
+    expect(current_path).to eq "/"
   end
 end
