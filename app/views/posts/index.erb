@@ -4,7 +4,7 @@
   <ul id='posts'>
     <% @posts.reverse.each do |post| %>
       <li id="tips">
-        <%= post.user.name %> posted the tip:<br>
+        <%= post.user.user_name %> posted the tip:<br>
         <%= post.tip %><br>
         <sub><%= post.time_to_string %></sub>
       </li>

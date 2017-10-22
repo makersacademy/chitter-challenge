@@ -7,8 +7,15 @@ class User
   attr_accessor :password_confirmation
 
   property :id,         Serial
-  property :name,       String
-  property :user_name,  String
+  property :name,       String, required: true,
+                        :messages => {
+                        :presence  => "Please enter your name"
+                        }
+  property :user_name,  String, required: true, unique: true,
+                        :messages => {
+                        :presence  => "Please enter a username",
+                        :is_unique => "Username already taken, please choose another"
+                        }
   property :email,      String, format: :email_address, required: true, unique: true
   property :password_digest,   Text
 

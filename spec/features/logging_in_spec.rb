@@ -8,7 +8,7 @@ feature 'Logging in' do
                 password_confirmation: 'password!')
   end
 
-  scenario 'with correct credentials' do
+  scenario 'I can log in with correct credentials' do
     sign_in(email: user.email,   password: user.password)
     expect(page).to have_content "Welcome, #{user.email}"
   end

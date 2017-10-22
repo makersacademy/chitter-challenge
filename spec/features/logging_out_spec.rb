@@ -8,7 +8,7 @@ feature 'Logging out' do
                 password_confirmation: 'password!')
   end
 
-  scenario 'while being signed in' do
+  scenario 'I can log out while being logged in' do
     sign_in(email: 'david@example.com', password: 'password!')
     click_button 'Sign Out'
     expect(page).to have_content('Goodbye, and stay healthy!')
