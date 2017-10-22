@@ -1,0 +1,56 @@
+body {
+  background-color: rgb(207, 197, 161)
+}
+
+h1 {
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+  font-size: 400%
+}
+
+ul#links {
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+  list-style-position: inside;
+}
+
+.button {
+  border-radius: 25px;
+  background-color: rgb(207, 197, 161);
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  border: 2px solid white;
+  width: 120px;
+	height: 38px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.button:hover {
+  border-radius: 25px;
+  background-color: white;
+  color: rgb(143, 135, 110);
+  border-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+input[type=text] {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Dosis', cursive;
+  width: 250px;
+	height: 30px;
+  border:4px
+  solid rgb(255, 255, 255);
+}
+
+input[type=text]:focus {
+  border-color:rgb(201, 201, 200);
+  outline: none;
+}
+
+.form-actions {
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+}
