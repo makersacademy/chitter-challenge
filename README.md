@@ -1,4 +1,5 @@
-# Chitter (An extremely simplified twitter clone - Makers Weekend challenge)
+# Chitter (An extremely simplified twitter clone - Makers' Weekend challenge)
+demo can be found on https://mormolis-chitter.herokuapp.com
 
 ## Tests and implements the following user stories
 ```
@@ -44,3 +45,8 @@ The test are showing the functionality of the code.
 On the app folder the application_controller.rb sets the routes.
 
 Models Peep and User are responsible for creating relations and manipulating the data stored in.
+
+## Improvements to be made
+- [ ] making use of flash
+- [ ] refactoring the application controller and delegating responsibilities 
+- [ ] Test the password authentication 
