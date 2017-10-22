@@ -65,13 +65,13 @@ Tech
 The Approach:
 ------
 
-* The creation of this app was driven by testing using capybara and rspec
-* Data Mapper and Postgres were used to store, save and recall, the data
-* All posted tips are public but you have to be signed-up and logged-in to post a tip
+* The creation of this app was driven by testing using capybara and rspec.
+* Data Mapper and Postgres were used to store, save and recall, the data.
+* All posted tips are public but you have to be signed-up and logged-in to post a tip.
 * Users sign-up to fitter with their email, password, name and a user name (e.g. sirgregor@theredkeep.com, Viper, The Mountain, sirgregor).
-* The username and email must be unique
-* Tips (posts to fitter) have the name of the user and their user handle
-* Bcrypt was used to secure the passwords
+* The username and email must be unique.
+* Tips (posts to fitter) have the name of the user and their user handle.
+* Bcrypt was used to secure the passwords.
 
 <p align="center"> Some more screenshots!</p>
 <p align="center"><img src='public/signing-up.png' width=800></p>
