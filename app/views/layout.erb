@@ -9,6 +9,9 @@
     <title>Chitter</title>
   </head>
   <body>
+    <% if current_user %>
+      <p id="welcome">Welcome, <%=  @current_user.first_name %></p>
+    <% end %>
     <header>
       <div>
         <form>
@@ -61,9 +64,7 @@
     <%= yield %>
 
 
-     <% if current_user %>
-    <p>Welcome, <%=  @current_user.first_name %></p>
-    <% end %>
+
 <% if flash[:notice] %>
 <%= flash[:notice] %>
 <% end %>

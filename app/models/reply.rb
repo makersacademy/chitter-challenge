@@ -6,6 +6,7 @@ class Reply
 
   property :id, Serial
   property :text, Text
+  property :replied_on, DateTime
   
   belongs_to :peep, :key => true
   belongs_to :user, :key => true

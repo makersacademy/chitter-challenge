@@ -1,5 +1,8 @@
 <section id="peep_list_wrapper">
   <ul id="peep_list">
+    <% if @peeps.empty? %>
+      <p id="empty">Nothing to see here..</p>
+    <% else %>
     <% @peeps.reverse.each do |peep| %>
       <div class="peep_box">
         <li>
@@ -13,10 +16,11 @@
           <p class="time"><%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %></p>
           <% peep.replies.each do |reply| %>
             <p class="reply-text"><%= reply.text %></p>
-            <p class="reply-handle"><%= reply.user.handle %></p>
+            <p class="reply-handle"><%= reply.user.handle %> - <%= reply.replied_on.strftime("%d/%m/%Y %H:%M") %></p>
         <% end %>
         </li>
       </div>
+    <% end %>
     <% end %>
   </ul>
 </section>

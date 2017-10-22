@@ -9,6 +9,11 @@
   padding: 0;
 }
 
+ul {
+	list-style: none;
+  padding-left: 0;
+}
+
 .peep_box li {
   background-color: rgba(255, 255, 255, 1);
   max-width: 600px;
@@ -94,13 +99,29 @@
   text-decoration: none;
   border: 1px solid hsl(0, 0%, 93%);
   background-color: transparent;
-  /* color: hsl(257, 90%, 68%); */
   color: hsl(0, 0%, 93%);
-  /* color: hsla(258, 96%, 56%, 1); */
 }
 
 .peep_box button:hover {
   cursor: pointer;
   background-color: hsl(257, 90%, 68%);
   border: none;
+}
+
+#empty {
+  text-align: center;
+  color: hsl(0, 0%, 28%);
+  font-size: 30px;
+  margin-top: 20%;
+}
+
+#heading-text {
+  text-align: center;
+  color: hsl(0, 0%, 28%);
+  font-size: 30px;
+  margin-top: 8%;
+}
+
+.reply {
+  margin-top: 0;
 }

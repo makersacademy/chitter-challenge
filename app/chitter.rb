@@ -60,7 +60,8 @@ class Chitter < Sinatra::Base
     reply = Reply.create(
       peep: peep, 
       user: current_user, 
-      text: params[:response]
+      text: params[:response],
+      replied_on: DateTime.now
       )
     peep.replies << reply
     peep.save
