@@ -5,6 +5,13 @@
     fitter
   </h1>
 </div>
+<div id='home'>
+  <% unless request.path_info == '/posts' %>
+  <form action='/'>
+    <input type='submit' value='Home' class='button'>
+  </form>
+  <% end %>
+</div>
 <% if current_user %>
   <div id='submit'>
     <form method='post' action='/sessions'>
@@ -12,14 +19,15 @@
       <input type='submit' value='Sign Out' class="button">
     </form>
   </div>
-  <div id='log_out'>
-        <form action='/posts/new'>
-          <input type="submit" value="Add New Tip" class="button">
-        </form>
-  </div>
 <% end %>
-<% unless request.path_info == '/posts' %>
-  <form action='/'>
-      <input type='submit' value='Home' class='button'>
-  </form>
-<% end %>
+<div id='add_tip'>
+  <% if current_user %>
+    <% if request.path_info == '/posts' %>
+     <div id='add_tip'>
+       <form action='/posts/new'>
+         <input type="submit" value="Add New Tip" class="button">
+       </form>
+     </div>
+    <% end %>
+  <% end %>
+</div>
