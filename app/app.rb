@@ -53,25 +53,30 @@ class Chitter < Sinatra::Base
     erb :'users/confirmation'
   end
 
-  # post '/login' do
-  #   user = User.first(email: params[:email])
-  #   if !!user
-  #      if check_user_details(user, params[:password])
-  #        session[:user_id] = user.id
-  #        redirect '/users/confirmation'
-  #      end
-  #   else
-  #     redirect '/users/failed_login'
-  #   end
-  # end
+  post '/login' do
+    user = User.first(email: params[:email])
+    if !!user
+      login(user, params[:password])
+    else
+
+    end
+  end
 
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
 
-    # def check_user_details(user, password)
-    #   user.password_digest == BCrypt::Password.create(password)
-    # end
+    def login(user, password)
+      puts BCrypt::Password.create(user.password_digest)
+      puts 'hello'
+      puts BCrypt::Password.new(BCrypt::Password.create('hello123'))
+      puts 'ehhlo'
+      if user.password == password
+        puts "hello"
+      else
+        puts 'goodbye'
+      end
+    end
   end
 end
