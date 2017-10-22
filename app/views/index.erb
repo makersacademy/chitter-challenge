@@ -1,0 +1,48 @@
+<h1>Chitter: Like Twitter, only chitter</h1>
+
+<div id="user_welcome">Welcome, <%= current_user ? current_user.username : "Stranger" %>!</div>
+<%  if current_user %>
+
+<form id="post_peep" action="/send_peep" method="post">
+<input type="text" name="message" value="Peep Away in Here">
+<button type="submit" value="post">Post Your Peep</button>
+</form>
+
+<form id="sign_out" method="post" action="/sign-out">
+<input type="hidden" name="_method" value="delete">
+<button type="submit" value="Sign Out">Sign Out</button>
+</form>
+
+<% else %>
+Got something to Peep about? Then sign in or sign up<br>
+<form id="sign_in" action="/sign-in">
+<input type="submit" value="Sign In">
+</form>
+
+<form id="sign_up" action="/signup">
+<input type="submit" value="Sign Up">
+</form>
+<% end %>
+
+<% unless @peep_deck.empty? %>
+<div id="peep_deck">
+<ul>
+<% @peep_deck.each do |peep| %>
+<li> "<%= peep.message %>,"<br>
+peeped <%= User.get(peep.user_id).username %> at <%= peep.created_at.strftime("%I:%M%P on %a %d/%m/%y") %><br>
+<br>
+<% unless peep.tags.empty? %>
+<div class="tag_list">
+Tags:<br>
+<% peep.tags.each do |tag| %>
+<div class="tag_link"><a href="/tags/<%=tag.name[1..-1]%>"><%=tag.name%></a></div><br>
+</div>
+<% end %>
+<% end %>
+<% end %>
+</li>
+</ul>
+</div>
+<% else %>
+<div id="no_peeps">No one has posted any Peeps. Want to be the first?</div>
+<% end %>
