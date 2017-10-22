@@ -17,10 +17,6 @@ set :session_secret, 'super secret'
 
   post '/' do
     Chit.create(words: params[:chit])
-    # params[:tag].split.each do |tag|
-    #   link.tags << Tag.first_or_create(tag: tag)
-    # end
-    # link.save
     redirect '/'
   end
 
@@ -37,7 +33,7 @@ set :session_secret, 'super secret'
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
-    end 
+    end
   end
 
   run! if app_file == $0
