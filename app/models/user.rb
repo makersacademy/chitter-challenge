@@ -8,7 +8,7 @@ class User
 
   property :id,       Serial
   property :username, String
-  property :email,    String
+  property :email,    String, required: true
 
     # this will store both the password and the salt
     # It's Text and not String because String holds
@@ -36,6 +36,7 @@ class User
     # read more about it in the documentation
     # http://datamapper.org/docs/validations.html
   validates_confirmation_of :password
+  validates_presence_of :email
 
 end
 

@@ -14,4 +14,8 @@ feature 'User management' do
     expect(page).to have_content 'Password and confirmation password do not match'
   end
 
+  scenario "can't sign up with a blank email" do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
 end
