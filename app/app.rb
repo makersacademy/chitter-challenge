@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
         session[:maker_id] = @maker.id
     redirect to ('/peeps')
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
+      flash.now[:errors] = @maker.errors.full_messages
       erb :'maker/new'
     end
   end
