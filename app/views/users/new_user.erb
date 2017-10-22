@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html>
+  <head>
+      <style>
+        input:invalid {
+          border: 2px solid red;
+        }
+        input:valid {
+          border: 2px solid black;
+        }
+      </style>
+  </head>
+
   <h1> Sign up form </h1>
-  <h2><% if !!@fail %>
-        <%= @fail %>
-      <% end%></h2>
+  <h2><% if !!@user.errors.first %>
+  <%= @user.errors.first[0] %>
+<% end %></h2>
   <form action='/users' method='post'>
-    <label>
-      Email: <input type='text' name='email'>
+    <label for='email'>
+      Email:
     </label>
-    <label>
-      Password: <input type='password' name='password'>
+    <input id='email' type='text' name='email' value='<%=@user.email%>' required pattern='[A-z]+@[A-z]+[.][A-z]+'>
+    <label for'password'>
+      Password:
     </label>
-    <label>
-      Password confirmation: <input type='password' name='password_confirmation'>
+    <input id='password' type='password' name='password' required minlength='8'>
+    <label for='password_confirmation'>
+      Password confirmation:
     </label>
+    <input id='password_confirmation' type='password' name='password_confirmation' required minlength='8'>
     <input type="submit" value="Sign up">
   </form>
 </html>

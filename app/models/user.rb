@@ -8,7 +8,11 @@ class User
   validates_confirmation_of :password
 
   property :id, Serial
-  property :email, String
+  property :email, String, :required => true, :unique => true,
+    :messages => {
+      :presence  => "We need your email address",
+      :is_unique => "We already have that email",
+    }
   property :password_digest, Text
 
   def password=(password)
