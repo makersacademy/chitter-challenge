@@ -35,7 +35,7 @@ I want to log out of Chitter
   * Data Mapper - postgres adapter (ORB)
   * Rake
   * RSpec
-* Capybara
+  * Capybara
 * HTML
 * CSS
 
