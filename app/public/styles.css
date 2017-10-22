@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center; /* !!! */
+  font-family: 'Dosis', sans-serif;
+  background-image: url("https://image.freepik.com/free-psd/abstract-background-design_1297-87.jpg");
+  background-size: 100%;
+  
+  background-attachment: fixed;
+}
+
+#peep_display_wrapper {
+  margin: 10px auto;
+  text-align: left;
+  width: 550px;
+  text-align: center; 
+  background-color: rgba(255,255,255,0.8)
+}
+
+.peep{
+  padding: 10px;  
+}
+
+.peep:hover {
+  background-color: #fff;
+}
+
+.peep_text{
+  font-size: 1.5em;
+}
+
+#new_peep{
+    background-color: rgba(255,255,255, 0.92);
+}
+
+.pbtn {
+  margin: 10px;
+  font-family: 'Dosis', sans-serif;
+  color: #fff;
+  background: rgba(0,0,0,0);
+  border: solid 3px #fff;
+  font-size: 1.5em;
+  padding: 10px 20px 10px 20px;
+  -webkit-border-radius: 50;
+  -moz-border-radius: 50;
+  border-radius: 50px;
+}
+
+.pbtn:hover {
+  border-color: #fff;
+  color: #346392;
+  background-color: #fff
+}
+
+.pbtn:active {
+  border-color: #27496d;
+  color: #27496d;
+}
+
+input[type=text], input[type=password], input[type=email], select {
+
+  display: block;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1em;
+  width: 300px;
+  padding: 12px 20px;
+  margin: auto;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.peep_user, .peep_time {
+  font-style: oblique;
+  color: #444;
+}
+
+
+.text_area {
+  margin: 10px;
+  font-family: 'Dosis', sans-serif;
+  color: #000;
+  background: rgba(0,0,0,0);
+  border: solid 3px #3333;
+  font-size: 1.5em;
+  padding: 10px 20px 10px 20px;
+  -webkit-border-radius: 50;
+  -moz-border-radius: 50;
+  border-radius: 50px;
+  
+}
+h1, h3, a, p{
+  color: #fff !important;
+  text-shadow: 0 0 3px rgb(252, 252, 252), 0 0 5px rgb(172, 172, 255);
+}
+a {
+  text-decoration: underline;
+}
+label {
+  color: #fff;
+  font-size: 1.4em;
+  
+}
+

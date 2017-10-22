@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:200" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+
+  <body>
+    <% if !!@user %>
+    <h3> Hello <%= @user %>! (<a href="/logoff">log off</a>)</h3>
+    <% end %>
+    <%= yield %>  
+  </body>
+</html>
