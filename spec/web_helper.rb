@@ -36,6 +36,7 @@ def sign_in
 end
 
 def post_peep(message = "Example Peep message")
+  visit "/"
   within "form#post_peep" do
     fill_in("message", with: message)
     click_button "post"

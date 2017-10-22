@@ -7,6 +7,7 @@ feature "When I tag a Peep" do
   scenario "I can filter Peeps by tag" do
     example_peep_1 = "Should I murder King Duncan? #decisionsdecisions #regicide"
     example_peep_2 = "Can anyone recommend a good stain remover? #damnedspot"
+    sign_in
     post_peep(example_peep_1)
     post_peep(example_peep_2)
     post_peep("delete this afterwards #regicide")
