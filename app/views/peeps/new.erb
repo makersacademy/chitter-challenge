@@ -1,16 +1,10 @@
 <% if current_user %>
-  <form action="/peeps" method="post">
-  <label for="peep">Peep
-    <input type="text" name="peep" id="peep"/>
-  </label>
-  <label for="handle">Handle
-    <input type="text" name="handle" id="handle"/>
-  </label>
-  <label for="name">Name
-    <input type="text" name="name" id="name"/>
-  </label>
-    <button type="submit">Post</button>
-  </form>
+  <div id="new_peep_wrapper">
+    <form action="/peeps" method="post">
+      <textarea rows="5" type="text" name="peep" id="peep" placeholder="Message.." required></textarea>
+      <button type="submit">Post</button>
+    </form>
+  </div>
 <% else %>
-<%= 'You must be logged in to post a new peep' %>
+  <p>You must be logged in to post a new peep</p>>
 <% end %>

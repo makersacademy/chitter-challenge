@@ -1,0 +1,46 @@
+#new_peep_wrapper {
+  margin: 0 auto;
+  max-width: 700px;
+  margin-top: 15%;
+}
+
+#new_peep_wrapper form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+#new_peep_wrapper textarea {
+  width: 100%;
+  height: 150px; 
+  overflow: auto;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  color: hsla(257, 96%, 56%, 0.74)
+}
+
+#new_peep_wrapper ::-webkit-input-placeholder {
+  color: #bbc9db;
+}
+
+#new_peep_wrapper button {
+  height: 50px;
+  border: none;
+  margin: 0;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 30px;
+  padding: 0;
+  background-color: hsla(258, 96%, 56%, 1);
+  color: white;
+  text-decoration: none;
+  outline: none;
+  width: 50%;
+}
+
+#new_peep_wrapper button:hover {
+  background-color: hsla(257, 96%, 56%, 0.74);
+  border-color: white;
+  cursor: pointer;
+}

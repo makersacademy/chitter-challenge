@@ -5,11 +5,13 @@ def sign_up(args = {})
   password = args.fetch(:password, 'password')
 
   visit '/users/new'
-  fill_in :email, with: email
-  fill_in :handle, with: handle
-  fill_in :name, with: name
-  fill_in :password, with: password
-  click_button 'Sign Up!'
+  within '#form_wrapper' do
+    fill_in :email, with: email
+    fill_in :handle, with: handle
+    fill_in :name, with: name
+    fill_in :password, with: password
+    click_button 'Sign Up!'
+  end
 end
 
 def log_in(args)
