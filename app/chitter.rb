@@ -38,7 +38,7 @@ class Chitter < Sinatra::Base
       posted_on: DateTime.now, 
       user: current_user
     )
-    tags = message.split.select { |w| w.start_with?('@') }
+    tags = message.split.select { |w| w.start_with?('@') }        
     unless tags.empty?
       tags.each do |tag|
         tag = Tag.create(
@@ -57,7 +57,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params[:name], handle: params[:handle], email: params[:email], password: params[:password])
+    user = User.create(
+      name: params[:name],
+      handle: params[:handle],
+      email: params[:email],
+      password: params[:password]
+      )
     session[:user_id] = user.id
     if user.save
       redirect '/peeps'
@@ -68,7 +73,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions/new' do
-    user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(
+      params[:email],
+      params[:password])
     if user
       session[:user_id] = user.id
       redirect '/peeps'
