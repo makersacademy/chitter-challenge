@@ -1,0 +1,19 @@
+<h1> Welcome to Chitter! </h1>
+
+<h2> Here are your Peeps: </h2>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      : <%= peep.content %>
+    </li>
+  <% end %>
+</ul>
+
+<form action='/peeps/new' method='get'>
+  <input type="submit" value="Add a new peep">
+</form>
+
+<form action='/users/new' method='get'>
+  <input type="submit" value="Create a new user">
+</form>

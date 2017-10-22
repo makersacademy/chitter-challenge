@@ -6,13 +6,14 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'launchy'
+gem 'rake'
 gem 'sinatra'
+
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec'
-  gem 'rake'
   gem 'rubocop'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
