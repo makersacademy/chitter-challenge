@@ -5,6 +5,6 @@ class Chit
 
   property :id, Serial
   property :words, String
-  property :created_at, Date
+  property :created_at, Time
 
 end

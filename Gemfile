@@ -12,6 +12,7 @@ gem 'dm-postgres-adapter'
 gem 'database_cleaner'
 gem 'rake'
 gem 'rubocop'
+gem 'bcrypt'
 
 group :test do
   gem 'database_cleaner'
@@ -21,4 +22,5 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'pry'
+  gem 'bcrypt'
 end
