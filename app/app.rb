@@ -9,6 +9,10 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
+  get '/' do
+    erb :index
+  end
+
 
   get '/peep/new' do
     erb :'peeps/new'
@@ -36,7 +40,7 @@ class Chitter < Sinatra::Base
       session[:maker_id] = @maker.id
       redirect '/peeps'
     else
-      flash.now[:notice] = 'Password and confirmation password do not match'
+      flash.now[:notice] = 'Please ensure your email is valid and your passwords match'
       erb :'makers/new'
     end
   end
