@@ -35,9 +35,9 @@ def sign_in
   expect(page.status_code).to eq 200
 end
 
-def post_peep
+def post_peep(message = "Example Peep message")
   within "form#post_peep" do
-    fill_in("message", with: "Example Peep message")
+    fill_in("message", with: message)
     click_button "post"
   end
 end

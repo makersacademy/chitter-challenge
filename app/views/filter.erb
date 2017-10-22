@@ -1,0 +1,12 @@
+<h1 id="title">All Peeps tagged with <%=@tag_filter%>:</h1>
+
+<div id="peep_deck">
+<ul>
+<% @filtered_peep_deck.each do |peep| %>
+<li> Peep: <%= peep.message %> <br>
+Time: <%= peep.created_at %><br>
+Author: <%= User.get(peep.user_id).username %><br>
+</li>
+<% end unless @filtered_peep_deck.empty? %>
+</ul>
+</div>
