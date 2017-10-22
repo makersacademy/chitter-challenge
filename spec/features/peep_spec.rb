@@ -32,4 +32,9 @@ feature "When I post a Peep" do
       expect(page.find('li:nth-child(2)')).to have_content "First Example Peep message"
     end
   end
+  scenario "tags aren't listed if a Peep isn't tagged" do
+    sign_in
+    post_peep
+    expect(page).not_to have_css("div#tag_list")
+  end
 end

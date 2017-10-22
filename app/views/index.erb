@@ -30,11 +30,14 @@ Got something to Peep about? Then sign in or sign up<br>
 <% @peep_deck.each do |peep| %>
 <li> "<%= peep.message %>,"<br>
 peeped <%= User.get(peep.user_id).username %> at <%= peep.created_at.strftime("%I:%M%P on %a %d/%m/%y") %><br>
-<% p peep.created_at%>
 <br>
+<% unless peep.tags.empty? %>
+<div class="tag_list">
 Tags:<br>
 <% peep.tags.each do |tag| %>
 <div class="tag_link"><a href="/tags/<%=tag.name[1..-1]%>"><%=tag.name%></a></div><br>
+</div>
+<% end %>
 <% end %>
 <% end %>
 </li>
