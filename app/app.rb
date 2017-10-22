@@ -84,8 +84,9 @@ class Chitter < Sinatra::Base
 
   helpers do
     def current_user
-     @current_user ||= User.get(session[:current_user_id])
+      @current_user ||= User.get(session[:current_user_id])
     end
+    
     def peeps
       @peeps ||= Peep.all(:order => :created_at.desc)
     end
