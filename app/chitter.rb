@@ -50,6 +50,23 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/peeps/reply/:id' do
+    @peep = Peep.get(params[:id])
+    erb :'peeps/reply'
+  end
+
+  post '/peeps/reply/:id' do
+    peep = Peep.get(params[:id])
+    reply = Reply.create(
+      peep: peep, 
+      user: current_user, 
+      text: params[:response]
+      )
+    peep.replies << reply
+    peep.save
+    redirect '/'
+  end
+
   get '/users/new' do
     erb :'users/new'
   end

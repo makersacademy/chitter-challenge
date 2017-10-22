@@ -11,6 +11,7 @@ class Peep
 
   belongs_to :user
   has n, :tags
+  has n, :replies
   has n, :users, through: :tags
 
 end

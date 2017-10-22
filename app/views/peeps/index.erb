@@ -1,6 +1,6 @@
 <section id="peep_list_wrapper">
   <ul id="peep_list">
-    <% @peeps.reverse.each do |peep|  %>
+    <% @peeps.reverse.each do |peep| %>
       <div class="peep_box">
         <li>
           <div class="pic"><img src="http://lorempixel.com/50/50/people?random=<%= peep.posted_on %>" /></div>
@@ -8,7 +8,16 @@
           <p class="handle">@<%= peep.user.handle %></p>
           <p class="peep"><%= peep.text %></p>
           <p class="time"><%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %></p>
+          <form>
+            <button type="submit" formmethod="get" formaction="/peeps/reply/<%= peep.id %>">Reply</button>
+          </form>
         </li>
+        <% peep.replies.each do |reply| %>
+          <li>
+            <p><%= reply.text %></p>
+            <p><%= reply.user.handle %></p>
+          </li>
+        <% end %>
       </div>
     <% end %>
   </ul>

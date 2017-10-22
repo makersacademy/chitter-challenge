@@ -1,0 +1,11 @@
+<% if current_user %>
+<p><%= @peep.text %></p>
+  <div id="reply_wrapper">
+    <form action="/peeps/reply/<%= @peep.id %>" method="post">
+      <textarea rows="5" type="text" name="response" id="reply" placeholder="Message.." required></textarea>
+      <button type="submit">Post</button>
+    </form>
+  </div>
+<% else %>
+  <p>You must be logged in to reply to a peep</p>>
+<% end %>
