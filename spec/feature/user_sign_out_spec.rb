@@ -10,7 +10,7 @@ feature 'User signs out' do
     sign_in(email: 'test@test.com', password: 'password')
     click_button 'Sign Out'
 
-    expect(page).to have_content('goodbye!')
+    expect(page).to have_css('#message', visible: false, text: 'goodbye!')
     expect(page).not_to have_content('Welcome, test@test.com')
   end
 end

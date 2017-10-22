@@ -1,7 +1,7 @@
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="sidebar_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 class="w3-wide"><b>Peeps</b></h3>
+    <h3 class="w3-wide"><b>Chitter</b></h3>
   </div>
   <% if current_user %>
       <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
@@ -13,9 +13,9 @@
         </div>
         <form method='post' action='/sessions'>
           <input type='hidden' name='_method' value='delete'>
-          <input type='submit' value='Sign Out'>
+          <input type="submit" class="w3-bar-item w3-button" value="Sign Out">
         </form>
-        <a href="#" class="w3-bar-item w3-button">Sign Out</a>
+        <!--<a data-method="delete" data-token="{{csrf_token()}}" data-confirm="Are you sure?" href="/sessions" class="w3-bar-item w3-button">Sign Out</a>-->
       </div>
   <% else %>
       <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">

@@ -1,0 +1,17 @@
+<div id="message">
+  <% if flash[:notice] %>
+      <script type="text/javascript">
+          <% flash.each do |f| %>
+          toastr.success('<%= f[1] %>');
+          <% end %>
+      </script>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+      <script type="text/javascript">
+          <% flash.each do |f| %>
+          toastr['error']('<%= f[1] %>');
+          <% end %>
+      </script>
+  <% end %>
+</div>

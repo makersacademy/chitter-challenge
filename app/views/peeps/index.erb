@@ -1,5 +1,5 @@
 <header class="w3-container w3-xlarge">
-  <p class="w3-left">Your Peeps</p>
+  <p class="w3-left">Your Peeps - <%= current_user.email %></p>
   <p class="w3-right">
     <i id="newPeepBtn" onclick="document.getElementById('newPeep').style.display='block'" class="fa fa-plus"></i>
     <!--<i class="fa fa-search"></i>-->
@@ -17,8 +17,8 @@
             class="w3-bar-item w3-button w3-xlarge w3-right">&times;</span>
       <img src="/images/img_avatar2.png" class="w3-bar-item w3-circle" style="width:85px">
       <div class="w3-bar-item">
-        <span class="w3-medium"><%= peep.created_on %></span><br>
-        <span><%= peep.message %></span>
+        <span class="w3-medium"><%= peep.message %></span><br>
+        <span class="w3-small w3-right"><%= peep.created_at.strftime("%B %d, %Y") %></span>
       </div>
     </li>
   <% end %>

@@ -12,7 +12,7 @@ class User
 
   property :id, Serial
   property :email, String, required: true, unique: true
-
+  property :name, String, required: true
   property :password_digest, Text
 
   has n, :peeps
@@ -31,7 +31,7 @@ class User
     end
   end
 
-  def self.find_by_id(id)
-    first(id: id)
-  end
+  # def self.find_by_id(id)
+  #   first(id: id)
+  # end
 end

@@ -10,6 +10,8 @@ gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
 
+gem 'toastr-rails'
+
 group :test do
   # gem 'cucumber'
   gem 'capybara'

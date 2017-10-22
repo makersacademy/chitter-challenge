@@ -5,6 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="description" content="My attempt at the chitter_challenge"/>
   <link rel="stylesheet" href="/stylesheets/w3.css">
+  <link rel="stylesheet" href="/stylesheets/toastr/toastr.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,23 +15,41 @@
 
   </style>
 </head>
-<body class="w3-content" style="max-width:1200px">
+<body class="w3-content" style="max-width:100%">
 
-<%= partial :sidebar %>
+<% if current_user %>
+  <%= partial :sidebar %>
 
-<%= partial :header %>
+  <%= partial :header %>
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:250px">
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:250px">
 
-  <div class="w3-hide-large" style="margin-top:83px"></div>
+    <div class="w3-hide-large" style="margin-top:83px"></div>
 
-  <%= partial :welcome %>
-  <%= partial :flash %>
+    <%= yield %>
 
-  <%= yield %>
 
-</div>
+  </div>
+<% else %>
+  <style>
+    body, html {
+      height: 100%;
+      color: #777;
+      line-height: 1.8;
+    }
+  </style>
+    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+      <%= yield %>
+    </div>
+
+<% end %>
+
+<script type="text/javascript" src="/javascripts/jquery/jquery-3.2.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/toastr/toastr.js"></script>
 <script type="text/javascript" charset="utf-8" src="/javascripts/chitter.js"></script>
+
+<%= partial :toastr_flash %>
+
 </body>
 </html>

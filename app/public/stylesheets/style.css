@@ -5,3 +5,28 @@
 body, h1, h2, h3, h4, h5, h6, .w3-wide {
     font-family: "Montserrat", sans-serif;
 }
+
+/* Create a Parallax Effect */
+.bgimg-1 {
+    background: no-repeat fixed center;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('/images/parallax1.jpg');
+    min-height: 100%;
+}
+
+/* Sign In/Sign Up card*/
+.sign-card {
+    width: 400px;
+}
+
+/* Center */
+.cn {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
