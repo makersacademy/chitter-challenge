@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <h2>
-    Welcome, <%= @user.email %>
-  </h2>
+  <h2><% if !!current_user %>
+    Welcome, <%= current_user.email %>
+  <% end %></h2>
   <h3> <a href='/feed'>OK</a> </h3>
 
-
+  <h2><a href='/peeps/new'> Peep now or forever hold your peace</a></h2>
 
 </html>

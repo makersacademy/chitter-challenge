@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
+require 'bcrypt'
 require './app/data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -32,19 +33,36 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    User.create(email: params[:user], password: params[:password])
-    session[:user_id] = User.last.id
+    user = User.create(email: params[:email],
+                password: params[:password],
+                password_confirmation: params[:password_confirmation])
+    session[:user_id] = user.id if !!user
     redirect '/users/confirmation'
   end
 
   get '/users/confirmation' do
-    @user = User.last
     erb :'users/confirmation'
   end
 
+  # post '/login' do
+  #   user = User.first(email: params[:email])
+  #   if !!user
+  #      if check_user_details(user, params[:password])
+  #        session[:user_id] = user.id
+  #        redirect '/users/confirmation'
+  #      end
+  #   else
+  #     redirect '/users/failed_login'
+  #   end
+  # end
+
   helpers do
     def current_user
-      @current_user ||= User.find(session[:user_id])
+      @current_user ||= User.get(session[:user_id])
     end
+
+    # def check_user_details(user, password)
+    #   user.password_digest == BCrypt::Password.create(password)
+    # end
   end
 end
