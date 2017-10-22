@@ -15,6 +15,8 @@ class User
 
   property :password_digest, Text
 
+  has n, :peeps
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
@@ -27,5 +29,9 @@ class User
     else
       nil
     end
+  end
+
+  def self.find_by_id(id)
+    first(id: id)
   end
 end

@@ -7,4 +7,6 @@ class Peep
   property :message,    String
   property :created_at, DateTime
   property :created_on, Date
+
+  belongs_to :user
 end

@@ -16,63 +16,20 @@
 </head>
 <body class="w3-content" style="max-width:1200px">
 
-<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-  <div class="w3-container w3-display-container w3-padding-16">
-    <i onclick="sidebar_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 class="w3-wide"><b>Peeps</b></h3>
-  </div>
-  <% if current_user %>
-      <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-        <a onclick="expandPeepMenu()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="expandPeepMnu">
-          Peeps <i class="fa fa-caret-down"></i>
-        </a>
-        <div id="peepSort" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-          <a href="#" class="w3-bar-item w3-button">Recent</a>
-        </div>
-        <a href="#" class="w3-bar-item w3-button">Sign Out</a>
-      </div>
-  <% else %>
-      <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-        <a href="#" id="newUserBtn" onclick="document.getElementById('newUser').style.display='block'" class="w3-bar-item w3-button">Sign up</a>
-        <a href="#" class="w3-bar-item w3-button">Sign In</a>
-      </div>
-  <% end %>
-</nav>
+<%= partial :sidebar %>
 
-<!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-green w3-xlarge">
-  <div class="w3-bar-item w3-padding-24 w3-wide">Peeps</div>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="sidebar_open()"><i class="fa fa-bars"></i></a>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="sidebar_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<%= partial :header %>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:250px">
 
   <div class="w3-hide-large" style="margin-top:83px"></div>
 
-  <% if current_user %>
-      Welcome, <%= current_user.email %>
-  <% end %>
-
-  <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
-  <% end %>
-
-  <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-            <li><%= error %></li>
-        <% end %>
-      </ul>
-  <% end %>
+  <%= partial :welcome %>
+  <%= partial :flash %>
 
   <%= yield %>
 
-  <!-- End page content -->
 </div>
 <script type="text/javascript" charset="utf-8" src="/javascripts/chitter.js"></script>
 </body>

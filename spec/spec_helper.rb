@@ -3,7 +3,8 @@ ENV["RACK_ENV"] = "test"
 require 'capybara/rspec'
 
 require_relative '../app/app'
-require_relative 'web_helper'
+require_relative 'helpers/session'
+require_relative 'helpers/peep'
 
 require 'simplecov'
 require 'simplecov-console'
@@ -19,6 +20,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
+  config.include PeepHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

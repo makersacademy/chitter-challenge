@@ -1,10 +1,8 @@
 feature 'Create peeps' do
 
   scenario 'Post a new peep' do
-    visit '/peeps'
-    find('#newPeepBtn').click
-    fill_in :message, with: 'My very first peep'
-    click_button 'Post'
+    sign_up
+    create_peep('My very first peep')
 
     expect(current_path).to eq '/peeps'
 
