@@ -4,16 +4,14 @@ class Fitter < Sinatra::Base
   end
 
   post '/posts' do
-    post = Post.create(tip: params[:tip], user_id: current_user.id, user_name: current_user.user_name)
-    current_user.posts << post
+    post = Post.create(tip: params[:tip])
+    post.user = current_user
     post.save
-    current_user.save
     redirect '/posts'
   end
 
   get '/posts' do
     @posts = Post.all
-    @user = current_user
     erb :'posts/index', :layout => :'layout'
   end
 end

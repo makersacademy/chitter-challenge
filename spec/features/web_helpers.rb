@@ -22,3 +22,12 @@ def sign_in(email:, password:)
   fill_in :password, with: password
   click_button 'Sign In'
 end
+
+def create_some_tips
+  sign_up
+  click_button 'Add New Tip'
+  fill_in :tip, with: 'Remember to eat your greens!'
+  click_button 'Submit'
+  click_button 'Add New Tip'
+  fill_in :tip, with: 'An apple a day keeps the doctor away'
+end

@@ -4,7 +4,7 @@
   <ul id='posts'>
     <% @posts.reverse.each do |post| %>
       <li id="tips">
-        <%= post.user_name %> posted the tip:<br>
+        <%= post.user.name %> posted the tip:<br>
         <%= post.tip %><br>
         <sub><%= post.time_to_string %></sub>
       </li>
@@ -12,7 +12,7 @@
   </ul>
 </div>
 
-<% if @user %>
+<% if current_user %>
   <div id='new_link'>
     <form action='/posts/new'>
       <input type="submit" value="Add New Tip" class="button">

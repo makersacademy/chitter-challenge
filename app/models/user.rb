@@ -6,8 +6,6 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
-  has n, :posts, :through => Resource
-
   property :id,         Serial
   property :name,       String
   property :user_name,  String
