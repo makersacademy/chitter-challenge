@@ -14,6 +14,40 @@ As usual please start by forking this repo.
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
+My Approach:
+-------
+
+I began by setting up the database environment and the necessary files needed to create this app. I
+then began a test driven approach starting with the second user story. This enabled me to
+effectively create a simple site that contained the basic functionality.
+
+I then began adding in user story one as I felt this was a more complex part of the site which would
+require additional pages. After this I added user story three, the ability for each new peep to
+contain a timestamp.
+
+Finally I added in user story four and gave the site functionality to log-in and store the password
+using BCrypt.
+
+What I would add:
+ - I would style the whole site using CSS to give it a more completed feel.
+ - I would also alter the timestamp so that it was a little more pretty.
+ - I would add in the fucntionality to store the users details and check the log-in details against that.
+ - I would also add the ability to show the name of the user who created the peep next to it.
+
+My test coverage is 100% with only three tests which I think is something I need to look in to and consider moving forward.
+
+Install:
+-------
+
+```
+$ git clone https://github.com/tansaku/chitter_challenge
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
+```
+
 Features:
 -------
 
