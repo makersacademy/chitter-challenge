@@ -3,7 +3,7 @@ feature 'display chits' do
   scenario 'see a chit that has been posted' do
     # binding.pry
     Chit.create(words: 'I really like cheese')
-    visit ('/')
+    visit '/'
 
     expect(page.status_code).to eq 200
 
