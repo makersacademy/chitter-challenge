@@ -20,21 +20,21 @@ SimpleCov.start
 
 RSpec.configure do |config|
 
-  # config.before(:suite) do
+  config.before(:suite) do
   # # Everything in this block runs once before all the tests run
-  # DatabaseCleaner.strategy = :transaction
-  # DatabaseCleaner.clean_with(:truncation)
-  # end
+   DatabaseCleaner.strategy = :transaction
+   DatabaseCleaner.clean_with(:truncation)
+   end
   #
   # # Everything in this block runs once before each individual test
-  # config.before(:each) do
-  # DatabaseCleaner.start
-  # end
+   config.before(:each) do
+   DatabaseCleaner.start
+   end
   #
   # # Everything in this block runs once after each individual test
-  # config.after(:each) do
-  # DatabaseCleaner.clean
-  # end
+   config.after(:each) do
+   DatabaseCleaner.clean
+   end
 
 
   config.after(:suite) do

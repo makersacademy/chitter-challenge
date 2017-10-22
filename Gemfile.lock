@@ -168,6 +168,7 @@ DEPENDENCIES
   data_mapper (= 1.2.0)
   database_cleaner
   dm-postgres-adapter
+  json (~> 1.6)
   rake
   rspec
   rspec-sinatra
