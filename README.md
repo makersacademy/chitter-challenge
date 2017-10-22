@@ -57,8 +57,8 @@ CRC tables:
 ------
 
 
-|            User                 |
-|---------------------------------|
+|            User                 |--|
+|---------------------------------|--|
 |**Responsibilities** | **Collaborators** |
 | sign in to Chitter | Chitter |
 
