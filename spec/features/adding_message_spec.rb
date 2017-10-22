@@ -4,7 +4,7 @@ feature 'Adding message' do
     visit('/')
     click_button('Create message')
     fill_in('message_input', with: "I love Sinatra!")
-    click_on('message_submit')
+    click_on('Go Chitter!')
 
     within('ul#peeps') do
       expect(page).to have_content('I love Sinatra!')
@@ -16,7 +16,7 @@ feature 'Adding message' do
     visit('/')
     click_button('Create message')
     fill_in('message_input', with: "I love Sinatra!")
-    click_on('message_submit')
+    click_on('Go Chitter!')
     time = Time.now
 
     within('ul#peeps') do

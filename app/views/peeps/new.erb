@@ -1,11 +1,15 @@
-<h1> New Message </h1>
+<h3 class="form-text"> New Message </h3>
 
 <form action='message' method='POST' >
+
+  <fieldset class="form-group">
+    <div class="form-group">
   <label for='message'>
-    Message
-    <input type='text' name='message_input' />
+    <input class="form-control" type='text' name='message_input' />
   </label>
-
-  <input type='submit' value='message_submit' >
-
+</div>
+    <div class="form-group ">
+  <input  class="btn btn-primary" type='submit' value='Go Chitter!' >
+  </div>
+</fieldset>
 </form>
