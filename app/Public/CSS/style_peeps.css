@@ -60,4 +60,5 @@ input[type=text] {
 input[type=text]:focus {
   border-color:rgb(201, 201, 200);
   outline: none;
+  height: 38px;
 }

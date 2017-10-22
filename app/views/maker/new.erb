@@ -9,19 +9,19 @@
 
 <form action='/makers' method='post'>
   <label for='name'>
-    Name: <input name='name' type='text' value='<%= @maker.name %>'>
+    Name: <input name='name' type='text' value='<%= @maker.name %>'required>
   </label>
   <label for='username'>
-    Username: <input name='username' type='text' value='<%= @maker.username %>'>
+    Username: <input name='username' type='text' value='<%= @maker.username %>'required>
   </label>
   <label for='email'>
-    Email: <input name='email' type='text' value='<%= @maker.email %>'>
+    Email: <input name='email' type='text' value='<%= @maker.email %>'required>
   </label>
   <label for='password'>
     Password: <input name='password' type='password'>
   </label>
   <label for='password_confirmation'>
-    Password: <input name='password_confirmation' type='password'>
+    Password Confirmation: <input name='password_confirmation' type='password'>
   </label>
   <input type='submit' value='Sign up' class="button">
 </form>
