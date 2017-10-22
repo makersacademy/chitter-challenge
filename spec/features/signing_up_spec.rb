@@ -10,7 +10,7 @@ feature 'signing up for chitter' do
       expect { click_button 'Sign Up!' }.to_not change(User, :count)
       expect(current_path).to eq '/users'
       expect(page).to have_content 'Email must not be blank'
-      expect(page).to have_content 'Name must not be blank'
+      expect(page).to have_content 'name must not be blank'
       expect(page).to have_content 'Handle must not be blank'
     end
     scenario 'I cannot sign up with an invalid email address' do

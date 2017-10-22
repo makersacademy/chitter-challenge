@@ -62,7 +62,7 @@
 
 
      <% if current_user %>
-    <p>Welcome, <%=  @current_user.name %></p>
+    <p>Welcome, <%=  @current_user.first_name %></p>
     <% end %>
 <% if flash[:notice] %>
 <%= flash[:notice] %>

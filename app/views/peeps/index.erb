@@ -4,7 +4,7 @@
       <div class="peep_box">
         <li>
           <div class="pic"><img src="http://lorempixel.com/50/50/people?random=<%= peep.posted_on %>" /></div>
-          <p class="name"><%= peep.user.name %></p>
+          <p class="name"><%= "#{peep.user.first_name} #{peep.user.last_name}" %></p>
           <p class="handle">@<%= peep.user.handle %></p>
           <p class="peep"><%= peep.text %></p>
           <p class="time"><%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %></p>
