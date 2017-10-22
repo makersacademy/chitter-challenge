@@ -17,11 +17,11 @@ feature 'Sharing new tips' do
   end
 
   scenario 'I can see at what time and day a post was made' do
-    Timecop.freeze(time = DateTime.now) do
-      click_button 'Add New Tip'
-      fill_in :tip, with: 'Remember to eat your greens!'
-      click_button 'Submit'
-    end
+    time = DateTime.now
+    click_button 'Add New Tip'
+    fill_in :tip, with: 'Remember to eat your greens!'
+    click_button 'Submit'
+
     within 'div#posts'
     expect(page).to have_content "Created at #{time.strftime("%R")} on #{time.strftime("%d/%-m/%-y")}"
   end
