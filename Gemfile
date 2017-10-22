@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
+gem 'sinatra'
+gem 'data_mapper', '1.2.0'
+gem 'dm-postgres-adapter'
+gem 'json', '~> 1.6'
+
 group :test do
   gem 'cucumber'
   gem 'rspec'
@@ -8,4 +13,7 @@ group :test do
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'rspec-sinatra'
 end

@@ -1,0 +1,10 @@
+<ul id="peeps">
+    <% @peeps.each do |peep| %>
+      <li>
+        Peep: <%= peep.message  %>
+        <br></br>
+        Created by: <%= peep.name %> at <%= peep.created_at %>
+        <br></br>
+      </li>
+    <% end %>
+</ul>
