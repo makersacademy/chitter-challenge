@@ -33,7 +33,7 @@ class User
   def name=(name)
     names = name.split
     self.first_name = names.first
-    self.last_name = names.last
+    self.last_name = names.last if names.count > 1
   end
 
   def self.authenticate(email, password)

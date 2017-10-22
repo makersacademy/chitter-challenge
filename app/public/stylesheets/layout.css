@@ -178,9 +178,7 @@ header li {
   color: white;
 }
 
-#welcome {
-  display: block;
-  float: left;
-  margin-top: 70px;
+#hide {
+  color: transparent;
 }
 

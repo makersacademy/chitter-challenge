@@ -9,9 +9,6 @@
     <title>Chitter</title>
   </head>
   <body>
-    <% if current_user %>
-      <p id="welcome">Welcome, <%=  @current_user.first_name %></p>
-    <% end %>
     <header>
       <div>
         <form>
@@ -62,16 +59,16 @@
       <% end %>
     </header>
     <%= yield %>
-
-
-
-<% if flash[:notice] %>
-<%= flash[:notice] %>
-<% end %>
-<% if flash[:errors] %>
-<%= flash[:errors] %>
-<% end %>
-
-
+    <div id="hide">
+      <% if current_user %>
+        <p>Welcome, <%=  @current_user.first_name %></p>
+      <% end %>
+      <% if flash[:notice] %>
+      <%= flash[:notice] %>
+      <% end %>
+      <% if flash[:errors] %>
+      <%= flash[:errors] %>
+      <% end %>
+    </div>
   </body>
 </html>
