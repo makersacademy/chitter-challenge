@@ -1,14 +1,21 @@
 <h1>Chitter</h1>
 
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
       <div class="message">
         <%= peep.message %>
       </div>
       <div class="time_posted">
-        <%= peep.time_posted %>
+
+        <%= peep.time_posted.strftime("%Y-%m-%d %R") %>
       </div>
     </li>
   <% end %>
 </ul>
+
+<div class="Add_a_new_Peep">
+  <form action='/peeps/new' method='get'>
+    <input type='submit' value='Add a new Peep'>
+  </form>
+</div>
