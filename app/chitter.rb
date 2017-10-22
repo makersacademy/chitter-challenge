@@ -39,15 +39,13 @@ class Chitter < Sinatra::Base
       user: current_user
     )
     tags = message.split.select { |w| w.start_with?('@') }        
-    unless tags.empty?
-      tags.each do |tag|
-        tag = Tag.create(
-          peep: peep, 
-          user: User.first(handle: tag.gsub('@',''))
-        )
-        peep.tags << tag
-        peep.save
-      end
+    tags.each do |tag|
+      tag = Tag.create(
+        peep: peep, 
+        user: User.first(handle: tag.gsub('@',''))
+      )
+      peep.tags << tag
+      peep.save
     end
     redirect '/peeps'
   end
