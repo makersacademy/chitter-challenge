@@ -6,6 +6,9 @@ gem "sinatra-flash"
 gem "sinatra-partial"
 gem "data_mapper"
 gem "dm-postgres-adapter"
+gem "dm-timestamps"
+gem "timecop"
+gem "launchy"
 
 group :test do
   gem "rspec"

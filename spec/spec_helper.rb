@@ -6,6 +6,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'sinatra/flash'
 require './app/models/peep'
+require './app/data_mapper_setup'
 
 Capybara.app = Chitter
 
@@ -17,9 +18,20 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  # Everything in this block runs once before all the tests run
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
+
+  # Everything in this block runs once before each individual test
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  # Everything in this block runs once after each individual test
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
 end
