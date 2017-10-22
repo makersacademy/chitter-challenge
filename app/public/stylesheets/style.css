@@ -19,8 +19,14 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 }
 
 /* Sign In/Sign Up card*/
-.sign-card {
-    width: 400px;
+.sign-in-card {
+    height: 350px;
+    width: 600px;
+}
+
+.sign-up-card {
+    height: 450px;
+    width: 600px;
 }
 
 /* Center */

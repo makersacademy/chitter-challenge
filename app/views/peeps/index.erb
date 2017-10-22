@@ -12,13 +12,13 @@
 
 <ul id="peeps" class="w3-ul">
   <% @peeps.each do |peep| %>
-    <li class="w3-bar">
+    <li class="w3-bar w3-large">
       <span onclick="this.parentElement.style.display='none'"
             class="w3-bar-item w3-button w3-xlarge w3-right">&times;</span>
-      <img src="/images/img_avatar2.png" class="w3-bar-item w3-circle" style="width:85px">
-      <div class="w3-bar-item">
+      <img src="/images/img_avatar2.png" class="w3-bar-item w3-circle" style="width:95px">
+      <div class="w3-bar-item w3-padding-16">
         <span class="w3-large"><%= peep.message %></span><br>
-        <span class="w3-medium w3-right"><%= peep.created_at.strftime("%B %d, %Y") %></span>
+        <span class="w3-small w3-right"><%= peep.created_at.strftime("%B %d, %Y at %I:%M%p") %></span>
       </div>
     </li>
   <% end %>

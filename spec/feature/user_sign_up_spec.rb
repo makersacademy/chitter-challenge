@@ -30,7 +30,7 @@ feature 'User sign up' do
 
   scenario 'Sign up as a new user' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, peep1@peeps.com')
+    expect(page).to have_content('Test Person')
     expect(User.first.email).to eq('peep1@peeps.com')
   end
 end
