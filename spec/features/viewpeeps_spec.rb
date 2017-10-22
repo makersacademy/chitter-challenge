@@ -9,9 +9,10 @@ feature 'show all peeps in descending order' do
     end
 
     scenario 'I want to see the time a peep is posted' do
+      t = Time.now
       visit '/peeps/new'
-      fill_in :message, with: "What\'s the time Mr Wolf?"
+      # fill_in :message, with: "What\'s the time Mr Wolf?"
       click_button "Add peep"
-      expect(page).to have_content "What\'s the time Mr Wolf?"
+      expect(page).to have_content t.strftime("%H:%M %d %B %Y")
     end
   end

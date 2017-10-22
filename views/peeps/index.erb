@@ -5,6 +5,7 @@
   <li>
 
   <%= peep.message %>
+  Time: <%= (peep.created_at).strftime("%H:%M %d %B %Y") %>
   </li>
   <% end %>
 </ul>
