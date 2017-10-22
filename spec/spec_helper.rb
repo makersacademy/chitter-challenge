@@ -18,7 +18,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-
 RSpec.configure do |config|
   config.include SessionHelpers
   # Everything in this block runs once before all the tests run

@@ -10,6 +10,7 @@ gem "dm-timestamps"
 gem "timecop"
 gem "launchy"
 gem 'bcrypt'
+gem 'sinatra-partial'
 
 group :test do
   gem "rspec"

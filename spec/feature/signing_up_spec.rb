@@ -17,10 +17,9 @@ feature 'sign up' do
   end
 
 
-    scenario 'I cannot sign up with an existing email' do
-      sign_up
-      expect { sign_up }.to_not change(Maker, :count)
-      expect(page).to have_content('Email is already taken')
+  scenario 'I cannot sign up with an existing email' do
+    sign_up
+    expect { sign_up }.to_not change(Maker, :count)
+    expect(page).to have_content('Email is already taken')
   end
-
 end
