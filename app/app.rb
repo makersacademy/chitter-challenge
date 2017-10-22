@@ -42,6 +42,21 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/sessions/new' do
+  erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    maker = Maker.authenticate(params[:email], params[:password])
+       if maker
+         session[:maker_id] = maker.id
+         redirect to('/peeps')
+       else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+  end
+end
+
   helpers do
     def current_maker
       @current_maker ||= Maker.get(session[:maker_id])

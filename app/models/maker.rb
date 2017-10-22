@@ -13,14 +13,15 @@ class Maker
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
-  def password=(password)
-      self.password_digest = BCrypt::Password.create(password)
-    end
-
     validates_confirmation_of :password
 
     def password=(password)
       @password = password
       self.password_digest = BCrypt::Password.create(password)
     end
+
+    def self.authenticate(email, password)
+    first(email: email)
+    end
+
 end
