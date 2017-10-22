@@ -3,7 +3,6 @@ body {
   margin: 0;
   font-family: 'Montserrat Alternates', sans-serif;
   text-align: left;
-  background-color: white;
   color: black;
   margin: 80px auto;
   background-color: hsl(0, 0%, 93%);
@@ -22,6 +21,10 @@ body {
   color: white;
   text-decoration: none;
   outline: none;
+}
+
+#dot {
+  color: hsl(257, 90%, 68%);
 }
 
 #home_button:hover {
@@ -64,7 +67,7 @@ header > div {
 }
 
 #new_peep button {
-  background-color: white;
+  background-color: hsl(257, 90%, 68%);
   width: 60px;
   height: 60px;
   padding: 0;
@@ -75,6 +78,7 @@ header > div {
 
 #new_peep button:hover {
   cursor: pointer;
+  background-color: white;
 }
 
 #new_peep button div {
@@ -100,7 +104,6 @@ header > div {
 #new_peep .bottom {
   margin-bottom: 0;
 }
-
 
 header p {
   float: left;

@@ -38,6 +38,10 @@
   margin-bottom: 10px;
 }
 
+.pic img {
+  border-radius: 10%;
+}
+
 .peep_box p {
   margin: 0;
   float: left;
@@ -51,9 +55,14 @@
 .peep_box .handle {
   font-size: 16px;
   width: 50%;
+  color: grey;
 }
 
 .peep_box .peep {
+  color: hsl(0, 0%, 28%);
+  padding-bottom: 3px;
+  border-bottom: 2px solid hsl(0, 0%, 93%);
+  margin-bottom: 3px;
   font-size: 24px;
   width: 100%;
 }
@@ -61,4 +70,5 @@
 .peep_box .time {
   font-size: 12px;
   width: 100%;
+  color: grey;
 }
