@@ -23,4 +23,5 @@ feature "When I sign in" do
     expect(page).not_to have_css("div#peep_deck")
     expect(page).to have_css("div#no_peeps")
   end
+
 end
