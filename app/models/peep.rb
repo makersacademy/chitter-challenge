@@ -4,8 +4,6 @@ require 'dm-postgres-adapter'
 require 'dm-core'
 require 'dm-timestamps'
 
-
-
 class Peep
   include DataMapper::Resource
 

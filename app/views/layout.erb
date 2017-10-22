@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href='/css/bootstrap.css' rel='stylesheet' >
+    <link href='/css/bootstrap.css' rel='stylesheet'>
 
-    <title>Chitter </title>
+    <title>Chitter
+    </title>
 
   </head>
 
-
   <body>
-<div class="container">
-  <br>
-    <div class="display-4 text-left"  >  Welcome to   Chitter ! </div>
-    <img class="img-fluid rounded-circle" src="/images/bird.png"
-    alt="bird picture" >
-<br>
-<style>
-  img {
-  
-    width: 180px;
-    float: right;
-  }
+    <div class="container">
+      <br>
+      <div class="display-4 text-left">
+        Welcome to Chitter !
+        <% if current_user %>
+        Nice to see you,
+        <%= current_user.first_name %>
+        !
+        <% end %></div>
+      <img class="img-fluid rounded-circle" src="/images/bird.png" alt="bird picture">
+      <br>
+      <style>
+        img {
 
-  body {
-    background-color: #e6f2ff;
-  }
-</style>
-  <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
-</div>
-<script src='/js/bootstrap.min.js'></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+          width: 200px;
+          float: right;
+        }
 
-<script src="js/bootstrap.min.js"></script>
+        body {
+          background-color: #e6f2ff;
+        }
 
-</body>
+      </style>
+
+      <%= yield %>
+      <!-- this then yields to the view which has been called by your controller -->
+    </div>
+    <script src='/js/bootstrap.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
 </html>
