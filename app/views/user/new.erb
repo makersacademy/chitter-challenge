@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head> <%= erb :'head' %> </head>
+<div style="margin:auto;width:70%;padding: 50px;text-align: center;">
+<form action="/users/new" method="post" >
+  <input type="text" name="username" placeholder="Username">
+  <br />
+  <br />
+  <input type="text" name="email" placeholder="Email">
+  <br />
+  <br />
+  <input type="text" name="password" placeholder="Password">
+  <br />
+  <br />
+  <div class="form-actions">
+   <input type="submit" value="Sign up!">
+ </div>
+ </form>
+</div>
+</html>

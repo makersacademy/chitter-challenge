@@ -8,6 +8,12 @@ h1 {
   font-size: 400%
 }
 
+h2 {
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+  font-size: 300%
+}
+
 ul#links {
   font-family: 'Dosis', sans-serif;
   text-align: center;

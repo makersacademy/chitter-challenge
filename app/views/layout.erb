@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head> <%= erb :'head' %> </head>
+<div style="margin:auto;width:70%;padding: 50px;text-align: center;">
+
+  <body>
+    <% if current_user %>
+    <h1>  Welcome to Chitter, <%= current_user.username %></h1>
+    <% end %>
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</div>
+</html>
