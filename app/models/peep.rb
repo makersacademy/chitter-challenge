@@ -5,6 +5,7 @@ class Peep
   property :message, String, length: 140
   property :created_at, DateTime
 
-  #belongs_to :user
+  belongs_to :user
+  
   has n, :tags, :through => Resource
 end

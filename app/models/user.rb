@@ -11,7 +11,7 @@ class User
   property :email, String
   property :password_digest, Text
 
-  #has n, :peeps
+  has n, :peeps
 
   def password=(password)
     @password = password

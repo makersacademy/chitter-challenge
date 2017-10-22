@@ -7,10 +7,7 @@ feature "When I post a Peep" do
   scenario "I can see it displayed on the PeepDeck" do
     sign_in
 
-    within "form#post_peep" do
-      fill_in("message", with: "Example Peep message")
-      click_button "post"
-    end
+    expect { post_peep }.to change(Peep, :count).by(1)
 
     expect(current_path).to eq "/"
     expect(page.status_code).to eq 200
