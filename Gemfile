@@ -7,6 +7,7 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'timecop'
 
 group :test do
   gem 'capybara'
