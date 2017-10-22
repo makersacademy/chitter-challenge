@@ -10,10 +10,10 @@ gem 'pg'
 group :test do
   gem 'capybara'
   gem 'cucumber'
+  gem 'database_cleaner'
   gem 'rake'
   gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
-  gem 'database_cleaner'
 end
