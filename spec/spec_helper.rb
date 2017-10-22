@@ -4,6 +4,7 @@ require 'capybara'
 require 'capybara/rspec'
 require_relative '../app/app.rb'
 require 'rspec'
+require_relative '../app/models/user.rb'
 
 Capybara.app = Chitter
 

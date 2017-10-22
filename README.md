@@ -74,7 +74,7 @@ Database Structure:
 
 Table: user
 
-| id | name |
+| id | user |
 |----|------|
 | 1  | 'Bella' |
 
