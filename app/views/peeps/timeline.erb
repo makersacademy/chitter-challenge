@@ -15,6 +15,12 @@
   <input type="hidden" >
    <input type="submit" value="New peep">
  </form>
+ <% if current_user %>
+ <form action="/users/new" method="get" >
+   <input type="hidden" >
+    <input type="submit" value="Sign up">
+  </form>
+  <% end %>
 </div>
 </div>
 </html>
