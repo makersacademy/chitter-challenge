@@ -1,4 +1,8 @@
 class Fitter < Sinatra::Base
+  get '/' do
+    redirect '/posts'
+  end
+
   get '/posts/new' do
     erb :'posts/new'
   end

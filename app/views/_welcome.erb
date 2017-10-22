@@ -1,9 +1,3 @@
 <% if current_user %>
-  Welcome, <%= current_user.email %>!
-  <div ='log_out'>
-    <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign Out' class="button">
-    </form>
-  </div>
+  Welcome, <%= current_user.user_name %>!
 <% end %>

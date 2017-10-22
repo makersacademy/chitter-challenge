@@ -1,21 +1,28 @@
 <%= erb :header %>
 
+<% if !current_user %>
+  <div id='sign_up'>
+    <form action='/users/new'>
+      <input type='submit' value='Sign Up' class="button">
+    </form>
+  </div>
+  <div id='sign_in'>
+        <form action='/sessions/new'>
+          <input type="submit" value="Sign In" class="button">
+        </form>
+  </div>
+<% end %>
 <div id='posts'>
   <ul id='posts'>
     <% @posts.reverse.each do |post| %>
-      <li id="tips">
-        <%= post.user.user_name %> posted the tip:<br>
-        <%= post.tip %><br>
-        <sub><%= post.time_to_string %></sub>
-      </li>
+      <div id='tips'>
+        <li id='tips'>
+          <span class='username'><%= post.user.user_name %></span> posted the tip:<br>
+          <%= post.tip %><br>
+          <sub><span class='time'><%= post.time_to_string %></span></sub>
+        </li>
+      </br><br>
+      </div>
     <% end %>
   </ul>
 </div>
-
-<% if current_user %>
-  <div id='new_link'>
-    <form action='/posts/new'>
-      <input type="submit" value="Add New Tip" class="button">
-    </form>
-  </div>
-<% end %>

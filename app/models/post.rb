@@ -1,4 +1,4 @@
-require_relative '../data_mapper_setup'
+require 'data_mapper'
 require 'dm-timestamps'
 
 # :nodoc:

@@ -1,15 +1,25 @@
 body {
-  background-color: rgb(74, 127, 226);
+  background-image: url("https://static1.squarespace.com/static/540e387ce4b09b2dbb2d7a3d/t/552ef36be4b0bd2fafcdb895/1429140339574/gradient-background_services-01.png?format=1500w");
   color: white;
   font-family: 'Roboto Slab', sans-serif;
-  text-align: center
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1 {
   font-family: 'Roboto Slab', sans-serif;
   font-weight: bold;
   text-align: center;
-  font-size: 400%;
+  font-size: 500%;
+}
+
+.username {
+  color: rgb(230, 41, 121);
+}
+
+.time {
+  color: rgb(247, 220, 58);
 }
 
 ul#posts {
@@ -22,31 +32,64 @@ ul#posts {
 
 li#tips {
   padding-top: 10px;
+  background-color: rgba(0,0,0,.1);
+  border-radius: 5px;
+  color: white;
   padding-bottom: 10px;
 }
 
 div#logo {
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  -webkit-mask-box-image: url(https://image.flaticon.com/icons/png/512/34/34470.png);
-}
+  width: 67px;
+  height: 67px;
+  display: inline-block;
+  text-align: left;
+  -webkit-mask-box-image: url(https://cdn4.iconfinder.com/data/icons/hotel-facilities-1/512/gym-512.png);
+  }
 
 div#posts {
-  background-color: white;
-  border-radius: 5px;
+  /*background-color: white;
+  border-radius: 5px;*/
   width: 40%;
+  height: 400px;
   margin: 0 auto;
+  padding-right: 20px;
+  overflow: scroll;
+  opacity: 0.8;
 }
 
-div#new_link {
+div#submit {
+  display: inline-block;
+  text-align: center;
+  padding-right: 10px;
+  padding-bottom: 10px
+}
+
+div#log_out {
+  display: inline-block;
+  text-align: center;
+}
+
+div#sign_up {
+  display: inline-block;
+  text-align: center;
+  padding-right: 10px;
+  padding-bottom: 10px
+}
+
+div#sign_in {
+  display: inline-block;
+  text-align: center;
+}
+
+div#home {
+  display: inline-block;
   text-align: center;
 }
 
 .button {
-  background-color: white;
+  background-color: transparent;
   font-family: 'Roboto Slab', sans-serif;
-  color: rgb(74, 127, 226);
+  color: white;
   border: 2px solid white;
   width: 120px;
   height: 40px;
@@ -57,9 +100,8 @@ div#new_link {
 }
 
 .button:hover {
-  background-color: rgb(74, 127, 226);
+  background-color: rgba(0,0,0,.1);
   color: white;
-  border-color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
