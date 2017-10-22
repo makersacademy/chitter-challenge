@@ -7,4 +7,9 @@ feature 'User management' do
     expect(page).to have_content "Welcome to Chitter, Lucas"
     expect(User.first.username).to eq 'Lucas'
   end
+
+  scenario 'checks passwords match' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  end
+
 end

@@ -31,12 +31,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'user/new'
   end
 
   post '/users/new' do
     @user = User.create(username: params[:username],
-                        email: params[:email])
+                        email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
     session[:user_id] = @user.id
     redirect '/peeps'
   end
