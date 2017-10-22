@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/css/style_peeps.css">
+    <link rel="stylesheet" href="/css/style_peeps.css">
 
   </head>
 
-<h1>Please sign up</h1>
+  <h1>Please sign up</h1>
 
-<form action='/makers' method='post'>
-  <label for='name'>
-    Name: <input name='name' type='text' value='<%= @maker.name %>'required>
-  </label>
-  <label for='username'>
-    Username: <input name='username' type='text' value='<%= @maker.username %>'required>
-  </label>
-  <label for='email'>
-    Email: <input name='email' type='email' value='<%= @maker.email %>'required>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <label for='password_confirmation'>
-    Password Confirmation: <input name='password_confirmation' type='password'>
-  </label>
-  <input type='submit' value='Sign up' class="button">
-</form>
+  <form action='/makers' method='post'>
+    <label for='name'>
+      Name:
+      <input name='name' type='text' value='<%= @maker.name %>' required>
+    </label>
+    <label for='username'>
+      Username:
+      <input name='username' type='text' value='<%= @maker.username %>' required>
+    </label>
+    <label for='email'>
+      Email:
+      <input name='email' type='email' value='<%= @maker.email %>' required>
+    </label>
+    <label for='password'>
+      Password:
+      <input name='password' type='password'>
+    </label>
+    <label for='password_confirmation'>
+      Password Confirmation:
+      <input name='password_confirmation' type='password'>
+    </label>
+    <input type='submit' value='Sign up' class="button">
+  </form>

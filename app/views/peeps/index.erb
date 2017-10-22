@@ -1,18 +1,17 @@
-
-<h1> Here's the peeps! </h1>
+<h1>
+  Here's the peeps!
+</h1>
 
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
-    <li>
-      <%= peep.name %>
-      (<%= peep.username %>) wrote
-      '<%= peep.message %>' at
-      <%= peep.time %>
-    </li>
+  <li>
+    <%= peep.name %>
+    (<%= peep.username %>) wrote '<%= peep.message %>' at
+    <%= peep.time %>
+  </li>
   <% end %>
 </ul>
 
-
 <form action='/peeps/new' method='get'>
-<input type='submit' value='Write a Peep'class="button">
+  <input type='submit' value='Write a Peep' class="button">
 </form>

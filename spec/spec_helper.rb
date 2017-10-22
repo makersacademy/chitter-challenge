@@ -6,7 +6,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require './app/models/peep'
 require './app/app'
-require 'web_helper'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
@@ -38,5 +38,7 @@ end
 config.after(:each) do
   DatabaseCleaner.clean
 end
+
+config.include SessionHelpers
 
 end
