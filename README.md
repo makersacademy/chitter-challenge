@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/haletothewood/Fitter.svg?branch=master)](https://travis-ci.org/haletothewood/Fitter)
+
 Chitter Challenge
 =================
 
