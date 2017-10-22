@@ -2,10 +2,8 @@ require 'peep_deck'
 
 describe PeepDeck do
 
-subject(:peep_deck) { described_class.new }
-let (:posted_peeps) { double(:posted_peeps,
-                              any?: true,
-                              all: [{ created_at: 2 }, { created_at: 3 }, { created_at: 1 }]) }
+  subject(:peep_deck) { described_class.new }
+  let (:posted_peeps) { double(:posted_peeps, any?: true, all: [{ created_at: 2 }, { created_at: 3 }, { created_at: 1 }]) }
 
   describe "#display" do
     it "returns an array of Peeps in reverse chronological order" do

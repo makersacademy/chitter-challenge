@@ -355,8 +355,8 @@ Style/NonNilCheck:
   Enabled: false
 Style/NumericLiteralPrefix:
   Enabled: false
-Style/OpMethod:
-  Enabled: false
+# Style/OpMethod:
+#   Enabled: false
 Style/OptionHash:
   Enabled: false
 Style/OptionalArguments:

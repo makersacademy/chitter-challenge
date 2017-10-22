@@ -25,11 +25,10 @@ feature "Signing out" do
     expect(current_path).to eq "/goodbye"
     expect(page.status_code).to eq 200
     expect(page).to have_content("Goodbye!")
-
     click_link "return"
     expect(current_path).to eq "/"
     expect(page.status_code).to eq 200
     expect(page).not_to have_content("Welcome, LadyMacker123!")
     expect(page).to have_content("Welcome, Stranger!")
-end
+  end
 end
