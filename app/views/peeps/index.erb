@@ -2,7 +2,11 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
   <li>
-    <%= peep.content %>    <br />peeped at:<%= peep.time_stamp %>
+    <%= peep.content %>
+    <br/>peeped at:     <%= peep.time_stamp %>
+    <% end %>
   </li>
-  <% end %>
 </ul>
+<form action="/peep/new">
+  <input type="submit" name="submit" value="Post a Peep!">
+</form>

@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bookmark Manager</title>
-  </head>
+<head>
+  <title>CHITTER</title>
+</head>
 
-  <body>
-    <% if current_maker %>
-    <h1>WELCOME
-      <br/><%= current_maker.email %></h1>
-  <% else %>
-    Please Sign up or Sign in
-    <% end %>
-  </body>
-
-<form action="/peeps">
-  <input type="submit" name="submit" value="View Peeps">
-</form>
+<body>
+<h1>WELCOME BACK TO CHITTER</h1>
 <form action="/peep/new">
   <input type="submit" name="submit" value="Post a Peep!">
 </form>
-<form action="/">
-  <input type="submit" name="submit" value="Sign Out">
+<form action="/peeps">
+  <input type="submit" name="submit" value="View Peeps">
 </form>
+
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>

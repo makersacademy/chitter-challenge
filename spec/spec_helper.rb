@@ -7,7 +7,7 @@ require 'database_cleaner'
 require 'sinatra/flash'
 require './app/models/peep'
 require './app/data_mapper_setup'
-require_relative './feature/web_helpers'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
@@ -18,7 +18,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+
 RSpec.configure do |config|
+  config.include SessionHelpers
   # Everything in this block runs once before all the tests run
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

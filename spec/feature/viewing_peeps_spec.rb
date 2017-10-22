@@ -1,7 +1,6 @@
 require "timecop"
 
 feature 'viewing' do
-
   scenario 'I want to see what time a peep was made' do
 
     Timecop.freeze do
@@ -13,6 +12,5 @@ feature 'viewing' do
       end
     end
   end
-
 
 end
