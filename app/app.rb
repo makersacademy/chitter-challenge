@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require './app/models/peep'
+require './app/data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
@@ -18,5 +19,4 @@ class Chitter < Sinatra::Base
     message: params[:message], time: Time.new.strftime("%I:%M%p"))
     redirect '/peeps'
   end
-
 end
