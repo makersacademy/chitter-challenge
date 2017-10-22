@@ -3,13 +3,13 @@ ruby '2.4.0'
 
 gem 'capybara'
 gem 'data_mapper'
+gem 'dm-core'
 gem 'dm-postgres-adapter'
+gem 'dm-timestamps'
 gem 'rack'
 gem 'rake'
 gem 'rspec'
 gem 'sinatra'
-gem 'dm-core'
-gem 'dm-timestamps'
 
 group :test do
   gem 'cucumber'
