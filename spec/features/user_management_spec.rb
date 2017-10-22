@@ -10,6 +10,8 @@ feature 'User management' do
 
   scenario 'checks passwords match' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq('/users/new') # current_path is a helper provided by Capybara
+    expect(page).to have_content 'Password and confirmation password do not match'
   end
 
 end

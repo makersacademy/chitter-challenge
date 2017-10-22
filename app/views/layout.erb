@@ -7,6 +7,8 @@
     <% if current_user %>
     <h1>  Welcome to Chitter, <%= current_user.username %></h1>
     <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'> <%= flash[:notice] %></div><% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
 </div>

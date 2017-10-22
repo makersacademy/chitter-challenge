@@ -3,10 +3,10 @@
 <head> <%= erb :'head' %> </head>
 <div style="margin:auto;width:70%;padding: 50px;text-align: center;">
 <form action="/users/new" method="post" >
-  <input type="text" name="username" placeholder="Username">
+  <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
   <br />
   <br />
-  <input type="text" name="email" placeholder="Email">
+  <input type="text" name="email" placeholder="Email" value="<%= @user.email %>">
   <br />
   <br />
   <input type="text" name="password" placeholder="Password">
