@@ -10,7 +10,7 @@ class Fitter < Sinatra::Base
       redirect '/posts'
     else
       flash.now[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new', :layout => :'layout'
+      erb :'sessions/new', :layout => :layout
     end
   end
 
