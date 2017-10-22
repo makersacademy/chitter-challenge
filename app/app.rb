@@ -1,11 +1,12 @@
- ENV['RACK_ENV'] ||= 'development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'data_mapper_set_up'
 
 class Chitter < Sinatra::Base
-enable :sessions
-set :session_secret, 'super secret'
+  enable :sessions
+  set :session_secret, 'super secret'
+  
   get '/' do
     @chits = Chit.all
     erb(:index)
