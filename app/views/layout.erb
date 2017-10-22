@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Chitter User </title>
+    <link rel="stylesheet" type="text/css" href="<%= url('/layout.css') %>" >
+  </head>
+
+  <body>
+    <% if current_user %>
+    <h4> Hello <%= current_user.email %> </h4>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

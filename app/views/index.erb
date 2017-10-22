@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Chitter </title>
+    <link rel="stylesheet" type="text/css" href="<%= url('/index.css') %>" >
+  </head>
+
+<body>
+
+<h1> Here are your latest chits! </h1>
+<h2> Do you have nothing better to do with your life? </h2>
+<h3> Seriously, I meant it! Go outside and talk to some real people!!</h3>
+
+<% @chits.reverse! %>
+<ul id= 'chits'>
+  <% @chits.each do |o| %>
+  <li><%= o.id %> <%= o.words %> <%= o.created_at %></li>
+<% end %>
+</ul>
+
+<div class = "button_holder">
+  <a href='/add'><button type="button"> Add a new chit to your chatter</button></a>
+</div>
+
+</body>
+
+</html>
