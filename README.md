@@ -20,6 +20,8 @@ Note that you will need postgreSQL installed.
 
 This app is hosted on Heroku and can be accessed by clicking [here](https://chitter-app2468.herokuapp.com/).
 
+This short [screencast video](https://www.youtube.com/watch?v=CgpXGvxU8bo&feature=youtu.be&hd=1) shows the app in action.
+
 ## Technologies used
 
 * Ruby
