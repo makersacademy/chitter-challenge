@@ -1,8 +1,8 @@
-<h2>Your peeps:</h2>
+<h2>Peeps:</h2>
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
   <li>
-    <%= peep.content %>    <%= peep.time_stamp %>
+    <%= peep.content %>    <br />peeped at:<%= peep.time_stamp %>
   </li>
   <% end %>
 </ul>

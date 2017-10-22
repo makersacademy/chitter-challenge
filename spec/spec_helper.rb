@@ -7,6 +7,7 @@ require 'database_cleaner'
 require 'sinatra/flash'
 require './app/models/peep'
 require './app/data_mapper_setup'
+require_relative './feature/web_helpers'
 
 Capybara.app = Chitter
 

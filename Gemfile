@@ -9,6 +9,7 @@ gem "dm-postgres-adapter"
 gem "dm-timestamps"
 gem "timecop"
 gem "launchy"
+gem 'bcrypt'
 
 group :test do
   gem "rspec"

@@ -1,0 +1,10 @@
+<form action="/makers" method="post">
+  <input type="text" name="email" id="emailAddress" placeholder="email" required email>
+  <input type="password" name="password" id="password" placeholder="Password:">
+  <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm password:">
+  <input type="submit" name="submit" value="Sign Up">
+</form>
+
+<% if flash[:notice] %>
+<div id='notice'><%= flash[:notice] %></div>
+<% end %>
