@@ -12,6 +12,16 @@ feature 'Sign up' do
     expect(page).to have_content 'We already have that email'
   end
 
+  scenario 'I want the user to have to enter an email address' do
+    sign_up(email: nil)
+    expect(page).to have_content 'We need your email address'
+  end
+
+  scenario 'I want users to have to use valid email addresses' do
+    sign_up(email: 'invalid@d')
+    expect(page).to have_content "Doesn't look like an email address to me ..."
+  end
+
   context 'Signed up first: ' do
     before { sign_up }
     scenario 'I want users to be welcomed on signing up' do

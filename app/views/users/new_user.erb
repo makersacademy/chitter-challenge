@@ -12,8 +12,13 @@
   </head>
 
   <h1> Sign up form </h1>
-  <h2><% if !!@user.errors.first %>
-  <%= @user.errors.first[0] %>
+  <h2><% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
 <% end %></h2>
   <form action='/users' method='post'>
     <label for='email'>

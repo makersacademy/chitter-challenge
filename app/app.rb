@@ -44,6 +44,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/users/confirmation'
     else
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new_user'
     end
   end
