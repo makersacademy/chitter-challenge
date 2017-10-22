@@ -2,7 +2,7 @@ feature 'replying to peeps' do
 
   text = 'Consequat ea in voluptate magna est veniam non laboris pariatur reprehenderit culpa consectetur.'
   
-  scenario 'I can post a message to chitter when logged in' do
+  scenario 'I can reply to a peep when logged in' do
     sign_up
     visit '/peeps/new'
     fill_in :peep, with: text

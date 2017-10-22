@@ -4,20 +4,18 @@
       <div class="peep_box">
         <li>
           <div class="pic"><img src="http://lorempixel.com/50/50/people?random=<%= peep.posted_on %>" /></div>
+          <form>
+            <button type="submit" formmethod="get" formaction="/peeps/reply/<%= peep.id %>">Reply</button>
+          </form>
           <p class="name"><%= "#{peep.user.first_name} #{peep.user.last_name}" %></p>
           <p class="handle">@<%= peep.user.handle %></p>
           <p class="peep"><%= peep.text %></p>
           <p class="time"><%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %></p>
-          <form>
-            <button type="submit" formmethod="get" formaction="/peeps/reply/<%= peep.id %>">Reply</button>
-          </form>
-        </li>
-        <% peep.replies.each do |reply| %>
-          <li>
-            <p><%= reply.text %></p>
-            <p><%= reply.user.handle %></p>
-          </li>
+          <% peep.replies.each do |reply| %>
+            <p class="reply-text"><%= reply.text %></p>
+            <p class="reply-handle"><%= reply.user.handle %></p>
         <% end %>
+        </li>
       </div>
     <% end %>
   </ul>

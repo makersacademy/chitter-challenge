@@ -61,7 +61,6 @@
 .peep_box .peep {
   color: hsl(0, 0%, 28%);
   padding-bottom: 3px;
-  border-bottom: 2px solid hsl(0, 0%, 93%);
   margin-bottom: 3px;
   font-size: 24px;
   width: 100%;
@@ -71,4 +70,37 @@
   font-size: 12px;
   width: 100%;
   color: grey;
+}
+
+.peep_box .reply-text {
+  border-top: 2px solid hsl(0, 0%, 93%);
+  margin-top: 2%;
+  padding-top: 1%;
+  font-size: 16px;
+  width: 70%;
+  color: hsl(0, 0%, 28%);
+}
+
+.peep_box .reply-handle {
+  font-size: 12px;
+  width: 100%;
+  color: grey;
+}
+
+.peep_box button {
+  outline: none;
+  float: right;
+  width: 10%;
+  text-decoration: none;
+  border: 1px solid hsl(0, 0%, 93%);
+  background-color: transparent;
+  /* color: hsl(257, 90%, 68%); */
+  color: hsl(0, 0%, 93%);
+  /* color: hsla(258, 96%, 56%, 1); */
+}
+
+.peep_box button:hover {
+  cursor: pointer;
+  background-color: hsl(257, 90%, 68%);
+  border: none;
 }
