@@ -1,6 +1,23 @@
 Chitter Challenge
 =================
 
+I was delayed starting on this and only able to spend a few hours on Sunday.  I made some reasonable progress, mostly by copying from the weekly challenge.
+
+Passing the test for the first story was easy, once I'd spent time sorting out mis-matched/mis-named variables.
+
+I struggled to find the right way to word the test for the second story (determining items were in reverse order), although the code to achieve the result was simple enough (sort order was based on serial ID).
+
+The third story looks like the peeps table requires a datetime column that defaults to GETDATE (or equivalent).  The sort order would switch to that rather than the ID.
+
+The fourth story would add a username column to peeps and a further user table, along with probably a session variable to confirm that the current user is logged in, but this kind of spills over into the fifth story.
+
+I'd imagine that the sixth story involved being able to set the session variable to nil.
+
+
+
+
+********************************
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README

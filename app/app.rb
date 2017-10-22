@@ -10,7 +10,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @all_peeps = Peep.all
+    @all_peeps = Peep.all(:order => [ :id.desc ])
+    erb(:peeps)
   end
 
   get '/peeps/new' do

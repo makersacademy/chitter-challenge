@@ -1,0 +1,7 @@
+<h1>All the peeps, innit</h1>
+
+<ul id="peeps">
+  <% @all_peeps.each do |peep| %>
+    <li> <%= peep.id %> <%= peep.text %> </li>
+  <% end %>
+</ul>
