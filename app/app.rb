@@ -11,6 +11,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+  get '/' do
+  redirect '/maker/new'
+  end
+
   get '/peeps' do
   @peeps = Peep.all
   erb :'peeps/index'
