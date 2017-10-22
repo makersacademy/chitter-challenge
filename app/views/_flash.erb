@@ -1,13 +1,5 @@
 <% if flash[:notice] %>
-  <div id='notice'>
     <%= flash[:notice] %>
-  </div>
-<% end %>
-
-<% if flash[:login] %>
-  <div id='login'>
-    <%= flash[:login] %>
-  </div>
 <% end %>
 
 <% if (flash[:errors] && !flash[:errors].empty?) %>

@@ -12,7 +12,7 @@ feature 'Signing up' do
   end
 
   scenario 'I can\'t sign up without an email address' do
-    expect { sign_up(email: nil ) }.not_to change(User, :count)
+    expect { sign_up(email: nil) }.not_to change(User, :count)
     expect(current_path).to eq '/users'
     expect(page).to have_content 'Email must not be blank'
   end

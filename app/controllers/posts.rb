@@ -16,6 +16,6 @@ class Fitter < Sinatra::Base
 
   get '/posts' do
     @posts = Post.all
-    erb :'posts/index', :layout => :'layout'
+    erb :'posts/index', :layout => :layout
   end
 end

@@ -17,7 +17,5 @@ describe User do
     it 'Does not authenticate when an incorrect password is given' do
       expect(User.authenticate(user.email, 'wrong')).to be_nil
     end
-
-
   end
 end
