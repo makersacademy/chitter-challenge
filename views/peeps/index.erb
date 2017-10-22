@@ -1,9 +1,10 @@
 <h1> List of Peeps </h1>
 
-<% @peeps.reverse.each do |peep| %>
 <ul id="peeps">
+<% @peeps.reverse.each do |peep| %>
   <li>
-    Message: <%=peep.message%>
+
+  <%= peep.message %>
   </li>
   <% end %>
 </ul>

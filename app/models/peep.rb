@@ -1,14 +1,17 @@
 require "data_mapper"
 require "dm-postgres-adapter"
+require "dm-timestamps"
 
 class Peep
-  # functionality which lets a peep load on the website via datamapper
-  # and postgres
   include DataMapper::Resource
 
   property :id, Serial
   property :message, String
-# components of what a peep is comprised of
+  property :created_at, DateTime
+
+  # def time_to_string(time = created_at)
+  #   "Created at #{time.strftime("%R")} on #{time.strftime("%d/%-m/%-y")}"
+  # end
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitterchallenge_#{ENV['RACK_ENV']}")

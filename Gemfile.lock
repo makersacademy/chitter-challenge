@@ -131,6 +131,7 @@ DEPENDENCIES
   capybara
   data_mapper
   dm-postgres-adapter
+  dm-timestamps
   launchy
   rack-app
   rspec
