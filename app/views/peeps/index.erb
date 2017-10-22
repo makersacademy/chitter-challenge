@@ -1,13 +1,28 @@
-
 <form action='/peeps/new' method='GET'>
-    <input type="submit" value="Create message">
-  </form>
-
+  <input type="submit" value="Create message">
+</form>
 
 <ul id='peeps'>
-<% @peeps.reverse.each do |peep| %>
+  <% @peeps.reverse.each do |peep|
+
+arr_date = "#{peep.created_on}".split("-").reverse
+  day = arr_date[0]
+  month = Date::MONTHNAMES[arr_date[1].to_i]
+  year = arr_date[2]
+%>
+
+  <% time = ("#{peep.created_at}".split("T")[1]).to_s[0...-9] %>
+
   <li>
-    Message: <%= peep.message %>
+    Message:
+    <%= peep.message %>
+    Created at :
+    <%= time %>
+    on :
+    <%= day  %>
+    <%= month %>
+    <%= year  %>
+
   </li>
   <% end %>
 </ul>

@@ -8,6 +8,8 @@ gem 'rack'
 gem 'rake'
 gem 'rspec'
 gem 'sinatra'
+gem 'dm-core'
+gem 'dm-timestamps'
 
 group :test do
   gem 'cucumber'
