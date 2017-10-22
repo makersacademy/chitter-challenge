@@ -99,6 +99,9 @@ a {
 label {
   color: #fff;
   font-size: 1.4em;
-  
 }
 
+.logo {
+  margin-top: 100px;
+  margin-bottom: 20px;
+}

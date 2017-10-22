@@ -3,7 +3,7 @@ class Peep
   include DataMapper::Resource
   
   property :id, Serial
-  property :peep_text, Text
+  property :peep_text, Text, :required => true
   property :date_time, DateTime
   
   belongs_to :user
