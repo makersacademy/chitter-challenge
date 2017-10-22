@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require_relative 'models/peep'
+require_relative 'models/user'
+
 class Chitter < Sinatra::Base
 
   get '/peeps' do
