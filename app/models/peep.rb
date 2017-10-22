@@ -4,7 +4,7 @@ require 'dm-postgres-adapter'
 require 'dm-core'
 require 'dm-timestamps'
 
-DataMapper.setup(:default, 'postgres::memory:')
+
 
 class Peep
   include DataMapper::Resource

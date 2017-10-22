@@ -9,7 +9,6 @@ feature 'Adding message' do
     within('ul#peeps') do
       expect(page).to have_content('I love Sinatra!')
     end
-
   end
 
   scenario 'I can see the timestamp on the message ' do
@@ -24,7 +23,5 @@ feature 'Adding message' do
       expect(page).to have_content("#{time.strftime("%H")}:#{time.strftime("%M")}")
 
     end
-
   end
-
 end
