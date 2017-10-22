@@ -1,10 +1,10 @@
-feature "Signing out" do
+feature "When I sign out" do
 
   let!(:user) do
     User.create(username: "LadyMacker123", email: "ladymacbeth@dunsinane.com", password: "damn3dSp0t")
   end
 
-  scenario "User can sign out" do
+  scenario "the homepage no longer greets me" do
 
     visit "/sign-in"
 
