@@ -66,14 +66,14 @@ The Approach:
 ------
 
 * The creation of this app was driven by testing using capybara and rspec.
-* Data Mapper and Postgres were used to store, save and recall, the data.
+* Data Mapper and Postgres were used to store, save and recall the data.
 * All posted tips are public but you have to be signed-up and logged-in to post a tip.
 * Users sign-up to fitter with their email, password, name and a user name (e.g. motivation@email.com, motivation, Mr Motivator, mr_motivator).
 * The username and email must be unique.
 * Tips (posts to fitter) have the name of the user and their user handle.
 * Bcrypt was used to secure the passwords.
 
-<p align="center"> Some more screenshots!</p>
+<p align="center"> More screenshots!</p>
 <p align="center"><img src='public/signing-up.png' width=800></p>
 <p align="center"><img src='public/logging-in.png' width=800></p>
 <p align="center"><img src='public/posting.png' width=800></p>
@@ -83,3 +83,4 @@ Further Developments:
 
 * In order to start a conversation as a user I want to reply to a tip from another user
 * In order to know when another user has tagged me in a tip I'd like to receive a notifcation via email
+* In order to recover a forgotten password I'd like to be able to recieve a token via email to reset it
