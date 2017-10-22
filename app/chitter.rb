@@ -32,7 +32,23 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(text: params[:peep], posted_on: DateTime.now, user: current_user)
+    message = params[:peep]
+    peep = Peep.create(
+      text: message, 
+      posted_on: DateTime.now, 
+      user: current_user
+    )
+    tags = message.split.select { |w| w.start_with?('@') }
+    unless tags.empty?
+      tags.each do |tag|
+        tag = Tag.create(
+          peep: peep, 
+          user: User.first(handle: tag.gsub('@',''))
+        )
+        peep.tags << tag
+        peep.save
+      end
+    end
     redirect '/peeps'
   end
 

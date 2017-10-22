@@ -10,5 +10,7 @@ class Peep
   property :posted_on, DateTime
 
   belongs_to :user
+  has n, :tags
+  has n, :users, through: :tags
 
 end
