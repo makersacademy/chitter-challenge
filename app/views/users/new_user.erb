@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <h1> Sign up form </h1>
-
+  <h2><% if !!@fail %>
+        <%= @fail %>
+      <% end%></h2>
   <form action='/users/new' method='post'>
     <label>
       Email: <input type='text' name='email'>
