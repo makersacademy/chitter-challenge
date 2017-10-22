@@ -42,7 +42,7 @@ class Chitter < Sinatra::Base
     tags.each do |tag|
       tag = Tag.create(
         peep: peep, 
-        user: User.first(handle: tag.gsub('@',''))
+        user: User.first(handle: tag.delete('@'))
       )
       peep.tags << tag
       peep.save
