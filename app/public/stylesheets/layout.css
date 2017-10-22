@@ -18,7 +18,7 @@ body {
   text-align: center;
   font-size: 50px;
   letter-spacing: 0.03em;
-  padding: 0;
+  padding-top: 3%;
   color: white;
   text-decoration: none;
   outline: none;
@@ -31,8 +31,8 @@ body {
 header {
   margin: 0px auto;
   background-color: hsla(258, 96%, 56%, 1);
-  height: 40px;
-  padding: 20px;
+  height: 80px;
+  padding: 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -47,16 +47,60 @@ header > div {
   font-size: 30px;
   color: white;
   letter-spacing: 0.03em;
+  vertical-align: middle;
 }
 
 #sessions {
   width: 57%;
 }
 
+#sessions, #log_out {
+  padding-top: 1.5%;
+}
+
 #new_peep {
   width: 14%;
   text-align: center;
 }
+
+#new_peep button {
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  margin-top: 5%;
+  border: none;
+  outline: none;
+}
+
+#new_peep button:hover {
+  cursor: pointer;
+}
+
+#new_peep button div {
+  float: left;
+  width: 43%;
+  height: 43%;
+  margin: 7%;
+  background-color: hsla(258, 96%, 56%, 1);
+}
+
+#new_peep .left {
+  margin-left: 0;
+}
+
+#new_peep .right {
+  margin-right: 0;
+}
+
+#new_peep .top {
+  margin-top: 0;
+}
+
+#new_peep .bottom {
+  margin-bottom: 0;
+}
+
 
 header p {
   float: left;
@@ -110,7 +154,7 @@ header li {
   font-size: 12px;
 }
 
-#sessions button {
+#sessions button, #log_out button {
   background-color: transparent;
   border: none;
   height: 37px;
@@ -126,7 +170,7 @@ header li {
   outline: none;
 }
 
-#sessions button:hover {
+#log_out button:hover, #sessions button:hover {
   cursor: pointer;
   color: white;
 }

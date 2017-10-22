@@ -17,24 +17,28 @@
       <% if current_user %>
         <div id="new_peep">
           <form>
-            <button type="submit" formaction="/peeps/new">New Peep</button>
+            <button type="submit" formaction="/peeps/new"><div class="left top"></div><div class="right top"></div><div class="left bottom"></div><div class="right bottom"></div></button>
           </form>
         </div>
       <% end %>
-      <% if !current_user && request.path_info != '/sessions/new' && request.path_info != '/users/new' %>
+      <% if !current_user %>
         <div id="sessions">
           <nav>
             <ul>
-              <li id="sign_up">
-                <form>
-                  <button type="submit" formaction="/users/new" class="session_fields">Sign up</button>
-                </form>
-              </li>
-              <li id="log_in"><%= erb :'sessions/new' %></li>
+              <% if request.path_info != '/users/new'%>
+                <li id="sign_up">
+                  <form>
+                    <button type="submit" formaction="/users/new" class="session_fields">Sign up</button>
+                  </form>
+                </li>
+              <% end %>
+              <% if request.path_info != '/sessions/new' %>
+                <li id="log_in"><%= erb :'sessions/new' %></li>
+              <% end %>
             </ul>    
           </nav>
         </div>
-      <% elsif current_user %>
+      <% else %>
         <div id="log_out">
           <nav>
             <form action="/sessions" method="post">
@@ -51,7 +55,7 @@
         </div>
       <% end %>
     </header>
-
+    <%= yield %>
 
 
      <% if current_user %>
@@ -63,7 +67,7 @@
 <% if flash[:errors] %>
 <%= flash[:errors] %>
 <% end %>
-<%= yield %>
+
 
   </body>
 </html>
