@@ -7,19 +7,21 @@
 # I want to see the time at which it was made
 
 feature 'viewing peeps' do
+
+  peep_example = "My first peep: Global Warming is a hoax!"
+
   scenario 'I can see peeps in reverse chronological order' do
-    Peep.create(peep: 'My first peep: Global Warming is a hoax!', time: Time.now)
+    Peep.create(peep: peep_example, time: Time.now)
     visit '/peeps'
     expect(page.status_code).to eq 200
     within 'ul#peeps' do
-    expect(page).to have_content "My first peep: Global Warming is a hoax!"
+    expect(page).to have_content peep_example
     end
   end
 
-
   scenario 'I can see the time at which peeps were written' do
-    Peep.create(peep: 'My first peep: Global Warming is a hoax!', time: Time.now)
+    Peep.create(peep: peep_example, time: Time.now)
     visit '/peeps'
-    expect(page).to have_content "My first peep: Global Warming is a hoax!", Time.now.strftime("%H:%M : %d/%m/%Y")
+    expect(page).to have_content peep_example, Time.now.strftime("%H:%M : %d/%m/%Y")
   end
 end

@@ -1,3 +1,42 @@
+# Functionality
+
+- user can post a peep (tweet)
+- user can see peeps in chronological order
+- user can see the time and dates of peeps
+
+
+
+# Challenges
+
+- I failed to get heroku to work which was disappointing.
+- I gave myself all of Saturday to do this and expected to fulfil more user stories
+but spent most of the day debugging. It was useful sure, and I made a note of all my errors and their
+associated solutions. But I did not get that far. This does not concern me as I know I can catch up
+relatively easily. I'm happy at my rate of work on Saturday.
+
+
+
+# Set-up
+- clone repo
+- bundle
+- rackup
+- http://www.localhost:9292/peeps
+- run rspec to clear peeps
+
+
+
+
+
+
+
+
+
+
+```
+# Makers Instructions Below
+```
+
+
 Chitter Challenge
 =================
 
