@@ -7,7 +7,7 @@ class User
 
   property :id, Serial
   property :first_name, String, required: true
-  property :last_name, String
+  property :last_name, String, required: false
   property :handle,
             String,
             required: true, 

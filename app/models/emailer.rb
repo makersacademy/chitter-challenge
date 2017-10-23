@@ -9,8 +9,8 @@ module Emailer
   end
 
   def self.send_reply_email(user)
-    subject = "You Have A Reply From @#{current_user.handle}!"
-    body = "#{current_user.first_name.capitalize} has responded to your peep. Log in to Chitter view"
+    subject = "You Have A Reply From @#{user.handle}!"
+    body = "#{user.first_name.capitalize} has responded to your peep. Log in to Chitter view"
     compose_send_message(user.email, subject, body)
   end
 

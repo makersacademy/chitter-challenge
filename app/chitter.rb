@@ -50,7 +50,7 @@ class Chitter < Sinatra::Base
       )
       peep.tags << tag
       peep.save
-      Emailer.send_tag_email(user)
+      Emailer.send_tag_email(user) if user
     end
     redirect '/peeps'
   end
@@ -70,7 +70,7 @@ class Chitter < Sinatra::Base
       )
     peep.replies << reply
     peep.save
-    Emailer.send_reply_email(current_user)
+    Emailer.send_reply_email(peep.user)
     redirect '/'
   end
 
