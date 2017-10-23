@@ -10,7 +10,7 @@ feature 'tagging users in peeps' do
   end
 
   scenario 'invalid tags will not be created' do
-    tagged_user = User.create(name: 'Ainsley tag', email: 'tag@email.com', password: 'password', handle: 'test_tag')
+    User.create(name: 'Ainsley tag', email: 'tag@email.com', password: 'password', handle: 'test_tag')
     sign_up(handle: 'ainsley')
     visit '/peeps/new'
     fill_in :peep, with: '@fake_tag hello world'

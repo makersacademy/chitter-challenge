@@ -5,10 +5,11 @@ Dotenv.load
 require 'sinatra/base'
 require 'data_mapper'
 require 'sinatra/flash'
-require 'gmail'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+
+  include Emailer
 
   enable :sessions
   register Sinatra::Flash
@@ -41,7 +42,7 @@ class Chitter < Sinatra::Base
       posted_on: DateTime.now, 
       user: current_user
     )
-    tags = message.split.select { |w| w.start_with?('@') }        
+    tags = message.split.select { |w| w.start_with?('@') }  
     tags.each do |tag|
       user = User.first(handle: tag.delete('@'))
       tag = Tag.create(
@@ -50,14 +51,7 @@ class Chitter < Sinatra::Base
       )
       peep.tags << tag
       peep.save
-      gmail = Gmail.connect(ENV['GMAIL_USERNAME'], ENV['GMAIL_PW'])
-      subject_text = "You've Been Tagged In A Peep by @#{current_user.handle}!"
-      body_text = "#{current_user.first_name.capitalize} has tagged you in a peep. Log in to Chitter view"
-      gmail.deliver do
-        to user.email
-        subject subject_text
-        text_part { body body_text }
-      end
+      Emailer.send_tag_email(user)
     end
     redirect '/peeps'
   end
@@ -77,14 +71,7 @@ class Chitter < Sinatra::Base
       )
     peep.replies << reply
     peep.save
-    gmail = Gmail.connect(ENV['GMAIL_USERNAME'], ENV['GMAIL_PW'])
-    subject_text = "You Have A Reply From @#{current_user.handle}!"
-    body_text = "#{current_user.first_name.capitalize} has responded to your peep. Log in to Chitter view"
-    gmail.deliver do
-      to peep.user.email
-      subject subject_text
-      text_part { body body_text }
-    end
+    Emailer.send_reply_email(current_user)
     redirect '/'
   end
 
