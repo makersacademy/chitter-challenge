@@ -5,7 +5,6 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'sinatra/flash'
-require './app/models/peep'
 require './app/data_mapper_setup'
 require_relative 'helpers/session'
 
@@ -20,6 +19,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.include SessionHelpers
+  config.include Capybara::DSL
   # Everything in this block runs once before all the tests run
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -35,5 +35,4 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 end

@@ -4,7 +4,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.first_or_create(content: params[:content], maker_id: current_maker.id)
+    peep = Peep.first_or_create(content: params[:content])
+    peep.maker = current_maker
     redirect '/peeps'
   end
 

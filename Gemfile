@@ -11,6 +11,7 @@ gem "timecop"
 gem "launchy"
 gem 'bcrypt'
 gem 'sinatra-partial'
+gem 'mailgun-ruby'
 
 group :test do
   gem "rspec"
