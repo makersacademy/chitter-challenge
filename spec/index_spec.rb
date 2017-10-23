@@ -1,5 +1,5 @@
 feature 'Homepage' do
-  before { visit '/'}
+  before { visit '/' }
   scenario 'I want to have a homepage welcome users' do
     expect(page).to have_content 'Welcome to Chitter!'
   end
