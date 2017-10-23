@@ -20,8 +20,8 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.create(message: params[:message])
-    # tried created_at: Time.new to do time stamps 
+    @peeps = Peep.create(message: params[:message])
+    # tried created_at: Time.new to do time stamps
     redirect '/peeps'
     end
   end
