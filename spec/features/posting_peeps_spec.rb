@@ -1,6 +1,6 @@
 feature 'Posting Peeps' do
   scenario 'I can upload new peeps to be shown on the Peep page' do
-    visit '/peeps'
+    sign_up
 
     click_button 'Add a new Peep'
     fill_in :message, with: 'Hi guys!'

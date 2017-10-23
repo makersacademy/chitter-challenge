@@ -1,8 +1,7 @@
 feature 'Viewing Peeps' do
 
   scenario 'I can see existing peeps on the peeps page in the correct order' do
-    visit '/peeps'
-
+    sign_up
 
     click_button 'Add a new Peep'
     fill_in :message, with: 'Hello everyone'
