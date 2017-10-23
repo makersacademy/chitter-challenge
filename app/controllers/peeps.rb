@@ -1,6 +1,6 @@
 class Chitter < Sinatra::Base
   get '/peeps', :auth => true do
-    @peeps = current_user.peeps
+    @peeps = current_user.peeps.all(:order => [ :created_at.desc ])
     erb :'peeps/index'
   end
 
