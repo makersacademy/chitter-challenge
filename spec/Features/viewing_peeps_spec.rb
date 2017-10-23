@@ -1,5 +1,5 @@
-#As a maker
-#So that I can see what others are saying
+# As a maker
+# So that I can see what others are saying
 # want to see all peeps in reverse chronological order
 
 feature 'viewing peeps' do

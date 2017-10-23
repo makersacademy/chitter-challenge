@@ -28,6 +28,6 @@ feature 'User sign in' do
     click_button 'Sign out'
     expect(page).to have_content('goodbye!')
     expect(page).not_to have_content('Welcome, Zara02')
-    end
+  end
   end
 end

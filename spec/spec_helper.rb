@@ -25,20 +25,20 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-  DatabaseCleaner.strategy = :transaction
-  DatabaseCleaner.clean_with(:truncation)
-end
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
 # Everything in this block runs once before each individual test
-config.before(:each) do
-  DatabaseCleaner.start
-end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
 # Everything in this block runs once after each individual test
-config.after(:each) do
-  DatabaseCleaner.clean
-end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
-config.include SessionHelpers
+  config.include SessionHelpers
 
 end

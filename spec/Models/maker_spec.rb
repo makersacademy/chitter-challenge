@@ -14,7 +14,7 @@ describe Maker do
   end
 
   it 'does not authenticate when given an incorrect password' do
-  expect(Maker.authenticate(maker.email, 'wrong_stupid_password')).to be_nil
-end
+    expect(Maker.authenticate(maker.email, 'wrong_stupid_password')).to be_nil
+  end
 
 end
