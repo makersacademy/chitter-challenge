@@ -10,7 +10,6 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
 
   include Emailer
-
   enable :sessions
   register Sinatra::Flash
   use Rack::MethodOverride

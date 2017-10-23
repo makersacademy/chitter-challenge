@@ -15,7 +15,7 @@ It is mostly complete, though still requires work on the following:
 
 * Flash notices & welcome/goodbye messages (they're currently hidden)
 * Tests can be tidied up and refactored quite a bit
-* Email logic needs to be extracted out into a module & tested!!
+* Email logic needs to be tested!!
 * controllers & more partials can be extracted out into separate files
 * Add responsiveness to the design
 
@@ -30,3 +30,4 @@ Technologies
 * PostgreSQL for the database
 * HTML & CSS for the front end
 * tests written in RSpec & Capybara
+* Gmail API / Ruby gem used for emailing
