@@ -1,5 +1,4 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
+
 
 class Peep
 
@@ -10,8 +9,3 @@ class Peep
     property :time_posted, DateTime
 
 end
-
-
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
-DataMapper.finalize
-DataMapper.auto_upgrade!

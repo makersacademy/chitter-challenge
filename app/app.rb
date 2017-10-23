@@ -1,6 +1,8 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
-require_relative 'models/peep'
-require_relative 'models/user'
+require_relative 'data_mapper_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
@@ -39,6 +41,22 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     erb :'users/new'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    p params[:user_name]
+    p params[:password]
+    user = User.authenticate(user_name: params[:user_name], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to '/peeps'
+    else
+      erb :'sessions/new'
+    end
   end
 
 end

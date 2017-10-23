@@ -1,5 +1,3 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
 require 'bcrypt'
 
 class User
@@ -15,11 +13,13 @@ class User
       self.password_digest = BCrypt::Password.create(password)
     end
 
+    def self.authenticate(user_name, password)
+      user = first(user_name: user_name)
+      if user && Bcrypt::Password.new(user.password_digest) == password
+        user # user gets authenticated
+      else
+        nil
+      end
+    end
+
 end
-
-
-
-
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
-DataMapper.finalize
-DataMapper.auto_upgrade!
