@@ -12,7 +12,11 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     peep = Peep.create(content: params[:peep_content], created_at: Time.now)
     peep.user = current_user
-    peep.save
-    redirect '/peeps'
+    if peep.save
+      peep.save
+      redirect '/peeps'
+    else
+      flash.keep[:errors] = ["Peep too long!"]
+    end
   end
-end 
+end
