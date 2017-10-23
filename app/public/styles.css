@@ -1,15 +1,17 @@
-* {
+h4, p, input {
 	font-family: Helvetica,Arial,freesans,sans-serif;
 	color: #505050;
 	line-height: 24px;
 }
 
 h1 {
+	font-family: Helvetica,Arial,freesans,sans-serif;
   color: #56CBF9;
   font-size: 54px;
 }
 
 h2 {
+	font-family: Helvetica,Arial,freesans,sans-serif;
   color: #61c4c1;
 }
 

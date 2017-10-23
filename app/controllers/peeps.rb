@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
         flash.keep[:errors] = ["Peep too long!"]
       else
         flash.keep[:errors] = ["You must be signed in to peep!"]
-      end 
+      end
     end
   end
 end

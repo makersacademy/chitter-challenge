@@ -10,6 +10,10 @@ class Chitter < Sinatra::Base
   enable :partial_underscores
   set :session_secret, 'super secret'
 
+  get '/about' do
+    erb :"about/index"
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:current_user_id])
