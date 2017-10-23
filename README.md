@@ -15,12 +15,12 @@ It is mostly complete, though still requires work on the following:
 
 * Flash notices & welcome/goodbye messages (they're currently hidden)
 * Tests can be tidied up and refactored quite a bit
+* Email logic needs to be extracted out into a module & tested!!
 * controllers & more partials can be extracted out into separate files
 * Add responsiveness to the design
 
 Desired features that I didn't get round to:
 
-* Email feature (the tagging is set up, but currently serving no additional purpose).
 * Click-through a user's handle to see their peeps.
 
 Technologies
