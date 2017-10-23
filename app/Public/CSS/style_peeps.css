@@ -1,0 +1,48 @@
+body {
+  background-color: rgb(46, 147, 227);
+  font-family: 'Slabo 27px', serif;
+}
+
+title {
+  font-family: 'Slabo 27px', serif;
+}
+
+h1 {
+  font-family: 'Slabo 27px', serif;
+  text-align: center;
+  font-size: 400%
+}
+
+ul#peeps {
+  font-family: 'Slabo 27px', serif;
+  text-align: left;
+  font-size: 25px;
+  color: white;
+  list-style-position: inside;
+}
+
+label {
+  cursor: default;
+  font-family: 'Slabo 27px', serif;
+  text-align: left;
+  font-size: 25px;
+  color: white;
+}
+
+.button {
+  background-color: rgb(32, 12, 108);
+  font-family: 'Slabo 27px', serif;
+  color: white;
+  border: 2px solid white;
+  width: 120px;
+  height: 38px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.button:hover {
+  background-color: white;
+  color: rgb(32, 12, 108);
+  border-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
