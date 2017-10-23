@@ -1,3 +1,5 @@
+require_relative 'models/peep'
+
 class Chitter < Sinatra::Base
 
   enable :sessions

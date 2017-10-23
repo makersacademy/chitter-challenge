@@ -2,10 +2,15 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
   </head>
 
   <body>
-    <%= partial :flash %>
-    <%= yield %>
+    <div class="container">
+      <h1>Chitter</h1>
+      <h2>The environmentally sustainable alternative to Twitter</h2>
+      <%= partial :flash %>
+      <%= yield %>
+    </div>
   </body>
 </html>

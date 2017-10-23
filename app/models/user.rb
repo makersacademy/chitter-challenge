@@ -23,10 +23,6 @@ class User
     }
   property :password_digest, Text
 
-  # attr_reader :password
-
-  # has n, :links
-
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
   end

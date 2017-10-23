@@ -1,0 +1,33 @@
+* {
+	font-family: Helvetica,Arial,freesans,sans-serif;
+	color: #505050;
+	line-height: 24px;
+}
+
+h1 {
+  color: #56CBF9;
+  font-size: 54px;
+}
+
+h2 {
+  color: #61c4c1;
+}
+
+.container {
+  max-width: 800px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 30px 100px;
+  background-color: #f3e4f1;
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+}
+
+input {
+  display: block;
+  padding:4px 2px;
+  border:solid 1px #aacfe4;
+}

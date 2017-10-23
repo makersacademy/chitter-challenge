@@ -1,4 +1,6 @@
 require 'data_mapper'
+require_relative 'models/user'
+require_relative 'models/peep'
 
 module DataMapperSetup
   def data_mapper_setup
