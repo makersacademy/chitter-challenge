@@ -1,22 +1,22 @@
 source 'https://rubygems.org'
 ruby '2.4.2'
 
+gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'sinatra'
-gem 'rack'
-gem 'bcrypt'
-gem 'sinatra-flash'
-gem 'gmail'
 gem 'dotenv'
+gem 'gmail'
+gem 'rack'
+gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
-  gem 'launchy'
-  gem 'rspec'
-  gem 'rake'
-  gem 'rubocop'
   gem 'database_cleaner'
+  gem 'launchy'
+  gem 'rake'
+  gem 'rspec'
+  gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
