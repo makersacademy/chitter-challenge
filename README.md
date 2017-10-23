@@ -14,21 +14,40 @@ As usual please start by forking this repo.
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
+-------------
+
+NOTES ON WEEKEND CHALLENGE
+I used Sinatra, Ruby, HTML, DataMapper, psql for the database and Rackup to conduct TDD and run my feature tests.
+I successfully ran both tests which would allow a user to send a peep on Chitter, view another user's Chitter timeline 
+and see their peeps in descending order. 
+
+THINGS I WOULD HAVE CHANGED
+I would have continued to test and fix the error messages I've got for adding time stamps if I had had more time.
+Apart from this error message popping up and now affecting my code, I was relatively pleased with the progress I have made,
+the concepts I have tested and implemented in this weekend challenge.
+
+My current error message for time stamps is as follows:  
+NoMethodError:
+       undefined method `strftime' for nil:NilClass
+  
+----------------
+
+
 Features:
 -------
 
 ```
 STRAIGHT UP
 
-As a Maker
+X- As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+X - As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a Maker
+X - As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
@@ -36,6 +55,10 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
+-----------------------------------------------
+
+
+------------------------------------------------
 HARDER
 
 As a Maker
