@@ -1,6 +1,5 @@
 class Chitter < Sinatra::Base
   get '/' do
-    erb :'home'
+    erb :home
   end
-
 end
