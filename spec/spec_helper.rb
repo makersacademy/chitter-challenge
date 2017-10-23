@@ -1,6 +1,8 @@
 ENV['RACK_ENV'] = 'test'
 
 require_relative '../app/app'
+require_relative '../app/models/peep'
+require_relative '../app/models/user'
 require_relative '../app/data_mapper_setup'
 require_relative '../spec/features/web_helpers'
 
