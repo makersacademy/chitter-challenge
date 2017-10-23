@@ -7,6 +7,8 @@ gem 'sinatra'
 gem 'rack'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'gmail'
+gem 'dotenv'
 
 group :test do
   gem 'capybara'
