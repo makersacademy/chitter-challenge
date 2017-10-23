@@ -16,7 +16,11 @@ class Chitter < Sinatra::Base
       peep.save
       redirect '/peeps'
     else
-      flash.keep[:errors] = ["Peep too long!"]
+      if current_user
+        flash.keep[:errors] = ["Peep too long!"]
+      else
+        flash.keep[:errors] = ["You must be signed in to peep!"]
+      end 
     end
   end
 end

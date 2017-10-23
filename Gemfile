@@ -11,8 +11,8 @@ gem 'sinatra-partial'
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'rspec'
   gem 'rake'
+  gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

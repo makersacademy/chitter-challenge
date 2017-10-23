@@ -9,6 +9,12 @@ feature 'Peep' do
     post_peep "Test peep"
     expect(page).to have_content "posted by Ed Lowther, @edlowther"
   end
+  scenario 'cannot peep when not signed in' do
+    sign_up "Ed Lowther", 'edlowther', 'ed@geemail.com'
+    click_button 'Sign out'
+    post_peep "Test peep"
+    expect(page).to have_content "You must be signed in to peep!"
+  end
   scenario '139 characters is fine' do
     sign_up "Ed Lowther", 'edlowther', 'ed@geemail.com'
     peep = ""
