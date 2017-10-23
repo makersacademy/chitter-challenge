@@ -6,6 +6,7 @@ require 'simplecov'
 require 'simplecov-console'
 require './app/app'
 require './app/models/peeps'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
@@ -38,4 +39,10 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+end
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
 end
