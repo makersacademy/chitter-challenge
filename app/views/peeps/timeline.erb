@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head> <%= erb :'head' %> </head>
+
+<h2> Peeps </h2>
+<div style="margin:auto;width:70%;padding: 50px;text-align: center;">
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li> <%= peep.time %>: <%= peep.message   %> </li>
+  <% end %>
+</ul>
+
+<div>
+<form action="/peeps/new" method="get" >
+  <input type="hidden" >
+   <input type="submit" value="New peep">
+ </form>
+ <% if !current_user %>
+ <form action="/users/new" method="get" >
+   <input type="hidden" >
+    <input type="submit" value="Sign up">
+  </form>
+  <% end %>
+  <form action="/sessions/new" method="get" >
+    <input type="hidden" >
+     <input type="submit" value="Sign in">
+   </form>
+</div>
+</div>
+</html>

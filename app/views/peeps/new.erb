@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head> <%= erb :'head' %> </head>
+<div style="margin:auto;width:70%;padding: 50px;text-align: center;">
+<form action="/peeps" method="post" >
+  <input type="text" name="message" placeholder="What's on your mind?">
+  <br />
+  <br />
+  <div class="form-actions">
+   <input type="submit" value="Peep!">
+ </div>
+ </form>
+</div>
+</html>
