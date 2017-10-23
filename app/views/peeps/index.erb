@@ -1,0 +1,18 @@
+<h4>Newsfeed</h4>
+
+<ul id="peeps">
+  <% peeps.each do |peep| %>
+    <li>
+      <div>
+        <p><%= peep.content %></p>
+        <p>posted by <%= "#{peep.user.name}, @#{peep.user.username}"%></p>
+        <p class="timestamp"><%= peep.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+      </div>
+    </li>
+  <% end %>
+  <form action="/sessions" method="post">
+    <input type='hidden' name='_method' value='delete'>
+    <input type="submit" value="Sign out">
+  </form>
+
+</ul>
