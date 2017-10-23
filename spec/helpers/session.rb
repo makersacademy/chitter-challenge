@@ -17,16 +17,23 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
-  def recover_password
-    visit '/makers/recover'
-    fill_in :email, with: "olivia@example.com"
-    click_button "Submit"
+  def creating_peep
+    visit '/peep/new'
+    fill_in :content, with: 'what a fabulous day'
+    click_button 'Save'
+    expect(current_path).to eq '/peeps'
   end
 
-  def set_password(password:, password_confirmation:)
-    visit("/makers/reset_password?token=#{maker.password_token}")
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button "Submit"
-  end
+  # def recover_password
+  #   visit '/makers/recover'
+  #   fill_in :email, with: "olivia@example.com"
+  #   click_button "Submit"
+  # end
+  #
+  # def set_password(password:, password_confirmation:)
+  #   visit("/makers/reset_password?token=#{maker.password_token}")
+  #   fill_in :password, with: password
+  #   fill_in :password_confirmation, with: password_confirmation
+  #   click_button "Submit"
+  # end
 end

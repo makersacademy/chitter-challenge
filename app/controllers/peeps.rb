@@ -6,6 +6,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     peep = Peep.first_or_create(content: params[:content])
     peep.maker = current_maker
+    peep.save
     redirect '/peeps'
   end
 
