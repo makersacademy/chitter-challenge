@@ -54,3 +54,8 @@ I want to receive an email if I am tagged in a Peep
 There is ambiguity between the sign up and sign in functions. This needs clearing up with appropriate navigation implemented.
 The name and username for each 'Peep' should be generated from the current_Maker functionality rather than be entered manually each time. Currently any user could post form any username.
 CSS needs work.
+
+Credit
+--------
+
+The CSS Stylesheet is based on one originally created by David Halewood which we used together during a pairing project in Week 4.
