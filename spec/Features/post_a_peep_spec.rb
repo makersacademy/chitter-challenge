@@ -5,7 +5,7 @@
 feature 'Posting Peeps' do
   scenario 'I can post a Peep' do
     visit 'peeps/new'
-    fill_in 'name',   with: 'Tim'
+    fill_in 'name', with: 'Tim'
     fill_in 'username', with: 'timjones10'
     fill_in 'message', with: 'This is my second peep!!'
     click_button "Post my Peep!"

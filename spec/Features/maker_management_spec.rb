@@ -22,18 +22,18 @@ feature 'Maker sign up' do
   end
 
   scenario 'with a password that does not match' do
-  expect { sign_up(password_confirmation: 'wrong') }.not_to change(Maker, :count)
-  expect(current_path).to eq('/makers')
-  expect(page).to have_content 'Password does not match the confirmation'
-end
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(Maker, :count)
+    expect(current_path).to eq('/makers')
+    expect(page).to have_content 'Password does not match the confirmation'
+  end
 
-scenario "I can't sign up without an email address" do
-   expect { sign_up(email: nil) }.not_to change(Maker, :count)
-   expect(current_path).to eq('/makers')
-  expect(page).to have_content('Email must not be blank')
- end
+  scenario "I can't sign up without an email address" do
+    expect { sign_up(email: nil) }.not_to change(Maker, :count)
+    expect(current_path).to eq('/makers')
+    expect(page).to have_content('Email must not be blank')
+  end
 
- scenario "I can't sign up with an invalid email address" do
+  scenario "I can't sign up with an invalid email address" do
     expect { sign_up(email: "invalid@email") }.not_to change(Maker, :count)
     expect(current_path).to eq('/makers')
     expect(page).to have_content('Email has an invalid format')
