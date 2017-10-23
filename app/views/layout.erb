@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CHITTER</title>
+  </head>
+  <body>
+    <h1>Welcome,
+      <% if current_maker %><%= current_maker.email %></h1>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+  <% else %>
+    Please Sign up or Sign in to use CHITTER!
+    <form action='/sessions/new'>
+      <input type='submit' value='Already a member'>
+    </form>
+    Are you new?
+    <form action="/makers/new">
+      <input type="submit" name="submit" value="Become a chitter chatterer!">
+    </form>
+    <% end %>
+    <%= yield %>
+  </body>
+
+  <% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+  <% end %>

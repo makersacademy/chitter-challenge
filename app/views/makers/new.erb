@@ -1,0 +1,16 @@
+<h1>Fill out your details:</h1>
+
+<form action="/makers" method="post">
+  <input type="text" name="email" id="emailAddress" placeholder="email" required email>
+  <input type="password" name="password" id="password" placeholder="Password:">
+  <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm password:">
+  <input type="submit" name="submit" value="Sign Up">
+</form>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>Please sign in</h1>
+
+<form action='/sessions' method='post'>
+  <input type="text" name="email" placeholder="email">
+  <input type="password" name="password" placeholder="Password:">
+  <input type='submit' value='Sign in'>
+</form>
+<a href="/makers/recover">Forgotten password?</a>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>

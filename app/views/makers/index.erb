@@ -1,0 +1,19 @@
+<head>
+  <title>CHITTER</title>
+</head>
+
+<body>
+<h1>WELCOME BACK TO CHITTER</h1>
+<form action="/peep/new">
+  <input type="submit" name="submit" value="Post a Peep!">
+</form>
+<form action="/peeps">
+  <input type="submit" name="submit" value="View Peeps">
+</form>
+
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
