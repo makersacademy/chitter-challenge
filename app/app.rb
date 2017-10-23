@@ -3,7 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require_relative './models/peep.rb'
 require_relative './models/user.rb'
-require_relative './data_mapper_setup'
+require_relative './data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -15,6 +15,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    message = params[:text]
+    peep = Peep.create(
+     text: message,
+     created_at: DateTime.now
+   )
     @peeps = Peep.all
     erb :peeps
   end
@@ -24,7 +29,4 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
-  # get '/user/new' do
-  #     erb :new_user
-  # end
 end

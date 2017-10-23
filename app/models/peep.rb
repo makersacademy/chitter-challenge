@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require_relative 'user.rb'
 
 class Peep
 
@@ -8,4 +9,6 @@ class Peep
     property :id, Serial
     property :text, Text
     property :created_at, DateTime
+
+    # belongs_to :user
 end
