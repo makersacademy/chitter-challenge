@@ -50,7 +50,7 @@ class Chitter < Sinatra::Base
       )
       peep.tags << tag
       peep.save
-      gmail = Gmail.connect(ENV['GMAIL_USERNAME'],ENV['GMAIL_PW'])
+      gmail = Gmail.connect(ENV['GMAIL_USERNAME'], ENV['GMAIL_PW'])
       subject_text = "You've Been Tagged In A Peep by @#{current_user.handle}!"
       body_text = "#{current_user.first_name.capitalize} has tagged you in a peep. Log in to Chitter view"
       gmail.deliver do
@@ -77,7 +77,7 @@ class Chitter < Sinatra::Base
       )
     peep.replies << reply
     peep.save
-    gmail = Gmail.connect(ENV['GMAIL_USERNAME'],ENV['GMAIL_PW'])
+    gmail = Gmail.connect(ENV['GMAIL_USERNAME'], ENV['GMAIL_PW'])
     subject_text = "You Have A Reply From @#{current_user.handle}!"
     body_text = "#{current_user.first_name.capitalize} has responded to your peep. Log in to Chitter view"
     gmail.deliver do

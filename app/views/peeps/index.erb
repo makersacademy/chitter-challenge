@@ -16,7 +16,7 @@
           <p class="time"><%= peep.posted_on.strftime("%d/%m/%Y %H:%M") %></p>
           <% peep.replies.each do |reply| %>
             <p class="reply-text"><%= reply.text %></p>
-            <p class="reply-handle"><%= reply.user.handle %> - <%= reply.replied_on.strftime("%d/%m/%Y %H:%M") %></p>
+            <p class="reply-handle">@<%= reply.user.handle %> - <%= reply.replied_on.strftime("%d/%m/%Y %H:%M") %></p>
         <% end %>
         </li>
       </div>
