@@ -3,12 +3,12 @@
   <head>
     <title>Chitter</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis:200" rel="stylesheet"> 
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="icon" href="favicon.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="<%= url("/styles.css")%>">
+    <link rel="icon" href="<%= url("/favicon.png")%>" type="image/png" sizes="16x16">
   </head>
 
   <body>
-  <img src="logo.png" class="logo">
+ <a href="/"> <img src="<%= url("/logo.png")%>" class="logo"></a>
     <% if !!@user %>
     <h3> Hello <%= @user %>! (<a href="/logoff">log off</a>)</h3>
     <% end %>

@@ -6,6 +6,7 @@ class Peep
   property :peep_text, Text, :required => true
   property :date_time, DateTime
   
+  has n, :replies
   belongs_to :user
 
   def <=>(other_peep)

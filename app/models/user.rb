@@ -11,6 +11,7 @@ class User
   property :password, Text
 
   has n, :peeps
+  has n, :replies
 
   def self.authenticate(username, password)
     user = first(username: username)

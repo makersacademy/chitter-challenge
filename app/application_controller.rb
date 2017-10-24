@@ -74,6 +74,23 @@ class ChitterApp < Sinatra::Base
     session.clear
     redirect '/'
   end
+
+  get '/peeps/reply:name' do
+    @user = session[:username]
+    session[:peep_id] = params[:name][1].to_i
+    @peep = Peep.get(params[:name][1].to_i)
+    @replies = @peep.replies
+    p "#{@peep.peep_text} #{@replies}"
+    erb(:'peeps/reply')
+  end
+
+  post '/peeps/reply' do
+    "#{params[:new_reply]}"
+    user = User.first(:username => session[:username]) 
+    peep = Peep.first(:id => session[:peep_id])
+    reply = Reply.create(:user_id => user.id, :peep_id =>peep.id, :reply_text => params[:new_reply], :date_time => Time.now)
+    redirect "/peeps/reply:#{session[:peep_id]}", 303
+  end
  
   run! if app_file == $0
 end

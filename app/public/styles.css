@@ -92,6 +92,7 @@ input[type=text], input[type=password], input[type=email], select {
 h1, h3, a, p{
   color: #fff !important;
   text-shadow: 0 0 3px rgb(252, 252, 252), 0 0 5px rgb(172, 172, 255);
+  
 }
 a {
   text-decoration: underline;
@@ -104,4 +105,35 @@ label {
 .logo {
   margin-top: 100px;
   margin-bottom: 20px;
+}
+
+.main_peep {
+  margin: auto;
+  width: 500px;
+  background-color: rgba(255,255,255, 0.92);
+}
+
+.replies {
+  margin: auto;
+  width: 450px;
+  background-color: rgba(255,255,255, 0.7) !important;
+}
+
+
+#peep_display_wrapper>a{
+  text-decoration:none !important;
+  color: #000 !important;
+  text-shadow: none;
+}
+
+#new_reply{
+  background-color: rgba(255,255,255,0.9)
+}
+
+.click_to_reply{
+    color: #aaa;
+    position: relative;
+    left: 230px;
+    top: -60px;
+    
 }

@@ -10,7 +10,9 @@
 <h1>Latest Peeps</h1>
 <div id="peep_display_wrapper">
   <% @peeps.each do |peep| %>
+  <a href="<%="/peeps/reply:#{peep.id}"%>">
     <div class="peep">
+   
       <div class="peep_text">
         <%= peep.peep_text %>
       </div>
@@ -20,6 +22,8 @@
       <div class="peep_time">
         <%= peep.date_time.strftime("%d/%m/%Y at %H:%M") %>
       </div>
+       <div class="click_to_reply">reply</div>
     </div>
+    </a>
   <% end %>
 </div>
