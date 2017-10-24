@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <% erb :head %>
+  <body>
+    <%= partial :welcome %>
+    <%= partial :header %>
+    <%= partial :flash %>
+    <%= yield %>
+  </body>
+</html>

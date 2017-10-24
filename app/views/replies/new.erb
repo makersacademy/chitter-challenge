@@ -1,0 +1,10 @@
+<%= erb :head %>
+
+<h2>Add Comment</h2>
+
+<div id='reply'>
+  <form action='/posts/replies/<%= @post.id %>' method='post'>
+    <input type='text' name='comment' placeholder='enter your comment...'>
+    <input type='submit' value='Submit' class="button">
+  </form>
+</div>

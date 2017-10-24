@@ -1,0 +1,142 @@
+body {
+  background-image: url("http://picalls.com/wp-content/uploads/2015/06/Google-Play-Gradient-by-BenSow.jpg");
+  color: white;
+  font-family: 'Roboto Slab', sans-serif;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 500%;
+}
+
+.username {
+  color: rgb(216, 13, 165);
+}
+
+.time {
+  color: rgb(247, 220, 58);
+}
+
+ul#posts {
+  font-family: 'Roboto Slab', sans-serif;
+  color: rgb(74, 127, 226);
+  text-align: center;
+  list-style-position: inside;
+  font-size: 14px;
+}
+
+li#tips {
+  padding-top: 10px;
+  background-color: rgba(0,0,0,.1);
+  border-radius: 5px;
+  color: white;
+  padding-bottom: 10px;
+}
+
+div#logo {
+  width: 67px;
+  height: 67px;
+  display: inline-block;
+  text-align: left;
+  -webkit-mask-box-image: url(https://cdn4.iconfinder.com/data/icons/hotel-facilities-1/512/gym-512.png);
+  }
+
+div#posts {
+  /*background-color: white;
+  border-radius: 5px;*/
+  width: 40%;
+  height: 400px;
+  margin: 0 auto;
+  padding-right: 20px;
+  overflow: scroll;
+  opacity: 0.8;
+}
+
+div#submit {
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 10px
+}
+
+div#log_out {
+  display: inline-block;
+  text-align: center;
+}
+
+div#sign_up {
+  display: inline-block;
+  text-align: center;
+  padding-right: 10px;
+  padding-bottom: 10px
+}
+
+div#sign_in {
+  display: inline-block;
+  text-align: center;
+}
+
+div#add_tip {
+  display: inline-block;
+  text-align: center;
+}
+
+div#home {
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 10px
+}
+
+.button, #comment_button {
+  background-color: transparent;
+  font-family: 'Roboto Slab', sans-serif;
+  color: white;
+  border: 2px solid white;
+  width: 120px;
+  height: 40px;
+  padding: 2px 2px 2px 2px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 50px
+}
+
+.button:hover, #comment_button:hover {
+  background-color: rgba(0,0,0,.1);
+  color: white;
+  cursor: pointer;
+}
+
+#comment_button {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  border: none;
+}
+
+#login {
+  text-align: center;
+}
+
+#link {
+  text-align: center;
+}
+
+input[type=text] {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Roboto Slab', cursive;
+  width: 250px;
+  height: 40px;
+  border: 0.5px
+  solid rgb(255, 255, 255);
+  border-radius: 50px
+}
+
+input[type=text]:focus {
+  border-color:rgb(201, 201, 200);
+  outline: none;
+}
