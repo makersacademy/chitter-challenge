@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] ||= "development"
+ENV["RACK_ENV"] ||= "dev"
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'

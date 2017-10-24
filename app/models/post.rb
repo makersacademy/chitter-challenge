@@ -6,6 +6,7 @@ class Post
   include DataMapper::Resource
 
   belongs_to :user
+  has n, :replies
 
   property :id,         Serial
   property :tip,        String

@@ -1,4 +1,4 @@
-<%= erb :header %>
+<%= erb :head %>
 
 <% if !current_user %>
   <div id='sign_up'>
@@ -20,6 +20,12 @@
           <span class='username'><%= post.user.user_name %></span> posted the tip:<br>
           <%= post.tip %><br>
           <sub><span class='time'><%= post.time_to_string %></span></sub>
+        <form action='/post/replies/<%= post.id %>'>
+          <input type="submit" value="Comment" id="comment_button">
+        </form>
+          <% post.replies.each do |reply| %>
+            <sub><span class='time'><%= reply.comment %></span></sub>
+          <% end %>
         </li>
       </br><br>
       </div>

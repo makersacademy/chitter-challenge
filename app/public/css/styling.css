@@ -91,7 +91,7 @@ div#home {
   padding-bottom: 10px
 }
 
-.button {
+.button, #comment_button {
   background-color: transparent;
   font-family: 'Roboto Slab', sans-serif;
   color: white;
@@ -104,10 +104,17 @@ div#home {
   border-radius: 50px
 }
 
-.button:hover {
+.button:hover, #comment_button:hover {
   background-color: rgba(0,0,0,.1);
   color: white;
   cursor: pointer;
+}
+
+#comment_button {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  border: none;
 }
 
 #login {

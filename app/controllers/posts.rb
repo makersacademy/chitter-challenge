@@ -18,4 +18,19 @@ class Fitter < Sinatra::Base
     @posts = Post.all
     erb :'posts/index', :layout => :layout
   end
+
+  get '/post/replies/:id' do
+    @post = Post.get(params[:id])
+    erb :'replies/new'
+  end
+
+  post '/posts/replies/:id' do
+    post = Post.get(params[:id])
+    reply = Reply.create(comment: params[:comment],
+            user: current_user,
+            post: post)
+    post.replies << reply
+    post.save
+    redirect '/posts'
+  end
 end

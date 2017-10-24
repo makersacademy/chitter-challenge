@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <% erb :header %>
+  <% erb :head %>
   <body>
-    <%= partial :head %>
     <%= partial :welcome %>
+    <%= partial :header %>
     <%= partial :flash %>
     <%= yield %>
   </body>
