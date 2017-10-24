@@ -6,7 +6,7 @@ My response to the Makers Academy Chitter Challenge. Fitter is a web application
 
 Join the fun at: https://fitter-tips.herokuapp.com
 
-<p align="center"><img src='public/posts.png' width=800></p>
+<p align="center"><img src='app/public/posts.png' width=800></p>
   
 The Brief:
 -------
@@ -74,9 +74,9 @@ The Approach:
 * Bcrypt was used to secure the passwords.
 
 <p align="center"> More screenshots!</p>
-<p align="center"><img src='public/signing-up.png' width=800></p>
-<p align="center"><img src='public/logging-in.png' width=800></p>
-<p align="center"><img src='public/posting.png' width=800></p>
+<p align="center"><img src='app/public/signing-up.png' width=800></p>
+<p align="center"><img src='app/public/logging-in.png' width=800></p>
+<p align="center"><img src='app/public/posting.png' width=800></p>
 
 Further Developments:
 -----
