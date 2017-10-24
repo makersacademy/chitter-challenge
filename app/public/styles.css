@@ -27,6 +27,10 @@ body {
 
 .peep_text{
   font-size: 1.5em;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 10px
 }
 
 #new_peep{
