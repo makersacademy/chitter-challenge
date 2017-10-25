@@ -1,0 +1,184 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: left;
+  color: black;
+  margin: 80px auto;
+  background-color: hsl(0, 0%, 93%);
+}
+
+#home_button {
+  background-color: transparent;
+  height: 100%;
+  border: none;
+  margin: 0;
+  line-height: 100%;
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 0.03em;
+  padding-top: 3%;
+  color: white;
+  text-decoration: none;
+  outline: none;
+}
+
+#dot {
+  color: hsl(257, 90%, 68%);
+}
+
+#home_button:hover {
+  cursor: pointer;
+}
+
+header {
+  margin: 0px auto;
+  background-color: hsla(258, 96%, 56%, 1);
+  height: 80px;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 1px 3px #888888;
+}
+
+header > div {
+  height: 100%;
+  margin: 0;
+  float: left;
+  width: 42%;
+  font-size: 30px;
+  color: white;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+}
+
+#sessions {
+  width: 57%;
+}
+
+#sessions, #log_out {
+  padding-top: 1.5%;
+}
+
+#new_peep {
+  width: 14%;
+  text-align: center;
+}
+
+#new_peep button {
+  background-color: hsl(257, 90%, 68%);
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  margin-top: 5%;
+  border: none;
+  outline: none;
+}
+
+#new_peep button:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+#new_peep button div {
+  float: left;
+  width: 43%;
+  height: 43%;
+  margin: 7%;
+  background-color: hsla(258, 96%, 56%, 1);
+}
+
+#new_peep .left {
+  margin-left: 0;
+}
+
+#new_peep .right {
+  margin-right: 0;
+}
+
+#new_peep .top {
+  margin-top: 0;
+}
+
+#new_peep .bottom {
+  margin-bottom: 0;
+}
+
+header p {
+  float: left;
+  margin: 0;
+}
+
+header nav {
+  text-align: right;
+  height: 100%;
+}
+
+header ul {
+	list-style: none;
+  padding-left: 0;
+  margin: 0;
+  height: 100%;
+  margin-right: 3%;
+}
+
+header li {
+  display: inline;
+	margin-left: 1%;
+  color: grey;
+}
+
+#sign_up {
+  float: right;
+}
+
+#log_in {
+  float: right;
+  width: 80%;
+}
+
+#sessions input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid hsl(257, 90%, 68%);
+  height: 20px;
+  width: 130px;
+  outline: none;
+  color: hsl(257, 90%, 68%);
+}
+
+#sessions input:focus {
+  border-color: white;
+}
+
+#sessions ::-webkit-input-placeholder {
+  color: hsl(257, 90%, 68%);
+  font-size: 12px;
+}
+
+#sessions button, #log_out button {
+  background-color: transparent;
+  border: none;
+  height: 37px;
+  width: 80px;
+  margin: 0;
+  line-height: 100%;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  padding: 2px;
+  color: hsl(257, 90%, 68%);
+  text-decoration: none;
+  outline: none;
+}
+
+#log_out button:hover, #sessions button:hover {
+  cursor: pointer;
+  color: white;
+}
+
+#hide {
+  color: transparent;
+}
+

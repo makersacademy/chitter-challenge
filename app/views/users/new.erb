@@ -1,0 +1,26 @@
+<section id="form_wrapper">
+  <form action="/users" method="post" id="form">
+    <ul>
+      <li>
+        <input type="text" name="name" id="name" placeholder="Full Name" required>
+      </li>
+      <li>
+        <input type="text" name="handle" id="handle" placeholder="handle" required>
+      </li>
+      <li>
+        <input type="email" name="email" id="email"  placeholder="Email" required>
+      </li>
+      <li>
+        <input type="password" name="password" id="password"  placeholder="Password" required>
+      </li>
+      <li>
+        <button type="submit" name="register">Sign Up!</button>
+      </li>
+    </ul>
+  </form>
+</section>
+
+
+<% if flash.now[:errors] %>
+<%= flash.now[:errors] %>
+<% end %>

@@ -1,0 +1,25 @@
+<% if current_user %>
+  <p id="heading-text">Replying to:</p>
+  <ul>
+    <div class="peep_box">
+      <li>
+        <div class="pic"><img src="http://lorempixel.com/50/50/people?random=<%= @peep.posted_on %>" /></div>
+        <form>
+          <button type="submit" formmethod="get" formaction="/peeps/reply/<%= @peep.id %>">Reply</button>
+        </form>
+        <p class="name"><%= "#{@peep.user.first_name} #{@peep.user.last_name}" %></p>
+        <p class="handle">@<%= @peep.user.handle %></p>
+        <p class="peep"><%= @peep.text %></p>
+        <p class="time"><%= @peep.posted_on.strftime("%d/%m/%Y %H:%M") %></p>
+      </li>
+    </div>
+  </ul>
+  <div id="new_peep_wrapper" class="no_margin">
+    <form action="/peeps/reply/<%= @peep.id %>" method="post">
+      <textarea rows="5" type="text" name="response" id="reply" placeholder="Message.." required></textarea>
+      <button type="submit">Post</button>
+    </form>
+  </div>
+<% else %>
+  <p id="empty">You must be logged in to reply to a peep</p>>
+<% end %>
