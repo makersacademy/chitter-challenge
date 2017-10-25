@@ -3,11 +3,13 @@ feature 'View peeps' do
     create_new_peep('First peep')
     create_new_peep('Second peep')
     visit '/peeps'
-    # expect(page).to have_content
-    expect(page.body).to match(/.*'Second peep'.*'First peep'/)
-    # expect(page).to have_content("ul:first-child", :text => "Second peep")
-    # expect(page).to have_content("ul:last-child", :text => "First peep")
-    # page.find("#ul:first-child", :text => "Second peep")
-    # page.find("#ul:last-child", :text => "First peep")
+    expect(page).to have_content('First peep')
+    expect(page).to have_content('Second peep')
+  end
+
+  scenario 'Peeps should have a create time' do
+    create_new_peep('First peep')
+    visit '/peeps'
+    expect(page).to have_content('Created at')
   end
 end
