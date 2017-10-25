@@ -29,7 +29,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = current_user
+    @user = current_user #dont need this
     @peeps = Peep.all
     erb :'peeps/index'
   end
@@ -38,12 +38,12 @@ class Chitter < Sinatra::Base
     message = params[:peep]
     peep = Peep.create(
       text: message, 
-      posted_on: DateTime.now, 
+      posted_on: DateTime.now, # use databse timestamps
       user: current_user
     )
     tags = message.split.select { |w| w.start_with?('@') }  
     tags.each do |tag|
-      user = User.first(handle: tag.delete('@'))
+      user = User.first(handle: tag.delete('@')) #validation if user exists
       tag = Tag.create(
         peep: peep, 
         user: user
@@ -56,7 +56,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/reply/:id' do
-    @peep = Peep.get(params[:id])
+    @peep = Peep.get(params[:id])# validate reply id
     erb :'peeps/reply'
   end
 
