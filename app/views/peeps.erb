@@ -1,0 +1,7 @@
+<h1>All the peeps, innit</h1>
+Peep ID  Peep Text   Created at
+<ul id="peeps">
+  <% @all_peeps.each do |peep| %>
+    <li> <%= peep.id %> <%= peep.text %> <%= peep.created_at %></li>
+  <% end %>
+</ul>
