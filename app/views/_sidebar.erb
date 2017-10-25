@@ -4,6 +4,10 @@
     <h3 class="w3-wide"><b>Chitter</b></h3>
   </div>
       <div class="w3-xlarge w3-text-grey">
+        <form method='post' action='/follow'>
+          <input id="follow" name="follow" type='text' placeholder="Email">
+          <button type="submit" class="w3-bar-item w3-button">Add</button>
+        </form>
         <a onclick="expandPeepMenu()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="expandPeepMnu">
           Peeps <i class="fa fa-caret-down"></i>
         </a>

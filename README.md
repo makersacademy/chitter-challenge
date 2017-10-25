@@ -1,12 +1,33 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Demo:
+-------
 
+[Heroku Demo of my Application](http://my-chitter-app.herokuapp.com/)
+
+
+Procedure:
+-------
+
+I firstly started by diagraming what I expected the responsibilities to be. It wasn't as clear and I struggled with this.
+I ended up using very basic diagrams to start the application. They are as follows:
+
+![Alt text](./git_images/diagram_1.png?raw=true)
+
+My relationships where conceptualized as follows:
+
+![Alt text](./git_images/relation.png?raw=true)
+
+Unfinished:
+-------
+
+I would have liked to have implemented the ablitiy to:
+ 
+ * Tagging functionality
+ * A users ability to follow another 
+ * A status(Peep) feed.
+ 
 Challenge:
 -------
 

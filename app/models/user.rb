@@ -16,6 +16,10 @@ class User
   property :password_digest, Text
 
   has n, :peeps
+  #
+  # has n, :relationships
+  # has n, :followers, :through => :relationships, :model => 'User', :child_key => [:user_id]
+  # has n, :follows, :through => :relationships, :model => 'User', :via => :user, :child_key => [:follower_id]
 
   def password=(password)
     @password = password
@@ -30,8 +34,4 @@ class User
       nil
     end
   end
-
-  # def self.find_by_id(id)
-  #   first(id: id)
-  # end
 end
