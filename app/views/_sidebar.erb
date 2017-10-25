@@ -1,0 +1,22 @@
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="sidebar_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <h3 class="w3-wide"><b>Chitter</b></h3>
+  </div>
+      <div class="w3-xlarge w3-text-grey">
+        <form method='post' action='/follow'>
+          <input id="follow" name="follow" type='text' placeholder="Email">
+          <button type="submit" class="w3-bar-item w3-button">Add</button>
+        </form>
+        <a onclick="expandPeepMenu()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="expandPeepMnu">
+          Peeps <i class="fa fa-caret-down"></i>
+        </a>
+        <div id="peepSort" class="w3-bar-block w3-hide w3-padding-large w3-large">
+          <a href="#" class="w3-bar-item w3-button">Recent</a>
+        </div>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <button type="submit" class="w3-bar-item w3-button">Sign Out</button>
+        </form>
+      </div>
+</nav>

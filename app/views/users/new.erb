@@ -1,0 +1,42 @@
+<div class="cn">
+  <!--<header class="w3-container w3-xlarge">-->
+    <!--<p class="w3-left">Sign Up</p>-->
+  <!--</header>-->
+
+  <form class="w3-container w3-card-4 w3-light-grey w3-text-green sign-up-card" action='/users' method='post'>
+    <h2 class="w3-center">Sign Up</h2>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+      <div class="w3-rest">
+        <input id="email" class="w3-input w3-border" name="email" type="email" placeholder="Email" value='<%= @user.email %>' required>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+      <div class="w3-rest">
+        <input id="name" class="w3-input w3-border" name="name" type="text" placeholder="Name" required>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-key"></i></div>
+      <div class="w3-rest">
+        <input id="password" class="w3-input w3-border" name="password" type="password" placeholder="Password" required>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-check"></i></div>
+      <div class="w3-rest">
+        <input id="password_confirmation" class="w3-input w3-border"
+               name="password_confirmation" type="password" placeholder="Password confirmation" required>
+      </div>
+    </div>
+
+    <button class="w3-button w3-block w3-section w3-green w3-ripple w3-padding">Sign Up</button>
+
+  </form>
+</div>
+

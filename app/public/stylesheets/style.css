@@ -1,0 +1,38 @@
+.w3-sidebar a {
+    font-family: "Roboto", sans-serif
+}
+
+body, h1, h2, h3, h4, h5, h6, .w3-wide {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1 {
+    background: no-repeat fixed center;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('/images/parallax1.jpg');
+    min-height: 100%;
+}
+
+/* Sign In/Sign Up card*/
+.sign-in-card {
+    height: 350px;
+    width: 600px;
+}
+
+.sign-up-card {
+    height: 450px;
+    width: 600px;
+}
+
+/* Center */
+.cn {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
