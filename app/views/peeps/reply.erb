@@ -1,0 +1,36 @@
+<div class="main_peep">
+  <div class="peep_text">
+    <%= @peep.peep_text %>
+  </div>
+  <div class="peep_user">
+    <%= User.get(@peep.user_id).username %>
+  </div>
+  <div class="peep_time">
+    <%= @peep.date_time.strftime("%d/%m/%Y at %H:%M") %>
+  </div>
+</div>
+<div class="replies">
+  <% @replies.each do |reply| %>
+    <div class="peep reply">
+      <%= reply.reply_text %>
+    </div>
+    <div class="peep_user">
+      <%= User.get(reply.user_id).username %>
+    </div>
+    <div class="peep_time">
+      <%= reply.date_time.strftime("%d/%m/%Y at %H:%M") %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<div id="peep_post" class="">
+    <%if !!@user %>
+    <h1>Post your reply</h1>
+      <form method="post" action="/peeps/reply">
+        <textarea rows="4" cols="50" id="new_reply" class="text_area" name="new_reply" required> </textarea>
+        <br><input type="submit" class="pbtn" value="Reply!">
+      </form>
+    <% end %>
+</div>
+

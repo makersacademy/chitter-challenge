@@ -1,0 +1,25 @@
+<h3><%= session[:error_msg] if session[:error_msg]%></h3>
+<h1>Sing up</h1>
+<div class="login_form">
+  <form method="POST" action="/signup">
+    <label for="first_name"> First Name: 
+      <input type="text" name="first_name" required>
+    </label>
+    <label for="last_name"> Last Name: 
+      <input type="text" name="last_name" required>
+    </label>
+    <label for="username"> Username: 
+      <input type="text" name="username" required>
+    </label>
+    <label for="email"> email: 
+      <input type="email" name="email" required>
+    </label>
+    <label for="password"> password: 
+      <input type="password" name="password" required>
+    </label>
+    <label for="confirmation"> password confirmation: 
+      <input type="password" name="confirmation" required>
+    </label>  
+    <input type="submit" class="pbtn" value="Sign up">
+  </form>
+</div>

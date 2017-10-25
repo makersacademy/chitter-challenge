@@ -1,0 +1,12 @@
+<h3> <%= @err if !!@err%></h3>
+<form method="post" action="/login">
+  <label for="username"> Username: 
+    <input type="text" name="username" required>
+  </label>
+  <label for="password"> Password: 
+    <input type="password" name="password" required>
+  </label>
+  <input type='submit' class="pbtn" value='Log in!'>
+</form>
+<br>
+<p>or just <a href="/signup">sign up...</a> it's free! ('cause we sell your data!)</p> 
