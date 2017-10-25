@@ -77,8 +77,9 @@ class ChitterApp < Sinatra::Base
 
   get '/peeps/reply:name' do
     @user = session[:username]
-    session[:peep_id] = params[:name][1].to_i
-    @peep = Peep.get(params[:name][1].to_i)
+    session[:peep_id] = params[:name].delete(":").to_i
+    p  session[:peep_id]
+    @peep = Peep.get(session[:peep_id])
     @replies = @peep.replies
     p "#{@peep.peep_text} #{@replies}"
     erb(:'peeps/reply')
