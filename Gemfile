@@ -13,6 +13,7 @@ gem 'rspec'
 gem 'sinatra'
 
 group :test do
+  gem 'pry'
   gem 'cucumber'
   gem 'database_cleaner'
   gem 'rubocop'

@@ -12,4 +12,8 @@ class Peep
   property :created_at, DateTime
   property :created_on, Date
 
+
+     belongs_to :user
+
+
 end

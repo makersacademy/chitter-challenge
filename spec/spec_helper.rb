@@ -9,6 +9,8 @@ require './app/models/user'
 require 'database_cleaner'
 require 'web_helper'
 
+require 'pry'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
