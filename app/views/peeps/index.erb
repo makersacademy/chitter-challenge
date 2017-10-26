@@ -2,7 +2,7 @@
   <input class="btn btn-primary" type="submit" value="Create message">
 </form>
 
-<br>
+
 
 <ul id='peeps' class="list-unstyled">
 
@@ -14,26 +14,36 @@ arr_date = "#{peep.created_on}".split("-").reverse
   year = arr_date[2]
 %>
 
-  <% time = ("#{peep.created_at}".split("T")[1]).to_s[0...-9] %>
-
-  <li class="text-justify">
-<div class="h8">
-    <%= day  %>
-    <%= month %>
-    <%= year  %>
-
-    at
-    <%= time %>
+  <div class="h3 text-primary">
+    <%=
+peep.message
+  %>
 </div>
-    <br>
     <blockquote class="blockquote bg-faded text-info ">
-      <%= peep.message %>
 
-      <!-- <div class="blockquote-footer"> 
-    </div> -->
+      <div class="blockquote-footer">
+        <%
+      user_first_name = User.get(peep.user_id).first_name
+      user_last_name = User.get(peep.user_id).last_name
+      full_name = user_first_name + " " + user_last_name  %>
+        <%=
+      full_name
+      %>
+      </div>
     </blockquote>
+    <% time = ("#{peep.created_at}".split("T")[1]).to_s[0...-9] %>
+
+    <li class="text-justify">
+      <div class="h8">
+        <%= day  %>
+        <%= month %>
+        <%= year  %>
+
+        at
+        <%= time %>
+      </div>
     <br>
-    <br>
+
 
   </li>
   <% end %>
