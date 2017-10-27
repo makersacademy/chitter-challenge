@@ -1,0 +1,36 @@
+<html>
+  <head>
+      <title>Chitter</title>
+      <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+
+  <body>
+    <h1>Chitter</h1>
+    <% if current_user %>
+    <h1>Welcome <%= current_user.name %></h1>
+    <div class="Add_a_new_Peep">
+      <form action='/peeps/new' method='get'>
+        <input type='submit' value='Add a new Peep'>
+      </form>
+    </div>
+    <div class="Sign_out">
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign Out'>
+      </form>
+    </div>
+    <%else %>
+    <h1>Welcome to Chitter!</h1>
+      <form action='/users/new' method='get'>
+        <input type='submit' value='Sign Up'>
+      </form>
+      <form action='/sessions/new' method='get'>
+        <input type='submit' value='Sign In'>
+      </form>
+    <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

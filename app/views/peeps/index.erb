@@ -1,0 +1,13 @@
+<div id="peep-container">
+  <% @peeps.reverse.each do |peep| %>
+    <div class="peep">
+      <div class="message">
+        <%= peep.message %>
+      </div>
+      <div class="time_posted">
+
+        <%= peep.time_posted.strftime("%Y-%m-%d %R") %>
+      </div>
+    </div>
+  <% end %>
+</div>
