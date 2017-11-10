@@ -36,6 +36,9 @@ I want to sign up for Chitter
 ```
 
 
+
+
+
 Technology used
 ------
 
@@ -43,7 +46,7 @@ Used the Sinatra framework with Ruby. Rspec and Capybara were used for  unit tes
 
 Data mapper and postgres were used to make the data persistent in a database.
 
-Bcrypt ruby gem was used to encrypt the password upon signing up. 
+Bcrypt ruby gem was used to encrypt the password upon signing up.
 
 Bootstrap was used for styling the interface. The app is hosted and deployed via Heroku.
 
@@ -52,3 +55,12 @@ How to use it
 You can find the app [here](https://chitter-challenge-pab123.herokuapp.com/users/new) :
 
 Feel free to sign up and chitter away !
+
+Alternatively you can run it on your browser with the following command :  
+
+```
+rackup config.ru
+
+```
+
+Then go to http://localhost:9292/ 
