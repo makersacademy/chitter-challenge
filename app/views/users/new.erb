@@ -1,7 +1,10 @@
 <form action = '/users' method = 'post'>
-  <input type = 'text', name = 'Name' placeholder='Name'><br>
   <input type = 'text', name = 'Email' placeholder='Email'><br>
   <input type = 'password', name = 'Password' placeholder='Password'><br>
   <input type = 'password', name = 'Confirm_Password' placeholder='Confirm Password'><br>
   <input type = 'submit', value = 'Submit'>
 </form>
+
+<% if flash[:wrong_password] %>
+  <%= flash[:wrong_password] %>
+<% end %>

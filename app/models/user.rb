@@ -7,12 +7,12 @@ class User
 include DataMapper::Resource
 
   property :id, Serial
-  property :name, String
+  # property :name, String
   property :email, String
-  property :password, String
+  # property :password, String
 
   property :password_digest, Text
-  attr_accessor :confirmation_password
+  attr_accessor :password_confirmation
   attr_reader :password
 
   has n, :tweets, :through => Resource
