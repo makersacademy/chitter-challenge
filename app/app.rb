@@ -10,7 +10,6 @@ class Chitter < Sinatra::Base
   set :session_secret, 'bob has one leg'
   register Sinatra::Flash
 
-
   get '/' do
     redirect '/users/new'
   end
@@ -20,7 +19,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    # redirect '/' unless params[:Password] == params[:Confirm_Password]
     @current_user = User.create(email: params[:Email], password: params[:Password])
     session[:email] = @current_user.email
     flash[:wrong_password] = "Password and confirmation password do not match" if @current_user.id.nil?
@@ -41,14 +39,11 @@ class Chitter < Sinatra::Base
 
   post '/tweets' do
   tweet = Tweet.create(text: params[:text])
-  params[:tags].split(',').map(&:strip).each do |tag|
-    tweet.tags << Tag.first_or_create(tag: tag)
-  end
-  tweet.save
-  p tweet.tags
-
+    params[:tags].split(',').map(&:strip).each do |tag|
+      tweet.tags << Tag.first_or_create(tag: tag)
+    end
   redirect '/tweets/new'
-end
+  end
 
   run! if app_file == $0
 end

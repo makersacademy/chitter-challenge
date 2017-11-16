@@ -1,0 +1,4 @@
+-- flash doesn't work
+-- password verify doesn't work
+-- routing doesn't work
+-- needs graphics
