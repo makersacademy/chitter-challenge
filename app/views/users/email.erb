@@ -1,0 +1,5 @@
+<h1> Welcome <%= @email %> </h1>
+
+<% if flash[:wrong_password] %>
+  <%= flash[:wrong_password] %>
+<% end %>
