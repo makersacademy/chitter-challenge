@@ -4,6 +4,7 @@ ruby '2.4.0'
 gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'flash'
 gem 'sinatra'
 
 group :test do
@@ -13,7 +14,6 @@ group :test do
   gem 'rspec'
   gem 'rake'
   gem 'rubocop'
-  gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
