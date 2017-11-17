@@ -1,22 +1,22 @@
 feature 'Feature: signing up' do
   scenario 'user does not enter email' do
     sign_up(email: '')
-    expect(page.current_path).to eq '/sign-up'
+    expect(page.current_path).to eq '/users/new'
   end 
 
   scenario 'user does not enter handle' do
     sign_up(handle: '')
-    expect(page.current_path).to eq '/sign-up'
+    expect(page.current_path).to eq '/users/new'
   end 
 
   scenario 'user does not enter name' do
     sign_up(name: '')
-    expect(page.current_path).to eq '/sign-up'
+    expect(page.current_path).to eq '/users/new'
   end 
 
   scenario 'user does not enter password' do
     sign_up(password: '')
-    expect(page.current_path).to eq '/sign-up'
+    expect(page.current_path).to eq '/users/new'
   end 
 
   scenario 'invalid sign-up attempt does not generate a user' do

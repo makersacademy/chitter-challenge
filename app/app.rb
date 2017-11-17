@@ -14,13 +14,14 @@ class App < Sinatra::Base
     end
   end
 
-  get '/sign-up' do
+  get '/users/new' do
     erb(:'auth/signup')
   end
 
   post '/users/new' do
-    user = User.create(name: params[:name], password: params[:password],
-      email: params[:email], handle: params[:handle])
+    user = User.new(name: params[:name], password: params[:password],
+                    email: params[:email], handle: params[:handle])
+    redirect('/users/new') unless user.save
     session[:user_id] = user.id
     redirect('/peeps')
   end
