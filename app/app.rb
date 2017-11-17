@@ -15,17 +15,26 @@ class App < Sinatra::Base
   end
 
   get '/sign-up' do
-    erb(:signup)
+    erb(:'auth/signup')
   end
 
   post '/users/new' do
     user = User.create(name: params[:name], password: params[:password],
       email: params[:email], handle: params[:handle])
     session[:user_id] = user.id
-    redirect('/home')
+    redirect('/peeps')
   end
 
-  get '/home' do
-    erb(:home)
+  get '/peeps' do
+    erb(:'/peeps/peeps')
+  end
+
+  get '/peeps/new' do
+    erb(:'peeps/new')
+  end
+  
+  post '/peeps/new' do
+    Peep.create(content: params[:content], user: current_user)
+    redirect('/peeps')
   end
 end
