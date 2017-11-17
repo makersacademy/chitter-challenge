@@ -1,10 +1,13 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'models/db-setup'
 require_relative 'models/user'
 
 ENV['RACK_ENV'] ||= 'development'
 
 class App < Sinatra::Base
+  register Sinatra::Flash
+
   enable :sessions
   set :session_secret, 'narcissus'
 
@@ -15,16 +18,20 @@ class App < Sinatra::Base
   end
 
   get '/users/new' do
-    erb(:'auth/signup')
+    erb(:'auth/signup', locals: { user: User.new })
   end
 
   post '/users/new' do
     user = User.new(name: params[:name], password: params[:password],
                     password_confirmation: params[:confirmation], 
                     email: params[:email], handle: params[:handle])
-    redirect('/users/new') unless user.save
-    session[:user_id] = user.id
-    redirect('/peeps')
+    if user.save
+      session[:user_id] = user.id
+      redirect('/peeps')
+    else
+      flash.now[:notice] = "Passwords do not match"
+      erb(:'auth/signup', locals: { user: user })
+    end
   end
 
   get '/peeps' do

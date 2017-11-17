@@ -1,12 +1,16 @@
+<% if flash[:notice] %>
+  <div id="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <form method="post" action="/users/new">
   <label for="name">Name: </label>
-  <input name="name" type="text" required>
+  <input name="name" type="text" value="<%= user.name %>" required>
 
   <label for="email">Email address: </label>
-  <input name="email" type="email" required>
+  <input name="email" type="email" value="<%= user.email %>" required>
 
   <label for="handle">Handle: </label>
-  <input name="handle" type="text" required>
+  <input name="handle" type="text" value="<%= user.handle %>" required>
 
   <label for="password">Password: </label>
   <input name="password" type="password" required>
