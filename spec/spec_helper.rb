@@ -39,6 +39,7 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
   config.shared_context_metadata_behavior = :apply_to_host_groups 
 
   config.append_after(:each) do
@@ -49,5 +50,11 @@ RSpec.configure do |config|
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  end
+end
+
+RSpec::Matchers.define :appear_before do |later_content|
+  match do |earlier_content|
+    page.body.index(earlier_content) < page.body.index(later_content)
   end
 end

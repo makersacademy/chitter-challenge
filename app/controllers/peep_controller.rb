@@ -4,7 +4,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_peep' do
-    session[:peep] = Peep.create(content: params[:content]).content
+    Peep.create(content: params[:content])
     redirect '/'
   end
 end
