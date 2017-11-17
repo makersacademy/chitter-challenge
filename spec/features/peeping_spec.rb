@@ -3,15 +3,16 @@ def sign_up_and_peep(content: '')
   peep(content: content)
 end
 
-# selenium does not seem to support status codes...
-Capybara.current_driver = :rack_test
-
 feature 'Feature: peeping' do
-  scenario 'user tries to peep when not logged in' do
-    visit('/peep/new')
-    expect(page.status_code).to eq 401
-  end
+  context 'when not logged in' do
+    before(:each) { Capybara.current_driver = :rack_test }
 
+    scenario 'user tries to peep when not logged in' do
+      visit('/peep/new')
+      expect(page.status_code).to eq 401
+    end
+  end
+  
   scenario 'users peeps with no content' do
     sign_up_and_peep(content: '')
     expect(page.current_path).to eq '/peep/new'
