@@ -15,9 +15,9 @@ group :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'database_cleaner'
-  gem 'rspec'
   gem 'rake'
-  gem 'rubocop'
+  gem 'rspec'
+  gem 'rubocop', '~> 0.48.1', require: false
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end

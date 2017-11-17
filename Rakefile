@@ -12,8 +12,8 @@ end
 
 namespace :db do
   task :ugpgrade do
-   DataMapper.auto_upgrade!
-   puts "Auto-upgrade complete (no data loss)"
+    DataMapper.auto_upgrade!
+    puts "Auto-upgrade complete (no data loss)"
   end
 
   task :migrate do
