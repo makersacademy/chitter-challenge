@@ -1,5 +1,15 @@
+ENV['RACK_ENV'] = 'test'
+
+require 'capybara'
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'sinatra'
+require 'rspec'
+require './app/app.rb'
+require_relative 'helpers/web_helpers'
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -9,6 +19,30 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.include Capybara::DSL
+
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
+  config.shared_context_metadata_behavior = :apply_to_host_groups 
+
+  config.append_after(:each) do
+    DatabaseCleaner.clean
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
