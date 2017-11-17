@@ -8,9 +8,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'simplecov'
 require 'simplecov-console'
-require 'selenium-webdriver'
 
-Capybara.default_driver = :selenium
 Capybara.app = App
 
 RSpec.configure do |config|
