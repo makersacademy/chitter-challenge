@@ -5,10 +5,10 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, Text
   property :name, String
-  property :handle, String
   property :digest, Text
+  property :handle, String, unique: true
+  property :email, Text, unique: true
 
   def password=(password)
     self.digest = BCrypt::Password.create(password)
