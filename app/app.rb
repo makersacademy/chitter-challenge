@@ -19,8 +19,8 @@ class App < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.create(
-      username: params[:username], password: params[:password])
+    user = User.create(name: params[:name], password: params[:password],
+      email: params[:email], handle: params[:handle])
     session[:user_id] = user.id
     redirect('/home')
   end
