@@ -20,6 +20,7 @@ class App < Sinatra::Base
 
   post '/users/new' do
     user = User.new(name: params[:name], password: params[:password],
+                    password_confirmation: params[:confirmation], 
                     email: params[:email], handle: params[:handle])
     redirect('/users/new') unless user.save
     session[:user_id] = user.id
