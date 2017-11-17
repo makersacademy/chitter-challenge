@@ -1,7 +1,7 @@
 require 'require_all'
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require_all 'models/*'
+require_rel 'models/*'
 
 env = ENV['RACK_ENV']
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
