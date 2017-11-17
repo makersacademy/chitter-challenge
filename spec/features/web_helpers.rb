@@ -1,6 +1,6 @@
 def sign_up(name: 'person', password: 'secret', email: 'example@domain.com', 
             handle: 'example')
-  visit('/sign-up')
+  visit('/users/new')
   fill_in('name', with: name)
   fill_in('password', with: password)
   fill_in('handle', with: handle)
