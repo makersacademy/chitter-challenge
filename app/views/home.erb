@@ -4,6 +4,6 @@
 </form>
 
 <% session[:peeps] && session[:peeps].each do |peep| %>
-  <%= peep %>
-  <br>
+  <%= peep[0] %><br>
+  <%= peep[1] %><br>
 <% end %>
