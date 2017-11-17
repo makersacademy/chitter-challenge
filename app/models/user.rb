@@ -5,7 +5,9 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
+  property :email, Text
+  property :name, String
+  property :handle, String
   property :digest, Text
 
   def password=(password)
