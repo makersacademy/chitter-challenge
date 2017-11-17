@@ -1,6 +1,6 @@
-# require 'data_mapper'
-# require 'dm-postgres-adapter'
-# require './app/data_mapper_setup'
+require 'data_mapper'
+require 'dm-postgres-adapter'
+require_relative 'app/app'
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'

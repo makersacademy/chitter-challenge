@@ -2,12 +2,14 @@ ENV['RACK_ENV'] = 'test'
 
 require 'capybara'
 require 'capybara/rspec'
+require 'database_cleaner'
 require 'simplecov'
 require 'simplecov-console'
 require 'sinatra'
+require 'require_all'
 require 'rspec'
-require './app/app.rb'
-require_relative 'helpers/web_helpers'
+require_relative '../app/app.rb'
+require_rel 'helpers/*'
 
 Capybara.app = Chitter
 
