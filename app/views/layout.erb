@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
         <head>
-                <title>Chitter<\title>
+                <title>Chitter</title>
                 <link rel="stylesheet" href="style.css">
         </head>
         <body>
                 <div id="header">
                         <nav>
                         <ul>
+                                <% if current_user %>
+                                        <li>Welcome, <%= current_user.username %></li>
+                                <% end %>
                                 <li>Home</li>
                                 <li>User</li>
                                 <li>Logout</li>
