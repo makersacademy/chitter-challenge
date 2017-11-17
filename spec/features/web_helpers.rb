@@ -17,6 +17,6 @@ def login(email: 'example@domain.com', password: 'secret')
 end
 
 def peep(content: 'some text')
-  visit('/peep/new')
+  visit('/peeps/new')
   fill_in('content', with: content)
 end

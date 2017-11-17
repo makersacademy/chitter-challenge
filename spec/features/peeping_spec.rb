@@ -13,15 +13,15 @@ feature 'Feature: peeping' do
     end
   end
   
-  scenario 'users peeps with no content' do
-    sign_up_and_peep(content: '')
-    expect(page.current_path).to eq '/peep/new'
-  end
+  context 'when logged in' do
+    scenario 'users peeps with no content' do
+      sign_up_and_peep(content: '')
+      expect(page.current_path).to eq '/peeps/new'
+    end
 
-  scenario 'users peeps when logged in' do
-    sign_up_and_peep
-    within 'li' do # TODO more specific?
-      expect(page).to have_content 'some text'
+    scenario 'users peeps when logged in' do
+      sign_up_and_peep
+      expect(page.first('li')).to have_content 'some text'
     end
   end
 end
