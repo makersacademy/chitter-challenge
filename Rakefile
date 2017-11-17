@@ -5,3 +5,10 @@ if ENV['RACK_ENV'] != 'production'
   
   task default: [:spec]
 end
+
+namespace :db do
+  task :create do
+    system 'createdb chitter_test'
+    system 'createdb chitter_development'
+  end
+end
