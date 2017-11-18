@@ -1,10 +1,14 @@
-<form action="/peeps" method="post">
-  <input type="textarea" name="peep">
-  <input type="submit" value="Peep!">
-</form>
+<% if current_user %>
+  <h1> Hello, <%= current_user.username %>! </h1>
+  <form action="/peeps" method="post">
+    <input type="textarea" name="peep">
+    <input type="submit" value="Peep!">
+  </form>
+<% end %>
+
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li> <%= peep.text %> <%= peep.added.to_s %> </li>
+    <li> <%= peep.text %> <%= peep.added.to_s %> <a href="/<%=peep.user.username%>"><%= peep.user.username %></a> </li>
   <% end %>
 </ul>

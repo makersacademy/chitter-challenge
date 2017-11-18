@@ -7,4 +7,6 @@ class Peep
   property :text, Text
   property :added, Time
 
+  belongs_to :user
+
 end

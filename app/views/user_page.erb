@@ -1,0 +1,7 @@
+<h1> <%= @user.username %> </h1>
+
+<ul>
+  <% @user.peeps.each do |peep| %>
+    <li> <%= peep.text %> <%= peep.added.to_s %> </li>
+  <% end %>
+</ul>
