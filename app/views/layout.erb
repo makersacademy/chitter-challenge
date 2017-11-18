@@ -10,11 +10,24 @@
         <% if current_user %>
           <a>Welcome, <%= current_user.name %></a>
         <% end %>
-        <a class="toplink" href="/peeps">Home</a>
+        <a>
+          <form method="get" action="/peeps">
+            <input class="toplink" type="submit" value="Home">
+          </form>
+        </a>
         <% if current_user %>
-          <a class="toplink" href="/session/delete">Logout</a>
+        <a>
+          <form method="post" action="/sessions">
+            <input type="hidden" name="_method" value="delete">
+            <input class="toplink" type='submit' value="Logout">
+          </form>
+        </a>
         <% else %>
-          <a class="toplink" href="/session/new">Login</a>
+        <a>
+          <form method="get" action="/sessions/new">
+            <input class="toplink" type='submit' value="Login">
+          </form>
+        </a>
         <% end %>
       </nav>
     </div>

@@ -51,6 +51,11 @@ class App < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect('/peeps')
+  end
+
   get '/peeps' do
     erb(:'/peeps/peeps')
   end
