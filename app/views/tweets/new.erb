@@ -2,7 +2,9 @@
 <h1> Add Tweet </h1>
 
 <form action='/tweets' method='POST'>
+  <input type='text' name='User' value= '<%= @user.email %>' >
   <input type='text' name='Tweet'>
+
   <br>
   <input type='submit' value='Submit'>
 </form>

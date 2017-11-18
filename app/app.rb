@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require_relative 'models/user'
+require_relative 'models/tweet'
 require_relative './data_mapper_setup'
 require 'sinatra/flash'
 
@@ -15,21 +16,22 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
-
     erb :'users/new'
   end
 
 
   post '/users' do
-  @current_user = User.new(email: params[:email],
-    password: params[:password], password_confirmation: params[:password_confirmation])
+  @current_user = User.create(email: params[:Email],
+    password: params[:Password], password_confirmation: params[:Password_confirmation])
     if @current_user.save
       session[:user_id] = @current_user.id
+      session[:email] = @current_user.email
       redirect to('/tweets/new')
     else
       flash.now[:errors] = @current_user.errors.full_messages
       erb :'users/new'
     end
+
   end
 
   get '/users' do
@@ -38,17 +40,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/tweets/new' do
+    @user = current_user
     erb :'tweets/new'
   end
 
   post '/tweets' do
-
     user = current_user
-    user.tweets << Tweet.new(text: params[:Tweet], time: Time.new, user: current_user.email)
-    # current_user.save
+    user.tweets << Tweet.new(text: params[:Tweet], time: Time.new, user: current_user)
     @tweets = Tweet.all
-    p @tweets
-    p user
+    # tweet.save
     erb :'tweets/index'
   end
 

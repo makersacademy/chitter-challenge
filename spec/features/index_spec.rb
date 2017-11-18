@@ -4,9 +4,9 @@ feature "sign in" do
     visit '/users/new'
     fill_in('Email', :with => 'joecowton@hotmail.com')
     fill_in('Password', :with => 'password')
-    fill_in('Confirm_Password', :with => 'password')
+    fill_in('Password_confirmation', :with => 'password')
     click_button('Submit')
-    expect(page).to have_content "Welcome joecowton@hotmail.com"
+    expect(page).to have_content "Welcome, joecowton@hotmail.com"
   end
 end
 
@@ -15,7 +15,7 @@ feature "tweet new" do
     visit '/users/new'
     fill_in('Email', :with => 'joecowton@hotmail.com')
     fill_in('Password', :with => 'password')
-    fill_in('Confirm_Password', :with => 'password')
+    fill_in('Password_confirmation', :with => 'password')
     click_button('Submit')
     fill_in('Tweet', with: 'hello')
     click_button('Submit')
