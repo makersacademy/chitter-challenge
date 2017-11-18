@@ -4,4 +4,7 @@ feature 'sign up' do
     click_button('Sign Up')
     expect(page).to have_content('Sign up for Chitter and connect with Peeps!')
   end
+  scenario 'requires a matching confirmation password' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  end
 end
