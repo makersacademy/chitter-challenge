@@ -10,7 +10,6 @@ feature 'sign up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-
   scenario 'user must enter an email address when signing up' do
     sign_up('timmy', nil)
     expect(page.current_path).to eq '/users'

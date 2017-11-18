@@ -23,12 +23,27 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     @user = User.new
-    erb :signup
+    erb :'users/new'
   end
 
   get '/peeps' do
     @peeps = Peep.all.reverse
     erb :peeps
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash.now[:login_error] = 'The email or password is incorrect'
+      erb :'sessions/new'
+    end
   end
 
   get '/:user' do
@@ -48,8 +63,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/peeps'
     else
-      @user.errors.each { |error| flash.now[:password_mismatch] =  error[0] }
-      erb :signup
+      @user.errors.each { |error| flash.now[:password_mismatch] = error[0] }
+      erb :'users/new'
     end
   end
 
