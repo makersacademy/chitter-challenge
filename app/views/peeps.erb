@@ -1,1 +1,30 @@
-You just Peeped yourself!
+<style>
+  body {
+  background-image: url(http://wallpapercave.com/wp/XpyGeVF.jpg);
+  background-repeat:no-repeat;
+  background-size: 100%;
+}
+  h1 {
+color: darkturquoise;
+font-family: Papyrus, fantasy;
+font-size: 50px;
+  }
+  h2 {
+  color: maroon;
+  font-family: Impact, sans-serif;
+  font-size: 35px;
+  }
+</style>
+
+
+<h1> You just Peeped yourself!</h1>
+<h2> Peeps </h2>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      subject: <%= peep.subject%>
+      peep:   <%= peep.peep   %>
+    </li>
+  <% end %>
+</ul>
