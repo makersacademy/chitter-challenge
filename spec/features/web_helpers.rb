@@ -1,7 +1,7 @@
-def sign_up(username)
+def sign_up(username, email)
   visit '/users/new'
   fill_in('username', with: username)
-  fill_in('email', with: 'timmy@hello.com')
+  fill_in('email', with: email)
   fill_in('name', with: 'Timothy Hopkins')
   fill_in('password', with: '12345')
   fill_in('password_confirmation', with: '12345')
