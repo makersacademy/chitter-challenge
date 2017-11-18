@@ -2,8 +2,12 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require './models/data_mapper_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -11,7 +15,6 @@ class Chitter < Sinatra::Base
     end
   end
 
-  enable :sessions
 
   get '/' do
     redirect '/posts'
@@ -40,8 +43,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name], username: params[:username])
-    session[:username] = params[:username]
-    redirect('/posts')
+    user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name], username: params[:username])
+    if user.save
+      session[:username] = params[:username]
+      redirect('/posts')
+    else
+      erb(:sign_up)
+    end
   end
+
 end
