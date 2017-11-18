@@ -7,7 +7,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner'
 require_relative '../app/app.rb'
-#require_relative './features/web_helpers.rb'
+require_relative './features/web_helpers.rb'
 
 
 
