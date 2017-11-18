@@ -1,8 +1,8 @@
 feature 'Sign up form' do
   scenario 'User signs up correctly' do
-    expect { sign_up('name', 'username', 'mail@test.test',
+    expect { sign_up('name', 'user', 'mail@test.test',
       '2', '2')}.to change(User, :count).by(1)
-    expect(page).to have_content('username')
+    expect(page).to have_content('user')
   end
 
   scenario 'User tries to sign up with a blank field' do

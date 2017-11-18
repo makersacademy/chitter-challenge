@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
 
   delete '/sign_out' do
     session.clear
-    flash.keep[:sign_out] = "You have signed out"
-    redirect to '/'
+    flash.keep[:notice] = "You have signed out"
+    redirect '/'
   end
 end

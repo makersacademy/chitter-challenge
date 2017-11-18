@@ -12,6 +12,14 @@
   </div>
 </form>
 
-<% if flash[:sign_out] %>
-  <%= flash[:sign_out] %>
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% User.count > 0 && User.all do |user| %>
+  <div id='user_link'>
+    <a href="/user/#{user.username}"><%= user.username %></a>
+  </div>
 <% end %>

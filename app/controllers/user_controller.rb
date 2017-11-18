@@ -10,8 +10,8 @@ class Chitter < Sinatra::Base
     redirect "/user/#{user.username}"
   end
 
-  get '/user/:name' do
-    load_peeps
+  get '/user/:username' do
+    load_peeps(params[:username])
     erb :'user/user_area'
   end
 end
