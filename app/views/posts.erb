@@ -12,3 +12,8 @@
 <form action="/signup/new">
   <input type="submit" value="Sign Up">
 </form>
+<% if current_user %>
+<form  action="/posts/new">
+  <input type="submit" value="New Peep!">
+</form>
+<% end %>
