@@ -17,9 +17,9 @@ end
 feature 'Sign Out' do
   scenario 'Successful sign out' do
     sign_up('name', 'user', 'mail@test.test', '2', '2')
+    sign_out
     sign_in('mail@test.test', '2')
     sign_out
     expect(page).to have_content('You have signed out')
-    expect(page).not_to have_content('user')
   end
 end

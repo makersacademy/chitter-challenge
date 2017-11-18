@@ -12,14 +12,19 @@
   </div>
 </form>
 
-<% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<article>
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+</article>
 
-<% User.count > 0 && User.all do |user| %>
-  <div id='user_link'>
-    <a href="/user/#{user.username}"><%= user.username %></a>
-  </div>
-<% end %>
+<article>
+  <h3>Users:</h3>
+    <% session[:users] && session[:users] .each do |username| %>
+      <div id='user_link'>
+      <a href='user/<%= username %>'><%= username %></a>
+      </div>
+    <% end %>
+</article>
