@@ -6,7 +6,6 @@
   </form>
 <% end %>
 
-
 <ul>
   <% @peeps.each do |peep| %>
     <li> <%= peep.text %> <%= peep.added.to_s %> <a href="/<%=peep.user.username%>"><%= peep.user.username %></a> </li>

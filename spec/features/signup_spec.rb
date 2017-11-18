@@ -10,6 +10,27 @@ feature 'sign up' do
     expect(page).to have_content 'Passwords do not match'
   end
 
+  scenario 'user must enter an email address when signing up' do
+    visit '/users/new'
+    fill_in('username', with: 'timmy')
+    fill_in('name', with: 'Timothy Hopkins')
+    fill_in('password', with: '12345')
+    fill_in('password_confirmation', with: '12345')
+    click_button('Sign up!')
+    expect(page.current_path).to eq '/users'
+  end
+
+  scenario 'user must enter a correctly formatted email address when signing up' do
+    visit '/users/new'
+    fill_in('username', with: 'timmy')
+    fill_in('email', with: 'timmy123')
+    fill_in('name', with: 'Timothy Hopkins')
+    fill_in('password', with: '12345')
+    fill_in('password_confirmation', with: '12345')
+    click_button('Sign up!')
+    expect(page.current_path).to eq '/users'
+  end
+
   scenario 'user has peeps associated with them' do
     sign_up('timmy')
     post_peep('Hi there!')
