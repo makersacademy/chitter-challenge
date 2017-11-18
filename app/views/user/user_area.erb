@@ -1,1 +1,10 @@
 <h1>Welcome,  <%= current_user %></h1>
+
+<form action='/new_peep' method='get'>
+  <input type='submit' value="New peep"><br>
+</form>
+
+<% session[:peeps] && session[:peeps].each do |peep| %>
+  <%= peep[0] %><br>
+  Peeped on <%= peep[1] %> at <%= peep[2] %><br>
+<% end %>

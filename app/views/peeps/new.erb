@@ -3,6 +3,6 @@
   	required='required' placeholder='Write your peep here'><br>
   <input type='submit' value="Peep it">
 </form>
-<form action='/' method='get'>
+<form action='/user/<%= session[:name] %>' method='get'>
   <input type='submit' value="Cancel"><br>
 </form>

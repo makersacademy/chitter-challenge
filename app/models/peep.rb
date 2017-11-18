@@ -5,5 +5,5 @@ class Peep
   property :content, Text, :required => true
   property :created_at, DateTime
 
-  # belongs_to :user
+  has 1, :user, through: Resource
 end

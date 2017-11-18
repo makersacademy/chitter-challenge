@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
 
   post '/check_sign_in' do
     user = authenticate_user(params)
-    redirect "/user/#{user.name}" if user
+    redirect "/user/#{user.username}" if user
     session[:errors] = ["Invalid email or password"] 
     erb :'session/new'
   end

@@ -13,6 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   def create_session_data(user)
+    session[:user_id] = user.id if user.id
     session[:name] = user.name if user.name
     session[:username] = user.username if user.username
     session[:email] = user.email if user.email
@@ -40,11 +41,10 @@ class Chitter < Sinatra::Base
     create_session_data(user)
     user
   end
+
+  def create_peep(content)
+    user = User.first(id: session[:user_id])
+    user.peeps << Peep.create(content: content)
+    user.save
+  end
 end
-
-
-
-
-
-
-

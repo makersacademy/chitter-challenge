@@ -26,5 +26,5 @@ class User
   validates_format_of :email, as: :email_address
   validates_presence_of :password
 
-  # has n, :peeps, through: Resource
+  has n, :peeps, through: Resource
 end

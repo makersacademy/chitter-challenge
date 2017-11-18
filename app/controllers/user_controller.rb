@@ -7,10 +7,11 @@ class Chitter < Sinatra::Base
     user = create_user(params)
     create_session_data(user)
     redirect '/sign_up' unless user.id
-    redirect "/user/#{user.name}"
+    redirect "/user/#{user.username}"
   end
 
   get '/user/:name' do
+    load_peeps
     erb :'user/user_area'
   end
 end
