@@ -1,8 +1,13 @@
-require 'capybara/rspec'
-require 'simplecov'
-require 'simplecov-console'
+ENV['RACK_ENV'] = 'test'
 
 require './app/app'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require 'simplecov'
+require 'simplecov-console'
+require 'sinatra'
+
 
 Capybara.app = Chitter
 
@@ -15,6 +20,6 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.after(:suite) do
-  
+
   end
 end
