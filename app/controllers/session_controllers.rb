@@ -9,4 +9,10 @@ class Chitter < Sinatra::Base
     session[:errors] = ["Invalid email or password"] 
     erb :'session/new'
   end
+
+  delete '/sign_out' do
+  	session.clear
+  	flash.keep[:sign_out] = "You have signed out"
+  	redirect to '/'
+  end
 end

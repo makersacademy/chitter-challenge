@@ -7,3 +7,7 @@
 <form action='/sign_in' method='get'>
   <input type='submit' value="Sign In"><br>
 </form>
+
+<% if flash[:sign_out] %>
+  <%= flash[:sign_out] %>
+<% end %>

@@ -5,6 +5,7 @@ class Chitter < Sinatra::Base
     register Sinatra::Partial
     set :session_secret, 'bob now has no legs at all'
     set :partial_template_engine, :erb
+    use Rack::MethodOverride
 
     enable :partial_underscores
   end

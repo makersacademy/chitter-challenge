@@ -4,6 +4,11 @@
   <input type='submit' value="New peep"><br>
 </form>
 
+<form method='post' action='/sign_out'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Sign Out'>
+</form>
+
 <% session[:peeps] && session[:peeps].each do |peep| %>
   <%= peep[0] %><br>
   Peeped on <%= peep[1] %> at <%= peep[2] %><br>

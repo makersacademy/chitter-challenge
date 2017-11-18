@@ -5,3 +5,7 @@ def sign_in(email, password)
   fill_in 'password', with: password
   click_button 'Submit'
 end
+
+def sign_out
+  click_button 'Sign Out'
+end
