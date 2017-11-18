@@ -19,6 +19,7 @@ end
 def peep(content: 'some text')
   visit('/peeps/new')
   fill_in('content', with: content)
+  click_button('Peep')
 end
 
 def sign_in(email: 'example@domain.com', password: 'secret')
