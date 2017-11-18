@@ -4,9 +4,10 @@ class App < Sinatra::Base
   register Sinatra::Partial
   use Rack::MethodOverride
 
+  set :session_secret, 'narcissus'
+  set :partial_template_engine, :erb
   enable :sessions
   enable :partial_underscores
-  set :session_secret, 'narcissus'
 
   helpers do 
     def current_user
