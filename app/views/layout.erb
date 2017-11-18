@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+    <% end %>
+    <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+
+  <form action='/sessions/sign_out' method='get'>
+    <input type='Submit' value='Sign Out'>
+  </form>
+    <%= yield %>
+  </body>
+</html>

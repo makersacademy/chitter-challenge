@@ -1,8 +1,16 @@
 <form action = '/users' method = 'post'>
-  <input type = 'text', name = 'Email' placeholder='Email'><br>
-  <input type = 'password', name = 'Password' placeholder='Password'><br>
-  <input type = 'password', name = 'Confirm_Password' placeholder='Confirm Password'><br>
-  <input type = 'submit', value = 'Submit'>
+  <label for='email'>
+    <input type = 'text', name = 'Email' >
+  </label>
+  <label for='password'>
+    <input type = 'password', name = 'Password'>
+  </label>
+  <label for ='Confirm_Password'>
+    <input type = 'password', name = 'Confirm_Password'><br>
+  </label>
+  <label for='Submit'>
+    <input type = 'submit', value = 'Submit'>
+  </label>
 </form>
 
 <% if flash[:wrong_password] %>

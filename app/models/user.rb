@@ -7,9 +7,8 @@ class User
 include DataMapper::Resource
 
   property :id, Serial
-  # property :name, String
+  property :saved_tweets, Text
   property :email, String
-  # property :password, String
 
   property :password_digest, Text
   attr_accessor :password_confirmation

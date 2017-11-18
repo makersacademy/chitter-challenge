@@ -1,5 +1,16 @@
-<form action = '/tweets' method = 'post'>
-  <input type = 'text', name = 'text' placeholder='Tweet'><br>
-  <input type = 'text', name = 'tags' placeholder='Tags'><br>
-  <input type = 'submit', value = 'Submit'>
+
+<h1> Add Tweet </h1>
+
+<form action='/tweets' method='POST'>
+  <label for='title'>
+    Title <input type='text' name='text'>
+  </label>
+  <br>
+  <label for='tags'>
+    Tags:
+    <input type='text' name='tags' />
+  </label>
+  <br>
+  <br>
+  <input type='submit' value='Submit'>
 </form>

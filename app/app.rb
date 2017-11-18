@@ -26,10 +26,8 @@ class Chitter < Sinatra::Base
     if @current_user.id.nil?
       flash[:wrong_password] = "Password and confirmation password do not match"
     end
-    # flash[:repeat_email] = @current_user.errors[:email].join(" ")
-    # session[:user_email] = @current_user.email
     redirect '/' if @current_user.id.nil?
-    redirect '/users'
+    redirect '/tweets/new'
   end
 
   get '/users' do
@@ -46,9 +44,16 @@ class Chitter < Sinatra::Base
     params[:tags].split(',').map(&:strip).each do |tag|
       tweet.tags << Tag.first_or_create(tag: tag)
     end
-  tweet.save
-  redirect '/tweets/new'
+    tweet.save
+    p current_user
+    erb :'tweets/index'
   end
 
   run! if app_file == $0
+
+  helpers do
+    def current_user
+     @current_user ||= User.get(session[:user_id])
+    end
+  end
 end

@@ -1,0 +1,8 @@
+<ul id='tweets'>
+  <% @tweets.each do |tweet| %>
+    <li>
+      Title <%= tweet.id %>
+      URL <%= tweet.text %>
+    </li>
+  <% end %>
+</ul>
