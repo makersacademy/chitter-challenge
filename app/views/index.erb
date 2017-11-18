@@ -4,5 +4,10 @@
 
 </form>
 
-<%= @peep %>
-<%= @peep_time %>
+
+<% @peeps.reverse.each do |peep|  %>
+  <b>Message:</b> <%= peep.text %>
+<br>
+  <b>Time:</b> <%= peep.created_at   %>
+<br>
+<% end %>
