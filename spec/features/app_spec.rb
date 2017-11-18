@@ -10,9 +10,9 @@ end
 
 feature "Submit peep" do
   scenario "Fill in the form to send the peep and display it" do
-    visit('/peeps/new')
-    fill_in('maker', with: 'Oleg')
-    fill_in('massage', with: 'Hello World')
+    visit('/peeps')
+    fill_in('new_peep', with: 'Hello World')
+    click_button 'Post'
     expect(page).to have_content('Hello World')
   end
 end

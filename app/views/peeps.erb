@@ -1,11 +1,13 @@
 <% @peeps.reverse.each do |peep| %>
 </p><b>Maker: <%= peep.maker %> </b></p>
-</p> sent on: <%= peep.created_at.strftime('%c') %></p>
+</p> Sent on: <%= peep.created_at.strftime('%c') %></p>
 </p> Peep: <%= peep.body %></p>
 <% end %>
 <p></p>
 <p></p>
 <p></p>
 
-<form action='/links/new'>
-<button type="submit" value='Add new link'>Add new link</button>
+<form action='/peeps' method="post">
+    <input type='text' name='new_peep' placeholder="Your new peep...">
+  <input type='submit' value='Post'>
+</form>
