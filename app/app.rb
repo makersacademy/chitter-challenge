@@ -21,7 +21,7 @@ class App < Sinatra::Base
     erb(:'auth/signup', locals: { user: User.new })
   end
 
-  post '/users/new' do
+  post '/users' do
     user = User.new(name: params[:name], password: params[:password],
                     password_confirmation: params[:confirmation], 
                     email: params[:email], handle: params[:handle])
@@ -29,7 +29,6 @@ class App < Sinatra::Base
       session[:user_id] = user.id
       redirect('/peeps')
     else
-      p user.errors.send(:errors)
       user.errors.send(:errors).each do |item, error| 
         flash[item] = error.first
       end
