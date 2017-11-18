@@ -29,7 +29,10 @@ class App < Sinatra::Base
       session[:user_id] = user.id
       redirect('/peeps')
     else
-      flash.now[:notice] = "Passwords do not match"
+      p user.errors.send(:errors)
+      user.errors.send(:errors).each do |item, error| 
+        flash[item] = error.first
+      end
       erb(:'auth/signup', locals: { user: user })
     end
   end

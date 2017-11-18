@@ -1,22 +1,43 @@
-<% if flash[:notice] %>
-  <div id="notice"><%= flash[:notice] %></div>
-<% end %>
-
 <form method="post" action="/users/new">
-  <label for="name">Name: </label>
-  <input name="name" type="text" value="<%= user.name %>" required>
+  <div class="field">
+    <label for="name">Name: </label>
+    <input name="name" type="text" value="<%= user.name %>" required>
+    <% if flash[:name] %>
+      <span class="flash"><%= flash[:name] %></span>
+    <% end %>
+  </div>
 
-  <label for="email">Email address: </label>
-  <input name="email" type="email" value="<%= user.email %>" required>
+  <div class="field">
+    <label for="email">Email address: </label>
+    <input name="email" type="email" value="<%= user.email %>" required>
+    <% if flash[:email] %>
+      <span class="flash"><%= flash[:email] %></span>
+    <% end %>
+  </div>
 
-  <label for="handle">Handle: </label>
-  <input name="handle" type="text" value="<%= user.handle %>" required>
+  <div class="field">
+    <label for="handle">Handle: </label>
+    <input name="handle" type="text" value="<%= user.handle %>" required>
+    <% if flash[:handle] %>
+      <span class="flash"><%= flash[:handle] %></span>
+    <% end %>
+  </div>
 
-  <label for="password">Password: </label>
-  <input name="password" type="password" required>
+  <div class="field">
+    <label for="password">Password: </label>
+    <input name="password" type="password" required>
+    <% if flash[:password] %>
+      <span class="flash"><%= flash[:password] %></span>
+    <% end %>
+  </div>
 
-  <label for="confirmation">Password: </label>
-  <input name="confirmation" type="password" required>
+  <div class="field">
+    <label for="confirmation">Password: </label>
+    <input name="confirmation" type="password" required>
+    <% if flash[:confirmation] %>
+      <span class="flash"><%= flash[:confirmation] %></span>
+    <% end %>
+  </div>
 
   <input type="submit" value="Complete">
 </form>
