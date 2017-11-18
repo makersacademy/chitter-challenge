@@ -1,0 +1,10 @@
+<form action="/peeps" method="post">
+  <input type="textarea" name="peep">
+  <input type="submit" value="Peep!">
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li> <%= peep.text %> <%= peep.added.to_s %> </li>
+  <% end %>
+</ul>
