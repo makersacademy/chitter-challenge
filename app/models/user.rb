@@ -27,4 +27,5 @@ class User
   validates_presence_of :password
 
   has n, :peeps, through: Resource
+  has 1, :tag, through: Resource
 end
