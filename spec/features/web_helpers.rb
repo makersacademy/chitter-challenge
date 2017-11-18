@@ -4,7 +4,7 @@ def sign_up(username)
   fill_in('email', with: 'timmy@hello.com')
   fill_in('name', with: 'Timothy Hopkins')
   fill_in('password', with: '12345')
-  fill_in('password_confrimation', with: '12345')
+  fill_in('password_confirmation', with: '12345')
   click_button('Sign up!')
 end
 
@@ -14,7 +14,7 @@ def sign_up_password_mismatch
   fill_in('email', with: 'timmy@hello.com')
   fill_in('name', with: 'Timothy Hopkins')
   fill_in('password', with: '12345')
-  fill_in('password_confrimation', with: 'abcdefg')
+  fill_in('password_confirmation', with: 'abcdefg')
   click_button('Sign up!')
 end
 

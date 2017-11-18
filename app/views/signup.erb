@@ -1,8 +1,11 @@
 <form action="/users" method="post">
-  <input type="text" name="username" placeholder="username">
-  <input type="email" name="email" placeholder="email">
-  <input type="text" name="name" placeholder="name">
+  <input type="text" name="username" placeholder="username" value="<%= @user.username %>">
+  <input type="email" name="email" placeholder="email" value="<%= @user.email %>">
+  <input type="text" name="name" placeholder="name" value="<%= @user.name %>">
   <input type="password" name="password" placeholder="password">
-  <input type="password" name="password_confrimation" placeholder="confirm password">
+  <input type="password" name="password_confirmation" placeholder="confirm password">
   <input type="submit" value="Sign up!">
 </form>
+<% if flash[:password_mismatch] %>
+  <div id='notice'><%= flash[:password_mismatch] %></div>
+<% end %>

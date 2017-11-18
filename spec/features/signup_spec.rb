@@ -6,6 +6,8 @@ feature 'sign up' do
 
   scenario 'wrong confirmation password does not create new user' do
     expect { sign_up_password_mismatch }.to change { User.all.count }.by(0)
+    expect(page.current_path).to eq '/users'
+    expect(page).to have_content 'Passwords do not match'
   end
 
   scenario 'user has peeps associated with them' do
