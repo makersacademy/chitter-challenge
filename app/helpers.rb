@@ -1,11 +1,37 @@
-def load_peeps
-  session[:peeps] = Peep.all.reverse.map { |peep|
-    peep_for_printing(peep) }
-end
+class Chitter < Sinatra::Base
+  def load_peeps
+    session[:peeps] = Peep.all.reverse.map { |peep|
+      peep_for_printing(peep) }
+  end
 
-def peep_for_printing(peep)
-  pretty_peep = peep.content
-  parsed = peep.created_at.to_time.to_s.scan(/([^\s]*)\s(.{5})/)
-  # ------ ^^ DataMapper DateTime format to [[YYY-MM-DD, HH:MM], ...] 
-  [pretty_peep, "Peeped on #{parsed[0][0]} at #{parsed[0][1]}"]
+  def peep_for_printing(peep)
+    pretty_peep = peep.content
+    parsed = peep.created_at.to_s.scan(/([^T]*)T(.{5})/)
+    # ------ ^^ DataMapper DateTime format to [[YYY-MM-DD, HH:MM]] 
+    [pretty_peep, parsed[0][0], parsed[0][1]]
+    # ^^ Returns a peep array with [content, date, time]
+  end
+
+  def create_session_data(params)
+    @name = params[:name]
+    @username = params[:username]
+    @email = params [:email]
+  end
+
+  def create_user(params)
+    user = User.create(name: params[:name], username: params[:username],
+      email: params[:email], password: params[:password],
+      password_confirmation: params[:password_confirmation])
+    return user unless user.id.nil?
+    create_error_messages(user)
+    false
+  end
+
+  def create_error_messages(model)
+    session[:errors] = model.errors.full_messages
+  end
+
+  def current_user
+    session[:username]
+  end
 end
