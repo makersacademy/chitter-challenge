@@ -18,7 +18,7 @@ class App < Sinatra::Base
   end
 
   get '/users/new' do
-    erb(:'auth/signup', locals: { user: User.new })
+    erb(:'users/new', locals: { user: User.new })
   end
 
   post '/users' do
@@ -32,12 +32,12 @@ class App < Sinatra::Base
       user.errors.send(:errors).each do |item, error| 
         flash[item] = error.first
       end
-      erb(:'auth/signup', locals: { user: user })
+      erb(:'users/new', locals: { user: user })
     end
   end
 
   get '/sessions/new' do
-    erb(:'auth/login')
+    erb(:'sessions/new')
   end
   
   post '/sessions' do
@@ -47,7 +47,7 @@ class App < Sinatra::Base
       redirect('/peeps')
     else
       flash.now[:errors] = 'Email or password incorrect'
-      erb(:'auth/login')
+      erb(:'sessions/new')
     end
   end
 
