@@ -8,3 +8,6 @@
   <input type="text" name="username" placeholder="Username">
   <input type="submit" value="Sign Up">
 </form>
+<% if flash[:message] %>
+<div id="message"><%= flash[:message] %></div>
+<% end %>

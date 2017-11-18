@@ -48,6 +48,7 @@ class Chitter < Sinatra::Base
       session[:username] = params[:username]
       redirect('/posts')
     else
+      flash.now[:message] = 'Password and confirmation password do not match'
       erb(:sign_up)
     end
   end
