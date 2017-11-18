@@ -3,6 +3,6 @@ feature 'Viewing Posts' do
     Post.create(post: 'Chittery Do Dah! What a great app!', name: 'thatdania')
     visit('/home')
     expect(page.status_code).to eq 200
-    expect(page).to have_content('Chittery Do Dah! What a great app! @thatdania')
+    expect(page).to have_content('Chittery Do Dah! What a great app! ~@thatdania')
   end
 end

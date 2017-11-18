@@ -11,4 +11,13 @@ class App < Sinatra::Base
     erb(:home)
   end
 
+  get '/newpost' do
+    erb(:newpost)
+  end
+
+  post '/home' do
+  Post.create(post: params[:post], name: params[:name])
+  redirect '/home'
+end
+
 end
