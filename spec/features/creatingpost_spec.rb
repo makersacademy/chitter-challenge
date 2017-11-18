@@ -1,5 +1,3 @@
-
-
 feature 'Creating a post on Chitter' do
   scenario 'User can create a post on Chitter' do
     fill_in_first

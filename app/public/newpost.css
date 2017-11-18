@@ -1,0 +1,83 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #1093D5;
+}
+.title {
+  position:absolute;
+  transition: .5s ease;
+  top: 37%;
+  left: 45%;
+  width: 230px;
+}
+
+.post {
+  position:absolute;
+  transition: .5s ease;
+  top: 42%;
+  left: 45%;
+  padding-right: 100px;
+  height:100px;
+  width: 17.9%;
+  webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.name {
+  position:absolute;
+  transition: .5s ease;
+  top: 62%;
+  left: 45%;
+  width: 230px;
+}
+
+
+h1 {
+  font-family: "Tahoma", serif;
+  color: #EDF9FA;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  font-size: 50px;
+  transform: translate(-50%, -50%)
+}
+
+h2 {
+  position: absolute;
+  top: 60%;
+  left: 37%;
+  font-size: 15px;
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+}
+
+h3 {
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+  position: absolute;
+  font-size: 15px;
+  top: 35%;
+  left: 37%;
+}
+
+h4 {
+font-family: "Tahoma", serif;
+color: #EEF9FF;
+position: absolute;
+font-size: 15px;
+top: 40%;
+left: 37%;
+
+}
+
+.button {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 75%;
+  left: 44%;
+  font-family: "Tahoma",serif;
+}

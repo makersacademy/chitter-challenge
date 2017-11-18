@@ -1,7 +1,18 @@
+<head>
+  <link href="newpost.css" rel="stylesheet" type="text/css" >
+</head>
+
+
+<body>
+
 <h1> Chitter Away! </h1>
 <form action='/home' method='POST'>
-  Title: <input type='text' name='title' />
-  POST:  <input type='text' name='post' />
-  USERNAME: <input type='text' name='name' />
-  <input type='submit' value='Create Post'>
+  <h3> TITLE:  </h3> <input type='text' class="title" name='title' />
+  <h4> POST:  </h4> <textarea name="post" class="post"cols="40" rows="5"></textarea>
+  <h2> USERNAME: </h2> <input type='text' class="name" name='name' />
+
+<input type='submit' class='button'value='Create Post'>
+
 </form>
+
+</body>
