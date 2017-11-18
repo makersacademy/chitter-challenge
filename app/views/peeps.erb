@@ -1,3 +1,15 @@
+<%if current_user %>
+<p> Username: <%= current_user.username %></p>
+<p> Email: <%= current_user.email %> </p>
+<p>Number of peeps <%= current_user.peeps.count %></p>
+<p>Recent peeps: <% current_user.peeps.reverse.each do |peep| %> </p>
+<p> Peep: <%= peep.body %></p>
+<p> Sent on: <%= peep.created_at.strftime('%c') %></p>
+<% end %>
+<p>-----------------------------------------</p>
+<%end%>
+
+
 <% @peeps.reverse.each do |peep| %>
 </p><b>Maker: <%= peep.maker %> </b></p>
 </p> Sent on: <%= peep.created_at.strftime('%c') %></p>
