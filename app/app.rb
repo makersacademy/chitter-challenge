@@ -3,12 +3,15 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
 
   get '/' do
-    erb :peep
+    erb :new_peep
   end
 
-  get '/images/chitter.png' do
-   "Hello World"
- end
+  post '/peep_post' do
+    redirect '/peeps'
+  end
 
+  get '/peeps' do
+    erb :peeps
+  end
   run! if app_file == $0
 end
