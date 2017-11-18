@@ -1,9 +1,9 @@
 <form action='/register_user' method='post'>
-  <input type='text' name='name' placeholder="Name" value='<%= @name %>'>
+  <input type='text' name='name' placeholder="Name" value='<%= session[:name] %>'>
   <br>
-  <input type='text' name='username' placeholder="Username" value='<%= @user_name %>'>
+  <input type='text' name='username' placeholder="Username" value='<%= session[:username] %>'>
   <br>
-  <input type='text' name='email' placeholder="email address" value='<%= @email %>'>
+  <input type='text' name='email' placeholder="email address" value='<%= session[:email] %>'>
   <br>
   <input type='text' name='password' placeholder='password'>
   <br>

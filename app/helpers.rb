@@ -12,19 +12,18 @@ class Chitter < Sinatra::Base
     # ^^ Returns a peep array with [content, date, time]
   end
 
-  def create_session_data(params)
-    @name = params[:name]
-    @username = params[:username]
-    @email = params [:email]
+  def create_session_data(user)
+    session[:name] = user.name if user.name
+    session[:username] = user.username if user.username
+    session[:email] = user.email if user.email
   end
 
   def create_user(params)
     user = User.create(name: params[:name], username: params[:username],
       email: params[:email], password: params[:password],
       password_confirmation: params[:password_confirmation])
-    return user unless user.id.nil?
     create_error_messages(user)
-    false
+    user
   end
 
   def create_error_messages(model)
@@ -34,4 +33,18 @@ class Chitter < Sinatra::Base
   def current_user
     session[:username]
   end
+
+  def authenticate_user(params)
+    user = User.authenticate(params[:email], params[:password])
+    return nil unless user
+    create_session_data(user)
+    user
+  end
 end
+
+
+
+
+
+
+

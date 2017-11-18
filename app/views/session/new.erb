@@ -1,0 +1,14 @@
+<form action='/check_sign_in' method='post'>
+  <input type='text' name='email' placeholder="email address">
+  <br>
+  <input type='text' name='password' placeholder='password'>
+  <br>
+  <input type='submit' value='Submit'>
+</form>
+<form action='/' method='get'>
+  <input type='submit' value="Cancel"><br>
+</form>
+
+<% session[:errors] && session[:errors].each do |error| %>
+  <%= error %><br>
+<% end %>
