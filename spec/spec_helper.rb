@@ -9,6 +9,7 @@ require 'rspec'
 require 'capybara'
 require './models/peep.rb'
 require './models/user.rb'
+require_relative 'web_helpers.rb'
 
 Capybara.app = Chitter
 
