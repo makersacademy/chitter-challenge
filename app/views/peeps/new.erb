@@ -1,5 +1,9 @@
-<form action="/peeps/new" method="post">
+<h1>New peep</h1>
+
+<%= partial :errors %>
+
+<form action="/peeps" method="post">
         <label for="content">Write your peep here</label>
-        <textarea name="content" rows="3"></textarea>
+        <textarea name="content" rows="3" required></textarea>
         <input type="submit" value="Peep">
 </form>
