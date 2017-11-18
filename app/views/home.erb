@@ -2,5 +2,5 @@
 <h2> Contribute to the Chittery Posts! </h2>
 
   <% @post.each do |chitter| %>
-    <%= chitter.post %> ~@<%= chitter.name  %><br>
+    <%= chitter.title %>: <%= chitter.post %> ~@<%= chitter.name  %><br>
   <% end %>

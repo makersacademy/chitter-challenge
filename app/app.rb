@@ -16,7 +16,7 @@ class App < Sinatra::Base
   end
 
   post '/home' do
-  Post.create(post: params[:post], name: params[:name])
+  Post.create(title: params[:title],post: params[:post], name: params[:name])
   redirect '/home'
 end
 
