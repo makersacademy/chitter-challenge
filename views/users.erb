@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if current_user %>
+      Welcome @<%= current_user.username %>!
+
+      <form method='post' action='/post'>
+        <input type='text' name='peep' required>
+        <input type='submit' value='Post!'>
+      </form>
+
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out!'>
+      </form>
+    <% end %>
+
+    Last peeps:
+    <ul id='peeps'>
+      <% @peeps.each do |peep| %>
+        <li><%=User.get(peep.user_id).username%>: '<%=peep.message%>' --> <%=peep.time%></li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Check this errors:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <h1>Please sign in</h1>
+    <form action='/sessions' method='post'>
+      <label for='email'>
+        Email: <input name='email' type='email'>
+      </label>
+      <label for='password'>
+        Password: <input name='password' type='password'>
+      </label>
+      <input type='submit' value='Sign in!'>
+    </form>
+    <form action='/'>
+        <input type='submit' value='Home'>
+    </form>
+  </body>
+</html>
