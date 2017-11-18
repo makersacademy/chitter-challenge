@@ -18,6 +18,13 @@ def sign_up_password_mismatch
   click_button('Sign up!')
 end
 
+def login
+  visit '/sessions/new'
+  fill_in('username', with: 'timmy')
+  fill_in('password', with: '12345')
+  click_button('Login')
+end
+
 def post_peep(peep)
   visit '/peeps'
   fill_in('peep', with: peep)

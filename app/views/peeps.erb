@@ -1,9 +1,17 @@
 <% if current_user %>
   <h1> Hello, <%= current_user.username %>! </h1>
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Logout">
+  </form>
   <form action="/peeps" method="post">
     <input type="textarea" name="peep">
     <input type="submit" value="Peep!">
   </form>
+<% end %>
+
+<% if flash[:goodbye] %>
+  <%= "Goodbye, #{flash[:goodbye]}!" %>
 <% end %>
 
 <ul>
