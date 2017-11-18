@@ -1,5 +1,5 @@
 require 'data_mapper'
-require 'dm-postgres-adapter'
+
 
 class Peep
   include DataMapper::Resource
@@ -7,4 +7,5 @@ class Peep
   property :maker, String
   property :body, Text
   property :created_at, DateTime
+  belongs_to :user
 end

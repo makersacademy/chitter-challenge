@@ -1,15 +1,22 @@
 feature "Peeps page displays all peeps" do
   scenario "Go to peeps page and view peeps in reverse chronological order" do
-    Peep.create(maker: 'Example1', body: 'first')
-    Peep.create(maker: 'Example2', body: 'second')
+    create_user_and_post_peeps
     visit('/peeps')
     expect(page.status_code).to eq 200
     expect('second').to appear_before('first')
   end
 end
 
+feature "Registration/sign_up" do
+  scenario "Fill in the form and see your profile" do
+    sign_up
+    expect(page).to have_content('Olegfkl')
+  end
+end
+
 feature "Submit peep" do
   scenario "Fill in the form to send the peep and display it" do
+    sign_up
     visit('/peeps')
     fill_in('new_peep', with: 'Hello World')
     click_button 'Post'
