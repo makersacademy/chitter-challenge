@@ -1,6 +1,6 @@
 <h1> Welcome to Chitter! </h1>
 <h2> Contribute to the Chittery Posts! </h2>
 
-  <% @post.each do |chitter| %>
+  <% @post.reverse_each do |chitter| %>
     <%= chitter.title %>: <%= chitter.post %> ~@<%= chitter.name  %><br>
   <% end %>
