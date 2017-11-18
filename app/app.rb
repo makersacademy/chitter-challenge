@@ -11,13 +11,15 @@ class Chitter < Sinatra::Base
   get '/' do
     # "hello"
     @peep = session[:peep]
+    @peep_time = session[:time]
     erb(:index)
   end
 
   post '/post_peep' do
-    @peep = Peep.create(text: params[:message])
+    @peep = Peep.create(text: params[:message], created_at: Time.now)
     session[:peep] = @peep.text
-    p "PEEPPP",@peep
+    session[:time] = @peep.created_at
+    p "PEEPPP",@peep.created_at
     redirect '/'
   end
 
