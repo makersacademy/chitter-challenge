@@ -163,6 +163,7 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   dm-transactions
+  dm-validations
   rack
   rake
   rspec
