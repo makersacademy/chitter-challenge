@@ -12,3 +12,12 @@ def write_new_peep(msg)
   fill_in(:peep, with: msg)
   click_button(id: 'submit_peep')
 end
+
+def create_account
+  visit('/users/new')
+  fill_in(:name, with: 'Tom Moir')
+  fill_in(:username, with: 'tmerrr')
+  fill_in(:email, with: 'tom@mail.me')
+  fill_in(:password, with: 'MyPassword')
+  click_button(id: 'submit')
+end

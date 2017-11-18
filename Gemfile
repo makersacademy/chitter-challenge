@@ -7,7 +7,9 @@ gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
 gem 'pg'
+gem 'rack'
 gem 'sinatra'
+gem 'thin'
 
 group :test do
   gem 'capybara'
