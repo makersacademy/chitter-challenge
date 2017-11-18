@@ -13,7 +13,7 @@ def submit_post_2
   click_button('Post')
 end
 
-def sign_up(email: 'fake@email.com', password: '12345', password_confirmation: 'notsame')
+def sign_up(email: 'fake@email.com', password: '12345', password_confirmation: '12345')
   visit('/signup/new')
   fill_in(:email, with: email)
   fill_in(:password, with: password)

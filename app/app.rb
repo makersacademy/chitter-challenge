@@ -41,6 +41,7 @@ class Chitter < Sinatra::Base
 
   post '/signup' do
     User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name], username: params[:username])
+    session[:username] = params[:username]
     redirect('/posts')
   end
 end
