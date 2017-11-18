@@ -2,4 +2,5 @@
 <% @posts.each do |post| %>
 <h2><%=post.title%></h2>
 <p><%=post.body%></p>
+<p><%=post.inception.strftime("Posted at %H:%M:%S on %d-%m-%Y")%></p>
 <% end %>

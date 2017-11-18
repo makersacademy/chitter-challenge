@@ -7,6 +7,10 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
+  helpers do
+
+  end
+
   get '/' do
     redirect '/posts'
   end
@@ -16,14 +20,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    Post.create(title: params[:title], body: params[:body])
+    Post.create(title: params[:title], body: params[:body], inception: Time.now)
     # session[:title] = params[:title]
     # session[:body] = params[:body]
     redirect '/posts'
   end
 
   get '/posts' do
-    @posts = Post.all
+    @posts = Post.all.reverse
     # @title = session[:title]
     # @post = session[:body]
     erb(:posts)

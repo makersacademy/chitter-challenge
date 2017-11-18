@@ -8,5 +8,6 @@ class Post
   property :id, Serial
   property :title, String
   property :body, Text
+  property :inception, DateTime
 
 end
