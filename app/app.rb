@@ -15,19 +15,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+
     erb :'users/new'
   end
 
+
   post '/users' do
-    @current_user = User.create(email: params[:Email],
-                    password: params[:Password],
-                    password_confirmation: params[:Confirm_Password])
-    session[:email] = @current_user.email
-    if @current_user.id.nil?
-      flash[:wrong_password] = "Password and confirmation password do not match"
+  @current_user = User.new(email: params[:email],
+    password: params[:password], password_confirmation: params[:password_confirmation])
+    if @current_user.save
+      session[:user_id] = @current_user.id
+      redirect to('/tweets/new')
+    else
+      flash.now[:errors] = @current_user.errors.full_messages
+      erb :'users/new'
     end
-    redirect '/' if @current_user.id.nil?
-    redirect '/tweets/new'
   end
 
   get '/users' do
@@ -40,12 +42,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/tweets' do
-  tweet = Tweet.create(text: params[:text])
-    params[:tags].split(',').map(&:strip).each do |tag|
-      tweet.tags << Tag.first_or_create(tag: tag)
-    end
-    tweet.save
-    p current_user
+
+    user = current_user
+    user.tweets << Tweet.new(text: params[:Tweet], time: Time.new, user: current_user.email)
+    # current_user.save
+    @tweets = Tweet.all
+    p @tweets
+    p user
     erb :'tweets/index'
   end
 
