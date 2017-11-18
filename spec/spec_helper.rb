@@ -12,7 +12,7 @@ require_relative './features/web_helpers.rb'
 
 
 Capybara.app = Chitter
-#DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.strategy = :truncation
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
