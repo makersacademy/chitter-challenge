@@ -5,11 +5,13 @@ require './models/data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
-
   helpers do
-
+    def current_user
+      @current_user ||= User.first(username: session[:username])
+    end
   end
+
+  enable :sessions
 
   get '/' do
     redirect '/posts'
@@ -38,7 +40,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    User.first_or_create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
     redirect('/posts')
   end
 end

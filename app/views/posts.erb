@@ -1,6 +1,7 @@
 <h1>Chitter</h1>
+<h2>Hello: <%=current_user%></h2>
 <% @posts.each do |post| %>
-<h2><%=post.title%></h2>
+<h3><%=post.title%></h3>
 <p><%=post.body%></p>
 <p><%=post.inception.strftime("Posted at %H:%M:%S on %d-%m-%Y")%></p>
 <% end %>
