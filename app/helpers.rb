@@ -44,6 +44,6 @@ class Chitter < Sinatra::Base
   end
 
   def create_peep(content)
-    peep = Peep.create(content: content, user_id: session[:user_id])
+    Peep.create(content: content, user_id: session[:user_id])
   end
 end
