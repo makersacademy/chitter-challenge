@@ -33,4 +33,8 @@ class Chitter < Sinatra::Base
     erb(:posts)
   end
 
+  get '/signup/new' do
+    erb(:sign_up)
+  end
+
 end
