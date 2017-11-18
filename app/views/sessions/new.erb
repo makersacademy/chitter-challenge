@@ -1,8 +1,6 @@
 <h1>Sign in to Chitter</h1>
 
-<% if flash[:errors] %>
-  <div class="flash"><%= flash[:errors] %></div>
-<% end %>
+<%= partial :errors %>
 
 <form action="/sessions" method="post">
   <label for="email">Email </label>
