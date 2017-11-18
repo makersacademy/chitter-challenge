@@ -9,6 +9,7 @@ gem 'dm-transactions'
 gem 'pg'
 gem 'rack'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'thin'
 
 group :test do

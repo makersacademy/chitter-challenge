@@ -14,7 +14,12 @@
       <input type="text" name="username" placeholder="Username">
       <input type="email" name="email" placeholder="Email Address">
       <input type="password" name="password" placeholder="Choose Password">
+      <input type="password" name="password_confirmation" placeholder="Confirm Password">
       <input type="submit" id="submit" value="Confirm">
     </form>
+
+    <% if flash[:alert] %>
+      <p style="color:red" id='alert'><%= flash[:alert] %></p>
+    <% end %>
   </body>
 </html>

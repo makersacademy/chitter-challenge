@@ -19,5 +19,16 @@ def create_account
   fill_in(:username, with: 'tmerrr')
   fill_in(:email, with: 'tom@mail.me')
   fill_in(:password, with: 'MyPassword')
+  fill_in(:password_confirmation, with: 'MyPassword')
+  click_button(id: 'submit')
+end
+
+def complete_signup_with_wrong_passwords
+  visit('/users/new')
+  fill_in(:name, with: 'Tom Moir')
+  fill_in(:username, with: 'tmerrr')
+  fill_in(:email, with: 'tom@mail.me')
+  fill_in(:password, with: 'MyPassword')
+  fill_in(:password_confirmation, with: 'WrongPassword')
   click_button(id: 'submit')
 end

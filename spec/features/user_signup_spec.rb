@@ -7,4 +7,10 @@ feature 'user can sign up' do
     create_account
     expect(page).to have_content('Welcome tmerrr!')
   end
+
+  scenario 'user not added if they have mismatching passwords' do
+    expect { complete_signup_with_wrong_passwords }
+      .not_to change { User.all.length }
+      expect(page).to have_content('Passwords did not match.')
+  end
 end
