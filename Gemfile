@@ -7,6 +7,7 @@ group :test do
   gem 'database_cleaner'
   gem 'data_mapper', '1.2.0'
   gem 'dm-postgres-adapter'
+  gem 'dm-migrations'
   gem 'rspec'
   gem 'rake'
   gem 'rubocop'

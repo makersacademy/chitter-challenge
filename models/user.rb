@@ -1,14 +1,17 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-
-class Peep
+class User
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
   include DataMapper::Resource
 
   property :id, Serial
-  property :message, String
-  property :time , Time
+  property :email, Text
+  property :password, Text
+  property :first_name, String
+  property :last_name, String
+  property :username, String
+
 end
 
 DataMapper::Logger.new($stdout, :debug)

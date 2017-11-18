@@ -159,6 +159,7 @@ DEPENDENCIES
   cucumber
   data_mapper (= 1.2.0)
   database_cleaner
+  dm-migrations
   dm-postgres-adapter
   rake
   rspec
