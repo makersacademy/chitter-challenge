@@ -1,8 +1,20 @@
 <form action='/add_peep' method='post'>
-  <input type='text' name='content' maxlength="141"
-  	required='required' placeholder='Write your peep here'><br>
-  <input type='submit' value="Peep it">
+  <div>
+    <label for='content'>
+      Write your peep here:
+    </label>
+  </div>
+  <div>
+    <textarea name= 'content' rows='3' cols = '50' required='required' maxlength='141'>
+    </textarea>
+  </div>
+  <div class='button'>
+    <button type='submit'>Peep It</button>
+  </div>
 </form>
+
 <form action='/user/<%= session[:name] %>' method='get'>
-  <input type='submit' value="Cancel"><br>
+  <div class='button'>
+    <button type='submit'>Cancel</button>
+  </div>
 </form>

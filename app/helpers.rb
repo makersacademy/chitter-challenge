@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
   def load_peeps
-    session[:peeps] = Peep.all.reverse.map { |peep|
+    peeps = Peep.all(user_id: session[:user_id])
+    session[:peeps] = peeps.all.reverse.map { |peep|
       peep_for_printing(peep) }
   end
 
@@ -43,8 +44,6 @@ class Chitter < Sinatra::Base
   end
 
   def create_peep(content)
-    user = User.first(id: session[:user_id])
-    user.peeps << Peep.create(content: content)
-    user.save
+    peep = Peep.create(content: content, user_id: session[:user_id])
   end
 end

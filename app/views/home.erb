@@ -1,11 +1,15 @@
 <h1>Welcome to Chitter</h1>
 
 <form action='/sign_up' method='get'>
-  <input type='submit' value="Sign Up"><br>
+  <div class='button'>
+    <button type='submit'>Sign Up</button>
+  </div>
 </form>
 
 <form action='/sign_in' method='get'>
-  <input type='submit' value="Sign In"><br>
+  <div class='button'>
+    <button type='submit'>Sign In</button>
+  </div>
 </form>
 
 <% if flash[:sign_out] %>

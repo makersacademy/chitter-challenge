@@ -5,6 +5,6 @@ class Tag
   property :content, String, :required => true
   property :created_at, DateTime
 
-  has 1, :user, through: Resource
-  has n, :peeps, through: Resource
+  # has 1, :user, through: Resource
+  # has n, :peeps, through: Resource
 end

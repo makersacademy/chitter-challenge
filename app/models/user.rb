@@ -3,6 +3,9 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
+  has n, :peeps
+  # has 1, :tag, through: Resource
+
   property :id, Serial
   property :name, String, :required => true
   property :username, String, :required => true, :unique => true
@@ -26,6 +29,4 @@ class User
   validates_format_of :email, as: :email_address
   validates_presence_of :password
 
-  has n, :peeps, through: Resource
-  has 1, :tag, through: Resource
 end

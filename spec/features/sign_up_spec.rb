@@ -18,14 +18,6 @@ feature 'Sign up form' do
       '2', '')}.to_not change(User, :count)
   end
 
-  scenario 'Blank fields error messages' do
-    sign_up('', '', '', '', '')
-    expect(page).to have_content('Name must not be blank')
-    expect(page).to have_content('Username must not be blank')
-    expect(page).to have_content('Email must not be blank')
-    expect(page).to have_content('Password must not be blank')
-  end
-
   scenario 'Invalid email format error message' do
     sign_up('a', 'a', 'a', 'email@email', 'a')
     expect(page).to have_content('Email has an invalid format')
