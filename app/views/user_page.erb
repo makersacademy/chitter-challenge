@@ -1,7 +1,12 @@
-<h1> <%= @user.username %> </h1>
 
-<ul>
-  <% @user.peeps.each do |peep| %>
-    <li> <%= peep.text %> <%= peep.added.to_s %> </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="text-center col-md-4 offset-md-4">
+    <h1 class="display-4"> <%= @user.username %> </h1>
+  </div>
+
+  <div class="col-md-6 offset-md-3">
+    <% @user.peeps.each do |peep| %>
+    <div class="each-peep"> <%= peep.text %> <span class="added-info"><%= peep.added.strftime("%I:%M %p %d/%m/%y") %></span> </div>
+    <% end %>
+  </div>
+</div>

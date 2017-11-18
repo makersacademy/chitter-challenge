@@ -3,7 +3,7 @@ feature 'posting a peep' do
     allow(Time).to receive(:now).and_return(Time.parse('2017-11-18 13:57:25 +0000'))
     sign_up('timmy', 'timmy@hello.com')
     post_peep('Hi there!')
-    expect(page).to have_content('Hi there! 2017-11-18 13:57:25 +0000 timmy')
+    expect(page).to have_content('Hi there! 01:57 PM 18/11/17 by timmy')
   end
 
   scenario 'the peep is added to the database' do
@@ -16,8 +16,8 @@ feature 'posting a peep' do
     sign_up('timmy', 'timmy@hello.com')
     post_peep('Hi there!')
     post_peep('Hello!')
-    expect(page).to have_selector("ul li:nth-child(1)", text: 'Hello!')
-    expect(page).to have_selector("ul li:nth-child(2)", text: 'Hi there!')
+    expect(page).to have_selector("div#all-peeps div:nth-child(1)", text: 'Hello!')
+    expect(page).to have_selector("div#all-peeps div:nth-child(2)", text: 'Hi there!')
   end
 end
 

@@ -1,21 +1,35 @@
-<% if current_user %>
-  <h1> Hello, <%= current_user.username %>! </h1>
-  <form action="/sessions" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Logout">
-  </form>
-  <form action="/peeps" method="post">
-    <input type="textarea" name="peep">
-    <input type="submit" value="Peep!">
-  </form>
-<% end %>
 
-<% if flash[:goodbye] %>
-  <%= "Goodbye, #{flash[:goodbye]}!" %>
-<% end %>
+<div class="container">
+  <div class="text-center col-md-4 offset-md-4">
+    <h1 class="display-4">chitter.</h1>
+  </div>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li> <%= peep.text %> <%= peep.added.to_s %> <a href="/<%=peep.user.username%>"><%= peep.user.username %></a> </li>
+  <% if !current_user %>
+    <div class="text-center col-md-6 offset-3">
+      <h4><a href="/sessions/new">Login</a> to post your first peep!</h4>
+    </div>
   <% end %>
-</ul>
+    <% if current_user %>
+    <div class="text-center col-md-8 offset-md-2">
+      <h3> Hello, <%= current_user.username %>! </h3>
+    </div>
+    <div class="col-md-6 offset-md-3">
+      <form action="/peeps" method="post">
+        <textarea name="peep"></textarea>
+        <div style="margin-bottom:35px;">
+          <input style="float:right;" type="submit" value="Peep!">
+        </div>
+      </form>
+    </div>
+    <% end %>
+
+  <% if flash[:goodbye] %>
+  <%= "Goodbye, #{flash[:goodbye]}!" %>
+  <% end %>
+
+  <div id="all-peeps" class="col-md-6 offset-md-3">
+    <% @peeps.each do |peep| %>
+      <div class="each-peep"> <%= peep.text %> <span class="added-info"><%= peep.added.strftime("%I:%M %p %d/%m/%y") %> by <a href="/<%=peep.user.username%>"><%= peep.user.username %></a></span> </div>
+    <% end %>
+  </div>
+</div>
