@@ -12,6 +12,6 @@ feature 'Feature: signing out' do
 
   scenario 'when not signed in' do
     visit('/peeps')
-    expect(page).to_not have_content 'Logout'
+    expect(page).to have_content 'Welcome to Chitter'
   end
 end

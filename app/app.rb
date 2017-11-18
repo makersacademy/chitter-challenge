@@ -7,6 +7,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 class App < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, 'narcissus'

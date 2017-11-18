@@ -9,6 +9,8 @@
       <nav class="topnav">
         <% if current_user %>
           <a>Welcome, <%= current_user.name %></a>
+        <% else %>
+          <a>Welcome to Chitter</a>
         <% end %>
         <a>
           <form method="get" action="/peeps">
