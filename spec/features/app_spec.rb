@@ -8,9 +8,9 @@ feature "Peeps page displays all peeps" do
 end
 
 feature "Registration/sign_up" do
-  scenario "Fill in the form and see your profile" do
+  scenario "Fill in the form and see welcome massage" do
     sign_up
-    expect(page).to have_content('Olegfkl')
+    expect(page).to have_content('Oleg Gru')
   end
 end
 
