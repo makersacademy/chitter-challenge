@@ -1,5 +1,7 @@
+<h1>Sign in to Chitter</h1>
+
 <% if flash[:errors] %>
-  <div><%= flash[:errors] %></div>
+  <div class="flash"><%= flash[:errors] %></div>
 <% end %>
 
 <form action="/sessions" method="post">

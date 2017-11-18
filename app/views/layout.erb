@@ -6,15 +6,16 @@
   </head>
   <body>
     <div id="header">
-      <nav>
-      <ul>
+      <nav class="topnav">
         <% if current_user %>
-          <li>Welcome, <%= current_user.name %></li>
+          <a>Welcome, <%= current_user.name %></a>
         <% end %>
-        <li>Home</li>
-        <li>User</li>
-        <li>Logout</li>
-      </ul>
+        <a class="toplink" href="/peeps">Home</a>
+        <% if current_user %>
+          <a class="toplink" href="/session/delete">Logout</a>
+        <% else %>
+          <a class="toplink" href="/session/new">Login</a>
+        <% end %>
       </nav>
     </div>
     <div id="main">
