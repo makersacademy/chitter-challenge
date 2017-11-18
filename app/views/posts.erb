@@ -1,9 +1,5 @@
-<h1>Chitter</h1>
-<% if !current_user %>
-  <h2>You are not logged in</h2>
-<% else %>
-  <h2>Logged in as <%=current_user.username%></h2>
-<% end %>
+
+<div class="container-fluid">
 <% @posts.each do |post| %>
   <h3><%=post.title%></h3>
   <p><%=post.body%></p>
@@ -17,3 +13,4 @@
   <input type="submit" value="New Peep!">
 </form>
 <% end %>
+</div>
