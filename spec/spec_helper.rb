@@ -1,7 +1,5 @@
 ENV['RACK_ENV'] = 'test'
 
-#require './models/link.rb'
-#require './models/tag.rb'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
