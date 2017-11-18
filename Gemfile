@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
+gem 'rake'
+
 group :test do
   gem 'bcrypt'
   gem 'capybara'
@@ -10,7 +12,6 @@ group :test do
   gem 'dm-postgres-adapter'
   gem 'dm-validations'
   gem 'pg'
-  gem 'rake'
   gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
