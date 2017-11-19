@@ -1,0 +1,7 @@
+<html>
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li> <%= peep.name %> <%=peep.tags.map { |tag| tag.name }%> </li>
+    <% end %>
+  </ul>
+</html>

@@ -10,7 +10,7 @@ require 'simplecov'
 require 'simplecov-console'
 require './spec/features/web_helpers.rb'
 
-# Capybara.app = Bookmark
+ Capybara.app = Chitter
 
 # SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 #   SimpleCov::Formatter::Console,
@@ -22,9 +22,8 @@ require './spec/features/web_helpers.rb'
 RSpec.configure do |config|
 
   config.include Capybara::DSL
-  config.include FactoryGirl::Syntax::Methods
-  config.include TestHelpers
-  
+  #config.include TestHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

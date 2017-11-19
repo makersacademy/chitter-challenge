@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+ruby '2.4.2'
 
 gem 'data_mapper'
 gem 'dm-migrations'
@@ -24,7 +24,6 @@ group :test do
   gem 'rubocop-rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
-  gem 'factory_girl'
 end
 
 group :production do
