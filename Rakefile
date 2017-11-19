@@ -1,8 +1,5 @@
 require 'data_mapper'
-require 'dm-postgres-adapter'
-require_relative 'app/models/tag'
-require_relative 'app/models/link'
-
+require './app/app.rb'
 
 namespace :db do
   task :upgrade do

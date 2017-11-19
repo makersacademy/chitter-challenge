@@ -3,10 +3,10 @@ class Tweet
   include DataMapper::Resource
 
   property :id, Serial
-  property :text, String
+  property :text, Text #, :required => true
   property :time, DateTime
-  property :user, String
+  property :username, String
 
-  has n, :tags, through: Resource
-  has 1, :user, through: Resource
+  has 1, :user, :through => Resource
+
 end

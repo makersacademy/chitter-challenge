@@ -1,9 +1,9 @@
 <ul id='tweets'>
   <% @tweets.each do |tweet| %>
     <li>
-      Time <%= tweet.time %>
-      URL <%= tweet.text %>
-      User <%= tweet.user %>
+      <%= tweet.username %> <br>
+      <%= tweet.time.strftime("%I:%M %p") %> <br>
+      <%= tweet.text %> <br>
     </li>
   <% end %>
 </ul>

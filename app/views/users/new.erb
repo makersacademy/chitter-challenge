@@ -1,18 +1,34 @@
 <form action = '/users' method = 'post'>
   <label for='email'>
-    <input type = 'text', name = 'Email' >
+    Email: <input type = 'text', name = 'Email' >
   </label>
+  <br>
+  <label for='username'>
+    Username: <input type = 'text', name = 'Username' >
+  </label>
+  <br>
+  <label for='name'>
+    Name: <input type = 'text', name = 'Name' >
+  </label>
+  <br>
   <label for='password'>
-    <input type = 'password', name = 'Password'>
+    Password: <input type = 'password', name = 'Password' >
   </label>
+  <br>
   <label for ='Confirm_Password'>
-    <input type = 'password', name = 'Password_confirmation'><br>
+    Confirm password: <input type = 'password', name = 'Password_confirmation' >
   </label>
+  <br>
   <label for='Submit'>
     <input type = 'submit', value = 'Submit'>
   </label>
 </form>
 
-<% if flash[:wrong_password] %>
-  <%= flash[:wrong_password] %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+Please refer to the following errors below:
+<ul id='errors'>
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
 <% end %>

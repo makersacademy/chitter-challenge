@@ -1,7 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-require_relative 'models/tag'
 require_relative 'models/tweet'
 require_relative 'models/user'
 

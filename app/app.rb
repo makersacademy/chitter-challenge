@@ -1,9 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require_relative 'models/user'
-require_relative 'models/tweet'
-require_relative './data_mapper_setup'
+require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
@@ -19,16 +17,16 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-
   post '/users' do
-  @current_user = User.create(email: params[:Email],
-    password: params[:Password], password_confirmation: params[:Password_confirmation])
-    if @current_user.save
-      session[:user_id] = @current_user.id
-      session[:email] = @current_user.email
+  @user = User.create(email: params[:Email],
+                  username: params[:Username],
+                  password: params[:Password],
+                  password_confirmation: params[:Password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
       redirect to('/tweets/new')
     else
-      flash.now[:errors] = @current_user.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
 
@@ -45,11 +43,31 @@ class Chitter < Sinatra::Base
   end
 
   post '/tweets' do
-    user = current_user
-    user.tweets << Tweet.new(text: params[:Tweet], time: Time.new, user: current_user)
-    @tweets = Tweet.all
-    # tweet.save
-    erb :'tweets/index'
+      Tweet.create(text: params[:Tweet],
+                  time: Time.now,
+                  username: current_user.username)
+      p params[:Tweet]
+      p current_user
+
+      @tweets = Tweet.all(order: [:time.desc])
+      erb :'tweets/index'
+  end
+
+  post '/sessions' do
+  @user = User.authenticate(params[:email], params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect to('/links')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/log_in'
+    end
+  end
+
+  get '/sessions/sign_out' do
+    session[:user_id] = nil
+    flash[:sign_out] = 'Thanks for visting!'
+    redirect '/sessions/new'
   end
 
   run! if app_file == $0
