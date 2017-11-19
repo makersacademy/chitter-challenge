@@ -23,3 +23,7 @@ class Chitter < Sinatra::Base
     redirect '/home'
   end
 end
+
+# p 'HERE!!'
+# p @peeps.length
+# p 'END'

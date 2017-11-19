@@ -14,6 +14,7 @@ gem 'sinatra-flash'
 group :test do
   gem 'cucumber'
   gem 'database_cleaner'
+  gem 'orderly'
   gem 'rspec'
   gem 'rake'
   gem 'rubocop'
