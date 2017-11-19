@@ -3,6 +3,7 @@ require 'sinatra/base'
 require './app/data_mapper_config'
 require_relative './models/peep'
 require_relative './models/user'
+require './lib/send_recovery_link'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
@@ -61,6 +62,7 @@ class Chitter < Sinatra::Base
     user = User.first(email: params[:email])
     if user
       user.generate_token
+      SendRecoveryLink.call(user)
     end
     erb :'users/acknowledgment'
   end
