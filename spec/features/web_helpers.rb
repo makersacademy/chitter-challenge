@@ -22,3 +22,10 @@ def sign_up(email: 'fake@email.com', password: '12345', password_confirmation: '
   fill_in(:username, with: 'Megadrive')
   click_button('Sign Up')
 end
+
+def sign_in(email: 'fake@email.com', password: '12345')
+  visit('/sessions/new')
+  fill_in(:email, with: email)
+  fill_in(:password, with: password)
+  click_button('Sign In')
+end
