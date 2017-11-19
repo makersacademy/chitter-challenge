@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+    <% end %>
+    <% if current_user %>
+      <form action='/sessions/sign_out' method='get'>
+        <input type='Submit' value='Sign Out'>
+      </form>
+    <% end %>
+      <%= yield %>
+  </body>
+
+</html>
