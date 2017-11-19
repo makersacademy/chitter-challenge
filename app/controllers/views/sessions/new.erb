@@ -1,5 +1,5 @@
 <form action='/users/new' method='get'>
-  <input type='Submit' name='Sign Up'>
+  <input type='Submit' value='Sign Up'>
 </form>
 
 <h1>Please log in</h1>
@@ -11,9 +11,9 @@
   <label for='password'>
     Password: <input name='password' type='password'>
   </label>
-  <input type='submit' name='Sign In'>
+  <input type='submit' value='Sign In'>
 </form>
 
 <% if flash[:errors] %>
-<%= flash.now[:errors] %>
+<%= flash[:errors] %>
 <% end %>
