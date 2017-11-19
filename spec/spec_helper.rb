@@ -1,9 +1,12 @@
+ENV["RACK-ENV"] = "test"
+
 require "./app/app.rb"
 require "capybara"
 require "capybara/rspec"
 require "rspec"
 require "simplecov"
 require "simplecov-console"
+require "./app/models/peep"
 
 Capybara.app = Chitter
 
