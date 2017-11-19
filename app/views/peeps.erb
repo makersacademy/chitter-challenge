@@ -1,0 +1,16 @@
+
+<html>
+<h1> peeps </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+         <%= peep.text   %>
+    </li>
+  <% end %>
+</ul>
+</html>
+
+<form action="/newpeep" method="get">>
+  <input type="submit" value="send new peep!">
+</form>
