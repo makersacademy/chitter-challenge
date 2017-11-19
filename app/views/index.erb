@@ -34,7 +34,7 @@
     <tr>
       <td> <%= peep.message %> </td>
       <td> <%= peep.created_at.strftime("Peeped on %m/%d/%Y at %I:%M%p") %> </td>
-      <td> @<%= User.get(peep.user_id).name %> </td>
+      <td> @<%= User.get(peep.user_id).username %> </td>
     </tr>
     <% end %>
   </table>
