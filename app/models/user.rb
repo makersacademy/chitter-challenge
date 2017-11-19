@@ -15,7 +15,9 @@ class User
   property :digest, Text, required: true
   property :handle, String, unique: true, required: true
   property :email, Text, unique: true, required: true
-  has n, :peeps
+  has n, :peeps, 'Peep', child_key: ['poster_id']
+  has n, :mentions
+  has n, :peeps_mentioned, 'Peep', through: :mentions, via: :peep
 
   def password=(password)
     @password = password
@@ -29,5 +31,9 @@ class User
     else
       nil
     end
+  end
+
+  def to_html
+    "<a class=\"user\" href=\"/users/#{@handle}\">@#{@handle}</a>"
   end
 end

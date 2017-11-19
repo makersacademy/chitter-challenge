@@ -7,6 +7,7 @@ require 'sinatra/partial'
 require_relative 'models/db-setup'
 require_relative 'models/user'
 require_relative 'models/peep'
+require_relative 'models/mention'
 
 require_relative 'server'
 require_relative 'controllers/login'
