@@ -11,7 +11,17 @@
        <input type='hidden' name='_method' value='delete'>
        <input type='submit' value='Sign out'>
      </form>
+    <% else %>
+      <form action='/sessions/new' method='get'>
+      <button type="submit"> Signing in </button>
+      </form>
+
+      <form action='/users/new' method='get'>
+          <button type='submit'> Signing up </button>
+      </div>
+      </form>
     <% end %>
+
     <% if flash[:notice] %>
       <div id='notice'>
         <%= flash[:notice] %>

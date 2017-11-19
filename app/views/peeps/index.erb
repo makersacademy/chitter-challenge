@@ -1,3 +1,4 @@
+<header> Chitter :) </header>
 
 <ul id='peeps'>
   <% @peeps.each do |elem| %>
@@ -6,3 +7,9 @@
     </li>
   <% end %>
 </ul>
+
+<% if current_user %>
+  <form action='/peeps/new' method='get'>
+  <button type="submit"> Peep now! </button>
+  </form>
+<% end %>
