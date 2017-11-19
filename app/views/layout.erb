@@ -15,6 +15,11 @@
         </a>
         <% if current_user %>
         <a>
+          <form method="get" action="/peeps/new">
+            <input class="toplink" type='submit' value="Peep">
+          </form>
+        </a>
+        <a>
           <form method="post" action="/sessions">
             <input type="hidden" name="_method" value="delete">
             <input class="toplink" type='submit' value="Logout">
@@ -24,6 +29,11 @@
         <a>
           <form method="get" action="/sessions/new">
             <input class="toplink" type='submit' value="Login">
+          </form>
+        </a>
+        <a>
+          <form method="get" action="/users/new">
+            <input class="toplink" type='submit' value="Signup">
           </form>
         </a>
         <% end %>
