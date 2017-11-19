@@ -32,6 +32,14 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
+  delete '/peeps' do
+    peep = Peep.get(params[:id].to_i)
+    if current_user.id == peep.user.id
+      peep.destroy
+    end
+    redirect '/peeps'
+  end
+
   get '/sessions/new' do
     erb :'sessions/new'
   end

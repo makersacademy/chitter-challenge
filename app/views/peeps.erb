@@ -33,7 +33,21 @@
 
   <div id="all-peeps" class="col-md-6 offset-md-3">
     <% @peeps.each do |peep| %>
-      <div class="each-peep"> <%= peep.text %> <span class="added-info"><%= peep.added.strftime("%I:%M %p %d/%m/%y") %> by <a href="/<%=peep.user.username%>"><%= peep.user.username %></a></span> </div>
+      <div class="each-peep">
+        <%= peep.text %>
+        <span class="added-info">
+        <%= peep.added.strftime("%I:%M %p %d/%m/%y") %> by
+        <a href="/<%=peep.user.username%>">
+         <%= peep.user.username %>
+       </a>
+     </span>
+     <% if current_user && current_user.id == peep.user.id %>
+       <form action="/peeps?id=<%= peep.id %>" method="post">
+         <input type="hidden" name="_method" value="delete">
+         <button class="delete-button btn btn-danger" type="submit" value="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+       </form>
+     <% end %>
+   </div>
     <% end %>
   </div>
 </div>
