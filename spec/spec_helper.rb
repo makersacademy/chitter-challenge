@@ -8,7 +8,6 @@ require "data_mapper"
 require "rspec"
 require "simplecov"
 require "simplecov-console"
-require "./app/models/peep"
 require "./spec/features/web_helpers"
 
 Capybara.app = Chitter

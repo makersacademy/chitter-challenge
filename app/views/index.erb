@@ -18,15 +18,23 @@
     <button name="sign-up"> Sign-up </button>
   </form>
   <br />
+  <% if current_user %>
+  <form action="/new_peep">
+    <button name="new_peep"> New Peep </button>
+  </form>
+  <% end %>
+  <br />
   <table style='width:100%' >
     <tr>
       <th> Message </th>
       <th> Date </th>
+      <th> User </th>
     </tr>
     <% @peeps.each do |peep| %>
     <tr>
       <td> <%= peep.message %> </td>
       <td> <%= peep.created_at.strftime("Peeped on %m/%d/%Y at %I:%M%p") %> </td>
+      <td> <%= User.get(peep.user_id).name %> </td>
     </tr>
     <% end %>
   </table>
