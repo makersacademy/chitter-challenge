@@ -7,8 +7,7 @@ feature 'Homepage' do
   end
 
   scenario 'Displays existing users' do
-    sign_up('name1', 'user1', 'tiagofsousa@gmail.com', '2', '2')
-    new_peep('Lala @user1')
+    sign_up('name1', 'user1', 'mail1@test.test', '2', '2')
     sign_up('name2', 'user2', 'mail2@test.test', '2', '2')
     sign_out
     expect(page).to have_content('user1')

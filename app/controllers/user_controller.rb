@@ -12,6 +12,6 @@ class Chitter < Sinatra::Base
 
   get '/user/:username' do
     load_peeps(params[:username])
-    erb :'user/user_area'
+    erb :'user/user_area', locals: { username: params[:username] }
   end
 end
