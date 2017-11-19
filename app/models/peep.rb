@@ -42,7 +42,6 @@ class Peep
       text = text.gsub(k, v.to_html)
     end
     hashtags.each do |k, v|
-      p hashtags
       text = text.gsub(k, v.to_html)
     end
     super text
