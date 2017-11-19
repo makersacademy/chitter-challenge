@@ -283,3 +283,1571 @@ Sun, 19 Nov 2017 15:35:22 GMT  ~  info  ~  Logfile created
           WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
  ~ (0.002200) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
  ~ (0.000225) SHOW server_version
+ ~ (0.000313) SET backslash_quote = off
+ ~ (0.000106) SET standard_conforming_strings = on
+ ~ (0.000118) SET client_min_messages = warning
+ ~ (0.000121) SET datestyle = ISO
+ ~ (0.000136) SET client_min_messages = warning
+ ~ (0.000082) SET client_min_messages = warning
+ ~ (0.000504) SELECT current_schema()
+ ~ (0.003503) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000158) RESET client_min_messages
+ ~ (0.152629) SET backslash_quote = off
+ ~ (0.000186) SET standard_conforming_strings = on
+ ~ (0.000220) SET client_min_messages = warning
+ ~ (0.000195) SET datestyle = ISO
+ ~ (0.008048) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001908) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001655) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000157) RESET client_min_messages
+ ~ (0.001380) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:04:18 +0000') RETURNING "id"
+ ~ (0.000453) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000119) SHOW server_version
+ ~ (0.000942)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002630) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000347) SHOW server_version
+ ~ (0.000773) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:04:18 +0000') RETURNING "id"
+ ~ (0.000224) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000449) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 17:04:18 +0000') RETURNING "id"
+ ~ (0.000197) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000139) SHOW server_version
+ ~ (0.000746)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.001722) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000204) SHOW server_version
+ ~ (0.000309) SET backslash_quote = off
+ ~ (0.000127) SET standard_conforming_strings = on
+ ~ (0.000095) SET client_min_messages = warning
+ ~ (0.000129) SET datestyle = ISO
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000081) SET client_min_messages = warning
+ ~ (0.000676) SELECT current_schema()
+ ~ (0.003688) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000150) RESET client_min_messages
+ ~ (0.000252) SET backslash_quote = off
+ ~ (0.000161) SET standard_conforming_strings = on
+ ~ (0.000146) SET client_min_messages = warning
+ ~ (0.000130) SET datestyle = ISO
+ ~ (0.006434) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001864) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001831) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000118) RESET client_min_messages
+ ~ (0.002375) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:18:50 +0000') RETURNING "id"
+ ~ (0.000651) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:18:50 +0000') RETURNING "id"
+ ~ (0.000290) SET backslash_quote = off
+ ~ (0.000124) SET standard_conforming_strings = on
+ ~ (0.000109) SET client_min_messages = warning
+ ~ (0.000113) SET datestyle = ISO
+ ~ (0.000097) SET client_min_messages = warning
+ ~ (0.000099) SET client_min_messages = warning
+ ~ (0.000622) SELECT current_schema()
+ ~ (0.003677) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000144) RESET client_min_messages
+ ~ (0.000220) SET backslash_quote = off
+ ~ (0.000116) SET standard_conforming_strings = on
+ ~ (0.000115) SET client_min_messages = warning
+ ~ (0.000147) SET datestyle = ISO
+ ~ (0.005733) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001632) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002021) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000171) RESET client_min_messages
+ ~ (0.001629) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:20:05 +0000') RETURNING "id"
+ ~ (0.000480) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:20:05 +0000') RETURNING "id"
+ ~ (0.000463) INSERT INTO "peeps" ("time") VALUES ('2017-11-19 17:20:05 +0000') RETURNING "id"
+ ~ (0.000233) SET backslash_quote = off
+ ~ (0.000131) SET standard_conforming_strings = on
+ ~ (0.000112) SET client_min_messages = warning
+ ~ (0.000115) SET datestyle = ISO
+ ~ (0.000099) SET client_min_messages = warning
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000459) SELECT current_schema()
+ ~ (0.003327) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000119) RESET client_min_messages
+ ~ (0.000229) SET backslash_quote = off
+ ~ (0.000163) SET standard_conforming_strings = on
+ ~ (0.000104) SET client_min_messages = warning
+ ~ (0.000113) SET datestyle = ISO
+ ~ (0.006335) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002255) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002021) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000125) RESET client_min_messages
+ ~ (0.001698) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:21:36 +0000') RETURNING "id"
+ ~ (0.000413) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:21:36 +0000') RETURNING "id"
+ ~ (0.000394) INSERT INTO "peeps" ("time") VALUES ('2017-11-19 17:21:36 +0000') RETURNING "id"
+ ~ (0.000305) SET backslash_quote = off
+ ~ (0.000122) SET standard_conforming_strings = on
+ ~ (0.000112) SET client_min_messages = warning
+ ~ (0.000122) SET datestyle = ISO
+ ~ (0.000103) SET client_min_messages = warning
+ ~ (0.000102) SET client_min_messages = warning
+ ~ (0.000482) SELECT current_schema()
+ ~ (0.003813) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000169) RESET client_min_messages
+ ~ (0.000225) SET backslash_quote = off
+ ~ (0.000113) SET standard_conforming_strings = on
+ ~ (0.000131) SET client_min_messages = warning
+ ~ (0.000155) SET datestyle = ISO
+ ~ (0.005913) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001832) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001626) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000115) RESET client_min_messages
+ ~ (0.001876) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:22:19 +0000') RETURNING "id"
+ ~ (0.000630) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:22:19 +0000') RETURNING "id"
+ ~ (0.000430) INSERT INTO "peeps" ("time") VALUES ('2017-11-19 17:22:19 +0000') RETURNING "id"
+ ~ (0.000292) SET backslash_quote = off
+ ~ (0.000145) SET standard_conforming_strings = on
+ ~ (0.000105) SET client_min_messages = warning
+ ~ (0.000092) SET datestyle = ISO
+ ~ (0.000081) SET client_min_messages = warning
+ ~ (0.000099) SET client_min_messages = warning
+ ~ (0.000459) SELECT current_schema()
+ ~ (0.003898) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000145) RESET client_min_messages
+ ~ (0.000250) SET backslash_quote = off
+ ~ (0.000134) SET standard_conforming_strings = on
+ ~ (0.000101) SET client_min_messages = warning
+ ~ (0.000099) SET datestyle = ISO
+ ~ (0.007233) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002062) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001809) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000122) RESET client_min_messages
+ ~ (0.000273) SET client_min_messages = warning
+ ~ (0.000170) SET client_min_messages = warning
+ ~ (0.000176) SELECT current_schema()
+ ~ (0.000792) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000112) RESET client_min_messages
+ ~ (0.001792) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001848) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001711) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000116) RESET client_min_messages
+ ~ (0.000105) SET client_min_messages = warning
+ ~ (0.000097) SET client_min_messages = warning
+ ~ (0.000660) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000099) RESET client_min_messages
+ ~ (0.001791) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001699) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'message'
+ ~ (0.001812) ALTER TABLE "users" ADD COLUMN "message" VARCHAR(50)
+ ~ (0.001902) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'time'
+ ~ (0.000504) ALTER TABLE "users" ADD COLUMN "time" VARCHAR(50)
+ ~ (0.000191) RESET client_min_messages
+ ~ (0.001526) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:22:42 +0000') RETURNING "id"
+ ~ (0.000569) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:22:42 +0000') RETURNING "id"
+ ~ (0.000344) INSERT INTO "peeps" ("time") VALUES ('2017-11-19 17:22:42 +0000') RETURNING "id"
+ ~ (0.000267) SET backslash_quote = off
+ ~ (0.000141) SET standard_conforming_strings = on
+ ~ (0.000132) SET client_min_messages = warning
+ ~ (0.000156) SET datestyle = ISO
+ ~ (0.000090) SET client_min_messages = warning
+ ~ (0.000097) SET client_min_messages = warning
+ ~ (0.000448) SELECT current_schema()
+ ~ (0.005748) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000141) RESET client_min_messages
+ ~ (0.000242) SET backslash_quote = off
+ ~ (0.000151) SET standard_conforming_strings = on
+ ~ (0.000136) SET client_min_messages = warning
+ ~ (0.000104) SET datestyle = ISO
+ ~ (0.006568) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001777) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001696) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000113) RESET client_min_messages
+ ~ (0.000150) SET client_min_messages = warning
+ ~ (0.000112) SET client_min_messages = warning
+ ~ (0.000172) SELECT current_schema()
+ ~ (0.000843) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000099) RESET client_min_messages
+ ~ (0.001762) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001931) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001650) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000121) RESET client_min_messages
+ ~ (0.000144) SET client_min_messages = warning
+ ~ (0.000117) SET client_min_messages = warning
+ ~ (0.000758) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000100) RESET client_min_messages
+ ~ (0.001744) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001616) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001643) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000104) RESET client_min_messages
+ ~ (0.001619) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:23:12 +0000') RETURNING "id"
+ ~ (0.000757) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000425) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000308) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000412) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:23:12 +0000') RETURNING "id"
+ ~ (0.000350) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000323) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000226) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000499) INSERT INTO "peeps" ("time") VALUES ('2017-11-19 17:23:12 +0000') RETURNING "id"
+ ~ (0.000302) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000195) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000182) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000295) SET backslash_quote = off
+ ~ (0.000146) SET standard_conforming_strings = on
+ ~ (0.000137) SET client_min_messages = warning
+ ~ (0.000144) SET datestyle = ISO
+ ~ (0.000102) SET client_min_messages = warning
+ ~ (0.000108) SET client_min_messages = warning
+ ~ (0.000528) SELECT current_schema()
+ ~ (0.003483) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000146) RESET client_min_messages
+ ~ (0.000331) SET backslash_quote = off
+ ~ (0.000144) SET standard_conforming_strings = on
+ ~ (0.000084) SET client_min_messages = warning
+ ~ (0.000130) SET datestyle = ISO
+ ~ (0.006108) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002205) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001638) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000112) RESET client_min_messages
+ ~ (0.000147) SET client_min_messages = warning
+ ~ (0.000120) SET client_min_messages = warning
+ ~ (0.000124) SELECT current_schema()
+ ~ (0.000955) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000096) RESET client_min_messages
+ ~ (0.002356) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001684) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001833) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000125) RESET client_min_messages
+ ~ (0.000136) SET client_min_messages = warning
+ ~ (0.000107) SET client_min_messages = warning
+ ~ (0.000808) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000113) RESET client_min_messages
+ ~ (0.001696) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001829) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001715) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000101) RESET client_min_messages
+ ~ (0.002118) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:38:59 +0000') RETURNING "id"
+ ~ (0.000497) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000435) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000276) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000376) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:38:59 +0000') RETURNING "id"
+ ~ (0.000365) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000191) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000218) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000393) INSERT INTO "peeps" ("time") VALUES ('2017-11-19 17:38:59 +0000') RETURNING "id"
+ ~ (0.000310) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000195) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000198) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000298) SET backslash_quote = off
+ ~ (0.000149) SET standard_conforming_strings = on
+ ~ (0.000135) SET client_min_messages = warning
+ ~ (0.000164) SET datestyle = ISO
+ ~ (0.000112) SET client_min_messages = warning
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000455) SELECT current_schema()
+ ~ (0.003534) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000161) RESET client_min_messages
+ ~ (0.000202) SET backslash_quote = off
+ ~ (0.000120) SET standard_conforming_strings = on
+ ~ (0.000085) SET client_min_messages = warning
+ ~ (0.000137) SET datestyle = ISO
+ ~ (0.006136) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001840) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002100) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000109) RESET client_min_messages
+ ~ (0.000137) SET client_min_messages = warning
+ ~ (0.000128) SET client_min_messages = warning
+ ~ (0.000171) SELECT current_schema()
+ ~ (0.000786) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000098) RESET client_min_messages
+ ~ (0.001911) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001732) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002219) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000124) RESET client_min_messages
+ ~ (0.000136) SET client_min_messages = warning
+ ~ (0.000140) SET client_min_messages = warning
+ ~ (0.000789) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000111) RESET client_min_messages
+ ~ (0.001816) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001792) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001923) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000110) RESET client_min_messages
+ ~ (0.000277) SHOW server_version
+ ~ (0.001071)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.003891) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000268) SHOW server_version
+ ~ (0.000795) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:40:11 +0000') RETURNING "id"
+ ~ (0.000481) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000479) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000284) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000173) SHOW server_version
+ ~ (0.001141)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002446) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000284) SHOW server_version
+ ~ (0.000663) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:40:11 +0000') RETURNING "id"
+ ~ (0.000582) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000231) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000188) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000516) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 17:40:11 +0000') RETURNING "id"
+ ~ (0.000371) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000300) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000191) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000120) SHOW server_version
+ ~ (0.000852)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002039) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000314) SHOW server_version
+ ~ (0.000587) INSERT INTO "peeps" ("time") VALUES ('2017-11-19 17:40:11 +0000') RETURNING "id"
+ ~ (0.000584) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000216) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000181) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000315) SET backslash_quote = off
+ ~ (0.000130) SET standard_conforming_strings = on
+ ~ (0.000106) SET client_min_messages = warning
+ ~ (0.000112) SET datestyle = ISO
+ ~ (0.000078) SET client_min_messages = warning
+ ~ (0.000099) SET client_min_messages = warning
+ ~ (0.000458) SELECT current_schema()
+ ~ (0.004138) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000138) RESET client_min_messages
+ ~ (0.000260) SET backslash_quote = off
+ ~ (0.000122) SET standard_conforming_strings = on
+ ~ (0.000105) SET client_min_messages = warning
+ ~ (0.000109) SET datestyle = ISO
+ ~ (0.005882) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001895) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001849) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000159) RESET client_min_messages
+ ~ (0.000210) SET client_min_messages = warning
+ ~ (0.000103) SET client_min_messages = warning
+ ~ (0.000129) SELECT current_schema()
+ ~ (0.000787) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000100) RESET client_min_messages
+ ~ (0.001771) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001871) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001639) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000129) RESET client_min_messages
+ ~ (0.000115) SET client_min_messages = warning
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000718) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000104) RESET client_min_messages
+ ~ (0.001843) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001654) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001673) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000107) RESET client_min_messages
+ ~ (0.001938) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:40:39 +0000') RETURNING "id"
+ ~ (0.000691) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000496) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000242) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000455) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:40:39 +0000') RETURNING "id"
+ ~ (0.000327) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000315) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000226) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000185) SHOW server_version
+ ~ (0.001083)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002632) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000310) SHOW server_version
+ ~ (0.000587) INSERT INTO "peeps" ("time") VALUES ('2017-11-19 17:40:39 +0000') RETURNING "id"
+ ~ (0.000462) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000216) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000311) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000239) SET backslash_quote = off
+ ~ (0.000127) SET standard_conforming_strings = on
+ ~ (0.000098) SET client_min_messages = warning
+ ~ (0.000099) SET datestyle = ISO
+ ~ (0.000086) SET client_min_messages = warning
+ ~ (0.000131) SET client_min_messages = warning
+ ~ (0.000472) SELECT current_schema()
+ ~ (0.003878) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000155) RESET client_min_messages
+ ~ (0.000294) SET backslash_quote = off
+ ~ (0.000114) SET standard_conforming_strings = on
+ ~ (0.000106) SET client_min_messages = warning
+ ~ (0.000112) SET datestyle = ISO
+ ~ (0.005972) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002889) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002225) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000137) RESET client_min_messages
+ ~ (0.000133) SET client_min_messages = warning
+ ~ (0.000114) SET client_min_messages = warning
+ ~ (0.000146) SELECT current_schema()
+ ~ (0.000903) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000117) RESET client_min_messages
+ ~ (0.001832) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001923) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001855) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000174) RESET client_min_messages
+ ~ (0.000110) SET client_min_messages = warning
+ ~ (0.000145) SET client_min_messages = warning
+ ~ (0.000837) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000100) RESET client_min_messages
+ ~ (0.001876) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001778) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001726) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000132) RESET client_min_messages
+ ~ (0.000936) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 17:40:58 +0000') RETURNING "id"
+ ~ (0.000402) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000506) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000242) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000442) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 17:40:58 +0000') RETURNING "id"
+ ~ (0.000334) INSERT INTO "users" DEFAULT VALUES RETURNING "id"
+ ~ (0.000294) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000182) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000515) INSERT INTO "peeps" ("time") VALUES ('2017-11-19 17:40:58 +0000') RETURNING "id"
+ ~ (0.000290) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000209) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000200) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000320) SET backslash_quote = off
+ ~ (0.000175) SET standard_conforming_strings = on
+ ~ (0.000163) SET client_min_messages = warning
+ ~ (0.000208) SET datestyle = ISO
+ ~ (0.000168) SET client_min_messages = warning
+ ~ (0.000107) SET client_min_messages = warning
+ ~ (0.000602) SELECT current_schema()
+ ~ (0.003306) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000144) RESET client_min_messages
+ ~ (0.000271) SET backslash_quote = off
+ ~ (0.000111) SET standard_conforming_strings = on
+ ~ (0.000101) SET client_min_messages = warning
+ ~ (0.000168) SET datestyle = ISO
+ ~ (0.005843) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001889) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002210) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000156) RESET client_min_messages
+ ~ (0.000174) SET client_min_messages = warning
+ ~ (0.000116) SET client_min_messages = warning
+ ~ (0.000147) SELECT current_schema()
+ ~ (0.000907) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000107) RESET client_min_messages
+ ~ (0.002027) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001725) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001766) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000119) RESET client_min_messages
+ ~ (0.000128) SET client_min_messages = warning
+ ~ (0.000117) SET client_min_messages = warning
+ ~ (0.000897) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000107) RESET client_min_messages
+ ~ (0.001713) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001788) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001613) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000101) RESET client_min_messages
+ ~ (0.000284) SET backslash_quote = off
+ ~ (0.000138) SET standard_conforming_strings = on
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000114) SET datestyle = ISO
+ ~ (0.000092) SET client_min_messages = warning
+ ~ (0.000083) SET client_min_messages = warning
+ ~ (0.000518) SELECT current_schema()
+ ~ (0.003954) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000139) RESET client_min_messages
+ ~ (0.000187) SET backslash_quote = off
+ ~ (0.000117) SET standard_conforming_strings = on
+ ~ (0.000101) SET client_min_messages = warning
+ ~ (0.000106) SET datestyle = ISO
+ ~ (0.006281) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001850) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001792) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000118) RESET client_min_messages
+ ~ (0.000114) SET client_min_messages = warning
+ ~ (0.000102) SET client_min_messages = warning
+ ~ (0.000151) SELECT current_schema()
+ ~ (0.000849) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000126) RESET client_min_messages
+ ~ (0.001778) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002264) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001992) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000119) RESET client_min_messages
+ ~ (0.000116) SET client_min_messages = warning
+ ~ (0.000102) SET client_min_messages = warning
+ ~ (0.000764) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000098) RESET client_min_messages
+ ~ (0.001825) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001815) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001651) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000137) RESET client_min_messages
+ ~ (0.001676) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000606) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:02:33 +0000') RETURNING "id"
+ ~ (0.000453) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000238) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000613) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000360) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 18:02:33 +0000') RETURNING "id"
+ ~ (0.000236) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000372) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000338) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000323) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:02:33 +0000') RETURNING "id"
+ ~ (0.000226) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000199) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000285) SET backslash_quote = off
+ ~ (0.000108) SET standard_conforming_strings = on
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000095) SET datestyle = ISO
+ ~ (0.000105) SET client_min_messages = warning
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000477) SELECT current_schema()
+ ~ (0.003981) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000130) RESET client_min_messages
+ ~ (0.000186) SET backslash_quote = off
+ ~ (0.000112) SET standard_conforming_strings = on
+ ~ (0.000082) SET client_min_messages = warning
+ ~ (0.000115) SET datestyle = ISO
+ ~ (0.006163) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001928) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002150) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000135) RESET client_min_messages
+ ~ (0.000155) SET client_min_messages = warning
+ ~ (0.000137) SET client_min_messages = warning
+ ~ (0.000180) SELECT current_schema()
+ ~ (0.000848) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000103) RESET client_min_messages
+ ~ (0.002179) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002284) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001972) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000121) RESET client_min_messages
+ ~ (0.000114) SET client_min_messages = warning
+ ~ (0.000103) SET client_min_messages = warning
+ ~ (0.000954) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000102) RESET client_min_messages
+ ~ (0.002097) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001802) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001727) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000130) RESET client_min_messages
+ ~ (0.001647) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000684) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:04:01 +0000') RETURNING "id"
+ ~ (0.000458) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000240) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000502) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000321) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 18:04:01 +0000') RETURNING "id"
+ ~ (0.000212) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000241) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000321) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000356) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:04:01 +0000') RETURNING "id"
+ ~ (0.000212) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000201) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000272) SET backslash_quote = off
+ ~ (0.000144) SET standard_conforming_strings = on
+ ~ (0.000110) SET client_min_messages = warning
+ ~ (0.000118) SET datestyle = ISO
+ ~ (0.000101) SET client_min_messages = warning
+ ~ (0.000103) SET client_min_messages = warning
+ ~ (0.000727) SELECT current_schema()
+ ~ (0.004113) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000123) RESET client_min_messages
+ ~ (0.000246) SET backslash_quote = off
+ ~ (0.000182) SET standard_conforming_strings = on
+ ~ (0.000119) SET client_min_messages = warning
+ ~ (0.000121) SET datestyle = ISO
+ ~ (0.006107) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001842) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001910) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000141) RESET client_min_messages
+ ~ (0.000129) SET client_min_messages = warning
+ ~ (0.000156) SET client_min_messages = warning
+ ~ (0.000203) SELECT current_schema()
+ ~ (0.000903) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000105) RESET client_min_messages
+ ~ (0.002058) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001740) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001605) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000115) RESET client_min_messages
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000131) SET client_min_messages = warning
+ ~ (0.000793) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000098) RESET client_min_messages
+ ~ (0.001686) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001705) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001889) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000129) RESET client_min_messages
+ ~ (0.000194) SHOW server_version
+ ~ (0.000985)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.003764) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000291) SHOW server_version
+ ~ (0.000842) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000711) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:04:26 +0000') RETURNING "id"
+ ~ (0.000450) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000228) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000167) SHOW server_version
+ ~ (0.000829)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002086) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000265) SHOW server_version
+ ~ (0.000169) SHOW server_version
+ ~ (0.000881)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.001852) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000321) SHOW server_version
+ ~ (0.000621) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000510) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 18:04:26 +0000') RETURNING "id"
+ ~ (0.000263) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000206) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000398) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 18:04:26 +0000') RETURNING "id"
+ ~ (0.000214) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000183) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000140) SHOW server_version
+ ~ (0.000842)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.008173) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.011763) SHOW server_version
+ ~ (0.000201) SHOW server_version
+ ~ (0.001051)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.006848) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000215) SHOW server_version
+ ~ (0.000669) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000667) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:04:26 +0000') RETURNING "id"
+ ~ (0.000356) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000292) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000255) SET backslash_quote = off
+ ~ (0.000125) SET standard_conforming_strings = on
+ ~ (0.000087) SET client_min_messages = warning
+ ~ (0.000119) SET datestyle = ISO
+ ~ (0.000095) SET client_min_messages = warning
+ ~ (0.000086) SET client_min_messages = warning
+ ~ (0.000668) SELECT current_schema()
+ ~ (0.003621) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000132) RESET client_min_messages
+ ~ (0.000316) SET backslash_quote = off
+ ~ (0.000124) SET standard_conforming_strings = on
+ ~ (0.000158) SET client_min_messages = warning
+ ~ (0.000126) SET datestyle = ISO
+ ~ (0.007302) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002360) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002361) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000182) RESET client_min_messages
+ ~ (0.000126) SET client_min_messages = warning
+ ~ (0.000132) SET client_min_messages = warning
+ ~ (0.000164) SELECT current_schema()
+ ~ (0.000812) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000121) RESET client_min_messages
+ ~ (0.002107) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001733) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001776) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000133) RESET client_min_messages
+ ~ (0.000163) SET client_min_messages = warning
+ ~ (0.000103) SET client_min_messages = warning
+ ~ (0.000742) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000103) RESET client_min_messages
+ ~ (0.001637) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001629) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001680) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000108) RESET client_min_messages
+ ~ (0.001948) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000682) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:07:20 +0000') RETURNING "id"
+ ~ (0.000465) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000245) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000153) SHOW server_version
+ ~ (0.000956)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002587) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000293) SHOW server_version
+ ~ (0.000805) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000609) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 18:07:20 +0000') RETURNING "id"
+ ~ (0.000235) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000195) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000415) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 18:07:20 +0000') RETURNING "id"
+ ~ (0.000183) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000196) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000111) SHOW server_version
+ ~ (0.000789)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.001940) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000206) SHOW server_version
+ ~ (0.000636) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000494) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:07:20 +0000') RETURNING "id"
+ ~ (0.000240) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000224) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000277) SET backslash_quote = off
+ ~ (0.000161) SET standard_conforming_strings = on
+ ~ (0.000131) SET client_min_messages = warning
+ ~ (0.000119) SET datestyle = ISO
+ ~ (0.000096) SET client_min_messages = warning
+ ~ (0.000102) SET client_min_messages = warning
+ ~ (0.000485) SELECT current_schema()
+ ~ (0.003551) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000149) RESET client_min_messages
+ ~ (0.000254) SET backslash_quote = off
+ ~ (0.000169) SET standard_conforming_strings = on
+ ~ (0.000104) SET client_min_messages = warning
+ ~ (0.000137) SET datestyle = ISO
+ ~ (0.005684) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001887) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001709) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000117) RESET client_min_messages
+ ~ (0.000166) SET client_min_messages = warning
+ ~ (0.000129) SET client_min_messages = warning
+ ~ (0.000200) SELECT current_schema()
+ ~ (0.001162) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000119) RESET client_min_messages
+ ~ (0.002394) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001958) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001729) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000116) RESET client_min_messages
+ ~ (0.000110) SET client_min_messages = warning
+ ~ (0.000138) SET client_min_messages = warning
+ ~ (0.000782) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000101) RESET client_min_messages
+ ~ (0.001720) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001667) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.002030) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000121) RESET client_min_messages
+ ~ (0.001619) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000634) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:13:07 +0000') RETURNING "id"
+ ~ (0.000518) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000246) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000197) SHOW server_version
+ ~ (0.001345)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.003344) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000320) SHOW server_version
+ ~ (0.000778) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000672) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 18:13:07 +0000') RETURNING "id"
+ ~ (0.000271) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000192) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000431) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 18:13:07 +0000') RETURNING "id"
+ ~ (0.000254) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000189) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000132) SHOW server_version
+ ~ (0.000847)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002016) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000204) SHOW server_version
+ ~ (0.000715) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000551) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:13:07 +0000') RETURNING "id"
+ ~ (0.000268) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000239) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000289) SET backslash_quote = off
+ ~ (0.000122) SET standard_conforming_strings = on
+ ~ (0.000107) SET client_min_messages = warning
+ ~ (0.000116) SET datestyle = ISO
+ ~ (0.000106) SET client_min_messages = warning
+ ~ (0.000189) SET client_min_messages = warning
+ ~ (0.000697) SELECT current_schema()
+ ~ (0.003438) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000157) RESET client_min_messages
+ ~ (0.000207) SET backslash_quote = off
+ ~ (0.000113) SET standard_conforming_strings = on
+ ~ (0.000088) SET client_min_messages = warning
+ ~ (0.000102) SET datestyle = ISO
+ ~ (0.006002) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001961) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001902) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000130) RESET client_min_messages
+ ~ (0.000125) SET client_min_messages = warning
+ ~ (0.000157) SET client_min_messages = warning
+ ~ (0.000137) SELECT current_schema()
+ ~ (0.000793) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000103) RESET client_min_messages
+ ~ (0.001929) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001776) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001724) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000115) RESET client_min_messages
+ ~ (0.000118) SET client_min_messages = warning
+ ~ (0.000118) SET client_min_messages = warning
+ ~ (0.000737) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000115) RESET client_min_messages
+ ~ (0.001788) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001779) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001681) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000112) RESET client_min_messages
+ ~ (0.000261) SET backslash_quote = off
+ ~ (0.000121) SET standard_conforming_strings = on
+ ~ (0.000102) SET client_min_messages = warning
+ ~ (0.000120) SET datestyle = ISO
+ ~ (0.000104) SET client_min_messages = warning
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000460) SELECT current_schema()
+ ~ (0.004283) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000145) RESET client_min_messages
+ ~ (0.000279) SET backslash_quote = off
+ ~ (0.000128) SET standard_conforming_strings = on
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000147) SET datestyle = ISO
+ ~ (0.006373) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001859) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002001) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000137) RESET client_min_messages
+ ~ (0.000126) SET client_min_messages = warning
+ ~ (0.000119) SET client_min_messages = warning
+ ~ (0.000124) SELECT current_schema()
+ ~ (0.000804) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000105) RESET client_min_messages
+ ~ (0.001905) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002080) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001741) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000147) RESET client_min_messages
+ ~ (0.000142) SET client_min_messages = warning
+ ~ (0.000121) SET client_min_messages = warning
+ ~ (0.000708) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000102) RESET client_min_messages
+ ~ (0.002054) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001982) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001776) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000161) RESET client_min_messages
+ ~ (0.006679) INSERT INTO "users" ("email") VALUES ('fuck@ok.it') RETURNING "id"
+ ~ (0.006539) INSERT INTO "peeps" ("message", "time") VALUES ('Am i a fat girl :?(?', '2017-11-19 18:14:10 +0000') RETURNING "id"
+ ~ (0.000529) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000307) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000269) SET backslash_quote = off
+ ~ (0.000126) SET standard_conforming_strings = on
+ ~ (0.000110) SET client_min_messages = warning
+ ~ (0.000119) SET datestyle = ISO
+ ~ (0.000106) SET client_min_messages = warning
+ ~ (0.000157) SET client_min_messages = warning
+ ~ (0.000555) SELECT current_schema()
+ ~ (0.003548) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000134) RESET client_min_messages
+ ~ (0.000257) SET backslash_quote = off
+ ~ (0.000139) SET standard_conforming_strings = on
+ ~ (0.000149) SET client_min_messages = warning
+ ~ (0.000149) SET datestyle = ISO
+ ~ (0.005816) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001845) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002596) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000147) RESET client_min_messages
+ ~ (0.000157) SET client_min_messages = warning
+ ~ (0.000134) SET client_min_messages = warning
+ ~ (0.000164) SELECT current_schema()
+ ~ (0.000938) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000101) RESET client_min_messages
+ ~ (0.001822) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001707) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001602) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000106) RESET client_min_messages
+ ~ (0.000293) SET client_min_messages = warning
+ ~ (0.000173) SET client_min_messages = warning
+ ~ (0.000695) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000106) RESET client_min_messages
+ ~ (0.001751) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001733) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001680) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000104) RESET client_min_messages
+ ~ (0.001770) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000648) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:16:59 +0000') RETURNING "id"
+ ~ (0.000525) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000306) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000127) SHOW server_version
+ ~ (0.000929)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002700) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000209) SHOW server_version
+ ~ (0.000644) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000710) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 18:16:59 +0000') RETURNING "id"
+ ~ (0.000266) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000230) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000396) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 18:16:59 +0000') RETURNING "id"
+ ~ (0.000213) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000300) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000116) SHOW server_version
+ ~ (0.000776)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.001953) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000187) SHOW server_version
+ ~ (0.000697) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000603) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:16:59 +0000') RETURNING "id"
+ ~ (0.000239) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000198) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000364) SET backslash_quote = off
+ ~ (0.000200) SET standard_conforming_strings = on
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000126) SET datestyle = ISO
+ ~ (0.000134) SET client_min_messages = warning
+ ~ (0.000136) SET client_min_messages = warning
+ ~ (0.000468) SELECT current_schema()
+ ~ (0.002917) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.007753) CREATE TABLE "peeps" ("id" SERIAL NOT NULL, "message" VARCHAR(50), "time" VARCHAR(50), PRIMARY KEY("id"))
+ ~ (0.000167) RESET client_min_messages
+ ~ (0.000098) RESET client_min_messages
+ ~ (0.000143) SET client_min_messages = warning
+ ~ (0.000098) SET client_min_messages = warning
+ ~ (0.000117) SELECT current_schema()
+ ~ (0.000865) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000103) RESET client_min_messages
+ ~ (0.000249) SET backslash_quote = off
+ ~ (0.000166) SET standard_conforming_strings = on
+ ~ (0.000153) SET client_min_messages = warning
+ ~ (0.000174) SET datestyle = ISO
+ ~ (0.006803) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001919) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001939) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000137) RESET client_min_messages
+ ~ (0.000121) SET client_min_messages = warning
+ ~ (0.000149) SET client_min_messages = warning
+ ~ (0.000774) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.001919) CREATE TABLE "users" ("id" SERIAL NOT NULL, "email" VARCHAR(50), "password" VARCHAR(50), PRIMARY KEY("id"))
+ ~ (0.000256) RESET client_min_messages
+ ~ (0.000161) RESET client_min_messages
+ ~ (0.001638) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000749) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:17:33 +0000') RETURNING "id"
+ ~ (0.000378) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000211) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000157) SHOW server_version
+ ~ (0.000937)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002350) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000337) SHOW server_version
+ ~ (0.000765) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000550) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 18:17:33 +0000') RETURNING "id"
+ ~ (0.000258) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000177) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.001171) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 18:17:33 +0000') RETURNING "id"
+ ~ (0.000294) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000195) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000145) SHOW server_version
+ ~ (0.000929)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.001913) TRUNCATE TABLE "peeps", "users" RESTART IDENTITY;
+ ~ (0.000228) SHOW server_version
+ ~ (0.000597) INSERT INTO "users" ("email") VALUES ('marco@gmail.com') RETURNING "id"
+ ~ (0.000759) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:17:33 +0000') RETURNING "id"
+ ~ (0.000364) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000188) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000365) SET backslash_quote = off
+ ~ (0.000170) SET standard_conforming_strings = on
+ ~ (0.000112) SET client_min_messages = warning
+ ~ (0.000102) SET datestyle = ISO
+ ~ (0.000078) SET client_min_messages = warning
+ ~ (0.000101) SET client_min_messages = warning
+ ~ (0.000457) SELECT current_schema()
+ ~ (0.003849) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.003690) CREATE TABLE "peeps" ("id" SERIAL NOT NULL, "message" VARCHAR(50), "time" VARCHAR(50), PRIMARY KEY("id"))
+ ~ (0.000172) RESET client_min_messages
+ ~ (0.000090) RESET client_min_messages
+ ~ (0.000105) SET client_min_messages = warning
+ ~ (0.000194) SET client_min_messages = warning
+ ~ (0.000128) SELECT current_schema()
+ ~ (0.000845) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000094) RESET client_min_messages
+ ~ (0.000244) SET backslash_quote = off
+ ~ (0.000147) SET standard_conforming_strings = on
+ ~ (0.000098) SET client_min_messages = warning
+ ~ (0.000120) SET datestyle = ISO
+ ~ (0.006530) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001823) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001704) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000167) RESET client_min_messages
+ ~ (0.000128) SET client_min_messages = warning
+ ~ (0.000130) SET client_min_messages = warning
+ ~ (0.000762) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.001591) CREATE TABLE "users" ("id" SERIAL NOT NULL, "email" VARCHAR(50), "password" VARCHAR(50), PRIMARY KEY("id"))
+ ~ (0.000187) RESET client_min_messages
+ ~ (0.000110) RESET client_min_messages
+ ~ (0.000280) SET backslash_quote = off
+ ~ (0.000093) SET standard_conforming_strings = on
+ ~ (0.000165) SET client_min_messages = warning
+ ~ (0.000164) SET datestyle = ISO
+ ~ (0.000166) SET client_min_messages = warning
+ ~ (0.000172) SET client_min_messages = warning
+ ~ (0.000684) SELECT current_schema()
+ ~ (0.004364) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000146) RESET client_min_messages
+ ~ (0.000251) SET backslash_quote = off
+ ~ (0.000117) SET standard_conforming_strings = on
+ ~ (0.000105) SET client_min_messages = warning
+ ~ (0.000168) SET datestyle = ISO
+ ~ (0.007203) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001799) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001756) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000133) RESET client_min_messages
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000106) SET client_min_messages = warning
+ ~ (0.000125) SELECT current_schema()
+ ~ (0.000720) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000105) RESET client_min_messages
+ ~ (0.001794) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002122) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002009) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000157) RESET client_min_messages
+ ~ (0.000119) SET client_min_messages = warning
+ ~ (0.000110) SET client_min_messages = warning
+ ~ (0.000883) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000108) RESET client_min_messages
+ ~ (0.001857) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001883) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001692) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000106) RESET client_min_messages
+ ~ (0.001704) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000763) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:19:07 +0000') RETURNING "id"
+ ~ (0.000689) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000319) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000135) SHOW server_version
+ ~ (0.001276)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002767) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000205) SHOW server_version
+ ~ (0.000801) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000580) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 18:19:07 +0000') RETURNING "id"
+ ~ (0.000226) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000177) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000316) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 18:19:07 +0000') RETURNING "id"
+ ~ (0.000207) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000228) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000133) SHOW server_version
+ ~ (0.000813)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.001844) TRUNCATE TABLE "peeps", "users" RESTART IDENTITY;
+ ~ (0.000187) SHOW server_version
+ ~ (0.000535) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000529) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:19:07 +0000') RETURNING "id"
+ ~ (0.000206) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000183) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000273) SET backslash_quote = off
+ ~ (0.000133) SET standard_conforming_strings = on
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000118) SET datestyle = ISO
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000105) SET client_min_messages = warning
+ ~ (0.000718) SELECT current_schema()
+ ~ (0.003646) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000163) RESET client_min_messages
+ ~ (0.000225) SET backslash_quote = off
+ ~ (0.000183) SET standard_conforming_strings = on
+ ~ (0.000149) SET client_min_messages = warning
+ ~ (0.000158) SET datestyle = ISO
+ ~ (0.006315) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001929) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001831) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000129) RESET client_min_messages
+ ~ (0.000156) SET client_min_messages = warning
+ ~ (0.000190) SET client_min_messages = warning
+ ~ (0.000142) SELECT current_schema()
+ ~ (0.000814) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000101) RESET client_min_messages
+ ~ (0.001819) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001707) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001707) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000128) RESET client_min_messages
+ ~ (0.000118) SET client_min_messages = warning
+ ~ (0.000143) SET client_min_messages = warning
+ ~ (0.000745) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000102) RESET client_min_messages
+ ~ (0.001728) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001643) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001819) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000118) RESET client_min_messages
+ ~ (0.002014) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000646) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:19:52 +0000') RETURNING "id"
+ ~ (0.000494) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000414) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000273) SHOW server_version
+ ~ (0.001038)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002582) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000245) SHOW server_version
+ ~ (0.000657) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000553) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 18:19:52 +0000') RETURNING "id"
+ ~ (0.000255) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000187) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000335) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 18:19:52 +0000') RETURNING "id"
+ ~ (0.000204) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000182) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000143) SHOW server_version
+ ~ (0.000813)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.001866) TRUNCATE TABLE "peeps", "users" RESTART IDENTITY;
+ ~ (0.000229) SHOW server_version
+ ~ (0.000625) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000589) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 18:19:52 +0000') RETURNING "id"
+ ~ (0.000254) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000241) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000142) SHOW server_version
+ ~ (0.000795)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002094) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000277) SHOW server_version
+ ~ (0.000287) SET backslash_quote = off
+ ~ (0.000168) SET standard_conforming_strings = on
+ ~ (0.000141) SET client_min_messages = warning
+ ~ (0.000160) SET datestyle = ISO
+ ~ (0.000133) SET client_min_messages = warning
+ ~ (0.000128) SET client_min_messages = warning
+ ~ (0.000479) SELECT current_schema()
+ ~ (0.003703) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000142) RESET client_min_messages
+ ~ (0.000280) SET backslash_quote = off
+ ~ (0.000151) SET standard_conforming_strings = on
+ ~ (0.000172) SET client_min_messages = warning
+ ~ (0.000128) SET datestyle = ISO
+ ~ (0.006292) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001788) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001626) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000116) RESET client_min_messages
+ ~ (0.000126) SET client_min_messages = warning
+ ~ (0.000127) SET client_min_messages = warning
+ ~ (0.000149) SELECT current_schema()
+ ~ (0.000848) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000099) RESET client_min_messages
+ ~ (0.001940) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001838) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001782) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000148) RESET client_min_messages
+ ~ (0.000119) SET client_min_messages = warning
+ ~ (0.000107) SET client_min_messages = warning
+ ~ (0.000819) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000110) RESET client_min_messages
+ ~ (0.001644) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001589) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001653) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000110) RESET client_min_messages
+ ~ (0.002245) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000931) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 19:06:18 +0000') RETURNING "id"
+ ~ (0.000534) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000328) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000128) SHOW server_version
+ ~ (0.001265)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002835) TRUNCATE TABLE "peeps", "users" RESTART IDENTITY;
+ ~ (0.000354) SHOW server_version
+ ~ (0.000666) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000532) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 19:06:18 +0000') RETURNING "id"
+ ~ (0.000304) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000372) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000416) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 19:06:18 +0000') RETURNING "id"
+ ~ (0.000218) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000176) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000184) SHOW server_version
+ ~ (0.001165)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002067) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000214) SHOW server_version
+ ~ (0.000479) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000443) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 19:06:18 +0000') RETURNING "id"
+ ~ (0.000208) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000198) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000128) SHOW server_version
+ ~ (0.000835)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002146) TRUNCATE TABLE "peeps", "users" RESTART IDENTITY;
+ ~ (0.000197) SHOW server_version
+ ~ (0.000311) SET backslash_quote = off
+ ~ (0.000136) SET standard_conforming_strings = on
+ ~ (0.000114) SET client_min_messages = warning
+ ~ (0.000142) SET datestyle = ISO
+ ~ (0.000104) SET client_min_messages = warning
+ ~ (0.000107) SET client_min_messages = warning
+ ~ (0.000482) SELECT current_schema()
+ ~ (0.003531) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000170) RESET client_min_messages
+ ~ (0.000245) SET backslash_quote = off
+ ~ (0.000130) SET standard_conforming_strings = on
+ ~ (0.000147) SET client_min_messages = warning
+ ~ (0.000190) SET datestyle = ISO
+ ~ (0.006306) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001740) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001804) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000111) RESET client_min_messages
+ ~ (0.000103) SET client_min_messages = warning
+ ~ (0.000110) SET client_min_messages = warning
+ ~ (0.000117) SELECT current_schema()
+ ~ (0.000775) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000115) RESET client_min_messages
+ ~ (0.001764) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002054) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001642) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000128) RESET client_min_messages
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000138) SET client_min_messages = warning
+ ~ (0.000748) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000100) RESET client_min_messages
+ ~ (0.001795) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001718) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001631) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000127) RESET client_min_messages
+ ~ (0.002110) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000742) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 19:09:07 +0000') RETURNING "id"
+ ~ (0.000465) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000295) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000208) SHOW server_version
+ ~ (0.000951)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002586) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000284) SHOW server_version
+ ~ (0.151983) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.001449) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 19:09:07 +0000') RETURNING "id"
+ ~ (0.000294) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000249) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000539) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 19:09:07 +0000') RETURNING "id"
+ ~ (0.000258) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000266) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000218) SHOW server_version
+ ~ (0.000856)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002670) TRUNCATE TABLE "peeps", "users" RESTART IDENTITY;
+ ~ (0.000278) SHOW server_version
+ ~ (0.000619) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000482) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 19:09:07 +0000') RETURNING "id"
+ ~ (0.000265) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000211) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000150) SHOW server_version
+ ~ (0.001048)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002494) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000196) SHOW server_version
+ ~ (0.000252) SET backslash_quote = off
+ ~ (0.000129) SET standard_conforming_strings = on
+ ~ (0.000110) SET client_min_messages = warning
+ ~ (0.000118) SET datestyle = ISO
+ ~ (0.000097) SET client_min_messages = warning
+ ~ (0.000104) SET client_min_messages = warning
+ ~ (0.000635) SELECT current_schema()
+ ~ (0.003991) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000130) RESET client_min_messages
+ ~ (0.000233) SET backslash_quote = off
+ ~ (0.000124) SET standard_conforming_strings = on
+ ~ (0.000130) SET client_min_messages = warning
+ ~ (0.000145) SET datestyle = ISO
+ ~ (0.006933) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001729) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001958) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000119) RESET client_min_messages
+ ~ (0.000108) SET client_min_messages = warning
+ ~ (0.000089) SET client_min_messages = warning
+ ~ (0.000106) SELECT current_schema()
+ ~ (0.000738) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000099) RESET client_min_messages
+ ~ (0.001594) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001723) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001703) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000124) RESET client_min_messages
+ ~ (0.000110) SET client_min_messages = warning
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000857) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000101) RESET client_min_messages
+ ~ (0.001697) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.002059) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001637) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000107) RESET client_min_messages
+ ~ (0.002101) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000728) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 20:54:38 +0000') RETURNING "id"
+ ~ (0.000514) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000258) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000149) SHOW server_version
+ ~ (0.001011)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002825) TRUNCATE TABLE "peeps", "users" RESTART IDENTITY;
+ ~ (0.000260) SHOW server_version
+ ~ (0.000674) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000642) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 20:54:38 +0000') RETURNING "id"
+ ~ (0.000225) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000211) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000394) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 20:54:38 +0000') RETURNING "id"
+ ~ (0.000192) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000206) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000130) SHOW server_version
+ ~ (0.000863)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.001939) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000255) SHOW server_version
+ ~ (0.000477) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000623) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 20:54:38 +0000') RETURNING "id"
+ ~ (0.000205) SELECT "id", "email", "password" FROM "users" ORDER BY "id" DESC LIMIT 1
+ ~ (0.000176) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000103) SHOW server_version
+ ~ (0.000985)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002316) TRUNCATE TABLE "peeps", "users" RESTART IDENTITY;
+ ~ (0.000207) SHOW server_version
+ ~ (0.000277) SET backslash_quote = off
+ ~ (0.000133) SET standard_conforming_strings = on
+ ~ (0.000104) SET client_min_messages = warning
+ ~ (0.000114) SET datestyle = ISO
+ ~ (0.000093) SET client_min_messages = warning
+ ~ (0.000144) SET client_min_messages = warning
+ ~ (0.000635) SELECT current_schema()
+ ~ (0.003708) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000130) RESET client_min_messages
+ ~ (0.000199) SET backslash_quote = off
+ ~ (0.000137) SET standard_conforming_strings = on
+ ~ (0.000122) SET client_min_messages = warning
+ ~ (0.000151) SET datestyle = ISO
+ ~ (0.006069) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001775) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001652) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000104) RESET client_min_messages
+ ~ (0.000129) SET client_min_messages = warning
+ ~ (0.000132) SET client_min_messages = warning
+ ~ (0.000166) SELECT current_schema()
+ ~ (0.000850) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000100) RESET client_min_messages
+ ~ (0.001976) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002214) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001811) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000117) RESET client_min_messages
+ ~ (0.000124) SET client_min_messages = warning
+ ~ (0.000099) SET client_min_messages = warning
+ ~ (0.000881) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000099) RESET client_min_messages
+ ~ (0.001808) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001720) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001695) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000114) RESET client_min_messages
+ ~ (0.000264) SET backslash_quote = off
+ ~ (0.000136) SET standard_conforming_strings = on
+ ~ (0.000084) SET client_min_messages = warning
+ ~ (0.000089) SET datestyle = ISO
+ ~ (0.000080) SET client_min_messages = warning
+ ~ (0.000099) SET client_min_messages = warning
+ ~ (0.000476) SELECT current_schema()
+ ~ (0.003846) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000127) RESET client_min_messages
+ ~ (0.000238) SET backslash_quote = off
+ ~ (0.000096) SET standard_conforming_strings = on
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000121) SET datestyle = ISO
+ ~ (0.006382) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002644) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002252) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000166) RESET client_min_messages
+ ~ (0.000124) SET client_min_messages = warning
+ ~ (0.000108) SET client_min_messages = warning
+ ~ (0.000145) SELECT current_schema()
+ ~ (0.000874) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000122) RESET client_min_messages
+ ~ (0.001903) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001662) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002285) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000128) RESET client_min_messages
+ ~ (0.000143) SET client_min_messages = warning
+ ~ (0.000124) SET client_min_messages = warning
+ ~ (0.000976) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000130) RESET client_min_messages
+ ~ (0.002340) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001855) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001688) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000116) RESET client_min_messages
+ ~ (0.000685) SELECT "id", "email", "password" FROM "users" ORDER BY "id" LIMIT 1
+ ~ (0.012470) INSERT INTO "users" ("email", "password") VALUES ('marco@gmail.com', '12345') RETURNING "id"
+ ~ (0.000419) SELECT "id", "email", "password" FROM "users" ORDER BY "id" LIMIT 1
+ ~ (0.000337) SELECT "id", "email", "password" FROM "users" ORDER BY "id" LIMIT 1
+ ~ (0.000264) SET backslash_quote = off
+ ~ (0.000137) SET standard_conforming_strings = on
+ ~ (0.000124) SET client_min_messages = warning
+ ~ (0.000145) SET datestyle = ISO
+ ~ (0.000099) SET client_min_messages = warning
+ ~ (0.000130) SET client_min_messages = warning
+ ~ (0.000505) SELECT current_schema()
+ ~ (0.003853) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000139) RESET client_min_messages
+ ~ (0.000306) SET backslash_quote = off
+ ~ (0.000123) SET standard_conforming_strings = on
+ ~ (0.000177) SET client_min_messages = warning
+ ~ (0.000114) SET datestyle = ISO
+ ~ (0.005958) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001815) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001831) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000126) RESET client_min_messages
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000115) SET client_min_messages = warning
+ ~ (0.000190) SELECT current_schema()
+ ~ (0.000818) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000103) RESET client_min_messages
+ ~ (0.001811) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001728) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001692) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000123) RESET client_min_messages
+ ~ (0.000116) SET client_min_messages = warning
+ ~ (0.000102) SET client_min_messages = warning
+ ~ (0.000807) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000124) RESET client_min_messages
+ ~ (0.001712) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001691) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.002161) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000233) RESET client_min_messages
+ ~ (0.000682) SELECT "id", "email", "password" FROM "users" ORDER BY "id" LIMIT 1
+ ~ (0.000257) SET backslash_quote = off
+ ~ (0.000153) SET standard_conforming_strings = on
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000117) SET datestyle = ISO
+ ~ (0.000081) SET client_min_messages = warning
+ ~ (0.000094) SET client_min_messages = warning
+ ~ (0.000554) SELECT current_schema()
+ ~ (0.003718) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000137) RESET client_min_messages
+ ~ (0.000209) SET backslash_quote = off
+ ~ (0.000106) SET standard_conforming_strings = on
+ ~ (0.000081) SET client_min_messages = warning
+ ~ (0.000117) SET datestyle = ISO
+ ~ (0.006054) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002335) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002113) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000139) RESET client_min_messages
+ ~ (0.000157) SET client_min_messages = warning
+ ~ (0.000157) SET client_min_messages = warning
+ ~ (0.000176) SELECT current_schema()
+ ~ (0.001005) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000127) RESET client_min_messages
+ ~ (0.002357) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001830) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001731) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000109) RESET client_min_messages
+ ~ (0.000106) SET client_min_messages = warning
+ ~ (0.000124) SET client_min_messages = warning
+ ~ (0.000812) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000100) RESET client_min_messages
+ ~ (0.001785) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001738) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001636) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000109) RESET client_min_messages
+ ~ (0.000701) SELECT "id", "email", "password" FROM "users" ORDER BY "id" LIMIT 1
+ ~ (0.000283) SET backslash_quote = off
+ ~ (0.000133) SET standard_conforming_strings = on
+ ~ (0.000087) SET client_min_messages = warning
+ ~ (0.000123) SET datestyle = ISO
+ ~ (0.000093) SET client_min_messages = warning
+ ~ (0.000082) SET client_min_messages = warning
+ ~ (0.000649) SELECT current_schema()
+ ~ (0.003551) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000119) RESET client_min_messages
+ ~ (0.000282) SET backslash_quote = off
+ ~ (0.000155) SET standard_conforming_strings = on
+ ~ (0.000122) SET client_min_messages = warning
+ ~ (0.000112) SET datestyle = ISO
+ ~ (0.006519) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002728) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002258) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000231) RESET client_min_messages
+ ~ (0.000125) SET client_min_messages = warning
+ ~ (0.000108) SET client_min_messages = warning
+ ~ (0.000158) SELECT current_schema()
+ ~ (0.000870) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000106) RESET client_min_messages
+ ~ (0.001780) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001828) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002036) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000128) RESET client_min_messages
+ ~ (0.000133) SET client_min_messages = warning
+ ~ (0.000088) SET client_min_messages = warning
+ ~ (0.000773) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000126) RESET client_min_messages
+ ~ (0.002007) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001729) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001653) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000113) RESET client_min_messages
+ ~ (0.000877) SELECT "id", "email", "password" FROM "users" ORDER BY "id" LIMIT 1
+ ~ (0.000261) SET backslash_quote = off
+ ~ (0.000122) SET standard_conforming_strings = on
+ ~ (0.000105) SET client_min_messages = warning
+ ~ (0.000125) SET datestyle = ISO
+ ~ (0.000105) SET client_min_messages = warning
+ ~ (0.000126) SET client_min_messages = warning
+ ~ (0.000583) SELECT current_schema()
+ ~ (0.003570) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000128) RESET client_min_messages
+ ~ (0.000250) SET backslash_quote = off
+ ~ (0.000128) SET standard_conforming_strings = on
+ ~ (0.000104) SET client_min_messages = warning
+ ~ (0.000122) SET datestyle = ISO
+ ~ (0.006281) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002298) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001793) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000112) RESET client_min_messages
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000096) SET client_min_messages = warning
+ ~ (0.000126) SELECT current_schema()
+ ~ (0.000863) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000130) RESET client_min_messages
+ ~ (0.001779) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001814) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001877) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000114) RESET client_min_messages
+ ~ (0.000116) SET client_min_messages = warning
+ ~ (0.001019) SET client_min_messages = warning
+ ~ (0.000923) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000106) RESET client_min_messages
+ ~ (0.001815) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001664) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001690) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000139) RESET client_min_messages
+ ~ (0.000323) SET backslash_quote = off
+ ~ (0.000122) SET standard_conforming_strings = on
+ ~ (0.000108) SET client_min_messages = warning
+ ~ (0.000178) SET datestyle = ISO
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000122) SET client_min_messages = warning
+ ~ (0.000498) SELECT current_schema()
+ ~ (0.003683) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000176) RESET client_min_messages
+ ~ (0.000204) SET backslash_quote = off
+ ~ (0.000158) SET standard_conforming_strings = on
+ ~ (0.000140) SET client_min_messages = warning
+ ~ (0.000126) SET datestyle = ISO
+ ~ (0.006934) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001836) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002099) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000135) RESET client_min_messages
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000101) SET client_min_messages = warning
+ ~ (0.000127) SELECT current_schema()
+ ~ (0.000761) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000114) RESET client_min_messages
+ ~ (0.001685) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001878) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001813) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000119) RESET client_min_messages
+ ~ (0.000109) SET client_min_messages = warning
+ ~ (0.000128) SET client_min_messages = warning
+ ~ (0.000800) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000097) RESET client_min_messages
+ ~ (0.001946) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001844) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001803) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000130) RESET client_min_messages
+ ~ (0.000741) SELECT "id", "email", "password" FROM "users" ORDER BY "id" LIMIT 1
+ ~ (0.000334) SET backslash_quote = off
+ ~ (0.000176) SET standard_conforming_strings = on
+ ~ (0.000106) SET client_min_messages = warning
+ ~ (0.000113) SET datestyle = ISO
+ ~ (0.000099) SET client_min_messages = warning
+ ~ (0.000101) SET client_min_messages = warning
+ ~ (0.000525) SELECT current_schema()
+ ~ (0.003852) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000120) RESET client_min_messages
+ ~ (0.000221) SET backslash_quote = off
+ ~ (0.000172) SET standard_conforming_strings = on
+ ~ (0.000138) SET client_min_messages = warning
+ ~ (0.000178) SET datestyle = ISO
+ ~ (0.005648) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001852) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002021) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000129) RESET client_min_messages
+ ~ (0.000158) SET client_min_messages = warning
+ ~ (0.000143) SET client_min_messages = warning
+ ~ (0.000149) SELECT current_schema()
+ ~ (0.000906) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000140) RESET client_min_messages
+ ~ (0.001946) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001747) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001682) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000109) RESET client_min_messages
+ ~ (0.000107) SET client_min_messages = warning
+ ~ (0.000140) SET client_min_messages = warning
+ ~ (0.000743) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000103) RESET client_min_messages
+ ~ (0.001735) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001674) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001686) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000138) RESET client_min_messages
+ ~ (0.000284) SET backslash_quote = off
+ ~ (0.000149) SET standard_conforming_strings = on
+ ~ (0.000140) SET client_min_messages = warning
+ ~ (0.000139) SET datestyle = ISO
+ ~ (0.000096) SET client_min_messages = warning
+ ~ (0.000085) SET client_min_messages = warning
+ ~ (0.000456) SELECT current_schema()
+ ~ (0.003922) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000140) RESET client_min_messages
+ ~ (0.000225) SET backslash_quote = off
+ ~ (0.000127) SET standard_conforming_strings = on
+ ~ (0.000126) SET client_min_messages = warning
+ ~ (0.000109) SET datestyle = ISO
+ ~ (0.005992) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001867) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002187) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000143) RESET client_min_messages
+ ~ (0.000120) SET client_min_messages = warning
+ ~ (0.000137) SET client_min_messages = warning
+ ~ (0.000171) SELECT current_schema()
+ ~ (0.000817) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000099) RESET client_min_messages
+ ~ (0.002495) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002639) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002028) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000188) RESET client_min_messages
+ ~ (0.000123) SET client_min_messages = warning
+ ~ (0.000109) SET client_min_messages = warning
+ ~ (0.000829) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'users'
+ ~ (0.000106) RESET client_min_messages
+ ~ (0.001728) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'id'
+ ~ (0.001587) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'email'
+ ~ (0.001743) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'users' AND "column_name" = 'password'
+ ~ (0.000117) RESET client_min_messages

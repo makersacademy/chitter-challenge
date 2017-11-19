@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1>Your Peeps </h1><br>
+    <%= @user[-1].email %>
     <% @peep.reverse.each do |peep|%>
     <%= peep.time + "\n" + peep.message %> <br>
     <% end %>
