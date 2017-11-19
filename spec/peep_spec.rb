@@ -20,7 +20,7 @@ describe Peep do
   end
 
   describe '#hashtags' do
-    context 'when hashtahs present' do
+    context 'when hashtags present' do
       let(:peep) { Peep.new }
       
       it 'returns list of hastags' do
@@ -33,19 +33,6 @@ describe Peep do
       
       it 'returns list of user handles' do
         expect(peep.hashtags('hello no-one')).to eq []
-      end
-    end
-  end
-
-  describe '#content=' do
-    let(:userclass) { double(:userclass, first: :user) }
-    subject { Peep.new(content: '@hello') }
-
-    context 'when given content' do
-      before(:each) { Object.any_instance.stub(:first).and_return(:user) }
-      
-      it 'sets mentioned users' do
-        expect(subject.mentions).to eq [:user]
       end
     end
   end
