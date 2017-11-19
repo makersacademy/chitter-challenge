@@ -10,14 +10,12 @@ class Chitter < Sinatra::Base
   enable :secret_sessions, 'secret'
 
   get '/' do
-    redirect '/home'
+    redirect '/welcome'
   end
 
   get '/home' do
     @peeps = Peep.all
-    # p 'HERE!!'
-    # p @peeps
-    # p 'END'
+    @user = User.last
     erb :'home/index'
   end
 
@@ -26,4 +24,29 @@ class Chitter < Sinatra::Base
     peep.save
     redirect '/home'
   end
+
+  get '/user/new' do
+    erb :'user/new'
+  end
+
+  post '/user/add' do
+    new_user = User.create(email: params[:email], password: params[:password],
+      name: params[:name], user_name: params[:user_name])
+    new_user.save
+    redirect '/home'
+  end
+
+  get '/user' do
+    @user = User.last
+    erb :'user/user'
+  end
+
+  get '/welcome' do
+    erb :'home/welcome'
+  end
 end
+
+
+# p 'HERE!!'
+# p @peeps
+# p 'END'

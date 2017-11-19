@@ -1,4 +1,6 @@
-<h1> Peeps </h1>
+<h1> Welcome, <%= @user.user_name %>!</h1>
+
+<h2> Peeps </h2>
 
 <form action='/peep/new' method='POST'>
   <label for='new_peep_box'>
@@ -20,3 +22,7 @@
     <br>
   <% end %>
 </div>
+
+<form action='/user' method='get'>
+  <input type='submit' value="User">
+</form>

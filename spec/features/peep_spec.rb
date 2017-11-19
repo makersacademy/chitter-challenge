@@ -1,8 +1,14 @@
-# As a Maker
-# So that I can let people know what I am doing
-# I want to post a message (peep) to chitter
-
 feature 'Create a peep' do
+  before(:each) do
+    visit('/user/new')
+    expect(page.status_code).to eq(200)
+    fill_in 'email',     with: 'rob@gmail.com'
+    fill_in 'password',  with: 'mypassword'
+    fill_in 'name',      with: 'Robert'
+    fill_in 'user_name', with: 'Rob'
+    click_on('Sign up')
+  end
+
   scenario 'User can post a peep to chitter' do
     visit('/home')
 
