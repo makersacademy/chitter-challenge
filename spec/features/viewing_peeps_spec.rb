@@ -1,7 +1,7 @@
 feature "index page presents a list of peeps" do
   scenario "form submission sends you to peeps homepage" do
     sign_up_and_post_peep
-    expect(page).to have_current_path('/')
+    expect(page).to have_current_path('/peeps')
   end
   scenario "when posting a new peep it gets shown in index page" do
     sign_up_and_post_peep

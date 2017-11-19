@@ -8,16 +8,34 @@ class Chitter < Sinatra::Base
   set :session_secret, 'my_secret'
 
   get "/" do
+    redirect "/peeps"
+  end
+
+  get "/peeps" do
     @peeps = Peep.all(order: [:created_at.desc])
     erb :index
   end
 
-  get "/new_peep" do
+  get "/peeps/new" do
     erb :new_peep
   end
 
-  get "/sign_up" do
+  get "/session/new" do
+    erb :sign_in
+  end
+
+  get "/user/new" do
     erb :sign_up
+  end
+
+  post '/session' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect "/peeps"
+    else
+      redirect "/session/new"
+    end
   end
 
   post "/save_peep" do

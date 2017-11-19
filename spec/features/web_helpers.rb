@@ -1,5 +1,5 @@
 def post_peep
-  visit "/new_peep"
+  visit "/peeps/new"
   fill_in("peep", with: "This is a test peep")
   click_button "Post"
 end
@@ -22,4 +22,12 @@ end
 def sign_up_and_post_peep
   sign_up
   post_peep
+end
+
+def sign_in(email, password)
+  visit "/"
+  click_button "Sign-in"
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button "Sign-in"
 end

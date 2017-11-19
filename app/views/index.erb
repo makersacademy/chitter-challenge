@@ -14,12 +14,19 @@
   </style>
 </head>
 <body>
-  <form action="/sign_up">
+  <% unless current_user %>
+  <form action="/user/new">
     <button name="sign-up"> Sign-up </button>
   </form>
   <br />
+  <form action="/session/new">
+    <button name="sign-up"> Sign-in </button>
+  </form>
+  <br />
+  <% end %>
   <% if current_user %>
-  <form action="/new_peep">
+  <h4>Welcome <%= current_user.username %>! </h4>
+  <form action="/peeps/new">
     <button name="new_peep"> New Peep </button>
   </form>
   <% end %>
