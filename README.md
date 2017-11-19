@@ -27,6 +27,10 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
+
+As a Maker
+So I can change my mind about what I've said
+I want to delete my Peep
 ```
 To run this app locally, run
 ```
