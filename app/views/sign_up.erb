@@ -10,9 +10,9 @@
 
   <body>
     <form action="/users/new" method="post">
-      <input type="text" name="name" placeholder="Full Name">
-      <input type="text" name="username" placeholder="Username">
-      <input type="email" name="email" placeholder="Email Address">
+      <input type="text" name="name" placeholder="Full Name" value="<%= @user.name %>">
+      <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+      <input type="email" name="email" placeholder="Email Address" value="<%= @user.email %>">
       <input type="password" name="password" placeholder="Choose Password">
       <input type="password" name="password_confirmation" placeholder="Confirm Password">
       <input type="submit" id="submit" value="Confirm">

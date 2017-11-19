@@ -25,41 +25,34 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    username = current_user ||= params[:username]
+    username = current_user ? current_user.username : params[:username]
     peep_msg = params[:peep]
     timestamp = Time.new.strftime("%H:%M:%S %a-%d-%b-%Y")
-    Peep.create(
-      message: peep_msg,
-      username: username,
-      time: timestamp
-    )
+    Peep.create(message: peep_msg, username: username, time: timestamp)
     redirect '/peeps'
   end
 
   get '/users/new' do
+    @user = User.new
     erb :sign_up
   end
 
   post '/users/new' do
+    name = params[:name]
+    username = params[:username]
+    email = params[:email]
     password = params[:password]
-    password_confirmation = params[:password_confirmation]
-    user = User.create(
-      name: params[:name],
-      username: params[:username],
-      email: params[:email],
-      password: password,
-      password_confirmation: password_confirmation
-    )
+    password_check = params[:password_confirmation]
 
-    if password_confirmation != password
-      flash.now[:alert] = "Passwords did not match."
-      erb :sign_up
-    elsif password.empty?
-      flash.now[:alert] = "Please enter a valid password."
-      erb :sign_up
-    else
-      session[:user_id] = user.id
+    @user = User.new(
+      name: name, username: username, email: email,
+      password: password, password_confirmation: password_check
+    )
+    if !password.empty? && @user.save
+      session[:user_id] = @user.id
       redirect '/peeps'
+    else
+      sign_up_error_message(username, email, password, password_check)
     end
   end
 
