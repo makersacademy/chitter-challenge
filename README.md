@@ -7,7 +7,7 @@ https://chitter-ame.herokuapp.com/
 - $ bundle
 - $ psql
 - $ CREATE DATABASE chitter_development;
-- $ CREATE DABASE chitter_test;
+- $ CREATE DATABASE chitter_test;
 - $ rspec
 - $ rackup
 
