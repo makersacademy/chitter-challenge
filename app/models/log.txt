@@ -1,0 +1,285 @@
+Sun, 19 Nov 2017 15:35:22 GMT  ~  info  ~  Logfile created
+ ~ (0.000241) SET backslash_quote = off
+ ~ (0.000107) SET standard_conforming_strings = on
+ ~ (0.000112) SET client_min_messages = warning
+ ~ (0.000130) SET datestyle = ISO
+ ~ (0.000109) SET client_min_messages = warning
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.004117) SELECT current_schema()
+ ~ (0.017636) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.011764) CREATE TABLE "peeps" ("id" SERIAL NOT NULL, "message" VARCHAR(50), PRIMARY KEY("id"))
+ ~ (0.000175) RESET client_min_messages
+ ~ (0.000093) RESET client_min_messages
+ ~ (0.001374) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes') RETURNING "id"
+ ~ (0.000727) SELECT "id", "message" FROM "peeps" ORDER BY "id"
+ ~ (0.000268) SET backslash_quote = off
+ ~ (0.000141) SET standard_conforming_strings = on
+ ~ (0.000090) SET client_min_messages = warning
+ ~ (0.000122) SET datestyle = ISO
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000138) SET client_min_messages = warning
+ ~ (0.000482) SELECT current_schema()
+ ~ (0.003436) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000117) RESET client_min_messages
+ ~ (0.000217) SET backslash_quote = off
+ ~ (0.000179) SET standard_conforming_strings = on
+ ~ (0.000115) SET client_min_messages = warning
+ ~ (0.000150) SET datestyle = ISO
+ ~ (0.012229) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002478) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.000164) RESET client_min_messages
+ ~ (0.001827) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes') RETURNING "id"
+ ~ (0.000499) SELECT "id", "message" FROM "peeps" ORDER BY "id"
+ ~ (0.000282) SET backslash_quote = off
+ ~ (0.000164) SET standard_conforming_strings = on
+ ~ (0.000118) SET client_min_messages = warning
+ ~ (0.000127) SET datestyle = ISO
+ ~ (0.000103) SET client_min_messages = warning
+ ~ (0.000091) SET client_min_messages = warning
+ ~ (0.004512) SELECT current_schema()
+ ~ (0.016031) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.012475) CREATE TABLE "peeps" ("id" SERIAL NOT NULL, "message" VARCHAR(50), PRIMARY KEY("id"))
+ ~ (0.000274) RESET client_min_messages
+ ~ (0.000104) RESET client_min_messages
+ ~ (0.006741) INSERT INTO "peeps" ("message") VALUES ('Bau') RETURNING "id"
+ ~ (0.000379) SELECT "id", "message" FROM "peeps" ORDER BY "id"
+ ~ (0.000314) SET backslash_quote = off
+ ~ (0.000139) SET standard_conforming_strings = on
+ ~ (0.000108) SET client_min_messages = warning
+ ~ (0.000113) SET datestyle = ISO
+ ~ (0.000102) SET client_min_messages = warning
+ ~ (0.000107) SET client_min_messages = warning
+ ~ (0.000603) SELECT current_schema()
+ ~ (0.003607) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000159) RESET client_min_messages
+ ~ (0.000247) SET backslash_quote = off
+ ~ (0.000161) SET standard_conforming_strings = on
+ ~ (0.000142) SET client_min_messages = warning
+ ~ (0.000165) SET datestyle = ISO
+ ~ (0.005640) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001660) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001650) ALTER TABLE "peeps" ADD COLUMN "message" VARCHAR(50)
+ ~ (0.000103) RESET client_min_messages
+ ~ (0.001586) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes') RETURNING "id"
+ ~ (0.000537) SELECT "id", "message" FROM "peeps" ORDER BY "id"
+ ~ (0.000262) SET backslash_quote = off
+ ~ (0.000134) SET standard_conforming_strings = on
+ ~ (0.000157) SET client_min_messages = warning
+ ~ (0.000129) SET datestyle = ISO
+ ~ (0.000117) SET client_min_messages = warning
+ ~ (0.000096) SET client_min_messages = warning
+ ~ (0.000555) SELECT current_schema()
+ ~ (0.003672) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000192) RESET client_min_messages
+ ~ (0.000207) SET backslash_quote = off
+ ~ (0.000115) SET standard_conforming_strings = on
+ ~ (0.000144) SET client_min_messages = warning
+ ~ (0.000181) SET datestyle = ISO
+ ~ (0.005958) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002891) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.000134) RESET client_min_messages
+ ~ (0.000339) SET backslash_quote = off
+ ~ (0.000139) SET standard_conforming_strings = on
+ ~ (0.000101) SET client_min_messages = warning
+ ~ (0.000122) SET datestyle = ISO
+ ~ (0.000098) SET client_min_messages = warning
+ ~ (0.000087) SET client_min_messages = warning
+ ~ (0.000459) SELECT current_schema()
+ ~ (0.003596) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000132) RESET client_min_messages
+ ~ (0.000271) SET backslash_quote = off
+ ~ (0.000154) SET standard_conforming_strings = on
+ ~ (0.000104) SET client_min_messages = warning
+ ~ (0.000158) SET datestyle = ISO
+ ~ (0.006022) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001765) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.000124) RESET client_min_messages
+ ~ (0.006902) INSERT INTO "peeps" ("message") VALUES ('WOW') RETURNING "id"
+ ~ (0.000618) SELECT "id", "message" FROM "peeps" ORDER BY "id"
+ ~ (0.000274) SET backslash_quote = off
+ ~ (0.000150) SET standard_conforming_strings = on
+ ~ (0.000138) SET client_min_messages = warning
+ ~ (0.000142) SET datestyle = ISO
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000098) SET client_min_messages = warning
+ ~ (0.000475) SELECT current_schema()
+ ~ (0.003935) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000142) RESET client_min_messages
+ ~ (0.000245) SET backslash_quote = off
+ ~ (0.000144) SET standard_conforming_strings = on
+ ~ (0.000122) SET client_min_messages = warning
+ ~ (0.000147) SET datestyle = ISO
+ ~ (0.006601) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002127) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.000181) RESET client_min_messages
+ ~ (0.001831) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes') RETURNING "id"
+ ~ (0.000538) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000283) SET backslash_quote = off
+ ~ (0.000159) SET standard_conforming_strings = on
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000120) SET datestyle = ISO
+ ~ (0.000102) SET client_min_messages = warning
+ ~ (0.000104) SET client_min_messages = warning
+ ~ (0.000587) SELECT current_schema()
+ ~ (0.003474) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000160) RESET client_min_messages
+ ~ (0.000277) SET backslash_quote = off
+ ~ (0.000121) SET standard_conforming_strings = on
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000112) SET datestyle = ISO
+ ~ (0.006256) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001877) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.000127) RESET client_min_messages
+ ~ (0.001809) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes') RETURNING "id"
+ ~ (0.000504) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000562) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes 1') RETURNING "id"
+ ~ (0.000261) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000497) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes 2') RETURNING "id"
+ ~ (0.000233) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000314) SET backslash_quote = off
+ ~ (0.000182) SET standard_conforming_strings = on
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000118) SET datestyle = ISO
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000101) SET client_min_messages = warning
+ ~ (0.000524) SELECT current_schema()
+ ~ (0.003647) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000124) RESET client_min_messages
+ ~ (0.000260) SET backslash_quote = off
+ ~ (0.000177) SET standard_conforming_strings = on
+ ~ (0.000143) SET client_min_messages = warning
+ ~ (0.000151) SET datestyle = ISO
+ ~ (0.006972) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001839) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.000112) RESET client_min_messages
+ ~ (0.001807) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes') RETURNING "id"
+ ~ (0.000668) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000154) SHOW server_version
+ ~ (0.001248)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002994) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000262) SHOW server_version
+ ~ (0.000706) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes 1') RETURNING "id"
+ ~ (0.000309) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000420) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes 2') RETURNING "id"
+ ~ (0.000215) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000295) SET backslash_quote = off
+ ~ (0.000134) SET standard_conforming_strings = on
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000109) SET datestyle = ISO
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000100) SET client_min_messages = warning
+ ~ (0.000462) SELECT current_schema()
+ ~ (0.003791) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000133) RESET client_min_messages
+ ~ (0.000226) SET backslash_quote = off
+ ~ (0.000180) SET standard_conforming_strings = on
+ ~ (0.000115) SET client_min_messages = warning
+ ~ (0.000135) SET datestyle = ISO
+ ~ (0.005879) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002502) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.000115) RESET client_min_messages
+ ~ (0.001837) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes') RETURNING "id"
+ ~ (0.000689) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000120) SHOW server_version
+ ~ (0.000917)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002778) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000221) SHOW server_version
+ ~ (0.000834) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes 1') RETURNING "id"
+ ~ (0.000293) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000460) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes 2') RETURNING "id"
+ ~ (0.000281) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000321) SET backslash_quote = off
+ ~ (0.000127) SET standard_conforming_strings = on
+ ~ (0.000086) SET client_min_messages = warning
+ ~ (0.000127) SET datestyle = ISO
+ ~ (0.000094) SET client_min_messages = warning
+ ~ (0.000113) SET client_min_messages = warning
+ ~ (0.000675) SELECT current_schema()
+ ~ (0.003474) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000150) RESET client_min_messages
+ ~ (0.000225) SET backslash_quote = off
+ ~ (0.000156) SET standard_conforming_strings = on
+ ~ (0.000141) SET client_min_messages = warning
+ ~ (0.000149) SET datestyle = ISO
+ ~ (0.005868) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001854) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.000126) RESET client_min_messages
+ ~ (0.001688) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes') RETURNING "id"
+ ~ (0.000496) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000122) SHOW server_version
+ ~ (0.000998)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002549) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000286) SHOW server_version
+ ~ (0.000665) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes 1') RETURNING "id"
+ ~ (0.000246) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000393) INSERT INTO "peeps" ("message") VALUES ('A cool message to take a lot of likes 2') RETURNING "id"
+ ~ (0.000223) SELECT "id", "message" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000122) SHOW server_version
+ ~ (0.000972)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.001933) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000230) SHOW server_version
+ ~ (0.000303) SET backslash_quote = off
+ ~ (0.000139) SET standard_conforming_strings = on
+ ~ (0.000109) SET client_min_messages = warning
+ ~ (0.000133) SET datestyle = ISO
+ ~ (0.000098) SET client_min_messages = warning
+ ~ (0.000098) SET client_min_messages = warning
+ ~ (0.000587) SELECT current_schema()
+ ~ (0.003721) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000118) RESET client_min_messages
+ ~ (0.000299) SET backslash_quote = off
+ ~ (0.000162) SET standard_conforming_strings = on
+ ~ (0.000122) SET client_min_messages = warning
+ ~ (0.000151) SET datestyle = ISO
+ ~ (0.006339) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.002350) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.002086) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000126) RESET client_min_messages
+ ~ (0.002229) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 16:43:57 +0000') RETURNING "id"
+ ~ (0.000463) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000121) SHOW server_version
+ ~ (0.001010)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002708) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000243) SHOW server_version
+ ~ (0.000665) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 16:43:57 +0000') RETURNING "id"
+ ~ (0.000505) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000407) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 16:43:57 +0000') RETURNING "id"
+ ~ (0.000268) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000299) SET backslash_quote = off
+ ~ (0.000141) SET standard_conforming_strings = on
+ ~ (0.000112) SET client_min_messages = warning
+ ~ (0.000123) SET datestyle = ISO
+ ~ (0.000153) SET client_min_messages = warning
+ ~ (0.000107) SET client_min_messages = warning
+ ~ (0.000596) SELECT current_schema()
+ ~ (0.003648) SELECT COUNT(*) FROM "information_schema"."tables" WHERE "table_type" = 'BASE TABLE' AND "table_schema" = 'public' AND "table_name" = 'peeps'
+ ~ (0.000167) RESET client_min_messages
+ ~ (0.000247) SET backslash_quote = off
+ ~ (0.000133) SET standard_conforming_strings = on
+ ~ (0.000111) SET client_min_messages = warning
+ ~ (0.000121) SET datestyle = ISO
+ ~ (0.006190) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'id'
+ ~ (0.001974) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'message'
+ ~ (0.001836) SELECT COUNT(*) FROM "information_schema"."columns" WHERE "table_schema" = 'public' AND "table_name" = 'peeps' AND "column_name" = 'time'
+ ~ (0.000141) RESET client_min_messages
+ ~ (0.002133) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes', '2017-11-19 16:44:47 +0000') RETURNING "id"
+ ~ (0.000663) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000176) SHOW server_version
+ ~ (0.000971)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002762) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000236) SHOW server_version
+ ~ (0.000736) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 1', '2017-11-19 16:44:47 +0000') RETURNING "id"
+ ~ (0.000319) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000482) INSERT INTO "peeps" ("message", "time") VALUES ('A cool message to take a lot of likes 2', '2017-11-19 16:44:47 +0000') RETURNING "id"
+ ~ (0.000383) SELECT "id", "message", "time" FROM "peeps" ORDER BY "id" DESC
+ ~ (0.000180) SHOW server_version
+ ~ (0.000975)           SELECT table_name FROM "information_schema"."tables"
+          WHERE table_schema = current_schema() and table_type = 'BASE TABLE'
+ ~ (0.002200) TRUNCATE TABLE "users", "peeps" RESTART IDENTITY;
+ ~ (0.000225) SHOW server_version
