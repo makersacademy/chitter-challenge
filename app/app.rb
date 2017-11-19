@@ -37,11 +37,11 @@ class Chitter < Sinatra::Base
   post '/sign_up' do
     @current_user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password],
     password_confirmation: params[:confirmation_password])
-  flash[:wrong_password] = "Password and confirmation password do not match" if @current_user.id.nil?
-  flash[:repeat_email] = @current_user.errors[:email].join(" ")
-  session[:user_email] = @current_user.email
-  session[:user_id] = @current_user.id
-  redirect '/' if @current_user.id.nil?
-  redirect '/peeps'
+    flash[:wrong_password] = "Password and confirmation password do not match" if @current_user.id.nil?
+    flash[:repeat_email] = @current_user.errors[:email].join(" ")
+    session[:user_email] = @current_user.email
+    session[:user_id] = @current_user.id
+    redirect '/' if @current_user.id.nil?
+    redirect '/peeps'
   end
 end

@@ -1,18 +1,21 @@
-<h1> <% if current_user %>
-  Hello, <%=  @current_user.name %>
-<% end %>
+<h1>
+  <% if current_user %>
+    Hello,
+    <%= @current_user.name %>
+  <% end %>
 </h1>
 
 <ul>
-<% @peeps.reverse.each do |peep| %>
-<li>
-  Message: <%= peep.message %>
-  <br>
-  Posted: <%= peep.created_at.strftime("%H:%M %d/%m/%y") %>
-</li>
-<% end %>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      Message:
+      <%= peep.message %>
+      <br>
+      Posted:
+      <%= peep.created_at.strftime("%H:%M %d/%m/%y") %>
+    </li>
+  <% end %>
 </ul>
-
 
 <form action='/peep/new'>
   <button type='submit'>Post Peep</button>
