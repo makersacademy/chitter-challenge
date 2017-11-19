@@ -1,2 +1,9 @@
-<%= @peeps.last.content%>
-<%= @peeps.last.created_at.strftime("%H:%M:%S %d/%m/%Y") %>
+<ul id = 'peeps'>
+  <% @peeps.each do |peep| %>
+    <li> <%= peep.content %>
+    </li>
+  <% end %>
+</ul>
+
+<!-- <br> -->
+  <!-- created at: <%= peep.created_at.strftime("%H:%M:%S-%d/%m/%Y")   -->
