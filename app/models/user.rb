@@ -23,13 +23,9 @@ class User
 
   def self.authenticate(email, password)
     user = all(email: email)[0]
-    if user && BCrypt::Password.new(user.password_digest) == password
-      user
-    else
-      nil
-    end
+    return user if user && BCrypt::Password.new(user.password_digest) == password
+    nil
   end
 
   has n, :peeps
-
 end
