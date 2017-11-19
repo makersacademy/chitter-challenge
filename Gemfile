@@ -4,6 +4,7 @@ ruby '2.4.2'
   gem 'sinatra'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
+  gem 'dm-migrations'
   gem 'json','~>1.6'
   gem 'shotgun'
 

@@ -6,6 +6,26 @@ require './app/models/peep'
 class Chitter < Sinatra::Base
 
   get '/' do
+    erb :index
+  end
+
+  get '/login' do
+    erb :login
+  end
+
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    redirect '/'
+  end
+
+  post '/login' do
+    redirect '/new_peep'
+  end
+
+  get '/new_peep' do
     erb :new_peep
   end
 

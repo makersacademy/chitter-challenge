@@ -4,7 +4,7 @@ feature 'Post a peep' do
     expect(page).to have_content('Welcome to Twi... CHITTER!')
   end
   scenario 'Maker wants to post a peep' do
-    visit '/'
+    visit '/new_peep'
     fill_in('Subject', with: "Hello World!")
     fill_in('peep_message', with: "So this is my first peep on Chitter!")
     click_button('Peep away!')
