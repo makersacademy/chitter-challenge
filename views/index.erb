@@ -1,23 +1,132 @@
 <!DOCTYPE html>
 <html>
+  <style>
+
+  body {
+    background-color: white;
+    background-image: url(https://img.purch.com/rc/1280x1024/aHR0cDovL3d3dy5zcGFjZS5jb20vaW1hZ2VzL2kvMDAwLzA0My8zMjcvb3JpZ2luYWwvYXJvdW5kLWEtc3Rhci1zeXN0ZW0tMTYwMC5qcGc=);
+    background-size: 1000px 800px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  #tittle{
+    position: absolute;
+    left: 310px;
+    text-align: center;
+    height: 120px;
+    width: 400px;
+    border: none;
+    text-align: center;
+    color: #feda4a;;
+    font-family: "Brush Script MT", cursive;
+    font-size: 110px;
+  }
+
+  #peeps{
+    position: absolute;
+    left: 365px;
+    top: 200px;
+    text-align: center;
+    height: 240px;
+    width: 300px;
+    border: none;
+    text-align: left;
+    overflow: scroll;
+    color: white;
+    font-family: "Brush Script MT";
+    font-size: 15px;
+    background-color: black;
+    border: medium solid grey;
+  }
+
+  #login{
+    position: absolute;
+    left: 430px;
+    top: 450px;
+    text-align: center;
+    height: 40px;
+    width: 80px;
+    border: none;
+    text-align: center;
+    display: inline-block;
+  }
+
+  #signup{
+    position: absolute;
+    left: 520px;
+    top: 450px;
+    text-align: center;
+    height: 40px;
+    width: 80px;
+    border: none;
+    text-align: center;
+    display: inline-block;
+  }
+
+  #last_peeps{
+    position: absolute;
+    left: 365px;
+    top: 150px;
+    text-align: center;
+    height: 40px;
+    width: 300px;
+    border: none;
+    text-align: left;
+    color: #feda4a;
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+  }
+
+  input[type=submit] {
+    color: #feda4a;
+    font-family: "Brush Script MT", cursive;
+    font-size: 20px;
+    width: 70px;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+    border: medium solid #feda4a;
+    }
+
+  </style>
+
   <head>
     <meta charset="utf-8">
     <title>Chitter!</title>
   </head>
+
   <body>
-    <h1>Chitter</h1>
-    <form action='/users/new'>
-      <input type='submit' value='Sign up!'>
-    </form><br>
-    <form action='/sessions/new'>
-      <input type='submit' value='Log in!'>
-    </form><br>
-    
-    Last peeps:
-    <ul id='peeps'>
-      <% @peeps.each do |peep| %>
-        <li><%=User.get(peep.user_id).username%>: '<%=peep.message%>' --> <%=peep.time%></li>
-      <% end %>
-    </ul>
+
+    <h1 id='tittle'>Chitter</h1>
+
+      <h2 id='last_peeps'> Last peeps:</h2>
+      <div id='peeps'>
+        <ul>
+          <% @peeps.each do |peep| %>
+            <li><%=User.get(peep.user_id).username%>: '<%=peep.message%>' --> <%=peep.time%></li>
+          <% end %>
+        </ul>
+    </div>
+    <div id='signup'>
+
+        <form action='/users/new'>
+          <input type='submit' value='Sign up!'>
+        </form><br>
+        </div>
+        <div id='login'>
+        <form action='/sessions/new'>
+          <input type='submit' value='Log in!'>
+        </form><br>
+        </div>
+
   </body>
 </html>
