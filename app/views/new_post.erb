@@ -1,6 +1,10 @@
 <h1>Create a new peep!</h1>
-<form class="" action="/posts" method="post">
-  <input type="text" name="title" placeholder="Title">
-  <input type="text" name="body" placeholder="Post">
-  <input type="submit" name="Post" value="Post">
-</form>
+<% if current_user %>
+  <form class="" action="/posts" method="post">
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="body" placeholder="Post">
+    <input type="submit" name="Post" value="Post">
+  </form>
+<% else %>
+  <p>You haven't looged in - <a href="/sessions/new">go to sign in page</a></p>
+<% end %>
