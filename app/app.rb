@@ -4,6 +4,7 @@ require "sinatra/base"
 require "./app/data_mapper_setup"
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'my_secret'
 
@@ -36,6 +37,11 @@ class Chitter < Sinatra::Base
     else
       redirect "/session/new"
     end
+  end
+
+  delete '/session' do
+    session[:user_id] = nil
+    redirect "/peeps"
   end
 
   post "/save_peep" do

@@ -20,7 +20,7 @@
   </form>
   <br />
   <form action="/session/new">
-    <button name="sign-up"> Sign-in </button>
+    <button name="sign-in"> Sign-in </button>
   </form>
   <br />
   <% end %>
@@ -28,6 +28,10 @@
   <h4>Welcome <%= current_user.username %>! </h4>
   <form action="/peeps/new">
     <button name="new_peep"> New Peep </button>
+  </form>
+  <form method="post" action="/session">
+    <input type='hidden' name='_method' value='delete'>
+    <button name="sign-out"> Sign-out </button>
   </form>
   <% end %>
   <br />
