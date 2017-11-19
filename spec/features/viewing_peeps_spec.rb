@@ -13,4 +13,8 @@ feature "index page presents a list of peeps" do
     peep = Peep.last
     expect(page).to have_content(peep.created_at.strftime("Peeped on %m/%d/%Y at %I:%M%p"))
   end
+  scenario "page has a sign-up button" do
+    visit "/"
+    expect(page).to have_button("Sign-up")
+  end
 end
