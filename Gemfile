@@ -9,6 +9,7 @@ gem 'sinatra'
 
 group :test do
   gem 'cucumber'
+  gem 'database_cleaner'
   gem 'rake'
   gem 'rspec'
   gem 'rubocop'
