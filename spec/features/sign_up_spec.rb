@@ -35,7 +35,24 @@ feature "signing-up" do
   end
   scenario "doesn't let two users with the same email address sign-up" do
     sign_up
+    click_sign_up
+    fill_in("name", with: "Antonio")
+    fill_in("username", with: "abc2")
+    fill_in("email", with: "antonio@makers.com")
+    fill_in("password", with: "password")
+    fill_in("password_confirmation", with: "password")
+    click_button "Sign-up"
+    expect(User.all.count).to eq(1)
+  end
+  scenario "doesn't let two users with the same email address sign-up" do
     sign_up
+    click_sign_up
+    fill_in("name", with: "Antonio")
+    fill_in("username", with: "abc")
+    fill_in("email", with: "marie@makers.com")
+    fill_in("password", with: "password")
+    fill_in("password_confirmation", with: "password")
+    click_button "Sign-up"
     expect(User.all.count).to eq(1)
   end
 end
