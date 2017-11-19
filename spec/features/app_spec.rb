@@ -3,8 +3,10 @@ feature "Peeps page displays all peeps" do
     create_user_and_post_peeps
     visit('/peeps')
     expect(page.status_code).to eq 200
+    within 'table' do
     expect('second').to appear_before('first')
   end
+end
 end
 
 feature "Registration/sign_up" do
