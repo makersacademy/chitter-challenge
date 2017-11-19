@@ -8,7 +8,6 @@ end
 
 def write_new_peep(msg)
   visit('/peeps/new')
-  fill_in(:username, with: 'TestUser')
   fill_in(:peep, with: msg)
   click_button(id: 'submit_peep')
 end

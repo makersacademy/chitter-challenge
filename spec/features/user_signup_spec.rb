@@ -1,4 +1,4 @@
-feature 'user can sign up' do
+feature 'Sign Up:' do
   scenario 'user can enter their details and create an account' do
     expect { create_account('Tom Moir', 'tmerrr', 'tom@mail.me', 'MyPassword') }
       .to change { User.all.length }.by(1)

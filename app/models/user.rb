@@ -14,4 +14,6 @@ class User
 
   validates_confirmation_of :password
 
+  has n, :peep
+
 end

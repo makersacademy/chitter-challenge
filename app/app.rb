@@ -21,20 +21,35 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :new_peep
+    @current_user = current_user
+    if current_user
+      erb :new_peep
+    else
+      redirect '/peeps'
+    end
+  end
+
+  get "/goto/peeps/new" do
+    redirect '/peeps/new'
   end
 
   post '/peeps/new' do
-    username = current_user ? current_user.username : params[:username]
     peep_msg = params[:peep]
     timestamp = Time.new.strftime("%H:%M:%S %a-%d-%b-%Y")
-    Peep.create(message: peep_msg, username: username, time: timestamp)
+    new_peep = Peep.new(message: peep_msg, username: current_user.username,
+      time: timestamp)
+    current_user.peep << new_peep
+    current_user.save
     redirect '/peeps'
   end
 
   get '/users/new' do
     @user = User.new
     erb :sign_up
+  end
+
+  get '/goto/users/new' do
+    redirect 'users/new'
   end
 
   post '/users/new' do
