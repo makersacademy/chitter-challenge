@@ -68,7 +68,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/reset_password' do
-    @user = User.find_by_valid_token(params[:token])
+    p @user = User.find_by_valid_token(params[:token])
     if @user
       session[:token] = params[:token]
       erb :'users/reset_password'
