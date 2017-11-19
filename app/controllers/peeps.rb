@@ -14,7 +14,8 @@ class App < Sinatra::Base
     if peep.save
       redirect('/peeps')
     else
-      flash.now[:errors] = "Peep cannot be blank"
+      flash.now[:errors] = (params[:content] == "" ? 
+        "Peep cannot be blank" : "Tagged user does not exist")
       erb(:'peeps/new')
     end
   end
