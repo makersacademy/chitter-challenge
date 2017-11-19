@@ -5,12 +5,16 @@ require "./app/models/peep"
 
 class Chitter < Sinatra::Base
   get "/" do
-    @peeps = Peep.all(:order => [ :created_at.desc ])
+    @peeps = Peep.all(order: [:created_at.desc])
     erb :index
   end
 
   get "/new_peep" do
     erb :new_peep
+  end
+
+  get "/sign_up" do
+    erb :sign_up
   end
 
   post "/save_peep" do
