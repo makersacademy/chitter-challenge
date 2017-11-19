@@ -1,10 +1,3 @@
-require 'dm-migrations'
-require 'data_mapper'
-require 'dm-postgres-adapter'
-
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-
 class Peep
   include DataMapper::Resource
 
@@ -12,7 +5,5 @@ class Peep
   property :text, Text
   property :created_at, Time
 
+  belongs_to :user
 end
-
-DataMapper.finalize
-DataMapper.auto_upgrade!
