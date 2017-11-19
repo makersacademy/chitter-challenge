@@ -1,7 +1,8 @@
+require_relative 'app/models/db-setup'
+
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
   require_relative 'app/app'
-  require_relative 'app/models/db-setup'
   
   RSpec::Core::RakeTask.new :spec
   
