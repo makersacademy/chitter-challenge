@@ -1,0 +1,69 @@
+body
+{
+  font: 16px/24px "Lato", sans-serif;
+  color: #111;
+}
+
+.everything
+{
+  padding: 20px;
+}
+
+header
+{
+  text-align: right;
+}
+
+header,
+.meta
+{
+  font-size: 14px;
+  color: #999;
+}
+
+  header div,
+  header form
+  {
+    display: inline-block;
+  }
+
+.content
+{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content input
+{
+  display: block;
+  margin-bottom: 20px;
+}
+
+.content ul
+{
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 40px;
+}
+
+  .content li
+  {
+    border-top: 1px solid #ccc;
+    padding: 5px 10px;
+  }
+
+  .content li:nth-child(2n+1)
+  {
+    background: #fffcdd;
+  }
+
+  .content .meta
+  {
+    float: right;
+  }
+
+h1
+{
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}

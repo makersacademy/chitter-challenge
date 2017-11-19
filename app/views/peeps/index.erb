@@ -1,15 +1,15 @@
-<header> Chitter :) </header>
+<h1>Chitter 🙂</h1>
 
 <ul id='peeps'>
   <% @peeps.each do |elem| %>
     <li>
-      <%= elem.mess %>   peeped at <%=elem.created_at %>
+      <%= elem.mess %> <span class="meta">peeped at <%=elem.created_at %></span>
     </li>
   <% end %>
 </ul>
 
 <% if current_user %>
   <form action='/peeps/new' method='get'>
-  <button type="submit"> Peep now! </button>
+    <input type="submit" value="Peep now!"></input>
   </form>
 <% end %>

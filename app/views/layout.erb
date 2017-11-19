@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Chitter </title>
+    <title>Chitter</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="/normalize.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
   </head>
 
   <body>
-    <% if current_user %>
-     Welcome, <%= current_user.email %>
-     <form method='post' action='/sessions'>
-       <input type='hidden' name='_method' value='delete'>
-       <input type='submit' value='Sign out'>
-     </form>
-    <% else %>
-      <form action='/sessions/new' method='get'>
-      <button type="submit"> Signing in </button>
-      </form>
+    <div class="everything">
+      <header>
+      <% if current_user %>
+         <div>Welcome, <%= current_user.email %></div>
+         <form method='post' action='/sessions'>
+           <input type='hidden' name='_method' value='delete'>
+           <input type='submit' value='Sign out'>
+         </form>
+      <% else %>
+        <form action='/sessions/new' method='get'>
+          <button type="submit" name="sign-in">Sign-in</button>
+        </form>
 
-      <form action='/users/new' method='get'>
-          <button type='submit'> Signing up </button>
-      </div>
-      </form>
-    <% end %>
+        <form action='/users/new' method='get'>
+          <button type='submit' name="sign-up">Sign-up</button>
+        </form>
+      <% end %>
+      </header>
 
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
+      <% if flash[:notice] %>
+        <div id='notice'>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <div class="content">
+        <%= yield %>
       </div>
-    <% end %>
-    <%= yield %>
+    </div>
   </body>
 </html>

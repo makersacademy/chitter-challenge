@@ -19,11 +19,11 @@
   <input type='submit' value='Sign up'>
 </form>
 
- <% if flash[:errors] && !flash[:errors].empty? %>
-Please refer to the following errors below:
+<% if flash[:errors] && !flash[:errors].empty? %>
+<h2>Please refer to the following errors below:</h2>
   <ul id='errors'>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>
     <% end %>
-</ul>
+  </ul>
 <% end %>
