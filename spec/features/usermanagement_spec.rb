@@ -15,5 +15,4 @@ feature 'User sign up' do
     expect { sign_up(email: nil) }.not_to change(User, :count)
   end
 
-
 end

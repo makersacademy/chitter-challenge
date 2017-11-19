@@ -24,3 +24,10 @@ def sign_up(email: 'thatdania@gmail.com', username: 'thatdania',
   fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign up'
 end
+
+def sign_in(email: 'thatdania@gmail.com', password: 'potatoes')
+  visit '/login'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end

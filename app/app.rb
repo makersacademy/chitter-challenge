@@ -47,6 +47,20 @@ class App < Sinatra::Base
    end
   end
 
+  get '/login' do
+    erb(:login)
+  end
+
+  post '/login' do
+  user = User.authenticate(params[:email], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect to('/home')
+  else
+    flash.now[:errors] = ['The email or password is incorrect']
+    erb(:login)
+  end
+end
 
   helpers do
  def current_user

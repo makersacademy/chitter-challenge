@@ -26,6 +26,17 @@ body {
   font-family: "Tahoma",serif;
 }
 
+.login {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 21%;
+  left: 52%;
+  font-family: "Tahoma",serif;
+}
+
 .circle {
 	width: 100px;
 	height: 100px;

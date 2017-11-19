@@ -1,0 +1,55 @@
+body {
+  background-color: #1093D5;
+}
+
+font {
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+  position: absolute;
+  font-size: 15px;
+  top: 48%;
+  left: 36%;
+  font-weight: bold;
+}
+p {
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+  position: absolute;
+  font-size: 15px;
+  top: 51%;
+  left: 36%;
+  font-weight: bold;
+}
+
+.email {
+  position: absolute;
+  top: 48%;
+  left: 43%;
+  width: 230px;
+}
+
+.password {
+  position: absolute;
+  top: 53%;
+  left: 43%;
+  width: 230px;
+}
+
+h1 {
+  font-family: "Tahoma", serif;
+  color: #EDF9FA;
+  position: absolute;
+  top: 22%;
+  left: 49%;
+  transform: translate(-50%, -50%)
+}
+
+.button {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  top: 65%;
+  left: 44%;
+  font-family: "Tahoma",serif;
+}
