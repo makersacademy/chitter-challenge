@@ -12,7 +12,7 @@
 <div id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <div>
-      <%= peep.message %>
+      <%= @user.user_name %>: <%= peep.message %>
       <br>
       <% unless peep.datetime.nil? %>
         <%= peep.datetime.strftime(" %I:%M %p ") %>
