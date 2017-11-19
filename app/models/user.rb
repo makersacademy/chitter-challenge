@@ -9,7 +9,13 @@ class User
   property :name,             String
   property :user_name,        String
 
+  attr_reader :password
+  attr_accessor :password_confirmation
+  
+  validates_confirmation_of :password
+
   def password=(password)
-   self.password_digest = BCrypt::Password.create(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
   end
 end

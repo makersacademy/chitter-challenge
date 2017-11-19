@@ -7,6 +7,7 @@ feature 'Create a peep' do
     expect(page.status_code).to eq(200)
     fill_in 'email',     with: 'rob@gmail.com'
     fill_in 'password',  with: 'mypassword'
+    fill_in 'password_confirmation',  with: 'mypassword'
     fill_in 'name',      with: 'Robert'
     fill_in 'user_name', with: 'Rob'
     click_on('Sign up')
