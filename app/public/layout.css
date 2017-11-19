@@ -1,13 +1,22 @@
 font {
    font-family: "Tahoma",serif;
    color: #EDF9FA;
-
    position:absolute;
    transition: .5s ease;
    top: 5%;
    left: 44%;
 }
 
+
 .fill {
   background-color: #F4FBFB;
+}
+
+.alert {
+  color: #F4FBFB;
+  font-family: "Tahoma",serif;
+  position:absolute;
+  transition: .5s ease;
+  left: 37%;
+  top: 7%;
 }

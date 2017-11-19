@@ -10,7 +10,14 @@
     <% if current_user %>
       <font> Hey <%= current_user.username %>! </font>
     <% end %>
+  </div>
+
+  <div class = "fill" >
+    <% if flash[:notice] %>
+      <div class = "alert" id='notice'><%= flash[:notice] %></div>
+    <% end %>
+  </div>
+
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
-    </div>
   </body>
 </html>

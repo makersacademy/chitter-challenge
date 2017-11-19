@@ -15,4 +15,5 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'selenium-webdriver'
   gem 'sinatra'
+  gem 'sinatra-flash'
 end
