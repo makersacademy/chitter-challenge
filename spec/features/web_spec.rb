@@ -13,3 +13,12 @@ def fill_in_second
   fill_in 'name', with: 'Theo'
   click_on('Create Post')
 end
+
+def sign_up
+  visit '/newuser'
+  expect(page.status_code).to eq(200)
+  fill_in :email,    with: 'thatdania@gmail.com'
+  fill_in :username, with: 'thatdania'
+  fill_in :password, with: 'potatoes'
+  click_button 'Sign up'
+end
