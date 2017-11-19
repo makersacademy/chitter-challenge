@@ -1,4 +1,6 @@
-<h1> Welcome, <%= @user.user_name %>!</h1>
+<% if current_user %>
+  <h1> Welcome, <%= @user.user_name %>!</h1>
+<% end %>
 
 <h2> Peeps </h2>
 
@@ -12,11 +14,14 @@
 <div id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <div>
-      <%= @user.user_name %>: <%= peep.message %>
-      <br>
-      <% unless peep.datetime.nil? %>
-        <%= peep.datetime.strftime(" %I:%M %p ") %>
-        <%= peep.datetime.strftime(" %d-%b-%Y ") %>
+      <% unless User.get(peep.user_id).nil? %>
+        <% user_name = User.get(peep.user_id) %>
+        <%= user_name.user_name %>: <%= peep.message %>
+        <br>
+        <% unless peep.datetime.nil? %>
+          <%= peep.datetime.strftime(" %I:%M %p ") %>
+          <%= peep.datetime.strftime(" %d-%b-%Y ") %>
+        <% end %>
       <% end %>
     </div>
     <br>

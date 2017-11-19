@@ -15,12 +15,14 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     @peeps = Peep.all
-    @user = User.last
+    @user = current_user
     erb :'home/index'
   end
 
   post '/peep/new' do
-    peep = Peep.create(message: params[:new_peep_box], datetime: Time.now.utc)
+    peep = Peep.create(message: params[:new_peep_box],
+      datetime: Time.now.utc,
+      user_id: current_user.id)
     peep.save
     redirect '/home'
   end
@@ -32,7 +34,7 @@ class Chitter < Sinatra::Base
   post '/user/add' do
     new_user = User.create(email: params[:email], password: params[:password],
       name: params[:name], user_name: params[:user_name])
-    new_user.save
+    session[:user_id] = new_user.id
     redirect '/home'
   end
 
@@ -46,7 +48,6 @@ class Chitter < Sinatra::Base
   end
 end
 
-
 # p 'HERE!!'
-# p @peeps
+# p current_user.id
 # p 'END'
