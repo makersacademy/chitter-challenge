@@ -53,6 +53,28 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/users/recover' do
+    erb :'users/recover'
+  end
+
+  post '/users/recover' do
+    user = User.first(email: params[:email])
+    if user
+      user.generate_token
+    end
+    erb :'users/acknowledgment'
+  end
+
+  get '/users/reset_password' do
+    @user = User.find_by_valid_token(params[:token])
+    if @user
+      session[:token] = params[:token]
+      erb :'users/reset_password'
+    else
+      "Your token is invalid"
+    end
+  end
+
   get '/:user' do
     @user = User.first(username: params[:user])
     erb :user_page
@@ -72,6 +94,18 @@ class Chitter < Sinatra::Base
     else
       @user.errors.each { |error| flash.now[:password_mismatch] = error[0] }
       erb :'users/new'
+    end
+  end
+
+  patch '/users' do
+    user = User.find_by_valid_token(session[:token])
+    if user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+      session[:token] = nil
+      user.update(password_token: nil)
+      redirect '/sessions/new'
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'users/reset_password'
     end
   end
 

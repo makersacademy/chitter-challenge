@@ -1,6 +1,7 @@
 <form action="/sessions" method="post">
   <input type="text" name="username" placeholder="username">
   <input type="password" name="password" placeholder="password">
+  <a href="/users/recover">Forgot password?</a>
   <input type="submit" value="Login">
 </form>
 <%= flash[:login_error] %>

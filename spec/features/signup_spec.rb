@@ -41,4 +41,5 @@ feature 'sign up' do
     post_peep('My third peep!')
     expect(User.first.peeps.map(&:text)).to include('Hi there!', 'Hello!', 'My third peep!')
   end
+
 end
