@@ -1,5 +1,5 @@
 require 'capybara/rspec'
-require './models/user.rb'
+require './app/models/user.rb'
 
 feature 'Signing up with email, password, name and username' do
   scenario 'When I get to the chitter homepage I want to be able to sign up' do

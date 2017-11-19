@@ -7,8 +7,8 @@ require 'database_cleaner'
 require './app'
 require 'rspec'
 require 'capybara'
-require './models/peep.rb'
-require './models/user.rb'
+require './app/models/peep.rb'
+require './app/models/user.rb'
 require_relative 'web_helpers.rb'
 
 Capybara.app = Chitter

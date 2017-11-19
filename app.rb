@@ -7,20 +7,22 @@ require_relative 'app/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
 
-  # helpers do
-  #   def current_user
-  #     @current_user ||= User.first(email: session[:email])
-  #   end
-  # end
-
 enable :sessions
+set :session_secret, 'super secret'
+
+helpers do
+  def current_user
+  @current_user ||= User.get(username: session[:username])
+  end
+end
+
 
 get '/' do
   erb(:index)
 end
 
 post '/' do
-  User.create(email: params[:email], password: params[:password], first_name: params[:first_name], last_name: params[:last_name], username: params[:username])
+  User.first_or_create(email: params[:email], password: params[:password], first_name: params[:first_name], last_name: params[:last_name], username: params[:username])
   redirect '/success'
 end
 
@@ -29,7 +31,7 @@ get '/success' do
 end
 
 post '/new_posts' do
-  session[:email] = params[:Email]
+  session[:username] = params[:username]
   erb(:new_posts)
 end
 
@@ -43,7 +45,8 @@ end
 
 post '/chitter' do
   @peeps = Peep.all(:order => [ :time.desc ])
-  user = User.first(email: session[:email])
+  @username = session[:username]
+  user = User.first_or_create(username: session[:username])
   user.peeps << Peep.create(message: params[:new_peep], time: Time.new)
   user.save
   erb(:chitter)
