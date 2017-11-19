@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 group :test do
+  gem 'bcrypt'
   gem 'capybara'
   gem 'cucumber'
   gem 'database_cleaner'
