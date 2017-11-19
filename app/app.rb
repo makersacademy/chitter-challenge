@@ -4,6 +4,15 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
+# require_relative './controllers/app_controller.rb'
+# require_relative './controllers/users_controller.rb'
+# require_relative './controllers/sessions_controller'
+# require_relative './controllers/tweet_controller'
+# require 'sinatra/base'
+# require 'sinatra/flash'
+# require_relative './*.rb'
+# require_rel './controllers/*'
+
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'bob has one leg'
