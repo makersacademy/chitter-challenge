@@ -14,3 +14,13 @@ def sign_up
   fill_in('password_confirmation', with: 'password123')
   click_button 'Submit'
 end
+
+def sign_up_mismatch
+  visit('/signup')
+  fill_in('name', with: 'Oleg Gru')
+  fill_in('username', with: 'Olegfkl')
+  fill_in('email', with: 'example@example.com')
+  fill_in('password', with: 'password123')
+  fill_in('password_confirmation', with: 'password')
+  click_button 'Submit'
+end

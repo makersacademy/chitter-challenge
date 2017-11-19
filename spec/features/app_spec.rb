@@ -10,7 +10,16 @@ end
 feature "Registration/sign_up" do
   scenario "Fill in the form and see welcome massage" do
     sign_up
+    expect { sign_up }.to change(User, :count).by(1)
+    expect(User.first.email).to eq('example@example.com')
     expect(page).to have_content('Oleg Gru')
+  end
+end
+
+feature "Registration/sign_up with mismatch passwords" do
+  scenario "Fill in the form and see passwors mismatch" do
+    sign_up_mismatch
+    expect(page).to have_content('Oops, your passwords don\'t match')
   end
 end
 
@@ -19,7 +28,7 @@ feature "Submit peep" do
     sign_up
     visit('/peeps')
     fill_in('new_peep', with: 'Hello World')
-    click_button 'Post'
+    expect { click_button 'Post'}.to change(Peep, :count).by(1)
     expect(page).to have_content('Hello World')
   end
 end

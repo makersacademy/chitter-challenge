@@ -3,11 +3,12 @@ ENV['RACK_ENV'] ||= 'development'
 require './app/models/database_config'
 require 'sinatra/base'
 require './app/models/peep.rb'
-# require './app/models/....rb'
-# require 'bcrypt'
+require './app/models/user.rb'
+require 'bcrypt'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
@@ -37,6 +38,10 @@ class Chitter < Sinatra::Base
       username: params[:username], password: params[:password])
       session[:user_id] = @user.id
        erb(:welcome)
+  end
+
+  get '/msg' do
+    erb(:msg)
   end
 
 # Check if works without it
