@@ -1,7 +1,7 @@
-Chitter Challenge
+Chitter Challenge[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
 =================
 
-#Challenge:[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+Challenge:
 -------
 This weekend's challenge was to create a  Twitter clone that will allow the users to post messages to a public stream.
 
