@@ -77,7 +77,11 @@ class Chitter < Sinatra::Base
 
   get '/:user' do
     @user = User.first(username: params[:user])
-    erb :user_page
+    if @user
+      erb :user_page
+    else
+      erb :user_not_found
+    end
   end
 
   post '/users' do
