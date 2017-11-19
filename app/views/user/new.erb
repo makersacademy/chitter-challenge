@@ -3,7 +3,7 @@
 <% end %>
 
 <form action='/user/add' method='post'>
-  <input type='email' name='email' value='<%= @new_user.email %>' placeholder="Email:">
+  <input type='email'  name='email' placeholder="Email:" value='<%= @new_user.email %>' required>
   <br>
   <br>
   <input type='password' name='password' placeholder="Password:">

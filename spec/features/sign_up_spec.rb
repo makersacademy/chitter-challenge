@@ -1,8 +1,8 @@
 feature 'Sign up to Chitter' do
-  def sign_up(password_confirmation = 'mypassword')
+  def sign_up(password_confirmation = 'mypassword', email = 'rob@gmail.com')
     visit('/user/new')
     expect(page.status_code).to eq(200)
-    fill_in 'email',                  with: 'rob@gmail.com'
+    fill_in 'email',                  with: email
     fill_in 'password',               with: 'mypassword'
     fill_in 'password_confirmation',  with: password_confirmation
     fill_in 'name',                   with: 'Robert'
@@ -20,5 +20,13 @@ feature 'Sign up to Chitter' do
     expect { sign_up(password_confirmation: 'wrongpassword') }.not_to change(User, :count)
     expect(current_path).to eq('/user/add')
     expect(page).to have_content 'Password and confirmation password do not match'
+  end
+
+  scenario "An email address must be used" do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario "A valid email address must be used" do
+    expect { sign_up(email: 'not@real') }.not_to change(User, :count)
   end
 end
