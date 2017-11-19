@@ -1,10 +1,12 @@
 <% if !current_user %>
+  <title>Welcome to Chitter</title>
+
   <form action='/sessions/new' method='get'>
-    <input type='Submit' value='Sign In'>
+    <input type='Submit' name='Sign In'>
   </form>
     <br>
   <form action='/users/new' method='get'>
-    <input type='Submit' value='Sign Up'>
+    <input type='Submit' name='Sign Up'>
   </form>
 <% end %>
 

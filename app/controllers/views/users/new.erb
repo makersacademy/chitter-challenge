@@ -1,6 +1,6 @@
 <% if !current_user %>
   <form action='/sessions/new' method='get'>
-    <input type='Submit' value='Sign In'>
+    <input type='Submit' name='Sign In'>
   </form>
 <% end %>
 
@@ -30,4 +30,11 @@
   </label>
 </form>
 
-<% flash[:error] %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+Please refer to the following errors below:
+<ul id='errors'>
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
