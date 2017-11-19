@@ -3,11 +3,15 @@
 <%= partial :errors %>
 
 <form action="/sessions" method="post">
+  <div class="field">
   <label for="email">Email </label>
   <input name="email" type="email" required>
+  </div>
 
+  <div class="field">
   <label for="password">Password </label>
   <input name="password" type="password" required>
+  </div>
 
   <input type="submit" value="Log in">
 </form>

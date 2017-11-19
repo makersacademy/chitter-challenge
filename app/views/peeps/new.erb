@@ -3,7 +3,9 @@
 <%= partial :errors %>
 
 <form action="/peeps" method="post">
-        <label for="content">Write your peep here</label>
-        <textarea name="content" rows="3" required></textarea>
-        <input type="submit" value="Peep">
+<div class="field">
+  <label for="content">Write your peep here</label>
+  <textarea name="content" rows="3" required></textarea>
+  <input type="submit" value="Peep">
+</div>
 </form>
