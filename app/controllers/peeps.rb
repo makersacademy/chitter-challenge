@@ -1,8 +1,15 @@
 class App < Sinatra::Base
   get '/peeps' do
     peeps = Peep.all.sort { |a, b| b.created_at <=> a.created_at }
-      .first(maxpeeps)
-    erb(:'peeps/peeps', locals: { peeps: peeps })
+    if params[:user]
+      peeps = peeps.select { |peep| peep.user.handle == params[:user] } 
+    end
+    if params[:tag]
+      peeps = peeps.select do |peep| 
+        peep.tags.map { |t| t.name == params[:tag] }.any?
+      end
+    end
+    erb(:'peeps/peeps', locals: { peeps: peeps.first(maxpeeps) })
   end
 
   get '/peeps/new' do
@@ -18,6 +25,10 @@ class App < Sinatra::Base
         "Peep cannot be blank" : "Tagged user does not exist")
       erb(:'peeps/new')
     end
+  end
+
+  get '/peeps/search' do
+    erb(:'peeps/search')
   end
 
   get '/peeps/users/:id' do |id|

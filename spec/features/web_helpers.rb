@@ -34,3 +34,11 @@ def sign_in(email: 'example@domain.com', password: 'secret')
   click_button('Log in')
 end
 
+def populate_peeps(number)
+  sign_up
+  number.times do |n| 
+    Peep.create(content: n.to_s, created_at: Time.now + n, poster_id: 1)
+  end
+  visit('/peeps')
+end
+
