@@ -6,7 +6,7 @@ feature 'Posting peeps' do
     end
   end
 
-  xscenario 'user can see the time when the peep was created' do
+  scenario 'user can see the time when the peep was created' do
     post_a_peep
     current_time
     within 'ul#peeps' do
