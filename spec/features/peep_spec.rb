@@ -26,4 +26,28 @@ feature 'Create a peep' do
 
     expect(message2).to appear_before(message1)
   end
+
+  scenario 'Peeps appear with time of peep' do
+    visit('/home')
+    message1 = 'Hello World, this is my peep!'
+    message2 = 'Hi, this is my second peep!'
+
+    fill_in 'new_peep_box', with: message1
+    click_on('Create Peep')
+    time = Time.now
+
+    expect(page).to have_content(time.strftime(" %I:%M %p "))
+  end
+
+  scenario 'Peeps appear with date of peep' do
+    visit('/home')
+    message1 = 'Hello World, this is my peep!'
+    message2 = 'Hi, this is my second peep!'
+
+    fill_in 'new_peep_box', with: message1
+    click_on('Create Peep')
+
+    time = Time.now
+    expect(page).to have_content(time.strftime(" %d-%b-%Y "))
+  end
 end

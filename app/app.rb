@@ -1,8 +1,9 @@
 ENV['RACK_ENV'] ||= 'development'
 
-require 'sinatra/base'
 require_relative 'app_helpers'
 require_relative 'data_mapper_setup'
+require 'sinatra/base'
+require 'time'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -14,16 +15,15 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     @peeps = Peep.all
+    # p 'HERE!!'
+    # p @peeps
+    # p 'END'
     erb :'home/index'
   end
 
   post '/peep/new' do
-    peep = Peep.create(message: params[:new_peep_box])
+    peep = Peep.create(message: params[:new_peep_box], datetime: Time.now.utc)
     peep.save
     redirect '/home'
   end
 end
-
-# p 'HERE!!'
-# p @peeps.length
-# p 'END'

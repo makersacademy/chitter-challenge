@@ -7,10 +7,16 @@
   <input type='submit' value='Create Peep'>
 </form>
 
-<ul id='peeps'>
+<div id='peeps'>
   <% @peeps.reverse.each do |peep| %>
-    <li>
-      <%= peep.id %> : <%= peep.message   %>
-    </li>
+    <div>
+      <%= peep.message %>
+      <br>
+      <% unless peep.datetime.nil? %>
+        <%= peep.datetime.strftime(" %I:%M %p ") %>
+        <%= peep.datetime.strftime(" %d-%b-%Y ") %>
+      <% end %>
+    </div>
+    <br>
   <% end %>
-</ul>
+</div>

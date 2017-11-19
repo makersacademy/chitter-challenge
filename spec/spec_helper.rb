@@ -11,6 +11,7 @@ require 'rubocop'
 require 'simplecov'
 require 'simplecov-console'
 require 'sinatra'
+require 'time'
 
 Capybara.app = Chitter
 
