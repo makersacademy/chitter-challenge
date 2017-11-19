@@ -32,7 +32,8 @@ class Chitter < Sinatra::Base
     username = params[:username]
     email = params[:email]
     password = params[:password]
-    user = User.create(name: name, username: username, email: email, password: password)
+    password_confirmation = params[:password_confirmation]
+    user = User.create(name: name, username: username, email: email, password: password, password_confirmation: password_confirmation)
     session[:user_id] = user.id
     redirect "/"
   end

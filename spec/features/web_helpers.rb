@@ -15,6 +15,7 @@ def sign_up
   fill_in("username", with: "abc")
   fill_in("email", with: "antonio@makers.com")
   fill_in("password", with: "password")
+  fill_in("password_confirmation", with: "password")
   click_button "Sign-up"
 end
 

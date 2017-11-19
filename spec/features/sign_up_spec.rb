@@ -19,4 +19,18 @@ feature "signing-up" do
     click_sign_up
     expect(page).to have_button "Sign-up"
   end
+  scenario "has a password confirmation" do
+    click_sign_up
+    expect(page).to have_content "confirmation"
+  end
+  scenario "does not create user if password confirmation != password" do
+    click_sign_up
+    fill_in("name", with: "Antonio")
+    fill_in("username", with: "abc")
+    fill_in("email", with: "antonio@makers.com")
+    fill_in("password", with: "password")
+    fill_in("password_confirmation", with: "other password")
+    click_button "Sign-up"
+    expect(User.all.count).to eq(0)
+  end
 end
