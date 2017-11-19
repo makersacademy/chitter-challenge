@@ -63,7 +63,7 @@ describe User do
 
   describe '#to_html' do
     context 'when converting user to html' do
-      let(:user) { User.new(id: 1, handle: 'handle') }
+      let(:user) { User.new(id: 1,shandle: 'handle') }
 
       it 'wraps username in span tags and formats' do
         expect(user.to_html)

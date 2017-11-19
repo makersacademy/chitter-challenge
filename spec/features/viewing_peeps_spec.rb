@@ -47,3 +47,18 @@ feature 'Feature: view peep by user handle' do
     expect(page.status_code).to be 404
   end
 end
+
+feature 'Feature: view peep by hashtag' do
+  scenario 'user views hashtag which exists' do
+    populate_peeps(10)
+    peep(content: 'a #hashtag')
+    visit('/tags/1')
+    expect(page.first(:xpath, '//div[@class="peep"]'))
+      .to have_content 'a #hashtag'
+  end
+
+  scenario 'user views non-existent peep by id' do
+    visit('/tags/100')
+    expect(page.status_code).to be 404
+  end
+end
