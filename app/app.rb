@@ -1,7 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'BCrypt'
+require 'bcrypt'
 
 require './app/data_mapper_setup'
 
