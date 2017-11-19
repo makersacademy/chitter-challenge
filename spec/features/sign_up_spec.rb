@@ -19,14 +19,24 @@ feature 'Sign up to Chitter' do
   scenario 'requires a matching confirmation password' do
     expect { sign_up(password_confirmation: 'wrongpassword') }.not_to change(User, :count)
     expect(current_path).to eq('/user/add')
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
   scenario "An email address must be used" do
-    expect { sign_up(email: nil) }.not_to change(User, :count)
+    expect { sign_up('mypassword', email: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/user/add')
+    expect(page).to have_content('Email has an invalid format')
   end
 
   scenario "A valid email address must be used" do
-    expect { sign_up(email: 'not@real') }.not_to change(User, :count)
+    expect { sign_up('mypassword', email: 'not@real') }.not_to change(User, :count)
+    expect(current_path).to eq('/user/add')
+    expect(page).to have_content('Email has an invalid format')
+  end
+
+  scenario 'Cannot use an existing email' do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Email is already taken')
   end
 end
