@@ -6,11 +6,7 @@ feature 'sign up' do
   end
   scenario "site says you aren't logged in if not signed up" do
     visit('/')
-    expect(page).to have_content('You are not logged in')
-  end
-  scenario "Site returns your username after login" do
-    sign_up
-    expect(page).to have_content('Logged in as Megadrive')
+    expect(page).not_to have_content('Logged in as Megadrive')
   end
   scenario 'requires a matching confirmation password' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)

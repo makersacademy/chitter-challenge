@@ -26,15 +26,11 @@ class Chitter < Sinatra::Base
 
   post '/posts' do
     Post.create(title: params[:title], body: params[:body], inception: Time.now)
-    # session[:title] = params[:title]
-    # session[:body] = params[:body]
     redirect '/posts'
   end
 
   get '/posts' do
     @posts = Post.all.reverse
-    # @title = session[:title]
-    # @post = session[:body]
     erb(:posts)
   end
 
@@ -45,7 +41,7 @@ class Chitter < Sinatra::Base
   post '/signup' do
     user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name], username: params[:username])
     if user.save
-      session[:username] = params[:username]
+      #session[:username] = params[:username]
       redirect('/posts')
     else
       flash.now[:message] = 'Password and confirmation password do not match'
