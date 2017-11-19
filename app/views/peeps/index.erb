@@ -3,7 +3,7 @@
 <ul id='peeps'>
   <% @peeps.each do |elem| %>
     <li>
-      <%= elem.mess %>
+      <%= elem.mess %>   peeped at <%=elem.created_at %>
     </li>
   <% end %>
 </ul>
