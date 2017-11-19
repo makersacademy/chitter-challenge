@@ -37,3 +37,29 @@ feature 'User sign up' do
     expect(page).to have_content('Username must not be blank')
   end
 end
+
+feature 'User log in' do
+  let!(:user) do
+    User.create(email: 'person@gmail.com', password: 'whatever2000', password_confirmation: 'whatever2000', name: 'Person whatever', username: 'personw')
+  end
+
+  scenario 'as existing user' do
+    sign_in(email: user.email, password: user.password)
+    expect(page).to have_content "Welcome, person@gmail.com"
+  end
+end
+
+feature 'User signs out' do
+
+  before(:each) do
+    User.create(email: 'person@gmail.com', password: 'whatever2000', password_confirmation: 'whatever2000', name: 'Person whatever', username: 'personw')
+  end
+
+  scenario 'while being signed in' do
+    sign_in(email: 'person@gmail.com', password: 'whatever2000')
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, test@test.com')
+  end
+
+end
