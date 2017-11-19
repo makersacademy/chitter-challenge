@@ -3,7 +3,6 @@ feature 'resetting password' do
   before do
     sign_up('timmy', 'timmy@hello.com')
     Capybara.reset!
-    allow(SendRecoveryLink).to receive(:call)
   end
 
   scenario 'when user forgets password they can click a link to reset' do
@@ -14,12 +13,12 @@ feature 'resetting password' do
 
   scenario 'after entering email address, user is told to check inbox' do
     recover_password
-    expect(page).to have_content ("Thanks, please check your inbox.")
+    expect(page).to have_content "Thanks, please check your inbox."
   end
 
   scenario 'user is assigned a reset token when they ask for password recovery' do
     recover_password
-    expect { recover_password }.to change { User.first.password_token }
+    expect { recover_password }.to (change { User.first.password_token })
   end
 
   scenario 'it does not allow you to use the token after an hour' do
@@ -53,10 +52,5 @@ feature 'resetting password' do
     recover_password
     reset_password("newpassword", "wrongpassword")
     expect(page).to have_content "Password does not match the confirmation"
-  end
-
-  scenario 'it calls the SendRecoveryLink service to send the link' do
-    expect(SendRecoveryLink).to receive(:call).with(User.first)
-    recover_password
   end
 end

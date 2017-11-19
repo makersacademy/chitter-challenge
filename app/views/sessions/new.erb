@@ -1,7 +1,20 @@
-<form action="/sessions" method="post">
-  <input type="text" name="username" placeholder="username">
-  <input type="password" name="password" placeholder="password">
-  <a href="/users/recover">Forgot password?</a>
-  <input type="submit" value="Login">
-</form>
-<%= flash[:login_error] %>
+<div class="container">
+  <div class="col-md-8 offset-md-2">
+    <h3 class="greeting text-center">Get back to peeping!</h3>
+    <form action="/sessions" method="post">
+      <div class="form-group">
+        <input class="form-control" type="text" name="username" placeholder="username">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="password" placeholder="password">
+      </div>
+      <a href="/users/recover">Forgot password?</a>
+      <button class="btn btn-outline-secondary btn-block" type="submit" value="Login">Login</button>
+    </form>
+    <% if flash[:login_error] %>
+      <div class="alert alert-danger">
+        <%= flash[:login_error] %>
+      </div>
+    <% end %>
+  </div>
+</div>

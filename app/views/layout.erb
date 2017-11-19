@@ -4,17 +4,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <title>chitter.</title>
   </head>
   <body>
+
+    <nav class="navbar navbar-light bg-faded">
+      <h1 class="navbar-brand mb-0">chitter.</h1>
+      <% if current_user %>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/<%= current_user.username %>">Your profile</a>
+        </li>
+      </ul>
+      <form class="inline-form" action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button class="btn btn-outline-secondary" type="submit" value="Logout">Logout</button>
+      </form>
+      <% end %>
+    </nav>
+
     <div class="container">
       <div class="col-md-2" style="float: right;">
         <% if current_user %>
-        <form action="/sessions" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Logout">
-        </form>
         <% end %>
       </div>
     </div>

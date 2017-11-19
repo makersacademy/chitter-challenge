@@ -1,7 +1,7 @@
 feature 'user logging in and out' do
   scenario 'user can log in and is redirect to peeps page' do
     sign_up('timmy', 'timmy@hello.com')
-    login(12345)
+    login(12_345)
     expect(page.current_path).to eq '/peeps'
     expect(page).to have_content 'Hello, timmy!'
   end

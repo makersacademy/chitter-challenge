@@ -1,31 +1,35 @@
 
 <div class="container">
   <div class="text-center col-md-4 offset-md-4">
-    <h1 class="display-4">chitter.</h1>
+    <h1 class="display-2">chitter.</h1>
   </div>
+  <% if flash[:goodbye] %>
+  <div class="text-center col-md-8 offset-md-2">
+    <h3 class="greeting"> <%= "Goodbye, #{flash[:goodbye]}!" %> </h3>
+  </div>
+  <% end %>
 
   <% if !current_user %>
-    <div class="text-center col-md-6 offset-3">
-      <h4><a href="/sessions/new">Login</a> to post your first peep!</h4>
+    <div class="text-center col-md-6 offset-md-3">
+      <h4 class="greeting"><a href="/sessions/new">Login</a> or <a href="/users/new">sign up</a> to start peeping!</h4>
     </div>
   <% end %>
     <% if current_user %>
     <div class="text-center col-md-8 offset-md-2">
-      <h3> Hello, <%= current_user.username %>! </h3>
+      <h3 class="greeting"> Hello, <%= current_user.username %>! </h3>
     </div>
     <div class="col-md-6 offset-md-3">
-      <form action="/peeps" method="post">
-        <textarea name="peep"></textarea>
-        <div style="margin-bottom:35px;">
-          <input style="float:right;" type="submit" value="Peep!">
-        </div>
-      </form>
+      <div class="form-group">
+        <form action="/peeps" method="post">
+          <textarea class="form-control" name="peep"></textarea>
+          <div id="peep-button" >
+            <input class="btn btn-outline-primary btn-lg btn-block" type="submit" value="Peep!">
+          </div>
+        </form>
+      </div>
     </div>
     <% end %>
 
-  <% if flash[:goodbye] %>
-  <%= "Goodbye, #{flash[:goodbye]}!" %>
-  <% end %>
 
   <div id="all-peeps" class="col-md-6 offset-md-3">
     <% @peeps.each do |peep| %>

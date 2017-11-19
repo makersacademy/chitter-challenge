@@ -1,11 +1,28 @@
-<form action="/users" method="post">
-  <input type="text" name="username" placeholder="username" value="<%= @user.username %>">
-  <input type="email" name="email" placeholder="email" value="<%= @user.email %>" required>
-  <input type="text" name="name" placeholder="name" value="<%= @user.name %>">
-  <input type="password" name="password" placeholder="password">
-  <input type="password" name="password_confirmation" placeholder="confirm password">
-  <input type="submit" value="Sign up!">
-</form>
-<% if flash[:password_mismatch] %>
-  <div id='notice'><%= flash[:password_mismatch] %></div>
-<% end %>
+<div class="container">
+  <div class="col-md-8 offset-md-2">
+    <h3 class="greeting text-center">Starting peeping with your friends!</h3>
+    <form action="/users" method="post">
+      <div class="form-group">
+        <input class="form-control" type="text" name="username" placeholder="username" value="<%= @user.username %>">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="email" name="email" placeholder="email" value="<%= @user.email %>" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="name" placeholder="name" value="<%= @user.name %>">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="password" placeholder="password">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="password_confirmation" placeholder="confirm password">
+      </div>
+      <button class="btn btn-outline-secondary btn-block" type="submit" value="Sign up!">Sign up!</button>
+    </form>
+      <% if flash[:password_mismatch] %>
+      <div class="alert alert-success">
+        <div id='notice'><%= flash[:password_mismatch] %></div>
+      </div>
+      <% end %>
+  </div>
+</div>

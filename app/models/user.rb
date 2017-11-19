@@ -41,7 +41,7 @@ class User
   def generate_token
     self.password_token = SecureRandom.hex
     self.password_token_time = Time.now
-    self.save
+    save
   end
 
   def self.find_by_valid_token(token)

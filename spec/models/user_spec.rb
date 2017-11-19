@@ -14,7 +14,7 @@ describe User do
   end
 
   it 'saves a password recovery token when generating a token' do
-    expect { user.generate_token }.to change { user.password_token }
+    expect { user.generate_token }.to (change { user.password_token })
   end
 
   it 'saves a password recovery token time when we generate a token using' do
