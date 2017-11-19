@@ -1,4 +1,4 @@
-class Chitter < Sinatra::Base
+  class Chitter < Sinatra::Base
 
   post '/sessions' do
     @user = User.authenticate(params[:email], params[:password])
