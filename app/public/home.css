@@ -37,6 +37,17 @@ body {
   font-family: "Tahoma",serif;
 }
 
+.logout {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 21%;
+  left: 67%;
+  font-family: "Tahoma",serif;
+}
+
 .circle {
 	width: 100px;
 	height: 100px;
@@ -79,7 +90,7 @@ h6 {
 }
 
 p {
-  line-height: 20%;
+  line-height: 3000%;
   font-family: "Tahoma", serif;
   font-size: 10px;
 }

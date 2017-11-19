@@ -35,7 +35,6 @@ h2 {
 
 .email {
   position:absolute;
-  transition: .5s ease;
   top: 41%;
   left: 45%;
   width: 230px;
@@ -43,7 +42,6 @@ h2 {
 
 .username {
   position:absolute;
-  transition: .5s ease;
   top: 49%;
   left: 45%;
   width: 230px;
@@ -51,7 +49,6 @@ h2 {
 
 .password {
   position:absolute;
-  transition: .5s ease;
   top: 55%;
   left: 45%;
   width: 230px;
@@ -59,7 +56,6 @@ h2 {
 
 .box{
   position:absolute;
-  transition: .5s ease;
   top: 62%;
   left: 45%;
   width: 230px;

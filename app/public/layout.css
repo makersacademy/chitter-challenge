@@ -6,7 +6,21 @@ font {
    top: 5%;
    left: 44%;
 }
-
+p {
+  position:absolute;
+  transition: .5s ease;
+  top: 5%;
+  left: 44%;
+}
+.out {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;;
+  top: -8.5%;
+  left: 75%;
+  font-family: "Tahoma",serif;
+}
 
 .fill {
   background-color: #F4FBFB;

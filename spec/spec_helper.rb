@@ -4,6 +4,7 @@ require './app/app'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'session'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -17,6 +18,8 @@ SimpleCov.start
 Capybara.app = App
 
 RSpec.configure do |config|
+  config.include SessionHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

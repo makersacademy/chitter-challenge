@@ -13,11 +13,19 @@
   </div>
 
   <div class = "fill" >
-    <% if flash[:notice] %>
+    <p> <% if flash[:notice] %> </p>
       <div class = "alert" id='notice'><%= flash[:notice] %></div>
     <% end %>
   </div>
+    <%= yield %>
 
-    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  <% if current_user %>
+  <form method='post' action='/login'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' class = "out" value='Sign out'>
+  </form>
+<% end %>
+
+   <!-- this then yields to the view which has been called by your controller -->
   </body>
 </html>

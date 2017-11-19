@@ -8,6 +8,7 @@ class App < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     redirect '/home'
@@ -60,6 +61,12 @@ class App < Sinatra::Base
     flash.now[:errors] = ['The email or password is incorrect']
     erb(:login)
   end
+end
+
+delete '/login' do
+  session[:user_id] = nil
+  flash.keep[:notice] = 'We will miss you!'
+  redirect to '/home'
 end
 
   helpers do
