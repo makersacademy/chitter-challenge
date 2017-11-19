@@ -23,6 +23,14 @@ feature 'Peeps:' do
     expect(page.current_url.ends_in?('/users/new')).to be(true)
   end
 
+  scenario 'user has option to sign in, if they are not signed in already' do
+    visit('/')
+    expect(page).to have_button('Sign In')
+    click_button('Sign In')
+    expect(page.current_url.ends_in?('/users/sign_in')).to be(true)
+  end
+
+
   scenario 'if a user is signed in, there is a button taking them to the new peep page' do
     create_account('Tom', 'trmoir', 'tom@mail.me', 'Password')
     expect(page).to have_button('New Peep')

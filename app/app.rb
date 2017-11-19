@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps/new' do
     @current_user = current_user
-    if current_user
+    if @current_user
       erb :new_peep
     else
       redirect '/peeps'
@@ -43,6 +43,37 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/users/sign_in' do
+    erb :sign_in
+  end
+
+  get '/goto/users/sign_in' do
+    redirect '/users/sign_in'
+  end
+
+  post '/users/sign_in' do
+    login_name = params[:username_or_email]
+    password = params[:password]
+    user = find_user(login_name)
+    if user
+      if user.password == password
+        session[:user_id] = find_user(login_name).id
+        redirect '/peeps'
+      else
+        flash.now[:sign_in_error] = 'Incorrect password'
+        erb :sign_in
+      end
+    else
+      flash.now[:sign_in_error] = 'Username or email not found.'
+      erb :sign_in
+    end
+  end
+
+  post '/users/sign_out' do
+    session.clear
+    redirect('/')
+  end
+
   get '/users/new' do
     @user = User.new
     erb :sign_up
@@ -58,11 +89,9 @@ class Chitter < Sinatra::Base
     email = params[:email]
     password = params[:password]
     password_check = params[:password_confirmation]
-
     @user = User.new(
       name: name, username: username, email: email,
-      password: password, password_confirmation: password_check
-    )
+      password: password, password_confirmation: password_check)
     if !password.empty? && @user.save
       session[:user_id] = @user.id
       redirect '/peeps'

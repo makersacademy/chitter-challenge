@@ -2,6 +2,12 @@ def current_user
   @current_user ||= User.get(session[:user_id])
 end
 
+def find_user(username_or_email)
+  user = User.first(username: username_or_email)
+  user = User.first(email: username_or_email) if user.nil?
+  user
+end
+
 def sign_up_error_message(username, email, password, password_confirmation)
   flash.now[:alert] = if User.all(username: username).any?
     "Username already exists."
