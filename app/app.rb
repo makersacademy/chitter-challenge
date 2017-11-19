@@ -5,6 +5,7 @@ require "./app/data_mapper_setup"
 
 class Chitter < Sinatra::Base
   enable :sessions
+  set :session_secret, 'my_secret'
 
   get "/" do
     @peeps = Peep.all(order: [:created_at.desc])
@@ -31,7 +32,7 @@ class Chitter < Sinatra::Base
     username = params[:username]
     email = params[:email]
     password = params[:password]
-    user = User.first_or_create(name: name, username: username, email: email, password: password)
+    user = User.create(name: name, username: username, email: email, password: password)
     session[:user_id] = user.id
     redirect "/"
   end

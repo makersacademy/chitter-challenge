@@ -17,5 +17,8 @@ describe User do
     it "has an email address" do
       expect(user.email).to eq("email")
     end
+    it 'should add a link' do
+      expect{ User.create(name: "name", username: "username", email: "email", password: "password") }.to change { User.all.count }.by(1)
+    end
   end
 end
