@@ -11,5 +11,5 @@ def post_another_peep
 end
 
 def current_time
-   Time.now.strftime("%H:%M:%S")
+  Time.now.strftime("%H:%M:%S")
 end
