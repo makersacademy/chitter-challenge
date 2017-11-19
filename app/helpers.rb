@@ -22,6 +22,7 @@ class Chitter < Sinatra::Base
     user = User.create(name: params[:name], username: params[:username],
       email: params[:email], password: params[:password],
       password_confirmation: params[:password_confirmation])
+    create_tag(user)
     create_error_messages(user)
     user
   end
@@ -33,8 +34,19 @@ class Chitter < Sinatra::Base
     user
   end
 
+  def check_for_mentions(tag_name)
+    user_id = Tag.first(tag_name: tag_name).user_id
+    return nil unless user_id
+    email_user(user_id)
+  end
+
+  def email_user(id)
+    puts "You got tagged #{id}"
+  end
+
 #Peep methods
   def create_peep(content)
+    check_for_tags(content)
     Peep.create(content: content, user_id: session[:id])
   end
 
@@ -50,5 +62,16 @@ class Chitter < Sinatra::Base
     # ------ ^^ DataMapper DateTime format to [[YYY-MM-DD, HH:MM]] 
     [pretty_peep, parsed[0][0], parsed[0][1]]
     # ^^ Returns a peep array with [content, date, time]
+  end
+
+#Tag methods
+  def create_tag(user)
+    Tag.create(tag_name: "@#{user.username}", user_id: user.id)
+  end
+
+  def check_for_tags(content)
+    tags = content.scan(/[$|\s](@[^\s]*)+/)
+    return unless tags
+    tags.each { |tag| Tag.first_or_create(tag_name: tag.join) unless check_for_mentions(tag) }
   end
 end
