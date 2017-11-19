@@ -10,9 +10,11 @@ class User
   property :email,         String
   property :username,      String
   property :password_digest, Text
+  validates_confirmation_of :password
 
   def password=(password)
-    self.password_digest = BCrypt::Password.create(password)
+  @password = password
+  self.password_digest = BCrypt::Password.create(password)
   end
 
 

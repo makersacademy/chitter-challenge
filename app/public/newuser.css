@@ -36,7 +36,7 @@ h2 {
 .email {
   position:absolute;
   transition: .5s ease;
-  top: 45%;
+  top: 41%;
   left: 45%;
   width: 230px;
 }
@@ -44,7 +44,7 @@ h2 {
 .username {
   position:absolute;
   transition: .5s ease;
-  top: 52%;
+  top: 49%;
   left: 45%;
   width: 230px;
 }
@@ -52,7 +52,15 @@ h2 {
 .password {
   position:absolute;
   transition: .5s ease;
-  top: 59%;
+  top: 55%;
+  left: 45%;
+  width: 230px;
+}
+
+.box{
+  position:absolute;
+  transition: .5s ease;
+  top: 62%;
   left: 45%;
   width: 230px;
 }
@@ -62,7 +70,7 @@ h3 {
   color: #EEF9FF;
   position: absolute;
   font-size: 15px;
-  top: 43%;
+  top: 39%;
   left: 40%;
 }
 
@@ -71,7 +79,7 @@ h4 {
   color: #EEF9FF;
   position: absolute;
   font-size: 15px;
-  top: 49%;
+  top: 46%;
   left: 38%;
 }
 
@@ -80,6 +88,16 @@ h5 {
   color: #EEF9FF;
   position: absolute;
   font-size: 15px;
-  top: 55%;
+  top: 51%;
+  left: 38%;
+}
+
+font {
+  font-weight: bold;
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+  position: absolute;
+  font-size: 15px;
+  top: 60%;
   left: 38%;
 }

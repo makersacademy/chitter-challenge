@@ -1,0 +1,13 @@
+font {
+   font-family: "Tahoma",serif;
+   color: #EDF9FA;
+
+   position:absolute;
+   transition: .5s ease;
+   top: 5%;
+   left: 44%;
+}
+
+.fill {
+  background-color: #F4FBFB;
+}

@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chiteroo</title>
+    <link href="layout.css" rel="stylesheet" type="text/css" >
   </head>
 
   <body>
+     <title>Chiteroo</title>
+    <div class = "fill" >
     <% if current_user %>
-      Hey <%= current_user.username %>!
+      <font> Hey <%= current_user.username %>! </font>
     <% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+    </div>
   </body>
 </html>
