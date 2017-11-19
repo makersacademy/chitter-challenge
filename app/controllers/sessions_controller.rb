@@ -1,5 +1,3 @@
-require 'dm-validations'
-
 class Chitter < Sinatra::Base
 
   post '/sessions' do
