@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    Post.create(title: params[:title], body: params[:body], inception: Time.now)
+    Post.create(user: current_user.username, title: params[:title], body: params[:body], inception: Time.now)
     redirect '/posts'
   end
 

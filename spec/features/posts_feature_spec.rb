@@ -13,6 +13,12 @@ feature 'posts' do
     submit_post_1
     expect(page).to have_content('Posted at 17:02:05 on 18-11-2017')
   end
+  scenario 'user name present on peeps' do
+    sign_up
+    sign_in
+    submit_post_1
+    expect(page).to have_content('Posted by Megadrive')
+  end
   # scenario 'posts appear in reverse chronological order' do
   #   submit_post_1
   #   submit_post_2

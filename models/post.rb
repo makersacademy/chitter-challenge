@@ -6,6 +6,7 @@ class Post
   include DataMapper::Resource
 
   property :id, Serial
+  property :user, String
   property :title, String
   property :body, Text
   property :inception, DateTime
