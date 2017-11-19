@@ -8,8 +8,8 @@ class User
 
   property :id, Serial
   property :name, Text
-  property :username, Text
-  property :email, Text
+  property :username, Text, required: true, unique: true
+  property :email, Text, required: true, unique: true
   property :password_digest, Text
   property :created_at, DateTime
   property :created_on, Date

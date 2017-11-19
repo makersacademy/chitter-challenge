@@ -33,4 +33,9 @@ feature "signing-up" do
     click_button "Sign-up"
     expect(User.all.count).to eq(0)
   end
+  scenario "doesn't let two users with the same email address sign-up" do
+    sign_up
+    sign_up
+    expect(User.all.count).to eq(1)
+  end
 end
