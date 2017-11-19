@@ -6,13 +6,14 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-migrations'
+gem 'dm-validations'
 gem 'dm-transactions'
 gem 'pg'
 gem 'rake'
 gem 'selenium-webdriver'
 gem 'sinatra'
 gem 'sinatra-flash'
-
+gem 'sinatra-partial'
 
 group :test do
   gem 'capybara'

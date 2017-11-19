@@ -1,14 +1,16 @@
+require 'dm-validations'
+
 class Chitter < Sinatra::Base
 
   post '/sessions' do
     @user = User.authenticate(params[:email], params[:password])
-      if @user
-        session[:user_id] = @user.id
-        redirect to('/tweets/new')
-      else
-        flash.now[:errors] = @user.errors.full_messages
-        erb :'users/new'
-      end
+    if @user
+      session[:user_id] = @user.id
+      redirect to('/tweets/new')
+    else
+      flash[:errors] = "Incorrect username or password"
+      erb :'sessions/new'
+    end
   end
 
   get '/sessions/new' do

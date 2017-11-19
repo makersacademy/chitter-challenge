@@ -14,8 +14,6 @@
   <input type='submit' value='Sign in'>
 </form>
 
-
-
-<% if flash[:sign_out] %>
-<%= flash[:sign_out] %></div>
+<% if flash[:errors] %>
+<%= flash.now[:errors] %>
 <% end %>

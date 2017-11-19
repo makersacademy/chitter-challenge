@@ -1,7 +1,8 @@
-<form action='/sessions/new' method='get'>
-  <input type='Submit' value='Sign In'>
-</form>
-
+<% if !current_user %>
+  <form action='/sessions/new' method='get'>
+    <input type='Submit' value='Sign In'>
+  </form>
+<% end %>
 
 <form action = '/users' method = 'post'>
   <label for='email'>
@@ -29,14 +30,4 @@
   </label>
 </form>
 
-
-
-
-<% if flash[:errors] && !flash[:errors].empty? %>
-Please refer to the following errors below:
-<ul id='errors'>
-  <% flash[:errors].each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-</ul>
-<% end %>
+<% flash[:error] %>

@@ -18,9 +18,4 @@ class Chitter < Sinatra::Base
       erb :'users/new'
     end
   end
-
-  get '/users' do
-    @email = session[:email]
-    erb :'users/email'
-  end
 end

@@ -4,7 +4,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = current_user
-    @tweets = Tweet.all
+    @tweets = Tweet.all(order: [:time.desc])
     erb :'tweets/index'
   end
 end
