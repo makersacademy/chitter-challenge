@@ -1,4 +1,4 @@
-def sign_up(email: 'tudor@yahoo.com', password: '12345678', password_confirmation: '12345678', name: "tudor", username: "tudorpp")
+def sign_up(email: 'tudor@yahoo.com', password: '12345', password_confirmation: '12345', name: "tudor", username: "tudorpp")
   visit('/users/new')
   expect(page.status_code).to eq(200)
   fill_in('email', with: email)
