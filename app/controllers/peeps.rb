@@ -19,4 +19,9 @@ class App < Sinatra::Base
       erb(:'peeps/new')
     end
   end
+
+  get '/peeps/:id' do |id|
+    peep = Peep.first(id: id)
+    peep ? erb(:'peeps/peeps', locals: { peeps: [peep] }) : status(404)
+  end
 end

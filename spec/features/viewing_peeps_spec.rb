@@ -18,3 +18,10 @@ feature 'Feature: viewing peeps' do
   end
 end
 
+feature 'Feature: view peep by id' do
+  scenario 'user views other user who exists' do
+    populate_peeps(10)
+    visit('/peeps/7')
+    expect(page.first(:xpath, '//div[@class="peep"]')).to have_content '6'
+  end
+end
