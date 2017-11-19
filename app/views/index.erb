@@ -1,0 +1,25 @@
+<html>
+  <h1> welcome to chitter! </h1>
+  <h2> to view current peeps - click below </h2>
+  <form action="/peeps" method="get">
+    <input type="submit" value="view peeps">
+  </form>
+
+  <h2> want to become a peep-pl person? sign up here: </h2>
+  <form action="/users/new" method="get">
+    <input type="submit" value="sign up">
+  </form>
+
+  <h2> already got an account? sing in below: </h2>
+  <form action="/users/sign-in" method="POST">
+    <label for="email">
+      email
+    <input type="text" value="email">
+  </label>
+  <label for="password">
+    password
+    <input type="text" value="password">
+    <label>
+    <input type="submit" value="sign in">
+  </form>
+</html>

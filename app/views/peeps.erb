@@ -6,6 +6,8 @@
   <% @peeps.each do |peep| %>
     <li>
          <%= peep.text   %>
+    |  peeped at   <%= peep.time_stamp %>
+
     </li>
   <% end %>
 </ul>

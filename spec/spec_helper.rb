@@ -1,5 +1,5 @@
 
-ENV['RACK_ENV'] = 'test'
+ENV['RACK_ENV'] = 'development'
 
 require './app/app.rb'
 require 'capybara'

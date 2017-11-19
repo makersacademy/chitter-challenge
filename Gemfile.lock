@@ -156,11 +156,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   cucumber
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-timestamps
   dm-transactions
   pg
   rake
