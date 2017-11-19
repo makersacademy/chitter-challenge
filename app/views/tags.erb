@@ -1,0 +1,11 @@
+<html>
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li> <%=peep.tags.map do |tag|
+            if tag.name == tag(:name=>:filter)
+              p "#{tag.name} #{tag.peeps}"
+            end%> </li>
+      <% end %>
+    <% end %>
+  </ul>
+</html>

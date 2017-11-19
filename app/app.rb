@@ -22,4 +22,13 @@ class Chitter < Sinatra::Base
     erb(:peep)
   end
 
+  post '/tags' do
+    params[:chosen_tag] = :filter
+    erb(:peep)
+  end
+
+  get "/tags/#{:filter}" do
+    @peeps = Tag.all(:name=>:filter).peeps
+    erb(:tags)
+  end
 end
