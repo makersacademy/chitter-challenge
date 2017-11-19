@@ -17,9 +17,9 @@ feature "Registration/sign_up" do
 end
 
 feature "Registration/sign_up with mismatch passwords" do
-  scenario "Fill in the form and see passwors mismatch" do
+  scenario "Fill in the form and see sign up form again" do
     sign_up_mismatch
-    expect(page).to have_content('Oops, your passwords don\'t match')
+    expect(page).to have_content('Sign up')
   end
 end
 

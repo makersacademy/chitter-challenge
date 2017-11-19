@@ -1,6 +1,6 @@
 def create_user_and_post_peeps
   user = User.create(name: 'example', email: 'example',
-    username:'Olegfkl', password: 'example')
+    username:'Olegfkl', password: 'example', password_confirmation: 'example')
   Peep.create(maker: user.username, body: 'first', user_id:  user.id)
   Peep.create(maker: user.username, body: 'second', user_id: user.id)
 end
