@@ -7,6 +7,7 @@ ruby '2.4.2'
   gem 'dm-postgres-adapter'
   gem 'sinatra'
   gem 'orderly'
+  gem 'sinatra-flash'
 
 group :test do
   gem 'cucumber'

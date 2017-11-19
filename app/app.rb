@@ -5,9 +5,11 @@ require 'sinatra/base'
 require './app/models/peep.rb'
 require './app/models/user.rb'
 require 'bcrypt'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
+    register Sinatra::Flash
   set :session_secret, 'super secret'
   helpers do
     def current_user
@@ -31,19 +33,21 @@ class Chitter < Sinatra::Base
 
   get '/signup' do
     erb(:signup)
+
   end
 
   post '/signup' do
-    user = User.create(name: params[:name],
+    user = User.new(name: params[:name],
                        email: params[:email],
                        username: params[:username],
                        password: params[:password],
                        password_confirmation: params[:password_confirmation])
+    if user.save
     session[:user_id] = user.id
-    if user.valid?
-      redirect '/welcome'
+    redirect '/welcome'
     else
-      redirect '/signup'
+      flash.now[:notice] = "Password and confirmation password do not match"
+      erb(:signup)
     end
   end
 

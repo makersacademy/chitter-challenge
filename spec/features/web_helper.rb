@@ -24,3 +24,8 @@ def sign_up_mismatch
   fill_in('password_confirmation', with: 'password')
   click_button 'Submit'
 end
+
+def post_a_peep
+  visit('/peeps')
+  fill_in('new_peep', with: 'Hello World')
+end

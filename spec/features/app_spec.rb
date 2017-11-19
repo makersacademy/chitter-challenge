@@ -26,8 +26,7 @@ end
 feature "Submit peep" do
   scenario "Fill in the form to send the peep and display it" do
     sign_up
-    visit('/peeps')
-    fill_in('new_peep', with: 'Hello World')
+    post_a_peep
     expect { click_button 'Post'}.to change(Peep, :count).by(1)
     expect(page).to have_content('Hello World')
   end

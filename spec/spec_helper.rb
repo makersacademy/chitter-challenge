@@ -8,6 +8,7 @@ require './app/app.rb'
 require './app/models/peep.rb'
 require 'orderly'
 require './spec/features/web_helper'
+require 'sinatra/flash'
 Capybara.app = Chitter
 
 
