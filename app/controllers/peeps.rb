@@ -10,7 +10,7 @@ class App < Sinatra::Base
   end
   
   post '/peeps' do
-    peep = Peep.new(content: params[:content], user_id: session[:user_id])
+    peep = Peep.new(content: params[:content], poster_id: session[:user_id])
     if peep.save
       redirect('/peeps')
     else

@@ -1,7 +1,7 @@
 def populate_peeps(number)
   sign_up
   number.times do |n| 
-    Peep.create(content: n.to_s, created_at: Time.now + n, user_id: 1)
+    Peep.create(content: n.to_s, created_at: Time.now + n, poster_id: 1)
   end
   visit('/peeps')
 end
