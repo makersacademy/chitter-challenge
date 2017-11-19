@@ -29,7 +29,6 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
-
   end
 
   get '/users' do
@@ -57,11 +56,15 @@ class Chitter < Sinatra::Base
   @user = User.authenticate(params[:email], params[:password])
     if @user
       session[:user_id] = @user.id
-      redirect to('/links')
+      redirect to('/tweets/new')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/log_in'
     end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
   get '/sessions/sign_out' do
