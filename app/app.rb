@@ -13,7 +13,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep' do
-    # Peep.create(text: session[:message], created_at: Time.now, user_id: 1)
     Peep.update(user_id: session[:id])
     @peeps = Peep.all
     @user = session[:name]
@@ -29,11 +28,6 @@ class Chitter < Sinatra::Base
     @user = User.create(name: params[:name], email: params[:email], password: params[:password])
     session[:name] = params[:name]
     session[:id] = @user.id
-
-    # p "DOES IT PEEP", session[:peep]
-    # p 'USER ID', User.id
-    # p 'METHODS',User.methods
-    # p "NAME", @name
     redirect '/peep'
   end
 
