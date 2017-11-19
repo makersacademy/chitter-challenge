@@ -1,17 +1,30 @@
 
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 text-center">
+      <form action="/signup/new">
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+    <div class="col-sm-4 text-center">
+      <form action="/sessions/new">
+        <input type="submit" value="Sign In">
+      </form>
+    </div>
+    <div class="col-sm-4 text-center">
+      <% if current_user %>
+      <form  action="/posts/new">
+        <input type="submit" value="New Peep!">
+      </form>
+      <% end %>
+    </div>
+  </div>
 <% @posts.each do |post| %>
-  <h3><%=post.title%></h3>
-  <h4>Posted by <%= post.user %></h4>
-  <p><%=post.body%></p>
-  <p><%=post.inception.strftime("Posted at %H:%M:%S on %d-%m-%Y")%></p>
-<% end %>
-<form action="/signup/new">
-  <input type="submit" value="Sign Up">
-</form>
-<% if current_user %>
-<form  action="/posts/new">
-  <input type="submit" value="New Peep!">
-</form>
+  <div class="container-fluid orange-bg">
+    <h3><%=post.title%></h3>
+    <h4>Posted by <%= post.user %></h4>
+    <p><%=post.body%></p>
+    <p><%=post.inception.strftime("Posted at %H:%M:%S on %d-%m-%Y")%></p>
+  </div>
 <% end %>
 </div>
