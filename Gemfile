@@ -11,6 +11,7 @@ group :test do
   gem 'cucumber'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'orderly'
   gem 'rake'
   gem 'rspec'
   gem 'rubocop'
