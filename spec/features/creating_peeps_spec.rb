@@ -8,9 +8,7 @@ feature "creating new peeps" do
     expect(page).to have_button "Post"
   end
   scenario "form submission creates a new peep with a message attribute" do
-    visit "/new_peep"
-    fill_in("peep", with: "This is a test peep")
-    click_button "Post"
+    post_peep
     last_peep = Peep.last
     expect(last_peep.message).to eq("This is a test peep")
   end
