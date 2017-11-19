@@ -41,13 +41,13 @@ class Chitter < Sinatra::Base
   end
 
   def email_user(id)
-    puts "You got tagged #{id}"
+    TagBossMan.call(User.first(id: id), Peep.last, User.first(id: session[:id]))
   end
 
 #Peep methods
   def create_peep(content)
-    check_for_tags(content)
     Peep.create(content: content, user_id: session[:id])
+    check_for_tags(content)
   end
 
   def load_peeps(username)
