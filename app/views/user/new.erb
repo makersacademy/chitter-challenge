@@ -1,5 +1,9 @@
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+
 <form action='/user/add' method='post'>
-  <input type='email' name='email' placeholder="Email:">
+  <input type='email' name='email' value='<%= @new_user.email %>' placeholder="Email:">
   <br>
   <br>
   <input type='password' name='password' placeholder="Password:">
@@ -8,10 +12,10 @@
   <input type='password' name='password_confirmation' placeholder="Confirm password:">
   <br>
   <br>
-  <input type='text' name='name' placeholder="Name:">
+  <input type='text' name='name' value='<%= @new_user.name %>' placeholder="Name:">
   <br>
   <br>
-  <input type='text' name='user_name' placeholder="User name:">
+  <input type='text' name='user_name' value='<%= @new_user.user_name %>' placeholder="User name:">
   <br>
   <br>
   <input type='submit' value='Sign up'>

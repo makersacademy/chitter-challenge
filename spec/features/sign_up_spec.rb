@@ -18,5 +18,7 @@ feature 'Sign up to Chitter' do
 
   scenario 'requires a matching confirmation password' do
     expect { sign_up(password_confirmation: 'wrongpassword') }.not_to change(User, :count)
+    expect(current_path).to eq('/user/add')
+    expect(page).to have_content 'Password and confirmation password do not match'
   end
 end
