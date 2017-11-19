@@ -23,4 +23,17 @@ feature 'Feature: peeping' do
         .to have_content 'some text'
     end
   end
+
+  context 'when including users' do
+    scenario 'tagging user that exists' do
+      sign_up(handle: 'otherexample', email: 'other@domain.com')
+      sign_up_and_peep(content: 'hello @otherexample')
+      expect(page).to have_content('hello @otherexample')
+    end
+
+    scenario 'tagging user that does not exist' do
+      sign_up_and_peep(content: 'hello @noone')
+      expect(page).to have_content 'Tagged user does not exist'
+    end
+  end
 end

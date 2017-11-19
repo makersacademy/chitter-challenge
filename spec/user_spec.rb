@@ -60,4 +60,15 @@ describe User do
       end
     end
   end
+
+  describe '#to_html' do
+    context 'when converting user to html' do
+      let(:user) { User.new(handle: 'handle') }
+
+      it 'wraps username in span tags and formats' do
+        expect(user.to_html)
+          .to eq '<a class="user" href="/users/handle">@handle</a>'
+      end
+    end
+  end
 end
