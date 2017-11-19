@@ -99,6 +99,7 @@ GEM
     parallel (1.12.0)
     parser (2.4.0.2)
       ast (~> 2.3)
+    pg (0.21.0)
     powerpack (0.1.1)
     public_suffix (3.0.1)
     rack (2.0.3)
@@ -162,6 +163,7 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   dm-transactions
+  pg
   rake
   rspec
   rubocop
