@@ -20,8 +20,22 @@ class App < Sinatra::Base
     end
   end
 
+  get '/peeps/users/:id' do |id|
+    user = User.first(id: id)
+    if user
+      erb(:'peeps/peeps', 
+          locals: { peeps: user.peeps, header: "Peeps by #{user.handle}" })
+    else
+      status(404)
+    end
+  end
+
   get '/peeps/:id' do |id|
     peep = Peep.first(id: id)
-    peep ? erb(:'peeps/peeps', locals: { peeps: [peep] }) : status(404)
+    if peep
+      erb(:'peeps/peeps', locals: { peeps: [peep], header: "Peep #{id}" })
+    else
+      status(404)
+    end
   end
 end

@@ -2,6 +2,7 @@ require 'data_mapper'
 
 class Peep
   include DataMapper::Resource
+  attr_accessor :tags, :users
 
   property :id, Serial
   property :content, Text, required: true
@@ -19,20 +20,20 @@ class Peep
   end
 
   def find_users(text)
-    handles(text).map { |h| User.first(handle: h[1..-1]) }
-  end
-
-  def find_tags(text)
-    tags(text).map { |t| Tag.first(name: t[1..-1]) }
+    pairs = handles(text).map { |h| [h, User.first(handle: h[1..-1])] }
+    @users = Hash[pairs]
   end
 
   def content=(text)
-    users = find_users(text)
-    return if users.select(&:nil?).count > 0
-    users.each { |u| Mention.new(user_id: u.id, peep_id: self.id) }
+    find_users(text)
+    return if users.select { |k, v| v.nil? }.count > 0
+    users.each do |k, v| 
+      Mention.new(user_id: v.id, peep_id: self.id)
+      text = text.gsub(k, v.to_html)
+    end
     super text
   end
-  
+
   private
 
   def strings_preceded_by(content, character)

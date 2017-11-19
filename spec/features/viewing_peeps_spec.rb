@@ -19,9 +19,31 @@ feature 'Feature: viewing peeps' do
 end
 
 feature 'Feature: view peep by id' do
-  scenario 'user views other user who exists' do
+  scenario 'user views peep by id' do
     populate_peeps(10)
     visit('/peeps/7')
     expect(page.first(:xpath, '//div[@class="peep"]')).to have_content '6'
+  end
+
+  scenario 'user views non-existent peep by id' do
+    populate_peeps(10)
+    visit('/peeps/11')
+    expect(page.status_code).to be 404
+  end
+end
+
+feature 'Feature: view peep by user handle' do
+  scenario 'user views other user who exists' do
+    populate_peeps(10)
+    click_button('Logout')
+    sign_up(handle: 'other', email: 'otherguy@domain.com')
+    peep(content: 'a peep')
+    visit('/peeps/users/2')
+    expect(page.first(:xpath, '//div[@class="peep"]')).to have_content 'a peep'
+  end
+
+  scenario 'user views non-existent peep by id' do
+    visit('/peeps/users/11')
+    expect(page.status_code).to be 404
   end
 end

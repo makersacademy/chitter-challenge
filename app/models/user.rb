@@ -34,6 +34,6 @@ class User
   end
 
   def to_html
-    "<a class=\"user\" href=\"/users/#{@handle}\">@#{@handle}</a>"
+    "<a class=\"user\" href=\"/peeps/users/#{@id}\">@#{@handle}</a>"
   end
 end
