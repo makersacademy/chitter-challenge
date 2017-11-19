@@ -6,12 +6,18 @@
     th { background-color: #33CEFF; color: white}
   </style>
 </head>
-  <% @peeps.each do |peep| %>
-    <table style='width:100%' >
+<body>
+  <table style='width:100%' >
     <tr>
       <th> Message </th>
+      <th> Date </th>
     </tr>
+    <% @peeps.each do |peep| %>
+    <tr>
       <td> <%= peep.message %> </td>
-    </table>
-  <% end %>
+      <td> <%= peep.created_at.strftime("Peeped on %m/%d/%Y at %I:%M%p") %> </td>
+    </tr>
+    <% end %>
+  </table>
+</body>
 </html>

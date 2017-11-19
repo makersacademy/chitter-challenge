@@ -9,6 +9,10 @@ class Peep
 
   property :id, Serial
   property :message, Text
+  property :created_at, DateTime
+  property :created_on, Date
+  property :updated_at, DateTime
+  property :updated_on, Date
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/peep_#{ENV['RACK_ENV']}")
