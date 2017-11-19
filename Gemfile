@@ -8,6 +8,7 @@ ruby '2.4.2'
   gem 'sinatra'
   gem 'orderly'
   gem 'sinatra-flash'
+  gem 'pg'
 
 group :test do
   gem 'cucumber'
