@@ -13,5 +13,9 @@ class App < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def maxpeeps
+      20
+    end
   end
 end

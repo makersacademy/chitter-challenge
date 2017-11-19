@@ -1,6 +1,8 @@
 class App < Sinatra::Base
   get '/peeps' do
-    erb(:'peeps/peeps', locals: { peeps: Peep.all })
+    peeps = Peep.all.sort { |a, b| b.created_at <=> a.created_at }
+      .first(maxpeeps)
+    erb(:'peeps/peeps', locals: { peeps: peeps })
   end
 
   get '/peeps/new' do
