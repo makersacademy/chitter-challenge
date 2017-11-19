@@ -33,7 +33,7 @@ Have fun playing around with the features :)
 Approach
 -------
 
-![](images/1.png)
+![](images/1.PNG)
 
 Initially, I sketched out how all the pages were going to connect to each other and in what order. Making Domain Models, allowed to order the features in which I had to do them and how the user would interact with the program.
 
