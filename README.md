@@ -1,6 +1,14 @@
 Chitter Challenge
 =================
 
+$ git clone https://github.com/tansaku/chitter_challenge
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
+
+!! show images of the app
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
