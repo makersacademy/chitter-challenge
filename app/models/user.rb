@@ -7,9 +7,9 @@ class User
 include DataMapper::Resource
 
   property :id, Serial
-  property :email, String#, :required => true, :format => :email_address, :unique => true
-  property :name, String#, :required => true
-  property :username, Text#, :required => true, :unique => true
+  property :email, String, :required => true, :format => :email_address, :unique => true
+  property :name, String, :required => true
+  property :username, Text, :required => true, :unique => true
   property :password_digest, Text
 
   attr_accessor :password_confirmation
@@ -18,7 +18,6 @@ include DataMapper::Resource
   has n, :tweets, :through => Resource
 
   validates_confirmation_of :password
-  # validates_confirmation_of :email #, :confirm => :email_repeated
 
   def password=(password)
   @password = password

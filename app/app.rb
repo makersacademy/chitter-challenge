@@ -10,7 +10,9 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    redirect '/users/new'
+    @user = current_user
+    @tweets = Tweet.all
+    erb :'tweets/index'
   end
 
   get '/users/new' do
@@ -19,6 +21,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
   @user = User.create(email: params[:Email],
+                  name: params[:Name],
                   username: params[:Username],
                   password: params[:Password],
                   password_confirmation: params[:Password_confirmation])
@@ -45,9 +48,7 @@ class Chitter < Sinatra::Base
       Tweet.create(text: params[:Tweet],
                   time: Time.now,
                   username: current_user.username)
-      p params[:Tweet]
-      p current_user
-
+      @user = current_user
       @tweets = Tweet.all(order: [:time.desc])
       erb :'tweets/index'
   end
@@ -59,7 +60,7 @@ class Chitter < Sinatra::Base
       redirect to('/tweets/new')
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :'users/log_in'
+      erb :'users/new'
     end
   end
 
@@ -69,7 +70,7 @@ class Chitter < Sinatra::Base
 
   get '/sessions/sign_out' do
     session[:user_id] = nil
-    flash[:sign_out] = 'Thanks for visting!'
+    flash.now[:sign_out] = 'Thanks for visting!'
     redirect '/sessions/new'
   end
 

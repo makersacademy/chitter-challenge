@@ -6,15 +6,17 @@
 
   <body>
     <% if current_user %>
-      Welcome, <%= current_user.email %>
+      Welcome, <%= current_user.username %>
     <% end %>
-    <% if flash[:notice] %>
+    <!-- <% if flash[:notice] %>
     <div id='notice'><%= flash[:notice] %></div>
+    <% end %> -->
+    <% if current_user %>
+      <form action='/sessions/sign_out' method='get'>
+        <input type='Submit' value='Sign Out'>
+      </form>  
     <% end %>
 
-  <form action='/sessions/sign_out' method='get'>
-    <input type='Submit' value='Sign Out'>
-  </form>
     <%= yield %>
   </body>
 </html>

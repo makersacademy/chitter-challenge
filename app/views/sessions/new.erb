@@ -1,3 +1,7 @@
+<form action='/users/new' method='get'>
+  <input type='Submit' value='Sign Up'>
+</form>
+
 <h1>Please log in</h1>
 
 <form action='/sessions' method='post'>
@@ -9,6 +13,8 @@
   </label>
   <input type='submit' value='Sign in'>
 </form>
+
+
 
 <% if flash[:sign_out] %>
 <%= flash[:sign_out] %></div>
