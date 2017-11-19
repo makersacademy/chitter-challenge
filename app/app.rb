@@ -21,25 +21,27 @@ class App < Sinatra::Base
   end
 
   post '/home' do
-    newpost = Post.new(title: params[:title],post: params[:post], name: params[:name])
+    newpost = Post.new(title: params[:title],post: params[:post],
+              name: params[:name])
     newpost.save
   redirect('/home')
  end
 
-  get '/newuser'do
+  get '/newuser' do
     erb(:newuser)
- end
+  end
 
-  post '/user' do
-    user = User.create(email: params[:email],username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect to('/')
+  post '/users' do
+   user = User.create(email: params[:email],username: params[:username],
+              password: params[:password])
+   session[:user_id] = user.id
+   redirect to('/home')
   end
 
   helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
-  end
+ def current_user
+   @current_user ||= User.get(session[:user_id])
+ end
+end
 
 end

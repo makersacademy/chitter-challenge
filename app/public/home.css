@@ -3,6 +3,29 @@ body {
   padding: 0 !important;
   background-color: #F4FBFB;
 }
+
+.button {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 21%;
+  left: 20%;
+  font-family: "Tahoma",serif;
+}
+
+.signuser {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 21%;
+  left: 37%;
+  font-family: "Tahoma",serif;
+}
+
 .circle {
 	width: 100px;
 	height: 100px;
@@ -48,16 +71,6 @@ p {
   line-height: 20%;
   font-family: "Tahoma", serif;
   font-size: 10px;
-}
-
-.button {
-  border: none;
-  padding: 15px 52px;
-  position:absolute;
-  transition: .5s ease;
-  top: 20%;
-  left: 43%;
-  font-family: "Tahoma",serif;
 }
 
 .text {
