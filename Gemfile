@@ -9,12 +9,12 @@ ruby '2.4.2'
   gem 'orderly'
   gem 'sinatra-flash'
   gem 'pg'
+  gem 'rake'
 
 group :test do
   gem 'cucumber'
   gem 'capybara'
   gem 'rspec'
-  gem 'rake'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
