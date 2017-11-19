@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
     erb :'peeps/new'
   end
 
-  post'/peeps/index' do
+  post '/peeps/index' do
     session[:content] = params[:content]
     redirect '/peeps'
   end
@@ -15,6 +15,5 @@ class Chitter < Sinatra::Base
     @content = session[:content]
     erb :'peeps/index'
   end
-
 
 end
