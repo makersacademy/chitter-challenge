@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<style>
+body {
+  background-color: white;
+  background-image: url(http://images.veerle.duoh.com/uploads/inspiration-images/first-lg-big.jpg);
+  background-size: 1200px 700px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#tittle{
+  position: absolute;
+  text-align: center;
+  height: 120px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  color: tomato;;
+  font-family: "Brush Script MT", cursive;
+  font-size: 80px;
+}
+#error_tittle{
+  position: absolute;
+  top: 280px;
+  text-align: center;
+  height: 120px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  color: tomato;;
+  font-family: "Brush Script MT", cursive;
+  font-size: 30px;
+}
+#home{
+  position: absolute;
+  left: 270px;
+  top: 200px;
+  text-align: center;
+  height: 100px;
+  width: 500px;
+  border: none;
+  text-align: center;
+  display: inline-block;
+}
+
+#signin{
+  position: absolute;
+  top: 160px;
+  text-align: center;
+  width: 100%;
+  border: none;
+  text-align: center;
+  display: inline-block;
+}
+
+input[type=submit] {
+  color: tomato;
+  font-family: "Brush Script MT", cursive;
+  font-size: 20px;
+  width: 70px;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+  border: medium solid tomato;
+  }
+
+input[type=email] {
+  color: tomato;
+  font-family: "Impact";
+  font-size: 20px;
+  width: 200px;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+  border: medium solid tomato;
+  text-align: center;
+  }
+
+input[type=password] {
+  color: tomato;
+  font-family: "Impact";
+  font-size: 20px;
+  width: 200px;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+  border: medium solid tomato;
+  text-align: center;
+}
+
+#errors{
+  position: absolute;
+  left: 420px;
+  top: 320px;
+  text-align: center;
+  height: 100px;
+  width: 200px;
+  border: none;
+  text-align: left;
+  overflow: scroll;
+  color: white;
+  font-family: "Brush Script MT";
+  font-size: 15px;
+  background-color: black;
+  border: medium solid grey;
+}
+
+</style>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <h4 id='error_tittle'>Check this errors:</h4>
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <h1 id='tittle'>Please sign in</h1>
+    <div id='signin'>
+      <form action='/sessions' method='post'>
+        <label for='email'>
+          <input name='email' type='email' placeholder="ENTER EMAIL">
+        </label>
+        <label for='password'>
+          <input name='password' type='password' placeholder="ENTER PASSWORD">
+        </label>
+        <input type='submit' value='Sign in!'>
+      </form>
+    </div>
+    <div id='home'>
+      <form action='/'>
+          <input type='submit' value='Home'>
+      </form>
+    </div>
+  </body>
+</html>
