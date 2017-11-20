@@ -9,12 +9,12 @@ or
 
 2)
 
-$ git clone https://github.com/rorybot/chitter-challenge/
-$ bundle
-$ createdb chitter_development
-$ rake auto_migrate
-$ rspec
-$ rackup
+- $ git clone https://github.com/rorybot/chitter-challenge/
+- $ bundle
+- $ createdb chitter_development
+- $ rake auto_migrate
+- $ rspec
+- $ rackup
 
 Approach
 ========
