@@ -7,7 +7,7 @@ ruby '2.4.2'
   gem 'dm-migrations'
   gem 'json','~>1.6'
   gem 'shotgun'
-
+  gem 'bcrypt'
 
 group :test do
   gem 'capybara'

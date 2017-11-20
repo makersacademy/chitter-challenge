@@ -1,13 +1,30 @@
-<img src="/images/chitter.png" height=100 />
-<h1> Welcome back Jamie Lem! </h1>
+<style>
+
+.logo {
+background-image: url(https://raw.githubusercontent.com/ethicalDev/chitter-challenge/master/public/images/chitter.png);
+background-repeat:no-repeat;
+/*height:200;*/
+background-size: 40%;
+}
+/*.logo{
+  background-image: url("/public/images/chitter.png");
+  height:200px;
+}*/
+</style>
+<div class='logo'>
+</div>
+
+<!-- <img src="/images/chitter.png" height=100 > -->
+
+<h1> Welcome back <%= @email %> </h1>
 
 <form action = '/peep_post' method = 'post'>
   <label for='Subject'>
     Subject
-  <input type = 'text' name = 'Subject'>
+  <input type = 'text' name = 'Subject' required >
   <label for='peep_message'>
     Peep Peep!
-  <input type = 'text' name = 'peep_message'>
+  <input type = 'text' name = 'peep_message' required >
   <label for='Peep away!'>
   Ready to Peep??
   <input type = 'submit' value = 'Peep away!'>
