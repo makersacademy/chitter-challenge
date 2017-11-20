@@ -1,0 +1,7 @@
+<h2>All peeps by <%= @user.username %></h2>
+
+<% @user.posts.each do |post| %>
+<h3><%=post.title%></h3>
+<p><%=post.body%></p>
+<p><%=post.inception.strftime("Posted at %H:%M:%S on %d-%m-%Y")%></p>
+<% end %>
