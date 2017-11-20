@@ -1,10 +1,13 @@
-require 'simplecov'
-require 'simplecov-console'
+ENV['RACK_ENV'] = 'test'
+
+require_relative '../app'
+require_relative '../models/peep'
 require 'capybara'
 require 'capybara/rspec'
+require 'database_cleaner'
+require 'simplecov'
+require 'simplecov-console'
 require 'rspec'
-
-ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
