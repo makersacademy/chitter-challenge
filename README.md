@@ -96,6 +96,7 @@ lewis=> CREATE DATABASE chitter_test
 CREATE DATABASE
 
 lewis=> CREATE DATABASE chitter_development
+CREATE DATABASE
 
 lewis=> \l
                                            List of databases
@@ -112,13 +113,6 @@ lewis=> \l
 ```
 
  You can then run `rackup` to start the local server and Following this navigate to your browser of choice and enter your the port on which you are hosting. If this doesn't work you may need to run `rake db:auto_migrate` in the terminal to generate your User and Post tables.
-
-<div width="600px">
-	<a>
-		<img src="" width="600px" height="420px" />
-	</a>
-</div>
-
 
 # <a name="technologies">Technologies</a>
 
