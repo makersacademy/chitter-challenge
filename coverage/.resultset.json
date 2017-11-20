@@ -1,0 +1,22 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/evadinckel/Projects/chitter-challenge/spec/features/creating_peep_spec.rb": [
+        1,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/evadinckel/Projects/chitter-challenge/spec/features/peeps_spec.rb": [
+        null
+      ]
+    },
+    "timestamp": 1511116835
+  }
+}
