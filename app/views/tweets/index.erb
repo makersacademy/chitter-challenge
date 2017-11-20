@@ -1,0 +1,21 @@
+<title>Welcome to Chitter</title>
+
+<% if !current_user %>
+  <form action='/sessions/new' method='get'>
+    <input type='Submit' value='Sign In'>
+  </form>
+    <br>
+  <form action='/users/new' method='get'>
+    <input type='Submit' value='Sign Up'>
+  </form>
+<% end %>
+
+<ul id='tweets'>
+  <% @tweets.each do |tweet| %>
+    <li>
+      <%= tweet.username %> <br>
+      <%= tweet.time.strftime("%I:%M %p") %> <br>
+      <%= tweet.text %> <br>
+    </li>
+  <% end %>
+</ul>
