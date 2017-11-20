@@ -159,6 +159,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   cucumber
   data_mapper
   database_cleaner
