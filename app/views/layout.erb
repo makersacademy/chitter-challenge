@@ -45,12 +45,17 @@
 
     .container-fluid {
       max-width: 800px;
-      margin-top: 50px;
+      border-radius: 5px;
+    }
+
+    .title {
+      background-color: #E37222;
       border-radius: 5px;
     }
 
     .peep {
       background-color: #E37222;
+      margin-top: 50px;
       border-radius: 5px;
     }
 
@@ -59,7 +64,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-offset-8 col-sm-4 text-center peep">
+        <div class="col-sm-offset-8 col-sm-4 text-center title">
           <h1>Chitter</h1>
           <% if current_user %>
             <h5>Logged in as <%=current_user.username%></h5>
