@@ -1,0 +1,99 @@
+<%if current_user %>
+<h1>My profile</h1>
+<p> Username: <%= current_user.username %></p>
+<p> Email: <%= current_user.email %> </p>
+<p>Number of peeps <%= current_user.peeps.count %></p>
+<p>Recent peeps: <% current_user.peeps.reverse.each do |peep| %> </p>
+<table class="redTable">
+<thead>
+<tr>
+<th><%= peep.maker %></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><%= peep.body %></td></tr>
+<tr>
+<td>Sent on: <%= peep.created_at.strftime('%c') %></td></tr>
+</tbody>
+</tr>
+</table>
+<%end%>
+<form action='/peeps' method="post">
+    <input type='text' name='new_peep' placeholder="Your new peep...">
+  <input type='submit' value='Post'>
+</form>
+<%end%>
+
+
+
+<h1>All peeps</h1>
+
+<% @peeps.reverse.each do |peep| %>
+<table class="redTable">
+<thead>
+<tr>
+<th><%= peep.maker %></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><%= peep.body %></td></tr>
+<tr>
+<td>Sent on: <%= peep.created_at.strftime('%c') %></td></tr>
+</tbody>
+</tr>
+</table>
+<%end%>
+
+
+<style>
+table.redTable {
+  border: 0px solid #000000;
+  background-color: #E9EEEE;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.redTable td, table.redTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.redTable tbody td {
+  font-size: 14px;
+  color: #1E332F;
+}
+table.redTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.redTable thead {
+  background: #A09CA4;
+  background: -moz-linear-gradient(top, #b8b5bb 0%, #a9a6ad 66%, #A09CA4 100%);
+  background: -webkit-linear-gradient(top, #b8b5bb 0%, #a9a6ad 66%, #A09CA4 100%);
+  background: linear-gradient(to bottom, #b8b5bb 0%, #a9a6ad 66%, #A09CA4 100%);
+}
+table.redTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #D0E4F5;
+}
+table.redTable thead th:first-child {
+  border-left: none;
+}
+
+table.redTable tfoot td {
+  font-size: 14px;
+}
+table.redTable tfoot .links {
+  text-align: right;
+}
+table.redTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+</style>

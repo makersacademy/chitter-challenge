@@ -1,0 +1,32 @@
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title> sign up form</title>
+  <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
+
+
+
+      <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+  <h1>Sign up</h1><br/>
+
+
+<form action="/signup" method="post">
+  <input name="name" type="text" placeholder="Full name"><br />
+  <input name="username" type="text" placeholder="Username"><br />
+  <input name="email" type="text" placeholder="Email"><br />
+  <input name="password" type="text" placeholder="Password"><br />
+  <input name="password_confirmation" type="text" placeholder="Confirm password"><br />
+  <input type="submit" value="Submit"><br />
+</form>
+</body>
+</html>
