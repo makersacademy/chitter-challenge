@@ -3,7 +3,7 @@
 </div>
 
 <% @user.posts.each do |post| %>
-<div class="container-fluid orange-bg">
+<div class="container-fluid peep">
   <h3><%=post.title%></h3>
   <p><%=post.body%></p>
   <p><%=post.inception.strftime("Posted at %H:%M:%S on %d-%m-%Y")%></p>

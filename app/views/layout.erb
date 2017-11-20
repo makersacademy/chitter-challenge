@@ -27,6 +27,8 @@
 
     body {
       background-color: #07889B;
+      padding-top: 50px;
+      padding-bottom: 50px;
     }
 
     h1 {
@@ -47,7 +49,7 @@
       border-radius: 5px;
     }
 
-    .orange-bg {
+    .peep {
       background-color: #E37222;
       border-radius: 5px;
     }
@@ -57,7 +59,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-offset-8 col-sm-4 text-center orange-bg">
+        <div class="col-sm-offset-8 col-sm-4 text-center peep">
           <h1>Chitter</h1>
           <% if current_user %>
             <h5>Logged in as <%=current_user.username%></h5>

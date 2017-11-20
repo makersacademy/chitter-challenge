@@ -6,11 +6,13 @@
         <input type="submit" value="Sign Up">
       </form>
     </div>
+
     <div class="col-sm-4 text-center">
       <form action="/sessions/new">
         <input type="submit" value="Sign In">
       </form>
     </div>
+
     <div class="col-sm-4 text-center">
       <% if current_user %>
       <form  action="/posts/new">
@@ -19,12 +21,14 @@
       <% end %>
     </div>
   </div>
-<% @posts.each do |post| %>
-  <div class="container-fluid orange-bg">
-    <h3><%=post.title%></h3>
-    <h4>Posted by <a id="user peeps" href="/<%= post.user.username %>"><%= post.user.username %></h4></a>
-    <p><%=post.body%></p>
-    <p><%=post.inception.strftime("Posted at %H:%M:%S on %d-%m-%Y")%></p>
-  </div>
-<% end %>
+
+  <% @posts.each do |post| %>
+    <div class="container-fluid peep">
+      <h3><%=post.title%></h3>
+      <h4>Posted by <a id="<%= post.user.username %>" href="/<%= post.user.username %>"><%= post.user.username %></h4></a>
+      <p><%=post.body%></p>
+      <p><%=post.inception.strftime("Posted at %H:%M:%S on %d-%m-%Y")%></p>
+    </div>
+  <% end %>
+
 </div>
