@@ -1,0 +1,23 @@
+
+<div class="container">
+  <div class="text-center col-md-4 offset-md-4">
+    <h1 class="display-4"> <%= @user.username %> </h1>
+  </div>
+
+  <div class="col-md-6 offset-md-3">
+    <% @user.peeps.each do |peep| %>
+    <div class="each-peep">
+      <%= peep.text %>
+      <span class="added-info">
+      <%= peep.added.strftime("%I:%M %p %d/%m/%y") %>
+      </span>
+      <% if current_user && current_user.id == peep.user.id %>
+        <form action="/peeps?id=<%= peep.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button class="delete-button btn btn-danger" type="submit" value="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </form>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

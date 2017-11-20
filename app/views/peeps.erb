@@ -1,0 +1,53 @@
+
+<div class="container">
+  <div class="text-center col-md-4 offset-md-4">
+    <h1 class="display-2">chitter.</h1>
+  </div>
+  <% if flash[:goodbye] %>
+  <div class="text-center col-md-8 offset-md-2">
+    <h3 class="greeting"> <%= "Goodbye, #{flash[:goodbye]}!" %> </h3>
+  </div>
+  <% end %>
+
+  <% if !current_user %>
+    <div class="text-center col-md-6 offset-md-3">
+      <h4 class="greeting"><a href="/sessions/new">Login</a> or <a href="/users/new">sign up</a> to start peeping!</h4>
+    </div>
+  <% end %>
+    <% if current_user %>
+    <div class="text-center col-md-8 offset-md-2">
+      <h3 class="greeting"> Hello, <%= current_user.username %>! </h3>
+    </div>
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group">
+        <form action="/peeps" method="post">
+          <textarea class="form-control" name="peep"></textarea>
+          <div id="peep-button" >
+            <input class="btn btn-outline-primary btn-lg btn-block" type="submit" value="Peep!">
+          </div>
+        </form>
+      </div>
+    </div>
+    <% end %>
+
+
+  <div id="all-peeps" class="col-md-6 offset-md-3">
+    <% @peeps.each do |peep| %>
+      <div class="each-peep">
+        <%= peep.text %>
+        <span class="added-info">
+        <%= peep.added.strftime("%I:%M %p %d/%m/%y") %> by
+        <a href="/<%=peep.user.username%>">
+         <%= peep.user.username %>
+       </a>
+     </span>
+     <% if current_user && current_user.id == peep.user.id %>
+       <form action="/peeps?id=<%= peep.id %>" method="post">
+         <input type="hidden" name="_method" value="delete">
+         <button class="delete-button btn btn-danger" type="submit" value="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+       </form>
+     <% end %>
+   </div>
+    <% end %>
+  </div>
+</div>
