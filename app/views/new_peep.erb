@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+
+<html>
+  <% if current_user %>
+  <form action='/save_peep' method='post'>
+    Peep: <input type='text' name='peep' placeholder='write your new peep' /> <br />
+    <input type='submit' value='Post' />
+  </form>
+  <% end %>
+</html>

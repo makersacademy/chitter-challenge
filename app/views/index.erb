@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table, th, td { border: 1px solid black }
+    th { background-color: #33CEFF; color: white; font-family: Trebuchet MS, sans-serif}
+    button {
+    margin-left: 0;
+    font-size: 20px;
+    border-radius: 0 0.6em 0.6em 0;
+    background-color: #aef;
+    font-family: Trebuchet MS, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <% unless current_user %>
+  <form action="/user/new">
+    <button name="sign-up"> Sign-up </button>
+  </form>
+  <br />
+  <form action="/session/new">
+    <button name="sign-in"> Sign-in </button>
+  </form>
+  <br />
+  <% end %>
+  <% if current_user %>
+  <h4>Welcome <%= current_user.username %>! </h4>
+  <form action="/peeps/new">
+    <button name="new_peep"> New Peep </button>
+  </form>
+  <form method="post" action="/session">
+    <input type='hidden' name='_method' value='delete'>
+    <button name="sign-out"> Sign-out </button>
+  </form>
+  <% end %>
+  <br />
+  <table style='width:100%' >
+    <tr>
+      <th> Message </th>
+      <th> Date </th>
+      <th> User </th>
+    </tr>
+    <% @peeps.each do |peep| %>
+    <tr>
+      <td> <%= peep.message %> </td>
+      <td> <%= peep.created_at.strftime("Peeped on %m/%d/%Y at %I:%M%p") %> </td>
+      <td> @<%= User.get(peep.user_id).username %> </td>
+    </tr>
+    <% end %>
+  </table>
+</body>
+</html>
