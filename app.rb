@@ -5,8 +5,8 @@ require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 require 'bcrypt'
 
-# Chitter_challenge
 class Chitter < Sinatra::Base
+  
   use Rack::MethodOverride
   enable :sessions
   set :session_secret, '79P9aEuZpNpqqD+ndQTYfaeE+aI='
@@ -56,7 +56,10 @@ class Chitter < Sinatra::Base
 
   post '/post' do
     time = Time.now.asctime
-    Peep.create(message: params[:peep], user_id: current_user.id, time: time)
+    user = current_user
+    peep = Peep.create(message: params[:peep], time: time)
+    user.peeps << peep
+    user.save
     redirect '/users'
   end
 

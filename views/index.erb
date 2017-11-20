@@ -105,28 +105,24 @@
   </head>
 
   <body>
-
     <h1 id='tittle'>Chitter</h1>
-
-      <h2 id='last_peeps'> Last peeps:</h2>
-      <div id='peeps'>
-        <ul>
-          <% @peeps.each do |peep| %>
-            <li><%=User.get(peep.user_id).username%>: '<%=peep.message%>' --> <%=peep.time%></li>
-          <% end %>
-        </ul>
+    <h2 id='last_peeps'> Last peeps:</h2>
+    <div id='peeps'>
+      <ul>
+        <% @peeps.each do |peep| %>
+          <li><%=peep.user.username%>: '<%=peep.message%>' --> <%=peep.time%></li>
+        <% end %>
+      </ul>
     </div>
     <div id='signup'>
-
-        <form action='/users/new'>
-          <input type='submit' value='Sign up!'>
-        </form><br>
-        </div>
-        <div id='login'>
-        <form action='/sessions/new'>
-          <input type='submit' value='Log in!'>
-        </form><br>
-        </div>
-
+      <form action='/users/new'>
+        <input type='submit' value='Sign up!'>
+      </form><br>
+    </div>
+    <div id='login'>
+      <form action='/sessions/new'>
+        <input type='submit' value='Log in!'>
+      </form><br>
+    </div>
   </body>
 </html>

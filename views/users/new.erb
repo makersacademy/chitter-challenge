@@ -131,32 +131,32 @@ input[type=submit] {
     <% if flash[:errors] && !flash[:errors].empty? %>
       <h4 id='error_tittle'>Check this errors:</h4>
       <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
       </ul>
     <% end %>
     <h1 id='tittle'>Please sign up</h1>
       <div id='signup'>
-      <form action = '/users/new' method = 'post'>
-        <label for='name'>
-          <input type = 'text' name = 'name' value = '<%= @user.name %>'placeholder="ENTER NAME"><br><br>
-        </label>
-        <label for='email'>
-          <input type = 'email' name = 'email' value = '<%= @user.email %>' placeholder="ENTER EMAIL" required><br><br>
-        </label>
-        <label for='username'>
-          <input type = 'text' name = 'username' value = '<%= @user.username %>' placeholder="ENTER USERNAME"><br><br>
-        </label>
-        <label for='password'>
-          <input type = 'text' name = 'password' placeholder="ENTER PASSWORD"><br><br>
-        </label>
-        <label for='password_confirmation'>
-          <input type = 'password' name = 'password_confirmation' placeholder="ENTER PASSWORD"><br><br>
-        </label>
-        <input type = 'submit' value = 'Sign up!'>
-      </form>
-    </div>
+        <form action = '/users/new' method = 'post'>
+          <label for='name'>
+            <input type = 'text' name = 'name' value = '<%= @user.name %>'placeholder="ENTER NAME"><br><br>
+          </label>
+          <label for='email'>
+            <input type = 'email' name = 'email' value = '<%= @user.email %>' placeholder="ENTER EMAIL" required><br><br>
+          </label>
+          <label for='username'>
+            <input type = 'text' name = 'username' value = '<%= @user.username %>' placeholder="ENTER USERNAME"><br><br>
+          </label>
+          <label for='password'>
+            <input type = 'text' name = 'password' placeholder="ENTER PASSWORD"><br><br>
+          </label>
+          <label for='password_confirmation'>
+            <input type = 'password' name = 'password_confirmation' placeholder="ENTER PASSWORD"><br><br>
+          </label>
+          <input type = 'submit' value = 'Sign up!'>
+        </form>
+      </div>
     <div id='home'>
       <form action='/'>
           <input type='submit' value='Home'>
