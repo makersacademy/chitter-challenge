@@ -1,0 +1,12 @@
+Welcome <%= @user %>
+
+<form action='/post_peep' method='post'>
+  <input type='text' name='message'>
+  <input type='submit' value='Submit'>
+</form>
+
+<% @peeps.reverse.each do |peep|  %>
+  <b>Message:</b> <%= peep.text %>
+<br>
+  <b>Time:</b> <%= peep.created_at   %>
+<% end %>
