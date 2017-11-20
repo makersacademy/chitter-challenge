@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <title> Chitter </title>
+  </head>
+
+  <div>
+      <h1> Latest Peeps </h1>
+
+    <% if @current_user %>
+      <h3> Welcome <%= @current_user.username %>! </h3>
+      <p> Update your friends.  Write a new peep! </p>
+      <form action="goto/peeps/new" method="get">
+        <input type="submit" name="new_peep" value="New Peep">
+      </form>
+      <p> Not <%= @current_user.username %>? Sign out below </p>
+      <form action="/users/sign_out" method="post">
+        <input type="submit" name="sign_out" value="Sign out">
+      </form>
+    <% else %>
+    <p> Already have an account? Sign in below. </p>
+      <form action="/goto/users/sign_in" method="get">
+        <input type="submit" name="sign_in" value="Sign In">
+      </form>
+    <p> Don't have an account yet? Sign up now! </p>
+      <form action="/goto/users/new" method="get">
+        <input type="submit" name="sign_up" value="Sign Up">
+      </form>
+    <% end %>
+
+  </div>
+
+  <body>
+    <div>
+      <div>
+        <ul>
+          <% @peeps.reverse_each do |peep_item| %>
+            <li>
+              @<%= peep_item.username %> <br>
+              <%= peep_item.message %> <br>
+              Time: <%= peep_item.time %>
+            </li>
+            <br>
+          <% end %>
+        </ul>
+      </div>
+    <div>
+  </body>
+</html>
