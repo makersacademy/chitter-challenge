@@ -1,0 +1,35 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Error:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action='/user/add' method='post'>
+  <input type='email'  name='email' placeholder="Email:" value='<%= @new_user.email %>' required>
+  <br>
+  <br>
+  <input type='password' name='password' placeholder="Password:">
+  <br>
+  <br>
+  <input type='password' name='password_confirmation' placeholder="Confirm password:">
+  <br>
+  <br>
+  <input type='text' name='name' value='<%= @new_user.name %>' placeholder="Name:">
+  <br>
+  <br>
+  <input type='text' name='user_name' value='<%= @new_user.user_name %>' placeholder="User name:">
+  <br>
+  <br>
+  <input type='submit' value='Sign up'>
+</form>
+
+<br>
+<br>
+<br>
+<br>
+<form action='/home' method='get'>
+  <input type='submit' value="Home">
+</form>

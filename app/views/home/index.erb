@@ -1,0 +1,33 @@
+<% if current_user %>
+  <h1> Welcome, <%= @user.user_name %>!</h1>
+<% end %>
+
+<h2> Peeps </h2>
+
+<form action='/peep/new' method='POST'>
+  <label for='new_peep_box'>
+    <input type='text' name='new_peep_box' placeholder='Enter new peep:' />
+  </label>
+  <input type='submit' value='Create Peep'>
+</form>
+
+<div id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <div>
+      <% unless User.get(peep.user_id).nil? %>
+        <% user_name = User.get(peep.user_id) %>
+        <%= user_name.user_name %>: <%= peep.message %>
+        <br>
+        <% unless peep.datetime.nil? %>
+          <%= peep.datetime.strftime(" %I:%M %p ") %>
+          <%= peep.datetime.strftime(" %d-%b-%Y ") %>
+        <% end %>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
+</div>
+
+<form action='/user' method='get'>
+  <input type='submit' value="User">
+</form>
