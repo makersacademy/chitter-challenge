@@ -1,0 +1,30 @@
+<h1>Welcome to Chitter</h1>
+
+<form action='/sign_up' method='get'>
+  <div class='button'>
+    <button type='submit'>Sign Up</button>
+  </div>
+</form>
+
+<form action='/sign_in' method='get'>
+  <div class='button'>
+    <button type='submit'>Sign In</button>
+  </div>
+</form>
+
+<article>
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+</article>
+
+<article>
+  <h3>Users:</h3>
+    <% session[:users] && session[:users] .each do |username| %>
+      <div id='user_link'>
+      <a href='user/<%= username %>'><%= username %></a>
+      </div>
+    <% end %>
+</article>

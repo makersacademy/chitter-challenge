@@ -1,0 +1,25 @@
+<form action='/check_sign_in' method='post'>
+  <div>
+    <label for='email'>Email:</label>
+    <input type='email' name='email' value='<%= session[:email] %>'>
+  </div>
+  <div>
+    <label for='password'>Password:</label>
+    <input type='password' name='password'>
+  </div>
+  <div class='button'>
+    <button type='submit'>Sign In</button>
+  </div>
+</form>
+
+<form action='/' method='get'>
+  <div class='button'>
+    <button type='submit'>Cancel</button>
+  </div>
+</form>
+
+<% session[:errors] && session[:errors].each do |error| %>
+  <div>
+    <%= error %><br>
+  </div>
+<% end %>

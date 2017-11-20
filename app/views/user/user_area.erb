@@ -1,0 +1,25 @@
+<h1>Welcome  <%= current_user %></h1>
+
+<form action='/new_peep' method='get'>
+  <div class='button'>
+    <button type='submit'>New Peep</button>
+  </div>
+</form>
+
+<form method='post' action='/sign_out'>
+  <input type='hidden' name='_method' value='delete'>
+  <div class='button'>
+    <button type='submit'>Sign Out</button>
+  </div>
+</form>
+
+<% session[:peeps] && session[:peeps].each do |peep| %>
+  <article>
+    <p><%= peep[0] %></p>
+    <footer>
+      <p><small>
+      Peeped by @<%= username %> on <%= peep[1] %> at <%= peep[2] %>
+      </small></p>
+    </footer>
+  </article>
+<% end %>

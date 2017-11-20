@@ -1,0 +1,39 @@
+
+App
+  app.rb
+  server.rb
+  helpers.rb
+  Controllers
+    home.rb
+    sessions.rb
+    sign_up.rb
+    sign_in.rb
+    user_area.rb
+  Models
+    user.rb
+    chitter.rb
+    tag.rb
+  Views
+    Home.erb
+    User_area.erb
+    chitter.erb
+    new_chitter.erb
+    _flash.erb
+    _welcome.erb
+
+Spec
+  spec_helper.rb
+  Features
+    Home.erb
+    User_area_spec.erb
+    chitter_spec.erb
+    new_chitter_spec.erb
+    _flash_spec.erb
+    _welcome_spec.erb
+  Helpers
+    sessions.rb
+  Models
+    user_spec.rb
+    chitter_spec.rb
+    tag_spec.rb
+

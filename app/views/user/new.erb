@@ -1,0 +1,37 @@
+<form action='/register_user' method='post'>
+  <div>
+    <label for='name'>Name:</label>
+    <input type='text' name='name' value='<%= session[:name] %>'>
+  </div>
+  <div>
+    <label for='username'>Username:</label>
+    <input type='text' name='username' value='<%= session[:username] %>'>
+  </div>
+  <div>
+    <label for='email'>Email:</label>
+    <input type='email' name='email' value='<%= session[:email] %>'>
+  </div>
+  <div>
+    <label for='password'>Password:</label>
+    <input type='password' name='password'>
+  </div>
+  <div>
+    <label for='password_password'>Confirm Password:</label>
+    <input type='password' name='password_confirmation'>
+  </div>
+  <div class='button'>
+    <button type='submit'>Sign Up</button>
+  </div>
+</form>
+<div>
+<form action='/' method='get'>
+  <div class='button'>
+    <button type='submit'>Cancel</button>
+  </div>
+</form>
+
+<% session[:errors] && session[:errors].each do |error| %>
+  <div>
+    <%= error %>
+  </div>
+<% end %>
