@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Peeps</title>
+  </head>
+  <body>
+    <h1>Your Peeps </h1><br>
+    <%= @user[-1].email %>
+    <% @peep.reverse.each do |peep|%>
+    <%= peep.time + "\n" + peep.message %> <br>
+    <% end %>
+  </body>
+</html>
