@@ -27,8 +27,18 @@ post '/users' do
 end
 
 post '/users/sign-in' do
-  user = User.first(email: params[:email], password: params[:password])
+  user = User.authenticate(params[:email], params[:password])
+if user
   session[:user_id] = user.id
+  redirect to('/peeps')
+else
+  flash.now[:errors] = ['sorry, your login details are incorrect, please try again']
+  erb(:index)
+end
+
+get '/users/sign-out' do
+
+
 end
 
 get '/newpeep' do
@@ -53,6 +63,6 @@ helpers do
 end
 
 end
-
+end
 
 DataMapper.finalize

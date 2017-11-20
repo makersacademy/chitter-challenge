@@ -2,6 +2,11 @@
 <html>
 <h1> peeps </h1>
 
+<h2>   <form action="/users/sign-out" method="get">
+    <input type="submit" value="sign out">
+  </form>
+
+
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
