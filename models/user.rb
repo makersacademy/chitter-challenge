@@ -3,6 +3,7 @@ require 'dm-postgres-adapter'
 require 'dm-migrations'
 require 'dm-validations'
 require 'bcrypt'
+require_relative './data_mapper_setup'
 
 class User
   include DataMapper::Resource
@@ -15,6 +16,8 @@ class User
   property :encrypted_password, Text
   property :name, String
   property :username, String
+
+  has n, :posts
 
   def password=(password)
     @password = password

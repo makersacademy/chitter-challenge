@@ -13,4 +13,8 @@ feature 'sign up' do
     expect(current_path).to eq('/signup')
     expect(page).to have_content('Password and confirmation password do not match')
   end
+  scenario 'returns confirmation message following signup' do
+    sign_up
+    expect(page).to have_content('Logged in as Megadrive')
+  end
 end
