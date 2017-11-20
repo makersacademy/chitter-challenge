@@ -1,0 +1,12 @@
+<h1> You just Peeped yourself!</h1>
+<h2> Peeps </h2>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      subject: <%= peep.subject%>
+      peep:   <%= peep.peep   %>
+      date created: <%= peep.created_at %>
+    </li>
+  <% end %>
+</ul>
