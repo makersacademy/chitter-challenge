@@ -1,0 +1,30 @@
+<h1>Sign up to peep!</h1>
+
+<form action="/signup_new" method="post" >
+
+    <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+
+
+  <h2>Please input your personal data insecurely below</h2>
+
+    <h3>Your human name</h3>
+    <input type="text" name="real_name" placeholder = "e.g. Bird Person" style="width:200px" >
+
+    <h3>Your username</h3>
+    <input type="text" name="username" placeholder = "e.g. birdwatcher4life" style="width:200px" >
+
+    <h3>Email address</h3>
+    <input type="text" name="email_address" placeholder = "e.g. birdperson@rnpb.com" style="width:200px" value="<%#{@user_email}%>" >
+
+
+    <h3>The same password you use everywhere else</h3>
+    <input type="text" name="password" placeholder = "e.g. hunter2" style="width:150px">
+
+    <h3>Please stick it in me again</h3>
+    <input type="text" name="password_confirmation" placeholder = "e.g. hunter2" style="width:150px">
+
+  <input type="submit" value="Become a peeper!">
+
+</form>
