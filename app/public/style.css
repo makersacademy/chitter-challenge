@@ -1,0 +1,96 @@
+body {
+        background-color: lightblue;
+        font: normal 16px;
+        font-family: "Helvetica";
+        font-color: white;
+        padding: 10px;
+} 
+
+label { 
+        float: left;
+        text-align: right;
+        margin-right: 15px;
+        width: 100px;
+}
+
+h1 {
+        color: darkblue;
+}
+
+label {
+        display: block;
+        float: left;
+        width: 150px;
+}
+
+input[type=submit] {
+        background-color: steelblue;
+        font-family: "Helvetica";
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+}
+
+div.field input {
+        margin: 10px;
+        display: flex;
+        align-items: center;
+}
+
+.flash {
+        color: darkred;
+}
+
+/* styling for peeps */
+
+.peep {
+        padding: 8px;
+        width: 500px;
+}
+
+.handle, .content {
+        background-color: royalblue;
+        padding: 4px;
+        color: white;
+}
+
+.user, .tag {
+        color: pink;
+}
+
+/* styling for menu bar */
+
+.topnav {
+        background-color: steelblue;
+        overflow: hidden;
+}
+
+.topnav a {
+        color: white;
+        display: table-cell;
+        float: left;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: center;
+}
+
+.topnav input {
+        border: none;
+        color: white;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+}
+
+.topnav a input:hover {
+        color: black;
+}
+
+.topnav a input.active {
+        background-color: #4CAF50;
+        color: white;
+}

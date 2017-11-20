@@ -1,0 +1,9 @@
+<% if defined? header %>
+  <h1><%= header %></h1>
+<% else %>
+  <h1>Feed</h1>
+<% end %>
+
+<% peeps.each do |peep| %>
+  <%= partial :peep, locals: { peep: peep } %>
+<% end %>
