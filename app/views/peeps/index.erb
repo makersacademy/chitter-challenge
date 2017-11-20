@@ -1,7 +1,10 @@
+<% if @user.last%>
+Welcome, <%= @user.last.email%>
+<% end %>
 <ul id = 'peeps'>
   <% @peeps.each do |peep| %>
     <li> <%= peep.content %>
-      <br> created at: <%= peep.created_at%>
+      <br> created at: <%= peep.created_at.strftime("%H:%M:%S %d/%m/%Y")%>
     </li>
   <% end %>
 </ul>

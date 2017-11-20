@@ -11,5 +11,12 @@ def post_another_peep
 end
 
 def current_time
-  Time.now.strftime("%H:%M:%S")
+  Time.now.strftime("%H:%M:%S %d/%m/%Y")
+end
+
+def sign_up
+  visit "/user/new"
+  fill_in :email, with: 'jo@gmail.com'
+  fill_in :password, with: '0000'
+  click_button 'Sign Up'
 end
