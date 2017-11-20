@@ -1,0 +1,36 @@
+<head>
+  <link href="home.css" rel="stylesheet" type="text/css" >
+</head>
+
+<body>
+
+
+
+<h1> Welcome to Chitter! </h1>
+<h2> Contribute to the Chittery Posts! </h2>
+
+
+<form action='/newpost' method='GET'>
+  <input type='submit' class ='button' value='Create New Post'>
+</form>
+
+<form action='/newuser' method='GET'>
+  <input type='submit' class ='signuser' value='Sign up!'>
+</form>
+
+<form action='/login' method='GET'>
+  <input type='submit' class ='login' value='Login'>
+</form>
+
+<div style="width:1300px;height:210px;background: #1093D5;"> </div>
+<div style="position: absolute; left: 22%; width:750px; height:900px; background: #DAEFFA;">
+
+<div class="text">
+  <% @post.reverse_each do |chitter| %>
+     <h5> <%= chitter.title %>:</h5>
+     <h6><%= chitter.post %> ~@<%= chitter.name %></h6>
+     <p><%= chitter.created_at %></p><br>
+  <% end %>
+</div>
+
+</body>

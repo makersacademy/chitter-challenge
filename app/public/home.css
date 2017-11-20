@@ -1,0 +1,113 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #F4FBFB;
+}
+
+.button {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 21%;
+  left: 20%;
+  font-family: "Tahoma",serif;
+}
+
+.signuser {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 21%;
+  left: 37%;
+  font-family: "Tahoma",serif;
+}
+
+.login {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 21%;
+  left: 52%;
+  font-family: "Tahoma",serif;
+}
+
+.logout {
+  background-color: #EEF9FF;
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 21%;
+  left: 67%;
+  font-family: "Tahoma",serif;
+}
+
+.circle {
+	width: 100px;
+	height: 100px;
+	background: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+h1 {
+   font-family: "Tahoma", serif;
+   color: #EDF9FA;
+   position: absolute;
+   top: 9%;
+   left: 48%;
+   transform: translate(-50%, -50%)
+}
+h2 {
+  font-family: "Tahoma", serif;
+  font-size: 14px;
+  color: #EDF9FA;
+  position: absolute;
+  top: 15%;
+  left: 48%;
+  transform: translate(-50%, -50%)
+}
+
+h5 {
+  font-family: "Tahoma", serif;
+  font-size: 20px;
+  line-height: 50%;
+}
+
+h6 {
+  max-width: 450px;
+  font-family: "Tahoma", serif;
+  font-size: 25px;
+  line-height: 130%;
+  margin: 0px;
+}
+
+p {
+  line-height: 3000%;
+  font-family: "Tahoma", serif;
+  font-size: 10px;
+}
+
+.text {
+  margin:0px;
+  padding:0px;
+  line-height: 250%;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  background-color: #F7FCFF;
+  border: none;
+  color: #0F4059;
+  border-radius: 25px;
+  padding: 15px 70px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

@@ -1,0 +1,18 @@
+<head>
+  <link href="newuser.css" rel="stylesheet" type="text/css" >
+</head>
+
+
+
+<h1>Become a Chitteroo</h1>
+<h2>Sign up in three steps below and get chittering</h2>
+
+<div style="position: absolute; left: 34%; top: 35%; width:420px;height:300px;background: #1E8ECA;"> </div>
+<form action='/users' method='post'>
+    <h3> Email: </h3> <input name='email' class = 'email' type='text'>
+    <h4> Username: </h4> <input name='username' class = 'username' type= '<=% @user.username %>' required>
+    <h5> Password: </h5> <input name='password' class = 'password' type='password'>
+    <font> Confirm<br> Password: </font> <input name='password_confirmation' class = 'box' type='password'>
+    <input type='submit' class = 'button' value='Sign up'>
+
+</form>

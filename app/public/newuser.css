@@ -1,0 +1,99 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #1093D5;
+}
+
+h1 {
+  font-family: "Tahoma", serif;
+  color: #EDF9FA;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  font-size: 50px;
+  transform: translate(-50%, -50%)
+}
+
+h2 {
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+  position: absolute;
+  font-size: 15px;
+  top: 25%;
+  left: 37%;
+}
+
+.button {
+  border: none;
+  padding: 15px 52px;
+  position:absolute;
+  transition: .5s ease;
+  top: 70%;
+  left: 45%;
+  font-family: "Tahoma",serif;
+}
+
+.email {
+  position:absolute;
+  top: 41%;
+  left: 45%;
+  width: 230px;
+}
+
+.username {
+  position:absolute;
+  top: 49%;
+  left: 45%;
+  width: 230px;
+}
+
+.password {
+  position:absolute;
+  top: 55%;
+  left: 45%;
+  width: 230px;
+}
+
+.box{
+  position:absolute;
+  top: 62%;
+  left: 45%;
+  width: 230px;
+}
+
+h3 {
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+  position: absolute;
+  font-size: 15px;
+  top: 39%;
+  left: 40%;
+}
+
+h4 {
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+  position: absolute;
+  font-size: 15px;
+  top: 46%;
+  left: 38%;
+}
+
+h5 {
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+  position: absolute;
+  font-size: 15px;
+  top: 51%;
+  left: 38%;
+}
+
+font {
+  font-weight: bold;
+  font-family: "Tahoma", serif;
+  color: #EEF9FF;
+  position: absolute;
+  font-size: 15px;
+  top: 60%;
+  left: 38%;
+}
