@@ -1,0 +1,15 @@
+<h1>Chitter 🙂</h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |elem| %>
+    <li>
+      <%= elem.mess %> <span class="meta">peeped at <%=elem.created_at %></span>
+    </li>
+  <% end %>
+</ul>
+
+<% if current_user %>
+  <form action='/peeps/new' method='get'>
+    <input type="submit" value="Peep now!"></input>
+  </form>
+<% end %>
