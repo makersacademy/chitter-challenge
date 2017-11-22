@@ -1,0 +1,15 @@
+<div class="container-fluid text-center">    
+  <h2>Sign up for Chitter and connect with Peeps!</h2>
+
+  <form action="/signup" method="post">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
+    <input type="password" name="password_confirmation" placeholder="Confirm Password">
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="username" placeholder="Username">
+    <input type="submit" value="Sign Up">
+  </form>
+  <% if flash[:message] %>
+  <div id="message"><%= flash[:message] %></div>
+  <% end %>
+</div>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title>Chitter</title>
+
+    <meta name="referrer" content="origin">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <style>
+
+    body {
+      background-color: white;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 60px;
+      color: #42f4a7;
+      text-shadow: 2px 2px 4px #000000;
+    }
+
+    h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 50px;
+      color: white;
+    }
+
+    .container-fluid {
+      max-width: 800px;
+      /*background-color: #666666;*/
+    }
+
+    .title {
+      margin-bottom: 30px;
+    }
+
+/*peeps*/
+
+    .peep {
+      background-color: #a0ffd6;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .peep-heading {
+      font-family: 'Fredoka One', cursive;
+      font-size: 20px;
+    }
+
+    .menu-button {
+      background-color: #E37222;
+      width: 200px;
+      border-radius: 5px;
+      border: none;
+    }
+
+  </style>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-offset-8 col-sm-4 text-center title">
+          <h1>Chitter</h1>
+          <% if current_user %>
+            <h5>Logged in as <%=current_user.username%></h5>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= yield %>
+
+  </body>
+</html>
