@@ -1,7 +1,7 @@
 <h1>Chitter</h1>
 <h2>Get Peepin'</h2>
 <div>
-  <%@msgs.each { |msg|%> <%=msg.content%> <%}%>
+  <%@msgs.each { |msg|%> <%=msg.content%> <br> <%}%>
 </div>
 <form action='/chat' method='POST'>
   <input type='text' name='message'>
