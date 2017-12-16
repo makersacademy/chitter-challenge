@@ -15,4 +15,14 @@ feature "Create new tweets" do
       expect(page).to have_content 'Does this actually work?'
     end
   end
+  scenario "tweets show the time they were posted" do
+    visit('/tweets')
+    click_button("New tweet")
+    fill_in 'message', with: 'test'
+    click_button 'Post'
+
+    expect(current_path).to eq '/tweets'
+
+    expect(page).to have_content Time.now.strftime("%A, %d %b %Y %l:%M %p")
+  end
 end
