@@ -54,5 +54,10 @@ class Chitter < Sinatra::Base
     redirect(user.valid? ? '/chat' : '/signup')
   end
 
+  get '/logout' do
+    session[:user_id] = nil
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
