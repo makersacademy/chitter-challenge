@@ -17,6 +17,7 @@ group :development do
   gem 'bcrypt'
   gem 'data_mapper', '1.2.0'
   gem 'dm-postgres-adapter'
+  gem 'dm-validations'
   # gem 'dm-migrations'
   gem 'sinatra'
 end

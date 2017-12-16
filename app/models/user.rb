@@ -11,7 +11,13 @@ class User
 
   has n, :peeps
 
+  attr_reader :password
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password
+
   def password=(password)
+    @password = password
     self.user_password = BCrypt::Password.create(password)
   end
 
