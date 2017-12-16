@@ -1,0 +1,15 @@
+<h1>
+  Chitter
+</h1>
+
+<ol id='peeps' reversed>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.username %>
+      <br>
+      <%= peep.name %>
+      <br>
+      <%= peep.content %>
+    </li>
+  <% end %>
+</ol>

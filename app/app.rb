@@ -1,7 +1,8 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
-require_relative 'data_mapper_setup'
+require_relative 'models/peep'
+#require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -12,6 +13,12 @@ class Chitter < Sinatra::Base
   get '/' do
     "hello"
   end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
 
 
 
