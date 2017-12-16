@@ -2,8 +2,8 @@
   Chitter
 </h1>
 
-<ol id='peeps' reversed>
-  <% @peeps.each do |peep| %>
+<ul id='peeps' >
+  <% @peeps.reverse.each do |peep| %>
     <li>
       <%= peep.username %>
       <br>
@@ -12,4 +12,4 @@
       <%= peep.content %>
     </li>
   <% end %>
-</ol>
+</ul>

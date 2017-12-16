@@ -3,7 +3,7 @@ feature 'Viewing peeps' do
     Peep.create(name: 'George', username: 'chunks', content: 'Ogres have layers!')
     visit '/peeps'
     expect(page.status_code).to eq 200
-    within 'ol#peeps' do
+    within 'ul#peeps' do
       expect(page).to have_content 'Ogres have layers!'
     end
   end
