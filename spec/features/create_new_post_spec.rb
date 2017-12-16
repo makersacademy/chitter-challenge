@@ -3,7 +3,6 @@ feature 'Post creation' do
     visit '/posts/new'
     fill_in 'message', with: "Hello world"
     click_on "Post"
-    binding.pry
     expect(page).to have_content "Hello world"
   end
 end
