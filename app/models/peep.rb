@@ -3,5 +3,5 @@ class Peep
 
   property :id, Serial
   property :message, String
-  property :created_at, DateTime
+  property :datetime, String
 end
