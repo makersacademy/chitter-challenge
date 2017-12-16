@@ -11,3 +11,6 @@
 <%if @current_user%>
 Signed in as <%=@current_user.username%>
 <%end%>
+<form action='/logout'>
+  <input type='submit' value='Log Out?'>
+</form>
