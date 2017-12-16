@@ -3,7 +3,11 @@
     <title>Welcome to Chitter!</title>
   </head>
   <body>
-    <h1>Peeps Posted</h1>
-      <p></p>
+    <h1>Peeps</h1>
+    <p>
+      <%@peeps.each do |peep|%>
+        <%=peep.message%><br>
+      <%end%>
+    </p>
   </body>
 </html>
