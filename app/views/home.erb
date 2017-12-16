@@ -1,0 +1,10 @@
+<h1> Chitter Home </h1>
+
+<ul id='peeps'>
+<% @peeps.each do |link| %>
+  <li><%= link.message %>
+    <ul>
+      <li><%= link.created_at %>
+    </ul>
+<% end %>
+</ul>
