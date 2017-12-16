@@ -1,5 +1,13 @@
+<h1 align "centre">Tweets</h1>
 
-
-<form action="/links/new">
+<form action="/tweets/new">
   <input type='submit' value= 'New tweet'>
 </form>
+
+<ul id='tweets'>
+  <% @tweets.each do |tweet| %>
+    <li>
+      <%= tweet.message %>
+    </li>
+  <% end %>
+</ul>
