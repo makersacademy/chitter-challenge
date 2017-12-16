@@ -1,4 +1,5 @@
 ENV['RACK_ENV'] = 'test'
+require './app/models/peep'
 require 'capybara/rspec'
 require 'pry'
 require 'simplecov'
