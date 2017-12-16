@@ -10,4 +10,14 @@ class ChitterChatter < Sinatra::Base
     @peeps = Peep.all
     erb :'peeps/index'
   end
+
+  get '/peeps/post' do
+    erb :'peeps/post'
+  end
+
+  post '/peeps' do
+    peep = Peep.new(title: params[:title], content: params[:content])
+    peep.save
+    redirect '/peeps'
+  end
 end
