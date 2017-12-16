@@ -25,4 +25,14 @@ feature "Create new tweets" do
 
     expect(page).to have_content Time.now.strftime("%A, %d %b %Y %l:%M %p")
   end
+  scenario "tweets are displayed in reverse chronological order" do
+    visit('/tweets')
+    click_button("New tweet")
+    fill_in 'message', with: 'Tweet 1'
+    click_button 'Post'
+    click_button("New tweet")
+    fill_in 'message', with: 'Tweet 2'
+    click_button 'Post'
+    expect(page.body.index("Tweet 2") < page.body.index("Tweet 1")).to eql(true)
+  end
 end
