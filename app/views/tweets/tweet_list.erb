@@ -1,5 +1,8 @@
 <h1 align "centre">Tweets</h1>
 
+<form action="/users/new">
+  <input type='submit' value= 'New user'>
+</form>
 <form action="/tweets/new">
   <input type='submit' value= 'New tweet'>
 </form>
@@ -7,6 +10,7 @@
 <ul id='tweets'>
   <% @tweets.each do |tweet| %>
     <li>
+      <%= tweet.user %>
       <%= tweet.message%>
       <%=tweet.time_posted%>
     </li>

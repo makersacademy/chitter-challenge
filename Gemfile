@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
+gem 'bcrypt'
 gem 'data_mapper', '1.2.0'
+gem 'dm-aggregates'
 gem 'dm-postgres-adapter'
 gem 'dm-timestamps'
 gem 'sinatra'

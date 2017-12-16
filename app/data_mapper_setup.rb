@@ -2,8 +2,10 @@ require 'dm-migrations'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-timestamps'
+require 'dm-aggregates'
 
 require './app/models/tweet'
+require './app/models/user'
 
 # DataMapper::Logger.new($stdout, :debug)
 

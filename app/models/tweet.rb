@@ -10,6 +10,8 @@ class Tweet
   property :message,      String
   property :created_at,   DateTime
 
+  belongs_to :user, required: false
+
   def time_posted
     created_at.strftime("%A, %d %b %Y %l:%M %p")
   end

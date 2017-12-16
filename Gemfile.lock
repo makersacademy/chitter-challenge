@@ -154,10 +154,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   cucumber
   data_mapper (= 1.2.0)
   database_cleaner
+  dm-aggregates
   dm-postgres-adapter
   dm-timestamps
   rake

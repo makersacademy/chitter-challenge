@@ -3,10 +3,12 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra'
 require 'sinatra/base'
 require './app/models/tweet'
+require './app/models/user'
 require_relative 'data_mapper_setup'
 
 class Twitter < Sinatra::Base
-  
+  enable :sessions
+  set :session_secret, 'super secret'
 
   get '/tweets' do
     @tweets = Tweet.all(order: :created_at.desc)
@@ -18,11 +20,28 @@ class Twitter < Sinatra::Base
   end
 
   post '/tweets' do
-    tweet = Tweet.create(message: params[:message], created_at: Time.now)
-    p tweet.time_posted
-    p Time.now
-    p tweet
+    tweet = Tweet.create(message: params[:message])
     redirect to('/tweets')
+  end
+
+  get '/users/new' do
+    erb :'users/new_user'
+  end
+
+  post '/users' do
+    p 'reaches /users'
+    user = User.create(name: params[:name],
+                       email: params[:email],
+                       password: params[:password],
+                       password_confirmation: params[:password_confirmation])
+    session[:user_id] = user.id
+    redirect to('/tweets')
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
 end
