@@ -3,9 +3,15 @@ feature 'Messages' do
   scenario 'users can post messages' do
     signup
     signin
-    fill_in :message, with: 'Hello World!'
-    click_on 'PeepIt'
+    send_peep('Hello World!')
     expect(page).to have_content 'Hello World!'
+  end
+
+  scenario 'messages can only be posted by signed in users' do
+    visit '/chat'
+    send_peep('I am not signed in')
+    expect(page).to_not have_content 'I am not signed in'
+    expect(page).to have_content "If you wanna get peepin' you need to Sign In"
   end
 
   scenario 'messages are displayed in reverse chronological order' do

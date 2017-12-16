@@ -37,7 +37,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/chat' do
-    Chat.new.create_msg(params[:message], current_user)
+    current_user ?
+      Chat.new.create_msg(params[:message], current_user) :
+      flash[:no_user] = "If you wanna get peepin' you need to"
     redirect '/chat'
   end
 

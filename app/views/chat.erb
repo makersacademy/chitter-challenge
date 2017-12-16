@@ -14,3 +14,9 @@ Signed in as <%=@current_user.username%>
   <input type='submit' value='Sign Out?'>
 </form>
 <%end%>
+<%if flash[:no_user]%>
+  <%=flash[:no_user]%>
+  <form action='/'>
+    <button type='submit' value='Sign In'>Sign In</button>
+  </form>
+<%end%>
