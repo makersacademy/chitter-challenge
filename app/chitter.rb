@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :login
+    erb :signin
   end
 
   post '/' do
@@ -54,7 +54,7 @@ class Chitter < Sinatra::Base
     redirect(user.valid? ? '/chat' : '/signup')
   end
 
-  get '/logout' do
+  get '/signout' do
     session[:user_id] = nil
     redirect '/'
   end

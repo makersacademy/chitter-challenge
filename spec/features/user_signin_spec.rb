@@ -1,9 +1,9 @@
-feature 'User login' do
+feature 'User signin' do
 
-  scenario 'users can login' do
+  scenario 'users can signin' do
     signup
     signup(email: 'jimbob@hotmail.com', username: 'JimBob')
-    login
+    signin
     expect(current_path).to eq '/chat'
     expect(page).to have_content 'Signed in as JBloggy'
   end
