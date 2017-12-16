@@ -157,6 +157,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-transactions
   pry
+  rack
   rake
   rspec
   rubocop
