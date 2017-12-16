@@ -20,6 +20,10 @@ feature "signing up" do
     sign_up(password: "")
     expect(page).to have_content "Password must not be blank"
   end
+  scenario "the password confirmation should match the password" do
+    sign_up(password_confirm: "bloopers")
+    expect(page).to have_content "Password does not match the confirmation"
+  end
 end
 
 feature "logging in" do

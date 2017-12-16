@@ -7,13 +7,15 @@ class User
 
   property :id, Serial
   property :email, String, required: true, format: :email_address, unique: true, messages: {is_unique: "Email address already in use!"}
-  property :username, String
+  property :username, String, required: true, unique: true, messages: {is_unique: "Sorry that username is already in use :("}
   property :first_name, String
   property :last_name, String
   property :password_hash, Text, required: true
 
   attr_reader :password
   attr_accessor :password_confirm
+
+  validates_confirmation_of :password, confirm: :password_confirm 
 
   def password=(password)
     @password = password
