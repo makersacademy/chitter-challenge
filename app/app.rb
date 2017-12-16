@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
-    'This is a test post'
+    @posts = Post.all.reverse
+    erb(:posts)
   end
 end
