@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 gem 'capybara'
+gem 'database_cleaner'
 gem 'data_mapper', '1.2.0'
 gem 'dm-postgres-adapter'
 gem 'pry'
