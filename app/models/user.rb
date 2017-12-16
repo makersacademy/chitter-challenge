@@ -6,7 +6,7 @@ class User
   include BCrypt
 
   property :id, Serial
-  property :email, String, required: true
+  property :email, String, required: true, format: :email_address, unique: true, messages: {is_unique: "Email address already in use!"}
   property :username, String
   property :first_name, String
   property :last_name, String

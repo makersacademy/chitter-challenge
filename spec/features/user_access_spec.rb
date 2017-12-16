@@ -7,6 +7,15 @@ feature "signing up" do
     sign_up(email: "")
     expect(page).to have_content "Email must not be blank"
   end
+  scenario "the email address should be of the correct format" do
+    sign_up(email: " dfgdfg")
+    expect(page).to have_content "Email has an invalid format"
+  end
+  scenario "the same email address cannot sign up twice" do
+    sign_up
+    sign_up
+    expect(page).to have_content "Email address already in use"
+  end
   scenario "the user should have to enter a password" do
     sign_up(password: "")
     expect(page).to have_content "Password must not be blank"
