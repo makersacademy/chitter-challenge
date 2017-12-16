@@ -1,6 +1,6 @@
 require './app/data_mapper_setup.rb'
 
-class UserHandler
+module UserHandler
 
   def create_user(params)
     User.create(email: params[:email],

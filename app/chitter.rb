@@ -1,14 +1,14 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
-require './lib/chat.rb'
 require 'sinatra/flash'
-require './lib/userhandler.rb'
+require './lib/chathandler.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'session'
   register Sinatra::Flash
+  include ChatHandler
 
   helpers do
     def current_user
@@ -31,14 +31,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/chat' do
-    @msgs = Chat.new.msgs
+    @msgs = Chitter.msgs
     @current_user = current_user
     erb :chat
   end
 
   post '/chat' do
     current_user ?
-      Chat.new.create_msg(params[:message], current_user) :
+      Chitter.create_msg(params[:message], current_user) :
       flash[:no_user] = "If you wanna get peepin' you need to"
     redirect '/chat'
   end
@@ -48,7 +48,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    user = UserHandler.new.create_user(params)
+    user = Chitter.create_user(params)
     session[:user_id] = user.id if user.valid?
     flash[:errors] = user.errors.values.flatten
     flash[:email] = user.email

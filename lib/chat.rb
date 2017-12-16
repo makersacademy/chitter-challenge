@@ -1,6 +1,6 @@
 require './app/data_mapper_setup.rb'
 
-class Chat
+module Chat
 
   def msgs
     format_msgs(order_msgs(find_msgs))
