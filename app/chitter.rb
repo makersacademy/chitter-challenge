@@ -1,16 +1,18 @@
 ENV['RACK_ENV'] = 'development'
 require 'sinatra/base'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
-  enable :sessions
+  #enable :sessions
 
   get '/chat' do
-    
+    @msgs = Message.all
+    p @msgs
     erb :chat
   end
 
   post '/chat' do
-    session[:message] = params[:message]
+    Message.create(content: params[:message])
     redirect '/chat'
   end
 
