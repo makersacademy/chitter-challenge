@@ -21,8 +21,8 @@ class Chat
     message_class.all
   end
 
-  def create_msg(msg)
-    Message.create(content: msg, time: Time.now)
+  def create_msg(msg, user)
+    Message.create(content: msg, time: Time.now, user: user)
   end
 
 end

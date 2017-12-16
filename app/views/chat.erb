@@ -1,7 +1,8 @@
 <h1>Chitter</h1>
 <h2>Get Peepin'</h2>
 <body>
-  <%@msgs.each { |msg|%> <%=msg.content%> -<%=msg.time_string%> <br> <%}%>
+  <%@msgs.each { |msg|%> <%=msg.content%>
+    [<%=msg.user.username%>(<%=msg.user.name%>) -<%=msg.time_string%>] <br> <%}%>
 </body>
 <form action='/chat' method='POST'>
   <input type='text' name='message'>
