@@ -1,6 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
+require 'orderly'
 require 'database_cleaner'
 require './app/models/comment'
 require './app/app'

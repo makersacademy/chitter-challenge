@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './app/models/comment'
+require './app/models/comment.rb'
 
 class Chitter < Sinatra::Base
 

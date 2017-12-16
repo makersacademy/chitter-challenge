@@ -12,6 +12,7 @@ gem 'database_cleaner'
 gem 'pry'
 gem 'rake'
 gem 'bcrypt'
+gem 'orderly'
 
 group :test do
   gem 'capybara'

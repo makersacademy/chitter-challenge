@@ -6,6 +6,8 @@
   <input type=submit value=post>
 </form>
 
-<%@comments.each do |comment|%>
+<%@comments.to_a.reverse.each do |comment|%>
   <%=comment.comment%>
+  <%=comment.created_at%>
+  <br>
 <%end%>
