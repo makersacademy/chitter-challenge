@@ -6,4 +6,6 @@ class Message
   property :id, Serial
   property :content, Text
   property :time, Time
+
+  attr_accessor :time_string
 end

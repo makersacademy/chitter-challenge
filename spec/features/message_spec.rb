@@ -11,6 +11,14 @@ feature 'Messages' do
     visit '/chat'
     send_peep('Hello World!')
     send_peep('Goodbye Cruel World!')
-    expect(page).to have_content 'Hello World! Goodbye Cruel World!'
+    'Hello World!'.should appear_before 'Goodbye Cruel World!'
   end
+
+  scenario 'messages are timestamped' do
+    time = Time.now
+    visit '/chat'
+    send_peep('Hello World!')
+    expect(page).to have_content time.strftime("%b %e, %l:%M %p")
+  end
+
 end

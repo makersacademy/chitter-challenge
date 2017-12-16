@@ -8,6 +8,7 @@ require 'database_cleaner'
 require_relative 'features/web_helper'
 require 'rspec'
 require 'database_cleaner'
+require_relative 'matcher_spec'
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -18,6 +19,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
   config.after(:suite) do
     puts
     # puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

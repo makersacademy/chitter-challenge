@@ -1,8 +1,8 @@
 <h1>Chitter</h1>
 <h2>Get Peepin'</h2>
-<div>
-  <%@msgs.each { |msg|%> <%=msg.content%> <br> <%}%>
-</div>
+<body>
+  <%@msgs.each { |msg|%> <%=msg.content%> -<%=msg.time_string%> <br> <%}%>
+</body>
 <form action='/chat' method='POST'>
   <input type='text' name='message'>
   <input type='submit' value='PeepIt'>
