@@ -26,8 +26,13 @@ class Chitter < Sinatra::Base
 
   post '/sign_up' do
     user = User.create(params)
-    session[:user_id] = user.id
-    redirect '/chit'
+    if user.save
+      session[:user_id] = user.id
+      redirect '/chit'
+    else
+      flash.next[:error] = user.errors.full_messages.join("<br>").sub("hash ","")
+      redirect '/sign_up'
+    end
   end
 
   get '/sign_in' do

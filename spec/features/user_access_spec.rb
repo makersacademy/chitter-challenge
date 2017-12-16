@@ -3,6 +3,14 @@ feature "signing up" do
     sign_up
     expect(page).to have_content "Welcome Tester"
   end
+  scenario "the user should have to enter an email" do
+    sign_up(email: "")
+    expect(page).to have_content "Email must not be blank"
+  end
+  scenario "the user should have to enter a password" do
+    sign_up(password: "")
+    expect(page).to have_content "Password must not be blank"
+  end
 end
 
 feature "logging in" do
