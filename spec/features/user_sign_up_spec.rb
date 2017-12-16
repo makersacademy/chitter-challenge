@@ -1,11 +1,15 @@
 feature "sign up form" do
   scenario "signing up and entering as user" do
-    visit('/user/new')
-    fill_in "email", with: "me@me.com"
-    fill_in "name", with: "Ellie W"
-    fill_in "username", with: "winnie"
-    fill_in "password", with: "pass2017"
-    click_button("Sign up")
+    user_sign_up
     expect(current_path).to eq('/')
+  end
+
+  scenario "welcome message is shown if user is logged in" do
+    user_sign_up
+    expect(page).to have_content("Welcome winnie")
+  end
+
+  scenario 'user count increases by 1' do
+    expect{ user_sign_up }.to change { User.count }.by 1
   end
 end

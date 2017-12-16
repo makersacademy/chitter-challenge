@@ -3,6 +3,14 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  set :session_secret, "super secret"
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:id])
+    end
+  end
 
   get '/' do
     erb(:index)
@@ -13,7 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-    User.create(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
+    user = User.create(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
+    session[:id] = user.id
     redirect('/')
   end
 
