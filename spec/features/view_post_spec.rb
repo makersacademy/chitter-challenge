@@ -5,6 +5,6 @@ feature "View post" do
     visit '/peeps'
     expect(page.status_code).to eq 200
 
-    expect(page).to have_content('I can view my first peep')
+    expect(page).to have_content("I can view my first peep")
   end
 end

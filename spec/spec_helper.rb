@@ -1,11 +1,13 @@
 ENV["RACK_ENV"] = "test"
 require 'sinatra'
 require 'capybara'
+require 'orderly'
 require 'database_cleaner'
 require 'rspec'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'features/web_helpers'
 require './app/models/peep'
 require './app/app'
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')

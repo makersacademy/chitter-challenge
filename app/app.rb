@@ -8,7 +8,7 @@ require_relative 'models/peep'
 class Chitter < Sinatra::Base
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :'peeps/index'
   end
 
@@ -17,7 +17,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message])
+    @timestamp = Time.new.strftime("%d/%m/%y at %I:%M%p")
+    Peep.create(message: params[:message], timestamp: @timestamp)
     redirect '/peeps'
   end
 
