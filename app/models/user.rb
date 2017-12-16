@@ -19,8 +19,17 @@ class User
   validates_confirmation_of :password
   validates_format_of :email, :as => :email_address
 
+  def password
+    @password ||= BCrypt::Password.new(password_digest)
+  end
+
   def password=(password)
-    @password = password
-    self.password_digest = BCrypt::Password.create(password)
+    @password = BCrypt::Password.create(password)
+    self.password_digest = @password
+  end
+
+  def self.authenticate(username_or_email, pass)
+    user = User.first(username_or_email)
+    user && user.password == pass ? user : nil
   end
 end

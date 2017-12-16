@@ -8,3 +8,6 @@
   <input type='text' name='message'>
   <input type='submit' value='PeepIt'>
 </form>
+<%if @current_user%>
+Signed in as <%=@current_user.username%>
+<%end%>

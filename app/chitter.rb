@@ -16,8 +16,23 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/' do
+    erb :login
+  end
+
+  post '/' do
+    user = User.authenticate(params[:username_or_email], params[:password])
+    if !!user
+      session[:user_id] = user.id
+      redirect '/chat'
+    else
+      redirect '/'
+    end
+  end
+
   get '/chat' do
     @msgs = Chat.new.msgs
+    @current_user = current_user
     erb :chat
   end
 

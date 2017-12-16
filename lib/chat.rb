@@ -22,7 +22,7 @@ class Chat
   end
 
   def create_msg(msg, user)
-    Message.create(content: msg, time: Time.now, user: user)
+    Message.create(content: msg, time: Time.now, user_id: user.id)
   end
 
 end

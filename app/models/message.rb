@@ -7,7 +7,7 @@ class Message
   property :content, Text
   property :time, Time
 
-  belongs_to :user
+  belongs_to :user, required: false
 
   attr_accessor :time_string
 end

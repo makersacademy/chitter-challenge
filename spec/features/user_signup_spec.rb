@@ -1,4 +1,4 @@
-feature 'Users' do
+feature 'User sign up' do
 
   scenario 'users can sign up' do
     signup

@@ -17,3 +17,10 @@ def signup(name: 'Joe Bloggs',
   fill_in :password_confirmation, with: password_conf
   click_on 'Sign Up'
 end
+
+def login
+ visit '/'
+ fill_in :username_or_email, with: 'joebloggs@hotmail.co.uk'
+ fill_in :password, with: 'blogg'
+ click_on 'Log In'
+end
