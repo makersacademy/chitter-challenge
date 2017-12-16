@@ -11,4 +11,13 @@ class Chitter < Sinatra::Base
     @posts = Post.all.reverse
     erb(:posts)
   end
+
+  get '/posts/new' do
+    erb(:new_post)
+  end
+
+  post '/posts' do
+    Post.create(message: params[:message])
+    redirect '/posts'
+  end
 end
