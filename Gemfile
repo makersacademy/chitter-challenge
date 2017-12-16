@@ -10,7 +10,7 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'bcrypt'
   gem 'sinatra-flash'
-  gem 'data_mapper'
+  gem 'data_mapper', '1.2.0'
   gem 'dm-postgres-adapter'
   gem 'capybara'
   gem 'sinatra'
