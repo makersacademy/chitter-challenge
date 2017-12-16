@@ -15,3 +15,8 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+require_relative '../app/app'
+require 'capybara/rspec'
+
+Capybara.app = Chitter
