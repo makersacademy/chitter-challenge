@@ -7,8 +7,8 @@ class User
 
   property :id, Serial
   property :email, String, required: true, unique: true
-  property :username, String, unique: true
-  property :name, String
+  property :username, String, required: true, unique: true
+  property :name, String, required: true
   property :password_digest, Text
 
   has n, :messages, through: Resource

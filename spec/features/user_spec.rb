@@ -5,7 +5,7 @@ feature 'Users' do
     expect(User.count).to eq 1
     send_peep('Hey, its Joe!')
     expect(page).to have_content 'Hey, its Joe!'
-    expect(page).to have_content '[JBloggy(Joe Bloggs)'
+    expect(page).to have_content '[JBloggy(joe bloggs)'
   end
 
   context 'Users must sign up correctly:' do
@@ -32,6 +32,25 @@ feature 'Users' do
     scenario 'user cannot sign up with an email address which is already registered' do
       2.times { signup }
       expect(page).to have_content 'Email is already taken'
+      expect(User.count).to eq 1
+    end
+
+    scenario 'user cannot sign up with no name' do
+      signup(name: nil)
+      expect(page).to have_content 'Name must not be blank'
+      expect(User.count).to eq 0
+    end
+
+    scenario 'user cannot sign up with no username' do
+      signup(username: nil)
+      expect(page).to have_content 'Username must not be blank'
+      expect(User.count).to eq 0
+    end
+
+    scenario 'user cannot sign up with a username which is already taken' do
+      signup
+      signup(email: 'jimbob@hotmail.co.uk')
+      expect(page).to have_content 'Username is already taken'
       expect(User.count).to eq 1
     end
 
