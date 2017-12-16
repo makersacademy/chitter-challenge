@@ -1,6 +1,7 @@
 require 'dm-migrations'
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'dm-timestamps'
 
 require './app/models/tweet'
 
