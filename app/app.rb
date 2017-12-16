@@ -6,6 +6,7 @@ require_relative 'helpers'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  set :session_secret, "Only somewhat secret, honestly"
   data_mapper_setup
 
   get '/' do
@@ -27,8 +28,13 @@ class Chitter < Sinatra::Base
     redirect '/chit'
   end
 
-  get '/login' do
+  get '/sign_in' do
+    erb :sign_in
+  end
 
+  post '/sign_in' do
+    user = User.first(email: params[:email])
+    session[:user_id] = user.id
     redirect '/chit'
   end
 

@@ -8,3 +8,10 @@ def sign_up(email: 'test@test.org.uk', password: 'passyword', password_confirm: 
   fill_in 'last_name', with: last_name
   click_button 'Sign up!'
 end
+
+def sign_in(email: 'test@test.org.uk', password: 'passyword')
+  visit '/sign_in'
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  click_button 'Sign in!'
+end
