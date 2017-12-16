@@ -6,9 +6,6 @@ feature "sign up form" do
 
   scenario "signing up and entering as user" do
     expect(current_path).to eq('/')
-  end
-
-  scenario "welcome message is shown if user is logged in" do
     expect(page).to have_content("Welcome winnie")
   end
 

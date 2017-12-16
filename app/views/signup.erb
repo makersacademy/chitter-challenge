@@ -2,22 +2,30 @@
   <form action="/user" method="post">
     <ul>
       <li>
-        <label>Enter email</label>
-        <input type="text" name="email" placeholder="Email"/>
+        Enter email
+        <label for="email">
+          <input type="text" name="email" placeholder="Email" required/>
+        </label>
       </li>
       <li>
-        <label>Enter name</label>
-        <input type="text" name="name" placeholder="Name"/>
+        Enter name
+        <label for="name">
+          <input type="text" name="name" placeholder="Name" required/>
+        </label>
       </li>
       <li>
-        <label>Enter username</label>
-        <input type="text" name="username" placeholder="Username"/>
+        Enter username
+        <label for="username">
+          <input type="text" name="username" placeholder="Username" required/>
+        </label>
       </li>
       <li>
-        <label>Enter password</label>
-        <input type="text" name="password" placeholder="Password"/>
+        Enter password
+        <label for="password">
+          <input type="text" name="password" placeholder="Password" required/>
+        </label>
       </li>
-      <input type="submit" value="Sign up"/>
+      <button type="submit">Sign up</button>
     </ul>
   </form>
 </html>

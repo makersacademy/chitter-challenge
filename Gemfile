@@ -5,6 +5,7 @@ group :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'database_cleaner'
+  gem 'orderly'
   gem 'rake'
   gem 'rspec'
   gem 'rubocop', '0.50.0'

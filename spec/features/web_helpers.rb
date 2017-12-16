@@ -12,3 +12,15 @@ def add_peep
   fill_in "message", with: "If everybody minded their own business, the world would go around a great deal faster than it does."
   click_on "Post peep"
 end
+
+def add_another_peep
+  visit '/peep/new'
+  fill_in "message", with: "Why is a raven like a writing-desk?"
+  click_on "Post peep"
+end
+
+def add_yet_another_peep
+  visit '/peep/new'
+  fill_in "message", with: "If you don't know where you are going any road can take you there."
+  click_on "Post peep"
+end

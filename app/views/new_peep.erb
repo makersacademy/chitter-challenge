@@ -2,8 +2,10 @@
   <h1>Chitter</h1>
 
   <form action="/peeps" method="post">
-    <label>Enter your message</label>
-    <input type="text" name="message" placeholder="Message"/>
-    <input type="submit" value="Post peep"/>
+    Message
+    <label for="message">
+      <input type="text" name="message" placeholder="Message" required/>
+    </label>
+    <button type="submit">Post peep</button>
   </form>
 </html>
