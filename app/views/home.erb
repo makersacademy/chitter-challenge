@@ -1,4 +1,4 @@
-<form>
+<form action="/comments" method="POST" >
   <textarea rows="4" cols="90" name="comment"
             style="overflow:auto;resize:none"
             placeholder='Enter text here...'>
@@ -6,4 +6,6 @@
   <input type=submit value=post>
 </form>
 
-<%=@post%>
+<%@comments.each do |comment|%>
+  <%=comment.comment%>
+<%end%>
