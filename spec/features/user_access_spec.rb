@@ -11,4 +11,9 @@ feature "logging in" do
     sign_in
     expect(page).to have_content "Welcome Tester"
   end
+  scenario "the user should have to enter the correct password to log in" do
+    sign_up
+    sign_in(password: "")
+    expect(page).to have_content "Login failed. Please check your username and password."
+  end
 end
