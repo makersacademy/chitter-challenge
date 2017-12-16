@@ -1,0 +1,9 @@
+<h1>Chitter</h1>
+<h2>Get Peepin'</h2>
+<div>
+  <%=session[:message]%>
+</div>
+<form action='/chat' method='POST'>
+  <input type='text' name='message'>
+  <input type='submit' value='PeepIt'>
+</form>
