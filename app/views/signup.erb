@@ -1,3 +1,4 @@
+<h1> Chitter </h1>
 <h2> Sign up </h2>
 <%if flash[:errors]%>
 <%flash[:errors].each { |e|%> <%=e%> <%}%>
@@ -23,4 +24,9 @@
     <input type='username' required name='username' >
   </label>
   <input type='submit' value= 'Sign Up'>
+</form>
+<br>
+Already signed up?
+<form action='/'>
+  <input type='submit' value='Sign In?'>
 </form>

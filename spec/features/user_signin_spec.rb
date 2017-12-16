@@ -7,4 +7,11 @@ feature 'User signin' do
     expect(current_path).to eq '/chat'
     expect(page).to have_content 'Signed in as JBloggy'
   end
+
+  scenario 'new users are prompted to signup at signin screen' do
+    visit '/'
+    click_on 'Sign Up?'
+    expect(current_path).to eq '/signup'
+  end
+  
 end

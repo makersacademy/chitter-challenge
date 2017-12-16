@@ -8,6 +8,12 @@ feature 'User sign up' do
     expect(page).to have_content '[JBloggy(joe bloggs)'
   end
 
+  scenario 'existing using are prompted to signin at signup screen' do
+    visit '/signup'
+    click_on 'Sign In?'
+    expect(current_path).to eq '/'
+  end
+
   context 'Users must sign up correctly:' do
 
     scenario 'user cannot signup when password confirmation fails' do
