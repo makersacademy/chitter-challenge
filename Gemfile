@@ -10,7 +10,7 @@ group :test do
   gem 'sinatra'
   gem 'capybara'
   gem 'bcrypt'
-  gem 'data_mapper'
+  gem 'data_mapper', '1.2.0'
   gem 'dm-postgres-adapter'
   gem 'sinatra-flash'
   gem 'database_cleaner'
