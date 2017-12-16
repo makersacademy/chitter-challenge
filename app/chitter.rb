@@ -3,6 +3,7 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require './lib/chat.rb'
 require 'sinatra/flash'
+require './lib/userhandler.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -30,12 +31,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create(name: params[:name],
-                email: params[:email],
-                username: params[:username],
-                password: params[:password],
-                password_confirmation: params[:password_confirmation]
-               )
+    user = UserHandler.new.create_user(params)
     session[:user_id] = user.id if user.valid?
     flash[:errors] = user.errors.values.flatten
     flash[:email] = user.email
