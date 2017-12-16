@@ -18,6 +18,16 @@ def user_sign_up_wrong_password
   click_on "Sign up"
 end
 
+def user_sign_up_wrong_email_format
+  visit '/user/new'
+  fill_in "email", with: "me"
+  fill_in "name", with: "Ellie W"
+  fill_in "username", with: "winnie"
+  fill_in "password", with: "pass2017"
+  fill_in "password_confirmation", with: "pass2017"
+  click_on "Sign up"
+end
+
 def add_peep
   visit '/peep/new'
   fill_in "message", with: "If everybody minded their own business, the world would go around a great deal faster than it does."
