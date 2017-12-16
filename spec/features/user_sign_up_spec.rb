@@ -9,7 +9,7 @@ feature "sign up form" do
     expect(page).to have_content("Welcome winnie")
   end
 
-  scenario 'user count increases by 1' do
-    expect{ user_sign_up }.to change { User.count }.by 1
+  scenario "user count increases by 1" do
+    expect { user_sign_up }.to change { User.count }.by 1
   end
 end
