@@ -5,5 +5,5 @@ class Message
 
   property :id, Serial
   property :content, Text
-
+  property :time, Time
 end

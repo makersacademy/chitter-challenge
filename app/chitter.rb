@@ -6,13 +6,13 @@ class Chitter < Sinatra::Base
   #enable :sessions
 
   get '/chat' do
-    @msgs = Message.all
+    @msgs = Chat.new.msgs
     p @msgs
     erb :chat
   end
 
   post '/chat' do
-    Message.create(content: params[:message])
+    Chat.new.create_msg(params[:message])
     redirect '/chat'
   end
 

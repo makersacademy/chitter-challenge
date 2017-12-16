@@ -13,4 +13,9 @@ class Chat
   def find_msgs(message_class = Message)
     message_class.all
   end
+
+  def create_msg(msg)
+    Message.create(content: msg, time: Time.now)
+  end
+  
 end
