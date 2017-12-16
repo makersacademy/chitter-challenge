@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Enter your new peep below</h1>
+
+    <form action="/peeps" method="post">
+      <label for="message">
+        Message:
+        <input type="text" name="message">
+      </label>
+      <input type="submit" value="Post peep">
+    </form>
+
+    <form action="/peeps">
+      <input type="submit" value="Go back">
+    </form>
+  </body>
+</html>

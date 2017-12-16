@@ -1,9 +1,22 @@
-<h1> Peeps </h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1> Peeps </h1>
 
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-  <li>
-    Message: <%= peep.message %>
-  </li>
-  <% end %>
-</ul>
+    <form action="peeps/new">
+      <input type="submit" value="Create new peep">
+    </form>
+
+    <ul id='peeps'>
+      <% @peeps.each do |peep| %>
+      <li>
+        Message: <%= peep.message %>
+      </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
