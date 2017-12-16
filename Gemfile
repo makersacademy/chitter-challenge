@@ -10,4 +10,6 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'sinatra'
   gem 'capybara'
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
 end
