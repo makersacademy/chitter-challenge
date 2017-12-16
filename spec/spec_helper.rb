@@ -7,9 +7,9 @@ require 'simplecov'
 require 'simplecov-console'
 require './app/models/peep'
 require './app/app'
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 Capybara.app = Chitter
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
