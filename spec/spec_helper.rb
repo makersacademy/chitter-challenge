@@ -28,5 +28,6 @@ end
 
 require_relative '../app/app'
 require 'capybara/rspec'
+require 'pry'
 
 Capybara.app = Chitter

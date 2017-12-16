@@ -17,6 +17,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coderay (1.1.2)
     cucumber (3.1.0)
       builder (>= 2.1.2)
       cucumber-core (~> 3.1.0)
@@ -89,6 +90,7 @@ GEM
     hirb (0.7.3)
     json (1.8.6)
     json_pure (1.8.6)
+    method_source (0.9.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     multi_json (1.12.2)
@@ -100,6 +102,9 @@ GEM
     parser (2.4.0.2)
       ast (~> 2.3)
     powerpack (0.1.1)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     public_suffix (3.0.1)
     rack (2.0.3)
     rack-protection (2.0.0)
@@ -159,6 +164,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  pry
   rake
   rspec
   rubocop
