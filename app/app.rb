@@ -6,17 +6,19 @@ require_relative 'models/user'
 require_relative 'helpers'
 
 class Chitter < Sinatra::Base
+  ENV['RACK_ENV'] ||= :development
   register Sinatra::Flash
   enable :sessions
   set :session_secret, "Only somewhat secret, honestly"
   data_mapper_setup
 
   get '/' do
-
+    redirect '/chit' if current_user
+    erb :homepage
   end
 
   get '/chit' do
-    @name = current_user.first_name
+    @name = current_user.first_name ? current_user.first_name : current_user.username
     erb :chit
   end
 
@@ -30,7 +32,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/chit'
     else
-      flash.next[:error] = user.errors.full_messages.join("<br>").sub("hash ","")
+      flash.next[:error] = sign_up_errors(user)
       redirect '/sign_up'
     end
   end
@@ -48,6 +50,11 @@ class Chitter < Sinatra::Base
       flash.next[:error] = "Login failed. Please check your username and password."
       redirect '/sign_in'
     end
+  end
+
+  get '/sign_out' do
+    session[:user_id] = nil
+    redirect '/'
   end
 
 end

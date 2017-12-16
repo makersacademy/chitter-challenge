@@ -38,3 +38,11 @@ feature "logging in" do
     expect(page).to have_content "Login failed. Please check your username and password."
   end
 end
+feature "logging out" do
+  scenario "the user should be redirected to the homepage when they sign out" do
+    sign_up
+    sign_in
+    visit '/sign_out'
+    expect(page).to have_content "Please sign in or sign up!"
+  end
+end
