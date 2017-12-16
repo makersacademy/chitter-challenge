@@ -1,4 +1,4 @@
-feature "Viewing the message box" do
+feature "Viewing the message box and post button" do
   scenario "I can view the message box" do
     visit("/peeps/new")
     expect(page).to have_selector("textarea")
