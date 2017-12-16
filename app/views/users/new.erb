@@ -1,0 +1,25 @@
+<h2> Sign Up </h2>
+
+<form action="/users" method="post">
+  <label for="email">
+    Email:
+  </label>
+  <input type="email" name="email" value='<%= @user.email %>' required>
+  <label for="name">
+    Name:
+  </label>
+  <input type="text" name="name" value='<%= @user.name %>' >
+  <label for="username">
+    Username:
+  </label>
+  <input type="text" name="username" value='<%= @user.username %>' >
+  <label for="pasword">
+    Password:
+  </label>
+  <input type="password" name="password">
+  <label for="password_confirmation">
+    Confirm password:
+  </label>
+  <input type="password" name="password_confirmation">
+  <input type="submit" value="Sign Up">
+</form>

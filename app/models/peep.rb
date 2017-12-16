@@ -9,9 +9,7 @@ class Peep
   property :name, String
   property :username, String
   property :content, Text
+  property :time, DateTime
 
-  DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-  DataMapper.finalize
-  DataMapper.auto_upgrade!
 
 end

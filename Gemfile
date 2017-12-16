@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
-group :test do
+#group :test do
   gem 'cucumber'
   gem 'rspec'
   gem 'rake'
@@ -15,5 +15,6 @@ group :test do
   gem 'capybara'
   gem 'sinatra'
   gem 'database_cleaner'
+  gem 'orderly'
 
-end
+#end
