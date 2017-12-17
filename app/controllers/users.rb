@@ -1,5 +1,7 @@
 class Chitter < Sinatra::Base
+
   helpers Helpers
+
   get '/users/new' do
     @user = User.new
     erb :'users/new'
@@ -19,5 +21,4 @@ class Chitter < Sinatra::Base
       erb :'users/new'
     end
   end
-
 end

@@ -1,5 +1,7 @@
 class Chitter < Sinatra::Base
+
   helpers Helpers
+
   get '/' do
     redirect '/peeps'
   end
@@ -10,20 +12,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    if current_user
-      erb :'peeps/new'
-    else
-      flash.keep[:login] = 'You must be logged in to do this'
-      redirect '/sessions/new'
-    end
+    current_user ? (erb :'peeps/new') : (flash.keep[:login] = 'You must be logged in to do this'; redirect '/sessions/new')
   end
 
   post '/peeps' do
     current_user
-    Peep.create(content: params[:content], time: Time.now, name: @current_user.name, username: @current_user.username
-    )
+    Peep.create(content: params[:content], time: Time.now, name: @current_user.name, username: @current_user.username)
     redirect '/peeps'
   end
-
-
 end

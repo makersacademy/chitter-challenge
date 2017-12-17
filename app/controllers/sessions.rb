@@ -1,5 +1,7 @@
 class Chitter < Sinatra::Base
+
   helpers Helpers
+
   get '/sessions/new' do
     erb :'sessions/new'
   end
@@ -20,5 +22,4 @@ class Chitter < Sinatra::Base
     flash.keep[:logout] = 'You have logged out successfully'
     redirect to '/peeps'
   end
-
 end
