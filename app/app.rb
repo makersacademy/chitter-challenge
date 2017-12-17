@@ -17,7 +17,7 @@ get '/' do
 end
 
 get '/messages' do
-  @user = session[:user]
+  @user = session[:user_name]
   @messages = Message.all(:order => [:created_at.desc])
   erb :'messages/messages'
   end
@@ -28,7 +28,7 @@ end
 
 post '/messages/new' do
   message = Message.create(message: params[:message])
-  session[:user] = params[:user_name]
+  session[:user_name] = params[:user_name]
   redirect '/messages'
 end
 
