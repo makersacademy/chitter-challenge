@@ -4,18 +4,14 @@ require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 require './app/models/peep'
 require './app/models/user'
+require_relative 'helpers'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'session'
   register Sinatra::Flash
   use Rack::MethodOverride
-
-  helpers do
-     def current_user
-       @current_user ||= User.get(session[:user_id])
-     end
-  end
+  helpers Helpers
 
   get '/users/new' do
     @user = User.new
@@ -36,7 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    current_user
+    @user = current_user
     @peeps = Peep.all
     erb :peeps
   end
@@ -46,10 +42,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.first_or_create(user_id: current_user.id,
+    if current_user
+      peep = Peep.create(user_id: session[:user_id],
       message: params[:message])
-    peep.save
-    redirect to('/peeps')
+      peep.save
+      redirect '/peeps'
+    else
+      flash.next[:error] = 'Must sign in first'
+      redirect 'peeps/new'
+    end
   end
 
   get '/sessions/new' do
