@@ -18,7 +18,7 @@ end
 
 get '/messages' do
   @user = session[:user]
-  @message = session[:message]
+  @messages = Message.all
   erb :'messages/messages'
   end
 
@@ -29,7 +29,6 @@ end
 post '/messages/new' do
   message = Message.create(message: params[:message])
   session[:user] = params[:user_name]
-  session[:message] = message.message
   redirect '/messages'
 end
 
