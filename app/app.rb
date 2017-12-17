@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
       session[:id] = @user.id
       redirect '/'
     else
-      flash.now[:notice] = "Your passwords do not match!"
+      flash.now[:errors] = @user.errors.full_messages
       erb(:signup)
     end
   end

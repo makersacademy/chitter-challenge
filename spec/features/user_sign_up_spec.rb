@@ -21,8 +21,14 @@ feature "sign up form" do
     expect(page).to have_content "Your passwords do not match!"
   end
 
-  scenario "existing usernames and emails cannot be used to sign up" do
-    expect { user_sign_up }.to change { User.count }.by 0
+  scenario "existing usernames cannot be used to sign up" do
+    expect { user_sign_up_diff_email }.to change { User.count }.by 0
+    expect(page).to have_content "Username is already taken"
+  end
+
+  scenario "existing emails cannot be used to sign up" do
+    expect { user_sign_up_diff_username }.to change { User.count }.by 0
+    expect(page).to have_content "Email is already taken"
   end
 
   scenario "users cannot sign up without an email in a valid format" do
@@ -32,4 +38,5 @@ feature "sign up form" do
   scenario "users cannot sign up without entering an email and username" do
     expect { user_sign_up_with_nil }.to change { User.count }.by 0
   end
+
 end

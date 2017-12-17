@@ -8,6 +8,26 @@ def user_sign_up
   click_on "Sign up"
 end
 
+def user_sign_up_diff_email
+  visit '/user/new'
+  fill_in "email", with: "you@me.com"
+  fill_in "name", with: "Ellie W"
+  fill_in "username", with: "winnie"
+  fill_in "password", with: "pass2017"
+  fill_in "password_confirmation", with: "pass2017"
+  click_on "Sign up"
+end
+
+def user_sign_up_diff_username
+  visit '/user/new'
+  fill_in "email", with: "me@me.com"
+  fill_in "name", with: "Ellie W"
+  fill_in "username", with: "ewinnie"
+  fill_in "password", with: "pass2017"
+  fill_in "password_confirmation", with: "pass2017"
+  click_on "Sign up"
+end
+
 def user_sign_up_wrong_password
   visit '/user/new'
   fill_in "email", with: "me@me.com"

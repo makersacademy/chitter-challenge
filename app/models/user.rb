@@ -14,7 +14,7 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
-  validates_confirmation_of :password#, message: "Your passwords do not match!"
+  validates_confirmation_of :password, message: "Your passwords do not match!"
 
   def password=(password)
     @password = password
