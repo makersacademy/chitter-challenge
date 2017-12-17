@@ -1,4 +1,19 @@
 <html>
+
+  <h1><% if current_user %>
+    <form action="/peep/new">
+      <button type="submit">Create a peep</button>
+    </form>
+    <% end %>
+  </h1>
+
+  <h1><% if !current_user %>
+    <form action="/sessions/new">
+      <button type="submit">Sign in</button>
+    </form>
+    <% end %>
+  </h1>
+
   <ul id="peeps">
     <% @peeps.reverse.each do |peep| %>
       <li> <%= peep.message %><br/>

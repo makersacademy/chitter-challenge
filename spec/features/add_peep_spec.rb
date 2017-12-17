@@ -17,4 +17,9 @@ feature "add peep" do
     end
   end
 
+  scenario "user must be signed in to post peep" do
+    expect(page).to have_content "Create a peep"
+    click_on "Sign out"
+    expect(page).not_to have_content "Create a peep"
+  end
 end
