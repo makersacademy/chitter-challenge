@@ -1,4 +1,8 @@
-<h1 align='center'> Chitter </h1>
+<%if current_user%>
+  Welcome, <%=current_user.username%>
+<%end%>
+<br>
+<br>
 
 <form action='/users/new' align='center'>
   <input type='submit' value='Sign Up'>
