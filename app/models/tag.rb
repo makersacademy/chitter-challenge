@@ -1,14 +1,11 @@
 require './app/data_mapper_setup.rb'
 
-class Message
+class Tag
   include DataMapper::Resource
 
   property :id, Serial
-  property :content, Text
-  property :time, Time
 
+  belongs_to :message, required: false
   belongs_to :user, required: false
-  has n, :tags, through: Resource
 
-  attr_accessor :time_string
 end

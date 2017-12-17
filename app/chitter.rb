@@ -37,9 +37,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/chat' do
-    current_user ?
-      Chitter.create_msg(params[:message], current_user) :
+    if current_user
+      Chitter.tags(Chitter.create_msg(params[:message], current_user))
+    else
       flash[:no_user] = "If you wanna get peepin' you need to"
+    end
     redirect '/chat'
   end
 

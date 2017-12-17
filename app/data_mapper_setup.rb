@@ -4,6 +4,8 @@ require 'dm-migrations'
 
 require_relative 'models/message'
 require_relative 'models/user'
+require_relative 'models/tag'
+
 
 # DataMapper::Logger.new($stdout, :debug)
 
