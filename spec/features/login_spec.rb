@@ -6,12 +6,12 @@ feature 'logging in' do
     fill_in 'username', with: "TestUserName"
     fill_in 'password', with: "testpassword"
     fill_in 'confirm', with: "testpassword"
-    click_on 'Register'
+    click_on 'Create Account'
     visit '/login'
     fill_in 'username', with: "TestUserName"
     fill_in 'password', with: "testpassword"
     click_on "Login"
-    expect(page).to have_content("Logged in as: TestUserName")
+    expect(page).to have_content("Signed in as TestUserName")
   end
   scenario 'User cannot login with incorrect details' do
     visit '/users/new'
@@ -20,7 +20,7 @@ feature 'logging in' do
     fill_in 'username', with: "TestUserName"
     fill_in 'password', with: "testpassword"
     fill_in 'confirm', with: "testpassword"
-    click_on 'Register'
+    click_on 'Create Account'
     visit '/login'
     fill_in 'username', with: "TestUserName"
     fill_in 'password', with: "badpassword"

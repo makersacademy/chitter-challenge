@@ -6,9 +6,8 @@ feature 'Logging out' do
     fill_in 'username', with: "TestUserName"
     fill_in 'password', with: "testpassword"
     fill_in 'confirm', with: "testpassword"
-    click_on 'Register'
+    click_on 'Create Account'
     click_on "Logout"
-    puts page.html
     expect(page).to_not have_content("Logged in")
   end
 end

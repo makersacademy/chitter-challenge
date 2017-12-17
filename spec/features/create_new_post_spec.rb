@@ -1,5 +1,6 @@
 feature 'Post creation' do
   scenario 'A user can create a new post' do
+    register_account
     visit '/posts/new'
     fill_in 'message', with: "Hello world"
     click_on "Post"

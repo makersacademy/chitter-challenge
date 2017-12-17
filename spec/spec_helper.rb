@@ -9,6 +9,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 require 'database_cleaner'
+require_relative './features/web_helper'
 RSpec.configure do |config|
   ENV['RACK_ENV'] = "test"
 
