@@ -24,7 +24,7 @@ module TagHandler
   def notify_tagged_users(peep)
     peep.tags.each do |tag|
       Mail.deliver do
-        from     'rsk_chitter@hotmail.com'
+        from     'rsk.chitter@gmail.com'
         to       "#{tag.user.email}"
         subject  'Chitter Notification!'
         body     "You were tagged in a peep by #{peep.user.username} on Chitter!\n
