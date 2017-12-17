@@ -27,7 +27,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :'peeps/new'
+    if session[:user_id]
+      erb :'peeps/new'
+    else
+      flash.keep[:login] = 'You must be logged in to do this'
+      redirect '/sessions/new'
+    end
   end
 
   post '/peeps' do
