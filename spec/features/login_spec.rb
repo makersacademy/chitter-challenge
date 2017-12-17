@@ -1,12 +1,7 @@
 feature 'logging in' do
   scenario 'User can login with correct details' do
     visit '/users/new'
-    fill_in 'email', with: "testemail@testserver.com"
-    fill_in 'name', with: "Test Name"
-    fill_in 'username', with: "TestUserName"
-    fill_in 'password', with: "testpassword"
-    fill_in 'confirm', with: "testpassword"
-    click_on 'Create Account'
+    register_account
     visit '/login'
     fill_in 'username', with: "TestUserName"
     fill_in 'password', with: "testpassword"
