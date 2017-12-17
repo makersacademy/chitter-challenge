@@ -1,0 +1,28 @@
+<html>
+
+  <h1><% if current_user %>
+    <form action="/peep/new">
+      <button type="submit">Create a peep</button>
+    </form>
+    <% end %>
+  </h1>
+
+  <h1><% if !current_user %>
+    <form action="/sessions/new">
+      <button type="submit">Sign in</button>
+    </form>
+    <form action="/user/new">
+      <button type="submit">Sign up</button>
+    </form>
+    <% end %>
+  </h1>
+
+  <ul id="peeps">
+    <% @peeps.reverse.each do |peep| %>
+      <li> <%= peep.message %><br/>
+           <%= peep.user.name %> | @<%= peep.user.username %><br/>
+           <%= peep.time.strftime("%d/%m/%y at %H:%M") %>
+      </li>
+    <% end %>
+  </ul>
+</html>

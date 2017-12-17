@@ -1,0 +1,25 @@
+<h1>Chitter</h1>
+
+<% if flash[:errors] %>
+  <ul id="errors">
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if flash[:notice] %>
+  <div id="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<h1><% if current_user %>
+  Welcome <%= current_user.name %>
+  <form method="post" action="/sessions">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Sign out">
+  </form>
+  <% end %>
+  <%= yield %>
+</h1>
