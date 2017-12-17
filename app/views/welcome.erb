@@ -1,0 +1,14 @@
+<html>
+  <h1>Welcome to Chitter</h1>
+  <h3><a href ="/sign_up" class = "button">Sign Up</a><h3>
+  <ul id = 'peeps'>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= peep.message %><br>
+        Sent at: <%= peep.created_at.strftime(" %d/%m/%y %H:%M:%S ") %>
+      </li>
+    <% end %>
+  </ul>
+  
+
+</html>

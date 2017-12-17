@@ -1,0 +1,16 @@
+<html>
+  <h1>Welcome <%= @user_username  %></h1>
+  <h1>These are the most recent peeps</h1>
+
+  <ul id = 'peeps'>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= peep.message %><br>
+        Sent by: <%= peep.user.username  %><br>
+        Sent at: <%= peep.created_at.strftime(" %d/%m/%y %H:%M:%S ") %>
+      </li>
+    <% end %>
+  </ul>
+  <h3><a href ="/new_message" class = "button">Create new message</a><h3>
+
+</html>
