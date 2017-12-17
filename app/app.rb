@@ -15,6 +15,8 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
+  use Rack::MethodOverride
+
   get '/' do
    erb :index
   end
@@ -76,6 +78,12 @@ class Chitter < Sinatra::Base
         flash.now[:log_in_notice] = 'Your email or password is incorrect'
         erb :'sessions/new_session'
       end
+  end
+
+  delete '/sessions' do
+      session[:user_id] = nil
+      flash.keep[:log_out_notice] = 'Goodbye! Thank you for using Chitter!'
+    redirect to '/messages'
   end
 
 
