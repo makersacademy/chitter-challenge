@@ -1,4 +1,5 @@
 require './app/data_mapper_setup.rb'
+require 'mail'
 
 module TagHandler
 
@@ -18,6 +19,18 @@ module TagHandler
     return nil if find_tag(peep).empty?
     user = check_tag_against_user(find_tag(peep))
     user ? create_tag(user, peep) : nil
+  end
+
+  def notify_tagged_users(peep)
+    peep.tags.each do |tag|
+      Mail.deliver do
+        from     'rsk_chitter@hotmail.com'
+        to       "#{tag.user.email}"
+        subject  'Chitter Notification!'
+        body     "You were tagged in a peep by #{peep.user.username} on Chitter!\n
+                  Sign in to view: http://rsk-chitter.herokuapp.com/"
+      end
+    end
   end
 
 end

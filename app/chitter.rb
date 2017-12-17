@@ -38,7 +38,10 @@ class Chitter < Sinatra::Base
 
   post '/chat' do
     if current_user
-      Chitter.tags(Chitter.create_peep(params[:peep], current_user))
+      tag_count = Tag.count
+      peep = Chitter.create_peep(params[:peep], current_user)
+      Chitter.tags(peep)
+      Chitter.notify_tagged_users(peep) if Tag.count > tag_count
     else
       flash[:no_user] = "If you wanna get peepin' you need to"
     end
