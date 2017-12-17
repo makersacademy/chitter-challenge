@@ -15,18 +15,18 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  # get '/users/new' do
-  #   erb(:signup)
-  # end
-  #
-  # post '/users' do
-  #   user = User.create(email: params[:email],
-  #                       password: params[:password],
-  #                       name: params[:name],
-  #                       username: params[:username])
-  #   session[:user_id] = user.id
-  #   redirect '/'
-  # end
+  get '/users/new' do
+    erb(:signup)
+  end
+
+  post '/users' do
+    user = User.create(email: params[:email],
+                        password: params[:password],
+                        name: params[:name],
+                        username: params[:username])
+    session[:user_id] = user.id
+    redirect '/'
+  end
 
   # get '/signin' do
   #   erb(:'links/signin')
