@@ -2,11 +2,16 @@
   <h2>PEEPS</h2>
 
   <form method="get" action="/new_peep">
-    <input type="submit" value="New Peep" />
+    <input type="submit" value="Create a peep" />
   </form>
 
-  <p>
-    This is a test peep
-  </p>
-  
+  <ul>
+    <% @peeps.reverse.each do |x| %>
+    <li>
+      <%= x.time %>
+      <%= x.peep %>
+    </li>
+    <% end %>
+  </ul>
+
 </html>
