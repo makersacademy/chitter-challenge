@@ -16,3 +16,8 @@ def sign_in(email: 'test@test.org.uk', password: 'passyword')
   fill_in 'password', with: password
   click_button 'Sign in!'
 end
+
+def peep(peep: "my test peep")
+  fill_in "peep", with: peep
+  click_button "Peep!"
+end
