@@ -10,13 +10,13 @@
 
     <form action="/users" method="post">
       <label for="name">
-        Full Name: <input type="text" name="name">
+        Full Name: <input type="text" name="name" value="<%= @user.name %>">
       </label>
       <label for="email">
-        Email: <input type="text" name="email">
+        Email: <input type="text" name="email" value="<%= @user.email %>">
       </label>
       <label for="username">
-        Username: <input type="text" name="username">
+        Username: <input type="text" name="username" value="<%= @user.username %>">
       </label>
       <label for="password">
         Password: <input type="password" name="password">
