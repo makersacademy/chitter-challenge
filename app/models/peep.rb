@@ -10,4 +10,7 @@ class Peep
   def self.ordering_reverse_chronological
     all.sort_by { |peep| peep.created_at }.reverse
   end
+
+  
+
 end

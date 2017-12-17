@@ -6,7 +6,7 @@
     <% @peeps.each do |peep| %>
       <li>
         <%= peep.message %><br>
-        Sent by: <%= @user_username  %><br>
+        Sent by: <%= peep.user.username  %><br>
         Sent at: <%= peep.created_at.strftime(" %d/%m/%y %H:%M:%S ") %>
       </li>
     <% end %>

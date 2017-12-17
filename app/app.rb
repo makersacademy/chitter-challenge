@@ -30,9 +30,6 @@ class ChitterApp < Sinatra::Base
     redirect '/peeps'
   end
 
-  get '/log_in' do
-    # session[]
-  end
 
   get '/peeps' do
 
@@ -47,13 +44,19 @@ class ChitterApp < Sinatra::Base
     end
 
     @peeps = Peep.ordering_reverse_chronological
+
     erb :'/index'
 
   end
 
   post '/peeps' do
     user = User.find_by_user_id(session[:user_id])
-    peep = Peep.create(message: params[:message], created_at: Time.now, user: user )
+    peep = Peep.create(
+      message: params[:message],
+      created_at: Time.now,
+      user: user
+    )
+    
     redirect '/peeps'
   end
 
