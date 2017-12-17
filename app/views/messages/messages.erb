@@ -4,7 +4,8 @@
  <ul id='messages'>
   <% @messages.each do |message| %>
     <li>
-      <%= message.message %>
+      Message: <%= message.message %><br/>
+      Creation Time: <%= message.created_at %>
     </li>
   <% end %>
 </ul>
