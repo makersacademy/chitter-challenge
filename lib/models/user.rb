@@ -18,7 +18,7 @@ class User
   has n, :peep, :through => Resource
 
   attr_reader :password
-  attr_accessor :password_hash
+  attr_accessor :password_confirmation
 
   def password=(password)
     @password = password
