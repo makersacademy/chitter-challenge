@@ -11,7 +11,7 @@ class Twitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/tweets' do
-    @tweets = Tweet.all
+    @tweets = Tweet.all.reverse
     erb :'tweets/tweet_list'
   end
 
