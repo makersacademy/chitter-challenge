@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-   erb :index
+   redirect '/messages'
   end
 
   get '/messages' do

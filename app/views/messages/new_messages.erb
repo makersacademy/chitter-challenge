@@ -1,9 +1,16 @@
 <h1> New Peep </h1>
 
-<form action='/messages/new' method='post'>
-   User Name:</br>
-   <input type='text' name='user_name'></br>
-   Message: </br>
-   <textarea name='message' rows='4' cols='36'></textarea> </br>
-   <input type ='submit' value='Peep'>
- </form>
+<% if current_user %>
+    <form action='/messages/new' method='post'>
+       Message: </br>
+       <textarea name='message' rows='4' cols='36'></textarea> </br>
+       <input type ='submit' value='Peep'>
+     </form>
+     <form method='get' action='/messages'>
+    <input type='submit' value='Cancel'>
+  </form>
+ <%else%>
+   <form method='get' action='/sessions/new'>
+       <input type='submit' value='Sign in'>
+   </form>
+ <%end%>

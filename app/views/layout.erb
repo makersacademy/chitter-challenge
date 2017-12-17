@@ -7,19 +7,31 @@
 
  <body>
    <h1>Welcome to Chitter, the best replacement to Twitter</h1>
-   <h2>You are signed in as: <%= !current_user.nil? ? "#{current_user.user_name}" : "" %>  </h2>
+   <h2>You are signed in as: <%= !current_user.nil? ? "#{current_user.user_name}" : "NOT SIGNED IN" %>  </h2>
 
 
    <% if current_user %>
-        <form method='post' action='/sessions'>
-          <input type='hidden' name='_method' value='delete'>
-          <input type='submit' value='Sign out'>
+       <form method='post' action='/sessions'>
+         <input type='hidden' name='_method' value='delete'>
+         <input type='submit' value='Sign out'>
+       </form>
+        <form method='get' action='/messages/new'>
+          <input type='submit' value='Start Peeping!!'>
         </form>
-      <% end %>
+         <%else%>
+             <form method='get' action='/sessions/new'>
+               <input type='submit' value='Sign in'>
+             </form>
+             <form method='get' action='/users/new'>
+               <input type='submit' value='Sign up!'>
+             </form>
 
-      <% if flash[:log_out_notice] %>
-            <%= flash[:log_out_notice] %>
-      <% end %>
+
+    <% end %>
+
+    <% if flash[:log_out_notice] %>
+      <%= flash[:log_out_notice] %>
+    <% end %>
 
 
    <%= yield %>
