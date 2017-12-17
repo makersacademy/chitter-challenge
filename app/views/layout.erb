@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <p>
+      <%if flash[:notice]%>
+        <div id="notice"><%=flash[:notice]%></div>
+      <%end%>
+    </p>
+    <h1>
+      <%if current_user%>
+        Welcome, <%=current_user.username%>!
+      <%end%>
+      <%=yield%>
+    </h1>
+  </body>
+</html>
