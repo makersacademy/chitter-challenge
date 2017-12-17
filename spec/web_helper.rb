@@ -23,3 +23,10 @@ def post_a_peep(message)
   Peep.create(user_id: User.first.id, message: message)
   click_button 'Post'
 end
+
+def sign_in(email:, password:)
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end
