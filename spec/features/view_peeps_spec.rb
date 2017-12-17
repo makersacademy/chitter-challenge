@@ -22,4 +22,10 @@ feature 'users can see multiple messages in reverse chronological order' do
     expect(page).to have_css('ul#messages li:first-child', text: 'MA Chitter kicks Twitter A@@! - 2')
    end
 
+   scenario 'Messages show up as having the name of the user' do
+     sign_up
+     post_new_message
+     expect(page).to have_content 'by: Nikolaos'
+   end
+
  end

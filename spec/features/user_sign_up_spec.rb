@@ -10,10 +10,10 @@ feature 'User can post messages on Chitter as himself/herself' do
      expect(page).to have_content 'Please provide a valid email address'
    end
 
-   scenario 'Messages show up as having the name of the user' do
-     sign_up
-     post_new_message
-     expect(page).to have_content 'by: Nikolaos'
-   end
+   scenario 'user signs up for account with email and password and requires a matching confirmation password' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq '/users/new'
+    expect(page).to have_content 'Password and confirmation password do not match'
+  end
 
 end
