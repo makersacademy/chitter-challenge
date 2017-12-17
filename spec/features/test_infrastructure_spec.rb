@@ -26,7 +26,8 @@ feature "testing infrastructure" do
   feature '#time_line' do
 
     before do
-      visit '/time_line'
+      visit '/sign_up'
+      fill_in_sign_up_form
     end
 
     scenario 'Should have a field for entering your peep' do
@@ -56,6 +57,21 @@ feature "testing infrastructure" do
       expect(page).to have_content("fixedtime")
     end
 
+    scenario "Should show the author's name when submitting a peep" do
+      submit_peep
+      expect(page).to have_content("TEST")
+    end
+
+    scenario "Should show the author's name of a peep that is not the current user's" do
+      submit_peep
+      visit 'sign_up'
+      fill_in_sign_up_form_as_second
+      submit_peep
+      within 'ul#peeps' do
+        expect(page).to have_content('TEST') and have_content('Arbik')
+      end
+    end
+
   end
 
   feature '#Signing Up!' do
@@ -79,6 +95,169 @@ feature "testing infrastructure" do
     scenario 'pressing button should take you to the timeline' do
       fill_in_sign_up_form
       expect(page).to have_content('Timeline')
+    end
+
+    scenario 'Should greet user when going to timeline' do
+      fill_in_sign_up_form
+      expect(page).to have_content('Hello TEST')
+    end
+
+    scenario "Should greet only current user" do
+      fill_in_sign_up_form
+      visit 'sign_up'
+      fill_in_sign_up_form_as_second
+      expect(page).not_to have_content('TEST')
+      expect(page).to have_content('Arbik')
+    end
+
+    feature 'PASSWORD ISSUES' do
+
+      feature 'Too short a password' do
+
+        scenario "Cannot sign up if you have too short a password" do
+          expect { fill_in_sign_up_with_short_password }.not_to change(User, :count)
+        end
+
+        scenario "Should not redirect to timeline upon not having a long enough password" do
+          fill_in_sign_up_with_short_password
+          expect(page).to have_content('Sign up!')
+        end
+
+        scenario "Should let user know the issue" do
+          fill_in_sign_up_with_short_password
+          expect(page).to have_content('Password must be at least 8 characters long')
+        end
+
+      end
+
+      feature 'Wrong confirmation' do
+
+        scenario "Cannot sign up if you have not confirmed password" do
+          expect { fill_in_sign_up_without_confirm }.not_to change(User, :count)
+        end
+
+        scenario "Should not redirect to timeline upon not confirming password" do
+          fill_in_sign_up_without_confirm
+          expect(page).to have_content('Sign up!')
+        end
+
+        scenario "Should let user know the issue" do
+          fill_in_sign_up_without_confirm
+          expect(page).to have_content('Password does not match the confirmation ')
+        end
+
+      end
+
+    end
+
+    feature 'EMAIL ISSUES' do
+
+      feature 'No email' do
+
+        scenario "Cannot sign up if you have not entered email" do
+          expect { fill_in_sign_up_with_no_email }.not_to change(User, :count)
+        end
+
+        scenario "Should not redirect to timeline upon not entering email" do
+          fill_in_sign_up_with_no_email
+          expect(page).to have_content('Sign up!')
+        end
+
+        scenario "Should let user know the issue" do
+          fill_in_sign_up_with_no_email
+          expect(page).to have_content('No email entered')
+        end
+
+      end
+
+      feature 'Wrong email format' do
+
+        scenario "Cannot sign up if you have entered incorrect email format" do
+          expect { fill_in_sign_up_with_incorrect_email_format }.not_to change(User, :count)
+        end
+
+        scenario "Should not redirect to timeline upon incorrect email format" do
+          fill_in_sign_up_with_incorrect_email_format
+          expect(page).to have_content('Sign up!')
+        end
+
+        scenario "Should let user know the issue" do
+          fill_in_sign_up_with_incorrect_email_format
+          expect(page).to have_content('Wrong email format')
+        end
+
+      end
+
+      feature 'Common email' do
+
+        scenario "Cannot sign up if you have common email" do
+          fill_in_sign_up_with_common_email1
+          visit 'sign_up'
+          expect { fill_in_sign_up_with_common_email2 }.not_to change(User, :count)
+        end
+
+        scenario "Should not redirect to timeline upon entering a common email" do
+          fill_in_sign_up_with_common_email1
+          visit 'sign_up'
+          fill_in_sign_up_with_common_email2
+          expect(page).to have_content('Sign up!')
+        end
+
+        scenario "Should let user know the issue" do
+          fill_in_sign_up_with_common_email1
+          visit 'sign_up'
+          fill_in_sign_up_with_common_email2
+          expect(page).to have_content('Someone has already used that email')
+        end
+
+      end
+
+    end
+
+    feature 'USERNAME ISSUES' do
+
+      feature 'No username' do
+
+        scenario "Cannot sign up if you have not entered username" do
+          expect { fill_in_sign_up_without_username }.not_to change(User, :count)
+        end
+
+        scenario "Should not redirect to timeline upon not username" do
+          fill_in_sign_up_without_username
+          expect(page).to have_content('Sign up!')
+        end
+
+        scenario "Should let user know the issue" do
+          fill_in_sign_up_without_username
+          expect(page).to have_content('No username')
+        end
+
+      end
+
+      feature 'Common username' do
+
+        scenario "Cannot sign up if you have common username" do
+          fill_in_sign_up_with_common_username1
+          visit 'sign_up'
+          expect { fill_in_sign_up_with_common_username2 }.not_to change(User, :count)
+        end
+
+        scenario "Should not redirect to timeline upon entering a common username" do
+          fill_in_sign_up_with_common_username1
+          visit 'sign_up'
+          fill_in_sign_up_with_common_username2
+          expect(page).to have_content('Sign up!')
+        end
+
+        scenario "Should let user know the issue" do
+          fill_in_sign_up_with_common_username1
+          visit 'sign_up'
+          fill_in_sign_up_with_common_username2
+          expect(page).to have_content('Username already taken')
+        end
+
+      end
+
     end
 
   end

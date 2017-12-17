@@ -6,6 +6,14 @@
 
 <h1 style='font-family:Trebuchet MS;font-size:72'> Chitter™ <h1>
 <h2 style='font-family:Trebuchet MS;font-size:48'>Sign up!</h2>
+<% if flash[:errors] %>
+  <tag> Couldn't sign up! - What went wrong; </tag> <br>
+  <ul>
+    <% flash[:errors].each { |error| %>
+      <li style='color:red'> <%= error %> <br> </li>
+    <% } %>
+  </ul>
+<% end %>
 <form action='signed_up' method="post">
   <p>Username</p>
   <input type='text' name='user_name' placeholder='e.g Falco'>

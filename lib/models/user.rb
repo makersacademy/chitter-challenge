@@ -11,8 +11,17 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
-  property :email, String
+  property :username, String, required: true, unique: true,
+  messages: {
+    presence: "No username",
+    is_unique: "Username already taken"
+  }
+  property :email, String, required: true, unique: true, format: :email_address,
+  messages: {
+    presence: "No email entered",
+    is_unique: "Someone has already used that email",
+    format: "Wrong email format"
+  }
   property :password_hash, Text
 
   has n, :peep, :through => Resource
@@ -24,6 +33,10 @@ class User
     @password = password
     self.password_hash = BCrypt::Password.create(password)
   end
+
+  validates_confirmation_of :password
+  # validates_presence_of :password
+  validates_length_of :password, :min => 8
 
 end
 
