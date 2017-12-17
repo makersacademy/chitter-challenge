@@ -2,8 +2,10 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'sinatra/base'
 require 'sinatra/flash'
+require_relative 'lib/mailer'
 require_relative 'models/user'
 require_relative 'models/peep'
+require_relative 'models/tag'
 require_relative 'helpers'
 
 class Chitter < Sinatra::Base
@@ -14,18 +16,17 @@ class Chitter < Sinatra::Base
   data_mapper_setup
 
   get '/' do
-    redirect '/chit' if current_user
-    erb :homepage
+    redirect '/chit' 
   end
 
   get '/chit' do
-    @name = current_user.first_name ? current_user.first_name : current_user.username
-    @peeps = Peep.all
+    @name = (current_user.first_name ? current_user.first_name : current_user.username) if current_user
+    @peeps = Peep.all.reverse.sort{|a,b| b.time<=>a.time}
     erb :chit
   end
 
   post '/chit' do
-    Peep.create(params)
+    peep(current_user, params)
     redirect '/chit'
   end
 

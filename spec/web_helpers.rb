@@ -17,7 +17,8 @@ def sign_in(email: 'test@test.org.uk', password: 'passyword')
   click_button 'Sign in!'
 end
 
-def peep(peep: "my test peep")
+def post_peep(peep: "my test peep",tags: "")
   fill_in "peep", with: peep
+  fill_in "tags", with: tags
   click_button "Peep!"
 end

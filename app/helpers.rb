@@ -1,3 +1,4 @@
+
 def data_mapper_setup
   DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
   DataMapper.finalize
@@ -11,3 +12,10 @@ end
 def sign_up_errors(user)
    user.errors.full_messages.join("<br>").sub("hash ","")
 end
+
+def peep(user, args)
+	peep = Peep.create(args)
+    peep.user = current_user
+    peep.save
+end
+

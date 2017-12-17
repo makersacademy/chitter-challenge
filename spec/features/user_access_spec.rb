@@ -43,6 +43,7 @@ feature "logging out" do
     sign_up
     sign_in
     visit '/sign_out'
-    expect(page).to have_content "Please sign in or sign up!"
+    expect(page).to have_content "Welcome"
+    expect(page).to have_content "Sign in or Sign up!"
   end
 end

@@ -14,4 +14,5 @@ group :test do
   gem 'dm-postgres-adapter'
   gem 'sinatra-flash'
   gem 'database_cleaner'
+  gem 'orderly'
 end

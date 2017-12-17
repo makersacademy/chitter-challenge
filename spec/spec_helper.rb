@@ -4,6 +4,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require './app/app.rb'
 require './spec/web_helpers'
+require 'orderly'
 require 'simplecov'
 require 'simplecov-console'
 
