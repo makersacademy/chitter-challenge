@@ -17,7 +17,10 @@
         Message: <%= peep.message %>
       </li>
       <li>
-        Posted on <%= peep.timestamp.strftime("%A, %d %b %Y at %l:%M %p") %>
+        Posted by: @<%= peep.user.username %>
+      </li>
+      <li>
+        On <%= peep.timestamp.strftime("%A, %d %b %Y at %l:%M %p") %>
       </li></br>
       <% end %>
     </ul>

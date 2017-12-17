@@ -14,6 +14,14 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+
+
   get '/users/new' do
     @user = User.new
     erb :'users/new'
@@ -59,14 +67,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message], timestamp: Time.new)
+    Peep.create(message: params[:message], user: current_user, timestamp: Time.new)
     redirect '/peeps'
-  end
-
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
   end
 
   run! if app_file == $0

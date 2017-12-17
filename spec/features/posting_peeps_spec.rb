@@ -1,4 +1,9 @@
 feature 'Posting peeps' do
+
+  before :each do
+    sign_up
+  end
+
   scenario "user should be able to post peeps" do
     peep_first
 
