@@ -10,28 +10,40 @@
       margin: 50px;
       color: #130101c4;
       }
+
+    .sign_up form {
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     cursor: pointer;
+      }
+
+   .sign_up input{
+     margin: 8px;
+     width: 250px
+     }
   </style>
-    <h1>Please sign up</h1>
-
-    <form action='/users' method='post'>
-      <label for='email'>
-        Email: <input name='email' type='email' value='<%= @user.email%>' required>
-      </label>
-      <label for='name'>
-        Name: <input name='name' type='text'>
-      </label>
-      <label for='username'>
-        Username: <input name='username' type='text'>
-      </label>
-      <label for='password'>
-        Password: <input name='password' type='password'>
-      </label>
-      <label for='password_confirmation'>
-        Password again?
-      <input type="password" name="password_confirmation">
-      </label>
-      <input type='submit' value='Sign up'>
-    </form>
-
+    <h1>Create a chitter account</h1>
+    <div class='sign_up'>
+      <form action='/users' method='post'>
+        <label for='email'>
+          Email: <input name='email' type='email' value='<%= @user.email%>' required>
+        </label>
+        <label for='name'>
+          Name: <input name='name' type='text'>
+        </label>
+        <label for='username'>
+          Username: <input name='username' type='text'>
+        </label>
+        <label for='password'>
+          Password: <input name='password' type='password'>
+        </label>
+        <label for='password_confirmation'>
+          Confirm password:
+        <input type="password" name="password_confirmation">
+        </label>
+        <input type='submit' value='Sign up'>
+      </form>
+   </div>
   </body>
 </html>

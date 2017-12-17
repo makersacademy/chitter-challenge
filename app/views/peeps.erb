@@ -13,6 +13,10 @@
 
   <h1> Peeps </h1>
 
+  <form action='/peeps/new' method='get'>
+    <button type='submit' value='Peep'>New Peep</button>
+  </form>
+
     <ul id='peeps'>
       <% @peeps.reverse.each do |peep| %>
         <li>
@@ -23,8 +27,5 @@
       <% end %>
     </ul>
 
-    <form action='/peeps/new' method='get'>
-      <button type='submit' value='Peep'>New Peep</button>
-    </form>
   </body>
 </html>
