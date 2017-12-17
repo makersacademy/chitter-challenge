@@ -19,8 +19,8 @@ def signup(name: 'Joe Bloggs',
 end
 
 def signin
- visit '/'
- fill_in :username_or_email, with: 'joebloggs@hotmail.co.uk'
- fill_in :password, with: 'blogg'
- click_on 'Sign In'
+  visit '/'
+  fill_in :username_or_email, with: 'joebloggs@hotmail.co.uk'
+  fill_in :password, with: 'blogg'
+  click_on 'Sign In'
 end

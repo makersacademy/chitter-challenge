@@ -28,4 +28,8 @@ feature 'Messages' do
     expect(page).to have_content time.strftime("%b %e, %l:%M %p")
   end
 
+  scenario 'users can tag other users in messages' do
+
+  end
+
 end
