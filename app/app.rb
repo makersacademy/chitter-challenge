@@ -13,6 +13,7 @@ enable :sessions
 set :session_secret, 'secretpass'
 
 get '/' do
+  @user = session[:user_name]
  erb :index
 end
 
@@ -32,6 +33,17 @@ post '/messages/new' do
   redirect '/messages'
 end
 
+get '/users/new' do
+  @user = User.new
+  erb :'users/new_user'
+end
+
+post '/users/new' do
+session[:user_name] = params[:user_name]
+@user = User.create(user_name: params[:user_name],
+                    user_email: params[:user_email])
+redirect '/'
+end
 
 # run if file is run directly by Ruby
 run! if app_file == $0
