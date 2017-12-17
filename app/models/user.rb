@@ -21,4 +21,13 @@ class User
     self.user_password = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user && BCrypt::Password.new(user.user_password) == password
+      user 
+    else
+      nil
+    end
+  end
+
 end

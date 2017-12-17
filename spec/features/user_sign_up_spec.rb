@@ -1,4 +1,4 @@
-feature "sign up form" do
+feature "user sign up" do
 
   before do |example|
     unless example.metadata[:skip_before]
@@ -8,7 +8,7 @@ feature "sign up form" do
 
   scenario "signing up and entering as user" do
     expect(current_path).to eq('/')
-    expect(page).to have_content("Welcome Ellie W")
+    expect(page).to have_content "Welcome Ellie W"
   end
 
   scenario "user count increases by 1", :skip_before do

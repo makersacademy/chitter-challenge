@@ -58,6 +58,13 @@ def user_sign_up_with_nil
   click_on "Sign up"
 end
 
+def user_sign_in
+  visit '/sessions/new'
+  fill_in "email", with: "me@me.com"
+  fill_in "password", with: "pass2017"
+  click_on "Sign in"
+end
+
 def add_peep
   visit '/peep/new'
   fill_in "message", with: "If everybody minded their own business, the world would go around a great deal faster than it does."
