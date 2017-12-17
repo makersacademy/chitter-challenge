@@ -1,4 +1,11 @@
-<h1> Timeline </h1>
+<style>
+  body {
+    color: purple
+  }
+</style>
+
+<h1 style='font-family:Trebuchet MS'> Chitter™ <h1>
+<h2 style='font-family:Trebuchet MS'> Timeline </h2>
 <ul id='peeps'>
   <% @peeps.reverse.each { |peep| %>
     <li> <%= "#{peep.content}" %> </li>
@@ -6,7 +13,7 @@
 </ul>
 <form action='addpeep' method='post'>
   <p> What's on your mind? </p>
-  <input text='text' name='peep' placeholder="Today I...">
+  <input style='height:72px;width:300px;padding-bottom:52px;color:purple' text='text' name='peep' placeholder="Today I...">
   <br>
-  <input type='submit' value='peep'>
+  <input type='submit' value='peep' style='background-color:purple;color:white'>
 </form>

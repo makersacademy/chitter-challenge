@@ -21,6 +21,13 @@ feature "testing infrastructure" do
       expect(page).to have_content('testing')
     end
 
+    scenario 'Should display all peeps in chronological order' do
+      submit_peep
+      submit_peep_2
+      expect(page.find('li:nth-child(2)')).to have_content 'testing'
+      expect(page.find('li:nth-child(1)')).to have_content 't3sting2'
+    end
+
   end
 
 end
