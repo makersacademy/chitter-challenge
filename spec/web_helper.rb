@@ -7,3 +7,9 @@ def sign_up
   fill_in :password, with: "12345"
   click_button "Sign up"
 end
+
+def post_a_peep
+  visit("/peeps/new")
+  fill_in :message, with: "My first peep!"
+  click_button("Post")
+end
