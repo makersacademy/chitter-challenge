@@ -10,7 +10,16 @@
     <% if current_user %>
       Welcome,
       <%= current_user.name %>
+      <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
     <% end %>
+    <% if flash[:logout] %>
+    <div id='notice'>
+      <%= flash[:logout] %>
+    </div>
+  <% end %>
     <% if flash[:error] %>
     <div id='error'> <%= flash[:error] %> </div>
     <% end %>

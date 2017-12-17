@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'session'
   register Sinatra::Flash
   include BCrypt
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -69,6 +70,12 @@ class Chitter < Sinatra::Base
       flash.now[:error] = 'Email or password is incorrect'
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:logout] = 'You have logged out successfully'
+    redirect to '/peeps'
   end
 
 
