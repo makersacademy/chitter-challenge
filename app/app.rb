@@ -4,18 +4,17 @@ require_relative "./models/peep"
 require_relative "./models/user"
 require_relative "data_mapper_setup"
 
-
 class ChitterApp < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
   get '/' do
     @peeps = Peep.ordering_reverse_chronological
-    erb :'welcome'
+    erb :welcome
   end
 
   get '/sign_up' do
-    erb :'sign_up'
+    erb :sign_up
   end
 
   post '/sign_up' do
@@ -29,7 +28,6 @@ class ChitterApp < Sinatra::Base
     session[:user_id] = user.id
     redirect '/peeps'
   end
-
 
   get '/peeps' do
 
@@ -60,12 +58,10 @@ class ChitterApp < Sinatra::Base
     redirect '/peeps'
   end
 
-  get '/new_message'do
-    erb :'new_message'
+  get '/new_message' do
+    erb :new_message
   end
 
-
-
- run if app_file == $0
+  run if app_file == $0
 
 end

@@ -1,13 +1,11 @@
 require_relative "../../app/app.rb"
 
-
 feature "User can create a new message" do
   scenario "Submission form has a submit button" do
     visit('/new_message')
 
     expect(page).to have_button('Submit')
   end
-
 
   scenario "User fills message form and submits" do
     sign_up

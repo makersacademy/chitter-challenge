@@ -1,4 +1,4 @@
-require 'pry'
+ENV['RACK_ENV'] ||= 'test'
 
 require 'simplecov'
 require 'simplecov-console'
@@ -6,7 +6,6 @@ require 'capybara/rspec'
 require 'data_mapper'
 require 'database_cleaner'
 
-ENV['RACK_ENV'] ||= 'test'
 
 require './app/app'
 
@@ -36,7 +35,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 
   config.after(:suite) do
     puts

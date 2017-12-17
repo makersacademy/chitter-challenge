@@ -8,8 +8,7 @@ feature "User can sign up from the main page" do
     expect(current_path).to eq('/sign_up')
   end
 
-
-  scenario 'Can create peeps after sign up'  do
+  scenario 'Can create peeps after sign up' do
     sign_up
 
     expect(current_path).to eq '/peeps'
