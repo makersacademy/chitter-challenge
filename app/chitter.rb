@@ -5,6 +5,12 @@ require_relative './models/peeps'
 require_relative './data_mapper_setup'
 
 
+# require 'database_cleaner'
+#
+# DatabaseCleaner.strategy = :truncation
+# DatabaseCleaner.clean
+
+
 class Chitter < Sinatra::Base
 
   get ('/') do

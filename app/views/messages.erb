@@ -7,7 +7,7 @@
 
     <li>
       <p><% @peeps.each do |peep|%>
-      <li><%= peep.message %>
+      <li><%= peep.message %> <br />
         <%= peep.created_at %>
 
       </li>  <% end %>
@@ -15,4 +15,11 @@
       </p>
     </li>
   </ul>
+
+  <h3> Post a new peep:</h3>
+  <form method='post' action='/peeps/new'>
+    <input type='text' name='message' placeholder= 'Post a peep'  />
+    <input type='submit' value='Post'  />
+
+  </form>
 </html>
