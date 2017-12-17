@@ -5,10 +5,10 @@ feature "signing up as a new user" do
   end
   scenario "user name is posted next to the tweet" do
     sign_up
-    visit('/tweets')
-    click_button("New tweet")
-    fill_in 'message', with: 'test'
-    click_button 'Post'
-    expect(page).to have_content "Dave"
+    post_test
+
+    within 'ul#tweets' do
+      expect(page).to have_content "Dave"
+    end
   end
 end

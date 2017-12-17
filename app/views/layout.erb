@@ -6,7 +6,7 @@
 
   <body>
     <% if current_user %>
-      Welcome, <%= current_user.email %>
+      Currently posting as <%= current_user.name %>
     <% end %>
     <%= yield %>
 </html>

@@ -16,10 +16,7 @@ feature "Create new tweets" do
     end
   end
   scenario "tweets show the time they were posted" do
-    visit('/tweets')
-    click_button("New tweet")
-    fill_in 'message', with: 'test'
-    click_button 'Post'
+    post_test
 
     expect(current_path).to eq '/tweets'
 

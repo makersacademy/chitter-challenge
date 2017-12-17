@@ -7,3 +7,10 @@ def sign_up
   fill_in :password_confirmation, with: 'secret'
   click_button 'Sign up'
 end
+
+def post_test
+  visit('/tweets')
+  click_button("New tweet")
+  fill_in 'message', with: 'test'
+  click_button 'Post'
+end
