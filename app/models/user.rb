@@ -12,8 +12,8 @@ class User
   property :password_digest, Text
 
   has n, :peeps
-end
 
-def password=(password)
-  self.password_digest = BCrypt::Password.create(password)
+  def password_digest=(password)
+    super BCrypt::Password.create(password)
+  end
 end
