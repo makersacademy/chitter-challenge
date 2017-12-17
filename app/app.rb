@@ -5,6 +5,7 @@ require 'data_mapper'
 require 'dm-migrations'
 require 'dm-postgres-adapter'
 require_relative './models/peep.rb'
+require_relative './models/user.rb'
 
 class Chitter < Sinatra::Base
 
@@ -16,7 +17,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep_home' do
-    session[:username] = params[:username]
+
+    user = User.create(username: params[:username],
+       email_address: params[:email_address],
+       password: params[:password])
+    session[:username] = user.username
     redirect'/peep_home'
   end
 
@@ -30,7 +35,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(time: Time.now.strftime("%H:%M %d/%m/%Y"), peep: params[:peep])
+    peep = Peep.create(time: Time.now.strftime("%H:%M %d/%m/%Y"), peep: params[:peep], author: session[:username])
     peep.save
     redirect('peeps')
   end

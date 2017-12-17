@@ -5,14 +5,13 @@ require 'dm-migrations'
 require 'dm-postgres-adapter'
 require 'time'
 
-
-class Peep
+class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :peep, Text
-  property :time, Time
-  property :author, String
+  property :username, String
+  property :email_address, String
+  property :password, Text
 end
 
 DataMapper.finalize

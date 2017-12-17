@@ -13,6 +13,7 @@ require 'dm-postgres-adapter'
 require_relative '../app/app.rb'
 require './app/models/peep.rb'
 require 'database_cleaner'
+require_relative './features/web_helpers'
 
 Capybara.app = Chitter
 

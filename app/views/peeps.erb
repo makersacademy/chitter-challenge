@@ -8,10 +8,13 @@
   <ul>
     <% @peeps.reverse.each do |x| %>
     <li>
+      <%= x.author %>
       <%= x.time %>
       <%= x.peep %>
     </li>
     <% end %>
+    <br />
+    <br />
   </ul>
 
 </html>

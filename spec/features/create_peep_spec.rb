@@ -29,4 +29,12 @@ feature 'peeping' do
     click_button('Submit Peep')
     expect(page).to have_content(Time.now.strftime("%H:%M"))
   end
+
+  scenario 'when signed up, the peep should show the username as author of the peep' do
+    sign_up
+    click_button('New Peep')
+    fill_in "peep", with: "This is a test peep"
+    click_button('Submit Peep')
+    expect(page).to have_content 'Alex Ample'
+  end
 end
