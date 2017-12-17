@@ -7,8 +7,6 @@ require 'database_cleaner'
 require './app/app'
 require 'simplecov'
 require 'simplecov-console'
-require './app/models/peep'
-require './app/models/user'
 require_relative 'web_helper'
 
 
@@ -27,12 +25,6 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
-
-  # config.after(:suite) do
-  #   puts
-  #   puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-  #   puts "\e[33mTry it now! Just run: rubocop\e[0m"
-  # end
 
    config.before(:each) do
      DatabaseCleaner.start
