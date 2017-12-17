@@ -4,19 +4,19 @@
       <li>
         Enter email
         <label for="email">
-          <input type="text" name="email" placeholder="Email" required/>
+          <input type="email" name="email" value="<%= @user.email %>" placeholder="Email" required/>
         </label>
       </li>
       <li>
         Enter name
         <label for="name">
-          <input type="text" name="name" placeholder="Name" required/>
+          <input type="text" name="name" value="<%= @user.name %>" placeholder="Name" required/>
         </label>
       </li>
       <li>
         Enter username
         <label for="username">
-          <input type="text" name="username" placeholder="Username" required/>
+          <input type="text" name="username" value="<%= @user.username %>" placeholder="Username" required/>
         </label>
       </li>
       <li>

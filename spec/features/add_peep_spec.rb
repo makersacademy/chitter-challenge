@@ -13,7 +13,7 @@ feature "add peep" do
     within "ul#peeps" do
       expect(page).to have_content("If everybody minded their own business, the world would go around a great deal faster than it does.")
       expect(page).to have_content("Ellie W | @winnie")
-      expect(page).to have_content("12/16/17")
+      expect(page).to have_content("12/17/17")
     end
   end
 
