@@ -1,0 +1,17 @@
+<html>
+  <h1> Chitter </h1>
+
+
+  <h3> Peeps:</h3>
+  <ul>
+
+    <li>
+      <p><% @peeps.each do |peep|%>
+      <li><%= peep.message %>
+
+      </li>  <% end %>
+
+      </p>
+    </li>
+  </ul>
+</html>
