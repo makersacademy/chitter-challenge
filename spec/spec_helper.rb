@@ -1,5 +1,12 @@
+ENV['RACK_ENV'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
+require_relative '../app'
+require_relative './features/web_helpers'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require 'database_cleaner'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
