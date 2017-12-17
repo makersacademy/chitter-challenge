@@ -8,6 +8,7 @@ require 'capybara'
 require './app/app'
 require './app/models/peep'
 require 'orderly'
+require 'feature-test/web_helpers'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 

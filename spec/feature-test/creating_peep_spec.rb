@@ -1,19 +1,26 @@
 feature 'View peep' do
 
-  scenario 'see the peep on the page' do
-  Peep.create(msg: 'Hi, this is peep1')
-  visit('/peeps')
-   expect(page.status_code).to eq 200
-  expect(page).to have_content('Hi, this is peep1')
-  end
+  # scenario 'see the peep on the page' do
+  # Peep.create(msg: 'Hi, this is peep1')
+  # visit('/peeps')
+  #  expect(page.status_code).to eq 200
+  # expect(page).to have_content('Hi, this is peep1')
+  # end
 
   scenario 'see peeps in reverse chronological order' do
-    Peep.create(msg: 'Hi, this is peep1')
-    Peep.create(msg: 'Hi, this is peep3')
-    visit('/peeps')
-     expect(page.status_code).to eq 200
-    expect('Hi, this is peep3').to appear_before('Hi, this is peep1')
+    peep_first
+    peep_second
+    expect('Hi, this is peep2').to appear_before('Hi, this is peep1')
     end
+
+  scenario 'see the time of the peep' do
+    peep_first
+    time_stamp = Time.new.strftime("%A, %d %b %Y %l:%M %p")
+    within 'ul#peeps' do
+    expect(page).to have_content("#{time_stamp}")
+    end
+
+  end
 
 end
 feature 'Creating peeps' do
@@ -24,14 +31,11 @@ feature 'Creating peeps' do
   end
 
   scenario 'user can write a peep ' do
-    visit('peeps/new')
-    fill_in 'msg', with: "Hello, this is peep2"
-    click_button 'Create peep'
-
+    peep_second
     expect(current_path).to eq '/peeps'
 
     within 'ul#peeps' do
-      expect(page).to have_content('Hello, this is peep2')
+      expect(page).to have_content('Hi, this is peep2')
     end
   end
 

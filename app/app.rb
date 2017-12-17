@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'data_mapper'
 require_relative 'models/peep'
 require 'rack/test'
+require 'date'
 
 class Chitter < Sinatra::Base
 
@@ -13,7 +14,6 @@ class Chitter < Sinatra::Base
 
 
 get '/peeps' do
-
   @peeps = Peep.all.reverse
   erb :'peeps/index'
 end
@@ -23,7 +23,7 @@ get '/peeps/new' do
 end
 
 post '/peeps' do
-  Peep.create(msg: params[:msg])
+  Peep.create(msg: params[:msg], time_stamp: Time.new)
   redirect '/peeps'
 end
 
