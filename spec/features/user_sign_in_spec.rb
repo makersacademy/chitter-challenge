@@ -8,9 +8,10 @@ feature 'User can sign in' do
 
   scenario 'with correct credentials' do
     sign_in
-    expect(page).to have_content "Welcome to Chitter, #{user.user_name}"
+    expect(page).to have_content 'Welcome to Chitter, the best replacement to Twitter'
+    expect(page).to have_content 'You are signed in as: Nikolaos'
   end
 
-  
+
 
 end

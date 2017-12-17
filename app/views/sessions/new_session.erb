@@ -1,0 +1,11 @@
+<h2>Please sign in</h2>
+
+<form action='/sessions' method='post'>
+
+  Email: </br>
+  <input type='text' name='user_email'></br>
+  Password: </br>
+  <input type='password' name='password'></br>
+  <% if flash[:log_in_notice] %> <%= flash[:log_in_notice] %> <% end %> </br>
+  <input type='submit' value='Sign in'>
+</form>
