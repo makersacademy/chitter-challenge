@@ -15,10 +15,15 @@ end
 
 # User Creation Helpers
 
-def sign_up(user_name: 'Nikolaos', user_email: 'nikolaos@example.com')
+def sign_up(user_name: 'Nikolaos',
+            user_email: 'nikolaos@example.com',
+            passsword: 'test1234',
+            password_confirmation: 'test1234')
    visit '/users/new'
    fill_in :user_name, with: user_name
    fill_in :user_email, with: user_email
+   fill_in :password, with: passsword
+   fill_in :password_confirmation, with: password_confirmation
    click_button 'Sign Up'
  end
 
