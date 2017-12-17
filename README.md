@@ -2,21 +2,23 @@
 
 ## Installation:
 
-Clone the repo
-Bundle install Gemfile and dependencies
+Clone the repo Bundle install Gemfile and dependencies
 
 ```
 $ gem install bundler
 $ bundle
 $ bundle update
 ```
+
 Ruby version 2.4.0
+
 ```
 $ rvm install ruby 2.4.0
 $ rvm use 2.4.0
 ```
 
 ## Creating the database
+
 ```
 $ psql
 $ createdb chitter_development
@@ -24,11 +26,13 @@ $ createdb chitter_test
 ```
 
 ## Testing
+
 ```
 $ rspec
 ```
 
 ## Running the app
+
 ```
 $ rackup
 visit: http://localhost:9292/
@@ -71,30 +75,33 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
 ## Screenshots
-----
-![Home Page](https://i.imgur.com/UxSbi3x.png)
-----
-![Sign_up page](https://i.imgur.com/YGOfd8c.png)
-----
-![Sign_in page](https://i.imgur.com/oAF8m9B.png)
-----
-![Post page](https://i.imgur.com/2c1orzs.png)
-----
-![Peeps page](https://i.imgur.com/IQomR8b.png)
-----
+
+--------------------------------------------------------------------------------
+
+## ![Home Page](https://i.imgur.com/UxSbi3x.png)
+
+## ![Sign_up page](https://i.imgur.com/YGOfd8c.png)
+
+## ![Sign_in page](https://i.imgur.com/oAF8m9B.png)
+
+## ![Post page](https://i.imgur.com/2c1orzs.png)
+
+## ![Peeps page](https://i.imgur.com/IQomR8b.png)
+
 ![Sign_out page](https://i.imgur.com/Huv0Edj.png)
 
-
 ## Bonus
------
+
+--------------------------------------------------------------------------------
 
 If you have time you can implement the following:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+- In order to start a conversation as a maker I want to reply to a peep from another maker.
 
 And/Or:
 
-* Work on the css to make it look good (we all like beautiful things).
+- Work on the css to make it look good (we all like beautiful things).
 
 Good luck and let the chitter begin!
