@@ -8,6 +8,7 @@
     <li>
       <p><% @peeps.each do |peep|%>
       <li><%= peep.message %>
+        <%= peep.created_at %>
 
       </li>  <% end %>
 
