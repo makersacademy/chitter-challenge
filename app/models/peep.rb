@@ -11,5 +11,4 @@ class Peep
   property :content, Text
   property :time, DateTime
 
-
 end

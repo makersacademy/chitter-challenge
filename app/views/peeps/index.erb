@@ -5,7 +5,7 @@
   <form action='/peeps/new' method='get'>
     <input type='submit' value='Peep!'>
   </form>
-  <% end %>
+<% end %>
 <% if !current_user %>
   <form action='/sessions/new' method='get'>
     <input type='submit' value='Sign In'>
@@ -14,7 +14,7 @@
     <input type='submit' value='Sign Up'>
   </form>
 <% end %>
-<ul id='peeps' >
+<ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <li>
       <%= peep.username %>

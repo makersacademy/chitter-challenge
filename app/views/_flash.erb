@@ -1,0 +1,15 @@
+<% if flash[:logout] %>
+  <div id='logout'>
+    <%= flash[:logout] %>
+  </div>
+<% end %>
+<% if flash[:login] %>
+  <div id='login'>
+    <%= flash[:login] %>
+  </div>
+<% end %>
+<% if flash[:error] %>
+  <div id='error'>
+    <%= flash[:error] %>
+  </div>
+<% end %>

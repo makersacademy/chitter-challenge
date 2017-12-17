@@ -1,18 +1,20 @@
-<h2> Sign Up </h2>
+<h2>
+  Sign Up
+</h2>
 
 <form action="/users" method="post">
   <label for="email">
     Email:
   </label>
-  <input type="email" name="email" value='<%= @user.email %>' required>
+  <input type="email" name="email" value='<%= @user.email %>' required="required">
   <label for="name">
     Name:
   </label>
-  <input type="text" name="name" value='<%= @user.name %>' required>
+  <input type="text" name="name" value='<%= @user.name %>' required="required">
   <label for="username">
     Username:
   </label>
-  <input type="text" name="username" value='<%= @user.username %>' required>
+  <input type="text" name="username" value='<%= @user.username %>' required="required">
   <label for="pasword">
     Password:
   </label>
