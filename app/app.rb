@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra'
 require 'sinatra/base'
+require_relative 'models/message.rb'
 
 
 class Chitter < Sinatra::Base
@@ -25,8 +26,9 @@ get '/messages/new' do
 end
 
 post '/messages/new' do
+  message = Message.create(message: params[:message])
   session[:user] = params[:user_name]
-  session[:message] = params[:message]
+  session[:message] = message.message
   redirect '/messages'
 end
 

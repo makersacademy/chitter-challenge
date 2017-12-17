@@ -7,6 +7,7 @@ require 'simplecov'
 require 'simplecov-console'
 
 require './app/app.rb'
+require 'helpers/web_helper'
 
 Capybara.app = Chitter
 
