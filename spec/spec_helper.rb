@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 require './app/app'
 require './app/models/peep'
+require './spec/web_helper'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'pry'
