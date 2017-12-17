@@ -11,7 +11,7 @@ class Twitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/tweets' do
-    @tweets = Tweet.all(order: :created_at.desc)
+    @tweets = Tweet.all
     erb :'tweets/tweet_list'
   end
 
@@ -20,7 +20,9 @@ class Twitter < Sinatra::Base
   end
 
   post '/tweets' do
-    tweet = Tweet.create(message: params[:message])
+    time = Time.now.strftime("%A, %d %b %Y %l:%M %p")
+    Time.now.strftime("%A, %d %b %Y %l:%M %p")
+    tweet = Tweet.create(message: params[:message], time: time)
     redirect to('/tweets')
   end
 

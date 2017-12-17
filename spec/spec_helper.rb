@@ -5,6 +5,7 @@ require './app/models/tweet'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'orderly'
 require 'rspec'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
