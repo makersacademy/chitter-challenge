@@ -1,0 +1,21 @@
+<style>
+  body {
+    color: purple
+  }
+</style>
+
+<h1 style='font-family:Trebuchet MS;font-size:72'> Chitter™ </h1>
+<h2 style='font-family:Trebuchet MS;font-size:48'>Login </h2>
+<% if flash[:wrong] %>
+  <tag style='color=red'> <%="Hmm... It appears your username or password entries are incorrect"%></tag> <br>
+<% end %>
+<form action='logged_in' method="post">
+  <p>Username</p>
+  <input type='text' name='username' placeholder='e.g Falco'>
+  <p>Password</p>
+  <input type='password' name='password' placeholder="e.g Ir0nT0rR">
+  <br> <br>
+  <input type='submit' value='Login'>
+</form>
+<p> Don't have a <b> Chitter </b> account? <a style='color:blue' href="/sign_up">sign up!</a> </p>
+<p> Just wanna see what's up on <b> Chitter? </b> Then click <a style='color:blue' href="/time_line">here!</a> </p>
