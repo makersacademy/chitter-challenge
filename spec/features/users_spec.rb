@@ -49,3 +49,17 @@ feature 'Sign up' do
     expect(page).to have_content 'Username is already taken'
   end
 end
+
+feature 'Sign in' do
+
+  let!(:user) do
+    User.create(email: 'example@coldmail.com', name: 'George', username: 'Chunks', password: 'password', password_confirmation: 'password')
+  end
+  scenario 'user can sign in with the correct information' do
+    sign_in
+    expect(page).to have_content 'Welcome, George'
+  end
+  # scenario 'user cannot sign in with incorrect information' do
+  #   sign_in(password: 'wrong')
+  # end
+end
