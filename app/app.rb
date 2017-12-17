@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/home' do
+    @user_name = session[:user_name]
     @peeps = Peep.all
     erb :home
   end
@@ -25,20 +26,37 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     @user = User.new
-    erb(:'signup')
+    erb(:'users/new')
   end
 
   post '/users/new' do
     @user = User.new(email_address: params[:email_address],
                              password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    # if @user.save
-    #   session[:user_id] = @user.id
-    #   redirect '/links'
-    # else
-    #   flash.now[:notice] = "password mismatch, re-enter password"
-    #   erb(:'signup')
-    # end
+    session[:user_name] = @user.email_address
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/home'
+    else
+      flash.now[:notice] = "password mismatch, re-enter password"
+      erb(:'users/new')
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/home')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
 
   run! if app_file == $0
 end

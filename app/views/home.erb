@@ -1,10 +1,43 @@
-<h1> Chitter Home </h1>
+<html>
+<head>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
 
-<ul id='peeps'>
-<% @peeps.each do |link| %>
-  <li><%= link.message %>
-    <ul>
-      <li><%= link.datetime %>
-    </ul>
-<% end %>
-</ul>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-3" align="left" class="hometitle">
+      <p> Chitter Home <p>
+    </div>
+    <div class="col-sm-3" align="right">
+      <a href="/users/new" class = "button-link">Sign Up!</a>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+
+<h3>Welcome <%= @user_name %></h3>
+
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6 peeplist">
+      <ul id='peeps'>
+        <% @peeps.reverse.each do |link| %>
+            <div class="peeps">
+              <li> <%= @user_name %> said:
+              <li><%= link.message %>
+                <ul>
+                  <li><%= link.datetime %>
+                </ul>
+            </div>
+
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>

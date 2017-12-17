@@ -1,0 +1,45 @@
+.button-link {
+	padding: 10px 15px;
+	background: #4479BA;
+	color: #FFF;
+}
+
+.hometitle {
+
+}
+
+.peeps {
+	border-radius: 25px;
+  border-width: 3px;
+  border-color: black;
+  border: solid;
+	padding: 20px;
+	width: auto;
+	height: 100px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.peeplist{
+	padding: 0px;
+
+}
+.peeplist ul{
+	padding: 0px;
+	list-style-type: none;
+}
+
+.signup{
+	border-radius: 25px;
+  border-width: 3px;
+  border-color: black;
+  border: solid;
+	padding: 20px;
+	width: auto;
+}
+
+.signupform p label {
+	display:block;
+	float:left;
+	width:100px;
+}
