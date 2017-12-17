@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Peeps</title>
+  </head>
+  <body>
+    <h1>
+      <%if current_user%>
+        Welcome, <%=current_user.username%>!
+      <%end%>
+      <%=yield%>
+    </h1>
+  </body>
+</html>
