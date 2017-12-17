@@ -13,14 +13,14 @@
    <% if current_user %>
        <form method='post' action='/sessions'>
          <input type='hidden' name='_method' value='delete'>
-         <input type='submit' value='Sign out'>
+         <input type='submit' value='Sign out!'>
        </form>
         <form method='get' action='/messages/new'>
-          <input type='submit' value='Start Peeping!!'>
+          <input type='submit' value='Start Peeping!'>
         </form>
          <%else%>
              <form method='get' action='/sessions/new'>
-               <input type='submit' value='Sign in'>
+               <input type='submit' value='Sign in!'>
              </form>
              <form method='get' action='/users/new'>
                <input type='submit' value='Sign up!'>
