@@ -1,5 +1,13 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'rspec'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require 'sinatra'
+require_relative '../app/app.rb'
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
