@@ -5,6 +5,7 @@
     <li>
       <p>Peep: <%= peep.message%></p>
       <p>Posted at: <%= peep.created_at %></p>
+      <p>Posted by: <%= User.first(peep.user_id).name %> (<%= User.first(peep.user_id).username %>)</p>
     </li>
   <% end %>
 </ul>

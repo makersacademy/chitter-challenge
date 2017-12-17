@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     current_user
     @peeps = Peep.all
-    erb :index
+    erb :peeps
   end
 
   get '/peeps/new' do
