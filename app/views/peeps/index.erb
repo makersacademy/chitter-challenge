@@ -28,7 +28,7 @@
         <strong>Message:</strong> <%= peep.message %>
       </li>
       <li>
-        <strong>Posted</strong> by: @<%= peep.user.username %>
+        <strong>Posted</strong> by: <%= peep.user.name %> | @<%= peep.user.username %>
       </li>
       <li>
         <strong>On</strong> <%= peep.timestamp.strftime("%A, %d %b %Y at %l:%M %p") %>
