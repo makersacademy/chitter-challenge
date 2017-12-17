@@ -5,14 +5,9 @@ class Chitter < Sinatra::Base
   register Sinatra::Partial
   set :partial_template_engine, :erb
   use Rack::MethodOverride
+  require_relative 'helpers'
 
   enable :partial_underscores
-
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
 
   run! if app_file == $0
 

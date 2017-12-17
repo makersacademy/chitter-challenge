@@ -1,5 +1,5 @@
 class Chitter < Sinatra::Base
-
+  helpers Helpers
   get '/' do
     redirect '/peeps'
   end
