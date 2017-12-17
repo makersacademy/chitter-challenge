@@ -17,7 +17,7 @@ feature 'Posting peeps' do
 
   scenario "should be able to see a timestamp" do
     peep_first
-    timestamp = Time.new.strftime("%d/%m/%y at %I:%M%p")
+    timestamp = Time.new.strftime("%A, %d %b %Y at %l:%M %p")
     within 'ul#peeps' do
       expect(page).to have_content "#{timestamp}"
     end
