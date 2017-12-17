@@ -6,16 +6,19 @@
     <h1>Sign up now!</h1>
     <form action="/users" method="POST">
       Name:
-      <input type="text" placeholder="Enter first and last name" name="name" required>
+      <input type="text" name="name" value="<%=@user.name%>" required>
       <br>
       Username:
-      <input type="text" placeholder="Enter username" name="username" required>
+      <input type="text" name="username" value="<%=@user.username%>" required>
       <br>
       Email:
-      <input type="text" placeholder="Enter email address" name="email" required>
+      <input type="text" name="email" value="<%=@user.email%>" required>
       <br>
       Password:
-      <input type="password" placeholder="Enter password" name="password" required>
+      <input type="password" name="password" required>
+      <br>
+      Confirm password:
+      <input type="password" name="password_confirmation" required>
       <br>
       <input type="submit" value="Sign up">
     </form>
