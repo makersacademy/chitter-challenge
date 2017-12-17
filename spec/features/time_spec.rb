@@ -4,7 +4,7 @@ feature 'Post a peep with a time signiture' do
     fill_in 'title', with: 'Hi'
     fill_in 'content', with: 'Hi, my name is Mr Peeps'
     click_button 'Post peep'
-    within 'ol#peeps' do
+    within 'ul#peeps' do
       expect(page).to have_content(Time.now.strftime("%Y-%m-%e %H:%M"))
     end
   end

@@ -4,7 +4,7 @@ feature 'View Homepage' do
     visit('/peeps')
     expect(page.status_code).to eq 200
 
-    within 'ol#peeps' do
+    within 'ul#peeps' do
       expect(page).to have_content('Excited to post my first peep')
     end
   end

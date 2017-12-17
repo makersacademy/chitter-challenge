@@ -11,3 +11,12 @@ def peep_post_2
   fill_in 'content', with: 'second peep'
   click_button 'Post peep'
 end
+
+def sign_up
+  visit '/users/new'
+  expect(page.status_code).to eq(200)
+  fill_in :name, with: 'Pepé le Peep'
+  fill_in :email, with: 'pepe@lepeep.com'
+  fill_in :password, with: 'pepe!'
+  click_button 'Sign up'
+end
