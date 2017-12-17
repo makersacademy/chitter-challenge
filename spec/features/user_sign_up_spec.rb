@@ -5,4 +5,9 @@ feature 'User can post messages on Chitter as himself/herself' do
      expect(page).to have_content 'You are signed in as Nikolaos'
    end
 
+   scenario 'I can sign in with a unique username' do
+     expect { sign_up(user_email: nil) }.not_to change(User, :count)
+     expect(page).to have_content 'Please provide a valid email address'
+   end
+
 end
