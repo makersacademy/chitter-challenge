@@ -8,7 +8,9 @@ feature "User can create a new message" do
     expect(page).to have_button('Submit')
   end
 
+
   scenario "User fills message form and submits" do
+    sign_up
     visit('/new_message')
     fill_in "message", with: "Today is a sunny day and I will spend the whole day coding #HappyCodingDay"
     click_button "Submit"
@@ -21,6 +23,7 @@ feature "User can create a new message" do
   end
 
   scenario "Check time when peep has been sent" do
+    sign_up
     visit('/peeps')
     click_link "Create new message"
 
@@ -34,4 +37,13 @@ feature "User can create a new message" do
     end
   end
 
+end
+
+def sign_up
+  visit('/sign_up')
+  fill_in "email", with: "v.r@gmail.com"
+  fill_in "password", with: "1234"
+  fill_in "name", with: "valentina"
+  fill_in "username", with: "vale"
+  click_button "Submit"
 end

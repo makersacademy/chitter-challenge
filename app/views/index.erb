@@ -1,10 +1,12 @@
 <html>
-  <h1>These are your peeps</h1>
- 
+  <h1>Welcome <%= @user_username  %></h1>
+  <h1>These are the most recent peeps</h1>
+
   <ul id = 'peeps'>
     <% @peeps.each do |peep| %>
       <li>
         <%= peep.message %><br>
+        Sent by: <%= @user_username  %><br>
         Sent at: <%= peep.created_at.strftime(" %d/%m/%y %H:%M:%S ") %>
       </li>
     <% end %>
