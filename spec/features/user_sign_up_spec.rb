@@ -10,4 +10,10 @@ feature 'User can post messages on Chitter as himself/herself' do
      expect(page).to have_content 'Please provide a valid email address'
    end
 
+   scenario 'Messages show up as having the name of the user' do
+     sign_up
+     post_new_message
+     expect(page).to have_content 'by: Nikolaos'
+   end
+
 end
