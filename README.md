@@ -11,6 +11,7 @@ Instructions
 -----------
 Sign up for a new user account at https://chitter-challenge-lan.herokuapp.com/users/new.  
 See all peeps at https://chitter-challenge-lan.herokuapp.com/peeps without being logged in.
+
 Features:
 -------
 
