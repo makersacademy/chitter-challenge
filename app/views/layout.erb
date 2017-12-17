@@ -3,10 +3,17 @@
   <head>
     <title>Chitter</title>
   </head>
+    <body>
+      <style>
+        body {
+          font-family: "Raleway", "Helvetica", "Arial", sans-serif;
+          margin: 50px;
+          color: #130101c4;
+          }
+      </style>
 
-  <body>
-    <%= partial :welcome %>
-    <%= partial :flash %>
-    <%= yield %>
+        <%= partial :welcome %>
+        <%= partial :flash %>
+        <%= yield %>
   </body>
 </html>
