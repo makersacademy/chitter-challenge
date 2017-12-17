@@ -1,5 +1,6 @@
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
+  require './app/app'
 
   RSpec::Core::RakeTask.new :spec
 
