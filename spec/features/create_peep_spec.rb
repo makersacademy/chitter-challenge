@@ -1,6 +1,6 @@
 feature 'visit create_peep' do
   scenario 'clicking "create_peep" takes you to the page' do
-    visit('/')
+    visit('/peep_home')
     click_button('New Peep')
     expect(page).to have_content('Create a new peep')
   end
@@ -15,7 +15,7 @@ end
 
 feature 'peeping' do
   scenario 'posting a peep shows it on the page' do
-    visit('/')
+    visit('/peep_home')
     click_button('New Peep')
     fill_in "peep", with: "This is a test peep"
     click_button('Submit Peep')
@@ -23,7 +23,7 @@ feature 'peeping' do
   end
 
   scenario 'posting a peep also displays its time' do
-    visit('/')
+    visit('/peep_home')
     click_button('New Peep')
     fill_in "peep", with: "This is a test peep"
     click_button('Submit Peep')

@@ -8,8 +8,21 @@ require_relative './models/peep.rb'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+  set :session_secret, 'super secret'
+
   get '/' do
-   erb(:index)
+   erb(:signup)
+  end
+
+  post '/peep_home' do
+    session[:username] = params[:username]
+    redirect'/peep_home'
+  end
+
+  get '/peep_home' do
+    @username = session[:username]
+    erb(:index)
   end
 
   get '/new_peep' do
