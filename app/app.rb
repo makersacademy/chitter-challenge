@@ -18,7 +18,7 @@ end
 
 get '/messages' do
   @user = session[:user]
-  @messages = Message.all
+  @messages = Message.all(:order => [:created_at.desc])
   erb :'messages/messages'
   end
 
