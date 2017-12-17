@@ -8,7 +8,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require_relative '../app/app'
-require_relative './features/web_helpers'
+require_relative './helpers/web_helpers'
 
 Capybara.app = Chitter
 
@@ -37,4 +37,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include Helpers
+
 end
