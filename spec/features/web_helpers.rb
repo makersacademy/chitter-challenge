@@ -65,6 +65,13 @@ def user_sign_in
   click_on "Sign in"
 end
 
+def user_sign_in_wrong_password
+  visit '/sessions/new'
+  fill_in "email", with: "me@me.com"
+  fill_in "password", with: "wrong"
+  click_on "Sign in"
+end
+
 def add_peep
   visit '/peep/new'
   fill_in "message", with: "If everybody minded their own business, the world would go around a great deal faster than it does."
