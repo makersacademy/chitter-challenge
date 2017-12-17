@@ -4,8 +4,19 @@
     <meta charset="utf-8">
     <title>Chitter</title>
   </head>
+  <style>
+  body {
+      text-align: center;
+      background-color: #2BCE88
+    }
+  ul {
+    text-align: center;
+    list-style-type: none
+  }
+
+  </style>
   <body>
-    <h1> Peeps </h1>
+    <h2> Peeps </h2>
 
     <form action="peeps/new">
       <input type="submit" value="Create new peep">
@@ -14,13 +25,13 @@
     <ul id='peeps'>
       <% @peeps.each do |peep| %>
       <li>
-        Message: <%= peep.message %>
+        <strong>Message:</strong> <%= peep.message %>
       </li>
       <li>
-        Posted by: @<%= peep.user.username %>
+        <strong>Posted</strong> by: @<%= peep.user.username %>
       </li>
       <li>
-        On <%= peep.timestamp.strftime("%A, %d %b %Y at %l:%M %p") %>
+        <strong>On</strong> <%= peep.timestamp.strftime("%A, %d %b %Y at %l:%M %p") %>
       </li></br>
       <% end %>
     </ul>

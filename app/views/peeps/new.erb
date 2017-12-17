@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+  <style>
+    body {
+        text-align: center;
+        background-color: #2BCE88
+      }
+  </style>
   <head>
     <meta charset="utf-8">
     <title>Chitter</title>
@@ -9,11 +15,11 @@
 
     <form action="/peeps" method="post">
       <label for="message">
-        Message:
+        <strong>Message:</strong>
         <input type="text" name="message">
       </label>
       <input type="submit" value="Post peep">
-    </form>
+    </form></br>
 
     <form action="/peeps">
       <input type="submit" value="Go back">

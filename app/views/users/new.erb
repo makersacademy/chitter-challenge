@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html>
+  <style>
+    body {
+        text-align: center;
+        background-color: #2BCE88
+      }
+  </style>
   <head>
     <meta charset="utf-8">
     <title>Chitter</title>
   </head>
   <body>
-
-    <h1>Please sign up below</h1>
+    <h1>Welcome to Chitter! :)</h1><br>
+    <h2>Please sign up below:</h2>
 
     <form action="/users" method="post">
       <label for="name">
-        Full Name: <input type="text" name="name" value="<%= @user.name %>" required>
+        <strong>Full Name:</strong> <input type="text" name="name" value="<%= @user.name %>" required>
       </label>
       <label for="email">
-        Email: <input type="email" name="email" value="<%= @user.email %>" required>
+        <strong>Email:</strong> <input type="email" name="email" value="<%= @user.email %>" required>
       </label>
       <label for="username">
-        Username: <input type="text" name="username" value="<%= @user.username %>" required>
+        <strong>Username:</strong> <input type="text" name="username" value="<%= @user.username %>" required>
       </label>
       <label for="password">
-        Password: <input type="password" name="password" required>
+        <strong>Password:</strong> <input type="password" name="password" required>
       </label>
       <label for="password_confirmation">
-        Password confirmation: <input type="password" name="password_confirmation" required>
+        <strong>Password confirmation:</strong> <input type="password" name="password_confirmation" required>
       </label>
       <input type="submit" value="Sign up">
+    </form><br><br><br>
+
+    <h3>Already registered? Please sign in below</h3><br>
+    <form action="../sessions/new">
+      <input type="submit" value="Sign in">
     </form>
   </body>
 </html>
