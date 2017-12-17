@@ -1,3 +1,5 @@
+DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+
 require 'data_mapper'
 require 'dm-migrations'
 require 'dm-postgres-adapter'
@@ -12,6 +14,5 @@ class Peep
   property :time, Time
 end
 
-DataMapper.setup(:default, 'postgres://localhost/chitter')
 DataMapper.finalize
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
