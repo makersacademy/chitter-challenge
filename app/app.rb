@@ -3,7 +3,8 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra'
 require 'sinatra/base'
-require_relative 'models/message.rb'
+
+require_relative 'data_mapper_setup'
 
 
 class Chitter < Sinatra::Base
