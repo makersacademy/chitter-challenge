@@ -27,4 +27,13 @@ def sign_up(user_name: 'Nikolaos',
    click_button 'Sign Up'
  end
 
+ # User Sign-In helpers
+
+def sign_in(email: 'nikolaos@example.com', password: 'test1234')
+   visit '/sessions/new'
+   fill_in :user_email, with: email
+   fill_in :password, with: password
+   click_button 'Sign in'
+ end
+
 end
