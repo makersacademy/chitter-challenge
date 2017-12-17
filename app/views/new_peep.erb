@@ -1,0 +1,23 @@
+<doctype html="html">
+  <head>
+    <title>New peep</title>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: "Raleway", "Helvetica", "Arial", sans-serif;
+        text-align: center;
+        margin: 50px;
+        color: #130101c4;
+      }
+    </style>
+    <h1>Post a peep</h1>
+    <%= flash[:error] %>
+    <form action='/peeps' method='POST'>
+      <label for='message'>Message:
+        <input type='text' name='message' required="required">
+      </label>
+      <input type='submit' value='Post'>
+    </form>
+  </body>
+</html>

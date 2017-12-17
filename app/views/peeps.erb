@@ -1,0 +1,37 @@
+<doctype html="html">
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: "Raleway", "Helvetica", "Arial", sans-serif;
+        margin: 50px;
+        color: #130101c4;
+      }
+    </style>
+
+    <h1>
+      Peeps
+    </h1>
+
+    <form action='/peeps/new' method='get'>
+      <button type='submit' value='Peep'>New Peep</button>
+    </form>
+
+    <ul id='peeps'>
+      <% @peeps.reverse.each do |peep| %>
+        <li>
+          <p>Peep:
+            <%= peep.message%></p>
+          <p>Posted at:
+            <%= peep.created_at %></p>
+          <p>Posted by:
+            <%= User.first({id: peep.user_id}).name %>
+            (<%= User.first({id: peep.user_id}).username %>)</p>
+        </li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>
