@@ -4,6 +4,9 @@
   </head>
   <body>
     <h1>Peeps</h1>
+    <form action="/peeps/new">
+      <input type="submit" value="Post a Peep">
+    </form>
     <p>
       <%@peeps.each do |peep|%>
         <%=peep.message%><br>
