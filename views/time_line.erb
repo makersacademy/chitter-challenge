@@ -17,8 +17,11 @@
 <% if !@user.nil? %>
 <form action='addpeep' method='post'>
   <p> What's on your mind? </p>
-  <input style='height:72px;width:300px;padding-bottom:52px;color:purple' text='text' name='peep' placeholder="Today I...">
+  <textarea style='color:purple' cols="50" rows="4" value="peep" name="peep"></textarea>
   <br>
   <input type='submit' value='peep' style='background-color:purple;color:white'>
+</form>
+<form action='logged_out' method='post'>
+  <input type='submit' value='Logout' style='background-color:purple;color:white'>
 </form>
 <% end %>

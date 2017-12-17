@@ -15,6 +15,30 @@ class Chitter < Sinatra::Base
     erb(:login)
   end
 
+  post '/logged_out' do
+    session[:Uid] = nil
+    session[:Umail] = nil
+    session[:Uname] = nil
+    redirect '/login'
+  end
+
+  post '/logged_in' do
+    user = User.first(username: params[:username])
+    if user.nil?
+      flash.next[:wrong] = true
+      redirect '/login'
+    end
+    if (BCrypt::Password.new(user.password_hash) == params[:password])
+      session[:Uid] = user.id
+      session[:Umail] = user.email
+      session[:Uname] = user.username
+      redirect '/time_line'
+    else
+      flash.next[:wrong] = true
+      redirect '/login'
+    end
+  end
+
   get '/sign_up' do
     erb(:sign_up)
   end

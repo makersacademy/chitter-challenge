@@ -1,3 +1,21 @@
+def login_as_Arbik
+  fill_in 'username', with: 'Arbik'
+  fill_in 'password', with: 'pythagoras'
+  click_button 'Login'
+end
+
+def login_as_Arbik_wong_password
+  fill_in 'username', with: 'Arbik'
+  fill_in 'password', with: 'oopsydaisy'
+  click_button 'Login'
+end
+
+def login_as_Arbik_wong_username
+  fill_in 'username', with: 'Arbick oh no!'
+  fill_in 'password', with: 'pythagoras'
+  click_button 'Login'
+end
+
 def submit_peep
   fill_in 'peep', with: 'testing'
   click_button 'peep'

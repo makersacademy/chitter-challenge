@@ -21,6 +21,66 @@ feature "testing infrastructure" do
       expect(page).to have_content('Sign up!')
     end
 
+    scenario 'Should have field for username' do
+      expect(page).to have_field('username')
+    end
+
+    scenario 'Should have field for password' do
+      expect(page).to have_field('password')
+    end
+
+    scenario 'Should have login button to login' do
+      expect(page).to have_button('Login')
+    end
+
+    scenario 'Filling in login should bring you to timeline page' do
+      visit '/sign_up'
+      fill_in_sign_up_form_as_second
+      visit '/login'
+      login_as_Arbik
+      expect(page).to have_content('Timeline')
+    end
+
+    scenario 'Logging in should greet you the same as signing up' do
+      visit '/sign_up'
+      fill_in_sign_up_form_as_second
+      visit '/login'
+      login_as_Arbik
+      expect(page).to have_content('Hello Arbik')
+    end
+
+    scenario "Logging in with the wrong password won't allow you to login" do
+      visit '/sign_up'
+      fill_in_sign_up_form_as_second
+      visit '/login'
+      login_as_Arbik_wong_password
+      expect(page).to have_content('Login')
+    end
+
+    scenario "Logging in with the wrong username won't allow you to login" do
+      visit '/sign_up'
+      fill_in_sign_up_form_as_second
+      visit '/login'
+      login_as_Arbik_wong_username
+      expect(page).to have_content('Login')
+    end
+
+    scenario "Logging in with wrong username should notify user" do
+      visit '/sign_up'
+      fill_in_sign_up_form_as_second
+      visit '/login'
+      login_as_Arbik_wong_username
+      expect(page).to have_content('Hmm... It appears your username or password entries are incorrect')
+    end
+
+    scenario "Logging in with wrong password should notify user" do
+      visit '/sign_up'
+      fill_in_sign_up_form_as_second
+      visit '/login'
+      login_as_Arbik_wong_password
+      expect(page).to have_content('Hmm... It appears your username or password entries are incorrect')
+    end
+
   end
 
   feature '#time_line' do
@@ -70,6 +130,22 @@ feature "testing infrastructure" do
       within 'ul#peeps' do
         expect(page).to have_content('TEST') and have_content('Arbik')
       end
+    end
+
+    scenario "Should have button to logout" do
+      expect(page).to have_button('Logout')
+    end
+
+    scenario "Logout should bring you to Login page" do
+      click_button('Logout')
+      expect(page).to have_content('Login')
+    end
+
+    xscenario "Should have removed current user" do
+      click_button('Logout')
+      expect(session[:user_id]).to eq nil
+      expect(session[:user_username]).to eq nil
+      expect(session[:user_username]).to eq nil
     end
 
   end
