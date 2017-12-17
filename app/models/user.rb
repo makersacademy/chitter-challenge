@@ -1,5 +1,5 @@
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-
+require_relative './peep.rb'
 require 'data_mapper'
 require 'dm-migrations'
 require 'dm-postgres-adapter'
@@ -18,6 +18,7 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+   # has n, :peep, :through => Resource
 end
 
 DataMapper.finalize

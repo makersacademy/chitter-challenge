@@ -1,4 +1,5 @@
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+require_relative './user.rb'
 
 require 'data_mapper'
 require 'dm-migrations'
@@ -13,6 +14,8 @@ class Peep
   property :peep, Text
   property :time, Time
   property :author, String
+
+   # has 1, :user , :through => Resource
 end
 
 DataMapper.finalize
