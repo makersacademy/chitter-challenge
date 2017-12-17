@@ -5,6 +5,7 @@ gem 'bcrypt'
 gem 'data_mapper', '1.2.0'
 gem 'database_cleaner'
 gem 'dm-postgres-adapter'
+gem 'orderly'
 gem 'pry'
 gem 'sinatra'
 

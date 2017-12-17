@@ -8,13 +8,13 @@
   <input type='text' name="peep">
   <input type='submit' value='Post'>
 </form>
-
+<br>
 <center>
-<ol id='peeps'>
-  <% @peeps.each do |peep| %>
+<div id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
     <li>
       <%= "#{peep.content}" %>
     </li>
   <% end %>
-</ol>
+</div>
 </center>
