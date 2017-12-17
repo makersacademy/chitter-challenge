@@ -5,4 +5,12 @@ feature 'Homepage' do
     visit('/')
     expect(page).to have_content('Welcome to Chitter')
   end
+
+  scenario 'The homepage has a "post" button for posting peeps' do
+    visit('/')
+    expect(page).to have_button('Post')
+  end
+
+
+
 end

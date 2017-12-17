@@ -1,2 +1,2 @@
-require_relative './chitter'
-run Chitter 
+require_relative './app/chitter'
+run Chitter
