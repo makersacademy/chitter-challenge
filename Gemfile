@@ -20,7 +20,6 @@ gem 'rake'
 group :test do
   gem 'rspec'
   gem 'capybara'
-  gem 'rake'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
