@@ -11,7 +11,7 @@ feature 'users can see multiple messages in reverse chronological order' do
     time = Time.now
     sign_up
     post_new_message
-    expect(page).to have_content time.strftime("%Y-%m-%dT%H:%M:%S")
+    expect(page).to have_content time.strftime("%H:%M, %d-%b-%y")
    end
 
    scenario 'messages appear in chronological order' do

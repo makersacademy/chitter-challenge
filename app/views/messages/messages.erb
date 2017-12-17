@@ -4,7 +4,7 @@
   <% @messages.each do |message| %>
     <li>
       Message: <%= message.message %><br/>
-      Creation Time: <%= message.created_at %><br/>
+        Creation Time: <%= message.created_at.strftime('%H:%M, %d-%b-%y') %><br/>
       by: <%= User.first(id: message.user_id).user_name %>
     </li>
   <% end %>
