@@ -6,6 +6,7 @@ gem 'capybara'
 gem 'database_cleaner'
 gem 'data_mapper', '1.2.0'
 gem 'dm-postgres-adapter'
+gem 'orderly'
 gem 'pry'
 gem 'sinatra'
 
