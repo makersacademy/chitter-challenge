@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   ENV['RACK_ENV'] = 'development'
 
   get '/' do
-    'Welcome'
+    redirect '/posts'
   end
 
   get '/posts' do

@@ -1,5 +1,8 @@
+<h2> New Post </h2>
 <%= flash[:errors] %>
 <form action="/posts" method="post">
-  <input type="text" name="message">
-  <input type="submit" value="Post">
+  <div class="form-group">
+    <input type="text" name="message">
+    <input class="btn btn-primary" type="submit" value="Post">
+  </div>
 </form>
