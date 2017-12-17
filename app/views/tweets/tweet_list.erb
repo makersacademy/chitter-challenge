@@ -10,8 +10,8 @@
 <ul id='tweets'>
   <% @tweets.each do |tweet| %>
     <li>
-      <%= tweet.user %>
-      <%= tweet.message%>
+      <%= tweet.author %> posted "
+      <%= tweet.message%>"
       <%= tweet.time %>
     </li>
   <% end %>

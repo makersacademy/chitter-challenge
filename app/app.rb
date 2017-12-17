@@ -21,8 +21,10 @@ class Twitter < Sinatra::Base
 
   post '/tweets' do
     time = Time.now.strftime("%A, %d %b %Y %l:%M %p")
-    Time.now.strftime("%A, %d %b %Y %l:%M %p")
-    tweet = Tweet.create(message: params[:message], time: time)
+    user_name = current_user ? current_user.name : "Anonymous"
+    tweet = Tweet.create(message: params[:message], time: time, author: user_name)
+    p tweet.user
+    p user_name
     redirect to('/tweets')
   end
 
@@ -31,12 +33,12 @@ class Twitter < Sinatra::Base
   end
 
   post '/users' do
-    p 'reaches /users'
     user = User.create(name: params[:name],
                        email: params[:email],
                        password: params[:password],
                        password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
+    p current_user
     redirect to('/tweets')
   end
 
