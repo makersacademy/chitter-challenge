@@ -3,6 +3,7 @@ require 'dm-postgres-adapter'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'helpers'
 
 class Chitter < Sinatra::Base
@@ -19,7 +20,13 @@ class Chitter < Sinatra::Base
 
   get '/chit' do
     @name = current_user.first_name ? current_user.first_name : current_user.username
+    @peeps = Peep.all
     erb :chit
+  end
+
+  post '/chit' do
+    Peep.create(params)
+    redirect '/chit'
   end
 
   get '/sign_up' do

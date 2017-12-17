@@ -1,1 +1,15 @@
-<h1> Welcome <%= @name %> </h1> 
+<h1> Welcome <%= @name %> </h1>
+<h3> Post a new peep: </h3>
+<form method = post >
+  <input type= 'text' name = 'peep'>
+  <input type= 'submit' value = 'Peep!'>
+</form>
+<div id = 'peeps'>
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li>
+      <p> <%= peep.peep %> <p>
+    </li>
+    <% end %>
+  </ul>
+</div>
