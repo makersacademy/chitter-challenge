@@ -1,11 +1,11 @@
-<% if @current_user %>
-  <p>Logged in as: <%= @current_user.username %></p>
-  <form action="/logout" method="post">
-    <input type="submit" value="Logout">
-  </form>
-<% end %>
-Hello
+
 <% @posts.each do |post| %>
-  <%= "#{post.created_at.day}/#{post.created_at.month}/#{post.created_at.year} #{post.created_at.hour}:#{post.created_at.minute}" %> <br>
-  <%= post.message %> <br> <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">Posted by: <%= User.first({id: post.user_id}).username %>
+    <p style="float: right"><%= "#{post.created_at.day}/#{post.created_at.month}/#{post.created_at.year} #{post.created_at.hour}:#{post.created_at.minute}" %></p>
+    </div>
+    <div class="panel-body">
+      <%= post.message %>
+    </div>
+  </div>
 <% end %>

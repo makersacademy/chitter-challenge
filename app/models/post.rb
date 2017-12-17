@@ -7,4 +7,5 @@ class Post
   property :id, Serial
   property :message, String
   property :created_at, DateTime # part of dm-timestamps. Updated on creation.
+  belongs_to :user
 end
