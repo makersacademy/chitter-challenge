@@ -14,11 +14,11 @@ class Chitter < Sinatra::Base
   end
 
   get "/peeps/new" do
-    erb(:new_peeps)
+    erb(:peeps_new)
   end
 
   post "/peeps/post" do
-    peep = Peep.create(message: params[:message], user: current_user)
+    Peep.create(message: params[:message], user: current_user)
     redirect to("/peeps")
   end
 
@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
   end
 
   get "/users/new" do
-    erb(:users)
+    erb(:user_new)
   end
 
   post "/users" do
