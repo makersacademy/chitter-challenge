@@ -8,7 +8,7 @@
 <h2 style='font-family:Trebuchet MS'> Timeline </h2>
 <ul id='peeps'>
   <% @peeps.reverse.each { |peep| %>
-    <li> <%= "#{peep.content}" %> </li>
+    <li> <%= "#{peep.content}" %> <p style='color:grey'> <%="#{peep.date_created}"%> </p> </li>
   <% } %>
 </ul>
 <form action='addpeep' method='post'>
