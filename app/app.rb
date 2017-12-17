@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'data_mapper'
+require 'date'
 require_relative 'data_mapper_setup'
 require_relative 'models/peep'
 require_relative 'models/user'
@@ -43,8 +44,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @timestamp = Time.new.strftime("%d/%m/%y at %I:%M%p")
-    Peep.create(message: params[:message], timestamp: @timestamp)
+    Peep.create(message: params[:message], timestamp: Time.new)
     redirect '/peeps'
   end
 
