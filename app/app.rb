@@ -15,11 +15,19 @@ class Chitter < Sinatra::Base
 
   post "/peeps" do
     Peep.create(message: params[:message])
-    redirect("/peeps")
+    redirect to("/peeps")
   end
 
   get "/users/new" do
     erb(:users)
+  end
+
+  post "/users/new" do
+  User.create(name: params[:name],
+              username: params[:username],
+              email: params[:email],
+              password: params[:password])
+    redirect to("/peeps")
   end
 
   run! if app_file == $0
