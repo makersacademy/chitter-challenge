@@ -10,19 +10,19 @@
 
     <form action="/users" method="post">
       <label for="name">
-        Full Name: <input type="text" name="name" value="<%= @user.name %>">
+        Full Name: <input type="text" name="name" value="<%= @user.name %>" required>
       </label>
       <label for="email">
-        Email: <input type="text" name="email" value="<%= @user.email %>">
+        Email: <input type="email" name="email" value="<%= @user.email %>" required>
       </label>
       <label for="username">
-        Username: <input type="text" name="username" value="<%= @user.username %>">
+        Username: <input type="text" name="username" value="<%= @user.username %>" required>
       </label>
       <label for="password">
-        Password: <input type="password" name="password">
+        Password: <input type="password" name="password" required>
       </label>
       <label for="password_confirmation">
-        Password confirmation: <input type="password" name="password_confirmation" >
+        Password confirmation: <input type="password" name="password_confirmation" required>
       </label>
       <input type="submit" value="Sign up">
     </form>
