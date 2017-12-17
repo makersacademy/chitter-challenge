@@ -11,7 +11,7 @@ class User
   property :name, String, required: true
   property :password_digest, Text
 
-  has n, :messages, through: Resource
+  has n, :peeps, through: Resource
 
   attr_accessor :password_confirmation
   attr_reader :password

@@ -31,14 +31,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/chat' do
-    @msgs = Chitter.msgs
+    @peeps = Chitter.peeps
     @current_user = current_user
     erb :chat
   end
 
   post '/chat' do
     if current_user
-      Chitter.tags(Chitter.create_msg(params[:message], current_user))
+      Chitter.tags(Chitter.create_peep(params[:peep], current_user))
     else
       flash[:no_user] = "If you wanna get peepin' you need to"
     end

@@ -1,11 +1,11 @@
 <h1>Chitter</h1>
 <h2>Get Peepin'</h2>
 <body>
-  <%@msgs.each { |msg|%> <%=msg.content%>
-    [<%=msg.user.username%>(<%=msg.user.name.downcase%>) -<%=msg.time_string%>] <br> <%}%>
+  <%@peeps.each { |peep|%> <%=peep.content%>
+    [<%=peep.user.username%>(<%=peep.user.name.downcase%>) -<%=peep.time_string%>] <br> <%}%>
 </body>
 <form action='/chat' method='POST'>
-  <input type='text' name='message' placeholder='Craft your Peep here'>
+  <input type='text' name='peep' placeholder='Craft your Peep here'>
   <input type='submit' value='PeepIt'>
 </form>
 <%if @current_user%>

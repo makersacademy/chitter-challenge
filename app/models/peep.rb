@@ -1,6 +1,6 @@
 require './app/data_mapper_setup.rb'
 
-class Message
+class Peep
   include DataMapper::Resource
 
   property :id, Serial

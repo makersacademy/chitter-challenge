@@ -1,5 +1,5 @@
-def send_peep(msg)
-  fill_in :message, with: msg
+def send_peep(peep)
+  fill_in :peep, with: peep
   click_on 'PeepIt'
 end
 

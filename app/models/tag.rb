@@ -5,7 +5,7 @@ class Tag
 
   property :id, Serial
 
-  belongs_to :message, required: false
+  belongs_to :peep, required: false
   belongs_to :user, required: false
 
 end
