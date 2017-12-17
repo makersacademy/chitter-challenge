@@ -4,7 +4,7 @@ feature 'Post a peep' do
     fill_in 'title', with: 'Hi'
     fill_in 'content', with: 'Hi, my name is Mr Peeps'
     click_button 'Post peep'
-    within 'ul#peeps' do
+    within 'ol#peeps' do
       expect(page).to have_content('Hi, my name is Mr Peeps')
     end
   end
