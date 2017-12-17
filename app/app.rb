@@ -42,6 +42,12 @@ class Chitter < Sinatra::Base
     redirect '/login'
   end
 
+  post '/logout' do
+    session[:user_id] = nil
+    @current_user = nil
+    redirect '/posts'
+  end
+
   get '/users/new' do
     erb(:register)
   end

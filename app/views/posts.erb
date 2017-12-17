@@ -1,6 +1,10 @@
 <% if @current_user %>
   <p>Logged in as: <%= @current_user.username %></p>
+  <form action="/logout" method="post">
+    <input type="submit" value="Logout">
+  </form>
 <% end %>
+Hello
 <% @posts.each do |post| %>
   <%= "#{post.created_at.day}/#{post.created_at.month}/#{post.created_at.year} #{post.created_at.hour}:#{post.created_at.minute}" %> <br>
   <%= post.message %> <br> <br>
