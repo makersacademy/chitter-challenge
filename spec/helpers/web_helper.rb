@@ -2,10 +2,9 @@ module SessionHelpers
 
 #  Message Creation Helpers
 
-def post_new_message
+def post_new_message(message: "MA Chitter is a cool app - 1" )
   visit '/messages/new'
-  fill_in 'user_name', with: 'Nikolaos'
-  fill_in 'message', with: 'MA Chitter is a cool app - 1'
+  fill_in 'message', with: message
   click_button 'Peep'
 end
 

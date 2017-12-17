@@ -8,4 +8,6 @@ require 'dm-timestamps'
    property :message,  Text
    property :created_at, DateTime
 
+   belongs_to :user
+
  end

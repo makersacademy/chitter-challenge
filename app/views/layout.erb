@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+   <title>Chitter App</title>
+ </head>
+
+ <body>
+   <h1>Welcome to Chitter, the best replacement to Twitter</h1>
+   <h2>You are signed in as: <%= !current_user.nil? ? "#{current_user.user_name}" : "" %>  </h2>
+
+   <%= yield %>
+    <!-- this then yields to the view which has been called by your controller -->
+
+ </body>
+
+ </html>
