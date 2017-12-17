@@ -5,6 +5,8 @@ require 'simplecov-console'
 
 require './app/app.rb'
 require './app/models/peep.rb'
+require './app/models/user.rb'
+require_relative './web_helper'
 
 require 'sinatra/flash'
 require 'capybara'
