@@ -17,9 +17,17 @@ feature "add peep" do
     end
   end
 
-  scenario "user must be signed in to post peep" do
+  scenario "user must be signed in to see the 'Create a peep button'" do
     expect(page).to have_content "Create a peep"
     click_on "Sign out"
     expect(page).not_to have_content "Create a peep"
+  end
+
+  scenario "an error message is thrown if user tries to post peep without being logged in" do
+    click_on "Sign out"
+    visit '/peep/new'
+    fill_in "message", with: "Why is a raven like a writing-desk?"
+    click_on "Post peep"
+    expect(page).to have_content "You need to sign in to peep"
   end
 end
