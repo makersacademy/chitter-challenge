@@ -17,14 +17,14 @@ class Chitter < Sinatra::Base
     erb(:new_peeps)
   end
 
-  get "/peeps" do
-    @peeps = Peep.all(order: :created_at.desc)
-    erb(:peeps)
-  end
-
   post "/peeps/post" do
     peep = Peep.create(message: params[:message], user: current_user)
     redirect to("/peeps")
+  end
+
+  get "/peeps" do
+    @peeps = Peep.all(order: :created_at.desc)
+    erb(:peeps)
   end
 
   get "/users/new" do
