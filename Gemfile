@@ -5,7 +5,7 @@ group :test do
   gem 'bcrypt'
   gem 'capybara'
   gem 'cucumber'
-  gem 'data_mapper'
+  gem 'data_mapper', '1.2.0'
   gem 'database_cleaner'
   gem 'dm-postgres-adapter'
   gem 'rake'

@@ -1,0 +1,12 @@
+<h1> Timeline </h1>
+<ul id='peeps'>
+  <% @peeps.reverse.each { |peep| %>
+    <li> <%= "#{peep.content}" %> </li>
+  <% } %>
+</ul>
+<form action='addpeep' method='post'>
+  <p> What's on your mind? </p>
+  <input text='text' name='peep' placeholder="Today I...">
+  <br>
+  <input type='submit' value='peep'>
+</form>
