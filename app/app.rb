@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'yes'
 
   get '/' do
+    @peeps = Peep.all
     erb(:index)
   end
 
@@ -27,6 +28,12 @@ class Chitter < Sinatra::Base
     session[:user_id] = user.id
     redirect '/'
   end
+
+  post '/peep' do
+    peep = Peep.create(content: params[:peep])
+    redirect '/'
+  end
+
 
   # get '/signin' do
   #   erb(:'links/signin')

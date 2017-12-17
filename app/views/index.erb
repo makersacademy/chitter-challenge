@@ -1,1 +1,20 @@
-<h1 align='center'>Chitter</h1>
+<h1 align='center'> Chitter </h1>
+
+<form action='/users/new' align='center'>
+  <input type='submit' value='Sign Up'>
+</form>
+<br>
+<form action='/peep' method='post' align='center'>
+  <input type='text' name="peep">
+  <input type='submit' value='Post'>
+</form>
+
+<center>
+<ol id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= "#{peep.content}" %>
+    </li>
+  <% end %>
+</ol>
+</center>
