@@ -21,4 +21,5 @@ group :development do
   # gem 'dm-migrations'
   gem 'sinatra', '1.4.8'
   gem 'sinatra-flash'
+  gem 'timecop'
 end

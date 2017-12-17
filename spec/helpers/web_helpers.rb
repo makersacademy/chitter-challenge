@@ -74,6 +74,25 @@ module Helpers
     click_on "Sign in"
   end
 
+  def user_reset_password
+    visit("/user/reset_password?token=#{user.password_token}")
+    fill_in :password, with: "newpassword"
+    fill_in :password_confirmation, with: "newpassword"
+    click_button "Submit"
+  end
+
+  def user_sign_in_new_password
+    fill_in "email", with: "me@me.com"
+    fill_in "password", with: "newpassword"
+    click_on "Sign in"
+  end
+
+  def recover_password
+    visit '/user/recover'
+    fill_in :email, with: "me@me.com"
+    click_on "Submit"
+  end
+
   def add_peep
     visit '/peep/new'
     fill_in "message", with: "If everybody minded their own business, the world would go around a great deal faster than it does."
