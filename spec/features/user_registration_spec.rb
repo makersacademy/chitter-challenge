@@ -65,4 +65,13 @@ feature 'User registration' do
     click_on 'Register'
     expect(page).to have_content("Username is already taken")
   end
+  scenario 'A user cannot register with an invalid email' do
+    visit '/users/new'
+    fill_in 'email', with: "bademail"
+    fill_in 'username', with: "TestUserName"
+    fill_in 'password', with: "testpassword"
+    fill_in 'confirm', with: "testpassword"
+    click_on 'Register'
+    expect(page).to have_content("invalid format")
+  end
 end

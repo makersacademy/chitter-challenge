@@ -24,8 +24,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    Post.create(message: params[:message])
-    redirect '/posts'
+    if get_current_user
+      Post.create(message: params[:message])
+      redirect '/posts'
+    end
+    flash.next[:errors] = "Must be logged in to post"
+    redirect '/posts/new'
   end
 
   get '/login' do
