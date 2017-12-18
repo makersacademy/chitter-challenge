@@ -22,7 +22,7 @@ class Twitter < Sinatra::Base
   post '/tweets' do
     time = Time.now.strftime("%A, %d %b %Y %l:%M %p")
     user_name = current_user ? current_user.name : "Anonymous"
-    tweet = Tweet.create(message: params[:message], time: time, author: user_name)
+    Tweet.create(message: params[:message], time: time, author: user_name)
     redirect to('/tweets')
   end
 

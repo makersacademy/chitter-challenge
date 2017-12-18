@@ -3,7 +3,7 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
-  has n, :tweets, through: Resource
+  has n, :tweets
 
   property :id, Serial
   property :name, String
