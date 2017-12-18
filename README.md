@@ -1,3 +1,21 @@
+With more time I would complete the challenge. Furthermore I would use CSS to format and beautify the webpages.
+
+Gems used:
+ 'capybara'
+ 'cucumber'
+ 'database_cleaner'
+ 'rspec'
+ 'rspec-sinatra'
+ 'rake'
+ 'rubocop'
+ 'data_mapper', '1.2.0'
+ 'dm-postgres-adapter'
+ 'sinatra'
+ 'bcrypt'
+
+
+
+
 Chitter Challenge
 =================
 
