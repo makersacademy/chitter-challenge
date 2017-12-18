@@ -9,7 +9,7 @@ describe Mailer do
   describe '#mail' do
 
   	it 'calls the MailGun' do
-  	  expect(mail_gun).to receive_message_chain(:new, :messages, :send_email)
+  	  expect(mail_gun).to receive_message_chain(:new, :send_message)
   	  Mailer.mail(email, from, mail_gun)
   	end
   end

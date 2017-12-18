@@ -1,15 +1,15 @@
 require 'mailgun-ruby'
 class Mailer
-  def initialize (email, peep, mailgun_class)
-  	@email, @peep, @mailgun_class = email, peep, mailgun_class
+  def initialize (email, peep, mailgun_client)
+  	@email, @peep, @mailgun_client = email, peep, mailgun_client
   end
 
-  def self.mail(email, peep, mailgun_class = Mailgun)
-  	new(email, peep, mailgun_class).mail
+  def self.mail(email, peep, mailgun_client = Mailgun::Client)
+  	new(email, peep, mailgun_client).mail
   end
 
   def mail
-  	@mailgun_class.new.messages.send_email(
+  	@mailgun_client.new(ENV['MAILGUN_API_KEY']).send_message(
   		email: @email,
   		subject: 'Notification from Chitter',
   		peep: "You were mentioned in a peep from #{@peep.user.username}, on #{@peep.time}: #{@peep.peep}",

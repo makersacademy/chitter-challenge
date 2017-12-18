@@ -1,5 +1,4 @@
 require 'dm-validations'
-require '../lib/mailer'
 
 
 class Peep

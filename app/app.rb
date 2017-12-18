@@ -2,11 +2,13 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'sinatra/base'
 require 'sinatra/flash'
+require_relative '../mail_gun_env'
 require_relative 'lib/mailer'
 require_relative 'models/user'
 require_relative 'models/peep'
 require_relative 'models/tag'
 require_relative 'helpers'
+
 
 class Chitter < Sinatra::Base
   ENV['RACK_ENV'] ||= :development
