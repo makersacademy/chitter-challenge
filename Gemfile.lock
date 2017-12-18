@@ -153,6 +153,8 @@ GEM
       tilt (~> 2.0)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
+    sinatra-partial (1.0.1)
+      sinatra (>= 1.4)
     stringex (1.5.1)
     tilt (2.0.8)
     unicode-display_width (1.3.0)
@@ -179,6 +181,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-flash
+  sinatra-partial
 
 RUBY VERSION
    ruby 2.4.0p0

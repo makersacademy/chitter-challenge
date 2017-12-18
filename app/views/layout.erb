@@ -5,26 +5,8 @@
     <title>Chitter</title>
   </head>
   <body>
-    <% if current_user%>
-    <h1>Welcome to Chitter, <%= current_user.username%><h1>
-    <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
-    <% end %></br>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <h2><%= flash[:notice] %></h2>
-      </div>
-    <% end %>
+    <%= partial :welcome %>
+    <%= partial :flash %>
     <%= yield %>
   </body>
 </html>
