@@ -27,7 +27,7 @@ def sign_up(user_name: 'Nikolaos',
    click_button 'Sign Up'
  end
 
- # User Sign-In helpers
+ # User Sign-In Helpers
 
 def sign_in(email: 'nikolaos@example.com', password: 'test1234')
    visit '/sessions/new'

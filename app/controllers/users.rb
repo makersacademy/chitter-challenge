@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
 
     if @user.save
       session[:user_id] = @user.id
-      session[:user_name] = @user.user_name
+      # session[:user_name] = @user.user_name
       redirect '/'
     else
       flash.now[:email_notice] = "Please provide a valid email address"

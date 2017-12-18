@@ -7,7 +7,7 @@
 # end
 
 
-require "data_mapper"
+# require "data_mapper"
 require "./app/app.rb"
 
 
