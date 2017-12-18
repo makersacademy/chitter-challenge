@@ -14,13 +14,19 @@ class Peep
   def tags=(tagstring)
   	tagstring.split(", ").each{|text|
   	 self.tags << Tag.create(text: text) 
-  	 tagged_user = User.select{|user| user.username == text}.first
-  	 mail tagged_user.email if tagged_user
   	}
   	self.save
   end
 
+  def mail_tagged_users
+  	tags.each{|tag|
+  		tagged_user = User.select{|user| user.username == tag.text}.first
+  	 mail tagged_user.email if tagged_user
+  	}
+  end
+
   def mail email
+  	p self
   	Mailer.mail(email, self) 
   end
 

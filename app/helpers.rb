@@ -17,5 +17,6 @@ def peep(user, args)
 	peep = Peep.create(args)
     peep.user = current_user
     peep.save
+    peep.mail_tagged_users
 end
 
