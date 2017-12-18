@@ -1,0 +1,16 @@
+<html>
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+<div id="starwars"><div id="starwarscontent">
+  <% @peeps.reverse.each do |link| %>
+   <%= @user_name %> said:
+   <%= link.message %>
+   <%= link.datetime %>
+<% end %>
+</div></div>
+
+</body>

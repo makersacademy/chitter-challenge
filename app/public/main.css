@@ -1,12 +1,28 @@
+body{
+	background-image: url("stars.jpg");
+	background-color: #cccccc;
+}
+
 .button-link {
 	padding: 10px 15px;
-	background: #4479BA;
-	color: #FFF;
+	background: gold;
+	color: black;
 }
 
-.hometitle {
-
+a {
+color: gold;
 }
+
+a:link
+{
+   color: gold;
+   text-decoration: none;
+	 font-size: 30px;
+ 		font-weight: bold;
+}
+
+
+
 
 .peeps {
 	border-radius: 25px;
@@ -42,4 +58,71 @@
 	display:block;
 	float:left;
 	width:100px;
+}
+
+#starwars{
+	position: absolute;
+	width: 18em;
+	height: 50em;
+	bottom: 0;
+	left: 50%;
+	margin-left: -9em;
+	font-size: 350%;
+	font-weight: bold;
+	text-align: justify;
+	overflow: hidden;
+	transform-origin: 50% 100%;
+	transform: perspective(300px) rotateX(25deg);
+}
+
+#starwars:after{
+	position: absolute;
+	content: ' ';
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 60%;
+	background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	pointer-events: none;
+}
+
+#starwarscontent
+{
+	position: absolute;
+	top: 100%;
+	animation: scroll 100s linear 4s infinite;
+}
+
+@keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}
+
+.jumbotron {
+	height: 74px;
+	margin: 0px;
+	color: gold;
+	background-color: black;
+	padding: 20px;
+}
+
+.box > span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.scroll {
+	color: gold;
+}
+
+.scroll h2 {
+	font-size: 36px;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+.scroll h3 {
+	font-size: 32px;
+	font-family: sans-serif;
 }

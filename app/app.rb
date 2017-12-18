@@ -4,6 +4,7 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -19,7 +20,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    peep = Peep.create(message: params[:peep], datetime: "#{Time.new.strftime("%A, %d %b %Y %l:%M %p")}")
+    peep = Peep.new(message: params[:peep],
+                      datetime: "#{Time.new.strftime("%A, %d %b %Y %l:%M %p")}",
+                        poster: session[:user_name])
     peep.save
     redirect '/home'
   end
