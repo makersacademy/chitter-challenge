@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.7'
+
 
 gem 'data_mapper', '1.2.0'
 gem 'dm-postgres-adapter'
