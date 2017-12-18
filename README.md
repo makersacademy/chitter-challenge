@@ -52,3 +52,4 @@ To add:
 - replying to a thread
 - tagging other registered users in a thread
 - email notifications
+- set up the many to one database relationship between peeps and users
