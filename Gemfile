@@ -8,4 +8,12 @@ group :test do
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'sinatra'
+  gem 'capybara'
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'database_cleaner', group: :test
+  gem 'pry'
+  gem 'bcrypt'
+  gem 'sinatra-flash'
 end

@@ -1,0 +1,15 @@
+<h2> Login </h2>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p>*<%= error %></p>
+  <% end %>
+<% end %>
+
+<form action="/login" method="post">
+  <div class="form-group">
+    Username: <input type="text" name="username">
+    Password: <input type="password" name="password">
+    <input class="btn btn-primary" type="submit" value="Login">
+  </div>
+</form>

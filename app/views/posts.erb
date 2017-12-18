@@ -1,0 +1,12 @@
+<h2> Posts </h2>
+
+<% @posts.each do |post| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">Posted by: <a href="/posts/filter/<%= User.first({id: post.user_id}).username %>"><%= User.first({id: post.user_id}).username %></a>
+    <p style="float: right"><%= "#{post.created_at.day}/#{post.created_at.month}/#{post.created_at.year} #{post.created_at.hour}:#{post.created_at.minute}" %></p>
+    </div>
+    <div class="panel-body">
+      <%= post.message %>
+    </div>
+  </div>
+<% end %>
