@@ -1,6 +1,14 @@
 <h1>
   Chitter
 </h1>
+<style> body {
+  text-align: center;
+  background-color: thistle;
+}
+ul {list-style-type: none;
+  padding: 0px;
+}
+</style>
 <% if current_user %>
   <form action='/peeps/new' method='get'>
     <input type='submit' value='Peep!'>
@@ -24,6 +32,8 @@
       <%= peep.content %>
       <br>
       <%= peep.time.strftime('%H:%M %d/%m/%Y') %>
+      <br>
+      <br>
     </li>
   <% end %>
 </ul>
