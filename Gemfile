@@ -8,6 +8,7 @@ gem 'pry'
 gem 'selenium-webdriver'
 gem 'shotgun'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'bcrypt'
 
 group :test do
