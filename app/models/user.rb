@@ -10,6 +10,7 @@ class User
   property :password_hash, Text
   property :name, String
   property :username, String, required: true, unique: true
+  has n, :posts, :through => Resource
 
   attr_accessor :password_confirmation
   attr_reader :password
@@ -23,5 +24,10 @@ class User
 
   def authenticate(password)
     Password.new(password_hash) == password
+  end
+
+  def add_post(post)
+    posts << post
+    save
   end
 end

@@ -23,9 +23,15 @@ class Chitter < Sinatra::Base
     erb(:new_post)
   end
 
+  get '/posts/filter/:user' do |user|
+    @posts = User.first({username: user}).posts
+    erb(:posts)
+  end
+
   post '/posts' do
     if get_current_user
-      Post.create(message: params[:message], user_id: session[:user_id])
+      post = Post.create(message: params[:message], user_id: session[:user_id])
+      get_current_user.add_post(post)
       redirect '/posts'
     end
     flash.next[:errors] = "Must be logged in to post"
