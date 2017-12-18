@@ -1,0 +1,14 @@
+
+<html>
+<h1>Chitter</title>
+
+<body>
+  <form action='/peeps/new' method='get'>
+    <input type='submit' value='New PEEP!'>
+  </form>
+
+  <% Peep.all(order: [:id.desc]).each do |peep| %>
+  <p><%= peep.name %>@<% peep.username %> <%= peep.created_at.strftime("%H:%M") %> <%= peep.content %></p>
+  <% end %>
+
+</body>
