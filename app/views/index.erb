@@ -1,0 +1,24 @@
+<%if current_user%>
+  Welcome, <%=current_user.username%>
+<%end%>
+<br>
+<br>
+
+<form action='/users/new' align='center'>
+  <input type='submit' value='Sign Up'>
+</form>
+<br>
+<form action='/peep' method='post' align='center'>
+  <input type='text' name="peep">
+  <input type='submit' value='Post'>
+</form>
+<br>
+<center>
+<div id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
+    <li>
+      <%= "\"#{peep.content}\" Peeped on: #{peep.time.to_s[0..-10]} By: @#{peep.user}" %>
+    </li>
+  <% end %>
+</div>
+</center>
