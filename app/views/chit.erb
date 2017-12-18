@@ -1,0 +1,19 @@
+<h1> Welcome <%= @name %> </h1>
+<% if current_user %>
+<h3> Post a new peep: </h3>
+<form method = post >
+  <input type= 'text' name = 'peep'>
+  <input type= 'text' name = 'tags'>
+  <input type= 'submit' value = 'Peep!'>
+</form>
+<% end %>
+<div id = 'peeps'>
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li>
+      <p> <%= "#{peep.peep} -#{peep.tags.map{|tag| "\##{tag.text}"}.join(" ")}"  %> </p>
+      <p> <%= "posted at: #{peep.time} by #{peep.user.username}" %> </p>
+    </li>
+    <% end %>
+  </ul>
+</div>

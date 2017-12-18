@@ -1,0 +1,10 @@
+LOG:  database system was interrupted; last known up at 2017-12-16 21:05:32 GMT
+FATAL:  the database system is starting up
+FATAL:  the database system is starting up
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  invalid record length at 0/1692130: wanted 24, got 0
+LOG:  redo is not required
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Device or resource busy
