@@ -1,0 +1,33 @@
+<h1> Chitter </h1>
+<h2> Sign up </h2>
+<%if flash[:errors]%>
+<%flash[:errors].each { |e|%> <%=e%> <%}%>
+<%end%>
+<form action='/signup' method='POST'>
+  <label for='email'>email:
+    <input type='email' required name='email' value= "<%=flash[:email]%>" >
+  </label>
+  <br>
+  <label for='password'>password:
+    <input type='password' name='password'>
+  </label>
+  <br>
+  <label for='password_confirmation'>password_confirmation:
+    <input type='password' name='password_confirmation'>
+  </label>
+  <br>
+  <label for='name'>name:
+    <input type='name' required name='name' value= "<%=flash[:name]%>" >
+  </label>
+  <br>
+  <label for='username'>username:
+    <input type='username' required name='username' >
+  </label>
+  <br>
+  <input type='submit' value= 'Sign Up'>
+</form>
+<br>
+Already signed up?
+<form action='/'>
+  <input type='submit' value='Sign In?'>
+</form>
