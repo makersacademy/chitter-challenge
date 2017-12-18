@@ -1,0 +1,38 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-sm-6 "align="center" class="hometitle">
+      <p> <a href="/peep/new">Chitter</a> <p>
+    </div>
+    <div class="col-sm-6 "align="center" class="hometitle">
+      <p> <a href="/sessions/new">Sign in</a> or <a href="/users/new">Sign Up!</a> <p>
+    </div>
+  </div>
+</div>
+
+
+<div id="starwars"><div id="starwarscontent">
+  <div class="scroll">
+      <% @peeps.reverse.each do |peep| %>
+        <h3><%= peep.poster %> said:</h3>
+          <h2>"<%= peep.message %>"<br><h2>
+          <h4>  <%= peep.datetime %><br><br><br> <h4>
+        <% end %>
+      </div>
+</div></div>
+
+  <% if !@user_name.nil? %>
+  <h5>Welcome <%= @user_name %></h5>
+    <form method='post' action='/sessions/new'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+  <% end %>
+</body>

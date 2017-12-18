@@ -1,0 +1,11 @@
+<html>
+  <body>
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:errors] %>
+      <div id='notice'><%= flash[:errors] %></div>
+    <% end %>
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>
