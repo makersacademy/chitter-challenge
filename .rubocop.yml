@@ -355,7 +355,7 @@ Style/NonNilCheck:
   Enabled: false
 Style/NumericLiteralPrefix:
   Enabled: false
-Style/OpMethod:
+Naming/BinaryOperatorParameterName:
   Enabled: false
 Style/OptionHash:
   Enabled: false

@@ -1,0 +1,18 @@
+<h1 align "centre">Tweets</h1>
+
+<form action="/users/new">
+  <input type='submit' value= 'New user'>
+</form>
+<form action="/tweets/new">
+  <input type='submit' value= 'New tweet'>
+</form>
+
+<ul id='tweets'>
+  <% @tweets.each do |tweet| %>
+    <li>
+      <%= tweet.author %> posted "
+      <%= tweet.message%>"
+      <%= tweet.created_at.strftime("%A, %d %b %Y %l:%M %p") %>
+    </li>
+  <% end %>
+</ul>
