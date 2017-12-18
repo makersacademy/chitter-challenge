@@ -12,7 +12,7 @@
     <li>
       <%= tweet.author %> posted "
       <%= tweet.message%>"
-      <%= tweet.time %>
+      <%= tweet.created_at.strftime("%A, %d %b %Y %l:%M %p") %>
     </li>
   <% end %>
 </ul>

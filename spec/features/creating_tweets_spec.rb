@@ -19,7 +19,7 @@ feature "Create new tweets" do
     post_test
 
     expect(current_path).to eq '/tweets'
-    expect(page).to have_content Time.now.strftime("%Y-%m-%e %H:%M")
+    expect(page).to have_content Time.now.strftime("%A, %d %b %Y %l:%M %p")
   end
   scenario "tweets are displayed in reverse chronological order" do
     visit('/tweets')
