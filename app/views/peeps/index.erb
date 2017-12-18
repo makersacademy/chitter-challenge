@@ -1,0 +1,39 @@
+<h1>
+  Chitter
+</h1>
+<style> body {
+  text-align: center;
+  background-color: thistle;
+}
+ul {list-style-type: none;
+  padding: 0px;
+}
+</style>
+<% if current_user %>
+  <form action='/peeps/new' method='get'>
+    <input type='submit' value='Peep!'>
+  </form>
+<% end %>
+<% if !current_user %>
+  <form action='/sessions/new' method='get'>
+    <input type='submit' value='Sign In'>
+  </form>
+  <form action='/users/new' method='get'>
+    <input type='submit' value='Sign Up'>
+  </form>
+<% end %>
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.username %>
+      <br>
+      <%= peep.name %>
+      <br>
+      <%= peep.content %>
+      <br>
+      <%= peep.time.strftime('%H:%M %d/%m/%Y') %>
+      <br>
+      <br>
+    </li>
+  <% end %>
+</ul>

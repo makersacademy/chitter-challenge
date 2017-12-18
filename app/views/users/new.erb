@@ -1,0 +1,32 @@
+<h2>
+  Sign Up
+</h2>
+<style> body {
+  text-align: center;
+  background-color: thistle;
+
+}
+</style>
+<form action="/users" method="post">
+  <label for="email">
+    Email:
+  </label>
+  <input type="email" name="email" value='<%= @user.email %>' required="required">
+  <label for="name">
+    Name:
+  </label>
+  <input type="text" name="name" value='<%= @user.name %>' required="required">
+  <label for="username">
+    Username:
+  </label>
+  <input type="text" name="username" value='<%= @user.username %>' required="required">
+  <label for="pasword">
+    Password:
+  </label>
+  <input type="password" name="password">
+  <label for="password_confirmation">
+    Confirm password:
+  </label>
+  <input type="password" name="password_confirmation">
+  <input type="submit" value="Sign Up">
+</form>

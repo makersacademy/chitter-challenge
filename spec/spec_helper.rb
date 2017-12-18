@@ -1,5 +1,16 @@
+ENV['RACK_ENV'] = 'test'
+require 'orderly'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require 'database_cleaner'
+require './app/app'
 require 'simplecov'
 require 'simplecov-console'
+require_relative 'web_helper'
+
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -9,9 +20,17 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
+
+   config.before(:each) do
+     DatabaseCleaner.start
+   end
+
+   config.after(:each) do
+     DatabaseCleaner.clean
+   end
 end
