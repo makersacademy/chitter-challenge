@@ -1,0 +1,33 @@
+<html>
+
+  <h1>
+    Peeps:
+  </h1>
+  <h1>
+    Post a peep young Skywalker!
+  </h1>
+
+  <form action='/peeps' method='POST'>
+    <label for='title'>
+      Title:
+      <input type='text' name='title'>
+    </label>
+    <label for='content'>
+      Content:
+      <input type='text' name='content'>
+    </label>
+      <input type='submit' value='Post peep'>
+  </form>
+
+  <ul id='peeps'>
+    <% @peeps.reverse.each do |peep| %>
+      <li>
+        Title: <%= peep.title %>
+        <br>
+        <%= peep.content %>
+        <br>
+        Time: <%= peep.created_at %>
+      </li>
+    <% end %>
+  </ul>
+</html>
