@@ -1,6 +1,6 @@
 feature 'Home page' do
   scenario 'users can post a message' do
-    visit('/')
+    sign_up()
     fill_in 'comment', with: 'This is a test.'
     click_button('post')
     expect(page).to have_content('This is a test')
@@ -8,14 +8,14 @@ feature 'Home page' do
   
 
   scenario 'display time and date of message' do
-    visit('/')
+    sign_up()
     fill_in 'comment', with: 'This is a test.'
     click_button('post')
     expect(page).to have_content(Time.now.strftime("%d/%m/%Y %H:%M"))
   end
 
   scenario 'messages in reverse chronological order' do
-    visit('/')
+    sign_up()
     fill_in 'comment', with: 'A'
     click_button('post')
     visit('/')

@@ -1,3 +1,30 @@
+<style>
+  #comment {
+    border: 2px solid black;
+    padding: 10px;
+  }
+</style>
+
+<h1>Chitter</h1>
+
+<form action="/user/new" method="GET" >
+  <input type=submit value="Sign up">
+</form>
+
+<center>
+  <div id="comments_holder">
+  <%@comments.to_a.reverse.each do |comment|%>
+  <div style="border: 2px solid black;">
+    <%=comment.comment%>
+    <%=comment.created_at%>
+  <div>
+    <br>
+  <%end%>
+  <div>
+</center>
+<br><br>
+
+<% if current_user %>
 <form action="/comments" method="POST" >
   <textarea rows="4" cols="90" name="comment"
             style="overflow:auto;resize:none"
@@ -5,9 +32,6 @@
   </textarea>
   <input type=submit value=post>
 </form>
-
-<%@comments.to_a.reverse.each do |comment|%>
-  <%=comment.comment%>
-  <%=comment.created_at%>
-  <br>
+<%else%>
+<h2>Sign in to post comments</h2>
 <%end%>

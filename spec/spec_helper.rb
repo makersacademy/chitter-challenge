@@ -5,7 +5,8 @@ require 'orderly'
 require 'database_cleaner'
 require './app/models/comment'
 require './app/app'
-
+require './spec/feature/web_helpers.rb'
+require './app/data_mapper_setup.rb'
 
 Capybara.app = Chitter
 

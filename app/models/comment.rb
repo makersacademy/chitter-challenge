@@ -1,7 +1,4 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
-
-DataMapper.setup(:default, "postgres://localhost/chitter")
+require './app/data_mapper_setup'
 
 class Comment
 
@@ -9,12 +6,9 @@ class Comment
 
   include DataMapper::Resource
 
-  property :id,       Serial
-  property :comment,  Text 
+  property :id,         Serial
+  property :comment,    Text 
   property :created_at, String,  :default => time
+  property :author,     String
 
 end
-
-
-DataMapper.finalize
-DataMapper.auto_upgrade!
