@@ -1,5 +1,7 @@
 With more time I would complete the challenge. Furthermore I would use CSS to format and beautify the webpages.
 
+View the app here: https://chitter69.herokuapp.com/
+
 Gems used:
  'capybara'
  'cucumber'
