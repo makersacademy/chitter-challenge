@@ -1,4 +1,5 @@
 require 'dm-validations'
+require '../lib/mailer'
 
 
 class Peep
@@ -14,8 +15,14 @@ class Peep
   def tags=(tagstring)
   	tagstring.split(", ").each{|text|
   	 self.tags << Tag.create(text: text) 
+  	 tagged_user = User.select{|user| user.username == text}.first
+  	 mail tagged_user.email if tagged_user
   	}
   	self.save
+  end
+
+  def mail email
+  	Mailer.mail(email, self) 
   end
 
   def time_class=(time_class)

@@ -15,4 +15,6 @@ group :test do
   gem 'sinatra-flash'
   gem 'database_cleaner'
   gem 'orderly'
+  gem 'rest-client'
+  gem 'mailgun-ruby'
 end

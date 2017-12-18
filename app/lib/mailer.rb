@@ -1,3 +1,4 @@
+require 'mailgun-ruby'
 class Mailer
   def initialize (email, peep, mailgun_class)
   	@email, @peep, @mailgun_class = email, peep, mailgun_class
