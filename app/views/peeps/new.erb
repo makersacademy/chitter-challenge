@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+        text-align: center;
+        background-color: #2BCE88
+      }
+    ul {
+      text-align: center;
+      list-style-type: none
+    }
+  </style>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Enter your new peep below</h1>
+
+    <form action="/peeps" method="post">
+      <label for="message">
+        <strong>Message:</strong>
+        <input type="text" name="message">
+      </label>
+      <input type="submit" value="Post peep">
+    </form></br>
+
+    <form action="/peeps">
+      <input type="submit" value="Go back">
+    </form>
+  </body>
+</html>
