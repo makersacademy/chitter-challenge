@@ -35,9 +35,10 @@ class Chitter < Sinatra::Base
     erb(:new_peep)
   end
 
-  post '/peeps' do
+  post '/peeps' do 
     peep = Peep.create(time: Time.now.strftime("%H:%M %d/%m/%Y"), peep: params[:peep], author: session[:username])
     peep.save
+    p peep.author
     redirect('peeps')
   end
 

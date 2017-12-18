@@ -3,7 +3,6 @@ require_relative './peep.rb'
 require 'data_mapper'
 require 'dm-migrations'
 require 'dm-postgres-adapter'
-require 'time'
 require 'bcrypt'
 
 class User
@@ -25,7 +24,6 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-   # has n, :peep, :through => Resource
 end
 
 DataMapper.finalize

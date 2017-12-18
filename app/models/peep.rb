@@ -15,7 +15,6 @@ class Peep
   property :time, Time
   property :author, String
 
-   # has 1, :user , :through => Resource
 end
 
 DataMapper.finalize
