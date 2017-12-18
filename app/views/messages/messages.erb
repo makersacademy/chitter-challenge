@@ -1,11 +1,10 @@
-<h1>Peeps:</h1>
+<h1>Peeps History</h1>
 
- <ul id='messages'>
+
   <% @messages.each do |message| %>
-    <li>
-      Message: <%= message.message %><br/>
-        Creation Time: <%= message.created_at.strftime('%H:%M, %d-%b-%y') %><br/>
-      by: <%= User.first(id: message.user_id).user_name %>
-    </li>
+
+      <b>Message:</b> <%= message.message %><br/>
+        <i>Creation Time:</i> <%= message.created_at.strftime('%H:%M, %d-%b-%y') %><br/>
+      <i>by</i>: <%= User.first(id: message.user_id).user_name %>
+    <br/> <br/>
   <% end %>
-</ul>

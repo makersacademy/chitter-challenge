@@ -5,24 +5,24 @@
    <title>Chitter App</title>
  </head>
 
- <body>
+ <body style="text-align:center;">
    <h1>Welcome to Chitter, the best replacement to Twitter</h1>
    <h2>You are signed in as: <%= !current_user.nil? ? "#{current_user.user_name}" : "NOT SIGNED IN" %>  </h2>
 
 
    <% if current_user %>
-       <form method='post' action='/sessions'>
+       <form method='post' action='/sessions' style="display:inline-block;">
          <input type='hidden' name='_method' value='delete'>
          <input type='submit' value='Sign out!'>
        </form>
-        <form method='get' action='/messages/new'>
+        <form method='get' action='/messages/new' style="display:inline-block;">
           <input type='submit' value='Start Peeping!'>
         </form>
          <%else%>
-             <form method='get' action='/sessions/new'>
+             <form method='get' action='/sessions/new' style="display:inline-block;">
                <input type='submit' value='Sign in!'>
              </form>
-             <form method='get' action='/users/new'>
+             <form method='get' action='/users/new' style="display:inline-block;">
                <input type='submit' value='Sign up!'>
              </form>
 

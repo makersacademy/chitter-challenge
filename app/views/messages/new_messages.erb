@@ -1,12 +1,12 @@
 <h1> New Peep </h1>
 
 <% if current_user %>
-    <form action='/messages/new' method='post'>
+    <form action='/messages/new' method='post' >
        Message: </br>
        <textarea name='message' rows='4' cols='36'></textarea> </br>
        <input type ='submit' value='Peep'>
      </form>
-     <form method='get' action='/messages'>
+     <form method='get' action='/messages' style="display:inline-block;">
     <input type='submit' value='Cancel'>
   </form>
  <%else%>
