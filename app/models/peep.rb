@@ -7,7 +7,7 @@ class Peep
   property :content, Text
   property :time, Time
 
-  belongs_to :user, required: false
+  belongs_to :user
   has n, :tags, through: Resource
 
   attr_accessor :time_string

@@ -1,5 +1,4 @@
 require './app/data_mapper_setup.rb'
-require 'mail'
 
 module TagHandler
 
