@@ -17,8 +17,7 @@
 <div id='peeps'>
   <% @peeps.reverse_each do |peep| %>
     <li>
-      <%= "\"#{peep.content}\"" %>
-      <!-- <%= Time.now.strftime("Peeped on %d/%m/%y at %I:%M%p") %> -->
+      <%= "\"#{peep.content}\" Peeped on: #{peep.time.to_s[0..-10]} By: @#{peep.user}" %>
     </li>
   <% end %>
 </div>

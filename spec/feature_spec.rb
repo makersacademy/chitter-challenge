@@ -22,3 +22,11 @@ feature 'displaying peeps' do
     expect('Rest in peace Lil Peep').to_not appear_before('Peep 2')
   end
 end
+
+feature 'peeps have timestamps' do
+  scenario 'a peep has a time associated with it' do
+    sign_up
+    fill_in('peep', with: 'Rest in peace Lil Peep')
+    click_button('Post')
+  end
+end
