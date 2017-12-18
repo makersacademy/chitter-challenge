@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+ruby '2.4.2'
 
-group :test do
-  gem 'cucumber'
-  gem 'rspec'
-  gem 'rake'
-  gem 'rubocop'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
+gem 'sinatra'
+gem 'data_mapper', '1.2.0'
+gem 'dm-postgres-adapter'
+gem 'bcrypt'
+gem 'rspec'
+gem 'database_cleaner'
+gem 'capybara'
+gem 'simplecov', require: false
+gem 'simplecov-console', require: false
+gem 'sinatra-flash'
