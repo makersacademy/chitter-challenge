@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+   <title>Chitter App</title>
+ </head>
+
+ <body style="text-align:center;">
+   <h1>Welcome to Chitter, the best replacement to Twitter</h1>
+   <h2>You are signed in as: <%= !current_user.nil? ? "#{current_user.user_name}" : "NOT SIGNED IN" %>  </h2>
+
+
+   <% if current_user %>
+       <form method='post' action='/sessions' style="display:inline-block;">
+         <input type='hidden' name='_method' value='delete'>
+         <input type='submit' value='Sign out!'>
+       </form>
+        <form method='get' action='/messages/new' style="display:inline-block;">
+          <input type='submit' value='Start Peeping!'>
+        </form>
+         <%else%>
+             <form method='get' action='/sessions/new' style="display:inline-block;">
+               <input type='submit' value='Sign in!'>
+             </form>
+             <form method='get' action='/users/new' style="display:inline-block;">
+               <input type='submit' value='Sign up!'>
+             </form>
+
+
+    <% end %>
+
+    <% if flash[:log_out_notice] %>
+      <%= flash[:log_out_notice] %>
+    <% end %>
+
+
+   <%= yield %>
+    <!-- this then yields to the view which has been called by your controller -->
+
+ </body>
+
+ </html>

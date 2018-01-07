@@ -1,0 +1,29 @@
+<h2>Create Your Profile</h2>
+
+<form action='/users/new' method='post'>
+
+User Name:</br>
+<input type='text' name='user_name' value='<%= @user.user_name %>'></br>
+
+Email:
+<% if flash[:email_notice] %>
+  <%= flash[:email_notice] %>
+<% end %>
+</br>
+<input type='text' name='user_email' value='<%= @user.user_email %>'></br>
+
+Password: </br>
+<input type='password' name='password'></br>
+
+Confimation Password:
+<% if flash[:password_notice] %>
+  <%= flash[:password_notice] %>
+<% end %></br>
+<input type='password' name='password_confirmation'></br>
+
+<input type='submit' value='Sign Up'>
+</form>
+
+<form method='get' action='/messages'>
+  <input type='submit' value='Cancel'>
+</form>

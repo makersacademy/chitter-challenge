@@ -1,112 +1,50 @@
-Chitter Challenge
-=================
+![USED POST](https://img.shields.io/badge/MADE-RUBY-red.svg?style=for-the-badge)
+![USED POST](https://img.shields.io/badge/USES-HTML-green.svg?style=for-the-badge)
+![USED POST](https://img.shields.io/badge/USES-GIT-orange.svg?style=for-the-badge)
+![USED POST](https://img.shields.io/badge/USES-PostgreSQL-blue.svg?style=for-the-badge)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+# Week 4 - Weekend Challenge - Chitter App
 
-Challenge:
--------
+## What is ***Chitter***?
+Chitter is a Twitter clone that allows users to post messages in a public stream.
 
-As usual please start by forking this repo.
+## User Stories
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Check user_stories.md for an overview of the project requirements, by clicking [here](./00_supplementary_files/user_stories.md)
 
-Features:
--------
+## How to install
+All required gems can be installed by running ``` $ bundle install``` via your preferred terminal.
 
-```
-STRAIGHT UP
+Please make sure that you have bundler installed for the above to work correctly. Bundler can be installed by running ``` $ gem install bundler ``` via your preferred terminal.
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+As this application is based on a [PostgreSQL](https://www.postgresql.org) database, you will also need to create a database called ***chitter_development***.
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+## How to use the application
+run ```$ rackup``` in your terminal and navigate to **localhost:9292** in your browser
+Then create a new user account and start ***Peeping Away***!!
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
 
-HARDER
+## How this application was developed
+This application was build following a Test Driven Development methodology, using the following components:
+* [Ruby](https://www.ruby-lang.org) - The language used to develop this program
+* [Sinatra](http://www.sinatrarb.com/) - The Domain Specific Language (***DSL***) used to create this web-app.
+* [PostgreSQL](https://www.postgresql.org) - The database to store and serve the data
+* [DataMapper](http://datamapper.org/) - The Object Realtional Mapper (***ORM***) that linked the Ruby app with the PostreSQL database
+* [Rspec](http://rspec.info) - The testing framework used to drive development
+* [Capybara](http://teamcapybara.github.io/capybara/) - The library used to test & simulate interactions with the web-app.
+* [BCrypt](https://github.com/codahale/bcrypt-ruby) - The password-hashing encryption manager
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
+**Steps of the Development:**
+1. Analyse the [User Stories](./00_supplementary_files/user_stories.md) and deciding on:
+ * Models required
+ * Tables required to map the aforementioned user stories in the program
+2. Break User stories in smaller pieces/steps
+3. For each step of a particular user story, start with a simple test, see it fail and then write the simplest possible code to make it pass.
+4. Refactor Code
+5. Re-iterate steps 2 - 3 for each step of each user story, until all user stories have been addressed
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+**Future Work:**
+* Complete the ADVANCED User Story
+* Implement the ability to converse with other users via replying to a peep from another user
+* Do some HTML & CSS Styling
