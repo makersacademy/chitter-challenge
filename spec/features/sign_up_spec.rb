@@ -7,7 +7,9 @@ feature "#Sign-up page" do
     sign_up
     expect(page).to have_content("Welcome, cleo@email.com")
   end
+
+  scenario 'User count to increase by 1' do
+    sign_up
+    expect(User.count).to eq 1
+  end
 end
-
-
-# #{user.email}
