@@ -72,6 +72,7 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     multi_json (1.13.1)
+    mustermann (1.0.1)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     parallel (1.12.1)
@@ -80,6 +81,8 @@ GEM
     powerpack (0.1.1)
     public_suffix (3.0.1)
     rack (2.0.3)
+    rack-protection (2.0.0)
+      rack
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
@@ -114,7 +117,13 @@ GEM
       hirb
       simplecov
     simplecov-html (0.10.2)
+    sinatra (2.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0)
+      tilt (~> 2.0)
     stringex (1.5.1)
+    tilt (2.0.8)
     unicode-display_width (1.3.0)
     uuidtools (2.1.5)
     xpath (3.0.0)
@@ -132,6 +141,7 @@ DEPENDENCIES
   rubocop
   simplecov
   simplecov-console
+  sinatra
 
 BUNDLED WITH
    1.16.1
