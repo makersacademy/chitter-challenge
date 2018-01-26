@@ -9,8 +9,13 @@ require_relative 'models/peep'
      erb :'peeps/index'
    end
 
-   get '/links/new' do
-     erb :'links/new'
+   get '/peeps/new' do
+     erb :'peeps/new'
    end
+
+   post '/peeps' do
+  Peep.create(message: params[:message])
+  redirect '/peeps'
+end
 
   end
