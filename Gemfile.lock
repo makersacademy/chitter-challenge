@@ -72,6 +72,8 @@ GEM
     json_pure (1.8.6)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
+    mry (0.52.0.0)
+      rubocop (>= 0.41.0)
     multi_json (1.13.1)
     mustermann (1.0.1)
     nokogiri (1.8.1)
@@ -138,12 +140,16 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  mry
   rake
   rspec
   rubocop
   simplecov
   simplecov-console
   sinatra
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.16.1
