@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user %>
+      <% else %>
+        Welcome to Chitter
+      <% end %>
+      <%= yield %> <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>
