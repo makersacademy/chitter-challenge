@@ -14,8 +14,8 @@ require_relative 'models/peep'
    end
 
    post '/peeps' do
-  Peep.create(message: params[:message])
-  redirect '/peeps'
+     Peep.create(message: params[:message])
+     redirect '/peeps'
 end
 
   end
