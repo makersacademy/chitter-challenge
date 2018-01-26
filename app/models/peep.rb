@@ -7,12 +7,10 @@ class Peep
   include DataMapper::Resource
 
   property :id,     Serial
-  property :peep,  String
+  property :peep,   String
 
 end
 
 DataMapper.setup(:default, "postgres://localhost/chitter_test")
-
 DataMapper.finalize
-
 DataMapper.auto_upgrade!

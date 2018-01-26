@@ -1,7 +1,7 @@
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-require './app/models/link'
+require './app/models/peep'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
