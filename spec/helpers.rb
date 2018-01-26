@@ -7,5 +7,4 @@ module Helpers
     click_button "sign-up"
   end
 
-
 end
