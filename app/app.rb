@@ -24,6 +24,8 @@ class  Chitter < Sinatra::Base
   end
 
   post '/home/homepage' do
+    Peep.create(peep:params[:peep], time:Time.new)
+    # Peep.save
     session[:peep] = params[:peep]
 
     redirect '/home/homepage'
