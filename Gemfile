@@ -15,6 +15,7 @@ group :test do
   gem 'dm-rspec'
   gem 'pry'
   gem 'timecop'
+  gem 'orderly'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end

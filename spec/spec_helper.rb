@@ -8,6 +8,8 @@ require 'dm-rspec'
 require 'pry'
 require 'simplecov'
 require 'simplecov-console'
+require 'timecop'
+require 'orderly'
 
 require './app/app'
 

@@ -3,7 +3,7 @@
 <p><a href="/peeps/new">Write a peep</a></p>
 
 <ul id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
     <li>
       <p><%= peep.body %></p>
       <p>Posted at <%= peep.created_at.strftime("%H:%M on %d %b %Y") %></p>
