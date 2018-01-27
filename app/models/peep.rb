@@ -8,9 +8,4 @@ class Peep
   property :id, Serial
   property :peep, String
   property :created_at, DateTime
-
-  # def time=(time)
-  #   self.time_stamp = time
-  # end
-
 end
