@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require 'dm-validations'
 require_relative './models/peep.rb'
 require_relative './models/user.rb'
+require_relative './data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
 
