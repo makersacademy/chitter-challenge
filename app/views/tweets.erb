@@ -1,9 +1,7 @@
 <h1> Tweets: </h1>
 
 <% @tweets.each do |tweet| %>
-<li>
-  Subject: <%= tweet.subject %>
-  Text: <%= tweet.text %>
-  Time: <%= tweet.created_at %>
-</li>
+  <h3> Subject: <%= tweet.subject %> </h3>
+  <p> Text: <%= tweet.text %> </p>
+  <p> Time: <%= tweet.created_at %> </p>
 <% end %>
