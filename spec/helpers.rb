@@ -17,5 +17,4 @@ module Helpers
     fill_in :peep, with: 'My second peep!'
     click_button 'peep'
   end
-
 end

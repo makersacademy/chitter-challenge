@@ -5,14 +5,26 @@
     <title>sign-up</title>
   </head>
   <body>
-
+    <br>
     <form action="/register/signup" method="post">
-      <input type="text" name="username" value="username">
-      <input type="text" name="email" value="email">
-      <input type="password" name="password" value="password">
+      <input type="text" name="username" placeholder="username">
+      <input type="text" name="email" placeholder="email">
+      <input type="password" name="password" placeholder="password">
       <button type="submit" name="button">sign-up</button>
     </form>
 
+  <br >
+
+
+      <p>
+      <%if @peeps%>
+        <%@peeps.each do |peep|%>
+         @<%=peep.user.username%><br>
+          <%=peep.peep%><br>
+         <%=peep.created_at%><br>
+        <%end%>
+      <%end%>
+    </p>
 
   </body>
 </html>

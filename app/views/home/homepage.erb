@@ -6,9 +6,11 @@
   </head>
   <body>
     <form action="/peep_new" method="post">
-      <input type="text" name="peep" maxlength="140" value="peep here">
+      <input type="text" name="peep" maxlength="140" placeholder="peep here">
       <input type="submit" value="peep">
     </form>
+
+    <br>
 
     <p>
         <%unless @peeps.nil?%>
@@ -16,9 +18,7 @@
        @<%=peep.user.username%><br>
         <%=peep.peep%><br>
        <%=peep.created_at%><br>
-      <%end%>
-      <%else%>
-        No peeps to show here
+       <%end%>
       <%end%>
     </p>
   </body>
