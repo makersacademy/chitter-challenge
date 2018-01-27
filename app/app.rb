@@ -10,6 +10,7 @@ require_relative './data_mapper_setup.rb'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   helpers do
@@ -57,5 +58,11 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     session[:user_id] = user.id
     redirect '/peep/all'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to '/peep/all'
   end
 end

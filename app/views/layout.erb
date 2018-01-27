@@ -1,4 +1,14 @@
 <% if current_user %>
   Hey <%= current_user.username %>!
+  <form method='POST' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
 <% end %>
 <%= yield %>
+
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
