@@ -22,7 +22,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
-require './app/app'
+require './app/app.rb'
 require 'database_cleaner'
 require 'orderly'
 
