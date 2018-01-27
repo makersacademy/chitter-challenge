@@ -26,4 +26,14 @@ feature 'Signing Up' do
     sign_up
     expect(current_path).to eq '/tweets'
   end
+
+  scenario 'user sees own user name on tweets upon sign up' do
+    sign_up
+    expect(page).to have_content 'Welcome, @lewis!'
+  end
+
+  scenario 'user count increases by 1 on sign up' do
+    sign_up
+    expect { sign_up }.to change(User, :count).by(1)
+  end
 end
