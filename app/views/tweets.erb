@@ -8,4 +8,5 @@
   <h3> Subject: <%= tweet.subject %> </h3>
   <p> Text: <%= tweet.text %> </p>
   <p> Time: <%= tweet.created_at %> </p>
+  <p> Created by: <%= current_user.username %> </p>
 <% end %>
