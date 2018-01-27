@@ -27,6 +27,7 @@ end
 feature 'Signing Up' do
   scenario 'User signs up from landing page' do
     visit('/')
+    fill_in 'username', with: '@lewis'
     fill_in 'email', with: "lewis@gmail.com"
     fill_in 'password', with: "password"
     click_button 'Sign In'
