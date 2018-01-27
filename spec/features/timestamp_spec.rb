@@ -4,10 +4,10 @@
 
 require 'timecop'
 
-feature 'shows timestamp' do
+feature 'shows timestamp on peeps' do
   scenario "I can see the time a peep was posted" do
     Timecop.freeze do
-      visit '/'
+      visit '/new/peeps'
       fill_in :new_peep, with: "My first peep"
       click_button 'peep!'
       expect(page).to have_content DateTime.now.strftime("%H:%M, %d %B")
