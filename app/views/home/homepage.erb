@@ -11,14 +11,14 @@
     </form>
 
     <p>
-      <ul id='peeps'>
-        <%@current_user.each do |item|%>
-        <li>
-        p <%=item.peeps.map(&:peep)%>
-        </li>
-        <%end%>
-      </ul>
+        <%unless @peeps.nil?%>
+      <%@peeps.each do |peep|%>
+        <%=peep.peep%><br>
+       <%=peep.created_at%><br>
+      <%end%>
+      <%else%>
+        No peeps to show here
+      <%end%>
     </p>
-
   </body>
 </html>

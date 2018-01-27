@@ -1,3 +1,5 @@
+require 'dm-timestamps'
+
 class Peep
   include DataMapper::Resource
 
@@ -5,7 +7,7 @@ class Peep
 
   property :id, Serial
   property :peep, String
-  property :time, Text
+  property :created_at, DateTime
 
   # def time=(time)
   #   self.time_stamp = time

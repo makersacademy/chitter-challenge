@@ -4,7 +4,7 @@ class User
   include DataMapper::Resource
   include BCrypt
 
-  has n, :peeps, through: Resource
+  has n, :peeps
 
 
   property :id, Serial

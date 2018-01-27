@@ -7,9 +7,13 @@ module Helpers
     click_button "sign-up"
   end
 
-  def multiple_peeps_helper
-    fill_in :peep, with: 'My first peep'
-    fill_in :peep, with: 'My second peep'
+  def peep_helper
+    fill_in :peep, with: 'My first peep!'
+    click_button 'peep'
+  end
+
+  def peep_helper_2
+    fill_in :peep, with: 'My second peep!'
     click_button 'peep'
   end
 
