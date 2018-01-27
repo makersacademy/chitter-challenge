@@ -1,0 +1,8 @@
+<div class="peep">
+  <ul>
+    <% @peeps.reverse.each{|peep|%>
+      <li>You peeped: <%= peep.peep_text %> on <%= peep.created_at.strftime("%A:%H:%M:%S") %></li>
+    <% } %>
+  </ul>
+</div>
+<a href="/peeps/new">Add another peep! </a>
