@@ -24,14 +24,16 @@ class  Chitter < Sinatra::Base
   end
 
   post '/home/homepage' do
-    Peep.create(peep:params[:peep], time:Time.new)
-    # Peep.save
-    session[:peep] = params[:peep]
+    @current_user.peeps << Peep.create(peep:params[:peep], time:Time.new)
+    @current_user.save
+
+    # session[:peep_id] = peep
 
     redirect '/home/homepage'
   end
 
   get '/home/homepage' do
+    # @peeps = User.all
 
     erb :'home/homepage'
   end
@@ -41,9 +43,11 @@ class  Chitter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
 
-    def peep
-      @peep ||= session[:peep]
-    end
+    # def peeps
+    #   @peeps ||= Peep.all#session[:peep_id]
+    # end
   end
+
+  run! if app_file == $0
 
 end

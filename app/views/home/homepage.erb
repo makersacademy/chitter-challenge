@@ -1,11 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Peeps</title>
+  </head>
+  <body>
+    <form action="/home/homepage" method="post">
+      <input type="text" name="peep" value="peep here">
+      <input type="submit" value="peep">
+    </form>
 
+    <p>
+      <ul id='peeps'>
+        <%@current_user.each do |item|%>
+        <li>
+        p <%=item.peeps.map(&:peep)%>
+        </li>
+        <%end%>
+      </ul>
+    </p>
 
-<form action="/home/homepage" method="post">
-  <input type="text" name="peep" value="peep here">
-  <input type="submit" value="peep">
-</form>
-
-
-<ul>
-  <%=peep%>
-</ul>
+  </body>
+</html>

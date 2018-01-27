@@ -1,6 +1,7 @@
 class Peep
   include DataMapper::Resource
-  include BCrypt
+
+  belongs_to :user
 
   property :id, Serial
   property :peep, String

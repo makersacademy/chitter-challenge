@@ -8,10 +8,8 @@ module Helpers
   end
 
   def multiple_peeps_helper
-    fill_in :peep, with: 'I love sql'
-    fill_in :peep, with: 'I am feeling happy'
-    fill_in :peep, with: 'Coding rocks'
-    fill_in :peep, with: 'Raining outside'
+    fill_in :peep, with: 'My first peep'
+    fill_in :peep, with: 'My second peep'
     click_button 'peep'
   end
 
