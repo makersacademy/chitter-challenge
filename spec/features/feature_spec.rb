@@ -1,3 +1,5 @@
+require 'timecop'
+
 feature 'Homepage' do
   scenario 'displays a welcome message' do
     visit('/')
@@ -13,25 +15,15 @@ feature 'viewing Tweets' do
   end
 
   scenario 'Creating new tweets' do
-    visit('/tweets/new')
-    fill_in 'subject', with: "What I'm doing"
-    fill_in 'text', with: "Coding"
-    click_button 'Tweet'
-
+    create_tweet
     expect(current_path).to eq '/tweets'
-
     expect(page).to have_content "What I'm doing"
   end
 end
 
 feature 'Signing Up' do
   scenario 'User signs up from landing page' do
-    visit('/')
-    fill_in 'username', with: '@lewis'
-    fill_in 'email', with: "lewis@gmail.com"
-    fill_in 'password', with: "password"
-    click_button 'Sign In'
-
+    sign_up
     expect(current_path).to eq '/tweets'
   end
 end

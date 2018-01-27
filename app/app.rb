@@ -10,10 +10,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/tweets' do
-    @tweets = Tweet.all
+    @tweets = Tweet.all_in_reverse_order
     erb :tweets
   end
-  
+
   post '/tweets' do
     redirect 'tweets'
   end

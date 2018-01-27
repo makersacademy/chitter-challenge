@@ -10,4 +10,8 @@ class Tweet
   property :text, String
   property :created_at, Time
 
+  def self.all_in_reverse_order
+    self.all(order: :created_at.desc)
+  end
+
 end
