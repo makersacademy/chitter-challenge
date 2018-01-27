@@ -4,7 +4,7 @@
   <% @peeps.reverse.each do |peep| %>
   <li>
     <%= peep.message %>
-    <%= peep.created_at %>
+    <%= peep.created_at.strftime("%I:%M%p %d/%m/%d") %>
   </li>
   <% end %>
 </ul>

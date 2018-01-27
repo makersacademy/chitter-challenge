@@ -1,0 +1,4 @@
+<% if current_user %>
+  Hey <%= current_user.username %>!
+<% end %>
+<%= yield %>
