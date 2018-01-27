@@ -10,3 +10,8 @@
   <p> Time: <%= tweet.created_at %> </p>
   <p> Created by: <%= current_user.username %> </p>
 <% end %>
+
+
+<form action='/tweets/new' method='get'>
+  <input type='submit' value='Write a Tweet'>
+</form>

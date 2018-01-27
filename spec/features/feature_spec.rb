@@ -5,6 +5,12 @@ feature 'Homepage' do
     visit('/')
     expect(page).to have_content 'Welcome to Chitter!'
   end
+
+  scenario 'clicking button will direct to a new tweet page' do
+    sign_up
+    click_button 'Write a Tweet'
+    expect(current_path).to eq '/tweets/new'
+  end
 end
 
 feature 'viewing Tweets' do
