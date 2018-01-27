@@ -1,7 +1,14 @@
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-  
-  RSpec::Core::RakeTask.new :spec
-  
-  task default: [:spec]
+require 'data_mapper'
+require_relative './app/app.rb'
+
+task default: %w[upgrade]
+
+task :upgrade do
+  DataMapper.auto_upgrade!
+  p "Datamapper has auto upgraded"
+end
+
+task :migrate do
+  DataMapper.auto_migrate!
+  p "Datamapper has auto migrated"
 end
