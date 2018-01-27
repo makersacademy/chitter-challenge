@@ -1,7 +1,8 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require './app/models/peep'
-require './app/models/peep'
+require './app/models/user'
+
 
 ENV['RACK_ENV'] ||= 'development'
 

@@ -3,3 +3,50 @@ def post_peep(peep)
   fill_in 'post', with: peep
   click_button 'Post Peep!'
 end
+
+def sign_up
+  visit 'users/new'
+  fill_in 'email_address', with: '123@test.com'
+  fill_in 'username', with: '123test'
+  fill_in 'name', with: '123 Test'
+  fill_in 'password', with: '123test'
+  fill_in 'password_confirmation', with: '123test'
+  click_button 'sign-up'
+end
+
+def sign_up_incorrect_password_verification
+  visit 'users/new'
+  fill_in 'email_address', with: '234@test.com'
+  fill_in 'username', with: '234test'
+  fill_in 'name', with: '234 Test'
+  fill_in 'password', with: '123test'
+  fill_in 'password_confirmation', with: '234test'
+  click_button 'sign-up'
+end
+
+def sign_up_blank_email
+  visit 'users/new'
+  fill_in 'username', with: '123test'
+  fill_in 'name', with: '123 Test'
+  fill_in 'password', with: '123test'
+  fill_in 'password_confirmation', with: '123test'
+  click_button 'sign-up'
+end
+
+def sign_up_blank_username
+  visit 'users/new'
+  fill_in 'email_address', with: '234@test.com'
+  fill_in 'name', with: '123 Test'
+  fill_in 'password', with: '123test'
+  fill_in 'password_confirmation', with: '123test'
+  click_button 'sign-up'
+end
+
+def sign_up_blank_name
+  visit 'users/new'
+  fill_in 'username', with: '123test'
+  fill_in 'email_address', with: '234@test.com'
+  fill_in 'password', with: '123test'
+  fill_in 'password_confirmation', with: '123test'
+  click_button 'sign-up'
+end

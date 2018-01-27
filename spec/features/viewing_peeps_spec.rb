@@ -23,7 +23,7 @@ feature 'Peeps posts include the time posted' do
   scenario 'User adds a post in Jan 2018 at midnight ' do
     Timecop.freeze(Time.local(2018))
     post_peep("Hello World")
-    expect(page).to have_content "Hello World, posted @Mon Jan 1 00:00:00 2018"
+    expect(page).to have_content "Hello World, @Mon Jan 1 00:00:00 2018"
     Timecop.return
   end
 end

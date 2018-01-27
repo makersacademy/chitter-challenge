@@ -1,0 +1,16 @@
+<h1> Welcome to Chitter </h1>
+<h2> To register please enter your name, email address, a username and a password </h2>
+
+<form action="/users/new" method="post">
+  <label for="name">Name:
+    <input type="text" name="name" value = '<%= @user.name%>' required >
+  <label for="email_address">Email:
+    <input type="email" name="email_address"value = '<%= @user.email_address%>' required >
+  <label for="username">Username:
+      <input type="text" name="username" value = '<%= @user.username%>'required >
+  <label for="password">Password:
+    <input type="password" name="password">
+  <label for="password_confirmation">Password confirmation:
+    <input type="password" name="password_confirmation">
+    <input type="submit" value="sign-up">
+</form>

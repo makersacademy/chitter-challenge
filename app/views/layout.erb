@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title> Welcome to Chitter </title>
+  </head>
+  <% if flash[:errors] %>
+    <div class='alert alert-success'>
+      <% flash[:errors].each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+  </div>
+  <% end %>
+
+  <body>
+    <% if @current_user %>
+      Hello <%= current_user.name %>
+    <% end %>
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>
