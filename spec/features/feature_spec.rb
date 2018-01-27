@@ -23,3 +23,14 @@ feature 'viewing Tweets' do
     expect(page).to have_content "What I'm doing"
   end
 end
+
+feature 'Signing Up' do
+  scenario 'User signs up from landing page' do
+    visit('/')
+    fill_in 'email', with: "lewis@gmail.com"
+    fill_in 'password', with: "password"
+    click_button 'Sign In'
+
+    expect(current_path).to eq '/tweets'
+  end
+end

@@ -13,6 +13,10 @@ class Chitter < Sinatra::Base
     @tweets = Tweet.all
     erb :tweets
   end
+  
+  post '/tweets' do
+    redirect 'tweets'
+  end
 
   post '/tweets/new' do
     tweet = Tweet.first_or_create(subject: params[:subject], text: params[:text])
