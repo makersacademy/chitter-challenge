@@ -4,6 +4,7 @@
   </head>
   <% if flash[:errors] %>
     <div class='alert alert-success'>
+      Sorry, we need to try again:
       <% flash[:errors].each do |e| %>
         <li><%= e %></li>
       <% end %>
