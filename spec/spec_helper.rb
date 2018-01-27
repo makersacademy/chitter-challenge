@@ -5,6 +5,8 @@ require 'capybara/rspec'
 require_relative '../app/models/peep.rb'
 require_relative '../app/app.rb'
 require 'database_cleaner'
+require 'orderly'
+require 'data_mapper'
 
 Capybara.app = Chitter
 
