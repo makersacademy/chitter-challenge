@@ -1,1 +1,6 @@
-New Tweet
+<% @tweets.each do |tweet| %>
+<li>
+  Subject: <%= tweet.subject %>
+  Text: <%= tweet.text %>
+</li>
+<% end %>

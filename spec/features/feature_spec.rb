@@ -11,4 +11,15 @@ feature 'viewing Tweets' do
     visit('/tweets')
     expect(page).to have_content('New Tweet')
   end
+
+  scenario 'Creating new tweets' do
+    visit('/tweets/new')
+    fill_in 'subject', with: "What I'm doing"
+    fill_in 'text', with: "Coding"
+    click_button 'Tweet'
+
+    expect(current_path).to eq '/tweets'
+
+    expect(page).to have_content "What I'm doing"
+  end
 end
