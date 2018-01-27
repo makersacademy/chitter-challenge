@@ -1,9 +1,10 @@
 <h1>My peeps:</h1>
 
 <ul id='peeps'>
-  <% @peeps.each do |tweet| %>
+  <% @peeps.each do |peep| %>
     <li>
-      <h2> <%= tweet.peep %> ...peeped at <%= tweet.created_at %></h2>
+      <h2> <%= peep.content %> </h2>
+          <h4>...peeped at <%= peep.created_at.strftime("%H:%M, %d %B") %></h4>
     </li>
   <% end %>
 </ul>
