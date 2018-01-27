@@ -5,7 +5,7 @@ require 'sinatra/flash'
 require 'rake'
 require 'securerandom'
 
-require_relative 'datamapper_setup'
+# require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
 
