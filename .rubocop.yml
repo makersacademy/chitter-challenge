@@ -1,31 +1,13 @@
 Metrics/LineLength:
-  # We set up error messages here and I don't want people suboptimising by making
-  # their variables shorter... so we'll relax this a bit. Usually lines lime this:
-  # ```
-  #    AIRPORT_REFUSED_MESSAGE = "Airport has refused our landing! Probably bad weather"
-  # ```
-  # Would get extracted to locales, but that's out of the fence here so.
+
   Max: 100
 
-  # While test refactoring is good, I suspect it's out of scope for week 1
   Exclude:
     - 'spec/**/*'
 
 Metrics/BlockLength:
-  # While test refactoring is good, I suspect it's out of scope for week 1
   Exclude:
     - 'spec/**/*'
-
-# I've been quite careful about which style cops I've enabled
-# Why? My feeling is that style cops can create lots of linter noise that
-# is hard for a beginner to handle. This focuses the linting onto:
-#   * Indentation & whitespace (inconsistency, really gross stuff like `a=1`)
-#   * Easy wins in expressiveness (e.g. gurad clauses — nice opportunity to inject concretes)
-#   * Egregious non-idiomatic ruby like `def getFilename`
-#
-# Quote cops are notable by their absence. They add a lot of noise and they're
-# annoying to fix so a good opportunity to turn devs off of the utility of
-# linting. Hopefully they pick them up later :)
 
 Layout/IndentationConsistency:
   Enabled: true
