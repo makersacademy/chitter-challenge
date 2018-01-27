@@ -41,7 +41,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peep/all'
     else
-      flash[:error] = "The passwords do not match"
+      flash[:error] = user.errors.full_messages.join(" and ")
       flash[:email] = params[:email]
       flash[:username] = params[:username]
       redirect to '/user/new'
