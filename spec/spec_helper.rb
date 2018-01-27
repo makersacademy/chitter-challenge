@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require './app/app.rb'
 require 'capybara'
+require './app/datamapper_setup'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'simplecov'
