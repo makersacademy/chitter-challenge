@@ -8,13 +8,13 @@ class Chitter < Sinatra::Base
     "Hello world"
   end
 
-  get "/cheep/new" do
+  get "/cheeps/new" do
     erb :new_cheep
   end
 
-  post "/cheep/new" do
+  post "/cheeps/new" do
     Cheep.create(:message => params[:cheep])
-    redirect 'cheep/new'
+    redirect 'cheeps/new'
   end
 
   get "/cheeps" do
