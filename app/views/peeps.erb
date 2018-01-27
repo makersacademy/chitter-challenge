@@ -1,0 +1,9 @@
+<h1>My peeps:</h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |tweet| %>
+    <li>
+      <h2> <%= tweet.peep %> ...peeped at <%= tweet.created_at %></h2>
+    </li>
+  <% end %>
+</ul>
