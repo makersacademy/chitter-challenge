@@ -13,11 +13,13 @@ class Chitter < Sinatra::Base
   end
 
   post "/cheep/new" do
+    Cheep.create(:message => params[:cheep])
     redirect 'cheep/new'
   end
 
-  get "/cheep" do
-    "hello"
+  get "/cheeps" do
+    @cheeps = Cheep.all
+    erb :cheeps
   end
 
 end
