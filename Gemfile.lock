@@ -135,6 +135,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   data_mapper (= 1.2.0)
   database_cleaner
