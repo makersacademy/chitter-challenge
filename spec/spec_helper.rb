@@ -5,8 +5,10 @@ require 'capybara'
 require './app/datamapper_setup'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'orderly'
 require 'simplecov'
 require 'simplecov-console'
+require 'features/web_helpers'
 
 Capybara.app = Chitter
 
