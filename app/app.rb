@@ -1,11 +1,14 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
+require 'sinatra'
+require 'sinatra/flash'
 require_relative './models/peep.rb'
 require_relative './models/user.rb'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -32,9 +35,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/new' do
-    user = User.create(email: params[:email], username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/peep/all'
+    user = User.new(email: params[:email], username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
+    if user.save
+      session[:user_id] = user.id
+      redirect '/peep/all'
+    else
+      flash[:error] = "The passwords do not match"
+      flash[:email] = params[:email]
+      flash[:username] = params[:username]
+      redirect to '/user/new'
+    end
   end
 
 end

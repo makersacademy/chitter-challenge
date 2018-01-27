@@ -1,11 +1,13 @@
 <h1>New User</h1>
 
+<%= flash[:error] %>
+
 <form action='/user/new' method='POST'>
   <label for='email'>Email:
-    <input type='text' required name='email' />
+    <input type='text' required name='email' value=<%= flash[:email] %>>
   </label>
   <label for='username'>Username:
-    <input type='text' required name='username' />
+    <input type='text' required name='username' value=<%= flash[:username] %>>
   </label>
   <label for='password'>Password:
     <input type='text' required name='password' />
