@@ -1,10 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rake'
-gem 'rubocop'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'pry'
+gem 'sinatra'
 
 group :test do
-  gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
+ gem 'capybara'
+ gem 'cucumber'
+ gem 'rspec'
+ gem 'rake'
+ gem 'rubocop'
+ gem 'simplecov', require: false
+ gem 'simplecov-console', require: false
 end
