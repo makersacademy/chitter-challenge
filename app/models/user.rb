@@ -11,8 +11,8 @@ class User
   attr_accessor :password_confirmation
 
   property :id,              Serial
-  property :email,           String, required: true
-  property :username,        String, required: true
+  property :email,           String, required: true, unique: true
+  property :username,        String, required: true, unique: true
   property :password_hash,   Text
 
   validates_confirmation_of :password

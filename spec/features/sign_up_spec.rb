@@ -17,6 +17,7 @@ feature 'Sign up' do
     visit '/user/new'
     sign_up_wrong_password
     expect(User.count).to eq 0
+    expect(page).to have_content("Password does not match the confirmation")
   end
 
   scenario 'The user cannot sign up without an email address' do
@@ -26,16 +27,6 @@ feature 'Sign up' do
     fill_in 'password_confirmation', with: 'wrongpassword'
     click_button 'Sign up'
     expect(User.count).to eq 0
-  end
-
-  scenario 'The user must supply matching passwords' do
-    visit '/user/new'
-    fill_in 'email', with: 'testing@test.co.uk'
-    fill_in 'password', with: 'password'
-    fill_in 'password_confirmation', with: 'wrongpassword'
-    click_button 'Sign up'
-    expect(User.count).to eq 0
-    expect(page).to have_content("Password does not match the confirmation")
   end
 
   scenario 'The user cannot sign up without a valid email address' do
@@ -54,5 +45,13 @@ feature 'Sign up' do
     fill_in 'password_confirmation', with: 'wrongpassword'
     click_button 'Sign up'
     expect(page).to have_content("Password does not match the confirmation and Email has an invalid format")
+  end
+
+  scenario 'The user cannot sign up if the email or username is already taken' do
+    visit '/user/new'
+    sign_up
+    visit '/user/new'
+    sign_up
+    expect(page).to have_content('Email is already taken and Username is already taken')
   end
 end
