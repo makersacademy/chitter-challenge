@@ -6,5 +6,7 @@ feature 'View peeps' do
     expect(page.status_code).to eq 200
     expect(page).to have_content('first peep')
    end
-   
+
  end
+
+ 
