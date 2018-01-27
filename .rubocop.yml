@@ -115,7 +115,9 @@ Layout/SpaceInsideArrayPercentLiteral:
   Enabled: true
 Layout/SpaceInsideBlockBraces:
   Enabled: true
-Layout/SpaceInsideBrackets:
+Layout/SpaceInsideReferenceBrackets:
+  Enabled: true
+Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: true
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: true
