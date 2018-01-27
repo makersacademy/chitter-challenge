@@ -1,19 +1,22 @@
 source 'https://rubygems.org'
 
-gem 'rake'
-gem 'rubocop'
+ruby '2.4.1'
+
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
-gem 'pry'
 gem 'database_cleaner'
 gem 'bcrypt'
-gem 'dm-transactions'
+
+gem 'rake'
+# gem 'pry'
 
 group :test do
-  gem 'rspec'
-  gem 'rspec-sinatra'
   gem 'capybara'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'dm-transactions'
+  gem 'rspec-sinatra'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end

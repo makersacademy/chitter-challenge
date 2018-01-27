@@ -9,12 +9,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 ENV["RACK_ENV"] = 'test'
-require './app/app'
+require_relative '../app/app'
 require 'capybara/rspec'
 require 'database_cleaner'
 # require './features/web_helpers'
 
-Capybara.app = Bookmark
+Capybara.app = Chitter
 
 # DatabaseCleaner.clean_with :truncation
 # DatabaseCleaner.strategy = :transaction
