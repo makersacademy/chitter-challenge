@@ -15,3 +15,13 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+ENV['RACK_ENV']="test"
+
+require './app/chitter'
+require 'rspec'
+require 'capybara'
+require 'capybara/rspec'
+require './app/models/peep'
+
+Capybara.app = Chitter
