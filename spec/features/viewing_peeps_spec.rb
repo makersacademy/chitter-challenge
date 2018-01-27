@@ -8,12 +8,22 @@ feature 'viewing peeps' do
     end
   end
   scenario 'existing peeps are displayed in reverse chronological order' do
-    post_peep("3")
-    sleep(10)
-    post_peep("2")
-    sleep(10)
-    post_peep("1")
-    expect("1").to appear_before('2')
-    expect("2").to appear_before('3')
+    post_peep("Post today")
+    Timecop.freeze(Time.local(2018))
+    post_peep("Post Jan 1")
+    Timecop.return
+    sleep(5)
+    post_peep("Post later today")
+    expect("Post today").to appear_before('Post Jan 1')
+    expect("Post later today").to appear_before('Post today')
+  end
+end
+
+feature 'Peeps posts include the time posted' do
+  scenario 'User adds a post in Jan 2018 at midnight ' do
+    Timecop.freeze(Time.local(2018))
+    post_peep("Hello World")
+    expect(page).to have_content "Hello World, posted @Mon Jan 1 00:00:00 2018"
+    Timecop.return
   end
 end
