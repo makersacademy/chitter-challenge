@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
+require "./app/models/cheep"
 
 class Chitter < Sinatra::Base
   enable :sessions
