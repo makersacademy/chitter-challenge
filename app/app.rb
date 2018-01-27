@@ -7,8 +7,16 @@ class Chitter < Sinatra::Base
     "Hello world"
   end
 
-  # get "/cheep/new" do
-  #   "Hello world"
-  # end
+  get "/cheep/new" do
+    erb :new_cheep
+  end
+
+  post "/cheep/new" do
+    redirect 'cheep/new'
+  end
+
+  get "/cheep" do
+    "hello"
+  end
 
 end
