@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra'
 require 'sinatra/flash'
+require 'dm-validations'
 require_relative './models/peep.rb'
 require_relative './models/user.rb'
 

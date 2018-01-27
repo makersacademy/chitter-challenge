@@ -11,11 +11,14 @@ class User
   attr_accessor :password_confirmation
 
   property :id,              Serial
-  property :email,           String
-  property :username,        String
+  property :email,           String, required: true
+  property :username,        String, required: true
   property :password_hash,   Text
 
   validates_confirmation_of :password
+  validates_presence_of     :email
+  validates_format_of       :email, as: :email_address
+  validates_presence_of     :username
 
   def password=(password)
     @password = password
