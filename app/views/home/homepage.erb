@@ -13,7 +13,7 @@
     <p>
         <%unless @peeps.nil?%>
       <%@peeps.each do |peep|%>
-       @<%=peep.user.email%><br>
+       @<%=peep.user.username%><br>
         <%=peep.peep%><br>
        <%=peep.created_at%><br>
       <%end%>
