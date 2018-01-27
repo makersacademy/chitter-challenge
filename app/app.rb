@@ -5,7 +5,7 @@ require 'sinatra/flash'
 require 'rake'
 require 'securerandom'
 
-# require_relative 'datamapper_setup'
+require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
 
@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   run! if app_file == $0
 
   get '/' do
-    erb :index
+    redirect '/peeps'
   end
 
   post '/user/new' do
@@ -30,6 +30,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
+    erb :peeps
   end
 
 end

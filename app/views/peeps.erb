@@ -1,0 +1,12 @@
+<h3>Welcome to <del>Tw</del>Chitter!</h3>
+
+<p><a href="/peeps/new">Write a peep</a></p>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <p><%= peep.body %></p>
+      <p>Posted at <%= peep.created.strftime("%H:%M on %d %B %y") %></p>
+    </li>
+  <% end %>
+</ul>
