@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-  get '/new/peeps' do
+  get '/new/peep' do
     erb(:add_peep)
   end
 

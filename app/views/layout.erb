@@ -4,6 +4,11 @@
     <title>Chitter!</title>
   </head>
 
+
+<form action="/new/peep" method="get">
+  <input type="submit" value="Peep now!">
+</form>
+
   <body>
     <% if current_user %>
       Welcome to Chitter, <%= current_user.username %>
