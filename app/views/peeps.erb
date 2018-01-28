@@ -1,0 +1,11 @@
+<h2> welcome to peeper </h2>
+
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.body %> <br>
+      by: <%= peep.author %> <br>
+      at: <%= peep.created_at %> <br>
+    </li>
+  <% end %>
+</ul>
