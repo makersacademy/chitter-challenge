@@ -24,7 +24,7 @@ class  Chitter < Sinatra::Base
   end
 
   get '/register/signup' do
-
+    @user = User.new
     erb :'register/signup'
   end
 

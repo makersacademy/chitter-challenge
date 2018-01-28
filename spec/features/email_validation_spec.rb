@@ -11,7 +11,7 @@ feature '#email to be validated' do
       expect { sign_up }.to change(User, :count)
     end
 
-    scenario 'Invalid email type' do
+    scenario 'Invalid email type error' do
     expect { sign_up_wrong_email }.not_to change(User, :count)
     expect(current_path).to eq('/register/signup')
     expect(page).to have_content 'Invalid email address'
