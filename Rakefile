@@ -5,7 +5,7 @@ namespace :setup do
   task :databases do
     puts 'Setting up databases...'
     conn = PG.connect(dbname: 'postgres')
-    
+
     conn.exec('CREATE database chitter_development')
     puts 'Development database setup'
 
@@ -14,10 +14,17 @@ namespace :setup do
   end
 end
 
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
+namespace :db do
+  desc "Non destructive upgrade"
+  task :auto_upgrade do
+    DataMapper.auto_upgrade!
+    puts 'Auto-upgrade complete (no data loss)'
+  end
 
-  RSpec::Core::RakeTask.new :spec
 
-  task default: [:spec]
+  desc "Destructive upgrade"
+  task :auto_migrate do
+    DataMapper.auto_migrate!
+    puts 'Auto-migrate complete (data was lost)'
+  end
 end
