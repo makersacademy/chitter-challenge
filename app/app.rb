@@ -42,7 +42,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/new' do
-    haml(:'user/new')
+    erb(:'user/new')
   end
 
   post '/user/new' do

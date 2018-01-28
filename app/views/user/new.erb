@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <link href="./reset.css" rel="stylesheet" type="text/css">
+    <link href="../index_stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>New User</h2>
+      <span class="tagline">Sign up here</span>
+
+        <form action='/user/new' method='POST' class="form_container">
+          <label for='email'>
+            <input type='text' required name='email' placeholder="email" value=<%= flash[:email] %>>
+          </label>
+          <label for='username'>
+            <input type='text' required name='username' placeholder="username" value=<%= flash[:username] %>>
+          </label>
+          <label for='password'>
+            <input type='text' required placeholder="password" name='password'>
+          </label>
+          <label for='password_confirmation'>
+            <input type='text' required placeholder="confirm password" name='password_confirmation' class="last_form">
+          </label>
+          <button type='submit' value='Sign up' id="lastbutton">submit</button>
+        </form>
+        <div class="flasherror">
+          <span><%= p "#{flash[:error]}".downcase %></span>
+        </div>
+      </div>
+    </div>
+</body>

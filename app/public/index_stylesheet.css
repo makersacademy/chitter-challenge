@@ -16,7 +16,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 6em 0;
+  margin: 5em 0;
   padding-bottom: 7em;
   border-radius: 10px;
   border: 2px solid hsl(203, 35%, 75%);
@@ -118,4 +118,44 @@ button[type=submit]:focus {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+h2 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3em;
+  margin-top: 1em;
+  margin-bottom: -0.1em;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3em;
+  height: 200px;
+  justify-content: space-around;
+}
+
+input[type=text] {
+  height: 20px;
+  width: 175px;
+  border-radius: 5px;
+}
+
+
+input[type=text]:focus {
+  outline:0;
+}
+
+.last_form {
+  margin-bottom: 0.5em;
+}
+
+.flasherror {
+  width: 100%;
+  color: hsl(0, 77%, 26%);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
 }
