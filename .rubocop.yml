@@ -1,10 +1,10 @@
 Metrics/LineLength:
   # We set up error messages here and I don't want people suboptimising by making
-  # their variables shorter... so we'll relax this a bit. Usually lines lime this:
+  # their variables shorter... so we'll relax this a bit. Usually lines lime this:
   # ```
   #    AIRPORT_REFUSED_MESSAGE = "Airport has refused our landing! Probably bad weather"
-  # ```
-  # Would get extracted to locales, but that's out of the fence here so.
+  # ```
+  # Would get extracted to locales, but that's out of the fence here so.
   Max: 100
 
   # While test refactoring is good, I suspect it's out of scope for week 1
@@ -16,7 +16,7 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
-# I've been quite careful about which style cops I've enabled
+# I've been quite careful about which style cops I've enabled
 # Why? My feeling is that style cops can create lots of linter noise that
 # is hard for a beginner to handle. This focuses the linting onto:
 #   * Indentation & whitespace (inconsistency, really gross stuff like `a=1`)
@@ -27,25 +27,25 @@ Metrics/BlockLength:
 # annoying to fix so a good opportunity to turn devs off of the utility of
 # linting. Hopefully they pick them up later :)
 
-Layout/IndentationConsistency:
+Style/IndentationConsistency:
   Enabled: true
-Layout/IndentationWidth:
+Style/IndentationWidth:
   Enabled: true
-Naming/AccessorMethodName:
+Style/AccessorMethodName:
   Enabled: true
-Layout/BlockEndNewline:
+Style/BlockEndNewline:
   Enabled: true
-Naming/ClassAndModuleCamelCase:
+Style/ClassAndModuleCamelCase:
   Enabled: true
-Naming/ConstantName:
+Style/ConstantName:
   Enabled: true
 Style/DefWithParentheses:
   Enabled: true
-Layout/EmptyLineBetweenDefs:
+Style/EmptyLineBetweenDefs:
   Enabled: true
-Layout/EmptyLines:
+Style/EmptyLines:
   Enabled: true
-Layout/ExtraSpacing:
+Style/ExtraSpacing:
   Enabled: true
 Style/GuardClause:
   Enabled: true
@@ -53,9 +53,9 @@ Style/IdenticalConditionalBranches:
   Enabled: true
 Style/InverseMethods:
   Enabled: true
-Layout/LeadingCommentSpace:
+Style/LeadingCommentSpace:
   Enabled: true
-Naming/MethodName:
+Style/MethodName:
   Enabled: true
 Style/NegatedIf:
   Enabled: true
@@ -71,7 +71,7 @@ Style/NumericPredicate:
   Enabled: true
 Style/OneLineConditional:
   Enabled: true
-Naming/PredicateName:
+Style/PredicateName:
   Enabled: true
 Style/RedundantParentheses:
   Enabled: true
@@ -81,75 +81,73 @@ Style/SafeNavigation:
   Enabled: true
 Style/SelfAssignment:
   Enabled: true
-Layout/SpaceAfterColon:
+Style/SpaceAfterColon:
   Enabled: true
-Layout/SpaceAfterComma:
+Style/SpaceAfterComma:
   Enabled: true
-Layout/SpaceAfterMethodName:
+Style/SpaceAfterMethodName:
   Enabled: true
-Layout/SpaceAfterNot:
+Style/SpaceAfterNot:
   Enabled: true
-Layout/SpaceAfterSemicolon:
+Style/SpaceAfterSemicolon:
   Enabled: true
-Layout/SpaceAroundBlockParameters:
+Style/SpaceAroundBlockParameters:
   Enabled: true
-Layout/SpaceAroundEqualsInParameterDefault:
+Style/SpaceAroundEqualsInParameterDefault:
   Enabled: true
-Layout/SpaceAroundKeyword:
+Style/SpaceAroundKeyword:
   Enabled: true
-Layout/SpaceAroundOperators:
+Style/SpaceAroundOperators:
   Enabled: true
-Layout/SpaceBeforeBlockBraces:
+Style/SpaceBeforeBlockBraces:
   Enabled: true
-Layout/SpaceBeforeComma:
+Style/SpaceBeforeComma:
   Enabled: true
-Layout/SpaceBeforeComment:
+Style/SpaceBeforeComment:
   Enabled: true
-Layout/SpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: true
-Layout/SpaceBeforeSemicolon:
+Style/SpaceBeforeSemicolon:
   Enabled: true
-Layout/SpaceInLambdaLiteral:
+Style/SpaceInLambdaLiteral:
   Enabled: true
-Layout/SpaceInsideArrayPercentLiteral:
+Style/SpaceInsideArrayPercentLiteral:
   Enabled: true
-Layout/SpaceInsideBlockBraces:
+Style/SpaceInsideBlockBraces:
   Enabled: true
-Layout/SpaceInsideReferenceBrackets:
+Style/SpaceInsideBrackets:
   Enabled: true
-Layout/SpaceInsideArrayLiteralBrackets:
+Style/SpaceInsideHashLiteralBraces:
   Enabled: true
-Layout/SpaceInsideHashLiteralBraces:
+Style/SpaceInsideParens:
   Enabled: true
-Layout/SpaceInsideParens:
+Style/SpaceInsidePercentLiteralDelimiters:
   Enabled: true
-Layout/SpaceInsidePercentLiteralDelimiters:
+Style/SpaceInsideRangeLiteral:
   Enabled: true
-Layout/SpaceInsideRangeLiteral:
-  Enabled: true
-Layout/SpaceInsideStringInterpolation:
+Style/SpaceInsideStringInterpolation:
   Enabled: true
 Style/SymbolLiteral:
   Enabled: true
-Layout/TrailingBlankLines:
+Style/TrailingBlankLines:
   Enabled: true
 Style/TrivialAccessors:
   Enabled: true
-Naming/VariableName:
+Style/VariableName:
   Enabled: true
-Naming/FileName:
+Style/FileName:
   Enabled: true
 
 # Rubocop doesn't make disabling all cops in a given group easy, so we list...
-Layout/AccessModifierIndentation:
+Style/AccessModifierIndentation:
   Enabled: false
 Style/Alias:
   Enabled: false
-Layout/AlignArray:
+Style/AlignArray:
   Enabled: false
-Layout/AlignHash:
+Style/AlignHash:
   Enabled: false
-Layout/AlignParameters:
+Style/AlignParameters:
   Enabled: false
 Style/AndOr:
   Enabled: false
@@ -157,7 +155,7 @@ Style/ArrayJoin:
   Enabled: false
 Style/AsciiComments:
   Enabled: false
-Naming/AsciiIdentifiers:
+Style/AsciiIdentifiers:
   Enabled: false
 Style/Attr:
   Enabled: false
@@ -175,7 +173,7 @@ Style/BracesAroundHashParameters:
   Enabled: false
 Style/CaseEquality:
   Enabled: false
-Layout/CaseIndentation:
+Style/CaseIndentation:
   Enabled: false
 Style/CharacterLiteral:
   Enabled: false
@@ -187,7 +185,7 @@ Style/ClassMethods:
   Enabled: false
 Style/ClassVars:
   Enabled: false
-Layout/ClosingParenthesisIndentation:
+Style/ClosingParenthesisIndentation:
   Enabled: false
 Style/CollectionMethods:
   Enabled: false
@@ -197,7 +195,7 @@ Style/CommandLiteral:
   Enabled: false
 Style/CommentAnnotation:
   Enabled: false
-Layout/CommentIndentation:
+Style/CommentIndentation:
   Enabled: false
 Style/ConditionalAssignment:
   Enabled: false
@@ -207,7 +205,7 @@ Style/Documentation:
   Enabled: false
 Style/DocumentationMethod:
   Enabled: false
-Layout/DotPosition:
+Style/DotPosition:
   Enabled: false
 Style/DoubleNegation:
   Enabled: false
@@ -215,27 +213,27 @@ Style/EachForSimpleLoop:
   Enabled: false
 Style/EachWithObject:
   Enabled: false
-Layout/ElseAlignment:
+Style/ElseAlignment:
   Enabled: false
 Style/EmptyCaseCondition:
   Enabled: false
 Style/EmptyElse:
   Enabled: false
-Layout/EmptyLineAfterMagicComment:
+Style/EmptyLineAfterMagicComment:
   Enabled: false
-Layout/EmptyLinesAroundAccessModifier:
+Style/EmptyLinesAroundAccessModifier:
   Enabled: false
-Layout/EmptyLinesAroundBeginBody:
+Style/EmptyLinesAroundBeginBody:
   Enabled: false
-Layout/EmptyLinesAroundBlockBody:
+Style/EmptyLinesAroundBlockBody:
   Enabled: false
-Layout/EmptyLinesAroundClassBody:
+Style/EmptyLinesAroundClassBody:
   Enabled: false
-Layout/EmptyLinesAroundExceptionHandlingKeywords:
+Style/EmptyLinesAroundExceptionHandlingKeywords:
   Enabled: false
-Layout/EmptyLinesAroundMethodBody:
+Style/EmptyLinesAroundMethodBody:
   Enabled: false
-Layout/EmptyLinesAroundModuleBody:
+Style/EmptyLinesAroundModuleBody:
   Enabled: false
 Style/EmptyLiteral:
   Enabled: false
@@ -245,19 +243,19 @@ Style/Encoding:
   Enabled: false
 Style/EndBlock:
   Enabled: false
-Layout/EndOfLine:
+Style/EndOfLine:
   Enabled: false
 Style/EvenOdd:
   Enabled: false
-Layout/FirstArrayElementLineBreak:
+Style/FirstArrayElementLineBreak:
   Enabled: false
-Layout/FirstHashElementLineBreak:
+Style/FirstHashElementLineBreak:
   Enabled: false
-Layout/FirstMethodArgumentLineBreak:
+Style/FirstMethodArgumentLineBreak:
   Enabled: false
-Layout/FirstMethodParameterLineBreak:
+Style/FirstMethodParameterLineBreak:
   Enabled: false
-Layout/FirstParameterIndentation:
+Style/FirstParameterIndentation:
   Enabled: false
 Style/FlipFlop:
   Enabled: false
@@ -281,17 +279,17 @@ Style/IfWithSemicolon:
   Enabled: false
 Style/ImplicitRuntimeError:
   Enabled: false
-Layout/IndentArray:
+Style/IndentArray:
   Enabled: false
-Layout/IndentAssignment:
+Style/IndentAssignment:
   Enabled: false
-Layout/IndentHash:
+Style/IndentHash:
   Enabled: false
-Layout/IndentHeredoc:
+Style/IndentHeredoc:
   Enabled: false
 Style/InfiniteLoop:
   Enabled: false
-Layout/InitialIndentation:
+Style/InitialIndentation:
   Enabled: false
 Style/InlineComment:
   Enabled: false
@@ -317,15 +315,15 @@ Style/MixinGrouping:
   Enabled: false
 Style/ModuleFunction:
   Enabled: false
-Layout/MultilineArrayBraceLayout:
+Style/MultilineArrayBraceLayout:
   Enabled: false
-Layout/MultilineAssignmentLayout:
+Style/MultilineAssignmentLayout:
   Enabled: false
 Style/MultilineBlockChain:
   Enabled: false
-Layout/MultilineBlockLayout:
+Style/MultilineBlockLayout:
   Enabled: false
-Layout/MultilineHashBraceLayout:
+Style/MultilineHashBraceLayout:
   Enabled: false
 Style/MultilineIfModifier:
   Enabled: false
@@ -333,13 +331,13 @@ Style/MultilineIfThen:
   Enabled: false
 Style/MultilineMemoization:
   Enabled: false
-Layout/MultilineMethodCallBraceLayout:
+Style/MultilineMethodCallBraceLayout:
   Enabled: false
-Layout/MultilineMethodCallIndentation:
+Style/MultilineMethodCallIndentation:
   Enabled: false
-Layout/MultilineMethodDefinitionBraceLayout:
+Style/MultilineMethodDefinitionBraceLayout:
   Enabled: false
-Layout/MultilineOperationIndentation:
+Style/MultilineOperationIndentation:
   Enabled: false
 Style/MultilineTernaryOperator:
   Enabled: false
@@ -357,7 +355,7 @@ Style/NonNilCheck:
   Enabled: false
 Style/NumericLiteralPrefix:
   Enabled: false
-Naming/BinaryOperatorParameterName:
+Style/OpMethod:
   Enabled: false
 Style/OptionHash:
   Enabled: false
@@ -389,7 +387,7 @@ Style/RedundantReturn:
   Enabled: false
 Style/RegexpLiteral:
   Enabled: false
-Layout/RescueEnsureAlignment:
+Style/RescueEnsureAlignment:
   Enabled: false
 Style/RescueModifier:
   Enabled: false
@@ -419,7 +417,7 @@ Style/SymbolArray:
   Enabled: false
 Style/SymbolProc:
   Enabled: false
-Layout/Tab:
+Style/Tab:
   Enabled: false
 Style/TernaryParentheses:
   Enabled: false
@@ -429,7 +427,7 @@ Style/TrailingCommaInLiteral:
   Enabled: false
 Style/TrailingUnderscoreVariable:
   Enabled: false
-Layout/TrailingWhitespace:
+Style/TrailingWhitespace:
   Enabled: false
 Style/UnlessElse:
   Enabled: false
@@ -441,7 +439,7 @@ Style/UnneededPercentQ:
   Enabled: false
 Style/VariableInterpolation:
   Enabled: false
-Naming/VariableNumber:
+Style/VariableNumber:
   Enabled: false
 Style/WhenThen:
   Enabled: false
