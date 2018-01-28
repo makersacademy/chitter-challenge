@@ -8,16 +8,11 @@ class User
 
   property :id, Serial
   property :email, String, required: true
-  property :encrypted_password, Text
+  property :password, BCryptHash
 
   attr_reader :password
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
-
-  def password=(password)
-    @password = password
-    self.encrypted_password = BCrypt::Password.create(password)
-  end
 
 end
