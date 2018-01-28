@@ -8,6 +8,7 @@ class Peep
   property :peep_name, String
   property :time, String
   property :last_maker, String
+  property :user_name, String
 
   belongs_to :maker, required: false
 

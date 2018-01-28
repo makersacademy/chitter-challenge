@@ -38,7 +38,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     maker = Maker.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
     params[:peeps].split("  ").each do |peep|
-      maker.peeps << Peep.first_or_create(peep_name: peep, time: Time.now, last_maker: session[:name])
+      maker.peeps << Peep.first_or_create(peep_name: peep, time: Time.now, last_maker: session[:name], user_name: session[:user_name])
       end
 
     maker.save

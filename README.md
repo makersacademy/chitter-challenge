@@ -24,9 +24,13 @@ Technologies used:
 ```
 I had created a single controller to manage all the logic in app.rb
 
-I had created the app in Ruby and also adopted the Sinatra framework. For testing, I've used Rspec and Capybara. As for storing the makers and peeps, this was achieved by using DataMapper and PostGresQL. I had also used the 'Bcrypt' gem to encrypt passwords.
+I had created the app in Ruby and also adopted the Sinatra framework.
 
-``` 
+For testing, I've used Rspec and Capybara. As for storing the makers
+and peeps, this was achieved by using DataMapper and PostGresQL.
+I had also used the 'Bcrypt' gem to encrypt passwords.
+
+```
 
 Features:
 -------
