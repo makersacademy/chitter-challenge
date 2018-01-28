@@ -4,6 +4,6 @@ class Peep
 
   # Tell the class which columns exist in the student table
   property :id,     Serial
-  property :body,   Text
+  property :body_post,   Text
   property :created_at, DateTime
 end

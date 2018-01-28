@@ -1,0 +1,26 @@
+body {
+  align-content: center;
+  background-color: #7FB3D5;
+  font-family: verdana;
+  font-size: 20px;
+  line-height: 200%;
+  margin: 100px, auto;
+  text-align: center;
+}
+
+#body_post {
+    width: 80%;
+    height: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #2980B9;
+    border-radius: 4px;
+    background-color: white;
+}
+
+#date {
+  font-size: 10px;
+  text-align: right;
+  color: gray;
+}

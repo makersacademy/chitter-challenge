@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>chitter</title>
+  <link rel="stylesheet" type="text/css" href="./app/public/chitter.css">
+  <script src="https://use.fontawesome.com/5d80a0eb69.js"></script>
+
+</head>
+<body>
+  <h1><i class="fa fa-hashtag" aria-hidden="true"></i>CHITTER</h1>
+
+  <div id="page-wrap">
+    <form method="POST" action="/posts">
+      <label for="post"> Peep something
+        <br>
+        <input id="body_post" type="text" name="body_post" placeholder="What's new?">
+        <input class="button" type="submit" value="Peep">
+      </label>
+    </form>
+  </div>
+
+</body>
+</html>
