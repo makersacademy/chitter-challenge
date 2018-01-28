@@ -101,7 +101,7 @@ button[type=submit]:focus {
   letter-spacing: 0.18em;
   font-weight: 300;
   color: hsl(0, 0%, 50%);
-  padding: 2em;
+  padding: 2em 4.5em;
   font-size: 0.85em;
   line-height: 2em;
 }
@@ -133,6 +133,15 @@ h2 {
   align-items: center;
   padding-top: 3em;
   height: 200px;
+  justify-content: space-around;
+}
+
+.sign_in_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3em;
+  height: 150px;
   justify-content: space-around;
 }
 
