@@ -4,9 +4,10 @@ require 'database_cleaner'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-
 require './app/models/peep'
+require './app/models/user'
 require './app/app'
+require 'web_helper'
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
