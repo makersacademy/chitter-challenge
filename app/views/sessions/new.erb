@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sign in</title>
+  </head>
+  <body>
+    <h3>Please sign in</h3>
+
+    <form action="/sessions" method="post">
+      <input type="email" name="email" placeholder="email" value='<%= @logemail %>' required>
+      <input type="password" name="password" placeholder="password" id ="password" required>
+      <button type="button" id="eye" onclick="password_hide()">
+        <img src="https://cdn0.iconfinder.com/data/icons/feather/96/eye-16.png" alt="eye" />
+      </button>
+
+      <button type="submit" name="button">Sign in</button>
+    </form>
+
+    <script type="text/javascript">
+      function password_hide() {
+        if(password.type=='text') {
+          password.type='password';
+        }else {
+          password.type='text';
+        }
+      }
+    </script>
+  </body>
+</html>

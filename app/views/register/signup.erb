@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sign-up</title>
+  </head>
+  <body>
+
+
+    <br>
+    <form action="/register/signup" method="post">
+      <span style="float:left;">
+      <input type="text" name="username" placeholder="username" value='<%= @user.username %>' required>
+
+      <input type="email" name="email" placeholder="email" value='<%= @user.email %>' required>
+
+      <input type="password" name="password" placeholder="password" id ="password" required>
+
+      <button type="button" id="eye" onclick="password_hide()">
+        <img src="https://cdn0.iconfinder.com/data/icons/feather/96/eye-16.png" alt="eye" />
+      </button>
+
+      <button type="submit" name="button">Sign up</button>
+      </span>
+    </form>
+
+    <form >
+      <span style="float:left;">
+      <button type="submit" formaction="/sessions/new">Existing Users</button>
+      </span>
+    </form>
+
+
+  <br >
+
+      <p>
+      <%if @peeps%>
+        <%@peeps.each do |peep|%>
+         @<%=peep.user.username%><br>
+          <%=peep.peep%><br>
+         <%=peep.created_at%><br>
+        <%end%>
+      <%end%>
+    </p>
+
+    <script type="text/javascript">
+      function password_hide() {
+        if(password.type=='text') {
+          password.type='password';
+        }else {
+          password.type='text';
+        }
+      }
+    </script>
+  </body>
+</html>

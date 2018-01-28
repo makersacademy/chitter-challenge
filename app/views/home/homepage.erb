@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Peeps</title>
+  </head>
+  <body>
+    <form action="/peep_new" method="post">
+      <input type="text" name="peep" maxlength="140" placeholder="peep here">
+      <input type="submit" value="peep">
+    </form>
+
+    <br>
+
+    <p>
+        <%unless @peeps.nil?%>
+      <%@peeps.each do |peep|%>
+       @<%=peep.user.username%><br>
+        <%=peep.peep%><br>
+       <%=peep.created_at%><br>
+       <%end%>
+      <%end%>
+    </p>
+  </body>
+</html>
