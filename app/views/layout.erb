@@ -11,7 +11,7 @@
 
   <body>
     <% if current_user %>
-      Welcome to Chitter, <%= current_user.username %>
+      Welcome to Chitter, <%= current_user.email %>
     <% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
