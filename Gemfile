@@ -9,6 +9,7 @@ gem 'sinatra'
 group :test do
  gem 'capybara'
  gem 'cucumber'
+ gem 'orderly'
  gem 'rspec'
  gem 'rake'
  gem 'rubocop'

@@ -8,6 +8,7 @@ ENV["RACK_ENV"] = "test"
  require './app/models/peep'
  require './app/app'
  require 'database_cleaner'
+ require 'orderly'
 
  Capybara.app = Chitter
 
