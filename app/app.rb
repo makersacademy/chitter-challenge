@@ -1,8 +1,10 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
-require 'dm-sqlite-adapter'
+ENV['RACK_ENV'] ||= 'development'
 
-require './app/models/maker.rb'
+require './app/data_mapper_setup.rb'
+
+
+require 'sinatra/base'
+require 'database_cleaner'
 
 class Chitter < Sinatra::Base
 
