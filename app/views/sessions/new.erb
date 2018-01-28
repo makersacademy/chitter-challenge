@@ -2,37 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>sign-up</title>
+    <title>Sign in</title>
   </head>
   <body>
+    <h3>Please sign in</h3>
 
-
-    <br>
-    <form action="/register/signup" method="post">
-      <input type="text" name="username" placeholder="username" value='<%= @user.username %>' required>
-
-      <input type="email" name="email" placeholder="email" value='<%= @user.email %>' required>
-
+    <form action="/sessions" method="post">
+      <input type="email" name="email" placeholder="email">
       <input type="password" name="password" placeholder="password" id ="password" required>
-
       <button type="button" id="eye" onclick="password_hide()">
         <img src="https://cdn0.iconfinder.com/data/icons/feather/96/eye-16.png" alt="eye" />
       </button>
 
-      <button type="submit" name="button">Sign up</button>
+      <button type="submit" name="button">Sign in</button>
     </form>
-
-  <br >
-
-      <p>
-      <%if @peeps%>
-        <%@peeps.each do |peep|%>
-         @<%=peep.user.username%><br>
-          <%=peep.peep%><br>
-         <%=peep.created_at%><br>
-        <%end%>
-      <%end%>
-    </p>
 
     <script type="text/javascript">
       function password_hide() {
