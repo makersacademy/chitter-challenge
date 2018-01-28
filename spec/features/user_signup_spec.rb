@@ -24,11 +24,22 @@ feature 'User signup' do
       expect(page).to have_content('Email has an invalid format')
     end
 
-    scenario 'Requires a unique email address' do
-      sign_up
-      expect { sign_up(username: 'different') }.to_not change(User, :count)
-      expect(current_path).to eq '/users'
-      expect(page).to have_content('Email is already taken')
+    context 'Email and username must be unique' do
+      before do
+        sign_up
+      end
+
+      scenario 'Requires a unique email address' do
+        expect { sign_up(username: 'different') }.to_not change(User, :count)
+        expect(current_path).to eq '/users'
+        expect(page).to have_content('Email is already taken')
+      end
+
+      scenario 'Requires a unique username' do
+        expect { sign_up(email: 'different@123.com') }.to_not change(User, :count)
+        expect(current_path).to eq '/users'
+        expect(page).to have_content('Username is already taken')
+      end
     end
   end
 end

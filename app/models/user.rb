@@ -5,7 +5,7 @@ class User
   property :email,              String, format: :email_address, required: true, unique: true
   property :encrypted_password, String, length: 60
   property :name,               String
-  property :username,           String
+  property :username,           String, unique: true
 
   attr_reader :password
   attr_accessor :password_confirmation
