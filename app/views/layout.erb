@@ -1,0 +1,10 @@
+<h1>
+<% if current_user %>
+  Welcome to Chitter, <%= current_user.username %>!
+<% else %>
+  Welcome to Chitter!
+<% end %>
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+<%= yield %>

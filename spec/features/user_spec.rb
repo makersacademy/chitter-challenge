@@ -1,4 +1,4 @@
-feature 'sign up' do
+feature 'Makers sign up' do
   context 'successfully' do
     scenario 'makers can sign up' do
       sign_up('test@testing.com', 'secret', 'secret', 'Test Bloggs', 'testy')
@@ -8,13 +8,21 @@ feature 'sign up' do
   end
 
   context 'unsuccessfully' do
-    scenario 'makers can\'t sign up with inconsistent passwords' do
+    scenario 'without e-mail, password, name or username' do
+      sign_up('', '', '', '', '')
+      # expect(page).to have_content 'Fill in all fields.'
+      expect(User.all.count).to eq 0
+      expect(current_path).to eq '/submit_registration'
+    end
+
+    scenario 'with inconsistent passwords' do
       sign_up('test@testing.com', 'secret', 'different_secret', 'Test Bloggs', 'testy')
       # expect(page).to have_content 'Password does not match.'
       expect(User.all.count).to eq 0
+      expect(current_path).to eq '/submit_registration'
     end
 
-    scenario 'makers can\'t sign up with non-unique e-mail or username' do
+    scenario 'with duplicate e-mail or username' do
       sign_up('test@testing.com', 'secret', 'secret', 'Test Bloggs', 'testy')
       sign_up('test@testing.com', 'secret', 'secret', 'Test Bloggs', 'different_testy')
       # expect(page).to have_content 'Username already taken.'

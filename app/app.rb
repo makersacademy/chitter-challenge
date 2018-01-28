@@ -4,14 +4,16 @@ require_relative 'data_mapper_setup'
 require './app/model/peep'
 require './app/model/user'
 require 'sinatra/base'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'really really secret'
+  register Sinatra::Flash
 
   get '/' do
-    @recipient = "stranger"
-    @recipient = current_user.username if current_user
+    # @recipient = "stranger"
+    # @recipient = current_user.username if current_user
     erb :index
   end
 
@@ -20,15 +22,20 @@ class Chitter < Sinatra::Base
   end
 
   post '/submit_registration' do
-    user = User.create(
+    user = User.new(
       email: params[:email],
       password: params[:password],
       password_confirmation: params[:confirm_password],
       name: params[:name],
       username: params[:username]
     )
-    session[:user_id] = user.id
-    redirect '/'
+    if user.save
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:notice]
+      erb :new_user
+    end
   end
 
   get '/peeps' do

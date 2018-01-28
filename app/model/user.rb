@@ -15,10 +15,10 @@ class User
   end
 
   property :id,              Serial
-  property :email,           String, unique: true
-  property :password_hash,   Text
-  property :name,            String
-  property :username,        String, unique: true
+  property :email,           String,  required: true, unique: true
+  property :password_hash,   Text,    required: true
+  property :name,            String,  required: true
+  property :username,        String,  required: true, unique: true
 
   validates_confirmation_of :password
 end
