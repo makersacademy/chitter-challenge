@@ -1,4 +1,5 @@
 require 'mailgun-ruby'
+require 'dotenv/load'
 
 class ChitterMailer
   attr_reader :mailer
@@ -7,12 +8,12 @@ class ChitterMailer
     @mailer = mailer || Mailgun::Client.new(ENV['MY_API_KEY'])
   end
 
-  def self.call(user, mailer = nil)
-    new(mailer: mailer).call(user)
+  def self.call(user, mailer = nil, mailgun_domain_name =ENV['mailgun_domain_name'])
+    new(mailer: mailer).call(user, mailgun_domain_name)
   end
 
-  def call(user)
-    mailer.send_message(ENV['MAILGUN_DOMAIN_NAME'], {from: "chittermailer@mail.com",
+  def call(user, mailgun_domain_name)
+    mailer.send_message(mailgun_domain_name, {from: "chittermailer@mail.com",
       to: user.email_address,
       subject: "You have successfully registered",
       text: "Thank you for registering with Chitter, your username is #{user.username}"})
