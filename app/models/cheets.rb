@@ -1,4 +1,4 @@
-class Cheet
+class Cheets
 
   include DataMapper::Resource
 
