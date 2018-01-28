@@ -1,7 +1,7 @@
 <h3>Welcome to <del>Tw</del>Chitter!</h3>
 
 <% if flash[:notice] %>
-  <div id='notice' style='color: red'><%= flash[:notice] %></div>
+  <div id='notice'><%= flash[:notice] %></div>
 <% end %>
 
 <% if current_user %>
@@ -30,7 +30,7 @@
   <% @peeps.reverse_each do |peep| %>
     <li>
       <p><%= peep.body %></p>
-      <p>Posted at <%= peep.created_at.strftime("%H:%M on %d %b %Y") %></p>
+      <p>Posted by <%= User.get(peep.user_id).name %> at <%= peep.created_at.strftime("%H:%M on %d %b %Y") %></p>
     </li>
   <% end %>
 </ul>
