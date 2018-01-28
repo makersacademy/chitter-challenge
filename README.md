@@ -1,21 +1,23 @@
-Chitter Challenge
+Chitter-Twitter
 =================
+This was the mock of the Twitter website. The aim of this project was to bring together my knowledge of Ruby, RSpec, Capybara, Sinatra, HTML, SQL, Postgres, DataMapper(ORM) and finally Heroku.
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+You can visit the app here [Link](https://chitter--twitter.herokuapp.com)
 
-Challenge:
+I also learnt about a number of new Ruby gems such as 'orderly' and 'timecop' which helped me with my RSpec testing. Gem 'timecop' was particularly helpful as it allowed me to freeze testing for a set amount of time. This helped when I was testing the reverse chronological order of each peep/tweet.
+
 -------
+### Using the app
 
-As usual please start by forking this repo.
+```
+$ git clone https://github.com/bpourian/chitter-challenge.git
+```
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+
+
 -------
+##User story I followed
 
 ```
 STRAIGHT UP
