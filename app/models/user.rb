@@ -1,19 +1,13 @@
 class User
   include DataMapper::Resource
 
-  property :id,                 Serial
-  property :email,              String, format: :email_address, required: true, unique: true
-  property :encrypted_password, String, length: 60
-  property :name,               String
-  property :username,           String, unique: true
-
-  attr_reader :password
   attr_accessor :password_confirmation
 
-  validates_confirmation_of :password
+  property :id,       Serial
+  property :email,    String, format: :email_address, required: true, unique: true
+  property :password, BCryptHash
+  property :name,     String
+  property :username, String, unique: true
 
-  def password=(password)
-    @password = password
-    self.encrypted_password = BCrypt::Password.create(password)
-  end
+  validates_confirmation_of :password
 end
