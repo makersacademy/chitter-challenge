@@ -4,11 +4,8 @@ require 'timecop'
 feature 'Viewing peeps' do
 
   scenario 'I can see existing peeps on the main page' do
-    # We can use `.create`, which we used in irb to make a Student, within our test!
     Peep.create(message: 'Here is my opinion on something')
-
     visit '/peeps'
-
     expect(page.status_code).to eq 200
 
     within 'ul#peeps' do
@@ -25,9 +22,9 @@ feature 'Viewing peeps' do
 
   scenario "I can see the time a peep was posted" do
     Timecop.freeze do
-    Peep.create(message: 'Here is yet another opinion on something')
-    visit '/peeps'
-    expect(page).to have_content(DateTime.now.strftime("%H:%M on %d %b %Y"))
+      Peep.create(message: 'Here is yet another opinion on something')
+      visit '/peeps'
+      expect(page).to have_content(DateTime.now.strftime("%H:%M on %d %b %Y"))
+    end
   end
-end
 end

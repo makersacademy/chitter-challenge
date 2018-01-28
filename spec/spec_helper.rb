@@ -23,7 +23,6 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 
-  RSpec.configure do |config|
   # Everything in this block runs once before all the tests run
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -40,5 +39,4 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-end
 end

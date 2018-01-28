@@ -9,15 +9,13 @@ gem 'rake'
 gem 'rubocop'
 gem 'sinatra'
 
-
 group :test do
-  gem 'database_cleaner'
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'orderly'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'timecop'
-
 
 end
