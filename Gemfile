@@ -2,18 +2,20 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'rubocop'
+gem 'data_mapper', '1.2.0'
+gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
-gem 'database_cleaner'
-gem 'rspec-sinatra'
-gem 'bcrypt'
-gem 'sinatra-partial'
+
 
 group :test do
-  gem 'capybara'
+  gem 'database_cleaner'
   gem 'rspec'
+  gem 'capybara'
+  gem 'dm-rspec'
+  gem 'pry'
+  gem 'timecop'
+  gem 'orderly'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
