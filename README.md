@@ -44,6 +44,13 @@ I had also used the 'Bcrypt' gem to encrypt passwords.
 Some screenshots from the web app:
 * Homepage
 ![alt tag](https://github.com/AlexandraGF/chitter-challenge/blob/master/public/screenshots/homepage.png)
+
+* Create a new peep
+![alt tag](https://github.com/AlexandraGF/chitter-challenge/blob/master/public/screenshots/peep.png)
+
+* Show peeps
+![alt tag](https://github.com/AlexandraGF/chitter-challenge/blob/master/public/screenshots/peeps.png)
+
 Features:
 -------
 
