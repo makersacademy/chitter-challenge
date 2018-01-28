@@ -22,4 +22,14 @@ feature 'the Chitter feed' do
     expect("Magnificient!!!").to appear_before("Tremendous!!!")
     expect("Tremendous!!!").to appear_before("Huzzah!!!")
   end
+
+  scenario 'all posts should show their timestamp' do
+    Timecop.freeze(Time.local(1800)) do
+      visit '/'
+      fill_in 'message', with: "Huzzah!!!"
+      click_button 'Submit'
+    end
+
+    expect(page).to have_content("1800")
+  end
 end
