@@ -21,8 +21,7 @@ class User
   end
 
   def password=(new_password)
-    @password = Password.create(new_password)
-    self.encrypted_password = @password
+    self.encrypted_password = Password.create(new_password)
   end
 
 end
