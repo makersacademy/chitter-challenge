@@ -1,3 +1,10 @@
+
+<% if current_user.nil? %>
 <form action="/users/new" method="get">
   <input type="submit" value="Click to sign up">
-</form>
+</form><br>
+<br>
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Click to sign in">
+  </form>
+<% end %>

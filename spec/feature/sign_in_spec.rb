@@ -1,7 +1,7 @@
 feature 'User sign in' do
   let!(:user) do
-    User.create(email: 'user@example.com', password: 'password',
-    password_confirmation: 'password')
+    User.create(email: 'test@example.com', password: 'pass',
+    password_confirmation: 'pass', user_id: 'reena', user_name: 'Reena Sharma')
   end
 
   scenario 'with correct credentials' do

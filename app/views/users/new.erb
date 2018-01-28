@@ -1,6 +1,12 @@
-<h2>Please sign up<h2>
+<h2>Please sign up</h2>
 
   <form action='/users' method='post'>
+    <label for='user_id'>
+      User_id: <input name='user_id' type='text' required>
+    </label><br>
+    <label for='user_name'>
+      User_name: <input name='user_name' type='text' required>
+    </label><br>
     <label for='email'>
       Email: <input name='email' type='email' value='<%=@user.email%>' required>
     </label><br>

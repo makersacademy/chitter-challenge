@@ -2,12 +2,16 @@ require 'bcrypt'
 
 class User
 
-  include DataMapper::Resource
-
   attr_reader :password
   attr_accessor :password_confirmation
 
+  include DataMapper::Resource
+
+  has n, :peeps
+
   property :id, Serial
+  property :user_id, String, required: true, unique: true
+  property :user_name, String, required: true, unique: true
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text, required: true
 

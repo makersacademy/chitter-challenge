@@ -10,7 +10,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(email: params[:email], password: params[:password],
+    @user = User.new(user_id: params[:user_id],
+      user_name: params[:user_name],
+      email: params[:email],
+       password: params[:password],
     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id

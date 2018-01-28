@@ -1,7 +1,11 @@
 class Chitter < Sinatra::Base
 
   get '/sessions/new' do
-    erb :'sessions/new'
+    if current_user.nil?
+      erb :'sessions/new'
+    else
+      redirect '/peeps'
+    end
   end
 
   post '/sessions' do
@@ -20,4 +24,5 @@ class Chitter < Sinatra::Base
     flash.keep[:notice] = 'Goodbye!'
     redirect '/'
   end
+
 end
