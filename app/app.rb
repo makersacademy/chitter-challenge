@@ -6,6 +6,7 @@ require './app/models/database_setup'
 
 class  Chitter < Sinatra::Base
   enable :sessions
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
@@ -57,6 +58,12 @@ class  Chitter < Sinatra::Base
       @logemail = params[:email]
       erb :'/sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] ='goodbye!'
+    redirect to '/register/signup'
   end
 
   post '/peep_new' do

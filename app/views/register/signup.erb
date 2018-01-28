@@ -9,6 +9,7 @@
 
     <br>
     <form action="/register/signup" method="post">
+      <span style="float:left;">
       <input type="text" name="username" placeholder="username" value='<%= @user.username %>' required>
 
       <input type="email" name="email" placeholder="email" value='<%= @user.email %>' required>
@@ -20,9 +21,15 @@
       </button>
 
       <button type="submit" name="button">Sign up</button>
+      </span>
     </form>
 
-    
+    <form >
+      <span style="float:left;">
+      <button type="submit" formaction="/sessions/new">Existing Users</button>
+      </span>
+    </form>
+
 
   <br >
 
