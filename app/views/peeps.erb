@@ -1,7 +1,8 @@
-<h1> Peeps </h1>
+<body style="background: url(https://www.nighthelper.com/wp-content/uploads/2016/03/nature_waterfall_summer_lake_trees_90400_3840x2160.jpg); background-size: 100%;">
+<h1><font color="lightblue"> Peeps </h1>
 
 <h2>
-  Welcome, <%= @maker_name %> as user_name: <%= @maker_user_name %>
+  Welcome, </font><font color="#091634"><%= @maker_name.capitalize! %> with user_name: <%= @maker_user_name %></font>
 </h2>
 
 <ul id='peeps'>
@@ -13,3 +14,4 @@
     </li>
   <% end %>
 </ul>
+</body>
