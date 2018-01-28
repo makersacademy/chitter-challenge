@@ -14,5 +14,17 @@ feature 'Creating peeps' do
     expect(page).to have_content('My first peep')
   end
 
-
+  scenario 'Add a 2 new peeps, ensure they\'re in the correct order' do
+    expect { sign_up }.to change(User, :count)
+    [1,2,3,4,5].each do |n|
+      visit '/peeps/new'
+      Timecop.freeze(Time.local(2008, 9, 1, 12, 0, n))
+      fill_in 'message', with: "Peep #{n}"
+      click_button 'Add'
+    end
+    expect('Peep 5').to appear_before('Peep 4')
+    expect('Peep 4').to appear_before('Peep 3')
+    expect('Peep 3').to appear_before('Peep 2')
+    expect('Peep 2').to appear_before('Peep 1')
+  end
 end
