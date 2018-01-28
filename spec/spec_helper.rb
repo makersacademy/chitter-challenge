@@ -31,9 +31,18 @@ end
 
 def sign_in(email: 'email123@example.com', 
             password: 'password123')
-  visit '/users/login'
+  visit '/sessions/new'
   fill_in 'email', with: email
   fill_in 'password', with: password
+  click_button 'Sign in'
+end
+
+def create_test_user
+  User.create(name: 'Ed', 
+  username: 'mr_ed',
+  email: 'email123@example.com', 
+  password: 'password123', 
+  password_confirmation: 'password123')
 end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

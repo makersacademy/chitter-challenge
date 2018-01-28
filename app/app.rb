@@ -16,6 +16,12 @@ class Chitter < Sinatra::Base
   # start the server if ruby file executed directly
   run! if app_file == $0
 
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+   end
+
   get '/' do
     redirect '/peeps'
   end
@@ -54,11 +60,19 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/sessions/login' do
+  get '/sessions/new' do
     erb :'sessions/login'
   end
 
   post '/sessions' do
+    @user = User.first(params[:email])
+    if @user.password == params[:password]
+      session[:user_id] = @user.id
+      redirect '/peeps'
+    else 
+      flash.now[:notice] = "The email or password is incorrect"
+      erb :'sessions/login'
+    end
   end
 
 end
