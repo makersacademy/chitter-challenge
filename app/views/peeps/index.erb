@@ -1,0 +1,36 @@
+<h3>Welcome to <del>Tw</del>Chitter!</h3>
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+
+<% if current_user %>
+
+  <p>Logged in as <%= current_user.username %>!</p>
+
+  <form action ='/peeps/new' method='get'>
+    <input type='submit' value='Post a peep'>
+  </form>
+
+  <form action ='/sessions' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
+
+<% else %>
+
+  <form action ='/sessions/new' method='get'>
+    <input type='submit' value='Sign in'>
+  </form>
+
+<% end %>
+
+<p>Your peep feed:</p>
+<ul id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
+    <li>
+      <p><%= peep.body %></p>
+      <p>Posted by <%= User.get(peep.user_id).name %> (@<%= User.get(peep.user_id).username %>) at <%= peep.created_at.strftime("%H:%M on %d %b %Y") %></p>
+    </li>
+  <% end %>
+</ul>

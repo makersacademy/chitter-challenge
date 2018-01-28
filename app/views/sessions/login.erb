@@ -1,0 +1,26 @@
+<h1>Chitter</h1>
+<h3>Sign in</h3>
+
+<% if flash[:notice] %>
+  <div id='notice' style='color: red'><%= flash[:notice] %></div>
+<% end %>
+
+<form action ='/users/new' method='get'>
+  <input type='submit' value=' Not registered? Sign up'>
+</form>
+
+<form action='/sessions' method='post'>
+  <div>
+    <label for="username">Email: 
+      <input type="email" name="email" >
+    </label>
+  </div>
+  <div>
+    <label for="password">Password: 
+      <input type="password" name="password" required>
+    </label>
+  </div>
+  <div>
+     <input type="submit" value="Sign in">
+  </div>
+</form>

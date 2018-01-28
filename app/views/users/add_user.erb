@@ -1,0 +1,38 @@
+<h1>Chitter</h1>
+<h2>Add a new user</h2>
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+
+<p>Please enter your details</p>
+<form action="/users" method="post">
+ <div>
+    <label for="name">Name: 
+      <input type="text" name="name" value="<%= @user.name %>" required>
+    </label>
+  </div>
+   <div>
+    <label for="username">Username: 
+      <input type="text" name="username" value="<%= @user.username %>" required>
+    </label>
+  </div>
+  <div>
+    <label for="username">Email: 
+      <input type="email" name="email" value="<%= @user.email %>" required>
+    </label>
+  </div>
+  <div>
+    <label for="password">Password: 
+      <input type="password" name="password">
+    </label>
+  </div>
+  <div>
+    <label for="password_confirmation">Re-enter password: 
+      <input type="password" name="password_confirmation">
+    </label>
+  </div>
+  <div>
+     <input type="submit" value="Sign up!">
+  </div>
+</form>
