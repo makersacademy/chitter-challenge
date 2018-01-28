@@ -2,6 +2,7 @@
   <% @peeps.reverse.each do |peep| %>
     <li>
      <p><%= peep.message %></p>
+
     </li>
   <p style="margin-left: 40px">Posted at <%= peep.created_at.strftime("%H:%M on %d %b %Y") %></p>
   <% end %>
