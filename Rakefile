@@ -10,6 +10,13 @@ require 'data_mapper'
 require './app/app.rb'
 
 namespace :db do
+  # usage:
+  #   rake -T
+  #   rake db:auto_migrate
+  #   rake db:auto_upgrade
+  #   $ rake db:auto_upgrade RACK_ENV=test
+  #   $ rake db:auto_upgrade
+  #   $ heroku run rake db:auto_upgrade
   desc "Non destructive upgrade"
   task :auto_upgrade do
     DataMapper.auto_upgrade!
@@ -22,14 +29,3 @@ namespace :db do
     puts "Auto-migrate complete (data was lost)"
   end
 end
-
-# rake -T
-# rake db:auto_migrate    # Destructive upgrade
-# rake db:auto_upgrade    # Non destructive upgrade
-# You can use these like so:
-#
-# $ rake db:auto_upgrade RACK_ENV=test
-# $ rake db:auto_upgrade # Default RACK_ENV is development so we don't need to be explicit.
-# and on Heroku:
-#
-# $ heroku run rake db:auto_upgrade # Default RACK_ENV on heroku is 'production'
