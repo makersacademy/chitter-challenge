@@ -1,18 +1,32 @@
-Chitter Challenge
+Chitter
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+How to use Chitter and peep from your computer:
 
-Challenge:
--------
+1. Open command line on your Mac
+2. Go to a folder where you want to clone the Chitter
+3. Type ```git clone git@github.com:AlexandraGF/chitter-challenge.git```
+4. Run ```bundle install``` in order to install the gems
+4. Change directory to be in the root of Chitter ```cd chitter-challenge```
+5. From command line type ```ruby './app/app.rb' ``` or ```rackup```
+This will start the server, so you can run the app in your browser.
+6. On any browser type ``` localhost:4567/ if you've run with ruby``` or ```localhost:9292/ if run with rackup``` to run the app
+7. On the homepage, please fill in the fields and then click Submit button
+8. From your browser, type ``` localhost:4567/peeps/new_peep ``` or ```localhost:9292/peeps/new_peep ``` to write a new peep and click the button Send
+9. Every time you want to write a new peep, you can write under the same maker name and just type ``` localhost:4567/peeps/new_peep ``` or ```localhost:9292/peeps/new_peep ``` to write a new peep and click the button Send or you can change your name by typing ```localhost:4567/ ``` or ```localhost:9292/``` in your browser and then follow the same steps from 7 - 8 and the new peep will be under the new maker name.
 
-As usual please start by forking this repo.
+```
+Side note: Chitter is still in development and I would like to thank you for using it and also for your patience!
+```
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Technologies used:
+
+```
+I had created a single controller to manage all the logic in app.rb
+
+I had created the app in Ruby and also adopted the Sinatra framework. For testing, I've used Rspec and Capybara. As for storing the makers and peeps, this was achieved by using DataMapper and PostGresQL. I had also used the 'Bcrypt' gem to encrypt passwords.
+
+``` s
 
 Features:
 -------

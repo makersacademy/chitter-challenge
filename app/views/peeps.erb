@@ -1,10 +1,11 @@
-<body style="background: url(https://www.nighthelper.com/wp-content/uploads/2016/03/nature_waterfall_summer_lake_trees_90400_3840x2160.jpg); background-size: 100%;">
+<body style="background: url(https://static.pexels.com/photos/4827/nature-forest-trees-fog.jpeg); background-size: 100%;">
 <h1><font color="lightblue"> Peeps </h1>
 
 <h2>
-  Welcome, </font><font color="#091634"><%= @maker_name.capitalize! %> with user_name: <%= @maker_user_name %></font>
+  Welcome, </font><font color="#091634"><%= @maker_name.capitalize %> with user_name: <%= @maker_user_name %></font>
 </h2>
 
+</font><font color="darkblue">
 <ul id='peeps'>
     <% @peeps.sort_by {|peep| peep.time }.reverse.each do |peep| %>
     <li>
@@ -14,4 +15,5 @@
     </li>
   <% end %>
 </ul>
+</font>
 </body>
