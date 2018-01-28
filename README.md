@@ -39,6 +39,11 @@ $ git clone https://github.com/edpe/chitter_challenge
 $ bundle
 $ createdb chitter_test
 $ createdb chitter_development
-$ rake auto_migrate
 $ rspec
 $ rackup
+```
+
+If necessary, the database can be purged using the command:
+```
+rake db:auto_migrate
+```
