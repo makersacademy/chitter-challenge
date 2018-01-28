@@ -40,6 +40,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/new' do
+    if User.first(params[:email]) || User.first(params[:username])
+      flash.next[:taken] = 'This email or username is already in use'
+      redirect '/signup'
+    end
+    
     user = User.create(email: params[:email],
                        password: params[:password],
                        password_confirmation: params[:password_confirmation],

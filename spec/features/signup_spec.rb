@@ -11,4 +11,11 @@ feature 'signup' do
     bad_sign_up
     expect(page).to have_content('Password and confirmation password do not match')
   end
+
+  scenario 'page shows error when username or email is taken' do
+    sign_up
+    click_button 'Log out'
+    sign_up
+    expect(page).to have_content 'This email or username is already in use'
+  end
 end

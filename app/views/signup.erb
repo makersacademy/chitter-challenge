@@ -2,6 +2,10 @@
   <%= flash[:signup_error] %>
 <% end %>
 
+<% if flash[:taken] %>
+  <%= flash[:taken] %>
+<% end %>
+
 <form action="/user/new" method="post">
   <ul>
     <p>Email: <input type="text" name="email"></p>
