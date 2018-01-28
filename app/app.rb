@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'really really secret'
 
   get '/' do
-    "empty"
+
   end
 
   run! if app_file == $0
