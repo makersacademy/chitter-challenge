@@ -20,8 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
-    @peeps = Peep.all
-    # binding.pry
+    @peeps = Peep.all(:order => [ :created_at.desc ])
     erb :posts
   end
 

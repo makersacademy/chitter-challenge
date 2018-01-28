@@ -4,7 +4,6 @@ feature 'posting peeps' do
     expect(page.status_code).to eq 200
     fill_in 'message', with: "Huzzah!!!"
     click_button 'Submit'
-    # binding.pry
     expect(page).to have_content("Huzzah!!!")
   end
 end

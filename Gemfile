@@ -12,6 +12,7 @@ gem 'pry'
 gem 'database_cleaner'
 gem 'orderly'
 gem 'timecop'
+gem 'dm-timestamps'
 
 group :test do
   gem 'dm-transactions'
