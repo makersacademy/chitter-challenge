@@ -127,7 +127,6 @@ Layout/SpaceInsidePercentLiteralDelimiters:
   Enabled: true
 Layout/SpaceInsideRangeLiteral:
   Enabled: true
->>>>>>> master
 Layout/SpaceInsideStringInterpolation:
   Enabled: true
 Style/SymbolLiteral:
