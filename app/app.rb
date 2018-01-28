@@ -23,6 +23,10 @@ class Chitter < Sinatra::Base
     haml(:index)
   end
 
+  get '/about' do
+    haml(:about)
+  end
+
   get '/peep/all' do
     @peeps = Peep.all
     erb(:'peep/all')
@@ -38,7 +42,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/new' do
-    erb(:'user/new')
+    haml(:'user/new')
   end
 
   post '/user/new' do

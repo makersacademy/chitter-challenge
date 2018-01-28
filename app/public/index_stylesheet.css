@@ -22,6 +22,17 @@ body {
   border: 2px solid hsl(203, 35%, 75%);
 }
 
+.large_container {
+  width: 90%;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  margin: 6em 0;
+  border-radius: 10px;
+  border: 2px solid hsl(203, 35%, 75%);
+  flex-direction: column;
+}
+
 h1 {
   font-family: 'Abril Fatface', cursive;
   font-size: 4em;
@@ -78,4 +89,33 @@ button[type=submit]:focus {
 
 #lastbutton {
   border: 2px solid hsl(203, 35%, 75%);
+}
+
+.off_left {
+  padding-left: 1.5em;
+  margin-top: -1em;
+}
+
+.about_content {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.18em;
+  font-weight: 300;
+  color: hsl(0, 0%, 50%);
+  padding: 2em;
+  font-size: 0.85em;
+  line-height: 2em;
+}
+
+.about_button_container {
+  width: 90%;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.have_fun {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
