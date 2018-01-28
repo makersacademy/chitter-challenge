@@ -7,6 +7,7 @@ class Cheets
   property :id, Serial
   property :user, String
   property :message, String
+  property :message_created, String, :default => Time.now.to_s
 
 end
 #
