@@ -7,6 +7,7 @@ require './app/models/database_setup'
 class  Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -23,18 +24,20 @@ class  Chitter < Sinatra::Base
   end
 
   get '/register/signup' do
+
     erb :'register/signup'
   end
 
   post '/register/signup' do
-    user = User.create(username: params[:username],
+    @user = User.create(username: params[:username],
                           email: params[:email],
                           password: params[:password])
-    if user.save
-      session[:user_id] = user.id
+    if @user.save
+      session[:user_id] = @user.id
       # erb :'/home/homepage'
       redirect '/home/homepage'
     else
+      flash.now[:notice] = 'Invalid email address'
       erb :'register/signup'
     end
   end
