@@ -231,7 +231,7 @@ input[type=text]:focus {
 }
 
 #peeps {
-  margin-top: 10%;
+  margin-top: 130px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -256,6 +256,7 @@ input[type=text]:focus {
   letter-spacing: 0.1em;
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
+  width: 300px;
 }
 
 .time {
