@@ -1,8 +1,9 @@
+require './app/models/user'
+
 describe User do
   let(:user) do
     User.new(name: 'John Smith', username: 'JSmith', password: 'password123', email_address: 'test123@123email.com')
   end
-
     it 'authenticates when given a valid email address and password' do
       user.save!
       authenticated_user = User.authenticate(user.email_address,user.password)

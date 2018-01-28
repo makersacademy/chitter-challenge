@@ -6,6 +6,7 @@ end
 
 def sign_up
   visit 'users/new'
+  allow(ChitterMailer).to receive(:call).and_return(nil)
   fill_in 'email_address', with: '123@test.com'
   fill_in 'username', with: '123test'
   fill_in 'name', with: '123 Test'

@@ -10,6 +10,8 @@ gem 'sinatra-partial'
 gem 'rake'
 gem 'rubocop'
 gem 'timecop'
+gem 'mailgun-ruby'
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :test do
   gem 'capybara'

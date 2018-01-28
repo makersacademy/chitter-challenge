@@ -43,3 +43,9 @@ feature 'sign up verifcation process' do
     expect(current_path).to eq '/users/new'
   end
 end
+feature 'User receives a welcome email on sign up' do
+  scenario 'user successfully signs up to service' do
+    sign_up
+    expect(ChitterMailer).to have_received(:call).with(User.first)
+  end
+end

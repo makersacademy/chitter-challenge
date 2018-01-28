@@ -9,7 +9,7 @@ class User
   property :name, Text, required: true
   property :username, String, required: true, unique: true
   property :email_address, String, required: true, unique: true
-  property :password_hash, Text
+  property :password_hash, BCryptHash
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
