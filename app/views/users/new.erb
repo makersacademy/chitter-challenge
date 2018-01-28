@@ -1,16 +1,25 @@
+<h1> Enter your details: </h1>
 <form action='/users' method='post'>
-  <label for='name'>Enter your name:
+  <div>
+    <label for='name'>Name:
     <input type='text' name='name'>
   </label>
-  <label for='name'>Enter your email:
+  <label for='handle'>Username:
+    <input type='text' name='handle'>
+  </label>
+  <label for='name'>Email:
     <input type='email' name='email'>
   </label>
-  <label for='name'>Enter your password:
+</div>
+<div>
+
+  <label for='name'>Password:
     <input type='password' name='password'>
   </label>
   <label for='password_confirmation'>
-  Password: <input name='password_confirmation' type='password'>
+  Re-enter Password: <input name='password_confirmation' type='password'>
 </label>
+</div>
   <input type='submit' value='Register'>
 
 </form>

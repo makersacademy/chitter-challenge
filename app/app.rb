@@ -30,6 +30,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @user_name = session[:user_name]
+    @user_handle = session[:user_name]
     @peeps = Peep.all
     erb :peep
   end
@@ -40,7 +41,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(name: params[:name], email: params[:email], password: params[:password],password_confirmation: params[:password_confirmation])
+    @user = User.create(name: params[:name], handle: params[:handle], email: params[:email], password: params[:password],password_confirmation: params[:password_confirmation])
 
     if @user.save # #save returns true/false depending on whether the model is successfully saved to the database.
       session[:user_id] = @user.id

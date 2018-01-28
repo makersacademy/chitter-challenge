@@ -6,6 +6,7 @@ class User
 
   property :id, Serial
   property :name, Text
+  property :handle, Text
   property :email, Text
   property :password_digest, Text
 
