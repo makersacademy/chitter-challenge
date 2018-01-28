@@ -1,10 +1,20 @@
 <h1> Peeps </h1>
+<body>
+  <form method='get' action='/peeps/new'>
+    Post a peep:
+    <input type='submit' value='here'>
+  </form>
 
-<ul id='peeps'>
-  <% @peeps.reverse_each do |peep| %>
+  <ul id='peeps'>
+    <% @peeps.reverse_each do |peep| %>
     <li>
-      <%= peep.message %>
-      <%= peep.created_at.to_time %>
+      <p>
+        <%= peep.message %>
+      </p>
+      <p>
+        <%= peep.created_at.to_time %>      
+      </p>
     </li>
-  <% end %>
-</ul>
+    <% end %>
+  </ul>
+</body>

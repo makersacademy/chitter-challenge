@@ -1,11 +1,16 @@
 <title>Post a peep</title>
 
-<h1> New Peep </h1>
-
-<form action='/peeps' method='POST'>
-  <label for='peep'>
-    Peep:
-    <input type='text' name='peep' />
-  </label>
-  <input type='submit' value='Post'>
-</form>
+<body>
+  <h1> New Peep </h1>
+  <form method='get' action='/peeps'>
+    View peeps:
+    <input type='submit' value='here'>
+  </form>
+  <form action='/peeps' method='POST'>
+    <label for='peep'>
+      Peep:
+      <input type='text' name='peep' />
+    </label>
+    <input type='submit' value='Post'>
+  </form>
+</body>

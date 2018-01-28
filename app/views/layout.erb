@@ -5,11 +5,20 @@
 
   <body>
     <% if current_user %>
-      Welcome, <%= current_user.name %>
       <form method='post' action='/sessions'>
+        Welcome, <%= current_user.name %>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
       </form>
+    <% else %>
+    <form method='get' action='/sessions/new'>
+      Sign in:
+      <input type='submit' value='here'>
+    </form>
+    <form method='get' action='/users/new'>
+      Sign up:
+      <input type='submit' value='here'>
+    </form>
     <% end %>
 
     <% if flash[:notice] %>
@@ -26,7 +35,7 @@
         <% end %>
       </ul>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>
