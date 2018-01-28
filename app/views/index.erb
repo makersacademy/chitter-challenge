@@ -9,11 +9,16 @@
 
 </head>
 <body>
-  <p id="hello_user">Hello, <%= @user_name %></p>
+
+  <% if current_user %>
+    <p id="hello_user">Hello, <%= current_user.user_name %></p>
+  <% end %>
+
   <h1><i class="fa fa-hashtag" aria-hidden="true"></i>CHITTER</h1>
 
-  <a href="/new"><button class="peep_button" type="button"> Create a new peep </button></a>
-
+  <% if current_user %>
+    <a href="/new"><button class="peep_button" type="button"> Create a new peep </button></a>
+  <% end %>
 
   <h2><img class="bird_icon" src="https://visualpharm.com/assets/235/Bird-595b40b75ba036ed117d91a8.svg" alt="bird"> POSTS:</h2>
   <br>

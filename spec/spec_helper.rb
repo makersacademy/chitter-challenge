@@ -25,6 +25,7 @@ require 'capybara/rspec'
 require './app/app.rb'
 require 'database_cleaner'
 require 'orderly'
+require 'sinatra/flash'
 
 
 Capybara.app = Chitter

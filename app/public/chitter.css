@@ -71,8 +71,21 @@ ul li {
   color: gray;
 }
 
-.sign_up_form {
+.sign_up_input {
   background: #EAF2F8;
   margin: 3px;
   border-radius: 4px;
+  padding: 9px;
+}
+
+#sign_up_form {
+  margin-bottom: 15px;
+}
+
+#sign_up_button {
+  padding-top: : 15px;
+}
+
+#error {
+  color: red;
 }
