@@ -1,7 +1,8 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      Peep: <%= peep.message %>
+      <p>Peep: <%= peep.message %></p>
+      <p>Popped at: <%= peep.created_at.strftime("%H:%M %d-%m-%Y") %></p>
     </li>
   <% end %>
 </ul>
