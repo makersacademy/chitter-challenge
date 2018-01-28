@@ -7,6 +7,4 @@ class Peep
   property :message,    String
   property :created_at, DateTime
 
-  # attr_reader :message
-
 end

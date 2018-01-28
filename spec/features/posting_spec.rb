@@ -1,6 +1,6 @@
 feature 'posting peeps' do
   scenario 'user can post a peep to the main page' do
-    visit '/'
+    sign_up
     expect(page.status_code).to eq 200
     fill_in 'message', with: "Huzzah!!!"
     click_button 'Submit'

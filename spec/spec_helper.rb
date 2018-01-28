@@ -8,7 +8,7 @@ require 'simplecov-console'
 require 'database_cleaner'
 require 'orderly'
 require 'timecop'
-# require 'web_helpers'
+require 'web_helpers'
 
 Capybara.app = Chitter
 

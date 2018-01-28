@@ -1,5 +1,5 @@
 <form action="/peep" method="post">
-  <label for="message"> Please enter your peep</label>
- <input type="text" name="message">
- <input type="submit" value="Submit">
+  <label for="message"> Welcome <%= self.current_user.name %> Please enter your peep</label>
+  <input type="text" name="message">
+  <input type="submit" value="Submit">
 </form>

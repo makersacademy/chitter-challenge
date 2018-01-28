@@ -2,19 +2,19 @@ feature 'the Chitter feed' do
   scenario 'all posts should be shown in reverse chronological order' do
 
     Timecop.freeze(Date.today) do
-      visit '/'
+      sign_up
       fill_in 'message', with: "Huzzah!!!"
       click_button 'Submit'
     end
 
     Timecop.freeze(Date.today + 1) do
-      visit '/'
+      sign_up
       fill_in 'message', with: "Tremendous!!!"
       click_button 'Submit'
     end
 
     Timecop.freeze(Date.today + 2) do
-      visit '/'
+      sign_up
       fill_in 'message', with: "Magnificient!!!"
       click_button 'Submit'
     end
@@ -25,7 +25,7 @@ feature 'the Chitter feed' do
 
   scenario 'all posts should show their timestamp' do
     Timecop.freeze(Time.local(1800)) do
-      visit '/'
+      sign_up
       fill_in 'message', with: "Huzzah!!!"
       click_button 'Submit'
     end
