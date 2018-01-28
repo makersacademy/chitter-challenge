@@ -6,17 +6,20 @@ Week 4 weekend challenge to create a web app that allows a user to mindlessly bl
 Requirements 
 -------
 
-Running locally for development:
+#### Running locally for development:
 
 + PostgreSQL installed
 + A local postgres database named 'chitter_development'
-+ gem 'dm-postgres-adapter': 
-+ gem 'sinatra': DSL which sits on top of rack webserver
-+ gem 'sinatra-flash': Displays dynamic messages on pages 
++ Major gems:
+  + gem 'data_mapper': ORM to talk to database
+  + gem 'dm-postgres-adapter': Adapter for postgres database
+  + gem 'sinatra': DSL which sits on top of rack webserver
+  + gem 'sinatra-flash': Displays dynamic messages on pages 
 
 All gem requirements can be installed by installing the bundler gem (`gem install bundle`) and then running `bundle install` in the project directory.
 
-Using the deployed app on heroku: None
+#### Using the deployed app on heroku: 
++ None
 
 User Stories implemented
 -------
@@ -52,11 +55,19 @@ I want to log out of Chitter
 Instructions
 -------
 
+#### Running locally for development:
+
 - Launch the site: run `rackup` in the project root folder
-- Navigate to the site by navigating to http://localhost:9292 in your browser
-- Enter at least one player name. To play against the CPU, just press Submit. To play multiplayer, check 'Multiplayer?' and add a second player name.
-- Choose your move! (If multiplayer, player 2 should look away. Once player 1 has chosen, the players will swap so p2 can make a move)
-- The result will be displayed on the screen. Click 'New game' to start a new game of Rock, Paper, Scissors
+- Navigate to  http://localhost:9292 in your browser
 
-+ https://infinite-river-43450.herokuapp.com/
 
+#### Using the deployed app on heroku: 
+
++ Visit the webpage: https://infinite-river-43450.herokuapp.com
+
+#### Once the app is launched:
+
++ You'll see your homepage with a feed of existing peeps
++ Click 'Sign in' button to log into your account to begin posting peeps
++ If you don't have an account, you'll see a button ('Sign up') which will allow you to register. Ensure you pick a unique username and email address.
++ Once you're signed in, peep away!
