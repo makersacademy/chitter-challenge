@@ -1,15 +1,24 @@
-# <% if flash[:error] %>
-#   <div id='notice'><%= flash[:error] %></div>
-# <% end %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <form action="/user/new" method="post">
   <label for="username">Your Username:
-  <input type="text" name="username"></label>
+  <input type="text" name="username"value="<%= @user.username %>" required>
+  </label>
   <label for="email">Email:
-  <input type="text" name="email"></label>
+  <input type="text" name="email" value="<%= @user.email %>" required>
+  </label>
   <label for="password">Password:
-  <input type="text" name="password"></label>
+  <input type="text" name="password" required>
+  </label>
   <label for="password_confirmation">Confirm password:
-  <input type="text" name="password_confirmation"></label>
+  <input type="text" name="password_confirmation" required>
+  </label>
   <input type="submit" value="Sign up!">
 </form>
