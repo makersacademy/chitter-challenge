@@ -1,26 +1,78 @@
 body {
   align-content: center;
   background-color: #7FB3D5;
-  font-family: verdana;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   line-height: 200%;
   margin: 100px, auto;
   text-align: center;
 }
 
-#body_post {
-    width: 80%;
-    height: 30%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #2980B9;
+#hello_user {
+  text-align: right;
+  color: #154360;
+  margin-right: 10px;
+}
+
+h1, h2 {
+  color: #154360;
+  font-family: 'Rammetto One', cursive;
+}
+
+.peep_button {
+  color: #EAF2F8;
+  background: #154360;
+  font-family: 'Rammetto One', cursive;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.bird_icon {
+  width: 45px;
+  height: 45px;
+}
+
+.link_footer {
+  color: #154360;
+}
+
+ul {
+    list-style-type: none;
+    background: #7FB3D5;
+    padding: 20px;
+    width: 60%;
+    margin: 0.1% 20%;
     border-radius: 4px;
-    background-color: white;
+}
+
+ul li {
+    background: #EAF2F8;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 20px;
+}
+
+#post_text {
+  width: 60%;
+  height: 100px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #2980B9;
+  border-radius: 4px;
+  background-color: #EAF2F8;
 }
 
 #date {
   font-size: 10px;
   text-align: right;
   color: gray;
+}
+
+.sign_up_form {
+  background: #EAF2F8;
+  margin: 3px;
+  border-radius: 4px;
 }

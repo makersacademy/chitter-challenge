@@ -13,6 +13,7 @@ require 'dm-postgres-adapter'
 
 # require_relative './user'
 require_relative './peep'
+require_relative './user'
 
 
 

@@ -2,25 +2,32 @@
 <html>
 <head>
   <title>chitter</title>
-  <link rel="stylesheet" type="text/css" href="./app/public/chitter.css">
+  <link rel="stylesheet" type="text/css" href="/chitter.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
   <script src="https://use.fontawesome.com/5d80a0eb69.js"></script>
-  <!-- <script src="jquery-3.2.1.min.js"></script> -->
 
 </head>
 <body>
+  <p id="hello_user">Hello, <%= @user_name %></p>
   <h1><i class="fa fa-hashtag" aria-hidden="true"></i>CHITTER</h1>
-  <h2>POSTS</h2>
+
+  <a href="/new"><button class="peep_button" type="button"> Create a new peep </button></a>
+
+
+  <h2><img class="bird_icon" src="https://visualpharm.com/assets/235/Bird-595b40b75ba036ed117d91a8.svg" alt="bird"> POSTS:</h2>
   <br>
   <ul id="posts">
-  <% @peep.each do |post| %>
+  <% @peeps.each do |post| %>
     <li>
-      <i class="fa fa-quote-left" aria-hidden="true"></i> <%= post.body_post %> <i class="fa fa-quote-right" aria-hidden="true"></i>
+      <i class="fa fa-quote-left" aria-hidden="true"></i> <%= post.post_text %> <i class="fa fa-quote-right" aria-hidden="true"></i>
     <p id="date">
-        <em>created at: <%= post.created_at %></em></p>
+        <em>Posted <%= post.formatted_date %> </em></p>
     </li>
   <% end %>
 </ul>
-
+<br>
+<p class="link_footer">Sign up <a href="/sign_up">here </a><img class="bird_icon" src="https://d30y9cdsu7xlg0.cloudfront.net/png/80049-200.png" alt="bird"></p>
 
 </body>
 </html>
