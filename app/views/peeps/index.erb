@@ -3,8 +3,8 @@
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <li>
-     <%= peep.message %>
+     <p><%= peep.message %></p>
     </li>
-    <br>
+  <p style="margin-left: 40px">Posted at <%= peep.created_at.strftime("%H:%M on %d %b %Y") %></p>
   <% end %>
 </ul>

@@ -1,4 +1,5 @@
 require 'orderly'
+require 'timecop'
 
 feature 'Viewing peeps' do
 
@@ -21,4 +22,12 @@ feature 'Viewing peeps' do
     visit '/peeps'
     expect('newer').to appear_before('older')
   end
+
+  scenario "I can see the time a peep was posted" do
+    Timecop.freeze do
+    Peep.create(message: 'Here is yet another opinion on something')
+    visit '/peeps'
+    expect(page).to have_content(DateTime.now.strftime("%H:%M on %d %b %Y"))
+  end
+end
 end
