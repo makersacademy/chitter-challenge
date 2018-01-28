@@ -1,6 +1,6 @@
 feature 'signing up' do
   scenario 'user can sign up on the homepage' do
-    visit '/'
+    visit '/user/new'
     fill_in :name, with: 'catlover'
     fill_in :email, with: 'cat@cats.com'
     fill_in :password, with: 'ilovecats'
@@ -10,7 +10,7 @@ feature 'signing up' do
   end
 
   scenario 'user cannot sign up if passwords do not match' do
-    visit '/'
+    visit '/user/new'
     fill_in :name, with: 'catlover'
     fill_in :email, with: 'cat@cats.com'
     fill_in :password, with: 'ilovecats'

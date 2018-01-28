@@ -10,7 +10,7 @@ feature 'peeps' do
 #   end
 
   scenario 'user can post a peep on chitter' do
-    visit '/new/peep'
+    visit '/peeps/new'
     fill_in :new_peep, with: "My first peep"
     click_button 'peep!'
     expect(page).to have_content("My first peep")

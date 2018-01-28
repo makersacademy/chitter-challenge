@@ -53,7 +53,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/new/peep' do
+  get '/peeps/new' do
     erb(:add_peep)
   end
 
