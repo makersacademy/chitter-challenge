@@ -6,7 +6,7 @@ require './app/models/database_setup.rb'
 class Chitter < Sinatra::Base
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: :created_at.desc)
     erb :peeps
   end
 
