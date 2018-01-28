@@ -12,6 +12,7 @@ feature 'User sign in' do
     create_test_user
     sign_in(password: 'wrong')
     expect(page).not_to have_content "Logged in as mr_ed"
+    expect(page).to have_content "The email or password is incorrect"
   end
 end
 
