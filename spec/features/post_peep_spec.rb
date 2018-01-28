@@ -3,5 +3,6 @@ feature 'posting a peep' do
     sign_up
     add_peep('Is anybody out there?')
     expect(page).to have_content 'Is anybody out there?'
+    expect(page).to have_content 'by Alex'
   end
 end

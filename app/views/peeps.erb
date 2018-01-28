@@ -9,6 +9,9 @@
     <input type="submit" value="Sign up">
   </form>
 <% else %>
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="Pop a Peep">
+  </form>
   <form action="/logout" method="get">
     <input type="submit" value="Log out">
   </form>
@@ -18,7 +21,7 @@
   <% @peeps.each do |peep| %>
     <li>
       <p>Peep: <%= peep.message %></p>
-      <p>Popped at: <%= peep.created_at.strftime("%H:%M %d-%m-%Y") %></p>
+      <p>Popped at: <%= peep.created_at.strftime("%H:%M %d-%m-%Y") %> by <%= User.get(peep.user_id).name %></p>
     </li>
   <% end %>
 </ul>
