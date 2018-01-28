@@ -12,8 +12,6 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    # @recipient = "stranger"
-    # @recipient = current_user.username if current_user
     erb :index
   end
 
@@ -48,7 +46,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/submit_peep' do
-    peep = Peep.create(body: params[:content])
+    peep = Peep.new(body: params[:content])
+    peep.user = current_user
+    peep.save
     redirect '/peeps'
   end
 

@@ -4,7 +4,8 @@
   <% @peeps.each do |peep| %>
     <li>
       <%= peep.body %> <br>
-      <%= peep.created_at.strftime("peeped %d/%m/%Y %H:%M") %>
+      <%= peep.created_at.strftime("peeped %d/%m/%Y %H:%M.") %> <br>
+      peeped by user <%= peep.user.username %> (<%= peep.user.name %>).
     </li>
   <% end %>
 </ul>

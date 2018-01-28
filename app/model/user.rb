@@ -21,4 +21,6 @@ class User
   property :username,        String,  required: true, unique: true
 
   validates_confirmation_of :password
+
+  has n, :peeps
 end
