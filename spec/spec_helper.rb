@@ -7,6 +7,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner'
 require 'orderly'
+require './spec/features/helper'
 
 Capybara.app = Chitter
 
