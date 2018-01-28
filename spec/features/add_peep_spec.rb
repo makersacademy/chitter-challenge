@@ -4,6 +4,8 @@
 
 feature 'Adding peeps' do
   scenario 'User can post a peep on chitter' do
+    create_test_user
+    sign_in
     visit '/peeps/new'
     fill_in :body, with: "Testing testing peep peep"
     click_button 'Submit'
