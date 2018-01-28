@@ -1,4 +1,4 @@
-feature 'users can sign in' do
+feature 'users can sign up' do
   scenario 'user enters registration details and recieves confirmation' do
     expect { sign_up }.to change { User.count }.by 1
     expect(current_path).to eq '/peeps'

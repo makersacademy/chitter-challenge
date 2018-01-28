@@ -6,15 +6,23 @@ class User
   include BCrypt
 
   property :id, Serial
-  property :name, Text, required: true 
+  property :name, Text, required: true
   property :username, String, required: true, unique: true
   property :email_address, String, required: true, unique: true
   property :password_hash, Text
   attr_accessor :password_confirmation
-  attr_reader :password
 
   validates_confirmation_of :password
   validates_format_of :email_address, as: :email_address
+
+  def password
+    @password ||= Password.new(password_hash)
+  end
+
+  def self.authenticate(email,login_password)
+      user = first(email_address: email)
+      user if  user && user.password == login_password
+  end
 
   def password=(password)
     @password = password
