@@ -12,3 +12,10 @@ def sign_up(email: 'someone@emailaddress.com',
   fill_in :username,              with: username
   click_button 'Register'
 end
+
+def sign_in(email:, password:)
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Log in'
+end
