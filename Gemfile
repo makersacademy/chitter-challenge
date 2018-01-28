@@ -4,7 +4,6 @@ ruby '2.4.1'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'orderly'
 gem 'rack'
 gem 'rake'
 gem 'sinatra'
