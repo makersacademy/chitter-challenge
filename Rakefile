@@ -1,4 +1,4 @@
-require DataMapper
+require 'data_mapper'
 
 namespace :db do
   desc "Non destructive upgrade"
