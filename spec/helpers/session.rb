@@ -1,3 +1,5 @@
+module SessionHelpers
+
 def sign_up(email: 'user@gmail.com',
             password: '12345678',
             password_confirmation: '12345678')
@@ -14,3 +16,5 @@ def sign_in(email:, password:)
    fill_in :password, with: password
    click_button 'Sign in'
  end
+
+end

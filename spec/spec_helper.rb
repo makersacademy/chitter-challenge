@@ -7,7 +7,7 @@ require 'simplecov-console'
 require './app/models/peep'
 require './app/models/user'
 require './app/app'
-require 'web_helper'
+require_relative 'helpers/session'
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -18,6 +18,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   # Everything in this block runs once before all the tests run
   config.before(:suite) do
