@@ -1,8 +1,5 @@
-require 'helpers'
-
 feature 'Email to be validated --' do
-  include Helpers
-
+  
     scenario 'User not to sign-up with incorrect email' do
       expect { sign_up_wrong_email }.not_to change(User, :count)
     end

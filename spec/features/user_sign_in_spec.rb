@@ -1,7 +1,4 @@
-require 'helpers'
-
 feature 'Sign-in feature --' do
-  include Helpers
 
   let!(:user) do
     User.create(username:'Batman',

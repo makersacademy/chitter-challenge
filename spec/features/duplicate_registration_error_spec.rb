@@ -1,8 +1,5 @@
-require 'helpers'
-
 feature 'Duplicate registration error --' do
-  include Helpers
-
+  
   scenario 'User unabe to register with duplicate email' do
     sign_up
     expect { sign_up }.to_not change(User, :count)

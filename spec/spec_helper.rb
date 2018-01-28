@@ -7,6 +7,7 @@ require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
 require 'orderly'
+require 'helpers'
 
 
 Capybara.app = Chitter
@@ -18,6 +19,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 
 SimpleCov.start
+
+RSpec.configure do |c|
+  c.include Helpers
+end
 
 RSpec.configure do |config|
   config.after(:suite) do

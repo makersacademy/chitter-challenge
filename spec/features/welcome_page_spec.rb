@@ -1,7 +1,4 @@
-require 'helpers'
-
 feature "Homepage peep --" do
-  include Helpers
 
   scenario 'Homepage to display peep' do
 
