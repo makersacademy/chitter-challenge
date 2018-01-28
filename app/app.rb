@@ -6,17 +6,18 @@ require 'sinatra/flash'
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
+  use Rack::MethodOverride
   set :session_secret, '0ac8368e8d59a45c4d9f5d11f36dbfaa2108a8c0f7b1be98f39933356bcee17a'
 
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
- end
+  end
+
 
   get '/peeps' do
     @peeps = Peep.all(order:[:created_at.desc])
-    @current_user = current_user
     erb :'peeps/index'
   end
 
@@ -59,5 +60,12 @@ class Chitter < Sinatra::Base
       erb :'sessions/new'
     end
   end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'You are now signed out - GOODBYE'
+    redirect to '/peeps'
+  end
+
 
 end
