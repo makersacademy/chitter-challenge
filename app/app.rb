@@ -22,11 +22,11 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :peeps
+    erb :'peeps/index'
   end
 
   get '/peeps/new' do
-    erb :add_peep
+    erb :'peeps/add_peep'
   end
 
   post '/peeps' do
@@ -36,7 +36,7 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     @user = User.new
-    erb :add_user
+    erb :'users/add_user'
   end
 
   post '/users' do
@@ -50,8 +50,15 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash.now[:notice] = "Password and confirmation password do not match"
-      erb :add_user
+      erb :'users/add_user'
     end
+  end
+
+  get '/sessions/login' do
+    erb :'sessions/login'
+  end
+
+  post '/sessions' do
   end
 
 end
