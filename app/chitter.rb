@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] ||= "development"
 
+require 'sinatra/flash'
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
