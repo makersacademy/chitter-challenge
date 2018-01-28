@@ -1,0 +1,20 @@
+<h2> Chitter </h2>
+<h4> <% if current_user %>
+      Welcome, <%= current_user.username %>
+    <% end %> </h4>
+<form action="/new-peep" method="get">
+  <button type="submit" value="new_peep">Post a peep</button><br>
+</form>
+<form action="/sign-up" method="get">
+  <button type="submit">Sign up</button><br>
+</form>
+
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.body %> <br>
+      by: <%= peep.author %> <br>
+      at: <%= peep.created_at %> <br>
+    </li>
+  <% end %>
+</ul>
