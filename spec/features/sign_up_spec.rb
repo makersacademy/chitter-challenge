@@ -3,8 +3,9 @@ feature 'Display homepage' do
     visit('/')
     fill_in 'email', with: 'rana@yahoo.com'
     fill_in 'password', with: 'ranalearn'
-    fill_in 'name', with: 'Rana Doth'
+    fill_in 'name', with: 'rana'
+    fill_in 'user_name', with: 'doth'
     click_button 'Submit'
-    expect(page).to have_content('Rana Doth')
+    expect(page).to have_content('Rana', 'Doth')
   end
 end
