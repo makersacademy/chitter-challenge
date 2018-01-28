@@ -26,8 +26,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(post:params[:post])
-    redirect '/peeps'
+    peep = Peep.new(post:params[:post],user_id:session[:user_id])
+    if peep.save
+      redirect '/peeps'
+    else
+      flash.keep[:notice] = 'Please sign in to peep'
+      redirect '/peeps'
+    end
   end
 
   post '/users/new' do

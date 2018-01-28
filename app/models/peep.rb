@@ -3,4 +3,6 @@ class Peep
   property :id, Serial
   property :post, Text
   property :created_at, DateTime
+
+  belongs_to :user
 end

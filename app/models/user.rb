@@ -15,6 +15,8 @@ class User
   validates_confirmation_of :password
   validates_format_of :email_address, as: :email_address
 
+  has n, :peeps
+
   def password
     @password ||= Password.new(password_hash)
   end
