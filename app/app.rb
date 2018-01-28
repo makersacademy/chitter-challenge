@@ -19,6 +19,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/' do
+    haml(:index)
+  end
+
   get '/peep/all' do
     @peeps = Peep.all
     erb(:'peep/all')

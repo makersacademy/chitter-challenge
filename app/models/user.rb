@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-validations'
 require 'bcrypt'
+require_relative 'peep.rb'
 
 class User
 
@@ -33,4 +34,5 @@ class User
       nil
     end
   end
+
 end

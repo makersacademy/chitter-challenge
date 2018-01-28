@@ -1,0 +1,81 @@
+body {
+  background-image: url("./resources/backgroundimg.png");
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 80%;
+  height: 80%;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 6em 0;
+  padding-bottom: 7em;
+  border-radius: 10px;
+  border: 2px solid hsl(203, 35%, 75%);
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 4em;
+  padding-top: 2em;
+}
+
+.tagline {
+  font-family: 'Poiret One', cursive;
+  margin-right: -9rem;
+  color: hsl(0, 0%, 40%);
+  letter-spacing: 0.2rem;
+}
+
+.button_container {
+  width: 280px;
+  margin-top: 3em;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.18em;
+}
+
+button[type=submit] {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: hsl(0, 0%, 93%);
+  border: none;
+  text-align: center;
+  height: 29px;
+  width: 125px;
+  transition: background-color 1s ease;
+}
+
+button[type=submit]:hover {
+  background-color: hsl(203, 35%, 75%);
+}
+
+button[type=submit]:hover {
+  background-color: hsl(203, 35%, 75%);
+}
+
+button[type=submit]:active {
+  transform: translateY(1.5px);
+}
+
+button[type=submit]:focus {
+  outline:0;
+}
+
+#lastbutton {
+  border: 2px solid hsl(203, 35%, 75%);
+}
