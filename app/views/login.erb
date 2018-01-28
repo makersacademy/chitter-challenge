@@ -1,0 +1,9 @@
+<% if flash[:login_error] %>
+  <%= flash[:login_error] %>
+<% end %>
+
+<form action="/login" method="post">
+  <p>Email: <input type="text" name="email"></p>
+  <p>Password: <input type="text" name="password"></p>
+  <p><input type="submit" value="Submit"></p>
+</form>

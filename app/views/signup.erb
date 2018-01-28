@@ -1,10 +1,10 @@
-<% if flash[:login_error] %>
-  <%= flash[:login_error] %>
+<% if flash[:signup_error] %>
+  <%= flash[:signup_error] %>
 <% end %>
 
 <form action="/user/new" method="post">
   <ul>
-    <p>Email: <input type="text" name="email" value = <%= email %>></p>
+    <p>Email: <input type="text" name="email"></p>
     <p>Password: <input type="text" name="password"></p>
     <p>Confirm password: <input type="text" name="password_confirmation"></p>
     <p>Name: <input type="text" name="name"></p>

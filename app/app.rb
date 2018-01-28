@@ -10,13 +10,28 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   helpers do
-    def email
-      @email = session[:email]
+    def current_user
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
   get '/signup' do
     erb :signup
+  end
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.next[:login_error] = 'Email or password was incorrect'
+      redirect '/login'
+    end
   end
 
   post '/user/new' do
@@ -26,8 +41,7 @@ class Chitter < Sinatra::Base
                        name: params[:name],
                        username: params[:username])
     if user.id.nil?
-      flash.next[:login_error] = 'Password and confirmation password do not match'
-      session[:email] = params[:email]
+      flash.next[:signup_error] = 'Password and confirmation password do not match'
       redirect '/signup'
     else
       session[:user_id] = user.id

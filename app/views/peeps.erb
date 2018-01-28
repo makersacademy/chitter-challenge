@@ -1,3 +1,15 @@
+<h1> Welcome, <%= current_user.nil?  ? "New here? Why not sign up?" : current_user.name %>  </h1>
+
+<% if current_user.nil? %>
+  <form action="/login" method="get">
+    <input type="submit" value="Log in">
+  </form>
+
+  <form action="/signup" method="get">
+    <input type="submit" value="Sign up">
+  </form>
+<% end %>
+
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
