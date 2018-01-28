@@ -5,6 +5,10 @@
   <div id='notice' style='color: red'><%= flash[:notice] %></div>
 <% end %>
 
+<form action ='/users/new' method='get'>
+  <input type='submit' value=' Not registered? Sign up'>
+</form>
+
 <form action='/sessions' method='post'>
   <div>
     <label for="username">Email: 

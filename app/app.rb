@@ -4,24 +4,27 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'rake'
 require 'securerandom'
-
 require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
 
+  # server config
   enable :sessions
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   # start the server if ruby file executed directly
   run! if app_file == $0
 
+  # helper methods
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
    end
 
+  #  routes
   get '/' do
     redirect '/peeps'
   end
@@ -32,6 +35,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
+    redirect '/sessions/new' unless current_user
     erb :'peeps/add_peep'
   end
 
@@ -73,6 +77,12 @@ class Chitter < Sinatra::Base
       flash.now[:notice] = "The email or password is incorrect"
       erb :'sessions/login'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect '/peeps'
   end
 
 end
