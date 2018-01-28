@@ -8,12 +8,11 @@
     <% if current_user %>
       <p>Welcome to Chitter <%= current_user.email %>!</p>
       <form method='post' action='/sessions'>
-     <input type='hidden' name='_method' value='delete'>
-     <input type='submit' value='Sign out'>
-   </br/>
-   </form>
-         <a href="/peeps/new">Post a new peep</a>
- <% end %>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+      </form>
+      <p><a href="/peeps/new">Post a new peep</a></p>
+    <% end %>
     <% if flash[:notice] %>
       <div id='notice'><%= flash[:notice] %></div>
     <% end %>

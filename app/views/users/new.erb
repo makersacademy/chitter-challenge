@@ -11,17 +11,14 @@
 
 <form action='/users' method='post'>
   <label for='email'>
-    Email: <input name='email' type='email' value='<%= @user.email %>' required>
-    <br />
+    <p>Email: <input name='email' type='email' value='<%= @user.email %>' required></p>
   </label>
   <label for='password'>
-    Password: <input name='password' type='password'>
-    <br />
+    <p>Password: <input name='password' type='password'></p>
   </label>
   <label for='password_confirmation'>
-    Confirm password: <input name='password_confirmation' type='password'>
-    <br />
+    <p>Confirm password: <input name='password_confirmation' type='password'></p>
   </label>
-  <input type='submit' value='Sign up'>
+  <p><input type='submit' value='Sign up'></p>
   </form>
 </form>
