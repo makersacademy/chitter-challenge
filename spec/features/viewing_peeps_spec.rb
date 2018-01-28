@@ -27,7 +27,7 @@ feature 'Peeps include users name and username' do
   scenario 'user signs in and posts peep' do
     sign_up
     post_peep("Hello World")
-    expect(page).to have_content "posted by 123 Test, username: 123test"
+    expect(page).to have_content "123 Test, Username: 123test"
   end
 end
 
@@ -36,7 +36,7 @@ feature 'Peeps posts include the time posted' do
     sign_up
     Timecop.freeze(Time.local(2018))
     post_peep("Hello World")
-    expect(page).to have_content "Hello World, posted by 123 Test, username: 123test @Mon Jan 1 00:00:00 2018"
+    expect(page).to have_content "Hello World. 123 Test, Username: 123test posted 01/01/2018 @ 12:00AM"
     Timecop.return
   end
 end

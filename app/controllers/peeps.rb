@@ -1,5 +1,9 @@
 class Chitter < Sinatra::Base
 
+get '/' do
+  redirect '/peeps'
+end
+
 get '/peeps' do
   @peeps = Peep.all(order:[:created_at.desc])
   erb :'peeps/index'
@@ -19,4 +23,4 @@ post '/peeps' do
   end
 end
 
-end 
+end
