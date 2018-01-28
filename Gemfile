@@ -9,6 +9,7 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'dm-timestamps'
 gem 'capybara'
+gem 'orderly'
 
 
 group :test do
@@ -16,4 +17,5 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'capybara'
+  gem 'database_cleaner'
 end

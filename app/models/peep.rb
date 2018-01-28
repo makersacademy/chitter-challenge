@@ -13,7 +13,7 @@ class Peep
 end
 
 
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
+DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 
 DataMapper.finalize
 
