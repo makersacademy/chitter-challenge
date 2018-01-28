@@ -3,7 +3,7 @@ Peeps
 <ul>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.body %>
+      <%= peep.body %>, <%= peep.created_at.strftime("peeped %d/%m/%Y %H:%M") %>
     </li>
   <% end %>
 </ul>

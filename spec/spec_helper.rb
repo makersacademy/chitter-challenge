@@ -5,6 +5,7 @@ require_relative '../app/app'
 require_relative '../app/model/peep'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'timecop'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
