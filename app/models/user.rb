@@ -8,13 +8,18 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String, required: true
-  property :email, String, required: true
+  property :username, String, required: true, unique: true,
+    messages: { presence: "A username is required to sign up",
+                is_unique: "Someone has already taken that username" }
+  property :email, String, required: true, format: :email_address, unique: true,
+    messages: { presence: "An email address is required to sign up",
+                is_unique: "Someone has already taken that email address",
+                format: "Please ensure you enter a valid email address" }
   property :encrypted_password, Text
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
-  validates_format_of :email, :as => :email_address
+
 
   has n, :peeps
   
