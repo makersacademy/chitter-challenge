@@ -1,16 +1,20 @@
 Chitter Challenge
 =================
 
-Challenge:
--------
+J Sheps report: I completed all the basic implementation on Saturday including validity and uniqueness of email/username.
+On Sunday there was an issue with validation (for some reason, I still don't know what) and so I reverted to an old commit and slowly reintroduced the code.  I spent 4 hours on Sunday morning trying this and the only 45mins that was worthwhile was narrowing it down to validation.  The 2nd version passed all the tests and worked locally despite the code being identical and my databases having been wiped several times.  There were a lot of tears and frustration and I basically hated my life most of the day.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+I still plan to implement sign in/sign out but this will have to wait. I also want it to say who wrote the peeps.
+
+Instructions:
+-------
+Clone this repo.  Figure the rest out yourself.
+
 
 Features:
 -------
 
 ```
-STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
@@ -41,33 +45,24 @@ I want to log out of Chitter
 ADVANCED
 
 As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+So that I can remember my username on Chitter
+I want to receive an email when I sign up
 ```
 
 Notes on functionality:
 ------
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
 * You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
 
-Bonus:
+
+Technologies used:
 -----
 
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+* sinatra
+* capybara
+* heroku
+* rspec
+* DataMapper
+* postgres
+* SQL
