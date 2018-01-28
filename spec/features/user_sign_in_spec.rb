@@ -8,7 +8,7 @@ feature 'User sign in' do
   end
 
   scenario 'I want to log in to Chitter' do
-    sign_in(email: new_user.email,   password: 'password')
+    sign_in(email: new_user.email, password: 'password')
     expect(page).to have_content "Welcome, #{new_user.name}"
   end
 end

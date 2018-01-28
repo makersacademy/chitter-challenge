@@ -22,6 +22,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
+    unless current_user
+      flash.keep[:errors] = ['Must be logged in for that']
+      redirect '/peeps'
+    end
     erb :'/peeps/new'
   end
 
