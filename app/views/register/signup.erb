@@ -9,12 +9,16 @@
 
     <br>
     <form action="/register/signup" method="post">
-      <input type="text" name="username" placeholder="username" value='<%= @user.username %>'>
-      <input type="text" name="email" placeholder="email" value='<%= @user.email %>'>
-      <input type="password" name="password" placeholder="password" id ="password">
+      <input type="text" name="username" placeholder="username" value='<%= @user.username %>' required>
+
+      <input type="email" name="email" placeholder="email" value='<%= @user.email %>' required>
+
+      <input type="password" name="password" placeholder="password" id ="password" required>
+
       <button type="button" id="eye" onclick="password_hide()">
         <img src="https://cdn0.iconfinder.com/data/icons/feather/96/eye-16.png" alt="eye" />
       </button>
+
       <button type="submit" name="button">sign-up</button>
     </form>
 
