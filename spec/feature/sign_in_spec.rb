@@ -1,6 +1,6 @@
 feature 'User sign in' do
   let!(:user) do
-    User.create(email: 'user@example.com',password: 'password',
+    User.create(email: 'user@example.com', password: 'password',
     password_confirmation: 'password')
   end
 
