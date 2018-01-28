@@ -1,6 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require 'dm-sqlite-adapter'
+# require 'dm-sqlite-adapter'
 
 require './app/models/maker.rb'
 require './app/models/peep.rb'
