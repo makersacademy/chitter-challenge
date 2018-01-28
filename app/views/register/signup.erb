@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>sign-up</title>
-    <script src="./public/main.js"></script>
   </head>
   <body>
 
@@ -12,13 +11,14 @@
     <form action="/register/signup" method="post">
       <input type="text" name="username" placeholder="username">
       <input type="text" name="email" placeholder="email">
-      <input type="password" name="password" placeholder="password" id="myInput">
-      <input type="checkbox" onclick="myFunction()">Show Password
+      <input type="password" name="password" placeholder="password" id ="password">
+      <button type="button" id="eye" onclick="if(password.type=='text')password.type='password'; else password.type='text';">
+        <img src="https://cdn0.iconfinder.com/data/icons/feather/96/eye-16.png" alt="eye" />
+      </button>
       <button type="submit" name="button">sign-up</button>
     </form>
 
   <br >
-
 
       <p>
       <%if @peeps%>
