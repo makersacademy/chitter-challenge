@@ -6,3 +6,5 @@ function myFunction() {
         x.type = "password";
     }
 }
+
+myFunction();
