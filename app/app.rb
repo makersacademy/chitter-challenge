@@ -1,10 +1,11 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './data_mapper_setup'
 
 class Chitter < Sinatra::Base
-
+  register Sinatra::Flash
   enable :sessions
 
   set :session_secret, 'super secret'
@@ -34,13 +35,24 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    session[:user_name] = user.name
-    redirect to '/peeps'
+    @user = User.create(name: params[:name], email: params[:email], password: params[:password],password_confirmation: params[:password_confirmation])
+
+    if @user.save # #save returns true/false depending on whether the model is successfully saved to the database.
+      session[:user_id] = @user.id
+      session[:user_name] = @user.name
+      redirect to '/peeps'
+      # if it's not valid,
+      # we'll render the sign up form again
+    else
+      flash.now[:notice] = "Password and confirmation password do not match"
+      erb :'users/new'
+    end
+
+
   end
 end

@@ -5,6 +5,9 @@
     <link href="/css/styles.css" rel="stylesheet">
   </head>
   <body>
+    <% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
     <%= yield %>
   </body>
 </html>
