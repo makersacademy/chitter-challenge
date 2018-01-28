@@ -7,18 +7,6 @@ feature 'creating a user account' do
     expect(User.count).to eq 1
   end
 
-  scenario 'invalid email address entered' do
-    visit '/'
-    fill_in 'name', with: 'User'
-    fill_in 'username', with: 'username'
-    fill_in 'email', with: ' '
-    fill_in 'password', with: 'password'
-    fill_in 'password_confirmation', with: 'password'
-    click_button 'Submit'
-    expect(current_path).to eq '/'
-    expect(User.count).to eq 0
-  end
-
   scenario 'password confirmation' do
     visit '/'
     fill_in 'name', with: 'User'

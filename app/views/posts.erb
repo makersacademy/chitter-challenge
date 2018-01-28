@@ -3,7 +3,6 @@
  <p> The Peep-roll!!!</p>
 
  <ul id='peeps'>
-  <p> Da dum de da!  </p>
     <% @peeps.each do |peep| %>
       <p><%= "#{peep.message} - this peep was posted at
        #{peep.created_at.to_time.strftime("%H:%M:%S")}

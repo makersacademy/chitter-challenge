@@ -22,7 +22,11 @@ class Chitter < Sinatra::Base
       password: params[:password],
       password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
-    if user.id == nil
+    redirect '/validation'
+  end
+
+  get '/validation' do
+    if session[:user_id] == nil
       redirect '/'
     else
       redirect '/post_peep'
