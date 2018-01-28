@@ -7,14 +7,14 @@
 # I want to see the time at which it was made
 
 
-feature 'View peep' do
+feature 'Viewing peeps' do
     scenario 'User can view a peep on chitter' do
       Peep.create(body: 'My first peep')
       visit '/peeps'
       expect(page).to have_content("My first peep")
     end
 
-  scenario "I can see the time a peep was posted" do
+  scenario "User can see the time a peep was posted" do
     Timecop.freeze do
       Peep.create(body: 'Frozen in time!')
       visit '/peeps'
