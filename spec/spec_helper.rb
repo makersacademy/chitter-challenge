@@ -45,6 +45,12 @@ def create_test_user
   password_confirmation: 'password123')
 end
 
+def create_peep(text)
+  visit '/peeps/new'
+  fill_in :body, with: text
+  click_button 'Submit'
+end
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
