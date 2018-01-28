@@ -10,13 +10,14 @@
     %link{ href: "https://fonts.googleapis.com/css?family=Roboto:300,400", rel: "stylesheet"}
 
     %body
-      %div{ class: "container" }
-        %h1 Chitter.
-        %span{ class: "tagline" } a place for people
-        %div{ class: "button_container" }
-          %form{ action: '/user/new' }
-            %button{ type: 'submit', value: 'Sign up'}sign up
-          %form{ action: '/sessions/sign_in' }
-            %button{ type: 'submit', value: 'Sign in'}sign in
-        %form{ action: '/about' }
-          %button{ type: 'submit', value: 'More', id: 'lastbutton'}more
+      %div{ class: "main" }
+        %div{ class: "container" }
+          %h1 Chitter.
+          %span{ class: "tagline" } a place for people
+          %div{ class: "button_container" }
+            %form{ action: '/user/new' }
+              %button{ type: 'submit', value: 'Sign up'}sign up
+            %form{ action: '/sessions/sign_in' }
+              %button{ type: 'submit', value: 'Sign in'}sign in
+          %form{ action: '/about' }
+            %button{ type: 'submit', value: 'More', id: 'lastbutton'}more

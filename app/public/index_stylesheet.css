@@ -1,12 +1,29 @@
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0em;
+}
+
 body {
+  height: 100%;
+  width: 100%;
+  margin: 0em;
+}
+
+.main {
   background-image: url("./resources/backgroundimg.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center;
   display: flex;
   justify-content: center;
   flex: 1;
   height: 100%;
+  margin: 0em;
   width: 100%;
   font-family: 'Roboto', sans-serif;
 }
+
 
 .container {
   width: 80%;
@@ -16,8 +33,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 5em 0;
-  padding-bottom: 7em;
+  margin: 3em 0;
   border-radius: 10px;
   border: 2px solid hsl(203, 35%, 75%);
 }
@@ -27,7 +43,7 @@ body {
   z-index: 1;
   background-color: white;
   display: flex;
-  margin: 6em 0;
+  margin: 9em 0;
   border-radius: 10px;
   border: 2px solid hsl(203, 35%, 75%);
   flex-direction: column;
@@ -123,7 +139,7 @@ button[type=submit]:focus {
 h2 {
   font-family: 'Abril Fatface', cursive;
   font-size: 3em;
-  margin-top: 1em;
+  margin-top: 2em;
   margin-bottom: -0.1em;
 }
 

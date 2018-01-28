@@ -1,4 +1,42 @@
-<h1>Peeeeeeeeeeps</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <link href="./reset.css" rel="stylesheet" type="text/css">
+    <link href="../index_stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="welcome_user">
+        <% if current_user %>
+        Hey <%= current_user.username %>!
+        <% end %>
+      </div>
+      <div class="logo">
+        <h1>Peeeeeeeeeeps</h1>
+      </div>
+      <div class="login_or_logout">
+        <% if current_user %>
+          <form method='POST' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'>
+          </form>
+        <% else %>
+          <form action='/sessions/sign_in'>
+            <input type='submit' value='Sign in'>
+          </form>
+        <% end %>
+      <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
+    </div>
 
 <ul id="peeps">
   <% @peeps.reverse.each do |peep| %>
