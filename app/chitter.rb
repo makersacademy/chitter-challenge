@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    redirect '/user/new'
+    erb(:index)
   end
 
   get '/user/new' do
