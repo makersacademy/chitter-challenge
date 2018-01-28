@@ -7,9 +7,9 @@ require './app/models/peep'
 require './app/chitter.rb'
 require 'database_cleaner'
 require 'orderly'
+require_relative 'web_helper'
 
 Capybara.app = Chitter
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -21,17 +21,17 @@ SimpleCov.start
 RSpec.configure do |config|
 
   config.before(:suite) do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
-    end
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-    config.before(:each) do
-      DatabaseCleaner.start
-    end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
-    config.after(:each) do
-      DatabaseCleaner.clean
-    end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   config.after(:suite) do
     puts

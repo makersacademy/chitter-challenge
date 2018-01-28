@@ -2,20 +2,18 @@ source 'https://rubygems.org'
 
 ruby '2.4.1'
 
-gem 'rake'
-gem 'rubocop'
+gem 'capybara'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'sinatra'
 gem 'dm-timestamps'
-gem 'capybara'
 gem 'orderly'
-
+gem 'rake'
+gem 'rubocop'
+gem 'sinatra'
 
 group :test do
+  gem 'database_cleaner'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
-  gem 'capybara'
-  gem 'database_cleaner'
 end
