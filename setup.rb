@@ -1,6 +1,5 @@
 require 'pg'
 
-
 puts 'Setting up databases...'
 conn = PG.connect(dbname: 'postgres')
 
