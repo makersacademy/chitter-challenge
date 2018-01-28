@@ -15,6 +15,20 @@ require './app/app'
 
 Capybara.app = Chitter
 
+def sign_up(name: 'Ed', 
+            username: 'mr_ed', 
+            email: 'email123@example.com', 
+            password: 'password123', 
+            password_confirmation: 'password123')
+  visit '/users/new'
+  fill_in 'name', with: name
+  fill_in 'username', with: username
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  fill_in 'password_confirmation', with: password_confirmation
+  click_button 'Sign up!'
+end
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!

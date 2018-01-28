@@ -34,4 +34,24 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/users/new' do
+    @user = User.new
+    erb :add_user
+  end
+
+  post '/users' do
+    @user = User.new(name: params[:name],
+                    username: params[:username],
+                    email: params[:email],
+                    password: params[:password], 
+                    password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/peeps'
+    else
+      flash.now[:notice] = "Password and confirmation password do not match"
+      erb :add_user
+    end
+  end
+
 end
