@@ -11,6 +11,6 @@ feature 'Sign-in feature --' do
 
   scenario 'User be able to sign-in after registration' do
     sign_in
-    expect(page).to have_content "Welcome, #{user.email}"
+    expect(page).to have_content "Welcome, #{user.username}"
   end
 end
