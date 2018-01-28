@@ -1,5 +1,5 @@
 require 'mailgun-ruby'
-require 'dotenv/load'
+# require 'dotenv/load'
 
 class ChitterMailer
   attr_reader :mailer
