@@ -47,12 +47,15 @@ class  Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
-      session[:user_id] = user.id
+    @user = User.authenticate(params[:email], params[:password])
+
+    if @user
+      session[:user_id] = @user.id
       redirect to('/home/homepage')
     else
       flash.now[:errors] = ['The email or password is incorrect']
+      @logemail = params[:email]
+      erb :'/sessions/new'
     end
   end
 

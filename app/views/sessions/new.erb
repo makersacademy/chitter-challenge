@@ -8,7 +8,7 @@
     <h3>Please sign in</h3>
 
     <form action="/sessions" method="post">
-      <input type="email" name="email" placeholder="email">
+      <input type="email" name="email" placeholder="email" value='<%= @logemail %>' required>
       <input type="password" name="password" placeholder="password" id ="password" required>
       <button type="button" id="eye" onclick="password_hide()">
         <img src="https://cdn0.iconfinder.com/data/icons/feather/96/eye-16.png" alt="eye" />
