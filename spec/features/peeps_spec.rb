@@ -5,7 +5,4 @@ feature 'peeps' do
     expect(page).to have_content('Peeps')
   end
 
-  scenario 'adding peeps' do
-
-  end
 end
