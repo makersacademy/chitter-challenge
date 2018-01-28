@@ -1,6 +1,6 @@
 def sign_up
-  visit '/sign_up'
-  fill_in 'name', with: 'Gerald'
+  visit '/users/new'
+  fill_in 'name', with: 'Roxy'
   fill_in 'email', with: 'test@test.com'
   click_button 'Register'
 end
