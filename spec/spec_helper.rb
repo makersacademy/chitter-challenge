@@ -8,6 +8,7 @@ require 'simplecov-console'
 require 'timecop'
 
 require './app/app'
+require_relative 'helpers'
 
 Capybara.app = Chitter
 
