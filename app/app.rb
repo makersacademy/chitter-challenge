@@ -17,8 +17,8 @@ class Chitter < Sinatra::Base
 
   post '/sign_up' do
     maker = Maker.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
-    session[:name] = params[:name]
-    session[:user_name] = params[:user_name]
+    session[:name] = params[:name].capitalize
+    session[:user_name] = params[:user_name].capitalize
     session[:maker_id] = maker.id
     maker.save
     redirect '/peeps'
@@ -26,8 +26,8 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    @maker_name = session[:name].capitalize
-    @maker_user_name = session[:user_name].capitalize
+    @maker_name = session[:name]
+    @maker_user_name = session[:user_name]
     erb :peeps
   end
 
