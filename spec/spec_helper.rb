@@ -26,6 +26,7 @@ require './app/models/peep'
 require './app/models/user'
 require 'database_cleaner'
 require 'bcrypt'
+require './spec/features/helper'
 
 Capybara.app = Chitter
 
