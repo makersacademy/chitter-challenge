@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get "/cheeps" do
-    @cheeps = Cheep.all
+    @cheeps = Cheep.all(:order => [:created_at.desc])
     erb :cheeps
   end
 
