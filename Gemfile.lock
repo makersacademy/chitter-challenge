@@ -49,9 +49,6 @@ GEM
       json (~> 1.6)
       json_pure (~> 1.6)
       multi_json (~> 1.0)
-    dm-sqlite-adapter (1.2.0)
-      dm-do-adapter (~> 1.2.0)
-      do_sqlite3 (~> 0.10.6)
     dm-timestamps (1.2.0)
       dm-core (~> 1.2.0)
     dm-transactions (1.2.0)
@@ -67,8 +64,6 @@ GEM
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
     do_postgres (0.10.17)
-      data_objects (= 0.10.17)
-    do_sqlite3 (0.10.17)
       data_objects (= 0.10.17)
     docile (1.1.5)
     fastercsv (1.5.5)
@@ -145,7 +140,6 @@ DEPENDENCIES
   database_cleaner
   dm-constraints
   dm-postgres-adapter
-  dm-sqlite-adapter
   dm-transactions
   rake
   rspec
