@@ -115,18 +115,6 @@ Layout/SpaceInsideArrayPercentLiteral:
   Enabled: true
 Layout/SpaceInsideBlockBraces:
   Enabled: true
-<<<<<<< master
-Layout/SpaceInsideBrackets:
-  Enabled: true
-Layout/SpaceInsideHashLiteralBraces:
-  Enabled: true
-Layout/SpaceInsideParens:
-  Enabled: true
-Layout/SpaceInsidePercentLiteralDelimiters:
-  Enabled: true
-Layout/SpaceInsideRangeLiteral:
-  Enabled: true
-=======
 Layout/SpaceInsideReferenceBrackets:
   Enabled: true
 Layout/SpaceInsideArrayLiteralBrackets:
