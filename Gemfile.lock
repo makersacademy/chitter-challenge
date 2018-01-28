@@ -88,6 +88,7 @@ GEM
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
+    rake (12.3.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -143,6 +144,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   mailgun
+  rake
   rspec
   rubocop
   simplecov

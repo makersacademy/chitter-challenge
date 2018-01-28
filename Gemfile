@@ -11,12 +11,12 @@ gem 'bcrypt'
 gem 'mailgun'
 gem 'timecop'
 gem 'sinatra-flash'
+gem 'rubocop'
+gem 'rake'
 
 group :test do
   gem 'capybara'
   gem 'rspec'
-  gem 'rubocop'
-  gem 'simplecov'
-  gem 'simplecov-console'
-
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
 end
