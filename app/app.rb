@@ -26,8 +26,8 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    @maker_name = session[:name]
-    @maker_user_name = session[:user_name]
+    @maker_name = session[:name].capitalize
+    @maker_user_name = session[:user_name].capitalize
     erb :peeps
   end
 
