@@ -6,7 +6,7 @@ require 'rspec'
 require 'capybara/rspec'
 require './app/app.rb'
 require_relative 'helpers/session'
-require_relative 'helpers/cheet'
+require_relative 'helpers/peep'
 
 Capybara.app = Chitter
 
@@ -25,7 +25,7 @@ RSpec.configure do |config|
   end
 
   config.include SessionHelpers
-  config.include CheetHelpers
+  config.include PeepHelpers
   #
   # config.before(:suite) do
   #   DatabaseCleaner.strategy = :transaction
