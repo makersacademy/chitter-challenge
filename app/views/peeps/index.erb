@@ -1,0 +1,9 @@
+<h1> Welcome to Chitter </h1>
+<h2> Peeps Feed </h2>
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <div class='peeps'>
+      <li><p class ='post'><%= peep.post %>.</p> <p> <%= peep.user.name %>, Username:  <%= peep.user.username %> </p> <p><%= peep.created_at.strftime("posted %d/%m/%Y @ %l:%M%p") %></p></li>
+      </div>
+      <% end %>
+    </ul>

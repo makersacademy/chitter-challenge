@@ -1,0 +1,9 @@
+<body>
+  <% if current_user %>
+    <header> Hello <%= current_user.name %> </header>
+    <form action="/sessions" method='post' class='logout'>
+      <input type="hidden" name='_method' value='delete'>
+      <input type="submit" value="Sign out"></button>
+    </form>
+  <% end %>
+</body>

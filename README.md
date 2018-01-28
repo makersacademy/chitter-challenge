@@ -1,16 +1,50 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+I have written this code to complete the challenge below to meet the user stories provided.
+
+I have aimed to solve this challenge using the BDD cycle, with a test driven approach.
+
+Given more time I would have extended the code to include the advanced features. I did however implement a email feature which sends an email to the user
+following successful registration.
+
+As the mail client using personal API details to run the code you need will need to provide your own api key by environment variables called MY_API_KEY and mailgun_domain_name.
+
+The project uses the Sinatra framework, and the app is routed through a controller following the MVC framework. I have followed RESTful url naming conventions within the application. User details and peeps are stored in postgres database. I have used an ORM (DataMapper) to communicate with the database.
+
+## Getting started
+* git clone git@github.com:Leigan0/chitter-challenge.git
+* cd chitter-challenge
+* bundle
+* rackup
+* visit http://localhost:9292/
+* or use app on [Heroku](https://lei-chitter-chat.herokuapp.com/)
+
+## Usage
+
+* The website will open at the peeps feed page, before you are able to post a peep you must sign in
+* Sign in will validate that you provide a unique username and email address, and password confirmation
+* Once signed in, you are able to post a peep
+* To post a peep, click link post peep
+* To view peeps click link - peeps feed
+* To sign out click button sign out
+
+## Technologies used
+
+* Ruby
+* HTML
+* CSS
+* Sinatra
+* DataMapper
+* orderly
+* timecop
+* mailgun
+* dotenv
+* RSpec
+* Capybara
 
 Challenge:
 -------
-
-As usual please start by forking this repo.
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
@@ -79,34 +113,3 @@ And/Or:
 * Work on the css to make it look good (we all like beautiful things).
 
 Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!

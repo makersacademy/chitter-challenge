@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Chitter </title>
+    <link href='/css/app.css' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+    <p> <a href="/sessions/new"> Click to login </a> </p>
+    <p> <a href="/users/new"> Click to sign up </a> </p>
+    <p> <a href="/peeps"> Click for peeps feed </a> </p>
+    <p> <a href="/peeps/new"> Click to post peeps </a> </p>
+    <%= yield %>
+  </body>
+</html>
