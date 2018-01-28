@@ -1,5 +1,4 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
+require_relative 'user'
 # understands how to create a Peep table
 class Peep
   include DataMapper::Resource
