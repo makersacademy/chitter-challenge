@@ -3,3 +3,12 @@
 <h2>
   Welcome, <%= @maker_name %> as user_name: <%= @maker_user_name %>
 </h2>
+
+<ul id='peeps'>
+    <% @peeps.sort_by {|peep| peep.time }.reverse.each do |peep| %>
+    <li>
+      Peep:   <%= peep.peep_name  %>
+      Time:   <%= peep.time  %>
+    </li>
+  <% end %>
+</ul>
