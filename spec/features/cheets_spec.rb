@@ -1,6 +1,6 @@
 feature 'Creating links' do
   scenario 'Hello world' do
     visit '/'
-    expect(page).to have_content('Hello world!')
+    expect(page).to have_content('Cheet')
   end
 end

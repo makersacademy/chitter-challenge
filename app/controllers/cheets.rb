@@ -1,7 +1,8 @@
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Hello world!'
+    @cheets = Cheets.all
+    erb :cheets
   end
 
 end
