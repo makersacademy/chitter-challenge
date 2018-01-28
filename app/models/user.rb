@@ -6,3 +6,5 @@ class User
   property :username, String
   property :password, Text
 end
+
+#:index=>true
