@@ -1,7 +1,9 @@
 feature 'Viewing peeps' do
   before do
     Timecop.freeze
-    Peep.create(message: 'Hello world!')
+    sign_up
+    sign_in(email: 'someon@emailaddress.com', password: 'password')
+    post_peep('Hello world!')
   end
 
   scenario 'I can see existing peeps on the peeps page' do
@@ -13,8 +15,7 @@ feature 'Viewing peeps' do
   end
 
   scenario 'I want to see all peeps in reverse chronological order' do
-    Peep.create(message: 'Hello world!')
-    Peep.create(message: 'Hello world again!')
+    post_peep('Hello world again!')
     visit '/peeps'
     within 'ul#peeps' do
       expect('Hello world again!').to appear_before('Hello world!')

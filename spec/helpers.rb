@@ -19,3 +19,9 @@ def sign_in(email:, password:)
   fill_in :password, with: password
   click_button 'Log in'
 end
+
+def post_peep(message)
+  visit '/peeps/new'
+  fill_in :peep, with: message
+  click_button 'Post'
+end

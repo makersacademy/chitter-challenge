@@ -12,7 +12,10 @@
         <%= peep.message %>
       </p>
       <p>
-        <%= peep.created_at.to_time %>      
+        Opinion brought to you by: <%= User.get(peep.user_id).name %> (<%= User.get(peep.user_id).username %>)
+      </p>
+      <p>
+        <%= peep.created_at.to_time %>
       </p>
     </li>
     <% end %>
