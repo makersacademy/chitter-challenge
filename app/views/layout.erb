@@ -7,8 +7,13 @@
     <% if current_user %>
       Welcome, <%= current_user.name %>
     <% end %>
-    <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      An error occured:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
     <%= yield %>
   </body>
