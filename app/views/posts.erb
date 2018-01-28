@@ -1,0 +1,10 @@
+ <h1> Welcome to Chitter - the home of the Peep </h1>
+
+ <p> The Peep-roll!!!</p>
+
+ <ul id='peeps'>
+  <p> Da dum de da!  </p>
+    <% @peeps.each do |peep| %>
+      <p><%= peep.message %></p>
+    <% end %>
+</ul>
