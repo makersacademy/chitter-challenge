@@ -1,0 +1,52 @@
+body {
+  width: 75%;
+  margin: auto;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 18px;
+  line-height: 2em;
+  background: url("/img/Death_to_stock_Winter-Texture_2.jpg") no-repeat center;
+  background-color: #150101;
+  padding: 20px;
+}
+ul {
+  list-style-type: none;
+}
+div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+div.peep {
+  background: #fff;
+  border: 1px solid palegrey;
+}
+.peep li {
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 50px;
+  margin: 10px;
+  padding: 20px;
+}
+.peep li:focus {
+  background-color: #ccc;
+}
+.peep-text {
+  font-size: 2em;
+}
+.links {
+  justify-content: flex-end;
+}
+.links a {
+  margin: 10px;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #2b1d05;
+  border: #2b1d05 1px solid;
+  padding: 15px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.35)
+}
+.links a:hover {
+  font-weight: bold;
+}
