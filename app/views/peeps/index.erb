@@ -2,6 +2,6 @@
 <h1> Peeps Feed </h1>
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
-      <li><%= peep.post %>, @<%= peep.created_at.strftime("%c") %></li>
+      <li><%= peep.post %>, posted by <%= peep.user.name %>, username:  <%= peep.user.username %> @<%= peep.created_at.strftime("%c") %></li>
       <% end %>
     </ul>
