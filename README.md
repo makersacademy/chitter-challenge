@@ -1,25 +1,40 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/domvernon/chitter-challenge.svg?branch=master)](https://travis-ci.org/domvernon/chitter-challenge)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+About:
 -------
+This is a simple Twitter clone Sinatra modular app. It sits on top of a rack webserver and has a PostgreSQL. The object relational mapper (ORM) is Data Mapper. The user can post peeps (tweets), once they have signed up or logged in. Anyone can view the peeps that other users have posted.
 
-As usual please start by forking this repo.
+This app has been built from the ground up using a test-driven devlopment approach. Care was taken to consider edge cases in the user model, so that users cannot signup without giving the right amount of information needed.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+As this app is more about the technologies used, the app is not much to look at. This could be changed fairly easily if more time was spent on it. Also, the controller and views could be refactored further to make them simpler, making use of Sinatra Partials.
 
-Features:
+Setup:
+-------
+To run the project start posting peeps:
+1. Clone the repo to your local machine
+2. Change into the directory
+3. run `bundle`
+4. Install PostgreSQL for your system
+5. run `ruby setup.rb`, this will set up the test and devlopment databases
+6. run `rackup` (you can specify a port by the `-p` flag, this is set as 9292 if no argument is given)
+7. Navigate to [localhost:9292](http://localhost:9292)
+
+Alternatively to steps 4-7, have a look at the app on Heroku [here](https://rocky-retreat-68439.herokuapp.com/).
+
+To run the tests:
+1. Change into the main directory
+2. run 'rspec'
+
+Instructions:
+-------
+As this is a simple webapp, take a look at the deployed product [here](https://rocky-retreat-68439.herokuapp.com/). Everything is self explanatory.
+
+User Stories:
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -36,8 +51,6 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
@@ -45,68 +58,4 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
