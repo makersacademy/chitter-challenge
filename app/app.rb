@@ -10,22 +10,20 @@ class Chitter < Sinatra::Base
   set :session_secret, 'really really secret'
 
   get '/' do
-    if current_user
-      @welcome_message = ", #{current_user.username}!"
-    else
-      @welcome_message = "!"
-    end
+    @recipient = "stranger"
+    @recipient = current_user.username if current_user
     erb :index
   end
 
-  get '/signup' do
-    erb :signup
+  get '/users/new' do
+    erb :new_user
   end
 
-  post '/submit_signup' do
+  post '/submit_registration' do
     user = User.create(
       email: params[:email],
       password: params[:password],
+      password_confirmation: params[:confirm_password],
       name: params[:name],
       username: params[:username]
     )

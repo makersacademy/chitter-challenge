@@ -7,16 +7,15 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'database_cleaner'
 gem 'bcrypt'
-
+gem 'dm-validations'
+gem 'dm-transactions'
 gem 'rake'
-# gem 'pry'
 
 group :test do
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop'
   gem 'orderly'
-  gem 'dm-transactions'
   gem 'rspec-sinatra'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

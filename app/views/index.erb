@@ -1,9 +1,9 @@
-<h1>Welcome to Chitter<%= @welcome_message %></h1>
+<h1>Welcome to Chitter, <%= @recipient %>!</h1>
 
 <form action="/peeps">
   <input type="submit" value="See peeps">
 </form>
 
-<form action="/signup">
+<form action="/users/new">
   <input type="submit" value="Sign up">
 </form>
