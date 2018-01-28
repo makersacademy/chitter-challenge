@@ -70,6 +70,7 @@ GEM
     hirb (0.7.3)
     json (1.8.6)
     json_pure (1.8.6)
+    mailgun (0.11)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     multi_json (1.13.1)
@@ -122,8 +123,11 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     stringex (1.5.1)
     tilt (2.0.8)
+    timecop (0.9.1)
     unicode-display_width (1.3.0)
     uuidtools (2.1.5)
     xpath (3.0.0)
@@ -133,15 +137,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  mailgun
   rspec
   rubocop
   simplecov
   simplecov-console
   sinatra
+  sinatra-flash
+  timecop
 
 RUBY VERSION
    ruby 2.4.1p111

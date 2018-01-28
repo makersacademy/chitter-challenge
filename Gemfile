@@ -7,6 +7,10 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'database_cleaner'
+gem 'bcrypt'
+gem 'mailgun'
+gem 'timecop'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
