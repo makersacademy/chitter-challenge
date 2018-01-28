@@ -7,6 +7,7 @@ class Peep
   property :id, Serial
   property :peep_name, String
   property :time, String
+  property :last_maker, String
 
   belongs_to :maker, required: false
 
