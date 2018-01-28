@@ -3,6 +3,8 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    ansi (1.5.0)
+    ast (2.4.0)
     bcrypt (3.1.11)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
@@ -62,7 +64,9 @@ GEM
       dm-core (~> 1.2.0)
     do_postgres (0.10.17)
       data_objects (= 0.10.17)
+    docile (1.1.5)
     fastercsv (1.5.5)
+    hirb (0.7.3)
     json (1.8.6)
     json_pure (1.8.6)
     mini_mime (1.0.0)
@@ -71,12 +75,17 @@ GEM
     mustermann (1.0.1)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
+    parallel (1.12.1)
+    parser (2.4.0.2)
+      ast (~> 2.3)
+    powerpack (0.1.1)
     public_suffix (3.0.1)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
+    rainbow (3.0.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -90,6 +99,23 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.0)
+    rubocop (0.52.1)
+      parallel (~> 1.10)
+      parser (>= 2.4.0.2, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.9.0)
+    simplecov (0.15.1)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-console (0.4.2)
+      ansi
+      hirb
+      simplecov
+    simplecov-html (0.10.2)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -97,6 +123,7 @@ GEM
       tilt (~> 2.0)
     stringex (1.5.1)
     tilt (2.0.8)
+    unicode-display_width (1.3.0)
     uuidtools (2.1.5)
     xpath (3.0.0)
       nokogiri (~> 1.8)
@@ -109,6 +136,9 @@ DEPENDENCIES
   data_mapper
   dm-postgres-adapter
   rspec
+  rubocop
+  simplecov
+  simplecov-console
   sinatra
 
 RUBY VERSION
