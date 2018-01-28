@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      <p>Welcome to Chitter <%= current_user.email %>!</p>
+      <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+      </form>
+      <p><a href="/peeps/new">Post a new peep</a></p>
+    <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
