@@ -1,0 +1,11 @@
+ <h1> Welcome to Chitter - the home of the Peep </h1>
+
+ <p> The Peep-roll!!!</p>
+
+ <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <p><%= "#{peep.message} - this peep was posted at
+       #{peep.created_at.to_time.strftime("%H:%M:%S")}
+      on #{peep.created_at.to_time.strftime("%A %d %B %Y")}" %></p>
+    <% end %>
+</ul>
