@@ -9,8 +9,8 @@ I also learnt about a number of new Ruby gems such as 'orderly' and 'timecop' wh
 -------
 ## Using the app
 
-RUBY VERSION        BUNDLED WITH
-ruby 2.4.1          1.16.1
+RUBY VERSION ruby 2.4.1       
+BUNDLED WITH 1.16.1
 
 Open your terminal and type in the following and press enter;
 
