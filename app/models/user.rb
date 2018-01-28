@@ -13,6 +13,9 @@ class User
   property :email, String
   property :password_hash, Text
 
+  # validates_confirmation_of :password
+  validates_format_of :email, as: :email_address
+
   def password=(password)
     self.password_hash = BCrypt::Password.create(password)
   end
