@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'data_mapper', '>= 1.2'
 gem 'database_cleaner'
 gem 'dm-postgres-adapter'
