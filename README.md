@@ -1,5 +1,5 @@
 # Chitter Challenge
--
+
 This was an exercise in creating a Twitter clone written in Ruby and HTML using Sinatra and the [DataMapper gem](http://datamapper.org/) in ruby to access a PostgresSQL database. The test framework uses the [orderly](https://github.com/jmondo/orderly/blob/master/README.md) and [timecop](https://github.com/travisjeffery/timecop) gems in order to test the chronological aspect of the app.
 
 It uses Capybara and Rspec for testing, with database cleaning functionality provided by Rake.
