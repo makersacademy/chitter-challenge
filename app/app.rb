@@ -2,18 +2,15 @@
 ENV['RACK-ENV'] ||= 'development'
 
 require_relative 'data_setup'
+require_relative 'helpers'
 require 'sinatra/base'
 require 'pry'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
+  helpers Helpers
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+  enable :sessions
 
   get '/' do
     erb :sign_up
