@@ -23,3 +23,17 @@ def bad_sign_up
   fill_in('username', :with => 'alex01')
   click_button 'Submit'
 end
+
+def log_in
+  click_button 'Log in'
+  fill_in('email', :with => 'a@dotmail.com')
+  fill_in('password', :with => 'password1')
+  click_button 'Submit'
+end
+
+def bad_log_in
+  click_button 'Log in'
+  fill_in('email', :with => 'a@dotmail.com')
+  fill_in('password', :with => 'password2')
+  click_button 'Submit'
+end

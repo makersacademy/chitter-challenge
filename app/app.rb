@@ -34,6 +34,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/logout' do
+    session.clear
+    redirect '/peeps'
+  end
+
   post '/user/new' do
     user = User.create(email: params[:email],
                        password: params[:password],
