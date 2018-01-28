@@ -31,8 +31,7 @@ class Chitter < Sinatra::Base
                 password: params[:password],
                 password_confirm: params[:password_confirm])
     p @user.valid?
-    if @user.valid?
-      @user.save
+    if @user.save
       session[:user_id] = @user.id
       p @user.id
       redirect '/peeps'
