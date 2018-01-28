@@ -256,13 +256,14 @@ input[type=text]:focus {
   letter-spacing: 0.1em;
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
-  width: 300px;
+  white-space: nowrap;
 }
 
 .time {
   padding-right: 9%;
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
 }
 
 .buttonscontainer {
