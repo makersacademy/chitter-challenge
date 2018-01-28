@@ -4,8 +4,19 @@ feature 'signing up' do
     fill_in :name, with: 'catlover'
     fill_in :email, with: 'cat@cats.com'
     fill_in :password, with: 'ilovecats'
+    fill_in :password_confirm, with: 'ilovecats'
     click_button 'Sign up!'
-    # fill_in :password_confirm, with: ilovecats
     expect(page).to have_content("Welcome to Chitter, catlover")
+  end
+
+  scenario 'user cannot sign up if passwords do not match' do
+    visit '/'
+    fill_in :name, with: 'catlover'
+    fill_in :email, with: 'cat@cats.com'
+    fill_in :password, with: 'ilovecats'
+    fill_in :password_confirm, with: 'ilovedogs'
+    click_button 'Sign up!'
+    expect(current_path).to eq('/user/new')
+    expect(page).to have_content("Passwords do not match")
   end
 end

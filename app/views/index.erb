@@ -1,5 +1,10 @@
 This is a boring homepage currently.
 
+<!-- # <% if flash[:error] %>
+#   <div id='notice'><%= flash[:error] %></div>
+# <% end %> -->
+
+
 <form action="/user/new" method="post">
   <label for="username">Your Username:
   <input type="text" name="username"></label>
@@ -7,5 +12,7 @@ This is a boring homepage currently.
   <input type="text" name="email"></label>
   <label for="password">Password:
   <input type="text" name="password"></label>
+  <label for="password_confirm">Confirm password:
+  <input type="text" name="password_confirm"></label>
   <input type="submit" value="Sign up!">
 </form>
