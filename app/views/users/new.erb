@@ -1,5 +1,14 @@
 <h1>Sign up for Chitter:</h1>
 
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form action='/users' method='post'>
   <label for='email'>
     Email: <input name='email' type='email' value='<%= @user.email %>' required>
@@ -12,12 +21,3 @@
   </label>
   <input type='submit' value='Sign up'>
 </form>
-
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
