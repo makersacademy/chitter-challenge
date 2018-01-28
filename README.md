@@ -9,6 +9,7 @@ I still plan to implement sign in/sign out but this will have to wait. I also wa
 Instructions:
 -------
 Clone this repo.  Figure the rest out yourself.
+https://chitter-challenge-jems2.herokuapp.com/
 
 
 Features:

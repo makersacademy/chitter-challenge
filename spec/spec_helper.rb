@@ -16,7 +16,7 @@ RSpec.configure do |config|
   end
 end
 
-ENV['RACK_ENV']="test"
+ENV['RACK_ENV'] = "test"
 
 require './app/chitter'
 require 'rspec'
@@ -60,6 +60,5 @@ RSpec.configure do |config|
   config.append_after(:each) do
     DatabaseCleaner.clean
   end
-
 
 end

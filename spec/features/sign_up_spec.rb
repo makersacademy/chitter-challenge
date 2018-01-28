@@ -5,11 +5,9 @@ feature 'homepage' do
   end
 end
 
-
-
 feature 'signing up' do
   scenario 'user can sign up on the homepage' do
-    expect{ sign_up_correctly}.to change(User, :count).by(1)
+    expect { sign_up_correctly }.to change(User, :count).by(1)
     expect(page).to have_content("Welcome to Chitter, catlover")
   end
 

@@ -1,5 +1,4 @@
 require 'bcrypt'
-# require 'dm-validations'
 
 class User
 
@@ -10,8 +9,6 @@ class User
   property :email, String, required: true, format: :email_address, unique: true
   property :password, BCryptHash
   property :username, String, required: true, unique: true
-
-
 
   attr_reader :password
   attr_accessor :password_confirmation

@@ -11,9 +11,9 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   helpers do
-   def current_user
-     @current_user ||= User.first(id: session['user_id'])
-   end
+    def current_user
+      @current_user ||= User.first(id: session['user_id'])
+    end
   end
 
   get '/' do
@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb (:new_user)
+      erb(:new_user)
     end
   end
 

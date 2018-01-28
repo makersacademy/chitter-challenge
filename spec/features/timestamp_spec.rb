@@ -10,7 +10,7 @@ feature 'shows timestamp on peeps' do
       visit '/peeps/new'
       fill_in :new_peep, with: "My first peep"
       click_button 'peep!'
-      expect(page).to have_content DateTime.now.strftime("%H:%M, %d %B")
+      expect(page).to have_content Time.now.strftime("%H:%M, %d %B")
     end
   end
 end
