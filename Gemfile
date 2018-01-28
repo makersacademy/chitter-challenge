@@ -8,6 +8,7 @@ gem 'rack'
 gem 'rake'
 gem 'rubocop'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'timecop'
 
 group :test do

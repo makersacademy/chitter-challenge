@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/models/database_setup'
 
 
@@ -29,9 +30,13 @@ class  Chitter < Sinatra::Base
     user = User.create(username: params[:username],
                           email: params[:email],
                           password: params[:password])
-    session[:user_id] = user.id
-
-    erb :'/home/homepage'
+    if user.save
+      session[:user_id] = user.id
+      # erb :'/home/homepage'
+      redirect '/home/homepage'
+    else
+      erb :'register/signup'
+    end
   end
 
   post '/peep_new' do
