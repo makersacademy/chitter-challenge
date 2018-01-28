@@ -2,9 +2,11 @@ ENV['RACK_ENV'] = 'test'
 
 require './app/app'
 require './app/models/peep'
+require './spec/features/chitter_helper'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'orderly'
 require 'simplecov'
 require 'simplecov-console'
 
