@@ -29,6 +29,13 @@ def sign_up(name: 'Ed',
   click_button 'Sign up!'
 end
 
+def sign_in(email: 'email123@example.com', 
+            password: 'password123')
+  visit '/users/login'
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+end
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
