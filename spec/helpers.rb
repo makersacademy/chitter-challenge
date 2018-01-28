@@ -8,6 +8,14 @@ module Helpers
     click_button "sign-up"
   end
 
+  def sign_up_same_username
+    visit('/register/signup')
+    fill_in :username, with: 'CleoP'
+    fill_in :email, with: 'cleo@gmail.com'
+    fill_in :password, with: 'password1'
+    click_button "sign-up"
+  end
+
   def sign_up_wrong_email
     visit('/register/signup')
     fill_in :username, with: 'CleoP'
