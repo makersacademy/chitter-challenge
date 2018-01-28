@@ -60,6 +60,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
+    redirect '/login' unless current_user
     erb :new_peep
   end
 
