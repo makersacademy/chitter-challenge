@@ -1,6 +1,6 @@
 require 'helpers'
 
-feature '#Peep on homepage' do
+feature 'Peep on homepage --' do
   include Helpers
 
   scenario 'User to peep on homapage' do

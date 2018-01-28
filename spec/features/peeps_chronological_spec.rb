@@ -1,6 +1,6 @@
 require 'helpers'
 
-feature '#Peeps reverse chronological order' do
+feature 'Peeps reverse chronological order --' do
   include Helpers
 
   scenario 'User to see peeps in reverse chronological order' do

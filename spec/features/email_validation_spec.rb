@@ -1,6 +1,6 @@
 require 'helpers'
 
-feature '#email to be validated' do
+feature 'Email to be validated --' do
   include Helpers
 
     scenario 'User not to sign-up with incorrect email' do
@@ -14,6 +14,6 @@ feature '#email to be validated' do
     scenario 'Invalid email type error' do
     expect { sign_up_wrong_email }.not_to change(User, :count)
     expect(current_path).to eq('/register/signup')
-    expect(page).to have_content 'Invalid email address'
+    expect(page).to have_content 'Email has an invalid format'
   end
 end

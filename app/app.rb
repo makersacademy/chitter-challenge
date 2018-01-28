@@ -34,10 +34,10 @@ class  Chitter < Sinatra::Base
                           password: params[:password])
     if @user.save
       session[:user_id] = @user.id
-      # erb :'/home/homepage'
+
       redirect '/home/homepage'
     else
-      flash.now[:notice] = 'Invalid email address'
+      flash.now[:errors] = @user.errors.full_messages
       erb :'register/signup'
     end
   end
