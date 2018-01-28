@@ -18,7 +18,7 @@ The project uses the Sinatra framework, and the app is routed through a controll
 * bundle
 * rackup
 * visit http://localhost:9292/
-* or use app on [Heroku] https://lei-chitter-chat.herokuapp.com/peeps
+* or use app on [Heroku](https://lei-chitter-chat.herokuapp.com/)
 
 ## Usage
 
