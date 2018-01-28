@@ -5,6 +5,7 @@ require 'database_cleaner'
 require 'orderly'
 require 'simplecov'
 require 'simplecov-console'
+require 'timecop'
 
 require './app/app'
 
