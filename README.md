@@ -1,3 +1,8 @@
+Please note: I still have some tidying up to do, including updating the README.md
+
+When complete I will submit a review request.
+
+
 Chitter Challenge
 =================
 
