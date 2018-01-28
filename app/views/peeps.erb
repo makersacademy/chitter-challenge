@@ -1,0 +1,20 @@
+<body style="background: url(https://static.pexels.com/photos/4827/nature-forest-trees-fog.jpeg); background-size: 100%;">
+<h1><font color="lightblue"> Peeps </h1>
+
+<h2>
+  Welcome, </font><font color="#091634"><%= @maker_name %> with user_name: <%= @maker_user_name %></font>
+</h2>
+
+</font><font color="darkblue">
+<ul id='peeps'>
+    <% @peeps.sort_by {|peep| peep.time }.reverse.each do |peep| %>
+    <li>
+      Peep:   <%= peep.peep_name  %>
+      Time:   <%= peep.time  %>
+      Maker name:   <%= peep.last_maker  %>
+      Maker user name:   <%= peep.user_name  %>
+    </li>
+  <% end %>
+</ul>
+</font>
+</body>
