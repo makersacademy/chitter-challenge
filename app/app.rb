@@ -1,13 +1,15 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
+require 'sinatra/flash'
 require "./app/models/database_setup"
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   helpers do
-    def member_name
-      User.first.nil? ? "" : User.first.name
+    def user
+      session[:id].nil? ? "" : User.get(session[:id]).name
     end
   end
 
@@ -24,11 +26,17 @@ class Chitter < Sinatra::Base
   end
 
   post "/signup" do
-    User.create(:name => params[:name],
+    user = User.new(:name => params[:name],
                 :username => params[:username],
                 :email => params[:email],
                 :password => params[:password])
-    redirect "/cheeps"
+    if user.save
+      session[:id] = User.first.id
+      redirect "/cheeps"
+    else
+      flash.next[:login_error] = user.check_duplicates
+      redirect "/signup"
+    end
   end
 
   post "/cheeps/new" do

@@ -20,8 +20,9 @@ feature 'signup' do
     expect { sign_up("cle", "Attles1883", "cricket2@hotmail.com", "ilovecricket") }.not_to change(User, :count)
   end
 
-  scenario 'I am not stored in User table after signing up with the same username twice' do
-    expect { sign_up("cle", "Attles1883", "cricket2@hotmail.com", "ilovecricket") }.not_to change(User, :count)
+  scenario 'I error message comes up when I signup with same email' do
+    sign_up("a", "a", "cricket@hotmail.com", "a")
+    expect(page).to have_content("Sorry you've already signed up with this email")
   end
 
 end
