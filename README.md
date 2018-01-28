@@ -43,7 +43,7 @@ I had also used the 'Bcrypt' gem to encrypt passwords.
 
 Some screenshots from the web app:
 * Homepage
-![alt tag](/Users/Alexy/Projects/week4/chitter-challenge/public/screenshots/homepage.png)
+![alt tag](https://github.com/AlexandraGF/chitter-challenge/blob/master/public/screenshots/homepage.png)
 Features:
 -------
 
