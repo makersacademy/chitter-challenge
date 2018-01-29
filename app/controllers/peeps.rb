@@ -1,6 +1,6 @@
 class Chitter < Sinatra::Base
   get '/peeps' do
-    @peeps = Peep.all(:order =>[:created_at.desc], :limit => 10)
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
