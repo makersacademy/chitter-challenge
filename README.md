@@ -50,8 +50,10 @@ Installation
 ------------
 $ git clone https://github.com/philb56/chitter_challenge
 $ bundle
-$ createdb chitter_development
-$ rake auto_migrate
+$ createdb chitter_development # test via localhost
+$ createdb chitter_test # test via rspec
+$ rake auto_migrate  RACK_ENV=development
+$ rake auto_migrate  RACK_ENV=test
 $ rspec
 $ rackup
 
