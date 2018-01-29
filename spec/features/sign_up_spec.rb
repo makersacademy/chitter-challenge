@@ -10,7 +10,7 @@ feature 'Sign up' do
   scenario 'The user\'s username is displayed on the screen' do
     visit '/user/new'
     sign_up
-    expect(page).to have_content("Hey EllieWem!")
+    expect(page).to have_content("Welcome, EllieWem!")
   end
 
   scenario 'The form requires a matching password' do
