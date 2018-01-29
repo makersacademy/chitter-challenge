@@ -1,0 +1,9 @@
+<%= "Sorry you've already signed up with this #{flash[:login_error]}" unless flash[:login_error].nil? %>
+
+<form action="/signup"  method = "POST">
+ <input type = "text" name = 'name'>
+ <input type = "text" name = 'username'>
+ <input type = "text" name = 'email'>
+ <input type = "text" name = 'password'>
+ <input type = "submit" value ="join chitter!">
+</form>
