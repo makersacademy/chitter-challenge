@@ -53,7 +53,7 @@ end
 
 ```
 To run the project:
-go to Heroku app: https://secret-coast-89355.herokuapp.com/
+Register at: https://secret-coast-89355.herokuapp.com/users/new
 Sign up and add peeps
 
 ```
