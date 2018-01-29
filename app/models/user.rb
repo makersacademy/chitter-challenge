@@ -6,6 +6,7 @@ class User
   property :username, String, :unique_index => true
   property :email, Text, :unique_index => true
   property :password, Text
+  has n, :cheeps
 
   validates_uniqueness_of :email
   validates_uniqueness_of :username

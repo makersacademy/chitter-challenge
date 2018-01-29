@@ -2,7 +2,10 @@
 
 <ul>
 <% @cheeps.each do |cheep| %>
- <li> Cheep:  <%= cheep.message %>  Sent at:
+ <li> Cheep:  <%= cheep.message %>
+   by:
+     <%= cheep.user %>
+   Sent at:
   <%= cheep.created_at.strftime("%H:%M %d-%m-%Y") %>
 
 <% end %>
