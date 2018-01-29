@@ -14,3 +14,6 @@ feature 'shows timestamp on peeps' do
     end
   end
 end
+
+
+#needed a test for reverse chronological order
