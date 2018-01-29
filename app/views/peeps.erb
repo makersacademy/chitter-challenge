@@ -1,0 +1,20 @@
+<h2>Peeps</h2>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.body %> <br>
+      <%= peep.created_at.strftime("peeped %d/%m/%Y %H:%M.") %> <br>
+      peeped by user <%= peep.user.username %> (<%= peep.user.name %>).
+    </li>
+  <% end %>
+</ul>
+
+
+<form action="/peeps/new">
+  <input type="submit" name="add_peep" value="Add peep">
+</form>
+
+<form action="/">
+  <input type="submit" value="Homepage">
+</form>
