@@ -3,12 +3,12 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-       <%= peep.message %>
-       <%= peep.created_at  %>
-      <%= peep.user.user_id %>
-    </li>
+      @<%= peep.user.user_id %>
+       <%= peep.created_at.strftime('on %Y/%m/%d at %I:%M:%S %p')  %><br>
+      <%= peep.message %> <br>
+    </li><br>
   <% end %><br>
-  <br>
+
 <form action="/users/new" method="get">
   <input type="submit" value="Click to sign up">
 </form><br>
