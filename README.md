@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-I completed the Straight Up part plus some CSS. 
+I completed the Straight Up part plus some CSS.
 
 Features:
 -------
@@ -53,8 +53,7 @@ end
 
 ```
 To run the project:
-Start webserver (e.g. rackup)
-visit http://localhost:9292/users/new
+go to Heroku app: https://secret-coast-89355.herokuapp.com/
 Sign up and add peeps
 
 ```
