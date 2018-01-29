@@ -1,14 +1,23 @@
 Chitter Challenge
 =================
 
-Write a little Twitter clone that will allow the users to post messages to a public stream.
+* Challenge time: rest of the day and weekend, until Monday 9am
+* Feel free to use google, your notes, books, etc. but work on your own
+* If you refer to the solution of another coach or student, please put a link to that in your README
+* If you have a partial solution, **still check in a partial solution**
+* You must submit a pull request to this repo with your code by 9am Monday morning
+
+Challenge:
+-------
+
+As usual please start by forking this repo.
+
+We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
 
 ```
-Implemented
-
 STRAIGHT UP
 
 As a Maker
@@ -39,53 +48,10 @@ I want to log out of Chitter
 
 ADVANCED
 
-Not Implemented
-
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
-Installation
-------------
-$ git clone https://github.com/philb56/chitter_challenge
-$ bundle
-$ createdb chitter_development # test via localhost
-$ createdb chitter_test # test via rspec
-$ rake auto_migrate  RACK_ENV=development
-$ rake auto_migrate  RACK_ENV=test
-$ rspec
-$ rackup
-
-Usage
------
-
-/             - list of peeps
-/users/new    - add a user
-/sessions/new - log in
-/peeps/new    - add a peep
-
-
-
-Gems
------
-bcrypt              - password encryption
-data_mapper         - orm
-dm-postgres-adapter - postgres
-rake                - script
-rubocop             - code quality
-sinatra             - web server
-sinatra-flash       - flash messages
-sinatra-partial     - partial classes
-
-Testing
-capybara            - feature tests
-rspec               - test framework
-simplecov           - test coverage
-simplecov-console   - test coverage
-orderly             - test sequence of list items
-timecop             - freeze time
-
 
 Notes on functionality:
 ------
