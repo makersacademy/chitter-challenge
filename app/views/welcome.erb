@@ -1,0 +1,19 @@
+<form action="/users/new" method="get">
+  <input type="submit" value="Click to sign up">
+</form><br>
+<br>
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Click to sign in">
+  </form>
+<br>
+<h1> Peeps </h1>
+<% if current_user.nil? %>
+<ul id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
+    <li>
+      @<%= peep.user.user_id %>
+       <%= peep.created_at.strftime('on %Y/%m/%d at %I:%M:%S %p')  %><br>
+      <%= peep.message %> <br>
+    </li><br>
+  <% end %><br>
+<% end %>
