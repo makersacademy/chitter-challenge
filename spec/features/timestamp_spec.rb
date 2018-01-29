@@ -13,7 +13,11 @@ feature 'shows timestamp on peeps' do
       expect(page).to have_content Time.now.strftime("%H:%M, %d %B")
     end
   end
+
+  scenario "Peeps are displayed in reverse order" do
+    create_peep('my first peep')
+    create_peep('my second peep')
+    expect('my second peep').to appear_before('my first peep')
+  end
+
 end
-
-
-#needed a test for reverse chronological order

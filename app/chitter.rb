@@ -49,7 +49,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash.now[:errors] = ['Your email or password is incorrect']
+      flash.now[:notice] = ['Your email or password is incorrect']
       erb(:new_session)
     end
   end
@@ -70,7 +70,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.display_in_reverse_order
+    @peeps = Peep.all.reverse
     erb(:peeps)
   end
 

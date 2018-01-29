@@ -8,15 +8,13 @@ feature 'User sign in' do
   end
 
   scenario 'with correct credentials' do
-    sign_in(email: user.email, password: 'secret1234')
+    sign_in(email: 'user@example.com', password: 'secret1234')
     expect(page).to have_content "Welcome to Chitter, #{user.username}"
   end
 
-  def sign_in(email:, password:)
-    visit '/sessions/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Sign in'
+  scenario 'with incorrect credentials' do
+    sign_in(email: 'user@example.com', password: 'wrong_password')
+    expect(page).to have_content "Your email or password is incorrect"
   end
 
 end

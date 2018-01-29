@@ -8,8 +8,4 @@ class Peep
   property :content, Text
   property :created_at, DateTime
 
-  def self.display_in_reverse_order
-    all(order: :created_at.desc)
-  end
-
 end
