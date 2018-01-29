@@ -11,13 +11,13 @@ feature 'Makers sign up' do
     scenario 'without e-mail, password, name or username' do
       sign_up('', '', '', '', '')
       expect(User.all.count).to eq 0
-      expect(current_path).to eq '/submit_registration'
+      expect(current_path).to eq '/users/new'
     end
 
     scenario 'with inconsistent passwords' do
       sign_up('test@testing.com', 'secret', 'different_secret', 'Test Bloggs', 'testy')
       expect(User.all.count).to eq 0
-      expect(current_path).to eq '/submit_registration'
+      expect(current_path).to eq '/users/new'
     end
 
     scenario 'with duplicate e-mail or username' do
@@ -26,6 +26,7 @@ feature 'Makers sign up' do
       expect(User.all.count).to eq 1
       sign_up('differenttest@testing.com', 'secret', 'secret', 'Test Bloggs', 'testy')
       expect(User.all.count).to eq 1
+      expect(current_path).to eq '/users/new'
     end
   end
 end

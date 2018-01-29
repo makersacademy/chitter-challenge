@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
       redirect '/'
     else
       flash.now[:notice]
-      erb :new_user
+      redirect '/users/new'
     end
   end
 
@@ -48,8 +48,11 @@ class Chitter < Sinatra::Base
   post '/submit_peep' do
     peep = Peep.new(body: params[:content])
     peep.user = current_user
-    peep.save
-    redirect '/peeps'
+    if peep.save
+      redirect '/peeps'
+    else
+      redirect '/peeps/new'
+    end
   end
 
   helpers do
