@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <link href="./reset.css" rel="stylesheet" type="text/css">
+    <link href="../index_stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="main">
+    <div class="container">
+      <h2>Sign in</h2>
+      <span class="tagline">Get back to it</span>
+
+
+      <form action='/sessions' method='POST' class="sign_in_form">
+        <label for='username'>
+          <input name='username' placeholder="username" required type='username'>
+        </label>
+        <label for='password'>
+          <input name='password' placeholder="password" required type='password'>
+        </label>
+        <button type='submit' value='Sign in'>sign in
+      </form>
+    </div>
+  </div>
+</body>

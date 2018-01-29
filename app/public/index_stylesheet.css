@@ -1,0 +1,302 @@
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0em;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0em;
+}
+
+.main {
+  background-image: url("./resources/backgroundimg.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  margin: 0em;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.container {
+  width: 80%;
+  height: 80%;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 3em 0;
+  border-radius: 10px;
+  border: 2px solid hsl(203, 35%, 75%);
+}
+
+.large_container {
+  width: 90%;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  margin: 9em 0;
+  border-radius: 10px;
+  border: 2px solid hsl(203, 35%, 75%);
+  flex-direction: column;
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 4em;
+  padding-top: 2em;
+}
+
+.tagline {
+  font-family: 'Poiret One', cursive;
+  margin-right: -9rem;
+  color: hsl(0, 0%, 40%);
+  letter-spacing: 0.2rem;
+}
+
+.button_container {
+  width: 280px;
+  margin-top: 3em;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.18em;
+}
+
+button[type=submit] {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: hsl(0, 0%, 93%);
+  border: none;
+  text-align: center;
+  height: 29px;
+  width: 125px;
+  transition: background-color 1s ease;
+}
+
+button[type=submit]:hover {
+  background-color: hsl(203, 35%, 75%);
+}
+
+button[type=submit]:hover {
+  background-color: hsl(203, 35%, 75%);
+}
+
+button[type=submit]:active {
+  transform: translateY(1.5px);
+}
+
+button[type=submit]:focus {
+  outline:0;
+}
+
+#main_page_button {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: hsl(0, 0%, 98%);
+  border: none;
+  text-align: center;
+  height: 29px;
+  width: 80px;
+  transition: background-color 1s ease
+  margin-right: 20px;
+}
+
+#main_page_button:hover {
+  background-color: hsl(203, 35%, 75%);
+}
+
+#lastbutton {
+  border: 2px solid hsl(203, 35%, 75%);
+}
+
+.off_left {
+  padding-left: 1.5em;
+  margin-top: -1em;
+}
+
+.about_content {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.18em;
+  font-weight: 300;
+  color: hsl(0, 0%, 50%);
+  padding: 2em 4.5em;
+  font-size: 0.85em;
+  line-height: 2em;
+}
+
+.about_button_container {
+  width: 90%;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.have_fun {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+h2 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3em;
+  margin-top: 2em;
+  margin-bottom: -0.1em;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3em;
+  height: 200px;
+  justify-content: space-around;
+}
+
+.sign_in_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3em;
+  height: 150px;
+  justify-content: space-around;
+}
+
+#newpeeptextbox {
+  height: 20px;
+  width: 500px;
+  border-radius: 5px;
+}
+
+input[type=text] {
+  height: 20px;
+  width: 175px;
+  border-radius: 5px;
+}
+
+
+input[type=text]:focus {
+  outline:0;
+}
+
+.last_form {
+  margin-bottom: 0.5em;
+}
+
+.flasherror {
+  width: 100%;
+  color: hsl(0, 77%, 26%);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+}
+
+.back {
+  margin-top: -2em;
+}
+
+.main_container {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  margin: 0em;
+  background-color: hsl(0, 100%, 100%);
+  border-bottom: 3px solid hsl(203, 35%, 75%);
+  width: 100%;
+  height: 16%;
+  flex-direct: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#peeps {
+  margin-top: 130px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.peeps {
+  display: flex;
+  background-color: hsl(0, 100%, 100%);
+  width: 84%;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.message {
+  padding-left: 5%;
+  color: hsl(0, 0%, 30%);
+  letter-spacing: 0.1em;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+}
+
+.time {
+  padding-right: 9%;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+}
+
+.buttonscontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -1em;
+}
+
+h3 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 2.5em;
+  letter-spacing: 0.1em;
+  margin-top: -0.3em;
+}
+
+.background {
+  background-image: url("./resources/backgroundimg.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  margin: 0em;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  overflow: scroll;
+}
+
+.welcome_user {
+  font-family: 'Poiret One', cursive;
+  margin-top: -2em;
+}

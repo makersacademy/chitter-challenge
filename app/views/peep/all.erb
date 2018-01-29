@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <link href="./reset.css" rel="stylesheet" type="text/css">
+    <link href="../index_stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  </head>
+
+<body>
+  <div class="background">
+  <div class="main_container">
+    <div class="header">
+      <div class="left">
+        <form action='/peep/new'>
+          <button type='submit' value='Sign in'>New Peep
+        </form>
+      </div>
+      <div class="middle">
+        <h3>Peeps.</h3>
+        <div class="welcome_user">
+          <% if current_user %>
+          Welcome, <%= current_user.username %>!
+          <% end %>
+          <% if flash[:notice] %>
+            <%= flash[:notice] %>
+          <% end %>
+        </div>
+      </div>
+      <div class="right">
+        <% if current_user %>
+          <form method='POST' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <button type='submit' value='Sign out' id="signout">Sign out
+          </form>
+        <% else %>
+          <form action='/sessions/sign_in'>
+            <button type='submit' value='Sign in' id=signout>Sign in</button>
+          </form>
+        <% end %>
+    </div>
+  </div>
+    <div id="peeps">
+      <% @peeps.reverse.each do |peep| %>
+      <div class="peeps">
+        <div class="message">
+          <%= peep.message %>
+        </div>
+        <div class="time">
+          <%= peep.created_at.strftime("%I:%M%p %d/%m/%y") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
