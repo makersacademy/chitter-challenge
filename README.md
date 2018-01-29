@@ -61,6 +61,7 @@ Usage
 /             - list of peeps
 /users/new    - add a user
 /sessions/new - log in
+/peeps/new    - add a peep
 
 
 
