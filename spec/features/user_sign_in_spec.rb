@@ -5,11 +5,10 @@ feature 'User sign in' do
                 username: 'example',
                 password: 'secret1234',
                 password_confirmation: 'secret1234')
-    p user
   end
 
   scenario 'with correct credentials' do
-    sign_in(email: user.email, password: user.password)
+    sign_in(email: user.email, password: 'secret1234')
     expect(page).to have_content "Welcome to Chitter, #{user.username}"
   end
 
