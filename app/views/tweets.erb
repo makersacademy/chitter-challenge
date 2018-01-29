@@ -1,0 +1,18 @@
+<% if current_user %>
+  Welcome, <%= current_user.username %>!
+  <link href='/css/main.css' rel='stylesheet' type='text/css'>
+<% end %>
+
+<h1> Tweets: </h1>
+
+<% @tweets.each do |tweet| %>
+  <h3> Subject: <%= tweet.subject %> </h3>
+  <p> Text: <%= tweet.text %> </p>
+  <p> Time: <%= tweet.created_at %> </p>
+  <p> Created by: <%= current_user.username %> </p>
+<% end %>
+
+
+<form action='/tweets/new' method='get'>
+  <input type='submit' value='Write a Tweet'>
+</form>

@@ -1,4 +1,12 @@
 Chitter Challenge
+
+This is my initial attempt at the Chitter Challenge!
+
+A couple of things I would like to note, I would of liked to of made the created_by aspect of each tweet a bit better.
+What I mean by this is have it save each tweet to each individual account rather than using the current user.
+
+Anyway, I'm fairly happy with what I have done here.
+
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
