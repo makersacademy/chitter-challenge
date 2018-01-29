@@ -1,4 +1,12 @@
-
+<form action="/users/new" method="get">
+  <input type="submit" value="Click to sign up">
+</form><br>
+<br>
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Click to sign in">
+  </form>
+<br>
+<h1> Peeps </h1>
 <% if current_user.nil? %>
 <ul id='peeps'>
   <% @peeps.reverse_each do |peep| %>
@@ -8,12 +16,4 @@
       <%= peep.message %> <br>
     </li><br>
   <% end %><br>
-
-<form action="/users/new" method="get">
-  <input type="submit" value="Click to sign up">
-</form><br>
-<br>
-  <form action="/sessions/new" method="get">
-    <input type="submit" value="Click to sign in">
-  </form>
 <% end %>
