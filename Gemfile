@@ -14,6 +14,7 @@ gem 'timecop'
 
 group :test do
   gem 'rspec'
+  gem 'orderly'
   gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

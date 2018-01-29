@@ -45,3 +45,15 @@ feature 'Signing Up' do
     expect { sign_up }.to change(User, :count).by(1)
   end
 end
+
+feature 'Viewing Tweets' do
+  scenario 'Tweets appear in reverse chronological order'do
+    sign_up
+    create_tweet
+    visit('/tweets/new')
+    fill_in 'subject', with: "second tweet"
+    fill_in 'text', with: "words"
+    click_button 'Tweet'
+    expect('second tweet').to appear_before("What I'm doing")
+  end
+end

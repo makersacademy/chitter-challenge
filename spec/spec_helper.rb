@@ -5,6 +5,7 @@ require 'database_cleaner'
 require 'capybara/rspec'
 require './app/models/tweet'
 require './spec/features/web_helpers'
+require 'orderly'
 
 require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 
