@@ -1,5 +1,7 @@
 ## Chitter Challenge
 
+[![Build Status](https://travis-ci.org/alextwilson/chitter-challenge.svg?branch=master)](https://travis-ci.org/alextwilson/chitter-challenge)
+
 A small social network for shouting into the void that attempts to give privacy through obscurity.
 
 ## Getting Started
