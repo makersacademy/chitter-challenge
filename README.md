@@ -55,6 +55,14 @@ $ rake auto_migrate
 $ rspec
 $ rackup
 
+Usage
+-----
+
+/             - list of peeps
+/users/new    - add a user
+/sessions/new - log in
+
+
 
 Gems
 -----
