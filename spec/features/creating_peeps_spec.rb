@@ -16,7 +16,7 @@ feature 'Creating peeps' do
 
   scenario 'Add a 2 new peeps, ensure they\'re in the correct order' do
     expect { sign_up }.to change(User, :count)
-    [1,2,3,4,5].each do |n|
+    [1, 2, 3, 4, 5].each do |n|
       visit '/peeps/new'
       Timecop.freeze(Time.local(2008, 9, 1, 12, 0, n))
       fill_in 'message', with: "Peep #{n}"
