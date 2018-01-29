@@ -46,6 +46,16 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+Installation
+------------
+$ git clone https://github.com/philb56/chitter_challenge
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
+
+
 Gems
 -----
 bcrypt              - password encryption
