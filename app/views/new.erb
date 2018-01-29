@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>chitter</title>
+  <link rel="stylesheet" type="text/css" href="/chitter.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
+  <script src="https://use.fontawesome.com/5d80a0eb69.js"></script>
+
+</head>
+<body>
+  <h1><i class="fa fa-hashtag" aria-hidden="true"></i>CHITTER</h1>
+
+  <div id="page-wrap1">
+    <form method="POST" action="/posts">
+      <label for="post"> <h2><img class="bird_icon" src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Animals-Bird-icon.png" alt="bird"> Peep something</h2></label>
+        <br>
+        <input id="post_text" type="text" name="post_text" placeholder="What's new?">
+        <br>
+        <input class="peep_button" class="button" type="submit" value="Peep">
+    </form>
+  </div>
+<p class="link_footer">See all the peeps <a href="/posts">here </a><img class="bird_icon" src="https://d30y9cdsu7xlg0.cloudfront.net/png/80049-200.png" alt="bird"></p>
+</body>
+</html>
