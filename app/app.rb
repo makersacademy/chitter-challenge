@@ -26,11 +26,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/validation' do
-    if session[:user_id] == nil
-      redirect '/'
-    else
-      redirect '/post_peep'
-    end
+    redirect session[:user_id] == nil ? '/' : '/post_peep'
   end
 
   get '/post_peep' do
