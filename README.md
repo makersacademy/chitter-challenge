@@ -1,6 +1,10 @@
 Chitter Challenge
 =================
 
+![Chitter index](images/1.png)
+
+![Chitter index](images/2.png)
+
 
 ```
 STRAIGHT UP
