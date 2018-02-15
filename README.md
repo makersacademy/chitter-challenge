@@ -1,3 +1,21 @@
+Instructions
+============
+Fork this repo and run bundle in terminal.
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+
+```plain
+╔════════════╗              ╔════════════╗  give me all peeps   ╔════════════╗
+║            ║              ║            ║--------------------->║            ║
+║    View    ║ send * peeps ║ Controller ║   [array of peeps]   ║    Peep    ║
+║            ║  <--------   ║            ║<---------------------║            ║
+╚════════════╝              ╚════════════╝                      ╚════════════╝
+```
+
 Chitter Challenge
 =================
 
