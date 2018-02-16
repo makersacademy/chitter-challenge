@@ -1,5 +1,11 @@
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara/rspec'
+require 'rspec'
+
+# This allows the app to run. It requires 'capybara/rspec' and 'path_to_app'
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
