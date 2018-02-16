@@ -7,7 +7,7 @@ TBC
 
 ### Development Process
 
-1) TBC
+1) Start simple and use minimal implementation to display hard-coded display of peeps on home page.
 
 ### Installation
 
