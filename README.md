@@ -1,4 +1,26 @@
-Chitter Challenge
+# Chitter Challenge
+=================
+
+### Description
+
+TBC
+
+### Development Process
+
+1) TBC
+
+### Installation
+
+TBC
+
+### Author
+
+Terence Allitt
+
+### Time Spent
+
+TBC
+
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
