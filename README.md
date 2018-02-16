@@ -11,7 +11,15 @@ TBC
 
 ### Installation
 
-TBC
+Install Bundler and the relevant gems with the below commands:
+
+`gem bundle install`
+
+`bundle`
+
+Run 'rackup' to launch the web app
+
+`rackup`
 
 ### Author
 
