@@ -6,7 +6,9 @@ gem 'rake'
 gem 'rubocop'
 
 group :test do
+  gem 'capybara'
   gem 'rspec'
+  gem 'sinatra'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
