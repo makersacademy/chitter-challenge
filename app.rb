@@ -6,4 +6,6 @@ class Chitter < Sinatra::Base
     "Testing Infrastructure"
   end
 
+  run! if app_file == $0
+
 end
