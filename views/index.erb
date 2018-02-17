@@ -5,3 +5,8 @@
     <li><%= peep %></li>
   <% end %>
 </ul>
+
+<form action="/peeps" method="post">
+  <input type="text" name="new_peep" placeholder="What's on your mind?">
+  <input type="submit" value="Post Peep">
+</form>
