@@ -1,0 +1,16 @@
+.title {
+  background-color: #0084b4;
+}
+
+h1 {
+  padding: 0.5em;
+  font-family: Work Sans;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+h3 {
+  color: #0084b4;
+  font-size: 0.7em;
+}

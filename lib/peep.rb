@@ -14,7 +14,8 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query('SELECT * FROM peeps')
+    result = DatabaseConnection.query('SELECT * FROM peeps ORDER BY date DESC')
     result.map { |hash| Peep.new(hash['id'], hash['text'], hash['date'], hash['author']) }
   end
+
 end

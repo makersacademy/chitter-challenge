@@ -1,5 +1,17 @@
-Welcome to Chitter! It's a totally-not-a-twitter-rip-off platform to share random thoughts. <br>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/general_chitter_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+  </head>
+  <body>
 
-<% @peeps.each do |peep| %>
-  <%= peep.id %>   <%= peep.text %>   <%= peep.date %>   <%= peep.author %> <br>
-<% end %>
+    <div class="title"> <h1> Welcome to Chitter! <br> A totally-not-a-twitter-rip-off platform to share random thoughts.</h2> </div>
+    <br>
+
+    <% @peeps.each do |peep| %>
+      <%= peep.author %> wrote: <%= peep.text %> <br>
+      <h3> <%= peep.date %> </h3>
+      <br>
+    <% end %>
+  </body>
+</html>
