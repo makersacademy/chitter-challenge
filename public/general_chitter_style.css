@@ -2,6 +2,10 @@
   background-color: #0084b4;
 }
 
+.actions {
+  display: flex;
+}
+
 h1 {
   padding: 0.5em;
   font-family: Work Sans;

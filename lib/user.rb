@@ -37,6 +37,4 @@ class User
     result.map { |hash| hash['username'] == username && hash['password' == password]}.count == 1
   end
 
-
-
 end

@@ -12,26 +12,32 @@
         A totally-not-a-twitter-rip-off platform to share random thoughts.</h2>
     </div>
     <br>
-<%= flash[:n] %>
-    <form action="/users/new" method="GET">
-      <input type="submit" value="Sign Up">
+    <%= flash[:n] %>
+    <div class="actions">
+      <form action="/users/new" method="GET">
+        <input type="submit" value="Sign Up">
+      </form>
+      <form action="/users/log_in" method="GET">
+        <input type="submit" value="Log in">
+      </form>
+    </div>
+    <div class="peep_enter">
+    <form action="/peeps/new" method="POST">
+      <input type="text" name="text" placeholder="Enter your peep">
+      <input type="text" name="author" placeholder="Enter your name">
+      <input type="submit" value="Add Peep">
     </form>
-    <form action="/users/log_in" method="GET">
-      <input type="submit" value="Log in">
-    </form>
-    <form action="/peeps/new" method="GET">
-      <input type="submit" value="Create a new Peep">
-    </form>
+  </div>
 
-    <% @peeps.each do |peep| %>
-      <%= peep.author %>
-      wrote:
-      <%= peep.text %>
-      <br>
-      <h3>
-        <%= peep.date %>
-      </h3>
-      <br>
-    <% end %>
-  </body>
-</html>
+        <% @peeps.each do |peep| %>
+          <%= peep.author %>
+          wrote:
+          <%= peep.text %>
+          <br>
+          <h3>
+            <%= peep.date %>
+          </h3>
+          <br>
+        <% end %>
+      </body>
+    </html>

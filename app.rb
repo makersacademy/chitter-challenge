@@ -19,14 +19,10 @@ class Chitter < Sinatra::Base
     erb(:'peeps/index')
   end
 
-  get '/peeps/new' do
-    erb(:'peeps/new')
-  end
-
   post '/peeps/new' do
     redirect '/peeps' if Peep.create(params[:text], params[:author])
     params[:text].chars.length > 240 ? flash[:n] = Flash.long_peep : flash[:n] = Flash.no_name
-    redirect '/peeps/new'
+    redirect '/peeps'
   end
 
   get '/users/new' do
