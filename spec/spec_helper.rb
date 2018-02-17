@@ -1,6 +1,6 @@
 require 'simplecov'
 require 'simplecov-console'
-require_relative 'database_connection_setup.rb'
+require_relative '../database_connection_setup.rb'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

@@ -13,6 +13,16 @@ class Cheet
   property :created_at, DateTime  # A DateTime, for any date you might like.
   DataMapper.finalize
 
+  def self.add_cheet(title, body)
+    Cheet.create(
+      :title      => title,
+      :body       => body,
+      :created_at => Time.now
+    )
+  end
+
+
+
 end
 
 # DataMapper.setup(:default, 'postgres:///cheeter_test')
