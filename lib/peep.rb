@@ -11,7 +11,8 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |hash| Peep.new(hash['message'], hash['time'], hash['username'], hash['name']) }
+    array = result.map { |hash| Peep.new(hash['message'], hash['time'], hash['username'], hash['name']) }
+    array.reverse
   end
 
   def self.add(message)
