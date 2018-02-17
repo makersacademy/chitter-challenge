@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require './lib/database_connection_setup'
 require './lib/peep'
 require './lib/user'
+require './lib/flash'
 
 class Chitter < Sinatra::Base
 
@@ -24,11 +25,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
     redirect '/peeps' if Peep.create(params[:text], params[:author])
-    if params[:text].chars.length > 240 then
-      flash[:notice] = "Your peep is too long. The max limit is 240 characters."
-    else
-      flash[:notice] = "Please enter your name."
-    end
+    params[:text].chars.length > 240 ? flash[:notice] = Flash.long_peep : flash[:notice] = Flash.no_name
     redirect '/peeps/new'
   end
 
@@ -37,13 +34,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    flash[:notice] = "#{params[:name]}, thank you for signing up! Enjoy chitter!"
+    flash[:notice] = Flash.welcome(params[:name])
     redirect '/peeps' if User.create(params[:email], params[:password], params[:name], params[:username])
-    if !params[:email].chars.include?("@")
-      flash[:notice] = "Please enter a valid email."
-    else
-      flash[:notice] = "Please enter at least 4 characters in each field."
-    end
+    !params[:email].chars.include?("@") ? flash[:notice] = Flash.invalid_mail : flash[:notice] = Flash.too_short
     redirect '/users/new'
   end
 
