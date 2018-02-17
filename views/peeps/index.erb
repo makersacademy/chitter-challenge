@@ -5,8 +5,23 @@
   </head>
   <body>
 
-    <div class="title"> <h1> Welcome to Chitter! <br> A totally-not-a-twitter-rip-off platform to share random thoughts.</h2> </div>
+    <div class="title">
+      <h1>
+        Welcome to Chitter!
+        <br>
+        A totally-not-a-twitter-rip-off platform to share random thoughts.</h2>
+    </div>
     <br>
+
+    <form action="/users/new" method="GET">
+      <input type="submit" value="Sign Up">
+    </form>
+
+    <form action="/peep/new" method="GET">
+      <input type="submit" value="Create a new Peep">
+    </form>
+
+    Create Peep:
     <%= flash[:notice] %>
     <form action="/peeps/new" method="POST">
       <input type="text" name="text" placeholder="Enter your peep">
@@ -15,8 +30,13 @@
     </form>
 
     <% @peeps.each do |peep| %>
-      <%= peep.author %> wrote: <%= peep.text %> <br>
-      <h3> <%= peep.date %> </h3>
+      <%= peep.author %>
+      wrote:
+      <%= peep.text %>
+      <br>
+      <h3>
+        <%= peep.date %>
+      </h3>
       <br>
     <% end %>
   </body>
