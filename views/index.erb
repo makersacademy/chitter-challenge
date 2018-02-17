@@ -6,3 +6,12 @@
   <input type="text", name="peep", placeholder="Enter your peep here...">
   <input type ="submit" value="Submit">
 </form>
+
+<h2>Older peeps</h2>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <p><%= peep %></p>
+  <%end%>
+</ul>
+
