@@ -7,4 +7,5 @@ feature "Create new peep" do
     click_button("Submit")
     expect(page).to have_content("A new peep")
   end
+  
 end
