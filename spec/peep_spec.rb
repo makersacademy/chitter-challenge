@@ -17,5 +17,5 @@ describe Peep do
       Peep.create("Hello this is a new peep")
       expect(peeps).to include("Hello this is a new peep")
     end
-end
+  end
 end
