@@ -1,3 +1,8 @@
+
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
 header {
     background-image: url("/images/social1hand.jpg");
     padding-top: 70px;
@@ -21,6 +26,6 @@ h2 {
     margin-left: 150px;
 }
 
-body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-}
+/* #peep{
+  margin-left: 100px;
+} */

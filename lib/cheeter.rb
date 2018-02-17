@@ -10,7 +10,7 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM cheeter")
-    result.map { |cheet| Peep.new(cheet['name'], cheet['text']) }
+     result.map { |cheet| Peep.new(cheet['name'], cheet['text']) }
   end
 
 end

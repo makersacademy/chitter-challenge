@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require './lib/cheeter'
+require './database_connection_setup'
 
 class Cheeter < Sinatra::Base
 
@@ -8,7 +10,8 @@ class Cheeter < Sinatra::Base
   end
 
   post '/first_peep' do
-    @peep = params[:peep]
+    @cheet = params[:peep]
+    @peeps = Peep.all
     erb :add_post
   end
 

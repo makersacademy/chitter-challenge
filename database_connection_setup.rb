@@ -4,3 +4,4 @@ if ENV['ENVIRONMENT'] = 'test'
   DatabaseConnection.setup('cheeter_development_test')
 else
   DatabaseConnection.setup('cheeter_development')
+end

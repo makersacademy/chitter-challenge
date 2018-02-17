@@ -4,8 +4,14 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
+  <body>s
     <h1>cheeter message:</h1>
-    <h2><%= @peep %></h2>
+    <h2><%= @cheet %></h2>
+    <h3> peep history: </h3>
+    <% @peeps.each do |cheet|%>
+    <h3>
+      <li><%= cheet.text %></li>
+      <% end %>
+    </h3>
   </body>
 </html>
