@@ -4,8 +4,6 @@ require_relative 'lib/peep'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
-
   get '/peeps/' do
     @peeps = Peep.all
     erb(:index)
@@ -17,9 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    new_peep = params['new_peep']
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (post) VALUES('#{new_peep}');")
+    Peep.create(params['new_peep'])
     redirect '/peeps/new'
   end
 
