@@ -14,7 +14,8 @@ task :setup do
     connection = PG.connect
     connection.exec("CREATE DATABASE #{database}")
     connection = PG.connect(dbname: "#{database}")
-    connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(240));")
+    connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY,
+      text VARCHAR(240));")
   end
 end
 
@@ -31,6 +32,6 @@ task :remove_databases do
 
   ["chitter", "chitter_test"].each do |database|
     connection = PG.connect
-    connection.exec("DROP DATABASE #{ database };")
+    connection.exec("DROP DATABASE #{database};")
   end
 end

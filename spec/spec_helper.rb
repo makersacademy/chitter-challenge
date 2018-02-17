@@ -4,9 +4,12 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
+require 'rake'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+
+Rake.application.load_rakefile
 
 Capybara.app = Chitter
 
@@ -18,6 +21,11 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
+  config.before(:each) do
+    Rake::Task["populate_test_database"].execute
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
