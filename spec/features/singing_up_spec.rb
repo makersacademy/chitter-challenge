@@ -3,7 +3,7 @@ feature "user signes up" do
     visit('/')
     click_button("Sign Up")
     fill_in "name", with: "Justyna"
-    fill_in "username", with: "Kotauror"
+    fill_in "username", with: "Kotaurfaor"
     fill_in "email", with: "kot@kot.pl"
     fill_in "password", with: "tesft"
     click_button("Sign Up")
@@ -16,7 +16,7 @@ feature "user signes up" do
     visit('/')
     click_button("Sign Up")
     fill_in "name", with: "Ja"
-    fill_in "username", with: "Kotauror"
+    fill_in "username", with: "Kotaufafror"
     fill_in "email", with: "pies@pies.com"
     fill_in "password", with: "test"
     click_button("Sign Up")
@@ -29,10 +29,23 @@ feature "user signes up" do
     visit('/')
     click_button("Sign Up")
     fill_in "name", with: "Justyna"
-    fill_in "username", with: "Kotauror"
+    fill_in "username", with: "Kotaufafaror"
     fill_in "email", with: "test@test.com"
     fill_in "password", with: "test"
     click_button("Sign Up")
     expect(page).to have_content "This email has been already registered."
+  end
+end
+
+feature "user signes up" do
+  scenario "user gives an existing username" do
+    visit('/')
+    click_button("Sign Up")
+    fill_in "name", with: "Justyna"
+    fill_in "username", with: "Kotauror"
+    fill_in "email", with: "test@tmikest.com"
+    fill_in "password", with: "test"
+    click_button("Sign Up")
+    expect(page).to have_content "This username has been already registered."
   end
 end

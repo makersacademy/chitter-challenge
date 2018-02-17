@@ -16,6 +16,10 @@ class Flash
     "This email has been already registered."
   end
 
+  def self.username_in_use
+    "This username has been already registered."
+  end
+
   def self.too_short
     "Please enter at least 4 characters in each field."
   end
