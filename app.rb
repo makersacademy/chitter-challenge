@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
     else
       flash[:notice] = "Please enter your name."
     end
-    redirect '/peeps'
+    redirect '/peeps/new'
   end
 
   get '/users/new' do

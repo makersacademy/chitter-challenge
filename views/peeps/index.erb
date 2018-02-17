@@ -17,16 +17,8 @@
       <input type="submit" value="Sign Up">
     </form>
 
-    <form action="/peep/new" method="GET">
+    <form action="/peeps/new" method="GET">
       <input type="submit" value="Create a new Peep">
-    </form>
-
-    Create Peep:
-    <%= flash[:notice] %>
-    <form action="/peeps/new" method="POST">
-      <input type="text" name="text" placeholder="Enter your peep">
-      <input type="text" name="author" placeholder="Enter your name">
-      <input type="submit" value="Add Peep">
     </form>
 
     <% @peeps.each do |peep| %>
