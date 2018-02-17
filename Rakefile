@@ -15,7 +15,7 @@ task :setup do
       conn.exec("CREATE DATABASE #{database}")
       DatabaseConnection.setup("#{database}")
       DatabaseConnection.query(
-        "CREATE TABLE cheeps (id SERIAL PRIMARY KEY, string VARCHAR(140));"
+        "CREATE TABLE peeps (id SERIAL PRIMARY KEY, string VARCHAR(140));"
       )
     end
   p 'Set up complete. "chitter" and "chitter_test" databases created'
@@ -23,7 +23,7 @@ end
 
 task :test_setup do
   DatabaseConnection.setup('chitter_test')
-  DatabaseConnection.query("TRUNCATE cheeps;
-  INSERT INTO cheeps (string) VALUES ('Today was a good day');
-  INSERT INTO cheeps (string) VALUES ('How Can Mirrors Be Real If Our Eyes Arent Real');")
+  DatabaseConnection.query("TRUNCATE peeps;
+  INSERT INTO peeps (string) VALUES ('Today was a good day');
+  INSERT INTO peeps (string) VALUES ('How Can Mirrors Be Real If Our Eyes Arent Real');")
 end
