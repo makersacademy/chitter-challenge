@@ -1,4 +1,5 @@
 require "pg"
+# require "./lib/database_connection"
 
 # Using a class instance variable for @connection. DatabaseConnection will
 # never be instantiated. It's a singleton object and there's only
