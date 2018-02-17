@@ -1,0 +1,12 @@
+<h1>Welcome to Chitter!</h1>
+
+<form id="msg" action="/new" method="post">
+  <textarea name="message" form="msg" rows="4" cols="50" placeholder="What's on your mind?"></textarea>
+  <input type="submit" value="Peep">
+</form>
+
+<div class="feed">
+  <% @comments.each do |comment| %>
+  <p><%= comment %></p>
+  <% end %>
+</div>
