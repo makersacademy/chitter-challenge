@@ -18,7 +18,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    Peep.create(params[:text], params[:author])
+    redirect '/peeps' if Peep.create(params[:text], params[:author])
+    if params[:text].chars.length > 240 then
+      flash[:notice] = "Your peep is too long. The max limit is 240 characters."
+    else
+      flash[:notice] = "Please enter your name."
+    end
     redirect '/peeps'
   end
 

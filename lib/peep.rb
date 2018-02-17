@@ -19,11 +19,14 @@ class Peep
   end
 
   def self.create(text, author)
+    return false unless in_limit?(text) && author.length > 0
     DatabaseConnection.query("INSERT INTO peeps(text, date, author) VALUES('#{text}', '#{Time.now}', '#{author}')")
   end
 
   private
 
-  
+  def self.in_limit?(text)
+    text.chars.length <= 240
+  end
 
 end
