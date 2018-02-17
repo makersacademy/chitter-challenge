@@ -8,6 +8,7 @@
     <% @peeps.reverse_each do |peep| %>
       <li id="peep-<%= peep.id %>">
         <%= peep.text %>
+        <%= peep.time %>
       </li>
     <% end %>
   </ul>

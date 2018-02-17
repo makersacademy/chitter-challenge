@@ -21,6 +21,14 @@ describe Peep do
       expect(peep_contents).to include("A new peep!")
     end
 
+    it "New peeps are timestamped" do
+      peep.create("A new peep!")
+      peeps = peep.all
+      peep_time = peeps.map(&:time)
+      time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+      expect(peep_time).to include(time)
+    end
+
   end
 
 end

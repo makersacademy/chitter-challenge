@@ -15,7 +15,7 @@ task :setup do
     connection.exec("CREATE DATABASE #{database}")
     connection = PG.connect(dbname: "#{database}")
     connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY,
-      text VARCHAR(240));")
+      text VARCHAR(240), time TIMESTAMP);")
   end
 end
 
@@ -23,8 +23,8 @@ task :populate_test_database do
   p ' -+-+- Populating test database -+-+-'
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec("TRUNCATE peeps;")
-  connection.exec("INSERT INTO peeps VALUES(1, 'Hello world!');")
-  connection.exec("INSERT INTO peeps VALUES(2, 'Goodbye!');")
+  connection.exec("INSERT INTO peeps VALUES(1, 'Hello world!', '#{Time.now}');")
+  connection.exec("INSERT INTO peeps VALUES(2, 'Goodbye!', '#{Time.now}');")
 end
 
 task :remove_databases do
