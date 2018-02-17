@@ -37,9 +37,20 @@ class Chitter < Sinatra::Base
     flash[:n] = Flash.welcome(params[:name])
     redirect '/peeps' if User.create(params[:email], params[:password], params[:name], params[:username])
     flash[:n] = Flash.email_in_use if User.email_in_use?(params[:email])
-    flash[:n] = Flash.username_in_use if User.name_in_use?(params[:username])
-    # flash[:n] = Flash.too_short
+    flash[:n] = Flash.username_in_use if User.username_in_use?(params[:username])
+    flash[:n] = Flash.too_short if !User.valid?(params[:username], params[:name], params[:password])
     redirect '/users/new'
+  end
+
+  get '/users/log_in' do
+    erb(:'users/log_in')
+  end
+
+  post '/users/log_in' do
+    flash[:n] = Flash.after_log_in(params[:username])
+    redirect '/peeps' if User.matching_data(params[:username], params[:password])
+    flash[:n] = Flash.no_match if !User.matching_data(params[:username], params[:password])
+    redirect '/users/log_in'
   end
 
 end

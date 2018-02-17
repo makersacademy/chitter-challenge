@@ -24,4 +24,12 @@ class Flash
     "Please enter at least 4 characters in each field."
   end
 
+  def self.after_log_in(name)
+    "#{name}, you're logged in, happy chittering!"
+  end
+
+  def self.no_match
+    "Username and password don't match. Try again."
+  end
+
 end

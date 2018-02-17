@@ -11,7 +11,7 @@ end
 task :test_database_setup do
   p 'Setting up test database...'
   connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("TRUNCATE peeps;")
+  connection.exec("TRUNCATE peeps, users;")
   connection.exec("INSERT INTO peeps VALUES(1, 'Nice day for coding', '2018-02-17 15:54:04', 'Justyna');")
   connection.exec("INSERT INTO peeps VALUES(2, 'Bad day for coding', '2018-02-17 15:55:04', 'Igor');")
 end
