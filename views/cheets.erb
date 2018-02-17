@@ -1,0 +1,15 @@
+<h1>Welcome to Cheeter</h1>
+
+<form action="/cheets/new" method="post">
+  <input type="text" name="title", placeholder="Cheet Title">
+  <input type="text" name="body", placeholder="Cheet Body">
+  <input type="submit" value="Post Cheet">
+</form>
+
+<ul>
+  <% @cheets.each do |cheet| %>
+  <h1> <p><%= cheet.title %></p> </h1>
+  <h2> <p><%= cheet.body %></p> </h2>
+  <p><%= cheet.created_at.strftime('%R - %F') %></p>
+  <%end%>
+</ul>

@@ -9,8 +9,13 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
 
+  get '/' do
+    redirect '/cheets'
+  end
+
   get '/cheets' do
-    "Hello"
+    @cheets = Cheet.reverse_chronological_cheets
+    erb(:cheets)
   end
 
 end

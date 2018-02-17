@@ -4,7 +4,6 @@
 #   task default: [:spec]
 # end
 
-# require 'pg'
 require 'rubygems'
 require 'data_mapper'
 require  'dm-migrations'
@@ -14,9 +13,6 @@ require File.join(File.dirname(__FILE__), 'lib', 'cheet.rb')
 task :setup do
   begin
   %w[cheeter cheeter_test].each do |database|
-    # TODO - Automate database creation (requiring pg gem causes JSON error. May be solved if individually require datamapper elements and avoid serializer)
-    # connection = PG.connect
-    # connection.exec("CREATE DATABASE #{database}")
     DataMapper.setup(:default, "postgres:///#{database}")
     DataMapper.auto_migrate!
     # DataMapper.finalize

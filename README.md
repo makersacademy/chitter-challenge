@@ -1,3 +1,13 @@
+To use this repo
+=================
+bundle # Installs required gems
+rake setup # Creates required tables
+ruby database_drop_create.rb # Drops and creates cheeter development and test databases
+rackup # Loads website at local host port
+
+
+
+
 Chitter Challenge
 =================
 

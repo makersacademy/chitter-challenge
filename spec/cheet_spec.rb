@@ -4,6 +4,7 @@ describe Cheet do
   describe '::add_cheet' do
     it 'adds a new cheet' do
     cheet = described_class.add_cheet('My cheet','Body of text')
+    p described_class.all
     expect(described_class.all).to include cheet
     end
   end
