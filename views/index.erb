@@ -1,9 +1,14 @@
+<head>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<link href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Slab" rel="stylesheet">
+<body><div>
 <h1>Chitter</h1>
 
 <h2>What's on your mind?</h2>
 
 <form action="/peeps/new" method="post">
-  <input type="text", name="peep", placeholder="Enter your peep here...">
+  <input type="text", name="peep", placeholder="Enter your peep here..." size="100">
   <input type ="submit" value="Submit">
 </form>
 
@@ -13,5 +18,5 @@
   <% @peeps.each do |peep| %>
   <strong><p><%= peep.date%> <%= peep.time%></strong> | <%= peep.peep %> </p>
   <%end%>
-</ul>
-
+</ul></div>
+</body>
