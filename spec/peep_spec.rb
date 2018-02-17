@@ -9,3 +9,11 @@ describe Peep do
     end
   end
 end
+
+describe '.create' do
+  it 'creates a new peep' do
+    Peep.create(post: 'My first peep')
+
+    expect(Peep.all).to include 'My first peep'
+  end
+end

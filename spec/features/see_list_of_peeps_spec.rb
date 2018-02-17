@@ -6,3 +6,12 @@ feature 'Viewing peeps' do
     expect(page).to have_content "This is another test peep"
   end
 end
+
+feature 'Post a peep' do
+  scenario 'A user can post a peep to chitter' do
+    visit('/post')
+    fill_in('post', with: 'My first peep')
+    click_button('Post peep')
+    expect(page).to have_content 'My first peep'
+  end
+end
