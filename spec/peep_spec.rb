@@ -17,7 +17,10 @@ describe Peep do
     it "Can create new peeps" do
       peep.create("A new peep!")
       peeps = peep.all
-      expect(peeps).to include("A new peep!")
+      peep_contents = peeps.map(&:text)
+      expect(peep_contents).to include("A new peep!")
     end
+
   end
+
 end

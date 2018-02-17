@@ -14,4 +14,8 @@ class Peep
     db.map { |peep| Peep.new(peep['id'], peep['text']) }
   end
 
+  def self.create(text)
+    DatabaseConnection.query("INSERT INTO peeps (text) VALUES ('#{text}')")
+  end
+
 end
