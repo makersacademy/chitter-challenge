@@ -19,9 +19,9 @@ RSpec.describe DatabaseConnection do
     it 'it executes a query via PG' do
       connection = DatabaseConnection.setup('cheeter_development_test')
 
-      expect(connection).to receive(:exec).with("SELECT * FROM links;")
+      expect(connection).to receive(:exec).with("SELECT * FROM cheeter;")
 
-      DatabaseConnection.query("SELECT * FROM links;")
+      DatabaseConnection.query("SELECT * FROM cheeter;")
     end
   end
 end
