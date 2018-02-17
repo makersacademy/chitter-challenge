@@ -2,7 +2,7 @@ class Peep
 
   attr_reader :message, :username, :name, :time
 
-  def initialize(message, username, name, time = Time.now)
+  def initialize(message, time = Time.now, username, name)
     @message = message
     @username = username
     @name = name
