@@ -1,16 +1,22 @@
 body {
-background-color: black;
+background-color: #afa9a7;
+}
+
+.title {
+  text-align: center;
+  font-size: 80px;
 }
 
 .page-container {
   background-color: #303030;
   width: 50%;
   margin: auto;
-  padding: 0px, 25%, 0px, 25%;
+  padding: 10px, 25%, 10px, 25%;
 }
 
 .all-peeps-container {
   background-color: #61728e;
+  padding: 10px;
 }
 
 .peep-container {

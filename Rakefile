@@ -15,8 +15,10 @@ task :setup do
   databases.each do |database|
     Rake::Task[:create_database].invoke(database)
     Rake::Task[:create_database].reenable
-    Rake::Task[:create_table].invoke(database)
-    Rake::Task[:create_table].reenable
+    Rake::Task[:create_peep_table].invoke(database)
+    Rake::Task[:create_peep_table].reenable
+    Rake::Task[:create_users_table].invoke(database)
+    Rake::Task[:create_users_table].reenable
   end
 end
 
@@ -27,11 +29,18 @@ rescue PG::DuplicateDatabase
   p "#{args[:database]} already exists"
 end
 
-task :create_table, [:database] do |t, args|
+task :create_peep_table, [:database] do |t, args|
   connection = PG.connect dbname: args[:database]
   connection.exec "CREATE TABLE peeps(id SERIAL PRIMARY KEY, body VARCHAR(240), created_date TIMESTAMP);"
 rescue PG::DuplicateTable
   p "#{args[:database]} already has a table named peeps"
+end
+
+task :create_users_table, [:database] do |t, args|
+  connection = PG.connect dbname: args[:database]
+  connection.exec "CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(60), name VARCHAR(60), email VARCHAR(60), password VARCHAR(60));"
+rescue PG::DuplicateTable
+  p "#{args[:database]} already has a table named users"
 end
 
 task :populate_test_database do

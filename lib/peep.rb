@@ -3,7 +3,7 @@ require 'pg'
 class Peep
 
   def self.all
-    peeps = DatabaseConnection.query "SELECT * FROM peeps"
+    peeps = DatabaseConnection.query "SELECT * FROM peeps ORDER BY created_date"
     peeps.map do |peep|
       date = DateTime
         .strptime(peep['created_date'], "%Y-%m-%d %H:%M:%S")
