@@ -15,7 +15,8 @@ task :setup do
   ['chitter', 'chitter_test'].each do |database|
     connection.exec("CREATE DATABASE #{database};")
     DatabaseConnection.setup("#{database}")
-    DatabaseConnection.query("CREATE TABLE peeps (id SERIAL PRIMARY KEY, post VARCHAR(140));")
+    sql = "CREATE TABLE peeps (id SERIAL PRIMARY KEY, post VARCHAR(140));"
+    DatabaseConnection.query(sql)
   end
 end
 
