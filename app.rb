@@ -13,10 +13,6 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  get '/chitter/new' do
-    erb(:new)
-  end
-
   post '/chitter' do
     Peep.create(params[:peep_text])
     redirect("/chitter")

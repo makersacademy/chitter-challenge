@@ -4,6 +4,12 @@
 </head>
 <body>
   <h1>Welcome to Chitter</h1>
+
+  <form action="/chitter" method="POST">
+    <input type="text" name="peep_text" placeholder="Enter peep here...">
+    <input type="submit" value="Submit">
+  </form>
+
   <ul>
     <% @peeps.reverse_each do |peep| %>
       <li id="peep-<%= peep.id %>">
@@ -13,8 +19,5 @@
     <% end %>
   </ul>
 
-  <form action="/chitter/new" method="GET">
-    <input type="submit" value="New peep">
-  </form>
 </body>
 </html>
