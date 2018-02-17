@@ -9,6 +9,7 @@ TBC
 
 1) Start simple and use minimal implementation to display hard-coded display of peeps on home page.
 2) Replace hard-coded display by connecting to a database instead - used `pg` gem.
+3) Add functionality for creating a new peep to the current list of peeps in both a test environment (database) and real one.
 
 ### Installation
 
