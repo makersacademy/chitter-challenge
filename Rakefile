@@ -8,7 +8,7 @@ if ENV['RACK_ENV'] != 'production'
 
   task :setup do
     puts "Creating databases..."
-    ['chitter', 'chitter_test'].each do |database|
+    ['chitter_development', 'chitter_test'].each do |database|
       con = PG.connect
       con.exec("CREATE DATABASE #{database}")
       con = PG.connect dbname: database

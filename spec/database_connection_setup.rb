@@ -1,7 +1,7 @@
 require'./lib/database_connection'
 
 if ENV['ENVIRONMENT'] == 'test'
-  DatabaseConnection.setup('chitter_test')
+  DataMapper.setup(:default, "postgres://localhost/chitter_test")
 else
-  DatabaseConnection.setup('chitter')
+  DataMapper.setup(:default, "postgres://localhost/chitter")
 end

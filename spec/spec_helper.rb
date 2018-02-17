@@ -5,6 +5,8 @@ require 'simplecov-console'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara/rspec'
 require 'rake'
+require 'data_mapper'
+require 'dm-postgres-adapter'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

@@ -6,7 +6,7 @@
 </form>
 
 <div class="feed">
-  <% @comments.each do |comment| %>
-  <p><%= comment %></p>
+  <% @comments.reverse.each do |comment| %>
+  <p><%= comment.comment %></p>
   <% end %>
 </div>

@@ -1,14 +1,15 @@
-require 'pg'
+require 'data_mapper'
+require 'dm-postgres-adapter'
 
 class Comment
 
-  def self.all
-    result = DatabaseConnection.query("SELECT * FROM comments")
-    result.column_values(1)
-  end
+  include DataMapper::Resource
 
-  def self.create(comment)
-    DatabaseConnection.query("INSERT INTO comments(comment) VALUES('#{comment}')")
-  end
+  property :id, Serial
+  property :comment, String
 
 end
+
+DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['ENVIRONMENT']}")
+DataMapper.finalize
+DataMapper.auto_upgrade!
