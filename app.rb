@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
     redirect '/peeps' if Peep.create(params[:text], params[:author])
-    params[:text].chars.length > 240 ? flash[:notice] = Flash.long_peep : flash[:notice] = Flash.no_name
+    params[:text].chars.length > 240 ? flash[:n] = Flash.long_peep : flash[:n] = Flash.no_name
     redirect '/peeps/new'
   end
 
@@ -34,9 +34,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    flash[:notice] = Flash.welcome(params[:name])
+    flash[:n] = Flash.welcome(params[:name])
     redirect '/peeps' if User.create(params[:email], params[:password], params[:name], params[:username])
-    !params[:email].chars.include?("@") ? flash[:notice] = Flash.invalid_mail : flash[:notice] = Flash.too_short
+    !params[:email].chars.include?("@") ? flash[:n] = Flash.invalid_mail : flash[:n] = Flash.too_short
     redirect '/users/new'
   end
 
