@@ -1,5 +1,5 @@
 Welcome to Chitter! It's a totally-not-a-twitter-rip-off platform to share random thoughts. <br>
 
 <% @peeps.each do |peep| %>
-  <%= peep['id'] %>   <%= peep['text'] %>   <%= peep['date'] %>   <%= peep['author'] %>
+  <%= peep.id %>   <%= peep.text %>   <%= peep.date %>   <%= peep.author %> <br>
 <% end %>
