@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
 
-  get '/' do
+  get '/cheets' do
     "Hello"
   end
 

@@ -1,9 +1,12 @@
 require_relative 'database_connection'
 require 'rubygems'
 require 'data_mapper'
+
 require_relative '../database_connection_setup.rb'
 
 class Cheet
+
+  attr_reader :id, :title, :body, :created_at
 
   include DataMapper::Resource
   # include DataMapper::Repository
@@ -21,6 +24,9 @@ class Cheet
     )
   end
 
+  def self.reverse_chronological_cheets
+    Cheet.all(:order => [:created_at.desc])
+  end
 
 
 end

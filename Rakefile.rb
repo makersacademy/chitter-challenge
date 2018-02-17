@@ -7,13 +7,14 @@
 # require 'pg'
 require 'rubygems'
 require 'data_mapper'
+require  'dm-migrations'
 require_relative 'database_connection_setup.rb'
 require File.join(File.dirname(__FILE__), 'lib', 'cheet.rb')
 
 task :setup do
   begin
   %w[cheeter cheeter_test].each do |database|
-    # TODO - Automate database creation (requiring pg gem causes JSON error)
+    # TODO - Automate database creation (requiring pg gem causes JSON error. May be solved if individually require datamapper elements and avoid serializer)
     # connection = PG.connect
     # connection.exec("CREATE DATABASE #{database}")
     DataMapper.setup(:default, "postgres:///#{database}")
@@ -26,6 +27,7 @@ end
 
 task :setup_test_database do
   begin
+  DataMapper.auto_migrate!
   # DataMapper.setup(:default, 'postgres:///cheeter_test')
   Cheet.create(
     :title      => "My first DataMapper post",
