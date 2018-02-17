@@ -4,14 +4,14 @@
 
 ## Introduction
 
-Welcome to my repo for the Makers Academy weekend challenge(4). My task was to create a clone of the popular social-media website, Twitter.
+Welcome to my repo for the Makers Academy weekend challenge(4). My task was to create a clone of the popular social-media website "Twitter", using databases, SQL languages, Sinatra, Capybara, and Rake.
 
 ## Useage
 
-Type ```bundle install``` into your terminal emulator.
-Type ```rake set_up``` to initialize the databases.
-Jump for joy!
-Weep with relief.
+- Type ```bundle install``` into your terminal emulator.
+- Type ```rake set_up``` to initialize the databases.
+- Jump for joy!
+- Weep with relief.
 
 ## Specification
 
