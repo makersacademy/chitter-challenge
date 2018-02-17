@@ -1,3 +1,10 @@
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="/" class="close">&times;</a>
+  </div>
+<% end %>
+
 <h1>Welcome to Chitter!</h1>
 
 <form id="msg" action="/new" method="post">
@@ -9,4 +16,11 @@
   <% @comments.reverse.each do |peep| %>
   <p><strong><%= peep.comment %></strong> - <i>Sent at: <%= peep.created_at.strftime "%H:%M" %></i></p>
   <% end %>
+</div>
+
+<div class="sign-up">
+  <h3>Not a user?</h3>
+  <form action="/sign-up" method="get">
+    <input type="submit" value="Sign up">
+  </form>
 </div>
