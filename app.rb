@@ -14,8 +14,6 @@ class Chitter < Sinatra::Base
 
   post "/peeps/new" do
     @peeps = Peep.all    
-    # @new_peep = params[:peep]
-    # Peep.create(@new_peep)
     Peep.create(params['peep'])
     erb(:index)    
     redirect("/")
