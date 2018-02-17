@@ -1,3 +1,35 @@
+README Edit: My approach and code review
+=================
+
+My approach
+------
+Pre-code:
+* First, I read through the User Stories and drew the Domain Models in a table in order to have a clear idea about the main objects and messages of the app.
+* Secondly, I drew a relational diagram focusing focusing on what happens after every step in the app. For example: the user opens the website, then peeps are displayed (no login required). The user can choose to sign-up and/or log-in to post new peeps.
+* Finally, I drew a quick mock-up of the pages, to have a better understanding on where to place the different sections, etc.
+
+Regarding the development process, I made sure to stick by this flow:
+* Feature Test
+* Unit Tests
+* Implementation
+* Refactoring
+
+Next focus
+------
+
+
+Personal code review
+------
+
+Installation Instructions
+------
+
+How to run the tests
+------
+
+Screenshot
+------
+
 Chitter Challenge
 =================
 
