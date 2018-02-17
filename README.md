@@ -23,6 +23,18 @@ Personal code review
 
 Installation Instructions
 ------
+To install all the dependencies needed for the project, please install **bundler** by running ```gem install bundler``` in the terminal. Then, simply run ```bundle``` to install the gems included in **Gemfile**
+
+In order to set up the databases needed for this project, please run the following commands:
+```rake
+rake setup
+rake test_db_setup
+rake clear_db
+```
+
+Finally, simply type one of the following commands in your terminal to navigate around the app:
+* ```rackup```
+* ```ruby app.rb```
 
 How to run the tests
 ------
