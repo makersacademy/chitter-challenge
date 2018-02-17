@@ -18,4 +18,9 @@ class Chitter < Sinatra::Base
     erb(:cheets)
   end
 
+  post '/cheets/new' do
+    Cheet.add_cheet(params[:title], params[:body])
+    redirect '/'
+  end
+
 end
