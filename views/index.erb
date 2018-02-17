@@ -3,22 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
   </head>
   <body>
-    <h1>Chitter</h1>
-
-    <form action="/peeps" method="post">
-          <textarea name="peep" placeholder="Peep here" maxlength="240" rows="4" cols="50"></textarea>
-          <input type="submit" name="post" value ="peep">
-    </form>
-
-    <h3>Peeps</h3>
-    <ul>
-      <% @peeps.each do |peep| %>
-        <li><%= peep %></li>
-
-      <% end %>
-    </ul>
-
+    <main class="page-container">
+      <h1>Chitter</h1>
+      <form action="/peeps" method="post">
+            <textarea name="peep" placeholder="Peep here" maxlength="240" rows="4" cols="50"></textarea>
+            <br>
+            <input type="submit" name="post" value ="peep">
+      </form>
+      <div class="all-peeps-container">
+        <h3>Peeps</h3>
+          <% @peeps.each do |peep| %>
+            <div class="peep-container">
+              <%= peep[:body] %>
+              <br>
+              <span class="peep-footer"><em>posted at <%= peep[:created_date] %></em></span>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>

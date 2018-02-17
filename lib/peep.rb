@@ -4,11 +4,19 @@ class Peep
 
   def self.all
     peeps = DatabaseConnection.query "SELECT * FROM peeps"
-    peeps.map { |peep| peep["body"] }
+    peeps.map do |peep|
+      date = DateTime
+        .strptime(peep['created_date'], "%Y-%m-%d %H:%M:%S")
+        .strftime("%Y-%m-%d %H:%M:%S")
+      { body: peep["body"],
+        created_date: date}
+    end
   end
 
   def self.create(peep)
-    DatabaseConnection.query "INSERT INTO peeps(body) VALUES ('#{peep}')"
+    DatabaseConnection.query "INSERT INTO peeps(body, created_date) " +
+    "VALUES('#{peep}', NOW())"
+     #''
   end
 
 end
