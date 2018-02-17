@@ -16,11 +16,12 @@ if ENV['RACK_ENV'] != 'production'
     end
   end
 
-  task :test_database_setup do
-    puts 'Setting up test database...'
-    con = PG.connect dbname: 'chitter_test'
-    con.exec("DROP TABLE IF EXISTS comments")
-    con.exec("CREATE TABLE comments (id SERIAL PRIMARY KEY, comment VARCHAR(240))")
-    con.exec("INSERT INTO comments(comment) VALUES('Im hungry')")
-  end
+  # task :test_database_setup do
+  #   puts 'Setting up test database...'
+  #   con = PG.connect dbname: 'chitter_test'
+  #   # con.exec("DROP TABLE IF EXISTS comments")
+  #   # con.exec("CREATE TABLE comments (id SERIAL PRIMARY KEY, comment VARCHAR(240))")
+  #   # con.exec("INSERT INTO comments(comment) VALUES('Im hungry')")
+  #
+  # end
 end

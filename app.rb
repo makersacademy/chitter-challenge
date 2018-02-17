@@ -1,10 +1,9 @@
-ENV["RACK_ENV"] ||= "development"
+ENV["ENVIRONMENT"] ||= "development"
 require 'sinatra/base'
 require './lib/comment'
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require 'pg'
-require './spec/database_connection_setup'
+require 'date'
 
 class Chitter < Sinatra::Base
 

@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'dm-timestamps'
 
 class Comment
 
@@ -7,6 +8,7 @@ class Comment
 
   property :id, Serial
   property :comment, String
+  property :created_at, DateTime 
 
 end
 

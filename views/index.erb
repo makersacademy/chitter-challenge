@@ -6,7 +6,7 @@
 </form>
 
 <div class="feed">
-  <% @comments.reverse.each do |comment| %>
-  <p><%= comment.comment %></p>
+  <% @comments.reverse.each do |peep| %>
+  <p><strong><%= peep.comment %></strong> - <i>Sent at: <%= peep.created_at.strftime "%H:%M" %></i></p>
   <% end %>
 </div>
