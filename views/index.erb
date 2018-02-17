@@ -1,1 +1,9 @@
 <h1>Welcome to Chitter!</h1>
+
+<div style="text-align: center;">
+  <% @peeps.each do |peep| %>
+    <div class="peeps" style="margin-top: 10px;">
+      <%= peep['peep'] %>
+    </div>
+  <% end %>
+</div>

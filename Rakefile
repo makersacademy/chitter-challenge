@@ -13,11 +13,16 @@ task :setup do
 
   ['chitter', 'chitter_test'].each do |db|
     connection = PG.connect
-    connection.exec("CREATE DATABASE #{db};")
+
+    begin
+      connection.exec("CREATE DATABASE #{db};")
+    rescue
+    end
 
     connection = PG.connect(dbname: db)
-    connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(240));") 
-    connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY references peeps(id), user VARCHAR(60));")
+    connection.exec("CREATE TABLE IF NOT EXISTS peeps(id SERIAL PRIMARY KEY, peep VARCHAR(240));")
+    # One peeper, many peeps
+    connection.exec("CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY REFERENCES peeps (id), peeper VARCHAR(60));")
 
     p "Created #{db}"
   end
@@ -26,8 +31,11 @@ end
 task :setup_test_db do
   connection = PG.connect(dbname: 'chitter_test')
 
-  connection.exec('TRUNCATE peeps RESTART IDENTITY')
-  # connection.exec('TRUNCATE users RESTART IDENTITY')
+  begin
+    connection.exec('TRUNCATE peeps RESTART IDENTITY CASCADE')
+    # connection.exec('TRUNCATE users RESTART IDENTITY')
+  rescue
+  end
 
   # At the moment, just filling-in Test DB with peeps info, no users yet
   connection.exec("INSERT INTO peeps (peep) VALUES('¡Día de partido! ¡Vamos Real, hasta el final!');")
