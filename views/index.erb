@@ -5,7 +5,7 @@
 <body>
   <h1>Welcome to Chitter</h1>
   <ul>
-    <% @peeps.each do |peep| %>
+    <% @peeps.reverse_each do |peep| %>
       <li id="peep-<% peep.id %>">
         <%= peep.text %>
       </li>
