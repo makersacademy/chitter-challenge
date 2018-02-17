@@ -1,0 +1,6 @@
+<form action="/peeps/new" method="get">
+  <input type="submit" value="Post a new message">
+</form>
+<% @peeps.each do |peep| %>
+  <%= peep.message %><br>
+<% end %>
