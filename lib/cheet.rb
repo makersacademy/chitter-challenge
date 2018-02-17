@@ -1,26 +1,24 @@
 require_relative 'database_connection'
 require 'rubygems'
 require 'data_mapper'
-# require_relative 'database_connection_setup.rb'
-
-DataMapper.setup(:default, 'postgres:///cheeter_test')
-DataMapper.finalize
-
+require_relative '../database_connection_setup.rb'
 
 class Cheet
 
   include DataMapper::Resource
+  # include DataMapper::Repository
   property :id,         Serial    # An auto-increment integer key
   property :title,      String    # A varchar type string, for short strings
   property :body,       Text      # A text block, for longer string data.
   property :created_at, DateTime  # A DateTime, for any date you might like.
   DataMapper.finalize
 
-  # def initialize
-  #   @title = 'hello'
-  # end
-
 end
+
+# DataMapper.setup(:default, 'postgres:///cheeter_test')
+#
+#   a = Cheet.all
+#   p a
 
 # def initialize(array)
 #   @id = array[0].to_i

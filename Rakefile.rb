@@ -13,6 +13,7 @@ require File.join(File.dirname(__FILE__), 'lib', 'cheet.rb')
 task :setup do
   begin
   %w[cheeter cheeter_test].each do |database|
+    # TODO - Automate database creation (requiring pg gem causes JSON error)
     # connection = PG.connect
     # connection.exec("CREATE DATABASE #{database}")
     DataMapper.setup(:default, "postgres:///#{database}")
@@ -30,6 +31,16 @@ task :setup_test_database do
     :title      => "My first DataMapper post",
     :body       => "A lot of text ...",
     :created_at => Time.now
+  )
+  Cheet.create(
+    :title      => "My second DataMapper post",
+    :body       => "Some more text ...",
+    :created_at => Time.now + 100
+  )
+  Cheet.create(
+    :title      => "My third DataMapper post",
+    :body       => "Even more text ...",
+    :created_at => Time.now + 200
   )
   rescue => e
   p e
