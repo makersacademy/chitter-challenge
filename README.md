@@ -21,3 +21,5 @@ Welcome to my repo for the Makers Academy weekend challenge(4). My task was to c
 - [ ] The user can sign-up (register) their membership to the page.
 
 ## Difficulties
+
+Everything.
