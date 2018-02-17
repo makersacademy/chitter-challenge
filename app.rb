@@ -35,4 +35,8 @@ class Chitter < Sinatra::Base
     erb(:'users/new')
   end
 
+  post '/users/new' do
+    redirect ('/peeps')
+  end
+
 end
