@@ -13,18 +13,20 @@ class Chitter < Sinatra::Base
     @peeps = Peep.all
     erb(:'peeps/index')
   end
-
+  #
   post '/peeps' do
+    @peeps = Peep.all
+    erb(:'peeps/index')
     # peep = Peep.create(message: params['message'])
   end
 
-  get '/peeps/new' do
-    # peep = peeps.create
-    erb(:'peeps/new')
-  end
-
-  post '/feed' do
-
-  end
+  # get '/peeps/new' do
+  #   # peep = peeps.create
+  #   erb(:'peeps/new')
+  # end
+  #
+  # post '/feed' do
+  #
+  # end
 
 end

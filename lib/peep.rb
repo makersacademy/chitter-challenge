@@ -1,15 +1,14 @@
 class Peep
 
-  attr_reader :username, :message
+  attr_reader :message
 
-  def initialize(username, message)
-    @username = username
+  def initialize(message)
     @message = message
   end
 
   def self.all
     result = DatabaseConnection.query('SELECT * FROM peeps')
-    result.map { |peep| Peep.new(peep['username'], peep['message']) }
+    result.map { |peep| Peep.new(peep['message']) }
   end
 
 end

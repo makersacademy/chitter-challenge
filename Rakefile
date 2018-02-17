@@ -14,7 +14,7 @@ task :setup do
     connection = PG.connect
     connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
-    connection.exec('CREATE TABLE peeps (username VARCHAR(20), message VARCHAR(140));')
+    connection.exec('CREATE TABLE peeps (message VARCHAR(140));')
     p "Created #{database} with peeps"
   end
 end
@@ -22,11 +22,11 @@ end
 task :setup_test_database do
   connection = PG.connect(dbname: 'chitter_test')
 
-  connection.exec('TRUNCATE TABLE peeps;')
+  connection.exec('TRUNCATE peeps;')
 
-  connection.exec("INSERT INTO peeps VALUES('Heather', 'My first peep!');")
-  # connection.exec("INSERT INTO links VALUES(2, 'http://www.google.com', 'Google');")
-  # connection.exec("INSERT INTO links VALUES(3, 'http://www.facebook.com', 'Facebook');")
+  connection.exec("INSERT INTO peeps VALUES('My first peep!');")
+  connection.exec("INSERT INTO peeps VALUES('My second peep!');")
+  connection.exec("INSERT INTO peeps VALUES('My third peep!');")
 end
 
 task :remove_database do
