@@ -1,6 +1,6 @@
 # Chitter Challenge!
 
-<img align="left" src="https://image.ibb.co/iEEbT7/cc_readme.jpg" width="200" height="200"/>
+<img align="right" src="https://image.ibb.co/iEEbT7/cc_readme.jpg" width="200" height="200"/>
 
 ## Introduction
 
