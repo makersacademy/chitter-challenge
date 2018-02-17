@@ -20,7 +20,6 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    Rake::Task[:setup].execute
     Rake::Task[:setup_test_database].execute
   end
 end

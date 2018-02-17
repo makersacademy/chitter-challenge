@@ -9,9 +9,9 @@ describe Peep do
   end
 
   describe '::create' do
-    it 'allows a new peep to be created' do
+    it 'creates a new peep at the top of the list' do
       described_class.create("Peeping seems a lot like tweeting")
-      expect(described_class.all).to include "Peeping seems a lot like tweeting"
+      expect(described_class.all.first).to eq "Peeping seems a lot like tweeting"
     end
   end
 
