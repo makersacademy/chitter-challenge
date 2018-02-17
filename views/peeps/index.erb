@@ -1,0 +1,15 @@
+<h1>Chitter</h1>
+
+<form action="/" method="post">
+  <input type="text" name="peep" placeholder="Type your peep here...">
+  <input type="submit" value="Peep">
+</form>
+
+<h2>Peeps</h2>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.message %></li>
+    <% end %>
+  </ul>
+
+<h3>My first peep!</h3>
