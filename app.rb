@@ -3,15 +3,15 @@ require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
+  DatabaseConnection.setup("chitter")
 
   get '/' do
-    @peep = Peep.new(session[:peep])
+    @peeps = Peep.all
     erb :index
   end
 
   post '/post-peep' do
-    session[:peep] = params[:peep] # initiate new peep with peep object
+    Peep.create(params[:peep])
     redirect('/')
   end
 
