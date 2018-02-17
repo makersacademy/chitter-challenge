@@ -1,0 +1,23 @@
+body {
+  background-image: url("https://preview.ibb.co/ihBED7/cc_index.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 5em;
+  line-height: 50px;
+}
+
+.interface {
+  width: 700px;
+  height: auto;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+h1 {
+  font-family: 'Chalkduster', fantasy;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  font-size: 4.0em;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
