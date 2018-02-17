@@ -10,6 +10,7 @@ TBC
 1) Start simple and use minimal implementation to display hard-coded display of peeps on home page.
 2) Replace hard-coded display by connecting to a database instead - used `pg` gem.
 3) Add functionality for creating a new peep to the current list of peeps in both a test environment (database) and real one.
+4) Use rake to set up database automatically.
 
 ### Installation
 
@@ -18,6 +19,10 @@ Install Bundler and the relevant gems with the below commands:
 `gem bundle install`
 
 `bundle`
+
+Run 'rake' to set up the database
+
+`rake setup`
 
 Run 'rackup' to launch the web app
 
