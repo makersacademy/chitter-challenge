@@ -12,8 +12,8 @@ class Flash
     "Please enter your name."
   end
 
-  def self.invalid_mail
-    "Please enter a valid email."
+  def self.email_in_use
+    "This email has been already registered."
   end
 
   def self.too_short

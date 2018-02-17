@@ -13,14 +13,12 @@ class User
   end
 
   def self.create(email, password, name, username)
-    return false unless is_email?(email) && valid?(password) && valid?(name) && valid?(username) && valid?(password)
+    return false unless !email_in_use?(email) && valid?(password) && valid?(name) && valid?(username)
     DatabaseConnection.query("INSERT INTO users(email, password, name, username) VALUES('#{email}', '#{password}', '#{name}', '#{username}')")
   end
 
-  private
-
-  def self.is_email?(email)
-    email.chars.include?("@")
+  def self.email_in_use?(email)
+    DatabaseConnection.query("SELECT email FROM users WHERE email = ''#{email}''")
   end
 
   def self.valid?(string)
