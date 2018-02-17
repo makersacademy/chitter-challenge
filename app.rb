@@ -37,9 +37,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    User.create(params[:email], params[:password], params[:name], params[:username])
     flash[:notice] = "#{params[:name]}, thank you for signing up! Enjoy chitter!"
-    redirect ('/peeps')
+    redirect '/peeps' if User.create(params[:email], params[:password], params[:name], params[:username])
+    if !params[:email].chars.include?("@")
+      flash[:notice] = "Please enter a valid email."
+    else
+      flash[:notice] = "Please enter at least 4 characters in each field."
+    end
+    redirect '/users/new'
   end
 
 end
