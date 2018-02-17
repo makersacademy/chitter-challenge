@@ -1,0 +1,26 @@
+header {
+    background-image: url("/images/social1hand.jpg");
+    padding-top: 70px;
+    padding-right: 30px;
+    padding-bottom: 100px;
+    padding-left: 80px;
+
+}
+h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 50px;
+    text-align: right;
+}
+h2 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 150px;
+}
+
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
