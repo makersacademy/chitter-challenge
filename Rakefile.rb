@@ -7,6 +7,7 @@
 # require 'pg'
 require 'rubygems'
 require 'data_mapper'
+require_relative 'database_connection_setup.rb'
 require File.join(File.dirname(__FILE__), 'lib', 'cheet.rb')
 
 task :setup do
@@ -15,13 +16,26 @@ task :setup do
     # connection = PG.connect
     # connection.exec("CREATE DATABASE #{database}")
     DataMapper.setup(:default, "postgres:///#{database}")
-    DataMapper.finalize
     DataMapper.auto_migrate!
+    # DataMapper.finalize
   end
   rescue => e
   end
 end
 
+task :setup_test_database do
+  begin
+  # DataMapper.setup(:default, 'postgres:///cheeter_test')
+  Cheet.create(
+    :title      => "My first DataMapper post",
+    :body       => "A lot of text ...",
+    :created_at => Time.now
+  )
+  rescue => e
+  p e
+  end
+
+end
 
 #
 # require 'pg'

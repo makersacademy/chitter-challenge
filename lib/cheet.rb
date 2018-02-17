@@ -1,8 +1,11 @@
 require_relative 'database_connection'
 require 'rubygems'
 require 'data_mapper'
+# require_relative 'database_connection_setup.rb'
 
-DataMapper.setup(:default, 'postgres:///postgres')
+DataMapper.setup(:default, 'postgres:///cheeter_test')
+DataMapper.finalize
+
 
 class Cheet
 
@@ -11,12 +14,11 @@ class Cheet
   property :title,      String    # A varchar type string, for short strings
   property :body,       Text      # A text block, for longer string data.
   property :created_at, DateTime  # A DateTime, for any date you might like.
-  
-  @post = Post.create(
-    :title      => "My first DataMapper post",
-    :body       => "A lot of text ...",
-    :created_at => Time.now
-  )
+  DataMapper.finalize
+
+  # def initialize
+  #   @title = 'hello'
+  # end
 
 end
 
