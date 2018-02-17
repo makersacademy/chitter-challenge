@@ -1,15 +1,34 @@
 .title {
   background-color: #0084b4;
+  margin-bottom: 1em;
 }
 
 .actions {
   display: flex;
 }
 
+.single_peep {
+  background-color: #c1dbe3;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 0.5em;
+}
+
+.peep_enter {
+  margin-bottom: 1em;
+}
+
+.flash_area {
+  background-color: #e58d90;
+  font-family: Work Sans;
+  text-align: center;
+  margin: 0.6em;
+}
+
 h1 {
   padding: 0.5em;
   font-family: Work Sans;
-  font-size: 1em;
+  font-size: 1.1em;
   letter-spacing: 0.1em;
   text-align: center;
 }

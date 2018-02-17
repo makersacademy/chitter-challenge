@@ -11,8 +11,7 @@
         <br>
         A totally-not-a-twitter-rip-off platform to share random thoughts.</h2>
     </div>
-    <br>
-    <%= flash[:n] %>
+    <div class="flash_area"><%= flash[:n] %></div> <br>
     <div class="actions">
       <form action="/users/new" method="GET">
         <input type="submit" value="Sign Up">
@@ -22,22 +21,23 @@
       </form>
     </div>
     <div class="peep_enter">
-    <form action="/peeps/new" method="POST">
-      <input type="text" name="text" placeholder="Enter your peep">
-      <input type="text" name="author" placeholder="Enter your name">
-      <input type="submit" value="Add Peep">
-    </form>
-  </div>
+      <form action="/peeps/new" method="POST">
+        <input type="text" name="text" placeholder="Enter your peep">
+        <input type="text" name="author" placeholder="Enter your name">
+        <input type="submit" value="Add Peep">
+      </form>
+    </div>
+    <% @peeps.each do |peep| %>
+    <div class="single_peep">
 
-        <% @peeps.each do |peep| %>
-          <%= peep.author %>
-          wrote:
-          <%= peep.text %>
-          <br>
-          <h3>
-            <%= peep.date %>
-          </h3>
-          <br>
-        <% end %>
-      </body>
-    </html>
+      <%= peep.author %>
+      wrote:
+      <%= peep.text %>
+      <br>
+      <h3>
+        <%= peep.date %>
+      </h3>
+    </div>
+    <% end %>
+  </body>
+</html>
