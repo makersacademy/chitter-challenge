@@ -1,4 +1,4 @@
-feature "testing app is working" do
+feature "Test app is working" do
 
   scenario "User can view the page" do
     visit '/'
