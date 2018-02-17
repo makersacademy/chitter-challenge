@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/database_connection_setup'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -12,7 +13,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    erb(:index)
+    @peeps = Peep.all
+    erb(:'peeps/index')
   end
 
 end
