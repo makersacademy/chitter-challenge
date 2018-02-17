@@ -1,8 +1,9 @@
 ENV["RACK_ENV"] = 'test'
 
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-require 'capybara/rspec'
+require 'rake'
 require_relative './../app.rb'
 require_relative './../database_setup'
 
@@ -13,10 +14,16 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-
-
+Rake.application.load_rakefile
 
 Capybara.app = Chitter
+
+
+RSpec.configure do |config|
+  config.before :each do
+    Rake::Task[:populate_test_database].execute
+  end
+end
 
 RSpec.configure do |config|
   config.after(:suite) do
