@@ -19,8 +19,11 @@ describe Peep do
     end
 
     it 'Returns the time attached to the peep object' do
-      extracted_time = Time.new.strftime("%H:%M")
-      expect(peeps[-1].time).to eq extracted_time
+      # extracted_time = Time.new.strftime("%H:%M")
+      # expect(peeps[-1].time).to eq extracted_time
+      allow(peeps[-1]).to receive(:time).and_return("17:00")
+      expect(peeps[-1].time).to eq "17:00"
+      
     end
   end
 

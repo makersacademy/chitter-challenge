@@ -6,3 +6,4 @@ feature "Viewing posted peeps" do
     expect(page).to have_content("This is my third peep!")
   end
 end
+
