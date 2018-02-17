@@ -8,11 +8,13 @@ describe Peep
       authors = peeps.map(&:author)
       expect(authors).to include("Justyna")
     end
+  end
 
-    # describe 'sorts all peeps by date' do
-    #   peeps = Peep.sort
-    #   dates = peeps.map(&:date)
-    #   expect(dates).to include(["2018-05-17 13:30:30", "2018-02-17 15:54:04"])
-    # end
-
+  describe '.create' do
+    it 'returns all peeps from the database' do
+      Peep.create("test", "testow")
+      peeps = Peep.all
+      texts = peeps.map(&:text)
+      expect(texts).to include("test")
+    end
   end

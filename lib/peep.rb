@@ -18,4 +18,12 @@ class Peep
     result.map { |hash| Peep.new(hash['id'], hash['text'], hash['date'], hash['author']) }
   end
 
+  def self.create(text, author)
+    DatabaseConnection.query("INSERT INTO peeps(text, date, author) VALUES('#{text}', '#{Time.now}', '#{author}')")
+  end
+
+  private
+
+  
+
 end

@@ -7,6 +7,11 @@
 
     <div class="title"> <h1> Welcome to Chitter! <br> A totally-not-a-twitter-rip-off platform to share random thoughts.</h2> </div>
     <br>
+    <form action="/peeps/new" method="POST">
+      <input type="text" name="text" placeholder="Enter your peep">
+      <input type="text" name="author" placeholder="Enter your name">
+      <input type="submit" value="Add Peep">
+    </form>
 
     <% @peeps.each do |peep| %>
       <%= peep.author %> wrote: <%= peep.text %> <br>
