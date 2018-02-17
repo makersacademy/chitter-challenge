@@ -28,9 +28,10 @@ To install all the dependencies needed for the project, please install **bundler
 In order to set up the databases needed for this project, please run the following commands:
 ```rake
 rake setup
-rake test_db_setup
-rake clear_db
+rake setup_test_db
 ```
+
+If you want to clear the databases, simply run ```rake clear_db```
 
 Finally, simply type one of the following commands in your terminal to navigate around the app:
 * ```rackup```
