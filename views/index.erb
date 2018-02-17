@@ -4,5 +4,12 @@
 </head>
 <body>
   <h1>Welcome to Chitter</h1>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li id="peep-<% peep.id %>">
+        <%= peep.text %>
+      </li>
+    <% end %>
+  </ul>
 </body>
 </html>

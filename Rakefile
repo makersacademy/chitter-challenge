@@ -23,7 +23,7 @@ task :populate_test_database do
   p ' -+-+- Populating test database -+-+-'
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec("TRUNCATE peeps;")
-  connection.exec("INSERT INTO peeps VALUES(1, 'Hello world');")
+  connection.exec("INSERT INTO peeps VALUES(1, 'Hello world!');")
   connection.exec("INSERT INTO peeps VALUES(2, 'Goodbye!');")
 end
 
