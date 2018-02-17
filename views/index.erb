@@ -6,5 +6,19 @@
   </head>
   <body>
     <h1>Chitter</h1>
+
+    <form action="/peeps" method="post">
+          <textarea name="peep" placeholder="Peep here" maxlength="240" rows="4" cols="50"></textarea>
+          <input type="submit" name="post" value ="peep">
+    </form>
+
+    <h3>Peeps</h3>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li><%= peep %></li>
+
+      <% end %>
+    </ul>
+
   </body>
 </html>

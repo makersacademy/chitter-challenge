@@ -10,6 +10,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+ENV["RACK_ENV"] = 'test'
+
 Capybara.app = Chitter
 
 RSpec.configure do |config|
