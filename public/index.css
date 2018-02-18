@@ -1,0 +1,36 @@
+body {
+background-color: #afa9a7;
+}
+
+.title {
+  text-align: center;
+  font-size: 80px;
+}
+
+.page-container {
+  background-color: #303030;
+  width: 50%;
+  margin: auto;
+  padding: 10px, 25%, 10px, 25%;
+}
+
+.all-peeps-container {
+  background-color: #61728e;
+  padding: 10px;
+}
+
+.peep-container {
+  background-color: #c9d6ea;
+  height: 80px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #303030;
+  display: flex;
+}
+
+.peep-footer {
+  text-align: right;
+  align-self: flex-end;
+  bottom: 0;
+  color: #303030;
+}

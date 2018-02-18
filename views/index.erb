@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
+  </head>
+  <body>
+    <main class="page-container">
+      <h1 class="title">Chitter</h1>
+      <table>
+        <tr>
+          <td>
+            <table class="create-account">
+              <form action="/users" method="post">
+                <th colspan="2">Create account</th>
+                <tr>
+                  <td>Username</td>
+                  <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                  <td>Name</td>
+                  <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td><input type="text" name="password"></td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <input type="submit" name="post" value ="Sign in">
+                  </td>
+                </tr>
+              </form>
+            </table>
+          </td>
+          <td>
+            <table class="sign-in">
+              <form action="/sign_in" method="post">
+                <th colspan="2">Sign in</th>
+                <tr>
+                  <td>Username</td>
+                  <td>
+                    <input type="text" name="username">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td>
+                    <input type="password" name="password">
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2"><%= flash[:invalid] %></td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="submit" name="Sign in" value="Sign in">
+                  </td>
+                </tr>
+              </form>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </main>
+  </body>
+</html>
