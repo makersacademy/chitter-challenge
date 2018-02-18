@@ -7,13 +7,17 @@ require_relative "./database_setup"
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
-    redirect to '/peeps'
+    erb :index
   end
 
   get '/peeps' do
+    redirect to('/') unless session[:user]
+    @user = session[:user]
     @peeps = Peep.all
-    erb :index
+    erb :peep
   end
 
   post '/peeps' do
@@ -26,6 +30,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(params)
+    session[:user] = User.create(params)
+    redirect to '/peeps'
   end
 end

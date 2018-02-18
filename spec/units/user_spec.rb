@@ -20,5 +20,10 @@ describe User do
       described_class.create(new_user)
       expect(described_class.all).to include(include( {username: new_user[:username] }))
     end
+
+    it 'encrypts the password' do
+      expect(BCrypt::Password).to receive(:create).with(new_user[:password])
+      described_class.create(new_user)
+    end
   end
 end

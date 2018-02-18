@@ -8,22 +8,65 @@
   <body>
     <main class="page-container">
       <h1 class="title">Chitter</h1>
-      <a href="/new_user">Create account</a>
-      <form action="/peeps" method="post">
-            <textarea name="peep" placeholder="Peep here" maxlength="240" rows="4" cols="50"></textarea>
-            <br>
-            <input type="submit" name="post" value ="peep">
-      </form>
-      <div class="all-peeps-container">
-          <% @peeps.each do |peep| %>
-            <div class="peep-container">
-              <%= peep[:body] %>
-              <br>
-              <span class="peep-footer"><em>posted at <%= peep[:created_date] %></em></span>
-            </div>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+      <table>
+        <tr>
+          <td>
+            <table class="create-account">
+              <form action="/users" method="post">
+                <th colspan="2">Create account</th>
+                <tr>
+                  <td>Username</td>
+                  <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                  <td>Name</td>
+                  <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td><input type="text" name="password"></td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <input type="submit" name="post" value ="Sign in">
+                  </td>
+                </tr>
+              </form>
+            </table>
+          </td>
+          <td>
+            <table class="sign-in">
+              <form action="/sign_in" method="post">
+                <th colspan="2">Sign in</th>
+                <tr>
+                  <td>Username</td>
+                  <td>
+                    <input type="text" name="Username">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td>
+                    <input type="password" name="Password">
+                  </td>
+                </tr>
+                <tr>
+                  <td></td><td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="submit" name="Sign in" value="Sign in">
+                  </td>
+                </tr>
+              </form>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </main>
   </body>
 </html>
