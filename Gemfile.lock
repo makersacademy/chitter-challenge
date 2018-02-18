@@ -78,6 +78,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.0.0)
       ast (~> 2.4.0)
+    pg (1.0.0)
     powerpack (0.1.1)
     public_suffix (3.0.2)
     rack (2.0.4)
@@ -138,6 +139,7 @@ DEPENDENCIES
   capybara
   data_mapper
   dm-postgres-adapter
+  pg
   rake
   rspec
   rubocop

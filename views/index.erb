@@ -15,8 +15,11 @@
       <li><b>Peep:</b>
         <p><%= peep.content %></p></li>
       <p><b>Posted:</b></p>
-      <p><%= peep.time %></p></li>
+      <p><%= peep.time.strftime "%D at %H:%M" %></p></li>
     <% end %>
   </ul>
+  <form action="/sign-in" method="get">
+    <input type="submit" value="sign in">
+  </form>
 </body>
 </html>

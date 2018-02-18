@@ -21,6 +21,7 @@ if ENV['RACK_ENV'] != 'production'
     ['chitter', 'chitter_test'].each do |db|
       con = PG.connect dbname: db
       con.exec("DROP TABLE IF EXISTS peeps")
+      con.exec("DROP TABLE IF EXISTS users")
     end
   end
 end
