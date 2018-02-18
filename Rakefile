@@ -1,13 +1,5 @@
 require './lib/database_connection.rb'
 
-# if ENV['RACK_ENV'] != 'production'
-#   require 'rspec/core/rake_task'
-#
-#   RSpec::Core::RakeTask.new :spec
-#
-#   task default: [:spec]
-# end
-
 task :setup do
   p 'Setting up databases...'
   conn = PG.connect
