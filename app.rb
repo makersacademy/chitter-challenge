@@ -27,7 +27,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
-    erb(:'users/new')
+    @peeps = Peep.all
+    @new_user = true
+    erb(:'peeps/index')
   end
 
   post '/users/new' do

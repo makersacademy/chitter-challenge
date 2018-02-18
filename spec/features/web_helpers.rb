@@ -5,7 +5,7 @@ def sign_up
   fill_in "username", with: "Justyna"
   fill_in "email", with: "Justyna@Justyna"
   fill_in "password", with: "Justyna"
-  click_button("Sign Up")
+  click_button("Submit")
 end
 
 def log_in

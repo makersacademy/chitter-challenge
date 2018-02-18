@@ -8,7 +8,7 @@ feature "user signes up" do
     fill_in "username", with: "Kotaaaufafaror"
     fill_in "email", with: "Justyna@Justyna"
     fill_in "password", with: "test"
-    click_button("Sign Up")
+    click_button("Submit")
     expect(page).to have_content "This email has been already registered."
   end
 end
@@ -21,7 +21,7 @@ feature "user signes up" do
     fill_in "username", with: "Justyna"
     fill_in "email", with: "othertest@.com"
     fill_in "password", with: "test"
-    click_button("Sign Up")
+    click_button("Submit")
     expect(page).to have_content "This username has been already registered."
   end
 end
@@ -34,7 +34,7 @@ feature "user signes up" do
     fill_in "username", with: "Kotaurfaaor"
     fill_in "email", with: "kot@kaaaot.pl"
     fill_in "password", with: "tesft"
-    click_button("Sign Up")
+    click_button("Submit")
     expect(page).to have_content "Justyna, thank you for signing up! Enjoy chitter!"
   end
 end
@@ -47,7 +47,7 @@ feature "user signes up" do
     fill_in "username", with: "Kotssaufafror"
     fill_in "email", with: "pieaas@pies.com"
     fill_in "password", with: "test"
-    click_button("Sign Up")
+    click_button("Submit")
     expect(page).to have_content "Please enter at least 4 characters in each field."
   end
 end
