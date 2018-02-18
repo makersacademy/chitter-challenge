@@ -1,4 +1,5 @@
 require_relative 'database_connection'
+require 'time'
 
 class Peep
 
@@ -16,7 +17,7 @@ class Peep
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY datecreated DESC;")
     result.map do |row|
-      Peep.new(row['string'], row['datecreated'])
+      Peep.new(row['string'], Time.parse(row['datecreated']).ctime)
     end
   end
 

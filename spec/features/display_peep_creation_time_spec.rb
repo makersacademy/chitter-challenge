@@ -16,7 +16,7 @@ feature 'Display peep creation time' do
 
   scenario 'Peeps are displayed next to their time of creation' do
     visit('/')
-    expect(page).to have_content(first_time.strftime("%Y-%m-%d %H:%M:%S"))
-    expect(page).to have_content(second_time.strftime("%Y-%m-%d %H:%M:%S"))
+    expect(page).to have_content(first_time.ctime)
+    expect(page).to have_content(second_time.ctime)
   end
 end
