@@ -7,8 +7,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    connection = PG.connect(dbname: 'chitter_test')
-    @peeps = connection.exec('SELECT * FROM peeps')
+    @peeps = Peep.all
     erb(:index)
   end
 
