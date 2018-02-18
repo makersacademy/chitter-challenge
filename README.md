@@ -1,6 +1,7 @@
 Chitter Challenge
 =================
 
+A Twitter clone created in a single weekend at Makers Academy.
 
 Installation
 ------
@@ -14,7 +15,15 @@ $ rackup
 
 To delete databases and start afresh run ```$ rake teardown```
 
-
+Technologies used
+------
+* Ruby
+* Sinatra
+* Postgresql
+* BCrypt
+* RSpec
+* Capybara
+* HTML & CSS
 
 
 Challenge:
