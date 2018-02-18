@@ -7,6 +7,10 @@ body {
     background-color: #ccefff;
 }
 
+img {
+  margin: 30px;
+}
+
 .centered-wrapper {
     position: relative;
     text-align: center;
