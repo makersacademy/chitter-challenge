@@ -35,7 +35,7 @@ feature "user signes up" do
     fill_in "email", with: "kot@kaaaot.pl"
     fill_in "password", with: "tesft"
     click_button("Submit")
-    expect(page).to have_content "Justyna, thank you for signing up! Enjoy chitter!"
+    expect(page).to have_content "Kotaurfaaor, thank you for signing up! Enjoy chitter!"
   end
 end
 

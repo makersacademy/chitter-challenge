@@ -5,7 +5,7 @@ class User
 
   attr_reader :id, :name, :username, :email, :password
 
-  def initialize(id, name, username, email, password)
+  def initialize(id, email, password, name, username)
     @id = id
     @name = name
     @username = username
@@ -13,7 +13,7 @@ class User
     @password = password
   end
 
-  def self.create(email, password, name, username)
+  def self.create(id, email, password, name, username)
     return false unless !email_in_use?(email) && !username_in_use?(username) && valid?(username, name, password)
     DatabaseConnection.query("INSERT INTO users(email, password, name, username) VALUES('#{email}', '#{password}', '#{name}', '#{username}')")
   end

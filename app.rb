@@ -33,8 +33,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    flash[:n] = Flash.welcome(params[:name])
-    redirect '/peeps' if User.create(params[:email], params[:password], params[:name], params[:username])
+    flash[:n] = Flash.welcome(params[:username])
+    redirect '/peeps' if User.create(nil, params[:email], params[:password], params[:name], params[:username])
     flash[:n] = Flash.email_in_use if User.email_in_use?(params[:email])
     flash[:n] = Flash.username_in_use if User.username_in_use?(params[:username])
     flash[:n] = Flash.too_short if !User.valid?(params[:username], params[:name], params[:password])
