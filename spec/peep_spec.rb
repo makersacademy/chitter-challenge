@@ -11,11 +11,11 @@ describe Peep do
     end
   end
 
-  describe '#timestamp' do
+  describe '#date_created' do
     it "stores the peep's time of creation" do
       new_time = Time.now
       Timecop.freeze(new_time)
-      expect(peep.timestamp).to eq new_time
+      expect(peep.date_created).to eq new_time
       Timecop.return
     end
   end

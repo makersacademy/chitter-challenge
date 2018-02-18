@@ -2,11 +2,11 @@ require_relative 'database_connection'
 
 class Peep
 
-  attr_reader :string, :timestamp
+  attr_reader :string, :date_created
 
   def initialize(string)
     @string = string
-    @timestamp = Time.now
+    @date_created = Time.now
   end
 
   def self.create(string)

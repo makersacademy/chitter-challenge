@@ -1,12 +1,12 @@
 require './lib/database_connection.rb'
 
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-
-  RSpec::Core::RakeTask.new :spec
-
-  task default: [:spec]
-end
+# if ENV['RACK_ENV'] != 'production'
+#   require 'rspec/core/rake_task'
+#
+#   RSpec::Core::RakeTask.new :spec
+#
+#   task default: [:spec]
+# end
 
 task :setup do
   p 'Setting up databases...'
@@ -15,7 +15,7 @@ task :setup do
       conn.exec("CREATE DATABASE #{database}")
       DatabaseConnection.setup("#{database}")
       DatabaseConnection.query(
-        "CREATE TABLE peeps (id SERIAL PRIMARY KEY, string VARCHAR(140));"
+        "CREATE TABLE peeps (id SERIAL PRIMARY KEY, string VARCHAR(140), dateCreated TIMESTAMP);"
       )
     end
   p 'Set up complete. "chitter" and "chitter_test" databases created'
@@ -24,15 +24,6 @@ end
 task :test_setup do
   DatabaseConnection.setup('chitter_test')
   DatabaseConnection.query("TRUNCATE peeps;
-  INSERT INTO peeps (string) VALUES ('Today was a good day');
-  INSERT INTO peeps (string) VALUES ('How Can Mirrors Be Real If Our Eyes Arent Real');")
-end
-
-task :update do
-  conn = PG.connect
-  ['chitter','chitter_test'].each do |database|
-    conn.exec("CREATE DATABASE #{database}")
-    DatabaseConnection.setup("#{database}")
-    DatabaseConnection.query("ALTER TABLE peeps ADD ")
-  end
+  INSERT INTO peeps (string, dateCreated) VALUES ('Today was a good day', '#{Time.now}');
+  INSERT INTO peeps (string, dateCreated) VALUES ('Very important statement', '#{Time.now}');")
 end
