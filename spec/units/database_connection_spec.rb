@@ -11,8 +11,8 @@ describe DatabaseConnection do
   context '#query' do
     it 'executes a query' do
       connection = DatabaseConnection.setup('chitter_challenge_test')
-      expect(connection).to receive(:exec).with('SELECT * FROM messages')
-      DatabaseConnection.query('SELECT * FROM messages')
+      expect(connection).to receive(:exec).with('SELECT * FROM peeps')
+      DatabaseConnection.query('SELECT * FROM peeps')
     end
   end
 end

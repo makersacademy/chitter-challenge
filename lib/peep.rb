@@ -12,11 +12,11 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |peep| Peep.new(peep ['id'], peep['text'], peep['time']) }
+    result.map { |peep| Peep.new(peep['id'], peep['text'], peep['time']) }
   end
 
   def self.add(new_peep, id)
-    DatabaseConnection.query("INSERT INTO messages(id, text, time) VALUES('#{id}, #{new_peep}', '#{Time.new.strftime('%d/%m/%Y %H:%M')}')")
+    DatabaseConnection.query("INSERT INTO peeps (id, text, time) VALUES('#{id}, #{new_peep}', '#{Time.new.strftime('%d/%m/%Y %H:%M')}')")
   end
 #
 #   def self.delete(id)
