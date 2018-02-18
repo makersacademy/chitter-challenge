@@ -7,7 +7,6 @@ class Chitter < Sinatra::Base
   get '/' do
     Peep.create(content: "This is a test peep", time: Time.now)
     @peeps = Peep.all
-    puts @peeps
     erb (:index)
   end
 
