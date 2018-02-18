@@ -1,20 +1,33 @@
-Chitter Challenge
-=================
+# Twitter-like platform to share thoughts.
+## -- sing up, log in, share, comment --
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Instructions
+```plain
+$ git clone https://github.com/Kotauror/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle
+$ rake setup
+$ rackup and visit http://localhost:9292/ for Chitter
+$ rspec for a summary of tests, checking that all tests are passing and test coverage (100%)
+```
 
-Challenge:
--------
+## Technology
+  - Ruby, HTML, CSS, PostgreSQL
+  - RSpec, Capybara
 
-As usual please start by forking this repo.
+  ## Screenshots
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+  1) Initial screen - before log in
+  https://image.ibb.co/ihXPy7/Zrzut_ekranu_2018_02_18_o_19_27_09.png
+  2) Log in
+  https://image.ibb.co/kizF5n/Zrzut_ekranu_2018_02_18_o_19_28_28.png
+  3) After log in
+  https://preview.ibb.co/nr9Xkn/Zrzut_ekranu_2018_02_18_o_19_29_09.png
+  4) Add a comment
+  https://image.ibb.co/bU1HJ7/Zrzut_ekranu_2018_02_18_o_19_29_50.png
 
-Features:
+
+## User Stories covered:
 -------
 
 ```
@@ -46,67 +59,4 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
