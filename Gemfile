@@ -4,14 +4,14 @@ ruby '2.5.0'
 
 gem 'rake'
 gem 'rubocop'
-gem 'capybara'
 gem 'sinatra'
 gem 'pg'
-gem 'timecop'
 gem 'bcrypt'
 
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'timecop'
+  gem 'capybara'
 end
