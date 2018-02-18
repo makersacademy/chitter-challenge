@@ -1,3 +1,7 @@
+<% if flash[:errors] %>
+  <%= flash[:errors].first %>
+<% end %>
+
 <form action="/users" method="POST">
   <input type="text" name="name" placeholder="Enter your name">
   <input type="text" name="username" placeholder="Enter your username">

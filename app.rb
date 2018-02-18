@@ -1,6 +1,7 @@
 require './lib/peep'
 require './lib/user'
 
+require 'bcrypt'
 require 'pg'
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -10,10 +11,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    # We fetch the user from the database using the ORM
-    # ID is stored in the session ('/users')
     @user = User.get(session[:id])
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :id.desc ])
     erb(:index)
   end
 
@@ -22,8 +21,35 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(peeper: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    user = User.create(
+      peeper: params['name'],
+      username: params['username'],
+      email: params['email'],
+      password: BCrypt::Password.create(params['password'])
+    )
+
+    if user.errors.size > 0
+      flash[:errors] = user.errors.first
+      redirect '/users/new'
+    end
+
     session[:id] = user.id
+    redirect '/'
+  end
+
+  get '/sessions/new' do
+    erb(:'sessions/new')
+  end
+
+  post '/sessions' do
+    user = User.first(:email => params['email'])
+
+    session[:id] = user.id
+    redirect '/'
+  end
+
+  get '/logout' do
+    session.delete(:id)
     redirect '/'
   end
 

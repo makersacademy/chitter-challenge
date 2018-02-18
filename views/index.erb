@@ -8,6 +8,14 @@
   <input type="submit" value="Sign up">
 </form>
 
+<form action="/sessions/new">
+  <input type="submit" value="Sign in">
+</form>
+
+<form action="/logout">
+  <input type="submit" value="Logout">
+</form>
+
 <div style="text-align: center;">
   <% @peeps.each do |peep| %>
     <div class="peeps" style="margin-top: 10px;">
