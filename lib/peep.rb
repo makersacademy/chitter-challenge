@@ -2,9 +2,19 @@ require 'pg'
 
 class Peep
 
+  attr_reader :id, :post, :time
+
+  def initialize(row)
+    @id = row[0]
+    @post = row[1]
+    @time = row[2]
+  end
+
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time DESC;")
-    result.map { |peep| peep['post'] }
+    @array = []
+    result.each_row { |row| @array.push(Peep.new(row)) }
+    @array
   end
 
   def self.create(new_peep)

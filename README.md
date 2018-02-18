@@ -3,7 +3,7 @@
 
 ### Description
 
-TBC
+A web application that allows users to post mini-blogs of 140 characters.
 
 ### Development Process
 
@@ -11,7 +11,7 @@ TBC
 2) Replace hard-coded display by connecting to a database instead - used `pg` gem.
 3) Add functionality for creating a new peep to the current list of peeps in both a test environment (database) and real one.
 4) Use rake to set up database automatically.
-5) Add new column to table for time so that peeps can be ordered by most recent post.
+5) Add new column to table for time so that peeps can be ordered by most recent post and see time displayed.
 
 ### Installation
 
@@ -35,7 +35,7 @@ Terence Allitt
 
 ### Time Spent
 
-TBC
+5.4 hours
 
 =================
 

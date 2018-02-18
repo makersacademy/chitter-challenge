@@ -16,16 +16,14 @@ task :setup do
     connection.exec("CREATE DATABASE #{database};")
     DatabaseConnection.setup("#{database}")
     sql = "CREATE TABLE peeps
-    (id SERIAL PRIMARY KEY, post VARCHAR(140), time TIMESTAMPTZ);"
+    (id SERIAL PRIMARY KEY, post VARCHAR(140), time TIMESTAMP);"
     DatabaseConnection.query(sql)
   end
 end
 
 task :setup_test_database do
-  p 'Loading test values into test database...'
+  p 'Loading test database...'
   DatabaseConnection.setup('chitter_test')
   DatabaseConnection.query("TRUNCATE peeps;
-  INSERT INTO peeps (post, time) VALUES('This is a test peep', 'NOW()');
-  INSERT INTO peeps (post, time) VALUES('Look at me; I''m peeping!', 'NOW()');
-  INSERT INTO peeps (post, time) VALUES('Who wants to follow me?', 'NOW()');")
+  INSERT INTO peeps (post, time) VALUES('This is a test peep', 'NOW()');")
 end
