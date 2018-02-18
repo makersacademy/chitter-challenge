@@ -12,6 +12,7 @@ A web application that allows users to post mini-blogs of 140 characters.
 3) Add functionality for creating a new peep to the current list of peeps in both a test environment (database) and real one.
 4) Use rake to set up database automatically.
 5) Add new column to table for time so that peeps can be ordered by most recent post and see time displayed.
+6) Set up User class so that users can sign in and sign out with authentication. Use BCrypt gem to secure the password.
 
 ### Installation
 
@@ -25,6 +26,8 @@ Run 'rake' to set up the database
 
 `rake setup`
 
+`rake setup_test_database`
+
 Run 'rackup' to launch the web app
 
 `rackup`
@@ -35,7 +38,7 @@ Terence Allitt
 
 ### Time Spent
 
-5.4 hours
+8 hours
 
 =================
 

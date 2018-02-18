@@ -1,4 +1,9 @@
-<%= styled_flash %>
+<% flash.keys.each do |type| %>
+ <div data-alert class="flash <%= type %> alert-box radius" style="color: red">
+   <%= flash[type] %>
+   <a href="/" class="close">&times;</a>
+ </div>
+<% end %>
 
 <form action="/sessions" method="post">
   <input type="email" name="email" placeholder="enter email">
