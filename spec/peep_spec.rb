@@ -1,5 +1,3 @@
-require 'peep'
-
 describe Peep do
 
   let(:peep) { described_class }

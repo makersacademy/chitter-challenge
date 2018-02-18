@@ -1,4 +1,5 @@
 require "./lib/database_connection"
+require 'bcrypt'
 
 class User
 
@@ -20,10 +21,11 @@ class User
   end
 
   def self.create(options)
+    password = BCrypt::Password.create(options[:password])
     result = DatabaseConnection.query("INSERT INTO users (name, username, email,
        password) VALUES('#{options[:name]}', '#{options[:username]}',
-        '#{options[:email]}', '#{options[:password]}') RETURNING id, name,
-        username, email, password")
+        '#{options[:email]}', '#{password}') RETURNING id, name,
+        username, email")
     User.new(result[0]['id'], result[0]['name'], result[0]['username'],
     result[0]['email'], result[0]['password'])
   end

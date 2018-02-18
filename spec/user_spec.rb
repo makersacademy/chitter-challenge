@@ -10,11 +10,18 @@ describe ".all" do
 end
 
 describe ".create" do
+
   it "creates a new user" do
     user = User.create(name: 'Jim', username: 'Jimmy',
     email: 'abc@123.com', password: 'abc123')
 
     expect(user.id).not_to be_nil
+  end
+
+  it "hashes the password using BCrypt" do
+    expect(BCrypt::Password).to receive(:create).with("abc123")
+    user = User.create(name: 'Jim', username: 'Jimmy',
+      email: 'abc@123.com', password: 'abc123')
   end
 end
 
