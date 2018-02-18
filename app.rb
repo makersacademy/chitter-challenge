@@ -42,7 +42,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
-    erb(:'sessions/new')
+    @peeps = Peep.all
+    @log_in = true
+    erb(:'peeps/index')
   end
 
   post '/sessions/new' do

@@ -6,7 +6,7 @@ feature "user logs out" do
     click_button("Log in")
     fill_in "username", with: "Justyna"
     fill_in "password", with: "Justyna"
-    click_button("Log in")
+    click_button("Submit")
     click_button("Log out")
     expect(page).to have_content "Thank you for visiting us, see you later!"
   end
@@ -16,11 +16,7 @@ feature "user logs out" do
     click_button("Log in")
     fill_in "username", with: "Justyna"
     fill_in "password", with: "test"
-    click_button("Log in")
+    click_button("Submit")
     expect(page).to have_content "Username and password don't match. Try again."
   end
 end
-
-
-
-"Thank you for visiting us, see you later!"

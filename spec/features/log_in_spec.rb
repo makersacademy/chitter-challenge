@@ -6,7 +6,7 @@ feature "user logs is" do
     click_button("Log in")
     fill_in "username", with: "Justyna"
     fill_in "password", with: "Justyna"
-    click_button("Log in")
+    click_button("Submit")
     expect(page).to have_content "Justyna, you're logged in, happy chittering!"
   end
 
@@ -15,7 +15,7 @@ feature "user logs is" do
     click_button("Log in")
     fill_in "username", with: "Justyna"
     fill_in "password", with: "test"
-    click_button("Log in")
+    click_button("Submit")
     expect(page).to have_content "Username and password don't match. Try again."
   end
 end

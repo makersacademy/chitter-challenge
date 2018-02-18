@@ -34,6 +34,11 @@ CHITTER
     <% @new_user = false %>
   <% end %>
 
+  <% if @log_in == true %>
+    <%= erb :'/sessions/new' %>
+    <% @log_in = false %>
+  <% end %>
+
   <div class="flash_container"><div class="flash_area"><%= flash[:n] %></div></div> <br>
   <% if session[:user_id] != nil %>
     <div class="peep_enter">
