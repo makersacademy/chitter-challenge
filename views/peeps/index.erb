@@ -28,11 +28,10 @@ CHITTER
       <% end %>
     </div>
   </div>
-  <div class="flash_container">
-    <div class="flash_area">
-      <%= flash[:n] %>
-    </div>
-  </div>
+
+  <% if flash[:n] %>
+    <%= erb :'/flashes/flash' %>
+  <% end %>
 
   <% if @new_user == true %>
     <%= erb :'/users/new' %>
@@ -59,6 +58,6 @@ CHITTER
         </h3>
       </div>
     <% end %>
-    
+
   </body>
 </html>
