@@ -1,0 +1,21 @@
+<h1>Chitter</h1>
+
+<form action="/peeps" method="post">
+  <input type="text" name="peep" placeholder="Type your peep here...">
+  <!-- <input type="hidden" name="time" value="<%= @time %>"> -->
+  <input type="submit" value="Peep">
+</form>
+
+<h2>Peeps</h2>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>Heather @heather
+    <%= peep.message %>
+    <%= peep.message_time %>
+  </li>
+    <% end %>
+  </ul>
+
+  <form action="/sign_up" method="get">
+    <input type="submit" value="Sign up here!">
+  </form>
