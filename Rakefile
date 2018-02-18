@@ -16,15 +16,15 @@ task :setup do
 
     begin
       connection.exec("CREATE DATABASE #{db};")
+      p "Created #{db}"
     rescue
     end
 
     connection = PG.connect(dbname: db)
-    connection.exec("CREATE TABLE IF NOT EXISTS peeps(id SERIAL PRIMARY KEY, peep VARCHAR(240));")
-    # One peeper, many peeps
-    connection.exec("CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY REFERENCES peeps (id), peeper VARCHAR(60));")
 
-    p "Created #{db}"
+    # We have to create the users table before the other as peeps has a reference to users
+    connection.exec("CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, peeper VARCHAR(60));")
+    connection.exec("CREATE TABLE IF NOT EXISTS peeps(id SERIAL PRIMARY KEY, peep VARCHAR(240), user_id SERIAL REFERENCES users(id));")
   end
 end
 
@@ -33,13 +33,12 @@ task :setup_test_db do
 
   begin
     connection.exec('TRUNCATE peeps RESTART IDENTITY CASCADE')
-    # connection.exec('TRUNCATE users RESTART IDENTITY')
   rescue
   end
 
-  # At the moment, just filling-in Test DB with peeps info, no users yet
-  connection.exec("INSERT INTO peeps (peep) VALUES('¡Día de partido! ¡Vamos Real, hasta el final!');")
-  connection.exec("INSERT INTO peeps (peep) VALUES('El bicho scores a hattrick!');")
+  connection.exec("INSERT INTO users (peeper) VALUES('Jaime');")
+  connection.exec("INSERT INTO peeps (peep, user_id) VALUES('¡Día de partido! ¡Vamos Real, hasta el final!', 1);")
+  connection.exec("INSERT INTO peeps (peep, user_id) VALUES('El bicho scores a hattrick!', 1);")
 end
 
 task :clear_db do

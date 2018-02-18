@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'test'
+ENV['environment'] = 'test'
 
 require 'simplecov'
 require 'simplecov-console'
@@ -25,10 +25,9 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 
-  config.before(:each) do
-    # Rake::Task['setup'].execute
+  config.before(:suite) do
+    Rake::Task['setup'].execute
     Rake::Task['setup_test_db'].execute
-    ### When trying to clear the DB, it says it's being used...
     # Rake::Task['clear_db'].execute
   end
 end
