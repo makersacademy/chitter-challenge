@@ -16,6 +16,11 @@ if ENV['RACK_ENV'] != 'production'
     end
   end
 
-  task :update do 
+  task :wipe do 
+    p 'Cleaning test databases...'
+    ['chitter', 'chitter_test'].each do |db|
+      con = PG.connect dbname: db
+      con.exec("DROP TABLE IF EXISTS peeps")
+    end
   end
 end

@@ -5,9 +5,13 @@ require 'Time'
 
 class Chitter < Sinatra::Base
   get '/' do
-    Peep.create(content: "This is a test peep", time: Time.now)
     @peeps = Peep.all
     erb (:index)
+  end
+
+  post '/add-peep' do 
+    Peep.create(content: params[:new_peep],  time: Time.now)
+    redirect '/'
   end
 
   run! if app_file == $0

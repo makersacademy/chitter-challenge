@@ -4,10 +4,18 @@
   <title></title>
 </head>
 <body>
+  <h1>Welcome to Chitter!</h1>
+  <h2>Thanks for picking our branch (heh, get it?)</h2>
+  <form action="/add-peep" method="post">
+    <input type="text" name="new_peep">
+    <input type="submit" value="Peep">
+  </form>
   <ul>
     <% @peeps.each do |peep| %>
-      <li><%= peep.content %></li>
-      <li><%= peep.time %></li>
+      <li><b>Peep:</b>
+        <p><%= peep.content %></p></li>
+      <p><b>Posted:</b></p>
+      <p><%= peep.time %></p></li>
     <% end %>
   </ul>
 </body>
