@@ -10,13 +10,13 @@ class Peep
   end
 
   def self.create(string)
-    DatabaseConnection.query("INSERT INTO peeps (string, dateCreated) VALUES ('#{string}', '#{Time.now}');")
+    DatabaseConnection.query("INSERT INTO peeps (string, datecreated) VALUES ('#{string}', '#{Time.now}');")
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY dateCreated DESC;")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY datecreated DESC;")
     result.map do |row|
-      Peep.new(row['string'], row['dateCreated'])
+      Peep.new(row['string'], row['datecreated'])
     end
   end
 
