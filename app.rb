@@ -1,16 +1,25 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/cheeter'
+require './lib/user'
 require './database_connection_setup'
 
 class Cheeter < Sinatra::Base
+  enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :sign_in
   end
 
   post '/add_peep' do
-    @sig_in = Peep.sign_in(params[:name])
-    erb :peep
+    begin
+      @sig_in = User.sign_in(params[:name], params[:password])
+      redirect '/'
+    rescue Exception => error
+      flash[:notice] = error.message
+    end
+      erb :peep
   end
 
   post '/first_peep' do

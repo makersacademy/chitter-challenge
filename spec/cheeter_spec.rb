@@ -8,14 +8,14 @@ describe '.all' do
     expect(text).to include("enjoying my ice cream")
   end
 
-describe '.sign_in' do
-  it 'allows the user access to the website' do
-    Peep.sign_in('jenny')
-    peeps = Peep.all
-    name = peeps.map(&:name)
-    expect(name).to include 'jenny'
-  end
-end
+# describe '.sign_in' do
+#   it 'allows the user access to the website' do
+#     Peep.sign_in('jenny')
+#     peeps = Peep.all
+#     name = peeps.map(&:name)
+#     expect(name).to include 'jenny'
+#   end
+# end
 
 
 describe '.add_peep' do
