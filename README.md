@@ -8,7 +8,7 @@ Pre-code:
 * Secondly, I drew a relational diagram focusing focusing on what happens after every step in the app. For example: the user opens the website, then peeps are displayed (no login required). The user can choose to sign-up and/or log-in to post new peeps.
 * Finally, I drew a quick mock-up of the pages, to have a better understanding on where to place the different sections, etc.
 
-Regarding the development process, I made sure to stick by this flow:
+Regarding the development process, I tried to stick by this flow as much as possible:
 * Feature Test
 * Unit Tests
 * Implementation
@@ -17,9 +17,26 @@ Regarding the development process, I made sure to stick by this flow:
 Next focus
 ------
 
+* If I had more time, I would like to work on validations when signing up and signing in. I started working on them a bit, but this is something that can be greatly improved within the app.
+* More CSS Styling would be great too if I had had more time.
 
 Personal code review
 ------
+
+* I keep having trouble being led by TDD, especially when it comes to Unit Tests (I haven not managed to finish all of them in the way I wanted to). I tried to implement the one line of code at a time without breaking old tests when refactoring or adding new code, and for a while it seemeded to help, but then I got lost in my code once again and I had to separate from the optimal flow for a bit.
+* I had not many difficulties with Capybara and Feature Tests though. I found myself testing a lot on the browser and changing many things in the Model. I also spent quite a few hours to get familiar with DataMapper, which is the first ORM I have come across so far.
+* Regarding databases, I am happy that I understand how relations between tables work and what kind of relations there are.
+
+
+Technologies used
+------
+
+* Capybara
+* CSS
+* DataMapper (ORM)
+* PostgreSQL
+* RSpec
+
 
 Installation Instructions
 ------
@@ -39,6 +56,8 @@ Finally, simply type one of the following commands in your terminal to navigate 
 
 How to run the tests
 ------
+
+* To run the tests, simply type ```rspec``` in your terminal.
 
 Screenshot
 ------
