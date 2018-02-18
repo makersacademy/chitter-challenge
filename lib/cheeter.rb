@@ -14,12 +14,14 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM cheeter")
+    result = DatabaseConnection.query("SELECT * FROM cheeter ORDER BY time DESC")
      result.map { |cheet| Peep.new(cheet['name'], cheet['text'], cheet['time']) }
   end
 
   def self.add_peep(text)
     DatabaseConnection.query("UPDATE cheeter SET text='#{text}'")
   end
+
+
 
 end
