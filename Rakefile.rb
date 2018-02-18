@@ -24,22 +24,23 @@ end
 
 task :setup_test_database do
   begin
+  DataMapper.setup(:default, 'postgres:///cheeter_test')
   DataMapper.auto_migrate!
   # DataMapper.setup(:default, 'postgres:///cheeter_test')
   Cheet.create(
     :title      => "My first DataMapper post",
     :body       => "A lot of text ...",
-    :created_at => Time.now
+    :created_at => Time.now - 50
   )
   Cheet.create(
     :title      => "My second DataMapper post",
     :body       => "Some more text ...",
-    :created_at => Time.now + 100
+    :created_at => Time.now - 20
   )
   Cheet.create(
     :title      => "My third DataMapper post",
     :body       => "Even more text ...",
-    :created_at => Time.now + 200
+    :created_at => Time.now
   )
   rescue => e
   p e

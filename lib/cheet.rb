@@ -14,8 +14,8 @@ class Cheet
   property :title,      String    # A varchar type string, for short strings
   property :body,       Text, :required => true, :lazy => false      # A text block, for longer string data.
   property :created_at, DateTime  # A DateTime, for any date you might like.
-  belongs_to :user
-  # DataMapper.finalize
+  # belongs_to :user
+  DataMapper.finalize
 
   def self.add_cheet(title, body)
     Cheet.create(

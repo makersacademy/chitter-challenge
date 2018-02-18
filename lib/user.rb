@@ -2,7 +2,7 @@ require 'rubygems'
 require 'data_mapper'
 
 class User
-  attr_reader :id, :title, :body, :created_at
+  attr_reader :id, :email, :name, :username, :password
 
   include DataMapper::Resource
   # include DataMapper::Repository
@@ -10,11 +10,17 @@ class User
   property :email,      String    # A varchar type string, for short strings
   property :name,       String    # A text block, for longer string data.
   property :username,   String # A DateTime, for any date you might like.
-  has n, :cheets
+  property :password,   String # A DateTime, for any date you might like.
+  # has n, :cheets
   # DataMapper.finalize
 
   def self.sign_up(email, password, name, username)
-
+    User.create(
+      :email      => email,
+      :password   => password,
+      :name       => name,
+      :username   => username
+    )
   end
 
 end
