@@ -10,6 +10,7 @@ class User
   property :email,      String    # A varchar type string, for short strings
   property :name,       String    # A text block, for longer string data.
   property :username,   String # A DateTime, for any date you might like.
+  has n, :cheets
   # DataMapper.finalize
 
   def self.sign_up(email, password, name, username)
