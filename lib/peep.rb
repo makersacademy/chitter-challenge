@@ -16,7 +16,6 @@ class Peep
   def self.create(peep)
     DatabaseConnection.query "INSERT INTO peeps(body, created_date) " +
     "VALUES('#{peep}', NOW())"
-     #''
   end
 
 end

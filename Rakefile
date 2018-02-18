@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
@@ -47,6 +48,9 @@ task :populate_test_database do
   connection = PG.connect dbname: databases[1]
   connection.exec "TRUNCATE TABLE peeps"
   connection.exec "INSERT INTO peeps(body, created_date) VALUES('This is a test peep', NOW())"
+  connection.exec "TRUNCATE TABLE users"
+  password_hash = BCrypt::Password.create("Password1")
+  connection.exec "INSERT INTO users(username, name, email, password) VALUES('testusername', 'Test User', 'testuser@example.com', '#{password_hash}')"
 end
 
 task :teardown do
