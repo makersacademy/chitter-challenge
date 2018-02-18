@@ -47,7 +47,6 @@ class Chitter < Sinatra::Base
       flash[:n] = Flash.after_log_in(params[:username])
       user = User.instanciate(params[:username])
       session[:user_id] = user.id
-      p session[:user_id]
       redirect '/peeps'
     else
       flash[:n] = Flash.no_match if !User.matching_data(params[:username], params[:password])

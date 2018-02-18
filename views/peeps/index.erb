@@ -31,7 +31,7 @@ CHITTER
   </div>
 
   <div class="flash_container"><div class="flash_area"><%= flash[:n] %></div></div> <br>
-
+  <% if session[:user_id] != nil %>
     <div class="peep_enter">
       <form action="/peeps/new" method="POST" class="post_peep">
         <input type="text" name="text" placeholder="Enter your peep">
@@ -39,6 +39,7 @@ CHITTER
         <input type="submit" value="Add Peep">
       </form>
     </div>
+  <% end %>
     <% @peeps.each do |peep| %>
     <div class="single_peep">
 
