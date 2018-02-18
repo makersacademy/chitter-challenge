@@ -2,7 +2,10 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li id="peep-<%= peep.id %>">
+      <%= peep.post %>
+        <%= peep.time %>
+      </li>
   <% end %>
 </ul>
 

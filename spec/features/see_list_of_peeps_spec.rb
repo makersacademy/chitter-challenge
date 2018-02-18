@@ -11,7 +11,7 @@ feature 'Post a peep' do
   scenario 'A user can post a peep to chitter' do
     visit('/post')
     fill_in('post', with: 'My first peep')
-    click_button('Post peep')
+    click_button('Submit')
     expect(page).to have_content 'My first peep'
   end
 end
