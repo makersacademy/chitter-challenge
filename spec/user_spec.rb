@@ -15,4 +15,14 @@ describe User do
     end
   end
 
+  describe '::find' do
+    it 'finds a user by ID' do
+      user = User.create(email: 'happybirthday@forever.com', password: 'Iamawesome')
+      expect(User.find(user.id).email).to eq user.email
+    end
+    it 'returns nil unless id is found' do
+      expect(User.find(nil)).to eq nil
+    end
+  end
+
 end

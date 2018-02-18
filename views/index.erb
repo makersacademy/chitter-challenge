@@ -6,7 +6,10 @@
     <link rel="stylesheet" type="text/css" href="/style.css" href="https://fonts.googleapis.com/css?family=Tangerine">
   </head>
   <body class="centered-wrapper">
-    <h1>Welcome to Chitter</h1>
+    <h1>Chitter</h1>
+    <% if @user != nil %>
+    <h2>Welcome, <%= @user.email %>
+    <% end %>
     <div id="peep-form">
       <form action="post-peep" method="post">
         <input type="text" name="peep" value="What's on your mind?">
