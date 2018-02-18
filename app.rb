@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'bcrypt'
 require './lib/peep.rb'
 require './lib/user.rb'
 require './database_connection_setup'
@@ -31,8 +32,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.create(params[:email], params[:password], params[:name], params[:username])
-    p user
+    options = {:email => params[:email],
+              :password => params[:password],
+            :name => params[:name],
+          :username => params[:username]}
+    user = User.create(options)
+    p user.password
     session[:id] = user.id
     redirect '/'
   end

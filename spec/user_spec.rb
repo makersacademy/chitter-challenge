@@ -2,9 +2,16 @@ require 'user'
 
 describe User do
 
+  let(:options) {{:email => 'test@test.com',
+            :password => 'password',
+            :name => 'Testname',
+            :username => 'TestUsername'
+            }}
+
   describe '.all' do
     it 'returns all users objects' do
-      User.create('test@test.com', 'password', 'Testname', 'TestUsername')
+
+      User.create(options)
       users = User.all
       usernames = users.map(&:username)
       expect(usernames).to include 'TestUsername'
@@ -13,16 +20,21 @@ describe User do
 
   describe '.create' do
     it 'adds a new user to the database' do
-      User.create('test@test.com', 'password', 'Testname', 'TestUsername')
+      User.create(options)
       users = User.all
       usernames = users.map(&:username)
       expect(usernames).to include 'TestUsername'
+    end
+
+    it 'hashes the password using bcrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password')
+      User.create(options)
     end
   end
 
   describe 'find' do
     it 'returns a User object based on id' do
-      user = User.create('test@test.com', 'password', 'Testname', 'TestUsername')
+      user = User.create(options)
       expect(User.find(user.id).name).to eq user.name
     end
 
