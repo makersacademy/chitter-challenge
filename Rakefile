@@ -27,3 +27,12 @@ task :test_setup do
   INSERT INTO peeps (string) VALUES ('Today was a good day');
   INSERT INTO peeps (string) VALUES ('How Can Mirrors Be Real If Our Eyes Arent Real');")
 end
+
+task :update do
+  conn = PG.connect
+  ['chitter','chitter_test'].each do |database|
+    conn.exec("CREATE DATABASE #{database}")
+    DatabaseConnection.setup("#{database}")
+    DatabaseConnection.query("ALTER TABLE peeps ADD ")
+  end
+end
