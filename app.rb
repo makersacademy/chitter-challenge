@@ -1,11 +1,25 @@
 require 'sinatra/base'
 require './lib/peep'
-# require './lib/database_connection_setup'
+require './lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
-  get "/" do
+
+  get '/' do
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
     @peeps = Peep.all
     erb(:index)
+  end
+
+  get '/peeps/new' do
+    erb(:create)
+  end
+
+  post '/peeps' do
+    Peep.create(params)
+    redirect '/'
   end
 
   # get '/new' do

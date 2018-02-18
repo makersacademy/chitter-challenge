@@ -9,6 +9,7 @@ if ENV['RACK_ENV'] != 'production'
 end
 
 task :setup_test_database do
+  p "Cleaning the database!!!"
   connection = PG.connect dbname: 'chitter_' + ENV['RACK_ENV']
   connection.exec "TRUNCATE peeps CASCADE;
   INSERT INTO peeps
@@ -21,7 +22,7 @@ end
 # Uncomment below and run 'rake setup' from the terminal on first use
 # Don't forget to run 'gem install bundler' and 'bundle install' first!!!
 
-
+#
 # task :setup do
 #   ["chitter_development", "chitter_test"].each do |db_name|
 #     connect = PG.connect
