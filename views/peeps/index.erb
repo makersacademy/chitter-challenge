@@ -26,6 +26,11 @@ CHITTER
         <input type="submit" value="Log out" class="main_page_input">
       </form>
       <% end %>
+      <% if session[:user_id] != nil %>
+      <form action="/comments/new" method="GET" class="form_nav">
+        <input type="submit" value="Add a comment to a peep" class="main_page_input">
+      </form>
+      <% end %>
     </div>
   </div>
 
@@ -47,16 +52,17 @@ CHITTER
     <%= erb :'/peeps/new' %>
   <% end %>
 
-    <% @peeps.each do |peep| %>
-      <div class="single_peep">
-        <%= peep.author %>
-          wrote:
-        <%= peep.text %>
-        <br>
-        <h3>
-          <%= peep.date %>
-        </h3>
+  <% @peeps.each do |peep| %>
+    <div class="single_peep">
+        <h2> id: <%= peep.id %>. <%= peep.author %> wrote: <%= peep.text %>. </h2> <br>
+          <div class="date"> <h3> <%= peep.date %> </h3> </div>
       </div>
+      Comments:
+      <% @comments.each do |comment| %>
+        <% if comment.peep_id == peep.id %>
+              <li> <%= comment.text %> </li>
+        <% end %>
+      <% end %>
     <% end %>
 
   </body>

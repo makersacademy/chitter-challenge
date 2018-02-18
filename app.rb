@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require './lib/database_connection_setup'
 require './lib/peep'
 require './lib/user'
+require './lib/comment'
 require './lib/flash'
 
 class Chitter < Sinatra::Base
@@ -16,6 +17,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @comments = Comment.all
     erb(:'peeps/index')
   end
 
@@ -28,6 +30,7 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     @peeps = Peep.all
+    @comments = Comment.all
     @new_user = true
     erb(:'peeps/index')
   end
@@ -43,6 +46,7 @@ class Chitter < Sinatra::Base
 
   get '/sessions/new' do
     @peeps = Peep.all
+    @comments = Comment.all
     @log_in = true
     erb(:'peeps/index')
   end
@@ -60,6 +64,15 @@ class Chitter < Sinatra::Base
     session.clear
     flash[:n] = Flash.after_log_out
     redirect ('/peeps')
+  end
+
+  get '/comments/new' do
+    erb(:'comments/new')
+  end
+
+  post '/comments/new' do
+    Comment.add(params[:text], params[:id])
+    redirect '/peeps'
   end
 
 end
