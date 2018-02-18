@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter - Sign Up</title>
+  </head>
+  <body>
+    <% if flash[:taken] %>
+      <h1><%= flash[:taken] %></h1>
+    <% end %>
+    <form action="/sessions" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <input type="password" name="password" placeholder="Enter your password" required>
+      <input type="submit" value="Sign in">
+    </form>
+  </body>
+</html>

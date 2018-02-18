@@ -1,22 +1,15 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/database_connection_setup'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     redirect '/peeps'
-  end
-
-  get '/users/new' do
-    erb(:sign_up)
-  end
-
-  post '/users' do
-    user = User.create(params)
-    session[:user_id] = user.id
-    redirect '/'
   end
 
   get '/peeps' do
@@ -30,19 +23,34 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    p params
     Peep.create(params)
     redirect '/'
   end
 
-  # get '/new' do
-  #   erb(:new)
-  # end
-  #
-  # post "/" do
-  #   Peep.create(peep: params[:peep], title: params[:title])
-  #   redirect("/")
-  # end
-  #
+  get '/users/new' do
+    erb(:sign_up)
+  end
+
+  post '/users' do
+    begin
+      user = User.create(params)
+      session[:user_id] = user.id
+    rescue Exception => e
+      flash[:taken] = e.message
+      redirect '/users/new'
+    end
+    redirect '/'
+  end
+
+  get '/sessions/new' do
+    erb(:sign_in)
+  end
+
+  post '/sessions' do
+    p params
+    user = User.sign_in(params)
+    session[:user_id] = user.id
+    redirect('/')
+  end
   # run! if app_file == $0
 end

@@ -5,11 +5,14 @@
     <title>Chitter - Sign Up</title>
   </head>
   <body>
+    <% if flash[:taken] %>
+      <h1><%= flash[:taken] %></h1>
+    <% end %>
     <form action="/users" method="POST">
-      <input type="email" name="email" placeholder="Enter your email">
-      <input type="text" name="name" placeholder="Enter your name">
-      <input type="text" name="handle" value="Enter your desired Chitter handle">
-      <input type="password" name="password" value="Enter a password">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <input type="text" name="name" placeholder="Enter your name" required>
+      <input type="text" name="handle" placeholder="Choose a Chitter handle" required>
+      <input type="password" name="password" placeholder="Enter a password" required>
       <input type="submit" value="Sign up">
     </form>
   </body>
