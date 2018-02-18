@@ -28,6 +28,11 @@ CHITTER
       <% end %>
     </div>
   </div>
+  <div class="flash_container">
+    <div class="flash_area">
+      <%= flash[:n] %>
+    </div>
+  </div>
 
   <% if @new_user == true %>
     <%= erb :'/users/new' %>
@@ -39,26 +44,21 @@ CHITTER
     <% @log_in = false %>
   <% end %>
 
-  <div class="flash_container"><div class="flash_area"><%= flash[:n] %></div></div> <br>
   <% if session[:user_id] != nil %>
-    <div class="peep_enter">
-      <form action="/peeps/new" method="POST" class="post_peep">
-        <input type="text" name="text" placeholder="Enter your peep">
-        <input type="submit" value="Add Peep">
-      </form>
-    </div>
+    <%= erb :'/peeps/new' %>
   <% end %>
-    <% @peeps.each do |peep| %>
-    <div class="single_peep">
 
-      <%= peep.author %>
-      wrote:
-      <%= peep.text %>
-      <br>
-      <h3>
-        <%= peep.date %>
-      </h3>
-    </div>
+    <% @peeps.each do |peep| %>
+      <div class="single_peep">
+        <%= peep.author %>
+          wrote:
+        <%= peep.text %>
+        <br>
+        <h3>
+          <%= peep.date %>
+        </h3>
+      </div>
     <% end %>
+    
   </body>
 </html>
