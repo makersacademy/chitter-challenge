@@ -2,14 +2,20 @@
 
 <form action="/peeps" method="post">
   <input type="text" name="peep" placeholder="Type your peep here...">
+  <!-- <input type="hidden" name="time" value="<%= @time %>"> -->
   <input type="submit" value="Peep">
 </form>
 
 <h2>Peeps</h2>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.message %></li>
+    <li>Heather @heather
+    <%= peep.message %>
+    <%= peep.message_time %>
+  </li>
     <% end %>
   </ul>
 
-<h3>My first peep!</h3>
+  <form action="/sign_up" method="get">
+    <input type="submit" value="Sign up here!">
+  </form>
