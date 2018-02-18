@@ -10,7 +10,6 @@ class Peep
   def initialize(text, time)
     @text = text
     @time = time
-
   end
 
   def self.all
