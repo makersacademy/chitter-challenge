@@ -9,7 +9,7 @@ describe Comment do
 
   context '.create' do
     it 'adds a new comment to the database' do
-      described_class.create(comment: 'I love food')
+      described_class.create(comment: 'I love food', created_by: 'Daniel')
       expect(described_class.all.last.comment).to eq 'I love food'
     end
   end

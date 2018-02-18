@@ -9,6 +9,7 @@ class Comment
   property :id, Serial
   property :comment, String, :length => 240
   property :created_at, DateTime
+  property :created_by, String
 
 end
 

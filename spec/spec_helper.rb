@@ -31,8 +31,7 @@ RSpec.configure do |config|
   # Everything in this block runs once before each individual test
   config.before(:each) do
     DatabaseCleaner.start
-    Comment.create(comment: 'Im hungry')
-    User.create(username: 'Patricia', email: 'patty@test.com', password: '34532')
+    Comment.create(comment: 'Im hungry', created_by: 'Daniel')
   end
 
   # Everything in this block runs once after each individual test

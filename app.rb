@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new' do
-    Comment.create(comment: params[:message])
+    Comment.create(comment: params[:message], created_by: params[:user])
     redirect '/'
   end
 

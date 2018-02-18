@@ -12,12 +12,18 @@
 <% end %>
 
 <form id="msg" action="/new" method="post">
+  <% if @user %>
+    <input type="hidden" name="user" value="<%= @user.username %>">
+  <% end %>
   <textarea name="message" form="msg" rows="4" cols="50" placeholder="What's on your mind?"></textarea>
   <input type="submit" value="Peep">
 </form>
 
 <div class="feed">
   <% @comments.reverse.each do |peep| %>
+  <% if peep.created_by != nil %>
+    <p><%= peep.created_by %> said:</p>
+  <% end %>
     <p><strong><%= peep.comment %></strong> - <i>Sent at: <%= peep.created_at.strftime "%H:%M" %></i></p>
   <% end %>
 </div>
