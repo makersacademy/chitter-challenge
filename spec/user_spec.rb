@@ -12,7 +12,7 @@ describe User do
       u = User.new(peeper: 'Lumberman', username: 'Lumbi', email: 'lumberman@example.es', password: pass)
 
       expect(u.save).to eq true
-      expect(User.get(u.id).password).to eq 'pass'
+      expect(User.get(u.id).password).to eq pass
     end
   end
 

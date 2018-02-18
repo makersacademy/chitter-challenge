@@ -1,5 +1,4 @@
-require './lib/peep'
-require './lib/user'
+require './lib/models'
 
 require 'bcrypt'
 require 'pg'
@@ -45,6 +44,15 @@ class Chitter < Sinatra::Base
     user = User.first(:email => params['email'])
 
     session[:id] = user.id
+    redirect '/'
+  end
+
+  get '/peeps/new' do
+    erb(:'peeps/new')
+  end
+
+  post '/peeps' do
+    User.get(session[:id]).peeps.create(peep: params['new_peep'])
     redirect '/'
   end
 

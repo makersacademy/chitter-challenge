@@ -1,5 +1,9 @@
 <% if @user %>
   <h1>Welcome to Chitter, <%= @user.username %>!</h1>
+
+  <form action="/peeps/new">
+    <input type="submit" value="New peep">
+  </form>
 <% else %>
   <h1>Welcome to Chitter!</h1>
 <% end %>
@@ -19,7 +23,8 @@
 <div style="text-align: center;">
   <% @peeps.each do |peep| %>
     <div class="peeps" style="margin-top: 10px;">
-      <%= peep['peep'] %>
+      <h2><%= peep['peep'] %></h2>
+      <h4>Created at <%= peep['created_at'] %> by <%= peep.user.peeper %>, aka <%= peep.user.username %></h4>
     </div>
   <% end %>
 </div>
