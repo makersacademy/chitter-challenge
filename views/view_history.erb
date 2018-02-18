@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <h1> peep history: </h1>
+    </header>
+      <h2>Choose one of the options to view the history!</h2>
+    <% @peeps.each do |cheet|%>
+    <h2>
+      <li> <%= cheet.text %></li>
+      <% end %>
+    </h2>
+    <form action="/chronologic_order" method="get">
+      <input type="submit"  value="chronologic order">
+    </form>
+    <form action="/time_order" method="get">
+      <input type="submit"  value="time made">
+    </form>
+  </body>
+</html>

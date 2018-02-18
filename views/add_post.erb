@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
-    <h1>cheeter message:</h1>
-    <h2><%= @add_post %></h2>
-    <h3> peep history: </h3>
-    <% @peeps.each do |cheet|%>
-    <h3>
-      <li><%= cheet.text %></li>
-      <% end %>
-    </h3>
+    <header>
+      <h1>peep:</h1>
+    </header>
+    <h2><%= @peep %> </h2>
+    <form action='/view_history' method="get">
+      <input type="submit" value="view history">
+    </form>
   </body>
 </html>
