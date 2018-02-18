@@ -45,8 +45,7 @@ class Chitter < Sinatra::Base
   post '/sessions/new' do
     if User.matching_data(params[:username], params[:password])
       flash[:n] = Flash.after_log_in(params[:username])
-      result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{params[:username]}'")
-      user = User.new(result[0]['id'], result[0]['email'], result[0]['password'], result[0]['name'], result[0]['username'])
+      user = User.instanciate(params[:username])
       session[:user_id] = user.id
       redirect '/peeps'
     else
