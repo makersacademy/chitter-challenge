@@ -1,4 +1,5 @@
 require 'peep'
+require 'timecop'
 
 describe Peep do
 
@@ -7,6 +8,15 @@ describe Peep do
   context 'when initialized' do
     it 'takes a string parameter and assigns it to a "string" attribute' do
       expect(peep.string).to eq "Hello world!"
+    end
+  end
+
+  describe '#creation_time' do
+    it "stores the peep's time of creation" do
+      new_time = Time.now
+      Timecop.freeze(new_time)
+      expect(peep.creation_time).to eq new_time
+      Timecop.return
     end
   end
 

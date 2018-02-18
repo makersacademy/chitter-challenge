@@ -20,14 +20,18 @@ SimpleCov.start
 Rake.application.load_rakefile
 
 RSpec.configure do |config|
-
   config.before(:each) do
     Rake::Task[:test_setup].execute
   end
-
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  end
+end
+
+RSpec::Matchers.define :appear_before do |later_content|
+  match do |earlier_content|
+    page.body.index(earlier_content) < page.body.index(later_content)
   end
 end
