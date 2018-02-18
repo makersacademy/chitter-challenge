@@ -7,21 +7,24 @@
 
     <div class="title">
       <h1>
-        Welcome to Chitter!
-        <br>
-        A totally-not-a-twitter-rip-off platform to share random thoughts.</h2>
-    </div>
-    <div class="flash_area"><%= flash[:n] %></div> <br>
+CHITTER
+</h1>
+
     <div class="actions">
       <form action="/users/new" method="GET">
-        <input type="submit" value="Sign Up">
+        <input type="submit" value="Sign Up" class="main_page_input">
       </form>
       <form action="/users/log_in" method="GET">
-        <input type="submit" value="Log in">
+        <input type="submit" value="Log in" class="main_page_input">
       </form>
     </div>
+
+  </div>
+
+  <div class="flash_container"><div class="flash_area"><%= flash[:n] %></div></div> <br>
+
     <div class="peep_enter">
-      <form action="/peeps/new" method="POST">
+      <form action="/peeps/new" method="POST" class="post_peep">
         <input type="text" name="text" placeholder="Enter your peep">
         <input type="text" name="author" placeholder="Enter your name">
         <input type="submit" value="Add Peep">

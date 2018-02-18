@@ -1,21 +1,39 @@
 .title {
   background-color: #0084b4;
   margin-bottom: 1em;
-}
-
-.actions {
   display: flex;
 }
 
+.actions {
+  display: inline-flex;
+  margin-left: 5%;
+}
+
+.main_page_input {
+  margin-right: 1em;
+  margin-top: 2em;
+}
+
+.peep_enter {
+  background-color: #00aced;
+  margin-bottom: 0.8em;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.post_peep {
+  padding: 1em;
+}
+
 .single_peep {
-  background-color: #c1dbe3;
+  background-color: #c0deed;
   width: 80%;
   margin-left: 10%;
   margin-bottom: 0.5em;
 }
 
-.peep_enter {
-  margin-bottom: 1em;
+.flash_container {
+  height: 1.5em;
 }
 
 .flash_area {
@@ -26,11 +44,13 @@
 }
 
 h1 {
-  padding: 0.5em;
+  padding: 0.2em;
   font-family: Work Sans;
-  font-size: 1.1em;
+  font-size: 1.3em;
   letter-spacing: 0.1em;
-  text-align: center;
+  width: 3em;
+  margin-left: 4%;
+  color: white;
 }
 
 h3 {
