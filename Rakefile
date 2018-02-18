@@ -11,11 +11,15 @@ end
 task :setup_test_database do
   p "Cleaning the database!!!"
   connection = PG.connect dbname: 'chitter_' + ENV['RACK_ENV']
-  connection.exec "TRUNCATE peeps CASCADE;
+  connection.exec "TRUNCATE users CASCADE;
+  INSERT INTO users
+  VALUES (1, 'catmania505@freemail.com', 'password', 2);
+  INSERT INTO users
+  VALUES (2, 'doglover@yomail.com', 'password', 1);
   INSERT INTO peeps
-  VALUES (1, 'I love cats', 'Catman505');
+  VALUES (1, 'I love cats', '11:31AM, 18 February, 2018', 2);
   INSERT INTO peeps
-  VALUES (2, 'I love dogs', 'Doggirl22');"
+  VALUES (2, 'I love dogs', '11:50AM, 18 February, 2018', 1);"
   # connection.exec "TRUNCATE comments;"
 end
 
@@ -29,7 +33,10 @@ end
 #     connect.exec("DROP DATABASE IF EXISTS #{db_name}")
 #     connect.exec("CREATE DATABASE #{db_name}")
 #     connection = PG.connect dbname: db_name
-#     connection.exec("CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR
-#       (240), author VARCHAR(60))")
+#     connection.exec("CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR
+#       (60), email VARCHAR(60), handle VARCHAR(60), password VARCHAR(60));
+#       CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR
+#       (240), time VARCHAR(60), user_id INT REFERENCES users(id) );
+#       ")
 #   end
 # end

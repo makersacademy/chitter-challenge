@@ -31,8 +31,10 @@ RSpec.configure do |config|
 
   config.after(:suite) do
     puts
-    puts "\e[33mKeep it up!\e[0m"
-    puts "\e[33mYOU GOT THIS!!!\e[0m"
+    puts "\e[33m **************************************\e[0m"
+    puts "\e[33m              Keep it up!\e[0m"
+    puts "\e[33m            YOU GOT THIS!!!\e[0m"
+    puts "\e[33m **************************************\e[0m"
   end
 
   config.expect_with :rspec do |expectations|
