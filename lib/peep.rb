@@ -9,13 +9,13 @@ class Peep
     @time = time[11..15]
     @peep = peep
   end
-    
+
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |peep| Peep.new(peep['time'],peep['peep']) }.reverse
+    result.map { |peep| Peep.new(peep['time'], peep['peep']) }.reverse
   end
-    
+
   def self.create(new_peep)
-    DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{new_peep}');")  
+    DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{new_peep}')")
   end
 end

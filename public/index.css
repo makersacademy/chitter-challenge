@@ -1,7 +1,7 @@
 div {
   border-radius: 10px;
   background-color: #f2f2f2;
-  /* padding: 20px; */
+  padding: 20px 20px 20px 20px;
 }
 
 body {
@@ -50,8 +50,10 @@ h2 {
 }
   
 p {
-  width: 100%;  
+  width: 95%; 
   font-size: 14px;
+  padding: 20px;
+  /* margin: 10px; */
   font-family: 'Helvetica Neue', sans-serif;
   color:  grey;
   background:#c0deed;
@@ -62,4 +64,3 @@ p {
   /* border: 5px solid #ccc; */
   /* border-radius: 5px;
   box-sizing: border-box; */
-}
