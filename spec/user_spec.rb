@@ -27,4 +27,12 @@ describe User do
     end
   end
 
+  describe '::authenticate' do
+    it 'returns a user when email and password is correct' do
+      user = User.create(email: 'telgi@gmail.com', password: 'password2')
+      authenticated_user = User.authenticate('telgi@gmail.com', 'password2')
+      expect(authenticated_user.id).to eq user.id
+    end
+  end
+
 end
