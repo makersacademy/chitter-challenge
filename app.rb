@@ -2,13 +2,14 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peep'
 require './database_connection_setup'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
   get '/' do
-    redirect '/log_in/:id'
+    redirect '/log_in'
   end
 
   get '/log_in' do
@@ -17,11 +18,13 @@ class Chitter < Sinatra::Base
 
   post '/log_in' do
     User.add_new_user(params[:id])
+    session[:id] = params[:id]
     redirect '/peeps'
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.and_id
+    @id = session[:id]
     erb :index
   end
 
@@ -29,13 +32,13 @@ class Chitter < Sinatra::Base
     erb :add_new_peeps
   end
 
-  post '/peeps/add_peep' do
-    redirect '/peeps/add_peep'
+  post '/peeps/add_peeps' do
+    redirect '/peeps/add_peeps'
   end
 
   post '/peeps/create_new_peep' do
     # begin
-      Peep.add_new_peep(params[:new_peep])
+      Peep.add_new_peep(params[:new_peep], session[:id])
       redirect '/peeps'
     # rescue Exception => error
     #   flash[:notice] = error.message

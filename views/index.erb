@@ -1,4 +1,4 @@
-<h1> This is your homepage </h1>
+<h1> Welcome <%=@id%> to your homepage </h1>
 <h2> Below are all the peeps from yourself and those you follow! </h2>
 
 <form action="/peeps/add_peeps" method="post">
@@ -6,28 +6,7 @@
 </form>
 
 <ul>
-  <% @peeps.each do |peep| %>
-      <li id="<%= peep.id %>">
-      <a href="<%= peep.peep %>"><%= peep.time %><%= peep.id %></a>
-      </li>
-  <% end %>
+  <li
+  <h1> <%=@peeps%> </h1>
+  </li>
 </ul>
-
-
-        <!--<form action="/links/<%= peep.id %>/delete" method="post">-->
-          <!--<input type="hidden" name="id" value="<%= peep.id %>">-->
-          <!--<input type="submit" value="Delete">-->
-        <!--</form>-->
-        <!--<form action="/links/<%= peep.id %>/update" method="post">-->
-          <!--<input type="hidden" name="id" value="<%= peep.id %>">-->
-          <!--<input type="submit" value="Update">-->
-        <!--</form>-->
-        <!--</li>-->
-  <!--<% end %>-->
-<!--</ul>-->
-
-<!--<form action="/links/<%= peep.id %>/add_a_comment" method="post">-->
-          <!--<input type="hidden" name="id" value="<%= peep.id %>">-->
-          <!--<input type="text" name="comment" placeholder="Write a thoughtful message here...">-->
-          <!--<input type="submit" value="Comment">-->
-        <!--</form>-->

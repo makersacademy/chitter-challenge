@@ -17,7 +17,22 @@ class Peep
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
     result.map { |peep| Peep.new(peep['peep'], peep['id'], peep['time']) }
+  end
 
+  def self.and_id
+    Peep.all.each do |peep|
+      # p('message')
+      message = peep.peep
+      # p('id')
+      id = peep.id
+      time = peep.time
+      if (message && id) != "NULL"
+        # p "message, ID and time"
+        p message
+        p id
+        p time
+      end
+    end
   end
 
   def self.add_new_peep(new_peep, id)
@@ -44,3 +59,17 @@ end
 #   def self.working_link?(new_link)
 #     new_link =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]
 #   end
+
+# result = DatabaseConnection.query("SELECT * FROM peeps")
+# @peeped = result.map { |peep| Peep.new(peep['peep'], peep['id'], peep['time']) }
+# @peeped.each do |peep|
+#   p('message')
+#   p(message = peep.peep)
+#   p('id')
+#   p(id = peep.id)
+#   if (message && id) != "NULL"
+#     p "message and ID"
+#     p message
+#     p id
+#   end
+# end
