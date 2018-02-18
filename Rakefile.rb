@@ -9,13 +9,14 @@ require 'data_mapper'
 require  'dm-migrations'
 require_relative 'database_connection_setup.rb'
 require File.join(File.dirname(__FILE__), 'lib', 'cheet.rb')
+require File.join(File.dirname(__FILE__), 'lib', 'user.rb')
 
 task :setup do
   begin
-  %w[cheeter cheeter_test].each do |database|
+  %w[cheeter cheeter_test user user_test].each do |database|
     DataMapper.setup(:default, "postgres:///#{database}")
+    DataMapper.finalize
     DataMapper.auto_migrate!
-    # DataMapper.finalize
   end
   rescue => e
   end
