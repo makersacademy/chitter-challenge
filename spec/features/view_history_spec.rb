@@ -9,7 +9,7 @@ end
 feature 'view history in chronologic_order' do
   scenario 'user can view the history of messages in reverse chronologic order' do
     sign_in_and_peep
-    click_button "chronologic order"
+    click_button "chronological order"
     expect(page).to have_content "Hello! I am having lunch, 2018-02-18"
   end
 end

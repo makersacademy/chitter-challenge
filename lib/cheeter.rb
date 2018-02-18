@@ -3,10 +3,10 @@ class Peep
 
   attr_reader :name, :text, :time
 
-  def initialize(name, text, time)
-    @name = name
+  def initialize(text, time)
     @text = text
     @time = time
+    @name = name
   end
 
   def self.sign_in(name)
@@ -15,13 +15,12 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM cheeter ORDER BY time DESC")
-     result.map { |cheet| Peep.new(cheet['name'], cheet['text'], cheet['time']) }
+     result.map { |cheet| Peep.new(cheet['text'], cheet['time']) }
   end
 
   def self.add_peep(text)
-    DatabaseConnection.query("UPDATE cheeter SET text='#{text}'")
+    DatabaseConnection.query("INSERT INTO cheeter(text) VALUES('#{text}')")
   end
-
 
 
 end
