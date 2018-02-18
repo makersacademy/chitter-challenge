@@ -1,28 +1,30 @@
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
+  require 'pg'
 
   RSpec::Core::RakeTask.new :spec
 
   task default: [:spec]
 end
 
-require './lib/databaseconnection'
-require 'pg'
-
-task :test_database_setup do
-  p 'Setting up database...'
-  DatabaseConnection.setup('chitter_challenge_test')
-  DatabaseConnection.query('DROP TABLE IF EXISTS messages')
-  DatabaseConnection.query('CREATE TABLE messages (id SERIAL PRIMARY KEY, message VARCHAR(100), title VARCHAR(30));')
-  DatabaseConnection.query("INSERT INTO messages(message, title) VALUES('This is a message!', 'Perkele!');")
+task :set_up do
+  p 'Creating database...'
+  %w[chitter_challenge chitter_challenge_test].each do |database|
+    connection = PG.connect
+    connection.exec("CREATE DATABASE #{database}")
+    connection = PG.connect dbname: database
+    connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(60), time VARCHAR(20));")
+  end
 end
 
-task :set_up do
-  p 'Creating databases...'
-  %w[chitter_challenge chitter_challenge_test].each do |database|
-    con = PG.connect
-    con.exec("CREATE DATABASE #{database}")
-    DatabaseConnection.setup(database.to_s)
-    DatabaseConnection.query('CREATE TABLE messages (id SERIAL PRIMARY KEY, message VARCHAR(100), title VARCHAR(30))')
+task :test_database_setup do
+  p 'Cleaning databases...'
+
+  if ENV['ENVIRONMENT'] == 'test'
+    DatabaseConnection.setup('chitter_challenge_test')
+    DatabaseConnection.query('TRUNCATE peeps;')
+    DatabaseConnection.query("INSERT INTO peeps VALUES(1, 'This is a message!', '24/04/1989 11:02')")
+    DatabaseConnection.query("INSERT INTO peeps VALUES(1, 'This is another message!', '24/04/1989 12:04')")
+    DatabaseConnection.query("INSERT INTO peeps VALUES(1, 'Whatevs!', '24/04/1989 01:08')")
   end
 end
