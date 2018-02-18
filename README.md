@@ -1,18 +1,16 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Approach:
 -------
+* After reading the user stories, I decided I wanted to challenge myself and try to learn a new technology and implement features I had never used before.
+* I spent most of the weekend reading and playing around with DataMapper until I felt comfortable with it.
 
-As usual please start by forking this repo.
+* I felt that I could have Test Driven the Application a bit more, but considering that most of the effort went to do something completely new, I am quite satisfied with the outcome.
+* I managed to implement most of the user stories with DataMapper, including a personalized log in message, depending if the user has logged in or not.
+* Had I had more time I would have included the "HARD" and "ADVANCED" features, as well as some CSS styling.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+* Overall I am very pleased with the outcome, considering time constraints
 
 Features:
 -------
