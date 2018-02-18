@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @user = User.get(session[:user_id])
     @comments = Comment.all
     erb :index
   end
@@ -26,7 +27,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    User.create(username: params[:username], email: params[:email], password: params[:password])
+    user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     flash.next[:success] = 'Sign up successful!'
     redirect '/'
   end

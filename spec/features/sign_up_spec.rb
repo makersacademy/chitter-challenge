@@ -7,5 +7,6 @@ feature 'Sign up' do
     fill_in 'password', with: '12345'
     click_button 'Sign up'
     expect(page).to have_content 'Sign up successful!'
+    expect(page).to have_content 'Welcome to Chitter, Daniel!'
   end
 end

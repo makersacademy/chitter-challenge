@@ -2,10 +2,16 @@ require 'user'
 
 describe User do
   it 'shows all users' do
-    expect(described_class.all.first.username).to eq 'Patricia'
+    user = described_class.create(username: 'Daniel', email: 'example@test.com', password: '12345')
+    expect(User.all.map(&:id)).to include user.id
   end
   it 'creates a new user' do
-    described_class.create(username: 'Daniel', email: 'example@test.com', password: '12345')
-    expect(described_class.all.last.username).to eq 'Daniel'
+    user = described_class.create(username: 'Daniel', email: 'example@test.com', password: '12345')
+    expect(user.id).not_to be nil
+  end
+
+  it 'finds a user by ID' do
+    user = described_class.create(username: 'Daniel', email: 'example@test.com', password: '12345')
+    expect(User.get(user.id).email).to eq user.email
   end
 end
