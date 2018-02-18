@@ -1,10 +1,13 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require 'Time'
 
 class Chitter < Sinatra::Base
   get '/' do
-    @peeps = ["test peep", "second test peep"]
+    Peep.create(content: "This is a test peep", time: Time.now)
+    @peeps = Peep.all
+    puts @peeps
     erb (:index)
   end
 
