@@ -1,4 +1,5 @@
 require 'pg'
+require_relative 'databaseconnection'
 
 class Peep
   attr_reader :id, :message, :title
@@ -8,14 +9,14 @@ class Peep
     @title = row[2]
   end
 
-  def self.all
+  def self.create
     result = DatabaseConnection.query('SELECT * FROM messages')
     @arr = []
     result.each_row { |row| @arr.push(Peep.new(row)) }
     @arr
   end
 
-  def self.add(new_message, title)
+  def self.all(new_message, title)
     DatabaseConnection.query("INSERT INTO messages(message, title) VALUES('#{new_message}', '#{title}')")
   end
 
