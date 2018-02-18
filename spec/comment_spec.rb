@@ -3,7 +3,6 @@ require 'Comment'
 describe Comment do
   describe '.all' do
     it 'returns all comments' do
-      Comment.add("lol", 1)
       comments = Comment.all
       texts = comments.map(&:text)
       expect(texts).to include("lol")

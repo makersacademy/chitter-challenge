@@ -67,12 +67,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/comments/new' do
-    erb(:'comments/new')
+    @peeps = Peep.all
+    @comments = Comment.all
+    @comment = true
+    erb(:'peeps/index')
   end
 
   post '/comments/new' do
-    Comment.add(params[:text], params[:id])
-    redirect '/peeps'
+    flash[:n] = Flash.thanks_for_comment
+    redirect '/peeps' if Comment.add(params[:comment], params[:id])
+    flash[:n] = Flash.no_id if !Comment.is_id?(params[:id])
+    redirect '/comments/new'
   end
 
 end

@@ -6,8 +6,8 @@ feature "adding comments to the database" do
     log_in
     click_button("Add a comment to a peep")
     fill_in "id", with: "1"
-    fill_in "text", with: "not funny at all"
-    click_button("Submit comment")
+    fill_in "comment", with: "not funny at all"
+    click_button("Submit a comment")
     expect(page).to have_content "not funny at all"
   end
 end

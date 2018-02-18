@@ -52,18 +52,30 @@ CHITTER
     <%= erb :'/peeps/new' %>
   <% end %>
 
+  <% if session[:user_id] != nil && @comment == true %>
+    <%= erb :'/comments/new' %>
+    <% @comment = false %>
+  <% end %>
+
+<div class="peeps">
   <% @peeps.each do |peep| %>
     <div class="single_peep">
-        <h2> id: <%= peep.id %>. <%= peep.author %> wrote: <%= peep.text %>. </h2> <br>
-          <div class="date"> <h3> <%= peep.date %> </h3> </div>
-      </div>
-      Comments:
+      <h2> ID: <%= peep.id %>. <%= peep.author %> wrote: <%= peep.text %>. </h2> <br><br>
+    </div>
+    <div class="date">
+      <h3> <%= peep.date %> </h3>
+    </div>
+      <% if session[:user_id] != nil %>
       <% @comments.each do |comment| %>
         <% if comment.peep_id == peep.id %>
-              <li> <%= comment.text %> </li>
+        <div class="comments">
+          <li> <%= comment.text %> </li>
+        </div>
+        <% end %>
         <% end %>
       <% end %>
     <% end %>
-
+</div>
+    <%= erb :'/footer/footer' %>
   </body>
 </html>

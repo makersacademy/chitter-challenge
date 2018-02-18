@@ -36,4 +36,12 @@ class Flash
     "Thank you for visiting us, see you later!"
   end
 
+  def self.thanks_for_comment
+    "Thank you for your comment"
+  end
+
+  def self.no_id
+    "There is no peep with this ID in our database. Check again the list of peeps."
+  end
+
 end

@@ -1,3 +1,13 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+    padding: 25px;
+}
+
 .title {
   background-color: #0084b4;
   margin-bottom: 0.5em;
@@ -7,6 +17,10 @@
 .actions {
   display: inline-flex;
   margin-left: 5%;
+}
+
+.peeps {
+  margin-top: 0.8em;
 }
 
 .main_page_input {
@@ -34,6 +48,13 @@
   margin-bottom: 0.5em;
 }
 
+.enter_form_peep_comment {
+  background-color: #7ac5b5;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 0.5em;
+}
+
 .form {
   margin-left: 1em;
 }
@@ -43,7 +64,6 @@
   display: flex;
   width: 80%;
   margin-left: 10%;
-  margin-bottom: 0.5em;
   font-family: Work Sans;
 }
 
@@ -58,14 +78,26 @@
 }
 
 .date {
+  background-color: #c0deed;
+  width: 80%;
+  margin-left: 10%;
   display: flex;
-  margin-left: 2em;
-  margin-top: 0.3em;
+  margin-bottom: 0.4em;
 }
 
 .add_comm_butt {
   margin: 0em;
   margin-left: 2em;
+}
+
+.comments {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  font-family: Work Sans;
+  margin-bottom: 0.5em;
+  font-size: 0.8em;
+  padding-left: 4em;
 }
 
 h1 {
@@ -82,13 +114,40 @@ h2 {
   font-family: Work Sans;
   color: black;
   font-size: 1em;
-  margin-top: 1.2em;
+  margin-top: 0.6em;
+  margin-bottom: -0.2em;
+  margin-left: 1em;
 }
 
 
 h3 {
-  margin-top: 1.4em;
   float: left;
   color: #0084b4;
-  font-size: 0.7em;
+  font-size: 0.8em;
+  margin-left: 1.5em;
+}
+
+
+.footer {
+  background-color: #0084b4;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+  overflow:hidden;
+  margin-bottom: 0.2em;
+}
+
+
+p6 {
+  font-family: Work Sans;
+  display: block;
+  font-size: 1em;
+  text-align: center;
+  color: white;
+}
+
+p6:hover {
+  color: #e1c53a;
 }
