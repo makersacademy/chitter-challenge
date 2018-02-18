@@ -1,11 +1,6 @@
 feature 'Sign up' do
   scenario 'User can sign up with an email and password' do
-    visit '/'
-    click_button "Sign up"
-    fill_in 'username', with: 'Daniel'
-    fill_in 'email', with: 'example@test.com'
-    fill_in 'password', with: '12345'
-    click_button 'Sign up'
+    sign_up
     expect(page).to have_content 'Sign up successful!'
     expect(page).to have_content 'Welcome to Chitter, Daniel!'
   end
