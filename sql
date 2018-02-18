@@ -1,6 +1,10 @@
 CREATE DATABASE peeps;
-CREATE TABLE peeps (
+CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    peep VARCHAR(144),
     author VARCHAR(60)
+);
+CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  link_id INTEGER REFERENCES users(id),
+  peep VARCHAR(144)
 );
