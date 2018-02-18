@@ -12,17 +12,17 @@ CHITTER
 
     <div class="actions">
       <% if session[:user_id] == nil %>
-      <form action="/users/new" method="GET">
+      <form action="/users/new" method="GET" class="form_nav">
         <input type="submit" value="Sign Up" class="main_page_input">
       </form>
       <% end %>
       <% if session[:user_id] == nil %>
-      <form action="/sessions/new" method="GET">
+      <form action="/sessions/new" method="GET" class="form_nav">
         <input type="submit" value="Log in" class="main_page_input">
       </form>
       <% end %>
       <% if session[:user_id] != nil %>
-      <form action="/sessions/destroy" method="GET">
+      <form action="/sessions/destroy" method="GET" class="form_nav">
         <input type="submit" value="Log out" class="main_page_input">
       </form>
       <% end %>

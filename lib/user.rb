@@ -30,7 +30,7 @@ class User
   end
 
   def self.find_user_by_id(id)
-    DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
     User.new(result[0]['id'], result[0]['email'], result[0]['password'], result[0]['name'], result[0]['username'])
   end
 
