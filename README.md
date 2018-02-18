@@ -65,7 +65,7 @@ How to run the tests
 Screenshot
 ------
 
-![Chitter](https://www.dropbox.com/s/5ne5581358fdtk9/Screenshot%202018-02-18%2023.39.35.png)
+![Chitter](/docs/Chitter.png?raw=true)
 
 Chitter Challenge
 =================
