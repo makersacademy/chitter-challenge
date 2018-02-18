@@ -26,9 +26,9 @@ task :test_database_setup do
 
     DatabaseConnection.setup("chitter_test")
     DatabaseConnection.query("TRUNCATE peeps")
-    DatabaseConnection.query("INSERT INTO peeps VALUES('@Joshua_Holloway1337', 'Hi Chitter World!', '2008-12-13 12:43:00')")
-    DatabaseConnection.query("INSERT INTO peeps VALUES('@Betty_food_lover', 'I really hate how ASDA stores its fruit', '2012-08-15 17:20:55')")
-    DatabaseConnection.query("INSERT INTO peeps VALUES('@Dexter_does_science', 'Did you know that human livers can regrow?', '2018-01-01 04:37:22')")
+    DatabaseConnection.query("INSERT INTO peeps VALUES('@Joshua_Holloway1337', 'Hi Chitter World!', '18/12/2008 12:43')")
+    DatabaseConnection.query("INSERT INTO peeps VALUES('@Betty_food_lover', 'I really hate how ASDA stores its fruit', '15/08/2012 17:20')")
+    DatabaseConnection.query("INSERT INTO peeps VALUES('@Dexter_does_science', 'Did you know that human livers can regrow?', '01/01/2018 04:37')")
   end
 end
 
