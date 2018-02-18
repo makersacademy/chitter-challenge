@@ -1,20 +1,15 @@
 require 'sinatra/base'
 require 'pg'
-####################################
-# PREPARING QUERIES
-####################################
-# conn is your connection object
-# conn.prepare('givethisqueryaname', "INSERT INTO table field1,field2 VALUES ($1,$2)")
-# conn.exec_prepared('givethisqueryaname',[f1_val, f2_val])
+require './database_connection_setup'
+
 class Chitter < Sinatra::Base
 
   get '/' do
-    #3. get peeps from database and post them here-
-    #   maybe add a time/date to each peep
-    connection = PG.connect(dbname: "chitter")
-    result = connection.exec("SELECT * FROM peeps")
-    # @all = result.map { |row| row['peep'] }
-    # p all
+    # Get all peeps and display on page
+    # @peeps = Peep.all
+    # @peeps =
+    # connection = DatabaseConnection.setup(chitter_test)
+    # result = connection.exec("SELECT * FROM peeps")
     erb(:index)
   end
 
