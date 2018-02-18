@@ -13,6 +13,7 @@ SimpleCov.start
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara/rspec'
 require 'rake'
+require_relative 'web_helpers'
 
 Capybara.app = Chitter
 
@@ -26,7 +27,7 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    Rake::Task['setup'].execute
+    # Rake::Task['setup'].execute
     Rake::Task['setup_test_db'].execute
     # Rake::Task['clear_db'].execute
   end

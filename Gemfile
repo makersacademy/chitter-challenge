@@ -13,6 +13,10 @@ group :database do
   gem 'pg'
 end
 
+group :password_encryption do
+  gem 'bcrypt'
+end
+
 group :test do
   gem 'capybara'
   gem 'rspec'

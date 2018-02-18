@@ -1,4 +1,4 @@
-feature 'view peeps' do
+feature 'viewing peeps' do
   scenario 'peeper can view peeps' do
     visit '/'
     expect(page).to have_content '¡Día de partido! ¡Vamos Real, hasta el final!'
