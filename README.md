@@ -7,13 +7,13 @@ This program emulates Twitter, allowing users to post messages to a public strea
 
 ## How to use
 
-1. Use Ruby 2.5.0. In addition, this program requires you to have PostgreSQL on your machine. To download this with Homebrew, run ```brew install postgresql``` and follow the instructions.
+1. Use Ruby 2.5.0. In addition, this program requires PostgreSQL. To download this with Homebrew, run ```brew install postgresql``` and follow the instructions.
 2. Clone this repo
 3. Install bundle gem with ```gem install bundler``` in the console (skip this if already installed)
 4. Run ```bundle install``` to install the required gems
 5. Run ```rake setup``` to setup the required databases
 5. Run ```rackup```
-6. In a web browser, visit the localhost port displayed in the console. Follow the instructions in the web browser
+6. In a web browser, visit the localhost port displayed in the console.
 
 * When finished, run ```rake teardown``` to delete your own local databases used for this program
 
@@ -47,7 +47,7 @@ I want to sign up for Chitter
 
 ## My approach
 
-1. First I wrote feature tests which satisfied the user stories. I implemented the features one-by-one, writing the necessary code to pass a feature test before moving on and implementing the next feature. 
+1. First I wrote feature tests which satisfied the user stories. I implemented the features one-by-one, writing the necessary code to pass a feature test before moving on and implementing the next feature.
 
 2. Having written and failed the initial feature tests, I proceeded to write the least code possible to pass these tests. At first, this mostly involved writing code in the controller and view levels.
 
@@ -60,11 +60,13 @@ I want to sign up for Chitter
 
 * Test-driving advanced Objects in Ruby, including adapter, wrapper, and service objects, namely ORMs
 * Implementing a RESTful routing convention
+* Implementing CSS stylesheets to a Sinatra web app.
 * Using psql and the PG ruby gem to connect to a local database. Implementing SQL query terms like `SELECT`, `FROM`, `WHERE`, `*`.
 * Using Rake to automate tasks (in this case, setting up databases)
 
 ## To complete
 
+* Implement an authentication system, where users can log in and out
 * Harder user stories are below to complete when there is time
 ```
 HARDER
