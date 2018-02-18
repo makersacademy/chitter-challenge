@@ -52,7 +52,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/'
     else
-      flash[:notice] = 'Incorrect email - please try again.'
+      flash[:notice] = 'Incorrect info - please try again.'
       redirect '/sessions/new'
     end
   end

@@ -38,6 +38,11 @@ describe User do
       user = User.create(email: 'telgi@gmail.com', password: 'password2')
       expect(User.authenticate('tel@gmail.com', 'password2')).to be_nil
     end
+
+    it 'returns nil given an incorrect password' do
+      user = User.create(email: 'telgi@gmail.com', password: 'password2')
+      expect(User.authenticate('telgi@gmail.com', 'pasworld2')).to be_nil
+    end
   end
 
 end
