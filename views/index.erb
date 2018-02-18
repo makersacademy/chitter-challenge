@@ -8,23 +8,25 @@
   <h1>Welcome to Chitter!</h1>
 <% end %>
 
-<form action="/users/new">
-  <input type="submit" value="Sign up">
-</form>
+<div class="options">
+  <form action="/users/new">
+    <input type="submit" value="Sign up">
+  </form>
 
-<form action="/sessions/new">
-  <input type="submit" value="Sign in">
-</form>
+  <form action="/sessions/new">
+    <input type="submit" value="Sign in">
+  </form>
 
-<form action="/logout">
-  <input type="submit" value="Logout">
-</form>
+  <form action="/logout">
+    <input type="submit" value="Logout">
+  </form>
+</div>
 
-<div style="text-align: center;">
+<div id="main">
   <% @peeps.each do |peep| %>
-    <div class="peeps" style="margin-top: 10px;">
-      <h2><%= peep['peep'] %></h2>
-      <h4>Created at <%= peep['created_at'] %> by <%= peep.user.peeper %>, aka <%= peep.user.username %></h4>
+    <div class="peeps">
+      <h3><%= peep['peep'] %></h3>
+      <p>Created at <%= peep['created_at'] %> by <%= peep.user.peeper %>, aka <%= peep.user.username %></p>
     </div>
   <% end %>
 </div>

@@ -1,0 +1,54 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css");
+
+h1, h2, h3, h4 {
+  letter-spacing: 1px;
+  font-weight: 300px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  background-color: #00bfff;
+}
+
+input {
+  border: none;
+  margin-top: 15px;
+  margin-left: 2px;
+  background-color: #92b9b9;
+  border-color: #92b9b9;
+  height: 25px;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+textarea {
+  margin-bottom: 20px;
+  resize: none;
+  width: 380px;
+  height: 120px;
+}
+
+.peeps {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#main {
+  margin-top: -130px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+}

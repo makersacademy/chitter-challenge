@@ -33,7 +33,7 @@ Technologies used
 ------
 
 * Capybara
-* CSS
+* CSS Flexbox
 * DataMapper (ORM)
 * PostgreSQL
 * RSpec
