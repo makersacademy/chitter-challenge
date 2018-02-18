@@ -6,10 +6,15 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'rake'
 
+# Load the Rakefile
+Rake.application.load_rakefile
+
+# Then, in the RSpec config...
 RSpec.configure do |config|
   config.before(:each) do
-    require_relative './test_database_setup'
+    Rake::Task['test_database_setup'].execute
   end
 end
 
