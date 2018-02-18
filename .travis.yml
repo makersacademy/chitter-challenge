@@ -8,5 +8,7 @@ before_install:
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
-  - rake setup
-  - rake setup_test_database
+  - psql -c 'create database chitter_test;' -U postgres
+  - psql -c 'create table peeps (id SERIAL PRIMARY KEY, post VARCHAR(140), time TIMESTAMP);' -U postgres
+  - psql -c 'INSERT INTO peeps (post, time) VALUES('This is a test peep', 'NOW()');' -U postgres
+  - psql -c 'create table users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));' -U postgres
