@@ -5,3 +5,11 @@ feature 'view peep history' do
     expect(page).to have_content "Choose one of the options to view the history!"
   end
 end
+
+feature 'view history in chronologic_order' do
+  scenario 'user can view the history of messages in reverse chronologic order' do
+    sign_in_and_peep
+    click_button "chronologic order"
+    expect(page).to have_content "Hello! I am having lunch, 2018-02-18"
+  end
+end

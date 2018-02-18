@@ -9,21 +9,23 @@ class Cheeter < Sinatra::Base
   end
 
   post '/add_peep' do
-   @sig_in = Peep.sign_in(params[:name])
+    @sig_in = Peep.sign_in(params[:name])
     erb :peep
   end
 
   post '/first_peep' do
     @peep = params[:peep]
-    @peeps = Peep.all
     @add_post = Peep.add_peep(params[:peep])
     erb :add_post
   end
 
   get '/view_history' do
-    @peeps = Peep.all
-    @add_post = Peep.add_peep(params[:peep])
     erb :view_history
+  end
+
+  get '/chronologic_order' do
+    @peeps = Peep.all
+    erb :chronologic_order
   end
 
 

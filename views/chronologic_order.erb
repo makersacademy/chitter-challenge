@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>peep history:</h1>
+    </header>
+      <h2> Reverse chronologic order: </h2>
+      <% @peeps.each do |cheet|%>
+      <h2>
+        <li> <%= cheet.text %> : <%= cheet.time%></li>
+        <% end %>
+      </h2>
+  </body>
+</html>
