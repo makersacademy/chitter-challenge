@@ -1,21 +1,21 @@
-require 'link'
+require 'peep'
 
 describe Peep do
   context '#all' do
     it 'returns all the peeps' do
       peeps = Peep.all
       peep = peeps.map(&:peep)
-      expect(peep).to include("Hi Chitter World!")
-      expect(peep).to include("I really hate how ASDA stores its fruit")
-      expect(peep).to include("Did you know that human livers can regrow?")
+      expect(peep).to include('Hi Chitter World!')
+      expect(peep).to include('I really hate how ASDA stores its fruit')
+      expect(peep).to include('Did you know that human livers can regrow?')
     end
   end
-  context '.add_new_link' do
-    it 'add new link to the end of bookmark list' do
-      Link.add_new_link('http://www.testlink.com')
-      links = Link.all
-      urls = links.map(&:url)
-      expect(urls).to include('http://www.testlink.com')
+  context '.add_new_peep' do
+    it 'add new peep to the list of peeps' do
+      Peep.add_new_peep('Anyone else out on the lash tonight?', '@JamesTheMan')
+      peeps = Peep.all
+      peep = peeps.map(&:peep)
+      expect(peep).to include('Anyone else out on the lash tonight?')
     end
   end
 end
