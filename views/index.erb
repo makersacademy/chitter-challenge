@@ -7,9 +7,11 @@
 
 <% if @user %>
   <h1>Welcome to Chitter, <%= @user.username %>!</h1>
-<% else %>
-  <h1>Welcome to Chitter!</h1>
-<% end %>
+  <div class="log-out">
+    <form action="/log-out" method="post">
+      <input type="submit" value="Log out">
+    </form>
+  </div>
 
 <form id="msg" action="/new" method="post">
   <% if @user %>
@@ -18,15 +20,8 @@
   <textarea name="message" form="msg" rows="4" cols="50" placeholder="What's on your mind?"></textarea>
   <input type="submit" value="Peep">
 </form>
-
-<div class="feed">
-  <% @comments.reverse.each do |peep| %>
-  <% if peep.created_by != nil %>
-    <p><%= peep.created_by %> said:</p>
-  <% end %>
-    <p><strong><%= peep.comment %></strong> - <i>Sent at: <%= peep.created_at.strftime "%H:%M" %></i></p>
-  <% end %>
-</div>
+<% else %>
+  <h1>Welcome to Chitter!</h1>
 
   <div class="sign-up">
     <h3>Not a user?</h3>
@@ -41,3 +36,14 @@
       <input type="submit" value="Log in">
     </form>
   </div>
+
+  <% end %>
+
+<div class="feed">
+  <% @comments.reverse.each do |peep| %>
+  <% if peep.created_by != nil %>
+    <p><%= peep.created_by %> said:</p>
+  <% end %>
+    <p><strong><%= peep.comment %></strong> - <i>Sent at: <%= peep.created_at.strftime "%H:%M" %></i></p>
+  <% end %>
+</div>

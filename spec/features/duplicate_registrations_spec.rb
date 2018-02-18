@@ -1,12 +1,15 @@
 feature 'duplicate registrations' do
   scenario 'user cannot sign up with an already existing username' do
-    2.times { sign_up }
+    sign_up
+    click_button 'Log out'
+    sign_up
     expect(current_path).to eq '/sign-up'
     expect(page).to have_content 'Username is already taken'
   end
 
   scenario 'user cannot sign up with an already existing email' do
     sign_up
+    click_button 'Log out'
     click_button "Sign up"
     fill_in 'username', with: 'Nathaniel'
     fill_in 'email', with: 'example@test.com'
