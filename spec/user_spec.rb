@@ -19,5 +19,14 @@ describe User do
       described_class.sign_up(email, password, name, username)
       expect(described_class.last(:name => 'Marco Polo').email).to eq 'marcus@gmail.com'
     end
+
+    it 'encrypts passwords' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+      email = 'marcus@gmail.com'
+      password = 'password123'
+      name = 'Marco Polo'
+      username = 'MarcoPo'
+      described_class.sign_up(email, password, name, username)
+    end
   end
 end

@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'data_mapper'
+require 'bcrypt'
 
 class User
   attr_reader :id, :email, :name, :username, :password
@@ -15,9 +16,10 @@ class User
   # DataMapper.finalize
 
   def self.sign_up(email, password, name, username)
+    encrypted_password = BCrypt::Password.create(password)
     User.create(
       :email      => email,
-      :password   => password,
+      :password   => encrypted_password,
       :name       => name,
       :username   => username
     )

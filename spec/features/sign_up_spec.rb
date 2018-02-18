@@ -8,7 +8,6 @@ feature 'sign up to Chitter' do
     fill_in('user name', with: 'MarcoPo')
     click_button 'Sign up'
     expect(page).to have_content 'Congratulations Marco Polo, you have signed up.'
-    expect(page).to have_selector(:button, "Sign in")
     expect(page).to have_selector(:button, "Return to homepage")
   end
 end
