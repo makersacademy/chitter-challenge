@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.get(session[:id])
-    @peeps = Peep.all(:order => [ :id.desc ])
+    @peeps = Peep.all(:order => [:id.desc])
     erb(:index)
   end
 
@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
       password: BCrypt::Password.create(params['password'])
     )
 
-    if user.errors.size > 0
+    if user.errors.size.positive?
       flash[:errors] = user.errors.first
       redirect '/users/new'
     end

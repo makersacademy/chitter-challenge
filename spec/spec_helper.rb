@@ -27,8 +27,6 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    # Rake::Task['setup'].execute
     Rake::Task['setup_test_db'].execute
-    # Rake::Task['clear_db'].execute
   end
 end

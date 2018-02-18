@@ -26,6 +26,7 @@ Personal code review
 * I keep having trouble being led by TDD, especially when it comes to Unit Tests (I haven not managed to finish all of them in the way I wanted to). I tried to implement the one line of code at a time without breaking old tests when refactoring or adding new code, and for a while it seemeded to help, but then I got lost in my code once again and I had to separate from the optimal flow for a bit.
 * I had not many difficulties with Capybara and Feature Tests though. I found myself testing a lot on the browser and changing many things in the Model. I also spent quite a few hours to get familiar with DataMapper, which is the first ORM I have come across so far.
 * Regarding databases, I am happy that I understand how relations between tables work and what kind of relations there are.
+* Finally, I have observed that in many occassions I struggle to access specific data in my code, or to differentiate among them, especially when dealing with hashes in objects, symbols... I feel like I rush a bit sometimes and start typing and testing the different options rather quickly instead of thinking about what I really want to do, which would save me some time definitely.
 
 
 Technologies used
@@ -36,6 +37,8 @@ Technologies used
 * DataMapper (ORM)
 * PostgreSQL
 * RSpec
+* Ruby
+* Sinatra
 
 
 Installation Instructions
@@ -57,10 +60,12 @@ Finally, simply type one of the following commands in your terminal to navigate 
 How to run the tests
 ------
 
-* To run the tests, simply type ```rspec``` in your terminal.
+* To run the tests, simply type ```rspec``` in your terminal. Please make sure you run ```rake setup``` before using RSpec as you need to create the databases for the project.
 
 Screenshot
 ------
+
+[TBC]
 
 Chitter Challenge
 =================
