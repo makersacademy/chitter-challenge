@@ -1,4 +1,4 @@
-require 'Comment'
+require 'comment'
 
 describe Comment do
   describe '.all' do
