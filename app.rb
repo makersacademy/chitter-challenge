@@ -38,18 +38,18 @@ class Chitter < Sinatra::Base
     redirect '/users/new'
   end
 
-  get '/users/log_in' do
-    erb(:'users/log_in')
+  get '/sessions/new' do
+    erb(:'sessions/new')
   end
 
-  post '/users/log_in' do
+  post '/sessions/new' do
     flash[:n] = Flash.after_log_in(params[:username])
     redirect '/peeps' if User.matching_data(params[:username], params[:password])
     flash[:n] = Flash.no_match if !User.matching_data(params[:username], params[:password])
-    redirect '/users/log_in'
+    redirect '/sessions/new'
   end
 
-  get '/users/log_out' do
+  get '/sessions/destroy' do
     flash[:n] = Flash.after_log_out
     redirect ('/peeps')
   end

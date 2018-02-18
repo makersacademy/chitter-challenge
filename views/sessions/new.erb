@@ -5,7 +5,7 @@
   </head>
   <body>
     <div class="flash_area"><%= flash[:n] %></div>
-    <form action="/users/log_in" method="POST">
+    <form action="/sessions/new" method="POST">
       <input type="text" name="username" placeholder="Enter your username">
       <input type="text" name="password" placeholder="Enter your password">
       <input type="submit" value="Log in">
