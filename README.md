@@ -53,7 +53,7 @@ Register for Chitter by clicking  'Register' on the homepage and completing the 
 
 ![image](https://user-images.githubusercontent.com/29439776/36358068-d6d213d6-14ff-11e8-8412-10a26b278542.png)
 
-User stories:
+User stories
 -------
 
 ```
