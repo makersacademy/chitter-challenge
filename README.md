@@ -1,12 +1,58 @@
 To use this repo
 =================
 bundle # Installs required gems
+rake drop_databases # Drops cheeter development and test databases
+rake create_databases # Creates cheeter development and test databases
 rake setup # Creates required tables
-ruby database_drop_create.rb # Drops and creates cheeter development and test databases
 rackup # Loads website at local host port
+rspec # Runs RSPEC tests
 
+Marcus personal code review/reflection
+=================
 
+My approach
+---------
+* I started off reading through all the instructions and user stories to get an overview of the different elements
+* I then set up the full file structure to have a functioning app and tests
+* I had to decide between taking the new curriculum approach of building all methods from the ground up or learning and using Data Mapper for the first time
+* I was intrigued to challenge myself in learning a new complex gem from documentation and without walkthroughs, so worked to get datamapper up and running
+* I then used the full TDD cycle to build the features I was able to in the time I had
 
+Mini personal code review: My appraisal of my attempt at the weekend challenge
+---------
+* I found learning and getting Data Mapper set up with no supports was a good challenging process. I felt I achieved a good level of success having learned and used it from scratch. However, it did take a good chunk of time to be able to learn it and test it out, leaving less time for the functionality of the Challenge
+* I felt good about my process of having Rake files to set up the environment, using DataMapper and creating the code using true TDD
+* There is a lot more I would like to do in completing this exercise and I feel I still have knowledge gaps on databases due to the slower process of the new curriculum that we were testing out at Makers Academy this week. I ran out of time to do so but have documented all the areas I would like to learn more about below so that I can investigate later
+
+Areas of knowledge on databases that I would like to research and solidify
+---------
+Authentication:
+        * https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/19.md
+Linking tables: I understand how tables links having worked in Analytics before, but the practical steps of using this in code I want to investigate further
+        * One to many relationships
+            * https://github.com/makersacademy/course/blob/master/bookmark_manager/16_one_to_many_relations.md
+        * Many to many relationships
+            * https://github.com/makersacademy/course/blob/master/bookmark_manager/17_many_to_many_relationships.md
+
+Questions and outstanding elements from the exercise to discuss with Coaches
+---------
+* How should the test coverage work for Rakefiles?
+* I believe 'integration testing' is missing from the code base. I had feature testing covering user experience, unit tests covering the model, but I am not currently testing whether the user input truly flows back into the database, other than retrieving certain content onto the page
+* Data mapper error (fix num deprecation) seems to be a ruby versioning issue - how could I have avoided this error?
+* What is the approach for having posts on Cheeter include user names? Is posts having user_name attached a table linking issue or a sessions issue? (e.g. how can I get a post to read from the user table and give the user name too - or does this use session data on how is logged in to pull and add in user info?)
+* How does linking of data tables work in practice? I can get data mapper to link the tables/ I understand linking tables having worked in this area before, but I can’t see how it will work in practice in code
+    * Data mapper raised an error when I linked the tables using Data mapper syntax
+    * What does ‘Returning’ do in SQL?
+        * def self.create(options)
+            * result = DatabaseConnection.query("INSERT INTO comments (link_id, text) VALUES('#{options[:link_id]}', '#{options[:text]}') RETURNING id, text”)
+            * Comment.new(result[0]['id'], result[0]['text’])
+* How to make sign in work:
+    *  Write a feature test for successful sign-in. Wondering what to call your routes? Signing in is often thought of as 'creating a new session'.
+* Bcrpyt not working:
+    * If try and do data mapper:
+        *
+    * If try and use in code, prevents user being stored (may be because string datatype is not usable for this)
+* Peeps (posts to chitter) have the name of the maker and their user handle.
 
 Chitter Challenge
 =================
