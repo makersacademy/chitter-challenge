@@ -3,18 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css" href="https://fonts.googleapis.com/css?family=Tangerine">
   </head>
-  <body>
-    <form class="" action="post-peep" method="post">
-      <input type="text" name="peep" value="peep">
-      <input type="submit" name="Submit" value="Submit">
-    </form>
-    <ul>
-      <% @peeps.each do |peep| %>
-      <li><%= peep.string %></li>
-      <li><%= peep.date_created %></li>
-      <% end %>
-    </ul>
+  <body class="centered-wrapper">
+    <h1>Welcome to Chitter</h1>
+    <div id="peep-form">
+      <form action="post-peep" method="post">
+        <input type="text" name="peep" value="What's on your mind?">
+        <input type="submit" name="Submit" value="Post your peep">
+      </form>
+    </div>
+    <table class="centered-content">
+     <tr>
+       <th>Cheeps</th>
+       <th>Time posted</th>
+     </tr>
+     <% @peeps.each do |peep| %>
+       <tr>
+         <td><%= peep.string %></td>
+         <td><%= peep.date_created %></td>
+       </tr>
+     <% end %>
+    </table>
   </body>
 </html>
