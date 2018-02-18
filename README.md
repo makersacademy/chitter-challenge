@@ -67,7 +67,8 @@ I want to sign up for Chitter
 ## To complete
 
 * Implement an authentication system, where users can log in and out
-* Harder user stories are below to complete when there is time
+* Add screenshots to README
+* Harder user stories are below to complete
 ```
 HARDER
 
