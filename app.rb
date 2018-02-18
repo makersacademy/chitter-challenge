@@ -35,7 +35,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/user' do
-    @user = User.last
+    # TODO - currently taking user from persistent database. Would cause issues if another user signed up at some time.
+    # Need to create live logged in user to pull this from
+    @user = User.get(session[:user_id])
     erb(:sign_up_successful)
   end
 
