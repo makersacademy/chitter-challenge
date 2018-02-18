@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    redirect '/peeps' if Peep.create(params[:text], params[:author])
+    redirect '/peeps' if Peep.create(params[:text], session[:user_username])
     params[:text].chars.length > 240 ? flash[:n] = Flash.long_peep : flash[:n] = Flash.no_name
     redirect '/peeps'
   end
@@ -47,6 +47,7 @@ class Chitter < Sinatra::Base
     redirect '/sessions/new' if !User.matching_data(params[:username], params[:password])
     user = User.instanciate(params[:username])
     session[:user_id] = user.id
+    session[:user_username] = user.username
     flash[:n] = Flash.after_log_in(params[:username])
     redirect '/peeps'
   end
