@@ -8,7 +8,7 @@ class Cheeter < Sinatra::Base
     erb :sign_in
   end
 
-  get '/add_peep' do
+  post '/add_peep' do
     erb :peep
   end
 

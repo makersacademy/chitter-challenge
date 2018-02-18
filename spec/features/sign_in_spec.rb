@@ -3,6 +3,6 @@ feature "sign in" do
     visit "/"
     fill_in :name, with: 'jenny'
     click_button "submit"
-    expect(page).ti have_content 'sign in'
+    expect(page).to have_content 'sign in'
   end
 end
