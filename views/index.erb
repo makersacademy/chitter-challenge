@@ -1,8 +1,8 @@
-<h1>Chitter</h1>
-
 <% if @user %>
   <h1>Hello, <%= @user.email %></h1>
 <% end %>
+
+<h1>Chitter</h1>
 
 <ul>
   <% @peeps.each do |peep| %>
