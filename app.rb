@@ -12,23 +12,22 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    redirect '/peeps/'
+    redirect '/peeps'
   end
 
-  get '/peeps/' do
+  get '/peeps' do
     @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb(:index)
   end
 
   get '/peeps/new' do
-    @peeps = Peep.all
-    erb(:index)
+    erb(:new_peep)
   end
 
   post '/peeps' do
     Peep.create(params['new_peep'])
-    redirect '/peeps/new'
+    redirect '/peeps'
   end
 
   get '/users/new' do
@@ -55,6 +54,12 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Incorrect info - please try again.'
       redirect '/sessions/new'
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect '/'
   end
 
   run! if app_file == $0

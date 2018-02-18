@@ -1,5 +1,11 @@
+<%= styled_flash %>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign Out">
+</form>
+
 <% if @user %>
-  <h1>Hello, <%= @user.email %></h1>
+  <h2>Hello, <%= @user.email %></h2>
 <% end %>
 
 <h1>Chitter</h1>
@@ -11,8 +17,3 @@
     </li>
   <% end %>
 </ul>
-
-<form action="/peeps" method="post">
-  <input type="text" name="new_peep" placeholder="What's on your mind?">
-  <input type="submit" value="Post Peep">
-</form>

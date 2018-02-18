@@ -30,4 +30,16 @@ feature 'authentication' do
     expect(page).not_to have_content "Hello, telgi@gmail.com"
     expect(page).to have_content "Incorrect info - please try again."
   end
+
+  scenario 'user can sign out' do
+    User.create(email: 'telgi@gmail.com', password: 'password2')
+    visit '/sessions/new'
+    fill_in "email", with: 'telgi@gmail.com'
+    fill_in "password", with: 'password2'
+    click_button "Sign In"
+    click_button "Sign Out"
+
+    expect(page).not_to have_content "Hello, telgi@gmail.com"
+    expect(page).to have_content "You have signed out."
+  end
 end
