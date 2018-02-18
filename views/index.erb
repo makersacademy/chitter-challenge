@@ -4,8 +4,13 @@
   <title></title>
 </head>
 <body>
-  <h1>Welcome to Chitter!</h1>
-  <h2>Thanks for picking our branch (heh, get it?)</h2>
+  <% if @user != nil %>
+    <h1>Welcome to Chitter, <%= @user.name %>!</h1>
+    <h2>We saved you your favourite branch. Peep away!</h2>
+  <% else %>  
+    <h1>Welcome to Chitter!</h1>
+    <h2>Thanks for picking our branch (heh, get it?)</h2>
+  <% end %>  
   <form action="/add-peep" method="post">
     <input type="text" name="new_peep">
     <input type="submit" value="Peep">
