@@ -32,4 +32,8 @@ class Flash
     "Username and password don't match. Try again."
   end
 
+  def self.after_log_out
+    "Thank you for visiting us, see you later!"
+  end
+
 end

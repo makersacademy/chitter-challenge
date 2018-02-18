@@ -49,4 +49,9 @@ class Chitter < Sinatra::Base
     redirect '/users/log_in'
   end
 
+  get '/users/log_out' do
+    flash[:n] = Flash.after_log_out
+    redirect ('/peeps')
+  end
+
 end
