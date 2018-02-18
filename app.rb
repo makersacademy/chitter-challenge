@@ -10,8 +10,8 @@ class Cheeter < Sinatra::Base
   end
 
   post '/first_peep' do
-    @cheet = params[:peep]
     @peeps = Peep.all
+    @add_post = Peep.add_peep(params[:name], params[:text])
     erb :add_post
   end
 
