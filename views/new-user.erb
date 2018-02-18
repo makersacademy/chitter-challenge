@@ -6,9 +6,11 @@
     <link rel="stylesheet" type="text/css" href="/style.css" href="https://fonts.googleapis.com/css?family=Tangerine">
   </head>
   </head>
-  <body>
-    <form action="/users" method="post">
+  <body class="centered-wrapper">
+    <form id="peep-form" action="/users" method="post">
+      <label for="email">Email:</label>
       <input type="email" name="email" />
+      <label for="password">Password:</label>
       <input type="password" name="password" />
       <input type="submit" value="Submit" />
     </form>

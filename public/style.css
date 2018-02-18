@@ -1,10 +1,10 @@
 body {
+    font-family: 'Fjalla One', sans-serif;
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
     background-color: #ccefff;
-    font-family: 'Fjalla One', sans-serif;
 }
 
 .centered-wrapper {
@@ -23,6 +23,7 @@ body {
 
 table {
   table-layout:fixed;
+  font-size: 20px
 }
 
 th, td {

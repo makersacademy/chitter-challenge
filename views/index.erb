@@ -7,8 +7,10 @@
   </head>
   <body class="centered-wrapper">
     <h1>Chitter</h1>
-    <% if @user != nil %>
-    <h2>Welcome, <%= @user.email %>
+    <% if @user == nil %>
+    <h2><a href="/users/new">Sign up</a></h2>
+    <% elsif @user != nil %>
+    <h2>Welcome, <%= @user.email %></h2>
     <% end %>
     <div id="peep-form">
       <form action="post-peep" method="post">

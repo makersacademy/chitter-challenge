@@ -13,15 +13,19 @@ describe User do
       user = described_class.create(email: 'mynameis@email.com', password: 'mostsecurepassword')
       expect(user.id).not_to be_nil
     end
+    it 'hashes the provided password with BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('mostsecurepassword')
+      described_class.create(email: 'mynameis@email.com', password: 'mostsecurepassword')
+    end
   end
 
   describe '::find' do
     it 'finds a user by ID' do
-      user = User.create(email: 'happybirthday@forever.com', password: 'Iamawesome')
-      expect(User.find(user.id).email).to eq user.email
+      user = described_class.create(email: 'happybirthday@forever.com', password: 'Iamawesome')
+      expect(described_class.find(user.id).email).to eq user.email
     end
     it 'returns nil unless id is found' do
-      expect(User.find(nil)).to eq nil
+      expect(described_class.find(nil)).to eq nil
     end
   end
 
