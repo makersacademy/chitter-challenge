@@ -1,0 +1,153 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+    padding: 25px;
+}
+
+.title {
+  background-color: #0084b4;
+  margin-bottom: 0.5em;
+  display: flex;
+}
+
+.actions {
+  display: inline-flex;
+  margin-left: 5%;
+}
+
+.peeps {
+  margin-top: 0.8em;
+}
+
+.main_page_input {
+  margin-right: 1em;
+  font-family: Work Sans;
+  font-size: 0.8em;
+  height: 2.2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.form_nav {
+  margin-top: 0.8em;
+}
+
+.enter_form {
+  font-style: Work Sans;
+  background-color: #2eb471;
+}
+
+.enter_form_peep {
+  background-color: #1dcaff;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 0.5em;
+}
+
+.enter_form_peep_comment {
+  background-color: #7ac5b5;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 0.5em;
+}
+
+.form {
+  margin-left: 1em;
+}
+
+.single_peep {
+  background-color: #c0deed;
+  display: flex;
+  width: 80%;
+  margin-left: 10%;
+  font-family: Work Sans;
+}
+
+.flash_container {
+  height: 1.5em;
+}
+
+.flash_area {
+  background-color: #e58d90;
+  font-family: Work Sans;
+  text-align: center;
+}
+
+.date {
+  background-color: #c0deed;
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  margin-bottom: 0.4em;
+}
+
+.add_comm_butt {
+  margin: 0em;
+  margin-left: 2em;
+}
+
+.comments {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  font-family: Work Sans;
+  margin-bottom: 0.5em;
+  font-size: 0.8em;
+  padding-left: 4em;
+}
+
+h1 {
+  font-family: Work Sans;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  width: 3em;
+  margin-left: 2.7%;
+  color: white;
+  margin-top: 1.1em;
+}
+
+h2 {
+  font-family: Work Sans;
+  color: black;
+  font-size: 1em;
+  margin-top: 0.6em;
+  margin-bottom: -0.2em;
+  margin-left: 1em;
+}
+
+
+h3 {
+  float: left;
+  color: #0084b4;
+  font-size: 0.8em;
+  margin-left: 1.5em;
+}
+
+
+.footer {
+  background-color: #0084b4;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+  overflow:hidden;
+  margin-bottom: 0.2em;
+}
+
+
+p6 {
+  font-family: Work Sans;
+  display: block;
+  font-size: 1em;
+  text-align: center;
+  color: white;
+}
+
+p6:hover {
+  color: #e1c53a;
+}
