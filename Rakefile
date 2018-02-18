@@ -23,21 +23,21 @@ task :setup do
   end
 end
 
-task :create_database, [:database] do |t, args|
+task :create_database, [:database] do |_t, args|
   connection = PG.connect
   connection.exec "CREATE DATABASE #{args[:database]}"
 rescue PG::DuplicateDatabase
   p "#{args[:database]} already exists"
 end
 
-task :create_peep_table, [:database] do |t, args|
+task :create_peep_table, [:database] do |_t, args|
   connection = PG.connect dbname: args[:database]
   connection.exec "CREATE TABLE peeps(id SERIAL PRIMARY KEY, body VARCHAR(240), created_date TIMESTAMP);"
 rescue PG::DuplicateTable
   p "#{args[:database]} already has a table named peeps"
 end
 
-task :create_users_table, [:database] do |t, args|
+task :create_users_table, [:database] do |_t, args|
   connection = PG.connect dbname: args[:database]
   connection.exec "CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(60), name VARCHAR(60), email VARCHAR(60), password VARCHAR(60));"
 rescue PG::DuplicateTable

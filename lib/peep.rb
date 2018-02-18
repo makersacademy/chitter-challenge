@@ -9,7 +9,7 @@ class Peep
         .strptime(peep['created_date'], "%Y-%m-%d %H:%M:%S")
         .strftime("%Y-%m-%d %H:%M:%S")
       { body: peep["body"],
-        created_date: date}
+        created_date: date }
     end
   end
 

@@ -23,14 +23,11 @@ class User
   end
 
   def self.find_by_username(username)
-    p username
     user = DatabaseConnection.query "SELECT * FROM users WHERE username='#{username}'"
-    p user.check
     new(user[0]['id'],
         user[0]['username'],
         user[0]['name'],
         BCrypt::Password.new(user[0]['password']))
-
   end
 
   attr_reader :id, :username, :name, :password

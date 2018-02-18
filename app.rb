@@ -1,16 +1,18 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'pg'
 require_relative "./lib/peep"
 require_relative "./lib/user"
 require_relative "./lib/user_authenticator"
 require_relative "./database_setup"
 
-
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
+    flash[:invalid] = "Incorrect login details supplied" unless session[:invalid]
     erb :index
   end
 
@@ -40,6 +42,7 @@ class Chitter < Sinatra::Base
       session[:user] = User.find_by_username(params[:username])
       redirect to '/peeps'
     else
+      session[:invalid] = true
       redirect to '/'
     end
   end

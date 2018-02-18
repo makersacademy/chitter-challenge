@@ -1,11 +1,6 @@
 feature 'log in' do
   scenario 'attempt with valid credentials' do
-    visit '/'
-    within 'table.sign-in' do
-      fill_in 'username', with: 'testusername'
-      fill_in 'password', with: 'Password1'
-      click_button 'Sign in'
-    end
+    sign_in
     expect(page).to have_content 'Welcome testusername'
   end
 
@@ -16,7 +11,7 @@ feature 'log in' do
       fill_in 'password', with: 'Password1'
       click_button 'Sign in'
     end
-    expect(page).to have_content "The login credentials you supplied are incorrect"
+    expect(page).to have_content "Incorrect login details supplied"
     expect(page).not_to have_content 'Welcome'
   end
 
@@ -27,7 +22,7 @@ feature 'log in' do
       fill_in 'password', with: 'wrongpassword'
       click_button 'Sign in'
     end
-    expect(page).to have_content "The login credentials you supplied are incorrect"
+    expect(page).to have_content "Incorrect login details supplied"
     expect(page).not_to have_content 'Welcome'
   end
 end
