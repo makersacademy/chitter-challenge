@@ -9,6 +9,20 @@
       <input type="text" name="peep" placeholder="Peep here">
       <input type="submit" value="Peep">
     </form>
+    <% connection = PG.connect(dbname: "chitter") %>
+    <% peeps = connection.exec("SELECT * FROM peeps") %>
+    <% peeps = peeps.map { |row| row } %>
+    <ul>
+    <% peeps.each do |row| %>
+    <li>
+      <%= row['peep'] %>
+    <% user = connection.exec("SELECT * FROM users WHERE id = '#{row['user_id']}'") %>
+    <% user = user.map { |user| user['author'] } %>
+    <%= p user %>
+    <% end %>
+
+  </li>
+</ul>
   </body>
 </html>
 <!-- <form action="/getlink" method="get">

@@ -11,13 +11,14 @@ class Chitter < Sinatra::Base
   get '/' do
     #3. get peeps from database and post them here-
     #   maybe add a time/date to each peep
-
+    connection = PG.connect(dbname: "chitter")
+    result = connection.exec("SELECT * FROM peeps")
+    # @all = result.map { |row| row['peep'] }
+    # p all
     erb(:index)
   end
 
   post '/peep' do
-    # Check we have user input variables
-
     # Assign user input to variables
     user = params['user']
     peep = params['peep']
