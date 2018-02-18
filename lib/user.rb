@@ -18,8 +18,12 @@ class User
   end
 
   def self.create(name, username, email, password)
-    # DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', #{email}', #{password}');")
-    # DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', #{email}', #{password}');")
     DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}');")
   end
+
+  # def self.find(id)
+  #   result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+  #   # User.new(result[-1]['id'], result[-1]['name'], result[-1]['username'], result[-1]['email'], result[-1]['password'])
+  # end
+
 end

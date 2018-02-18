@@ -37,30 +37,35 @@ input[type=submit]:hover {
 h1 {
 margin: 20px;
 /* display: block; */
-font-size: 40px;  
+font-size: 40px;
 text-align: center;
 font-family: 'Josefin Slab', serif;
 }
 
 h2 {
   padding: 10px;
-  font-size: 30px;  
+  font-size: 30px;
   font-family: 'Josefin Slab', serif;
   text-align: center;
 }
-  
+
 p {
-  width: 95%; 
+  width: 95%;
   font-size: 14px;
   padding: 20px;
   /* margin: 10px; */
   font-family: 'Helvetica Neue', sans-serif;
   color:  grey;
   background:#c0deed;
-  opacity: 0.8;  
+  opacity: 0.8;
+}
   /* padding: 12px 12px 20px 20px; */
   /* margin: 8px 0; */
   /* display: inline-block; */
   /* border: 5px solid #ccc; */
   /* border-radius: 5px;
   box-sizing: border-box; */
+
+  #register {
+    padding: 5px;
+  }

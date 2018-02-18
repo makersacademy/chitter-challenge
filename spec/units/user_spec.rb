@@ -28,6 +28,7 @@ describe User do
     it "Returns a user's password" do
       expect(users[0].password).to eq("Serena@1234")
     end
+
   end
 
   describe ".create" do
@@ -35,5 +36,14 @@ describe User do
       described_class.create("Name", "Username", "Email@example.com", "Password")
       expect(described_class.all[-1].name).to eq("Name")
     end
+
   end
+
+  # describe ".find" do
+  #   it "find a user by ID" do
+  #     user = described_class.create("Name", "Username", "Email@example.com", "Password")
+  #     expect(described_class.find(id)).to eq user.id
+  #   end
+  # end
+
 end

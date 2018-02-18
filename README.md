@@ -25,17 +25,19 @@ Technologies used
 Installation
 -------
 * Clone the repository
-* Run gem list in the project directory to check whether `bundler` is installed. If it is not, run `gem install bundler`
+* Run `gem list` in the project directory to check whether `bundler` is installed. If it is not, run `gem install bundler`
 * In the project directory, run `bundle` to install the gems specified in the Gemfile
 
 **Database set up**
-* Run `rake setup` and `rake setup test database` in order to create the required databases
+* Run `rake setup` and `rake setup_test_database` in order to create the required databases
 
 **Running the application**
 * Run `rackup` and visit `localhost:9292`
 
 **Running the tests**
-* Navigate to the project directory. Ensure you have already run `rake setup` and `rake setup test database` and then simply enter `rspec` in the terminal.
+* Navigate to the project directory
+* Ensure you have already run `rake_setup` and `rake setup_test_database`
+* Enter `rspec` in the terminal
 
 Screenshots
 -------
