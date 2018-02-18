@@ -3,7 +3,9 @@
   <title>Chitter!</title>
 </head>
 <body>
-  <h1>Welcome to Chitter</h1>
+  <% if @user %>
+    <h1>Welcome <%= @user.username %></h1>
+  <% end %>
 
   <form action="/chitter" method="POST">
     <input type="text" name="peep_text" placeholder="Enter peep here...">

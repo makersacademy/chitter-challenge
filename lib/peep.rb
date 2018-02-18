@@ -16,7 +16,8 @@ class Peep
   end
 
   def self.create(text)
-    DatabaseConnection.query("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{Time.now}')")
+    DatabaseConnection.query("INSERT INTO peeps (text, time) VALUES
+    ('#{text}', '#{Time.now}')")
   end
 
 end

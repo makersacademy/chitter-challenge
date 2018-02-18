@@ -8,8 +8,8 @@ class DatabaseConnection
     @database = PG.connect(dbname: "#{database_name}")
   end
 
-  def self.database
-    @database
+  class << self
+      attr_reader :database
   end
 
   def self.query(sql)

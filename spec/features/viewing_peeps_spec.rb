@@ -1,6 +1,6 @@
 require 'orderly'
 
-feature "viewing peeps" do
+feature "Viewing peeps" do
 
   scenario "User can see peeps" do
     visit("/")
