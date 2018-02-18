@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'pg'
 require_relative "./lib/peep"
 require_relative "./lib/user"
+require_relative "./lib/user_authenticator"
 require_relative "./database_setup"
 
 
@@ -32,5 +33,14 @@ class Chitter < Sinatra::Base
   post '/users' do
     session[:user] = User.create(params)
     redirect to '/peeps'
+  end
+
+  post '/sign_in' do
+    if UserAuthenticator.valid?(params[:username], params[:password])
+      session[:user] = User.find_by_username(params[:username])
+      redirect to '/peeps'
+    else
+      redirect to '/'
+    end
   end
 end

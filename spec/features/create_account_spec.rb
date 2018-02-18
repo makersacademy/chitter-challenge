@@ -1,5 +1,5 @@
 feature 'Create account' do
-  scenario 'succesfully signs in' do
+  scenario 'succesfully creates account' do
     visit '/'
     within 'table.create-account' do
       fill_in 'username', with: 'test_user'
