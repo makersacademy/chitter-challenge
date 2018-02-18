@@ -1,6 +1,13 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
 <form action="/peeps/new" method="get">
   <input type="submit" value="Post a new message">
 </form>
+<form action="/users/new" method="get">
+  <input type="submit" value="Sign Up">
+</form>
 <% @peeps.each do |peep| %>
-  <%= peep.message %> -- <%= peep.time %><br>
+  <h2><%= peep.message %></h2>
+  <h5>Posted at <%= peep.time %></h5>
 <% end %>

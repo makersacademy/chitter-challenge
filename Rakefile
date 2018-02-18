@@ -15,6 +15,7 @@ task :test_database_setup do
   connection = PG.connect(dbname: 'chitter_test')
 
   connection.exec("TRUNCATE peeps;")
+  connection.exec("TRUNCATE users;")
 
   connection.exec("INSERT INTO peeps VALUES('test peep 1', '#{Time.now}', 'superman', 'Clark Kent');")
   connection.exec("INSERT INTO peeps VALUES('test peep 2', '#{Time.now}', 'batman', 'Bruce Wayne');")
@@ -27,7 +28,9 @@ task :setup do
 
   connection = PG.connect(dbname: 'chitter')
   connection.exec("CREATE TABLE peeps(message VARCHAR(140), time TIMESTAMP, username VARCHAR(20), name VARCHAR(30));")
+  connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(100), password VARCHAR(30), name VARCHAR(30), username VARCHAR(20));")
 
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec("CREATE TABLE peeps(message VARCHAR(140), time TIMESTAMP, username VARCHAR(20), name VARCHAR(30));")
+  connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(100), password VARCHAR(30), name VARCHAR(30), username VARCHAR(20));")
 end

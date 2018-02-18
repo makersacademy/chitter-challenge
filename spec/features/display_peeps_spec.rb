@@ -1,6 +1,8 @@
+require_relative './web_helpers.rb'
+
 feature 'display peeps' do
   scenario 'show peeps in reverse order with a time stamp' do
-    visit '/'
-    expect(page).to have_content(Time.now.strftime("%Y-%m-%d %H:%M:%S"))
+    register_new_user
+    expect(page).to have_content(Time.now.strftime("%d-%m-%Y %H:%M"))
   end
 end

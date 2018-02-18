@@ -2,10 +2,11 @@ class Peep
 
   attr_reader :message, :username, :name, :time
 
-  def initialize(message, time = Time.now, username, name)
+  def initialize(message, time, username, name)
     @message = message
     @username = username
     @name = name
+    time = Time.now.strftime("%d-%m-%Y %H:%M")
     @time = time
   end
 
