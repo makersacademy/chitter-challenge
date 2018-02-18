@@ -1,12 +1,12 @@
 feature 'Order of peeps' do
   scenario 'Peeps are displayed in reverse chronological order' do
-    first_string = 'Hello everybody!'
-    second_string = 'Programming has never been more fun'
+    old_peep = 'Hello everybody!'
+    new_peep = 'Programming has never been more fun'
     visit('/')
-    fill_in('peep', with: first_string)
+    fill_in('peep', with: old_peep)
     click_button('Submit')
-    fill_in('peep', with: second_string)
+    fill_in('peep', with: new_peep)
     click_button('Submit')
-    expect(second_string).to appear_before(first_string)
+    expect(old_peep).to appear_below(new_peep)
   end
 end

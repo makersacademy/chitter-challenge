@@ -14,7 +14,7 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps;")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY dateCreated DESC;")
     result.map do |row|
       Peep.new(row['string'], row['dateCreated'])
     end
