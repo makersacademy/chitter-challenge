@@ -4,9 +4,12 @@ require './database_connection_setup'
 
 class Cheeter < Sinatra::Base
 
-
   get '/' do
-    erb :index
+    erb :sign_in
+  end
+
+  get '/add_peep' do
+    erb :peep
   end
 
   post '/first_peep' do
