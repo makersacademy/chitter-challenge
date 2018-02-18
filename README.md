@@ -47,11 +47,11 @@ I want to sign up for Chitter
 
 ## My approach
 
-1. With the user stories, I wrote the necessary feature tests which satisfied the them.
+1. First I wrote feature tests which satisfied the user stories. I implemented the features one-by-one, writing the necessary code to pass a feature test before moving on and implementing the next feature. 
 
-2. Having written and failed these initial tests, I proceeded to write the least code possible to pass these tests.
+2. Having written and failed the initial feature tests, I proceeded to write the least code possible to pass these tests. At first, this mostly involved writing code in the controller and view levels.
 
-3. Once it was clear that the program needed some Ruby objects to keep the views and controller as skinny as possible, I wrote some unit tests for namely for the namely for the Peep and User classes. I then wrote the code to pass these tests.
+3. Once it was clear that the program needed some Ruby objects to keep the views and controller as skinny as possible, I wrote some unit tests for namely for the  Peep and User classes. I then wrote the code to pass these tests.
 
 4. When it was clear that I needed to use a database to store the Peeps, I setup my database environment with the Ruby PG gem, which requires you to communicate with the database with SQL query terms.
 
