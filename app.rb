@@ -12,6 +12,10 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    redirect '/home'
+  end
+
+  get '/home' do
     @user = User.get(session[:user_id])
     @comments = Comment.all
     erb :index
