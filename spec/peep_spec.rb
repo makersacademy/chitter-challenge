@@ -3,20 +3,18 @@ require 'timecop'
 
 describe Peep do
 
-  subject(:peep) { described_class.new("Hello world!") }
+  time_created = Time.now
+  Timecop.freeze(time_created)
+  subject(:peep) { described_class.new("Hello world!", time_created) }
+  Timecop.return
 
   context 'when initialized' do
     it 'takes a string parameter and assigns it to a "string" attribute' do
       expect(peep.string).to eq "Hello world!"
     end
-  end
 
-  describe '#date_created' do
-    it "stores the peep's time of creation" do
-      new_time = Time.now
-      Timecop.freeze(new_time)
-      expect(peep.date_created).to eq new_time
-      Timecop.return
+    it 'takes a date and assigns it to its "date_created" attribute' do
+      expect(peep.date_created).to eq time_created
     end
   end
 
@@ -25,6 +23,7 @@ describe Peep do
       peeps = described_class.all
       strings = peeps.map(&:string)
       expect(strings).to include 'Today was a good day'
+      expect(strings).to include 'Very important statement'
     end
   end
 

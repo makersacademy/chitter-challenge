@@ -4,19 +4,19 @@ class Peep
 
   attr_reader :string, :date_created
 
-  def initialize(string)
+  def initialize(string, date_created)
     @string = string
-    @date_created = Time.now
+    @date_created = date_created
   end
 
   def self.create(string)
-    DatabaseConnection.query("INSERT INTO peeps (string) VALUES ('#{string}');")
+    DatabaseConnection.query("INSERT INTO peeps (string, dateCreated) VALUES ('#{string}', '#{Time.now}');")
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |row|
-      Peep.new(row['string'])
+      Peep.new(row['string'], row['dateCreated'])
     end
   end
 
