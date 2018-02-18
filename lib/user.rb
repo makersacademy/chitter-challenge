@@ -29,6 +29,11 @@ class User
     result.select { |hash| hash['username'] == username }.count > 0
   end
 
+  def self.find_user_by_id(id)
+    DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+    User.new(result[0]['id'], result[0]['email'], result[0]['password'], result[0]['name'], result[0]['username'])
+  end
+
   def self.valid?(username, name, password)
     username.length >= 4 && name.length >=4 && password.length >= 4
   end
