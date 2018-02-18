@@ -36,8 +36,21 @@ class Chitter < Sinatra::Base
       flash.next[:errors] = user.errors.full_messages
       redirect '/sign-up'
     end
+  end
 
+  get '/log-in' do
+    erb :log_in
+  end
 
+  post '/log-in' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.next[:errors] = 'Incorrect log in details'
+      redirect '/log-in'
+    end
   end
 
 end
