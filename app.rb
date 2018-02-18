@@ -9,12 +9,17 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    erb :index
+    redirect '/create_peep'
   end
 
   get '/create_peep' do
     @peep = Peep.all
-    erb :index
+    erb(:index)
+  end
+
+  post '/create_peep/new' do
+    Peep.add(params[:message], params[:title])
+    redirect '/'
   end
 
   run! if app_file == $0

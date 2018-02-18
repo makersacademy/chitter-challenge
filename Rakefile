@@ -13,8 +13,8 @@ task :test_database_setup do
   p 'Setting up database...'
   DatabaseConnection.setup('chitter_challenge_test')
   DatabaseConnection.query('DROP TABLE IF EXISTS messages')
-  DatabaseConnection.query('CREATE TABLE messages (id SERIAL PRIMARY KEY, message VARCHAR(100), title VARCHAR(30))')
-  DatabaseConnection.query("INSERT INTO messages(message, title) VALUES('This is a message!', 'Perkele!')")
+  DatabaseConnection.query('CREATE TABLE messages (id SERIAL PRIMARY KEY, message VARCHAR(100), title VARCHAR(30));')
+  DatabaseConnection.query("INSERT INTO messages(message, title) VALUES('This is a message!', 'Perkele!');")
 end
 
 task :set_up do

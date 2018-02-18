@@ -1,5 +1,4 @@
 require 'pg'
-require 'net/http'
 
 class Peep
   attr_reader :id, :message, :title
@@ -14,5 +13,13 @@ class Peep
     @arr = []
     result.each_row { |row| @arr.push(Peep.new(row)) }
     @arr
+  end
+
+  def self.add(new_message, title)
+    DatabaseConnection.query("INSERT INTO messages(message, title) VALUES('#{new_message}', '#{title}')")
+  end
+
+  def self.delete(id)
+    DatabaseConnection.query("DELETE FROM messages WHERE id = '#{id}'")
   end
 end
