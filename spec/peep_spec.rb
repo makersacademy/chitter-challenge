@@ -19,6 +19,7 @@ describe Peep do
     end
   end
 end
+
   # context '.delete(id)' do
   #   it 'deletes the row that the id corresponds to' do
   #     Link.delete(1)
