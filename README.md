@@ -1,6 +1,20 @@
 # Twitter-like platform to share thoughts.
 ## -- sing up, log in, share, comment --
 
+## Experience.
+
+Even though I've reached the MVP and added features that we not even required in the task (comments), I feel that I haven't spend on databases enough time. The exercise was very challenging and needed me to use different skills and 'tricks' in order to achieve a nice and concise code. I feel pretty tired after this one, but I guess it's because at the start I didn't expect this challange to be that complex and so I went on a Saturday trip instead of coding the whole weekend (and therefore organising the working hours better)... 
+
+* Things to improve:
+
+If I could change something about my code, I would deffinitely split my controller into few different files.
+
+* Things that went well:
+
+I've used flags in the controller to signalise that a button was clicked (an action commenced) in order to disable non-active buttons (eg. disable log in after a user logged in). I've created a Flash class to store all my flash messages and made use of partials - this way my code is much more elegant. I've also used CSS to make my app look (quite) professional.
+
+
+
 ## Instructions
 ```plain
 $ git clone https://github.com/Kotauror/chitter-challenge.git
