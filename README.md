@@ -1,3 +1,13 @@
+How to run
+---------
+
+1. `git clone`
+2. `gem install bundle` (if you don't have bundle already)
+3. `bundle`
+4. `rake setup`
+5. `rackup`
+6. Go to localhost:9292in your browser
+
 Chitter Challenge
 =================
 
