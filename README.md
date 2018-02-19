@@ -1,18 +1,23 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Setting up the environment
+---------
+* Clone this repository git clone https://github.com/jennymarin1989/chitter-challenge.git
+* Update Gemfile and run bundle
+* createdb chitter_development
+* rspec
+* rackup
 
-Challenge:
+
+Instructions:
 -------
 
-As usual please start by forking this repo.
-
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+
+![image](https://user-images.githubusercontent.com/29259526/36368159-e705dbe0-154d-11e8-9186-4acb2fcf3c9f.png)
+
+
 
 Features:
 -------
@@ -80,19 +85,6 @@ And/Or:
 
 Good luck and let the chitter begin!
 
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
 
 Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
 on your pull request:
@@ -110,3 +102,13 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+Ruby version
+--------
+
+2.5.0
+
+Author
+------
+
+ Jenny Arenas
