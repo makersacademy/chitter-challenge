@@ -30,13 +30,13 @@ The relevance of the subsequent steps may depend on how far the reviewee got wit
 
 ## Installation Instructions should be in README
 
-Particularly now that we have a database involved, it becomes even more important to ensure that correct installation instructions are included in your readme so that other developers (and yourself in the future) know how to get set up with the application, e.g.
+Particularly now that we have a database involved, it becomes even more important to ensure that correct installation instructions are included in your readme so that other developers (and yourself in the future) know how to get set up with the application. This could be:
 
 ```
 $ git clone https://github.com/tansaku/chitter_challenge
 $ bundle
-$ createdb chitter_development
-$ rake auto_migrate
+$ rake setup
+$ rake migrate
 $ rspec
 $ rackup
 ```
@@ -81,39 +81,45 @@ https://github.com/bbatsov/ruby-style-guide
 
 ## Ensure Rakefile has Appropriate Tasks
 
-For migration and upgrade
+Any scripts that touch the database or working area should be moved to the Rakefile.
 
 ```ruby
-require 'data_mapper'
-require './app/data_mapper_setup'
-
-task :auto_upgrade do
-  DataMapper.auto_upgrade!
-  puts 'Auto-upgrade complete (no data loss)'
+task :setup do
+  # Set up development and test databases
 end
 
-task :auto_migrate do
-  DataMapper.auto_migrate!
-  puts 'Auto-migrate complete (data could have been lost)'
+task :teardown do
+  # Destroy development and test databases
+end
+
+task :seed do
+  # Add some dummy data to the development database
 end
 ```
 
-Clearly these tasks can be run directly from an irb console, but the Rakefile makes it simpler to run common tasks as part of deployment to Heroku and Continuous Integration (C.I.) and other situations where your code runs remotely.
+> The Rakefile makes it simpler to run common tasks where your code runs remotely. For instance: as part of deployment to Heroku and Continuous Integration ('CI').
+
+You can also add descriptions to Rake tasks, so when you run `rake -T`, you get a little description of each:
+
+```ruby
+desc "Add some dummy data to the development database"
+task :seed do
+  # do it
+end
+```
 
 ## Gemfile should Use Test Groups
 
-Ensure that all test related gems are in test group, e.g. capybara etc.
+Gemfiles can be split into environments. Ensure that all test related gems are in test group, e.g. capybara etc.
 
 ```ruby
 source 'https://rubygems.org'
 
-ruby '2.4.0'
+ruby '2.5.0'
 
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'bcrypt'
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
 
 group :test do
   gem 'rspec'
@@ -121,20 +127,23 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
-  gem 'rspec-sinatra'
   gem 'capybara'
-  gem 'database_cleaner'
-  gem 'factory_girl'
 end
 ```
 
-See http://bundler.io/groups.html for more details
+> See http://bundler.io/groups.html for more details.
 
 ## Ensure spec_helper.rb is Configured Correctly
 
-Make sure that your spec_helper pulls in a single app file that requires all the other dependencies required by the app.  Don't pull in the models etc. separately in the spec helper or you risk having the tests pass when the app might be missing a dependency.
+Make sure that your spec_helper:
 
-Also watch out for spec helpers vs sinatra helpers. They are two very different things.  Don't pull your Sinatra helpers into your RSpec config:
+- `require`s in a single app file that requires all the other dependencies required by the app.
+- Connects your feature testing framework (probably Capybara) with your application.
+- Cleans the database between each test.
+
+> Don't pull in the models etc. separately in the spec helper or you risk having the tests pass when the app might be missing a dependency.
+
+Also watch out for spec helpers vs [Sinatra helpers](https://www.sitepoint.com/using-sinatra-helpers-to-clean-up-your-code/). They are two very different things.  Don't pull your Sinatra helpers into your RSpec config:
 
 ```
 RSpec.configure do |config|
@@ -147,9 +156,15 @@ RSpec.configure do |config|
 end
 ```
 
-## Set up Database Cleaner Correctly
+## Clean the Database between tests
 
-Set up like so:
+Each test (feature or unit) should: 
+
+- Start on an empty database.
+- Create whatever data is needed for that test.
+- Run using that data, perhaps manipulating it.
+
+You can set up a manual Rake task for this. Or, if you're using an ORM like [DataMapper](http://datamapper.org/) or [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html), you can use the [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner) gem:
 
 ```ruby
   config.before(:suite) do # <-- before entire test run
@@ -166,60 +181,38 @@ Set up like so:
   end
 ```
 
-then we are doing a thorough clean of the entire database before we startup (with a truncation, which does a quick remove of all rows), and then we are doing a slightly more complex transaction on each individual test where we roll back just the things that happened in that particular test ...
+> For more on the difference between truncation, transaction and deletion strategies, go to [this Stack Overflow question](https://stackoverflow.com/questions/10904996/difference-between-truncation-transaction-and-deletion-database-strategies/10906127#10906127).
 
-related links:
 
-* https://github.com/DatabaseCleaner/database_cleaner#how-to-use
-* http://stackoverflow.com/a/10906127/316729
-
-## Ensure Separate DataMapper setup file
-
-All DataMapper setup should be in a separate file and make sure that we're properly adapting to the RACK_ENV environment variable, and ready for Heroku to override with a production db URL:
-
-* Good
-```
-env = ENV['RACK_ENV'] || 'development'
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
-```
-
-In particular you want to avoid database security tokens in data_mapper setup
-
-* Not good
-```ruby
-DataMapper.setup(:default, ENV['DATABASE_URL'] ||= 'postgres://qsr
-  cwyasdfvs:dQB7uYe3NCJ7-p_123e-_-P_SzH@ec2-54-163-228-109.comput
-  e-1.amazonaws.com:5432/d7khun32k78jic')
-```
-
-Also avoid directly setting the DATABASE_URL like so:
-
-```ruby
-ENV['DATABASE_URL'] = 'postgres://localhost/chitter_test'
-DataMapper.setup(:default, ENV['DATABASE_URL'])
-```
 ## Ensure Asset Routes are Set Correctly
 
-Set the public folder correctly like so
+Want to load static assets such as CSS, images, and so on? Set a 'public folder' in your root, called 'static', then add the following configuration to your `app.rb`:
 
 ```ruby
 set :public_folder, Proc.new { File.join(root, 'static') }
 ```
 
-To make sure that your web page will be able to load static assets such as CSS, Images, etc.
+> You can vary where the public folder lives, and what it's called, using this method. Try it!
 
 # Step 3: Tests and \*\_spec.rb files  
 
 ## Avoid RSpec Feature Scenarios organized like Unit Tests
 
-Ensure your feature tests look like feature tests, not unit tests.  Unit tests should have only one expect per it block.  Feature test scenarios can have more than one expect; and should have in order to improve comprehensibility and to avoid excessive running times, but don't go crazy.
+Ensure your feature tests look like feature tests, not unit tests. They're probably:
 
-* good
+* Longer
+* More procedural (do this, then do this, then do this, then expect this, and this too)
+* Named more like 'doing something' (e.g. `adding_peep_spec.rb` rather than `user_spec.rb`)
+
+> It's common for feature tests to expect more than one thing.
+
+### Good
 
 ```ruby
 scenario 'Can create peeps after sign up'  do
+  # Use a sign up helper we created earlier
   sign_up_and_create_peep('Test text')
+
   expect(current_path).to eq '/peeps'
   expect(page.status_code).to eq 200
 
@@ -229,7 +222,7 @@ scenario 'Can create peeps after sign up'  do
 end
 ```
 
-* not so good
+### Not so good
 
 ```ruby
 scenario 'Current path is correct after signing up and peeping'  do
@@ -365,6 +358,8 @@ end
 
 Note the much shorter method and the business logic all pulled into the User model.
 
+> Refactoring controller logic into classes (e.g. the model) is refactoring. Refactoring controller logic into Sinatra helpers is not really refactoring. The difference is that helpers are just ways of copy-pasting code somewhere else. Classes define the structure of your program.
+
 ### Split Routes into Separate Controller files
 
 Rather than:
@@ -410,6 +405,20 @@ class PeepController < Sinatra::Base
 end
 
 # and other controllers for other collections of routes
+```
+
+### Be RESTful
+
+Your routes should be RESTful:
+
+```
+GET /peeps
+GET /peeps/:id
+GET /peeps/new
+GET /peeps/update
+POST /peeps
+POST /peeps/:id/update
+POST /peeps/:id/delete
 ```
 
 ## Views
