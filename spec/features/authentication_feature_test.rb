@@ -8,6 +8,7 @@ feature 'authentication' do
     ) }
 
   it 'a user can sign in' do
+    user
     visit '/peeps'
     click_on "Sign in"
     fill_in(:email, with: 'test@example.com')
