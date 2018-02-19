@@ -11,11 +11,11 @@ Welcome to my repo for the Makers Academy weekend challenge(4). My task was to c
 - Type ```bundle install``` into your terminal emulator.
 - Type ```rake set_up``` to initialize the databases.
 - Jump for joy!
-- Weep with relief.
+- Weep with relief (if it works!)
 
 ## Specification
 
-- [ ] The user can post a message (peep).
+- [x] The user can post a message (peep).
 - [ ] The user can view all of the previous peeps in reverse chronological order.
 - [ ] The user can see the time that each peep was created.
 - [ ] The user can sign-up (register) their membership to the page.

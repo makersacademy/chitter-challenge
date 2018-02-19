@@ -3,20 +3,19 @@ require './lib/databaseconnection'
 require 'date'
 
 class Peep
-  attr_reader :id, :text, :time
-  def initialize
-    @id = id
+  attr_reader :text, :time
+  def initialize(text, time)
     @text = text
     @time = time
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |peep| Peep.new(peep['id'], peep['text'], peep['time']) }
+    result.map { |peep| Peep.new(peep['text'], peep['time']) }
   end
 
-  def self.add(new_peep, id)
-    DatabaseConnection.query("INSERT INTO peeps (id, text, time) VALUES('#{id}, #{new_peep}', '#{Time.new.strftime('%d/%m/%Y %H:%M')}')")
+  def self.add(new_peep)
+    DatabaseConnection.query("INSERT INTO peeps (text, time) VALUES('#{new_peep}', '#{Time.now}')")
   end
 #
 #   def self.delete(id)

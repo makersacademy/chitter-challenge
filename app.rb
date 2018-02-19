@@ -8,11 +8,16 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    erb(:index)
+    redirect '/peeps'
   end
 
-  post '/new_peep' do
-    @add_peep = Peep.add(params[:peep], session[:id])
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :index
+  end
+
+  post '/peep/new' do
+    Peep.add(params[:new_peep])
     redirect '/'
   end
 

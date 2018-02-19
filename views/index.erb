@@ -8,7 +8,10 @@
         <center>
           <div class="interface">
             <h1>Chitter Challenge!</h1>
-              <form action="/new_peep" method="post">
-              <input type="text" name="textbox" placeholder="peep peep peep!" class="userentry">
-              <input type="submit" name="peep" class="submit-buttons">
+              <form action="/peep/new" method="post">
+              <input type="text" name="new_peep" placeholder="peep peep peep!" class="userentry">
+              <input type="submit" value="peep" class="submit-buttons">
               </form>
+              <% @peeps.each do |message| %>
+              <h2><%= message.text %></h2>
+              <% end %>
