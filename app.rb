@@ -35,10 +35,6 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
-  get '/sessions/new' do
-    erb(:sessions)
-  end
-
   post '/sessions' do
     user = User.authenticate(params['email'], params['password'])
     if user
@@ -46,7 +42,7 @@ class Chitter < Sinatra::Base
       redirect('/')
     else
       flash[:notice] = "Incorrect email or password"
-      redirect('/sessions/new')
+      redirect('/chitter')
     end
   end
 

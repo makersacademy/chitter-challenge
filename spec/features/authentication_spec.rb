@@ -4,7 +4,7 @@ feature "authentication" do
     User.create(name: 'Jim', username: 'Jimmy',
       email: 'abc@123.com', password: 'abc123')
 
-    visit "sessions/new"
+    visit "/"
     fill_in(:email, with: "abc@123.com")
     fill_in(:password, with: "abc123")
     click_button("Sign in")
@@ -16,7 +16,7 @@ feature "authentication" do
     User.create(name: 'Jim', username: 'Jimmy',
       email: 'abc@123.com', password: 'abc123')
 
-    visit "sessions/new"
+    visit "/"
     fill_in(:email, with: "fake@email.com")
     fill_in(:password, with: "abc123")
     click_button("Sign in")
@@ -29,7 +29,7 @@ feature "authentication" do
     User.create(name: 'Jim', username: 'Jimmy',
       email: 'abc@123.com', password: 'abc123')
 
-    visit "sessions/new"
+    visit "/"
     fill_in(:email, with: "abc@123.com")
     fill_in(:password, with: "hunter2")
     click_button("Sign in")
@@ -42,7 +42,7 @@ feature "authentication" do
     User.create(name: 'Jim', username: 'Jimmy',
       email: 'abc@123.com', password: 'abc123')
 
-    visit "sessions/new"
+    visit "/"
     fill_in(:email, with: "abc@123.com")
     fill_in(:password, with: "abc123")
     click_button("Sign in")
