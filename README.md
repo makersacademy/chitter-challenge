@@ -55,6 +55,7 @@ Questions and outstanding elements from the exercise to discuss with Coaches
 * I think my routes are not all RESTful - look for feedback and discussion on RESTful routes
 * What are Sinatra view helpers?
 * Why split routes over separate controller files
+* What is the purpose of using 'Partials with Standard HTML Conventions’
 
 Chitter Challenge
 =================
