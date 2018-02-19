@@ -59,16 +59,17 @@ describe User do
 
   describe '.authenticate' do
     it 'returns a user given a correct email and password' do
-      authenticated_user = user.authenticate('test@example.com', 'password123')
+      user
+      authenticated_user = User.authenticate('test@example.com', 'password123')
       expect(authenticated_user.id).to eq user.id
     end
 
     it 'returns nil given an incorrect email address' do
-      expect(user.authenticate('wrongemail@wrong.com', 'password123')).to be_nil
+      expect(User.authenticate('wrongemail@wrong.com', 'password123')).to be_nil
     end
 
     it 'returns nil given an incorrect password address' do
-      expect(user.authenticate('test@example.com', 'wordpass321')).to be_nil
+      expect(User.authenticate('test@example.com', 'wordpass321')).to be_nil
     end
   end
 end

@@ -25,17 +25,17 @@ end
 # Uncomment below and run 'rake setup' from the terminal on first use
 # Don't forget to run 'gem install bundler' and 'bundle install' first!!!
 
-
-task :setup do
-  ["chitter_development", "chitter_test"].each do |db_name|
-    connect = PG.connect
-    connect.exec("DROP DATABASE IF EXISTS #{db_name}")
-    connect.exec("CREATE DATABASE #{db_name}")
-    connection = PG.connect dbname: db_name
-    connection.exec("CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR
-      (60), password VARCHAR(60), name VARCHAR(60), handle VARCHAR(60));
-      CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR
-      (240), time VARCHAR(60), user_id INT REFERENCES users(id) );
-      ")
-  end
-end
+# 
+# task :setup do
+#   ["chitter_development", "chitter_test"].each do |db_name|
+#     connect = PG.connect
+#     connect.exec("DROP DATABASE IF EXISTS #{db_name}")
+#     connect.exec("CREATE DATABASE #{db_name}")
+#     connection = PG.connect dbname: db_name
+#     connection.exec("CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR
+#       (60), password VARCHAR(60), name VARCHAR(60), handle VARCHAR(60));
+#       CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR
+#       (240), time VARCHAR(60), user_id INT REFERENCES users(id) );
+#       ")
+#   end
+# end

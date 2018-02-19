@@ -8,6 +8,9 @@
     <h1><%= styled_flash %></h1>
     <% if @user %>
       <h1>Logged in as <%= @user.handle %></h1>
+      <form action="/peeps/new" method="GET">
+        <input type="submit" value="Create a peep">
+      </form>
       <a href="/sessions/destroy">Sign out</a>
     <% else %>
       <a href="/users/new">Sign up</a>
@@ -15,12 +18,9 @@
     <% end %>
 
     <% @peeps.each do |peep| %>
-      <div class="peep"><h2><%= peep[:text] %></h2></div>
-      <div class=""><h3><%= peep[:time] %> </h3></div>
-
-      <form action="/delete" method="post">
-
-      </form>
+      <div><h3><%= peep[:handle] %> (<%= peep[:name] %>) </h3></div>
+      <div><h2><%= peep[:text] %></h2></div>
+      <div><h3><%= peep[:time] %> </h3></div>
     <% end %>
 
   </body>
