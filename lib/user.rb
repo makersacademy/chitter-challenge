@@ -10,8 +10,8 @@ class User
   end
 
   def self.all
-    # result = DatabaseConnection.query('SELECT * FROM users')
-    # result.map { |user| User.new(user['username']) }
+    result = DatabaseConnection.query('SELECT * FROM users')
+    result.map { |user| User.new(user['full_name'], user['username'], user['email'], user['password']) }
   end
 
 

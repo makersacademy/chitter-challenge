@@ -5,8 +5,8 @@ describe User do
   describe '.all' do
     it 'returns all users, wrapped in user instances' do
       users = User.all
-      usernames = feed.map(&:username)
-      expect(users).to include('@heather')
+      usernames = users.map(&:username)
+      expect(usernames).to include('@heather')
     end
   end
   #
