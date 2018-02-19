@@ -28,7 +28,7 @@ class Peep
       time = peep.time
       if (message && id) != "NULL"
         # p "message, ID and time"
-        return message, id, time
+        print(message, id, time)
       end
     end
   end
