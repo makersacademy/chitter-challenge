@@ -3,37 +3,63 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
   margin: 5em;
-  line-height: 50px;
+  line-height: 40px;
 }
 
 .interface {
   width: 700px;
   height: auto;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   padding: 20px;
   border-radius: 20px;
 }
 
 h1 {
   font-family: 'Chalkduster', fantasy;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 5px 5px 9px midnightblue;
   font-size: 4.0em;
   color: #ffffff;
   margin-bottom: 15px;
 }
 
 h2 {
-  font-family: 'Chalkduster', fantasy;
+  font-family: 'Blippo', fantasy;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  font-size: 2.0em;
+  font-size: 1.5em;
+  display: block;
+  color: #ffffff;
+  padding-top: 0.5em;
+  margin-top: 10px;
+  border-style: inset;
+  border-width: 3px;
+}
+
+h3 {
+  font-family: 'Blippo', fantasy;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  font-size: 1.0em;
   color: #ffffff;
   margin-bottom: 15px;
 }
 
 .userentry {
   padding-top: 0.5em;
-  font-family: 'Jazz LET', fantasy;
+  font-family: 'Blippo', fantasy;
   font-size: 0.8em;
   border-radius: 10px;
   text-align: center;
+  margin-top: 15px;
+}
+
+.submit-buttons {
+  padding-top: 0.5em;
+  font-family: 'Blippo', fantasy;
+  font-size: 0.8em;
+  border-color: #87CEFA;
+  color: slategrey;
+  border-radius: 10px;
+}
+
+.submit-buttons:hover {
+  box-shadow: midnightblue 0px 0px 10px;
 }

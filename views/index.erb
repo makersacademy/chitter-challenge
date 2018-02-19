@@ -9,9 +9,10 @@
           <div class="interface">
             <h1>Chitter Challenge!</h1>
               <form action="/peep/new" method="post">
-              <input type="text" name="new_peep" placeholder="peep peep peep!" class="userentry">
-              <input type="submit" value="peep" class="submit-buttons">
+              <input type="text" name="new_peep" placeholder="say something!" class="userentry">
+              <input type="submit" value="submit" class="submit-buttons">
               </form>
-              <% @peeps.each do |message| %>
-              <h2><%= message.text %></h2>
+              <% @peeps.each do |peep| %>
+              <h2><%= peep.text %></h2>
+              <h3>Peeped at: <%= peep.time %></h3>
               <% end %>
