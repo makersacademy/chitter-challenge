@@ -15,9 +15,21 @@ Instructions:
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
+Sign in
+
 ![image](https://user-images.githubusercontent.com/29259526/36368159-e705dbe0-154d-11e8-9186-4acb2fcf3c9f.png)
 
+Post a peep
 
+![image](https://user-images.githubusercontent.com/29259526/36368159-e705dbe0-154d-11e8-9186-4acb2fcf3c9f.png)
+
+Share a peep
+
+![image](https://user-images.githubusercontent.com/29259526/36368159-e705dbe0-154d-11e8-9186-4acb2fcf3c9f.png)
+
+View history
+
+![image](https://user-images.githubusercontent.com/29259526/36368159-e705dbe0-154d-11e8-9186-4acb2fcf3c9f.png)
 
 Features:
 -------
