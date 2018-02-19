@@ -7,6 +7,12 @@
     <h1>Welcome <%= @user.username %></h1>
   <% end %>
 
+  <%= styled_flash %>
+
+  <form action="/sessions/destroy" method="POST">
+    <input type="submit" value="Sign out">
+  </form>
+
   <form action="/chitter" method="POST">
     <input type="text" name="peep_text" placeholder="Enter peep here...">
     <input type="submit" value="Submit">

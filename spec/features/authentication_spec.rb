@@ -37,4 +37,19 @@ feature "authentication" do
     expect(page).not_to have_content("Welcome Jimmy")
     expect(page).to have_content("Incorrect email or password")
   end
+
+  scenario "Users can sign out" do
+    User.create(name: 'Jim', username: 'Jimmy',
+      email: 'abc@123.com', password: 'abc123')
+
+    visit "sessions/new"
+    fill_in(:email, with: "abc@123.com")
+    fill_in(:password, with: "abc123")
+    click_button("Sign in")
+
+    click_button("Sign out")
+
+    expect(page).not_to have_content("Welcome Jimmy")
+    expect(page).to have_content("You have signed out")
+  end
 end
