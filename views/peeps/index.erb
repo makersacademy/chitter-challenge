@@ -7,7 +7,11 @@
 <form action="/users/new" method="get">
   <input type="submit" value="Sign Up">
 </form>
-<% @peeps.each do |peep| %>
-  <h2><%= peep.message %></h2>
-  <h5>Posted at <%= peep.time %></h5>
+<% if @user %>
+  <% @peeps.each do |peep| %>
+    <h2><%= peep.message %></h2>
+    <h5>Posted at <%= peep.time %></h5>
+  <% end %>
+<% else %>
+  <h2> You need to be signed in before you can see peeps</h2>
 <% end %>

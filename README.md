@@ -29,5 +29,5 @@ I want to sign up for Chitter
 Notes
 -------
 - I've implemented ability to post a message, which then appears on the homepage. However the timestamp for this is showing the time the page is loaded, not the time the message was first posted.
-- I've implemented a feature for a user to sign up, however I haven't got a login feature yet so the 'sign-up' feature is largely redundant at this point.
-- I have tried to use BCrypt to encrypt the passwords of users signing up, but am unsure if this is working correctly. 
+- I've implemented a feature for a user to sign up, which means they cannot see or send peeps unless they've signed up
+- I have tried to use BCrypt to encrypt the passwords of users signing up, but am unsure if this is working correctly.

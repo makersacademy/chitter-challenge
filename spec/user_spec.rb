@@ -2,9 +2,9 @@ require 'user'
 
 describe User do
 
-  let(:options) {{:email => 'test@test.com',
+  let(:options) {{:email => 'test@example.com',
             :password => 'password',
-            :name => 'Testname',
+            :name => 'TestName',
             :username => 'TestUsername'
             }}
 

@@ -20,6 +20,7 @@ task :test_database_setup do
   connection.exec("INSERT INTO peeps VALUES('test peep 1', '#{Time.now}', 'superman', 'Clark Kent');")
   connection.exec("INSERT INTO peeps VALUES('test peep 2', '#{Time.now}', 'batman', 'Bruce Wayne');")
   connection.exec("INSERT INTO peeps VALUES('test peep 3', '#{Time.now}', 'spiderman', 'Peter Parker');")
+  connection.exec("INSERT INTO users VALUES(1, 'test@example.com', 'TestName', 'TestUsername');")
 end
 
 task :setup do
