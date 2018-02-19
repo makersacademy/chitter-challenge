@@ -1,4 +1,4 @@
-def sign_up_as_Fred
+def sign_up_as_fred
   visit '/peeps'
   click_on "Sign up"
   fill_in("email", with: "freedom@freemail.com")

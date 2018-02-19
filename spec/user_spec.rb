@@ -1,16 +1,14 @@
 require 'user.rb'
 
 describe User do
-  let(:user) { described_class.create(email: 'test@example.com',
-    password: 'password123',
-    name: 'testdude',
-    handle: 'testhandle'
-    ) }
-  let(:user_params) { { email: 'test@example.com',
-    password: 'password123',
-    name: 'testdude',
-    handle: 'testhandle'
-    } }
+  let(:user) {
+    described_class.create(email: 'test@example.com', password: 'password123',
+    name: 'testdude', handle: 'testhandle')
+  }
+  let(:user_params) {
+    { email: 'test@example.com', password: 'password123', name: 'testdude',
+    handle: 'testhandle' }
+  }
 
   describe '.all' do
     it 'returns an array of all users' do

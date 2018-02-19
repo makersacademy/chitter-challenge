@@ -25,7 +25,6 @@ end
 # Uncomment below and run 'rake setup' from the terminal on first use
 # Don't forget to run 'gem install bundler' and 'bundle install' first!!!
 
-# 
 # task :setup do
 #   ["chitter_development", "chitter_test"].each do |db_name|
 #     connect = PG.connect

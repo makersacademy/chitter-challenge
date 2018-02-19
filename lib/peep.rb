@@ -3,7 +3,8 @@ require 'pg'
 class Peep
   def self.all
     # connection = PG.connect(dbname: 'chitter_' + ENV['RACK_ENV'])
-    result = DatabaseConnection.query("SELECT users.name, users.handle, peeps.text, peeps.time
+    result = DatabaseConnection.query("SELECT users.name, users.handle,
+                                      peeps.text, peeps.time
                                       FROM users
                                       INNER JOIN peeps
                                       ON users.id = peeps.user_id
@@ -15,7 +16,7 @@ class Peep
   end
 
   def self.create(peep, id)
-    peep[:text].gsub!("'","''")
+    peep[:text].gsub!("'", "''")
     # connection = PG.connect(dbname: 'chitter_' + ENV['RACK_ENV'])
     DatabaseConnection.query("INSERT INTO peeps (text, time, user_id) VALUES
                                   ('#{peep[:text]}',

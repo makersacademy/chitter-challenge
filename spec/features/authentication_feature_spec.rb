@@ -1,11 +1,10 @@
 require 'user'
 
 feature 'authentication' do
-  let(:create_user) { User.create(email: 'test@example.com',
-    password: 'password123',
-    name: 'testdude',
-    handle: 'testhandle'
-    ) }
+  let(:create_user) {
+    User.create(email: 'test@example.com', password: 'password123',
+    name: 'testdude', handle: 'testhandle')
+  }
 
   it 'lets a user sign in' do
     create_user

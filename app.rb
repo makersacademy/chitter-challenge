@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
     begin
       user = User.create(params)
       session[:user_id] = user.id
-    rescue Exception => e
+    rescue StandardError => e
       flash[:taken] = e.message
       redirect '/users/new'
     end

@@ -4,10 +4,11 @@ ruby '2.5.0'
 
 gem 'bcrypt'
 gem 'capybara'
+gem 'pg'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'pg'
+
 
 group :test do
   gem 'rspec'
