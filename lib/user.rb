@@ -27,7 +27,7 @@ private
 
   def self.user_exists?(name)
     result = DatabaseConnection.query("SELECT * FROM newuser")
-    result.map { |user| user['name'] }.include?(name)
+    user = result.map { |user| user['name'] }.include?(name)
   end
 
 end

@@ -14,7 +14,7 @@ class Cheeter < Sinatra::Base
 
   post '/add_peep' do
     begin
-      @sig_in = User.sign_in(params[:name], params[:password])
+      @sign_in = User.sign_in(params[:name], params[:password])
       redirect '/'
     rescue Exception => error
       flash[:notice] = error.message
