@@ -5,9 +5,7 @@
     <title>Chitter - Sign Up</title>
   </head>
   <body>
-    <% if flash[:taken] %>
-      <h1><%= flash[:taken] %></h1>
-    <% end %>
+    <h1><%= styled_flash %></h1>
     <form action="/sessions" method="POST">
       <input type="email" name="email" placeholder="Enter your email" required>
       <input type="password" name="password" placeholder="Enter your password" required>

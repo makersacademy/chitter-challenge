@@ -47,4 +47,28 @@ describe User do
       expect(described_class.email_taken?("doglover@yomail.com")).to eq true
     end
   end
+
+  describe '.handle_taken?' do
+    it 'returns false if the handle is not taken' do
+      expect(described_class.handle_taken?("enlightened33")).to eq false
+    end
+    it 'returns true if the handle is taken' do
+      expect(described_class.handle_taken?("catman505")).to eq true
+    end
+  end
+
+  describe '.authenticate' do
+    it 'returns a user given a correct email and password' do
+      authenticated_user = user.authenticate('test@example.com', 'password123')
+      expect(authenticated_user.id).to eq user.id
+    end
+
+    it 'returns nil given an incorrect email address' do
+      expect(user.authenticate('wrongemail@wrong.com', 'password123')).to be_nil
+    end
+
+    it 'returns nil given an incorrect password address' do
+      expect(user.authenticate('test@example.com', 'wordpass321')).to be_nil
+    end
+  end
 end

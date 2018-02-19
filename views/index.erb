@@ -5,13 +5,10 @@
     <title>Chitter</title>
   </head>
   <body>
+    <h1><%= styled_flash %></h1>
     <% if @user %>
       <h1>Logged in as <%= @user.handle %></h1>
-      <form action="/peeps/new" method="GET">
-        <input type="submit" value="Create a peep">
-      </form>
-      <a href="#">Log out</a>
-      <a href="/sessions/new">Sign in</a>
+      <a href="/sessions/destroy">Sign out</a>
     <% else %>
       <a href="/users/new">Sign up</a>
       <a href="/sessions/new">Sign in</a>

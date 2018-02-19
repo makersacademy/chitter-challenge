@@ -47,9 +47,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    email = params[:email]
-    user = User.sign_in(email)
-    session[:user_id] = user.id
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash[:failed_sign_in] = "Please check your email or password."
+      redirect '/sessions/new'
+    end
+  end
+
+  get '/sessions/destroy' do
+    session.clear
+    flash[:sign_out] = 'You have signed out.'
     redirect('/')
   end
   # run! if app_file == $0
