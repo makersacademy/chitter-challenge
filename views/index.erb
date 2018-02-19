@@ -6,7 +6,7 @@
 </form>
 
 <ul>
-  <li
-  <h3> <%=@peeps%> </h3>
-  </li>
+  <% @peep_and_id.reverse.each do |peep| %>
+      <li><%= peep.peep %> <%= peep.id %> <%= peep.time %></li>
+     <% end %>
 </ul>

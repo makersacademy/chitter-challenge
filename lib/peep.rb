@@ -20,18 +20,10 @@ class Peep
   end
 
   def self.and_id
-    Peep.all.each do |peep|
-      # p('message')
-      message = peep.peep
-      # p('id')
-      id = peep.id
-      time = peep.time
-      if (message && id) != "NULL"
-        # p "message, ID and time"
-        print(message, id, time)
-      end
-    end
+    peep_and_id = DatabaseConnection.query("SELECT * FROM peeps WHERE peep IS NOT NULL;")
+    peep_and_id.map { |peep| Peep.new(peep['peep'], peep['id'], peep['time']) }
   end
+
 
   def self.add_new_peep(new_peep, id)
     # raise "You must submit a valid URL." unless working_link?(new_peep)

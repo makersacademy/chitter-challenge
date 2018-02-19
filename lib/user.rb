@@ -14,11 +14,4 @@ class User
     DatabaseConnection.query("INSERT INTO peeps(id) VALUES('#{id}')")
   end
 
-  # def self.user_peeped?
-  #   Peep.all
-  #   if (@id && @peep) != null
-  #
-  #   end
-  # end
-
 end

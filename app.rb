@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.and_id
+    @peep_and_id = Peep.and_id
     @id = session[:id]
     erb :index
   end
