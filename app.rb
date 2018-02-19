@@ -1,12 +1,13 @@
 require 'sinatra/base'
-require 'pg'
 require './database_connection_setup'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
   get '/' do
     # Get all peeps and display on page
-    # @peeps = Peep.all
+    @peeps = Peep.all
+    # @authors = Peep.find(user_id)
     # @peeps =
     # connection = DatabaseConnection.setup(chitter_test)
     # result = connection.exec("SELECT * FROM peeps")
@@ -14,12 +15,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
+    # What we Want
+    # Peep.add(user, peep)
+
     # Assign user input to variables
     user = params['user']
     peep = params['peep']
 
     #1. Create database connection variable
-    connection = PG.connect(dbname: "chitter")
+    # connection = PG.connect(dbname: "chitter_test")
 
     # find whether user is in database with a prepared statement
     connection.prepare('user in user table', "SELECT * FROM users WHERE author = ($1)")

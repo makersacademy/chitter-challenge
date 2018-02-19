@@ -8,15 +8,16 @@ task :populate do
 
   connection.exec("TRUNCATE users CASCADE;")
 
-  connection.exec("INSERT INTO users VALUES(1, 'Noel');")
-  connection.exec("INSERT INTO peeps VALUES(1, 1, 'first peep');")
-  connection.exec("INSERT INTO users VALUES(2, 'Ines');")
-  connection.exec("INSERT INTO peeps VALUES(2, 2, 'second peep');")
-  connection.exec("INSERT INTO users VALUES(3, 'Ruben');")
-  connection.exec("INSERT INTO peeps VALUES(3, 3, 'third peep');")
-  connection.exec("INSERT INTO users VALUES(4, 'Cassius');")
-  connection.exec("INSERT INTO peeps VALUES(4, 4, 'fourth peep');")
-  connection.exec("INSERT INTO peeps VALUES(5, 1, 'fifth peep');")
+  # 
+  # connection.exec("INSERT INTO users (author) VALUES ('Noel');")
+  # connection.exec("INSERT INTO peeps (user_id, peep) VALUES(1, 'first peep');")
+  # connection.exec("INSERT INTO users (author) VALUES ('Ines');")
+  # connection.exec("INSERT INTO peeps (user_id, peep) VALUES(2, 'second peep');")
+  # connection.exec("INSERT INTO users (author) VALUES ('Ruben');")
+  # connection.exec("INSERT INTO peeps (user_id, peep) VALUES(3, 'third peep');")
+  # connection.exec("INSERT INTO users (author) VALUES ('Cassius');")
+  # connection.exec("INSERT INTO peeps (user_id, peep) VALUES(4, 'fourth peep');")
+  # connection.exec("INSERT INTO peeps (user_id, peep) VALUES(1, 'fifth peep');")
 end
 
 task :setup do

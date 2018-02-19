@@ -1,5 +1,15 @@
+Overview of progress
+=============
+
+Currently in the process of amending rakefile to populate tables
+without damaging the auto increment id key.
+
+Also working on extracting logic from the view and controller layer
+to the model layer and writing relevant unit tests.
+
 Instructions
 ============
+
 Fork this repo and run bundle in terminal.
 
 ```

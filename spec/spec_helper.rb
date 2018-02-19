@@ -1,13 +1,15 @@
 ENV['ENVIRONMENT'] = 'test'
+
+require 'rake'
+# Load the Rakefile
+Rake.application.load_rakefile
+
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require 'rspec'
-require 'rake'
-
-# Load the Rakefile
-Rake.application.load_rakefile
 
 # Then, in the RSpec config...
 RSpec.configure do |config|
