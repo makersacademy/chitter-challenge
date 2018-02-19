@@ -31,7 +31,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    user = User.create(
+      username: params[:username],
+      email: params[:email],
+      password: params[:password]
+    )
     if user.save
       session[:user_id] = user.id
       flash.next[:success] = 'Sign up successful!'

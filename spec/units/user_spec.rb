@@ -16,7 +16,7 @@ describe User do
   end
 
   it 'logs in a previous user if email and password combo exists' do
-     user = described_class.create(username: 'Daniel', email: 'example@test.com', password: '12345')
+    user = described_class.create(username: 'Daniel', email: 'example@test.com', password: '12345')
     expect(User.authenticate(user.email, '12345')).to eq user
   end
 end
