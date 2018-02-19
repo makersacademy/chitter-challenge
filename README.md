@@ -53,6 +53,8 @@ Questions and outstanding elements from the exercise to discuss with Coaches
     * If try and do data mapper: returns error 'Hash not defined in Bcrypt'
     * If try and use in code, prevents user being stored (may be because string datatype is not usable for this)
 * I think my routes are not all RESTful - look for feedback and discussion on RESTful routes
+* What are Sinatra view helpers?
+* Why split routes over separate controller files
 
 Chitter Challenge
 =================
