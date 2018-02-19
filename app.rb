@@ -6,9 +6,13 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
-  # get '/sign_up' do
-  #   erb :sign_up
-  # end
+  get '/sign_up/new' do
+    erb :sign_up
+  end
+
+  post '/sign_up' do
+    redirect '/'
+  end
 
   get '/' do
     @peeps = Peep.all

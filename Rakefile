@@ -18,6 +18,7 @@ task :setup do
     connection = PG.connect(dbname: database)
     connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, post VARCHAR(240), time TIMESTAMP);")
   end
+end
 
 task :test_database_setup do
   p "Cleaning database..."
@@ -29,7 +30,4 @@ task :test_database_setup do
 
   connection.exec("INSERT INTO peeps VALUES(1, 'This is a test peep', '#{Time.now}');")
   connection.exec("INSERT INTO peeps VALUES(2, 'This is another test peep', '#{Time.now}');")
-end
-
-
 end
