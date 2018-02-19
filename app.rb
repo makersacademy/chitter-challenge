@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
     )
 
     if user.errors.size.positive?
-      flash[:errors] = user.errors.first
+      flash.next[:errors] = user.errors.first # Next view flash is taken!
       redirect '/users/new'
     end
 
