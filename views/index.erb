@@ -1,11 +1,12 @@
 <div>
   Hello from Chitter
   <form action="/add_peep" method="post">
-    <input type="text" name="new_peep">
+    <input type="text" name="name" placeholder="Your name"size="10">
+    <input type="text" name="new_peep" placeholder="Your peep">
     <input type="submit" value="Peep!">
   </form>
 <div>
 
 <div>
-  <%= @peeps %>
+  <%= @name %> <%= @peep %>
 </div>
