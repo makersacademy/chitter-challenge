@@ -21,15 +21,17 @@ Sign in
 
 Post a peep
 
-![image](https://user-images.githubusercontent.com/29259526/36368159-e705dbe0-154d-11e8-9186-4acb2fcf3c9f.png)
+![image](https://user-images.githubusercontent.com/29259526/36368436-19c6302e-154f-11e8-95f7-c99d3cb2dcf0.png)
 
 Share a peep
 
-![image](https://user-images.githubusercontent.com/29259526/36368159-e705dbe0-154d-11e8-9186-4acb2fcf3c9f.png)
+![image](https://user-images.githubusercontent.com/29259526/36368457-39cd4268-154f-11e8-8c4a-ecbb9ff6524a.png)
+
 
 View history
 
-![image](https://user-images.githubusercontent.com/29259526/36368159-e705dbe0-154d-11e8-9186-4acb2fcf3c9f.png)
+![image](https://user-images.githubusercontent.com/29259526/36368471-4c803442-154f-11e8-96bb-d7ded975852c.png)
+
 
 Features:
 -------
