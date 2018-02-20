@@ -29,8 +29,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/new' do
-    @user = User.sign_up(params[:email], params[:password], params[:name], params[:username])
-    session[:user_id] = @user.id
+    user = User.sign_up(params[:email], params[:password], params[:name], params[:username])
+    session[:user_id] = user.id
     redirect '/user'
   end
 

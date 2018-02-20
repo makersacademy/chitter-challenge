@@ -12,13 +12,13 @@ require File.join(File.dirname(__FILE__), 'lib', 'cheet.rb')
 require File.join(File.dirname(__FILE__), 'lib', 'user.rb')
 
 task :setup do
-  begin
-  %w[cheeter cheeter_test user user_test].each do |database|
+  # begin
+  %w[cheeter cheeter_test].each do |database|
     DataMapper.setup(:default, "postgres:///#{database}")
     DataMapper.finalize
     DataMapper.auto_migrate!
-  end
-  rescue => e
+  # end
+  # rescue => e
   end
 end
 
