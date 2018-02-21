@@ -49,7 +49,7 @@ class Chitter < Sinatra::Base
     @comments = Comment.all
     @log_in = true
     erb(:'peeps/index')
-  end
+  end  
 
   post '/sessions/new' do
     flash[:n] = Flash.no_match
