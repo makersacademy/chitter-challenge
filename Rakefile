@@ -11,8 +11,6 @@ end
 
 # PG.connect(ENV['DATABASE_URL'])
 
-hostaddr
-
 task :test_database_setup do
   p 'Setting up test database...'
   connection = PG.connect(dbname: 'chitter_test', hostaddr: ENV['DATABASE_URL'] )
