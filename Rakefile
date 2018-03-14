@@ -7,10 +7,15 @@ if ENV['RACK_ENV'] != 'production'
   task default: [:spec]
 end
 
+# DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+
+# PG.connect(ENV['DATABASE_URL'])
+
+hostaddr
 
 task :test_database_setup do
   p 'Setting up test database...'
-  connection = PG.connect(dbname: 'chitter_test')
+  connection = PG.connect(dbname: 'chitter_test', hostaddr: ENV['DATABASE_URL'] )
   connection.exec("TRUNCATE peeps, users, comments;")
   connection.exec("INSERT INTO peeps VALUES(1, 'Nice day for coding', '2018-02-17 15:54:04', 'Justyna');")
   connection.exec("INSERT INTO peeps VALUES(2, 'Bad day for coding', '2018-02-17 15:55:04', 'Igor');")
@@ -20,9 +25,9 @@ end
 task :setup do
   p "Creating databases..."
   ["chitter", "chitter_test"].each do |database|
-    connection = PG.connect
+    connection = PG.connect(hostaddr: ENV['DATABASE_URL'])
     connection.exec("CREATE DATABASE #{database}")
-    connection = PG.connect(dbname: "#{database}")
+    connection = PG.connect(dbname: "#{database}", hostaddr: ENV['DATABASE_URL'])
     connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(240), date TIMESTAMP, author VARCHAR(50));")
     connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(40), password VARCHAR(40), name VARCHAR(40), username VARCHAR(40));")
     connection.exec("CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), peep_id INTEGER REFERENCES peeps (id));")
@@ -33,7 +38,7 @@ task :teardown do
   p "Tearing down databases..."
 
   ["chitter", "chitter_test"].each do |database|
-    connection = PG.connect
+    connection = PG.connect(hostaddr: ENV['DATABASE_URL'])
     connection.exec("DROP DATABASE #{ database };")
   end
 end

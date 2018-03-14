@@ -8,6 +8,7 @@ gem "sinatra"
 gem "capybara"
 gem "pg"
 gem "sinatra-flash"
+gem 'dm-core'
 
 
 group :test do
