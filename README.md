@@ -10,7 +10,7 @@ I want to post a message (peep) to chitter
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
-* ORDER BY desc
+* phoenix#all returns the database search with 'ORDER BY id DESC'
 
 As a Maker
 So that I can better appreciate the context of a peep

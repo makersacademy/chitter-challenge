@@ -17,8 +17,9 @@ class PhoenixController < Sinatra::Base
     erb(:index)
   end
 
-  get '/phoenix/summon' do
-    @phoenix = Phoenix.summon(params[:new_phoenix])
+  post '/phoenix/summon' do
+    Phoenix.summon(params[:new_phoenix])
+    redirect '/phoenix'
   end
 
   run! if app_file == $0

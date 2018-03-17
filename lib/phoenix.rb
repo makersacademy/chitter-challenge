@@ -18,8 +18,7 @@ class Phoenix
   end
 
   def self.summon(phoenix_text)
-
-    #@summon = Phoenix.new
+    DB_Connection.query("INSERT INTO summons (phoenix, summoner, timestamp) VALUES ('#{phoenix_text}', 'julesnuggy', current_timestamp(0));")
   end
 
 end
