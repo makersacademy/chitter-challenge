@@ -17,7 +17,7 @@ task :setup do
 
     connection = PG.connect(dbname: database)
 
-    connection.exec("CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(140), date TIMESTAMP);")
+    connection.exec("CREATE TABLE blahs(id SERIAL PRIMARY KEY, blah VARCHAR(140), date TIMESTAMP DEFAULT now());")
     connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));")
 
     p "Created database: #{database}"
@@ -29,12 +29,12 @@ task :test_database_setup do
 
   connection = PG.connect(dbname: 'blahblah_test')
 
-  connection.exec("TRUNCATE messages")
+  connection.exec("TRUNCATE blahs")
   connection.exec("TRUNCATE users")
 
-  connection.exec("INSERT INTO messages VALUES(1, 'One simple message', '2015-10-19 10:23:54')")
-  connection.exec("INSERT INTO messages VALUES(2, 'Another simple message', '2016-10-19 10:23:54')")
-  connection.exec("INSERT INTO messages VALUES(3, 'My last simple message', '2017-10-19 10:23:54')")
+  connection.exec("INSERT INTO blahs VALUES(1, 'One blah', '2015-10-19 10:23:54')")
+  connection.exec("INSERT INTO blahs VALUES(2, 'Two blah', '2016-10-19 10:23:54')")
+  connection.exec("INSERT INTO blahs VALUES(3, 'Three blah', '2017-10-19 10:23:54')")
 
   p "Databases populated"
 end

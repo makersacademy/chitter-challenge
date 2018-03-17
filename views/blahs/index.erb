@@ -1,0 +1,15 @@
+<% if @blahs.empty? %>
+  "No one has blah'd yet :("
+<% else %>
+  <% @blahs.each do |blah| %>
+    <li>
+      <%= blah.id %>
+      <%= blah.blah %>
+      <%= blah.date %>
+    </li>
+  <% end %>
+<% end %>
+
+<form action="/blahs/new">
+  <button type="submit">New blah</button>
+</form>
