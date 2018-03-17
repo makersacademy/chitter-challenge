@@ -39,6 +39,18 @@ describe 'Peep' do
         expect(Peep.channel[0].peep).to eq 'My first peep!'
       end
     end
+  end
 
+  describe '.new_peep' do
+    context 'User adds new peep to the channel' do
+      it 'should add a new peep to the channel' do
+        name = "test"
+        username = "@username"
+        peep = "Testing 1-2"
+        time = "noon"
+        expect(ChitterConnection).to receive(:query).with("INSERT INTO peeps(time, name, username, peep) VALUES('#{time}', '#{name}', '#{username}', '#{peep}')")
+        Peep.new_peep(name, username, peep, time)
+      end
+    end
   end
 end

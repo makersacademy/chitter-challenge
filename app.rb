@@ -9,4 +9,8 @@ class Chitter < Sinatra::Base
     erb :homepage
   end
 
+  get '/new_peep' do
+  @peeps_channel = Peep.channel
+  end
+
 end
