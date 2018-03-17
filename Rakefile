@@ -18,6 +18,9 @@ if ENV['RACK_ENV'] != 'production'
       connection = PG.connect(dbname: database)
 
       begin
+
+        connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140),realname VARCHAR(20), username VARCHAR(15);")
+
         connection.exec('CREATE TABLE peeps(
         id SERIAL PRIMARY KEY,
         author VARCHAR(15),
@@ -25,6 +28,7 @@ if ENV['RACK_ENV'] != 'production'
         time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
         reply_id INTEGER NULL,
         FOREIGN KEY (reply_id) REFERENCES peeps(id)
+        FOREIGN KEY (author) REFERENCES users(username)
         );')
 
       rescue StandardError
