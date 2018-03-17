@@ -1,0 +1,48 @@
+<head>
+  <link rel="stylesheet" href="/phoenix/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Krona+One|Lobster|Quicksand|Nunito|Dosis" rel="stylesheet">
+</head>
+
+<html>
+  <body>
+
+    <div id="banner_div">
+      <h1 id="logo_text">Phoenix</h1>
+    </div>
+
+    <div id="main_div">
+      <div id="summon_div">
+        <div id="container">
+
+          <div id="user_div">
+            <img id="my_pic" name="my_pic" src="https://image.ibb.co/i2KFXx/Phoenix_ffd.png">
+          </div>
+          <div id="entry_div">
+            <form action="/phoenix/summon" method="post">
+              <textarea name="new_phoenix" id="new_phoenix" rows="5" cols="88" maxlength="240" placeholder="Summon a new Phoenix!"></textarea>
+              <br/>
+              <input type="submit" name="submit" id="summon_phoenix" value="Summon">
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="phoenix_div">
+          <table>
+            <% @phoenix.each_with_index do |fenix, idx| %>
+            <tr>
+              <td>
+                <%= fenix.id %>
+              </td>
+              <td>
+                <%=  fenix.phoenix %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+      </div>
+    </div>
+
+  </body>
+</html>

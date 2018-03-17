@@ -1,0 +1,92 @@
+body {
+  background-color: #ffecaa;
+}
+
+h1#logo_text {
+  color: #c8462a;
+  font-family: 'Lobster', sans-serif;
+  font-size: 60px;
+  text-align: center;
+}
+
+div#summon_div {
+  margin: auto;
+  padding: 10px;
+  width: 700px;
+  height: 120px;
+  background-color: #de792a;
+  border-radius: 5px;
+}
+
+div #container {
+  display: flex;
+  background-color: none;
+  height: 100%;
+}
+
+div#user_div {
+  width: 150px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: #ffda55;
+}
+
+div#entry_div {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffda55;
+  border-radius: 5px;
+}
+
+img[name=my_pic] {
+  width: 80%;
+  height: 80%;
+  border: 2px solid #ba2424;
+  border-radius: 50%;
+}
+
+textarea[name=new_phoenix] {
+  resize: none;
+  border-radius: 5px;
+}
+
+input[name=submit] {
+  float: right;
+  margin-top: 10px;
+}
+
+div, p, table, td, tr {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+}
+
+.colors {
+http://www.color-hex.com/color-palette/36557
+pale yellow
+  #ffecaa	(255,236,170)
+  #ffda55	(255,218,85)
+  #f4c724	(244,199,36)
+  #de792a	(222,121,42)
+  #c8462a	(200,70,42)
+dark orange
+
+http://www.color-hex.com/color-palette/56701
+burgundy
+  #601313	(96,19,19)
+  #781818	(120,24,24)
+  #921f1f	(146,31,31)
+  #a52020	(165,32,32)
+  #ba2424	(186,36,36)
+red
+
+pinky orange
+#ff664f	(255,102,79)
+dark green
+#274744	(39,71,68)
+pale green
+#4bb091	(75,176,145)
+beige
+#b2ae85	(178,174,133)
+hot pink
+#f02f53	(240,47,83)
+}
