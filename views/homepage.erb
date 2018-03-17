@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter Inc. // Daniel Campos</title>
+  </head>
+  <body>
+    <%@peeps_channel.each do |peep|%>
+      <p><hr>
+        <%=peep.peep%><br>
+        <%=peep.name%><%=peep.username%><br>
+        <%=peep.time%>
+        <hr>
+      </p>
+    <%end%>
+  </body>
+</html>
