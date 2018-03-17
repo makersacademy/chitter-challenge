@@ -1,9 +1,8 @@
-require 'pg'
+require_relative './database_connection_setup'
 
 class Peep
   def self.all
-    connection = PG.connect(dbname: 'chitter')
-    result = connection.exec("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps")
     result.map { |peep| peep['message'] }
   end
 end

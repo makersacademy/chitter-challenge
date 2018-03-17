@@ -16,7 +16,7 @@
     </style>
   <body>
     <h1>WELCOME TO CHITTER</h1>
-    <%@messages.each do |message|%>
+    <%@messages.reverse.each do |message|%>
     <%=message%>
     <br>
     <%end%>
