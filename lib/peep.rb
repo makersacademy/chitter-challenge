@@ -26,7 +26,7 @@ class Peep
   end
 
   def authorstring
-    !author ?  'Peeped by anonymous' : "Peeped by #{author}"
+    !author || author.empty? ?  'Peeped by anonymous' : "Peeped by #{author}"
   end
 
   private_class_method
