@@ -15,17 +15,17 @@ class Peep
   end
 
   def self.all
-    self.sort(self.peepify(self.get_all))
+    sort(peepify(retrieve))
   end
 
-  private
+  private_class_method
 
-  def self.get_all
+  def self.retrieve
     @con.query('SELECT * FROM peeps')
   end
 
   def self.peepify(rs)
-    rs.map{ |peep| Peep.new(peep['id'], peep['text'], peep['time']) }
+    rs.map { |peep| Peep.new(peep['id'], peep['text'], peep['time']) }
   end
 
   def self.sort(peep_array)
