@@ -12,7 +12,7 @@ class Phoenix
 
   def self.all
     @all = []
-    @result = DB_Connection.query('SELECT * FROM summons')
+    @result = DB_Connection.query('SELECT * FROM summons ORDER BY id DESC')
     @result.map { |fenix| @all << Phoenix.new(fenix['id'], fenix['phoenix'], fenix['summoner'], fenix['timestamp']) }
     @all
   end

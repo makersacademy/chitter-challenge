@@ -29,18 +29,26 @@
       </div>
 
       <div id="phoenix_div">
-          <table>
-            <% @phoenix.each_with_index do |fenix, idx| %>
-            <tr>
-              <td>
-                <%= fenix.id %>
-              </td>
-              <td>
-                <%=  fenix.phoenix %>
-              </td>
-            </tr>
-            <% end %>
-          </table>
+        <% @phoenix.each_with_index do |fenix, idx| %>
+          <div id="summon_div">
+            <div id="container">
+              <div id="user_div">
+                <img id="my_pic" name="my_pic" src="https://image.ibb.co/i2KFXx/Phoenix_ffd.png">
+                <br/>
+                <p name="details">Post #<%= fenix.id %></p>
+                <p name="details"><%= fenix.summoner %></p>
+              </div>
+              <div id="entry_div">
+                <div class="main_box">
+                  <p name="phoenix"><%=  fenix.phoenix %></p>
+                </div>
+                <div class="sub_box">
+                  <p name="details"><%= fenix.timestamp %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 
