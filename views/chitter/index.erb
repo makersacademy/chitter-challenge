@@ -12,7 +12,11 @@
     }
   </style>
   <body>
-    <form action='/peeps/add_peep' method='post'>
+    <h2><%=@welcome_msg%></h2>
+    <form action='/chitter/sign_up' method='post'>
+      <button type='submit'>Sign Up</button>
+    </form>
+    <form action='/chitter/add_peep' method='post'>
       <label for='new_peep_text'>
         New peep:
         <input type='text' name='new_peep_text'>
