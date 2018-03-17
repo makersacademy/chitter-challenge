@@ -2,7 +2,7 @@ require "database"
 
 class Timeline
   attr_reader :id, :author, :text, :time, :reply_id
-    
+
   def initialize(id, author, text, time, reply_id)
     @id = id,
     @author = author,
@@ -16,7 +16,22 @@ class Timeline
 
     result.map { |peep|
       Timeline.new(
-        peep['id'], peep['author'],
+        peep['id'],
+        peep['author'],
+        peep['text'],
+        peep['time'],
+        peep['reply_id']
+      )
+    }
+  end
+
+  def self.user(user)
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE author = '#{user}'")
+
+    result.map { |peep|
+      Timeline.new(
+        peep['id'],
+        peep['author'],
         peep['text'],
         peep['time'],
         peep['reply_id']

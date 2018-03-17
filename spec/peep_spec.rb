@@ -12,4 +12,15 @@ describe Peep, '.post' do
     result = peeps.map(&:text)
     expect(result).to include msg
   end
+
+  it 'creates a post with a message and a different author' do
+    msg = "Buy our garbage! We got it for cheap"
+
+    Peep.post(author: '@Amazon', text: msg)
+
+    peeps = Timeline.all
+    result = peeps.map(&:text)
+    expect(result).to include msg
+  end
+
 end

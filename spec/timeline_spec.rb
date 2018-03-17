@@ -9,15 +9,17 @@ describe Timeline, '.all' do
 
     expect(peep).to include('My first tweet!')
   end
+end
 
-  describe '.user' do
-    it "displays the users tweets on his homepage timeline" do
+describe Timeline, '.user' do
+  it "displays a specific users tweets" do
 
-      result = Timeline.user(author)
+    msg = "Buy our garbage! We got it for cheap"
+    result = Timeline.user('@Amazon')
 
-      user_timeline = result.map(&:text)
+    peep = result.map(&:text)
 
-      expect(user_timeline). to include('My personal tweet')
-    end
+    expect(peep).to include(msg)
+
   end
 end
