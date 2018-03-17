@@ -5,24 +5,40 @@
     <title></title>
   </head>
     <style>
-      body {
-        background-color: white;
-        background-image: url("https://img.fireden.net/tg/thumb/1462/43/1462430221995s.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-      }
       h1  {color: black; font-family: sans-serif;; font-size: 40px}
+
+      p.round1 {
+        border: 2px solid blue;
+        border-radius: 5px;
+        padding-top: 5vh;
+        padding-right: 3vh;
+        padding-bottom: 5vh;
+        padding-left: 8vh;
+      }
+
+      #example1 {
+      box-sizing: content-box;
+      width: 300px;
+      padding: 5vh;
+      border: 2px solid blue;
+      border-radius: 5px;
+      word-wrap: break-word;
+      }
     </style>
   <body>
     <h1>WELCOME TO CHITTER</h1>
-    <%@messages.reverse.each do |message|%>
-    <%=message%>
-    <br>
+    <%@peeps.reverse.each do |peep|%>
+        <div id="example1">
+          <%=peep.message%>
+          <br>
+          <h7><%=peep.time%></h7>
+        </div>
+      <br>
     <%end%>
     <form action="/new_message" method="post">
       <label for="message">
         <input type="text" name="message">
+        <input type="hidden" name="time" value="<%= Time.now.to_s.split.first(2).join(" ") %>">
       </label>
       <input type="submit" value="Peep">
     </form>

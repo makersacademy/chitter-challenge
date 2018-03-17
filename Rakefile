@@ -14,9 +14,9 @@ task :test_database_setup do
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec("TRUNCATE peeps;")
   connection.exec("ALTER SEQUENCE peeps_id_seq RESTART WITH 1")
-  connection.exec("INSERT INTO peeps (message) VALUES('Message number 1');")
-  connection.exec("INSERT INTO peeps (message) VALUES('I am a message');")
-  connection.exec("INSERT INTO peeps (message) VALUES('So am I');")
+  connection.exec("INSERT INTO peeps (message, time) VALUES('Message number 1', '#{Time.now.to_s.split.first(2).join(" ")}');")
+  connection.exec("INSERT INTO peeps (message, time) VALUES('I am a message', '#{Time.now.to_s.split.first(2).join(" ")}');")
+  connection.exec("INSERT INTO peeps (message, time) VALUES('So am I', '#{Time.now.to_s.split.first(2).join(" ")}');")
 end
 
 task :setup do
@@ -26,7 +26,7 @@ task :setup do
   connection = PG.connect
   connection.exec("CREATE DATABASE #{ database };")
   connection = PG.connect(dbname: database)
-  connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(120));")
+  connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(120), time VARCHAR(60));")
   end
 end
 
