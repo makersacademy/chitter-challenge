@@ -1,0 +1,40 @@
+MVP
+
+Peep.post
+Peep =  {
+id
+username
+message
+date/time
+reply foreign_key [post_id]
+}
+
+connection.exec('CREATE TABLE peeps(
+id SERIAL PRIMARY KEY,
+author VARCHAR(15),
+text VARCHAR(140),
+reply INTERGER NULL,
+FOREIGN KEY (reply_id) REFERENCES peeps(id)
+);')
+
+Timeline.all
+each do all posts
+sort by chronological order
+
+Homepage
+Timeline.me(user_id)
+each do all posts
+that match userID.
+
+
+Only post if signed in
+User authentication
+
+
+Possible
+Recieve email if tagged in a peep
+Likes
+Retweets
+Reply to tweets
+
+Data Table
