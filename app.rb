@@ -3,7 +3,11 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Testing infrastructure working!'
+    peeps = [
+              "My 0th test peep",
+              "Another test peep",
+              "The last test peep"
+             ]
   end
 
   run! if app_file == $0
