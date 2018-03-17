@@ -20,7 +20,6 @@ class Peep
   end
 
   def self.add(text, author=nil)
-    timestring = Time.now.strftime("%Y-%D-%H:%M:%S")
     @con.query("INSERT INTO peeps (text, time, author) "\
     "VALUES ('#{text}', '#{timestring}', '#{author}')")
   end
@@ -41,5 +40,9 @@ class Peep
 
   def self.sort(peep_array)
     peep_array.sort_by { |peep| peep.time }.reverse
+  end
+
+  def self.timestring
+    Time.now.strftime("%Y-%D-%H:%M:%S")
   end
 end
