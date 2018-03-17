@@ -1,0 +1,16 @@
+<h1>Welcome to Chitter</h1>
+
+<%= styled_flash %>
+
+<ul>
+ <% @peeps.each do |peep| %>
+   <li><%= peep %><br>
+   </li>
+ <% end %>
+</ul>
+
+
+<form action="/post_peep" method="post">
+  <textarea type="text" name="peep" cols="30" rows="4"></textarea>
+  <input type="submit" value="Post peep"/>
+</form>
