@@ -5,10 +5,21 @@
     <title>Chitter Inc. // Daniel Campos</title>
   </head>
   <body>
-    <form action="/new_peep" method="get">
-      <input type="submit" value="new peep">
+    <h1>CHITTER</h1>
+    <hr>
+    <br>
+    <br>
+    <form action="/new_peep" method="post">
+      <input type="submit" value="New Peep">
     </form>
-
+    <%if new_peep_status%>
+      <form action="/new_peep_update" method="post">
+        <input placeholder="Name" type="text" name="name">
+        <input placeholder="Username" type="text" name="username">
+        <input placeholder="Peep" type="text" name="peep">
+        <input type="submit" value="PEEP">
+      </form>
+    <%end%>
     <%@peeps_channel.each do |peep|%>
       <p><hr>
         <%=peep.peep%><br>
