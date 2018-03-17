@@ -1,6 +1,8 @@
 
 # Set the environment to "test"
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
+# ENV['RACK_ENV'] = 'test'
 
 # Bring in the contents of the `app.rb` file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')

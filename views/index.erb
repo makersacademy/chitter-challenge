@@ -17,7 +17,7 @@
       </div>
 
       <div class="form-group">
-          <form class="peep-box" action="/" method="post">
+          <form class="peep-box" action="/add" method="post">
             <div class="form-row">
                 <input class="col-10" maxlength="80" type="text" class="form-control" name="tb_peep" value="" placeholder="peep here...max 80 characters" required>
                 <button class=" co-2 btn btn-primary" type="submit" value ='btn_peep'>Peep</button>
@@ -32,7 +32,7 @@
           <li class="list-group-item" data-toggle="collapse" data-target="#<%=peep.peep_id%>">
             <div class="name"><b><%=peep.user_id%></b></div>
             <div class="tweet"><%=peep.peep%></div>
-            <div class="timestamp collapse font-italic text-right" id="<%=peep.peep_id%>">peeped on: <%=peep.time%></div>
+            <div class="timestamp collapse font-italic text-right" id="<%=peep.peep_id%>"><small>peeped on: <%=peep.time%></small></div>
           </li>
           <%end%>
 
