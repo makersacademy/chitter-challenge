@@ -1,10 +1,10 @@
-require 'database_connection'
+require_relative './database_connection'
 
 class Peep
 
   attr_reader :id, :text, :time
 
-  def initialize(id, text, time)
+  def initialize(id, text, time=Time.now.strftime("%Y-%D-%H:%M:%S"))
     @id = id
     @text = text
     @time = time

@@ -16,7 +16,7 @@ end
 task :test_setup do
   p 'RAKE: setting up test enviroment'
   con = PG.connect :dbname => 'chitter_test'
-  con.exec('TRUNCATE TABLE "peeps" RESTART IDENTITY;')
+  con.exec('TRUNCATE TABLE peeps RESTART IDENTITY;')
   con.exec("INSERT INTO peeps(time, text) "\
   "VALUES('#{Time.mktime(0).strftime("%Y-%D-%H:%M:%S")}', 'I am peep 1');")
   con.exec("INSERT INTO peeps(time, text) "\

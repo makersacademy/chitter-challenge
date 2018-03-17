@@ -13,6 +13,13 @@
       </label>
       <button type='submit'>Post</button>
     </form>
-    <p><%=session[:peep_text]%></p>
+    <ul style="list-style-type:none">
+      <%@peeps.each do |peep|%>
+      <li id="<%=peep.id%>">
+        <h3><%=peep.time%></h3>
+        <%=peep.text%>
+      </li>
+      <%end%>
+    </ul>
   </body>
 </html>
