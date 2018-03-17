@@ -35,4 +35,15 @@ describe Peep do
       expect(peep_array.map { |peep| peep.id }).to eq [1, 2, 3]
     end
   end
+
+  describe '#self.add' do
+    it 'messages the database to add a peep' do
+      text = 'I am a new peep'
+      time = Time.now.strftime("%Y-%D-%H:%M:%S")
+      allow(Time).to receive(:now).and_return(time)
+      expect(mock_connection).to receive(:query).\
+      with("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{time}')")
+      Peep.add(text)
+    end
+  end
 end

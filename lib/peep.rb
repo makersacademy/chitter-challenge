@@ -4,7 +4,7 @@ class Peep
 
   attr_reader :id, :text, :time
 
-  def initialize(id, text, time=Time.now.strftime("%Y-%D-%H:%M:%S"))
+  def initialize(id, text, time)
     @id = id
     @text = text
     @time = time
@@ -16,6 +16,10 @@ class Peep
 
   def self.all
     sort(peepify(retrieve))
+  end
+
+  def self.add(text)
+    @con.query("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{Time.now}')")
   end
 
   private_class_method
