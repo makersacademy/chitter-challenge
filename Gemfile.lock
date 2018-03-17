@@ -21,12 +21,10 @@ GEM
     mustermann (1.0.2)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    orderly (0.0.3)
-      capybara (>= 1.1)
-      rspec (>= 2.14)
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
+    pg (1.0.0)
     powerpack (0.1.1)
     public_suffix (3.0.2)
     rack (2.0.4)
@@ -81,7 +79,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  orderly
+  pg
   rake
   rspec
   rubocop
