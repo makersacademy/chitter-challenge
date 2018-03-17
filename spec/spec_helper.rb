@@ -1,3 +1,4 @@
+require 'rake'
 
 # Set the environment to "test"
 ENV['ENVIRONMENT'] = 'test'
@@ -16,6 +17,18 @@ require 'simplecov-console'
 
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter
+# Load the Rakefile
+Rake.application.load_rakefile
+Rake::Task['test_database_population'].execute
+
+# RSpec.configure do |config|
+#   config.before(:each) do
+#     # require_relative './test_database_setup'
+#     Rake::Task['test_database_population'].execute
+#   end
+# end
+
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

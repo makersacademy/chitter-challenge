@@ -25,12 +25,12 @@ describe User do
 
   describe '#add' do
     it 'should add the user in users table' do
-      # deleting user rspec before adding for test
-      # TODO: remove this and automate purging the record in rake
-      # User.delete('rspec','rspec')
-      #
       User.add('rspec', 'rspec', 'RSpec', 'Rspec Surname', 'rspec@ruby.com')
       expect(User.login('rspec', 'rspec')).to eq('rspec') # proves that user was added to db
+    end
+
+    it 'should raise error if user already exists' do
+      expect { User.add('rspec', 'rspec', 'RSpec', 'Rspec Surname', 'rspec@ruby.com') }.to raise_error("Username already taken")
     end
   end
 end

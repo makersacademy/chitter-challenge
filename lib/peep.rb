@@ -12,13 +12,13 @@ class Peep
   end
 
   def self.show_all
-    DatabaseConnection.connect('chitter')
+    # DatabaseConnection.connect('chitter')
     peeps = DatabaseConnection.query('SELECT * FROM peeps;')
     peeps.map { |p| Peep.new(p['id'], p['user_id'], p['peep'], p['date']) }
   end
 
   def self.add(user_id, peep)
-    DatabaseConnection.connect('chitter')
+    # DatabaseConnection.connect('chitter')
     DatabaseConnection.query("insert into peeps (user_id, peep) values(#{user_id},'#{peep}');")
   end
 end

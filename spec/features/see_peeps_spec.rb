@@ -9,8 +9,8 @@ end
 feature 'Main (Peep) page has peeps' do
   scenario 'User visits main page and sees previous peeps' do
     visit('/peeps')
-    expect(page).to have_content "this is first peep"
-    expect(page).to have_content "this is the second peep"
-    expect(page).to have_content "this is the third peep"
+    expect(page).to have_content "This is first peep."
+    expect(page).to have_content "This is second peep."
+    expect(page).to have_content "This is third peep."
   end
 end

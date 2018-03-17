@@ -8,21 +8,33 @@ class User
   end
 
   def self.login(username, password)
-    DatabaseConnection.connect('chitter') # to be removed later
+    # DatabaseConnection.connect('chitter') # to be removed later
     result = DatabaseConnection.query("SELECT username FROM users WHERE
       username = '#{username}' AND password = '#{password}'")
     result.first.nil? ? false : result.first['username']
   end
 
   def self.add(username, password, first_name, last_name, email)
-    DatabaseConnection.connect('chitter') # to be removed later
-    DatabaseConnection.query("INSERT INTO users (
-      username, password, first_name, last_name, email) VALUES ('#{username}',
+
+    # DatabaseConnection.connect('chitter') # to be removed later
+
+    raise "Username already taken" if exists?(username)
+      DatabaseConnection.query("INSERT INTO users (
+        username, password, first_name, last_name, email) VALUES ('#{username}',
         '#{password}', '#{first_name}', '#{last_name}', '#{email}');")
+    # end
   end
 
   def self.delete(username, password)
-    DatabaseConnection.connect('chitter') # to be removed later
+    # DatabaseConnection.connect('chitter') # to be removed later
     DatabaseConnection.query("DELETE FROM users WHERE username = '#{username}' and password = '#{password}'")
+  end
+
+  private
+
+  def self.exists?(username)
+    result = DatabaseConnection.query("SELECT username FROM users WHERE
+      username = '#{username}';")
+    result.first.nil? ? false : true
   end
 end
