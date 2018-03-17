@@ -1,6 +1,8 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
+system "bash", "-c", "rake chitter:test_setup"
+# Rake::Task['chitter:test_setup'].invoke
 
 ENV['ENVIRONMENT'] = 'test'
 
