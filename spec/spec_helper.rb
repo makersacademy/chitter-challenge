@@ -1,13 +1,14 @@
+require 'capybara'
+require 'capybara/rspec'
+require 'rake'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
+Rake.application.load_rakefile
 
 Capybara.app = Chitter
 
@@ -21,7 +22,7 @@ ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
   config.before(:each) do
-    require_relative './test_database_setup'
+    Rake::Task[:test_setup].execute
   end
 end
 
