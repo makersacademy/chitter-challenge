@@ -1,15 +1,18 @@
 require 'sinatra/base'
+require_relative './lib/peep.rb'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @message = session[:message]
+    @messages = Peep.all
     erb(:index)
   end
 
   post '/new_message' do
-    session[:message] = params[:message]
+    message = params['message']
+    connection = PG.connect(dbname: 'chitter')
+    connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
     redirect('/')
   end
 

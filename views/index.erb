@@ -2,16 +2,29 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title><h1>WELCOME TO CHITTER</h1></title>
+    <title></title>
   </head>
+    <style>
+      body {
+        background-color: white;
+        background-image: url("https://img.fireden.net/tg/thumb/1462/43/1462430221995s.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+      }
+      h1  {color: black; font-family: sans-serif;; font-size: 40px}
+    </style>
   <body>
-    <%=@message%>
+    <h1>WELCOME TO CHITTER</h1>
+    <%@messages.each do |message|%>
+    <%=message%>
+    <br>
+    <%end%>
     <form action="/new_message" method="post">
       <label for="message">
-        Enter Message
         <input type="text" name="message">
       </label>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Peep">
     </form>
   </body>
 </html>
