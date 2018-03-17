@@ -1,4 +1,5 @@
 require 'peeps'
+require 'pg'
 
 describe 'Peeps' do
   describe '.all' do
