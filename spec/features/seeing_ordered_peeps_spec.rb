@@ -5,7 +5,7 @@ feature 'seeing ordered peeps' do
     i1 = alltext.index('I am peep 1')
     i2 = alltext.index('I am peep 2')
     i3 = alltext.index('I am peep 3')
-    expect(i1 < i2).to eq true
-    expect(i2 < i3).to eq true
+    expect(i3 < i2).to eq true
+    expect(i2 < i1).to eq true
   end
 end

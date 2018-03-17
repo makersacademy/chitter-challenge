@@ -5,6 +5,12 @@
     <meta charset="utf-8">
     <title>Chitter Index Page</title>
   </head>
+  <style>
+    li {
+      border: 1px solid black;
+      background-color: grey
+    }
+  </style>
   <body>
     <form action='/peeps/add_peep' method='post'>
       <label for='new_peep_text'>
@@ -16,9 +22,12 @@
     <ul style="list-style-type:none">
       <%@peeps.each do |peep|%>
       <li id="<%=peep.id%>">
-        <h3><%=peep.time%></h3>
-        <%=peep.text%>
+        <p>
+          <b><%=peep.time%></b><br>
+          <%=peep.text%>
+        </p>
       </li>
+      <br>
       <%end%>
     </ul>
   </body>

@@ -32,17 +32,17 @@ describe Peep do
     end
     it 'sorts the returned array by time' do
       peep_array = described_class.all
-      expect(peep_array.map { |peep| peep.id }).to eq [1, 2, 3]
+      expect(peep_array.map { |peep| peep.id }).to eq [3, 2, 1]
     end
   end
 
   describe '#self.add' do
     it 'messages the database to add a peep' do
       text = 'I am a new peep'
-      time = Time.now.strftime("%Y-%D-%H:%M:%S")
-      allow(Time).to receive(:now).and_return(time)
+      allow(Time).to receive(:now).and_return(Time.mktime(0))
+      timestring = Time.now.strftime("%Y-%D-%H:%M:%S")
       expect(mock_connection).to receive(:query).\
-      with("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{time}')")
+      with("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{timestring}')")
       Peep.add(text)
     end
   end
