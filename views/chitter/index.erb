@@ -27,9 +27,8 @@
       <%@peeps.each do |peep|%>
       <li id="<%=peep.id%>">
         <p>
-          <b><%=peep.time%></b><br>
-          <%=peep.text%>
-          <i><%=peep.authorstring%></i>
+          <%=peep.text%><br>
+          <i><%=peep.authorstring%> at <%=peep.time%></i>
         </p>
       </li>
       <br>
