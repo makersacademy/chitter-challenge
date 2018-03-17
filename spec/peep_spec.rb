@@ -8,13 +8,16 @@ describe Peep do
     [
       { 'id' => 1,
         'text' => 'I am peep 1',
-        'time' => Time.mktime(0).strftime("%Y-%D-%H:%M:%S") },
+        'time' => Time.mktime(0).strftime("%Y-%D-%H:%M:%S"),
+        'author' => 'Dave' },
       { 'id' => 3,
         'text' => 'I am peep 3',
-        'time' => Time.mktime(2).strftime("%Y-%D-%H:%M:%S") },
+        'time' => Time.mktime(2).strftime("%Y-%D-%H:%M:%S"),
+        'author' => 'Phil' },
       { 'id' => 2,
         'text' => 'I am peep 2',
-        'time' => Time.mktime(1).strftime("%Y-%D-%H:%M:%S") }
+        'time' => Time.mktime(1).strftime("%Y-%D-%H:%M:%S"),
+        'author' => 'Kev' },
     ]
   }
 
@@ -39,11 +42,13 @@ describe Peep do
   describe '#self.add' do
     it 'messages the database to add a peep' do
       text = 'I am a new peep'
+      author = 'Dave'
       allow(Time).to receive(:now).and_return(Time.mktime(0))
       timestring = Time.now.strftime("%Y-%D-%H:%M:%S")
       expect(mock_connection).to receive(:query).\
-      with("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{timestring}')")
-      Peep.add(text)
+      with("INSERT INTO peeps (text, time, author) "\
+      "VALUES ('#{text}', '#{timestring}', '#{author}')")
+      Peep.add(text, author)
     end
   end
 end

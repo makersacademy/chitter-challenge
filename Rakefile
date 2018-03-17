@@ -69,7 +69,7 @@ task :create_production_peeps_table do
   p "RAKE: creating peeps table in #{dbname} database"
   con = PG.connect :dbname => dbname
   con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, time VARCHAR(22), '\
-  'text VARCHAR(280));')
+  'text VARCHAR(280), author VARCHAR(60));')
 end
 
 task :create_test_peeps_table do
@@ -77,7 +77,7 @@ task :create_test_peeps_table do
   p "RAKE: creating peeps table in #{dbname} database"
   con = PG.connect :dbname => dbname
   con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, time VARCHAR(22), '\
-  'text VARCHAR(280));')
+  'text VARCHAR(280), author VARCHAR(60));')
 end
 
 task :drop_peeps_tables do

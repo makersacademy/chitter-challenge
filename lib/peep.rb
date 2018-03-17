@@ -2,12 +2,13 @@ require_relative './database_connection'
 
 class Peep
 
-  attr_reader :id, :text, :time
+  attr_reader :id, :text, :time, :author
 
-  def initialize(id, text, time)
+  def initialize(id, text, time, author=nil)
     @id = id
     @text = text
     @time = time
+    @author = author
   end
 
   def self.setup(db_connect = DatabaseConnection)
@@ -18,9 +19,10 @@ class Peep
     sort(peepify(retrieve))
   end
 
-  def self.add(text)
+  def self.add(text, author=nil)
     timestring = Time.now.strftime("%Y-%D-%H:%M:%S")
-    @con.query("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{timestring}')")
+    @con.query("INSERT INTO peeps (text, time, author) "\
+    "VALUES ('#{text}', '#{timestring}', '#{author}')")
   end
 
   private_class_method
@@ -30,7 +32,7 @@ class Peep
   end
 
   def self.peepify(rs)
-    rs.map { |peep| Peep.new(peep['id'], peep['text'], peep['time']) }
+    rs.map { |peep| Peep.new(peep['id'], peep['text'], peep['time'], peep['author']) }
   end
 
   def self.sort(peep_array)
