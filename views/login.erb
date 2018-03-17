@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,21 +17,46 @@
         </div>
       </div>
 
-      <form class="login-box" action="/login" method="post">
+
+      <form class="peep-box" action="/login" method="post">
         <div class="form-group">
-          <label for="txt_username">Email address</label>
-          <input type="text" class="form-control" id="txt_username" placeholder="Username" required>
-          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        <!-- <label for="txt_username">Username</label> -->
+        <input type="text" class="form-control" name="txt_username" id='txt_username' placeholder="Username" required>
         </div>
+
         <div class="form-group">
-          <label for="txt_pwd">Password</label>
-          <input type="password" class="form-control" id="txt_pwd" placeholder="Password" required>
+        <!-- <label for="txt_username">Username</label> -->
+        <input type="password" class="form-control" name="txt_pwd" id='txt_pwd' placeholder="Password" required>
         </div>
-        <button type="submit" class="btn btn-primary" value ='btn_login'>Submit</button>
+        <b style = "color: rgb(100,24,17)"><%= styled_flash %></b>
+
+        <div class="form-group">
+          <button class=" btn btn-primary float-right" type="submit" id="btn_login" value='btn_login'>Login</button>
+        </div>
+
       </form>
 
+      <!-- <div class="form-group">
+        <form class="peep-box" action="/add" method="post">
 
-    </div>
+        <div class="form-row">
+          <div class="col-12">
+            <input type="text" class="form-control" name="txt_username" id='txt_username' placeholder="Username" required>
+          </div>
+          <div class="col-12">
+            <input type="password" class="form-control" name="txt_pwd" id='txt_pwd' placeholder="Password" required>
+          </div>
+          <div class="col-12">
+            <button class=" btn btn-primary" type="submit" id="btn_login" value='btn_login'>Peep</button>
+          </div>
+        </div>
+        </form>
+      </div> -->
+
+
+
+
+    </div> <!-- container -->
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
