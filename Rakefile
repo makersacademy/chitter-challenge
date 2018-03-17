@@ -98,3 +98,22 @@ task :drop_test_peeps_table do
   con = PG.connect :dbname => dbname
   con.exec('DROP TABLE peeps;')
 end
+
+task :clear_peeps_tables do
+  Rake::Task[:clear_production_peeps_table].execute
+  Rake::Task[:clear_test_peeps_table].execute
+end
+
+task :clear_production_peeps_table do
+  dbname = 'chitter'
+  p "RAKE: clearing peeps table in #{dbname} database"
+  con = PG.connect :dbname => dbname
+  con.exec('TRUNCATE TABLE peeps RESTART IDENTITY;')
+end
+
+task :clear_test_peeps_table do
+  dbname = 'chitter_test'
+  p "RAKE: clearing peeps table in #{dbname} database"
+  con = PG.connect :dbname => dbname
+  con.exec('TRUNCATE TABLE peeps RESTART IDENTITY;')
+end

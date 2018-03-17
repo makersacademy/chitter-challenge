@@ -16,6 +16,6 @@ feature 'signing up' do
     peep_text = "This is a new peep #{rand(1.1000)}"
     fill_in :new_peep_text, with: peep_text
     click_on 'Post'
-    expect(page).to have_content "peeped by #{username}"
+    expect(page).to have_content "Peeped by #{username}"
   end
 end
