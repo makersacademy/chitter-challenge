@@ -27,12 +27,14 @@
 
         <ul class="list-unstyled list-group">
           <!-- peeps li start below -->
+          <% @peeps.reverse.each do |peep| %>
 
-          <li class="list-group-item" data-toggle="collapse" data-target="#timestamp1">
-            <div class="name"><b>Irfan</b></div>
-            <div class="tweet">This is the tweet from Irfan</div>
-            <div class="timestamp collapse" id="timestamp1">22/02/2018 08:40pm</div>
+          <li class="list-group-item" data-toggle="collapse" data-target="#<%=peep.peep_id%>">
+            <div class="name"><b><%=peep.user_id%></b></div>
+            <div class="tweet"><%=peep.peep%></div>
+            <div class="timestamp collapse font-italic text-right" id="<%=peep.peep_id%>">peeped on: <%=peep.time%></div>
           </li>
+          <%end%>
 
           <!-- peeps li ends here -->
         </ul>
