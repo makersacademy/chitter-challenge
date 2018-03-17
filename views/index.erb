@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><h1>WELCOME TO CHITTER</h1></title>
+  </head>
+  <body>
+    <%=@message%>
+    <form action="/new_message" method="post">
+      <label for="message">
+        Enter Message
+        <input type="text" name="message">
+      </label>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
