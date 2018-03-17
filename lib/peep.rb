@@ -19,7 +19,6 @@ class Peep
 
   def self.add(user_id, peep)
     DatabaseConnection.connect('chitter')
-
     DatabaseConnection.query("insert into peeps (user_id, peep) values(#{user_id},'#{peep}');")
   end
 end

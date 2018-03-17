@@ -16,30 +16,18 @@
         </div>
       </div>
 
-      <div class="form-group">
-          <form class="peep-box" action="/add" method="post">
-            <!-- <input class="col-10" maxlength="80" type="email" class="form-control" name="tb_peep" value="" placeholder="Email here" required> -->
-            <div class="form-row">
-                <!-- <input class="col-3" maxlength="30" type="text" class="form-control" name="tb_username" value="" placeholder="Username" required> -->
-                <input class="col-10" maxlength="80" type="text" class="form-control" name="tb_peep" id='tb_beep' placeholder="peep here...max 80 characters" required>
-                <button class=" col-2 btn btn-primary" type="submit" id="btn_peep" value='btn_peep'>Peep</button>
-            </div>
-          </form>
-      </div>
-
-        <ul class="list-unstyled list-group">
-          <!-- peeps li start below -->
-          <% @peeps.reverse.each do |peep| %>
-
-          <li class="list-group-item" data-toggle="collapse" data-target="#<%=peep.peep_id%>">
-            <div class="name"><b><%=peep.user_id%></b></div>
-            <div class="tweet"><%=peep.peep%></div>
-            <div class="timestamp collapse font-italic text-right" id="<%=peep.peep_id%>"><small>peeped on: <%=peep.time%></small></div>
-          </li>
-          <%end%>
-
-          <!-- peeps li ends here -->
-        </ul>
+      <form class="login-box" action="/login" method="post">
+        <div class="form-group">
+          <label for="txt_username">Email address</label>
+          <input type="text" class="form-control" id="txt_username" placeholder="Username" required>
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+          <label for="txt_pwd">Password</label>
+          <input type="password" class="form-control" id="txt_pwd" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary" value ='btn_login'>Submit</button>
+      </form>
 
 
     </div>
