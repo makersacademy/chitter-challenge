@@ -4,7 +4,7 @@ class Peep
 
   attr_reader :id, :text, :time, :author
 
-  def initialize(id, text, time, author=nil)
+  def initialize(id, text, time=nil, author=nil)
     @id = id
     @text = text
     @time = time
@@ -23,6 +23,10 @@ class Peep
     timestring = Time.now.strftime("%Y-%D-%H:%M:%S")
     @con.query("INSERT INTO peeps (text, time, author) "\
     "VALUES ('#{text}', '#{timestring}', '#{author}')")
+  end
+
+  def authorstring
+    author ? "Peeped by #{author}" : 'Peeped by anonymous'
   end
 
   private_class_method

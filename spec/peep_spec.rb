@@ -51,4 +51,15 @@ describe Peep do
       Peep.add(text, author)
     end
   end
+
+  describe '#authorstring' do
+    it 'references an anonymous author' do
+      peep = Peep.new(1, 'I am a peep')
+      expect(peep.authorstring).to eq 'Peeped by anonymous'
+    end
+    it 'references a named author' do
+      peep = Peep.new(1, 'I am a peep', nil, 'Dave')
+      expect(peep.authorstring).to eq 'Peeped by Dave'
+    end
+  end
 end
