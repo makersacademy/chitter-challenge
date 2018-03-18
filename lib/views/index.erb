@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#FAA9E0">
+
+<style>
+  h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  }
+ #peeps{
+   position: absolute;
+   right: 200px;
+   top: 150px;
+   width: 500px;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 18px;
+   font-style: normal;
+   font-variant: normal;
+   font-weight: 350;
+   line-height: 26.4px;
+
+ }
+ #username{
+   position: absolute;
+   left: 50px;
+   top: 115px
+ }
+ #new-peep{
+   position: absolute;
+   left: 200px;
+   top: 115px
+
+ }
+ #sign-up{
+   position: absolute;
+   right: 150px;
+   top: 100px;
+ }
+ </style>
+
+
+
+<head>
+  <link rel="icon" href="http://www.pvhc.net/img17/qadijgjmyoginpfptmri.gif">
+</head>
+
+<title>Chitter</title>
+
+<h1>
+Welcome to Chitter
+</h1>
+
+<div id="sign-up">
+<form method="get" action="/sign-up">
+    <button type="submit">Sign up here</button>
+</form>
+</div>
+
+
+<form action='/new-peep' method='post'>
+  <div id="username">
+    <input type="text" name="username" placeholder="Username">
+  </div>
+
+  <div id="new-peep">
+    <input type="text" name="message" placeholder="Peep">
+    <input type="submit" value="Peep">
+  </div>
+</form>
+
+<div id="peeps">
+<% @peeps.reverse.each do |peep| %>
+  <p><%=peep.username%>: <%=peep.message%> (at <%=peep.time%>)</p>
+<%end%>
+</div>
+
+
+</html>

@@ -2,8 +2,15 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
+gem 'capybara'
+gem 'selenium-webdriver'
+gem 'shotgun'
+gem 'rspec'
+gem 'sinatra'
+gem 'simplecov'
+gem 'pg'
+gem 'postgresql'
 gem 'rake'
-gem 'rubocop'
 
 group :test do
   gem 'rspec'

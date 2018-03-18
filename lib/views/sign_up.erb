@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#FAA9E0">
+
+
+<style>
+  h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  position: absolute;
+  top: 25px;
+  left: 500px;
+  }
+  #signup-box{
+    position: absolute;
+    top: 200px;
+    left: 500px;
+  }
+</style>
+
+<head>
+  <link rel="icon" href="http://www.pvhc.net/img17/qadijgjmyoginpfptmri.gif">
+</head>
+
+<h3>Sign up!</h3>
+<div id="signup-box">
+<form action='/new-user' method='post'>
+  <input type="text" name="email" placeholder="Email Address">
+  <p><input type="text" name="name" placeholder="Name"></p>
+  <p><input type="text" name="username" placeholder="Username"></p>
+  <p><input type="password" name="password" placeholder="Password"></p>
+  <p><input type="submit" value="Submit"></p>
+</form>
+</div>
+
+</html>
