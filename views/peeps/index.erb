@@ -1,10 +1,18 @@
-<% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
-<% end %>
+<!DOCTYPE html>
+<html>
+<body>
 
-<ul><% @peep.each do |peep| %>
-  <li><%= peep.message %> <%= peep.time %></li>
-<% end %>
-</ul>
-<a href="/peeps/new">New peep</a>
-<a href="/users/new">Sign up</a>
+  <% if @user %>
+    <h1>Welcome, <%= @user.email %></h1>
+  <% end %>
+
+  <ul><% @peep.each do |peep| %>
+    <li><%= peep.message %> <%= peep.time %></li>
+  <% end %>
+  </ul>
+  <a href="/peeps/new">New peep</a>
+  <a href="/users/new">Sign up</a>
+  <a href="/sessions/new">Sign in</a>
+
+</body>
+</html>
