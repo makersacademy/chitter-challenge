@@ -4,9 +4,8 @@ Chitter Challenge
 This is a small Twitter clone that allows users to post messages to a public stream.
 
 
-Features:
+## Features:
 -------
-
 ```
 
 As a Maker
@@ -28,14 +27,15 @@ I want to sign up for Chitter
 ```
 
 
-* Ruby version used: '2.5.0'
+## Ruby version used:
+'2.5.0'
 
-* Technologies:
+## Technologies:
 
-Sinatra
-Rspec
-Capybara
-Postgresql
-HTML
-CSS
-TablePlus
+* Sinatra
+* Rspec
+* Capybara
+* Postgresql
+* HTML
+* CSS
+* TablePlus
