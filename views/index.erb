@@ -58,6 +58,14 @@ input[type =text] {
               <input type="text" name="name">
               <input type="submit" value="Submit">
             </form>
+            <div id="flash">
+          <% flash.keys.each do |type| %>
+            <div data-alert="data-alert" class="flash <%= type %> alert-box radius">
+              <%= flash[type] %>
+              <a href="/" class="close">&times;</a>
+            </div>
+          <% end %>
+        </div>
           </p>
         </div>
       </div>

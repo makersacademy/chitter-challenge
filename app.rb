@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/account.rb'
 require './lib/peeps.rb'
 require './lib/database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @account = Account.all
@@ -14,6 +16,7 @@ class Chitter < Sinatra::Base
 
   post '/add_user' do
     Account.setup(name: params[:name])
+    flash[:notice] = 'Welcome!'
     redirect('/')
   end
 

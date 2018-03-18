@@ -12,7 +12,7 @@ ENV['ENVIRONMENT'] = 'test'
 
 # Bring in the contents of the `app.rb` file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-# require File.join(File.dirname(__FILE__), '..', 'Rakefile')
+require File.join(File.dirname(__FILE__), '..', 'Rakefile.rb')
 
 # Require all the testing gems
 require 'capybara'
@@ -32,18 +32,16 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
   RSpec.configure do |config|
     config.before(:each) do
       Rake::Task['test_environment'].invoke
     end
   end
 end
-
-# RSpec.configure do |config|
-#   config.after(:suite) do
-#     puts
-#     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-#     puts "\e[33mTry it now! Just run: rubocop\e[0m"
-#   end
-# end
+RSpec.configure do |config|
+  config.after(:suite) do
+    puts
+    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
+    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  end
+end
