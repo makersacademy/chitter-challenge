@@ -45,9 +45,9 @@ rake test_environment
 ```
 In order to test it run ```rspec```.
 
-To run the programme in ```localhost:``` run ```rerun app.rb``` in your terminal
+To run the programme in ```localhost:``` run ```rerun app.rb``` in your terminal.
 
 Now, go to ```localhost:``` in your browser and enter in the ```port``` digits
 given in your terminal.
 
-For example: ```port=4567``` therefore, enter ```localhost:4567``` in browser
+For example: ```port=4567``` therefore, enter ```localhost:4567``` in browser.
