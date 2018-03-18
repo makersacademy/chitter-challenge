@@ -14,7 +14,7 @@ feature 'authentication' do
     fill_in(:input_password, with: 'password123')
     click_button('Sign in')
 
-    expect(page).to have_content 'Welcome, test@example.com'
+    expect(page).to have_content 'Hello Mike Turner Welcome to chitter!'
   end
 
   it 'a user sees an error if they get their email wrong' do

@@ -43,12 +43,22 @@
 
         </ul>
 
-        <a class="nav-link form-inline" href="/signup">Sign up
-        </a>
+        <% if @user %>
 
-        <a class="nav-link form-inline" href="/sessions/new">
-          Login
-        </a>
+          <form action="/sessions/destroy" method="post">
+            <input type="submit" value="Sign out"/>
+          </form>
+        <% end %>
+
+        <% if @user.nil? %>
+          <a class="nav-link form-inline" href="/signup">Sign up
+          </a>
+
+          <a class="nav-link form-inline" href="/sessions/new">
+            Login
+          </a>
+
+        <% end %>
 
       </div>
     </nav>

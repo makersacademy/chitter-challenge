@@ -43,8 +43,10 @@
 
         </ul>
         <% if @user %>
-          <a class="nav-link form-inline" href="/signup">Sign out
-          </a>
+
+          <form action="/sessions/destroy" method="post">
+            <input type="submit" value="Sign out"/>
+          </form>
         <% end %>
 
         <% if @user.nil? %>
@@ -69,18 +71,37 @@
       <div class="col-3">
         profile here
         <br>
+        <% if @user %>
+          Hello
+          <%= @user.realname %>
+        <% end %>
         <%= styled_flash %>
 
       </div>
 
-      <div class="col-6">
+      <div class="col-4">
+        <div class="form-group">
+          <form class="" action="/sessions/peep" method="post">
+            <label for="peepbox">Let off a peep</label>
+            <textarea class="form-control" name="peepbox" rows="3"></textarea>
+            <button type="submit" name="button">Peep</button>
+          </form>
+        </div>
+
         Timeline
         <br>
         <br>
         <% @peeps.each do |peep| %>
-          <%= peep.author %>
-          says
-          <%= peep.text %>
+          <h5><%= peep.author %>
+            says</h5>
+
+          <div class="col-9">
+            <h4><%= peep.text %></h4>
+          </div>
+          <div class="col-5">
+            <%= peep.time %>
+          </div>
+          <br>
         <% end %>
       </div>
     </div>

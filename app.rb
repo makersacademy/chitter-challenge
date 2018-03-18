@@ -51,6 +51,19 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/signup')
+  end
+
+  post '/sessions/peep' do
+    @user = User.find(session[:user_id])
+    Peep.post(author: @user.username, text: params[:peepbox])
+    redirect(:index)
+
+  end
+
   run! if app_file == $PROGRAM_NAME
 
 end
