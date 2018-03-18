@@ -2,7 +2,6 @@
 
 <%= styled_flash %>
 
-
 <ul>
   <% @peeps.each do |peep| %>
     <li><%= peep.time %><br>
@@ -11,7 +10,17 @@
   <% end %>
 </ul>
 
+
+
+<form action="/sign_in" method="post">
+  <input type="text" name="username" value="username"></input>
+  <input type="text" name="password" value="password"></input>
+  <button id="submit">Sign in</button>
+</form>
+
+
+"Hi<% @username %>, write a peep!"
 <form action="/post_peep" method="post">
   <textarea type="text" name="text" cols="30" rows="4"></textarea>
-  <input type="submit" value="Post peep"/>
+  <button id="submit">Post peep</button>
 </form>

@@ -1,8 +1,8 @@
 require 'capybara/rspec'
 
 
-feature 'Post a peep' do
-  scenario 'the user can see an empty box' do
+feature 'Posting a peep' do
+  scenario 'the user can see an empty input field' do
     visit('/')
     expect(page).to have_selector('textarea')
   end

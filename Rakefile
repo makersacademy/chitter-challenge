@@ -25,5 +25,5 @@ task :setup do
 
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec("CREATE TABLE peeps(time VARCHAR(100), text VARCHAR(100));")
-
+  
 end
