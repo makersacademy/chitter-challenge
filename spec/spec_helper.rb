@@ -32,8 +32,8 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
-  RSpec.configure do |config|
-    config.before(:each) do
+  RSpec.configure do |configu|
+    configu.before(:each) do
       Rake::Task['test_environment'].invoke
     end
   end
