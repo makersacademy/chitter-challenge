@@ -6,6 +6,16 @@ require './lib/database_connection_setup'
 require './lib/mail.rb'
 
 class Chitter < Sinatra::Base
+  # attr_reader :MSGS
+
+  MSGS = {
+    signup_err: 'Error signing up, username taken or email already registered.',
+    signup_succ: 'Sign up successful, please sign in.',
+    invd_cred: 'Invalid username or password',
+    acct_del_succ: 'Account deleted.',
+    acct_del_err: 'Account deletion unsuccessful! Invalid username or password'
+  }
+
   enable :sessions
   register Sinatra::Flash
 
@@ -21,10 +31,10 @@ class Chitter < Sinatra::Base
     signed_up = User.add(params[:txt_username], params[:txt_pwd],
       params[:txt_first_name], params[:txt_last_name], params[:txt_email])
     if !signed_up
-      flash[:error] = 'Error signing up, username taken or email already registered.'
+      flash[:error] = MSGS[:signup_err]
       redirect('/signup')
     else
-      flash[:success] = 'Sign up successful, please sign in.'
+      flash[:success] = MSGS[:signup_succ]
       redirect('/')
     end
   end
@@ -36,12 +46,18 @@ class Chitter < Sinatra::Base
       session[:user_id] = userid
       redirect('/peeps')
     end
-    flash[:error] = 'Invalid username or password'
+    flash[:error] = MSGS[:invd_cred] # 'Invalid username or password'
+    redirect('/')
+  end
+
+  get '/logout' do
+    session.clear
     redirect('/')
   end
 
   get '/peeps' do
-    @pb_visiblity = session[:user_id].nil? ? 'hidden' : 'visible'
+    @active_user = !session[:user_id].nil? ? 'visible' : 'hidden'
+    @no_active_user = session[:user_id].nil? ? 'visible' : 'hidden'
     @username = session[:user]
     @peeps = Peep.show_all
     erb(:index)
@@ -51,11 +67,22 @@ class Chitter < Sinatra::Base
     Peep.add(session[:user_id], params[:tb_peep]) # TODO: get actual id after log in
     redirect('/peeps')
   end
+
+  get '/delete' do
+    erb(:delete)
+  end
+
+  post '/delete' do
+    deleted = User.delete(session[:user_id], params[:txt_username], params[:txt_pwd])
+    if deleted
+      flash[:success] = MSGS[:acct_del_succ]
+      session.clear
+      redirect('/')
+    else
+    flash[:error] = MSGS[:acct_del_err]
+    redirect('/delete')
+    end
+  end
+
   run! if app_file == $0
 end
-
-# TODO: delete user's tweets if user is deleted
-# TODO: add a nav bar with options to log in, out and delete account
-# TODO: RESTful
-# TODO: tag users
-# TODO: email when tagged or sign up

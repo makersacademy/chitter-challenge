@@ -15,10 +15,12 @@ class User
   end
 
   def self.delete(user_id, username, password)
-    # TODO: delete user and it's peeps if user exist
     if exists?(username, password)
-      # Peep.delete_peeps(user_id)
+      Peep.delete_peeps(user_id)
       DatabaseConnection.query("DELETE FROM users WHERE username = '#{username}'")
+      return true
+    else
+      return false
     end
   end
 

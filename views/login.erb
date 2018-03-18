@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,10 +7,43 @@
     <title></title>
   </head>
   <style>
-    .red{ color: rgb(255,0,0) }
+    .red{ color: rgb(255,0,0);}
+    .show-if-active-user { visibility: <%=@active_user%>;}
+    .show-if-no-user { visibility: <%=@no_active_user%>;}
   </style>
 
   <body>
+    <!--  NAVBAR CODE -->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <span class="navbar-brand display-5 fa fa-comments"></span>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/peeps">Peeps<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Account
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+             <a class="dropdown-item show-if-no-user" href="/">Log in</a>
+           </div>
+         </li>
+
+      </ul>
+      <span class="navbar-text show-if-no-user">
+        <a href="/">Log in</a>
+      </span>
+    </div>
+    </nav>
+    <!-- NAVBAR CODE ENDS HERE -->
+
+
 
     <div class="container">
       <div class="jumbotron jumbotron-fluid">

@@ -13,8 +13,6 @@ class Peep
 
   def self.show_all
     make_array(fetch_records)
-    # puts stuff.first.peep
-    # stuff
   end
 
   def self.add(user_id, peep)

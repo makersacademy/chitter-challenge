@@ -22,8 +22,8 @@
         </div>
       </div>
 
-      <form class="peep-box" action="/login" method="post">
-        <h1 class="h3 mb-3 font-weight-normal text-center">Please log in</h1>
+      <form class="peep-box" action="/delete" method="post">
+        <h1 class="h3 mb-3 font-weight-normal text-center">Please log in again to delete account</h1>
         <div class="form-group">
         <input type="text" class="form-control" name="txt_username" id='txt_username' placeholder="Username" required>
         </div>
@@ -32,7 +32,7 @@
         <input type="password" class="form-control" name="txt_pwd" id='txt_pwd' placeholder="Password" required>
         </div>
         <b style = "color: rgb(100,24,17)"><%= styled_flash %></b>
-        <span class= "float-left"></span><small>Don't have an account? <strong><a href="/signup">Sign up</a></strong></small>
+        <span class= "float-left"></span><small>Change your mind? <strong><a href="/peeps">Continue Peeping</a></strong></small>
 
         <div class="form-group">
           <button class=" btn btn-primary float-right" type="submit" id="btn_login" value='btn_login'>Login</button>

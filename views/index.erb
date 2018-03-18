@@ -8,22 +8,60 @@
   </head>
   <style>
     .red{ color: rgb(255,0,0);}
-    .not_logged_in { visibility: <%=@pb_visiblity%>;}
+    .show-if-active-user { visibility: <%=@active_user%>;}
+    .show-if-no-user { visibility: <%=@no_active_user%>;}
   </style>
   <body>
+<!--  NAVBAR CODE -->
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+<span class="navbar-brand display-5 fa fa-comments"></span>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarText">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/peeps">Peeps<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Account
+       </a>
+       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+         <a class="dropdown-item show-if-active-user" href="/delete">Delete Account</a>
+         <a class="dropdown-item show-if-active-user" href="/logout">Sign out</a>
+         <a class="dropdown-item show-if-no-user" href="/">Log in</a>
+       </div>
+     </li>
+
+  </ul>
+  <span class="navbar-text show-if-active-user">
+    <a href="/logout">Sign out</a>
+  </span>
+  <span class="navbar-text show-if-no-user">
+    <a href="/">Log in</a>
+  </span>
+</div>
+</nav>
+<!-- NAVBAR CODE ENDS HERE -->
+
+
+
     <div class="container">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-2 fa fa-comments red"></h1>
           <h2 class="display-4">ChitterBox</h2>
           <p class="lead">Responsive chat app using using bootstrap, sinatra and Postgres for DB.</p>
-          <hr class="my-4 not_logged_in">
-          <h4 class="not_logged_in text-right">Welcome <strong class="red"><%=@username%></strong>! Hope you love to peep a lot.</h4>
+          <hr class="my-4 show-if-active-user">
+          <h4 class="show-if-active-user text-right">Welcome <strong class="red"><%=@username%></strong>! Hope you love to peep a lot.</h4>
         </div>
       </div>
 
       <div class="form-group">
-          <form class="peep-box not_logged_in" action="/add" method="post">
+          <form class="peep-box show-if-active-user" action="/add" method="post">
             <div class="form-row">
                 <div class="input-group-text col red text-right">
                   <strong>@<%=@username%></strong>
@@ -45,7 +83,6 @@
             <div class="timestamp collapse font-italic text-right" id="<%=peep.peep_id%>"><small>peeped on: <%=peep.time%></small></div>
           </li>
           <%end%>
-
           <!-- peeps li ends here -->
         </ul>
 
