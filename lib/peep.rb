@@ -1,19 +1,19 @@
-require_relative './database_connection_setup.rb'
+require_relative './DB_connection_setup.rb'
 
 class Peep
-  attr_reader :ts, :message
+  attr_reader :ts, :txt
 
-  def initialize(ts, message)
+  def initialize(ts, txt)
     @ts = ts
-    @message = message
+    @txt = txt
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |peep| Peep.new(peep['ts'], peep['message']) }
+    result = DBconnection.query("SELECT * FROM peeps")
+    result.map { |peep| Peep.new(peep['ts'], peep['txt']) }
   end
 
   def self.create(opt)
-    DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{opt[:message]}')")
+    DBconnection.query("INSERT INTO peeps (txt) VALUES('#{opt[:txt]}')")
   end
 end

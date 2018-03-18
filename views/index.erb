@@ -1,11 +1,11 @@
 <html>
   <form action="/create_new_peep" method="post">
-    <input type="text" name="message" />
+    <input type="text" name="txt" />
     <input type="submit" value="Submit" />
   </form>
   <ul>
     <% @peeps.each do |peep| %>
-      <li><%= peep.message %></li>
+      <li><%= peep.txt %></li>
     <% end %>
   </ul>
 </html>
