@@ -2,6 +2,8 @@
 require 'pg'
 require 'rake'
 
+task default: %w(empty setup test_setup)
+
 task :test_setup do
   p 'Cleaning DB...'
 
@@ -24,7 +26,8 @@ task :setup do
     con = PG.connect(dbname: 'postgres')
     con.exec("CREATE DATABASE #{db};")
     con = PG.connect(dbname: db)
-    con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, ts TIMESTAMP DEFAULT now(), txt VARCHAR(60));')
+    con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY,
+      ts TIMESTAMP DEFAULT now(), txt VARCHAR(60));')
   end
 end
 
