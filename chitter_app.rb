@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/peep.rb'
 
+
 class Chitter < Sinatra::Base
   get '/' do
     @peeps = Peep.all
@@ -12,9 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/create-a-peep' do
-    message = params['message']
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
+    Peep.create(message: params['message'])
     redirect('/')
   end
 
