@@ -46,20 +46,9 @@ describe Peep do
       allow(Time).to receive(:now).and_return(Time.mktime(0))
       timestring = Time.now.strftime("%Y-%D-%H:%M:%S")
       expect(mock_connection).to receive(:query).\
-      with("INSERT INTO peeps (text, time, author) "\
-      "VALUES ('#{text}', '#{timestring}', '#{author}')")
+      with("INSERT INTO peeps (text, author, time) "\
+      "VALUES ('#{text}', '#{author}', '#{timestring}')")
       Peep.add(text, author)
-    end
-  end
-
-  describe '#authorstring' do
-    it 'references an anonymous author' do
-      peep = Peep.new(1, 'I am a peep')
-      expect(peep.authorstring).to eq 'Peeped by anonymous'
-    end
-    it 'references a named author' do
-      peep = Peep.new(1, 'I am a peep', nil, 'Dave')
-      expect(peep.authorstring).to eq 'Peeped by Dave'
     end
   end
 end

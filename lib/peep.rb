@@ -4,7 +4,7 @@ class Peep
 
   attr_reader :id, :text, :time, :author
 
-  def initialize(id, text, time=nil, author=nil)
+  def initialize(id, text, author, time)
     @id = id
     @text = text
     @time = time
@@ -19,13 +19,9 @@ class Peep
     sort(peepify(retrieve))
   end
 
-  def self.add(text, author=nil)
-    @con.query("INSERT INTO peeps (text, time, author) "\
-    "VALUES ('#{text}', '#{timestring}', '#{author}')")
-  end
-
-  def authorstring
-    !author || author.empty? ?  'Peeped by anonymous' : "Peeped by #{author}"
+  def self.add(text, author='anonymous')
+    @con.query("INSERT INTO peeps (text, author, time) "\
+    "VALUES ('#{text}', '#{author}', '#{timestring}')")
   end
 
   private_class_method
@@ -35,7 +31,8 @@ class Peep
   end
 
   def self.peepify(rs)
-    rs.map { |peep| Peep.new(peep['id'], peep['text'], peep['time'], peep['author']) }
+    rs.map { |peep| Peep.new(peep['id'], peep['text'], \
+      peep['author'], peep['time']) }
   end
 
   def self.sort(peep_array)

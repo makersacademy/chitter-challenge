@@ -7,12 +7,12 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    session[:user_name] = nil
+    session[:user_name] = 'anonymous'
     redirect '/chitter'
   end
 
   get '/chitter' do
-    @welcome_msg = session[:user_name]? "Welcome, #{session[:user_name]}!" : nil
+    @welcome_msg = "Welcome, #{session[:user_name]}!"
     @peeps = Peep.all
     erb :'chitter/index'
   end

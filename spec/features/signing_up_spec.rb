@@ -6,6 +6,7 @@ feature 'signing up' do
     fill_in :user_name, with: username
     click_on 'Register New User'
     expect(page).to have_content "Welcome, #{username}!"
+    expect(page).not_to have_content "Welcome, anonymous!"
   end
   scenario 'a signed up user posts and sees their name on their tweets' do
     visit '/'

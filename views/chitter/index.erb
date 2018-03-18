@@ -8,7 +8,9 @@
   <style>
     li {
       border: 1px solid black;
-      background-color: grey
+      background-color: grey;
+      text-align: center;
+
     }
   </style>
   <body>
@@ -28,7 +30,7 @@
       <li id="<%=peep.id%>">
         <p>
           <%=peep.text%><br>
-          <i><%=peep.authorstring%> at <%=peep.time%></i>
+          <i>Peeped by <%=peep.author%> at <%=peep.time%></i>
         </p>
       </li>
       <br>

@@ -17,12 +17,15 @@ task :test_setup do
   p 'RAKE: setting up test enviroment'
   con = PG.connect :dbname => 'chitter_test'
   con.exec('TRUNCATE TABLE peeps RESTART IDENTITY;')
-  con.exec("INSERT INTO peeps(time, text) "\
-  "VALUES('#{Time.mktime(0).strftime("%Y-%D-%H:%M:%S")}', 'I am peep 1');")
-  con.exec("INSERT INTO peeps(time, text) "\
-  "VALUES('#{Time.mktime(2).strftime("%Y-%D-%H:%M:%S")}', 'I am peep 3');")
-  con.exec("INSERT INTO peeps(time, text) "\
-  "VALUES('#{Time.mktime(1).strftime("%Y-%D-%H:%M:%S")}', 'I am peep 2');")
+  con.exec("INSERT INTO peeps(text, author, time) "\
+  "VALUES('I am peep 1', 'anonymous', "\
+  "'#{Time.mktime(0).strftime("%Y-%D-%H:%M:%S")}');")
+  con.exec("INSERT INTO peeps(text, author, time) "\
+  "VALUES('I am peep 3', 'anonymous', "\
+  "'#{Time.mktime(2).strftime("%Y-%D-%H:%M:%S")}');")
+  con.exec("INSERT INTO peeps(text, author, time) "\
+  "VALUES('I am peep 2', 'anonymous', "\
+  "'#{Time.mktime(1).strftime("%Y-%D-%H:%M:%S")}');")
 end
 
 task :create_dbs do
@@ -68,16 +71,16 @@ task :create_production_peeps_table do
   dbname = 'chitter'
   p "RAKE: creating peeps table in #{dbname} database"
   con = PG.connect :dbname => dbname
-  con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, time VARCHAR(22), '\
-  'text VARCHAR(280), author VARCHAR(60));')
+  con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, '\
+  'text VARCHAR(280), author VARCHAR(60), time VARCHAR(22));')
 end
 
 task :create_test_peeps_table do
   dbname = 'chitter_test'
   p "RAKE: creating peeps table in #{dbname} database"
   con = PG.connect :dbname => dbname
-  con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, time VARCHAR(22), '\
-  'text VARCHAR(280), author VARCHAR(60));')
+  con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, '\
+  'text VARCHAR(280), author VARCHAR(60), time VARCHAR(22));')
 end
 
 task :drop_peeps_tables do
