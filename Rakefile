@@ -17,7 +17,7 @@ if ENV['RACK_ENV'] != 'production'
     connection.exec("ALTER SEQUENCE peeps_id_seq RESTART WITH 1;")
     connection.exec("ALTER SEQUENCE users_id_seq RESTART WITH 1;")
 
-    connection.exec("INSERT INTO peeps (username, message, time) VALUES('Raefe01', 'This is my first post on chitter!', '#{(Time.now + 1*60*60).strftime('%r')}');")
+    connection.exec("INSERT INTO peeps (username, message, time) VALUES('Raefe01', 'This is my first post on chitter!', '#{(Time.now + 1 * 60 * 60).strftime('%r')}');")
   end
 end
 
