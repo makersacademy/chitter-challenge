@@ -15,3 +15,23 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+ENV['ENVIRONMENT'] = 'test'
+
+require 'rake'
+Rake.application.load_rakefile
+
+# RSpec.configure do |config|
+#   config.before(:each) do
+#     Rake::Task['test_database_setup'].execute
+#   end
+# end
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'capybara'
+require 'rspec'
+require 'capybara/rspec'
+# require_relative './features/web_helper'
+
+
+Capybara.app = Chitter
