@@ -23,8 +23,8 @@ class Chitter < Sinatra::Base
 
   post 'new-user' do
     User.create(email: params['email'], name: params['name'], username: params['username'], password: params['password'])
-    redirect('/')  
+    redirect('/')
   end
 
-run! if app_file == $0
+  run! if app_file == $0
 end
