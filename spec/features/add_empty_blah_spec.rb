@@ -1,6 +1,6 @@
 feature 'Add a empty blah' do
   scenario 'An error occurs if a empty message is posted' do
-    visit('/')
+    sign_up
     click_button('New blah')
     click_button('Add blah')
 

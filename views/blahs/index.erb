@@ -1,17 +1,30 @@
 <%= styled_flash %>
 
-<% if @blahs.empty? %>
-  "No one has blah'd yet :("
+<% if !@user.nil? %>
+  Welcome <%= @user.username %>
+  <form action="/blahs/new">
+    <button type="submit">New blah</button>
+  </form>
 <% else %>
-  <% @blahs.each do |blah| %>
-    <li>
-      <%= blah.id %>
-      <%= blah.blah %>
-      <%= blah.date %>
-    </li>
-  <% end %>
+  <form action="/users/new">
+    <button type="submit">Sign up</button>
+  </form>
+
+  <form action="/sessions/new">
+    <button type="submit">Log in</button>
+  </form>
 <% end %>
 
-<form action="/blahs/new">
-  <button type="submit">New blah</button>
-</form>
+  <% if @blahs.empty? %>
+    "No one has blah'd yet :("
+  <% else %>
+
+    <% @blahs.each do |blah| %>
+      <li>
+        <%= blah.id %>
+        <%= blah.username %>
+        <%= blah.blah %>
+        <%= blah.date %>
+      </li>
+    <% end %>
+  <% end %>

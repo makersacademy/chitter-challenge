@@ -29,13 +29,13 @@ describe Blah do
 
   describe '.create' do
     it 'enters a new blah into the database' do
-      Blah.create('A unit test blah')
+      Blah.create('A unit test blah', 'UnitTest')
 
       expect(Blah.all.first.blah).to eq('A unit test blah')
     end
 
     it 'does not enter a empty blah into the database' do
-      expect(Blah.create('')).to eq(false)
+      expect(Blah.create('', 'UnitTest')).to eq(false)
     end
   end
 end

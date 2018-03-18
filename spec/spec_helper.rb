@@ -7,6 +7,7 @@ require 'rake'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'features/web_helper'
 
 Capybara.app = BlahBlah
 Rake.application.load_rakefile
