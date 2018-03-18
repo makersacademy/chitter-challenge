@@ -14,34 +14,46 @@ class User
 
   def self.create(options)
     password = BCrypt::Password.create(options[:password])
+    result = DatabaseConnection.query(
+    "INSERT INTO users(name, username, email, password)
+    VALUES (
+      '#{options[:name]}', '#{options[:username]}',
+      '#{options[:email]}', '#{password}')
+    RETURNING id, username
+    ;")[0]
 
-    result = DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES ('#{options[:name]}', '#{options[:username]}', '#{options[:email]}', '#{password}') RETURNING id, username;")
-
-    User.new(
-      result[0]['id'],
-      result[0]['name'],
-      result[0]['username'],
-      result[0]['email'],
-      result[0]['password']
-    )
+    User.build(result)
   end
 
   def self.all
     results = DatabaseConnection.query('SELECT * FROM users')
-    results.map { |user| User.new(user['id'], user['name'], user['username'], user['email'], user['password']) }
+    results.map { |user| User.build(user) }
   end
 
   def self.find(id)
     return nil unless id
+    result = DatabaseConnection.query(
+    "SELECT * FROM users WHERE id = '#{id}';")[0]
 
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+    User.build(result)
+  end
 
+  def self.authenticate(email, password)
+    result = DatabaseConnection.query(
+    "SELECT * FROM users
+    WHERE email = '#{email}'
+    ;")
+
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+
+    User.build(result[0])
+  end
+
+  def self.build(result)
     User.new(
-      result[0]['id'],
-      result[0]['name'],
-      result[0]['username'],
-      result[0]['email'],
-      result[0]['password']
+      result['id'], result['name'], result['username'],
+      result['email'], result['password']
     )
   end
 end

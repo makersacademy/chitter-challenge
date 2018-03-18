@@ -12,11 +12,15 @@ class Blah
 
   def self.all
     results = DatabaseConnection.query('SELECT * FROM blahs ORDER BY date DESC')
-    results.map { |blah| Blah.new(blah['id'], blah['blah'], blah['username'], blah['date']) }
+    results.map do |blah|
+      Blah.new(blah['id'], blah['blah'], blah['username'], blah['date'])
+    end
   end
 
   def self.create(blah, username)
     return false if blah.empty?
-    DatabaseConnection.query("INSERT INTO blahs (blah, username) VALUES('#{blah}', '#{username}');")
+    DatabaseConnection.query("INSERT INTO blahs (blah, username)
+    VALUES('#{blah}', '#{username}')
+    ;")
   end
 end

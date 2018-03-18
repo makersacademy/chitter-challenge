@@ -19,8 +19,11 @@ class BlahBlah < Sinatra::Base
   end
 
   post '/blahs' do
-    flash[:notice] = 'You must enter some text!' unless Blah.create(params[:blah], session[:username])
-    redirect '/blahs'
+    if Blah.create(params[:blah], session[:username])
+      redirect '/blahs'
+    else
+      flash[:notice] = 'You must enter some text!'
+    end
   end
 
   get '/blahs/new' do
@@ -42,8 +45,21 @@ class BlahBlah < Sinatra::Base
   end
 
   post '/sessions' do
-    
-    redirect '/blahs'
+    user = User.authenticate(params[:email], params[:password])
+
+    if user
+      session[:user_id] = user.id
+      redirect '/blahs'
+    else
+      flash[:notice] = 'The username and password are incorrect.'
+      redirect '/sessions/new'
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out'
+    redirect('/')
   end
 
   run! if app_file == $0
