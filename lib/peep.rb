@@ -1,14 +1,20 @@
 require 'pg'
 
 class Peep
-  def self.all
+  def self.connection
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
+      return PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'chitter')
+      return PG.connect(dbname: 'chitter')
     end
+  end
 
+  def self.all
     result = connection.exec("SELECT * FROM peeps")
     result.map { |peep| peep['peep'] }
+  end
+
+  def self.create(options)
+    connection.exec("INSERT INTO peeps (peep) VALUES('#{options[:peep]}')")
   end
 end
