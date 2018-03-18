@@ -17,6 +17,7 @@ class User
     return 'Email address not registered' if not_found?(rs)
     return 'Incorrect password' if wrong_password?(rs, password)
     log_user(rs)
+    false
   end
 
   def self.current_user

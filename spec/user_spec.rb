@@ -29,7 +29,14 @@ describe User do
       expect(User.sign_in(email, password)).to eq 'Email address not registered'
     end
     it 'allows a user with the right credentials to sign in, '\
-    'returning a user object' do
+    'returning false' do
+      User.setup(mock_connection)
+      email = 'test@gmail.com'
+      password = 'password'
+      expect(User.sign_in(email, password)).to eq false
+    end
+    it 'allows a user with the right credentials to sign in, '\
+    'creating a user object' do
       User.setup(mock_connection)
       email = 'test@gmail.com'
       password = 'password'

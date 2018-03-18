@@ -1,11 +1,13 @@
 require './database_connection_setup'
 require './lib/peep'
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/user'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     session[:username] = 'anonymous'
@@ -23,7 +25,7 @@ class Chitter < Sinatra::Base
     redirect '/chitter'
   end
 
-  post '/chitter/sign_up' do
+  get '/chitter/sign_up' do
     erb :'chitter/sign_up'
   end
 
@@ -32,14 +34,19 @@ class Chitter < Sinatra::Base
     redirect '/chitter'
   end
 
-  post '/chitter/sign_in' do
+  get '/chitter/sign_in' do
     erb :'chitter/sign_in'
   end
 
   post '/chitter/apply_sign_in' do
-    User.sign_in(params['email'], params['password'])
-    session[:username] = User.current_user.username
-    redirect '/chitter'
+    msg = User.sign_in(params['email'], params['password'])
+    if msg
+      flash[:notice] = msg
+      redirect '/chitter/sign_in'
+    else
+      session[:username] = User.current_user.username
+      redirect '/chitter'
+    end
   end
 
   run! if app_file == $0
