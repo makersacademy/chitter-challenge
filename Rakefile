@@ -25,8 +25,8 @@ end
 task :setup_table do
   ['chitter', 'chitter_test'].each do |database|
 connection = PG.connect(dbname: database)
-connection.exec("CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, username VARCHAR(60), email VARCHAR(60), password VARCHAR(140));")
-connection.exec("CREATE TABLE IF NOT EXISTS comments(id SERIAL PRIMARY KEY, link_id INTEGER REFERENCES users (id),text VARCHAR(240) );")
+connection.exec("CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR(60), email VARCHAR(60), password VARCHAR(140));")
+connection.exec("CREATE TABLE IF NOT EXISTS comments(id SERIAL PRIMARY KEY, link_id INTEGER REFERENCES users (id),text VARCHAR(240), time VARCHAR(60));")
 p 'Users and comments tables now set up!'
 end
 end

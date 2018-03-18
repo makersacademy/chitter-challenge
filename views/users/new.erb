@@ -19,6 +19,8 @@
     <div class="content">
       <h3>Register<h3>
     <form action="/users" method="post">
+      <label for="name">Name</label>
+      <input type="text" name="name"><br />
       <label for="username">Username</label>
       <input type="text" name="username"><br />
       <label for="email">Email</label>
@@ -26,7 +28,7 @@
       <label for="password">Password</label>
       <input type="password" name="password" /><br />
       <input type="submit" value="Submit" />
-      <%= styled_flash %>
+      <h3><%= styled_flash %><h3>
     </div>
     </form>
   </body>

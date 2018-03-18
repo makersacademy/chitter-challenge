@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require './database_connection_setup'
 require './lib/database_connection'
 require './lib/user'
+require './lib/comment'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -27,7 +28,7 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'That username is already taken.'
       redirect '/users/new'
     else
-      user = User.create(username: params['username'], email: params['email'], password: params['password'])
+      user = User.create(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
       session[:id] = user.id
       redirect '/users/feed'
     end
@@ -57,6 +58,12 @@ class Chitter < Sinatra::Base
     session.clear
     flash[:notice] = 'Thank you for using Chitter, come back soon!'
     redirect('/')
+  end
+
+  post '/users/:id/comments' do
+    time = Time.now.getutc
+    comment = Comment.create(link_id: params['id'], text: params['text'], time: time)
+    redirect('/users/feed')
   end
 
 end
