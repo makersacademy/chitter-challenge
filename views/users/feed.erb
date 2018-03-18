@@ -9,6 +9,7 @@
       * {
         font-family: sans-serif;
         color: green;
+        font-size:x-large;
       }
 
       button {
@@ -32,7 +33,7 @@
      <textarea name="text">
      </textarea>
      <button type="submit" value="peep">Peep</button>
-     <table style="width:90%">
+     <table style="width:90%" border="2">
        <tr>
          <th><h2>Chitter Feed<h2><th>
       </tr>
@@ -46,6 +47,7 @@
         </tr>
         <% end %>
      </table>
+     <%= @comment_composer %>
  </form>
 </div>
   </body>

@@ -18,4 +18,5 @@ class Comment
     result = DatabaseConnection.query("SELECT * FROM comments")
     result.map { |comment| Comment.new(comment['id'], comment['text'], comment['time']) }
   end
+
 end

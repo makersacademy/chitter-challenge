@@ -62,8 +62,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/:id/comments' do
+    @comment_composer = User.find(params['id'])
+    text = params[:text]
     time = Time.now.getutc
-    comment = Comment.create(link_id: params['id'], text: params['text'], time: time)
+    comment = Comment.create(link_id: params['id'], text: text.gsub(/[']/, "''"), time: time)
     redirect('/users/feed')
   end
 
