@@ -12,6 +12,12 @@ require 'simplecov-console'
 # Tell Capybara to talk to chitter_app
 Capybara.app = Chitter
 
+# Require Rake
+require 'rake'
+
+# Load the Rakefile
+Rake.application.load_rakefile
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -21,8 +27,9 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    require_relative './test_database_setup'
+     Rake::Task['test_database_setup'].execute
   end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
