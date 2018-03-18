@@ -1,17 +1,16 @@
 require 'user'
 
 describe User do
-  before(:each) do
-    @user = User.create(username: 'Tester', email: 'test@example.com', password: 'password123')
-  end
-  describe '.all' do
+  describe '#all' do
   it 'returns all users, wrapped in a User instance' do
-    expect(User.all.map(&:id)).to include @user.id
+    user = User.create(username: 'Tester', email: 'test@example.com', password: 'password123')
+    expect(User.all.map(&:id)).to include user.id
   end
 end
+subject(:user) { described_class.create(username: 'Tester', email: 'test@example.com', password: 'password123') }
   describe '#create' do
   it 'creates a new user' do
-    expect(@user.id).not_to be_nil
+    expect(user.id).not_to be_nil
   end
 end
   it 'hashes the password using BCrypt' do

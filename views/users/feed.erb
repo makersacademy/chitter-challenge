@@ -11,7 +11,7 @@
         color: green;
         font-size:x-large;
       }
-
+    h1 {      font-size: 200%;     }
       button {
     background-color: green;
     color: white;
@@ -33,16 +33,17 @@
      <textarea name="text">
      </textarea>
      <button type="submit" value="peep">Peep</button>
-     <table style="width:90%" border="2">
+     <table style="width:100%" border="2">
        <tr>
-         <th><h2>Chitter Feed<h2><th>
+         <th><h1>Chitter Feed<h1><th>
       </tr>
         <% @comments.each do |comment| %>
         <tr>
           <td>
-          <%= @user.name %> (<%= @user.username %>) says...<br />
+          <%= User.find(comment.link_id).name %> (<%= User.find(comment.link_id).username %>) says...<br />
           <strong><%= comment.text %></strong><br />
-          <i><%= comment.time %><i><br />
+          <i><%= comment.time %><i>
+            <br /><br />
         </td>
         </tr>
         <% end %>
