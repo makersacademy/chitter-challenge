@@ -6,18 +6,24 @@ describe Peep do
     double :DatabaseConnection,
     query:
     [
-      { 'id' => 1,
+      {
+        'id' => 1,
         'text' => 'I am peep 1',
-        'time' => Time.mktime(0).strftime("%Y-%D-%H:%M:%S"),
-        'author' => 'Dave' },
-      { 'id' => 3,
+        'author' => 'Dave',
+        'time' => Time.mktime(0).strftime("%Y-%D-%H:%M:%S")
+      },
+      {
+        'id' => 3,
         'text' => 'I am peep 3',
-        'time' => Time.mktime(2).strftime("%Y-%D-%H:%M:%S"),
-        'author' => 'Phil' },
-      { 'id' => 2,
+        'author' => 'Phil',
+        'time' => Time.mktime(2).strftime("%Y-%D-%H:%M:%S")
+      },
+      {
+        'id' => 2,
         'text' => 'I am peep 2',
-        'time' => Time.mktime(1).strftime("%Y-%D-%H:%M:%S"),
-        'author' => 'Kev' },
+        'author' => 'Kev',
+        'time' => Time.mktime(1).strftime("%Y-%D-%H:%M:%S")
+      },
     ]
   }
 
@@ -49,6 +55,13 @@ describe Peep do
       with("INSERT INTO peeps (text, author, time) "\
       "VALUES ('#{text}', '#{author}', '#{timestring}')")
       Peep.add(text, author)
+    end
+  end
+
+  describe '#readble_time' do
+    it 'converts time to a more readable format' do
+      expect(described_class.all[-1].readable_time).to eq \
+      'on 0000-01/01/00 at 00:00:00'
     end
   end
 end

@@ -3,7 +3,7 @@ require 'pg'
 
 describe DatabaseConnection do
 
-  let(:dbname) {'chitter_test'}
+  let(:dbname) { 'chitter_test' }
 
   it 'messages PG to open a connection' do
     expect(PG).to receive(:connect).with(dbname: dbname)
