@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep.rb'
 require './database_connection_setup'
 require './lib/user.rb'
@@ -6,6 +7,7 @@ require './lib/user.rb'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @peeps = Peep.all.reverse
@@ -34,8 +36,13 @@ class Chitter < Sinatra::Base
 
   post '/sign_in' do
     user = User.authenticate(params[:email], params[:password])
-    session[:user_id] = user.id
-    redirect to('/')
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash[:warning] = 'Please check your email or password'
+      redirect to('/sign_in_page')
+    end
   end
 
   run! if app_file == $0

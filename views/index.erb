@@ -7,6 +7,7 @@
   <body>
   <% if @user %>
     <h1> Welcome <%= @user.username %> </h1>
+
   <% else %>
   <form action="/sign_up_page" method="get">
     <input type="submit" value="Sign up">

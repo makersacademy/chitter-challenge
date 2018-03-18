@@ -53,6 +53,10 @@ describe User do
       expect(authenticated_user.username).to eq 'George'
     end
 
+    it "returns nil if there is no matching email address" do
+      expect(User.authenticate('incorrect@incorrect.com', 'password123')).to eq nil
+    end
+
   end
 
 end

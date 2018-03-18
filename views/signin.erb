@@ -7,6 +7,13 @@
   <body>
     <h1> Sign In </h1>
 
+    <% if flash[:warning] == "Please check your email or password" %>
+    <div data-alert class="alert">
+      <strong> <%= flash[:warning] %> </strong>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <% end%>
+
     <form action='/sign_in' method="post">
       <input type="email" placeholder="Email" name="email" required>
       <input type="password" placeholder="Password" name="password" required>
