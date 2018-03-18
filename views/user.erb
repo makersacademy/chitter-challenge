@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<div class="peeps">
+  <h2>Showing all peeps from <%= @user %></h2>
+  <%Peep.all_from(@user).each do |peep|%>
+    <p><%=peep.time%> --
+    <%=peep.text%></p>
+  <%end%>
+</div>
+
+<form method="get" action="/">
+  <input type="submit" value="Back">
+</form>

@@ -1,0 +1,40 @@
+body {
+  background-color: #845555;
+  font-family: Helvetica;
+}
+
+#index_header {
+  padding-top:60px;
+  position: relative;
+  text-align: center;
+  width: 70%;
+  left: 15%;
+  background-color: black;
+  color: white;
+}
+
+.peeps {
+  margin-top:60px;
+  position: relative;
+  text-align: center;
+  width: 80%;
+  left: 10%;
+}
+
+.peep {
+  position: relative;
+  border-style: solid;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.form_page {
+  position: absolute;
+  top: 20%;
+  height: 20%;
+  left: 30%;
+  width: 20%;
+  border-style: solid;
+  padding: 10%;
+  align-items: center;
+}

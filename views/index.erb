@@ -1,0 +1,41 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<div id="index_header">
+  <% if Account.current_user == nil %>
+    <h2>Haven't you visited before?</h2>
+    <form method="get" action="/sign_up">
+      <input type="submit" value="Sign Up">
+    </form>
+    <br></br>
+    <h2>Already a member?</h2>
+    <form method="get" action="/login">
+      <input type="submit" value="Login">
+    </form>
+    <br></br>
+  <% else %>
+    Welcome <%= Account.current_user.username %>
+
+    <form method="post" action="/logout">
+      <input type="submit" value="Logout">
+    </form>
+
+    Want to peep?
+
+    <form method="post" action="/peep">
+      <input type="text" placeholder="peep" name="peep">
+      <input type="hidden" name="author" value="<%= Account.current_user.username %>">
+      <input type="submit" value="Submit">
+    </form>
+  <% end %>
+  <hr></hr>
+</div>
+
+<div class="peeps">
+  <%Peep.all.each do |peep|%>
+    <div class="peep">
+      <p><%=peep.time%> --
+      <a href="/user?user=<%=peep.author%>"><%=peep.author%></a> --
+      <%=peep.text%></p>
+    </div>
+  <%end%>
+</div>

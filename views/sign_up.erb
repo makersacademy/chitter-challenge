@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<div class="form_page">
+  <form method="post" action="/sign_up">
+    <input type="text" placeholder="username" name="username">
+    <input type="text" placeholder="email" name="email">
+    <input type="password" placeholder="password" name="password">
+    <input type="submit" value="Submit">
+  </form>
+
+  <% if @invalid %>
+    Sorry, <%= @message %>
+  <% end %>
+
+  <form method="get" action="/">
+    <input type="submit" value="Back">
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<div class="form_page">
+  <form method="post" action="/login">
+    <input type="text" placeholder="username" name="username">
+    <input type="password" placeholder="password" name="password">
+    <input type="submit" value="Submit">
+  </form>
+
+  <% if @invalid %>
+    Invalid login details
+  <% end %>
+
+  <form method="get" action="/">
+    <input type="submit" value="Back">
+  </form>
+</div>
