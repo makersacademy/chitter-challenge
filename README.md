@@ -3,7 +3,7 @@
 
 ## Experience.
 
-Even though I've reached the MVP and added features that we not even required in the task (comments), I feel that I haven't spend on databases enough time. The exercise was very challenging and needed me to use different skills and 'tricks' in order to achieve a nice and concise code. I feel pretty tired after this one, but I guess it's because at the start I didn't expect this challange to be that complex and so I went on a Saturday trip instead of coding the whole weekend (and therefore organising the working hours better)... 
+Even though I've reached the MVP and added features that we not even required in the task (comments), I feel that I haven't spend on databases enough time. The exercise was very challenging and needed me to use different skills and 'tricks' in order to achieve a nice and concise code.
 
 * Things to improve:
 
@@ -16,6 +16,13 @@ I've used flags in the controller to signalise that a button was clicked (an act
 
 
 ## Instructions
+
+Run online:
+
+https://tweet-chit.herokuapp.com/peeps
+
+Run locally:
+
 ```plain
 $ git clone https://github.com/Kotauror/chitter-challenge.git
 $ cd chitter-challenge
@@ -24,7 +31,6 @@ $ rake setup
 $ rackup and visit http://localhost:9292/ for Chitter
 $ rspec for a summary of tests, checking that all tests are passing and test coverage (100%)
 ```
-
 ## Technology
   - Ruby, HTML, CSS, PostgreSQL
   - RSpec, Capybara
