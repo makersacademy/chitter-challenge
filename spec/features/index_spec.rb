@@ -3,9 +3,19 @@ feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
     visit('/')
 
-    expect(page).to have_content "0th"
-    expect(page).to have_content "1st"
-    expect(page).to have_content "2nd"
+    expect(page).to have_content '0th'
+    expect(page).to have_content '1st'
+    expect(page).to have_content '2nd'
+  end
+end
+
+feature 'Viewing time' do
+  scenario 'A user can see peeps' do
+    visit('/')
+
+    expect(page).to have_content '2018-03-17 16:01:00'
+    expect(page).to have_content '2018-03-17 16:02:00'
+    expect(page).to have_content '2018-03-17 16:03:00'
   end
 end
 
