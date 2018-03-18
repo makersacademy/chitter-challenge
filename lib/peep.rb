@@ -1,4 +1,5 @@
 require 'pg'
+require 'database_connection'
 
 class Peep
   def self.connection
@@ -10,11 +11,11 @@ class Peep
   end
 
   def self.all
-    result = connection.exec("SELECT * FROM peeps")
+    result = connection.query("SELECT * FROM peeps")
     result.map { |peep| peep['peep'] }
   end
 
   def self.create(options)
-    connection.exec("INSERT INTO peeps (peep) VALUES('#{options[:peep]}')")
+    connection.query("INSERT INTO peeps (peep) VALUES('#{options[:peep]}')")
   end
 end
