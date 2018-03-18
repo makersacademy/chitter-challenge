@@ -14,7 +14,8 @@ class User
   end
 
   def self.create(info)
-    DatabaseConnection.query("INSERT INTO users (email, name, username, password) VALUES (
+    DatabaseConnection.query(
+      "INSERT INTO users (email, name, username, password) VALUES (
         '#{info[:email]}',
         '#{info[:name]}',
         '#{info[:username]}',
@@ -30,6 +31,7 @@ class User
       user['name'],
       user['username'],
       user['password']
-      ) }
+      )
+    }
   end
 end

@@ -19,14 +19,16 @@ class Peep
       peep['username'],
       peep['message'],
       peep['time']
-      ) }
+      )
+    }
   end
 
   def self.create(peep)
-    DatabaseConnection.query("INSERT INTO peeps (username, message, time) VALUES (
-    '#{peep[:username]}',
-    '#{peep[:message]}',
-    '#{(Time.now + 1*60*60).strftime('%r')}'
-    )")
+    DatabaseConnection.query(
+      "INSERT INTO peeps (username, message, time) VALUES (
+        '#{peep[:username]}',
+        '#{peep[:message]}',
+        '#{(Time.now + 1 * 60 * 60).strftime('%r')}'
+        )")
   end
 end
