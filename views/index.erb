@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/add_user" method="post">
+      <input type="text" name="name">
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+    <form action="/create_tweet" method="post">
+      <input type="text" name="tweet">
+      <input type="submit" value="Post">
+    </form>
+    <br>
+    <% @peeps.each do |peep| %>
+      <%= peep.tweet %>
+      <br>
+    <% end %>
+  </body>
+</html>
