@@ -15,11 +15,15 @@
     background-color: green;
     color: white;
   }
+  table, th, td {
+    border: 1px;
+}
       </style>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+    <div class="content">
     <form action="/sessions/destroy" method="post">
       <button type="submit" value="sign out">Sign Out</button>
     </form>
@@ -28,6 +32,21 @@
      <textarea name="text">
      </textarea>
      <button type="submit" value="peep">Peep</button>
+     <table style="width:90%">
+       <tr>
+         <th><h2>Chitter Feed<h2><th>
+      </tr>
+        <% @comments.each do |comment| %>
+        <tr>
+          <td>
+          <%= @user.name %> (<%= @user.username %>) says...<br />
+          <strong><%= comment.text %></strong><br />
+          <i><%= comment.time %><i><br />
+        </td>
+        </tr>
+        <% end %>
+     </table>
  </form>
+</div>
   </body>
 </html>

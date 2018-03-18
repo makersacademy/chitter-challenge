@@ -13,4 +13,9 @@ class Comment
     result = DatabaseConnection.query("INSERT INTO comments (link_id, text, time) VALUES('#{options[:link_id]}', '#{options[:text]}', '#{options[:time]}') RETURNING id, text, time")
     Comment.new(result[0]['id'], result[0]['text'], result[0]['time'])
   end
+
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM comments")
+    result.map { |comment| Comment.new(comment['id'], comment['text'], comment['time']) }
+  end
 end

@@ -36,6 +36,7 @@ class Chitter < Sinatra::Base
 
   get '/users/feed' do
     @user = User.find(session[:id])
+    @comments = Comment.all.reverse
     erb :"users/feed"
   end
 
