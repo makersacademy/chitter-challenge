@@ -1,22 +1,30 @@
-Chitter Challenge
-=================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+# Chitter Challenge AKA BlahBlah :speak_no_evil:
+**Makers Academy - Weekend Challenge 4**
 
-Challenge:
--------
+This was a weekend challenge, where we were tasked to build a small lightweight twitter clone.
 
-As usual please start by forking this repo.
+## Aim
+TBC
+
+#### To Do
+- [ ] Complete CSS Styling (Spectre CSS Framework)
+- [ ] Implement advanced features
+- [ ] Implement: In order to start a conversation as a maker I want to reply to a peep from another maker
+- [ ] Finish README
+- [ ] Add domain modeling breakdown in readme
+- [ ] Refactor code and tests as required
+- [ ] Fix database build bug
+
+## Screenshots
+
+TBC
+
+## Task
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
--------
-
+## User Stories
 ```
 STRAIGHT UP
 
@@ -53,55 +61,20 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
-------
+## Getting Started
+1. Clone or download the repository to your system `https://github.com/Hemesh-Unka/chitter-challenge.git`
+2. Redirect into the home directory `cd chitter-challenge`
+3. With Bundle package manager type `bundle` to install required dependancies listed in the GemFile
+4. Install `postgres`
+5. Run `rack setup` to setup up the databases to run this application
+4. Type `rackup` to run the server
+5. Finally in your browser navigate to `localhost:9292` to view the app
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+## Testing
+Tests were designed to run using the RSpec and Capybara testing frameworks.
 
-Bonus:
------
+To run RSpec test:
+`rspec`
 
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+## Tech Used
+TBC
