@@ -4,14 +4,13 @@ describe User do
 
   let(:mock_connection) {
     double :DatabaseConnection,
-    query: [ { 'fullname' => 'test', 'username' => 'test', 'email' => 'test', \
-      'email' => 'test@gmail.com', 'password' => 'password' } ]
+    query: [{ 'fullname' => 'test', 'username' => 'test', \
+      'email' => 'test@gmail.com', 'password' => 'password' }]
   }
   let(:mock_connection_no_return) {
     double :DatabaseConnection,
     query: []
   }
-
 
   describe '#self.sign_in' do
     it 'messages the database to return the user associated '\
@@ -20,7 +19,7 @@ describe User do
       email = 'test@gmail.com'
       password = 'password'
       expect(mock_connection).to receive(:query).with\
-      ("SELECT * FROM users WHERE email=#{email}")
+      ("SELECT * FROM users WHERE email = '#{email}'")
       User.sign_in(email, password)
     end
     it 'returns an error when it cannot find the user by email' do

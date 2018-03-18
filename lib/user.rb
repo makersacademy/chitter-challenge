@@ -2,6 +2,8 @@ require_relative './database_connection'
 
 class User
 
+  attr_reader :username
+
   def initialize(username)
     @username = username
   end
@@ -11,7 +13,7 @@ class User
   end
 
   def self.sign_in(email, password)
-    rs = @con.query("SELECT * FROM users WHERE email=#{email}")
+    rs = @con.query("SELECT * FROM users WHERE email = '#{email}'")
     return 'Email address not registered' if not_found?(rs)
     return 'Incorrect password' if wrong_password?(rs, password)
     log_user(rs)
@@ -34,5 +36,4 @@ class User
   def self.wrong_password?(rs, password)
     rs[0]['password'] != password
   end
-
 end

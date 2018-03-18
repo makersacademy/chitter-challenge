@@ -27,7 +27,10 @@
   <body>
     <h2><%=@welcome_msg%></h2>
     <form action='/chitter/sign_up' method='post'>
-      <button type='submit'>Sign Up</button>
+      <button type='submit'>New User Sign Up</button>
+    </form>
+    <form action='/chitter/sign_in' method='post'>
+      <button type='submit'>Existing User Sign In</button>
     </form>
     <form action='/chitter/add_peep' method='post'>
       <label for='new_peep_text'>

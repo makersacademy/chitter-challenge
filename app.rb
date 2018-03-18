@@ -1,6 +1,7 @@
 require './database_connection_setup'
 require './lib/peep'
 require 'sinatra/base'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
@@ -26,8 +27,18 @@ class Chitter < Sinatra::Base
     erb :'chitter/sign_up'
   end
 
-  post '/chitter/apply_signup' do
+  post '/chitter/apply_sign_up' do
     session[:username] = params[:username]
+    redirect '/chitter'
+  end
+
+  post '/chitter/sign_in' do
+    erb :'chitter/sign_in'
+  end
+
+  post '/chitter/apply_sign_in' do
+    User.sign_in(params['email'], params['password'])
+    session[:username] = User.current_user.username
     redirect '/chitter'
   end
 
