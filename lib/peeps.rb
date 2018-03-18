@@ -19,6 +19,3 @@ class Peeps
     DatabaseConnection.query("INSERT INTO peeps (tweet,date) VALUES ('#{text[:tweet]}','#{time}')")
   end
 end
-
-def self.post
- end
