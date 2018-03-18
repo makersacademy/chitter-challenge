@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+
+    <!-- NAVBAR BEGINS HERE -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="#">Chitter 💩</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mentions</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Tweets</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link">
+              |</a>
+          </li>
+
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search tweets" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+
+        </ul>
+
+        <a class="nav-link form-inline" href="/signin">Login / Signup
+        </a>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <!-- NAVBAR ENDS HERE -->
+
+    <div class="container">
+      <div class="row">
+        <br>
+        <br>
+        <br>
+      </div>
+      <div class="row">
+        <br>
+        <div class="col-5 align-self-center">
+          <h1 class="display-1">Chitter 💩</h1>
+          <br>
+          <p class="lead">
+            Talk chit with your peeps all day, spread love its the chitter way!
+          </p>
+        </div>
+
+        <div class="col-1"></div>
+
+        <div class="col-6">
+          <div class="jumbotron">
+            <h1 class="display-4">Register Now!</h1>
+            <p class="lead">Kick the chit and send peeps to your friends and family by signing up below.</p>
+            <hr class="my-4">
+            <form class="" action="index.html" method="post">
+
+              <div class="form-group">
+                <label for="input_email">Email address</label>
+                <input type="email" class="form-control" id="input_email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="input_password">Password</label>
+                <input type="password" class="form-control" id="input_password" placeholder="Password">
+              </div>
+
+              <hr>
+
+              <div class="form-group input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" id="input_username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="">First and last name</span>
+                </div>
+                <input type="text" id="input_firstname" class="form-control">
+                <input type="text" id="input_lastname" class="form-control">
+              </div>
+
+              <hr>
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

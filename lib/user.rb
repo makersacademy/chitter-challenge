@@ -1,4 +1,4 @@
-require 'database'
+require './lib/database'
 
 class User
   attr_reader :id, :email, :password

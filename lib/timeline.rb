@@ -1,4 +1,4 @@
-require "database"
+require "./lib/database"
 
 class Timeline
   attr_reader :id, :author, :text, :time, :reply_id
