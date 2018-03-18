@@ -5,14 +5,24 @@
     <meta charset="utf-8">
     <title>Chitter Sign Up Page</title>
   </head>
-  <style>
-  </style>
   <body>
     <form action='/chitter/apply_signup' method='post'>
-      <label for='user_name'>
-        User Name:
-        <input type='text' name='user_name'>
-      </label>
+      <label for='fullname'>
+        Please enter your full name:
+        <input type='text' name='fullname'>
+      </label><br>
+      <label for='username'>
+        Please choose a user name:
+        <input type='text' name='username'>
+      </label><br>
+      <label for='email'>
+        Please enter your email:
+        <input type='text' name='email'>
+      </label><br>
+      <label for='password'>
+        Please choose a password:
+        <input type='text' name='password'>
+      </label><br>
       <button type='submit'>Register New User</button>
     </form>
   </body>

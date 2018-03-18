@@ -7,18 +7,18 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    session[:user_name] = 'anonymous'
+    session[:username] = 'anonymous'
     redirect '/chitter'
   end
 
   get '/chitter' do
-    @welcome_msg = "Welcome, #{session[:user_name]}!"
+    @welcome_msg = "Welcome, #{session[:username]}!"
     @peeps = Peep.all
     erb :'chitter/index'
   end
 
   post '/chitter/add_peep' do
-    Peep.add(params[:new_peep_text], session[:user_name])
+    Peep.add(params[:new_peep_text], session[:username])
     redirect '/chitter'
   end
 
@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/apply_signup' do
-    session[:user_name] = params[:user_name]
+    session[:username] = params[:username]
     redirect '/chitter'
   end
 
