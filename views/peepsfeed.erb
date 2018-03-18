@@ -1,1 +1,10 @@
-<h1> this is <%= session[:peep] %> </h1>
+<h1>list of peeps</h1>
+
+  <%= @peeps%>
+  <%= @peeps.inspect %>
+  <ul>
+  <% @peeps.each do |peep| %>
+         <li username="peep-<%= peep.username %>"><%= peep.userhandle %>
+         <%= peep.peep %><%= peep.time %></li>
+       <% end %>
+     </ul>

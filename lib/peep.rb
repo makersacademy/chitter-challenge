@@ -1,21 +1,22 @@
-require 'pg'
-require 'database_connection'
+
+require_relative 'database_connection'
 
 class Peep
-  def self.connection
-    if ENV['ENVIRONMENT'] == 'test'
-      return PG.connect(dbname: 'chitter_test')
-    else
-      return PG.connect(dbname: 'chitter')
-    end
+  attr_reader :username, :userhandle, :peep, :time
+
+  def initialize(username, userhandle, peep, time)
+    @username = username
+    @userhandle = userhandle
+    @peep = peep
+    @time = Time.new.to_s
   end
 
   def self.all
-    result = connection.query("SELECT * FROM peeps")
-    result.map { |peep| peep['peep'] }
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time DESC")
+    result.map { |peep| Peep.new(peep['username'], peep['userhandle'], peep['peep'], peep['time']) }
   end
 
-  def self.create(options)
-    connection.query("INSERT INTO peeps (peep) VALUES('#{options[:peep]}')")
+  def self.create(username, userhandle, peep)
+    DatabaseConnection.query("INSERT INTO peeps (username, userhandle, peep, time) VALUES('#{username}', '#{userhandle}', '#{peep}', '#{Time.now}'")
   end
 end

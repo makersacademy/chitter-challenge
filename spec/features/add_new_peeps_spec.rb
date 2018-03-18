@@ -1,6 +1,6 @@
 feature 'Adding a new peep' do
   scenario 'A user can add a peep to the field' do
-    visit('/add-a-new-peep')
+    visit('/peeps/new')
     fill_in('peep', with: 'This is my first peep')
     click_button('Peep!')
 

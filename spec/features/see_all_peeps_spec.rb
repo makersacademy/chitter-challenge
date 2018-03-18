@@ -1,6 +1,6 @@
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    visit('/')
+    visit('/peeps')
 
     expect(page).to have_content "peep1"
     expect(page).to have_content "peep2"
