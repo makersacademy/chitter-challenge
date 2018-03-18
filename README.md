@@ -33,6 +33,8 @@ I want to sign up for Chitter
 
 
 ```
+## Product:
+![alt text](http://bit.ly/2HFUgpt)
 
 ## Instructions to use:
 Open terminal in your computer
