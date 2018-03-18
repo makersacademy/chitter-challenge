@@ -6,7 +6,7 @@ task :test_database_setup do
   connection = PG.connect(dbname: 'chitter_test')
 
   # Clear the database
-  connection.exec("TRUNCATE peeps, users;")
+  connection.exec("TRUNCATE users, peeps;")
 
   connection.exec("INSERT INTO users VALUES('tom@hotmail.com',
                   '$argon2i$v=19$m=65536,t=2,p=1$S7x4o+E1d+7VBHLIVF1CVQ$C6L6QCNyDmhZKpZCpRkBlk42dq1BGtOOm6QQMyftIIY');")
