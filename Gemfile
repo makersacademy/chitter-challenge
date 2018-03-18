@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
+gem 'capybara'
+gem 'pg'
 gem 'rake'
 gem 'rubocop'
-gem 'capybara'
 gem 'sinatra'
-gem 'pg'
 
 group :test do
   gem 'rspec'
