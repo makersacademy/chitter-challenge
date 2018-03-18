@@ -1,6 +1,8 @@
 <%= flash[:notice] %>
 
-<form action="/add" method="post">
+<h1> Welcome to Chitter </h1>
+
+<form action="/peeps/new" method="post">
   <textarea name="content" placeholder="Your peep"></textarea>
   <input type="submit" value="Peep!">
 </form>
@@ -11,3 +13,8 @@
   <p><%= peep.created_at.strftime('%R - %F') %></p>
   <%end%>
 </ul>
+
+
+<form action="/user/new" method="get">
+  <input type="submit" value="Sign up to Chitter!">
+</form>

@@ -139,10 +139,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby
   capybara
   data_mapper (= 1.2.0)
   dm-postgres-adapter
   dm-rspec
+  json (~> 1.8.6)
   pg
   rake
   rspec

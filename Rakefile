@@ -9,6 +9,7 @@ require 'data_mapper'
 require 'pg'
 require_relative 'database_connection_setup.rb'
 require File.join(File.dirname(__FILE__), 'lib', 'peep.rb')
+require File.join(File.dirname(__FILE__), 'lib', 'user.rb')
 
 task :setup do
   ['chitter', 'chitter_test'].each do |database|

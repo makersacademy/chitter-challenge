@@ -3,6 +3,7 @@ require 'peep'
 describe Peep do
   it { should have_property :content }
   it { should have_property :created_at }
+  it { should have_property :user_id }
 
   describe '#self.add' do
     it 'adds a new peep' do

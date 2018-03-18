@@ -1,5 +1,5 @@
-feature 'Peeps are shown in reverse chronological order' do
-  scenario 'user can see peeps in order on homepage' do
+feature 'Showing peeps in reverse chronological order' do
+  scenario 'User can see peeps in order on homepage' do
     visit '/'
     text = page.body
     index1 = text.index('DataMapper test1')
