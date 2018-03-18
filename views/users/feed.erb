@@ -10,11 +10,19 @@
         font-family: sans-serif;
         color: green;
       }
+
+      button {
+    background-color: green;
+    color: white;
+  }
       </style>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+    <form action="/sessions/destroy" method="post">
+      <button type="submit" value="sign out">Sign Out</button>
+    </form>
     <h1>Welcome <%= @user.username %>!</h1>
   </body>
 </html>
