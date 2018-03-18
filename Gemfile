@@ -9,7 +9,6 @@ gem 'rspec'
 gem 'selenium-webdriver'
 gem 'sinatra'
 gem 'pg'
-gem 'rake'
 gem 'sinatra-flash'
 gem 'pony'
 gem 'argon2'
@@ -18,6 +17,7 @@ gem 'simplecov'
 gem 'simplecov-console'
 
 group :test do
+  gem 'rake'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
