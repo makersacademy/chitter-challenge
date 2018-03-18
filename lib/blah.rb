@@ -10,12 +10,12 @@ class Blah
   end
 
   def self.all
-    result = DatabaseConnection.query('SELECT * FROM blahs')
+    result = DatabaseConnection.query('SELECT * FROM blahs ORDER BY date DESC')
     result.map { |blah| Blah.new(blah['id'], blah['blah'], blah['date']) }
   end
 
   def self.create(blah)
-    # why can't i used a symbol in a query?
+    return false if blah.empty?
     DatabaseConnection.query("INSERT INTO blahs (blah) VALUES('#{blah}');")
   end
 end

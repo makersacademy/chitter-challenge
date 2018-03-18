@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/blah'
 require './database_connection_setup'
 
 class BlahBlah < Sinatra::Base
-  set :sessions, true
+  enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     redirect '/blahs'
@@ -15,7 +17,8 @@ class BlahBlah < Sinatra::Base
   end
 
   post '/blahs' do
-    Blah.create(params[:blah])
+    flash[:notice] = 'You must enter some text!'
+    flash[:notice] unless Blah.create(params[:blah])
     redirect '/'
   end
 
