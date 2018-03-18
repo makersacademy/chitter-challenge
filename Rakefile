@@ -10,6 +10,7 @@ task :test_environment do
   connection.exec('TRUNCATE TABLE peeps;')
   connection.exec('TRUNCATE TABLE account;')
   connection.exec('ALTER SEQUENCE account_id_seq RESTART WITH 1')
+  connection.exec('ALTER SEQUENCE peeps_id_seq RESTART WITH 1')
 
   p 'Setting up test environment...'
 
@@ -31,7 +32,7 @@ task :setup do
     connection = PG.connect(dbname: 'postgres')
     connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
-    connection.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, date TIMESTAMP DEFAULT now(), tweet VARCHAR(100));')
+    connection.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, date timestamp DEFAULT current_timestamp, tweet VARCHAR(100));')
     connection.exec('CREATE TABLE account(id SERIAL PRIMARY KEY, name VARCHAR(100));')
   end
 end

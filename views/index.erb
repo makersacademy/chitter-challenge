@@ -1,23 +1,65 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rumour Mill</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+.column {
+    float: left;
+    width: 50%;
+    padding: 20px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+input[type =text] {
+    width: 50%;
+    padding: 10px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    rows: "2"
+}
+</style>
   </head>
   <body>
-    <form action="/add_user" method="post">
-      <input type="text" name="name">
-      <input type="submit" value="Submit">
-    </form>
-    <br>
-    <form action="/create_tweet" method="post">
-      <input type="text" name="tweet">
-      <input type="submit" value="Post">
-    </form>
-    <br>
-    <% @peeps.each do |peep| %>
-      <%= peep.tweet %>
-      <br>
-    <% end %>
+    <h2>Rumour Mill</h2>
+    <h4><i>"If two or more people have heard it, it is immediately taken as the truth" - Unknown</i></h4>
+      <div class="row">
+        <div class="column" style="white">
+          <p>
+            <form action="/create_tweet" method="post">
+            <input type="text" name="tweet">
+              <br>
+              <input type="submit" value="Post">
+            </form>
+            <br>
+            <table>
+              <% @peeps.each do |peep| %>
+              <tr>
+                <td><%= peep.tweet %></td>
+              </tr>
+              <tr>
+                <td><%= peep.date %></td>
+              </tr>
+                <% end %>
+            </table>
+          </p>
+        </div>
+        <div class="column" style="white;">
+          <p>
+            <h4>Sign up</h4>
+            <form action="/add_user" method="post">
+              <label for="name"> Enter username: </label>
+              <input type="text" name="name">
+              <input type="submit" value="Submit">
+            </form>
+          </p>
+        </div>
+      </div>
   </body>
 </html>

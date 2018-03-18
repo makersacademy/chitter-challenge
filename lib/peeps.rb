@@ -12,9 +12,13 @@ class Peeps
   def self.all
     result = DatabaseConnection.query('SELECT * FROM peeps ORDER BY id DESC')
     result.map { |peeps| Peeps.new(peeps['id'], peeps['date'], peeps['tweet']) }
+
   end
 
-  def self.create(input)
-    DatabaseConnection.query("INSERT INTO peeps (tweet) VALUES('#{input[:tweet]}');")
+  def self.create(text, time = Time.new.to_s.rpartition('')[0].to_s)
+    DatabaseConnection.query("INSERT INTO peeps (tweet,date) VALUES ('#{text[:tweet]}','#{time}')")
   end
 end
+
+def self.post
+ end
