@@ -1,32 +1,29 @@
 require 'pg'
 
-
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-
-  RSpec::Core::RakeTask.new :spec
-
-  task default: [:spec]
+task :test_database_setup do
+  p "Cleaning database..."
 end
 
-# task :setup do
-#   p 'Setting up databases...'
-#   conn = PG.connect
-#   ['chitter','chitter_test'].each do |database|
-#       conn.exec("CREATE DATABASE #{database}")
-#       DatabaseConnection.setup("#{database}")
-#       DatabaseConnection.query(
-#         "CREATE TABLE peeps (id SERIAL PRIMARY KEY, string VARCHAR(140), dateCreated TIMESTAMP);
-#         CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));"
-#         )
-#     end
-#   p 'Set up complete. "chitter" and "chitter_test" databases created'
-# end
-#
-# task :test_setup do
-#   DatabaseConnection.setup('chitter_test')
-#   DatabaseConnection.query("TRUNCATE peeps;
-#   TRUNCATE users;
-#   INSERT INTO peeps (string, dateCreated) VALUES ('Today was a good day', '#{Time.now}');
-#   INSERT INTO peeps (string, dateCreated) VALUES ('Very important statement', '#{Time.now}');")
-# end
+connection = PG.connect(dbname: 'chitter_test')
+
+
+connection.exec("TRUNCATE peeps;")
+
+#connection.exec("ALTER SEQUENCE links_id_seq RESTART WITH 1;")
+connection.exec("INSERT INTO peeps (time, text) VALUES('#{Time.now}', 'how are you people?');")
+connection.exec("INSERT INTO peeps (time, text) VALUES('#{Time.now}', 'bored at home');")
+
+task :setup do
+  p "Creating databases..."
+
+  connection = PG.connect
+  connection.exec("CREATE DATABASE chitter;")
+  connection.exec("CREATE DATABASE chitter_test;")
+
+  connection = PG.connect(dbname: 'chitter')
+  connection.exec("CREATE TABLE peeps(time VARCHAR(100), text VARCHAR(100));")
+
+  connection = PG.connect(dbname: 'chitter_test')
+  connection.exec("CREATE TABLE peeps(time VARCHAR(100), text VARCHAR(100));")
+
+end

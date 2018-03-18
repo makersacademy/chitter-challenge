@@ -1,8 +1,7 @@
-# require './lib/database_connection'
-#
-# # setting up a database connection:
-# if ENV['ENVIRONMENT'] == 'test'
-#   DatabaseConnection.setup('chitter_test')
-# else
-#   DatabaseConnection.setup('chitter')
-# end
+require './lib/database_connection'
+
+if ENV['ENVIRONMENT'] == 'test'
+  DatabaseConnection.setup('chitter_test')
+else
+  DatabaseConnection.setup('chitter')
+end

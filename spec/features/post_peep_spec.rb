@@ -7,11 +7,11 @@ feature 'Post a peep' do
     expect(page).to have_selector('textarea')
   end
 
-  # scenario 'the user can post a peep' do
-  #   visit('/')
-  #   fill_in('peep', with: "hi, what's up?")
-  #   #click_on 'Post peep'
-  #   expect(page).to have_content "hi, what's up?"
-  # end
+  scenario 'the user can write and post a peep' do
+     visit('/')
+     fill_in('text', with: "test_peep")
+     click_on 'Post peep'
+     expect(page).to have_content "test_peep"
+  end
 
 end

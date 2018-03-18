@@ -1,15 +1,20 @@
 require_relative 'database_connection'
-require 'pg'
+require 'uri'
 
 class Peep
-  def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+  attr_reader :time, :text
 
-    result = connection.exec("SELECT * FROM peeps")
-    result.map { |peep| peep['text'] }
+  def initialize(time, text)
+    @time = time
+    @text = text
+  end
+
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
+    result.map { |peep| Peep.new(peep['time'], peep['text']) }
+  end
+
+  def self.post_peep(text)
+    DatabaseConnection.query("INSERT INTO peeps (time, text) VALUES('#{Time.now}', '#{text}')")
   end
 end

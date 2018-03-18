@@ -38,3 +38,4 @@ Capybara
 Postgresql
 HTML
 CSS
+TablePlus
