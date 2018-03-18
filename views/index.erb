@@ -8,8 +8,11 @@
   <% if @user %>
     <h1> Welcome <%= @user.username %> </h1>
   <% else %>
-  <form action="/sign_up" method="get">
-    <input type="submit" value="Sign Up">
+  <form action="/sign_up_page" method="get">
+    <input type="submit" value="Sign up">
+  </form>
+  <form action="/sign_in_page" method="get">
+    <input type="submit" value="Sign in">
   </form>
   <%end%>
 

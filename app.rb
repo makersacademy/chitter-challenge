@@ -18,12 +18,22 @@ class Chitter < Sinatra::Base
     redirect to('/')
   end
 
-  get '/sign_up' do
+  get '/sign_up_page' do
     erb(:signup)
   end
 
   post '/save_user' do
     user = User.create(params[:username], params[:email], params[:password])
+    session[:user_id] = user.id
+    redirect to('/')
+  end
+
+  get '/sign_in_page' do
+    erb(:signin)
+  end
+
+  post '/sign_in' do
+    user = User.authenticate(params[:email], params[:password])
     session[:user_id] = user.id
     redirect to('/')
   end
