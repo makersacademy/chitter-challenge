@@ -8,10 +8,9 @@
     <title></title>
   </head>
   <style media="screen">
-    .b{ color: red }
+    .b{ color: red;}
       /* rgb(46,107,231); } */
   </style>
-
   <body>
     <div class="container">
       <div class="jumbotron jumbotron-fluid">
@@ -22,20 +21,38 @@
         </div>
       </div>
 
-      <form class="peep-box" action="/login" method="post">
-        <h1 class="h3 mb-3 font-weight-normal text-center">Please log in</h1>
-        <div class="form-group">
-        <input type="text" class="form-control" name="txt_username" id='txt_username' placeholder="Username" required>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Sign up to chat</h1>
+      <form class="peep-box text" action="/signup" method="post">
+        <div class="row">
+          <div class="form-group col-6">
+          <input type="text" class="form-control" name="txt_first_name" id='txt_first_name' placeholder="First Name" required>
+          </div>
+
+          <div class="form-group col-6">
+          <input type="text" class="form-control" name="txt_last_name" id='txt_last_name' placeholder="Last Name" required>
+          </div>
         </div>
 
-        <div class="form-group">
-        <input type="password" class="form-control" name="txt_pwd" id='txt_pwd' placeholder="Password" required>
+
+        <div class="row form-group col-12">
+        <input type="email" class="form-control" name="txt_email" id='txt_email' placeholder="email@example.com" required>
         </div>
+        <div class="row">
+          <div class="form-group col-6">
+          <input type="text" class="form-control" name="txt_username" id='txt_username' placeholder="Username" required>
+          </div>
+
+          <div class="form-group col-6">
+          <input type="password" class="form-control" name="txt_pwd" id='txt_pwd' placeholder="Password" required>
+          </div>
+        </div>
+
         <b style = "color: rgb(100,24,17)"><%= styled_flash %></b>
-        <a href="/signup"><span class= "float-right"></span><small>Sign up</small></a>
 
         <div class="form-group">
-          <button class=" btn btn-primary float-right" type="submit" id="btn_login" value='btn_login'>Login</button>
+          <button class=" btn btn-primary float-right" type="submit" id="btn_signup" value='btn_signup'>Sign up</button>
+          <span class= "float-left"><small>Already signed up? <a href="/"><strong>Log in</strong></a></small></span>
+
         </div>
 
       </form>

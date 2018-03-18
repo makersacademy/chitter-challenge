@@ -6,6 +6,13 @@ feature 'Login page has jumbotron' do
   end
 end
 
+feature 'Login page has main h1' do
+  scenario 'User visits login main page' do
+    visit('/')
+    expect(page).to have_content "Please log in"
+  end
+end
+
 feature 'Login page takes to /peeps after login' do
   scenario 'User visits login page and successfully logs in' do
     visit('/')

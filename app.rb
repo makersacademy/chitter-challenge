@@ -4,8 +4,6 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './database_connection_setup'
 
-
-
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
@@ -14,9 +12,25 @@ class Chitter < Sinatra::Base
     erb(:login)
   end
 
+  get '/signup' do
+    erb(:signup)
+  end
+
+  post '/signup' do
+    signed_up = User.add(params[:txt_username], params[:txt_pwd],
+      params[:txt_first_name], params[:txt_last_name], params[:txt_email])
+    if !signed_up
+      flash[:error] = 'Error signing up, username taken.'
+      redirect('/signup')
+    else
+      flash[:success] = 'Sign up successful, please sign in.'
+      redirect('/')
+    end
+  end
+
   post '/login' do
-    @logged_in = User.login(params[:txt_username], params[:txt_pwd])
-    !@logged_in ? flash[:error] = 'Invalid username or password' : redirect('/peeps')
+    logged_in = User.login(params[:txt_username], params[:txt_pwd])
+    !logged_in ? flash[:error] = 'Invalid username or password' : redirect('/peeps')
     redirect('/')
   end
 

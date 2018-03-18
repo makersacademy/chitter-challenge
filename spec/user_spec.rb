@@ -29,8 +29,8 @@ describe User do
       expect(User.login('rspec', 'rspec')).to eq('rspec') # proves that user was added to db
     end
 
-    it 'should raise error if user already exists' do
-      expect { User.add('rspec', 'rspec', 'RSpec', 'Rspec Surname', 'rspec@ruby.com') }.to raise_error("Username already taken")
+    it 'should return false if user already exists' do
+      expect(User.add('rspec', 'rspec', 'RSpec', 'Rspec Surname', 'rspec@ruby.com')).to eq(false)
     end
   end
 end
