@@ -6,4 +6,8 @@ class User
     @con = db_connect
   end
 
+  def self.sign_in(email, password)
+    @con.query("SELECT * FROM users WHERE email=#{email}")
+  end
+
 end
