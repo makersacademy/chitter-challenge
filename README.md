@@ -34,7 +34,7 @@ I want to sign up for Chitter
 
 ```
 ## Product:
-![alt text](http://bit.ly/2HFUgpt)
+![alt text](https://www.imageupload.co.uk/images/2018/03/18/ScreenShot2018-03-18at15.15.54.png)
 
 ## Instructions to use:
 Open terminal in your computer
