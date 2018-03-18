@@ -16,4 +16,12 @@ feature 'signing in' do
     click_on 'Sign In'
     expect(page).to have_content 'Email address not registered'
   end
+  scenario 'attempting sign in with the wrong password' do
+    visit '/'
+    click_on 'Existing User Sign In'
+    fill_in :email, with: 'prevreg@gmail.com'
+    fill_in :password, with: 'not pasword'
+    click_on 'Sign In'
+    expect(page).to have_content 'Incorrect password'
+  end
 end
