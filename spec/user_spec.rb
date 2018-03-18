@@ -62,4 +62,19 @@ describe User do
       expect{ User.sign_out }.to change{ User.current_user }.from(user).to(nil)
     end
   end
+
+  describe '#self.add' do
+    it 'messages the database to add a user' do
+      User.setup(mock_connection)
+      fullname = 'Gareth A Test'
+      username =  'Testy G'
+      email = 'test@gmail.com'
+      password = 'password'
+      expect(mock_connection).to receive(:query).\
+      with("INSERT INTO users (fullname, username, email, password) "\
+      "VALUES ('#{fullname}', '#{username}', '#{email}', '#{password}')")
+      User.add(fullname, username, email, password)
+    end
+  end
+
 end

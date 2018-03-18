@@ -51,8 +51,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/sign_out' do
-    
-
+    User.sign_out
+    redirect './chitter'
   end
 
   run! if app_file == $0

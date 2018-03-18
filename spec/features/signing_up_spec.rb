@@ -13,4 +13,10 @@ feature 'signing up' do
     click_on 'Post'
     expect(page).to have_content "Peeped by Erotic Dave"
   end
+  scenario 'the user signs up, signs out, then signs back in' do
+    sign_up_erotic_dave
+    click_on 'Sign Out'
+    sign_in_erotic_dave
+    expect(page).to have_content "Welcome, Erotic Dave!"
+  end
 end

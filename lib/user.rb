@@ -28,6 +28,11 @@ class User
     @current_user = nil
   end
 
+  def self.add(fullname, username, email, password)
+    @con.query("INSERT INTO users (fullname, username, email, password) "\
+    "VALUES ('#{fullname}', '#{username}', '#{email}', '#{password}')")
+  end
+
   private_class_method
 
   def self.log_user(rs)
