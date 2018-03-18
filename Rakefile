@@ -70,6 +70,31 @@ if ENV['RACK_ENV'] != 'production'
           p "peeps Table already exists in #{database}"
       end
 
+      p "Setting up test users"
+      connection.exec("INSERT INTO users (
+        email,
+        password,
+        realname,
+        username
+        )
+        VALUES (
+          'me@alfiedarko.co.uk',
+          'alfiepw123',
+          'alfie darko',
+          '@alfie'
+          )")
+
+      p "setting up test peep post"
+
+      connection.exec("INSERT INTO peeps (
+        author,
+        text
+        ) VALUES (
+          '@alfie',
+          'My first tweet!'
+          )"
+        )
+
     end
   end
 end
@@ -104,20 +129,26 @@ end
 
 task :test_environment do
   connection = PG.connect(dbname: "chitter")
-  # connection.exec("INSERT INTO users (
-  #   email,
-  #   username
-  #   )
-  #   VALUES (
-  #     'me@alfiedarko.co.uk',
-  #     '@alfie'
-  #     )")
+  connection.exec("INSERT INTO users (
+    email,
+    password,
+    realname,
+    username
+    )
+    VALUES (
+      'me@alfiedarko.co.uk',
+      'alfiepw123',
+      'alfie darko',
+      '@alfiedarko'
+      )")
   connection.exec("INSERT INTO peeps (
     author,
-    text
+    text,
+    realname,
+    username
     ) VALUES (
       '@alfie',
-      'My first tweet!'
+      'My first tweet!',
       )"
     )
 end

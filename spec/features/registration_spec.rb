@@ -7,7 +7,7 @@ feature 'registration' do
     fill_in('input_firstname', with: 'testy')
     fill_in('input_lastname', with: 'mctesty')
 
-    click_button('Submit')
+    click_button('Register')
 
     expect(page).to have_content "Welcome, test@example.com"
   end

@@ -43,13 +43,13 @@
 
         </ul>
 
-        <a class="nav-link form-inline" href="/signin">Login / Signup
+        <a class="nav-link form-inline" href="/signup">Sign up
         </a>
 
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <a class="nav-link form-inline" href="/sessions/new">
+          Login
+        </a>
+
       </div>
     </nav>
     <!-- NAVBAR ENDS HERE -->
@@ -77,17 +77,17 @@
             <h1 class="display-4">Register Now!</h1>
             <p class="lead">Kick the chit and send peeps to your friends and family by signing up below.</p>
             <hr class="my-4">
-            <form class="" action="index.html" method="post">
+            <form class="" action="/users" method="post">
 
               <div class="form-group">
                 <label for="input_email">Email address</label>
-                <input type="email" class="form-control" id="input_email" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="input_email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
               <div class="form-group">
                 <label for="input_password">Password</label>
-                <input type="password" class="form-control" id="input_password" placeholder="Password">
+                <input type="password" class="form-control" id="input_password" name="password" placeholder="Password">
               </div>
 
               <hr>
@@ -96,20 +96,20 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1">@</span>
                 </div>
-                <input type="text" id="input_username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" id="input_username" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
               </div>
 
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="">First and last name</span>
                 </div>
-                <input type="text" id="input_firstname" class="form-control">
-                <input type="text" id="input_lastname" class="form-control">
+                <input type="text" id="input_firstname" name="firstname" class="form-control">
+                <input type="text" id="input_lastname" name="lastname" class="form-control">
               </div>
 
               <hr>
 
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" id="submit_button" class="btn btn-primary">Register</button>
             </form>
           </div>
 

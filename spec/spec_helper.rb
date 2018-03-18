@@ -21,10 +21,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-
   config.before(:each) do
     Rake::Task['spec'].invoke
-
   end
 
   config.after(:suite) do

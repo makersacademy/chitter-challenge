@@ -14,9 +14,9 @@ describe Peep, '.post' do
   end
 
   it 'creates a post with a message and a different author' do
-    msg = "Buy our garbage! We got it for cheap"
+    msg = "Selling user data for cheap"
 
-    Peep.post(author: '@Amazon', text: msg)
+    Peep.post(author: '@alfie', text: msg)
 
     peeps = Timeline.all
     result = peeps.map(&:text)

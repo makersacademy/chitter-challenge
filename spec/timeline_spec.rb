@@ -11,8 +11,8 @@ end
 describe Timeline, '.user' do
   it "displays a specific users tweets" do
 
-    msg = "Buy our garbage! We got it for cheap"
-    result = Timeline.user('@Amazon')
+    msg = "My first tweet!"
+    result = Timeline.user('@alfie')
 
     peep = result.map(&:text)
     expect(peep).to include(msg)

@@ -1,4 +1,5 @@
 require './lib/database'
+require 'bcrypt'
 
 class User
   attr_reader :id, :email, :password, :realname, :username
@@ -17,10 +18,13 @@ class User
   end
 
   def self.create(options)
+    # encrypt the plantext password, options[:password]
+    password = BCrypt::Password.create(options[:password])
+
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password, realname, username) VALUES(
       '#{options[:email]}',
-      '#{options[:password]}',
+      '#{password}',
       '#{options[:realname]}',
       '#{options[:username]}'
     ) RETURNING id, email, password, realname, username;"
@@ -46,6 +50,21 @@ class User
       result[0]['realname'],
       result[0]['username']
     )
-
   end
+
+  def self.authenticate(email, password)
+
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+
+    User.new(
+      result[0]['id'],
+      result[0]['email'],
+      result[0]['password'],
+      result[0]['realname'],
+      result[0]['username']
+    )
+end
+
 end

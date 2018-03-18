@@ -21,17 +21,33 @@ class Chitter < Sinatra::Base
     erb :signup
   end
 
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
   post '/users' do
     # create the user and then...
     user = User.create(
-      email: params['input_email'],
-      password: params['input_password'],
-      realname: params['input_firstname'],
-      username: "@" + params['input_username']
+      email: params['email'],
+      password: params['password'],
+      realname: params['firstname'],
+      username: "@" + params['username']
     )
     session[:user_id] = user.id
 
-    redirect '/'
+    redirect :"sessions/new"
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params['email'], params['password'])
+
+    if user
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect('/sessions/new')
+    end
   end
 
   run! if app_file == $PROGRAM_NAME
