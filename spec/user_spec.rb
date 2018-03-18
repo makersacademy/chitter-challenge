@@ -52,4 +52,14 @@ describe User do
     end
   end
 
+  describe '#self.sign_out' do
+    it 'resets current user to nil on signout' do
+      User.setup(mock_connection)
+      email = 'test@gmail.com'
+      password = 'password'
+      User.sign_in(email, password)
+      user = User.current_user
+      expect{ User.sign_out }.to change{ User.current_user }.from(user).to(nil)
+    end
+  end
 end

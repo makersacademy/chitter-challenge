@@ -24,6 +24,10 @@ class User
     @current_user
   end
 
+  def self.sign_out
+    @current_user = nil
+  end
+
   private_class_method
 
   def self.log_user(rs)

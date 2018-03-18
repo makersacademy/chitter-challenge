@@ -50,6 +50,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/chitter/sign_out' do
+    
+
+  end
+
   run! if app_file == $0
 
 end
