@@ -1,24 +1,27 @@
 describe User do
 
   describe '#login' do
-    it 'expects to return false when wrong login details entered' do
-      expect(User.login('invalid_user_name', 'or_wrong_password')). to eq(false)
+    it 'expects to return 0 when wrong login details entered' do
+      expect(User.login('invalid_user_name', 'or_wrong_password')).to eq(0)
     end
 
-    it 'expects to return true when valid login details entered' do
-      expect(User.login('johndoe', 'johndoe')). to eq(true)
+    it 'expects to return >0 when valid login details entered' do
+      result = User.login('johndoe', 'johndoe')
+      expect(result).not_to be <= 0
+      expect(result).to be > 0
+
     end
   end
 
   describe '#delete' do
     it 'should not delete the user from db if wrong password given' do
       User.delete('rspec', 'wrong_password')
-      expect(User.login('rspec', 'rspec')).to eq(true) # proves that user was added to db
+      expect(User.login('rspec', 'rspec')).to be >0 # proves that user was added to db
     end
 
     it 'expects to delete user from user table' do
       User.delete('rspec', 'rspec')
-      expect(User.exists?('rspec')).to eq(false) # proves that user was added to db
+      expect(User.login('rspec','rspec')).to be(0) # proves that user was added to db
     end
 
   end
@@ -26,7 +29,7 @@ describe User do
   describe '#add' do
     it 'should add the user in users table' do
       User.add('rspec', 'rspec', 'RSpec', 'Rspec Surname', 'rspec@ruby.com')
-      expect(User.exists?('rspec')).to eq(true)
+      expect(User.login('rspec', 'rspec')).to be > 0
     end
 
     it 'should return false if username already exists' do

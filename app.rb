@@ -30,25 +30,31 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    redirect('/peeps') if User.login(params[:txt_username], params[:txt_pwd])
+    userid = User.login(params[:txt_username], params[:txt_pwd])
+    if userid > 0
+      session[:user] = params[:txt_username]
+      session[:user_id] = userid
+      redirect('/peeps')
+    end
     flash[:error] = 'Invalid username or password'
     redirect('/')
   end
 
   get '/peeps' do
+    @pb_visiblity = session[:user_id].nil? ? 'hidden' : 'visible'
     @peeps = Peep.show_all
     erb(:index)
   end
 
   post '/add' do
-    Peep.add(rand(5)+1, params[:tb_peep]) # TODO: get actual id after log in
+    Peep.add(session[:user_id], params[:tb_peep]) # TODO: get actual id after log in
     redirect('/peeps')
   end
   run! if app_file == $0
 end
 
-# TODO: tag
+# TODO: delete user's tweets if user is deleted
+# TODO: add a nav bar with options to log in, out and delete account
 # TODO: RESTful
-# TODO: nav bar to sign up, log in/out, delete users
-# TODO: get email on sign up
-# TODO: fet email on being tagged
+# TODO: tag users
+# TODO: email when tagged or sign up

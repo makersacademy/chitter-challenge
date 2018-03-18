@@ -8,6 +8,7 @@
   </head>
   <style>
     .red{ color: rgb(255,0,0) }
+    #peep_box { visibility: <%=@pb_visiblity%>;}
   </style>
   <body>
     <div class="container">
@@ -20,10 +21,8 @@
       </div>
 
       <div class="form-group">
-          <form class="peep-box" action="/add" method="post">
-            <!-- <input class="col-10" maxlength="80" type="email" class="form-control" name="tb_peep" value="" placeholder="Email here" required> -->
+          <form id="peep_box" class="peep-box" action="/add" method="post">
             <div class="form-row">
-                <!-- <input class="col-3" maxlength="30" type="text" class="form-control" name="tb_username" value="" placeholder="Username" required> -->
                 <input class="col-10" maxlength="80" type="text" class="form-control" name="tb_peep" id='tb_peep' placeholder="peep here...max 80 characters" required>
                 <button class=" col-2 btn btn-primary" type="submit" id="btn_peep" value='btn_peep'>Peep</button>
             </div>
@@ -32,12 +31,12 @@
 
         <ul class="list-unstyled list-group">
           <!-- peeps li start below -->
-          <% @peeps.reverse.each do |peep| %>
+          <% @peeps.each do |peep| %>
 
           <li class="list-group-item" data-toggle="collapse" data-target="#<%=peep.peep_id%>">
             <div class="name"><small><strong><%=peep.username%>:</strong></small></div>
             <div class="tweet ml-3"><%=peep.peep%></div>
-            <div class="timestamp collapse font-italic text-right" id="<%=peep.peep_id%>"><small>peeped on: <%=Time.parse(peep.date).strftime("%d/%m/%Y at %I:%M%p")%></small></div>
+            <div class="timestamp collapse font-italic text-right" id="<%=peep.peep_id%>"><small>peeped on: <%=peep.time%></small></div>
           </li>
           <%end%>
 
