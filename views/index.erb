@@ -5,12 +5,18 @@
     <title></title>
   </head>
   <body>
-
+  <% if @user %>
+    <h1> Welcome <%= @user.username %> </h1>
+  <% else %>
+  <form action="/sign_up" method="get">
+    <input type="submit" value="Sign Up">
+  </form>
+  <%end%>
 
     <div>
       <h1> Add a peep </h1>
 
-      <form action="/save" method="post">
+      <form action="/save_peep" method="post">
         <input type="text" name="Comment_box" placeholder="Peep" required>
         <input type="text" name="Username_box" placeholder="Username" required>
         <input type="submit" value="Submit">
