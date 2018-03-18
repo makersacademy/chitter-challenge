@@ -1,3 +1,5 @@
+require 'capybara/rspec'
+
 feature 'View peeps' do
   scenario 'User can see peeps' do
     visit '/'
@@ -12,7 +14,7 @@ feature 'Post peeps' do
     visit '/'
     fill_in :peep, with: 'A short message'
     click_button 'Post'
-  
+
     expect(page).to have_content "A short message"
   end
 end

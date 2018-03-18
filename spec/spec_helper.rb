@@ -1,8 +1,12 @@
 ENV['ENVIRONMENT'] = 'test'
 
+require 'rake'
+
+Rake.application.load_rakefile
+
 RSpec.configure do |config|
   config.before(:each) do
-    require_relative './test_database_setup'
+    Rake::Task['test_database_setup'].execute
   end
 end
 
@@ -18,7 +22,7 @@ Capybara.app = Chitter
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
-  SimpleCov::Formatter::HTMLFormatter
+  # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
