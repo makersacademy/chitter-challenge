@@ -6,10 +6,7 @@ end
 
 connection = PG.connect(dbname: 'chitter_test')
 
-
 connection.exec("TRUNCATE peeps;")
-
-#connection.exec("ALTER SEQUENCE links_id_seq RESTART WITH 1;")
 connection.exec("INSERT INTO peeps (time, text) VALUES('#{Time.now}', 'how are you people?');")
 connection.exec("INSERT INTO peeps (time, text) VALUES('#{Time.now}', 'bored at home');")
 
@@ -25,5 +22,5 @@ task :setup do
 
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec("CREATE TABLE peeps(time VARCHAR(100), text VARCHAR(100));")
-  
+
 end

@@ -34,7 +34,6 @@ class Chitter < Sinatra::Base
     Peep.post_peep(params['text'])
     redirect '/'
   end
-
-run! if app_file == $0
+  run! if app_file == $0
 
 end

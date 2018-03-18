@@ -23,6 +23,5 @@ describe Peep do
       expect(texts).to include('test_peep')
     end
 
-
   end
 end
