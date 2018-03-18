@@ -41,16 +41,21 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
 
-          <%= styled_flash %>
-
         </ul>
+        <% if @user %>
+          <a class="nav-link form-inline" href="/signup">Sign out
+          </a>
+        <% end %>
 
-        <a class="nav-link form-inline" href="/signup">Sign up
-        </a>
+        <% if @user.nil? %>
+          <a class="nav-link form-inline" href="/signup">Sign up
+          </a>
 
-        <a class="nav-link form-inline" href="/sessions/new">
-          Login
-        </a>
+          <a class="nav-link form-inline" href="/sessions/new">
+            Login
+          </a>
+
+        <% end %>
 
       </div>
     </nav>
@@ -63,6 +68,9 @@
       <div class="col-1"></div>
       <div class="col-3">
         profile here
+        <br>
+        <%= styled_flash %>
+
       </div>
 
       <div class="col-6">
