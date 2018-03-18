@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <div>
+      <h1> Add a peep </h1>
+
+      <form action="/save" method="post">
+        <input type="text" name="Comment_box" placeholder="Peep" required>
+        <input type="text" name="Username_box" placeholder="Username" required>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <h1> Peeps </h1>
+
+    <% @peeps.each do |peep| %>
+    <ul>
+      <li> <%= peep.username %> </li>
+      <li> <%= peep.peep %> </li>
+      <li> <%= peep.time %> </li>
+    </ul>
+    <% end %>
+
+
+  </body>
+</html>
