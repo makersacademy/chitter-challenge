@@ -1,0 +1,13 @@
+<%= flash[:notice] %>
+
+<form action="/add" method="post">
+  <textarea name="content" placeholder="Your peep"></textarea>
+  <input type="submit" value="Peep!">
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <p><%= peep.content %></p>
+  <p><%= peep.created_at.strftime('%R - %F') %></p>
+  <%end%>
+</ul>
