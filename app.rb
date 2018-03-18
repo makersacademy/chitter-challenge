@@ -5,10 +5,21 @@ require_relative './lib/account'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
+    erb :login
+  end
+
+  get '/login_portal' do
+    # Account.guest_login
+    redirect '/homepage'
+  end
+
+  get '/homepage' do
     @peeps_channel = Peep.channel
     erb :homepage, :locals => {
-      :new_peep_status => false
+      :new_peep_status => false,
     }
   end
 
@@ -22,17 +33,44 @@ class Chitter < Sinatra::Base
   post '/new_peep_update' do
     @peeps_channel = Peep.channel
     Peep.new_peep(params[:name], params[:username], params[:peep])
-    redirect '/'
+    redirect '/homepage'
   end
 
   get '/signup' do
-    @peeps_channel = Peep.channel
     erb :signup
   end
 
   post '/signup_submit' do
-    @peeps_channel = Peep.channel
     Account.new_account(params[:name], params[:username], params[:email], params[:password])
+    erb :signin, :locals => {
+      :invalid_login => false
+    }
   end
 
+  get '/signin_portal' do
+    erb :signin, :locals => {
+      :invalid_login => false
+    }
+  end
+
+  post '/signin' do
+    @peeps_channel = Peep.channel
+    if Account.load_account(params[:username], params[:password])
+      erb :homepage, :locals => {
+        :new_peep_status => false
+      }
+    else
+      erb :signin, :locals => {
+        :invalid_login => true
+      }
+    end
+  end
 end
+
+
+# post "/monstas" do
+#   @name = params["name"]
+#   store_name("names.txt", @name)
+#   session[:message] = "Successfully stored the name #{@name}."
+#   redirect "/monstas?name=#{@name}"
+# end

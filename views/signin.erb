@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Chitter Sign-Up</title>
+    <title>Chitter Sign-In</title>
     <style>
           * {box-sizing: border-box}
 
@@ -73,33 +73,33 @@
       }
       }
     </style>
+
   </head>
   <body>
-
     <h1>CHITTER</h1>
     <hr>
     <br>
     <br>
-    <form action="/signup_submit"  method="post" style="border:1px solid #ccc">
+    <%if invalid_login%>
+      <p>Errrr...not quite right! Try again...</p>
+      <br>
+      <br>
+      <br>
+    <%end%>
+    <form action="/signin" method="post" style="border:1px solid #ccc">
       <div class="container">
-        <h1>Sign Up</h1>
-        <p>Get in with the Chitter Chat. Get Chitter!</p>
+        <h1>Sign In</h1>
+        <p>You know what to do...</p>
         <hr>
 
-        <label for="name"><b>Name</b></label>
-        <input type="text" placeholder="Enter Name" name="name" required>
-
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
-
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <label for="name"><b>Username</b></label>
+        <input type="text" placeholder="Username" name="username" required>
 
         <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
+        <input type="password" placeholder="Password" name="password" required>
 
         <div class="clearfix">
-          <button type="submit" class="signupbtn">Sign Up</button>
+          <button type="submit" class="signinbtn">Sign In</button>
         </div>
       </div>
     </form>

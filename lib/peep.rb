@@ -1,8 +1,6 @@
 require 'pg'
 require_relative './chitter_connection'
 
-
-
 class Peep
 
   attr_reader :id, :time, :name, :username, :peep

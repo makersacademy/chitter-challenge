@@ -1,6 +1,6 @@
 feature 'Homepage' do
   scenario 'Displays the peep channel' do
-    visit('/')
+    visit('/homepage')
     expect(page).to have_content 'My first peep!'
     expect(page).to have_content '@ddregalo'
     expect(page).to have_content 'Daniel Campos'
