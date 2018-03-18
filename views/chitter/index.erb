@@ -11,9 +11,18 @@
     }
     li {
       border: 1px solid black;
-      background-color: grey;
+      background-color: LightGray;
+      border-color: LightGray;
       text-align: center;
+
     }
+
+    #byline {
+      padding-right: 10px;
+      font-size: 80%;
+      float: right
+    }
+
   </style>
   <body>
     <h2><%=@welcome_msg%></h2>
@@ -27,13 +36,14 @@
       </label>
       <button type='submit'>Post</button>
     </form>
+    <hr>
     <ul style="list-style-type:none">
       <%@peeps.each do |peep|%>
       <li id="<%=peep.id%>">
         <p>
           <%=peep.text%><br>
-          <i>Peeped by <%=peep.author%> <%=peep.readable_time%></i>
-        </p>
+          </p>
+          <i id='byline'>Peeped by <%=peep.author%> <%=peep.readable_time%></i>
       </li>
       <br>
       <%end%>
