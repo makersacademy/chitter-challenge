@@ -8,5 +8,10 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/post-a-peep' do
+    Peeps.post(params[:peep])
+    redirect '/'
+  end
+
   run! if app_file == $0
 end

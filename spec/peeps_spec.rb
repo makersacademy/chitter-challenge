@@ -10,4 +10,11 @@ describe 'Peeps' do
       expect(peeps).to include("Free as a bird.")
     end
   end
+
+  describe '.post' do
+    it 'posts a new peep' do
+      Peeps.post("A short message")      
+      expect(Peeps.all).to include("A short message")
+    end
+  end
 end
