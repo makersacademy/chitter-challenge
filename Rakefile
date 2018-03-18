@@ -16,5 +16,11 @@ if ENV['RACK_ENV'] == 'testing'
     DB_Connection.query("INSERT INTO summons (phoenix, summoner, timestamp) VALUES ('OMG Final Fantasy is the best!', 'julesnuggy', '2018-03-17 17:00:00+00');")
     DB_Connection.query("INSERT INTO summons (phoenix, summoner, timestamp) VALUES ('I completely agree.', 'zantetsuken', '2018-03-17 17:06:20+00');")
     DB_Connection.query("INSERT INTO summons (phoenix, summoner, timestamp) VALUES ('You guys sound like awesome people!', 'renzokuken', '2018-03-17 17:30:09+00');")
+
+    DB_Connection.query('DELETE FROM summoners')
+    DB_Connection.query('ALTER SEQUENCE summoners_user_id_seq RESTART WITH 1')
+    DB_Connection.query("INSERT INTO summoners (username, email, password) VALUES ('leestewart', 'leestewart@gmail.com', 'leeisamazing');")
+    DB_Connection.query("INSERT INTO summoners (username, email, password) VALUES ('zantetsuken', 'zan@gmail.com', 'zanisamazing');")
+    DB_Connection.query("INSERT INTO summoners (username, email, password) VALUES ('renzokuken', 'ren@gmail.com', 'renisamazing');")
   end
 end

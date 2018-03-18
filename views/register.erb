@@ -1,0 +1,61 @@
+<head>
+  <link rel="stylesheet" href="/phoenix/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Krona+One|Lobster|Quicksand|Nunito|Dosis" rel="stylesheet">
+  <script src="/phoenix/script.js"></script>
+</head>
+
+<html>
+  <body>
+
+    <% flash.keys.each do |type| %>
+      <div id="flash_alert" class="alert-box flash <%= type %> alert-dismissable">
+        <%= flash[type] %>
+        <a href="#" onclick="show_hide_el('flash_alert')" class="close">&times;</a>
+      </div>
+    <% end %>
+
+    <div id="banner_div">
+      <h1 id="logo_text" class="adjust">Phoenix</h1>
+    </div>
+
+    <div id="main_div">
+
+          <div id="summon_div" class="form_div">
+            <div class="v-container">
+
+              <div class="sub_box left_text">
+                <h2>Register to become a Summoner!</h2>
+              </div>
+
+              <form action="/phoenix/register/submit" method="post">
+                <div class="sub_box left_text">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" id="summoner_username" maxlength="20">
+                </div>
+                <div class="sub_box left_text">
+                  <label for="email">Email</label>
+                  <input type="text" name="email" id="summoner_email">
+                </div>
+                <div class="sub_box left_text">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" id="summoner_password" maxlength="30">
+                </div>
+                <div class="sub_box left_text">
+                  <label for="pw_confirm">Reconfirm Password</label>
+                  <input type="password" name="pw_confirm" id="summoner_pw_confirm" maxlength="30">
+                </div>
+                <div class="sub_box">
+                  <div class="h-container">
+                    <input type="submit" name="reg_button" id="cancel_reg" value="Cancel" formnovalidate>
+                    <input type="submit" name="reg_button" id="submit_reg" value="Submit">
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </body>
+</html>

@@ -26,7 +26,7 @@ describe PhoenixController do
         click_on 'reraise_cancel'
         expect(page).to have_content "You summoned a new Phoenix!"
       end
-      
+
       scenario 'and submit' do
         click_on 'reraise_4'
         fill_in 'reraise_text', with: 'This is a phoenix that has been re-raised'
@@ -50,4 +50,38 @@ describe PhoenixController do
     end
 
   end
+
+  feature 'User Registration' do
+
+    describe 'create a new account' do
+      it 'and successfully submit by entering correct details' do
+        find_by_id('register_summoner').click
+        fill_in 'summoner_username', with: 'braska'
+        fill_in 'summoner_email', with: 'braska@gmail.com'
+        fill_in 'summoner_password', with: 'braskaisamazing'
+        fill_in 'summoner_pw_confirm', with: 'braskaisamazing'
+        click_on 'Submit'
+        expect(page).to have_content "A new summoner is born"
+      end
+
+      it 'displays an error message when the passwords don\'t match' do
+        find_by_id('register_summoner').click
+        fill_in 'summoner_username', with: 'braska'
+        fill_in 'summoner_email', with: 'braska@gmail.com'
+        fill_in 'summoner_password', with: 'braskaisamazing'
+        fill_in 'summoner_pw_confirm', with: 'braskaisgreat'
+        click_on 'Submit'
+        expect(page).to have_content "Your passwords do not match!"
+      end
+
+      it 'returns to the home screen when you cancel' do
+        find_by_id('register_summoner').click
+        click_on 'Cancel'
+        expect(page).to have_content "Summoner registration cancelled."
+      end
+
+    end
+
+  end
+
 end

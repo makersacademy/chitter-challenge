@@ -1,11 +1,22 @@
 <head>
   <link rel="stylesheet" href="/phoenix/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Krona+One|Lobster|Quicksand|Nunito|Dosis" rel="stylesheet">
+  <script src="/phoenix/script.js"></script>
 </head>
 
 <html>
   <body>
 
+    <% flash.keys.each do |type| %>
+      <div id="flash_alert" class="alert-box flash <%= type %> alert-dismissable">
+        <%= flash[type] %>
+        <a href="#" onclick="show_hide_el('flash_alert')" class="close">&times;</a>
+      </div>
+    <% end %>
+
+    <form action='/phoenix/register' class="sticky">
+      <input type='submit' id="register_summoner" value="Register">
+    </form>
     <div id="banner_div">
       <h1 id="logo_text">Phoenix</h1>
     </div>

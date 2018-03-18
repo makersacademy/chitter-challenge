@@ -7,6 +7,7 @@ h1#logo_text {
   font-family: 'Lobster', sans-serif;
   font-size: 60px;
   text-align: center;
+  margin-left: 120px;
 }
 
 div#summon_div {
@@ -43,7 +44,18 @@ form#reraise, #dismiss {
   display: inline-block;
   margin: 0px;
   padding: 0px;
+}
 
+input#summoner_username, #summoner_email, #summoner_password, #summoner_pw_confirm {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
 }
 
 img[name=my_pic] {
@@ -106,6 +118,129 @@ p[name=details] {
   text-align: left;
   position: relative;
   bottom: 13px;
+}
+
+.form_div {
+  height: 520px !important;
+}
+
+.left_text {
+  text-align: left;
+}
+
+.sticky {
+  position: sticky !important;
+  top: 10px;
+  float: right;
+
+}
+
+input[id=register_summoner] {
+  width: 120px;
+  background-color: #f02f53;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  position: sticky !important;
+  top: 10px;
+  float: right;
+}
+
+input[id=register_summoner]:hover {
+  background-color: #ff664f;
+}
+
+input[id=submit_reg] {
+  width: 50%;
+  background-color: #274744;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0px 0px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input[id=submit_reg]:hover {
+  background-color: #4bb091;
+}
+
+input[id=cancel_reg] {
+  width: 50%;
+  background-color: #601313;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 8px 0px 0px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input[id="cancel_reg"]:hover {
+  background-color: #ba2424;
+}
+
+.adjust {
+  margin: auto !important;
+  margin-bottom: 40.2px !important;
+}
+
+.alert-box {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  display: block;
+  font-family: Dosis, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 18px;
+  padding: 12px 21px;
+  position: relative;
+  transition: opacity 300ms ease-out;
+  background-color: #008CBA;
+  border-color: #0078a0;
+  color: #FFFFFF;
+}
+
+.alert-box.success {
+  background-color: #43AC6A;
+  border-color: #3a945b;
+  color: #FFFFFF;
+}
+
+.alert-box.warning, .alert-box.warning_confirm {
+  background-color: #f04124;
+  border-color: #de2d0f;
+  color: #FFFFFF;
+}
+
+.alert-box.info {
+  background-color: #a0d3e8;
+  border-color: #74bfdd;
+  color: #4f4f4f;
+}
+
+.close {
+  font-size: 30px;
+  text-align: right;
+  position: absolute !important;
+  left: 97%;
+  top: 0px;
+}
+
+a:link {
+    text-decoration: none;
 }
 
 .colors {
