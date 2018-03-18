@@ -18,9 +18,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(username: params['username'], email: params['email'], password: params['password'])
-    session[:id] = user.id
-    redirect '/users/feed'
+    email = User.exists?('email', params['email'])
+    username = User.exists?('username', params['username'])
+    if email
+      flash[:notice] = 'There is already an account with that email.'
+      redirect '/users/new'
+    elsif username
+      flash[:notice] = 'That username is already taken.'
+      redirect '/users/new'
+    else
+      user = User.create(username: params['username'], email: params['email'], password: params['password'])
+      session[:id] = user.id
+      redirect '/users/feed'
+    end
   end
 
   get '/users/feed' do

@@ -32,4 +32,10 @@ class User
     return unless BCrypt::Password.new(result[0]['password']) == password
     User.new(result[0]['id'], result[0]['username'], result[0]['email'], result[0]['password'])
   end
+
+  def self.exists?(column, value)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE #{column} = '#{value}'")
+    result.any?
+  end
+
 end
