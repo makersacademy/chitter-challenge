@@ -17,6 +17,7 @@ class PhoenixController < Sinatra::Base
   end
 
   get '/phoenix' do
+    @summoner = "julesnuggy" #Summoner.find(session[:user_id]).username
     @phoenix = Phoenix.all
     erb(:index)
   end
@@ -61,6 +62,7 @@ class PhoenixController < Sinatra::Base
         redirect '/phoenix/register'
       elsif session[:password] == session[:pw_confirm]
         @summoner = Summoner.create(session[:username], session[:email], session[:password])
+        session[:user_id] = @summoner.user_id
         flash[:success] = "A new summoner is born! Welcome, #{params[:username]}!"
         redirect '/phoenix'
       end

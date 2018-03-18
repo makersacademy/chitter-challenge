@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'sinatra-flash'
 gem 'pg'
 gem 'envyable'
+gem 'bcrypt'
 
 group :test do
   gem 'rake'
