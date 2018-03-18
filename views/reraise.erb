@@ -1,0 +1,45 @@
+<head>
+  <link rel="stylesheet" href="/phoenix/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Krona+One|Lobster|Quicksand|Nunito|Dosis" rel="stylesheet">
+</head>
+
+<html>
+  <body>
+
+    <div id="banner_div">
+      <h1 id="logo_text">Phoenix</h1>
+    </div>
+
+    <div id="main_div">
+
+          <div id="summon_div">
+            <div id="container">
+
+              <div id="user_div">
+                <img id="my_pic" name="my_pic" src="https://image.ibb.co/i2KFXx/Phoenix_ffd.png">
+                <br/>
+                <p name="details">Post #<%= @fenix.id %></p>
+                <p name="details"><%= @fenix.summoner %></p>
+              </div>
+
+              <div id="entry_div">
+                <form action="/phoenix/reraise/confirm" method="post">
+                  <textarea name="reraise_text" id="reraise_phoenix" rows="5" cols="88" maxlength="240" required><%= @fenix.phoenix %></textarea>
+                  <br/>
+                  <div class="h-container">
+                    <div class="sub_box">
+                      <input type="hidden" name="reraise_id" value="<%= @fenix.id %>">
+                      <input type="submit" name="reraise_confirm" id="reraise_cancel" value="Cancel">
+                      <input type="submit" name="reraise_confirm" id="reraise_confirm" value="Confirm">
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </body>
+</html>

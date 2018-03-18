@@ -39,6 +39,13 @@ div#entry_div {
   border-radius: 5px;
 }
 
+form#reraise, #dismiss {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+
+}
+
 img[name=my_pic] {
   width: 70%;
   height: 70%;
@@ -70,6 +77,11 @@ p[name=details] {
   font-size: 10px;
   margin: 0px 0px 0px 5px;
   padding: 0px;
+  display: inline-block;
+}
+
+.h-container{
+  display: flex;
 }
 
 .v-container{
@@ -86,6 +98,14 @@ p[name=details] {
   width:100%;
   flex-grow: 1;
   text-align: right;
+}
+
+.sub_box_top {
+  width:100%;
+  flex-grow: 1;
+  text-align: left;
+  position: relative;
+  bottom: 13px;
 }
 
 .colors {

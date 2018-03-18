@@ -3,7 +3,6 @@ require_relative '../../app.rb'
 describe PhoenixController do
 
   before do
-    p DB_Connection.dbname
     visit '/phoenix'
   end
 
@@ -21,33 +20,33 @@ describe PhoenixController do
       expect(page).to have_content "You guys sound like awesome people"
     end
 
-    scenario 'UPDATE a Phoenix' do
-      scenario 'and submit' do
-        click_on 'reraise_phoenix_5'
-        fill_in 'reraise_phoenix', with: 'This is a phoenix that has been re-raised'
-        click_on 'submit_reraise'
-        expect(page).to have_content 'This is a phoenix that has been re-raised'
-      end
-
+    context 'UPDATE a Phoenix' do
       scenario 'but cancel' do
-        click_on 'reraise_phoenix_5'
-        click_on 'cancel_reraise'
+        click_on 'reraise_4'
+        click_on 'reraise_cancel'
         expect(page).to have_content "You summoned a new Phoenix!"
+      end
+      
+      scenario 'and submit' do
+        click_on 'reraise_4'
+        fill_in 'reraise_text', with: 'This is a phoenix that has been re-raised'
+        click_on 'reraise_confirm'
+        expect(page).to have_content 'This is a phoenix that has been re-raised'
       end
     end
 
-    scenario 'DELETE a Phoenix' do
+    context 'DELETE a Phoenix' do
       scenario 'and confirm' do
-        click_on 'dismiss_phoenix_5'
-        click_on 'confirm_dismiss'
+        click_on 'dismiss_4'
+        #click_on 'confirm_dismiss'
         expect(page).not_to have_content 'This is a Phoenix that has been re-raised'
       end
 
-      scenario 'but cancel' do
-        click_on 'dismiss_phoenix_5'
-        click_on 'cancel_dismiss'
-        expect(page).to have_content 'This is a Phoenix that has been re-raised'
-      end
+      #scenario 'but cancel' do
+        #click_on 'dismiss_phoenix_5'
+        #click_on 'cancel_dismiss'
+        #expect(page).to have_content 'This is a Phoenix that has been re-raised'
+      #end
     end
 
   end

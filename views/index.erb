@@ -43,7 +43,21 @@
                   <p name="phoenix"><%=  fenix.phoenix %></p>
                 </div>
                 <div class="sub_box">
-                  <p name="details"><%= fenix.timestamp %></p>
+                  <div class="h-container">
+                    <div class="sub_box_top">
+                      <form id="reraise" action="/phoenix/reraise">
+                        <input type="hidden" name="reraise_id" value="<%= fenix.id %>">
+                        <input type="submit" id="reraise_<%= fenix.id %>" value="Reraise">
+                      </form>
+                      <form id="dismiss" class="display_inline_block" action="/phoenix/dismiss"  method="post">
+                        <input type="hidden" name="dismiss_id" value="<%= fenix.id %>">
+                        <input type="submit" name="dismiss" id="dismiss_<%= fenix.id %>" value="Dismiss">
+                      </form>
+                    </div>
+                    <div class="sub_box">
+                      <p name="details"><%= fenix.timestamp %></p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
