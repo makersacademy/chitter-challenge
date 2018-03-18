@@ -1,10 +1,6 @@
 feature 'signing in' do
   scenario 'a previously registered user signs in' do
-    visit '/'
-    click_on 'Existing User Sign In'
-    fill_in :email, with: 'prevreg@gmail.com'
-    fill_in :password, with: 'password'
-    click_on 'Sign In'
+    sign_in_registered
     expect(page).to have_content "Welcome, Previously Registered!"
     expect(page).not_to have_content "Welcome, anonymous!"
   end
@@ -23,5 +19,10 @@ feature 'signing in' do
     fill_in :password, with: 'not pasword'
     click_on 'Sign In'
     expect(page).to have_content 'Incorrect password'
+  end
+  scenario 'signing out' do
+    sign_in_registered
+    click_on 'Sign Out'
+    expect(page).to have_content "Welcome, anonymous!"
   end
 end

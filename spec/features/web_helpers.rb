@@ -11,3 +11,11 @@ def sign_up_erotic_dave
   fill_in :password, with: password
   click_on 'Register New User'
 end
+
+def sign_in_registered
+  visit '/'
+  click_on 'Existing User Sign In'
+  fill_in :email, with: 'prevreg@gmail.com'
+  fill_in :password, with: 'password'
+  click_on 'Sign In'
+end

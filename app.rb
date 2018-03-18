@@ -10,11 +10,12 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    session[:username] = 'anonymous'
     redirect '/chitter'
   end
 
   get '/chitter' do
+    session[:username] = User.current_user ? User.current_user.username : 'anonymous'
+    @sign_out_enabled = User.current_user
     @welcome_msg = "Welcome, #{session[:username]}!"
     @peeps = Peep.all
     erb :'chitter/index'
@@ -39,9 +40,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/apply_sign_in' do
-    msg = User.sign_in(params['email'], params['password'])
-    if msg
-      flash[:notice] = msg
+    fail_msg = User.sign_in(params['email'], params['password'])
+    if fail_msg
+      flash[:notice] = fail_msg
       redirect '/chitter/sign_in'
     else
       session[:username] = User.current_user.username

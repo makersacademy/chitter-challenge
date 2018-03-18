@@ -25,13 +25,19 @@
 
   </style>
   <body>
-    <h2><%=@welcome_msg%></h2>
+    <h2 style='text-align:center;background-color: LightGray;
+    border-color: LightGray;'><%=@welcome_msg%></h2>
     <form action='/chitter/sign_up' method='get'>
       <button type='submit'>New User Sign Up</button>
     </form>
     <form action='/chitter/sign_in' method='get'>
       <button type='submit'>Existing User Sign In</button>
     </form>
+    <%if @sign_out_enabled%>
+    <form action='/chitter/sign_out' method='post'>
+      <button type='submit'>Sign Out</button>
+    </form>
+    <%end%>
     <form action='/chitter/add_peep' method='post'>
       <label for='new_peep_text'>
         New peep:
