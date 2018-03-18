@@ -1,0 +1,271 @@
+@import url(https://fonts.googleapis.com/css?family=Mr+Dafoe);
+@import url(https://fonts.googleapis.com/css?family=Monoton);
+
+.center {
+     position: absolute;
+     margin: auto;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     width: 200px;
+     height: 100px;
+}
+
+p {
+color: white;
+text-align: center;
+}
+
+.inputpeep {
+height: 300px;
+width: 300px;
+}
+
+
+.text {
+color: white;
+text-align: center;
+}
+.email {
+color: white;
+text-align: left;
+}
+.dt {
+color: white;
+text-align: right;
+}
+
+.center3 {
+width: 300px;
+margin: 0 auto;
+}
+
+
+.center2 {
+width: 80px;
+margin: 0 auto;
+}
+
+.peepbox {
+border: pink 1px solid;
+margin-bottom: 5px;
+width: 600px;
+margin-left: auto;
+margin-right: auto;
+}
+
+audio {
+   display:none;
+}
+
+body {
+background-color: black;
+}
+
+.flash {
+color: red;
+font-family:courier;
+}
+
+input[type="text"]{
+   font-size:20px;
+ }
+input[type="password"]{
+   font-size:20px;
+ }
+ button[type=submit] {
+    width: 8em;  height: 4em;
+    margin-right: 30px;
+}
+
+.bottom {
+margin-bottom: 20px;
+}
+
+.inline {
+  display: inline-block;
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.future-cop {
+  position: absolute;
+     margin: auto;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+  width: 1100px;
+}
+
+.future {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'Mr Dafoe', cursive;
+  font-size: 200px;
+  margin-top: 160px;
+  margin-bottom: 0;
+  color: #EB219B;
+  -webkit-text-fill-color: rgba(253, 90, 250, 1);
+  text-shadow: -2px -2px 0 #FFBAF2;
+  -webkit-filter: drop-shadow(3px 3px 1px #441F62);
+  -webkit-transform: skew(-5deg,-5deg);
+  font-weight: normal;
+  z-index: 2;
+  margin-left: 60px;
+  padding-left: 50px;
+  padding-right: 70px;
+}
+
+.cop {
+  position: relative;
+  font-family: 'Monoton', cursive;
+  font-size: 200px;
+  line-height: 1;
+  margin: 0;
+  margin-top: 300px;
+  padding-left: 80px;
+  /* font-weight: normal; */
+  background-image: -webkit-linear-gradient(#022486 0%, #0AD0FD 30%, #BDFCFC 40%, #D8FFFF 44%, #00081C 44%, #00081C 50%, #074A67 52%, #1CD8FE 60%, #7FEDFE 62%, #96F5FC 70%, #0FD8FA 73%, #0BD2FD 88%, #AFFDFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #fff;
+}
+
+.mac .cop {
+  font-weight: 400;
+}
+
+.cop:before {
+  position: absolute;
+  content: '';
+  left: 51px;
+  top: 74px;
+  width: 80px;
+  height: 3px;
+  background-image: -webkit-radial-gradient(#fff 0%, transparent 85%);
+  z-index: 4;
+  -webkit-animation-name: cop_before_effect;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.cop:after {
+  position: absolute;
+  content: '';
+  left: 90px;
+  top: 32px;
+  width: 3px;
+  height: 80px;
+  background-image: -webkit-radial-gradient(#fff 0%, transparent 85%);
+  z-index: 4;
+  -webkit-animation-name: cop_after_effect;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes chrome_effect {
+  0% {background-position:-680px 0;}
+  10% {background-position:420px 0;}
+  100% {background-position:420px 0;}
+}
+
+@-webkit-keyframes cop_before_effect {
+  0% {
+    left: 51px;
+    top: 74px;
+    opacity: 0;}
+
+  15% {
+    left: 51px;
+    top: 74px;
+    opacity: 1;}
+
+  30% {
+    left: 51px;
+    top: 74px;
+    opacity: 0;}
+
+  35% {
+    left: 370px;
+    top: 45px;
+    opacity: 0;}
+
+  50% {
+    left: 370px;
+    top: 45px;
+    opacity: 1;}
+
+  65% {
+    left: 370px;
+    top: 45px;
+    opacity: 0;}
+
+  70% {
+    left: 564px;
+    top: 74px;
+    opacity: 0;}
+
+  85% {
+    left: 564px;
+    top: 74px;
+    opacity: 1;}
+
+  100% {
+    left: 564px;
+    top: 74px;
+    opacity: 0;}
+}
+
+@-webkit-keyframes cop_after_effect {
+  0% {
+    left: 90px;
+    top: 32px;
+    opacity: 0;}
+
+  15% {
+    left: 90px;
+    top: 32px;
+    opacity: 1;}
+
+  30% {
+    left: 90px;
+    top: 32px;
+    opacity: 0;}
+
+  35% {
+    left: 413px;
+    top: 11px;
+    opacity: 0;}
+
+  50% {
+    left: 413px;
+    top: 11px;
+    opacity: 1;}
+
+  65% {
+    left: 413px;
+    top: 11px;
+    opacity: 0;}
+
+  70% {
+    left: 603px;
+    top: 32px;
+    opacity: 0;}
+
+  85% {
+    left: 603px;
+    top: 32px;
+    opacity: 1;}
+
+  100% {
+    left: 603px;
+    top: 32px;
+    opacity: 0;}
+}

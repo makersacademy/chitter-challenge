@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Chitter</title>
+  </head>
+<body>
+    <div class="future-cop">
+    <h3 class="future">Welcome to..</h3>
+    <h1 class="cop">Chitter</h1>
+  </div>
+  <div class="center">
+  <form>
+    <div class="bottom">
+    <input type="text" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
+    </div>
+    <div class="inline">
+    <button type="submit" formmethod="post" formaction="/chitter/signup">Sign up</button>
+    <button type="submit" formmethod="post" formaction="/chitter/content">Login</button>
+    </div>
+    <div class="flash"> <%= styled_flash %> </div>
+  </form>
+  </div>
+  <audio autoplay="true" src="/retro.mp3">
+</body>
+</html>

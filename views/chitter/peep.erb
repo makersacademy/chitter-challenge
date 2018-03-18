@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Chitter</title>
+  </head>
+<body>
+
+  <p><%= "What would #{@email} you like to say?" %> </p>
+
+<form class="center3">
+  <input class= "inputpeep" type="text" name="peep">
+  <button type="submit" formmethod="post" formaction="/chitter/<%=@email%>/submit">Submit Peep</button>
+</form>
+</body>
+</html>

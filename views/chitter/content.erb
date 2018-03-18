@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Chitter</title>
+  </head>
+<body>
+
+<p> You are logged in as <%= "#{@email}" %> </p>
+<div class="center2">
+<form>
+<button type="submit" formmethod="post" formaction="/chitter/<%=@email%>/logout">Log out</button>
+<form>
+
+<form>
+<button type="submit" formmethod="get" formaction="/chitter/<%=@email%>/peep">Write Peep</button>
+<form>
+</div>
+
+<ul>
+<% @peeps.reverse.each do |peep| %>
+  <div class="peepbox">
+  <p class="email"><%= peep.email %> <p>
+  <p class="text"><%= peep.text %> <p>
+  <p class="dt"><%= peep.dt %> <p>
+  </div>
+<% end %>
+</ul>
+
+</body>
+</html>
