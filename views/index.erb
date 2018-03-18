@@ -5,7 +5,8 @@
     <title></title>
   </head>
     <style>
-      h1  {color: black; font-family: sans-serif;; font-size: 40px}
+
+      h1  {color: black; font-family: sans-serif; font-size: 50px; text-align: center;}
 
       p.round1 {
         border: 2px solid blue;
@@ -16,22 +17,32 @@
         padding-left: 8vh;
       }
 
-      #example1 {
+      #border {
       box-sizing: content-box;
       width: 300px;
-      padding: 5vh;
+      padding: 3vh;
       border: 2px solid blue;
       border-radius: 5px;
       word-wrap: break-word;
       }
     </style>
   <body>
-    <h1>WELCOME TO CHITTER</h1>
+    <h1>CHITTER</h1>
+    <% if @user %>
+      <h2>Hello <%=@user.user_name%>, Welcome to Chitter!</h2>
+    <% end %>
+    <form action="/users/new_user" method="get">
+      <input type="submit" value="Sign Up">
+    </form>
+    <br>
     <%@peeps.reverse.each do |peep|%>
-        <div id="example1">
+        <div id="border">
           <%=peep.message%>
           <br>
-          <h7><%=peep.time%></h7>
+          <br>
+          <font size="1" color="grey">Peep Time: <%=peep.time%>
+          <br>
+          Author: <%=peep.author%></font>
         </div>
       <br>
     <%end%>
@@ -39,6 +50,7 @@
       <label for="message">
         <input type="text" name="message">
         <input type="hidden" name="time" value="<%= Time.now.to_s.split.first(2).join(" ") %>">
+        <input type="hidden" name="author" value="<%= @user.nil? ? 'anon' : @user.user_name %>">
       </label>
       <input type="submit" value="Peep">
     </form>
