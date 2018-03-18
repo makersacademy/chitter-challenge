@@ -43,7 +43,7 @@ bundle install
 rake setup
 rake test_environment
 ```
-In order to test it run ```rspec```
+In order to test it run ```rspec```.
 
 To run the programme in ```localhost:``` run ```rerun app.rb``` in your terminal
 
