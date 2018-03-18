@@ -6,11 +6,14 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <style>
+    .red{ color: rgb(255,0,0) }
+  </style>
   <body>
     <div class="container">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-2 fa fa-comments"></h1>
+          <h1 class="display-2 fa fa-comments red"></h1>
           <h2 class="display-4">ChitterBox</h2>
           <p class="lead">Responsive chat app using using bootstrap, sinatra and Postgres for DB.</p>
         </div>
@@ -32,15 +35,14 @@
           <% @peeps.reverse.each do |peep| %>
 
           <li class="list-group-item" data-toggle="collapse" data-target="#<%=peep.peep_id%>">
-            <div class="name"><small><strong><%=peep.user_id%></strong></small></div>
-            <div class="tweet"><%=peep.peep%></div>
-            <div class="timestamp collapse font-italic text-right" id="<%=peep.peep_id%>"><small>peeped on: <%=Time.parse(peep.time).strftime("%d/%m/%Y at %I:%M%p")%></small></div>
+            <div class="name"><small><strong><%=peep.username%>:</strong></small></div>
+            <div class="tweet ml-3"><%=peep.peep%></div>
+            <div class="timestamp collapse font-italic text-right" id="<%=peep.peep_id%>"><small>peeped on: <%=Time.parse(peep.date).strftime("%d/%m/%Y at %I:%M%p")%></small></div>
           </li>
           <%end%>
 
           <!-- peeps li ends here -->
         </ul>
-
 
     </div>
 

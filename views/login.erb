@@ -7,16 +7,16 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <style media="screen">
-    .b{ color: red }
-      /* rgb(46,107,231); } */
+  <style>
+    .red{ color: rgb(255,0,0) }
   </style>
 
   <body>
+
     <div class="container">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-2 fa fa-comments b"></h1>
+          <h1 class="display-2 fa fa-comments red"></h1>
           <h2 class="display-4">ChitterBox</h2>
           <p class="lead">Responsive chat app using using bootstrap, sinatra and Postgres for DB.</p>
         </div>
@@ -32,7 +32,7 @@
         <input type="password" class="form-control" name="txt_pwd" id='txt_pwd' placeholder="Password" required>
         </div>
         <b style = "color: rgb(100,24,17)"><%= styled_flash %></b>
-        <a href="/signup"><span class= "float-right"></span><small>Sign up</small></a>
+        <span class= "float-left"></span><small>Don't have an account? <strong><a href="/signup">Sign up</a></strong></small>
 
         <div class="form-group">
           <button class=" btn btn-primary float-right" type="submit" id="btn_login" value='btn_login'>Login</button>

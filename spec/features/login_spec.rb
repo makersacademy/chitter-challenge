@@ -25,11 +25,13 @@ feature 'Login page takes to /peeps after login' do
 end
 
 feature 'Login gets error message at login' do
-  scenario 'User gets error message for inputing bad login details' do
+  scenario 'User gets error message for inputing wrong login details' do
     visit('/')
     fill_in('txt_username', with: 'wrong_user_name')
     fill_in('txt_pwd', with: 'or_wrong_password')
     click_on('btn_login')
     expect(page).to have_content("Invalid username or password")
+    expect(page).not_to have_field("tb_peep")
+    expect(page).not_to have_button("btn_peep")
   end
 end

@@ -3,22 +3,30 @@ require 'date'
 require './lib/database_connection'
 
 class Peep
-  attr_reader :peep_id, :user_id, :peep, :time
-  def initialize(peep_id, user_id, peep, time)
+  attr_reader :peep_id, :peep, :date, :username
+  def initialize(peep_id, peep, date, username)
     @peep_id = peep_id
-    @user_id = user_id
+    # @user_id = user_id
     @peep = peep
-    @time = time
+    @date = date
+    @username = username
   end
 
   def self.show_all
-    # DatabaseConnection.connect('chitter')
-    peeps = DatabaseConnection.query('SELECT * FROM peeps;')
-    peeps.map { |p| Peep.new(p['id'], p['user_id'], p['peep'], p['date']) }
+    peeps = DatabaseConnection.query("SELECT peeps.id, peeps.peep, peeps.date,
+      users.username FROM peeps INNER JOIN users ON peeps.user_id=users.id;")
+    peeps.map { |p| Peep.new(p['id'], p['peep'], p['date'], p['username']) }
   end
 
   def self.add(user_id, peep)
-    # DatabaseConnection.connect('chitter')
-    DatabaseConnection.query("insert into peeps (user_id, peep) values(#{user_id},'#{peep}');")
+    DatabaseConnection.query("insert into peeps (user_id, peep)
+    values(#{user_id},'#{peep}');")
   end
 end
+
+
+# TODO: delete user's tweets if user is deleted
+# TODO: add a nav bar with options to log in, out and delete account
+# TODO: RESTful
+# TODO: tag users
+# TODO: email when tagged or sign up

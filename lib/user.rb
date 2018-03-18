@@ -10,12 +10,12 @@ class User
   def self.login(username, password)
     result = DatabaseConnection.query("SELECT username FROM users WHERE
       username = '#{username}' AND password = '#{password}'")
-    result.first.nil? ? false : result.first['username']
+    result.any?
   end
 
   def self.add(username, password, first_name, last_name, email)
 
-    return false if exists?(username)
+    return false if exists?(username, nil, email)
     DatabaseConnection.query("INSERT INTO users (
       username, password, first_name, last_name, email) VALUES ('#{username}',
       '#{password}', '#{first_name}', '#{last_name}', '#{email}');")
@@ -23,20 +23,22 @@ class User
   end
 
   def self.delete(username, password)
-    DatabaseConnection.query("DELETE FROM users WHERE username = '#{username}' and password = '#{password}'")
-    # DatabaseConnection.query("DELETE FROM peeps WHERE user_id =#{user_id}")
+    # TODO: delete user and it's peeps if user exist
+    if exists?(username, password)
+      # DatabaseConnection.query("DELETE FROM peeps WHERE user_id =#{user_id}")
+      DatabaseConnection.query("DELETE FROM users WHERE username = '#{username}'")
+    end
   end
 
-  private
-
-  def self.exists?(username)
-    result = DatabaseConnection.query("SELECT username FROM users WHERE
-      username = '#{username}';")
-    result.first.nil? ? false : true
+  def self.exists?(username, password = nil, email = nil)
+    query = ''
+    if (password.nil? && email.nil?) # used to check if username is taken
+      query = "SELECT username FROM users WHERE username = '#{username}';"
+    elsif password.nil? # used to check if email has an account
+      query = "SELECT username FROM users WHERE email = '#{email}';"
+    else # used for deletion
+      query = "SELECT username FROM users WHERE username = '#{username}' AND password = '#{password}';"
+    end
+    DatabaseConnection.query(query).any?
   end
 end
-
-# def correct_login?
-#   user_id = DatabaseConnection.query("SELECT id from users WHERE username = '#{username}'")
-#   puts "user id is: #{user_id.first}"
-# end

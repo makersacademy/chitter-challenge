@@ -2,7 +2,8 @@ require_relative './lib/peep'
 require_relative './lib/user'
 require 'sinatra/base'
 require 'sinatra/flash'
-require './database_connection_setup'
+require './lib/database_connection_setup'
+require './lib/mail.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -20,7 +21,7 @@ class Chitter < Sinatra::Base
     signed_up = User.add(params[:txt_username], params[:txt_pwd],
       params[:txt_first_name], params[:txt_last_name], params[:txt_email])
     if !signed_up
-      flash[:error] = 'Error signing up, username taken.'
+      flash[:error] = 'Error signing up, username taken or email already registered.'
       redirect('/signup')
     else
       flash[:success] = 'Sign up successful, please sign in.'
@@ -29,8 +30,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    logged_in = User.login(params[:txt_username], params[:txt_pwd])
-    !logged_in ? flash[:error] = 'Invalid username or password' : redirect('/peeps')
+    redirect('/peeps') if User.login(params[:txt_username], params[:txt_pwd])
+    flash[:error] = 'Invalid username or password'
     redirect('/')
   end
 
@@ -40,8 +41,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/add' do
-    Peep.add(1, params[:tb_peep])
+    Peep.add(rand(5)+1, params[:tb_peep]) # TODO: get actual id after log in
     redirect('/peeps')
   end
   run! if app_file == $0
 end
+
+# TODO: tag
+# TODO: RESTful
+# TODO: nav bar to sign up, log in/out, delete users
+# TODO: get email on sign up
+# TODO: fet email on being tagged
