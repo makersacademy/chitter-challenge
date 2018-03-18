@@ -22,6 +22,11 @@ class Peep
     values(#{user_id},'#{peep}', '#{Time.now}');")
   end
 
+  def self.delete_peeps(user_id)
+    # TODO: finish this
+    DatabaseConnection.query("DELETE FROM peeps WHERE user_id =#{user_id}")
+  end
+
   private_class_method
 
   def self.fetch_records
@@ -35,11 +40,6 @@ class Peep
 
   def self.make_array(peeps)
     peeps.map { |p| Peep.new(p['id'], p['peep'], fix_time(p['date']), p['username']) }
-  end
-
-  def self.delete_peeps(user_id)
-    # TODO:
-    DatabaseConnection.query("DELETE FROM peeps WHERE user_id =#{user_id}")
   end
 
 end

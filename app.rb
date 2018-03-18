@@ -42,6 +42,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @pb_visiblity = session[:user_id].nil? ? 'hidden' : 'visible'
+    @username = session[:user]
     @peeps = Peep.show_all
     erb(:index)
   end

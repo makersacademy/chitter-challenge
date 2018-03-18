@@ -21,7 +21,7 @@
           <p class="lead">Responsive chat app using using bootstrap, sinatra and Postgres for DB.</p>
         </div>
       </div>
-
+        <span class= "col-6 float-right text-right"><a href="/peeps"><small>Continue without sign up</a></small></span>
       <form class="peep-box" action="/login" method="post">
         <h1 class="h3 mb-3 font-weight-normal text-center">Please log in</h1>
         <div class="form-group">
@@ -33,7 +33,6 @@
         </div>
         <b style = "color: rgb(100,24,17)"><%= styled_flash %></b>
         <span class= "float-left"></span><small>Don't have an account? <strong><a href="/signup">Sign up</a></strong></small>
-
         <div class="form-group">
           <button class=" btn btn-primary float-right" type="submit" id="btn_login" value='btn_login'>Login</button>
         </div>

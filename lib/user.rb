@@ -1,11 +1,4 @@
 class User
-  # def initialize(id, username, first_name, last_name, email)
-  #   # @id = id
-  #   # @username = username
-  #   # @first_name = first_name
-  #   # @last_name = last_name
-  #   # @email = email
-  # end
 
   def self.login(username, password)
     result = DatabaseConnection.query("SELECT username, id FROM users WHERE
@@ -21,10 +14,10 @@ class User
     true
   end
 
-  def self.delete(username, password)
+  def self.delete(user_id, username, password)
     # TODO: delete user and it's peeps if user exist
     if exists?(username, password)
-      # Peep.delete_peeps(username)
+      # Peep.delete_peeps(user_id)
       DatabaseConnection.query("DELETE FROM users WHERE username = '#{username}'")
     end
   end

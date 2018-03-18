@@ -15,12 +15,12 @@ describe User do
 
   describe '#delete' do
     it 'should not delete the user from db if wrong password given' do
-      User.delete('rspec', 'wrong_password')
-      expect(User.login('rspec', 'rspec')).to be >0 # proves that user was added to db
+      User.delete(7, 'rspec', 'wrong_password')
+      expect(User.login('rspec', 'rspec')).to be > 0 # proves that user was added to db
     end
 
     it 'expects to delete user from user table' do
-      User.delete('rspec', 'rspec')
+      User.delete(7, 'rspec', 'rspec')
       expect(User.login('rspec','rspec')).to be(0) # proves that user was added to db
     end
 
