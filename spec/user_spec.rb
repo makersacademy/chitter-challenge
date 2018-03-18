@@ -21,7 +21,18 @@ end
 end
   describe '#find' do
     it 'finds a user by ID' do
-      @user = User.create(username: 'Tester', email: 'test@example.com', password: 'password123')
-      expect(User.find(@user.id).email).to eq @user.email
+      # this rspec did not work after refactoring tests to truncate before eahc one, this will cause it to add to db
+      user = User.create(username: 'Tester', email: 'test@example.com', password: 'password123')
+      expect(User.find(user.id).email).to eq user.email
+    end
+  describe '#authenticate' do
+    it 'returns a user given a correct username and password, if one exists' do
+      user = User.create(username: 'Tester', email: 'test@example.com', password: 'password123')
+      authenticated_user = User.authenticate('test@example.com', 'password123')
+      expect(authenticated_user.id).to eq user.id
+    end
+    it 'returns nil given an incorrect email address' do
+     expect(User.authenticate('nottherightemail@me.com', 'password123')).to be_nil
     end
   end
+end

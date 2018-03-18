@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <style>
+     .content {
+      max-width: 500px;
+      margin: auto;
+  }
+      * {
+        font-family: sans-serif;
+        color: green;
+      }
+      </style>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <h1><font face="verdana" color="green">Welcome <%= @user.username %>!</font></h1>
+    <h1>Welcome <%= @user.username %>!</h1>
   </body>
 </html>

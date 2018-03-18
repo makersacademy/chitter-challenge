@@ -3,6 +3,10 @@
 <html>
   <head>
     <style>
+    .content {
+    max-width: 500px;
+    margin: auto;
+}
     * {
       font-family: sans-serif;
       color: green;
@@ -12,6 +16,8 @@
     <title></title>
   </head>
   <body>
+    <div class="content">
+      <h3>Register<h3>
     <form action="/users" method="post">
       <label for="username">Username</label>
       <input type="text" name="username"><br />
@@ -20,6 +26,7 @@
       <label for="password">Password</label>
       <input type="password" name="password" /><br />
       <input type="submit" value="Submit" />
+    </div>
     </form>
   </body>
 </html>

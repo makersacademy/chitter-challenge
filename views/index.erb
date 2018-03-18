@@ -2,19 +2,26 @@
 <html>
   <head>
     <style>
+    .content {
+    max-width: 500px;
+    margin: auto;
+}
     button {
   background-color: green;
   color: white;
-  font-weight: bold;
 }
 </style>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+    <div class="content">
     <h1><font face="verdana" color="green">Welcome to Chitter!</font></h1>
     <form action="/users/new" method="get">
       <button type="submit" value="register">Register</button>
+    </form>
+    <form action="/sessions/new" method="get">
+      <button type="submit" value="sign in">Sign In</button>
     </form>
   </body>
 </html>
