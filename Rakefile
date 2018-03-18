@@ -19,19 +19,6 @@ end
 task :test_database_setup do
   p "Cleaning database..."
 
-  ['chitter_test'].each do |database|
-    connection = PG.connect
-    connection.exec("CREATE DATABASE #{ database };")
-    connection = PG.connect(dbname: database)
-    connection.exec("CREATE TABLE users(email VARCHAR(60) PRIMARY KEY,
-                    password_hash VARCHAR(300));")
-    connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, 
-                    email VARCHAR(60),
-                    FOREIGN KEY (email) REFERENCES users(email),
-                    text VARCHAR(300),
-                    dt timestamp default (now()));")
-  end
-
   connection = PG.connect(dbname: 'chitter_test')
 
   # Clear the database
