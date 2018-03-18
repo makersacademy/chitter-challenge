@@ -1,4 +1,4 @@
-require_relative './DB_connection_setup.rb'
+require_relative './db_connection_setup.rb'
 
 class Peep
   attr_reader :ts, :txt
@@ -9,7 +9,7 @@ class Peep
   end
 
   def self.all
-    result = DBconnection.query("SELECT * FROM peeps")
+    result = DBconnection.query("SELECT * FROM peeps ORDER BY ts DESC")
     result.map { |peep| Peep.new(peep['ts'], peep['txt']) }
   end
 

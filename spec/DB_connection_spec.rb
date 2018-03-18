@@ -1,4 +1,4 @@
-require 'DB_connection'
+require 'db_connection'
 
 RSpec.describe DBconnection do
   describe '.setup' do

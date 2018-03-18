@@ -2,12 +2,12 @@ require 'pg'
 
 class DBconnection
 
-  def self.setup(dbname)
-    @con = PG.connect(dbname: dbname)
+  class << self
+    attr_reader :con
   end
 
-  def self.con
-    @con
+  def self.setup(dbname)
+    @con = PG.connect(dbname: dbname)
   end
 
   def self.query(sql)
