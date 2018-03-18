@@ -3,7 +3,7 @@ ENV['ENVIRONMENT'] = 'test'
 require 'rake'
 
 Rake.application.load_rakefile
-
+Rake::Task['setup'].execute
 Rake::Task['setup_table'].execute
 
 RSpec.configure do |config|
