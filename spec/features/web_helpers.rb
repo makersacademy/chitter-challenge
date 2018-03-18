@@ -15,6 +15,8 @@ end
 def sign_in_erotic_dave
   visit '/'
   click_on 'Existing User Sign In'
+  email = 'dave@googlemail.com'
+  password = 'password'
   fill_in :email, with: email
   fill_in :password, with: password
   click_on 'Sign In'

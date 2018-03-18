@@ -31,7 +31,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/apply_sign_up' do
-    session[:username] = params[:username]
+    User.add(params[:fullname], params[:username], params[:email]\
+      , params[:password])
+    User.sign_in(params['email'], params['password'])
     redirect '/chitter'
   end
 
