@@ -2,7 +2,7 @@ require_relative './database_connection_setup'
 
 class Peep
   attr_reader :message, :time, :author
-  def initialize(message, time, author = "anon")
+  def initialize(message, time, author = "anon.")
     @message = message
     @time = time
     @author = author

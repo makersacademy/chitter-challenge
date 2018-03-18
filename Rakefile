@@ -34,7 +34,7 @@ end
 
 task :teardown do
   p "Tearing down databases..."\
-  " type 'y' to confirm that you want to destroy the Bookmark Manager databases."\
+  " type 'y' to confirm that you want to destroy the Chitter databases."\
   " This will remove all data in those databases!"
 
   confirm = STDIN.gets.chomp

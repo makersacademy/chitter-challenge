@@ -31,8 +31,28 @@
     <% if @user %>
       <h2>Hello <%=@user.user_name%>, Welcome to Chitter!</h2>
     <% end %>
-    <form action="/users/new_user" method="get">
-      <input type="submit" value="Sign Up">
+    <% if @user.nil? %>
+      <form action="/users/new_user" method="get">
+        <input type="submit" value="Sign Up">
+      </form>
+      <br>
+      <form action="/sessions/new" method="get">
+        <input type="submit" value="Sign In">
+      </form>
+    <% end %>
+    <% if @user %>
+      <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out" />
+      </form>
+    <% end %>
+    <br>
+    <form action="/new_message" method="post">
+      <label for="message">
+        <input type="text" name="message">
+        <input type="hidden" name="time" value="<%= Time.now.to_s.split.first(2).join(" ") %>">
+        <input type="hidden" name="author" value="<%= @user.nil? ? 'anon' : @user.user_name %>">
+      </label>
+      <input type="submit" value="Peep">
     </form>
     <br>
     <%@peeps.reverse.each do |peep|%>
@@ -46,13 +66,5 @@
         </div>
       <br>
     <%end%>
-    <form action="/new_message" method="post">
-      <label for="message">
-        <input type="text" name="message">
-        <input type="hidden" name="time" value="<%= Time.now.to_s.split.first(2).join(" ") %>">
-        <input type="hidden" name="author" value="<%= @user.nil? ? 'anon' : @user.user_name %>">
-      </label>
-      <input type="submit" value="Peep">
-    </form>
   </body>
 </html>

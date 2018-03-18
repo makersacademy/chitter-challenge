@@ -1,4 +1,5 @@
 require_relative './database_connection_setup'
+require 'bcrypt'
 
 class User
   attr_reader :id, :email, :user_name, :name, :password
@@ -17,7 +18,8 @@ class User
   end
 
   def self.create(options)
-    result = DatabaseConnection.query("INSERT INTO users (email, user_name, name, password) VALUES('#{options[:email]}', '#{options[:user_name]}', '#{options[:name]}', '#{options[:password]}') RETURNING id, email, user_name, name, password;")
+    password = BCrypt::Password.create(options[:password])
+    result = DatabaseConnection.query("INSERT INTO users (email, user_name, name, password) VALUES('#{options[:email]}', '#{options[:user_name]}', '#{options[:name]}', '#{password}') RETURNING id, email, user_name, name;")
     User.new(result[0]['id'], result[0]['email'], result[0]['user_name'], result[0]['name'], result[0]['password'])
   end
 
@@ -25,5 +27,10 @@ class User
     return nil unless id
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
     User.new(result[0]['id'], result[0]['email'], result[0]['user_name'], result[0]['name'], result[0]['password'])
+  end
+
+  def self.authenticate(email, password)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    user = User.new(result[0]['id'], result[0]['email'], result[0]['user_name'], result[0]['name'], result[0]['password'])
   end
 end
