@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+     .content {
+      max-width: 500px;
+      margin: auto;
+  }
+      * {
+        font-family: sans-serif;
+        color: green;
+        font-size:x-large;
+      }
+    h1 {      font-size: 200%;     }
+      button {
+    background-color: green;
+    color: white;
+  }
+  table, th, td {
+    border: 1px;
+}
+      </style>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="content">
+    <form action="/sessions/destroy" method="post">
+      <button type="submit" value="sign out">Sign Out</button>
+    </form>
+    <h1>Welcome <%= @user.username %>!</h1>
+    <form action="/users/<%= @user.id %>/comments" method="post">
+     <textarea name="text">
+     </textarea>
+     <button type="submit" value="peep">Peep</button>
+     <table style="width:100%" border="2">
+       <tr>
+         <th><h1>Chitter Feed<h1><th>
+      </tr>
+        <% @comments.each do |comment| %>
+        <tr>
+          <td>
+          <%= User.find(comment.link_id).name %> (<%= User.find(comment.link_id).username %>) says...<br />
+          <strong><%= comment.text %></strong><br />
+          <i><%= comment.time %><i>
+            <br /><br />
+        </td>
+        </tr>
+        <% end %>
+     </table>
+     <%= @comment_composer %>
+ </form>
+</div>
+  </body>
+</html>

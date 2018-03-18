@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    .content {
+    max-width: 500px;
+    margin: auto;
+}
+    * {
+      font-family: sans-serif;
+      color: green;
+      font-size:x-large;
+    }
+    </style>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="content">
+      <%= styled_flash %>
+      <h3>Please sign in<h3>
+      <form action="/sessions" method="post">
+        <label for="email">Email</label>
+        <input type="email" name="email" /><br />
+        <label for="password">Password</label>
+        <input type="password" name="password" /><br />
+        <input type="submit" value="Sign In" />
+    </div>
+  </body>
+</html>

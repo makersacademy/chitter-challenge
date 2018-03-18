@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    .content {
+    max-width: 500px;
+    margin: auto;
+}
+h1 {      font-size: 200%;     }
+* {
+  font-family: sans-serif;
+  color: green;
+  font-size:x-large;
+}
+    button {
+  background-color: green;
+  color: white;
+}
+</style>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="content">
+      <p style="font-size: 150%;">
+       <h1>Welcome to Chitter!</h1>
+      </p>
+    <form action="/users/new" method="get">
+      <button type="submit" value="register">Register</button>
+    </form>
+    <form action="/sessions/new" method="get">
+      <button type="submit" value="sign in">Sign In</button>
+      <%= styled_flash %>
+    </form>
+  </div>
+  </body>
+</html>
