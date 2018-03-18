@@ -43,8 +43,7 @@ describe User do
       User.sign_in(email, password)
       expect(User.current_user).to be_an_instance_of(described_class)
     end
-    it 'allows a user with the right credentials to sign in, '\
-    'returning a user object' do
+    it 'returns an error when the user does not provide the correct password' do
       User.setup(mock_connection)
       email = 'test@gmail.com'
       password = 'wrong'
