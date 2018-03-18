@@ -59,7 +59,7 @@ describe User do
       password = 'password'
       User.sign_in(email, password)
       user = User.current_user
-      expect{ User.sign_out }.to change{ User.current_user }.from(user).to(nil)
+      expect { User.sign_out }.to change { User.current_user }.from(user).to(nil)
     end
   end
 
@@ -67,7 +67,7 @@ describe User do
     it 'messages the database to add a user' do
       User.setup(mock_connection)
       fullname = 'Gareth A Test'
-      username =  'Testy G'
+      username = 'Testy G'
       email = 'test@gmail.com'
       password = 'password'
       expect(mock_connection).to receive(:query).\

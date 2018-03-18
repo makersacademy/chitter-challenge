@@ -14,7 +14,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    session[:username] = User.current_user ? User.current_user.username : 'anonymous'
+    session[:username] = User.current_user ? \
+     User.current_user.username : 'anonymous'
     @sign_out_enabled = User.current_user
     @welcome_msg = "Welcome, #{session[:username]}!"
     @peeps = Peep.all
