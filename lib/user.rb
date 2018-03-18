@@ -1,7 +1,7 @@
 require './lib/database'
 
 class User
-  attr_reader :id, :email, :password
+  attr_reader :id, :email, :password, :realname, :username
 
   def initialize(id, email, password, realname, username)
     @id = id
@@ -33,5 +33,19 @@ class User
       result[0]['realname'],
       result[0]['username']
     )
+  end
+
+  def self.find(id)
+
+    return nil unless id
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+    User.new(
+      result[0]['id'],
+      result[0]['email'],
+      result[0]['password'],
+      result[0]['realname'],
+      result[0]['username']
+    )
+
   end
 end

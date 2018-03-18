@@ -7,7 +7,31 @@ if ENV['RACK_ENV'] != 'production'
   RSpec::Core::RakeTask.new :spec
 
   task :default do
-    %w[chitter].each do |database|
+
+    %w[chitter chitter_test].each do |database|
+      p 'dropping data!'
+      connection = PG.connect(dbname: database)
+
+      begin
+        connection.exec("DROP TABLE users CASCADE")
+        p "dropped users"
+        connection.exec("DROP TABLE peeps CASCADE")
+
+        p "dropped peeps table from #{database}"
+        rescue StandardError
+          p "Couldnt remove peeps table from #{database}#{StandardError}"
+      end
+
+      begin
+        connection.exec("DROP DATABASE #{database};")
+        p "dropped #{database} database!"
+
+      rescue StandardError
+        p "couldnt drop #{database}"
+      end
+    end
+
+    %w[chitter chitter_test].each do |database|
       begin
         connection = PG.connect
         connection.exec("CREATE DATABASE #{database};")
@@ -75,6 +99,7 @@ task :teardown do
       p "couldnt drop #{database}"
     end
   end
+
 end
 
 task :test_environment do
