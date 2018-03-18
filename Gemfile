@@ -14,6 +14,8 @@ gem 'sinatra-flash'
 gem 'pony'
 gem 'argon2'
 gem 'rubocop'
+gem 'simplecov'
+gem 'simplecov-console'
 
 group :test do
   gem 'rspec'
