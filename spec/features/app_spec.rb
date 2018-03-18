@@ -3,6 +3,7 @@ require_relative '../../app.rb'
 describe PhoenixController do
 
   before do
+    p DB_Connection.dbname
     visit '/phoenix'
   end
 
@@ -15,11 +16,9 @@ describe PhoenixController do
     end
 
     scenario 'READ a Phoenix' do
-      expect(page).to have_content "Phoenix"
-      expect(page).to have_content "Welcome to Phoenix!"
-      expect(page).to have_content "To add a new Phoenix, type somthing in the text box and click 'Summon'"
-      expect(page).to have_content "To edit a Phoenix, click 'Reraise' at the relevant Phoenix"
-      expect(page).to have_content "To delete a Phoenix, click 'Dismiss' at the relevant Phoenix"
+      expect(page).to have_content "OMG Final Fantasy is the best!"
+      expect(page).to have_content "I completely agree."
+      expect(page).to have_content "You guys sound like awesome people"
     end
 
     scenario 'UPDATE a Phoenix' do

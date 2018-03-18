@@ -1,7 +1,8 @@
 require './lib/phoenix.rb'
 require 'sinatra'
 require 'sinatra/base'
-
+require 'envyable'
+Envyable.load('config/env.yml')
 
 
 class PhoenixController < Sinatra::Base

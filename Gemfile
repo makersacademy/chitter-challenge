@@ -7,8 +7,10 @@ gem 'rubocop'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'pg'
+gem 'envyable'
 
 group :test do
+  gem 'rake'
   gem 'capybara'
   gem 'rspec'
   gem 'simplecov', require: false

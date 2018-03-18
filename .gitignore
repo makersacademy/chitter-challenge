@@ -1,2 +1,5 @@
 /**/.DS_Store
 /coverage
+
+# Don't check in credentials
+config/env.yml
