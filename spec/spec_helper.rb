@@ -4,6 +4,8 @@ require 'rake'
 
 Rake.application.load_rakefile
 
+Rake::Task['setup_table'].execute
+
 RSpec.configure do |config|
   config.before(:each) do
     Rake::Task['test_database_setup'].execute
