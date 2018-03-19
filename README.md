@@ -54,6 +54,11 @@ To sign back in with an existing account, navigate to the sign-in page by clicki
 
 The provided Rakefile has tasks that automate database administration. To wipe all data from existing databases, use ***rake hard_reset*** at a terminal prompt in the root folder of the app,  followed again by ***rake full_setup***.
 
+**Known Issues**
+================
+
+Chitter cannot currently handle the escape character **" ' "** as part of a peep. This character is currently removed on peep submission. Sorry!
+
 **Running Test Suite**
 ======================
 
