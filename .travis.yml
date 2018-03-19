@@ -1,7 +1,7 @@
 rvm: '2.5.0'
 
 script:
-  - bundle exec rake setup_db
+  - bundle exec rake setup
   - mkdir -p spec && bundle exec rspec spec
 
 before_install:
