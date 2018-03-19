@@ -23,4 +23,14 @@ if ENV['RACK_ENV'] == 'testing'
     DB_Connection.query("INSERT INTO summoners (username, email, password) VALUES ('zantetsuken', 'zan@gmail.com', 'zanisamazing');")
     DB_Connection.query("INSERT INTO summoners (username, email, password) VALUES ('renzokuken', 'ren@gmail.com', 'renisamazing');")
   end
+
+  task :db_setup do
+    p "Creating databases..."
+    ['phoenix', 'phoenix_test'].each { |dbname|
+      PG.connect.exec("CREATE DATABASE #{dbname};")
+      Db_Connection.setup(dbname)
+      Db_Connection.query("CREATE TABLE summons (id SERIAL PRIMARY KEY, phoenix VARCHAR(240), summoner VARCHAR(20), timestamp VARCHAR);")
+      Db_Connection.query("CREATE TABLE summoners (user_id SERIAL PRIMARY KEY, username VARCHAR(30), email VARCHAR, password VARCHAR(140));")
+    }
+  end
 end

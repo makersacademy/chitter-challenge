@@ -49,7 +49,8 @@ Phoenix is a blog-like application where users are able to post messages (called
 `views/reraise.erb` displays the post editing page, consisting of a single text box containing the original post text.
 
 # Pre-Requisites
-To be able to run the program and tests, ensure the following are listed in your Gemfile:
+To be able to run the program and tests:
+1) ensure the following are listed in your Gemfile:
 ```Ruby
 source 'https://rubygems.org'
 
@@ -57,17 +58,22 @@ ruby '2.5.0'
 
 gem 'rake'
 gem 'rubocop'
+gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'pg'
+gem 'postgresql'
 gem 'envyable'
 gem 'bcrypt'
 
 group :test do
   gem 'rake'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
 ```
+
+2) In your REPL (IRB, Pry, etc.), run `Rake::Task['db_setup'].invoke` to setup the databases on your local machine.
