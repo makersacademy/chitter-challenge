@@ -1,13 +1,20 @@
-<h2> Chitter </h2>
+<!DOCTYPE html>
+<html>
+<body>
 
-<% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
-<% end %>
+  <% if @user %>
+    <h1>Welcome, <%= @user.email %></h1>
+  <% end %>
 
-<ul><% @peep.each do |peep| %>
-  <li><%= peep.message %> <%= peep.time %></li>
-<% end %>
-</ul>
-<p><a href="/add-a-new-peep">New peep</a> </p>
+  <ul><% @peep.each do |peep| %>
+    <li><%= peep.message %> <%= peep.time %></li>
+  <% end %>
+  </ul>
+  <p><a href="/add-a-new-peep">New peep</a> </p>
 
-<a href="/users/new">Sign up</a>
+  <p><a href="/users/new">Sign up</a> </p>
+
+  <a href="/sessions/new">Sign in</a>
+
+</body>
+</html>
