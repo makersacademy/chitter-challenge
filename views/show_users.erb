@@ -1,0 +1,5 @@
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.name %> ===== <%= user.username %>  =====  "<%= user.email %>"</li>
+  <% end %>
+</ul>

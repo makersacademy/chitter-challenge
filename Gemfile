@@ -4,6 +4,11 @@ ruby '2.5.0'
 
 gem 'rake'
 gem 'rubocop'
+gem 'sinatra'
+gem 'pg'
+gem 'sinatra-flash'
+gem 'capybara'
+gem 'orderly'
 
 group :test do
   gem 'rspec'
