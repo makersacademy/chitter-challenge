@@ -27,13 +27,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/add-a-new-peep' do
-    time = DateTime.now
+    time = DateTime.now.to_s
     Peep.create(params['message'], time)
     redirect('/')
   end
 
   get '/sessions/new' do
-    "hello"
     erb :sessions_new
   end
 

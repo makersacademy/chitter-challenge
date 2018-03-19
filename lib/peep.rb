@@ -13,10 +13,12 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |peep| Peep.new(peep['id'], peep['message'], peep['time'] ) }.reverse
+    result.map { |peep| Peep.new(peep['id'], peep['message'],
+      peep['time']) }.reverse
   end
 
   def self.create(message, time)
-    DatabaseConnection.query("INSERT INTO peeps (message, time) VALUES('#{message}', '#{time}')")
+    DatabaseConnection.query("INSERT INTO peeps (message, time) VALUES
+    ('#{message}', '#{time}')")
   end
 end

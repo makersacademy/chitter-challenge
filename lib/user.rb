@@ -12,7 +12,8 @@ class User
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM users")
-    result.map { |user| User.new(user['id'], user['email'], user['password'], user['name'], user['username'])}
+    result.map { |user| User.new(user['id'], user['email'], user['password'],
+      user['name'], user['username'])}
   end
 
   def self.create(options)
@@ -32,7 +33,8 @@ class User
   end
 
   def self.authenticate(email, password)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    result = DatabaseConnection.query("SELECT * FROM users
+      WHERE email = '#{email}'")
     User.new(result[0]['id'], result[0]['email'], result[0]['password'], \
       result[0]['name'], result[0]['username'])
   end
