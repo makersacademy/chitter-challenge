@@ -1,0 +1,19 @@
+<h1>Welcome to Chitter</h1>
+
+<%= styled_flash %>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.time %><br>
+      <%= peep.text %><br>
+    </li>
+  <% end %>
+</ul>
+
+
+
+<form action="/sign_in" method="post">
+  <input type="text" name="username" placeholder="username"></input>
+  <input type="text" name="password" placeholder="password"></input>
+  <button id="submit">Sign in</button>
+</form>

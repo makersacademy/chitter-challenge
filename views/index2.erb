@@ -12,14 +12,15 @@
 
 
 
-<form action="/sign_in" method="post">
-  <input type="text" name="username" value="username"></input>
-  <input type="text" name="password" value="password"></input>
+<!-- <form action="/sign_in" method="post">
+  <input type="text" name="username" placeholder="username"></input>
+  <input type="text" name="password" placeholder="password"></input>
   <button id="submit">Sign in</button>
-</form>
+</form> -->
 
 
-"Hi<% @username %>, write a peep!"
+"Hi, <%= @user.username %>, write a peep!"
+
 <form action="/post_peep" method="post">
   <textarea type="text" name="text" cols="30" rows="4"></textarea>
   <button id="submit">Post peep</button>

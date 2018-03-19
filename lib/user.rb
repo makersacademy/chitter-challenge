@@ -9,7 +9,7 @@ class User
     @password = password
   end
 
-  def self.create
-    User.new(@username, @password)
+  def self.create(username, password)
+    User.new(username, password)
   end
 end

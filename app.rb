@@ -10,30 +10,32 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   enable :sessions
+  set :session_secret, 'My secret session'
 
   get '/' do
     @peeps = Peep.all
-    erb :index
+    erb :index1
+    # need to save instance variables here because they last only one route (vs.session variables)
   end
 
-  get '/' do
-    erb :index
+  post '/sign_in' do # gets info entered by user in index.erb form
+    session[:username] = params[:username] # stores info in session variables
+    session[:password] = params[:password]
+    redirect '/signed_in'
   end
 
-  post '/sign_in' do
-    User.create
-    @username = params['username']
-    redirect '/'
+  get '/signed_in' do
+    @peeps = Peep.all
+    @user = User.create(session[:username], session[:password])
+    erb :index2
   end
-
-  get '/sign_in' do
-    erb :index
-  end
+# there was a redundant get route there
 
   post '/post_peep' do
     Peep.post_peep(params['text'])
-    redirect '/'
+    redirect '/signed_in'
   end
+
   run! if app_file == $0
 
 end
