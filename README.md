@@ -1,3 +1,69 @@
+**Overview**
+===================
+
+This is a basic Twitter clone (*Chitter*) made for the fourth weekend challenge of the Makers Academy bootcamp course, using the sinatra framework. It supports sign-up and sign-in from multiple users (although not simultaneously) with password-protected accounts.
+
+**Contents**
+===================
+
+*Main*
+------
+| root | /lib | /views/chitter|
+|--|--|--|
+|app.rb|database_connection.rb|index.erb|
+|config.ru|peep.rb|sign_in.erb|
+|Rakefil|user.rb|sign_up.erb|
+|Gemfile| | |
+|database_connection_setup.rb| | | |
+
+*Test Suite*
+------
+| /spec | /spec/features |
+|--|--|
+|database_connection_spec.rb|posting_a_peep_spec.rb|
+|peep_spec.rb|seeing_ordered_peeps_spec.rb|
+|user_spec.rb|signing_in_spec.rb|
+|spec_helper.rb|signing_up_spec.rb|
+| |web_hepers.rb|
+
+**Getting Started**
+===================
+
+****To setup the program for the first time:****
+
+1. use ***bundle install*** to load all required gems.
+2. use ***rake full_setup*** to create all required databases and database tables.
+
+**Instructions for use**
+========================
+
+To use, a webserver application is needed to create a local web app on your machine. I recommend using the 'rerun' gem (included in the Gemfile). To run the app with rerun, use ***rerun app.rb*** from a terminal prompt inside the root folder of the app.
+
+Once the application is running, visit http://localhost:4567/ to interact with the chittersphere.
+
+You may peep new peeps as an anonymous user without signing up, but everyone will just mark you down as a potential griefer.
+
+To peep with more legitimacy you must create an account. To sign up as a new user, navigate to the sign up page by clicking on 'New user sign up'. Fill in the details required and click on 'Register new user'. Your account will be created and you will be automatically logged in. Any peeps created while logged in will be logged and displayed as authored by you.
+
+To sign out when logged in, simply click on the 'Sign out' button on the main peep page.
+
+To sign back in with an existing account, navigate to the sign-in page by clicking on 'Existing user sign in'. Fill in your email and password, and then click on 'Sign in'.
+
+**Resetting the databases**
+===========================
+
+The provided Rakefile has tasks that automate database administration. To wipe all data from existing databases, use ***rake hard_reset*** at a terminal prompt in the root folder of the app,  followed again by ***rake full_setup***.
+
+**Running Test Suite**
+======================
+
+All tests were designed using the rspec framework with capybara. To run the suite, simply use ***rspec*** at a terminal prompt in the root folder of the app.
+
+----------------------------------------
+****Development****
+
+----------------------------------------
+
 Chitter Challenge
 =================
 
