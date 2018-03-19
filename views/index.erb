@@ -1,6 +1,8 @@
-
-<ul>
-  <% @peeps.each do |peep| %>
-  <li><%=peep %></li>
-  <% end %>
+<h2> Chitter </h2>
+<ul><% @peep.each do |peep| %>
+  <li><%= peep.message %> <%= peep.time %></li>
+<% end %>
 </ul>
+<p><a href="/add-a-new-peep">New peep</a> </p>
+
+<a href="/sign_up">Sign up</a>
