@@ -4,7 +4,7 @@ describe Peep do
   describe '.all' do
     it 'returns an array' do
       expect(Peep.all).to be_a(Array)
-    end    
+    end
     it 'shows all peeps in reverse chronological order' do
       peeps = Peep.all
       res = peeps.map(&:ts)

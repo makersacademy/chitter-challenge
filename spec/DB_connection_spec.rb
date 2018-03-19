@@ -19,7 +19,9 @@ RSpec.describe DBconnection do
     it 'executes a query via PG' do
       con = DBconnection.setup('chitter_test')
       expect(con).to receive(:exec).with("SELECT * FROM peeps;")
+      expect(con).to receive(:exec).with('SELECT * FROM user;')
       DBconnection.query("SELECT * FROM peeps;")
+      DBconnection.query("SELECT * FROM user;")
     end
   end
 end

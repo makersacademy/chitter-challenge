@@ -1,11 +1,48 @@
 <html>
-  <form action="/create_new_peep" method="post">
-    <input type="text" name="txt" />
-    <input type="submit" value="Submit" />
-  </form>
-  <ul>
-    <% @peeps.each do |peep| %>
-      <li><%= peep.txt %><br><%= peep.ts %></li>
-    <% end %>
-  </ul>
+<head>
+  <style type="text/css">
+    body{
+      background-color: #e0e0e0;
+    }
+</style>
+</head>
+  <body>
+    <h1>Chitter</h1>
+          <p>
+            <form action="/create_peep" method="post">
+            <input type="text" name="txt">
+              <br>
+              <input type="submit" value="Post">
+            </form>
+            <br>
+            <table>
+              <% @peeps.each do |peep| %>
+              <tr>
+                <td><%= peep.txt %></td>
+              </tr>
+              <tr>
+                <td><%= peep.ts %></td>
+              </tr>
+                <% end %>
+            </table>
+          </p>
+          <p>
+            <h3>Sign up</h3>
+            <form action="/add_user" method="post">
+              <label for="name"> What is your user name? </label>
+              <input type="text" name="name">
+              <input type="submit" value="Submit">
+            </form>
+            <div id="flash">
+          <% flash.keys.each do |type| %>
+            <div data-alert="data-alert" class="flash <%= type %> alert-box radius">
+              <%= flash[type] %>
+              <a href="/" class="close">&times;</a>
+            </div>
+          <% end %>
+        </div>
+          </p>
+        </div>
+      </div>
+  </body>
 </html>
