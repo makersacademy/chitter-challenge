@@ -21,7 +21,12 @@ class Peep
   def self.new_peep(username, peep)
     time = Peep.current_time
     name = ChitterConnection.query("SELECT name FROM accounts WHERE username='#{username}'")
-    ChitterConnection.query("INSERT INTO peeps(time, name, username, peep) VALUES('#{time}', '#{name.first['name']}', '#{username}', '#{peep}')")
+    if name.first
+      name = name.first['name']
+    else
+      name = "Guest"
+    end
+    ChitterConnection.query("INSERT INTO peeps(time, name, username, peep) VALUES('#{time}', '#{name}', '#{username}', '#{peep}')")
   end
 
   private
