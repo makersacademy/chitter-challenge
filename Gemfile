@@ -10,6 +10,7 @@ gem 'pg'
 gem 'rspec'
 gem 'sinatra-flash'
 gem 'bcrypt'
+gem 'rerun'
 
 group :test do
   gem 'rspec'
