@@ -1,4 +1,5 @@
 require_relative '../../app.rb'
+require_relative '../../lib/web_helpers.rb'
 
 describe PhoenixController do
 
@@ -12,6 +13,13 @@ describe PhoenixController do
       fill_in 'new_phoenix', with: "You summoned a new Phoenix!"
       click_on 'summon_phoenix'
       expect(page).to have_content "You summoned a new Phoenix!"
+    end
+
+    scenario 'CREATE a Phoenix as a registered user' do
+      register_user
+      fill_in 'new_phoenix', with: "This is a registered user post."
+      click_on 'summon_phoenix'
+      expect(page).to have_content "Yunalesca"
     end
 
     scenario 'READ a Phoenix' do

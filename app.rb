@@ -17,13 +17,15 @@ class PhoenixController < Sinatra::Base
   end
 
   get '/phoenix' do
-    @summoner = "julesnuggy" #Summoner.find(session[:user_id]).username
+    @summoner = Summoner.find(session[:user_id])
     @phoenix = Phoenix.all
     erb(:index)
   end
 
   post '/phoenix/summon' do
-    Phoenix.summon(params[:new_phoenix])
+    @summoner = Summoner.find(session[:user_id])
+    logged_in_as = @summoner.nil? ? 'guest_user' : @summoner.username
+    Phoenix.summon(params[:new_phoenix], logged_in_as)
     redirect '/phoenix'
   end
 
@@ -63,7 +65,7 @@ class PhoenixController < Sinatra::Base
       elsif session[:password] == session[:pw_confirm]
         @summoner = Summoner.create(session[:username], session[:email], session[:password])
         session[:user_id] = @summoner.user_id
-        flash[:success] = "A new summoner is born! Welcome, #{params[:username]}!"
+        flash[:success] = "A new summoner is born! Welcome, #{session[:username]}!"
         redirect '/phoenix'
       end
     elsif params[:reg_button] == "Cancel"
