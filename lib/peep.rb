@@ -3,8 +3,9 @@ require 'date'
 require './lib/database_connection'
 
 class Peep
-  attr_reader :peep_id, :peep, :time, :username
-  def initialize(peep_id, peep, time, username)
+  attr_reader :peep_id, :peep, :time, :username, :user_id
+  def initialize(user_id, peep_id, peep, time, username)
+    @user_id = user_id
     @peep_id = peep_id
     @peep = peep
     @time = time
