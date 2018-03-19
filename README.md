@@ -1,133 +1,73 @@
-Jules' Chitter
+PHOENIX
 =================
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-* Create PSQL database
-* Create app controller, Peep class, and DB class
+# Introduction
+Phoenix is a blog-like application where users are able to post messages (called Phoenixes) to the website. It uses PostgreSQL to store data of the Phoenixes and the users (called Summoners). Ruby is used to manage the objects within the application and HTML, CSS and JavaScript are used to display the content.
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-* phoenix#all returns the database search with 'ORDER BY id DESC'
+# Instructions
+1) To submit a post as a guest user, simply type a message into the textbox and click the "Summon" button.
+2) To edit a post, click on the "Reraise" button of the relevant post. You will be taken to a new page where you can edit the text of the post. Click "Confirm" to submit the changes, or "Cancel" to cancel.
+3) To delete a post, click on the "Dismiss" button of the relevant post. *** This action is currently immediate, so delete carefully! ***
+4) To sign-up to use the site as a registered user, click on the "Register" button and enter your details. To complete registration, click "Submit". To cancel, click "Cancel".
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-* Add timestamp to posts
+# Main Code Files
+`app.rb` is the route controller file.
+* '/phoenix' is the default home route
+* '/phoenix/summon' is the route for creating a new post (called a  "Phoenix")
+* '/phoenix/reraise' is the route for editing Phoenixes. This brings up  a new page for the user to edit the selected Phoenix.
+* '/phoenix/reraise/confirm' is the route for confirming the edit if the user presses the "Confirm" button. It reroutes to the home page.
+* '/phoenix/dismiss' is the route for deleting a Phoenix. Currently, the action is immediate without a confirmation dialogue.
+* '/phoenix/register' is the route for registering as a user. It takes the user to a new page with the registration form.
+* '/phoenix/register/submit' is the route for submitting the registration form if the user presses the "Submit" button. The user is redirected to the home page and they are automatically logged-in. There are if-else-loops to control what Flash messages are shown based on the user input: to be able to Submit, all fields must be completed and the passwords must match.
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-* Add login
+`lib/db_connection.rb` is the class which controls connection to the PostgreSQL database.
+* `self.setup` uses the PG gem to connect to the database using the :connect command.
+* `self.dbname` returns the database name.
+* `self.connection` returns the Connection object created at `setup`.
+* `self.query` uses the PG gem to submit a query to the database using the :exec command.
 
-----------------------------------
+`lib/db_connection_setup.rb` controls connection the the correct database.
+* If the environment variable `RACK_ENV` is set to "testing", it will connection to the "phoenix_test" test database.
+* Otherwise, it connects to the "phoenix" production database.
 
-Chitter Challenge
-=================
+`lib/phoenix.rb` is the class which controls the posts (Phoenixes).
+* `self.all` returns all of the database entries in the "summons" table. Each entry is instantiated as a new Phoenix class object. This method is used to display all the posts in the website.
+* `self.find` is used to query the "summons" table in the database to retrieve a single post based on the id search value.
+* `self.summon` is used to create a new entry in the "summons" table. It takes two arguments for the Phoenix (post) text and username (defaults to "guest_user"). The `gsub` code is used to escape commas (') which are input into the text to allow the PostgreSQL query to process properly (it converts single commas (') into two single commas ('')).
+* `self.reraise` is used to edit a Phoenix post. It uses the same `gsub` logic as above.
+* `self.dismiss` is used to delete a Phoenix post.
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+`lib/summoner.rb` is the class which controls the users (Summoners).
+* `self.all` returns all of the database entries in the "summoners" table. Each entry is instantiated as a new Summoner class object.
+* `self.create` is used to create a new user, requiring their username, email and password. ID's are autogenerated. This method returns a hash of the new user's ID, username, email and encrypted password. Passwords are encrypted using the BCrypt gem.
+* `self.find` is used to query the "summoners" table as long as a user_id argument is provided (otherwise it returns nil).
 
-Challenge:
--------
+`views/index.erb` displays the main page where all posts are visible. Each post is displayed within an individual box.
 
-As usual please start by forking this repo.
+`views/register.erb` displays the registration page, containing a single form.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+`views/reraise.erb` displays the post editing page, consisting of a single text box containing the original post text.
 
-Features:
--------
+# Pre-Requisites
+To be able to run the program and tests, ensure the following are listed in your Gemfile:
+```Ruby
+source 'https://rubygems.org'
 
+ruby '2.5.0'
+
+gem 'rake'
+gem 'rubocop'
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'pg'
+gem 'envyable'
+gem 'bcrypt'
+
+group :test do
+  gem 'rake'
+  gem 'capybara'
+  gem 'rspec'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+end
 ```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!

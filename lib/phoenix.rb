@@ -22,11 +22,13 @@ class Phoenix
     @result.map { |fenix| Phoenix.new(fenix['id'], fenix['phoenix'], fenix['summoner'], fenix['timestamp']) }.first
   end
 
-  def self.summon(phoenix_text, summoner = 'julesnuggy')
+  def self.summon(phoenix_text, summoner = 'guest_user')
+    phoenix_text = phoenix_text.gsub(/\'/, "\'\'")
     DB_Connection.query("INSERT INTO summons (phoenix, summoner, timestamp) VALUES ('#{phoenix_text}', '#{summoner}', current_timestamp(0));")
   end
 
   def self.reraise(id, new_text)
+    new_text = new_text.gsub(/\'/, "\'\'")
     DB_Connection.query("UPDATE summons SET phoenix = '#{new_text}', timestamp = CONCAT('edited: ', current_timestamp(0)) WHERE id = #{id};")
   end
 
