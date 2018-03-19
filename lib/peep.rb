@@ -17,7 +17,7 @@ class Peep
   end
 
   def self.add(peep, username, time)
-    DatabaseConnection.query("INSERT INTO peeps (peep, username, time) VALUES('#{peep}', '#{username}', '#{time}');")
+    DatabaseConnection.query("INSERT INTO peeps (peep, username, time) VALUES('#{peep.gsub(/[']/, "''")}', '#{username}', '#{time}');")
   end
 
 end
