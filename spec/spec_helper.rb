@@ -19,7 +19,7 @@ require 'simplecov-console'
 Capybara.app = Chitter
 # Load the Rakefile
 Rake.application.load_rakefile
-Rake::Task['test_database_population'].execute
+Rake::Task['default'].execute
 
 # RSpec.configure do |config|
 #   config.before(:each) do
