@@ -29,11 +29,12 @@ task :setup do
   end
   connection = PG.connect(:dbname => 'postgres')
   result = connection.exec("SELECT datname FROM pg_database").values.flatten
-  if !result.include?('bookmark_manager_test')
+  if !result.include?('chitter_test')
     p "Creating database..."
     connection = PG.connect
-    conneciton.exec("CREATE DATABASE bookmark_manager_test;")
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("CREATE TABLE links(id SERIAL PRIMARY KEY, url VARCHAR(60));")
+    conneciton.exec("CREATE DATABASE chitter_test;")
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("CREATE TABLE users (uid SERIAL PRIMARY KEY, username VARCHAR(60) UNIQUE, email VARCHAR(60) UNIQUE, name VARCHAR(60) NOT NULL, password VARCHAR(10) NOT NULL);")
+    connection.exec("CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(140) NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, uid INTEGER REFERENCES users(uid));")
   end
 end
