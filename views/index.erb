@@ -8,6 +8,20 @@
   <% if @user %>
     <h1> Welcome <%= @user.username %> </h1>
 
+    <div>
+      <h1> Add a peep </h1>
+
+      <form action="/save_peep" method="post">
+        <input type="text" name="Comment_box" placeholder="Peep" required>
+        <input type="hidden" name="Username_box" value="<%=@user.username%>" required>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <form action="/sign_out_page" method="get">
+      <input type="submit" value="Sign out">
+    </form>
+
   <% else %>
   <form action="/sign_up_page" method="get">
     <input type="submit" value="Sign up">
@@ -17,15 +31,12 @@
   </form>
   <%end%>
 
-    <div>
-      <h1> Add a peep </h1>
-
-      <form action="/save_peep" method="post">
-        <input type="text" name="Comment_box" placeholder="Peep" required>
-        <input type="text" name="Username_box" placeholder="Username" required>
-        <input type="submit" value="Submit">
-      </form>
+    <% if flash[:notice] %>
+    <div data-alert class="alert">
+      <strong> <%= flash[:notice] %> </strong>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     </div>
+    <% end%>
 
     <h1> Peeps </h1>
 

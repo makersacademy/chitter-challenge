@@ -34,6 +34,12 @@ class Chitter < Sinatra::Base
     erb(:signin)
   end
 
+  get '/sign_out_page' do
+    session[:user_id] = nil
+    flash[:notice] = 'You have succesfully signed out'
+    redirect to('/')
+  end
+
   post '/sign_in' do
     user = User.authenticate(params[:email], params[:password])
     if user

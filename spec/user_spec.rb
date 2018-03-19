@@ -48,13 +48,23 @@ describe User do
   describe '.authenticate' do
 
     it "gives the correct user if the email and password match" do
-      authenticated_user = User.authenticate('example@example.com', 'password123')
+      User.create('George', 'test@example.com', 'password123')
+
+      authenticated_user = User.authenticate('test@example.com', 'password123')
 
       expect(authenticated_user.username).to eq 'George'
     end
 
     it "returns nil if there is no matching email address" do
+      User.create('George', 'test@example.com', 'password123')
+
       expect(User.authenticate('incorrect@incorrect.com', 'password123')).to eq nil
+    end
+
+    it "returns nil if the password is incorrect" do
+      User.create('George', 'test@example.com', 'password123')
+
+      expect( User.authenticate('test@example.com', 'incorrect') ).to eq nil
     end
 
   end
