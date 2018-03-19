@@ -1,30 +1,25 @@
-Chitter Challenge
+Chitter Challenge AKA The Rumour Mill
 =================
+## Challenge:
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+This is a small Twitter clone that will allow the users to post messages to a public stream.
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
++------------+         +----------+      +----------+     +-----------+      +---------+
+|            |all peeps|          |all peeps        |all peeps        |all peeps       |
+|            +-------> |          +----> |          +---> |           +----> |         |
+| Database   |         | peeps.rb |      |  app.rb  |     | index.erb |      |  user   |
+|(postgreSQL)|         |          |      |          |     |           |      |         |
+|            |  user   |          |user  |          |user |           |user  |         |
+|            |  input  |          |input |          |input|           |input |         |
+|            | <-------+          | <----+          | <---+           | <----+         |
++------------+         +----------+      +----------+     +-----------+      +---------+
+
+
+As a Maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
@@ -36,72 +31,25 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
+## Product:
+![alt text](https://www.imageupload.co.uk/images/2018/03/18/ScreenShot2018-03-18at15.15.54.png)
 
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+## Instructions to use:
+Open terminal in your computer
 ```
+git clone https://github.com/AlexMcCarroll/chitter-challenge.git
+cd chitter-challenge
+bundle install
+rake setup
+rake test_environment
+```
+In order to test it run ```rspec```.
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+To run the programme in ```localhost:``` run ```rerun app.rb``` in your terminal.
+
+Now, go to ```localhost:``` in your browser and enter in the ```port``` digits
+given in your terminal.
+
+For example: ```port=4567``` therefore, enter ```localhost:4567``` in browser.
