@@ -1,5 +1,9 @@
 require 'pg'
+if ENV['RACK_ENV'] != 'production'
+  require 'rspec/core/rake_task'
 
+  RSpec::Core::RakeTask.new :spec
+task default: [:setup, :test_database_setup, :spec]
 task :test_database_setup do
   p "Cleaning database..."
 
