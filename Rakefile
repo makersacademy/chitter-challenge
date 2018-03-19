@@ -11,43 +11,65 @@ end
 task default: %w[setup_db test_database_population]
 
 task :setup_db do
-  p 'Creating Databases...........'
-  # creating new databases and tables if don't already exist
-  ['chitter', 'chitter_test'].each do |db|
-    conn = PG.connect
 
-    # tries to create database
-    begin
-      conn.exec("CREATE DATABASE #{db};")
-      conn = PG.connect(dbname: db)
-      puts "Database #{db} created."
-    rescue PG::Error => e
-      puts e.message
-    end
+  conn = PG.connect
+  conn.exec("CREATE DATABASE chitter_test;")
+  conn = PG.connect(dbname: 'chitter_test')
+  conn.exec("create table peeps(
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    peep VARCHAR(80) NOT NULL,
+    date timestamp default current_timestamp);"
+  )
 
-    #  tries to create tables
-    begin
-      conn.exec("create table peeps(
-        id SERIAL PRIMARY KEY,
-        user_id INT NOT NULL,
-        peep VARCHAR(80) NOT NULL,
-        date timestamp default current_timestamp);"
-      )
+  conn.exec("create table users(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(30) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(320) NOT NULL UNIQUE
+    );"
+  )
 
-      conn.exec("create table users(
-        id SERIAL PRIMARY KEY,
-        username VARCHAR(30) NOT NULL UNIQUE,
-        password VARCHAR(50) NOT NULL,
-        first_name VARCHAR(50) NOT NULL,
-        last_name VARCHAR(50) NOT NULL,
-        email VARCHAR(320) NOT NULL UNIQUE
-        );"
-      )
-      puts "Tables on #{db} created."
-    rescue PG::Error => e
-      puts e.message
-    end
-  end
+
+  # p 'Creating Databases...........'
+  # # creating new databases and tables if don't already exist
+  # ['chitter', 'chitter_test'].each do |db|
+  #   conn = PG.connect
+  #
+  #   # tries to create database
+  #   begin
+  #     conn.exec("CREATE DATABASE #{db};")
+  #     conn = PG.connect(dbname: db)
+  #     puts "Database #{db} created."
+  #   rescue PG::Error => e
+  #     puts e.message
+  #   end
+  #
+  #   #  tries to create tables
+  #   begin
+  #     conn.exec("create table peeps(
+  #       id SERIAL PRIMARY KEY,
+  #       user_id INT NOT NULL,
+  #       peep VARCHAR(80) NOT NULL,
+  #       date timestamp default current_timestamp);"
+  #     )
+  #
+  #     conn.exec("create table users(
+  #       id SERIAL PRIMARY KEY,
+  #       username VARCHAR(30) NOT NULL UNIQUE,
+  #       password VARCHAR(50) NOT NULL,
+  #       first_name VARCHAR(50) NOT NULL,
+  #       last_name VARCHAR(50) NOT NULL,
+  #       email VARCHAR(320) NOT NULL UNIQUE
+  #       );"
+  #     )
+  #     puts "Tables on #{db} created."
+  #   rescue PG::Error => e
+  #     puts e.message
+  #   end
+  # end
 end
 
 task :test_database_population do
