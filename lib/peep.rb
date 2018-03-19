@@ -17,7 +17,7 @@ class Peep
 
   def self.add(user_id, peep)
     DatabaseConnection.query("insert into peeps (user_id, peep, date)
-    values(#{user_id},'#{peep}', '#{Time.now}');")
+    values('#{user_id}','#{peep}', '#{Time.now}');")
   end
 
   def self.delete_peeps(user_id)
