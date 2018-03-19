@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1> Sign In </h1>
+
+    <% if flash[:warning] %>
+    <div data-alert class="alert">
+      <strong> <%= flash[:warning] %> </strong>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <% end%>
+
+    <form action='/sessions' method="post">
+      <input type="email" placeholder="Email" name="email" required>
+      <input type="password" placeholder="Password" name="password" required>
+      <input type="submit" value="Sign in">
+    </form>
+
+
+  </body>
+</html>

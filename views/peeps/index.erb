@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <% if @user %>
+    <h1> Welcome <%= @user.username %> </h1>
+
+    <div>
+      <h1> Add a peep </h1>
+
+      <form action="/peeps" method="post">
+        <input type="text" name="Comment_box" placeholder="Peep" required>
+        <input type="hidden" name="Username_box" value="<%=@user.username%>" required>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <form action="/sessions/delete" method="get">
+      <input type="submit" value="Sign out">
+    </form>
+
+  <% else %>
+  <form action="/users/new" method="get">
+    <input type="submit" value="Sign up">
+  </form>
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Sign in">
+  </form>
+  <%end%>
+
+    <% if flash[:notice] %>
+    <div data-alert class="alert">
+      <strong> <%= flash[:notice] %> </strong>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <% end%>
+
+    <h1> Peeps </h1>
+
+    <% @peeps.each do |peep| %>
+    <ul>
+      <li> <%= peep.username %> </li>
+      <li> <%= peep.peep %> </li>
+      <li> <%= peep.time %> </li>
+    </ul>
+    <% end %>
+
+
+  </body>
+</html>
