@@ -17,8 +17,8 @@ class Peep
   end
 
   def self.add(user_id, peep)
-    DatabaseConnection.query("insert into peeps (user_id, peep, date)
-    values (#{user_id}, '#{peep}', '#{Time.now}');")
+    DatabaseConnection.query("insert into peeps (user_id, peep)
+    values (#{user_id}, '#{peep}');")
   end
 
   def self.delete_peeps(user_id)
@@ -38,7 +38,7 @@ class Peep
   end
 
   def self.make_array(peeps)
-    peeps.map { |p| Peep.new(p['id'], p['peep'], fix_time(p['date']), p['username']) }
+    peeps.map { |p| Peep.new(p['user_id'], p['id'], p['peep'], fix_time(p['date']), p['username']) }
   end
 
 end
