@@ -20,5 +20,4 @@ class Peep
     DatabaseConnection.query("INSERT INTO peeps (peep, username, time) VALUES('#{peep}', '#{username}', '#{time}');")
   end
 
-
 end
