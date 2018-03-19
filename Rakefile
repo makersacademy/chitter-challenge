@@ -4,6 +4,8 @@ if ENV['RACK_ENV'] != 'production'
 
   RSpec::Core::RakeTask.new :spec
 task default: [:setup, :test_database_setup, :spec]
+end
+
 task :test_database_setup do
   p "Cleaning database..."
 
