@@ -4,6 +4,36 @@ PHOENIX
 # Introduction
 Phoenix is a blog-like application where users are able to post messages (called Phoenixes) to the website. It uses PostgreSQL to store data of the Phoenixes and the users (called Summoners). Ruby is used to manage the objects within the application and HTML, CSS and JavaScript are used to display the content.
 
+# Pre-Requisites
+To be able to run the program and tests:
+1) ensure the following are listed in your Gemfile:
+```Ruby
+source 'https://rubygems.org'
+
+ruby '2.5.0'
+
+gem 'rake'
+gem 'rubocop'
+gem 'shotgun'
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'pg'
+gem 'postgresql'
+gem 'envyable'
+gem 'bcrypt'
+
+group :test do
+  gem 'rake'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'rspec'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+end
+```
+
+2) In your Terminal, run `rake db_setup` to setup the databases on your local machine.
+
 # Instructions
 1) To submit a post as a guest user, simply type a message into the textbox and click the "Summon" button.
 2) To edit a post, click on the "Reraise" button of the relevant post. You will be taken to a new page where you can edit the text of the post. Click "Confirm" to submit the changes, or "Cancel" to cancel.
@@ -47,33 +77,3 @@ Phoenix is a blog-like application where users are able to post messages (called
 `views/register.erb` displays the registration page, containing a single form.
 
 `views/reraise.erb` displays the post editing page, consisting of a single text box containing the original post text.
-
-# Pre-Requisites
-To be able to run the program and tests:
-1) ensure the following are listed in your Gemfile:
-```Ruby
-source 'https://rubygems.org'
-
-ruby '2.5.0'
-
-gem 'rake'
-gem 'rubocop'
-gem 'shotgun'
-gem 'sinatra'
-gem 'sinatra-flash'
-gem 'pg'
-gem 'postgresql'
-gem 'envyable'
-gem 'bcrypt'
-
-group :test do
-  gem 'rake'
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
-```
-
-2) In your Terminal, run `rake db_setup` to setup the databases on your local machine.
