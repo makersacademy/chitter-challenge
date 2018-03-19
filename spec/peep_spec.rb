@@ -18,17 +18,17 @@ describe Peep do
      expect(times).to include("2018-03-17 12:19:05")
    end
 
- describe '.create' do
-   it "creates a new peep" do
-     Peep.create("Hello", "2018-03-18 12:15:10")
-
-     peeps = Peep.all
-     messages = peeps.map(&:message)
-     times = peeps.map(&:time)
-     expect(messages).to include("Hello")
-     expect(times).to include("2018-03-18 12:15:10")
-   end
-
- end
+ # describe '.create' do
+ #   it "creates a new peep" do
+ #     Peep.create("Hello", "2018-03-18 12:15:10")
+ #
+ #     peeps = Peep.all
+ #     messages = peeps.map(&:message)
+ #     times = peeps.map(&:time)
+ #     expect(messages).to include("Hello")
+ #     expect(times).to include("2018-03-18 12:15:10")
+ #   end
+ #
+ # end
 
 end
