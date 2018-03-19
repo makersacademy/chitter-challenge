@@ -30,6 +30,7 @@ class Chitter < Sinatra::Base
   post '/signup' do
     signed_up = User.add(params[:txt_username], params[:txt_pwd],
       params[:txt_first_name], params[:txt_last_name], params[:txt_email])
+
     if !signed_up
       flash[:error] = MSGS[:signup_err]
       redirect('/signup')
