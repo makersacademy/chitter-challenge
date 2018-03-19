@@ -28,7 +28,7 @@ class Peep
       "INSERT INTO peeps (username, message, time) VALUES (
         '#{peep[:username]}',
         '#{peep[:message]}',
-        '#{(Time.now + 1 * 60 * 60).strftime('%r')}'
+        '#{(Time.now).strftime('%r')}'
         )")
   end
 end
