@@ -13,6 +13,8 @@ gem 'postgresql'
 gem 'rake'
 
 group :test do
+  gem 'capybara'
+  gem 'rake'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
