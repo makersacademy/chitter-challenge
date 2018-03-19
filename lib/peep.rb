@@ -3,9 +3,8 @@ require 'date'
 require './lib/database_connection'
 
 class Peep
-  attr_reader :peep_id, :peep, :time, :username, :user_id
-  def initialize(user_id, peep_id, peep, time, username)
-    @user_id = user_id
+  attr_reader :peep_id, :peep, :time, :username
+  def initialize(peep_id, peep, time, username)
     @peep_id = peep_id
     @peep = peep
     @time = time
@@ -18,7 +17,7 @@ class Peep
 
   def self.add(user_id, peep)
     DatabaseConnection.query("insert into peeps (user_id, peep)
-    values (#{user_id}, '#{peep}');")
+    values(#{user_id},'#{peep}');")
   end
 
   def self.delete_peeps(user_id)
@@ -38,7 +37,7 @@ class Peep
   end
 
   def self.make_array(peeps)
-    peeps.map { |p| Peep.new(p['user_id'], p['id'], p['peep'], fix_time(p['date']), p['username']) }
+    peeps.map { |p| Peep.new(p['id'], p['peep'], fix_time(p['date']), p['username']) }
   end
 
 end
