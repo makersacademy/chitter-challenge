@@ -1,6 +1,7 @@
 rvm: '2.5.0'
 
 script:
+  - bundle exec rake setup
   - mkdir -p spec && bundle exec rspec spec
 
 before_install:
@@ -9,5 +10,3 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-  - psql -c 'create table peeps(id SERIAL PRIMARY KEY, username VARCHAR(15), message VARCHAR(140), time VARCHAR(100));' -U postgres
-  - psql -c 'create table users(id SERIAL PRIMARY KEY, email VARCHAR(60), name VARCHAR(15), username VARCHAR(15), password VARCHAR(20));' -U postgres
