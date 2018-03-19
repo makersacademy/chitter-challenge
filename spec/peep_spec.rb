@@ -20,11 +20,10 @@ describe Peep do
   describe '.add' do
 
     it "should add a peep" do
-      Peep.add('Peep.rb test peep', 'George', '09:21:30 PM' )
+      Peep.add('Peep.rb test peep', 'George', '09:21:30 PM')
 
       expect(Peep.all[3].peep).to eq('Peep.rb test peep')
     end
-
 
   end
 

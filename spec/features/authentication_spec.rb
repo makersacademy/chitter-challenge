@@ -26,14 +26,14 @@ feature "Authentication" do
   scenario "User sees an error if they get their password wrong" do
     User.create('George', 'test@example.com', 'password123')
 
-        visit '/'
-        click_button('Sign in')
-        fill_in(:email, with: 'test@example.com')
-        fill_in(:password, with: 'wrongpassword')
-        click_button('Sign in')
+    visit '/'
+    click_button('Sign in')
+    fill_in(:email, with: 'test@example.com')
+    fill_in(:password, with: 'wrongpassword')
+    click_button('Sign in')
 
-        expect(page).not_to have_content 'Welcome, George'
-        expect(page).to have_content 'Please check your email or password'
+    expect(page).not_to have_content 'Welcome, George'
+    expect(page).to have_content 'Please check your email or password'
   end
 
 end

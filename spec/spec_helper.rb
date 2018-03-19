@@ -23,7 +23,6 @@ require 'rspec'
 
 Capybara.app = Chitter
 
-
 RSpec.configure do |config|
   config.before do
     Rake::Task['test_database_setup'].execute

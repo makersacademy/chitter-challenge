@@ -25,7 +25,7 @@ describe User do
   describe '.all' do
 
     it "should return all the users" do
-      user = User.create('George', 'wowzers@example.com', 'password3')
+      User.create('George', 'wowzers@example.com', 'password3')
 
       expect(User.all[0].username).to eq "George"
     end
@@ -64,7 +64,7 @@ describe User do
     it "returns nil if the password is incorrect" do
       User.create('George', 'test@example.com', 'password123')
 
-      expect( User.authenticate('test@example.com', 'incorrect') ).to eq nil
+      expect(User.authenticate('test@example.com', 'incorrect')).to eq nil
     end
 
   end
