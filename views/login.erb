@@ -53,9 +53,13 @@
           <p class="lead">Responsive chat app using using bootstrap, sinatra and Postgres for DB.</p>
         </div>
       </div>
-        <span class= "col-6 float-right text-right"><a href="/peeps"><small>Continue without sign up</a></small></span>
-      <form class="peep-box" action="/login" method="post">
-        <h1 class="h3 mb-3 font-weight-normal text-center">Please log in</h1>
+
+      <h1 class="h3 mb-3 font-weight-normal text-center">Please log in</h1>
+      <div class="">
+        <span class= "col-6 float-right text-right"><a href="/peeps"><small>Continue without log in</a></small></span>
+      </div>
+      <form class="login_box" action="/login" method="post">
+        <!-- <h1 class="h3 mb-3 font-weight-normal text-center">Please log in</h1> -->
         <div class="form-group">
         <input type="text" class="form-control" name="txt_username" id='txt_username' placeholder="Username" required>
         </div>

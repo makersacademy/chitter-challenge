@@ -2,14 +2,13 @@ feature 'Sign up page has jumbotron' do
   scenario 'User visits sign up main page' do
     visit('/signup')
     expect(page).to have_content "ChitterBox"
-    expect(page).to have_content "Responsive chat app using using bootstrap, sinatra and Postgres for DB."
   end
 end
 
-feature 'Sign up page has main h1' do
+feature 'Sign up page has <p> h1' do
   scenario 'User visits sign up main page' do
     visit('/signup')
-    expect(page).to have_content "Sign up to chat"
+    expect(page).to have_content "Responsive chat app using using bootstrap, sinatra and Postgres for DB."
   end
 end
 
