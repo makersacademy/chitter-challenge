@@ -6,6 +6,6 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-  <li><%= peep %></li>
+  <li><%= peep.user_handle %> <%= peep.peep %></li>
   <% end %>
 </ul>
