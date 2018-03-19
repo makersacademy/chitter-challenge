@@ -33,7 +33,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
-    "hello"
     erb :"sessions/new"
   end
 

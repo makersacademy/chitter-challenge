@@ -1,7 +1,56 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+
+header{
+    padding: 1em;
+    color: white;
+    background-color: #48879e;
+    clear: left;
+    text-align: left;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+</style>
+</head>
 <body>
 
+<div class="container">
+  <header>
+    <h1>Chitter</h1>
+  </header>
+
+<nav>
+	<ul>
+    <li><a href="/peeps/new">New peep</a></li>
+    <li><a href="/users/new">Sign up</a></li>
+    <li><a href="/sessions/new">Sign in</a></li>
+  </ul>
+</nav>
+
+<article>
   <% if @user %>
     <h1>Welcome, <%= @user.email %></h1>
   <% end %>
@@ -10,9 +59,8 @@
     <li><%= peep.message %> <%= peep.time %></li>
   <% end %>
   </ul>
-  <a href="/peeps/new">New peep</a>
-  <a href="/users/new">Sign up</a>
-  <a href="/sessions/new">Sign in</a>
+</article>
 
+<div>
 </body>
 </html>
