@@ -8,7 +8,7 @@ if ENV['RACK_ENV'] != 'production'
   task default: %w[setup_db test_database_population spec]
 end
 
-# task default: %w[setup_db test_database_population]
+task default: %w[setup_db test_database_population]
 
 task :setup_db do
 
