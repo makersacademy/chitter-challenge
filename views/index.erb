@@ -1,20 +1,60 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+header{
+    padding: 1em;
+    color: white;
+    background-color: #48879e;
+    clear: left;
+    text-align: left;
+}
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul a {
+    text-decoration: none;
+}
+article {
+    margin-left: 170px;
+    border-left: 1px solid blue;
+    padding: 1em;
+    overflow: hidden;
+}
+</style>
+</head>
 <body>
 
+<div class="container">
+  <header>
+    <h1>Chitter</h1>
+  </header>
+
+<nav>
+
+    <li><a href="/add-a-new-peep">New peep</a></li>
+    <li><a href="/users/new">Sign up</a></li>
+    <li><a href="/sessions/new">Sign in</a></li>
+
+</nav>
+
+<article>
   <% if @user %>
     <h1>Welcome, <%= @user.email %></h1>
   <% end %>
-
   <ul><% @peep.each do |peep| %>
-    <li><%= peep.message %> <%= peep.time %></li>
-  <% end %>
-  </ul>
-  <p><a href="/add-a-new-peep">New peep</a> </p>
+      <li><%= peep.message %> <%= peep.time %></li>
+    <% end %>
+    </ul>
+  </article>
 
-  <p><a href="/users/new">Sign up</a> </p>
-
-  <a href="/sessions/new">Sign in</a>
-
-</body>
-</html>
+  <div>
+  </body>
+  </html>
