@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'simplecov-console'
+SimpleCov.start
 
 #ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
