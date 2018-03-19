@@ -11,22 +11,22 @@
     <div>
       <h1> Add a peep </h1>
 
-      <form action="/save_peep" method="post">
+      <form action="/peeps" method="post">
         <input type="text" name="Comment_box" placeholder="Peep" required>
         <input type="hidden" name="Username_box" value="<%=@user.username%>" required>
         <input type="submit" value="Submit">
       </form>
     </div>
 
-    <form action="/sign_out_page" method="get">
+    <form action="/sessions/delete" method="get">
       <input type="submit" value="Sign out">
     </form>
 
   <% else %>
-  <form action="/sign_up_page" method="get">
+  <form action="/users/new" method="get">
     <input type="submit" value="Sign up">
   </form>
-  <form action="/sign_in_page" method="get">
+  <form action="/sessions/new" method="get">
     <input type="submit" value="Sign in">
   </form>
   <%end%>
