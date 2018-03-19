@@ -5,10 +5,10 @@ if ENV['RACK_ENV'] != 'production'
 
   RSpec::Core::RakeTask.new :spec
 
-  task default: [:spec]
+  task default: %w[spec setup_db test_database_population]
 end
 
-task default: %w[setup_db test_database_population]
+# task default: %w[setup_db test_database_population]
 
 task :setup_db do
 
