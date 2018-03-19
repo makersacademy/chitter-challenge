@@ -8,6 +8,6 @@ class Account
   end
 
   def self.load_account(username, password)
-    return false unless ChitterConnection.query("SELECT name, username FROM accounts WHERE password='#{password}' AND username='#{username}';")
+    ChitterConnection.query("SELECT name, username FROM accounts WHERE password='#{password}' AND username='#{username}';")
   end
 end

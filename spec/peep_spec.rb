@@ -44,12 +44,13 @@ describe 'Peep' do
   describe '.new_peep' do
     context 'User adds new peep to the channel' do
       it 'should add a new peep to the channel' do
-        name = "test"
-        username = "@username"
+        username = "Guest"
         peep = "Testing 1-2"
+        time = "noon"
         allow(Peep).to receive(:current_time).and_return("noon")
-        expect(ChitterConnection).to receive(:query).with("INSERT INTO peeps(time, name, username, peep) VALUES('noon', '#{name}', '#{username}', '#{peep}')")
-        Peep.new_peep(name, username, peep)
+        expect(ChitterConnection).to receive(:query).with("SELECT name FROM accounts WHERE username='#{username}'")
+        expect(ChitterConnection).to receive(:query).with("INSERT INTO peeps(time, name, username, peep) VALUES('#{time}', 'Guest', '#{username}', '#{peep}')")
+        expect(Peep.new_peep(username, peep)).to include(3, "noon", "Guest", "@username",  "Testing 1-2")
       end
     end
   end

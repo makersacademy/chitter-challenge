@@ -4,30 +4,66 @@
     <meta charset="utf-8">
     <title>Chitter Sign-In</title>
     <style>
+
+      h1 {
+        font-family: "Courier New";
+        text-align: center;
+        font-size: 72px;
+        letter-spacing: 5px;
+      }
+
+      h3 {
+        font-family: "Courier New";
+        text-align: center;
+        font-size: 18px;
+        letter-spacing: 5px;
+      }
+
+      p {
+        font-family: "Courier New";
+        font-size: 15px;
+        letter-spacing: 2px;
+        text-align: center;
+        font-weight: 400;
+      }
+
+      label {
+        font-family: "Courier New";
+        font-size: 15px;
+        letter-spacing: 5px;
+        text-align: center;
+        font-weight: 400;
+      }
           * {box-sizing: border-box}
 
       /* Full-width input fields */
       input[type=text], input[type=password] {
-      width: 100%;
-      padding: 15px;
-      margin: 5px 0 22px 0;
-      display: inline-block;
-      border: none;
-      background: #f1f1f1;
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        text-align: center;
+        border: none;
+        background: #f1f1f1;
       }
 
       input[type=text]:focus, input[type=password]:focus {
-      background-color: #ddd;
-      outline: none;
+        background-color: #ddd;
+        outline: none;
       }
 
       hr {
-      border: 1px solid #f1f1f1;
-      margin-bottom: 25px;
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
       }
 
       /* Set a style for all buttons */
       button {
+        font-family: "Courier New";
+        text-align: center;
+        font-size: 15px;
+        letter-spacing: 2px;
+        font-weight: bolder;
         background-color: #e9241d;
         color: white;
         padding: 14px 20px;
@@ -44,33 +80,27 @@
 
       /* Extra styles for the cancel button */
       .cancelbtn {
-      padding: 14px 20px;
-      background-color: #f44336;
+        padding: 14px 20px;
+        background-color: #f44336;
       }
 
       /* Float cancel and signup buttons and add an equal width */
       .cancelbtn, .signupbtn {
-      float: left;
-      width: 50%;
+        float: left;
+        width: 50%;
       }
 
       /* Add padding to container elements */
       .container {
-      padding: 16px;
+        padding: 16px;
+        text-align: center;
       }
 
       /* Clear floats */
       .clearfix::after {
-      content: "";
-      clear: both;
-      display: table;
-      }
-
-      /* Change styles for cancel button and signup button on extra small screens */
-      @media screen and (max-width: 300px) {
-      .cancelbtn, .signupbtn {
-        width: 100%;
-      }
+        content: "";
+        clear: both;
+        display: table;
       }
     </style>
 
@@ -88,14 +118,14 @@
     <%end%>
     <form action="/signin" method="post" style="border:1px solid #ccc">
       <div class="container">
-        <h1>Sign In</h1>
+        <h3>SIGN IN</h3>
         <p>You know what to do...</p>
         <hr>
 
-        <label for="name"><b>Username</b></label>
+        <label for="name"><b>USERNAME</b></label>
         <input type="text" placeholder="Username" name="username" required>
 
-        <label for="password"><b>Password</b></label>
+        <label for="password"><b>PASSWORD</b></label>
         <input type="password" placeholder="Password" name="password" required>
 
         <div class="clearfix">

@@ -3,35 +3,133 @@
   <head>
     <meta charset="utf-8">
     <title>Chitter Inc. // Daniel Campos</title>
+    <style>
+
+      h1 {
+        font-family: "Courier New";
+        text-align: center;
+        font-size: 72px;
+        letter-spacing: 5px;
+      }
+
+      p {
+        font-family: "Courier New";
+        font-size: 15px;
+        letter-spacing: 2px;
+        text-align: center;
+        font-weight: 400;
+      }
+
+      h3 {
+        font-family: "Courier New";
+        text-align: center;
+        font-size: 18px;
+        letter-spacing: 5px;
+      }
+          * {box-sizing: border-box}
+
+      /* Full-width input fields */
+      input[type=text], input[type=password] {
+        font-family: "Courier New";
+        letter-spacing: 2px;
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+      }
+
+      input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+
+      hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+      }
+
+      /* Set a style for all buttons */
+      button {
+        font-family: "Courier New";
+        text-align: center;
+        font-size: 15px;
+        letter-spacing: 2px;
+        font-weight: bolder;
+        background-color: #e9241d;
+        color: white;
+        padding: 14px 18px;
+        margin: 8px 50px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+        position:
+      }
+
+      button:hover {
+        opacity:10;
+      }
+
+      .center {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Float cancel and signup buttons and add an equal width */
+      .signupbtn {
+      float: center;
+      width: 20%;
+      }
+
+    </style>
   </head>
   <body>
     <h1>CHITTER</h1>
     <hr>
     <br>
     <br>
-    <form action="/signup" method="post">
-      <input type="submit" value="Sign Up">
+    <form action="/logout" method="get">
+      <button type="submit" class="signupbtn">LOGOUT</button>
     </form>
-    <br>
-    <br>
-    <form action="/new_peep" method="post">
-      <input type="submit" value="New Peep">
-    </form>
-    <%if new_peep_status%>
-      <form action="/new_peep_update" method="post">
-        <input placeholder="Name" type="text" name="name">
-        <input placeholder="Username" type="text" name="username">
-        <input placeholder="Peep" type="text" name="peep">
-        <input type="submit" value="PEEP">
-      </form>
+    <%if @session%>
+      <br>
+      <br>
+      <p>Welcome <%=@session%></p>
+      <br>
+      <br>
     <%end%>
-    <%@peeps_channel.each do |peep|%>
-      <p><hr>
-        <%=peep.peep%><br>
-        <%=peep.name%><%=peep.username%><br>
-        <%=peep.time%>
-        <hr>
-      </p>
-    <%end%>
+    <div class="center">
+      <%if @session == "Guest"%>
+        <form action="/signup" method="get">
+          <button type="submit" class="signupbtn">SIGN UP</button>
+        </form>
+        <br>
+        <br>
+      <%end%>
+      <%if new_peep_status%>
+        <form action="/new_peep_update" method="post">
+          <input placeholder="Peep it..." type="text" name="peep">
+          <button type="submit" class="signupbtn">PEEP</button>
+        </form>
+      <%else%>
+        <form action="/new_peep" method="post">
+          <button type="submit" class="signupbtn">NEW PEEP</button>
+        </form>
+      <%end%>
+      <hr>
+      <h3><b>PEEP CHANNEL</b></h3>
+      <hr>
+      <%@peeps_channel.each do |peep|%>
+        <p>
+          <%=peep.peep%><br>
+          <b><%=peep.username%></b><br>
+          <%=peep.time%>
+          <hr>
+        </p>
+      <%end%>
+    </div>
   </body>
 </html>

@@ -18,9 +18,10 @@ class Peep
     channel.map { |peep| Peep.new(peep['id'], peep['time'], peep['name'], peep['username'], peep['peep']) }
   end
 
-  def self.new_peep(name, username, peep)
+  def self.new_peep(username, peep)
     time = Peep.current_time
-    ChitterConnection.query("INSERT INTO peeps(time, name, username, peep) VALUES('#{time}', '#{name}', '#{username}', '#{peep}')")
+    name = ChitterConnection.query("SELECT name FROM accounts WHERE username='#{username}'")
+    ChitterConnection.query("INSERT INTO peeps(time, name, username, peep) VALUES('#{time}', '#{name.first['name']}', '#{username}', '#{peep}')")
   end
 
   private

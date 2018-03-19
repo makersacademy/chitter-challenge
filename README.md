@@ -8,14 +8,14 @@ Chitter Challenge
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
 Challenge:
--------
+----------
 
 As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
--------
+---------
 
 ```
 STRAIGHT UP
@@ -53,8 +53,9 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+
 Notes on functionality:
-------
+-----------------------
 
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
@@ -62,8 +63,9 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
+
 Bonus:
------
+------
 
 If you have time you can implement the following:
 
@@ -105,3 +107,15 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+// BEFORE RUNNING DO //
+
+Set-Up (IMPORTANT):
+-------------------
+Run the following commands in the terminal to setup required databases:
+* bundle
+* rake chitter:setup
+* rake account:setup
+
+Note: Use rackup to load in local server.

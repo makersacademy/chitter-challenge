@@ -22,13 +22,5 @@ describe 'Account' do
         Account.load_account(username, password)
       end
     end
-
-    context 'An invalid username/password is submitted' do
-      it 'should return false when bad username/password is submitted' do
-        username = "@invalid"
-        password = "invalid"
-        expect(Account.load_account(username, password)).to eq nil
-      end
-    end
   end
 end
