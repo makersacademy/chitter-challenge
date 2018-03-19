@@ -76,4 +76,4 @@ group :test do
 end
 ```
 
-2) In your REPL (IRB, Pry, etc.), run `Rake::Task['db_setup'].invoke` to setup the databases on your local machine.
+2) In your Terminal, run `rake db_setup` to setup the databases on your local machine.

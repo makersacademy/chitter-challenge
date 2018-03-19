@@ -1,8 +1,8 @@
-if ENV['RACK_ENV'] == 'testing'
+require 'rspec/core/rake_task'
+require 'pg'
+require './lib/db_connection.rb'
 
-  require 'rspec/core/rake_task'
-  require 'pg'
-  require './lib/db_connection.rb'
+if ENV['RACK_ENV'] == 'testing'
 
   RSpec::Core::RakeTask.new :spec
 
@@ -23,6 +23,7 @@ if ENV['RACK_ENV'] == 'testing'
     DB_Connection.query("INSERT INTO summoners (username, email, password) VALUES ('zantetsuken', 'zan@gmail.com', 'zanisamazing');")
     DB_Connection.query("INSERT INTO summoners (username, email, password) VALUES ('renzokuken', 'ren@gmail.com', 'renisamazing');")
   end
+end
 
   task :db_setup do
     p "Creating databases..."
@@ -33,4 +34,3 @@ if ENV['RACK_ENV'] == 'testing'
       Db_Connection.query("CREATE TABLE summoners (user_id SERIAL PRIMARY KEY, username VARCHAR(30), email VARCHAR, password VARCHAR(140));")
     }
   end
-end
