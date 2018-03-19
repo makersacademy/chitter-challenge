@@ -21,7 +21,7 @@ class Peep
 
   def self.add(text, author = 'anonymous')
     @con.query("INSERT INTO peeps (text, author, time) "\
-    "VALUES ('#{text}', '#{author}', '#{timestring}')")
+    "VALUES ('#{sanitize(text)}', '#{author}', '#{timestring}')")
   end
 
   def readable_time
@@ -30,12 +30,20 @@ class Peep
 
   private_class_method
 
+  def self.sanitize(text)
+    text.gsub(/'/, 'APOSTITUTION')
+  end
+
+  def self.unsanitize(text)
+    text.gsub(/APOSTITUTION/, "'")
+  end
+
   def self.retrieve
     @con.query('SELECT * FROM peeps')
   end
 
   def self.peepify(rs)
-    rs.map do |peep| Peep.new(peep['id'], peep['text'], \
+    rs.map do |peep| Peep.new(peep['id'], unsanitize(peep['text']), \
       peep['author'], peep['time'])
     end
   end

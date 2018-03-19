@@ -23,8 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/add_peep' do
-    text = params[:new_peep_text].gsub(/'/, "")
-    Peep.add(text, session[:username])
+    Peep.add(params[:new_peep_text], session[:username])
     redirect '/chitter'
   end
 
