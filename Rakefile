@@ -75,12 +75,17 @@ end
 task :test_database_population do
   p "clearing up and populating test database..."
   conn = PG.connect(dbname: 'chitter_test')
+
+  conn.exec("DROP TABLE peeps;")
+  conn.exec("DROP TABLE users;")
+
   conn.exec("create table peeps(
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
     peep VARCHAR(80) NOT NULL,
     date timestamp default current_timestamp);"
   )
+
 
   conn.exec("create table users(
     id SERIAL PRIMARY KEY,
