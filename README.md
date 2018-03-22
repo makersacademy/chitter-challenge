@@ -14,7 +14,6 @@ If I could change something about my code, I would deffinitely split my controll
 I've used flags in the controller to signalise that a button was clicked (an action commenced) in order to disable non-active buttons (eg. disable log in after a user logged in). I've created a Flash class to store all my flash messages and made use of partials - this way my code is much more elegant. I've also used CSS to make my app look (quite) professional.
 
 
-
 ## Instructions
 
 Run online:
