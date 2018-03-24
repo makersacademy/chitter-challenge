@@ -1,4 +1,5 @@
 require_relative 'datamapper'
+require 'bcrypt'
 
 class User
   include DataMapper::Resource
@@ -11,4 +12,8 @@ class User
   property :username,   String
   property :email,      String
   property :password,   String, :length => 60
+
+  before :save do
+    BCrypt::Password.create(password)
+  end
 end

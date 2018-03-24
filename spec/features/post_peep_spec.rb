@@ -1,4 +1,6 @@
 feature 'posting peeps' do
+  # TODO: discuss this one, already mentioned in the PR of the repo
+  # Also test that not-authenticated users cannot POST, raise exception!
   scenario 'registered users can post peeps' do
     visit '/peeps/new'
 

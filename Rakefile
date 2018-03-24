@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
@@ -47,9 +48,11 @@ task :setup_test_db do
   end
 
   connection.exec("INSERT INTO users(peeper, username, email, password)
-                   VALUES('Bonito', 'DelNorte', 'bonitomail@example.es', 'bonitapass');")
+                   VALUES('Bonito', 'DelNorte', 'bonitomail@example.es',
+                   '#{BCrypt::Password.create('bonitapass')}');")
   connection.exec("INSERT INTO peeps (peep, created_at, user_id)
-                   VALUES('¡Día de partido! ¡Vamos Real, hasta el final!', '#{Time.new}', 1);")
+                   VALUES('¡Día de partido! ¡Vamos Real, hasta el final!',
+                   '#{Time.new}', 1);")
   connection.exec("INSERT INTO peeps (peep, created_at, user_id)
                    VALUES('El bicho scores a hattrick!', '#{Time.new}', 1);")
 end

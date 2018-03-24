@@ -24,7 +24,8 @@ class Chitter < Sinatra::Base
       peeper: params['name'],
       username: params['username'],
       email: params['email'],
-      password: BCrypt::Password.create(params['password'])
+      password: params['password']
+      # password: BCrypt::Password.create(params['password'])
     )
 
     if user.errors.size.positive?
