@@ -19,8 +19,10 @@ task :test_database_setup do
 
     DatabaseConnection.setup("cheeter_development_test")
     DatabaseConnection.query("TRUNCATE cheeter")
+    DatabaseConnection.query("TRUNCATE newuser")
     DatabaseConnection.query("INSERT INTO cheeter VALUES('jenny', 'Hello, I am having lunch')")
     DatabaseConnection.query("INSERT INTO cheeter VALUES('mary', 'enjoying my ice cream')")
+    DatabaseConnection.query("INSERT INTO newuser VALUES('jenny', '****')")
   end
 end
 

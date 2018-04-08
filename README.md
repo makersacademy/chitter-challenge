@@ -1,19 +1,7 @@
 Chitter Challenge
 =================
 
-Setting up the environment
----------
-* Clone this repository git clone https://github.com/jennymarin1989/chitter-challenge.git
-* Update Gemfile and run bundle
-* createdb chitter_development
-* rspec
-* rackup
-
-
-Instructions:
--------
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+This is program is a little Twitter clone that will allow the users to post messages to a public stream.
 
 Sign in
 
@@ -33,12 +21,10 @@ View history
 ![image](https://user-images.githubusercontent.com/29259526/36368471-4c803442-154f-11e8-96bb-d7ded975852c.png)
 
 
-Features:
+User stories
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -72,57 +58,38 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
-------
+Getting started
+---------------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+## Installing
+ 
+Clone this repo to your local directory
+- $git clone https://github.com/jennymarin1989/chitter-challenge.git
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
+Install dependencies
+- Update Gemfile and run $bundle install
+- $createdb chitter_development
+- $rspec
+- $rackup
 
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+Build with
+----------
+- Ruby 2.5.0
+- Sinatra
+- Datamapper 1.2.0
+- Database cleaner
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+Test with
+-----------
+- Capybara
+- Rspec
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
+To Improve
+------------
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
-
-Ruby version
---------
-
-2.5.0
+This assigment was very challenging, I learnt a lot from it but I couldn't finish the implementation of log in, log out and user authentication. If given more time, I could have finished the harder user stories. 
 
 Author
 ------
-
  Jenny Arenas

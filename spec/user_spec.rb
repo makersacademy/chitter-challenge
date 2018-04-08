@@ -23,7 +23,7 @@ describe User do
     end
 
     it "returns an error if user has signed up previously" do
-      expect { User.sign_in("jose", "****") }.to raise_error "This user already exists!"
+      expect { User.sign_in("jenny", "****") }.to raise_error "This user already exists!"
     end
   end
 
