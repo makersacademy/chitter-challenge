@@ -77,7 +77,7 @@ Build with
 ----------
 - Ruby 2.5.0
 - Sinatra
-- Datamapper 1.2.0
+- sql Postgres
 - Database cleaner
 
 Test with
