@@ -11,9 +11,3 @@
   </label>
   <input type='submit' value='Post'>
 </form>
-
-
-<% @peeps.each do |x| %>
-  <%= x['name'] %>  @<%= x['username'] %>   <%= x['time'] %>
- <br> <%= x['peep'] %> <br>
-<% end %>

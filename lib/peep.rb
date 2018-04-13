@@ -7,4 +7,9 @@ class Peep
     Database.exec("SELECT * FROM peeps")
   end
 
+  def self.add(params)
+    Database.exec("INSERT INTO peeps(username, name, peep, time)
+    VALUES('#{params[:username]}', '#{params[:name]}', '#{params[:peep]}', '#{Time.now}')")
+  end
+
 end

@@ -7,4 +7,9 @@ class Chitter < Sinatra::Base
     erb :home
   end
 
+  post '/' do
+    Peep.add(params)
+    redirect '/'
+  end
+
 end
