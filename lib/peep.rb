@@ -4,7 +4,8 @@ require_relative './database.rb'
 class Peep
 
   def self.all
-    Database.exec("SELECT * FROM peeps")
+    result = Database.exec("SELECT * FROM peeps")
+    result.sort_by { |peep| peep['time'] }.reverse!
   end
 
   def self.add(params)
