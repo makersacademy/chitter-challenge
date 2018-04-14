@@ -11,16 +11,21 @@
 
 <style>
 div {
-    width: 320px;
+    width: 500px;
     padding: 10px;
     border: 5px solid gray;
     margin: 0;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 </style>
 
-<% @chit.each do |name,peep| %>
+<% @chit.reverse_each do |name,peep,timestamp| %>
+<p>
 <div>
 <b><%= name %>:</b>
 <%= peep %>
 </div>
+<font color="grey"><sub><%= timestamp  %></sub></font>
+</p>
 <% end %>

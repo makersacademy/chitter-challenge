@@ -13,9 +13,10 @@ describe Chitter do
   end
 
   describe '.create' do
-    it 'creates name and message' do
-      Chitter.create({name: 'Cat person',peep: 'Miaow.'})
-      expect(Chitter.all).to include ["Cat person", "Miaow."]
+    it 'creates name and message, includes timestamp' do
+      time = Time.now + (60*60)
+      Chitter.create({name: 'Cat person',peep: 'Miaow.', timestamp: "#{time.strftime("%H:%M")}"})
+      expect(Chitter.all).to include ["Cat person", "Miaow.", "#{time.strftime("%H:%M")}"]
     end
   end
 
