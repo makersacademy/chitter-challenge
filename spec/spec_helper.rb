@@ -1,4 +1,5 @@
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require './app/app'
 require 'capybara'
@@ -18,6 +19,11 @@ SimpleCov.start
 
 
 RSpec.configure do |config|
+  config.before(:each) do
+    require_relative './setup_test_database'
+    clearout
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
