@@ -8,10 +8,10 @@ class Chitterapp < Sinatra::Base
     erb :index
   end
 
-  # post '/sending' do
-  #   Chitter.create({name: params['name'], peep: params['title']})
-  #   redirect '/'
-  # end
+  post '/sending' do
+    Chitter.create({name: params['name'], peep: params['peep']})
+    redirect '/'
+  end
 
   run! if app_file == $0
 end

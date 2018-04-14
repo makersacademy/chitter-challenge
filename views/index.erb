@@ -18,9 +18,9 @@ div {
 }
 </style>
 
-<% @chit.each do |name, peep| %>
-<%name%>
+<% @chit.each do |name,peep| %>
 <div>
-<%peep%>
+<b><%= name %>:</b>
+<%= peep %>
 </div>
-<%end%>
+<% end %>
