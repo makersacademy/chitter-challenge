@@ -10,6 +10,7 @@ gem 'shotgun'
 gem 'sinatra'
 gem 'pg'
 gem 'sinatra-flash'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
