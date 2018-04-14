@@ -1,11 +1,12 @@
 class Post
   extend DbConnection
-  attr_reader :id, :message, :user_id
+  attr_reader :id, :message, :user_id, :created_at
 
-  def initialize(id:, message:, user_id:)
+  def initialize(id:, message:, user_id:, created_at:)
     @id = id
     @message = message
     @user_id = user_id
+    @created_at = Time.parse(created_at)
   end
 
   def self.create(user_id, message)
@@ -15,7 +16,7 @@ class Post
 
   def self.all
     connection.exec("SELECT * FROM posts;").to_a.map do |post|
-      Post.new(id: post['id'], message: post['message'], user_id: post['user_id'])
+      Post.new(id: post['id'], message: post['message'], user_id: post['user_id'], created_at: post['created_at'])
     end
   end
 end

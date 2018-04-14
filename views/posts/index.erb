@@ -1,6 +1,6 @@
 <ul>
   <% @posts.each do |post| %>
-    <li><%= post.message %></li>
+    <li><%= post.created_at.strftime("%m/%d/%Y %H:%M") %> <%= post.message %></li>
   <% end %>
 </ul>
 
