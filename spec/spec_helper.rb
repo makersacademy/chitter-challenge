@@ -15,7 +15,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-Capybara.app = Chitter
+Capybara.app = Chitterapp
 
 RSpec.configure do |config|
 
