@@ -5,7 +5,7 @@ class Peep
 
   def self.all
     result = Database.exec("SELECT * FROM peeps")
-    result.sort_by { |peep| peep['id'] }.reverse!
+    result.sort_by { |peep| peep['peepid'].to_i}.reverse!
   end
 
   def self.add(params)
