@@ -9,6 +9,8 @@ gem 'capybara'
 gem 'selenium-webdriver'
 gem 'pg'
 gem 'sinatra-flash'
+gem 'json',               '~>1.6'
+
 
 group :test do
   gem 'rspec'
