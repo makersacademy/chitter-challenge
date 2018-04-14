@@ -9,6 +9,7 @@ if ENV['RACK_ENV'] != 'production'
 
     con = PG.connect(dbname: 'chitter_test')
     con.exec("TRUNCATE TABLE peeps RESTART IDENTITY;")
+    con.exec("TRUNCATE TABLE users RESTART IDENTITY;")
 
   end
 
