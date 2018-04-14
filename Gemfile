@@ -11,6 +11,7 @@ gem "rspec-sinatra"
 gem "pg"
 
 group :test do
+  gem 'orderly'
   gem 'rspec'
   gem "capybara"
   # gem "rack-test"
