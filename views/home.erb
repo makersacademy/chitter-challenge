@@ -1,26 +1,38 @@
-
-<form action='/' method='post'>
+<!--
+<form action='/peeps' method='post'>
   <label for="name">
-  <input type='text' name='name'>
+  <input type='text' name='name' placeholder="name">
   </label>
   <label for="username">
-  <input type='text' name='username'>
+  <input type='text' name='username' placeholder="username">
   </label>
   <label for="peep">
-  <input type='text' name='peep'>
+  <input type='text' name='peep' placeholder="peep">
   </label>
   <input type='submit' value='Post'>
-</form>
+</form> -->
 
-<% if @peeps != nil %>
+Welcome to Chitter
+<br>
+<br>
+<a href='/users/new'>Register</a>
+<br>
+<a href='/users/log_in'>Sign In</a>
+<!-- <form action='/users/new' method='post'>
+  </label>
+  <input type='submit' value=>
+</form>
+<form action='/users/new' method='post'>
+  </label>
+  <input type='submit' value='Sign In'>
+</form> -->
+<br>
+<br>
+Peeps
+<br>
+<!-- # <% if @peeps != nil %> -->
 <% @peeps.each do |x| %>
   <%= x['name'] %>  @<%= x['username'] %>   <%= x['time'] %>
  <br> <%= x['peep'] %> <br>
 <% end %>
 <% end %>
-
-Sign up for Chitter:
-<form action='/users/new' method='post'>
-  </label>
-  <input type='submit' value='Sign Up'>
-</form>
