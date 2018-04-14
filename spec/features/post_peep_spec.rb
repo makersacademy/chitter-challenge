@@ -1,4 +1,5 @@
 feature 'Should be able to post a peep to chitter' do
+
   scenario 'fill out post peep form and see peep on homepage' do
     visit('/')
     fill_in('peep', :with => 'my first peep!' )
@@ -16,10 +17,12 @@ feature 'Should be able to post a peep to chitter' do
     visit('/')
     expect('my second peep!').to appear_before('my first peep!')
   end
+
   scenario 'peeps appear with time they were posted' do
     visit('/')
     fill_in('peep', :with => 'my first peep!' )
     click_button 'Post'
     expect(page).to have_content (Time.now).strftime("%H:%M:%S")
   end
+
 end

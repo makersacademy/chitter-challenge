@@ -12,4 +12,13 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  post '/users/new' do
+    erb :sign_up
+  end
+
+  post '/peeps/user' do
+    @name = params[:name]
+    erb :user_home
+  end
+
 end
