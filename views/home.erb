@@ -12,10 +12,11 @@
   <input type='submit' value='Post'>
 </form>
 
-
+<% if @peeps != nil %>
 <% @peeps.each do |x| %>
   <%= x['name'] %>  @<%= x['username'] %>   <%= x['time'] %>
  <br> <%= x['peep'] %> <br>
+<% end %>
 <% end %>
 
 Sign up for Chitter:

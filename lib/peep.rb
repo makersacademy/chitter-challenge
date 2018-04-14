@@ -8,9 +8,14 @@ class Peep
     result.sort_by { |peep| peep['peepid'].to_i}.reverse!
   end
 
-  def self.add(params)
+  def self.by(username)
+    result = Database.exec("SELECT * FROM peeps WHERE username = '#{username}'")
+    result.sort_by { |peep| peep['peepid'].to_i}.reverse!
+  end
+
+  def self.add(username, name, peep)
     Database.exec("INSERT INTO peeps(username, name, peep, time)
-    VALUES('#{params[:username]}', '#{params[:name]}', '#{params[:peep]}', '#{Time.now}')")
+    VALUES('#{username}', '#{name}', '#{peep}', '#{Time.now}')")
   end
 
 end

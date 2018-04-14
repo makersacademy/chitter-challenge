@@ -1,1 +1,20 @@
 Welcome, <%= @name %>
+
+<form action='/peeps/user' method='post'>
+  <label for="name">
+  <input type='hidden' name='name' value='<%=@name %>'>
+  </label>
+  <label for="username">
+  <input type='hidden' name='username' value='<%=@username %>'>
+  </label>
+  <label for="peep">
+  <input type='text' name='peep'>
+  </label>
+  <input type='submit' value='Post'>
+</form>
+
+My Peeps <br> 
+<% @peeps.each do |x| %>
+  <%= x['name'] %>  @<%= x['username'] %>   <%= x['time'] %>
+ <br> <%= x['peep'] %> <br>
+<% end %>

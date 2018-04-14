@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    Peep.add(params)
+    Peep.add(params['username'],params['name'],params['peep'])
     redirect '/'
   end
 
@@ -17,7 +17,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/user' do
-    @name = params[:name]
+    @name = params['name']
+    @username = params['username']
+    Peep.add(params['username'],params['name'],params['peep'])
+    @peeps = Peep.by(params['username'])
+    erb :user_home
+  end
+
+  get '/peeps/user' do
     erb :user_home
   end
 
