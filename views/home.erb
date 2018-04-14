@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+
+  body {
+    background: rgb(189, 166, 247);
+    margin: 0;
+  }
+
+  h1 {
+    font-family: 'Courier New', serif;
+    font-weight: bold;
+    font-size: 48px;
+    text-align: left;
+    background: rgb(37, 37, 37);
+    color: rgb(132, 89, 237);
+    padding: 10px;
+    margin: 0 0 50px 0;
+    border-bottom: solid 2px white;
+  }
+
+  #peeps{
+    padding: 0px 8px 0px 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: rgb(255, 255, 255, 0.6);
+    border-radius: 4px;
+    box-shadow: 4px 4px rgb(0,0,0,0.1);
+  }
+
+  #username{
+    font-family: 'Courier New', serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(0, 7, 51);
+    padding: 5px;
+  }
+
+  #time{
+    text-align: right;
+    font-family: 'Courier New', serif;
+    font-style: italic;
+    padding-right: 10px;
+  }
+
+  #message{
+    line-height: 2;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    padding-left: 70px;
+    border-width: 1.4px;
+    border-style: dotted;
+    border-color: rgb(0,0,0,0.2);
+  }
+
+</style>
+
+<h1>
+  <i class="fa fa-diamond" style="font-size:40px;color:rgb(255, 255, 255)"></i>
+  CHITTER
+</h1>
+
+<% @peeps.each do |peep|%>
+  <div id="peeps">
+    <p>
+      <div id="username">
+        <i class="fa fa-child" style="font-size:24px"></i>
+      <%= peep.username.upcase %>
+      </div>
+      <div id="message">
+        <i class="fa fa-commenting-o" style="font-size:24px; color:rgb(37, 0, 98, 0.7);"></i>
+      <%= peep.message %>
+      </div>
+      <div id="time">
+      <%= peep.time %>
+      </div>
+    </p>
+  </div>
+<% end %>
+
+
+
+</html>
