@@ -1,0 +1,19 @@
+<h1>Chitter</h1>
+
+<% @peeps.each do |peep| %>
+  <h4>Peep: <%= sexy_date %></h4>
+  <h3>Name: <%= peep['name'] %></h3>
+  <h3>Handle: <%= peep['handle'] %></h3>
+  <h4>Peep: <%= peep['peep_text'] %></h4>
+  <hr>
+<% end %>
+
+<form action='/peeps/new' method="post">
+  <input type=“text” name="peep_text" placeholder="Your text goes here" />
+  <input type=“text” name="name" placeholder="Name" />
+  <input type=“text” name="handle" placeholder="Chitter handle" />
+  <input type="submit" value="Peep" />
+</form>
+
+
+<div><%=flash[:error]%></div>
