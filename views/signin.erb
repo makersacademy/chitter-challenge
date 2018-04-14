@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+
+  body {
+    background: rgb(189, 166, 247);
+    margin: 0;
+  }
+
+  h1 {
+    font-family: 'Courier New', serif;
+    font-weight: bold;
+    font-size: 48px;
+    text-align: left;
+    background: rgb(37, 37, 37);
+    color: rgb(132, 89, 237);
+    padding: 10px;
+    margin: 0 0 50px 0;
+    border-bottom: solid 2px white;
+  }
+
+</style>
+
+<h1>
+  <i class="fa fa-diamond" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+  CHITTER
+</h1>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
+<div id='signin'>
+  <form method='post' action="/">
+    <label for='username'>username: </label>
+    <input type='text' name='username'>
+    <label for='password'>password: </label>
+    <input type='text' name='password'>
+    <input type='submit' value='log in'>
+  </form>
+</div>
+
+<div id='gosignup'>
+  <form method='get' action="/sign-up">
+    First time Chitter?
+    <input type='submit' value='Sing up'>
+  </form>
+</div>
+
+
+
+
+</html>

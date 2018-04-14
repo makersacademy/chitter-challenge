@@ -60,12 +60,31 @@
     border-color: rgb(0,0,0,0.2);
   }
 
+  #button{
+    color: #000000;
+    font-size: 18px;
+    padding: 4px;
+    background-color: #bea6f896;
+    border-radius: 4px;
+    box-shadow: 4px 4px rgb(0,0,0,0.1);
+    float: right;
+  }
+
+
+  }
 </style>
 
 <h1>
-  <i class="fa fa-diamond" style="font-size:40px;color:rgb(255, 255, 255)"></i>
+  <form action='/sign-in' method='get'>
+    <button id="button" type='submit' name='sighin'>
+      Sign in <i class="fa fa-user-circle-o"></i>
+    </button>
+  </form>
+  <i class="fa fa-diamond" style="font-size:36px;color:rgb(255, 255, 255)"></i>
   CHITTER
 </h1>
+
+
 
 <% @peeps.each do |peep|%>
   <div id="peeps">
