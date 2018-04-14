@@ -9,4 +9,18 @@ class User
     RETURNING id, username, name;")
   end
 
+  def self.authenticate(username, password)
+    result = Database.exec("SELECT * FROM users WHERE username = '#{username}'")
+
+    if result.any?
+      if result[0]['password'] == password
+        return result
+      end
+    else
+      return nil
+    end    
+
+  end
+
+
 end

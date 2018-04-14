@@ -9,6 +9,7 @@ gem "shotgun"
 gem "selenium-webdriver"
 gem "rspec-sinatra"
 gem "pg"
+gem "sinatra-flash"
 
 group :test do
   gem 'orderly'

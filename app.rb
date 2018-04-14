@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './lib/peep.rb'
 require_relative './lib/user.rb'
 
 class Chitter < Sinatra::Base
   set :session_secret, 'secret'
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @peeps = Peep.all
@@ -28,8 +30,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    session[:username]= params['username']
-    redirect '/peeps/user'
+    user = User.authenticate(params['username'],params['password'])
+    if user != nil
+      session[:username]= user[0]['username']
+      redirect '/peeps/user'
+    else
+      flash[:notice] = 'Please check your username or password.'
+      redirect '/users/log_in'
+    end
   end
 
   get '/peeps/user' do
