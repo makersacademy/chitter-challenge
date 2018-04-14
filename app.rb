@@ -3,6 +3,8 @@ require 'sinatra/flash'
 require_relative './lib/database_interface.rb'
 require_relative './lib/peep.rb'
 
+ENV['DATABASE'] = 'chitter'
+
 class Chitter < Sinatra::Base
 
   enable :sessions
@@ -10,6 +12,7 @@ class Chitter < Sinatra::Base
   include Database_interface
 
   get('/') do
+  @peeps = view_peeps
   erb :index
   end
 
