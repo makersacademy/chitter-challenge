@@ -47,4 +47,23 @@ describe User do
     end
   end
 
+  describe '#self.signin' do
+    it 'should let sign in user to become current user' do
+      User.create(name: 'signin', email: 'jkl@gmail.com', username: 'selfsignin', password: '777')
+      User.signin('selfsignin', '777')
+      expect(User.current_user.name).to eq 'signin'
+      expect(User.current_user.email).to eq 'jkl@gmail.com'
+      expect(User.current_user.username).to eq 'selfsignin'
+      expect(User.current_user.password).to eq '777'
+    end
+  end
+
+  describe '#self.signout' do
+    it 'should let current return nil after user sign out' do
+      User.signin('selfsignin', '777')
+      User.signout
+      expect(User.current_user).to eq nil
+    end
+  end
+
 end
