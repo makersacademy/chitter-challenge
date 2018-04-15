@@ -1,0 +1,34 @@
+<h1>
+  <form action="/sign-in" method="post">
+    <button id="button" type="submit" name="Sign-in">
+      SIGN IN
+    </button>
+  </form>
+</h1>
+
+<h1>
+  <form action="/sign-up" method="post">
+    <button id="button" type="submit" name="Sign-up">
+      SIGN UP
+    </button>
+  </form>
+</h1>
+
+
+
+  <% @peeps.each do |peep| %>
+  <div id="peeps">
+  <p>
+  <div id="username">
+  <%= peep.username %>
+</div>
+<div id="message">
+  <%= peep.message %>
+</div>
+<div id="time">
+  <%= peep.time %>
+</div>
+</p>
+</div>
+
+  <% end %>

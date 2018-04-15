@@ -12,12 +12,16 @@ class Peep
   end
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |peep| peep['message'] }
+    result.map { |peep|
+      Peep.new(
+        id: peep['id'],
+        username: peep['username'],
+        message: peep['message'],
+        time: peep['time']) }
   end
 
   def self.create(options)
-
-    DatabaseConnection.query("INSERT INTO peeps(username, message, time) VALUES('#{options[:username]}', '#{options[:peep]}', '#{Time.now}')")
+     DatabaseConnection.query("INSERT INTO peeps(username, message, time) VALUES('#{options[:username]}', '#{options[:peep]}', '#{Time.now}')")
   end
   private
 
