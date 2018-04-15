@@ -37,4 +37,9 @@ class User
     result = connection.exec("UPDATE users SET user_name = '#{user_name}', email = '#{email}' WHERE id = #{id} RETURNING id, email, user_name;")
     User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
+
+  def self.unique?(user_name:, email:)
+    result = connection.exec("SELECT * FROM users WHERE user_name = '#{user_name}' OR email = '#{email}';")
+    result.to_a.length == 0
+  end
 end

@@ -62,9 +62,14 @@ class Chitter < Sinatra::Base
     user_name = params[:user_name]
     password = params[:password]
     email = params[:email]
-    @user = User.create(user_name: user_name, password: password, email: email)
-    session[:user_id] = @user.id
-    redirect '/posts'
+    if User.unique?(user_name: user_name, email: email)
+      @user = User.create(user_name: user_name, password: password, email: email)
+      session[:user_id] = @user.id
+      redirect '/posts'
+    else
+      flash[:notice] = 'User with that email or user name already exists.'
+      redirect '/users/sign_up'
+    end
   end
 
   get '/posts' do
