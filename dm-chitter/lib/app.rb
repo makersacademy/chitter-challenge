@@ -21,7 +21,6 @@ class Controller < Sinatra::Base
   end
 
   post '/userlogin' do
-    p params
     if params.has_value?("") or Chitter.login(params[:existing_user], params[:users_password]) == false
       flash[:incorrect_login] = "Login failed, please login with the correct credentials."
       redirect '/login'
@@ -36,6 +35,7 @@ class Controller < Sinatra::Base
       redirect '/login'
     end
     Chitter.create_user(User.new(nil, params[:email], params[:password], params[:name], params[:username]))
+    flash[:successful_signup] = "Signin successful!. Welcome "
     redirect '/cheets'
   end
 

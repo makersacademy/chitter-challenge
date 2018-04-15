@@ -1,7 +1,7 @@
 module Database
   
   def setup_test
-    @@database = PG.connect :dbname => 'chit_test', :user => 'danielwork'
+    @database = PG.connect :dbname => 'chit_test', :user => 'danielwork'
   end
 
   def setup_regular
@@ -28,6 +28,7 @@ module Database
     @user = @database.exec_params("SELECT * FROM USERS WHERE username LIKE '#{username}' AND password like '#{password}'")
     !(@user.ntuples == 0)
   end
+  
 end
 
 
