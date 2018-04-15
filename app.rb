@@ -54,8 +54,13 @@ class Chitter < Sinatra::Base
     id = params['id']
     user_name = params[:user_name]
     email = params[:email]
-    @user = User.update(id: id, user_name: user_name, email: email)
-    redirect '/posts'
+    if User.unique?(user_name: user_name, email: email)
+      @user = User.update(id: id, user_name: user_name, email: email)
+      redirect '/posts'
+    else
+      flash[:notice] = 'User with that email or user name already exists.'
+      redirect "/users/#{id}/update"
+    end
   end
 
   post '/users' do
