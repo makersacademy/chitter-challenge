@@ -28,11 +28,8 @@ class Peep
     end
   end
 
-  private
-
   def self.current_time
     Time.now.strftime "%H:%M:%S | %a | %d-%b-%y"
   end
-
 
 end

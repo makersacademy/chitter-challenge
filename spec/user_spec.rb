@@ -2,7 +2,7 @@ require 'user'
 
 describe User do
 
-  let(:subject){ described_class.new(id: 1, name: 'myname', email: 'abc@gmail.com', username: 'user', password: '12345')}
+  let(:subject) { described_class.new(id: 1, name: 'myname', email: 'abc@gmail.com', username: 'user', password: '12345') }
 
   it 'should stores the id' do
     expect(subject.id).to eq 1

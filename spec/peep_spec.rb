@@ -3,7 +3,7 @@ require 'pg'
 
 describe Peep do
 
-  let(:subject){ described_class.new(id: 1, username: 'user', message: 'testing', time: '22:00 08/08/18' )}
+  let(:subject) { described_class.new(id: 1, username: 'user', message: 'testing', time: '22:00 08/08/18') }
 
   it 'should store the id' do
     expect(subject.id).to eq 1

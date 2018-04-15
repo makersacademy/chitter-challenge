@@ -2,11 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rake'
+
 gem 'rack-test'
-gem 'sinatra'
-gem 'shotgun'
+gem 'rake'
 gem 'pg'
+gem 'shotgun'
+gem 'sinatra'
 gem 'sinatra-flash'
 
 group :test do
