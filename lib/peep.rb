@@ -10,7 +10,7 @@ class Peep
 
   def self.list
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |peep| Peep.new(peep['id'], peep['content'], peep['user_id'], peep['time']) }
+    result.map { |peep| Peep.new(peep['id'], peep['content'], peep['user_id'], peep['time']) }.reverse
   end
 
   def self.add(peep, user_id=0)

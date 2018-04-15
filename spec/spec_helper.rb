@@ -24,5 +24,6 @@ RSpec.configure do |config|
   end
   config.before(:each) do
   DatabaseConnection.query("TRUNCATE users, peeps")
+  DatabaseConnection.query("INSERT INTO users(email, password, name, username) VALUES ('guest@guestland.on', 'test123', 'guest', 'guest')")
   end
 end

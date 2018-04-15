@@ -12,12 +12,12 @@ class User
 
   def self.create(options)
     password = BCrypt::Password.create(options[:password])
-    result = DatabaseConnection.query("INSERT INTO users(email, password, name, username) VALUES('#{options[:email]}', '#{password}', '#{options[:name]}', '#{options[:username]}') RETURNING id, email, password, name, username")
+    result = DatabaseConnection.query("INSERT INTO users(email, password, name, username) VALUES('#{options[:email]}', '#{password}', '#{options[:name]}', '#{options[:username]}') RETURNING *")
     User.new(result.first['id'], result.first['email'], result.first['password'], result.first['name'], result.first['username'])
   end
 
-  def self.find(id)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+  def self.find(id_or_email)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id_or_email}' OR email ='#{id_or_email}'")
     User.new(result.first['id'], result.first['email'], result.first['password'], result.first['name'], result.first['username'])
   end
 
@@ -28,4 +28,3 @@ class User
     User.new(result.first['id'], result.first['email'], result.first['password'], result.first['name'], result.first['username'])
   end
 end
-p User.create( email: 'ppilecki@icloud.com', password: 'Pilu12693', name: 'Patryk', username: 'Pil3q')
