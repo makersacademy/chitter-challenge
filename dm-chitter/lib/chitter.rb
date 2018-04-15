@@ -1,30 +1,4 @@
-module Database
-  
-  def setup_test
-    @database = PG.connect :dbname => 'chit_test', :user => 'danielwork'
-  end
-
-  def setup_regular
-    @database = PG.connect :dbname => 'chitter', :user => 'danielwork'
-  end
-
-  def all_chits
-    @database.exec "SELECT * FROM posts"
-  end
-
-  def all_users
-    @database.exec "SELECT * FROM users"
-  end
-
-  def add_to_chits(chit)
-    @database.exec_params('INSERT INTO posts (content, time) VALUES ($1, $2)', [chit.post, chit.time])
-  end
-
-  def add_to_users(user)
-    @database.exec_params('INSERT INTO users (email, password) VALUES ($1, $2)', [user.username, user.password])
-  end
-
-end
+require_relative 'database'
 
 class Chitter
 
@@ -49,7 +23,7 @@ class Chitter
   end
 
   def self.show_users
-    all_users.map { | row | User.new(row['id'], row['email'], row['password'])}
+    all_users.map { | row | User.new(nil, nil, nil, row['name'], row['username']) }
   end
 
 end
@@ -66,13 +40,16 @@ class Chit
 end
 
 class User
-  attr_reader :id,  :username, :password
 
-  def initialize(id = nil, username, password)
+  attr_reader :id,  :email, :password, :name, :username
+
+  def initialize(id = nil, email = nil, password = nil, name = nil, username = nil)
     @id = id
-    @username = username
+    @email = email
     @password = password
+    @name = name
+    @username = username
   end
-
+  
 end
 

@@ -21,12 +21,12 @@ class Controller < Sinatra::Base
   end
 
   post '/signup' do
-    p params
     if params[:email].length == 0 or params[:password].length == 0
       flash[:login_message] = "Please signup with a valid email/password"
       redirect '/login'
     end
-    Chitter.create_user(User.new(params[:email], params[:password]))
+    p params
+    Chitter.create_user(User.new(nil, params[:email], params[:password], params[:name], params[:username]))
     redirect '/cheets'
   end
 
