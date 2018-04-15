@@ -1,14 +1,21 @@
-<% if !logged_in %>
+<% if !current_user %>
 <form method='get' action='/users/new'>
   <input type='submit' value='sign up'/>
 </form>
 
 <% else %>
-
+<div> Hello, <%= current_user.username %> </div>
 <form method='get' action='/messages/new'>
   <input type='submit' value='write message'/>
 </form>
+
+<form method='post' action='/sessions/delete'>
+  <input type='submit' value='log out'/>
+</form>
+
 <% end %>
+
+<%= flash[:message] %>
 
 <% messages.each { |message| %>
   <div  style="border: 1px solid blue;">

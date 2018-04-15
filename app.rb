@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './lib/user.rb'
 require_relative './lib/message.rb'
 
 class Chitter < Sinatra::Base
   set :sessions, true
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -11,7 +13,8 @@ class Chitter < Sinatra::Base
 
   get '/messages' do
     messages = Message.all.map { |m| [m, User.find_by_id(m.user_id).username] }
-    erb :messages, locals: { messages: messages, logged_in: !(session[:id].nil?) }
+    current_user = session[:id] ? User.find_by_id(session[:id]) : nil
+    erb :messages, locals: { messages: messages, current_user: current_user }
   end
 
   get '/messages/new' do
@@ -25,6 +28,12 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     erb :new_user
+  end
+
+  post '/sessions/delete' do
+    flash[:message] = "You have successfully logged out."
+    session.delete(:id)
+    redirect '/messages'
   end
 
   post '/users/new' do
