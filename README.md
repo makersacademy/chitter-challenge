@@ -29,3 +29,5 @@ I want the "peeps" to pop up below the box in reverse chronological order below 
 Most of the testing and implementation has been taken from the bookmark manager weekly. One change is how the environment variable works with rspec. Instead of checking the state of an active environment variable in the spec helper, I have taken up Patryk's implementation that stubs it to equal to the test database instead.
 
 One challenge I came across while doing this was the understanding of how `PG.connect` works. I spent half an hour thinking that I got the implementation wrong when I actually didn't require the pg gem...
+
+###

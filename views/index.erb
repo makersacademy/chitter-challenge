@@ -1,31 +1,51 @@
-<h1>Welcome to Chitter!</h1>
-
-<form action="/sending" method="post">
-  <input type="text" placeholder="Name" name="name" />
-  <br />
-  <input type="text" placeholder="Enter your peep here!" name="peep" style="width:350px;height:150px;"/>
-
-  <input type="submit" value="Peep!" style="width:350px;height:180px;"/>
-
-</form>
-
 <style>
-div {
+.messages {
     width: 500px;
     padding: 10px;
-    border: 5px solid gray;
+    background-color:rgb(249, 214, 148);
+    border-color:rgb(85,40,24);
+    border-style: solid;
+    border-width: 5px;
     margin: 0;
     word-break: break-all;
     word-wrap: break-word;
 }
+
 </style>
+
+
+<body style="background-color:rgb(219, 85, 73);">
+
+
+<p>
+<img src="https://tech.co/wp-content/uploads/2014/06/Chitter.jpg" style="width:350px;" />
+</p>
+
+
+<form action="/sending" method="post">
+  <input type="text" placeholder="Name" name="name"/>
+  <br />
+  <input type="text" placeholder="Enter your peep here!" name="peep" style="width:350px;height:150px;"/>
+
+  <input type="submit" value="Peep!" style="width:170px;height:150px;"/>
+
+</form>
+
+
 
 <% @chit.reverse_each do |name,peep,timestamp| %>
 <p>
-<div>
+<div class="messages">
+<font style="color:rgb(85,40,24)">
 <b><%= name %>:</b>
 <%= peep %>
+</font>
 </div>
-<font color="grey"><sub><%= timestamp  %></sub></font>
+<font style="color:rgb(85,40,24)">
+<sub><%= timestamp  %></sub>
+</font>
 </p>
 <% end %>
+
+
+</body>
