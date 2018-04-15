@@ -1,5 +1,4 @@
 require_relative 'database'
-require 'pry'
 
 class Peeps
    attr_reader :content, :username, :created_at
