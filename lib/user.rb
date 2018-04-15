@@ -2,7 +2,7 @@ require 'bcrypt'
 require_relative 'database'
 
 class User
-  attr_reader :username
+  attr_reader :id, :username
   def initialize(id, username, email)
     @id = id
     @username = username

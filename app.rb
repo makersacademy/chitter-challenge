@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './lib/user'
 require './lib/database'
 require './lib/helpers'
+require './lib/peeps'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
@@ -27,6 +28,12 @@ class ChitterApp < Sinatra::Base
   get '/posts' do
     @user = User.create(session[:user_id])
     erb :show_posts
+  end
+
+  post '/posts' do
+    @user = User.create(session[:user_id])
+    Peeps.save(params[:content], @user.id)
+    redirect '/posts'
   end
 
   get '/log_out' do
