@@ -1,0 +1,12 @@
+<h2>Welcome To Bookmarks</h2>
+<h4><%= flash[:incorrect_bookmark]%></h4>
+
+<form method = "post" action = "/add_url">
+  <label for = "url">Enter the URL</label>
+  <input type = "text" name = "url">
+  
+  <label for = "urlname">Enter URL name</label>
+  <input type = "text" name = "urlname">
+  
+  <button value = "Submit" type ="submit">Submit</button>
+</form>
