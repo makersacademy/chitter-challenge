@@ -10,8 +10,8 @@ class Post
   end
 
   def self.create(user_id, message)
-    result = connection.exec("INSERT INTO posts (message, user_id) VALUES('#{message}', '#{user_id}') RETURNING user_id, message, id")
-    Post.new(id: result[0]['id'], message: result[0]['message'], user_id: result[0]['user_id'])
+    result = connection.exec("INSERT INTO posts (message, user_id) VALUES('#{message}', '#{user_id}') RETURNING user_id, message, id, created_at")
+    Post.new(id: result[0]['id'], message: result[0]['message'], user_id: result[0]['user_id'], created_at: result[0]['created_at'])
   end
 
   def self.all

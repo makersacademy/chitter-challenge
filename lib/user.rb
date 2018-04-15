@@ -21,11 +21,15 @@ class User
     connection.exec("SELECT * FROM users;").to_a
   end
 
-  def self.login
+  def self.login(email:, password:)
+    result = connection.exec("SELECT * FROM users WHERE email = '#{email}'")
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
 
   def self.find(id)
     result = connection.exec("SELECT * FROM users WHERE id = '#{id}'")
-    User.new(result[0]['id'], result[0]['email'], result[0]['user_name'])
+    User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
 end

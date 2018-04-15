@@ -1,0 +1,10 @@
+<%= flash[:notice] %>
+<form action='/users/log_in' method='post'>
+  <label for='email'> E-mail
+    <input type='email' name='email' />
+  </label>
+  <label for='password'> Password
+    <input type='password' name='password' />
+  </label>
+  <input type='submit' value='Submit' />
+</form>
