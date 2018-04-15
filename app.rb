@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :home
   end
 
@@ -26,5 +26,26 @@ class Chitter < Sinatra::Base
     redirect '/sign-in'
   end
 
-  run! if app_file == $0
+  post '/log-in' do
+    (flash[:nouser] = "Log in unsuccessful, try again?") && (redirect '/sign-in') unless User.signin(params[:username], params[:password])
+    redirect '/user'
+  end
+
+  get '/user' do
+    @peeps = Peep.all.reverse
+    @user = User.current_user
+    erb :userpage
+  end
+
+  post '/log-out' do
+    User.signout
+    redirect '/'
+  end
+
+  post '/new-peep' do
+    Peep.create(username: params[:username], message: params[:message])
+    redirect '/user'
+  end
+
+    run! if app_file == $0
 end
