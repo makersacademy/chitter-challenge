@@ -1,6 +1,6 @@
 <h1>Chitter</h1>
 
-<%= Peeps.all.join %>
+<%= @peeps.join("<br>") %>
 
 <form action="/new" method="post">
   <input type="text" name="new_peep">

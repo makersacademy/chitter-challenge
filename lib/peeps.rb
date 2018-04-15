@@ -1,5 +1,9 @@
+require 'pg'
+
 class Peeps
   def self.all
-    ["this is my first peep"]
+    con = PG.connect(dbname: 'chitter')
+    posts = con.exec("SELECT * FROM peeps;")
+    posts.map { |row| row["peep"] }
   end
 end
