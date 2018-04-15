@@ -1,3 +1,6 @@
+Mu solution isn't fully complete. I still need to work on the layout and restricting 'peeps' when a user isn't signed in. 
+
+
 Chitter Challenge
 =================
 
