@@ -1,8 +1,6 @@
 require 'pg'
 require 'pry'
 
-
-
 class Peep
 
   attr_reader :peep_text, :name, :handle

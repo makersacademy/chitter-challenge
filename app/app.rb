@@ -3,6 +3,7 @@ require './lib/peep'
 require 'pry'
 require 'sinatra/flash'
 require 'uri'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   configure do
@@ -18,6 +19,24 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/peeps' do
+    @peeps = Peep.all.reverse
+    @user = User.new(params[:email], params[:password], params[:name], params[:handle])
+    erb :index
+  end
+
+  post '/peeps/signed_in' do
+    @peeps = Peep.all.reverse
+    @user = User.new(params[:email], params[:password], params[:name], params[:handle])
+    erb :index_signed_in
+  end
+
+  get '/peeps/signed_in' do
+    @peeps = Peep.all.reverse
+    @user = User.new(params[:email], params[:password], params[:name], params[:handle])
+    erb :index_signed_in
+  end
+
   post '/peeps/new' do
 
     if params[:peep_text] == ""
@@ -26,7 +45,11 @@ class Chitter < Sinatra::Base
       Peep.create(Peep.new(params[:peep_text], params[:name], params[:handle]))
     end
 
-    redirect '/peeps'
+    redirect '/peeps/signed_in'
+  end
+
+  post '/sign_up' do
+    erb :sign_up
   end
 
 end

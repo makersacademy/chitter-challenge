@@ -1,8 +1,13 @@
 <img src="https://i.imgur.com/kxUv1Bg.png" height="68" width="257" />
 
-<form action='/sign_up' method='post'>
-  <input type='submit' value='Sign up to Chitter'>
+<h2>Welcome back, <%= @user.handle %></h2>
+
+<form action='/peeps/new' method="post">
+  <input type=“text” name="peep_text" placeholder="Your text goes here" />
+  <input type="submit" value="Peep" />
 </form>
+
+<div><%=flash[:error]%></div>
 
 <% @peeps.each do |peep| %>
   <h3>Name: <%= peep['name'] %></h3>
