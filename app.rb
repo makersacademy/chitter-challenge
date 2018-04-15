@@ -44,11 +44,11 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
-  get 'user/:id/update' do
+  get 'users/:id/update' do
     erb :'/users/update'
   end
 
-  patch 'user/:id/update' do
+  patch 'users/:id/update' do
     id = params['id']
     user_name = params[:user_name]
     email = params[:email]
