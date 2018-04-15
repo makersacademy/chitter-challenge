@@ -44,4 +44,14 @@ class User
     result = connection.exec("SELECT * FROM users WHERE user_name = '#{user_name}' OR email = '#{email}';")
     result.to_a.length == 0
   end
+
+  def self.unique_user_name?(user_name:)
+    result = connection.exec("SELECT * FROM users WHERE user_name = '#{user_name}';")
+    result.to_a.length == 0
+  end
+
+  def self.unique_user_email?(email:)
+    result = connection.exec("SELECT * FROM users WHERE email = '#{email}';")
+    result.to_a.length == 0
+  end
 end
