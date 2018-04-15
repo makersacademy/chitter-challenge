@@ -26,7 +26,8 @@ class Controller < Sinatra::Base
       flash[:incorrect_login] = "Login failed, please login with the correct credentials."
       redirect '/login'
     end
-
+    flash[:successful_signup] = "Signin successful!. Welcome "
+    redirect '/cheets'
   end
 
   post '/signup' do

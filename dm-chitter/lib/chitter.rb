@@ -73,7 +73,7 @@ class Login
     end
 
     def correct_credentials?
-      return false if search_for_user(@username, @password) == nil
+      return false if search_for_user(@username, @password) == false
     end
 
 end

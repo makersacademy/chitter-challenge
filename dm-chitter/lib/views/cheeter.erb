@@ -1,7 +1,7 @@
 <html>
 
   <h2 class = "welcome">
-    Welcome To Chitter  <%=Chitter.show_users.last.username%>
+    <%= flash[:successful_message]%> <%=Chitter.show_users.last.username%>!
   </h2>
 
   <h3> <%= flash[:message]%> </h3>
