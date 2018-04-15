@@ -45,10 +45,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/:id/update' do
+    id = params['id']
+    @user = User.find(id)
     erb :'/users/update'
   end
 
-  patch '/users/:id/update' do
+  post '/users/:id/update' do
     id = params['id']
     user_name = params[:user_name]
     email = params[:email]

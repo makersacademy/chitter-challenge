@@ -13,7 +13,7 @@ class User
 
   def self.create(user_name:, email:, password:)
     password = BCrypt::Password.create(password)
-    result = connection.exec("INSERT INTO users (user_name, email, password) VALUES('#{user_name}', '#{email}', '#{password}') RETURNING id, email")
+    result = connection.exec("INSERT INTO users (user_name, email, password) VALUES('#{user_name}', '#{email}', '#{password}') RETURNING id, email;")
     User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['name'])
   end
 
@@ -22,19 +22,19 @@ class User
   end
 
   def self.login(email:, password:)
-    result = connection.exec("SELECT * FROM users WHERE email = '#{email}'")
+    result = connection.exec("SELECT * FROM users WHERE email = '#{email}';")
     return unless result.any?
     return unless BCrypt::Password.new(result[0]['password']) == password
     User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
 
   def self.find(id)
-    result = connection.exec("SELECT * FROM users WHERE id = '#{id}'")
+    result = connection.exec("SELECT * FROM users WHERE id = #{id};")
     User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
 
   def self.update(id:, user_name:, email:)
-    result = connection.exec("UPDATE bookmarks SET user_name = #{user_name}, email = #{email}} WHERE id #{id};")
+    result = connection.exec("UPDATE users SET user_name = '#{user_name}', email = '#{email}' WHERE id = #{id} RETURNING id, email, user_name;")
     User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
 end
