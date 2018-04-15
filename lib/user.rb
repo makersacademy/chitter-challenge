@@ -11,20 +11,20 @@ class User
     @user_name = user_name
   end
 
+  def self.all
+    connection.exec("SELECT * FROM users;").to_a.map do |user|
+      User.new(id: user['id'], email: user['email'], user_name: user['user_name'])
+    end
+  end
+
   def self.create(user_name:, email:, password:)
     password = BCrypt::Password.create(password)
     result = connection.exec("INSERT INTO users (user_name, email, password) VALUES('#{user_name}', '#{email}', '#{password}') RETURNING id, email;")
-    User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['name'])
+    User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
 
-  def self.all
-    connection.exec("SELECT * FROM users;").to_a
-  end
-
-  def self.login(email:, password:)
-    result = connection.exec("SELECT * FROM users WHERE email = '#{email}';")
-    return unless result.any?
-    return unless BCrypt::Password.new(result[0]['password']) == password
+  def self.update(id:, user_name:, email:)
+    result = connection.exec("UPDATE users SET user_name = '#{user_name}', email = '#{email}' WHERE id = #{id} RETURNING id, email, user_name;")
     User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
 
@@ -33,8 +33,10 @@ class User
     User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
 
-  def self.update(id:, user_name:, email:)
-    result = connection.exec("UPDATE users SET user_name = '#{user_name}', email = '#{email}' WHERE id = #{id} RETURNING id, email, user_name;")
+  def self.login(email:, password:)
+    result = connection.exec("SELECT * FROM users WHERE email = '#{email}';")
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
     User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'])
   end
 
