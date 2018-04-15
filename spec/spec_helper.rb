@@ -18,4 +18,9 @@ RSpec.configure do |config|
   require 'capybara'
   require 'capybara/rspec'
   Capybara.app = ChitterApp
+
+  config.before(:each) do
+    conn = PG::Connection.open(:dbname => 'chitter_app_test')
+    conn.exec_params('TRUNCATE users, peeps;')
+  end
 end

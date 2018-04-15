@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require './lib/user'
+require './lib/database'
+require './lib/helpers'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
@@ -9,8 +11,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/register' do
-    @user = User.new(params[:username], params[:email], params[:password])
-    @user.save
+    User.save(params[:username], params[:email], params[:password])
     redirect '/log_in'
   end
 
@@ -19,10 +20,12 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/log_in' do
+    session[:user_id] = LoginHelper.verify_log_in(params)
     redirect '/posts'
   end
 
   get '/posts' do
+    @user = User.create(session[:user_id])
     erb :show_posts
   end
 end
