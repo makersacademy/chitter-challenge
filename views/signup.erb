@@ -10,10 +10,10 @@
   body {
     background: rgb(189, 166, 247);
     margin: 0;
+    font-family: 'Courier New', serif;
   }
 
   h1 {
-    font-family: 'Courier New', serif;
     font-weight: bold;
     font-size: 48px;
     text-align: left;
@@ -24,6 +24,39 @@
     border-bottom: solid 2px white;
   }
 
+  h2{
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    margin: 0 0 50px 0;
+    border-bottom: dotted;
+    border-width: 2px;
+  }
+
+  #signup{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.37);
+    border-radius: 4px;
+    box-shadow: 4px 4px rgb(0,0,0,0.1);
+    font-size: 14px;
+    padding: 0 0 50px 0;
+  }
+
+  #button{
+    background-color: rgba(175, 165, 177, 0.19);
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  #block{
+    margin: 7px;
+    background: #84c3f521;
+  }
+
 </style>
 
 <h1>
@@ -32,16 +65,17 @@
 </h1>
 
 <div id='signup'>
+  <h2>Sign up to become Chitter</h2>
   <form method='post' action="/sign-up">
     <label for='name'>Name: </label>
-    <input type='text' name='name'><br/>
+    <input id='block' type='text' name='name' autofocus><br/>
     <label for='email'>E-mail: </label>
-    <input type='text' name='email'><br/>
+    <input id='block' type='text' name='email'><br/>
     <label for='username'>username: </label>
-    <input type='text' name='username'><br/>
+    <input id='block' type='text' name='username'><br/>
     <label for='password'>password: </label>
-    <input type='text' name='password'><br/>
-    <input type='submit' value='Sign up'>
+    <input id='block' type='text' name='password'><br/>
+    <input id='button' type='submit' value='Sign up'>
   </form>
 </div>
 

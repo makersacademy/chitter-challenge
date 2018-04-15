@@ -10,10 +10,10 @@
   body {
     background: rgb(189, 166, 247);
     margin: 0;
+    font-family: 'Courier New', serif;
   }
 
   h1 {
-    font-family: 'Courier New', serif;
     font-weight: bold;
     font-size: 48px;
     text-align: left;
@@ -22,6 +22,16 @@
     padding: 10px;
     margin: 0 0 50px 0;
     border-bottom: solid 2px white;
+  }
+
+  h2{
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    margin: 0 0 50px 0;
+    border-bottom: dotted;
+    border-width: 2px;
   }
 
   #peeps{
@@ -36,7 +46,6 @@
   }
 
   #username{
-    font-family: 'Courier New', serif;
     font-size: 18px;
     font-weight: bold;
     color: rgb(0, 7, 51);
@@ -45,7 +54,6 @@
 
   #time{
     text-align: right;
-    font-family: 'Courier New', serif;
     font-style: italic;
     padding-right: 10px;
   }
@@ -70,8 +78,24 @@
     float: right;
   }
 
-
+  #peep{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
   }
+
+  #block{
+    line-height: 2;
+    letter-spacing: 2px;
+    border-width: 1.4px;
+    border-style: dotted;
+    border-color: rgb(0,0,0,0.2);
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    min-height: 100px;
+  }
+
 </style>
 
 <h1>
@@ -85,17 +109,17 @@
 </h1>
 
 <h2>
-  Welcome! <%=@user.name%>
+  Hi <%=@user.name.upcase%>! It's peep time!
 </h2>
 
-
+<div id='peep'>
 <form method='post' action="/new-peep">
-  <label for='message'>Message: </label>
-  <input type='text' name='message'>
+  <input id='block'type='text' name='message' autofocus>
   <input type='hidden' name='username' value='<%=@user.username%>'>
+  <br/>
   <input type='submit' value='Peep!'>
 </form>
-
+</div>
 
 
 <% @peeps.each do |peep|%>
