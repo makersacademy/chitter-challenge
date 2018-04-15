@@ -1,14 +1,15 @@
-#Chitter Challenge
-## Makers Academy weekend challenge to create a twitter like social media with ruby
+# Chitter Challenge
+## Makers Academy weekend challenge to create a twitter like social media app with ruby
 
 [Challenge Specification](https://github.com/makersacademy/chitter-challenge)
 ## Tech:
 
-Ruby - Postgresql - Rspec - Sinatra - Capybara - ActionMailer - bcrypt
+Ruby - Postgresql - Rspec - Sinatra - Capybara - ActionMailer - Bcrypt
 
 ## Setup:
-   ```
    Install [Postgresql](https://www.postgresql.org/)
+
+   ```
    $ git clone https://github.com/jbropho/chitter-challenge
    $ cd chitter-challenge
    $ bundle
@@ -23,8 +24,9 @@ Ruby - Postgresql - Rspec - Sinatra - Capybara - ActionMailer - bcrypt
 
    To enable email notifications
    ```
-   export CHITTER_EMAIL=GMAIL_ADDRESS
-   export CHITTER_PASSWORD=GMAIL_PASSWORD
+   setup temporary environment variables
+   $ export CHITTER_EMAIL=GMAIL_ADDRESS
+   $ export CHITTER_PASSWORD=GMAIL_PASSWORD
    (to use a different email service, modify the smtp parameters in lib/mailer.rb)
    ```
 
@@ -41,12 +43,12 @@ opportunity to build an authentication system without the use of a framework. I 
 to reach the end of the challenge and send email notifications to tagged users.
 
 ## Positives
-* Built an authentication system, storing a hashed version of user passwords via the bcrypt gem
+* Built an authentication system from scratch, storing a hashed version of user passwords via the bcrypt gem
 * Created an email notification system by implementing ActiveMailer
 
 ## If I had more time
 * Implement "happy paths". I misjudged how long this would take, meaning there are many scenarios my application
-handles poorly, such as a user registering with an name that is already in use leading to an error page.
+handles poorly, such as a user registering with a name that is already in use leading to an error page.
 * Improve security by salting passwords
 * Use the active view gem to display how long ago posts were made rather than when they were made
 
