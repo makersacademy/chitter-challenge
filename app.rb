@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './lib/user.rb'
 require_relative './lib/message.rb'
 
 class Chitter < Sinatra::Base
@@ -10,7 +11,8 @@ class Chitter < Sinatra::Base
 
   get '/messages' do
     messages = Message.all
-    erb :messages, locals: { messages: messages }
+    p "Session id is #{session[:id]}"
+    erb :messages, locals: { messages: messages, logged_in: !(session[:id].nil?) }
   end
 
   get '/messages/new' do
@@ -19,6 +21,15 @@ class Chitter < Sinatra::Base
 
   post '/messages/new' do
     Message.create params
+    redirect '/messages'
+  end
+
+  get '/users/new' do
+    erb :new_user
+  end
+
+  post '/users/new' do
+    session[:id] = User.create params
     redirect '/messages'
   end
 

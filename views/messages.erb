@@ -1,6 +1,14 @@
+<% if !logged_in %>
+<form method='get' action='/users/new'>
+  <input type='submit' value='sign up'/>
+</form>
+
+<% else %>
+
 <form method='get' action='/messages/new'>
   <input type='submit' value='write message'/>
 </form>
+<% end %>
 
 <% messages.each { |message| %>
   <div  style="border: 1px solid blue;">
