@@ -2,10 +2,16 @@
   <h1>Welcome, <%= @user.username %></h1>
 <% end %>
 
+<%= flash[:notice] %>
 
+<h2>Here's the latest Peeps</h2>
 <ul>
   <% @peeps.each do |peep| %>
     <li><%= peep.peep %></li>
     <li><%= peep.created %></li>
   <% end %>
 </ul>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
