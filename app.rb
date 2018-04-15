@@ -10,8 +10,16 @@ class Chitter < Sinatra::Base
 
   get '/messages' do
     messages = Message.all
-    p messages
     erb :messages, locals: { messages: messages }
+  end
+
+  get '/messages/new' do
+    erb :new
+  end
+
+  post '/messages/new' do
+    Message.create params
+    redirect '/messages'
   end
 
   run! if app_file == $0

@@ -1,3 +1,9 @@
+<form method='get' action='/messages/new'>
+  <input type='submit' value='write message'/>
+</form>
+
 <% messages.each { |message| %>
-  <div> <%= message.content %> </div>
+  <div  style="border: 1px solid blue;">
+    <p> <%= message.time %> </p>
+    <%= message.content %> </div>
 <% } %>

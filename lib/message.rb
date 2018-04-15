@@ -8,10 +8,13 @@ class Message
   def initialize params
     @content = params['content']
     @time = params['time'] ? params['time'] : Time.now
-    user_id = params['user_id']
   end
 
   def self.all
     (Mapper::all_messages).map { |data| new data }
+  end
+
+  def self.create params
+    Mapper::new_message(Message.new(params))
   end
 end
