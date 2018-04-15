@@ -14,7 +14,7 @@ class Peeps
    end
 
    def self.all
-     result = Database.execute('SELECT * FROM peeps INNER JOIN users ON (peeps.user_id = users.id)')
+     result = Database.execute('SELECT * FROM peeps INNER JOIN users ON (peeps.user_id = users.id) ORDER BY created_at DESC')
      data = result.to_a
      data.map! { |r| self.new(r['content'], r['username'], r['created_at']) }
    end
