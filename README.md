@@ -1,107 +1,55 @@
-Chitter Challenge
-=================
+#Chitter Challenge
+## Makers Academy weekend challenge to create a twitter like social media with ruby
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+[Challenge Specification](https://github.com/makersacademy/chitter-challenge)
+## Tech:
 
-Challenge:
--------
+Ruby - Postgresql - Rspec - Sinatra - Capybara - ActionMailer - bcrypt
 
-As usual please start by forking this repo.
+## Setup:
+   ```
+   Install [Postgresql](https://www.postgresql.org/)
+   $ git clone https://github.com/jbropho/chitter-challenge
+   $ cd chitter-challenge
+   $ bundle
+   $ rake
+   $ rackup
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+   visit localhost:9292/register
 
-Features:
--------
+   testing:
+   $ rspec
+   ```
 
-```
-STRAIGHT UP
+   To enable email notifications
+   ```
+   export CHITTER_EMAIL=GMAIL_ADDRESS
+   export CHITTER_PASSWORD=GMAIL_PASSWORD
+   (to use a different email service, modify the smtp parameters in lib/mailer.rb)
+   ```
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+   To use the mailer service, register and sign-in with a second user account and
+   add the username of the account associated with your email address to the "username" field
+   of the input form found at /posts/new. You should receive an email shortly after creating
+   the post.
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+## Approach
+I had enjoyed building a [bookmark manager](https://github.com/jbropho/bookmark-manager) without
+using an ORM during the week at Makers Academy and I decided it would be instructive to take this
+opportunity to build an authentication system without the use of a framework. I was also very keen
+to reach the end of the challenge and send email notifications to tagged users.
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+## Positives
+* Built an authentication system, storing a hashed version of user passwords via the bcrypt gem
+* Created an email notification system by implementing ActiveMailer
 
-HARDER
+## If I had more time
+* Implement "happy paths". I misjudged how long this would take, meaning there are many scenarios my application
+handles poorly, such as a user registering with an name that is already in use leading to an error page.
+* Improve security by salting passwords
+* Use the active view gem to display how long ago posts were made rather than when they were made
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+## Focus for the next week
+* Practice effective design of restful routes and learn to better anticipate "unhappy paths" and edge cases
+in my applications

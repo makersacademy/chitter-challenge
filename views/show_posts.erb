@@ -2,6 +2,9 @@
   <form action="/log_out" method="get">
     <input type="submit" value="Log-out">
   </form>
+  <form action="/posts/new" method="get">
+    <input type="submit" value="New post">
+  </form>
   <h2> <%= "Welcome #{@user.username}!" %> </h2>
 <% end %>
 

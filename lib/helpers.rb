@@ -19,7 +19,9 @@ module LoginHelper
   end
 end
 
-def tagged_user(params)
-   result = Database.execute('SELECT email, username FROM users where username = $1', [params])
-   result.to_a.size == 0 ? false : result.to_a[0]
+module MailHelper
+  def self.tagged_user(params)
+     result = Database.execute('SELECT email, username FROM users where username = $1', [params])
+     result.to_a.size == 0 ? false : result.to_a[0]
+  end
 end
