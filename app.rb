@@ -33,6 +33,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params['username'],params['password'])
     if user != nil
       session[:username]= user[0]['username']
+      session[:name]= user[0]['name']
       redirect '/peeps/user'
     else
       flash[:notice] = 'Please check your username or password.'
@@ -43,12 +44,14 @@ class Chitter < Sinatra::Base
   get '/peeps/user' do
     @peeps = Peep.by(session[:username])
     @username = session[:username]
+    @name = session[:name]
     erb :user_home
   end
 
   post '/peeps/user' do
     @peeps = Peep.by(session[:username])
     @username = session[:username]
+    @name = session[:name]
     Peep.add(@username,@name,params['peep'])
     redirect '/peeps/user'
   end

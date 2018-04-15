@@ -10,6 +10,8 @@ gem "selenium-webdriver"
 gem "rspec-sinatra"
 gem "pg"
 gem "sinatra-flash"
+gem 'bcrypt'
+gem 'pry'
 
 group :test do
   gem 'orderly'
