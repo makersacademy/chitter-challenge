@@ -28,4 +28,14 @@ class ChitterApp < Sinatra::Base
     @user = User.create(session[:user_id])
     erb :show_posts
   end
+
+  get '/log_out' do
+    session[:user_id] = false
+    redirect '/posts'
+  end
+
+  get '/posts/new' do
+    @logged_in = session[:user_id]
+    erb :post_form
+  end
 end

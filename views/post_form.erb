@@ -1,0 +1,9 @@
+<% if !@logged_in %>
+  <h2> you must be logged in to post </h2>
+<% end %>
+
+<% if @logged_in %>
+  <form action="/log_out" method="get">
+    <input type="submit" value="Log-out">
+  </form>
+<% end %>
