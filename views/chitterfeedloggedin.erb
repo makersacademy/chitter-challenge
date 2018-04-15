@@ -1,0 +1,16 @@
+<ul>
+  <%= @message %>
+
+<% @peeps.each do |peep| %>
+
+
+<li><%= peep %></li>
+
+
+<% end %>
+
+</ul>
+
+<form action="/chitterfeed" method="post">
+<input type ="text" name ="peep" /> <input type="submit" value='Post peep' />
+</form>

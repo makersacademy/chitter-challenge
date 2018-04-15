@@ -10,7 +10,10 @@ class Chitter < Sinatra::Base
   enable :sessions
 
 
-  get '/viewpeeps' do
+  get '/chitterfeed' do
+    @signupalert = session[:need_to_sign_up]
+    @signinconfirm = session
+
 
     @peeps = Peeps.all
     erb :chitterfeed
@@ -18,9 +21,17 @@ class Chitter < Sinatra::Base
 
   end
 
-  get '/chitter' do
+  get '/chitterfeed/logged_in' do
+    @message = 'Thank you for logging in, you may now post!'
+    erb :chitterfeedloggedin
 
-    @message = session[:need_to_sign_up]
+  end
+
+  get '/chitter' do
+  session[:sign_up] = 'Please log in or sign up to post to chitter'
+
+
+    @message = session[:sign_up]
 
     erb :signin
 
@@ -28,20 +39,24 @@ class Chitter < Sinatra::Base
   end
 
   post '/viewpeeps' do
-
-
     if Peeps.is_user?(params[:username])
+     session[:logged_in] = 'Thank you for logging in'
 
-      redirect '/viewpeeps'
+      redirect '/chitterfeed/logged_in'
     else
-      session[:need_to_sign_up] = 'Log in details not found, please click sign up'
-      redirect '/chitter'
+     redirect '/chitter'
 
     end
+  end
 
     # redirect '/viewpeeps' unless @not_user
-
+  post '/chitterfeed' do
+    if Peeps.is_user?(params[:username]) && params[:password].length > 0
+      erb :chitterfeed
+    elsif Peeps.is_user?(params[:username]) && params[:password].length < 0
+    end
   end
+
 
   get '/peeps' do
 

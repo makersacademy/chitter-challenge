@@ -22,7 +22,7 @@ class Peeps
   Peeps.db_connect
 
     result = @@conn.exec('SELECT * FROM peeps')
-    result.map { |peeps| peeps['message'] + ' ' +  peeps['username'] + ' ' + 'posted at:' +  peeps['created_at']}
+    @peeps = result.map { |peeps| peeps['message'] + ' ' +  peeps['username'] + ' ' + 'posted at:' +  peeps['created_at']}
 
 
 

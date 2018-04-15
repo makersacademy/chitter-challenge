@@ -17,6 +17,7 @@ describe Peeps do
   end
 
   describe '.create' do
+
     it 'creates a new peep' do
       User.create({email: 'jbloggs@makersacademy.com', username: 'jbloggs', password: 'jbloggsrocks', name: 'Joe Bloggs'})
       options = {user: 'jbloggs', peep: 'I follow TDD'}

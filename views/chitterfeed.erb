@@ -1,4 +1,5 @@
 <ul>
+  <%= @message %>
 
 <% @peeps.each do |peep| %>
 
@@ -10,7 +11,13 @@
 
 </ul>
 
-<form action="/viewpeeps" method="post">
-<input type = "text" name = "peep" /> <input type="submit" value='Post peep' />
+<form action="/chitterfeed" method="post">
+<input type ="text" name ="peep" /> <input type="submit" value='Post peep' />
+</form>
+
+<form action='/chitterfeed' method='post'>
+  <input type='text' name='username' value='Please enter your username:'/>
+  <input type='text' name='password' value='Please enter your password:'/>
+  <input type='submit' value='Log in' />
 
 </form>
