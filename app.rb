@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/user'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
@@ -8,6 +9,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/register' do
+    @user = User.new(params[:username], params[:email], params[:password])
+    @user.save
     redirect '/log_in'
   end
 
