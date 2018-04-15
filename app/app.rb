@@ -1,15 +1,15 @@
 require 'sinatra/base'
-require './lib/peeps'
+require './lib/posts'
 
 class Chitter < Sinatra::Base
 
   get "/" do
-    @peeps = Peeps.all
+    @posts = Posts.all
     erb :index
   end
 
   post "/new" do
-    @peeps
+    Posts.add(params[:new_peep])
     redirect "/"
   end
 
