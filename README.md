@@ -30,4 +30,6 @@ Most of the testing and implementation has been taken from the bookmark manager 
 
 One challenge I came across while doing this was the understanding of how `PG.connect` works. I spent half an hour thinking that I got the implementation wrong when I actually didn't require the pg gem...
 
-###
+### self.create
+
+From there, the create method was also taken from the week challenges. There is a simple implementation of Time.now method call to gain the system time thats added into the database.
