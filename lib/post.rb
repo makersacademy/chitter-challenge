@@ -19,4 +19,8 @@ class Post
       Post.new(id: post['id'], message: post['message'], user_id: post['user_id'], created_at: post['created_at'])
     end
   end
+
+  def author
+    User.find(@user_id)
+  end
 end

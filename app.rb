@@ -38,6 +38,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/users/log_out' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/')
+  end
+
   post '/users' do
     user_name = params[:user_name]
     password = params[:password]

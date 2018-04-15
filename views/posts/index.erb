@@ -1,6 +1,6 @@
 <ul>
   <% @posts.each do |post| %>
-    <li><%= post.created_at.strftime("%m/%d/%Y %H:%M") %> <%= post.message %></li>
+    <li><%= post.created_at.strftime("%m/%d/%Y %H:%M") %> <%= post.message %> <%= post.author.user_name %></li>
   <% end %>
 </ul>
 
@@ -9,4 +9,7 @@
     <input type='text' name='message' />
   </label>
   <input type='submit' value='Submit' />
+</form>
+<form action="/users/log_out" method="post">
+  <input type="submit" value="Log out" />
 </form>
