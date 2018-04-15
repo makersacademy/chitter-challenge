@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/posts'
+require './lib/peeps'
 
 class Chitter < Sinatra::Base
 
