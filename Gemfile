@@ -9,6 +9,7 @@ gem 'rubocop'
 gem 'selenium-webdriver'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'
