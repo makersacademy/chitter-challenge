@@ -9,6 +9,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+ENV['ENVIRONMENT'] == 'test'
 
 RSpec.configure do |config|
   config.after(:suite) do
