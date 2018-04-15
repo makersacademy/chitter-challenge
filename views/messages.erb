@@ -12,6 +12,6 @@
 
 <% messages.each { |message| %>
   <div  style="border: 1px solid blue;">
-    <p> <%= message.time %> </p>
-    <%= message.content %> </div>
+    <p>Posted at <%= message[0].time %> by <%= message[1] %> </p>
+    <%= message[0].content %> </div>
 <% } %>

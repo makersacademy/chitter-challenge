@@ -10,8 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
-    messages = Message.all
-    p "Session id is #{session[:id]}"
+    messages = Message.all.map { |m| [m, User.find_by_id(m.user_id).username] }
     erb :messages, locals: { messages: messages, logged_in: !(session[:id].nil?) }
   end
 
@@ -20,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages/new' do
-    Message.create params
+    Message.create((params['user_id'] = session[:id]) && params)
     redirect '/messages'
   end
 
