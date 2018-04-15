@@ -12,4 +12,14 @@ class User
     @handle = handle
   end
 
+  def self.create(user)
+      if ENV['RACK_ENV'] == 'test'
+        connection = PG.connect(dbname: 'chitter_test')
+      else
+        connection = PG.connect(dbname: 'chitter')
+      end
+
+      connection.exec("INSERT INTO peep (peep_text, name, handle) VALUES('#{peep.peep_text}', '#{peep.name}', '#{peep.handle}');")
+    end
+
 end
