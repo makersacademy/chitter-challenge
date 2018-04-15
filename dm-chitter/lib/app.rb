@@ -13,7 +13,25 @@ class Controller < Sinatra::Base
   Chitter.connect
 
   get '/' do
-    erb :index
+    redirect to '/login'
+  end
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/signup' do
+    p params
+    if params[:email].length == 0 or params[:password].length == 0
+      flash[:login_message] = "Please signup with a valid email/password"
+      redirect '/login'
+    end
+    Chitter.create_user(User.new(params[:email], params[:password]))
+    redirect '/cheets'
+  end
+
+  get '/cheets' do
+    erb :cheeter
   end
 
   post '/add_cheet' do
@@ -25,7 +43,7 @@ class Controller < Sinatra::Base
       flash[:message] = "The tweet was successfully added."
       Chitter.add(Chit.new(params[:content]))
     end
-    redirect '/'
+    redirect '/cheets'
   end
 
   run if $app_file == 0

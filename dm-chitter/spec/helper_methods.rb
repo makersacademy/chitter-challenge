@@ -1,6 +1,29 @@
 
 def visit_homepage
-  visit('/')
+  visit('/cheets')
+end
+
+def visit_login
+  visit('/login')
+end
+
+def no_email_signup
+  visit_login
+  fill_in('password', with: 'makers18')
+  click_button('Signup')
+end
+
+def no_password_signup
+  visit_login
+  fill_in('email', with: 'tester@makers.com')
+  click_button('Signup')
+end
+
+def successful_login
+  visit_login
+  fill_in('email', with: 'tester@gmail.com')
+  fill_in('password', with: 'testpassword')
+  click_button('Signup')
 end
 
 def add_successful_tweet

@@ -8,13 +8,20 @@ module Database
     @database = PG.connect :dbname => 'chitter', :user => 'danielwork'
   end
 
-  def create_table
-    @table = @database.exec "SELECT * FROM posts"
-    @table
+  def all_chits
+    @database.exec "SELECT * FROM posts"
   end
 
-  def add_to_database(chit)
+  def all_users
+    @database.exec "SELECT * FROM users"
+  end
+
+  def add_to_chits(chit)
     @database.exec_params('INSERT INTO posts (content, time) VALUES ($1, $2)', [chit.post, chit.time])
+  end
+
+  def add_to_users(user)
+    @database.exec_params('INSERT INTO users (email, password) VALUES ($1, $2)', [user.username, user.password])
   end
 
 end
@@ -29,12 +36,20 @@ class Chitter
     ENV['RACK_ENV'] == 'test' ? setup_test : setup_regular
   end
 
+  def self.create_user(user)
+    add_to_users(user)
+  end
+
   def self.add(chit)
-    add_to_database(chit)
+    add_to_chits(chit)
   end
 
   def self.show_chits
-    create_table.map { |row | Chit.new(row['content'], row['time'])}.reverse
+    all_chits.map { |row | Chit.new(row['content'], row['time'])}.reverse
+  end
+
+  def self.show_users
+    all_users.map { | row | User.new(row['id'], row['email'], row['password'])}
   end
 
 end
@@ -50,4 +65,14 @@ class Chit
 
 end
 
+class User
+  attr_reader :id,  :username, :password
+
+  def initialize(id = nil, username, password)
+    @id = id
+    @username = username
+    @password = password
+  end
+
+end
 

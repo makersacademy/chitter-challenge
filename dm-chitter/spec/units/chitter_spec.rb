@@ -3,6 +3,7 @@ require 'chitter'
 describe 'Chitter' do
 
   subject (:chit) {double(:chit, :post => "I like bagels", :time => Time.now.asctime)}
+  subject(:user) {double(:user, :username => "testemail@gmail.com", :password => "test")}
 
   before (:each) do
     Chitter.connect
@@ -39,6 +40,19 @@ describe 'Chitter' do
       end 
     end
     
+  end
+
+
+  describe "create_user" do
+
+    it "creates a user of chitter with a username and password" do
+     Chitter.create_user(user)
+     expect(Chitter.show_users.length).to eq 1
+     expect(Chitter.show_users[0].id.to_i).to eq 1
+     expect(Chitter.show_users[0].username).to eq user.username
+     expect(Chitter.show_users[0].password).to eq user.password
+    end
+  
   end
   
 end

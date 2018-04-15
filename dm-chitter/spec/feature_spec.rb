@@ -1,10 +1,34 @@
 require 'app'
 require 'helper_methods'
 
+feature "the user signs up to cheeter as a user" do
+
+  before (:each) do
+    visit_login
+  end
+
+  scenario "the user does not sign up with a valid email" do
+    no_email_signup
+    page.has_content? "Please signup with valid email/password"
+  end
+
+  scenario "the user does not sign up with a valid password" do
+    no_password_signup
+    page.has_content? "Please signup with a valid email/password" 
+  end
+
+end
+
+
+
 feature "the user enters a tweet into the database" do
 
   before (:each) do
-    visit_homepage
+    successful_login
+  end
+
+  scenario "the usersname is included in page welcome" do
+    page.has_content?("Welcome to Chitter, tester@gmail.com")
   end
 
   scenario "the tweet is successfully added" do

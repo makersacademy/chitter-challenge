@@ -26,4 +26,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 def clear_table
   database = PG.connect :dbname => 'chit_test', :user => 'danielwork'
   database.exec("TRUNCATE posts;")
+  database.exec("TRUNCATE users;")
+  database.exec("ALTER SEQUENCE users_id_seq RESTART WITH 1;")
+  database.exec("ALTER SEQUENCE users_id_seq RESTART WITH 1;")
 end
