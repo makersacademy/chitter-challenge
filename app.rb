@@ -28,9 +28,9 @@ class Chitter < Sinatra::Base
   post '/users/log_in' do
     email = params[:email]
     password = params[:password]
-    user = User.login(email: email, password: password)
-    if user
-      session[:user_id] = user.id
+    @user = User.login(email: email, password: password)
+    if @user
+      session[:user_id] = @user.id
       redirect('/posts')
     else
       flash[:notice] = 'Please check your email or password.'
@@ -44,17 +44,30 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
+  get 'user/:id/update' do
+    erb :'/users/update'
+  end
+
+  patch 'user/:id/update' do
+    id = params['id']
+    user_name = params[:user_name]
+    email = params[:email]
+    @user = User.update(id: id, user_name: user_name, email: email)
+    redirect '/posts'
+  end
+
   post '/users' do
     user_name = params[:user_name]
     password = params[:password]
     email = params[:email]
     @user = User.create(user_name: user_name, password: password, email: email)
     session[:user_id] = @user.id
-    redirect 'posts'
+    redirect '/posts'
   end
 
   get '/posts' do
     @posts = Post.all
+    @user = User.find(session[:user_id])
     erb :'/posts/index'
   end
 
@@ -62,11 +75,17 @@ class Chitter < Sinatra::Base
     erb :'posts/new'
   end
 
+  post '/posts/:id/delete' do
+    id = params['id']
+    Post.delete(id)
+    redirect '/posts'
+  end
+
   post '/posts' do
     user_id = session[:user_id]
     message = params[:message]
     Post.create(user_id, message)
-    redirect 'posts'
+    redirect '/posts'
   end
 
   run! if app_file == $0

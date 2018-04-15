@@ -1,6 +1,11 @@
 <ul>
   <% @posts.each do |post| %>
-    <li><%= post.created_at.strftime("%m/%d/%Y %H:%M") %> <%= post.message %> <%= post.author.user_name %></li>
+    <li>
+      <%= post.created_at.strftime("%m/%d/%Y %H:%M") %> <%= post.message %> <%= post.author.user_name %>
+      <form action="/posts/<%= post.id %>/delete" method="post">
+        <input type="submit" value="Delete message" />
+      </form>
+    </li>
   <% end %>
 </ul>
 
@@ -12,4 +17,7 @@
 </form>
 <form action="/users/log_out" method="post">
   <input type="submit" value="Log out" />
+</form>
+<form action="/users/<%= @user.id %>/update" method="get">
+  <input type="submit" value="Update user" />
 </form>

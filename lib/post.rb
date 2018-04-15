@@ -14,6 +14,10 @@ class Post
     Post.new(id: result[0]['id'], message: result[0]['message'], user_id: result[0]['user_id'], created_at: result[0]['created_at'])
   end
 
+  def self.delete(id)
+    connection.exec("DELETE FROM bookmarks WHERE id = '#{id}';")
+  end
+
   def self.all
     connection.exec("SELECT * FROM posts;").to_a.map do |post|
       Post.new(id: post['id'], message: post['message'], user_id: post['user_id'], created_at: post['created_at'])
