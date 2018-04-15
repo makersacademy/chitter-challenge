@@ -2,7 +2,7 @@ require 'peep'
 
 describe Peep do
   before(:each) do
-    @peep = Peep.add({:content => 'blach'} , 0)
+    @peep = Peep.add({:content => 'blach'})
   end
 
   describe 'Database functions' do

@@ -7,6 +7,7 @@ gem 'rake'
 gem 'rubocop'
 gem "pg"
 gem "sinatra-flash"
+gem 'bcrypt'
 
 group :test do
   gem "capybara"
