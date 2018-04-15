@@ -10,24 +10,13 @@ class Peep
   end
 
   def self.list
+    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result.map { |peep| Peep.new(peep['id'], peep['content'], peep['user_id'], peep['time']) }
   end
 
-  def self.add(peep, user)
-    result = DatabaseConnection.query("INSERT INTO peeps(content, user_id, time) VALUES('#{peep[:content]}', '#{user.id}', '#{Time.new.strftime("%H:%M:%S")}') RETURNING id, content, user_id, time")
+  def self.add(peep, user_id)
+    result = DatabaseConnection.query("INSERT INTO peeps(content, user_id, time) VALUES('#{peep[:content]}', '#{user_id}', '#{Time.new.strftime("%H:%M:%S")}') RETURNING id, content, user_id, time")
     Peep.new(result.first['id'], result.first['content'], result.first['user_id'], result.first['time'])
   end
-
 end
-class QuickTest
-def id
-  0
-end
-end
-user = QuickTest.new
-p user.id
-test_peep = Peep.add({:content => "blach"}, user)
-p test_peep
-p test_peep.id
-p test_peep.content
-p test_peep.user_id
-p test_peep.time
+p Peep.list
