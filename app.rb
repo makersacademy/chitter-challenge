@@ -3,10 +3,11 @@ require './lib/user'
 require './lib/database'
 require './lib/helpers'
 require './lib/peeps'
+require './lib/mailer'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
-
+  
   get '/register' do
     erb :signup
   end
@@ -34,6 +35,8 @@ class ChitterApp < Sinatra::Base
   post '/posts' do
     @user = User.create(session[:user_id])
     Peeps.save(params[:content], @user.id)
+    @tagged = tagged_user(params[:tag])
+    Mailer.notification(@tagged).deliver_now if @tagged
     redirect '/posts'
   end
 
