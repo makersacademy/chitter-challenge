@@ -27,6 +27,7 @@ class ChitterApp < Sinatra::Base
 
   get '/posts' do
     @user = User.create(session[:user_id])
+    @peeps = Peeps.all
     erb :show_posts
   end
 

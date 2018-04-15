@@ -1,9 +1,12 @@
-<form action="/log_out" method="get">
-  <input type="submit" value="Log-out">
-</form>
-
 <% if @user %>
+  <form action="/log_out" method="get">
+    <input type="submit" value="Log-out">
+  </form>
   <h2> <%= "Welcome #{@user.username}!" %> </h2>
 <% end %>
 
-<h2> posts will be here </h2>
+<% @peeps.each do |peep| %>
+   <h3> <%= "#{peep.username} : #{peep.content}" %> <h3>
+   <h4> <%= "#{peep.created_at}" %> </h4>
+   <hr>
+<% end %>
