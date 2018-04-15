@@ -5,7 +5,7 @@ class User
   include BCrypt
   include Mapper
 
-  attr_reader :first_name, :last_name, :username, :password, :email
+  attr_reader :first_name, :last_name, :username, :password, :email, :id
 
   def initialize params
     @first_name = params['first_name']
@@ -13,6 +13,7 @@ class User
     @email = params['email']
     @password = create_password params
     @username = params['username']
+    @id = params['id']
   end
 
   def self.create params
@@ -27,4 +28,9 @@ class User
     data = Mapper::find_by_id({id: id, klass: :User})
     new(data[0])
   end
+
+  def self.find_by_username username
+    res = Mapper::find_by_username({username: username, klass: :User})
+    res.length > 0 ? new(res[0]) : nil
+  end 
 end

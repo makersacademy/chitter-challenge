@@ -41,5 +41,19 @@ class Chitter < Sinatra::Base
     redirect '/messages'
   end
 
+  get '/sessions/new' do
+    erb :new_session
+  end
+
+  post '/sessions/new' do
+    @user = User.find_by_username params['username']
+    if @user && @user.password == params['password']
+      session[:id] = @user.id
+    else
+      flash[:message] = 'Username or password incorrect'
+    end
+    redirect '/messages'
+  end
+
   run! if app_file == $0
 end

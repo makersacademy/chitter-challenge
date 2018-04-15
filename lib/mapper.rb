@@ -19,6 +19,10 @@ module Mapper
     connect_exec "SELECT * FROM #{TABLES[params[:klass]]} WHERE id = #{params[:id]};"
   end
 
+  def self.find_by_username params
+    (connect_exec "SELECT * FROM #{TABLES[params[:klass]]} WHERE username LIKE '#{params[:username]}';").to_a
+  end
+
   def self.connect_exec statement
     conn = PG.connect(dbname: ENV['RACK-ENV'] == 'test' ? 'chitter_test' : 'chitter')
     result = conn.exec statement
