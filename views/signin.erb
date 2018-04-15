@@ -1,8 +1,11 @@
+<%= flash[:message] %>
+
 <h1> WELCOME TO CHITTER <h1>
 
-<form action='/bookmarks' method='post'>
+<form action='/viewpeeps' method='post'>
   <input type='text' name='username' value='Please enter your username:'/>
   <input type='text' name='password' value='Please enter your password:'/>
-  <input type='submit' value='Submit' />
+  <input type='submit' value='Log in' />
+  <input type='submit' value='Sign up' />
 
 </form>

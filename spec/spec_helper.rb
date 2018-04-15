@@ -7,6 +7,12 @@ require 'rspec'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 ENV['RACK_ENV'] = 'test'
 
+RSpec.configure do |config|
+  config.before(:each) do
+    load './spec/setup_test_database.rb'
+  end
+end
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
