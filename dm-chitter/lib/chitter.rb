@@ -26,7 +26,13 @@ class Chitter
     all_users.map { | row | User.new(nil, nil, nil, row['name'], row['username']) }
   end
 
+  def self.login(username, password)
+    login = Login.new(username, password)
+    return false if login.correct_credentials? == false
+  end
+
 end
+
 
 class Chit
 
@@ -41,7 +47,7 @@ end
 
 class User
 
-  attr_reader :id,  :email, :password, :name, :username
+  attr_reader :id,  :email, :password, :name, :username, :logged_in
 
   def initialize(id = nil, email = nil, password = nil, name = nil, username = nil)
     @id = id
@@ -49,7 +55,26 @@ class User
     @password = password
     @name = name
     @username = username
+    @logged_in = true
   end
-  
+
+end
+
+class Login
+
+  include Database
+
+  attr_reader :username, :password, :database
+
+    def initialize (username, password)
+      @username = username
+      @password = password
+      @database = Chitter.connect
+    end
+
+    def correct_credentials?
+      return false if search_for_user(@username, @password) == nil
+    end
+
 end
 

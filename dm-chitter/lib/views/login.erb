@@ -1,0 +1,39 @@
+<htm1>
+  <h2 class = "signup">Signup to Chitter</h2>
+
+  <h3 class = "error_message"><%=flash[:incorrect_signup]%></h3>
+  <h3 class = "error_message"><%=flash[:incorrect_login]%></h3>
+
+  <div class = "signup">
+    <form method = "post" action = "/signup" class = "signup_form">
+
+      <label for = "name">Enter your name</label>
+      <input type = "text" name = "name"></input>
+
+      <label for = "name">Enter your username</input>
+      <input type = "text" name = "username">
+
+      <label for = "email">Enter your email</label>
+      <input type = "text" name = "email"><input>
+
+      <label for = "password">Enter your password</label>
+      <input type = "text" name = "password"></input>
+
+      <button value = "Signup" type = "submit">Signup</button>
+    </form>
+  </div>
+
+  <div class = "login">
+    <h3 class = "login_message">Already an existing User? Login Here!</h3>
+    <form method = "post" action = "/userlogin" class = "login_form">
+      <label for = "existing_user">Username</label>
+      <input type = "text" name = "existing_user"></input>
+
+      <label for = "password">Password</label>
+      <input type = "text" name = "users_password"></input>
+
+      <button value = "Login" type = "submit">Login</button>
+    </form>
+  </div>
+    
+</html>

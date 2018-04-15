@@ -1,0 +1,25 @@
+<html>
+
+  <h2 class = "welcome">
+    Welcome To Chitter  <%=Chitter.show_users.last.username%>
+  </h2>
+
+  <h3> <%= flash[:message]%> </h3>
+
+  <div class = "add_form">
+    <form method = "post" action = "/add_cheet">
+      <label for = "content">Enter your cheet</label>
+      <input type = "text" name = "content">
+      <button value = "Submit" type ="submit">Submit</button>
+    </form>
+  </div>
+
+  <div_class = "cheets">
+    <h2 class = "feed">Your Cheet Feed</h2>
+    <%Chitter.show_chits.each do | chit | %>
+      <h3><%= Chitter.show_users.last.username%>, <%= Chitter.show_users.last.name%> <%=chit.post%>: <%=chit.time%></h3>
+    <% end %>
+  </div>
+  
+</html>
+

@@ -19,7 +19,23 @@ feature "the user signs up to cheeter as a user" do
 
 end
 
+feature "the user logs into cheeter as an existing user" do
 
+  before(:each) do
+    visit_login
+  end
+
+  scenario "the user does not enter an ID or password" do
+    signin_with_nothing
+    expect(page).to have_content "Login failed, please login with the correct credentials."
+  end
+
+  scenario "the user tries to login but needs to create an account/check they are a user" do
+    signin_as_user
+    expect(page).to have_content "Login failed, please login with the correct credentials."
+  end
+
+end
 
 feature "the user enters a tweet into the database" do
 

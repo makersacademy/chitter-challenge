@@ -9,13 +9,17 @@ end
 
 def no_email_signup
   visit_login
-  fill_in('password', with: 'makers18')
+  fill_in('password', with: 'testpassword')
+  fill_in('username', with: 'user123')
+  fill_in('name', with: 'testuser')
   click_button('Signup')
 end
 
 def no_password_signup
   visit_login
   fill_in('email', with: 'tester@makers.com')
+  fill_in('username', with: 'user123')
+  fill_in('name', with: 'testuser')
   click_button('Signup')
 end
 
@@ -23,6 +27,8 @@ def successful_login
   visit_login
   fill_in('email', with: 'tester@gmail.com')
   fill_in('password', with: 'testpassword')
+  fill_in('username', with: 'user123')
+  fill_in('name', with: 'testuser')
   click_button('Signup')
 end
 
@@ -40,4 +46,16 @@ end
 
 def tweet_too_short
   click_button('Submit')
+end
+
+def signin_with_nothing
+  visit_login
+  click_button('Login')
+end
+
+def signin_as_user
+  visit_login
+  fill_in('existing_user', with: "abcdef")
+  fill_in('users_password', with: "123456")
+  click_button('Login')
 end
