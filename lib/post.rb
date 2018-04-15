@@ -15,7 +15,7 @@ class Post
   end
 
   def self.delete(id)
-    connection.exec("DELETE FROM bookmarks WHERE id = #{id};")
+    connection.exec("DELETE FROM posts WHERE id = #{id};")
   end
 
   def self.all
