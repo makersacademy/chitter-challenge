@@ -8,4 +8,5 @@ before_install:
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
+  - bundle
   - rake
