@@ -1,5 +1,6 @@
 require 'sinatra/base'
-require 'database_connection_setup'
+require 'sinatra/flash'
+require './database_connection_setup'
 require './lib/database_connection'
 
 class ChitterApp < Sinatra::Base

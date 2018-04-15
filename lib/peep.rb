@@ -19,4 +19,3 @@ class Peep
     Peep.new(result.first['id'], result.first['content'], result.first['user_id'], result.first['time'])
   end
 end
-p Peep.list
