@@ -1,0 +1,16 @@
+<ul>
+
+<% @peeps.each do |peep| %>
+
+
+<li><%= peep %></li>
+
+
+<% end %>
+
+</ul>
+
+<form action="/viewpeeps" method="post">
+<input type = "text" name = "peep" /> <input type="submit" value='Post peep' />
+
+</form>

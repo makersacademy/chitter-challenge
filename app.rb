@@ -12,6 +12,10 @@ class Chitter < Sinatra::Base
 
   get '/viewpeeps' do
 
+    @peeps = Peeps.all
+    erb :chitterfeed
+
+
   end
 
   get '/chitter' do
@@ -25,7 +29,9 @@ class Chitter < Sinatra::Base
 
   post '/viewpeeps' do
 
+
     if Peeps.is_user?(params[:username])
+
       redirect '/viewpeeps'
     else
       session[:need_to_sign_up] = 'Log in details not found, please click sign up'
@@ -34,6 +40,10 @@ class Chitter < Sinatra::Base
     end
 
     # redirect '/viewpeeps' unless @not_user
+
+  end
+
+  get '/peeps' do
 
   end
 

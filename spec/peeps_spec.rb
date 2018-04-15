@@ -5,9 +5,11 @@ describe Peeps do
 
     it 'returns all the peeps as an array' do
       User.create({email: 'jbloggs@makersacademy.com', username: 'jbloggs', password: 'jbloggsrocks', name: 'Joe Bloggs'})
-      Peeps.create({user: 'jbloggs', peep: 'hi makers'})
       Peeps.create({user: 'jbloggs', peep: 'I love ruby programming'})
-      expect(Peeps.all).to eq ['hi makers', 'I love ruby programming']
+      options = {user: 'jbloggs', peep: 'I love ruby programming'}
+      expect(Peeps.all).to eq ["#{options[:peep]} #{options[:user]} posted at:#{DateTime.now.strftime('%Y-%m-%d %H:%M:%S')}"]
+
+
 
 
 
@@ -17,9 +19,9 @@ describe Peeps do
   describe '.create' do
     it 'creates a new peep' do
       User.create({email: 'jbloggs@makersacademy.com', username: 'jbloggs', password: 'jbloggsrocks', name: 'Joe Bloggs'})
-      options = {user: 'jbloggs', peep: 'normal life'}
+      options = {user: 'jbloggs', peep: 'I follow TDD'}
       Peeps.create(options)
-      expect(Peeps.all).to include options[:peep]
+      expect(Peeps.all.last) .to include options[:peep]
     end
 
   end

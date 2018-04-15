@@ -22,7 +22,8 @@ class Peeps
   Peeps.db_connect
 
     result = @@conn.exec('SELECT * FROM peeps')
-    peeps = result.map{|peeps| peeps['message']}
+    result.map { |peeps| peeps['message'] + ' ' +  peeps['username'] + ' ' + 'posted at:' +  peeps['created_at']}
+
 
 
   end
@@ -39,7 +40,7 @@ class Peeps
   def self.create(options)
     if Peeps.is_user?(options[:user]) then
       Peeps.db_connect
-      @@conn.exec "INSERT INTO peeps (message, username) VALUES ('#{options[:peep]}', '#{options[:user]}')"
+      @@conn.exec "INSERT INTO peeps (message, created_at, username) VALUES ('#{options[:peep]}', '#{DateTime.now.strftime('%a, %d %b %Y %H:%M:%S')}', '#{options[:user]}')"
     end
 
   end
