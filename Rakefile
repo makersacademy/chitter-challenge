@@ -5,11 +5,12 @@ if ENV['RACK_ENV'] != 'production'
 
   RSpec::Core::RakeTask.new :spec
 
-  task :default do
-    [:spec]
-    setup_database('chitter_app')
-    setup_database('chitter_app_test')
-  end
+  task default: [:spec]
+end
+
+task :setup_database do
+  setup_database('chitter_app')
+  setup_database('chitter_app_test')
 end
 
 def setup_database(database_name)
