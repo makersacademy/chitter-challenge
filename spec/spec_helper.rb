@@ -9,7 +9,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'pry'
-require 'web_helper'
+require 'user_spec_helper'
 
 Capybara.app = Chitter
 

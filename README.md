@@ -1,20 +1,7 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+Task:
 -------
 
 ```
@@ -53,55 +40,75 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
-------
+Technologies used
+-----
+1. ruby 2.5.0
+2. sinatra
+3. postgre sql
+4. capybara
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+To use the progect, following gem files are required:
+gem 'bcrypt'
+gem 'pg'
+gem 'rack-test'
+gem 'rake'
+gem 'shotgun'
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'capybara'
+gem 'pry'
+gem 'rspec'
 
-Bonus:
+Clone the progect and type ```bundle install``` in terminal
+To run tests, type ```rspec```
+
+
+Result
 -----
 
-If you have time you can implement the following:
+## Screen #1 ```/```
+start screen:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+<img src="https://monosnap.com/image/pYtevFxeJ0HG7uu4dwJOLVbsezfvJc.png" height="200" width="350" />
 
-And/Or:
+when log out:
 
-* Work on the CSS to make it look good.
+<img src="https://monosnap.com/image/pYtevFxeJ0HG7uu4dwJOLVbsezfvJc.png" height="200" width="350" />
 
-Good luck and let the chitter begin!
+## Screen #2 ```/users/sign_up```
+creating new user:
 
-Code Review
------------
+<img src="https://monosnap.com/image/XFSeUImkrnvCcNas08FiwfjCYzHKvJ.png" height="200" width="700" />
 
-In code review we'll be hoping to see:
+try to sign up with existing user:
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+<img src="https://monosnap.com/image/tODByO5MLLD62ycRO1ipybW8hEDATv.png" height="200" width="700" />
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+Error if user already exists:
 
-Notes on test coverage
-----------------------
+<img src="https://monosnap.com/image/X3RfqKLarsXNAnTuXcwlTYrCPdEYgQ.png" height="200" width="700" />
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+## Screen #3 ```/posts```
+<img src="https://monosnap.com/image/TNZFJoFvrWIORSIRPuxGxFus8wC5IH.png" height="200" width="350" />
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+send message:
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
+<img src="https://monosnap.com/image/B8BMG9bgJPHq7bdg9aLc999b1Clw6a.png" height="200" width="350" />
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+delete message:
+
+<img src="https://monosnap.com/image/ZLnRCc1Y6pSsRIPzKtDPlB8ruFDhQh.png" height="200" width="350" />
+
+updated user name:
+
+<img src="https://monosnap.com/image/jceuxO7CKO49TV53uWS9Zv9Hk8dB18.png" height="200" width="350" />
+
+
+## Screen #4 ```/users/:id/update```
+updated user name:
+<img src="https://monosnap.com/image/xrSPeM1Q5Cs5gjay9HgXfy3Rka3p4L.png" height="200" width="700" />
+
+## Screen #5 ```/users/log_in```
+<img src="https://monosnap.com/image/0YxVVzHiwCvQPaJu88RjPXSorcQyjH.png" height="200" width="700" />
+error if try log in with not existing user or mistakes in filling:
+<img src="https://monosnap.com/image/FUnASsNqpMUyJuIgADz6yY9n0z1VxA.png" height="200" width="700" >
