@@ -20,10 +20,11 @@ if ENV['RACK_ENV'] != 'production'
 
     connection = PG.connect(dbname: 'chitter')
     connection.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(15), message VARCHAR(150), time VARCHAR(60));')
-
+    connection.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(15), password VARCHAR(15), email VARCHAR(60));')
 
     connection = PG.connect(dbname: 'chitter_test')
     connection.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(15), message VARCHAR(150), time VARCHAR(60));')
+    connection.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(15), password VARCHAR(15), email VARCHAR(60));')
 
 
   end
