@@ -8,6 +8,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'orderly'
 require_relative 'setup_test_database.rb'
+require './spec/web_helpers'
 
 Capybara.app = Chitter
 
