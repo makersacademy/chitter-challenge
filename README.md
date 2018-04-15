@@ -1,21 +1,9 @@
-Chitter Challenge
-=================
+# Chitter
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+![Homepage](https://user-images.githubusercontent.com/36331920/38783153-86dd6cfe-40f6-11e8-9cab-1448ad919248.png)
+![Userpage](https://user-images.githubusercontent.com/36331920/38783156-8726bda0-40f6-11e8-9d93-707948314afb.png)
+![Signinpage](https://user-images.githubusercontent.com/36331920/38783155-870e0f58-40f6-11e8-86c6-acb2c17515f4.png)
+![Signuppage](https://user-images.githubusercontent.com/36331920/38783154-86f5fb34-40f6-11e8-9c8b-88b1ba4f6483.png)
 
 ```
 STRAIGHT UP
@@ -85,23 +73,3 @@ In code review we'll be hoping to see:
 * The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
