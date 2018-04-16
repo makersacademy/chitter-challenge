@@ -22,3 +22,5 @@ I want to sign up for Chitter
 
 **Post message to chitter**
 For the first user story, I first created the app.rb file with Chitter class and "/" route. I initially planned to hard code the first peep and get the test working, which I did. However I was not happy with the way I wrote it so I decided to create my database before I move further in the app. The homepage shows all peeps posted, with a form underneath to post a new peep.
+
+I created a Peep class, where a new instance would create a peep with the post and its timestamp, however it has not yet been used.
