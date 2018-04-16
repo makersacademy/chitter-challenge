@@ -22,5 +22,11 @@ describe Peep do
         expect(@peep.id).not_to be_nil
       end
     end
+
+    describe '.find' do
+      it 'add a new peep' do
+        expect(Peep.find(@peep.id).content).to eq @peep.content
+      end
+    end
   end
 end
