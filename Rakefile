@@ -5,7 +5,6 @@ if ENV['RACK_ENV'] != 'production'
   RSpec::Core::RakeTask.new :spec
 
   task default: [:spec]
-end
 task :setup do
   p "Creating databases"
 
