@@ -1,6 +1,20 @@
 <% if @user %>
   <h1>Welcome, <%= @user.username %></h1>
+<% else %>
+<form action='/sessions/new' method="get">
+  <input type="submit" value="Log in" />
+</form>
+<form action="/users/new" method="get">
+  <input type="submit" value="Sign up" />
+</form>
 <% end %>
+
+<% if @user %>
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="Post new Peep" />
+  </form>
+<% end %>
+
 
 <%= flash[:notice] %>
 

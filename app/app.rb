@@ -8,6 +8,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  get '/' do
+    redirect('/peeps')
+  end
+
   get '/peeps' do
     @user = User.find(session[:user_id])
     @peeps = Peep.all
