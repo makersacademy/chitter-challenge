@@ -1,6 +1,6 @@
 def add_user
   conn = PG.connect(dbname: 'chitter_test')
-  conn.exec "INSERT INTO users(first_name, last_name, username, password, email) VALUES('haralds',  'kalns', 'haralds_k', 'Pa$$w0rd', 'haralds_k@gmail.com');"
+  conn.exec "INSERT INTO users(first_name, last_name, username, password_hash, email) VALUES('haralds',  'kalns', 'haralds_k', 'Pa$$w0rd', 'haralds_k@gmail.com');"
   conn.close
 end
 

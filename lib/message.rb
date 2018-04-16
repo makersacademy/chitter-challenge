@@ -12,7 +12,7 @@ class Message
   end
 
   def self.all
-    (Mapper::all_messages).map { |data| new data }
+    Mapper::all_messages.map { |data| new data }
   end
 
   def self.create params

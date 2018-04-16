@@ -8,7 +8,12 @@ class Chitter < Sinatra::Base
   set :sessions, true
   register Sinatra::Flash
 
-  MESSAGES = {'error1' => 'ERROR: Invalid email', 'logout' => 'You have successfully logged out', 'error2' => 'ERROR: username not available', 'error3' => 'ERROR: email has already been used', 'error4' => 'ERROR: passwords not matching' }
+  MESSAGES = { 'error1' => \
+  'ERROR: Invalid email', 'logout' => 'You have successfully
+  logged out', 'error2' => 'ERROR: username not available', 'error3' => \
+  'ERROR: email has already been used', 'error4'\
+   => 'ERROR: passwords not matching', 'error5' => \
+   'ERROR: invalid credentials' }
 
   get '/' do
     erb :index
@@ -58,7 +63,7 @@ class Chitter < Sinatra::Base
     if @user && @user.password == params['password']
       session[:id] = @user.id
     else
-      flash[:message] = 'Username or password incorrect'
+      flash[:message] = MESSAGES['error5']
     end
     redirect '/messages'
   end

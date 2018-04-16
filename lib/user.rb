@@ -21,29 +21,31 @@ class User
     return "error3" if find_by_email params['email']
     return "error2" if find_by_username params['username']
     return "error4" unless params['ui_password'] === params['ui_password1']
-    Mapper::new_user(self.new params)
+    Mapper::new_user(new params)
   end
 
   def create_password data
-    data['password_hash'] ? Password.new(data['password_hash']) : Password.create(data['ui_password'])
+    data['password_hash'] ?
+    Password.new(data['password_hash']) :
+    Password.create(data['ui_password'])
   end
 
   def self.find_by_id id
-    data = Mapper::find_by_id({id: id, klass: :User})
+    data = Mapper::find_by_id({ id: id, klass: :User })
     new(data[0])
   end
 
   def self.find_by_username username
-    res = Mapper::find_by_username({username: username, klass: :User})
+    res = Mapper::find_by_username({ username: username, klass: :User })
     res.length > 0 ? new(res[0]) : nil
   end 
 
   def self.find_by_email email
-    res = Mapper::find_by_email({email: email, klass: :User})
+    res = Mapper::find_by_email({ email: email, klass: :User })
     res.length > 0 ? new(res[0]) : nil
   end
 
   def self.valid_email? email
-    !!(email.match(/^[\w\d\-]{2,}@[\w\.]+$/))
+    !!email.match(/^[\w\d\-]{2,}@[\w\.]+$/)
   end
 end

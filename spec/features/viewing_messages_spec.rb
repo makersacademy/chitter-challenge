@@ -8,7 +8,6 @@ feature 'A user can view messages in reverse chronological order', type: :featur
     add_messages
     visit '/'
     click_button 'view messages'
-    save_and_open_page
     expect('Good bye!').to appear_before('Random announcement')
     expect('Random announcement').to appear_before('Hello everyone!')
   end
