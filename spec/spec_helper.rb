@@ -10,6 +10,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'pry'
 require 'user_spec_helper'
+require 'post_spec_helper'
 
 Capybara.app = Chitter
 

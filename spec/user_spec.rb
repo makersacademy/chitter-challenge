@@ -74,7 +74,7 @@ describe User do
   end
 
   describe '.uniqe?' do
-    it 'returns false if user_name && email is not unique' do
+    it 'returns false if user_name && email are not unique' do
       create_users
       expect(User.unique?(user_name: 'Donna', email: 'donna_test@test.com')).to eq(false)
     end
@@ -86,9 +86,29 @@ describe User do
       create_users
       expect(User.unique?(user_name: 'Elena', email: 'donna_test@test.com')).to eq(false)
     end
-    it 'returns true if user_name && pemail is unique' do
+    it 'returns true if user_name && pemail are unique' do
       create_users
       expect(User.unique?(user_name: 'Elena', email: 'elena_test@test.com')).to eq(true)
+    end
+  end
+  describe '.unique_user_name?' do
+    it 'returns false if user_name is not unique' do
+      create_users
+      expect(User.unique_user_name?(user_name: 'Donna')).to eq(false)
+    end
+    it 'returns true if user_name is unique' do
+      create_users
+      expect(User.unique_user_name?(user_name: 'Elena')).to eq(true)
+    end
+  end
+  describe '.unique_user_email?' do
+    it 'returns false if email is not unique' do
+      create_users
+      expect(User.unique_user_email?(email: 'donna_test@test.com')).to eq(false)
+    end
+    it 'returns true if email is unique' do
+      create_users
+      expect(User.unique_user_email?(email: 'elena_test@test.com')).to eq(true)
     end
   end
 end
