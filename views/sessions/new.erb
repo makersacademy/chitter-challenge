@@ -1,7 +1,11 @@
-<%= styled_flash %>
-
 <form action="/sessions" method="post">
-  <input type="email" name="email" />
-  <input type="password" name="password" />
-  <input type="submit" value="Sign in" />
+  <label for="email">
+    Email:
+  <input type="email" name="email"/>
+  </label>
+  <label for="password">
+    Password:
+  <input type="password" name="password"/>
+  </label>
+  <input type="submit" value="Sign in"/>
 </form>

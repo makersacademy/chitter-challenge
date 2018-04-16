@@ -36,16 +36,21 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(params)
-    session[:user_id] = user
-    redirect ('/sessions/peeps')
+    if User.in_base?(params)
+      flash[:notice] = 'Username or email already taken!'
+      redirect ('/users/new')
+    else
+      user = User.create(params)
+      session[:user_id] = user
+      redirect ('/sessions/peeps')
+    end
   end
 
   get '/sessions/new' do
     erb :"sessions/new"
   end
 
-  post '/sessions/' do
+  post '/sessions' do
     user = User.authenticate(params['email'], params['password'])
     if user
       session[:user_id] = user
