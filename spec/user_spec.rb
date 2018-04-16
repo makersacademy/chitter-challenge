@@ -18,6 +18,7 @@ describe '.create' do
       expect(User.find(user.id).email).to eq user.email
     end
   end
+  
   describe '.authenticate' do
   it 'Authenticate the user and return a User' do
     user = User.create( email: 'ppilecki@icloud.com', password: 'Test123', name: 'Patryk', username: 'Pil3q')

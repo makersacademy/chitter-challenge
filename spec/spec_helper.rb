@@ -1,5 +1,6 @@
 ENV['DATABASE'] = 'test'
 
+require 'web_helpers'
 require 'simplecov'
 require 'simplecov-console'
 require './app.rb'
