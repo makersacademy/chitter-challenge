@@ -17,22 +17,31 @@ class Chitter < Sinatra::Base
     erb :"peeps/new"
   end
 
+  post '/sign-up' do
+    erb :sign_up
+  end
+  post '/sign-in' do
+    erb :sign_in
+  end
+
   post '/peeps' do
     Peep.create(params)
     redirect '/'
   end
+  post '/peeps/user'do
+  p params
+    @username = params['username']
+    @peeps = Peep.peeps_user(params['username'])
+    erb :user_homepage
+  
 
-  get '/sign-up' do
-    erb :sign_up
-  end
-  get '/sign-up' do
-    erb :sign_up
   end
 
-  post '/sign-up' do
-    flash[:sign_up] = "You're almost ready to Chitter now, just sign in!" if User.create(name: params[:name], email: params[:email], username: params[username], password: params[:password])
+  post '/peeps' do
     redirect '/sign-in'
   end
+
+
 
   run! if app_file == $0
 end

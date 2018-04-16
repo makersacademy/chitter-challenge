@@ -26,6 +26,15 @@ class User
   end
 
   def self.create(options)
-    DatabaseConnection.query("INSERT INTO user(name, username, password, email) VALUES('#{options[:name]}', '#{options[:username]}', '#{options[:password]}', #{options[:uemail]})")
+    DatabaseConnection.query("INSERT INTO user(name, username, password, email) VALUES('#{options[:name]}', '#{options[:username]}', '#{options[:password]}', #{options[:email]})")
+    User.new(result[0]['id'], result[0]['email'], result[0]['password'], result[0]['name'], result[0]['username'])
   end
+
+  def self.find(username)
+    return nil unless username
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'" )
+    User.new(result[0]['id'], result[0]['email'], result[0]['password'], result[0]['name'], result[0]['username'])
+
+  end
+
 end

@@ -20,12 +20,11 @@ class Peep
         time: peep['time']) }
   end
 
+  def self.peeps_user(username)
+    DatabaseConnection.query("SELECT * FROM peeps WHERE username = '#{username}'")
+  end
   def self.create(options)
      DatabaseConnection.query("INSERT INTO peeps(username, message, time) VALUES('#{options[:username]}', '#{options[:peep]}', '#{Time.now}')")
   end
-  private
 
-  def self.time
-    Time.now.strftime "%H:%M:%S | %a | %d-%b-%y"
-  end
 end

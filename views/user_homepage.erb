@@ -1,0 +1,16 @@
+Great to see you again <%= @username %>
+
+<form action='/peeps/user' method="post">
+
+  Your Peeps <br>
+  <% @peeps.each do |peep| %>
+  <%= peep['username'] %>  @<%= peep['username'] %>   <%= peep['time'] %>
+ <br> <%= peep['peep'] %> <br>
+  <% end %>
+
+  <form action="/peeps/user" method="post">
+    <label for="peep">
+    <input type="text" name="peep" />
+  </label>
+    <input type="submit" value="Post" />
+  </form>
