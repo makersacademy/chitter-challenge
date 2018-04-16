@@ -9,21 +9,24 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 ENV['RACK-ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'rake'
 require_relative '../app.rb'
 
 Capybara.app = Chitter
+Rake.application.load_rakefile
 
-RSpec.configure { |config|
-  config.before(:each) {
-    conn = PG.connect(dbname: 'chitter_test')
-    conn.exec "TRUNCATE users, messages RESTART IDENTITY;"
-    conn.close
-  }
-}
+RSpec.configure do |config|
+  config.before(:each) do
+    Rake::Task['test_database_setup'].execute
+  end
+end
+
+
 
 RSpec.configure do |config|
   config.after(:suite) do

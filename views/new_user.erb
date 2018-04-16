@@ -1,15 +1,15 @@
 <form method='post' action='/users/new'>
   <label for='first_name'>FIRST NAME</label>
-  <input type='text'name='first_name'/>
+  <input type='text'name='first_name' required/>
   <label for='last_name'>LAST NAME</label>
-  <input type='text'name='last_name'/>
+  <input type='text'name='last_name' required/>
   <label for='username'>USERNAME</label>
-  <input type='text' name='username'/>
+  <input type='text' name='username' required/>
   <label for='ui_password'>PASSWORD</label>
-  <input type='password' name='ui_password'/>
-  <label for='password1'>REPEAT PASSWORD</label>
-  <input type='password' name='ui_password1'/>
+  <input type='password' name='ui_password'pattern=".{8,}" required title="at least 8 characters"/>
+  <label for='ui_password1'>REPEAT PASSWORD</label>
+  <input type='password' name='ui_password1' required/>
   <label for='email'>EMAIL</label>
-  <input type='text'name='email'/>
+  <input type='text'name='email' required/>
   <input type='submit' value='submit'/>
 </form>

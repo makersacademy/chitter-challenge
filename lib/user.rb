@@ -17,6 +17,10 @@ class User
   end
 
   def self.create params
+    return "error1" unless valid_email? params['email']
+    return "error3" if find_by_email params['email']
+    return "error2" if find_by_username params['username']
+    return "error4" unless params['ui_password'] === params['ui_password1']
     Mapper::new_user(self.new params)
   end
 
@@ -33,4 +37,13 @@ class User
     res = Mapper::find_by_username({username: username, klass: :User})
     res.length > 0 ? new(res[0]) : nil
   end 
+
+  def self.find_by_email email
+    res = Mapper::find_by_email({email: email, klass: :User})
+    res.length > 0 ? new(res[0]) : nil
+  end
+
+  def self.valid_email? email
+    !!(email.match(/^[\w\d\-]{2,}@[\w\.]+$/))
+  end
 end

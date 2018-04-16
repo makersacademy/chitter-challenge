@@ -2,10 +2,13 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user.rb'
 require_relative './lib/message.rb'
+require 'rake'
 
 class Chitter < Sinatra::Base
   set :sessions, true
   register Sinatra::Flash
+
+  MESSAGES = {'error1' => 'ERROR: Invalid email', 'logout' => 'You have successfully logged out', 'error2' => 'ERROR: username not available', 'error3' => 'ERROR: email has already been used', 'error4' => 'ERROR: passwords not matching' }
 
   get '/' do
     erb :index
@@ -31,13 +34,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions/delete' do
-    flash[:message] = "You have successfully logged out."
+    flash[:message] = MESSAGES['logout']
     session.delete(:id)
     redirect '/messages'
   end
 
   post '/users/new' do
-    session[:id] = User.create params
+    id = User.create params
+    if /^\d+$/ === id
+      session[:id] = id
+    else
+      flash[:message] = MESSAGES[id]
+    end
     redirect '/messages'
   end
 
