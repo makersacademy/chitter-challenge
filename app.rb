@@ -17,10 +17,10 @@ class Chitter < Sinatra::Base
     erb :"peeps/new"
   end
 
-  post '/sign-up' do
+  post '/user/sign-up' do
     erb :sign_up
   end
-  post '/sign-in' do
+  post '/user/sign-in' do
     erb :sign_in
   end
 
@@ -33,10 +33,9 @@ class Chitter < Sinatra::Base
     @username = params['username']
     @peeps = Peep.peeps_user(params['username'])
     erb :user_homepage
-  
+
 
   end
-
   post '/peeps' do
     redirect '/sign-in'
   end
