@@ -4,6 +4,7 @@ require './database_connection_setup'
 require './lib/database_connection'
 require './lib/peep.rb'
 require './lib/user.rb'
+require './lib/comment.rb'
 
 
 class ChitterApp < Sinatra::Base
@@ -66,5 +67,4 @@ class ChitterApp < Sinatra::Base
     flash[:notice] = 'You have signed out.'
     redirect('/')
   end
-
 end
