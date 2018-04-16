@@ -2,7 +2,8 @@ require 'peep'
 
 describe Peep do
   before(:each) do
-    @peep = Peep.add({:content => 'blach'})
+    user = double(:user, id: 0, name: 'Patrick')
+    @peep = Peep.add({:content => 'blach'}, user)
   end
 
   describe 'Database functions' do

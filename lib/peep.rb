@@ -13,8 +13,8 @@ class Peep
     result.map { |peep| Peep.new(peep['id'], peep['content'], peep['user_id'], peep['time']) }.reverse
   end
 
-  def self.add(peep, user_id=0)
-    result = DatabaseConnection.query("INSERT INTO peeps(content, user_id, time) VALUES('#{peep[:content]}', '#{user_id}', '#{Time.new.strftime("%H:%M:%S")}') RETURNING *")
+  def self.add(peep, user)
+    result = DatabaseConnection.query("INSERT INTO peeps(content, user_id, time) VALUES('#{peep[:content]}', '#{user.id}', '#{Time.new.strftime("%H:%M:%S")}') RETURNING *")
     Peep.new(result.first['id'], result.first['content'], result.first['user_id'], result.first['time'])
   end
 end

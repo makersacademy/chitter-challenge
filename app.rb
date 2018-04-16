@@ -18,12 +18,16 @@ class ChitterApp < Sinatra::Base
     erb :"peeps/index"
   end
 
-  get '/peeps/new' do
-
+  get '/sessions/peeps' do
+    erb :"sessions/index"
   end
 
-  post '/peeps/new' do
+  get '/peeps/add' do
+    erb :"peeps/add"
+  end
 
+  post '/peeps/add' do
+    Peep.add(params, session[:user_id])
     redirect ('/')
   end
 
@@ -33,8 +37,29 @@ class ChitterApp < Sinatra::Base
 
   post '/users' do
     user = User.create(params)
-    session[:user_id] = user.id
-    redirect ('/')
+    session[:user_id] = user
+    redirect ('/sessions/peeps')
+  end
+
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  post '/sessions/' do
+    user = User.authenticate(params['email'], params['password'])
+    if user
+      session[:user_id] = user
+      redirect('/sessions/peeps')
+    else
+      flash[:notice] = 'Wrong email or password.'
+      redirect('/sessions/new')
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/')
   end
 
 end

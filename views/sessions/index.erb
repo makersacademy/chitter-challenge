@@ -1,0 +1,15 @@
+<h1>Welcome <%= session[:user_id].name%> </h1>
+<form action='/peeps/add'>
+  <input type='submit' value='Peep!'>
+</form>
+<form action='/sessions/destroy' method='post'>
+  <input type='submit' value='Sign out'>
+</form>
+
+<h1>What did you peep?</h1>
+<ul>
+<% Peep.list.each do |peep| %>
+<h2> By <%= User.find(peep.user_id).name%> at <%= peep.time%> </h2>
+<h3> <%= peep.content%> </h3>
+<% end %>
+</ul>
