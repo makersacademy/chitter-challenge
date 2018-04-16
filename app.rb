@@ -4,9 +4,11 @@ require './lib/database'
 require './lib/helpers'
 require './lib/peeps'
 require './lib/mailer'
+require 'sinatra/flash'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     redirect '/posts'
@@ -17,8 +19,13 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/register' do
-    User.save(params[:username], params[:email], params[:password])
-    redirect '/log_in'
+    @status = User.save(params[:username], params[:email], params[:password])
+    if @status == true
+      redirect '/log_in'
+    else
+      flash[:error] = @status
+      redirect '/register'
+    end
   end
 
   get '/log_in' do

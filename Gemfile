@@ -7,6 +7,7 @@ gem 'activesupport', '~> 5.0'
 gem 'bcrypt'
 gem 'rake'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'pg'
 gem 'pry'
 
