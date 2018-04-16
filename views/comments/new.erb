@@ -1,1 +1,6 @@
-
+<h1>Add the comment to the post below</h1>
+<form action="/comments/<%= @peep_id %>/new" method="post">
+  <input type="hidden" name="peep_id" value="<%= @peep_id %>"/>
+  <input type="text" name="content"/>
+  <input type="submit" value="Submit"/>
+</form>

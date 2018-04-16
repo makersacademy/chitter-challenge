@@ -1,4 +1,5 @@
 require_relative '../database_connection_setup'
+require_relative './comment'
 class Peep
   attr_reader :id, :content, :user_id, :time
   def initialize(id, content, user_id, time)
@@ -21,5 +22,10 @@ class Peep
   def self.find(id)
     result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = '#{id}'")
     Peep.new(result.first['id'], result.first['content'], result.first['user_id'], result.first['time'])
+  end
+
+  def comments
+    result = DatabaseConnection.query("SELECT * FROM comments WHERE peep_id = '#{@id}'")
+    result.map { |comment| Comment.new(comment['id'], comment['content'], comment['user_id'], comment['peep_id'], comment['time']) }.reverse
   end
 end

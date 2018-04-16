@@ -11,6 +11,15 @@
 <ul>
 <% Peep.list.each do |peep| %>
 <h2> By <%= User.find(peep.user_id).name%> at <%= peep.time%> </h2>
-<h3> <%= peep.content%> </h3>
+<%= peep.content%>
+  <h3>Comments</h3>
+  <% peep.comments.each do |comment| %>
+  By <%= User.find(comment.user_id).name%> at <%= comment.time %>
+  <br><%= comment.content %></br>
+  <%end%>
+  <form action='/comments/<%= peep.id%>/new'>
+    <input type="hidden" name="peep_id" value="<%= peep.id %>"/>
+    <input type='submit' value='Comment'>
+  </form>
 <% end %>
 </ul>

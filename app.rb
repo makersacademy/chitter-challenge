@@ -20,6 +20,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/sessions/peeps' do
+    @user = session[:user_id]
     erb :"sessions/index"
   end
 
@@ -29,7 +30,7 @@ class ChitterApp < Sinatra::Base
 
   post '/peeps/add' do
     Peep.add(params, session[:user_id])
-    redirect ('/')
+    redirect ('/sessions/peeps')
   end
 
   get '/users/new' do
@@ -66,5 +67,18 @@ class ChitterApp < Sinatra::Base
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect('/')
+  end
+
+  get '/comments/:id/new' do
+    @user = session[:user_id]
+    @peep_id = params[:peep_id]
+    @peep = Peep.find(@peep_id)
+    erb :"comments/new"
+  end
+
+  post '/comments/:id/new' do
+    @peep = params[:peep_id]
+    Comment.add(@peep, params, session[:user_id])
+    redirect ('/sessions/peeps')
   end
 end

@@ -9,6 +9,13 @@
 <ul>
 <% Peep.list.each do |peep| %>
 <h2> By <%= User.find(peep.user_id).name%> at <%= peep.time%> </h2>
-<h3> <%= peep.content%> </h3>
+<%= peep.content%>
+<h3>Comments</h3>
+<ul>
+<% peep.comments.each do |comment| %>
+By <%= User.find(comment.user_id).name%> at <%= comment.time %>
+<br><%= comment.content %></br>
+<%end%>
+</ul>
 <% end %>
 </ul>
