@@ -33,7 +33,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/log_in' do
-    session[:user_id] = LoginHelper.verify_log_in(params)
+    session[:user_id] = User.verify_log_in(params)
     redirect '/posts'
   end
 

@@ -38,4 +38,19 @@ class User
   def self.valid_password?(password)
     password.length > 5
   end
+
+  def self.verify_log_in(params)
+    result = Database.execute('SELECT id, hashed_password FROM users WHERE username = $1', [params[:username]])
+    return false unless user_exists?(result)
+    return false unless correct_password?(params[:password], result.to_a[0]['hashed_password'])
+    result.to_a[0]['id']
+  end
+
+  def self.user_exists?(result)
+     result.to_a.size == 1
+  end
+
+  def self.correct_password?(password, acc_password)
+    BCrypt::Password.new(acc_password) == password
+  end
 end

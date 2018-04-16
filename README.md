@@ -47,8 +47,6 @@ to reach the end of the challenge and send email notifications to tagged users.
 * Created an email notification system by implementing ActiveMailer
 
 ## If I had more time
-* Implement "happy paths". I misjudged how long this would take, meaning there are many scenarios my application
-handles poorly, such as a user registering with a name that is already in use leading to an error page.
 * Improve security by salting passwords
 * DRY out feature tests
 * Use the active view gem to display how long ago posts were made rather than when they were made
