@@ -52,7 +52,7 @@ describe Post do
       expect(posts[0].message).to eq(expected_post[0].message)
     end
   end
-  describe '.author' do #ask
+  describe '.author' do
     it 'finds author of the post' do
       create_post
       author = User.find(1)

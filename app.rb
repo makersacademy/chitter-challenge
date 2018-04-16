@@ -100,7 +100,7 @@ class Chitter < Sinatra::Base
   post '/posts' do
     user_id = session[:user_id]
     message = params[:message]
-    Post.create(user_id, message)
+    Post.create(user_id: user_id, message: message)
     redirect '/posts'
   end
 
