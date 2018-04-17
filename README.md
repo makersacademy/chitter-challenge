@@ -1,7 +1,17 @@
+[![Build Status](https://travis-ci.org/MaryDomashneva/chitter-challenge.svg?branch=master)](https://travis-ci.org/MaryDomashneva/chitter-challenge)
+
+[![codebeat badge](https://codebeat.co/badges/0b8cbc00-81a2-402c-b6e2-4cc28040db6d)](https://codebeat.co/projects/github-com-marydomashneva-chitter-challenge-master)
+
 Chitter Challenge
 =================
 
+[Check project online](chitter-challenge.surge.sh)
+
 Task:
+-------
+It is a social media project - simple clone of Twitter.
+
+User Story:
 -------
 
 ```
@@ -44,71 +54,31 @@ Technologies used
 -----
 1. ruby 2.5.0
 2. sinatra
-3. postgre sql
+3. postgre SQL
 4. capybara
 
-To use the progect, following gem files are required:
-gem 'bcrypt'
-gem 'pg'
-gem 'rack-test'
-gem 'rake'
-gem 'shotgun'
-gem 'sinatra'
-gem 'sinatra-flash'
-gem 'capybara'
-gem 'pry'
-gem 'rspec'
-
-Clone the progect and type ```bundle install``` in terminal
-To run tests, type ```rspec```
-
+Run project:
+-----
+* Clone the progect and type ```bundle install``` in terminal
+* Local on your machine: Clone this project, type ```ruby app.rb```
+* Onlinel: use this [link](chitter-challenge.surge.sh)
+* To run tests, type ```rspec```
 
 Result
 -----
 
-## Screen #1 ```/```
-start screen:
-
-<img src="https://monosnap.com/image/pYtevFxeJ0HG7uu4dwJOLVbsezfvJc.png" height="200" width="350" />
-
-when log out:
-
-<img src="https://monosnap.com/image/pYtevFxeJ0HG7uu4dwJOLVbsezfvJc.png" height="200" width="350" />
-
-## Screen #2 ```/users/sign_up```
-creating new user:
-
-<img src="https://monosnap.com/image/XFSeUImkrnvCcNas08FiwfjCYzHKvJ.png" height="200" width="700" />
-
-try to sign up with existing user:
-
-<img src="https://monosnap.com/image/tODByO5MLLD62ycRO1ipybW8hEDATv.png" height="200" width="700" />
-
-Error if user already exists:
-
-<img src="https://monosnap.com/image/X3RfqKLarsXNAnTuXcwlTYrCPdEYgQ.png" height="200" width="700" />
-
-## Screen #3 ```/posts```
-<img src="https://monosnap.com/image/TNZFJoFvrWIORSIRPuxGxFus8wC5IH.png" height="200" width="350" />
-
-send message:
-
-<img src="https://monosnap.com/image/B8BMG9bgJPHq7bdg9aLc999b1Clw6a.png" height="200" width="350" />
-
-delete message:
-
-<img src="https://monosnap.com/image/ZLnRCc1Y6pSsRIPzKtDPlB8ruFDhQh.png" height="200" width="350" />
-
-updated user name:
-
-<img src="https://monosnap.com/image/jceuxO7CKO49TV53uWS9Zv9Hk8dB18.png" height="200" width="350" />
-
-
-## Screen #4 ```/users/:id/update```
-updated user name:
-<img src="https://monosnap.com/image/xrSPeM1Q5Cs5gjay9HgXfy3Rka3p4L.png" height="200" width="700" />
-
-## Screen #5 ```/users/log_in```
-<img src="https://monosnap.com/image/0YxVVzHiwCvQPaJu88RjPXSorcQyjH.png" height="200" width="700" />
-error if try log in with not existing user or mistakes in filling:
-<img src="https://monosnap.com/image/FUnASsNqpMUyJuIgADz6yY9n0z1VxA.png" height="200" width="700" >
+The app has two classes:
+1. Post. Class Post has following methods:
+    * #all - taks from Database all Posts
+    * #create - creats a new Post. Posts belongs to user
+    * #delete - delets Post
+    * #author - returns the author of the Post
+2. User. Class User has following methods:
+    * #all - takes from Database all Users
+    * #create - creates a new User
+    * #update - allows to update ```user_name``` and ```email```
+    * #find - finds user by id
+    * #login - authentication method
+    * #unique? - helpers to authentication methods. checkes unique ```user_name``` and ```email```
+    * #unique_user_name? - helpers to authentication methods. Would not allowe to create a new User with the ```user_name``` that already exists.
+    * #unique_user_email? - helpers to authentication methods. Would not allowe to create a new User with the ```email``` that already exists.
