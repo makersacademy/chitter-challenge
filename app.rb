@@ -58,11 +58,16 @@ class Chitter < Sinatra::Base
     if user.email != email && !User.unique_user_email?(email: email)
       flash[:notice] = 'User with that email already exists.'
       redirect "/users/#{id}/update"
-    elsif user.user_name != user_name && !User.unique_user_name?(user_name: user_name)
+    elsif user.user_name != user_name &&
+      !User.unique_user_name?(user_name: user_name)
       flash[:notice] = 'User with that username already exists.'
       redirect "/users/#{id}/update"
     else
-      @user = User.update(id: id, user_name: user_name, email: email)
+      @user = User.update(
+        id: id,
+        user_name: user_name,
+        email: email
+      )
       redirect '/posts'
     end
   end
@@ -72,7 +77,11 @@ class Chitter < Sinatra::Base
     password = params[:password]
     email = params[:email]
     if User.unique?(user_name: user_name, email: email)
-      @user = User.create(user_name: user_name, password: password, email: email)
+      @user = User.create(
+        user_name: user_name,
+        password: password,
+        email: email
+      )
       session[:user_id] = @user.id
       redirect '/posts'
     else
@@ -100,7 +109,10 @@ class Chitter < Sinatra::Base
   post '/posts' do
     user_id = session[:user_id]
     message = params[:message]
-    Post.create(user_id: user_id, message: message)
+    Post.create(
+      user_id: user_id,
+      message: message
+    )
     redirect '/posts'
   end
 

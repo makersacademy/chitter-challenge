@@ -7,7 +7,8 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <%= post.created_at.strftime("%m/%d/%Y %H:%M") %> <%= post.message %> <%= post.author.user_name %>
+      <%= post.created_at.strftime("%m/%d/%Y %H:%M") %>
+      <%= post.message %> <%= post.author.user_name %>
       <% if post.user_id == @user.id %>
         <form action="/posts/<%= post.id %>/delete" method="post">
           <input type="submit" value="Delete message" />

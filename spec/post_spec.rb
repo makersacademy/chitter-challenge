@@ -43,13 +43,13 @@ describe Post do
     end
   end
 
-  describe '.delete' do #ask
+  describe '.delete' do # ask
     it 'delets post of active user' do
       create_posts
       Post.delete(2)
       posts = Post.all
-      expect(posts[0].user_id).to eq(expected_post[0].user_id)
-      expect(posts[0].message).to eq(expected_post[0].message)
+      expect(posts[0].user_id).to eq(expected_posts[0].user_id)
+      expect(posts[0].message).to eq(expected_posts[0].message)
     end
   end
   describe '.author' do
