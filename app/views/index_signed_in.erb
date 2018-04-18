@@ -10,8 +10,8 @@
 <div><%=flash[:error]%></div>
 
 <% @peeps.each do |peep| %>
-  <h3>Name: <%= peep['name'] %></h3>
-  <h3>Handle: <%= peep['handle'] %></h3>
+  <h3>Name: <%= @user.name %></h3>
+  <h3>Handle: <%= @user.handle %></h3>
   <h4>Peep: <%= peep['peep_text'] %></h4>
   <h4>Peeped at: <%= peep['created_at'] %></h4>
   <hr>

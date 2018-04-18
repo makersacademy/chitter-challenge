@@ -19,7 +19,7 @@ class User
         connection = PG.connect(dbname: 'chitter')
       end
 
-      connection.exec("INSERT INTO peep (peep_text, name, handle) VALUES('#{peep.peep_text}', '#{peep.name}', '#{peep.handle}');")
+      # connection.exec("INSERT INTO peep (peep_text, name, handle) VALUES('#{peep.peep_text}', '#{peep.name}', '#{peep.handle}');")
     end
 
 end

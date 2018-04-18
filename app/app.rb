@@ -27,13 +27,13 @@ class Chitter < Sinatra::Base
 
   post '/peeps/signed_in' do
     @peeps = Peep.all.reverse
-    @user = User.new(params[:email], params[:password], params[:name], params[:handle])
-    erb :index_signed_in
+    session[:user] = User.new(params[:email], params[:password], params[:name], params[:handle])
+    redirect '/peeps/signed_in'
   end
 
   get '/peeps/signed_in' do
     @peeps = Peep.all.reverse
-    @user = User.new(params[:email], params[:password], params[:name], params[:handle])
+    @user = session[:user]
     erb :index_signed_in
   end
 
