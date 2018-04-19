@@ -48,7 +48,7 @@ describe Post do
       create_posts
       Post.delete(2)
       posts = Post.all
-      expect(posts[0].user_id).to eq(expected_posts[0].user_id)
+      expect(posts.length).to eq(2)
       expect(posts[0].message).to eq(expected_posts[0].message)
     end
   end
