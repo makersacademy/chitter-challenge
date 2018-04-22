@@ -14,7 +14,7 @@ TBC
 - [ ] Finish README
 - [ ] Add domain modeling breakdown in readme
 - [ ] Refactor code and tests as required
-- [ ] Fix database build bug
+- [x] Fix database build bug
 
 ## Screenshots
 
