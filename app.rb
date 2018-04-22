@@ -20,10 +20,11 @@ class BlahBlah < Sinatra::Base
 
   post '/blahs' do
     if Blah.create(params[:blah], session[:username])
-      redirect '/blahs'
+      flash.next[:success] = 'Blah successful!'
     else
-      flash[:notice] = 'You must enter some text!'
+      flash.next[:error] = 'Blah cannot be empty!'
     end
+    redirect '/blahs'
   end
 
   get '/blahs/new' do
@@ -48,17 +49,17 @@ class BlahBlah < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
 
     if user
-      session[:user_id] = user.id
+      session[:user_id], session[:username] = user.id, user.username
       redirect '/blahs'
     else
-      flash[:notice] = 'The username and password are incorrect.'
+      flash.next[:error] = 'The username and password are incorrect.'
       redirect '/sessions/new'
     end
   end
 
   post '/sessions/destroy' do
     session.clear
-    flash[:notice] = 'You have signed out'
+    flash.next[:success] = 'You have signed out'
     redirect('/')
   end
 
