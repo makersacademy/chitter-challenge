@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
 
 # Chitter Challenge AKA BlahBlah :speak_no_evil:
 **Makers Academy - Weekend Challenge 4**
