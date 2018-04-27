@@ -15,4 +15,13 @@ feature 'Add a blah' do
     expect(page.first(:css, '.tile-content')).to have_content('@Test')
   end
 
+  scenario 'Every blah a user makes has a date' do
+    date = Time.now.strftime("- %d %b %Y")
+
+    sign_up('@Test')
+    fill_in('blah', with: 'A new feature test blah')
+    click_button('Add blah')
+
+    expect(page.first(:css, '.tile-content')).to have_content(date)
+  end
 end
