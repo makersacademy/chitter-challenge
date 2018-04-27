@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BlahBlah</title>
+    <link rel="stylesheet" href="/spectre.min.css">
+  </head>
+
+  <body>
+    <div class="container" style="padding-top:10px">
+      <% if !styled_flash.empty? %>
+        <% flash.keys.each do |type| %>
+          <div class="toast toast-<%= type %>">
+            <%= styled_flash %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

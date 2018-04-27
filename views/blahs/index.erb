@@ -1,33 +1,85 @@
-<%= styled_flash %>
+<div class="container" style="padding-top:50px">
+  <div class="columns">
+    <div class="centered column col-4">
+      <% if !@user.nil? %>
+        <!-- Panel -->
+        <div class="panel">
+          <div class="panel-header text-center">
+            <div class="panel-title h5 mt-10">
+              <%= @user.username %>
+            </div>
+          </div>
+          <div class="panel-body">
+            <form action="/blahs" method="post">
+              <div class="input-group">
+                <input type="text" name="blah" class="form-input" placeholder="Please enter a blah">
+                <button class="btn btn-primary input-group-btn" type="submit">Add blah</button>
+              </div>
+            </form>
+          </div>
+          <div class="panel-footer">
+            <form action="/sessions/destroy" method="post">
+              <button class="btn btn-primary btn-block">Log out</button>
+            </form>
+          </div>
+        </div>
+      <% else %>
+        <div class="panel">
+          <div class="panel-header text-center">
+            <div class="panel-title h2 mt-10">Welcome to BlahBlah</div>
+          </div>
+          <div class="panel-body"></div>
+          <div class="panel-footer">
+            <form action="/users/new">
+              <button class="btn btn-primary btn-block">Sign up</button>
+            </form>
+            <form action="/sessions/new">
+              <button class="btn btn-primary btn-block">Log in</button>
+            </form>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="centered column col-6">
+      <% if @blahs.empty? %>
+        <div class="panel">
+          <div class="empty">
+            <p class="empty-title h5">No one has blah'd yet!</p>
+            <div class="empty-action">
+              <% if !@user.nil? %>
+                <form action="/blahs/new">
+                  <button class="btn btn-primary">Post a blah!</button>
+                </form>
+              <% else %>
+                <form action="/users/new">
+                  <button class="btn btn-primary btn-block">Sign up to blah!</button>
+                </form>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+      <% @blahs.each do |blah| %>
+        <div class="panel" style="margin-top:15px">
+          <div class="panel-body" style="padding-top:15px">
+            <div class="tile">
+              <div class="tile-content">
+                <p class="tile-title text-gray text-right"><%= blah.username %></p>
+                <p class="tile-subtitle"><%= blah.blah %></p>
 
-<% if !@user.nil? %>
-  Welcome <%= @user.username %>
-  <form action="/blahs/new">
-    <button type="submit">New blah</button>
-  </form>
-  <form action="/sessions/destroy" method="post">
-    <button type="submit">Log out</button>
-  </form>
-<% else %>
-  <form action="/users/new">
-    <button type="submit">Sign up</button>
-  </form>
-
-  <form action="/sessions/new">
-    <button type="submit">Log in</button>
-  </form>
-<% end %>
-
-  <% if @blahs.empty? %>
-    "No one has blah'd yet :("
-  <% else %>
-
-    <% @blahs.each do |blah| %>
-      <li>
-        <%= blah.id %>
-        <%= blah.username %>
-        <%= blah.blah %>
-        <%= blah.date %>
-      </li>
+                <% if !@user.nil? %>
+                  <div class="float-left">
+                    <form action="/blah/delete/<%= blah.id %>" method="post">
+                      <button class="btn active btn-link" type="submit">Delete</button>
+                    </form>
+                  </div>
+                  <% end %>
+                  <p class="text-gray text-right"><%= blah.date %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+</div>
