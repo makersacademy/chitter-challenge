@@ -50,7 +50,7 @@ feature 'authentication' do
     click_button('Log in')
 
     expect(page).not_to have_content("FtTest")
-    expect(page).to have_content("The username and password are incorrect.")
+    expect(page).to have_content("The username or password is incorrect. Please try again.")
   end
 
   scenario 'A user sees and error if their password is incorrect' do
@@ -70,7 +70,7 @@ feature 'authentication' do
     click_button('Log in')
 
     expect(page).not_to have_content("FtTest")
-    expect(page).to have_content("The username and password are incorrect.")
+    expect(page).to have_content("The username or password is incorrect. Please try again.")
   end
 
   it 'a user can sign out' do

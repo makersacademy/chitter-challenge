@@ -32,6 +32,7 @@ describe Blah do
       Blah.create('A unit test blah', 'UnitTest')
 
       expect(Blah.all.first.blah).to eq('A unit test blah')
+      expect(Blah.all.first.username).to eq('UnitTest')
     end
 
     it 'does not enter a empty blah into the database' do

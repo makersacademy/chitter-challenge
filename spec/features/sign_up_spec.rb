@@ -17,7 +17,7 @@ feature 'Sign up' do
     expect(page).to have_css("input#password")
   end
 
-  scenario 'A user enters details and signed in' do
+  scenario 'A user enters details and able to sign in' do
     visit('/')
     click_button('Sign up')
 
@@ -28,6 +28,6 @@ feature 'Sign up' do
     click_button('Sign up')
 
     expect(page).to have_content('AName')
-    expect(page).to have_content('New blah')
+    expect(page).to have_content('Add blah')
   end
 end
