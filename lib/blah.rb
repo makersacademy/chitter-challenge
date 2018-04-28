@@ -1,4 +1,5 @@
 require_relative 'database_connection'
+require 'time'
 
 class Blah
   attr_reader :id, :blah, :username, :date
@@ -13,7 +14,11 @@ class Blah
   def self.all
     results = DatabaseConnection.query('SELECT * FROM blahs ORDER BY date DESC')
     results.map do |blah|
-      Blah.new(blah['id'], blah['blah'], blah['username'], blah['date'])
+      Blah.new(
+        blah['id'],
+        blah['blah'],
+        blah['username'],
+        Time.parse(blah['date']).strftime("%l:%M %p - %d %b %Y"))
     end
   end
 
