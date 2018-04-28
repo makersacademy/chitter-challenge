@@ -1,7 +1,6 @@
 /**/.DS_Store
 /coverage
 /docs
-.CONTRIBUTING.md
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
