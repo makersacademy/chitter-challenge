@@ -36,9 +36,9 @@ I also gained more of an understanding towards restful routing and the use of mu
 - [x] Fix database build bug
 
 ## Screenshots
-![Log in](images/Screen Shot 2018-04-28 at 2.03.16 PM.png "Login")
-![Sign up](images/Screen Shot 2018-04-28 at 2.03.02 PM.png "Sign up")
-![Homepage](images/Screen Shot 2018-04-28 at 2.04.17 PM.png "Homepage")
+![Log in](images/log-in.png "Screenshot - Login")
+![Sign up](images/sign-up.png "Screenshot - Sign up")
+![Homepage](images/homepage.png "Screenshot - Homepage")]
 
 ## User Stories
 ```
