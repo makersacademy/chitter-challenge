@@ -32,7 +32,9 @@ class BlahBlah < Sinatra::Base
   end
 
   post '/blah/delete/:id' do
-    
+    user = User.find(session[:user_id])
+    Blah.delete(params['id'], user.username)
+    flash.next[:success] = 'Deleted blah successfully!'  
     redirect '/blahs'
   end
 

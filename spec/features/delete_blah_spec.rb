@@ -13,5 +13,6 @@ feature 'Delete a blah' do
 
     # assert
     expect(page.first(:css, '.tile-content')).not_to have_content('A new delete feature test blah')
+    expect(page).to have_content('Deleted blah successfully!')
   end
 end
