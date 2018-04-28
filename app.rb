@@ -15,7 +15,7 @@ class BlahBlah < Sinatra::Base
   get '/blahs' do
     @user = User.find(session[:user_id])
     @blahs = Blah.all
-    erb :'blahs/index'
+    erb :'blahs/index', :layout => :'layout/main'
   end
 
   post '/blahs' do
@@ -32,7 +32,7 @@ class BlahBlah < Sinatra::Base
   end
 
   get '/users/new' do
-    erb :'users/new'
+    erb :'users/new', :layout => :'layout/main'
   end
 
   post '/users' do
@@ -42,7 +42,7 @@ class BlahBlah < Sinatra::Base
   end
 
   get '/sessions/new' do
-    erb :'sessions/new'
+    erb :'sessions/new', :layout => :'layout/main'
   end
 
   post '/sessions' do
@@ -52,7 +52,7 @@ class BlahBlah < Sinatra::Base
       session[:user_id], session[:username] = user.id, user.username
       redirect '/blahs'
     else
-      flash.next[:error] = 'The username and password are incorrect.'
+      flash.next[:error] = 'The username or password is incorrect. Please try again.'
       redirect '/sessions/new'
     end
   end
