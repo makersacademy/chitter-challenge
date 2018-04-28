@@ -77,7 +77,7 @@ I want to receive an email if I am tagged in a Peep
 
 ## Getting Started
 1. Clone or download the repository onto your system `https://github.com/Hemesh-Unka/chitter-challenge.git`
-2. Redirect into the home directory `cd chitter-challenge`
+2. Redirect into the project directory `cd BlahBlah`
 3. Ensure you have [Bundler](http://bundler.io/) installed. Once installed, in the command line type `bundle` to install required dependencies listed in the GemFile
 4. Ensure you have [HomeBrew package manager for macOs](https://brew.sh/) installed. Install `postgres` by typing `brew install postgresql`
 5. Run `rack setup` to setup up the required databases to run this application
