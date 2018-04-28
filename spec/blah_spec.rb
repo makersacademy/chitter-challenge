@@ -39,4 +39,24 @@ describe Blah do
       expect(Blah.create('', 'UnitTest')).to eq(false)
     end
   end
+
+  describe '.delete' do
+    it 'deletes a blah' do
+      Blah.create('Delete this blah', 'UnitTest')
+      blah_id = Blah.all.first.id
+      blah_username = Blah.all.first.username
+
+      Blah.delete(blah_id, blah_username)
+      expect(Blah.all.first.blah).not_to eq('Delete this blah')
+    end
+
+    it 'only allows the user who posted the blah to delete it' do
+      Blah.create('Delete this blah', 'UnitTest')
+      blah_id = Blah.all.first.id
+      blah_username = 'FakeUser'
+
+      Blah.delete(blah_id, blah_username)
+      expect(Blah.all.first.blah).to eq('Delete this blah')
+    end
+  end
 end

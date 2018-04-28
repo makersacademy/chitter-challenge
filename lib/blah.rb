@@ -28,4 +28,11 @@ class Blah
     VALUES('#{blah}', '#{username}')
     ;")
   end
+
+  def self.delete(blah_id, blah_username)
+    DatabaseConnection.query("
+      DELETE FROM blahs
+      WHERE blahs.id = '#{blah_id}' AND blahs.username = '#{blah_username}'
+    ;")
+  end
 end
