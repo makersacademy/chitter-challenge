@@ -1,13 +1,18 @@
+env:
+  global:
+    - secure: "BJPTDZ+ePpOeg8AXuKG6hQh1VeesbkEp9oWnSIeGK5AvKwXX+LxqT767KmsNNflbqbieisDPlqIfBixz6938XL63pdqnWc3HhrkDYl6ulmjcvr9SZXIsFYpIsDluq1GyWIjzs7nTJ0I5f3AblBpsw07lF0Y3NxDfMneTRmJ1GWNl5xnLSNwF9hIwblanVRE+WMTw3pkVjXyz700inklnxZzdoV7C/KcqcLYYQuKttOMNnIrTJ65NMS+xcZBEJD/KolPtGBXZeqLjgL76qj89X3YDBLsSaHNzT1LaDE9ZvnXGBX2wHLNwx+eJefgs5UDXEYNQMSdsqRnPM9ONL4aPYwbmTG8wVmndWkGsxpU1dZYVgDJb2OhRrTt0uTj2Pn5v15bdydfR5kym7Q9zrS36qVqI3DO31Pto8/eWJkXJ1D7kCVltX6h708/CYdWqEZ73AyizMPabWVyAeSJsqOIho7P5o2X7m+ZxNR2RHwyNT07Q5QVUL7202cxFPuaASAAuTTDMmxMFMVZS83ByYq1YkhOBPfSc+CVjYoe9iAUIWZeAZr8o/hkoGnPxNgRmnuZJMr3GQWYYP8aAovBg61Ir70gAI8M59Z9pIlQ6UA2c/lRkFwDuWT6ixAaGAcER5lM+ydVb7cija6AxGocp4RFL5deooEwdNnW66Lyr27D5nbo="
+language: ruby
 rvm: '2.5.0'
-
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq postgresql-server-dev-9.3
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  - psql -c 'create database travis;' -U postgres
 script:
   - bundle exec rake setup
   - mkdir -p spec && bundle exec rspec spec
-
-
-before_install:
-- sudo apt-get update -qq
-- sudo apt-get install -qq postgresql-server-dev-9.3
-
-before_script:
-  - psql -c 'create database travis;' -U postgres
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
