@@ -38,7 +38,7 @@ I also gained more of an understanding towards restful routing and the use of mu
 ## Screenshots
 ![Log in](images/log-in.png "Screenshot - Login")
 ![Sign up](images/sign-up.png "Screenshot - Sign up")
-![Homepage](images/homepage.png "Screenshot - Homepage")]
+![Homepage](images/homepage.png "Screenshot - Homepage")
 
 ## User Stories
 ```
