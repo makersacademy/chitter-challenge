@@ -32,7 +32,7 @@ class BlahBlah < Sinatra::Base
   end
 
   post '/blah/delete/:id' do
-
+    
     redirect '/blahs'
   end
 
