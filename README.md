@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge) [![Maintainability](https://api.codeclimate.com/v1/badges/bcb14df222436245f691/maintainability)](https://codeclimate.com/github/Hemesh-Unka/BlahBlah/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/bcb14df222436245f691/test_coverage)](https://codeclimate.com/github/Hemesh-Unka/BlahBlah/test_coverage)
 
 #  BlahBlah Aka Chitter Challenge
 **Makers Academy - Weekend Challenge 4**
@@ -36,8 +36,9 @@ I also gained more of an understanding towards restful routing and the use of mu
 - [x] Fix database build bug
 
 ## Screenshots
-
-
+![Log in](images/Screen Shot 2018-04-28 at 2.03.16 PM.png "Login")
+![Sign up](images/Screen Shot 2018-04-28 at 2.03.02 PM.png "Sign up")
+![Homepage](images/Screen Shot 2018-04-28 at 2.04.17 PM.png "Homepage")
 
 ## User Stories
 ```
