@@ -31,6 +31,11 @@ class BlahBlah < Sinatra::Base
     erb :'blahs/new'
   end
 
+  post '/blah/delete/:id' do
+
+    redirect '/blahs'
+  end
+
   get '/users/new' do
     erb :'users/new', :layout => :'layout/main'
   end

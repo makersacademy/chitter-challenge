@@ -67,7 +67,7 @@
                 <p class="tile-title text-gray text-right"><%= blah.username %></p>
                 <p class="tile-subtitle"><%= blah.blah %></p>
 
-                <% if !@user.nil? %>
+                <% if !@user.nil? && @user.username == blah.username %>
                   <div class="float-left">
                     <form action="/blah/delete/<%= blah.id %>" method="post">
                       <button class="btn active btn-link" type="submit">Delete</button>
