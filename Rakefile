@@ -12,15 +12,7 @@ task :setup do
   p "Creating databases..."
 
   ['blahblah', 'blahblah_test'].each do |database|
-    db_connection = {
-      host: ENV['RDS_HOSTNAME'],
-      port: ENV['RDS_PORT'],
-      dbname: ENV['RDS_DB_NAME'],
-      user: ENV['RDS_USERNAME'],
-      password: ENV['RDS_PASSWORD']
-    }
-    
-    connection = PG.connect(db_connection)
+    connection = PG.connect(ENV['DATABASE_URL'])
     connection.exec("CREATE DATABASE #{database}")
 
     connection = PG.connect(dbname: database)

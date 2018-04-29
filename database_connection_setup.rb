@@ -5,12 +5,5 @@ if ENV['RACK_ENV'] == 'test'
 elsif ENV['RACK_ENV'] == 'development'
   DatabaseConnection.setup(dbname: 'blahblah')
 elsif ENV['RACK_ENV'] == 'production'
-  db_connection = {
-    host: ENV['RDS_HOSTNAME'],
-    port: ENV['RDS_PORT'],
-    dbname: ENV['RDS_DB_NAME'],
-    user: ENV['RDS_USERNAME'],
-    password: ENV['RDS_PASSWORD']
-  }
-  DatabaseConnection.setup(db_connection)
+  DatabaseConnection.setup(ENV['DATABASE_URL'])
 end
