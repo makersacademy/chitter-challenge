@@ -25,10 +25,10 @@ Having built this project from the ground up, The existing structure of the code
 I also gained more of an understanding towards restful routing and the use of multiple controllers for a project.
 
 #### To Do
-- [ ] Host a live version of the site
 - [ ] Implement advanced features
 - [ ] Implement: In order to start a conversation as a maker I want to reply to a peep from another maker
 - [ ] Fix: User should not be able to register with blank details
+- [x] Host a live version of the site
 - [x] Complete CSS Styling (Spectre CSS Framework)
 - [x] Implement delete blah feature
 - [x] Finish README
