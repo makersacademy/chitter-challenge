@@ -19,11 +19,13 @@ feature "sign up  & sign in & peep" do
   end
 
   scenario 'sign in' do
+    User.create(name: 'ft', email: 'def@gmail.com', username: 'abe', password: 'ffttfft')
     visit '/sign-in'
-    fill_in('username', :with => 'ft')
+    fill_in('username', :with => 'abe')
     fill_in('password', :with => 'ffttfft')
     find_button('log in').click
-    expect(page).to have_content "Hi FEATURE TEST! It's peep time!"
+    expect(page).to have_content "Hi FT! It's peep time!"
+    expect(current_path).to eq "/user/abe"
   end
 
   scenario 'peep' do
