@@ -12,13 +12,10 @@ task :setup do
   p "Creating databases..."
 
   ['blahblah', 'blahblah_test'].each do |database|
-    if (ENV['RACK_ENV'] != 'production')
-      connection = PG.connect
-      connection.exec("CREATE DATABASE #{database}")
-      connection = PG.connect(dbname: database)
-    else
-      connection = PG.connect(ENV['DATABASE_URL'])
-    end
+    connection = PG.connect
+    connection.exec("CREATE DATABASE #{database}")
+
+    connection = PG.connect(dbname: database)
 
     connection.exec("CREATE TABLE blahs (
         id SERIAL PRIMARY KEY,
@@ -39,6 +36,29 @@ task :setup do
 
     p "Created database: #{database}"
   end
+end
+
+task :production_setup do
+  p "Creating tables..."
+  connection = PG.connect(ENV['RACK_ENV'])
+
+  connection.exec("CREATE TABLE blahs (
+      id SERIAL PRIMARY KEY,
+      username VARCHAR(10),
+      blah VARCHAR(140),
+      date TIMESTAMP DEFAULT now()
+    );"
+  )
+
+  connection.exec("CREATE TABLE users (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(60),
+      username VARCHAR(10) NOT NULL UNIQUE,
+      email VARCHAR(60) NOT NULL UNIQUE,
+      password VARCHAR(140)
+    );"
+  )
+  p "Successfully created tables..."
 end
 
 task :test_database_setup do
