@@ -12,7 +12,7 @@ task :setup do
   p "Creating databases..."
 
   ['blahblah', 'blahblah_test'].each do |database|
-    connection = PG.connect(ENV['DATABASE_URL'])
+    connection = PG.connect
     connection.exec("CREATE DATABASE #{database}")
 
     connection = PG.connect(dbname: database)
@@ -40,7 +40,7 @@ end
 
 task :production_db_setup do
   p "Creating tables..."
-  connection = PG.connect(ENV['RACK_ENV'])
+  connection = PG.connect(ENV['DATABASE_URL'])
 
   connection.exec("CREATE TABLE blahs (
       id SERIAL PRIMARY KEY,
