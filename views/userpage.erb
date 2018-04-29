@@ -109,13 +109,13 @@
 </h1>
 
 <h2>
-  Hi <%=@user.name.upcase%>! It's peep time!
+  Hi <%=@user.upcase%>! It's peep time!
 </h2>
 
 <div id='peep'>
 <form method='post' action="/new-peep">
   <input id='block'type='text' name='message' autofocus>
-  <input type='hidden' name='username' value='<%=@user.username%>'>
+  <input type='hidden' name='username' value='<%=@user%>'>
   <br/>
   <input type='submit' value='Peep!'>
 </form>

@@ -19,19 +19,20 @@ feature "sign up  & sign in & peep" do
   end
 
   scenario 'sign in' do
-    User.create(name: 'ft', email: 'def@gmail.com', username: 'abe', password: 'ffttfft')
+    user = User.create(name: 'ft', email: 'def@gmail.com', username: 'abe', password: 'ffttfft')
     visit '/sign-in'
-    fill_in('username', :with => 'abe')
+    fill_in('username', :with => user.username)
     fill_in('password', :with => 'ffttfft')
     find_button('log in').click
-    expect(page).to have_content "Hi FT! It's peep time!"
+    expect(page).to have_content "Hi #{user.name.upcase}! It's peep time!"
     expect(current_path).to eq "/user/abe"
   end
 
   scenario 'peep' do
+    user = User.create(name: 'aaa', email: 'aaa@gmail.com', username: 'Aaa', password: 'asdf')
     visit '/sign-in'
-    fill_in('username', :with => 'ft')
-    fill_in('password', :with => 'ffttfft')
+    fill_in('username', :with => user.username)
+    fill_in('password', :with => 'asdf')
     find_button('log in').click
     fill_in('message', :with => 'pe pe peepepepep')
     find_button('Peep!').click

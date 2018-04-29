@@ -27,18 +27,24 @@ class Chitter < Sinatra::Base
   end
 
   post '/log-in' do
-    (flash[:nouser] = "Log in unsuccessful, try again?") && (redirect '/sign-in') unless User.signin(params[:username], params[:password])
-    redirect "/user/#{params[:username]}"
+    user = User.authenticate(params[:username], params[:password])
+
+    if (user)
+      session[:user] = user.name
+      redirect "/user/#{params[:username]}"
+    else
+      (flash[:nouser] = "Log in unsuccessful, try again?") && (redirect '/sign-in')
+    end
   end
 
   get '/user/:username' do
     @peeps = Peep.all.reverse
-    @user = User.current_user
+    @user = session[:user]
     erb :userpage
   end
 
   post '/log-out' do
-    User.signout
+    session[:user] = nil
     redirect '/'
   end
 

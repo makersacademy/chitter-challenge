@@ -20,11 +20,11 @@ if ENV['RACK_ENV'] != 'production'
 
     con = PG.connect(dbname: 'chitter')
     con.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(15), message VARCHAR(150), time VARCHAR(60));')
-    con.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(15), email VARCHAR(60), username VARCHAR(15), password VARCHAR(20));')
+    con.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(15), email VARCHAR(60), username VARCHAR(15), password TEXT);')
 
     con = PG.connect(dbname: 'chitter_test')
     con.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(15), message VARCHAR(150), time VARCHAR(60));')
-    con.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(15), email VARCHAR(60), username VARCHAR(15), password VARCHAR(20));')
+    con.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(15), email VARCHAR(60), username VARCHAR(15), password TEXT);')
   end
 
   task :travis_setup do
@@ -32,7 +32,7 @@ if ENV['RACK_ENV'] != 'production'
 
     connection = PG.connect(dbname: 'chitter_test')
     connection.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(15), message VARCHAR(150), time VARCHAR(60));')
-    connection.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(15), email VARCHAR(60), username VARCHAR(15), password VARCHAR(20));')
+    connection.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(15), email VARCHAR(60), username VARCHAR(15), password TEXT);')
 
   end
 end
