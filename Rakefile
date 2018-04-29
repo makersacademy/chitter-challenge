@@ -5,15 +5,14 @@ if ENV['RACK_ENV'] != 'production'
 
   task default: [:spec]
 end
-require 'pg'
 
-p ENV['RACK_ENV']
+require 'pg'
 
 task :setup do
   p "Creating databases..."
 
   ['blahblah', 'blahblah_test'].each do |database|
-    connection = PG.connect
+    connection = PG.connect(ENV['DATABASE_URL'])
     connection.exec("CREATE DATABASE #{database}")
 
     connection = PG.connect(dbname: database)
