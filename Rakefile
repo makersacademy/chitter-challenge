@@ -5,8 +5,9 @@ if ENV['RACK_ENV'] != 'production'
 
   task default: [:spec]
 end
-
 require 'pg'
+
+p ENV['RACK_ENV']
 
 task :setup do
   p "Creating databases..."
