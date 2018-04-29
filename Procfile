@@ -1,1 +1,1 @@
-release: rake setup
+release: rake production_db_setup

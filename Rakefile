@@ -38,6 +38,29 @@ task :setup do
   end
 end
 
+task :production_db_setup do
+  p "Creating tables..."
+  connection = PG.connect(ENV['RACK_ENV'])
+
+  connection.exec("CREATE TABLE blahs (
+      id SERIAL PRIMARY KEY,
+      username VARCHAR(10),
+      blah VARCHAR(140),
+      date TIMESTAMP DEFAULT now()
+    );"
+  )
+
+  connection.exec("CREATE TABLE users (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(60),
+      username VARCHAR(10) NOT NULL UNIQUE,
+      email VARCHAR(60) NOT NULL UNIQUE,
+      password VARCHAR(140)
+    );"
+  )
+  p "Successfully created tables..."
+end
+
 task :test_database_setup do
   p "Cleaning database..."
   connection = PG.connect(dbname: 'blahblah_test')
