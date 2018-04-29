@@ -5,6 +5,5 @@ if ENV['RACK_ENV'] == 'test'
 elsif ENV['RACK_ENV'] == 'development'
   DatabaseConnection.setup(dbname: 'blahblah')
 elsif ENV['RACK_ENV'] == 'production'
-  db_url = ENV['DATABASE_URL']
-  DatabaseConnection.setup(db_url)
+  DatabaseConnection.setup(ENV['DATABASE_URL'])
 end
