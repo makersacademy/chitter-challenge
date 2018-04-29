@@ -1,15 +1,9 @@
 require './lib/database_connection'
 
 if ENV['RACK_ENV'] == 'test'
-  db_connection = {
-    dbname: 'blahblah_test'
-  }
-  DatabaseConnection.setup(db_connection)
+  DatabaseConnection.setup(dbname: 'blahblah_test')
 elsif ENV['RACK_ENV'] == 'development'
-  db_connection = {
-    dbname: 'blahblah'
-  }
-  DatabaseConnection.setup(db_connection)
+  DatabaseConnection.setup(dbname: 'blahblah')
 elsif ENV['RACK_ENV'] == 'production'
   db_connection = {
     host: ENV['RDS_HOSTNAME'],
