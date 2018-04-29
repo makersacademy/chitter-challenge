@@ -38,7 +38,7 @@ task :setup do
   end
 end
 
-task :production_setup do
+task :production_db_setup do
   p "Creating tables..."
   connection = PG.connect(ENV['RACK_ENV'])
 
