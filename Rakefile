@@ -12,7 +12,7 @@ task :setup do
   p "Creating databases..."
 
   ['blahblah', 'blahblah_test'].each do |database|
-    connection = PG.connect
+    connection = PG.connect(ENV['DATABASE_URL'])
     connection.exec("CREATE DATABASE #{database}")
 
     connection = PG.connect(dbname: database)
