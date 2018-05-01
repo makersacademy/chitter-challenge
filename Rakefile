@@ -47,7 +47,8 @@ task :production_db_setup do
     user: ENV['RDS_USERNAME'],
     password: ENV['RDS_PASSWORD']
   }
-  PG.connect(database_config)
+
+  connection = PG.connect(database_config)
 
   connection.exec("CREATE TABLE blahs (
       id SERIAL PRIMARY KEY,
