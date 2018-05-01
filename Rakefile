@@ -69,6 +69,31 @@ task :production_db_setup do
   p "Successfully created tables..."
 end
 
+task :production_tables_reset do
+  p "Resetting tables..."
+  database_config = {
+    host: ENV['RDS_HOSTNAME'],
+    port: ENV['RDS_PORT'],
+    dbname: ENV['RDS_DB_NAME'],
+    user: ENV['RDS_USERNAME'],
+    password: ENV['RDS_PASSWORD']
+  }
+
+  connection = PG.connect(database_config)
+
+  connection.exec("
+      TRUNCATE TABLE blahs
+    );"
+  )
+
+  connection.exec("
+      TRUNCATE TABLE users
+    );"
+  )
+
+  p "Successfully cleared tables..."
+end
+
 task :test_database_setup do
   p "Cleaning database..."
   connection = PG.connect(dbname: 'blahblah_test')
