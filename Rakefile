@@ -81,9 +81,9 @@ task :production_tables_reset do
 
   connection = PG.connect(database_config)
 
-  connection.exec("TRUNCATE TABLE (blahs);")
+  connection.exec("TRUNCATE TABLE blahs;")
 
-  connection.exec("TRUNCATE TABLE (users);")
+  connection.exec("TRUNCATE TABLE users;")
 
   p "Successfully cleared tables..."
 end
