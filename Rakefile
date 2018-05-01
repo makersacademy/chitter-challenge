@@ -40,7 +40,14 @@ end
 
 task :production_db_setup do
   p "Creating tables..."
-  connection = PG.connect(ENV['DATABASE_URL'])
+  database_config = {
+    host: ENV['RDS_HOSTNAME'],
+    port: ENV['RDS_PORT'],
+    dbname: ENV['RDS_DB_NAME'],
+    user: ENV['RDS_USERNAME'],
+    password: ENV['RDS_PASSWORD']
+  }
+  PG.connect(database_config)
 
   connection.exec("CREATE TABLE blahs (
       id SERIAL PRIMARY KEY,
