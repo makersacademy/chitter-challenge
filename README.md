@@ -10,6 +10,10 @@ This was a weekend challenge where I was tasked to build a small lightweight twi
 ## Aim
 My main focus for this project was to cement my knowledge gained during the week. As always, I approached this project in a test driven manner which allowed me to build my project with confidence when adding new features.
 
+## Live Site
+
+[Check out a live version of the site here!](http://blahblah.eu-west-2.elasticbeanstalk.com)
+
 ## Reflection
 
 **19/03/18**
@@ -23,6 +27,9 @@ I came back to this code after completing the [acebook-pinkfish](acebook-pinkfis
 Having built this project from the ground up, The existing structure of the code allowed me to easily implement a few more features to this repo such as deleting blahs(posts).
 
 I also gained more of an understanding towards restful routing and the use of multiple controllers for a project.
+
+**01/05/18**
+I managed to get this project onto AWS which was new and a great achievement for myself, as it was a tool that I never used. I encountered a few issues in terms of pooling with a postgres but this was sorted with a pooling gem.
 
 #### To Do
 - [ ] Implement advanced features
