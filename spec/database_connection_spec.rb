@@ -3,8 +3,8 @@ require 'database_connection'
 describe DatabaseConnection do
 
   describe '.setup' do
-    it 'sets up a connection through PG' do
-      expect(PG).to receive(:connect).with({ dbname: 'blahblah_test' })
+    it 'creates a pond with Pond' do
+      expect(Pond).to receive(:wrap).with(maximum_size: 10, timeout: 0.5)
       DatabaseConnection.setup(dbname: 'blahblah_test')
     end
   end
