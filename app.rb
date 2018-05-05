@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/blah'
 require './lib/user'
-require './database_connection_setup'
+require './lib/database_connection_setup'
 
 class BlahBlah < Sinatra::Base
   enable :sessions
@@ -34,7 +34,7 @@ class BlahBlah < Sinatra::Base
   post '/blah/delete/:id' do
     user = User.find(session[:user_id])
     Blah.delete(params['id'], user.username)
-    flash.next[:success] = 'Deleted blah successfully!'  
+    flash.next[:success] = 'Deleted blah successfully!'
     redirect '/blahs'
   end
 
