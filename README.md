@@ -8,7 +8,7 @@
 This was a weekend challenge where I was tasked to build a small lightweight twitter clone in Ruby.
 
 ## Aim
-My main focus for this project was to cement my knowledge gained during the week. As always, I approached this project in a test driven manner which allowed me to build my project with confidence when adding new features.
+My main focus for this weekend project was to further confirm my knowledge gained during the week. As always, I approached this project in a test driven manner which allowed me to build my project with confidence while adding new features.
 
 ## Live Site
 
@@ -87,22 +87,27 @@ I want to receive an email if I am tagged in a Peep
 2. Redirect into the project directory `cd BlahBlah`
 3. Ensure you have [Bundler](http://bundler.io/) installed. Once installed, in the command line type `bundle` to install required dependencies listed in the GemFile
 4. Ensure you have [HomeBrew package manager for macOs](https://brew.sh/) installed. Install `postgres` by typing `brew install postgresql`
-5. Run `rack setup` to setup up the required databases to run this application
+5. Run `rake setup` to setup up the required databases to run this application locally
 4. Type `rackup` to run the server
 5. Finally in your browser navigate to `localhost:9292` to view the app
 
 ## Testing
 Tests were designed to run using the RSpec and Capybara testing frameworks. In the home directory of the chitter-challange type `rspec` to run all RSpec tests.
 
-## Tech Stack
+## Technologies used
 
 * Ruby
 * Sinatra
 * Sinatra-Flash
 * PostgreSQL
-* Bcrypt
+* HTML
+* Spectre
+* CSS
+* BCrypt
 * Rubocop
 * RSpec
 * Capybara
 * Rake
+* Rack
 * Travis
+* Atom
