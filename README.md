@@ -22,7 +22,7 @@ I found that I began to get a good flow of how to approach implementing new feat
 **Difficulties:** I hadn't come across implementing an authentication system as of yet, therefore I felt that this was probably the most difficult part of the project. I also should of that I should have the database column names (blahs) should of have been named more suitably (posts).
 
 **28/04/18**
-I came back to this code after completing the [acebook-pinkfish](acebook-pinkfish) group project. I felt this project gave me more of a understanding to what was happening behind the scenes when working with Ruby on Rails.
+I came back to this code after completing the [acebook-pinkfish](https://github.com/Hemesh-Unka/acebook-pinkfish) group project. I felt this project gave me more of a understanding to what was happening behind the scenes when working with Ruby on Rails.
 
 Having built this project from the ground up, The existing structure of the code allowed me to easily implement a few more features to this repo such as deleting blahs(posts).
 
