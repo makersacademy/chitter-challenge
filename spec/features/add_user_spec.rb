@@ -14,6 +14,6 @@ feature 'Add users' do
   scenario 'Can sign-up' do
     fill_in 'email', with: user_email
     click_button 'Create account'
-    expect(page).to have_content "Welcome #{user_email}"
+    expect(page).to have_content "Welcome"
   end
 end
