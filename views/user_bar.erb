@@ -1,0 +1,13 @@
+<div class='container user_bar'>
+  <% if @user == nil %>
+    <form action='/user/login' method='post'>
+      <label for='login_email'>Email: </label>
+      <input type='text' name='login_email' id='login_email' required>
+      <input type='submit' value='Login'>
+    </form>
+    <p><a href='/user/new' id='sign_up_link'>Sign-up</a></p>
+  <% end %>
+  <% if @user != nil %>
+    <p><a href='peep/new' id='add_peep_link'>Add peep</a></p>
+  <% end %>
+</div>

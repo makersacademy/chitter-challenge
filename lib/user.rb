@@ -1,6 +1,10 @@
 require 'data_mapper'
 
-DataMapper.setup(:default, 'postgres://localhost/chitter_test')
+if ENV['RACK_ENV'] == 'test'
+  DataMapper.setup(:default, 'postgres://localhost/chitter_test')
+else
+  DataMapper.setup(:default, 'postgres://localhost/chitter')
+end
 
 class User
   include DataMapper::Resource

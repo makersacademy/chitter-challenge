@@ -10,6 +10,11 @@ class Chitter < Sinatra::Base
 
   before do
     @message = flash[:message]
+    @user = session[:user]
+  end
+
+  get '/' do
+    erb :index
   end
 
   get '/user/new' do
@@ -17,13 +22,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/new' do
-    User.create(:email => params['email'])
+    user = User.create(:email => params['email'])
     flash[:message] = "Welcome #{params['email']}"
-    redirect '/feed'
+    session[:user] = user.id
+    redirect '/'
   end
 
-  get '/feed' do
-    erb :feed
+  post '/user/login' do
+    flash[:message] = "Welcome back #{params['login_email']}"
+    session[:user] = params['email']
+    redirect '/'
   end
 
   run! if app_file == $0
