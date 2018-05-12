@@ -5,7 +5,6 @@ require 'dm-core'
 require 'dm-validations'
 require 'dm-migrations'
 
-
 class Peep
 
   include DataMapper::Resource
