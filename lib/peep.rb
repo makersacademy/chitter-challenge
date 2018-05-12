@@ -19,8 +19,14 @@ class Peep
     ["Hello World", "Second Peep", "Peep peep"]
   end
 
-  DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-  DataMapper.finalize
-  DataMapper.auto_upgrade!
+  if ENV['ENVIRONMENT'] == 'test'
+    DataMapper.setup(:default, 'postgres://localhost/chitter_test')
+    DataMapper.finalize
+    DataMapper.auto_migrate!
+  else
+    DataMapper.setup(:default, 'postgres://localhost/chitter')
+    DataMapper.finalize
+    DataMapper.auto_upgrade!
+  end
 
 end

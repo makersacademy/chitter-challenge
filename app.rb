@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require './lib/peep'
+
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -10,7 +12,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-     'Hello World'
+     @peeps = Peep.all
+     erb(:peepage)
   end
 
   run! if app_file == $0
