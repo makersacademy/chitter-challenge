@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
+gem 'data_mapper'
 gem 'rake'
 gem 'rubocop'
+gem 'pg'
 
 group :test do
   gem 'rspec'
