@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative 'database_connection'
 
 if ENV['RACK_ENV'] == 'test'
   DatabaseConnection.setup(dbname: 'blahblah_test')
