@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peep'
 
+p ENV
+
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash

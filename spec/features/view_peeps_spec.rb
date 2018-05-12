@@ -1,13 +1,12 @@
 require_relative '../../app.rb'
 require 'pg'
-
-p ENV
+require 'peep'
 
 feature 'Peep Homepage' do
   scenario 'Can see peeps' do
-    p  peep_1 = Peep.create(:content => "Hello World", :username => "First the worst")
-    p  Peep.create(:content => "Second Peep", :username => "Second the best")
-    p  Peep.create(:content => "Peep Peep", :username => "Peeping Tom")
+    p  peep_1 = Peep.create(:content => "Hello World", :username => "First the worst", :created_at => Time.now)
+    p  Peep.create(:content => "Second Peep", :username => "Second the best", :created_at => Time.now)
+    p  Peep.create(:content => "Peep Peep", :username => "Peeping Tom", :created_at => Time.now)
     p  peep_1.content
 
     visit '/peeps'

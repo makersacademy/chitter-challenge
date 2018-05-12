@@ -15,9 +15,8 @@ class Peep
   property :created_at, DateTime
 
   if ENV['ENVIRONMENT'] == 'test'
-    DataMapper.setup(:default, 'postgres://localhost/chitter_test')
+    DataMapper.setup(:default, 'postgres://localhost/chitter_development')
     DataMapper.finalize
-    DataMapper.auto_migrate!
   else
     DataMapper.setup(:default, 'postgres://localhost/chitter')
     DataMapper.finalize
