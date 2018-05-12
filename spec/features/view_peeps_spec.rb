@@ -1,7 +1,7 @@
 require_relative '../../app.rb'
-require 'spec_helper'
 require 'pg'
-# require 'peep'
+
+p ENV
 
 feature 'Peep Homepage' do
   scenario 'Can see peeps' do
