@@ -5,6 +5,9 @@
     <title>Chitter</title>
   </head>
   <body>
+    <div class="header">
+      <h3><%= session[:user_name] %></h3>
+    </div>
     <% @peeps.each do |peep| %>
         <div class="peep">
           <em><%= peep.time %></em>
@@ -18,5 +21,8 @@
         <input type="submit" value="Post">
       </form>
     </div>
+    <form action="/sessions/<%= session[:current_user] %>" method="post">
+      <input type="submit" value="Logout">
+    </form>
   </body>
 </html>

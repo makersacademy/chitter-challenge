@@ -7,10 +7,13 @@
   <body>
     <form action="/sessions/new" method="post">
       <label for="username">Email address</label>
-      <input type="text" name="email">
-      <input type="text" name="password">
+      <input type="text" name="email" required>
+      <input type="text" name="password" required>
       <input type="submit" value="Login">
       <button type="button" name="register"><a href="/users/new">Register</a></button>
     </form>
+    <div class="notices">
+      <h3><%= flash[:notice] %></h3>
+    </div>
   </body>
 </html>

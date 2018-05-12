@@ -26,10 +26,8 @@
       <input type="text" name="conf_password" oninput="check(this)" required>
       <input type="submit" value="Register">
     </form>
-    <% if flash[:notice] %>
     <div class="notices">
-      <h3><%= flash[:notice].first %></h3>
+      <h3><%= flash[:notice].first if flash[:notice] %></h3>
     </div>
-    <% end %>
   </body>
 </html>

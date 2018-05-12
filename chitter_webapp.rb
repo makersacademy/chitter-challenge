@@ -15,6 +15,19 @@ class ChitterApp < Sinatra::Base
     register Sinatra::Flash
   end
 
+  helpers do
+
+    def correct_password?
+      params[:password] == users.first.password
+    end
+
+    def set_current_user(user)
+      session[:current_user] = user.id
+      session[:user_name] = user.user_name
+    end
+
+  end
+
   get '/' do
     redirect '/peeps'
   end
@@ -35,7 +48,22 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/session/new' do
+    users = User.all email: params[:email]
+    if users.empty?
+      flash[:notice] = "Incorrect username"
+      redirect '/sessions/new'
+    elsif !correct_password?
+      flash[:notice] = "Incorrect password"
+      redirect '/sessions/new'
+    else
+      set_current_user(users.first)
+      redirect '/peeps'
+    end
+  end
 
+  post '/sessions/:id' do
+    session.clear
+    redirect '/sessions/new'
   end
 
   get '/users/new' do
@@ -48,7 +76,7 @@ class ChitterApp < Sinatra::Base
                        password: params[:password]
                       )
     if user.saved?
-      session[:current_user] = user.id
+      set_current_user(user)
       redirect '/peeps'
     else
       flash[:notice] = user.errors.values.first
