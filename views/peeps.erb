@@ -4,11 +4,12 @@
 
 </head>
 <body>
-  <ul>
-    <% @peeps.each do |peep| %>
-      <li><%= peep.text %><%= peep.time %></li>
-    <% end %>
-  </ul>
+  <% @peeps.each do |peep| %>
+    <div>
+      <p><%= peep.text %></p>
+      <p><%= peep.time %></p>
+    </div>
+  <% end %>
   <a href='/peeps/new'>New peep</a>
 </body>
 </html>
