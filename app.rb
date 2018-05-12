@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peep'
+require './lib/user'
 require 'pg'
 
 class Chitter < Sinatra::Base
@@ -24,6 +25,7 @@ class Chitter < Sinatra::Base
 
   post('/sign_up') do
     User.create(params[:email], params[:password], params[:name], params[:username])
+    session[:username] = params[:username]
     redirect('/')
   end
 
