@@ -1,12 +1,15 @@
 ENV['RACK_ENV'] = 'test'
 
+require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require File.join(File.dirname(__FILE__), '..', '/chitter_webapp.rb')
 require_relative './matchers/come_before.rb'
+require_relative './features/web_helpers'
 
+Capybara.javascript_driver = :selenium
 Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

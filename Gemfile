@@ -16,6 +16,7 @@ group :test do
   gem 'pry', require: false
   gem 'pry-byebug', require: false
   gem 'rspec'
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
