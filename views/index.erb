@@ -1,11 +1,13 @@
-<h2>Chitter feed</h2>
-<% @peeps.each do |peep| %>
-<h3><%= "#{peep.author}: "%></h3><p><%= "#{peep.text}" %><br></p>
-<% end %>
+<body style="text-align: center">
+  <h2 style="text-align: center">Chitter feed</h2>
+  <% @peeps.each do |peep| %>
+    <h3><%= "#{peep.time_stamp} - #{peep.author}: "%></h3><ul><%= "#{peep.text}" %><br></ul>
+  <% end %>
+</body>
 
 <br>
 
-<form action="/add" method="post">
+<form style="text-align: center" action="/add" method="post">
   <p>New Peep: (max 140 chars)</p>
   <input type="text" name="text">
   <p>Your name:</p>

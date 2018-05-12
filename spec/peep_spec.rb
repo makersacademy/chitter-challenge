@@ -31,4 +31,11 @@ describe Peep, :peep do
       expect(Peep.all[0].author).to eq 'Sam Worrall'
     end
   end
+
+  describe '#time_stamp' do
+    it 'Returns the time at which the peep was created' do
+      Peep.create('Hello World!', 'Sam Worrall')
+      expect(Peep.all[0].time_stamp).to eq Time.now.asctime
+    end
+  end
 end

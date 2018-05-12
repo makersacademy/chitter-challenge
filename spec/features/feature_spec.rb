@@ -10,7 +10,7 @@ feature Chitter do
       fill_in 'text', with: 'Hello World!'
       fill_in 'author', with: 'Sam Worrall'
       click_button 'Post new Peep'
-      expect(page).to have_content "Sam Worrall:\nHello World!"
+      expect(page).to have_content "#{Time.now.asctime} - Sam Worrall:\nHello World!"
     end
   end
 
