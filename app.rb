@@ -29,6 +29,14 @@ class Chitter < Sinatra::Base
     erb(:signupsuccess)
   end
 
+  get '/login' do
+    erb(:loginform)
+  end
+
+  post '/login' do
+    redirect '/peeps'
+  end
+
   run! if app_file == $0
 
 end
