@@ -4,6 +4,7 @@ require 'dm-timestamps'
 require 'dm-core'
 require 'dm-validations'
 require 'dm-migrations'
+require 'bcrypt'
 
 class User
 
