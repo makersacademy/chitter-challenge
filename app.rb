@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/chitter' do
+    @peeps = Peeps.all
     @current_user = session[:username]
     erb :index
   end

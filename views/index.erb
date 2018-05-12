@@ -14,6 +14,12 @@
       <a href='/new_peep'>New peep</a>
     </p>
 
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li><%=peep.username%>, <%=peep.text%>, <%=peep.time%></li>
+      <%end%>
+    </ul>
+
     <h2>Welcome <%=@current_user%></h2>
   </body>
 </html>
