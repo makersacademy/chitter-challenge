@@ -6,7 +6,7 @@
 <body>
   <ul>
     <% @peeps.each do |peep| %>
-      <li><%= peep.text %></li>
+      <li><%= peep.text %><%= peep.time %></li>
     <% end %>
   </ul>
   <a href='/peeps/new'>New peep</a>
