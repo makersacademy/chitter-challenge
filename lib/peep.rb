@@ -12,11 +12,7 @@ class Peep
   property :id, Serial
   property :content, Text
   property :username, String
-  property :created_at, DateTime
-
-  def self.all
-    ["Hello World", "Second Peep", "Peep peep"]
-  end
+  # property :created_at, DateTime
 
   if ENV['ENVIRONMENT'] == 'test'
     DataMapper.setup(:default, 'postgres://localhost/chitter_test')
