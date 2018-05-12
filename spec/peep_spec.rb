@@ -13,6 +13,7 @@ describe Peep do
 
       expect(Peep.all).to include peep_1
       expect(Peep.all).to include peep_2
+      expect(Peep.all).to include peep_3
 
     end
   end

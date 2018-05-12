@@ -11,8 +11,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-     @peeps = Peep.all
-     erb(:peepage)
+    @peeps = Peep.all
+    erb(:peepage)
   end
 
   run! if app_file == $0
