@@ -1,6 +1,6 @@
 require 'sinatra'
 
-require_relative './lib/peep_connection'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   get '/' do

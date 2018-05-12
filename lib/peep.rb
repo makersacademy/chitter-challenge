@@ -1,6 +1,6 @@
 require 'pg'
 
-class PeepConnection
+class Peep
   def self.all(connection = connect_to_database)
     result = connection.exec 'SELECT * FROM peeps'
     result.map { |row| row['text'] }
