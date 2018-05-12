@@ -15,9 +15,9 @@ class Peep
   property :username, String
   property :created_at, DateTime
 
-  # def self.all
-  #   ["Hello World", "Second Peep", "Peep peep"]
-  # end
+  def self.all
+    ["Hello World", "Second Peep", "Peep peep"]
+  end
 
   DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
   DataMapper.finalize
