@@ -4,7 +4,7 @@
 
 <%= erb :message %>
 
-<% @peeps.each do |peep| %>
+<% @peeps.reverse.each do |peep| %>
   <div>
     <p><%= peep.message %></p>
     <p>By <%= peep.user_name %> at <%= peep.created_at %></p>
