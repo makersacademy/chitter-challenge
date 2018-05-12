@@ -12,7 +12,7 @@ class Peep
   property :id, Serial
   property :content, Text
   property :username, String
-  # property :created_at, DateTime
+  property :created_at, DateTime
 
   if ENV['ENVIRONMENT'] == 'test'
     DataMapper.setup(:default, 'postgres://localhost/chitter_test')
@@ -21,7 +21,6 @@ class Peep
   else
     DataMapper.setup(:default, 'postgres://localhost/chitter')
     DataMapper.finalize
-    DataMapper.auto_upgrade!
   end
 
 end
