@@ -2,11 +2,16 @@ ENV['RACK_ENV'] = 'test'
 
 # Gems required
 require 'pg'
+require 'capybara'
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 
 # Project files required
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require_relative 'helpers'
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -16,7 +21,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
   config.before do
+    @connection = PG.connect(dbname: 'chitter_test')
     empty_database
   end
 

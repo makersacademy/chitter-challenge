@@ -1,14 +1,17 @@
 require 'user'
 
 describe User do
-  let(:test_user_1) { 'bob@testing.com' }
-  let(:test_user_2) { 'fred@testing.com' }
-  let(:test_users) { [test_user_1, test_user_2] }
   context '#all' do
     it 'Lists the users' do
-      User.create(:email => test_user_1)
-      User.create(:email => test_user_2)
-      expect(User.all).to eq test_users
+      add_test_users_directly
+      expect(User.all.count).to eq 2
+    end
+  end
+
+  context '#create' do
+    it 'Can add users' do
+      add_test_users
+      expect(User.all).to eq @test_users
     end
   end
 end
