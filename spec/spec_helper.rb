@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
@@ -5,6 +7,9 @@ require 'capybara/rspec'
 require 'pg'
 require 'rspec'
 require 'sinatra/flash'
+require 'features/feature_helpers.rb'
+
+require_relative 'setup_test_database'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -18,6 +23,11 @@ SimpleCov.start
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+
+  config.before do
+    empty_database
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
