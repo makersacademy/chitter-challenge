@@ -1,6 +1,6 @@
 require 'pg'
 
-ffeature 'show peeps' do
+feature 'show peeps' do
   scenario 'on /peeps' do
     connection = PG.connect :dbname => 'chitter_test'
     connection.exec "INSERT INTO peeps(text) VALUES('My first peep yoooo')"

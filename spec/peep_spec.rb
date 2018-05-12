@@ -10,9 +10,16 @@ describe Peep do
     { 'id' => '1', 'text' => peep3 }
     ] }
 
-  describe '#all' do
+  describe '#self.all' do
     it 'returns an array of peeps' do
       expect(described_class.all(connection)).to eq [peep1, peep2, peep3]
+    end
+  end
+
+  describe '#self.create' do
+    it 'calls insert command in SQL' do
+      described_class.create(peep1, connection)
+      expect(connection).to have_received(:exec).with("INSERT INTO peeps(text) VALUES('#{peep1}')")
     end
   end
 end

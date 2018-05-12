@@ -6,6 +6,10 @@ class Peep
     result.map { |row| row['text'] }
   end
 
+  def self.create(text, connection = connect_to_database)
+    connection.exec "INSERT INTO peeps(text) VALUES('#{text}')"
+  end
+
   private
 
   def self.connect_to_database
