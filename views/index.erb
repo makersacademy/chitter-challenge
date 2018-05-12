@@ -1,4 +1,14 @@
-
+<h2>Chitter feed</h2>
 <% @peeps.each do |peep| %>
-<h3><%= "#{peep[:author]}: #{peep[:text]}" %><br></h3>
+<h3><%= "#{peep[:author]}: "%></h3><p><%= "#{peep[:text]}" %><br></p>
 <% end %>
+
+<br>
+
+<form action="/add" method="post">
+  <p>New Peep: (max 140 chars)</p>
+  <input type="text" name="text">
+  <p>Your name:</p>
+  <input type="text" name="author">
+  <input type="submit" value="Post new Peep">
+</form>

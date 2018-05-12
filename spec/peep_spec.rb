@@ -10,4 +10,11 @@ describe Peep, :peep do
       expect(Peep.all).to eq [{ text: 'Hello World!', author: 'Sam Worrall' }]
     end
   end
+
+  describe '#create' do
+    it 'Creates a peep and returns a peep instance' do
+      Peep.create('Hello World!', 'Sam Worrall')
+      expect(Peep.all). to eq [{ text: 'Hello World!', author: 'Sam Worrall' }]
+    end
+  end
 end

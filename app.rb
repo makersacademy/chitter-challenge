@@ -13,4 +13,9 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
+  post('/add') do
+    Peep.create(params[:text], params[:author])
+    redirect('/')
+  end
+
 end
