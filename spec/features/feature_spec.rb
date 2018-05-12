@@ -13,4 +13,14 @@ feature Chitter do
       expect(page).to have_content "Sam Worrall:\nHello World!"
     end
   end
+
+  feature 'Adding a peep' do
+    scenario 'User is able to add a new peep' do
+      visit('/')
+      fill_in 'text', with: 'Hello World!'
+      fill_in 'author', with: 'User'
+      click_button 'Post new Peep'
+      expect(page).to have_content "User:\nHello World!"
+    end
+  end
 end

@@ -1,6 +1,6 @@
 <h2>Chitter feed</h2>
 <% @peeps.each do |peep| %>
-<h3><%= "#{peep[:author]}: "%></h3><p><%= "#{peep[:text]}" %><br></p>
+<h3><%= "#{peep.author}: "%></h3><p><%= "#{peep.text}" %><br></p>
 <% end %>
 
 <br>
