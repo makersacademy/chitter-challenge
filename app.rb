@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 
-require './lib/user.rb'
+require './lib/model_router.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -11,6 +11,7 @@ class Chitter < Sinatra::Base
   before do
     @message = flash[:message]
     @user = session[:user]
+    @peeps = Peep.all
   end
 
   get '/' do
@@ -31,6 +32,20 @@ class Chitter < Sinatra::Base
   post '/user/login' do
     flash[:message] = "Welcome back #{params['login_email']}"
     session[:user] = params['email']
+    redirect '/'
+  end
+
+  get '/peep/new' do
+    erb :peep_new
+  end
+
+  post '/peep/new' do
+    Peep.create(
+      :message => params['post'],
+      :user_name => session[:user],
+      :created_at => DateTime.now
+    )
+    flash[:message] = 'Peep posted'
     redirect '/'
   end
 

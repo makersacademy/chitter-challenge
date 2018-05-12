@@ -1,8 +1,8 @@
-require 'user'
+require 'model_router'
 
 describe User do
   context '#all' do
-    it 'Lists the users' do
+    it 'Stores users' do
       add_test_users_directly
       expect(User.all.count).to eq 2
     end
