@@ -1,6 +1,6 @@
-require 'peep'
+require 'peep_connection'
 
-describe Peep do
+describe PeepConnection do
   let(:peep1) { 'My first peep yoooo' }
   let(:peep2) { 'Just got this peep app! unbelievable!' }
   let(:peep3) { 'Peep is kicking off!' }
