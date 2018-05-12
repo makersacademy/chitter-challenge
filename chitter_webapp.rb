@@ -1,6 +1,9 @@
+require 'data_mapper'
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
+require_relative './lib/peep'
+load './datamapper_setup.rb'
 
 
 class ChitterApp < Sinatra::Base
@@ -14,14 +17,13 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
-    session[:peeps] ||= []
-    @peeps = session[:peeps]
+    @peeps = Peep.all
     erb :peeps
   end
 
   post '/peeps/new' do
-    session[:peeps] ||= []
-    session[:peeps] << params[:peep]
+    peep = Peep.new(text: params[:peep])
+    peep.save
     redirect '/peeps'
   end
 

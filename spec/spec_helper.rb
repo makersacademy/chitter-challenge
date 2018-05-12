@@ -4,6 +4,8 @@ require 'simplecov'
 require 'simplecov-console'
 require File.join(File.dirname(__FILE__), '..', '/chitter_webapp.rb')
 
+ENV['RACK_ENV'] = "test"
+
 Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

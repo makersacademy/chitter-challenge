@@ -7,7 +7,7 @@
   <body>
     <% @peeps.each do |peep| %>
         <div class="peep">
-          <p><%= peep %></p>
+          <p><%= peep.text %></p>
         </div>
     <% end %>
     <div class="peep_adder">
