@@ -13,10 +13,11 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/' do
-    "Welcome to Chitter"
+    redirect '/peeps'
   end
 
   get '/peeps' do
+    redirect '/sessions/new' unless session[:current_user]
     @peeps = Peep.all.sort_by { |peep| peep.created_at }.reverse
     erb :peeps
   end
@@ -25,6 +26,10 @@ class ChitterApp < Sinatra::Base
     peep = Peep.new(text: params[:peep])
     peep.save
     redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :login
   end
 
   run! if __FILE__ == $0
