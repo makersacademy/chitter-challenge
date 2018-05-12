@@ -11,7 +11,9 @@ feature 'New Peeper' do
 
   scenario 'Successful sign up' do
     visit '/signup'
+    fill_in('username', with: 'Peeping Tom')
+    fill_in('password', with: 'ilikepeeping')
     click_button('Submit Details')
-    expect(page).to have_content "Welcome to Peep!"
+    expect(page).to have_content "Welcome to Peep, Peeping Tom"
   end
 end
