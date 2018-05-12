@@ -4,7 +4,7 @@ class Peep
 
   def self.all
     result = set_database.exec("SELECT * FROM peeps")
-    result.map { |peep| { text: peep['text'], author: peep['author'] } }
+    result.map { |peep| { text: peep['text'], author: peep['author'] } }.reverse
   end
 
   def self.create(text, author)
