@@ -1,8 +1,14 @@
-<p>Add peep</p>
+<%= erb :header %>
 
-<form action='/peep/new' method='post'>
-  <label for='post'>Peep: </label><br/>
-  <textarea name='post' id='post_field' rows='3' cols='50' required></textarea>
-  <br><br>
-  <input type='submit' value='Post your peep'>
+<h2>Add peep</h2>
+
+<form action='/peep/new' method='post' class='ui form'>
+  <div class='field'>
+    <label for='post'>Peep: </label><br/>
+    <textarea name='post' id='post_field' rows='3' cols='50' required></textarea>
+  </div>
+
+  <input type='submit' value='Post your peep' class='ui button'>
 </form>
+
+<%= erb :footer %>

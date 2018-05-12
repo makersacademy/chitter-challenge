@@ -1,1 +1,9 @@
-<%= @message %>
+<% if @message != nil %>
+
+<div class='ui info message'>
+  <div class='header'>
+    <%= @message %>
+  </div>
+</div>
+
+<% end %>

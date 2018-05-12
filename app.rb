@@ -40,9 +40,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    Peep.create(
+    p Peep.create(
       :message => params['post'],
-      :user_name => session[:user],
+      :user_name => 0,
       :created_at => DateTime.now
     )
     flash[:message] = 'Peep posted'

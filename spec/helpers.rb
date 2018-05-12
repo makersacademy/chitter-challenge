@@ -38,7 +38,7 @@ def add_test_peeps
 end
 
 def log_in
-  fill_in 'login_email', with: User.all[0].email
+  fill_in 'login_email', with: User.all[0].id
   click_button 'Login'
 end
 
