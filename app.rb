@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/users.rb'
 require 'sinatra/flash'
+require './lib/peeps.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -36,6 +37,14 @@ class Chitter < Sinatra::Base
 
   get '/new_peep' do
     erb :new_peep
+  end
+
+  post '/new_peep' do
+    current_user = session[:username]
+    peep_text = params[:text]
+    time = Time.now.strftime('%I:%M%P')
+    Peeps.peep(current_user, time, peep_text)
+    redirect '/chitter'
   end
 
   run! if app_file == $0
