@@ -17,7 +17,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.sort_by { |peep| peep.created_at }.reverse
     erb :peeps
   end
 

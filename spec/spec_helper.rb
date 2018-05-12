@@ -1,10 +1,11 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require File.join(File.dirname(__FILE__), '..', '/chitter_webapp.rb')
-
-ENV['RACK_ENV'] = "test"
+require_relative './matchers/come_before.rb'
 
 Capybara.app = ChitterApp
 
