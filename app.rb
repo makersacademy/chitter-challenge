@@ -9,6 +9,10 @@ class Chitter < Sinatra::Base
     'Testing infrastructure working!'
   end
 
+  get '/peeps' do
+     'Hello World'
+  end
+
   run! if app_file == $0
 
 end
