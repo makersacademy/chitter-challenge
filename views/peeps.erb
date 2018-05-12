@@ -7,6 +7,7 @@
   <body>
     <% @peeps.each do |peep| %>
         <div class="peep">
+          <em><%= peep.time %></em>
           <p><%= peep.text %></p>
         </div>
     <% end %>

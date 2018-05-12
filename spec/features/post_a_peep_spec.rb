@@ -19,4 +19,12 @@ feature 'Post a peep' do
     expect('My second peep').to appear_before('My first peep')
   end
 
+  scenario 'Peep created time appears' do
+    visit '/peeps'
+    fill_in 'peep', with: 'My first peep'
+    time = Time.now
+    click_button 'Post'
+    expect(page).to have_content("#{time.hour}:#{time.min}" || "#{time.hour}:#{time.min +  1}")
+  end
+
 end
