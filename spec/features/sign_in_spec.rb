@@ -11,6 +11,7 @@ feature 'Signing in to your account' do
     click_on 'Sign in'
     fill_in 'username', with: 'Yoncé'
     fill_in 'password', with: 'lemonade'
-    expect(page).to have_content('Welcome Beyonce Knowles')
+    click_button 'Sign in'
+    expect(page).to have_content('Welcome Yoncé')
   end
 end

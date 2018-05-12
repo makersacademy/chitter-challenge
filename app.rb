@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/chitter' do
+    @current_user = session[:username]
     erb :index
   end
 
@@ -26,6 +27,11 @@ class Chitter < Sinatra::Base
 
   get '/sign_in' do
     erb :sign_in
+  end
+
+  post '/sign_in' do
+    session[:username], session[:password] = params[:username], params[:password]
+    redirect '/chitter'
   end
 
   get '/new_peep' do
