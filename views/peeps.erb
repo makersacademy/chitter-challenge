@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% @peeps.each do |peep| %>
+        <div class="peep">
+          <p><%= peep %></p>
+        </div>
+    <% end %>
+    <div class="peep_adder">
+      <form action="/peeps/new" method="post">
+        <label for="peep">Peep</label>
+        <input type="text" name="peep">
+        <input type="submit" value="Post">
+      </form>
+    </div>
+  </body>
+</html>
