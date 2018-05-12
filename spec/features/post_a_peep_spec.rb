@@ -1,6 +1,7 @@
 feature 'Post a peep' do
 
   scenario 'A user can post a peep' do
+    register
     visit '/peeps'
     fill_in 'peep', with: 'My first peep'
     click_button 'Post'
@@ -8,6 +9,7 @@ feature 'Post a peep' do
   end
 
   scenario 'A user can see peeps in chronological order' do
+    register
     visit '/peeps'
     fill_in 'peep', with: 'My first peep'
     click_button 'Post'
@@ -20,6 +22,7 @@ feature 'Post a peep' do
   end
 
   scenario 'Peep created time appears' do
+    register
     visit '/peeps'
     fill_in 'peep', with: 'My first peep'
     time = Time.now

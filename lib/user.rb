@@ -3,7 +3,6 @@ class User
 
   property :id,           Serial
   property :user_name,    String
-  property :display_name, String
   property :email,        String, :required => true, :unique => true,
     :format   => :email_address,
     :messages => {

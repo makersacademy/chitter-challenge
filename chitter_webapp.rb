@@ -34,13 +34,16 @@ class ChitterApp < Sinatra::Base
     erb :login
   end
 
+  post '/session/new' do
+
+  end
+
   get '/users/new' do
     erb :register
   end
 
   post '/users/new' do
     user = User.create(user_name: params[:username],
-                       display_name: params[:display_name],
                        email: params[:email],
                        password: params[:password]
                       )

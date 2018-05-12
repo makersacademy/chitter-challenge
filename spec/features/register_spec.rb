@@ -8,7 +8,6 @@ feature 'User registers themselves' do
   scenario 'Fails to fill in a correct email field' do
     visit '/users/new'
     fill_in "username", with: "georgeyporgey"
-    fill_in 'display_name', with: "GeorgeS"
     fill_in "email", with: "georgegmail.com"
     fill_in "password", with: "123@PorgeyG"
     fill_in "conf_password", with: "123@PorgeyG"
