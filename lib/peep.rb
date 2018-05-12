@@ -16,7 +16,7 @@ class Peep
   def self.all
     result = set_database.exec("SELECT * FROM peeps")
     result.map {
-       |peep| Peep.new(peep['text'], peep['author'], peep['time_stamp'])
+      |peep| Peep.new(peep['text'], peep['author'], peep['time_stamp'])
     }.reverse
   end
 
