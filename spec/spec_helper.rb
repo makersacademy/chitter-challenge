@@ -6,6 +6,9 @@ require 'simplecov-console'
 
 require_relative '../app'
 
+
+ENV['RACK_ENV'] = 'test'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -13,3 +16,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+RSpec.configure do |config|
+  config.before(:each) do
+    load 'setup_test_database.rb'
+  end
+end
