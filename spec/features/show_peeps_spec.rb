@@ -1,5 +1,3 @@
-require 'pg'
-
 feature 'show peeps' do
   scenario 'on /peeps' do
     visit('/peeps')

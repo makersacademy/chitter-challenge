@@ -1,9 +1,16 @@
 require 'pg'
 
 class Peep
-  def self.all(connection = connect_to_database)
+  attr_reader :id, :text
+
+  def initialize(id, text)
+    @id = id
+    @text = text
+  end
+
+  def self.all(peep_class = Peep, connection = connect_to_database)
     result = connection.exec 'SELECT * FROM peeps'
-    result.map { |row| row['text'] }
+    result.map { |row| peep_class.new(row['id'], row['text']) }
   end
 
   def self.create(text, connection = connect_to_database)
