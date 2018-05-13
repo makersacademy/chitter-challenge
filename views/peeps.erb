@@ -9,6 +9,10 @@
     <p><%= @current_user.name %></p>
     <p>@<%= @current_user.username %></p>
   </div>
+  <% else %>
+  <div>
+    <a href='/'>Log in</a>
+  </div>
   <% end %>
   <% @peeps.each do |peep| %>
     <div>
