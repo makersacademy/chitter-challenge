@@ -21,6 +21,7 @@ feature 'Posting a new peep' do
     fill_in 'text', with: 'I am hungry'
     click_button 'Post'
     expect(page).to have_content('I am hungry')
+    expect(page).to have_content('Beyonce Knowles')
   end
 
   scenario 'Cannot peep unless logged in' do

@@ -18,7 +18,7 @@
 
     <ul>
       <% @peeps.reverse_each do |peep| %>
-        <li><%=peep.username%>, <%=peep.text%>, <%=peep.time%></li>
+        <li><%=peep.name%>, @<%=peep.username%>, <%=peep.text%>, <%=peep.time%></li>
       <%end%>
     </ul>
 

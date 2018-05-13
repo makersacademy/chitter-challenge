@@ -64,9 +64,10 @@ class Chitter < Sinatra::Base
 
   post '/new_peep' do
     current_user = session[:username]
+    current_user_name = Peeps.name(current_user)
     peep_text = params[:text]
     time = Time.now.strftime('%I:%M%P')
-    Peeps.peep(current_user, time, peep_text)
+    Peeps.peep(current_user_name, current_user, time, peep_text)
     redirect '/chitter'
   end
 
