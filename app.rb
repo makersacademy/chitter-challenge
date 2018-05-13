@@ -19,8 +19,12 @@ class Chitter < Sinatra::Base
 
   post '/sign_up' do
     name, username, email, password = params[:name], params[:username], params[:email], params[:password]
-    Users.create(name, username, email, password)
-    redirect('/user_added')
+    if Users.create(name, username, email, password) == false
+      (flash[:error] = 'This username is already taken'
+      redirect('/sign_up'))
+    else
+      redirect('/user_added')
+    end
   end
 
   get '/user_added' do

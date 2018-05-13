@@ -12,5 +12,10 @@ describe Users do
       expect(connection).to receive(:exec).with("INSERT INTO users(name, username, email, password) VALUES('Beyonce Knowles', 'Yoncé', 'queenb@gmail.com', 'lemonade')")
       Users.create(name, username, email, password, connection)
     end
+
+    it 'should return false if username is already taken' do
+      allow(Users).to receive(:username_available?).with('Yoncé') {false}
+      expect(Users.create(name, username, email, password, connection)).to eq(false)
+    end
   end
 end
