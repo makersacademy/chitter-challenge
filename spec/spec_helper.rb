@@ -7,6 +7,7 @@ require 'capybara/rspec'
 require 'rspec'
 require './app.rb'
 require 'pg'
+require_relative './features/web_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
