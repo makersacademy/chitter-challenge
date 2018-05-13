@@ -32,7 +32,7 @@ require './database_connection_setup'
    end
 
    post '/users' do
-     @user = User.create(params['email'], params['password'])
+     @user = User.create(params[:email], params[:pass])
      session[:user_id] = @user.id
      redirect '/'
    end
@@ -42,10 +42,11 @@ require './database_connection_setup'
    end
 
    post '/sessions' do
-     @user = User.authenticate(params['email'], params['password'])
 
-     if @user
-       session[:user_id] = @user.id
+     user = User.authenticate(params[:email], params[:pass])
+
+     if user
+       session[:user_id] = user.id
        redirect('/')
      else
        flash[:notice] = 'Incorrect email or password.'

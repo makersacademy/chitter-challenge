@@ -11,19 +11,18 @@ feature Chitter do
   scenario 'sign up' do
     visit('/users/new')
     fill_in 'email', with: 'test@example.com'
-    fill_in 'name', with: 'charlene'
     fill_in 'pass', with: 'test123'
     click_button 'Submit Details'
-    expect(page).to have_content('Welcome, charlene')
+    expect(page).to have_content('Welcome, test@example.com')
   end
 
-  scenario 'sign in' do
+  fscenario 'sign in' do
     sign_up
     visit('/sessions/new')
     fill_in 'email', with: 'test@example.com'
     fill_in 'pass', with: 'test123'
     click_button 'Sign In'
-    expect(page).to have_content('Welcome, charlene')
+    expect(page).to have_content('Welcome, test@example.com')
   end
 
   scenario 'incorrect email on sign in' do
@@ -32,7 +31,17 @@ feature Chitter do
     fill_in 'email', with: 'test2@example.com'
     fill_in 'pass', with: 'test123'
     click_button 'Sign In'
-    expect(page).not_to have_content 'Welcome, charlene'
+    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).to have_content('Incorrect email or password.')
+  end
+
+  scenario 'incorrect password on sign in' do
+    sign_up
+    visit('/sessions/new')
+    fill_in 'email', with: 'test@example.com'
+    fill_in 'pass', with: 'test'
+    click_button 'Sign In'
+    expect(page).not_to have_content 'Welcome, test@example.com'
     expect(page).to have_content('Incorrect email or password.')
   end
 

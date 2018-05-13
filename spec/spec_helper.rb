@@ -5,6 +5,8 @@ require 'capybara/rspec'
 require 'rspec'
 require './app.rb'
 require 'pg'
+require 'rake'
+Rake.application.load_rakefile
 
 Capybara.app = Chitter
 
@@ -22,10 +24,8 @@ SimpleCov.start
 
 RSpec.configure do |config|
 
-  config.before(:each)do
-    con = PG.connect(dbname: 'chitter_test')
-    con.exec("TRUNCATE peeps;")
-    con.exec("TRUNCATE users;")
+  config.before(:each) do
+    Rake::Task['test_database_setup'].execute
   end
 
   config.after(:suite) do
