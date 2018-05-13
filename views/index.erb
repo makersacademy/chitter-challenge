@@ -5,18 +5,18 @@
 
   <div style="float: left; text-align: center; padding: 14px 16px; font-size: 17px">
     <form action="/sign_up" method="get">
-      <input type="submit" value="Sign Up" style="border: none; color: white; background-color: blue; width: 100%; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
+      <input type="submit" value="Sign Up" style="border: none; color: white; background-color: #00BFFF; width: 100%; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
     </form>
   </div>
 
   <div style="float: left; text-align: center; padding: 14px 16px; font-size: 17px">
   <% if !session[:username].nil? %>
     <form action="/log_out" method="get">
-      <input type="submit" value="Log Out" style="border: none; color: white; background-color: blue; width: 100%; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
+      <input type="submit" value="Log Out" style="border: none; color: white; background-color: #00BFFF; width: 100%; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
     </form>
   <% else %>
     <form action="/log_in" method="get">
-      <input type="submit" value="Log In" style="border: none; color: white; background-color: blue; width: 100%; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
+      <input type="submit" value="Log In" style="border: none; color: white; background-color: #00BFFF; width: 100%; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
     </form>
   <% end %>
   </div>
