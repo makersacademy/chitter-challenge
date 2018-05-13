@@ -1,5 +1,9 @@
 <form action="/log_in" method="post">
+  <p>Username:</p>
   <input type="text" name="username">
+  <p>Password:</p>
   <input type="text" name="password">
   <input type="submit" value="Log In">
 </form>
+
+<%= flash[:login_error] %>

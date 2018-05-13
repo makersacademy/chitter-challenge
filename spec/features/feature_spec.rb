@@ -69,5 +69,15 @@ feature Chitter do
       sign_up
       expect(page).not_to have_button "Log In"
     end
+
+    scenario 'Raises error if login details are wrong' do
+      sign_up
+      click_button 'Log Out'
+      click_button 'Log In'
+      fill_in 'username', with: 'SW21'
+      fill_in 'password', with: '1234'
+      click_button 'Log In'
+      expect(page).to have_content "Username and/or Password is incorrect"
+    end
   end
 end

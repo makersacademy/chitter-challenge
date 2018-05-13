@@ -48,8 +48,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_in' do
-    session[:username] = params[:username]
-    redirect('/')
+    if User.all.any? { |user| user.username == params[:username] && user.password == params[:password] }
+      session[:username] = params[:username]
+      redirect('/')
+    else
+      flash[:login_error] = "Username and/or Password is incorrect"
+      redirect('/log_in')
+    end
   end
 
   get '/log_out' do
