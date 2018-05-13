@@ -1,12 +1,12 @@
 Chitter Challenge
 =================
 
-This is the week four weekend challenge @ Makers. This weekend I am making a Twitter clone, nicely named 'Chitter', users will post messages, each is called a 'Peep'. The challenge will follow TDD and OOD principles, and put to practice this week's learning of databases within a full stack web app.
+This is the week four weekend challenge @ Makers. This weekend I am making a Twitter clone, nicely named 'Chitter', users will post messages, each is called a 'Peep'. The challenge will follow TDD, CRUD and OOD principles, and put to practice this week's learning of databases within a full stack web app.
 
 Instructions:
 =================
 - rvm install ruby-2.5.0
-- bundle init 
+- bundle init
 
 
 User stories:

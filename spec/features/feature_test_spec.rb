@@ -1,9 +1,10 @@
+require 'pg'
+
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    visit('/peeps')
-
-    expect(page).to have_content "Byte me!"
-    expect(page).to have_content "String me_along"
-    expect(page).to have_content "SQL Clause is coming to town!"
+    visit('/')
+    expect(page).to have_content "The night I lost CTRL"
+    expect(page).to have_content "More code, more cache"
+    expect(page).to have_content "Everyday, tryna get beta"
   end
 end

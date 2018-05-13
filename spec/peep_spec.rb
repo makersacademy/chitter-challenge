@@ -5,9 +5,9 @@ describe Peep do
     it 'returns all peeps' do
       peeps = Peep.all
 
-      expect(peeps).to include("Byte me!")
-      expect(peeps).to include("String me_along")
-      expect(peeps).to include("SQL Clause is coming to town!")
+      expect(peeps).to include("The night I lost CTRL")
+      expect(peeps).to include("More code, more cache")
+      expect(peeps).to include("Everyday, tryna get beta")
     end
   end
 end

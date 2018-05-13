@@ -1,9 +1,11 @@
+require 'pg'
+
 class Peep
   def self.all
     [
-      "Byte me!",
-      "String me_along",
-      "SQL Clause is coming to town!"
+      "The night I lost CTRL",
+      "More code, more cache",
+      "Everyday, tryna get beta"
      ]
   end
 end
