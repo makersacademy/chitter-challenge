@@ -24,8 +24,8 @@ class Chitter < Sinatra::Base
   end
 
   post('/sign_up') do
-    if User.all.any? { |user| user.username == params[:username] }
-      flash[:signup_error] = "This username already exists"
+    if User.all.any? { |user| user.username == params[:username] || user.email == params[:email]}
+      flash[:signup_error] = "This username or email already exists"
       redirect('/sign_up')
     else
       User.create(

@@ -32,9 +32,15 @@ feature Chitter do
     end
 
     scenario 'Error if username already exists' do
-      User.create('example@hotmail.co.uk', '1234', 'Sam Worrall', 'SW22')
+      User.create('example2@hotmail.co.uk', '1234', 'Sam Worrall', 'SW22')
       sign_up
-      expect(page).to have_content "This username already exists"
+      expect(page).to have_content "This username or email already exists"
+    end
+
+    scenario 'Error if email already exists' do
+      User.create('example@hotmail.co.uk', '1234', 'Sam Worrall', 'SW21')
+      sign_up
+      expect(page).to have_content "This username or email already exists"
     end
   end
 
