@@ -1,22 +1,28 @@
 require 'pg'
+require './lib/database'
 
 class Peep
 
-attr_reader :id, :string
+attr_reader :id, :string, :time
 
-def initialize(id = id, string = string)
+def initialize(id = id, string = string, time = Time.now.asctime)
   @id = id
   @string = string
+  @time = time
 end
 
-def self.add(string)
-  result = self.database.exec( "INSERT INTO peeps (string) VALUES('#{string}') RETURNING string" )
-  Peep.new(result.first['string'])
+def ==(other)
+  (self.id == other.id)
+end
+
+def self.add(string, time = Time.now.asctime)
+  result = Database.query( "INSERT INTO peeps (string, time) VALUES('#{string}', '#{time}') RETURNING id, string, time" )
+  Peep.new(result.first['id'], result.first['string'], result.first['time'])
 end
 
 def self.all
-  result = self.database.exec("SELECT * FROM peeps")
-  result.map { |peep| Peep.new(peep['id'], peep['string']) }.reverse
+  result = Database.query("SELECT * FROM peeps")
+  result.map { |peep| Peep.new(peep['id'], peep['string'], result['time']) }.reverse
 end
 
 def self.database

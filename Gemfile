@@ -10,6 +10,7 @@ gem 'rspec-sinatra'
 gem 'pg'
 gem 'rack_session_access'
 gem 'rack'
+gem 'timestamp'
 
 group :test do
   gem 'rspec'

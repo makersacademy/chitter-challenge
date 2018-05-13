@@ -2,7 +2,7 @@
 <h2 style='color: darkslategrey; font-family: sans-serif; font-variant: small-caps; font-size: 20px'> All puns INTENDED </h1>
 <h2 style='color: blue; font-family: sans-serif; font-variant: small-caps; text-align: center'>
 <% @peeps.each do |peep| %>
-   <%= peep.string %> <br>
+   <%= peep.string %> : <%= peep.time %> <br>
 <% end %>
 </h2>
 
