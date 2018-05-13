@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
   attr_reader :id, :email, :password
 
@@ -13,7 +15,8 @@ class User
   end
 
   def self.create(options)
-    res = con.exec "INSERT INTO users (email, password) values('#{options[:email]}', '#{options[:password]}') RETURNING id, email, password;"
+    password = BCrypt::Password.create(options[:password])
+    res = con.exec "INSERT INTO users (email, password) values('#{options[:email]}', '#{password}') RETURNING id, email, password;"
     User.new(res[0]['id'], res[0]['email'], res[0]['password'])
   end
 
