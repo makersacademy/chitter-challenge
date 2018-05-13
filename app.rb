@@ -4,8 +4,6 @@ require './lib/cheep'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
-
   get '/' do
     @cheeps = Cheep.all
     erb(:index)
@@ -19,7 +17,5 @@ class Chitter < Sinatra::Base
     Cheep.create(params[:name], params[:handle], params[:message])
     redirect '/'
   end
-
-  run! if app_file == $0
 
 end

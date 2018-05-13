@@ -8,14 +8,18 @@
     <form action="/cheep/new">
       <input type="submit" value="Create Cheep">
     </form>
+    <center>
     <ul>
       <% @cheeps.each do |cheep| %>
+        <div style="border: 3px solid black;">
           <p><%= cheep.handle %></p>
           <p><%= cheep.name %></p>
           <p><%= cheep.message %></p>
           <p><%= cheep.time %></p>
+        </div>
         <br></br>
       <% end %>
     </ul>
+  </center>
   </body>
 </html>
