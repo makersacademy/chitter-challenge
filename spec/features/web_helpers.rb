@@ -10,6 +10,5 @@ end
 
 def post
   fill_in 'text', with: 'Hello World!'
-  fill_in 'author', with: 'SW22'
   click_button 'Post new Peep'
 end

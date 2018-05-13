@@ -15,13 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post('/add') do
-    if session[:username].nil? || params[:author] != session[:username]
-      flash[:user_error] =
-      "You cannot post as #{params[:author]}
-       unless you sign in as #{params[:author]}"
-    else
-      Peep.create(params[:text], params[:author])
-    end
+    Peep.create(params[:text], session[:username])
     redirect('/')
   end
 
