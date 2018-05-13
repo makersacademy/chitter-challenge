@@ -4,6 +4,11 @@ ruby '2.5.0'
 
 gem 'rake'
 gem 'rubocop'
+gem 'capybara'
+gem 'sinatra'
+gem 'pg'
+gem 'rake'
+gem 'rack'
 
 group :test do
   gem 'rspec'
