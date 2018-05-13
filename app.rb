@@ -43,6 +43,15 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/log_in' do
+    erb(:log_in)
+  end
+
+  post '/log_in' do
+    session[:username] = params[:username]
+    redirect('/')
+  end
+
   get '/log_out' do
     session[:username] = nil
     flash[:log_out] = "Successfully logged out"

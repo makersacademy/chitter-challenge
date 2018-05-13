@@ -34,6 +34,10 @@
   <form action="/log_out" method="get">
     <input type="submit" value="Log Out">
   </form>
+<% else %>
+  <form action="/log_in" method="get">
+    <input type="submit" value="Log In">
+  </form>
 <% end %>
 
 <%= flash[:user_error] %>

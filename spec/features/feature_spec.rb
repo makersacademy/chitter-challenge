@@ -51,4 +51,23 @@ feature Chitter do
       expect(page).not_to have_button "Post new Peep"
     end
   end
+
+  feature 'Logging in' do
+
+    scenario 'User can log in with existing user details' do
+      sign_up
+      click_button 'Log Out'
+      click_button 'Log In'
+      fill_in 'username', with: 'SW22'
+      fill_in 'password', with: '1234'
+      click_button 'Log In'
+      expect(page).to have_content "Username: SW22"
+      expect(page).not_to have_button "Log In"
+    end
+
+    scenario 'User cannot log in if already logged in' do
+      sign_up
+      expect(page).not_to have_button "Log In"
+    end
+  end
 end
