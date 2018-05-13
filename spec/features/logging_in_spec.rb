@@ -22,7 +22,7 @@ feature 'Logging users in' do
     fill_in 'email', with: "georgegmail.com"
     fill_in 'password', with: "123@PorgeyG"
     click_button "Login"
-    expect(page).to have_content "Incorrect username"
+    expect(page).to have_content "Failed login"
   end
 
   scenario 'User enters the wrong password' do
@@ -32,7 +32,7 @@ feature 'Logging users in' do
     fill_in 'email', with: "george@gmail.com"
     fill_in 'password', with: "123@Porgey"
     click_button "Login"
-    expect(page).to have_content "Incorrect password"
+    expect(page).to have_content "Failed login"
   end
 
 end

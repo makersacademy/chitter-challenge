@@ -18,10 +18,6 @@ class ChitterApp < Sinatra::Base
 
   helpers do
 
-    def correct_password?(user, password)
-      user.password == password
-    end
-
     def set_current_user(user)
       session[:current_user] = user.id
       session[:user_name] = user.user_name
@@ -52,16 +48,13 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sessions/new' do
-    users = User.all email: params[:email]
-    if users.empty?
-      flash[:notice] = "Incorrect username"
-      redirect '/sessions/new'
-    elsif !correct_password?(users.first, params[:password])
-      flash[:notice] = "Incorrect password"
-      redirect '/sessions/new'
-    else
-      set_current_user(users.first)
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      set_current_user(user)
       redirect '/peeps'
+    else
+      flash[:notice] = "Failed login"
+      redirect '/sessions/new'
     end
   end
 
