@@ -45,6 +45,10 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/logout' do
+    erb(:logoutsuccess)
+  end
+
   run! if app_file == $0
 
 end

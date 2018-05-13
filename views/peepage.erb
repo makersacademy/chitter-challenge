@@ -5,6 +5,10 @@
   <% if @user %>
     <h2>Welcome back, <%= @user.username %></h2>
 
+    <form action="/logout" method='get'>
+      <input type="submit" value="Logout">
+    </form>
+
     <h3>Peep here:</h3>
   </div>
     <form action="/peeps" method="post">
