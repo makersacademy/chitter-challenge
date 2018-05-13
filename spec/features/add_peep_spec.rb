@@ -12,13 +12,14 @@ feature 'Logged in users can add a Peep' do
   end
 
   scenario 'A peep is added to the peeps' do
-    visit '/login'
-    p allow(User).to receive(:create).with(username: 'glitterati', password: 'iloveglitter')
-    p click_button('Login')
-    p "is it here?"
-    p fill_in('peep_content', with: "I love glitter")
-    p fill_in('peep_username', with: "glitterati")
-    p click_button('Peep')
+    visit '/signup'
+    fill_in('username', with: 'Peeping Tom')
+    fill_in('password', with: 'ilikepeeping')
+    click_button('Submit Details')
+    click_button('Return to Peeps')
+    fill_in("peep_content", with: 'I love glitter')
+    fill_in('peep_username', with: "glitterati")
+    click_button('Peep')
     expect(page).to have_content "I love glitter"
   end
 end

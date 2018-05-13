@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    # user = User.first(:username => params[:log_username])
+    @user = User.get(session[:user_id])
     # session[:user_id] = user.id
     peep = Peep.create(:content => params[:peep_content], :username => params[:peep_username])
     redirect '/peeps'

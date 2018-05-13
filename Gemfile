@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.0'
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem 'cucumber', '~> 3.1'
 gem 'data_mapper', '~> 1.2'
 gem 'dm-migrations', '~> 1.2'
 gem 'dm-postgres-adapter'
