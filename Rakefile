@@ -10,10 +10,32 @@ if ENV['RACK_ENV'] != 'production'
 end
 
 task :test_database_setup do
-  p "Clean my database..."
+  p "Clean and populate test database..."
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec("TRUNCATE users, peeps;")
+  result = connection.exec("
+    INSERT INTO users(email, name, handle, password)
+    VALUES
+        ('marcus@emperorofrome.com',
+         'Marcus Aurelius',
+         'Philosopher King',
+          'password123'),
+        ('epictetus@slaveofrome.com',
+         'Epictetus of Hierapolis',
+         'Philosopher Slave',
+         'password234')
+    RETURNING  id
+    ;")
+  connection.exec("
+    INSERT INTO peeps(user_id, peep, timestamp)
+    VALUES
+        ('#{result[0]['id']}', 'You have power over your mind - not outside events. Realize this, and you will find strength', LOCALTIMESTAMP(0)),
+        ('#{result[0]['id']}', 'The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane.', LOCALTIMESTAMP(0)),
+        ('#{result[1]['id']}', 'That alone is in our power, which is our own work; and in this class are our opinions, impulses, desires, and aversions.', LOCALTIMESTAMP(0)),
+        ('#{result[1]['id']}', 'It is not what happens to you, but how you react to it that matters.', LOCALTIMESTAMP(0))
+    ;")
 end
+
 
 task :setup do
   p "Creating databases..."

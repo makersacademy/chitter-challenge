@@ -1,14 +1,15 @@
 require 'haml'
 require 'sinatra/base'
 require 'sinatra/flash'
-require './app/lib/peep_manager'
+require './app/lib/manager'
 
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
   get '/' do
-    @peeps = PeepManager.display_posts
+    @peeps = Manager.get_all_posts
+    @users = Manager.get_all_users
     haml :index
   end
 

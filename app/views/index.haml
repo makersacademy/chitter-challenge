@@ -1,8 +1,11 @@
-%h1 Chitter
+%h1 Chitter MVP
 - @peeps.each do | peep |
   %section
     %p
       = "Peep ID: #{peep.id}"
-      = "Author ID: #{peep.author}"
+      = "Author: #{@users.select{|row| row.id == peep.author}[0].handle}"
     %p= "Date: #{peep.timestamp}"
     %p= "Peep:<br />#{peep.message}"
+%section
+
+
