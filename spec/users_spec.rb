@@ -30,5 +30,25 @@ describe User do
       add_test_users(user_details)
       expect(User.all).to eq @test_users
     end
+
+    it "Can't add user if email address already used" do
+      add_test_users(user_details)
+      failed_user = User.create(
+        :email => user_details[0][:email],
+        :user_name => 'different_bob',
+        :password => user_details[0][:password]
+      )
+      expect(failed_user.id).to eq nil
+    end
+
+    it "Can't add user if user name already used" do
+      add_test_users(user_details)
+      failed_user = User.create(
+        :email => 'different.bob@testing.com',
+        :user_name => user_details[0][:user_name],
+        :password => user_details[0][:password]
+      )
+      expect(failed_user.id).to eq nil
+    end
   end
 end

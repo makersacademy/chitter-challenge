@@ -27,6 +27,13 @@ feature 'Login' do
       expect(page).to have_content "Welcome back #{user_details[0][:user_name]}"
     end
 
+    scenario "Can't login when username wrong" do
+      fill_in 'user_name_field', with: 'non-user'
+      fill_in 'password_field', with: 'password'
+      click_button 'login_button'
+      expect(page).to have_content "Sorry, the username and/or password was entered incorrectly."
+    end
+
     scenario "Can't login when password wrong" do
       fill_in 'user_name_field', with: user_details[0][:user_name]
       fill_in 'password_field', with: 'wrong password'
