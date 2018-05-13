@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<header style="height: 50px; border: solid; border-width: 2px; background-color: white">
+<header style="height: 50px; border: solid; border-width: 2px; border-radius: 8px; background-color: white">
 
   <h1 style="float: left; text-align: center; text-align: center; padding: 6px 10px; font-size: 17px">Chitter</h1>
 
   <div style="float: left; text-align: center; padding: 14px 16px; font-size: 17px">
     <form action="/sign_up" method="get">
-      <input type="submit" value="Sign Up">
+      <input type="submit" value="Sign Up" style="border: none; color: white; background-color: blue; width: 100%; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
     </form>
   </div>
 
   <div style="float: left; text-align: center; padding: 14px 16px; font-size: 17px">
   <% if !session[:username].nil? %>
     <form action="/log_out" method="get">
-      <input type="submit" value="Log Out">
+      <input type="submit" value="Log Out" style="border: none; color: white; background-color: blue; width: 100%; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
     </form>
   <% else %>
     <form action="/log_in" method="get">
-      <input type="submit" value="Log In">
+      <input type="submit" value="Log In" style="border: none; color: white; background-color: blue; width: 100%; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
     </form>
   <% end %>
   </div>
@@ -31,7 +31,7 @@
     <h2>Username: <%= session[:username] %></h2>
   <% end %>
 
-  <div style="border: solid; border-width: 2px; background-color: white">
+  <div style="border: solid; border-width: 2px; border-radius: 8px; background-color: white; width: 600px; height: 500px; overflow-y: scroll; margin-left: auto; margin-right: auto;">
   <% @peeps.each do |peep| %>
     <h3><%= "#{peep.time_stamp} - #{peep.author}: "%></h3><ul style="color: red"><%= "#{peep.text}" %><br></ul>
   <% end %>
@@ -45,7 +45,7 @@
   <form style="text-align: center" action="/add" method="post">
     <p>New Peep: (max 140 chars)</p>
     <input type="text" name="text">
-    <input type="submit" value="Post new Peep">
+    <input type="submit" value="Post new Peep" style="border: none; color: white; background-color: blue; border-radius: 4px; padding: 4px 10px; margin: 4px 2px; cursor: pointer">
   </form>
 <% end %>
 
