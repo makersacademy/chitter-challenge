@@ -1,1 +1,21 @@
-<p> Testing infrastructure working <p>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <form action="/cheep/new">
+      <input type="submit" value="Create Cheep">
+    </form>
+    <ul>
+      <% @cheeps.each do |cheep| %>
+          <p><%= cheep.handle %></p>
+          <p><%= cheep.name %></p>
+          <p><%= cheep.message %></p>
+          <p><%= cheep.time %></p>
+        <br></br>
+      <% end %>
+    </ul>
+  </body>
+</html>
