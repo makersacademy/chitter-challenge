@@ -9,13 +9,12 @@ describe DatabaseConnection do
     end
   end
 
-  describe  '.query' do
+  describe '.query' do
     it 'executes a query via PG' do
       connection = DatabaseConnection.setup('chitter_test')
       expect(connection).to receive(:exec).with("SELECT * FROM chitter_test")
       DatabaseConnection.query("SELECT * FROM chitter_test")
     end
   end
-
 
 end

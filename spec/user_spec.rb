@@ -3,7 +3,7 @@ require 'user'
 describe User do
 
   let(:database_connection) { DatabaseConnection }
-  subject(:user) {described_class.new(id: 1, email: "jonny@gmail.com", password: "pass123", user_name: "jonny", name: "Jon")}
+  subject(:user) { described_class.new(id: 1, email: "jonny@gmail.com", password: "pass123", user_name: "jonny", name: "Jon") }
 
   describe 'initialize' do
     it 'creates an instance of a user' do
@@ -15,10 +15,13 @@ describe User do
     end
   end
 
+  before do
+    described_class.create(email: 'jonny@gmail.com', password: 'pass123', user_name: 'jonny', name: 'Jon')
+    described_class.create(email: 'gemma@gmail.com', password: 'pass333', user_name: 'gem', name: 'Gemma')
+  end
+
   describe '.create' do
     it 'creates user record in database' do
-      user1 = User.create(email: 'jonny@gmail.com', password: 'pass123', user_name: 'jonny', name: 'Jon')
-      user2 = User.create(email: 'gemma@gmail.com', password: 'pass333', user_name: 'gem', name: 'Gemma')
       users = User.all
       emails = users.map(&:email)
       passwords = users.map(&:password)
@@ -37,8 +40,6 @@ describe User do
 
   describe '.all' do
     it 'returns users records from database' do
-      described_class.create(email: 'jonny@gmail.com', password: 'pass123', user_name: 'jonny', name: 'Jon')
-      described_class.create(email: 'gemma@gmail.com', password: 'pass333', user_name: 'gem', name: 'Gemma')
       expect(described_class.all[0].password).to eq 'pass123'
       expect(described_class.all[1].email).to eq 'gemma@gmail.com'
     end

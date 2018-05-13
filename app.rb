@@ -6,7 +6,6 @@ require './lib/user'
 require './lib/peep'
 require './lib/database_connection'
 
-
 class Chitter < Sinatra::Base
 
   enable :sessions
@@ -17,7 +16,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    session[:user] = User.create(email: params[:email], password: params[:password], user_name: params[:user_name], name: params[:name] )
+    session[:user] = User.create(
+      email: params[:email],
+      password: params[:password],
+      user_name: params[:user_name],
+      name: params[:name]
+    )
     redirect '/peeps'
   end
 
