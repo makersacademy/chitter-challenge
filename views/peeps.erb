@@ -8,10 +8,11 @@
     <div class="header">
       <h3><%= session[:user_name] %></h3>
     </div>
-    <% @peeps.each do |peep| %>
+    <% @peeps.each do |peep_hash| %>
         <div class="peep">
-          <em><%= peep.time %></em>
-          <p><%= peep.text %></p>
+          <em>Peeper: <%= peep_hash[:user].user_name %> - <%= peep_hash[:peep].time %></em>
+          <p><%= peep_hash[:peep].text %></p>
+
         </div>
     <% end %>
     <div class="peep_adder">

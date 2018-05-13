@@ -6,6 +6,8 @@ class Peep
   property :created_at, DateTime
   property :updated_at, DateTime
 
+  belongs_to :user
+
   def time
     self.created_at.strftime("%H:%M")
   end

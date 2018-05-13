@@ -34,12 +34,14 @@ class ChitterApp < Sinatra::Base
 
   get '/peeps' do
     redirect '/sessions/new' unless session[:current_user]
-    @peeps = Peep.all.sort_by { |peep| peep.created_at }.reverse
+    @peeps = Peep.all(:order => [:created_at.desc]).map { |peep| { peep: peep, user: User.get(peep.user_id) } }
     erb :peeps
   end
 
   post '/peeps/new' do
-    Peep.create(text: params[:peep])
+    user = User.get(session[:current_user])
+    peep = user.peeps.new(text: params[:peep])
+    peep.save
     redirect '/peeps'
   end
 

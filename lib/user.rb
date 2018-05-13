@@ -14,4 +14,6 @@ class User
   property :created_at,   DateTime
   property :updated_at,   DateTime
 
+  has n, :peeps
+
 end
