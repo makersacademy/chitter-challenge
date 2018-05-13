@@ -1,6 +1,6 @@
 require 'peep'
 
-fdescribe Peep do
+describe Peep do
   let(:dummy_time) { Time.now }
   let(:user_id) { '1' }
   let(:peep1) { 'My first peep yoooo' }
@@ -11,7 +11,8 @@ fdescribe Peep do
     { 'id' => '1', 'text' => peep1, 'time' => dummy_time, 'user_id' => user_id },
     { 'id' => '1', 'text' => peep2, 'time' => dummy_time, 'user_id' => user_id },
     { 'id' => '1', 'text' => peep3, 'time' => dummy_time, 'user_id' => user_id }
-    ] }
+    ]
+  }
   let(:peep_class) { double :peep, new: nil }
 
   describe '#self.all' do

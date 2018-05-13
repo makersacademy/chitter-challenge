@@ -19,7 +19,7 @@ class Peep
     connection.exec "INSERT INTO peeps(text, time, user_id) VALUES('#{text}', '#{Time.now}', '#{user_id}')"
   end
 
-  private
+  private_class_method
 
   def self.connect_to_database
     if ENV['RACK_ENV'] == 'test'

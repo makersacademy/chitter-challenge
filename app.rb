@@ -22,6 +22,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @user_class = User
 
     erb(:peeps)
   end
@@ -50,7 +51,7 @@ class Chitter < Sinatra::Base
     username = params['username']
     password = params['password']
     if User.exists?(username) && User.correct_password?(username, password)
-      session[:user] = User.select(username)
+      session[:user] = User.select_by_username(username)
 
       redirect('/peeps')
     elsif User.exists?(username) && !User.correct_password?(username, password)

@@ -22,12 +22,17 @@ class User
     user[0]['password'] == password
   end
 
-  def self.select(username, connection = connect_to_database)
+  def self.select_by_id(id, connection = connect_to_database)
+    result = connection.exec "SELECT id, email, name, username FROM users WHERE id = '#{id}'"
+    User.new(result[0]['id'], result[0]['email'], result[0]['name'], result[0]['username'])
+  end
+
+  def self.select_by_username(username, connection = connect_to_database)
     result = connection.exec "SELECT id, email, name, username FROM users WHERE username = '#{username}'"
     User.new(result[0]['id'], result[0]['email'], result[0]['name'], result[0]['username'])
   end
 
-  private
+  private_class_method
 
   def self.connect_to_database
     if ENV['RACK_ENV'] == 'test'

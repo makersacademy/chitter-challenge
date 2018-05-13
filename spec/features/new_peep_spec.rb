@@ -12,7 +12,7 @@ feature 'creating peeps' do
     log_in(username, password)
   end
 
-  xscenario 'user logged in' do
+  scenario 'user logged in' do
     new_peep('My first peep')
     expect(page).to have_current_path('/peeps')
     expect(page).to have_text('My first peep')
@@ -25,5 +25,10 @@ feature 'creating peeps' do
     new_peep('My first peep')
     expect(page).to have_current_path('/peeps')
     expect(page).to have_text(Time.now)
+  end
+
+  scenario 'user not logged in' do
+    visit('/')
+    expect(page).not_to have_link('New peep')
   end
 end
