@@ -7,17 +7,6 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
-
-  # def set_current_user(user)
-  #     session[:user_id] = user.id
-  #     session[:user_username] = user.username
-  #   end
-
-
-  get '/' do
-    'Testing infrastructure working!'
-  end
-
   get '/peeps' do
     @user = User.get(session[:user_id])
     @peeps = Peep.all
@@ -48,10 +37,6 @@ class Chitter < Sinatra::Base
     session[:user_id] = user.id
     redirect '/peeps'
   end
-
-# User.get(test_user.id).username).to eq test_user.username
-# user = User.first(:username => params[:log_username])
-
 
   run! if app_file == $0
 
