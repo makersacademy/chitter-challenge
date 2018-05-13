@@ -18,10 +18,22 @@ feature Chitter do
   end
 
   scenario 'sign in' do
+    sign_up
     visit('/sessions/new')
     fill_in 'email', with: 'test@example.com'
     fill_in 'pass', with: 'test123'
     click_button 'Sign In'
     expect(page).to have_content('Welcome, charlene')
   end
+
+  scenario 'incorrect email on sign in' do
+    sign_up
+    visit('/sessions/new')
+    fill_in 'email', with: 'test2@example.com'
+    fill_in 'pass', with: 'test123'
+    click_button 'Sign In'
+    expect(page).not_to have_content 'Welcome, charlene'
+    expect(page).to have_content('Incorrect email or password.')
+  end
+
 end
