@@ -3,17 +3,22 @@ ENV['ENVIRONMENT'] = 'test'
 require './app.rb'
 require 'capybara'
 require 'capybara/rspec'
+require 'rake'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require_relative './setup_test_database'
 
+# Load the Rakefile
+Rake.application.load_rakefile
+
+# Then, in the RSpec config...
 RSpec.configure do |config|
   config.before(:each) do
-    clear_database
+    Rake::Task['setup_test_database'].execute
   end
   config.after(:each) do
-    clear_database
+    Rake::Task['setup_test_database'].execute
   end
 end
 
