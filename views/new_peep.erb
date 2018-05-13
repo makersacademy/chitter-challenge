@@ -7,11 +7,26 @@
   </head>
 
   <body>
-    <h1>Share your thoughts!</h1>
-    <form action='/new_peep' method='post'>
-      <label for='text'>Text</label>
-      <input type='text' name='text'>
-      <input type='submit' value='Post'>
-    </form>
+    <header>
+      <div>
+        <img src='http://www.clker.com/cliparts/j/g/h/H/3/M/cartoon-bird.svg'>
+        <h1>Chitter</h1>
+      </div>
+    </header>
+
+    <div class='content'>
+      <div class='narrow-content'>
+        <h1>Share your thoughts!</h1>
+        <form action='/new_peep' method='post'>
+          <div>
+            <label for='text'>What's up?</label>
+            <input class='input' type='text' name='text'>
+          </div>
+          <div class='button'>
+            <input type='submit' value='Post'>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

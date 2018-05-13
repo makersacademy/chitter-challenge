@@ -7,23 +7,45 @@
   </head>
 
   <body>
-    <h1>Chitter</h1>
+    <header>
+      <div class='header-content'>
+        <div class='logo'>
+          <img src='http://www.clker.com/cliparts/j/g/h/H/3/M/cartoon-bird.svg'>
+          <h1>Chitter</h1>
+        </div>
+        <div class='menu'>
+          <a href='/sign_up'>Sign up</a>
+          <a href='/sign_in'>Sign in</a>
+          <a href='sign_out'>Sign out</a>
+        </div>
+      </div>
+    </header>
 
-    <p>
-      <a href='/sign_up'>Sign up</a>
-      <a href='/sign_in'>Sign in</a>
-      <a href='sign_out'>Sign out</a>
-      <a href='/new_peep'>New peep</a>
-    </p>
+    <h3><%= flash[:not_signed_in] %></h3>
 
-    <%= flash[:not_signed_in] %>
+    <div class='content'>
+      <div class='narrow-content'>
 
-    <ul>
-      <% @peeps.reverse_each do |peep| %>
-        <li><%=peep.name%>, @<%=peep.username%>, <%=peep.text%>, <%=peep.time%></li>
-      <%end%>
-    </ul>
+        <div class='message'>
+          <h2>Welcome <%=@current_user%>!</h2>
+          <h2 class='button'><a href='/new_peep'>New peep</a></h2>
+        </div>
 
-    <h2>Welcome <%=@current_user%></h2>
+        <ul>
+          <% @peeps.reverse_each do |peep| %>
+            <li>
+              <div class='user'>
+                <div class='name'><%=peep.name%></div>
+                <div class='username'>@<%=peep.username%></div>
+              </div>
+              <div class='peep'><%=peep.text%></div>
+              <div class='time'><%=peep.time%></div>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+
+
   </body>
 </html>
