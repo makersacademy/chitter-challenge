@@ -19,7 +19,8 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    Rake::Task['test_database_setup'].execute
+    Rake::Task['cleanall'].execute
+    Rake::Task['populate'].execute
   end
 
   config.after(:suite) do
