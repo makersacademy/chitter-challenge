@@ -34,7 +34,7 @@
       "CREATE TABLE peeps(
       id SERIAL PRIMARY KEY,
       text VARCHAR(300),
-      user_id INTEGER REFERENCES users(id),
+      user_id INTEGER REFERENCES users (id),
       time TIMESTAMP DEFAULT NOW()
       )"
       )
