@@ -1,5 +1,6 @@
 def add_peeps
-  Chitter.add('My first peep')
-  Chitter.add('My second peep')
-  Chitter.add('My third peep')
+  time = Time.now
+  Chitter.add('My first peep', time)
+  Chitter.add('My second peep', time)
+  Chitter.add('My third peep', time)
 end

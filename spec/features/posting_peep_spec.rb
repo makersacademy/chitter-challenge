@@ -9,7 +9,8 @@ feature 'posting peeps to chitter' do
 
   scenario 'it displays peeps in reverse order' do
     add_peeps
+    time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
     visit('/peeps')
-    expect(page).to have_content 'My third peep My second peep My first peep'
+    expect(page).to have_content "My third peep\n#{time}\nMy second peep\n#{time}\nMy first peep\n#{time}"
   end
 end

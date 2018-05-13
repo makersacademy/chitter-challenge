@@ -12,8 +12,8 @@
       <input type="submit" value="submit">
     </form>
   </h2>
-    <h3><% @peeps.each do |peep| %>
-    <li><%= peep %> </li>
+  <% @peeps.each do |peep| %>
+  <h2><%= peep.peep %> </h2><h6><%= peep.time %></h6>
     <% end %>
 </h3>
   </body>
