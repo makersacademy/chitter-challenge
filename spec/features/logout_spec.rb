@@ -8,7 +8,6 @@ feature 'User logs out' do
     user_signs_up
     click_button('Return to Peeps')
     click_button('Logout')
-    expect(page).to_not have_content "Welcome back, Peeping Sally"
     expect(page).to have_content "Goodbye Peeper!"
   end
 

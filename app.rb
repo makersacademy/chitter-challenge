@@ -46,6 +46,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/logout' do
+    session.clear
     erb(:logoutsuccess)
   end
 
