@@ -19,8 +19,8 @@ describe User do
 
   describe '.get' do
     it 'should find a user by their id' do
-    p  test_user = User.create(username: "Peeping Sally", password: 'helikespeeping')
-    p  expect(User.get(test_user.id).username).to eq test_user.username
+      test_user = User.create(username: "Peeping Sally", password: 'helikespeeping')
+      expect(User.get(test_user.id).username).to eq test_user.username
     end
     it 'returns nil if there is no ID given' do
       expect(User.get(nil)).to eq nil

@@ -14,6 +14,11 @@ class Peep
   property :username, String
   property :created_at, DateTime
 
+
+  def time
+    self.created_at.strftime("%H:%M")
+  end
+
   if ENV['ENVIRONMENT'] == 'test'
     DataMapper.setup(:default, 'postgres://localhost/chitter_development')
     DataMapper.finalize
@@ -23,5 +28,5 @@ class Peep
   end
 
   # belongs_to :user
-  
+
 end
