@@ -1,7 +1,8 @@
 class User
-  attr_reader :email, :name, :username
+  attr_reader :id, :email, :name, :username
 
-  def initialize(email, name, username)
+  def initialize(id, email, name, username)
+    @id = id
     @email = email
     @name = name
     @username = username
@@ -22,8 +23,8 @@ class User
   end
 
   def self.select(username, connection = connect_to_database)
-    result = connection.exec "SELECT email, name, username FROM users WHERE username = '#{username}'"
-    User.new(result[0]['email'], result[0]['name'], result[0]['username'])
+    result = connection.exec "SELECT id, email, name, username FROM users WHERE username = '#{username}'"
+    User.new(result[0]['id'], result[0]['email'], result[0]['name'], result[0]['username'])
   end
 
   private

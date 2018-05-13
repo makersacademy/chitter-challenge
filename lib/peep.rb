@@ -1,21 +1,22 @@
 require 'pg'
 
 class Peep
-  attr_reader :id, :text, :time
+  attr_reader :id, :text, :time, :user_id
 
-  def initialize(id, text, time)
+  def initialize(id, text, time, user_id)
     @id = id
     @text = text
     @time = time
+    @user_id = user_id
   end
 
   def self.all(connection = connect_to_database)
     result = connection.exec 'SELECT * FROM peeps'
-    result.map { |row| Peep.new(row['id'], row['text'], row['time']) }
+    result.map { |row| Peep.new(row['id'], row['text'], row['time'], row['user_id']) }
   end
 
-  def self.create(text, connection = connect_to_database)
-    connection.exec "INSERT INTO peeps(text, time) VALUES('#{text}', '#{Time.now}')"
+  def self.create(text, user_id, connection = connect_to_database)
+    connection.exec "INSERT INTO peeps(text, time, user_id) VALUES('#{text}', '#{Time.now}', '#{user_id}')"
   end
 
   private

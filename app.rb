@@ -8,6 +8,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  configure do
+    use Rack::MethodOverride
+  end
+
   before do
     @current_user = session['user']
   end
@@ -22,12 +26,12 @@ class Chitter < Sinatra::Base
     erb(:peeps)
   end
 
-  get '/peeps/new' do
+  get '/users/:id/peeps/new' do
     erb(:peeps_new)
   end
 
-  post '/peeps' do
-    Peep.create(params['peep'])
+  post '/users/:id/peeps' do
+    Peep.create(params['peep'], params['id'])
 
     redirect('/peeps')
   end
@@ -42,7 +46,7 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
-  post '/session' do
+  post '/sessions' do
     username = params['username']
     password = params['password']
     if User.exists?(username) && User.correct_password?(username, password)
@@ -58,6 +62,12 @@ class Chitter < Sinatra::Base
 
       redirect('/')
     end
+  end
+
+  delete '/sessions' do
+    session['user'] = nil
+
+    redirect('/')
   end
 
   run! if app_file == $0

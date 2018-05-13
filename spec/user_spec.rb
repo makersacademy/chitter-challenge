@@ -1,11 +1,12 @@
 require 'user'
 
 describe User do
+  let(:id) { '1' }
   let(:email) { 'peep.loverl337@booglemail.com' }
   let(:password) { 'verysecret123' }
   let(:name) { 'Shrimply Pibbles' }
   let(:username) { 'shrimplyp' }
-  subject { User.new(email, name, username) }
+  subject { User.new(id, email, name, username) }
   let(:connection) { double :database_connection, exec: tuple }
   let(:tuple) { double :tuple }
 
@@ -64,12 +65,18 @@ describe User do
     it 'queries the database' do
       allow(connection).to receive(:exec).and_return([{ 'email' => email, 'name' => name, 'username' => username }])
       described_class.select(username, connection)
-      expect(connection).to have_received(:exec).with("SELECT email, name, username FROM users WHERE username = '#{username}'")
+      expect(connection).to have_received(:exec).with("SELECT id, email, name, username FROM users WHERE username = '#{username}'")
     end
 
     it 'returns an instance of user class' do
       allow(connection).to receive(:exec).and_return([{ 'email' => email, 'name' => name, 'username' => username }])
       expect(described_class.select(username, connection)).to be_an_instance_of(described_class)
+    end
+  end
+
+  describe '#id' do
+    it 'saved and returns an id' do
+      expect(subject.id).to eq id
     end
   end
 
