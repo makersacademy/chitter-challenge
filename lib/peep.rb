@@ -1,4 +1,5 @@
 require 'pg'
+require_relative './database_connection_setup.rb'
 
 class Peep
 
