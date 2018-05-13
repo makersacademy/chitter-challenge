@@ -6,23 +6,30 @@ def empty_database
 end
 
 def add_test_users_directly(user_details)
-  user_details.each do |user|
+  user_details.map do |user|
     @connection.exec("
-      INSERT INTO users VALUES(DEFAULT, '#{user['email']}');
+      INSERT INTO users(id, email, user_name) VALUES(
+      DEFAULT, '#{user['email']}', '#{user['user_name']}');
     ")
   end
 end
 
-def add_test_users
-  test_user_1 = User.create(:email => 'bob@testing.com')
-  test_user_2 = User.create(:email => 'fred@testing.com')
-  @test_users = [test_user_1, test_user_2]
+def add_test_users(user_details)
+  @test_users = user_details.map do |user|
+    User.create(:email => user['email'], :user_name => user['user_name'])
+  end
 end
 
-def add_test_peeps
-  add_test_users
-  test_user_id = User.all[0].id
+def add_test_peeps_directly(peep_details)
+  peep_details.map do |peep|
+    @connection.exec("
+      INSERT INTO peeps(id, message, created_at, user_id) VALUES(
+      DEFAULT, '#{peep[:message]}', '#{peep[:created_at]}', '#{peep[:user_id]}');
+    ")
+  end
+end
 
+def add_test_peeps(test_user_id)
   test_peep_1 = Peep.create(
     :message => "Some test words",
     :created_at => '2018-05-12 18:17:23 +0100',

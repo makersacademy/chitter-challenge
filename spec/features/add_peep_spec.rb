@@ -1,7 +1,7 @@
 feature 'Add peeps' do
   let(:user_details) {[
-    {'email' => 'bob@testing.com'},
-    {'email' => 'fred@testing.com'}
+    { 'email' => 'bob@testing.com', 'user_name' => 'bob' },
+    { 'email' => 'fred@testing.com', 'user_name' => 'fred' }
   ]}
 
   before do

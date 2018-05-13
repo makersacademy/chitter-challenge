@@ -10,7 +10,6 @@ class Chitter < Sinatra::Base
 
   before do
     @message = flash[:message]
-    @user = session[:user]
     @peeps = Peep.all
   end
 
@@ -23,16 +22,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/new' do
-    user = User.create(:email => params['email'])
-    session[:user] = user.id
-    flash[:message] = "Welcome #{session[:user]}"
+    user = User.create(:email => params['email'], :user_name => params['user_name'])
+    save_session_info(user)
+    flash[:message] = "Welcome #{session[:user_name]}"
     redirect '/'
   end
 
   post '/user/login' do
     user = User.first(:email => params['login_email'])
-    session[:user] = user.id
-    flash[:message] = "Welcome back #{session[:user]}"
+    save_session_info(user)
+    flash[:message] = "Welcome back #{session[:user_name]}"
     redirect '/'
   end
 
@@ -44,10 +43,15 @@ class Chitter < Sinatra::Base
     Peep.create(
       :message => params['post'],
       :created_at => DateTime.now,
-      :user_id => session[:user]
+      :user_id => session[:id]
     )
     flash[:message] = 'Peep posted'
     redirect '/'
+  end
+
+  def save_session_info(user)
+    session[:id] = user.id
+    session[:user_name] = user.user_name
   end
 
   run! if app_file == $0

@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'dm-validations'
 
 if ENV['RACK_ENV'] == 'test'
   DataMapper.setup(:default, 'postgres://localhost/chitter_test')
