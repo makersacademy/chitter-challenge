@@ -1,4 +1,4 @@
-require 'cheep'
+require './models/cheep'
 
 describe Cheep do
 

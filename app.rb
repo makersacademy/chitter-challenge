@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra'
-require './lib/cheep'
+require './models/cheep'
 
 class Chitter < Sinatra::Base
 
