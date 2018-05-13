@@ -6,7 +6,7 @@
 <body>
   <form action='/users/<%= @current_user.id %>/peeps' method='post'>
     <label for='peep'>New peep:</label>
-    <input type='text' name='peep'>
+    <input type='text' name='peep' required>
     <input type='submit' value='Submit'>
   </form>
 </body>

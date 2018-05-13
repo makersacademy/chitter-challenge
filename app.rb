@@ -55,11 +55,11 @@ class Chitter < Sinatra::Base
 
       redirect('/peeps')
     elsif User.exists?(username) && !User.correct_password?(username, password)
-      flash[:incorrect_password] = 'Incorrect password'
+      flash[:error] = 'Incorrect password'
 
       redirect('/')
     else
-      flash[:incorrect_username] = 'Incorrect username'
+      flash[:error] = 'Incorrect username'
 
       redirect('/')
     end
