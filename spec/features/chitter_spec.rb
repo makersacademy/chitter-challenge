@@ -16,13 +16,21 @@ feature Chitter do
     expect(page).to have_content('Welcome, test@example.com')
   end
 
-  fscenario 'sign in' do
+  scenario 'sign in' do
     sign_up
     visit('/sessions/new')
     fill_in 'email', with: 'test@example.com'
     fill_in 'pass', with: 'test123'
     click_button 'Sign In'
     expect(page).to have_content('Welcome, test@example.com')
+  end
+
+  scenario 'sign out' do
+    sign_up
+    sign_in
+    click_button "Sign Out"
+    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).to have_content('You have signed out.')
   end
 
   scenario 'incorrect email on sign in' do

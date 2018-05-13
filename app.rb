@@ -55,4 +55,10 @@ require './database_connection_setup'
 
    end
 
+   post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/')
+   end
+
  end

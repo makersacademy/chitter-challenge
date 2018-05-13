@@ -1,5 +1,11 @@
+<%= styled_flash %> <br>
+
 <% if @user %>
   <h1>Welcome, <%= @user.email %></h1> <br>
+
+  <form action="/sessions/destroy" method = "post">
+    <input type="submit" value="Sign Out">
+  </form>
 <% end %>
 
 <form action="/peeps" method = "post">
