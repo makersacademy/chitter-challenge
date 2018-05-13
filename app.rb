@@ -4,7 +4,7 @@ require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Hello world!'
+    erb(:index)
   end
 
   get '/peeps' do
@@ -21,6 +21,16 @@ class Chitter < Sinatra::Base
     Peep.create(params['peep'])
 
     redirect('/peeps')
+  end
+
+  get '/users/new' do
+    erb(:users_new)
+  end
+
+  post '/users' do
+    User.create(params['email'], params['password'])
+
+    redirect('/')
   end
 
   run! if app_file == $0
