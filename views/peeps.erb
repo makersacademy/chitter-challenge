@@ -1,0 +1,15 @@
+<h1 style='color: darkslategrey; font-family: sans-serif; font-variant: small-caps; font-size: 40px'> Welcome to Chitter </h1>
+<h2 style='color: darkslategrey; font-family: sans-serif; font-variant: small-caps; font-size: 20px'> All puns INTENDED </h1>
+<h2 style='color: blue; font-family: sans-serif; font-variant: small-caps; text-align: center'>
+<% @peeps.each do |peep| %>
+   <%= peep.string %> <br>
+<% end %>
+</h2>
+
+
+<form style='color: darkslategrey; font-family: sans-serif' action='/peeps' method='post'>
+  Submit a peep, right ere:
+  <input style='color: white; background-color: palevioletred' type='text' name='string'>
+  <h1> <pre  style='font-family: courier; font-size: 15px; text-align: center'>
+  <button style='float: right; font-size: 66px; padding: 54px; background-color: chartreuse; font-variant: small-caps; font-family: sans-serif'>Peep it</button>
+</form>

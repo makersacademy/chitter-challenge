@@ -4,7 +4,7 @@ require 'rspec'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-Capybara.app = Peep
+Capybara.app = PeepManager
 
 ENV['ENVIROMENT'] = 'test'
 # ENV['RACK_UP'] = 'test'
