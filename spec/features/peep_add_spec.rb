@@ -7,4 +7,13 @@ feature Chitter do
     click_button 'Add Peep'
     expect(page).to have_content('Be yourself; everyone else is already taken.')
   end
+
+  scenario 'sign up' do
+    visit('/signup')
+    fill_in 'email', with: 'test@example.com'
+    fill_in 'name', with: 'charlene'
+    fill_in 'pass', with: 'test123'
+    click_button 'Submit Details'
+    expect(page).to have_content('You have signed up to Chitter')
+  end
 end

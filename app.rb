@@ -21,8 +21,16 @@ require 'sinatra/flash'
    end
 
    post '/peeps' do
-    Peep.create(params[:peep])
-    redirect '/peeps'
+     Peep.create(params[:peep])
+     redirect '/peeps'
+   end
+
+   get '/signup' do
+     erb :signup
+   end
+
+   post '/signup' do
+     redirect '/signup'
    end
 
  end
