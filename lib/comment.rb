@@ -1,4 +1,4 @@
-class Peep
+class Comment
   include DataMapper::Resource
 
   property :id,     Serial
@@ -6,11 +6,11 @@ class Peep
   property :created_at, DateTime
   property :updated_at, DateTime
 
-  has n, :comments
   belongs_to :user
+  belongs_to :peep
 
   def time
     self.created_at.strftime("%H:%M")
   end
-
+  
 end

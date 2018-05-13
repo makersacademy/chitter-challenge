@@ -15,5 +15,6 @@ class User
   property :updated_at,   DateTime
 
   has n, :peeps
+  has n, :comments
 
 end

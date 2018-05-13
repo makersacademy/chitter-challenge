@@ -9,10 +9,12 @@
       <h3><%= session[:user_name] %></h3>
     </div>
     <% @peeps.each do |peep_hash| %>
-        <div class="peep">
+        <div class="peep" id="<%= peep_hash[:peep].id %>" >
           <em>Peeper: <%= peep_hash[:user].user_name %> - <%= peep_hash[:peep].time %></em>
           <p><%= peep_hash[:peep].text %></p>
-
+          <form action="/peeps/<%= peep_hash[:peep].id %>/comments" method="post">
+            <input type="submit" value="Comments">
+          </form>
         </div>
     <% end %>
     <div class="peep_adder">

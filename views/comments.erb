@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <div class="header">
+      <h3><%= session[:user_name] %></h3>
+    </div>
+    <div class="peep">
+      <h3><%= @peep.text %></h3>
+    </div>
+    <% @comments.each do |comment_hash| %>
+        <div class="comment" id="<%= comment_hash[:comment].id %>" >
+          <em>Commentator: <%= comment_hash[:user].user_name %> - <%= comment_hash[:comment].time %></em>
+          <p><%= comment_hash[:comment].text %></p>
+        </div>
+    <% end %>
+    <form action="/peeps/<%= @peep.id %>/comments/new" method="post">
+      <input type="text" name="comment">
+      <input type="submit" value="Comment">
+    </form>
+    <form action="/peeps" method="get">
+      <input type="submit" value="Back">
+    </form>
+    <form action="/sessions/<%= session[:current_user] %>" method="post">
+      <input type="submit" value="Logout">
+    </form>
+  </body>
+</html>
