@@ -22,5 +22,5 @@ describe Users do
       allow(Users).to receive(:email_available?).with('queenb@gmail.com') {false}
       expect(Users.create(name, username, email, password, connection)).to eq('email error')
     end
-end
+  end
 end
