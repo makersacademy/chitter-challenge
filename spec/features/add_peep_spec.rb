@@ -1,6 +1,12 @@
 feature 'Add peeps' do
+  let(:user_details) {[
+    {'email' => 'bob@testing.com'},
+    {'email' => 'fred@testing.com'}
+  ]}
+
   before do
-    add_test_users_and_login
+    add_test_users_directly(user_details)
+    full_log_in_journey(user_details[0]['email'])
     visit '/peep/new'
   end
 

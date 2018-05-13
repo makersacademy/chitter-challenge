@@ -9,7 +9,7 @@ feature 'Index - feed page' do
   end
 
   scenario 'User can login' do
-    log_in
+    log_in_form(User.all[0].email)
     expect(page).to have_content "Welcome back #{User.all[0].id}"
   end
 

@@ -3,4 +3,6 @@ class User
 
   property :id, Serial
   property :email, String, :required => true, :unique => true, :format => :email_address
+
+  has n, :peeps
 end

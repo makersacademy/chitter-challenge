@@ -3,6 +3,7 @@ class Peep
 
   property :id, Serial
   property :message, Text, :required => true
-  property :user_name, Integer, :required => true
   property :created_at, Time, :required => true
+
+  belongs_to :user
 end

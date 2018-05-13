@@ -30,7 +30,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/login' do
-    params['login_email']
     user = User.first(:email => params['login_email'])
     session[:user] = user.id
     flash[:message] = "Welcome back #{session[:user]}"
@@ -44,8 +43,8 @@ class Chitter < Sinatra::Base
   post '/peep/new' do
     Peep.create(
       :message => params['post'],
-      :user_name => session[:user],
-      :created_at => DateTime.now
+      :created_at => DateTime.now,
+      :user_id => session[:user]
     )
     flash[:message] = 'Peep posted'
     redirect '/'

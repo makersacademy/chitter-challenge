@@ -3,7 +3,7 @@
 <% @peeps.reverse.each do |peep| %>
   <div class='ui centered card' id='peep-<%= peep.id%>'>
     <div class='content'><%= peep.message %></div>
-    <div class='extra content'>By <%= peep.user_name %> at <%= peep.created_at %></div>
+    <div class='extra content'>By <%= peep.user_id %> at <%= peep.created_at %></div>
   </div>
 <% end %>
 
