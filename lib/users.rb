@@ -14,6 +14,10 @@ class Users
     connection.exec("INSERT INTO users(name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}')")
   end
 
+  def self.username_available?(username)
+    all.each { |user| return false if user.username == username }
+  end
+
   private
 
   def self.connect
@@ -22,10 +26,6 @@ class Users
     else
       PG.connect :dbname => 'chitter'
     end
-  end
-
-  def self.username_available?(username)
-    all.each { |user| return false if user.username == username }
   end
 
   def self.email_available?(email)

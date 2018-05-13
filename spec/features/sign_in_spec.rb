@@ -14,4 +14,13 @@ feature 'Signing in to your account' do
     click_button 'Sign in'
     expect(page).to have_content('Welcome Yoncé')
   end
+
+  scenario 'Error on sign in if user does not exist' do
+    visit '/chitter'
+    click_on 'Sign in'
+    fill_in 'username', with: 'Yoncé'
+    fill_in 'password', with: 'lemonade'
+    click_button 'Sign in'
+    expect(page).to have_content("This user doesn't exist")
+  end
 end

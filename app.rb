@@ -39,8 +39,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_in' do
-    session[:username], session[:password] = params[:username], params[:password]
-    redirect '/chitter'
+    if Users.username_available?(params[:username]) == false
+      session[:username], session[:password] = params[:username], params[:password]
+      redirect '/chitter'
+    else
+      flash[:user_does_not_exist] = "This user doesn't exist"
+      redirect('/sign_in')
+    end
   end
 
   get '/new_peep' do
