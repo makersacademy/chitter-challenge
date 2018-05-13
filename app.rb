@@ -43,4 +43,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/log_out' do
+    session[:username] = nil
+    flash[:log_out] = "Successfully logged out"
+    redirect('/')
+  end
+
 end

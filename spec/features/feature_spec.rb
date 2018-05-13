@@ -21,8 +21,7 @@ feature Chitter do
 
     scenario 'Stops user from creating a tweet unless they are signed up' do
       visit('/')
-      post
-      expect(page).to have_content "You cannot post as SW22 unless you sign in as SW22"
+      expect(page).not_to have_button "Post new Peep"
     end
   end
 
@@ -36,6 +35,20 @@ feature Chitter do
       User.create('example@hotmail.co.uk', '1234', 'Sam Worrall', 'SW22')
       sign_up
       expect(page).to have_content "This username already exists"
+    end
+  end
+
+  feature 'Logging out' do
+    scenario 'User logs out' do
+      sign_up
+      click_button 'Log Out'
+      expect(page).to have_content "Successfully logged out"
+    end
+
+    scenario 'User cannot post after logging out' do
+      sign_up
+      click_button 'Log Out'
+      expect(page).not_to have_button "Post new Peep"
     end
   end
 end

@@ -1,23 +1,36 @@
 <body style="text-align: center">
   <h2 style="text-align: center">Chitter feed</h2>
   <%= flash[:user] %>
+
+  <div style="border: solid">
   <% @peeps.each do |peep| %>
     <h3><%= "#{peep.time_stamp} - #{peep.author}: "%></h3><ul><%= "#{peep.text}" %><br></ul>
   <% end %>
+  </div>
+
 </body>
 
 <br>
 
-<form style="text-align: center" action="/add" method="post">
-  <p>New Peep: (max 140 chars)</p>
-  <input type="text" name="text">
-  <p>Your name:</p>
-  <input type="text" name="author">
-  <input type="submit" value="Post new Peep">
-</form>
+<% if !session[:username].nil? %>
+  <form style="text-align: center" action="/add" method="post">
+    <p>New Peep: (max 140 chars)</p>
+    <input type="text" name="text">
+    <p>Username:</p>
+    <input type="text" name="author">
+    <input type="submit" value="Post new Peep">
+  </form>
+<% end %>
 
 <form action="/sign_up" method="get">
   <input type="submit" value="Sign Up">
 </form>
 
+<% if !session[:username].nil? %>
+  <form action="/log_out" method="get">
+    <input type="submit" value="Log Out">
+  </form>
+<% end %>
+
 <%= flash[:user_error] %>
+<%= flash[:log_out] %>
