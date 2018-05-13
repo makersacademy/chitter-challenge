@@ -1,12 +1,25 @@
 require 'sinatra/base'
 require_relative './lib/peep.rb'
-# require 'rubygems'
-# require 'data_mapper'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+
   get '/' do
+    @user = User.find(session[:user_id])
     @peep = Peep.all
     erb :index
+  end
+
+  get '/users/new' do
+    erb :user_new
+  end
+
+  post '/users' do
+    @user = User.create(email: params['email'], password: params['password'],
+      name: params['name'], username: params['username'])
+    session[:user_id] = @user.id
+    redirect '/'
   end
 
   get '/add-a-new-peep' do
@@ -17,6 +30,17 @@ class Chitter < Sinatra::Base
     time = DateTime.now
     Peep.create(params['message'], time)
     redirect('/')
+  end
+
+  get '/sessions/new' do
+    'hello'
+    erb :sessions_new
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params['email'], params['password'])
+    session[:id] = user.id
+    redirect '/'
   end
 
   run! if app_file == $0

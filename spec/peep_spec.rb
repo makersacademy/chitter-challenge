@@ -12,12 +12,12 @@ describe Peep do
   end
 
   it 'shows all the times of peeps' do
-     peeps = Peep.all
-     times = peeps.map(&:time)
-     expect(times).to include('2018-05-11 10:05:20')
-     expect(times).to include('2018-05-11 20:24:00')
-     expect(times).to include('2018-05-11 12:19:05')
-   end
+    peeps = Peep.all
+    times = peeps.map(&:time)
+    expect(times).to include('2018-05-11 10:05:20')
+    expect(times).to include('2018-05-11 20:24:00')
+    expect(times).to include('2018-05-11 12:19:05')
+  end
 
   describe '#create' do
     it 'creates a new peep' do
