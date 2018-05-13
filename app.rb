@@ -1,14 +1,12 @@
 require 'sinatra/base'
-require 'rubygems'
-require 'data_mapper'
+require_relative './lib/peep.rb'
+# require 'rubygems'
+# require 'data_mapper'
 
 class Chitter < Sinatra::Base
   get '/' do
-    peeps = [
-      'Test peep 1',
-      'Test peep 2',
-      'Test peep 3'
-    ]
+    @peeps = Peep.all
+    erb :index
   end
 
   run! if app_file == $0
