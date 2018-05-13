@@ -9,9 +9,9 @@ class Peep
     @time = time
   end
 
-  def self.all(peep_class = Peep, connection = connect_to_database)
+  def self.all(connection = connect_to_database)
     result = connection.exec 'SELECT * FROM peeps'
-    result.map { |row| peep_class.new(row['id'], row['text'], row['time']) }
+    result.map { |row| Peep.new(row['id'], row['text'], row['time']) }
   end
 
   def self.create(text, connection = connect_to_database)

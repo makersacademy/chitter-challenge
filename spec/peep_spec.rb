@@ -15,8 +15,10 @@ fdescribe Peep do
 
   describe '#self.all' do
     it 'creates new peep objects' do
-      described_class.all(peep_class, connection)
-      expect(peep_class).to have_received(:new).exactly(3).times
+      results = described_class.all(connection)
+      expect(results[0]).to be_an_instance_of(described_class)
+      expect(results[1]).to be_an_instance_of(described_class)
+      expect(results[2]).to be_an_instance_of(described_class)
     end
   end
 
