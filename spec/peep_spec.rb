@@ -5,9 +5,9 @@ describe Peep do
     it 'returns all peeps' do
       peeps = Peep.all
       messages = peeps.map(&:message)
-      expect(messages).to include('Test peep 1')
       expect(messages).to include('Test peep 2')
       expect(messages).to include('Test peep 3')
+      expect(messages).to include('Test peep 4')
     end
   end
 

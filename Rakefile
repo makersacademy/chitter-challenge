@@ -9,13 +9,12 @@ task :test_database_setup do
   connection.exec("TRUNCATE users;")
 
   connection.exec('ALTER SEQUENCE peeps_id_seq RESTART WITH 1')
-  connection.exec("INSERT INTO peeps VALUES(1, 'Test peep 1',
-    '2018-05-11 10:05:20');")
   connection.exec("INSERT INTO peeps VALUES(2, 'Test peep 2',
-    '2018-05-11 20:24:00');")
+    '2018-05-11 10:05:20');")
   connection.exec("INSERT INTO peeps VALUES(3, 'Test peep 3',
+    '2018-05-11 20:24:00');")
+  connection.exec("INSERT INTO peeps VALUES(4, 'Test peep 4',
     '2018-05-11 12:19:05');")
-
 end
 
 task :setup do
