@@ -1,6 +1,7 @@
 require 'sinatra'
 
 require_relative './lib/peep'
+require_relative './lib/user'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -28,7 +29,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(params['email'], params['password'])
+    User.create(params['email'], params['password'], params['name'], params['username'])
 
     redirect('/')
   end

@@ -1,6 +1,6 @@
 class User
-  def self.create(email, password, connection = connect_to_database)
-    connection.exec "INSERT INTO users(email, password) VALUES('#{email}', '#{password}')"
+  def self.create(email, password, name, username, connection = connect_to_database)
+    connection.exec "INSERT INTO users(email, password, name, username) VALUES('#{email}', '#{password}', '#{name}', '#{username}')"
   end
 
   private
