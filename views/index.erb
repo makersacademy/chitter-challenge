@@ -5,7 +5,8 @@
 </head>
 <body>
   <div>
-    <a href='/users/new'>Sign up</a>
+    <%= flash[:incorrect_password] %>
+    <%= flash[:incorrect_username] %>
   </div>
   <div>
     <form action='/session' method='post'>
@@ -13,6 +14,9 @@
       <input type='password' name='password' placeholder='password'>
       <input type='submit' value='Log in'>
     </form>
+  </div>
+  <div>
+    <a href='/users/new'>Sign up</a>
   </div>
 </body>
 </html>
