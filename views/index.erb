@@ -2,6 +2,10 @@
   <h2 style="text-align: center">Chitter feed</h2>
   <%= flash[:user] %>
 
+  <% if !session[:username].nil? %>
+    <h2>Username: <%= session[:username] %></h2>
+  <% end %>
+
   <div style="border: solid">
   <% @peeps.each do |peep| %>
     <h3><%= "#{peep.time_stamp} - #{peep.author}: "%></h3><ul><%= "#{peep.text}" %><br></ul>
