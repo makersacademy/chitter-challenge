@@ -1,4 +1,4 @@
-def sign_up_and_post
+def sign_up
   visit('/')
   click_button 'Sign Up'
   fill_in 'email', with: 'example@hotmail.co.uk'
@@ -6,6 +6,9 @@ def sign_up_and_post
   fill_in 'name', with: 'Sam Worrall'
   fill_in 'username', with: 'SW22'
   click_button 'Sign Up'
+end
+
+def post
   fill_in 'text', with: 'Hello World!'
   fill_in 'author', with: 'SW22'
   click_button 'Post new Peep'

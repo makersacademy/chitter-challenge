@@ -28,10 +28,15 @@ class Chitter < Sinatra::Base
   end
 
   post('/sign_up') do
-    User.create(params[:email], params[:password], params[:name], params[:username])
-    session[:username] = params[:username]
-    flash[:user] = "Welcome, #{session[:username]}"
-    redirect('/')
+    if User.all.any? { |user| user.username == params[:username]}
+      flash[:signup_error] = "This username already exists"
+      redirect('/sign_up')
+    else
+      User.create(params[:email], params[:password], params[:name], params[:username])
+      session[:username] = params[:username]
+      flash[:user] = "Welcome, #{session[:username]}"
+      redirect('/')
+    end
   end
 
 end

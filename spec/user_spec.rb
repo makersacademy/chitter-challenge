@@ -5,6 +5,13 @@ describe User, :user do
   let(:user) { User.new('example@hotmail.co.uk', '1234', 'Sam Worrall', 'SW22') }
   let(:example) { User.create('example@hotmail.co.uk', '1234', 'Sam Worrall', 'SW22') }
 
+  describe '#all' do
+    it 'Returns an array of User instances' do
+      example
+      expect(User.all).to eq [user]
+    end
+  end
+
   describe '#create' do
     it 'Returns a new instance of User' do
       expect(example).to eq user

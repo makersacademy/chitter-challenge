@@ -14,6 +14,13 @@ class User
     @email == user.email
   end
 
+  def self.all
+    result = set_database.exec("SELECT * FROM users")
+    result.map {
+      |user| User.new(user['email'], user['password'], user['name'], user['username'])
+    }
+  end
+
   def self.create(email, password, name, username)
     result = set_database.exec("INSERT INTO users (email, password, name, username)
     VALUES('#{email}', '#{password}', '#{name}', '#{username}')
