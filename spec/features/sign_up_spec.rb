@@ -1,4 +1,5 @@
 feature 'signing up' do
+  include Helpers
   scenario 'valid email and password' do
     visit('/')
     new_user('peep.loverl337@booglemail.com',

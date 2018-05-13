@@ -1,6 +1,5 @@
-require_relative './web_helper'
-
 feature 'creating peeps' do
+  include Helpers
   let(:email) { 'peep.loverl337@booglemail.com' }
   let(:password) { 'verysecret123' }
   let(:name) { 'Shrimply Pibbles' }
