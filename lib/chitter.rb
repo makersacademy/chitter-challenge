@@ -19,13 +19,11 @@ class Chitter
     VALUES('#{peep}', '#{time}')";
   end
 
-  private
-
   def self.con
     if ENV['RACK_ENV'] == 'test'
-      con = PG.connect :dbname => 'chitter_manager_test'
+      PG.connect :dbname => 'chitter_manager_test'
     else
-      con = PG.connect :dbname => 'chitter_manager'
+      PG.connect :dbname => 'chitter_manager'
     end
   end
 end

@@ -16,7 +16,8 @@ class User
 
   def self.create(options)
     password = BCrypt::Password.create(options[:password])
-    res = con.exec "INSERT INTO users (email, password) values('#{options[:email]}', '#{password}') RETURNING id, email, password;"
+    res = con.exec "INSERT INTO users (email, password)
+    VALUES('#{options[:email]}', '#{password}') RETURNING id, email, password;"
     User.new(res[0]['id'], res[0]['email'], res[0]['password'])
   end
 
@@ -26,13 +27,11 @@ class User
     User.new(res[0]['id'], res[0]['email'], res[0]['password'])
   end
 
-  private
-
   def self.con
     if ENV['RACK_ENV'] == 'test'
-      con = PG.connect :dbname => 'chitter_manager_test'
+      PG.connect :dbname => 'chitter_manager_test'
     else
-      con = PG.connect :dbname => 'chitter_manager'
+      PG.connect :dbname => 'chitter_manager'
     end
   end
 end
