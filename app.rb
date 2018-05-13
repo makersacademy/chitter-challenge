@@ -42,7 +42,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_in' do
-    if User.all.any? { |user| user.username == params[:username] && user.password == params[:password] }
+    if User.all.any? {
+       |user| user.username == params[:username] &&
+       user.password == params[:password]
+    }
       session[:username] = params[:username]
       redirect('/')
     else
