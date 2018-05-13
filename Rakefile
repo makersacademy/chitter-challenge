@@ -14,7 +14,7 @@ end
 
 task :setup do
   p "Creating databases..."
-  ['chitter_test'].each do |database|
+  ['chitter'].each do |database|
     connection = PG.connect
     connection.exec("CREATE DATABASE #{ database };")
     connection = PG.connect(dbname: database)

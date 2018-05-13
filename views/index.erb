@@ -10,4 +10,10 @@
   <button> Share Peep!</button>
 </form>
 
-<h2> <%= @peeps.all %> </h2>
+<ul> <% @peeps.each do |peep| %>
+  <ul><%= peep.peep  %> </ul>
+  <ul><%= peep.time  %> </ul>
+  <ul><%= peep.username  %> </ul>
+  <br> <br>
+  <% end %>
+</ul>

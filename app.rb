@@ -7,12 +7,12 @@ require './database_connection_setup'
 class Chitter < Sinatra::Base
 
   get '/' do
-    @peeps = Peep.new
+    @peeps = Peep.all.reverse
     erb :index
   end
 
   post '/form' do
-    Peep.new.add(params['peep'], params['username'])
+    Peep.add(params['peep'], params['username'])
     redirect('/')
   end
 
