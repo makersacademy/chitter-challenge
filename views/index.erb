@@ -2,11 +2,14 @@
 
 <% @peeps.reverse.each do |peep| %>
   <div class='ui centered card' id='peep-<%= peep.id%>'>
-    <div class='content'><%= peep.message %></div>
-    <div class='extra content'>By <%= peep.user_id %> at <%= peep.created_at %></div>
+    <div class='content'>
+      <%= peep.message %>
+    </div>
+    <div class='extra content'>
+      @<%= User.first(:id => peep.user_id).user_name %><br/>
+      <%= date_format(peep.created_at) %>
+     </div>
   </div>
 <% end %>
-
-(<%= @user %>)
 
 <%= erb :'page_elements/footer' %>

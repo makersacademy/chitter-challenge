@@ -5,7 +5,7 @@ feature 'Feed' do
   ]}
 
   before do
-    add_test_users(user_details)
+    add_test_users_directly(user_details)
     visit '/'
   end
 
@@ -21,5 +21,11 @@ feature 'Feed' do
   scenario 'User can go to log-in' do
     click_link 'login_link'
     expect(page).to have_content 'Login to Chitter'
+  end
+
+  scenario 'User can logout' do
+    full_log_in_journey(user_details[0][:user_name], user_details[0][:password])
+    click_link 'Logout'
+    expect(page).to have_content 'Logged out. See you again soon.'
   end
 end

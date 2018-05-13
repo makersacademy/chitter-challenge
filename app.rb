@@ -11,6 +11,8 @@ class Chitter < Sinatra::Base
   before do
     @message = flash[:message]
     @peeps = Peep.all
+    @session_id = session[:id]
+    @session_user = session[:user_name]
   end
 
   get '/' do
@@ -44,6 +46,12 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/session/logout' do
+    clear_session_info
+    flash[:message] = 'Logged out. See you again soon.'
+    redirect '/'
+  end
+
   get '/peep/new' do
     erb :'peep/new'
   end
@@ -56,29 +64,6 @@ class Chitter < Sinatra::Base
     )
     flash[:message] = 'Peep posted'
     redirect '/'
-  end
-
-  def save_session_info(user)
-    session[:id] = user.id
-    session[:user_name] = user.user_name
-  end
-
-  def existing_user_check(user)
-    if user == nil
-      flash[:message] = "Sorry, the username and/or password was entered incorrectly."
-      redirect '/session/login'
-    end
-  end
-
-  def new_user_check(email, username)
-    if User.first(:email => email) != nil
-      flash[:message] = "Email address (#{email}) already used."
-      redirect '/user/new'
-    end
-    if User.first(:user_name => username) != nil
-      flash[:message] = "User name (#{username}) already taken."
-      redirect '/user/new'
-    end
   end
 
   run! if app_file == $0
