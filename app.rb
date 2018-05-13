@@ -5,7 +5,7 @@ require_relative './lib/peep.rb'
 
 class Chitter < Sinatra::Base
   get '/' do
-    @peeps = Peep.all
+    @peep = Peep.all
     erb :index
   end
 
@@ -13,8 +13,9 @@ class Chitter < Sinatra::Base
     erb :add_a_new_peep
   end
 
-  post '/create-a-peep' do
-    Peep.create(message: params['message'])
+  post '/add-a-new-peep' do
+    time = DateTime.now
+    Peep.create(params['message'], time)
     redirect('/')
   end
 
