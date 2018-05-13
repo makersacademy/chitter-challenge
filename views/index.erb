@@ -10,7 +10,7 @@
     </form>
     <center>
     <ul>
-      <% @cheeps.each do |cheep| %>
+      <% @cheeps.reverse.each do |cheep| %>
         <div style="border: 3px solid black;">
           <p><%= cheep.handle %></p>
           <p><%= cheep.name %></p>
