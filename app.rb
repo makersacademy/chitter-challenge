@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/base'
 require './lib/peep'
 require 'sinatra/flash'
+require './database_connection_setup'
 
  class Chitter < Sinatra::Base
 
@@ -16,6 +17,7 @@ require 'sinatra/flash'
    end
 
    get '/peeps' do
+     @user = User.find(session[:user_id])
      @peeps = Peep.all
      erb :peeps
    end
@@ -26,12 +28,12 @@ require 'sinatra/flash'
    end
 
    get '/users/new' do
-     erb :signup
+     erb :"users/new"
    end
 
    post '/users' do
      User.create(email: params['email'], password: params['password'])
-     redirect '/bookmarks'
+     redirect '/'
    end
 
 

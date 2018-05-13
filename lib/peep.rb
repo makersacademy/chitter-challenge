@@ -15,7 +15,7 @@ class Peep
   end
 
   def self.create(text, time = Time.now.asctime)
-    result = self.database.exec(
+    result = Database.query(
       "INSERT INTO peeps (text, time)
        VALUES('#{text}', '#{time}') RETURNING id, text, time"
     )
@@ -23,16 +23,16 @@ class Peep
   end
 
   def self.all
-    rs = self.database.exec("SELECT * FROM peeps")
+    rs = Database.query("SELECT * FROM peeps")
     rs.map { |result| Peep.new(result['id'], result['text'], result['time'])}.reverse
   end
 
-  private
-
-  def self.database
-    ENV['RACK'] == 'test' ?
-    PG.connect(dbname: 'chitter_test') : PG.connect(dbname: 'chitter')
-  end
+  # private
+  #
+  # def self.database
+  #   ENV['RACK'] == 'test' ?
+  #   PG.connect(dbname: 'chitter_test') : PG.connect(dbname: 'chitter')
+  # end
 
 
 end
