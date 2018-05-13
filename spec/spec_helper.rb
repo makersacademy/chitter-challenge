@@ -12,6 +12,9 @@ RSpec.configure do |config|
   config.before(:each) do
     clear_database
   end
+  config.after(:each) do
+    clear_database
+  end
 end
 
 Capybara.app = Chitter
