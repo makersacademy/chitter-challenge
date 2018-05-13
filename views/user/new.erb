@@ -1,4 +1,4 @@
-<%= erb :header %>
+<%= erb :'page_elements/header' %>
 
 <h2>Sign-up to Chitter</h2>
 
@@ -9,11 +9,16 @@
   </div>
 
   <div class='field'>
-    <label for='user_name'>User name: </label>
+    <label for='user_name'>Username: </label>
     <input type='text' name='user_name' id='user_name_field' required>
+  </div>
+
+  <div class='field'>
+    <label for='password'>Password: </label>
+    <input type='password' name='password' id='password_field' required>
   </div>
 
   <input type='submit' value='Create account' class='ui button'>
 </form>
 
-<%= erb :footer %>
+<%= erb :'page_elements/footer' %>

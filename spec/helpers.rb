@@ -1,4 +1,4 @@
-def empty_database
+def empty_databases
   @connection.exec('
     TRUNCATE users;
     TRUNCATE peeps;
@@ -8,15 +8,15 @@ end
 def add_test_users_directly(user_details)
   user_details.map do |user|
     @connection.exec("
-      INSERT INTO users(id, email, user_name) VALUES(
-      DEFAULT, '#{user['email']}', '#{user['user_name']}');
+      INSERT INTO users(id, email, user_name, password) VALUES(
+      DEFAULT, '#{user[:email]}', '#{user[:user_name]}', '#{user[:password]}');
     ")
   end
 end
 
 def add_test_users(user_details)
   @test_users = user_details.map do |user|
-    User.create(:email => user['email'], :user_name => user['user_name'])
+    User.create(:email => user[:email], :user_name => user[:user_name], :password => user[:password])
   end
 end
 
@@ -48,12 +48,13 @@ def add_test_peeps(test_user_id)
   @test_peeps = [test_peep_1, test_peep_2, test_peep_3]
 end
 
-def log_in_form(user_email)
-  fill_in 'login_email', with: user_email
-  click_button 'Login'
+def log_in_form(user_name, user_password)
+  fill_in 'user_name_field', with: user_name
+  fill_in 'password_field', with: user_password
+  click_button 'login_button'
 end
 
-def full_log_in_journey(user_email)
-  visit '/'
-  log_in_form(user_email)
+def full_log_in_journey(user_name, user_password)
+  visit '/session/login'
+  log_in_form(user_name, user_password)
 end

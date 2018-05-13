@@ -1,0 +1,19 @@
+<%= erb :'page_elements/header' %>
+
+<h2>Login to Chitter</h2>
+
+<form action='/session' method='post' class='ui form'>
+  <div class='field'>
+    <label for='user_name'>Username: </label>
+    <input type='text' name='user_name' id='user_name_field' required>
+  </div>
+
+  <div class='field'>
+    <label for='password'>Password: </label>
+    <input type='password' name='password' id='password_field' required>
+  </div>
+
+  <input type='submit' value='Login' id='login_button' class='ui button'>
+</form>
+
+<%= erb :'page_elements/footer' %>

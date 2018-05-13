@@ -1,0 +1,10 @@
+<div class='right menu'>
+  <% if @user == nil %>
+    <a href='/session/login' id='login_link'><button class='large blue ui button'>Login</button></a>
+    <a href='/user/new' id='sign_up_link'><button class='large teal ui button'>Sign-up</button></a>
+  <% end %>
+
+  <% if @user != nil %>
+    <a href='peep/new' id='add_peep_link'><button class='large blue ui button'>Add peep</button></a>
+  <% end %>
+</div>

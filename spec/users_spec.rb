@@ -2,8 +2,8 @@ require 'model_router'
 
 describe User do
   let(:user_details) {[
-    { 'email' => 'bob@testing.com', 'user_name' => 'bob' },
-    { 'email' => 'fred@testing.com', 'user_name' => 'fred' }
+    { :email => 'bob@testing.com', :user_name => 'bob', :password => 'password' },
+    { :email => 'fred@testing.com', :user_name => 'fred', :password => 'password' }
   ]}
 
   context '#all' do
@@ -13,11 +13,15 @@ describe User do
     end
     it 'Stores email addresses' do
       add_test_users_directly(user_details)
-      expect(User.all[0].email).to eq user_details[0]['email']
+      expect(User.all[0].email).to eq user_details[0][:email]
     end
     it 'Stores the user_name' do
       add_test_users_directly(user_details)
-      expect(User.all[0].user_name).to eq user_details[0]['user_name']
+      expect(User.all[0].user_name).to eq user_details[0][:user_name]
+    end
+    it 'Stores the password' do
+      add_test_users_directly(user_details)
+      expect(User.all[0].password).to eq user_details[0][:password]
     end
   end
 

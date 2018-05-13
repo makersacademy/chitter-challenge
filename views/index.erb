@@ -1,4 +1,4 @@
-<%= erb :header %>
+<%= erb :'page_elements/header' %>
 
 <% @peeps.reverse.each do |peep| %>
   <div class='ui centered card' id='peep-<%= peep.id%>'>
@@ -9,4 +9,4 @@
 
 (<%= @user %>)
 
-<%= erb :footer %>
+<%= erb :'page_elements/footer' %>

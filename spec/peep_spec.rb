@@ -2,7 +2,7 @@ require 'model_router'
 
 describe Peep do
   let(:user_details) {
-    { 'email' => 'bob@testing.com', 'user_name' => 'bob' }
+    { :email => 'bob@testing.com', :user_name => 'bob', :password => 'password' }
   }
   let(:a_test_peep) { [
     { :message => 'Words for a peep',
@@ -12,8 +12,9 @@ describe Peep do
 
   before do
     @test_user = User.create(
-      :email => user_details['email'],
-      :user_name => user_details['user_name']
+      :email => user_details[:email],
+      :user_name => user_details[:user_name],
+      :password => user_details[:password]
     )
   end
 

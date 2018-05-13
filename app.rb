@@ -18,25 +18,38 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/new' do
-    erb :user_new
+    erb :'user/new'
   end
 
   post '/user/new' do
-    user = User.create(:email => params['email'], :user_name => params['user_name'])
+    user = User.create(
+      :email => params['email'],
+      :user_name => params['user_name'],
+      :password => params['password']
+    )
     save_session_info(user)
     flash[:message] = "Welcome #{session[:user_name]}"
     redirect '/'
   end
 
-  post '/user/login' do
-    user = User.first(:email => params['login_email'])
-    save_session_info(user)
-    flash[:message] = "Welcome back #{session[:user_name]}"
-    redirect '/'
+  get '/session/login' do
+    erb :'session/login'
+  end
+
+  post '/session' do
+    user = User.first(:user_name => params['user_name'], :password => params['password'])
+    if user == nil
+      flash[:message] = "Sorry, the username and/or password was entered incorrectly."
+      redirect '/session/login'
+    else
+      save_session_info(user)
+      flash[:message] = "Welcome back #{session[:user_name]}"
+      redirect '/'
+    end
   end
 
   get '/peep/new' do
-    erb :peep_new
+    erb :'peep/new'
   end
 
   post '/peep/new' do

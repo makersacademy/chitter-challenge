@@ -23,7 +23,7 @@ RSpec.configure do |config|
 
   config.before do
     @connection = PG.connect(dbname: 'chitter_test')
-    empty_database
+    empty_databases
   end
 
   config.after(:suite) do
