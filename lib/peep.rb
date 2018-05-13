@@ -16,7 +16,7 @@ end
 
 def self.all
   result = self.database.exec("SELECT * FROM peeps")
-  result.map { |peep| Peep.new(peep['id'], peep['string'])}
+  result.map { |peep| Peep.new(peep['id'], peep['string']) }.reverse
 end
 
 def self.database
