@@ -1,14 +1,39 @@
-<body style="text-align: center">
-  <h2 style="text-align: center">Chitter feed</h2>
+<!DOCTYPE html>
+<header style="height: 50px; border: solid; border-width: 2px; background-color: white">
+
+  <h1 style="float: left; text-align: center; text-align: center; padding: 6px 10px; font-size: 17px">Chitter</h1>
+
+  <div style="float: left; text-align: center; padding: 14px 16px; font-size: 17px">
+    <form action="/sign_up" method="get">
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
+
+  <div style="float: left; text-align: center; padding: 14px 16px; font-size: 17px">
+  <% if !session[:username].nil? %>
+    <form action="/log_out" method="get">
+      <input type="submit" value="Log Out">
+    </form>
+  <% else %>
+    <form action="/log_in" method="get">
+      <input type="submit" value="Log In">
+    </form>
+  <% end %>
+  </div>
+</header>
+
+<body style="text-align: center; background-color: #B0B0B0; font-family: DejaVu Sans mono, monospace">
+  <h2 style="text-align: center; color: blue">Chitter feed</h2>
+
   <%= flash[:user] %>
 
   <% if !session[:username].nil? %>
     <h2>Username: <%= session[:username] %></h2>
   <% end %>
 
-  <div style="border: solid">
+  <div style="border: solid; border-width: 2px; background-color: white">
   <% @peeps.each do |peep| %>
-    <h3><%= "#{peep.time_stamp} - #{peep.author}: "%></h3><ul><%= "#{peep.text}" %><br></ul>
+    <h3><%= "#{peep.time_stamp} - #{peep.author}: "%></h3><ul style="color: red"><%= "#{peep.text}" %><br></ul>
   <% end %>
   </div>
 
@@ -21,20 +46,6 @@
     <p>New Peep: (max 140 chars)</p>
     <input type="text" name="text">
     <input type="submit" value="Post new Peep">
-  </form>
-<% end %>
-
-<form action="/sign_up" method="get">
-  <input type="submit" value="Sign Up">
-</form>
-
-<% if !session[:username].nil? %>
-  <form action="/log_out" method="get">
-    <input type="submit" value="Log Out">
-  </form>
-<% else %>
-  <form action="/log_in" method="get">
-    <input type="submit" value="Log In">
   </form>
 <% end %>
 

@@ -1,9 +1,13 @@
-<form action="/log_in" method="post">
-  <p>Username:</p>
-  <input type="text" name="username">
-  <p>Password:</p>
-  <input type="text" name="password">
-  <input type="submit" value="Log In">
-</form>
+<body style="text-align: center; background-color: #B0B0B0; font-family: DejaVu Sans mono, monospace">
 
-<%= flash[:login_error] %>
+  <form action="/log_in" method="post">
+    <p>Username:</p>
+    <input type="text" name="username">
+    <p>Password:</p>
+    <input type="text" name="password">
+    <input type="submit" value="Log In">
+  </form>
+
+  <%= flash[:login_error] %>
+
+</body>

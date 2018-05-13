@@ -1,13 +1,17 @@
-<form action="/sign_up" method="post">
-  <p>Email:</p>
-  <input type="text" name="email">
-  <p>Password:</p>
-  <input type="text" name="password">
-  <p>Name:</p>
-  <input type="text" name="name">
-  <p>Username:</p>
-  <input type="text" name="username">
-  <input type="submit" value="Sign Up">
-</form>
+<body style="text-align: center; background-color: #B0B0B0; font-family: DejaVu Sans mono, monospace">
 
-<%= flash[:signup_error] %>
+  <form action="/sign_up" method="post">
+    <p>Email:</p>
+    <input type="text" name="email">
+    <p>Password:</p>
+    <input type="text" name="password">
+    <p>Name:</p>
+    <input type="text" name="name">
+    <p>Username:</p>
+    <input type="text" name="username">
+    <input type="submit" value="Sign Up">
+  </form>
+
+  <%= flash[:signup_error] %>
+
+</body>
