@@ -24,7 +24,7 @@ describe User do
     end
     it 'returns nil if there is no ID given' do
       expect(User.get(nil)).to eq nil
-  end
+    end
   end
 
 end

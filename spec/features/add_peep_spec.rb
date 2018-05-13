@@ -5,7 +5,6 @@ require './spec/features/login_helper'
 require './spec/features/sign_up_helper'
 require './spec/features/add_peep_helper'
 
-
 feature 'Logged in users can add a Peep' do
   scenario 'A logged in user has the option to post a peep' do
     user_logs_in

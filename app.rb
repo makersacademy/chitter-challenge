@@ -16,7 +16,8 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     @user = User.get(session[:user_id])
     # session[:user_id] = user.id
-    peep = Peep.create(:content => params[:peep_content], :username => params[:peep_username])
+    Peep.create(:content => params[:peep_content],
+      :username => params[:peep_username])
     redirect '/peeps'
   end
 
@@ -25,7 +26,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create(:username => params[:username], :password => params[:password])
+    user = User.create(:username => params[:username],
+      :password => params[:password])
     session[:user_id] = user.id
     redirect '/signupsuccess'
   end

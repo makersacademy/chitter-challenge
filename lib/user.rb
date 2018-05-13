@@ -23,11 +23,10 @@ class User
 
   if ENV['ENVIRONMENT'] == 'test'
     DataMapper.setup(:default, 'postgres://localhost/chitter_development')
-    DataMapper.finalize
   else
     DataMapper.setup(:default, 'postgres://localhost/chitter')
-    DataMapper.finalize
   end
+  DataMapper.finalize
 
   # has n, :peeps
 
