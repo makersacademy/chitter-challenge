@@ -14,6 +14,6 @@ feature 'User logs in' do
     fill_in('log_username', with: 'Peeping Sally')
     fill_in('log_password', with: 'helikespeeping')
     click_button('Login')
-    expect(page).to have_content "What's up Peeps?"
+    expect(page).to have_content "Welcome back, Peeping Sally"
   end
 end

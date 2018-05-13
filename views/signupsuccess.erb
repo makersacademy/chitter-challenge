@@ -1,5 +1,13 @@
-<h1>Welcome to Peep, <%= @user.username %></h1>
+<% if @user %>
+
+<h1>Sign up successful!</h1>
+
+<h2>Welcome to Peep, <%= @user.username %></h2>
+
+<h3>Please return to the hompeage and log in to start Peeping</h3>
 
 <form action="/peeps" method='get'>
   <input type="submit" value="Return to Peeps">
 </form>
+
+<% end %>

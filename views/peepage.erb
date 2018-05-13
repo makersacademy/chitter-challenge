@@ -1,5 +1,10 @@
 <ul>
+
   <h1> What's up Peeps? </h1>
+
+  <% if @user %>
+    <h2>Welcome back, <%= @user.username %></h2>
+  <% end %>
 
   <% @peeps.reverse.each do |peep| %>
     <li>

@@ -19,6 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @user = User.get(session[:user_id])
     @peeps = Peep.all
     erb(:peepage)
   end
@@ -43,8 +44,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
+    user = User.first(:username => params[:log_username])
+    session[:user_id] = user.id
     redirect '/peeps'
   end
+
+# User.get(test_user.id).username).to eq test_user.username
+# user = User.first(:username => params[:log_username])
+
 
   run! if app_file == $0
 
