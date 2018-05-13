@@ -28,12 +28,4 @@ class Peep
     rs.map { |result| Peep.new(result['id'], result['text'], result['time'])}.reverse
   end
 
-  # private
-  #
-  # def self.database
-  #   ENV['RACK'] == 'test' ?
-  #   PG.connect(dbname: 'chitter_test') : PG.connect(dbname: 'chitter')
-  # end
-
-
 end

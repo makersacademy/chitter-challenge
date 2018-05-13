@@ -25,6 +25,7 @@ RSpec.configure do |config|
   config.before(:each)do
     con = PG.connect(dbname: 'chitter_test')
     con.exec("TRUNCATE peeps;")
+    con.exec("TRUNCATE users;")
   end
 
   config.after(:suite) do

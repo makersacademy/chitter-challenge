@@ -2,6 +2,8 @@ require './lib/user'
 
 describe User do
   let(:email) { 'test@test.com' }
+  let(:wrong_email) { 'test2@test.com' }
+  let(:password) { 'test' }
   let(:password) { 'test' }
 
   describe '.create' do
@@ -35,6 +37,19 @@ describe User do
       expect(User.find(nil)).to eq nil
     end
 
+  end
+
+  describe '.authenticate' do
+    it 'returns user id given correct email' do
+      new_user = User.create(email, password)
+      user = User.authenticate(email, password)
+      expect(user.id).to eq new_user.id
+    end
+
+    it 'returns nill given incorrect email' do
+      new_user = User.create(email, password)
+      expect(User.authenticate(wrong_email, password)).to be_nil
+    end
   end
 
 end

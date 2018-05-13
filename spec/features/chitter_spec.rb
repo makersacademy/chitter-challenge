@@ -14,6 +14,14 @@ feature Chitter do
     fill_in 'name', with: 'charlene'
     fill_in 'pass', with: 'test123'
     click_button 'Submit Details'
-    expect(page).to have_content('Welcome, test@example.com')
+    expect(page).to have_content('Welcome, charlene')
+  end
+
+  scenario 'sign in' do
+    visit('/sessions/new')
+    fill_in 'email', with: 'test@example.com'
+    fill_in 'pass', with: 'test123'
+    click_button 'Sign In'
+    expect(page).to have_content('Welcome, charlene')
   end
 end
