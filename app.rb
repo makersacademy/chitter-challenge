@@ -25,12 +25,15 @@ require 'sinatra/flash'
      redirect '/peeps'
    end
 
-   get '/signup' do
+   get '/users/new' do
      erb :signup
    end
 
-   post '/signup' do
-     redirect '/signup'
+   post '/users' do
+     User.create(email: params['email'], password: params['password'])
+     redirect '/bookmarks'
    end
+
+
 
  end

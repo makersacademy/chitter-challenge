@@ -1,4 +1,4 @@
-require 'pg'
+require './lib/database'
 
 class Peep
 
