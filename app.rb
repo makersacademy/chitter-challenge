@@ -5,7 +5,7 @@ require_relative './lib/chitter'
 class ChitterManager < Sinatra::Base
 
   get '/peeps' do
-    @peeps = Chitter.all
+    @peeps = Chitter.all.reverse
     erb(:chitter)
   end
 

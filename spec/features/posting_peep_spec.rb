@@ -6,4 +6,10 @@ feature 'posting peeps to chitter' do
     click_on 'submit'
     expect(page).to have_content 'new peep'
   end
+
+  scenario 'it displays peeps in reverse order' do
+    add_peeps
+    visit('/peeps')
+    expect(page).to have_content 'My third peep My second peep My first peep'
+  end
 end

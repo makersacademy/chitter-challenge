@@ -4,9 +4,11 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
+require 'pg'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative 'setup_test_database'
 require_relative 'web_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -21,7 +23,7 @@ Capybara.app = ChitterManager
 RSpec.configure do |config|
 
   config.before(:each) do
-    require_relative './setup_test_database'
+    clear_test_database
   end
 
   config.after(:suite) do
