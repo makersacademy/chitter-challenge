@@ -8,6 +8,7 @@
   <body>
     <h1>Sign in to your account</h1>
     <%=flash[:user_does_not_exist]%>
+    <%=flash[:wrong_password]%>
     <form action='/sign_in' method='post'>
       <label for='username'>Username</label>
       <input type='text' name='username'>

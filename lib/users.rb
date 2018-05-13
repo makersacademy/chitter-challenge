@@ -18,6 +18,11 @@ class Users
     all.each { |user| return false if user.username == username }
   end
 
+  def self.match?(username, password, connection = connect)
+    match = connection.exec("SELECT * FROM users WHERE username = '#{username}'")
+    match.map {|user| return false if password != user['password']}
+  end
+
   private
 
   def self.connect

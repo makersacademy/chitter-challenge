@@ -38,10 +38,16 @@ class Chitter < Sinatra::Base
     erb :sign_in
   end
 
+# TO BE REFACTORED
   post '/sign_in' do
     if Users.username_available?(params[:username]) == false
-      session[:username], session[:password] = params[:username], params[:password]
-      redirect '/chitter'
+      if Users.match?(params[:username], params[:password]) == false
+        flash[:wrong_password] = 'Wrong password'
+        redirect('/sign_in')
+      else
+      session[:username] = params[:username]
+      redirect('/chitter')
+      end
     else
       flash[:user_does_not_exist] = "This user doesn't exist"
       redirect('/sign_in')

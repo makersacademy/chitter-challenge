@@ -23,4 +23,14 @@ feature 'Signing in to your account' do
     click_button 'Sign in'
     expect(page).to have_content("This user doesn't exist")
   end
+
+  scenario 'Error on sign in if password is wrong' do
+    create_user
+    visit '/chitter'
+    click_on 'Sign in'
+    fill_in 'username', with: 'Yoncé'
+    fill_in 'password', with: 'water'
+    click_button 'Sign in'
+    expect(page).to have_content("Wrong password")
+  end
 end
