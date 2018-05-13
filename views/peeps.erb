@@ -4,7 +4,7 @@
 
 </head>
 <body>
-  <% if @current_user %>
+  <% if @user %>
     <div>
       <form action='/sessions' method='post'>
         <input type='hidden' name='_method' value='DELETE'/>
@@ -12,8 +12,8 @@
       </form>
     </div>
     <div>
-      <p><%= @current_user.name %></p>
-      <p>@<%= @current_user.username %></p>
+      <p><%= @user.name %></p>
+      <p>@<%= @user.username %></p>
     </div>
   <% else %>
     <div>
@@ -22,16 +22,16 @@
   <% end %>
 
   <% @peeps.each do |peep| %>
-    <div>
-      <p><%= @user_class.select_by_id(peep.user_id).name %></p>
-      <p>@<%= @user_class.select_by_id(peep.user_id).username %></p>
+    <article>
+      <p><%= @users.select_by_id(peep.user_id).name %></p>
+      <p>@<%= @users.select_by_id(peep.user_id).username %></p>
       <p><%= peep.text %></p>
       <p><%= peep.time %></p>
-    </div>
+    </article>
   <% end %>
 
-  <% if @current_user %>
-    <a href='/users/<%= @current_user.id %>/peeps/new'>New peep</a>
+  <% if @user %>
+    <a href='/users/<%= @user.id %>/peeps/new'>New peep</a>
   <% end %>
 </body>
 </html>

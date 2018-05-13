@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   before do
-    @current_user = session['user']
+    @user = session['user']
   end
 
   get '/' do
@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    @user_class = User
+    @users = User
 
     erb(:peeps)
   end
