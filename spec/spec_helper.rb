@@ -6,6 +6,13 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative './setup_test_database'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    clear_database
+  end
+end
 
 Capybara.app = Chitter
 
