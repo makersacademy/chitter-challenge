@@ -2,7 +2,7 @@ require 'user'
 
 describe User do
   describe '#initalize' do
-    subject(:user) { User.new('Beyonce Knowles', 'Yoncé', 'queenb@gmail.com', 'lemonade')}
+    subject(:user) { User.new('Beyonce Knowles', 'Yoncé', 'queenb@gmail.com', 'lemonade') }
     it 'should respond to name with the name argument' do
       expect(user.name).to eq('Beyonce Knowles')
     end

@@ -5,7 +5,7 @@ class Users
 
   def self.all(user_class = User, connection = connect)
     users = connection.exec("SELECT * FROM users;")
-    users.map { |user| user_class.new(user['name'], user['username'], user['email'], user['password'])}
+    users.map { |user| user_class.new(user['name'], user['username'], user['email'], user['password']) }
   end
 
   def self.create(name, username, email, password, connection = connect)
@@ -20,10 +20,10 @@ class Users
 
   def self.match?(username, password, connection = connect)
     match = connection.exec("SELECT * FROM users WHERE username = '#{username}'")
-    match.map {|user| return false if password != user['password']}
+    match.map { |user| return false if password != user['password'] }
   end
 
-  private
+  private_class_method
 
   def self.connect
     if ENV['RACK_ENV'] == 'test'

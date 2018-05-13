@@ -45,8 +45,8 @@ class Chitter < Sinatra::Base
         flash[:wrong_password] = 'Wrong password'
         redirect('/sign_in')
       else
-      session[:username] = params[:username]
-      redirect('/chitter')
+        session[:username] = params[:username]
+        redirect('/chitter')
       end
     else
       flash[:user_does_not_exist] = "This user doesn't exist"
@@ -64,7 +64,7 @@ class Chitter < Sinatra::Base
       flash[:not_signed_in] = 'Sign in before you peep!'
       redirect('/chitter')
     end
-   erb :new_peep
+    erb :new_peep
   end
 
   post '/new_peep' do

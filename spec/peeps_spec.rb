@@ -5,7 +5,7 @@ describe Peeps do
   let(:text) { "I am hungry" }
   let(:username) { "Yoncé" }
   let(:name) { "Beyonce Knowles" }
-  let(:time)  { "12.34" }
+  let(:time) { "12.34" }
 
   describe '#peep' do
     it 'return SQL message with the arguments' do

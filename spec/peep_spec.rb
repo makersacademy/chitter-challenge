@@ -1,7 +1,7 @@
 require 'peep'
 
 describe Peep do
-  subject(:peep) { Peep.new('Beyonce Knowles', 'Yoncé', '12.34', 'I am hungry')}
+  subject(:peep) { Peep.new('Beyonce Knowles', 'Yoncé', '12.34', 'I am hungry') }
   describe '#initialize' do
     it 'should respond to name with argument' do
       expect(peep.name).to eq 'Beyonce Knowles'
