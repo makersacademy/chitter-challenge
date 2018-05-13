@@ -13,7 +13,7 @@ feature 'creating new user' do
     fill_in 'email', with: 'queenb@gmail.com'
     fill_in 'password', with: 'lemonade'
     click_button 'Create user'
-    expect(page).to have_content('User Yoncé has been created')
+    expect(page).to have_content('User has been created')
   end
 
   scenario 'Raises an error if username is already taken' do

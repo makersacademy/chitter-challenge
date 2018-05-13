@@ -17,7 +17,7 @@
     <%= flash[:not_signed_in] %>
 
     <ul>
-      <% @peeps.each do |peep| %>
+      <% @peeps.reverse_each do |peep| %>
         <li><%=peep.username%>, <%=peep.text%>, <%=peep.time%></li>
       <%end%>
     </ul>
