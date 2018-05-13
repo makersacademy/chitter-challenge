@@ -1,107 +1,46 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+A web application for submitting and sharing messages between users.
 
-Challenge:
--------
+### Motivation
 
-As usual please start by forking this repo.
+This project has been created as part of my journey as a junior developer at Makers Academy.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+### Features
 
-Features:
--------
+- Users can sign up using their email, password, name and username.
+- Users credentials are remembered and they can sign in to the application using them.
+- Once a user is signed in they can create 'peeps', 140 character messages.
+- Peeps are shown along with the user who wrote them's name and handle, as well as the time of posting.
+- A user will remain logged in until they log out.
+
+### Installation
+
+Program developed in ruby 2.5.1 using Sinatra and run with rack. The program should be downloaded and set up as follows:
 
 ```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+$ git clone git@github.com:williampowell92/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle
+$ rackup
 ```
 
-Notes on functionality:
-------
+For the application to work correctly, you will also have to set up the necessary databases.
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+### How to use?
 
-Bonus:
------
+The program should be run from a client, such as Google Chrome.
 
-If you have time you can implement the following:
+Once you have navigated to the address, you can sign up as a user from the homepage. Once you have signed up you will be redirected to the main page where peeps can be seen. You can add your own peeps, these will automatically be attributed to you and a timestamp will be displayed alongside them. You can log out at any time by pressing log out.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+### Tests
 
-And/Or:
+Unit testing was carried out using RSpec. Feature testing was carried out using Capybara. Tests can be run from the project home directory:
 
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+```
+$ rspec
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+### Technologies
+
+This website was built using Ruby, Sinatra, RSpec, Capybara, HTML and CSS
