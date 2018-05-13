@@ -1,3 +1,5 @@
+require 'pg'
+
 class Peep
 
   attr_reader :id, :text
@@ -14,15 +16,17 @@ class Peep
   def self.create(text)
     result = self.database.exec(
       "INSERT INTO peeps (text)
-       VALUES('#{text}') RETURNING text"
+       VALUES('#{text}') RETURNING id, text"
     )
-    Peep.new(result.first['text'])
+    Peep.new(result.first['id'], result.first['text'])
   end
 
   def self.all
     rs = self.database.exec("SELECT * FROM peeps")
-    rs.map { |peep| Peep.new(peep['id'], peep['text'])}
+    rs.map { |result| Peep.new(result['id'], result['text'])}.reverse
   end
+
+  private
 
   def self.database
     ENV['RACK'] == 'test' ?

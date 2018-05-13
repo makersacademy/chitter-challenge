@@ -23,5 +23,13 @@ describe Peep do
     end
   end
 
+  describe '#all' do
+
+    it 'returns peeps in reverse order' do
+      peep1 = Peep.create('Ate ravioli today!')
+      peep2 = Peep.create('Ran 5km!')
+      expect(Peep.all.last).to eq peep1
+    end
+  end
 
 end
