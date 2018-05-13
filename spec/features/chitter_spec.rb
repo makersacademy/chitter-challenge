@@ -9,11 +9,11 @@ feature Chitter do
   end
 
   scenario 'sign up' do
-    visit('/signup')
+    visit('/users/new')
     fill_in 'email', with: 'test@example.com'
     fill_in 'name', with: 'charlene'
     fill_in 'pass', with: 'test123'
     click_button 'Submit Details'
-    expect(page).to have_content('You have signed up to Chitter')
+    expect(page).to have_content('Welcome, test@example.com')
   end
 end

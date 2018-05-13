@@ -5,10 +5,14 @@ describe User do
   let(:password) { 'test' }
 
   describe '.create' do
-    it 'has create and id attributes' do
+    it 'has id attribute' do
       user = User.create(email, password)
-
       expect(user.id).not_to be_nil
+    end
+
+    it 'hashes the password' do
+      expect(BCrypt::Password).to receive(:create).with(password)
+      User.create(email, password)
     end
   end
 
@@ -32,5 +36,5 @@ describe User do
     end
 
   end
-  
+
 end

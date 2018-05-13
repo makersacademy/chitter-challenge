@@ -19,7 +19,7 @@ require './database_connection_setup'
    get '/peeps' do
      @user = User.find(session[:user_id])
      @peeps = Peep.all
-     erb :peeps
+     erb :"/peeps/index"
    end
 
    post '/peeps' do
@@ -32,10 +32,9 @@ require './database_connection_setup'
    end
 
    post '/users' do
-     User.create(email: params['email'], password: params['password'])
+     @user = User.create(params['email'], params['password'])
+     session[:user_id] = @user.id
      redirect '/'
    end
-
-
 
  end

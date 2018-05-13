@@ -1,0 +1,12 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+
+<form action="/peeps" method = "post">
+  Submit a peep: <input type="text" name="peep">
+  <input type="submit" value="Add Peep">
+</form>
+
+<% @peeps.each do |peep| %>
+   <%= peep.text %> : <%= peep.time %> <br>
+<% end %>

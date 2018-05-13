@@ -1,4 +1,5 @@
 require './lib/database'
+require './lib/user'
 
 class Peep
 
