@@ -4,6 +4,17 @@
 
   <% if @user %>
     <h2>Welcome back, <%= @user.username %></h2>
+
+    <h3>Peep here:</h3>
+  </div>
+    <form action="/peeps" method="post">
+      <label for="peep_content">
+        Peep here:
+        <input type="text" name="peep_content">
+      </label>
+      <input type="submit" value="Peep">
+    </form>
+
   <% end %>
 
   <% @peeps.reverse.each do |peep| %>

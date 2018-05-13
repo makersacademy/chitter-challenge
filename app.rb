@@ -13,6 +13,11 @@ class Chitter < Sinatra::Base
     erb(:peepage)
   end
 
+  post '/peeps' do
+    # peep = (:content => params[:peep_content], :username => params[@user.username], :created_at => params[Time.now])
+    redirect '/peeps'
+  end
+
   get '/signup' do
     erb(:signupform)
   end

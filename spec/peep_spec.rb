@@ -17,4 +17,11 @@ describe Peep do
     end
   end
 
+  describe '.create' do
+    it 'should create a new peep' do
+      test_peep = Peep.create(:content => "Hello World", :username => "First the worst", :created_at => Time.now)
+      expect(Peep.all).to include test_peep
+    end
+  end
+
 end

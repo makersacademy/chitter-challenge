@@ -22,4 +22,6 @@ class Peep
     DataMapper.finalize
   end
 
+  # belongs_to :user
+  
 end

@@ -11,8 +11,15 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
-  property :password, String
+  property :username, String, :required => true, :unique => true,
+  :messages => {
+      :presence  => "Please enter a username.",
+      :is_unique => "Sorry, username is already taken"
+    }
+  property :password, String, :required => true,
+  :messages => {
+      :presence  => "Please enter a password."
+    }
 
   if ENV['ENVIRONMENT'] == 'test'
     DataMapper.setup(:default, 'postgres://localhost/chitter_development')
@@ -21,5 +28,7 @@ class User
     DataMapper.setup(:default, 'postgres://localhost/chitter')
     DataMapper.finalize
   end
+
+  # has n, :peeps
 
 end
