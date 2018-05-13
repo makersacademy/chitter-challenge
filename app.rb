@@ -15,8 +15,10 @@ class Chitter < Sinatra::Base
   end
 
   post('/add') do
-    if session[:username] == nil || params[:author] != session[:username]
-      flash[:user_error] = "You cannot post as #{params[:author]} unless you sign in as #{params[:author]}"
+    if session[:username].nil? || params[:author] != session[:username]
+      flash[:user_error] =
+      "You cannot post as #{params[:author]}
+       unless you sign in as #{params[:author]}"
     else
       Peep.create(params[:text], params[:author])
     end
@@ -28,11 +30,13 @@ class Chitter < Sinatra::Base
   end
 
   post('/sign_up') do
-    if User.all.any? { |user| user.username == params[:username]}
+    if User.all.any? { |user| user.username == params[:username] }
       flash[:signup_error] = "This username already exists"
       redirect('/sign_up')
     else
-      User.create(params[:email], params[:password], params[:name], params[:username])
+      User.create(
+        params[:email], params[:password], params[:name], params[:username]
+      )
       session[:username] = params[:username]
       flash[:user] = "Welcome, #{session[:username]}"
       redirect('/')
