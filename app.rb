@@ -54,6 +54,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/sign_out' do
+    session[:username] = nil
+    redirect '/chitter'
+  end
+
   get '/new_peep' do
     unless session[:username] != nil
       flash[:not_signed_in] = 'Sign in before you peep!'
