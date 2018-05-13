@@ -1,6 +1,7 @@
 require_relative '../../app.rb'
 require 'pg'
 require 'peep'
+require './spec/features/sign_up_helper'
 
 feature 'New Peeper' do
   scenario 'Clicking Sign Up on homepage takes user to sign up view' do
@@ -10,10 +11,7 @@ feature 'New Peeper' do
   end
 
   scenario 'Successful sign up' do
-    visit '/signup'
-    fill_in('username', with: 'Peeping Tom')
-    fill_in('password', with: 'ilikepeeping')
-    click_button('Submit Details')
+    user_signs_up
     expect(page).to have_content "Welcome to Peep, Peeping Tom"
   end
 end

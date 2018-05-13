@@ -1,6 +1,7 @@
 require_relative '../../app.rb'
 require 'pg'
 require 'peep'
+require './spec/features/login_helper'
 
 feature 'User logs in' do
   scenario 'Clicking Log in on homepage takes user to log in view' do
@@ -10,10 +11,7 @@ feature 'User logs in' do
   end
 
   scenario 'Logging in takes user to homepage' do
-    visit '/login'
-    fill_in('log_username', with: 'Peeping Sally')
-    fill_in('log_password', with: 'helikespeeping')
-    click_button('Login')
+    user_logs_in
     expect(page).to have_content "Welcome back, Peeping Sally"
   end
 end

@@ -27,6 +27,6 @@ class Peep
     DataMapper.finalize
   end
 
-  # belongs_to :user
+  # belongs_to :user, :required => false
 
 end
