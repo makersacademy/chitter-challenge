@@ -1,11 +1,20 @@
 require 'pg'
 
 class Peep
-  def self.all
-    [
-      "The night I lost CTRL",
-      "More code, more cache",
-      "Everyday, tryna get beta"
-     ]
-  end
+
+def self.add(string)
+  result = self.database.exec
+  ( "INSERT INTO peeps (string) VALUES('#{string}') RETURNING string" )
+  Peep.new(result.first['string'])
+end
+
+def self.all
+  result = self.database.exec("SELECT * FROM peeps")
+  result.map { |peep| Peep.new(peep['id'], peep['string'])}
+end
+
+def self.database
+  ENV['RACK'] == 'test' ?
+  PG.connect(dbname: 'peep_manager_test') : PG.connect(dbname: 'peep_manager')
+end
 end

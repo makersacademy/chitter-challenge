@@ -8,6 +8,8 @@ gem 'sinatra'
 gem 'capybara'
 gem 'rspec-sinatra'
 gem 'pg'
+gem 'rack_session_access'
+gem 'rack'
 
 group :test do
   gem 'rspec'
