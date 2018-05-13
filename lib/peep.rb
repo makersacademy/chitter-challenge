@@ -2,28 +2,29 @@ require 'pg'
 
 class Peep
 
-  attr_reader :id, :text
+  attr_reader :id, :text, :time
 
-  def initialize(id = id, text = text)
+  def initialize(id = id, text = text, time = Time.now.asctime)
     @id = id
     @text = text
+    @time = time
   end
 
   def ==(other)
     (self.id == other.id)
   end
 
-  def self.create(text)
+  def self.create(text, time = Time.now.asctime)
     result = self.database.exec(
-      "INSERT INTO peeps (text)
-       VALUES('#{text}') RETURNING id, text"
+      "INSERT INTO peeps (text, time)
+       VALUES('#{text}', '#{time}') RETURNING id, text, time"
     )
-    Peep.new(result.first['id'], result.first['text'])
+    Peep.new(result.first['id'], result.first['text'], result.first['time'])
   end
 
   def self.all
     rs = self.database.exec("SELECT * FROM peeps")
-    rs.map { |result| Peep.new(result['id'], result['text'])}.reverse
+    rs.map { |result| Peep.new(result['id'], result['text'], result['time'])}.reverse
   end
 
   private

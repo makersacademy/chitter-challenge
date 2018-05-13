@@ -4,5 +4,5 @@
 </form>
 
 <% @peeps.each do |peep| %>
-   <%= peep.text %> <br>
+   <%= peep.text %> : <%= peep.time_posted %> <br>
 <% end %>

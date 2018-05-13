@@ -30,6 +30,15 @@ describe Peep do
       peep2 = Peep.create('Ran 5km!')
       expect(Peep.all.last).to eq peep1
     end
+
+  end
+
+  describe '#time' do
+
+    it 'returns time peep was created' do
+      peep1 = Peep.create('Ate ravioli today!')
+      expect(Peep.all[0].time).to eq Time.now.asctime
+    end
   end
 
 end
