@@ -13,7 +13,7 @@ class User
     @name = name
   end
 
-  def self.create(name:, user_name:, email:, password:)
+  def self.create(email:, password:, user_name:, name:)
     result = DatabaseConnection.query("INSERT INTO users (email, password, user_name, name)
     VALUES('#{email}', '#{password}', '#{user_name}', '#{name}') RETURNING id, email, password, user_name, name;")
       User.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'], user_name: result[0]['user_name'], name: result[0]['name'])

@@ -1,8 +1,22 @@
-<h1>Chitter</h1>
+<body style="text-align: center; font-family: 'Skranji';">
+  <h1 style="margin: 0 auto;">Chitter</h1>
+  </br>
+  <h3 style="margin: 0 auto;">Hi <%= session[:user].name.capitalize %>, check out the latest peeps</h3>
+  </br>
 
-<form id="peep_form" action="/peeps" method="post">
-  <input type="submit" value="Peep">
-</form>
-<textarea name="name" rows="4" cols="60" form="peep_form">
-</textarea>
-<label for="peep_form">create peep</label>
+  <ul style="text-align: center; list-style-type: none; margin 0 auto; padding-left: 0;"><% @peeps.each do |peep| %>
+    <li>
+      <p style="font-size: 16px;"><%= peep.text %></p>
+      <p style="font-size: 12px;">by <%= User.find(peep.user_id)[0].name.capitalize %> @<%= User.find(peep.user_id)[0].user_name %> at <%= peep.time %></p>
+    </li>
+      </br>
+    <% end %>
+  </ul>
+
+  <textarea name="form" rows="4" cols="60" form="peep_form" style="margin: 0 auto;">
+  </textarea>
+  <form id="peep_form" action="/peeps" method="post">
+  </br>
+    <input type="submit" value="Create new peep">
+  </form>
+</body>
