@@ -7,6 +7,13 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+
+  # def set_current_user(user)
+  #     session[:user_id] = user.id
+  #     session[:user_username] = user.username
+  #   end
+
+
   get '/' do
     'Testing infrastructure working!'
   end
@@ -21,11 +28,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    User.create(:username => params[:username], :password => params[:password])
+    user = User.create(:username => params[:username], :password => params[:password])
+    session[:user_id] = user.id
     redirect '/signupsuccess'
   end
 
   get '/signupsuccess' do
+    @user = User.get(session[:user_id])
     erb(:signupsuccess)
   end
 
