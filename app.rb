@@ -4,6 +4,8 @@ require_relative './lib/peep'
 require_relative './lib/user'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+
   get '/' do
     erb(:index)
   end
@@ -32,6 +34,18 @@ class Chitter < Sinatra::Base
     User.create(params['email'], params['password'], params['name'], params['username'])
 
     redirect('/')
+  end
+
+  post '/session' do
+    username = params['username']
+    password = params['password']
+    if User.exists?(username) && User.correct_password?(username, password)
+      session[:user] = User.select(username)
+
+      redirect('/peeps')
+    else
+
+    end
   end
 
   run! if app_file == $0

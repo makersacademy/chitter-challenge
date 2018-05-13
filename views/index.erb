@@ -4,6 +4,15 @@
 
 </head>
 <body>
-  <a href='/users/new'>Sign up</a>
+  <div>
+    <a href='/users/new'>Sign up</a>
+  </div>
+  <div>
+    <form action='/session' method='post'>
+      <input type='text' name='username' placeholder='username'>
+      <input type='password' name='password' placeholder='password'>
+      <input type='submit' value='Log in'>
+    </form>
+  </div>
 </body>
 </html>
