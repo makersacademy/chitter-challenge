@@ -4,6 +4,12 @@
 
 </head>
 <body>
+  <% if @current_user %>
+  <div>
+    <p><%= @current_user.name %></p>
+    <p>@<%= @current_user.username %></p>
+  </div>
+  <% end %>
   <% @peeps.each do |peep| %>
     <div>
       <p><%= peep.text %></p>

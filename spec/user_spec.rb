@@ -7,7 +7,7 @@ describe User do
   let(:username) { 'shrimplyp' }
   subject { User.new(email, name, username) }
   let(:connection) { double :database_connection, exec: tuple }
-  let(:tuple) { double :a_tuple }
+  let(:tuple) { double :tuple }
 
   describe '#self.create' do
     it 'calls insert command in SQL' do
@@ -60,15 +60,16 @@ describe User do
     end
   end
 
-  xdescribe '#self.select' do
+  describe '#self.select' do
     it 'queries the database' do
+      allow(connection).to receive(:exec).and_return([{ 'email' => email, 'name' => name, 'username' => username }])
       described_class.select(username, connection)
       expect(connection).to have_received(:exec).with("SELECT email, name, username FROM users WHERE username = '#{username}'")
     end
 
     it 'returns an instance of user class' do
       allow(connection).to receive(:exec).and_return([{ 'email' => email, 'name' => name, 'username' => username }])
-      described_class.select(username, connection)
+      expect(described_class.select(username, connection)).to be_an_instance_of(described_class)
     end
   end
 

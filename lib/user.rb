@@ -23,9 +23,7 @@ class User
 
   def self.select(username, connection = connect_to_database)
     result = connection.exec "SELECT email, name, username FROM users WHERE username = '#{username}'"
-    result.map do |row|
-      User.new(row['email'], row['name'], row['username'])
-    end
+    User.new(result[0]['email'], result[0]['name'], result[0]['username'])
   end
 
   private
