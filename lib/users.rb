@@ -9,7 +9,8 @@ class Users
   end
 
   def self.create(name, username, email, password, connection = connect)
-    return false unless username_available?(username)
+    return 'username error' if username_available?(username) == false
+    return 'email error' if email_available?(email) == false
     connection.exec("INSERT INTO users(name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}')")
   end
 
@@ -23,9 +24,11 @@ class Users
     end
   end
 
-  def self.username_available?(username, connection = connect)
-    all.each do |user|
-      return false if user.username == username
-    end
+  def self.username_available?(username)
+    all.each { |user| return false if user.username == username }
+  end
+
+  def self.email_available?(email)
+    all.each { |user| return false if user.email == email }
   end
 end

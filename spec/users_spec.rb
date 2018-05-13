@@ -15,7 +15,12 @@ describe Users do
 
     it 'should return false if username is already taken' do
       allow(Users).to receive(:username_available?).with('Yoncé') {false}
-      expect(Users.create(name, username, email, password, connection)).to eq(false)
+      expect(Users.create(name, username, email, password, connection)).to eq('username error')
+    end
+
+    it 'should return false if email is already is use' do
+      allow(Users).to receive(:email_available?).with('queenb@gmail.com') {false}
+      expect(Users.create(name, username, email, password, connection)).to eq('email error')
     end
   end
 end

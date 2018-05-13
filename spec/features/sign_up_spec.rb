@@ -27,4 +27,16 @@ feature 'creating new user' do
     click_button 'Create user'
     expect(page).to have_content('This username is already taken')
   end
+
+  scenario 'Raises an error if email is already in use' do
+    create_user
+    visit '/chitter'
+    click_on 'Sign up'
+    fill_in 'name', with: 'Beyoncé'
+    fill_in 'username', with: 'Bey'
+    fill_in 'email', with: 'queenb@gmail.com'
+    fill_in 'password', with: 'saymyname'
+    click_button 'Create user'
+    expect(page).to have_content('This email is already in use')
+  end
 end

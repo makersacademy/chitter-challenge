@@ -7,7 +7,8 @@
 
   <body>
     <h1>Create user</h1>
-    <%=flash[:error]%>
+    <%=flash[:username_error]%>
+    <%=flash[:email_error]%>
     <form action='/sign_up' method='post'>
       <label for='email'>Email</label>
       <input type='text' name='email'>
