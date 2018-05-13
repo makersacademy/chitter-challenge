@@ -1,6 +1,6 @@
 <body style="text-align: center">
   <h2 style="text-align: center">Chitter feed</h2>
-  <h3>Logged in as <%= session[:username] %></h3>
+  <%= flash[:user] %>
   <% @peeps.each do |peep| %>
     <h3><%= "#{peep.time_stamp} - #{peep.author}: "%></h3><ul><%= "#{peep.text}" %><br></ul>
   <% end %>
@@ -19,3 +19,5 @@
 <form action="/sign_up" method="get">
   <input type="submit" value="Sign Up">
 </form>
+
+<%= flash[:user_error] %>
