@@ -16,16 +16,18 @@ class Manager
   end
 
   def self.add_peep(user, message)
-    current_user = get_all_users.select {|object| object.handle == user }
-    DatabaseQueryManager.add_peep(current_user[0].id, message)
+    DatabaseQueryManager.add_peep(check_user(user)[0].id, message)
   end
 
-  # def self.check_user(user)
-  #   p user
-  #   p 'HI'
-  #   p Manager.get_all_users
-  #   current_user = get_all_users.select {|object| p object }
-  #   current_user
-  # end
+  private
+
+  def self.check_user(user)
+    current_user = get_current_user(user)
+    current_user.empty? ? get_current_user('Anonymous') : current_user
+  end
+
+  def self.get_current_user(user)
+    get_all_users.select {|object| object.handle == user }
+  end
 
 end
