@@ -11,7 +11,8 @@ task :test_database_setup do
   p "Cleaning database..."
 
   connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("TRUNCATE peeps, users CASCADE;")
+  connection.exec("TRUNCATE users CASCADE;")
+  connection.exec("TRUNCATE peeps CASCADE;")
 end
 
 task :setup do
@@ -22,7 +23,7 @@ task :setup do
     connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
     connection.exec(
-    "CREATE TABLE users(
+    "CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(60),
     password VARCHAR(60),
@@ -30,7 +31,7 @@ task :setup do
     name VARCHAR(60)
     );")
     connection.exec(
-    "CREATE TABLE peeps(
+    "CREATE TABLE peeps (
     id SERIAL PRIMARY KEY,
     text VARCHAR(300),
     user_id INTEGER REFERENCES users (id),
