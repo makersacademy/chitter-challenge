@@ -1,6 +1,24 @@
 Chitter Challenge
 =================
 
+This is a twitter clone I made using Ruby, Sinatra and PostgreSQL.
+
+## How to use
+
+Fork and clone this repo. Run by typing ```ruby app.rb``` in the command line or with your prefered method of running Ruby apps. Look out for the localhost port number. Run ```rake setup``` and ```rake setup_table``` to get the database set up properly.
+
+Sign up to an account with your email address and think of a username and a password. Then Sign in to Chitter and make a post.
+
+## Technologies used
+
+Ruby, Sinatra, Rspec, Capybara, PostgreSQL.
+
+## Why I made this
+
+This was a weekend challenge given to me by Makers Academy. I had one weekend to build a Twitter clone that utilised a PostgreSQL database and included email authentication and password encryption. Details of this challenge can be found bellow.
+
+## From Makers...
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
