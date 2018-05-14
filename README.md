@@ -25,7 +25,26 @@ $ bundle
 $ rackup
 ```
 
-For the application to work correctly, you will also have to set up the necessary databases.
+### Set up database
+
+For the application to work correctly, you will also have to set up the necessary databases. In PSQL:
+
+```
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email TEXT,
+    password text,
+    username TEXT,
+    name TEXT
+);
+
+CREATE TABLE peeps (
+    id SERIAL PRIMARY KEY,
+    text VARCHAR(140),
+    time TIMESTAMP,
+    user_id INT REFERENCES users (id)
+);
+```
 
 ### How to use?
 
