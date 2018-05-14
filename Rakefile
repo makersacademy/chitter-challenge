@@ -27,17 +27,15 @@ task :setup do
     email VARCHAR(60),
     password VARCHAR(60),
     user_name VARCHAR(60),
-    name VARCHAR(60
-    );"
-  )
+    name VARCHAR(60)
+    );")
     connection.exec(
     "CREATE TABLE peeps(
     id SERIAL PRIMARY KEY,
     text VARCHAR(300),
     user_id INTEGER REFERENCES users (id),
     time TIMESTAMP DEFAULT NOW()
-    );"
-  )
+    );")
   end
 end
 
