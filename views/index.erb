@@ -1,0 +1,27 @@
+<h2>Chitter</h2>
+<%if @user%>
+<h2>Hi <%= @user.username%>!</h2> <form action='/logout' method='get'>
+  <input type='submit' value='Logout'>
+</form>
+
+<h2>Any useless random s#!t you wanna share with us today?</h3>
+</div>
+<form action='/' method='post'>
+  <input type='text'value='peep_content'>
+  <input type='submit' value='Post'>
+</form>
+<%end%>
+
+<% @peeps.reverse.each do |peep|%>
+<li>
+  <h3><%=peep.username%> at <%=peep.time_created%> : <%=peep.content%></h3>
+</li>
+<%end%>
+
+<form action='/signup' method='get'>
+  <input type='submit' value='Sign up'>
+</form>
+
+<form action='/login' method='get'>
+  <input type='submit' value='Log in'>
+</form>
