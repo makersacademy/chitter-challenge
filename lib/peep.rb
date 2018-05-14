@@ -23,6 +23,7 @@ class Peep
   else
     DataMapper.setup(:default, 'postgres://localhost/chitter')
   end
+  # DataMapper.auto_migrate!
   DataMapper.finalize
 
   # belongs_to :user, :required => false
