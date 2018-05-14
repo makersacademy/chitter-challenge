@@ -1,9 +1,12 @@
 Full and annoying complex set-up of the database
 =================
 
-Run psql:
+Run psql from the command line:
 ```
+psql postgres
+
 CREATE DATABASE chitter;
+
 CREATE DATABASE chitter_test;
 ```
 
