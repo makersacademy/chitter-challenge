@@ -1,11 +1,14 @@
 %h1 Chitter MVP
-- @peeps.each do | peep |
-  %section
-    %p
-      = "Peep ID: #{peep.id}"
-      = "Author: #{@users.select{|row| row.id == peep.author}[0].handle}"
-    %p= "Date: #{peep.timestamp}"
-    %p= "Peep:<br />#{peep.message}"
-%section
+= haml :chitter_feed
+
+%form{action: '/posts/new', method: 'POST'}
+  %p Add a new Peep
+  %div
+    %label{for: 'name_field'} Name:
+    %input.input_field_peep_author{id: 'name_field', type: 'text', name: 'peep_author'}
+  %div
+    %label{for: 'peep_message'} Message:
+    %textarea.input_box_peep_message{id: 'peep_message',name: 'peep_message'}
+  %input.submit{type: 'submit', value: 'PEEP!'}
 
 

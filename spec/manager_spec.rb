@@ -24,4 +24,14 @@ describe Manager do
       expect(described_class.get_all_users[0]).to eq user
     end
   end
+
+  describe '#add_peep' do
+    it 'responds to #add_peep' do
+      expect(described_class).to respond_to(:add_peep)
+    end
+    it 'should call #check_user to see if the user is in DB' do
+      expect(described_class).to receive(:check_user)
+      described_class.add_peep('Anonymous', 'message')
+    end
+  end
 end

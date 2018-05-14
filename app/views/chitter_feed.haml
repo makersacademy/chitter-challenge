@@ -1,0 +1,8 @@
+- @peeps.each do | peep |
+  %section
+    %p
+      %span.peep_id= "Peep ID: #{peep.id} |"
+      %span.author_handle= "Author: #{@users.select{|row| row.id == peep.author}[0].handle} |"
+      %span.peep_date= "Date: #{peep.timestamp}"
+    %p.peep_message= "Peep:<br />#{peep.message}"
+    %hr

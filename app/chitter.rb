@@ -13,4 +13,9 @@ class Chitter < Sinatra::Base
     haml :index
   end
 
+  post '/posts/new' do
+    Manager.add_peep(params[:peep_author], params[:peep_message])
+    redirect '/'
+  end
+
 end
