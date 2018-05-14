@@ -2,6 +2,8 @@ require './spec/features/web_helper'
 
 feature Chitter do
   scenario 'add a peep' do
+    sign_up
+    sign_in
     visit('/')
     fill_in 'peep', with: 'Be yourself; everyone else is already taken.'
     click_button 'Add Peep'

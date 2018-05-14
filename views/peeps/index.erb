@@ -6,6 +6,10 @@
   <form action="/sessions/destroy" method = "post">
     <input type="submit" value="Sign Out">
   </form>
+
+  <% @peeps.each do |peep| %>
+     <%= peep.text %> : <%= peep.time %> <br>
+  <% end %>
 <% end %>
 
 <form action="/peeps" method = "post">
@@ -13,6 +17,6 @@
   <input type="submit" value="Add Peep">
 </form>
 
-<% @peeps.each do |peep| %>
-   <%= peep.text %> : <%= peep.time %> <br>
+<% if !@user %>
+  <p> Please sign in! </p>
 <% end %>
