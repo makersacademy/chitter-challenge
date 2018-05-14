@@ -4,7 +4,8 @@ describe Manager do
   let(:peep_class) {double :peep_class_double, new: peep }
   let(:peep) {double :peep_double, id: 1, user_id: 1, peep_content: 'I am cool', timestamp: '2018-05-13 11:23:25+01' }
   let(:user_class) {double :user_class_double, new: user}
-  let(:user) { double :user_double, id: '*', handle: 'Anonymous'}
+  let(:user) { spy :user_double, handle: 'Anonymous'}
+  let(:all_users) {spy :all_users}
 
   describe '#get_all_posts' do
     it 'returns an array of objects' do
@@ -29,10 +30,6 @@ describe Manager do
     it 'responds to #add_peep' do
       expect(described_class).to respond_to(:add_peep)
     end
-    it 'should call #check_user to see if the user is in DB' do
-      described_class.instance_variable_set(:@user_class, user_class)
-      expect(described_class).to receive(:check_user)
-      described_class.add_peep('Anonymous', 'message')
+    it 'should call #check_user to see if the user is in DB'
     end
-  end
 end

@@ -35,8 +35,8 @@ task :test_database_setup do
     VALUES
         ('#{result[0]['id']}', 'You have power over your mind - not outside events. Realize this, and you will find strength', LOCALTIMESTAMP(0)),
         ('#{result[0]['id']}', 'The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane.', LOCALTIMESTAMP(0)),
-        ('#{result[1]['id']}', 'That alone is in our power, which is our own work; and in this class are our opinions, impulses, desires, and aversions.', LOCALTIMESTAMP(0)),
-        ('#{result[1]['id']}', 'It is not what happens to you, but how you react to it that matters.', LOCALTIMESTAMP(0))
+        ('#{result[2]['id']}', 'That alone is in our power, which is our own work; and in this class are our opinions, impulses, desires, and aversions.', LOCALTIMESTAMP(0)),
+        ('#{result[2]['id']}', 'It is not what happens to you, but how you react to it that matters.', LOCALTIMESTAMP(0))
     ;")
 end
 
