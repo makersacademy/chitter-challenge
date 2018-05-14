@@ -7,7 +7,6 @@ require_relative './lib/user'
 require_relative './lib/comment'
 load './datamapper_setup.rb'
 
-
 class ChitterApp < Sinatra::Base
 
   configure do
@@ -82,8 +81,8 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps/:id/comments' do
-    @comments = Comment.all(:peep => { id: params[:id] } ,:order => [:created_at.desc])
-      .map { |comment| { comment: comment, user: User.get(comment.user_id)} }
+    @comments = Comment.all(:peep => { id: params[:id] }, :order => [:created_at.desc])
+      .map { |comment| { comment: comment, user: User.get(comment.user_id) } }
     @peep = Peep.get(params[:id])
     erb :comments
   end
