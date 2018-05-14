@@ -1,4 +1,8 @@
 <body style="text-align: center; font-family: 'Skranji';">
+  <form action="/sign-out" method="post" style="text-align: left">
+    <input type="submit" value="Sign out">
+  </form>
+
   <h1 style="margin: 0 auto;">Chitter</h1>
   </br>
   <h3 style="margin: 0 auto;">Hi <%= session[:user].name.capitalize %>, check out the latest peeps</h3>

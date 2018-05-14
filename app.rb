@@ -36,5 +36,9 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  post '/sign-out' do
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
