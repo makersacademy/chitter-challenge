@@ -6,6 +6,7 @@ if ENV['RACK_ENV'] == 'test'
   RSpec::Core::RakeTask.new :spec
 
   task default: [:spec]
+  task default: [:setup]
 end
 
 task :test_database_setup do

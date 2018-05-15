@@ -19,12 +19,6 @@ RSpec.configure do |config|
 end
 
 RSpec.configure do |config|
-  config.before(:suite) do
-    if !'chitter_test'
-      Rake::Task['setup'].invoke
-    end
-  end
-
   config.after(:suite) do
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
