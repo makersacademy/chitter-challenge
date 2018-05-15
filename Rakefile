@@ -1,6 +1,7 @@
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-  require 'pg'
+require 'rspec/core/rake_task'
+require 'pg'
+
+if ENV['RACK_ENV'] == 'test'
 
   RSpec::Core::RakeTask.new :spec
 
@@ -11,8 +12,8 @@ task :test_database_setup do
   p "Cleaning database..."
 
   connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("TRUNCATE users CASCADE;")
   connection.exec("TRUNCATE peeps CASCADE;")
+  connection.exec("TRUNCATE users CASCADE;")
 end
 
 task :setup do
