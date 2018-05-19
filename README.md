@@ -19,9 +19,7 @@ This app is a small Twitter clone that will allow the users to post messages to 
 ## Setup
 
 - Clone this repo, run:
-```
-git clone https://github.com/shihhanwang/Acebook-Byte-3.git
-```
+`git clone https://github.com/shihhanwang/Acebook-Byte-3.git`
 - Install all the dependencies, run: `bundle install`
 - Database setup
   - run `brew install postgresql` to install PostgreSQL
