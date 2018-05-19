@@ -55,6 +55,11 @@
     background-color: rgba(175, 165, 177, 0.19);
   }
 
+  #block{
+    margin: 7px;
+    background: #84c3f521;
+  }
+
 </style>
 
 <h1>
@@ -73,10 +78,10 @@
   <h2>Sign in to Chitter</h2>
   <form method='post' action="/log-in">
     <label for='username'>username: </label>
-    <input type='text' name='username' autofocus>
+    <input id="block" type='text' name='username' autofocus>
     <br/>
     <label for='password'>password: </label>
-    <input type='password' name='password'>
+    <input id="block" type='password' name='password'>
     <br/>
     <input id='button' type='submit' value='log in'>
   </form>
