@@ -6,8 +6,8 @@
 #
 # The linter file that doesn't lead junior developers to bad habits.
 # https://github.com/makersacademy/scaffolint
-# 
-# Tested with Rubocop version 0.52.1
+#
+# Tested with Rubocop version 0.56.0
 #
 # Introduction
 # ============
@@ -338,7 +338,9 @@ MethodCalledOnDoEndBlock:
   Enabled: false
 MethodDefParentheses:
   Enabled: false
-MethodMissing:
+MethodMissingSuper:
+  Enabled: false
+MissingRespondToMissing:
   Enabled: false
 MissingElse:
   Enabled: false
@@ -454,7 +456,9 @@ TernaryParentheses:
   Enabled: false
 TrailingCommaInArguments:
   Enabled: false
-TrailingCommaInLiteral:
+TrailingCommaInArrayLiteral:
+  Enabled: false
+TrailingCommaInHashLiteral:
   Enabled: false
 TrailingUnderscoreVariable:
   Enabled: false
