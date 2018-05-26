@@ -59,6 +59,7 @@ Technologies used
 
 Run project:
 -----
+
 * Clone the progect and type ```bundle install``` in terminal
 * Local on your machine: Clone this project, type ```ruby app.rb```
 * Onlinel: use this [link](chitter-challenge.surge.sh)
