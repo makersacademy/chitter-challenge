@@ -5,7 +5,7 @@
 Chitter Challenge
 =================
 
-[Check project online](chitter-challenge.surge.sh)
+[Check project online](https://secure-river-72188.herokuapp.com/)
 
 Task:
 -------
@@ -62,7 +62,7 @@ Run project:
 
 * Clone the progect and type ```bundle install``` in terminal
 * Local on your machine: Clone this project, type ```ruby app.rb```
-* Onlinel: use this [link](chitter-challenge.surge.sh)
+* Onlinel: use this [link](https://secure-river-72188.herokuapp.com/)
 * To run tests, type ```rspec```
 
 Result
