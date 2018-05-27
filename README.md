@@ -50,7 +50,7 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technologies used
+Technologies used:
 -----
 1. ruby 2.5.0
 2. sinatra
@@ -65,7 +65,7 @@ Run project:
 * Onlinel: use this [link](https://secure-river-72188.herokuapp.com/)
 * To run tests, type ```rspec```
 
-Result
+Result:
 -----
 
 The app has two classes:
