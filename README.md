@@ -1,6 +1,7 @@
 # Week 4: Chitter challenge
 
-### Setup
+
+### Starting off
 
 I'm starting off by setting up the following:
 ..* Sinatra to create the web application
