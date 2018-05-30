@@ -97,7 +97,6 @@ require 'pg'
     end
   end
 
-
 task :teardown do
   p 'Tearing down databases...'
 
