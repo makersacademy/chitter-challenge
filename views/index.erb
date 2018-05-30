@@ -68,10 +68,22 @@
     </div>
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-3">
-        profile here
-        <br>
+      <div class="col-4">
         <% if @user %>
+
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://cdn.24.co.za/files/Cms/General/d/5143/f0dda1b0bf1842d0a8842d3b10b2327e.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h5 class="card-title"><%= @user.username %>
+                (<%= @user.realname %>)</h5>
+
+              <p class="card-text">Anti-Arsene Wenger campaigner.</p>
+              <a href="#" class="btn btn-primary">My Tweets</a>
+            </div>
+          </div>
+
+          <br>
           Hello
           <%= @user.realname %>
         <% end %>
@@ -79,7 +91,7 @@
 
       </div>
 
-      <div class="col-4">
+      <div class="col-6">
         <div class="form-group">
           <form class="" action="/sessions/peep" method="post">
             <label for="peepbox">Let off a peep</label>
@@ -88,21 +100,26 @@
           </form>
         </div>
 
-        Timeline
-        <br>
-        <br>
-        <% @peeps.each do |peep| %>
-          <h5><%= peep.author %>
-            says</h5>
+        <!-- TIMELINE!! -->
 
-          <div class="col-9">
-            <h4><%= peep.text %></h4>
-          </div>
-          <div class="col-5">
-            <%= peep.time %>
-          </div>
-          <br>
-        <% end %>
+        <div class="list-group">
+          <% @peeps.reverse.each do |peep| %>
+
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start  ">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">
+                  <%= peep.author %></h6>
+                <small><%= peep.time %></small>
+              </div>
+              <br>
+              <p class="mb-1"><%= peep.text %></p>
+            </a>
+
+          <% end %>
+
+        </div>
+
+        <!-- TIMELINE -->
       </div>
     </div>
   </body>

@@ -1,10 +1,10 @@
-require "sinatra/base"
-require "./lib/peep"
-require "./lib/timeline"
-require "./lib/user"
-require "./lib/database"
-require "rack"
-require "sinatra/flash"
+require 'sinatra/base'
+require './lib/peep'
+require './lib/timeline'
+require './lib/user'
+require './lib/database'
+require 'rack'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/signup' do
+    # /users/new
     erb :signup
   end
 
@@ -31,7 +32,7 @@ class Chitter < Sinatra::Base
       email: params['email'],
       password: params['password'],
       realname: params['firstname'],
-      username: "@" + params['username']
+      username: '@' + params['username']
     )
     session[:user_id] = user.id
 
@@ -58,12 +59,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions/peep' do
+    # sessions/peep/create
     @user = User.find(session[:user_id])
     Peep.post(author: @user.username, text: params[:peepbox])
-    redirect(:index)
-
+    redirect('/')
   end
 
   run! if app_file == $PROGRAM_NAME
-
 end
