@@ -72,9 +72,18 @@ I want to receive an email if I am tagged in a Peep
 
 ## Installation
 
+- Install ruby
+- Git Clone the repo into its own folder
+- From inside the repo folder, run 'bundle install'
+- run 'rake'
+- run 'rackup config.ru'
+
+
 ## Usage example
 
 ## Testing
+
+- run 'rspec' in the folder
 
 ## TODO
 
