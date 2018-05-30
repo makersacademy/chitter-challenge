@@ -1,9 +1,6 @@
 language: ruby
 
-rvm: 
- - '2.5.0'
- - jruby
- - rbx-3
+rvm: '2.5.0'
 
 script:
   - mkdir -p spec && bundle exec rspec spec
