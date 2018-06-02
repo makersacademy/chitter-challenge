@@ -81,6 +81,21 @@ I want to receive an email if I am tagged in a Peep
 
 ## Usage example
 
+### Signup Page
+
+![chitter signup](https://raw.githubusercontent.com/AlfieDarko/chitter-challenge/master/readme_images/Screen%20Shot%202018-06-02%20at%2016.53.00.png)
+
+Users must sign up with their email address, passwords, username and full name.
+### Login Page
+
+![login form](https://raw.githubusercontent.com/AlfieDarko/chitter-challenge/master/readme_images/Screen%20Shot%202018-06-02%20at%2016.53.29.png)
+
+After a user has registered successfully, he will be rerouted to a longin page where they can login using their new details.<br><br>
+### Home Page
+
+![homepage](https://raw.githubusercontent.com/AlfieDarko/chitter-challenge/master/readme_images/Screen%20Shot%202018-06-02%20at%2018.58.09.png)<br>
+On this page, the user can leave peeps on the public timeline.
+
 ## Testing
 
 - run 'rspec' in the folder
