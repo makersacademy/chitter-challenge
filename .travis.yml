@@ -3,7 +3,7 @@ language: ruby
 rvm: '2.5.0'
 
 script:
-  - mkdir -p spec && bundle exec rake rspec spec 
+  - mkdir -p spec && bundle exec rspec spec
 
 services:
   - postgresql
@@ -13,4 +13,5 @@ before_install:
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
+  - rake
   - psql -c 'create database chitter_test;' -U postgres
