@@ -3,7 +3,7 @@ language: ruby
 rvm: '2.5.0'
 
 script:
-  - mkdir -p spec && bundle exec rspec spec Rakefile
+  - mkdir -p spec && bundle exec rspec spec rake
 
 services:
   - postgresql
