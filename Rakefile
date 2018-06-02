@@ -152,3 +152,4 @@ task :test_environment do
       )"
     )
 end
+end

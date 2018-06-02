@@ -12,9 +12,14 @@ class Chitter < Sinatra::Base
   set :method_override, true
 
   get '/' do
+
     @user = User.find(session[:user_id])
     @peeps = Timeline.all
-    erb :index
+    if @user.nil?
+      erb :signup
+    else
+      erb :index
+    end
   end
 
   get '/signup' do

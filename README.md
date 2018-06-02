@@ -72,12 +72,12 @@ I want to receive an email if I am tagged in a Peep
 
 ## Installation
 
-- Install ruby
+- Install Ruby
 - Git Clone the repo into its own folder
 - From inside the repo folder, run 'bundle install'
 - run 'rake'
 - run 'rackup config.ru'
-
+- now run 'ruby app.rb'
 
 ## Usage example
 
@@ -85,8 +85,16 @@ I want to receive an email if I am tagged in a Peep
 
 - run 'rspec' in the folder
 
+## Thoughts
+I found this project quite interesting. It was a a good challenge to build a bare basics CRUD application in a new tech stack (Sinatra).<br> I really enjoyed putting together the backend but the most enjoyable part for me was styling the page. I used bootstrap as a styling framework as I had limited time (Just 2 days) and wanted to get something decent looking so I could present it to my cohort on review day. <br><br>
+This challenge has really helped me have an idea of how social media sites are put together.
 ## TODO
+If I had more time, I would have Implemented
+- Ability to mention different users
+- User notifications
+- Fix bug where certain characters are not parsed properly into the database
 
+All in all for 2 days work I was pretty happy with what I came up with.
 ## Meta
 
 Alfie Darko - me@alfiedarko.co.uk

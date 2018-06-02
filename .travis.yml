@@ -4,6 +4,9 @@ rvm: '2.5.0'
 
 script:
   - mkdir -p spec && bundle exec rspec spec
+  
+services:
+  - postgresql
 
 before_install:
 - sudo apt-get update -qq
