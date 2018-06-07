@@ -2,3 +2,8 @@
   <input type="text" name="content">
   <input type="submit" value="Submit">
 </form>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
