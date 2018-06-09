@@ -20,14 +20,12 @@ class FaldoMovieRatings < Sinatra::Base
 
   post "/addfilm" do
     valid_film = Film.create(title: params[:title],
-      rating: params[:rating]
-    )
-    flash[:notice] = "You must enter all fields to submit" unless valid_film
-    if valid_film
-      redirect("/")
-    else
+      rating: params[:rating])
+    unless valid_film
+      flash[:notice] = "You must enter all fields to submit"
       redirect("/addfilm")
     end
+    redirect("/")
   end
 
   run! if app_file == $0
