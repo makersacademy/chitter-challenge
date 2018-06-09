@@ -9,9 +9,6 @@ class ChitterClallenge < Sinatra::Base
         erb :'index'
     end
 
-    get '/chitter' do
-        erb :'chitter'
-    end
 
 
     run! if app_file == $PROGRAM_NAME
