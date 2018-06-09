@@ -1,8 +1,11 @@
-require 'sinatra/base'
 require 'pg'
+require 'sinatra/base'
 require './lib/film'
 
 class FaldoMovieRatings < Sinatra::Base
+
+  # register Sinatra::Flash
+
   get '/' do
     @films = Film.all
     erb :index
@@ -16,6 +19,8 @@ class FaldoMovieRatings < Sinatra::Base
     Film.create(title: params[:title],
       rating: params[:rating]
     )
+    # valid_title = Film.create(title: params[:title])
+    # flash[:notice] = "Title must be under 60 chars" unless valid_title
     redirect("/")
   end
 
