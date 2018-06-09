@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-require './lib/chitter'
+require './lib/peep'
+require 'uri'
 
 class ChitterClallenge < Sinatra::Base
     
@@ -11,6 +12,7 @@ class ChitterClallenge < Sinatra::Base
     get '/chitter' do
         erb :'chitter'
     end
+
 
     run! if app_file == $PROGRAM_NAME
 

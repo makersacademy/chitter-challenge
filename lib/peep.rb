@@ -1,5 +1,5 @@
 require 'pg'
 
-class Chitter
+class Peep
 
 end
