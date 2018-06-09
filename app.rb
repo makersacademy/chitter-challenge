@@ -9,5 +9,12 @@ class FaldoMovieRatings < Sinatra::Base
     erb :addfilm
   end
 
+  post "/addfilm" do
+    # Film.create(params[:title],
+    #   params[:rating]
+    # )
+    redirect("/")
+  end
+
   run! if app_file == $0
 end
