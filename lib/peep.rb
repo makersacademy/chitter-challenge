@@ -3,11 +3,11 @@ require 'pg'
 class Peep
   attr_reader :id, :text, :username, :time
 
-  def initialize(id, text, username, time)
+  def initialize(id, text, time, username)
     @id = id
     @text = text
-    @time = time
     @username = username
+    @time = Time.new.strftime('%I:%M %p on %A, %B %C %Y')
   end
 
   def ==(other)

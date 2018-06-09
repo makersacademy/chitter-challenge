@@ -6,34 +6,33 @@ require 'shotgun'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  #register Sinatra::Flash
 
   get '/' do
     erb :index
   end
 
-  get '/peeps' do
+  get '/peeps/show' do
     @peeps = Peep.all
-    erb :peeps
+    erb :"peeps/show"
   end
 
-  get '/peep/new' do
-    erb :"peep/new"
+  get '/peeps/new' do
+    erb :"peeps/new"
   end
 
-  post '/peep/:id' do
-    #flash[:notice] = "Peep can not exceed 280 characters" unless Peep.create(text: params['text'], usere: params['user'])
-    redirect '/peeps'
+  post '/peeps/new' do
+    Peep.create(text: params['text'], user: params['user'])
+    redirect '/peeps/show'
   end
 
-  post '/peep/:id/delete' do
+  post '/peeps/:id/delete' do
     Peep.delete(id: params['id'])
-    redirect '/peeps'
+    redirect '/peeps/show'
   end
 
   get '/peep/edit' do
     @id = params['id']
-    erb :"/peep/edit"
+    erb :"/peeps/edit"
   end
 
   post '/peeps/edit1' do
