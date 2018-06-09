@@ -12,6 +12,3 @@ feature "Post a message" do
     expect(page).to have_content "mauribendrix"
   end
 end
-
-
-require 'pg'
