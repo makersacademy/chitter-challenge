@@ -7,7 +7,6 @@ feature 'Sort by' do
 
     click_button("sort-alphabetically")
 
-    # NEED TO MAKE THIS REFLECT THE RIGHT ORDER
     expect(page).to have_content("A Bugs Tale 8/10 Back to the Future 9/10 Cars 5/10")
   end
 

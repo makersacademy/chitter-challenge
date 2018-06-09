@@ -13,7 +13,15 @@ class Film
 
   def self.all(sort_by = nil)
     connection = connect_to_correct_database
-    result = connection.exec("SELECT * FROM films")
+
+    # If sort_by is a_to_z then use SELECT by alpha
+
+    if sort_by == "a_to_z"
+      result = connection.exec("SELECT * FROM films ORDER BY UPPER(title) ASC;")
+    else
+      result = connection.exec("SELECT * FROM films")
+    end
+
     result.map{ |film| Film.new(title: film['title'], rating: film['rating']) }
   end
 

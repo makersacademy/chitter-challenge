@@ -10,7 +10,7 @@ class FaldoMovieRatings < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    @films = Film.all(params[:sort_order])
+    @films = Film.all(params[:sort_by])
     erb :index
   end
 
