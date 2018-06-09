@@ -1,4 +1,5 @@
 require 'pg'
+require 'peep_message'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'

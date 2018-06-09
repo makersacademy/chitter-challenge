@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'uri'
 require 'pg'
+require './lib/peep_message'
 
 class Chitter < Sinatra::Base
 
@@ -16,19 +17,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    p params
-    p @message = params['message']
-    p @name = params['name']
-    p @username = params['username']
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (message, name, username) VALUES ('#{@message}', '#{@name}', '#{@username}')")
+    PeepMessage.create(message: params['message'], name: params['name'], username: params['username'])
     redirect '/peeps'
   end
 
   get '/peeps' do
-    p @message = params['message']
-    p @name = params['name']
-    p @username = params['username']
+    @message = params['message']
+    @name = params['name']
+    @username = params['username']
     erb :index
   end
 
