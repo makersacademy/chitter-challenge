@@ -9,7 +9,7 @@ This project relates to our 4th weekend challenge. This week we were focusing on
 ```
 As a user
 So that I can let people know what I think of a film  
-I want to post a film to faldo-movie-ratings.
+I want to add a film to faldo-movie-ratings.
 
 As a user
 So that I can see what films have been reviewed
