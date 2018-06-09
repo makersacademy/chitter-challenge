@@ -1,6 +1,43 @@
 Chitter Challenge
 =================
 
+### Quickstart:
+#### How to install the code:
+1. Fork this project.
+2. Run ```bundle``` to ensure you have all the relevant gems.
+3. Use Ruby 2.5.0
+
+#### How to use the website:
+1. Load localhost server via ```rackup config.ru``` and note the port number listed.
+2. Visit 'localhost:XXXX' with the port number.
+
+#### How to run the tests:
+Spec file includes unit tests and feature tests sub folder. All tests can be run via ```rspec```.
+
+
+### Approach to solving the challenge:
+
+1. Set up Sinatra file system and frame work with Controller and Views.
+2. Created Capybara feature tests for ensuring the user behaviour was as expected.
+3. Worked through the Red, Green, Refactor process to address each user story.
+
+### Status at point of push:
+
+
+### Description of what code does:
+
+
+### Code Style:
+Standard Ruby, with Capybara and Rspec syntax for testing.
+
+### Features:
+
+### Code Example:
+Extract from the
+
+Instructions Set by Makers Academy
+-------
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
