@@ -34,10 +34,6 @@ Visit ``` localhost:8080 ``` in your browser of choide</br>
 $ ``` rspec ``` to run all tests
 
 
-#### How to run the tests:
-Spec file includes unit tests and feature tests sub folder. All tests can be run via ```rspec```
-
-
 To recreate this project, you will need a local postgres database installation and the following databases:
 
 ``` 
