@@ -8,7 +8,7 @@ feature 'Add a film' do
     visit("/")
     click_button("addfilm")
     fill_in("title", with: "My first film review")
-    fill_in("rating", with: "8/10")
+    fill_in("rating", with: "8")
     # Exercise
     click_button("Submit")
     # Verify

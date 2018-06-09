@@ -10,9 +10,9 @@ class FaldoMovieRatings < Sinatra::Base
   end
 
   post "/addfilm" do
-    # Film.create(params[:title],
-    #   params[:rating]
-    # )
+    Film.create(title: params[:title],
+      rating: params[:rating]
+    )
     redirect("/")
   end
 
