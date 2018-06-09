@@ -2,8 +2,6 @@ describe Film do
 
   describe '.all' do
     it 'returns all films in an array' do
-      connection = PG.connect(dbname: 'faldo_movie_ratings_test')
-
       film_1 = Film.create(title: 'Film 1 Title', rating: '10')
       film_2 = Film.create(title: 'Film 2 Title', rating: '10')
       film_3 = Film.create(title: 'Film 3 Title', rating: '10')
@@ -33,6 +31,16 @@ describe Film do
 
         expect(result).to eq alphabetical_list
       end
+    end
+
+    it 'returns the date the film was returned' do
+      film_1 = Film.create(title: 'Film 1 Title', rating: '10')
+
+      list_of_films = Film.all
+
+      film_date = list_of_films.first.date_added
+
+      expect(film_date).to eq("#{Time.now.strftime("%d/%m/%Y")}")
     end
   end
 
