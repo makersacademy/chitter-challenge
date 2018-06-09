@@ -1,22 +1,26 @@
+Requirement
+User Story
+Feature Test
+Unit Tests
+Implementation
+Refactoring
+
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
 User flow:
-* Visit /
-* write a peep
-* press post and see my post on my feed
-
+**DONE** Visit /
+**DONE** write a peep
+**DONE** press post and see my post on my feed
 
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
 User flow:
-* visit /
-* a list of all peep are there in reverse chronological order
-
-Chitter.all
+**DONE** visit /
+**DONE** a list of all peep are there in reverse chronological order 
 
 As a Maker
 So that I can better appreciate the context of a peep
