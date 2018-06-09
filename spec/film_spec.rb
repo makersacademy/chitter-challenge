@@ -25,7 +25,7 @@ describe Film do
     end
 
     it 'returns false if all fields arent provided' do
-      expect(Film.create(title: 'Just the title')).to eq false
+      expect(Film.create(title: 'Just the title', rating: "")).to eq false
     end
   end
 

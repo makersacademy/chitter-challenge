@@ -25,7 +25,7 @@ feature 'Add a film' do
     expect(page).to have_content("You must enter all fields to submit")
     expect(page).not_to have_content("Example Film Title")
   end
-  # 
+
   # scenario 'User must complete title field' do
   #   visit("/")
   #   click_button("addfilm")

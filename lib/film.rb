@@ -39,13 +39,7 @@ class Film
   end
 
   def self.invalid_film?(options)
-    return true if rating_is_null?(options[:rating])
-    if !rating_is_null?(options[:rating])
-      return true if options[:rating].length == 0
-    end
-  end
+    return true if options[:rating].length == 0
 
-  def self.rating_is_null?(rating)
-    rating.nil?
   end
 end
