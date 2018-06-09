@@ -11,6 +11,7 @@ class FaldoMovieRatings < Sinatra::Base
 
   get '/' do
     @films = Film.all
+    # (params[:sort_order])
     erb :index
   end
 

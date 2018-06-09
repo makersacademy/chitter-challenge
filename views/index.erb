@@ -4,6 +4,10 @@
   <input type="submit" id="addfilm" value="Add Film">
 </form>
 
+<form action="/" method="get">
+  <button type="submit" id="sort-alphabetically" name="sort_by" value="a_to_z">Sort A-Z</button>
+</form>
+
 <ul>
   <% @films.each do |film| %>
   <div class ='row'>
@@ -17,3 +21,15 @@
 </ul>
 
 <%= styled_flash %>
+
+<!-- when the button is clicked I want the order to be
+changed to aplha.
+- currently its just whatever the order is in the database
+
+* I could do it in the database before I pull it out
+(and specify this is a Film.all(sort_by: alphabetical))
+OR
+ -->
+
+<!-- one option is to redirect to another page that sorts out the logic -->
+<!-- another option is to have a class method that  -->
