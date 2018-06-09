@@ -4,7 +4,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-# require 'chitter'
+require 'peep'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
@@ -30,7 +30,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
-  # config.before(:each) do
-  #   require_relative './setup_test_database'
-  # end
+  config.before(:each) do
+    require_relative './setup_test_database'
+  end
 end

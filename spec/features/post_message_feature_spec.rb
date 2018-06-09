@@ -5,9 +5,9 @@
 
 feature 'Post a peep to Chitter' do
   scenario 'user can write a peep and post it' do
-    visit ('/')
+    visit '/'
     fill_in('peep', with: "My first peep")
     click_button('Post')
-    expect(page).to have_content ("My first peep")
+    expect(page).to have_content "My first peep"
   end
 end
