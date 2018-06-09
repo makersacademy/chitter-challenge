@@ -45,7 +45,7 @@ feature 'Add a film' do
       expect(page).to have_content("You must enter all fields to submit")
       expect(page).not_to have_content("11")
     end
-    scenario 'user puts in rating under 10' do
+    scenario 'user puts in rating under 0' do
       visit("/")
       click_button("addfilm")
       fill_in("title", with: "Example Film Title")
@@ -54,6 +54,12 @@ feature 'Add a film' do
       # Verify
       expect(page).to have_content("You must enter all fields to submit")
       expect(page).not_to have_content("11")
+    end
+    xscenario 'user puts in rating that isnt a number' do
+
+    end
+    xscenario 'user gets flash that says error specific message' do
+      # e.g. rating must be below 10 (and not generic must enter all fields)
     end
   end
 end
