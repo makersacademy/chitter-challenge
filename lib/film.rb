@@ -40,6 +40,6 @@ class Film
 
   def self.invalid_film?(options)
     return true if options[:rating].length == 0
-
+    return true if options[:title].length == 0 
   end
 end

@@ -27,8 +27,11 @@ describe Film do
     it 'returns false if ratings is empty' do
       expect(Film.create(title: 'Just the title', rating: "")).to eq false
     end
+    it 'returns false if title is empty' do
+      result = Film.create(title: '', rating: '7')
+      expect(result).to be false
+    end
   end
-
 
   xit 'user gets error if enter rating over 10' do
 
