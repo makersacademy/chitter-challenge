@@ -13,12 +13,12 @@ describe PeepMessage do
   end
 
   describe '#==' do
-     it 'Two messages (peeps) are equal if their ids match' do
-       message_1 = PeepMessage.new(1, 'Hiiiiii', 'Bob Bob', 'bobbobo')
-       message_2 = PeepMessage.new(1, 'Hiiiiii', 'Bob Bob', 'bobbobo')
-       expect(message_1).to eq (message_2)
-     end
-   end
+    it 'Two messages (peeps) are equal if their ids match' do
+      message_1 = PeepMessage.new(1, 'Hiiiiii', 'Bob Bob', 'bobbobo')
+      message_2 = PeepMessage.new(1, 'Hiiiiii', 'Bob Bob', 'bobbobo')
+      expect(message_1).to eq message_2
+    end
+  end
 
   describe '.all' do
     it 'Returns all messages (peeps) in an array' do

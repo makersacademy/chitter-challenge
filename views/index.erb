@@ -1,7 +1,7 @@
 <h3>Peep Feed:</h3>
 <div>
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
     <li>
       <a> <%= peep.name %> (<%= peep.username %>) said: <%= peep.message %></a>
     </li>
