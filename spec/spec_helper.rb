@@ -1,9 +1,13 @@
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'setup_test_database'
 
 require 'capybara'
 require 'capybara/rspec'
+require 'pg'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
@@ -23,5 +27,11 @@ RSpec.configure do |config|
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  end
+end
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database!
   end
 end

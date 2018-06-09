@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/film'
 
 class FaldoMovieRatings < Sinatra::Base
   get '/' do
@@ -10,9 +11,9 @@ class FaldoMovieRatings < Sinatra::Base
   end
 
   post "/addfilm" do
-    Film.create(title: params[:title],
-      rating: params[:rating]
-    )
+    # Film.create(title: params[:title],
+    #   rating: params[:rating]
+    # )
     redirect("/")
   end
 
