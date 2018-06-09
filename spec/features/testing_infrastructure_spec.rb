@@ -1,6 +1,6 @@
 feature 'testing infrastructure' do
-  scenario 'root check' do
+  scenario 'root has a page title' do
     visit '/'
-	expect(page).to have_link('Enter Chitter', href: '/')
+	expect(page).to have_title "low rent twitter"
   end
 end 
