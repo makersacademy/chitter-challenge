@@ -16,7 +16,7 @@ feature 'Add a film' do
     expect(page).to have_content("8/10")
   end
 
-  scenario 'User must enter all fields' do
+  scenario 'User must complete rating field' do
     visit("/")
     click_button("addfilm")
     fill_in("title", with: "Example Film Title")
@@ -25,4 +25,16 @@ feature 'Add a film' do
     expect(page).to have_content("You must enter all fields to submit")
     expect(page).not_to have_content("Example Film Title")
   end
+  # 
+  # scenario 'User must complete title field' do
+  #   visit("/")
+  #   click_button("addfilm")
+  #   fill_in("rating", with: "7")
+  #   click_button("Submit")
+  #   # Verify
+  #   expect(page).to have_content("You must enter all fields to submit")
+  #   expect(page).not_to have_content("7")
+  # end
+
+
 end

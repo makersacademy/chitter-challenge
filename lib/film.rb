@@ -18,6 +18,7 @@ class Film
   end
 
   def self.create(options)
+    return false if invalid_film?(options)
     connection = connect_to_correct_database
 
     result = connection.exec("INSERT INTO films (title, rating)
@@ -37,4 +38,14 @@ class Film
     end
   end
 
+  def self.invalid_film?(options)
+    return true if rating_is_null?(options[:rating])
+    if !rating_is_null?(options[:rating])
+      return true if options[:rating].length == 0
+    end
+  end
+
+  def self.rating_is_null?(rating)
+    rating.nil?
+  end
 end

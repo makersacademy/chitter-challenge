@@ -1,25 +1,34 @@
 describe Film do
 
-  it 'returns all films in an array' do
-    connection = PG.connect(dbname: 'faldo_movie_ratings_test')
+  describe '.all' do
+    it 'returns all films in an array' do
+      connection = PG.connect(dbname: 'faldo_movie_ratings_test')
 
-    film_1 = Film.create(title: 'Film 1 Title', rating: '10')
-    film_2 = Film.create(title: 'Film 2 Title', rating: '10')
-    film_3 = Film.create(title: 'Film 3 Title', rating: '10')
+      film_1 = Film.create(title: 'Film 1 Title', rating: '10')
+      film_2 = Film.create(title: 'Film 2 Title', rating: '10')
+      film_3 = Film.create(title: 'Film 3 Title', rating: '10')
 
-    films = [
-      film_1,
-      film_2,
-      film_3
-    ]
+      films = [
+        film_1,
+        film_2,
+        film_3
+      ]
 
-    expect(Film.all).to eq(films)
+      expect(Film.all).to eq(films)
+    end
   end
 
-  it 'creates a new film' do
-    film = Film.create(title: 'Shawshank Redemption', rating: "10")
-    expect(Film.all).to include film
+  describe '.create' do
+    it 'creates a new film' do
+      film = Film.create(title: 'Shawshank Redemption', rating: "10")
+      expect(Film.all).to include film
+    end
+
+    it 'returns false if all fields arent provided' do
+      expect(Film.create(title: 'Just the title')).to eq false
+    end
   end
+
 
   xit 'user gets error if enter rating over 10' do
 

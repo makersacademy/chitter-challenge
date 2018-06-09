@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'pg'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'capybara'
 
 ruby '2.5.0'

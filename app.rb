@@ -1,10 +1,11 @@
 require 'pg'
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/film'
 
 class FaldoMovieRatings < Sinatra::Base
 
-  # register Sinatra::Flash
+  register Sinatra::Flash
 
   get '/' do
     @films = Film.all
@@ -16,11 +17,11 @@ class FaldoMovieRatings < Sinatra::Base
   end
 
   post "/addfilm" do
-    Film.create(title: params[:title],
+    valid_film = Film.create(title: params[:title],
       rating: params[:rating]
     )
     # valid_title = Film.create(title: params[:title])
-    # flash[:notice] = "Title must be under 60 chars" unless valid_title
+    flash[:notice] = "You must fill in all fields" unless valid_film
     redirect("/")
   end
 
