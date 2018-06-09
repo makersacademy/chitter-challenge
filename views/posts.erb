@@ -1,6 +1,6 @@
 <ul>
-  <% @peeps.reverse_each do |peep| %>
-    <li><%= peep %></li>
+  <% @peeps.reverse_each do |peeps| %>
+    <li><%= peeps.peep %> (posted at: <%= peeps.created_at %>)</li>
   <% end %>
 </ul>
 
