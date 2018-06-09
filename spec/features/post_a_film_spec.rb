@@ -10,7 +10,7 @@ feature 'Add a film' do
     fill_in("title", with: "My first film review")
     fill_in("rating", with: "8/10")
     # Exercise
-    click_button("submit")
+    click_button("Submit")
     # Verify
     expect(page).to have_content("My first film review")
     expect(page).to have_content("8/10")
