@@ -22,7 +22,21 @@ I want to sign up for Chitter
 ```
 
 
-# Setup Instructions
+## Setup Instructions
+
+Fork this project</br>
+This project is based on RVM Ruby 2.5.0</br>
+Running a local WEBrick web server
+$ ``` rvm install 2.5.0 ```</br>
+$ ``` bundle install ``` to install the required gems</br>
+$ ``` rackup ``` to load the webserver</br>
+Visit ``` localhost:8080 ``` in your browser of choide</br>
+$ ``` rspec ``` to run all tests
+
+
+#### How to run the tests:
+Spec file includes unit tests and feature tests sub folder. All tests can be run via ```rspec```
+
 
 To recreate this project, you will need a local postgres database installation and the following databases:
 
