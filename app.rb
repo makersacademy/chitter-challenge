@@ -1,11 +1,12 @@
 require 'sinatra/base'
 require './lib/peep'
-#require 'sinatra/flash'
+require 'sinatra/flash'
 require 'pry'
 require 'shotgun'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -21,7 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    Peep.create(text: params['text'], user: params['user'])
+    flash[:notice] = "Your peep must be 280 characters or less" unless Peep.create(text: params['text'], user: params['user'])
     redirect '/peeps/show'
   end
 

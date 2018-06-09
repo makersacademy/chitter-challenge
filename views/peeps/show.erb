@@ -1,3 +1,5 @@
+<%=flash[:notice]%>
+
 <ul>
   <% @peeps.each do |peep| %>
     <li id="peep-<%= peep.id %>">
