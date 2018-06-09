@@ -3,3 +3,15 @@
 <form action="/addfilm" method="get">
   <input type="submit" id="addfilm" value="Add Film">
 </form>
+
+<ul>
+  <% @films.each do |film| %>
+  <div class ='row'>
+    <div class = 'col-lg-1'>
+      <%= film.title %>
+      <%= film.rating %>/10
+    </div>
+  </div>
+  <% end %>
+  <%= @bookmark_to_add %>
+</ul>

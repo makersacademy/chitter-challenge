@@ -1,6 +1,6 @@
 class Film
 
-  attr_reader :title
+  attr_reader :title, :rating
 
   def initialize(options)
     @title = options[:title]
