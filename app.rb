@@ -18,17 +18,15 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     PeepMessage.create(
-      message: params['message'],
-      name: params['name'],
-      username: params['username']
+      params['message'],
+      params['name'],
+      params['username']
     )
     redirect '/peeps'
   end
 
   get '/peeps' do
-    @message = params['message']
-    @name = params['name']
-    @username = params['username']
+    @peeps = PeepMessage.all
     erb :index
   end
 

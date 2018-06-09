@@ -11,6 +11,19 @@ class PeepMessage
     @username = username
   end
 
+  def ==(other)
+    @id == other.id
+  end
+
+  def self.all
+    connection = database_connection
+    result = connection.exec("SELECT * FROM peeps")
+    result.map do |peep|
+      PeepMessage.new(peep['id'], peep['message'],
+                      peep['name'], peep['username'])
+    end
+  end
+
   def self.create(message, name, username)
     connection = database_connection
     result = connection.exec("INSERT INTO peeps (message, name, username)
@@ -29,7 +42,7 @@ class PeepMessage
     if ENV['ENVIRONMENT'] == 'test'
       PG.connect(dbname: 'chitter_test')
     else
-      PG.connect(dbname: 'peeps')
+      PG.connect(dbname: 'chitter')
     end
   end
 

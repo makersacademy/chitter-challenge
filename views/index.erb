@@ -1,6 +1,10 @@
-<h3>Peeps go here:</h3>
+<h3>Peep Feed:</h3>
+<div>
 <ul>
-<li> Message: <%= @message %> </li>
-<li> <%= @name %> </li>
-<li> <%= @username %> </li>
+  <% @peeps.each do |peep| %>
+    <li>
+      <a> <%= peep.name %> (<%= peep.username %>) said: <%= peep.message %></a>
+    </li>
+  <% end %>
 </ul>
+<div>
