@@ -2,6 +2,9 @@
 <form action='/peep' method='get'>
   <input type='submit' value='Peep'>
 </form>
+<form action='/sign_up' method='get'>
+  <input type='submit' value='Sign Up'>
+</form>
 <ul>
   <% @peeps.each do |peep| %>
     <p><%= peep.time %>

@@ -15,3 +15,17 @@ feature 'Makers can post messages to chitter' do
     expect expect(page).to have_content("Test message")
   end
 end
+
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to sign up for Chitter
+
+feature 'Makers can sign up for Chitter' do
+  scenario 'There is a sign-up page with a form for username and email address' do
+    visit '/sign_up'
+    fill_in('username', with: "John Snow")
+    fill_in('email', with: "j.snow@gmail.com")
+    click_button 'Sign Up'
+    expect expect(page).to have_content("Thanks for signing up for Chitter, John Snow")
+  end
+end
