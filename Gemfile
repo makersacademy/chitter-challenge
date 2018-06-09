@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'capybara'
 gem 'pry'
 gem 'shotgun'
+gem 'pg'
 
 group :test do
   gem 'rspec'
