@@ -2,9 +2,11 @@ require 'pg'
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/film'
+require 'uri'
 
 class FaldoMovieRatings < Sinatra::Base
 
+  enable :sessions
   register Sinatra::Flash
 
   get '/' do
@@ -20,8 +22,7 @@ class FaldoMovieRatings < Sinatra::Base
     valid_film = Film.create(title: params[:title],
       rating: params[:rating]
     )
-    # valid_title = Film.create(title: params[:title])
-    flash[:notice] = "You must fill in all fields" unless valid_film
+    flash[:notice] = "You must enter all fields to submit" unless valid_film
     redirect("/")
   end
 
