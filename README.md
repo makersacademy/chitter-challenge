@@ -28,7 +28,7 @@ Fork this project</br>
 This project is based on RVM Ruby 2.5.0</br>
 Running a local WEBrick web server</br>
 $ ``` rvm install 2.5.0 ```</br>
-$ ``` bundle install ``` to install the required gems</br>
+$ ``` bundle ``` to install the required gems</br>
 $ ``` rackup ``` to load the webserver</br>
 Visit ``` localhost:8080 ``` in your browser of choide</br>
 $ ``` rspec ``` to run all tests
@@ -41,12 +41,12 @@ psql
 
 CREATE DATABASE chitter_challenge;
 \c chitter_challenge
-CREATE TABLE chitter ( id serial PRIMARY KEY, Peeps VARCHAR(128), TimeStamp TIME);
+CREATE TABLE chitter ( id SERIAL PRIMARY KEY, Peeps VARCHAR(128), TimeStamp TIME);
 
 
 CREATE DATABASE chitter_challenge_test;
 \c chitter_challenge_test
-CREATE TABLE chitter ( id serial PRIMARY KEY, Peeps VARCHAR(128), TimeStamp TIME);
+CREATE TABLE chitter ( id SERIAL PRIMARY KEY, Peeps VARCHAR(128), TimeStamp TIME);
 ```
 
 ```SELECT * FROM chitter;```
