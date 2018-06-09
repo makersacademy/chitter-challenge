@@ -3,10 +3,13 @@ describe Film do
     connection = PG.connect(dbname: 'faldo_movie_ratings_test')
 
     connection.exec("INSERT INTO films (title, rating) VALUES('Film Title', '7');")
-    raw_result = connection.exec("SELECT * FROM films;")
-    result = raw_result.map{ |film| film }
-    
-    expect(Film.all).to include(result)
+
+    film = {
+      "title" => "Film Title",
+      "rating" => "7"
+    }
+
+    expect(Film.all).to include(film)
   end
 
 
