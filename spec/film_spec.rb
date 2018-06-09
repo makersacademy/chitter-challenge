@@ -16,6 +16,25 @@ describe Film do
 
       expect(Film.all).to eq(films)
     end
+
+    context 'When fed a_to_z parameter' do
+      it 'returns an array alphabatised by first letter in title' do
+        # Setup
+        film_c = Film.create(title: 'Cars', rating: '5')
+        film_a = Film.create(title: 'A bugs Tale', rating: '8')
+        film_b = Film.create(title: 'Back to the Future', rating: '9')
+
+        alphabetical_list = [
+          film_a,
+          film_b,
+          film_c
+        ]
+        # Exercise
+        result = Film.all("a_to_z")
+        # Verify
+        expect(result).to eq alphabetical_list
+      end
+    end
   end
 
   describe '.create' do

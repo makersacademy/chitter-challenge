@@ -11,7 +11,7 @@ class Film
     @title == other.title
   end
 
-  def self.all
+  def self.all(sort_by = nil)
     connection = connect_to_correct_database
     result = connection.exec("SELECT * FROM films")
     result.map{ |film| Film.new(title: film['title'], rating: film['rating']) }
