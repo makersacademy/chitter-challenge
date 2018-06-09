@@ -42,5 +42,6 @@ class Film
     return true if options[:rating].length == 0
     return true if options[:title].length == 0
     return true if options[:rating].to_i > 10
+    return true if options[:rating].to_i < 0
   end
 end

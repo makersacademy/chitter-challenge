@@ -35,6 +35,10 @@ describe Film do
       result = Film.create(title: 'Valid Title', rating: '11')
       expect(result).to be false
     end
+    it 'returns false if rating is under 10' do
+      result = Film.create(title: 'Valid Title', rating: '-10')
+      expect(result).to be false
+    end
   end
 
   xit 'user gets error if enter rating over 10' do
