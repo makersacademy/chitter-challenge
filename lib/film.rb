@@ -1,10 +1,11 @@
 class Film
 
-  attr_reader :title, :rating
+  attr_reader :title, :rating, :date_added
 
   def initialize(options)
     @title = options[:title]
     @rating = options[:rating]
+    @date_added = options[:date_added]
   end
 
   def ==(other)
@@ -22,19 +23,21 @@ class Film
       result = connection.exec("SELECT * FROM films")
     end
 
-    result.map{ |film| Film.new(title: film['title'], rating: film['rating']) }
+    result.map{ |film| Film.new(title: film['title'], rating: film['rating'], date_added: film['date_added']) }
   end
 
   def self.create(options)
     return false if invalid_film?(options)
     connection = connect_to_correct_database
 
-    result = connection.exec("INSERT INTO films (title, rating)
-      VALUES('#{options[:title]}', '#{options[:rating]}')
-      RETURNING title, rating;")
+    result = connection.exec("INSERT INTO films (title, rating, date_added)
+      VALUES('#{options[:title]}', '#{options[:rating]}', 'NOW()')
+      RETURNING title, rating, date_added")
     Film.new(title: result.first['title'],
-      rating: result.first['rating'])
+      rating: result.first['rating'], date_added: result.first['date_added'])
   end
+
+
 
   private
 

@@ -33,7 +33,7 @@ describe Film do
       end
     end
 
-    it 'returns the date the film was returned' do
+    it 'returns the date the film was added' do
       film_1 = Film.create(title: 'Film 1 Title', rating: '10')
 
       list_of_films = Film.all
