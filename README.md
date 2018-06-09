@@ -27,8 +27,8 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
 User flow: 
-* visit /
-* each peep has a time stamp
+**DONE** visit /
+**DONE** each peep has a time stamp
 
 As a Maker
 So that I can post messages on Chitter as me
@@ -66,3 +66,10 @@ I want to receive an email if I am tagged in a Peep
 User flow: 
 * having added my email when I signed up
 * I will receieve an email with a link to the tweet I was mentioned in.
+
+
+Proper walkthrough
+
+git clone this project
+bundle
+run *rake setup* the test and development databases

@@ -1,4 +1,5 @@
 ENV['ENVIRONMENT'] = 'test'
+require 'rake'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
@@ -12,8 +13,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+Rake.application.load_rakefile
+
 RSpec.configure do |config|
   config.before(:each) do
-    setup_db!
+    Rake::Task['test_database_setup'].execute
   end
 end

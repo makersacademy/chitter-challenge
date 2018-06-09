@@ -13,4 +13,12 @@ class Chitter < Sinatra::Base
         Peep.create(content: peep)
         redirect '/'
     end
+
+    get '/signup' do
+        erb :signup
+    end
+
+    post '/signup' do
+        redirect '/'
+    end
 end
