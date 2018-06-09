@@ -18,7 +18,6 @@ class Film
   end
 
   def self.create(options)
-    p options[:rating].is_a?(Integer)
     return false if invalid_film?(options)
     connection = connect_to_correct_database
 
@@ -32,7 +31,7 @@ class Film
   private
 
   def self.connect_to_correct_database
-    if ENV['ENVIRONMENT'] = 'test'
+    if ENV['ENVIRONMENT'] == 'test'
       PG.connect(dbname: 'faldo_movie_ratings_test')
     else
       PG.connect(dbname: 'faldo_movie_ratings')
