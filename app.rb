@@ -23,7 +23,11 @@ class FaldoMovieRatings < Sinatra::Base
       rating: params[:rating]
     )
     flash[:notice] = "You must enter all fields to submit" unless valid_film
-    redirect("/")
+    if valid_film
+      redirect("/")
+    else
+      redirect("/addfilm")
+    end
   end
 
   run! if app_file == $0
