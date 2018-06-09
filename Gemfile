@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'sinatra'
+gem 'capybara'
+
 ruby '2.5.0'
 
 gem 'rake'

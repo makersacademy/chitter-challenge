@@ -9,7 +9,7 @@ This project relates to our 4th weekend challenge. This week we were focusing on
 ```
 As a user
 So that I can let people know what I think of a film  
-I want to post a film score to faldo-movie-ratings.
+I want to post a film to faldo-movie-ratings.
 
 As a user
 So that I can see what films have been reviewed
@@ -36,6 +36,8 @@ This project has been created so that I can keep track of the films I would reco
 * On your browser, navigate to localhost:9292
 
 ## Usage
+
+Install postgres?
 
 Once you've navigated to localhost, you can follow the instructions on the screen.
 
