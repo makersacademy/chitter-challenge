@@ -1,15 +1,17 @@
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
+require 'rake'
 require 'rspec'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'peep'
 
-ENV['RACK_ENV'] = 'test'
-ENV['ENVIRONMENT'] = 'test'
-
 Capybara.app = Chitter
+Rake.application.load_rakefile
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -30,8 +32,8 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
-  config.before(:each) do
-    require_relative './setup_test_database'
+  config.before(:suite) do
+    Rake::Task['test_database_setup'].execute
   end
 end
 
