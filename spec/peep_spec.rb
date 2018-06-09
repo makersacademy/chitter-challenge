@@ -1,18 +1,20 @@
 require 'peep'
 
 describe Peep do 
-    describe '.all' do
+    describe '#all' do
         it 'returns all peeps' do
             
-            Peep.create(content: "Great content")
-            Peep.create(content: "140 characters are no longer a rule")
-            Peep.create(content: "This website won''t ever become toxic!")
+            peep_1 = Peep.create(content: "Great content")
+            peep_2 = Peep.create(content: "140 characters are no longer a rule")
+            peep_3 = Peep.create(content: "This website won''t ever become toxic!")
 
-            peeps = Peep.all
+            expected_peeps = [
+                peep_1,
+                peep_2,
+                peep_3
+            ]
             
-            expect(peeps).to include("Great content")
-            expect(peeps).to include("140 characters are no longer a rule")
-            expect(peeps).to include("This website won't ever become toxic!")
+            expect(Peep.all).to eq (expected_peeps)
         end
     end
 end 
