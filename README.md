@@ -26,7 +26,7 @@ I want to sign up for Chitter
 
 Fork this project</br>
 This project is based on RVM Ruby 2.5.0</br>
-Running a local WEBrick web server
+Running a local WEBrick web server</br>
 $ ``` rvm install 2.5.0 ```</br>
 $ ``` bundle install ``` to install the required gems</br>
 $ ``` rackup ``` to load the webserver</br>
