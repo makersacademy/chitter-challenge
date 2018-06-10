@@ -5,8 +5,4 @@ if ENV['RACK_ENV'] != 'production'
 
   task default: [:spec]
 
-  task :teardown do
-    connection = PG.connect(dbname: 'faldo_movie_ratings')
-    connection.exec("DROP DATABASE films, comments;")
-  end
 end

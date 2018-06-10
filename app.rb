@@ -1,5 +1,6 @@
 require './lib/comment'
 require './lib/film'
+require './lib/user'
 require 'pg'
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -11,6 +12,7 @@ class FaldoMovieRatings < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @user = User.find(session[:user_id])
     @films = Film.all(params[:sort_by])
     @comments = Comment.all
     erb :index
@@ -37,6 +39,16 @@ class FaldoMovieRatings < Sinatra::Base
 
   post "/comment/:title" do
     Comment.add(title: params[:title], comment: params[:comment])
+    redirect("/")
+  end
+
+  get "/users/new" do
+    erb :"users/new"
+  end
+
+  post "/users" do
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect("/")
   end
 
