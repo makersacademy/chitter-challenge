@@ -18,7 +18,6 @@ feature 'read peeps' do
         fill_in('peep', with: 'time_check')
         click_button('peep')
         expect(page).to have_content(some_peep.time)
-        # expect(page).to have_content
     end
 
 end
