@@ -11,4 +11,11 @@ describe User do
     end
   end
 
+  describe '.all' do
+    it 'returns all users' do
+      users = User.all.map(&:username)
+      expect(users).to include("John Snow")
+    end
+  end
+
 end
