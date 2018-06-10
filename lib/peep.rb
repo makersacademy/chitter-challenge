@@ -17,9 +17,11 @@ class Peep
     end
 
 
-    def self.create(create)
+    def self.create(text)
+        return false unless is_long?(text[:peep])
+
         sql_query = "INSERT INTO chitter (peep)
-                     VALUES('#{create[:peep]}')
+                     VALUES('#{text[:peep]}')
                      RETURNING id, peep, time_stamp"
 
         result = database.exec(sql_query)
@@ -40,6 +42,11 @@ class Peep
 
 
     private
+
+    def self.is_long?(peep)
+        peep.length <= 140
+    end
+
 
     def self.database
         ENV['ENVIRONMENT'] == 'test'  \

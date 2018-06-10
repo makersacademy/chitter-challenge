@@ -3,6 +3,6 @@ feature 'testing infrastructure' do
 
     visit '/'
 	expect(page).to have_title "low rent twitter"
-
+    
   end
 end 

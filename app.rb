@@ -14,9 +14,16 @@ class ChitterClallenge < Sinatra::Base
         erb :'index'
     end
 
+
     post '/' do
-        Peep.create(peep: params['peep'])
+        oops = 'you peeped too long!'
+        flash[:notice] = oops unless Peep.create(peep: params['peep'])
         redirect '/'
+    end
+
+
+    error 404 do
+        '404'
     end
 
 
