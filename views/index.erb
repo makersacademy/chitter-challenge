@@ -1,7 +1,7 @@
 <h1>Welcome to Chitter!</h1>
 
 <% if @user %>
-  <h1>You are signed in as <%= @user.username %></h1>
+  <h2>You are signed in as <%= @user.username %></h2>
 <% else %>
   <form action='/users/new' method='post'>
     <input type='submit' value='Sign Up'>

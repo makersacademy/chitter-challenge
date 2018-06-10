@@ -1,3 +1,4 @@
+require 'bcrypt'
 require 'pg'
 
 class User
@@ -19,8 +20,9 @@ class User
   end
 
   def self.create(options)
+    password = BCrypt::Password.create(options[:password])
     connection = database_connection
-    result = connection.exec("INSERT INTO users (email, password, name, username) VALUES('#{options[:email]}', '#{options[:password]}', '#{options[:name]}', '#{options[:username]}') RETURNING id, email, password, name, username;")
+    result = connection.exec("INSERT INTO users (email, password, name, username) VALUES('#{options[:email]}', '#{password}', '#{options[:name]}', '#{options[:username]}') RETURNING id, email, name, username;")
     User.new(result[0]['id'], result[0]['email'], result[0]['password'], result[0]['name'], result[0]['username'])
   end
 
