@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    "Page is working!"
+    redirect '/peeps'
   end
 
   get '/users/new' do
