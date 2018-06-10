@@ -2,20 +2,20 @@ class Comment
 
   attr_reader :id, :comment, :title
 
-  def initialize(title: title, comment: comment, id: id)
-    @title = title
-    @comment = comment
-    @id = id
+  def initialize(options)
+    @title = options[:title]
+    @comment = options[:comment]
+    @id = options[:id]
   end
 
   def ==(other)
     @id== other.id
   end
 
-  def self.add(title: title, comment: comment)
+  def self.add(options)
     connection = connect_to_correct_database
     results = connection.exec("INSERT INTO comments (text, film_title)
-      VALUES('#{comment}', '#{title}')
+      VALUES('#{options[:comment]}', '#{options[:title]}')
       RETURNING id, text, film_title;")
     results.map { |comment| Comment.new(title: results.first['film_title'],
       comment: results.first['text'], id: results.first['id'])}
