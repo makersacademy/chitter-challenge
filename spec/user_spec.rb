@@ -42,11 +42,11 @@ describe User do
       expect(authenticated_user.id).to eq user.id
     end
     it 'returns nil when given an incorrect username' do
-      user = enter_user
-      expect(User.authenticate('incorrectusername','hunter123')).to be_nil
+      enter_user
+      expect(User.authenticate('incorrectusername', 'hunter123')).to be_nil
     end
     it 'returns nil when given an incorrect password' do
-      user = enter_user
+      enter_user
       expect(User.authenticate('tester', 'wrongpassword')).to be_nil
     end
   end

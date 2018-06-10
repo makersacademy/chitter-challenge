@@ -30,7 +30,9 @@ class Peeps
 
   def self.find(id)
     return nil unless id
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id.to_i}'")
+    result = DatabaseConnection.query(
+      "SELECT * FROM users WHERE id = '#{id.to_i}'"
+    )
     User.new(
       result[0]['id'],
       result[0]['email'],

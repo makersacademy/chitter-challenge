@@ -6,6 +6,7 @@ class DatabaseConnection
   end
 
   def self.connection
+    print ' '
     @connection
   end
 

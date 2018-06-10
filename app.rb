@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   get '/' do
     @title = 'Chitter'
     @user = User.find(session[:user_id])
-    @peeps = Peeps.all
+    @peeps = Peeps.all.reverse
     if @user
       erb :index
     else
