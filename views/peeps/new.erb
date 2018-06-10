@@ -1,8 +1,8 @@
 <h2>Enter a new peep!</h3>
   <form action="/peeps/new" method="post">
+    <input type="hidden" name="username" value="<%= @user.username %>">
     <p>Peep:</p>
-    <input type="text" name="text" />
-    <p>Username:</p>
-    <input type="text" name="username" /><p></p>
+    <input type="text" name="text" /><p></p>
+
     <input type="submit" value="Peep!" />
   </form>

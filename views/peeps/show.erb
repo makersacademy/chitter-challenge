@@ -1,5 +1,13 @@
 <%=flash[:notice]%>
 
+<% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+<% end %>
+
+<form action="/" method="get">
+  <input type='submit' value = "Log Out!"/>
+</form>
+
 <ul>
   <% @peeps.each do |peep| %>
     <li id = "peep-<%= peep.id %>">>

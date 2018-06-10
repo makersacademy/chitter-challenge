@@ -23,6 +23,7 @@ RSpec.configure do |config|
     connection = PG.connect(dbname: 'chitter_app_test')
 
     connection.exec("TRUNCATE peeps;")
+    connection.exec("TRUNCATE users;")
     connection.close
   end
 end

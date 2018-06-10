@@ -1,15 +1,10 @@
 <h1> Welcome to Chitter!</h1>
 
-  <fieldset>
-    <legend>Sign In!</legend>
-      <p>
-        <label>Username</label>
-        <input type = "text"
-                id = "myText" />
-      </p>
-      <p>
-        <label>Password</label>
-        <input type = "text"
-                id = "myPwd" />
-      </p>
-  </fieldset>
+<h2>Sign Up!</h3>
+  <form action="/users/new1" method="post">
+    <p>Username:</p>
+    <input type="text" name="username" />
+    <p>Password:</p>
+    <input type="password" name="password" /><p></p>
+    <input type="submit" value="Submit!" />
+  </form>

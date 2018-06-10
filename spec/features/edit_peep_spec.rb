@@ -10,7 +10,6 @@ feature 'edit a peep' do
     end
 
     fill_in('text', with: 'peep test 21')
-    fill_in('username', with: 'user_3')
     click_button('Submit')
 
     expect(page).not_to have_content "peep test 1"
