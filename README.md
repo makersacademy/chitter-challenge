@@ -72,3 +72,7 @@ CREATE TABLE users ( id SERIAL PRIMARY KEY,
 
  id | peeps | timestamp</br>
 ----+-------+-----------
+
+### TODO : Add User Authentication and login/logout
+
+https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/17.md
