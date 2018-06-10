@@ -4,7 +4,7 @@ require 'simplecov-console'
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
 ])
-SimpleCov.start {  add_filter "Rakefile" }
+SimpleCov.start { add_filter "Rakefile" }
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
