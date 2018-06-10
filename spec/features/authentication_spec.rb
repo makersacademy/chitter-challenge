@@ -36,4 +36,16 @@ feature 'authentication' do
     expect(page).not_to have_content 'Welcome, John Doe'
     expect(page).to have_content 'It looks like you entered your username or password wrong.'
   end
+
+  it 'a user can sign out' do
+    enter_user
+    visit '/sign_in'
+    fill_in('username', with: 'tester')
+    fill_in('password', with: 'hunter123')
+    click_button('Sign in')
+    visit '/'
+    click_link 'Sign out'
+
+    expect(page).to have_content 'You have signed out.'
+  end
 end

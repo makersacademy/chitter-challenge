@@ -6,10 +6,17 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'hello world'
+    @title = 'Chitter'
+    @user = User.find(session[:user_id])
+    if @user
+      erb :index
+    else
+      redirect '/sign_in'
+    end
   end
 
   get '/signup' do
+    @title = 'Chitter sign up'
     erb :signup
   end
 
@@ -25,11 +32,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/new_user_confirmation' do
+    @title = 'Login success!'
     @user = User.find(session[:user_id])
     erb :new_user_confirmation
   end
 
   get '/sign_in' do
+    @title = 'Chitter sign in'
     erb :sign_in
   end
 
@@ -42,14 +51,34 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect('/sign_in_confirmation')
     else
+      @title = 'Chitter Sign in'
       @error = true
       erb :sign_in
     end
   end
 
   get '/sign_in_confirmation' do
+    @title = 'Thank you for signing in'
     @user = User.find(session[:user_id])
     erb :sign_in_confirmation
+  end
+
+  get '/sign_out' do
+    @title = 'Sign out'
+    @user = User.find(session[:user_id])
+    session.clear
+    erb :sign_out_confirmation
+  end
+
+  get '/new_peep' do
+    @title = 'New peep'
+    @user = User.find(session[:user_id])
+    erb :new_peep
+  end
+
+  post '/new_peep' do
+    Peep.create(peep: params['peep'])
+    redirect '/'
   end
 
   run! if app_file == $0

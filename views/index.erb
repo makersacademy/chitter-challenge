@@ -1,0 +1,34 @@
+<div class="container fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">  <img class="mb-4" src="\images\logo2.png" alt="" width="288"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">You are signed in as <%= @user.name %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/peep" name = 'peep'>Peep</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sign_out" name = 'sign_out'>Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="my-3 p-3 bg-white rounded box-shadow">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+    <div class="media pt-3">
+      <img src="" alt="" class="mr-2 rounded">
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark">@username</strong>
+        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+      </p>
+    </div>
+
+  </div>
+</div>
