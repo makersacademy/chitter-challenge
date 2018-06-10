@@ -1,11 +1,25 @@
 class Comment
+
+  attr_reader :comment
+
+  def initialize(title: title, comment: comment)
+    @title = title
+    @comment = comment
+  end
+
+  def ==(other)
+    @comment == other.comment
+  end
+
   def self.show(title: title)
     # Connect to database
     connection = connect_to_correct_database
     # Execute query to retrieve the data
     results = connection.exec("SELECT text FROM comments WHERE film_title = '#{title}'")
+    p results.first['text']
+    p "TEXT ABOVE"
     # Return an array of objects that have strings of text as state
-    results.map { |comment| comment['text'] }
+    results.map { |comment| Comment.new(title: "#{title}", comment: results.first['text']) }
   end
 
   def self.add(title: title, comment: comment)

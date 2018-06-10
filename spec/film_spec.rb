@@ -82,11 +82,11 @@ describe Film do
   end
 
   describe '#==' do
-    it 'two bookmarks are equal if their ids match' do
-      bookmark_1 = Film.new(title: "Pulp Fiction", rating: '9')
-      bookmark_2 = Film.new(title: "Pulp Fiction", rating: '9')
+    it 'two films are equal if their titles match' do
+      film_1 = Film.new(title: "Pulp Fiction", rating: '9')
+      film_2 = Film.new(title: "Pulp Fiction", rating: '9')
 
-      expect(bookmark_1).to eq(bookmark_2)
+      expect(film_1).to eq(film_2)
     end
   end
 
