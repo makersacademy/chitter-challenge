@@ -1,8 +1,9 @@
-require './lib/peep_message'
-require './lib/sign_up'
 require 'pg'
 require 'sinatra/base'
 require 'sinatra/flash'
+require './database_connection_setup'
+require './lib/peep_message'
+require './lib/sign_up'
 
 class Chitter < Sinatra::Base
 

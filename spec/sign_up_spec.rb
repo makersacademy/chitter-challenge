@@ -19,6 +19,7 @@ describe ChitterSignUp do
 
     it 'Hashes the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('password12')
+
       ChitterSignUp.new_user('Bob', 'bobbob', 'bob@gmail.com', 'password12')
     end
 

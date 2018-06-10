@@ -12,7 +12,7 @@ feature 'Sign up' do
   end
 
   scenario 'Email and username must be unique' do
-    register_for_chitter
+    register_for_chitter_1
     visit('/users/new')
     fill_in("name", with: "Mauri Bendrix")
     fill_in("username", with: "mauribendrix")

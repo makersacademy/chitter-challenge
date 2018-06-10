@@ -1,4 +1,4 @@
-require 'pg'
+require 'database_connection'
 
 class PeepMessage
 
@@ -17,8 +17,7 @@ class PeepMessage
   end
 
   def self.all
-    connection = database_connection
-    result = connection.exec("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps")
     result.to_a.reverse.map do |peep|
       PeepMessage.new(peep['id'], peep['message'], peep['name'],
                       peep['username'], peep['time'])
@@ -26,8 +25,7 @@ class PeepMessage
   end
 
   def self.create(message, name, username, time)
-    connection = database_connection
-    result = insert_into_database(connection, message, name, username, time)
+    result = insert_into_database(message, name, username, time)
     id = result.first['id']
     peep_message = result.first['message']
     peep_name = result.first['name']
@@ -38,16 +36,8 @@ class PeepMessage
 
   private_class_method
 
-  def self.database_connection
-    if ENV['ENVIRONMENT'] == 'test'
-      PG.connect(dbname: 'chitter_test')
-    else
-      PG.connect(dbname: 'chitter')
-    end
-  end
-
-  def self.insert_into_database(connection, message, name, username, time)
-    connection.exec(
+  def self.insert_into_database(message, name, username, time)
+    DatabaseConnection.query(
       "INSERT INTO peeps (message, name, username, time)
       VALUES ('#{message}', '#{name}', '#{username}', '#{time}')
       RETURNING peep_id, message, name, username, time"

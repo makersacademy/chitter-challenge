@@ -2,7 +2,8 @@ require "pg"
 
 feature "Post a message" do
   scenario "Can post a message (peep) to Chitter" do
-    register_for_chitter
+    register_for_chitter_1
+    register_for_chitter_2
     visit("/peeps/post")
     fill_in("name", with: "Maurice Bendrix")
     fill_in("username", with: "mauribendrix")

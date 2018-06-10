@@ -2,7 +2,8 @@ require 'pg'
 
 feature 'View messages' do
   scenario 'Can view all the messages (peeps) on Chitter' do
-    register_for_chitter
+    register_for_chitter_1
+    register_for_chitter_2
     PeepMessage.create("Maurice, it has been too long", "Sarah Miles", "smiles", Time.now)
     PeepMessage.create("Sarah! I missed you", "Maurice Bendrix", "mauribendrix", Time.now)
     PeepMessage.create("Henry is well...", "Sarah Miles", "smiles", Time.now)
@@ -13,7 +14,8 @@ feature 'View messages' do
   end
 
   scenario 'Can view all the messages (peeps) on Chitter in reverse order' do
-    register_for_chitter
+    register_for_chitter_1
+    register_for_chitter_2
     first_peep = PeepMessage.create("Maurice, it has been too long", "Sarah Miles", "smiles", Time.now)
     second_peep = PeepMessage.create("Sarah! I missed you", "Maurice Bendrix", "mauribendrix", Time.now)
     third_peep = PeepMessage.create("Henry is well...", "Sarah Miles", "smiles", Time.now)
