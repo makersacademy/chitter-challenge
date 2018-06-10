@@ -1,13 +1,17 @@
+
 <form action='/post' method='post'>
   <label>Compose a new Peep</label><br>
   <textarea cols="50" rows="5" type='text' name='content'></textarea><br>
   <input type='submit' value='Post'>
 </form>
 
-<ul>
+<ul style="list-style-type: none">
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.content %>
+      <div style='background-color:#ecf2f9'>
+        <%= peep.content %>
+      </div>
     </li>
+    <br>
   <% end %>
 </ul>
