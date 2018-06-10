@@ -47,18 +47,37 @@ describe Peep do
 
   describe '.delete' do
     it 'deletes a peep from the database' do
-      peep = Peep.create(text: 'peep test 1', username: "test_user")
-      peep_id = peep.id
+      peep_1 = Peep.create(text: 'peep test 1', username: "test_user1")
+      peep_2 = Peep.create(text: 'peep test 2', username: "test_user2")
 
-      Peep.delete(peep_id)
+      Peep.delete(peep_2.id)
 
-      expect(Peep.all).not_to include peep
+      expect(Peep.all).not_to include peep_2
+      expect(Peep.all).to include peep_1
     end
   end
 
   describe '.edit' do
     it 'updates a peep in the database' do
-      peep = Peep.create(text: 'peep test 1', username: "test_user")
+      Peep.create(text: 'peep test 1', username: "test_user")
+      Peep.edit(text: 'edited peep', username: "test_user")
+
+      peeps = Peep.all
+      texts = peeps.map(&:text)
+
+
+      expect(texts).not_to include "peep test 1"
+      expect(texts).to include "edited peep"
+    end
+  end
+
+  describe '.find' do
+    it 'find a peep' do
+      peep_1 = Peep.create(text: "peep test 1", username: "test_user1")
+      peep = Peep.find(peep_1.id)
+
+      expect(peep.text).to eq "peep test 1"
+      expect(peep.username).to eq "test_user1"
     end
   end
 end

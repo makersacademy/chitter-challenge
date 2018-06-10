@@ -27,18 +27,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/:id/delete' do
-    Peep.delete(id: params['id'])
+    Peep.delete(params['id'])
     redirect '/peeps/show'
   end
 
-  get '/peep/edit' do
-    @id = params['id']
-    erb :"/peeps/edit"
+  post '/peeps/edit1' do
+    Peep.edit(id: params['id'], text: params['text'], username: params['username'])
+    redirect '/peeps/show'
   end
 
-  post '/peeps/edit1' do
-    Peep.edit(id: params['id'], text: params['text'], user: params['user'])
-    redirect '/peeps'
+  get '/peeps/edit' do
+    @peep = Peep.find(params[:id])
+    @id = params['id']
+    erb :"/peeps/edit"
   end
 
   run! if app_file ==$0

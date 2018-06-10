@@ -1,0 +1,12 @@
+<h2> Update a bookmark: </h2>
+
+<form action="/peeps/edit1" method="post">
+  <input type="hidden" name="id" value="<%= @peep.id %>">
+  <p>Text:</p>
+  <input type="text" name="text" value="<%= @peep.text %>" />
+  <p>Username:</p>
+  <input type="text" name="username" value="<%= @peep.username %>" />
+  <input type="hidden" name="time" value="<%= @peep.time %>" />
+  <input type="hidden" name="_method" value="patch"><p></p>
+  <input type="submit" value="Submit" />
+</form>
