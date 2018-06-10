@@ -39,15 +39,15 @@ describe Comment do
       cmt_1 = Comment.add(title: "Film 1", comment: "Comment 1")
       cmt_2 = Comment.add(title: "Film 1", comment: "Comment 2")
       cmt_3 = Comment.add(title: "Film 2", comment: "Comment 3")
-      cmt_4 =Comment.add(title: "Film 3", comment: "Comment 4")
+      cmt_4 = Comment.add(title: "Film 3", comment: "Comment 4")
       # Exercise
       expected_comments = [
-        cmt_1,
-        cmt_2,
-        cmt_3,
-        cmt_4
+        cmt_1.first,
+        cmt_2.first,
+        cmt_3.first,
+        cmt_4.first
       ]
-      # Verify
+
       expect(Comment.all).to eq expected_comments
     end
   end

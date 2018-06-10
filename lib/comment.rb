@@ -15,7 +15,8 @@ class Comment
   def self.show(title: title)
     connection = connect_to_correct_database
     results = connection.exec("SELECT text, id, film_title FROM comments WHERE film_title = '#{title}'")
-    results.map { |comment| Comment.new(title: results.first['film_title'], comment: results.first['text'], id: results.first['id']) }
+    results.map { |comment| Comment.new(title: results.first['film_title'],
+      comment: results.first['text'], id: results.first['id']) }
   end
 
   def self.add(title: title, comment: comment)
@@ -25,6 +26,17 @@ class Comment
       RETURNING id, text, film_title;")
     results.map { |comment| Comment.new(title: results.first['film_title'],
       comment: results.first['text'], id: results.first['id'])}
+  end
+
+  def self.all
+    connection = connect_to_correct_database
+    results = connection.exec("SELECT * FROM comments;")
+    counter = -1
+    results.map do |comment|
+      counter += 1
+      Comment.new(title: results[counter]['film_title'],
+        comment: results[counter]['text'], id: results[counter]['id'])
+    end
   end
 
   private
