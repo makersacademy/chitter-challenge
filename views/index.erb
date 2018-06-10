@@ -15,6 +15,15 @@
 <div>
 
 <h3>Sign up so that you can peep!</h3>
-<!-- button to got to sign in page -->
+<form action="/users/new" method="get">
+  <input type="submit" value="Sign Up" />
+</form>
+
+<h3>You must be an existing user to post</h3>
+
+<h3>Already a Chitter? Getting peeping:</h3>
+<form action="/peeps/post" method="get">
+  <input type="submit" value="Post" />
+</form>
 <!-- <h3>Or click here to login if you're already a user</h3> -->
 <!-- button to login -->
