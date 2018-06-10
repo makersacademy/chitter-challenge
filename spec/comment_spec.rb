@@ -1,48 +1,43 @@
 describe Comment do
   describe '.show' do
     it 'shows the comments for given film' do
-      connection = PG.connect(dbname: 'faldo_movie_ratings_test')
+      connect_to_test_database_and_enter_3_films
+      comment = Comment.add(title: "Film 2 Title", comment: "This is a comment about the film that users can make")
 
-      # Create films in database
-      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 1 Title', '10');")
-      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 2 Title', '7');")
-      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 3 Title', '8');")
-
-      # Add comment to database for Film 2
-      comment_to_add = "This is a comment about the film that users can make"
-      connection.exec("INSERT INTO comments (text, film_title) VALUES('#{comment_to_add}', 'Film 2 Title');")
-      comment = Comment.new(title: "Film 2 Title", comment: "This is a comment about the film that users can make")
-
-      # Verify
-      expect(Comment.show(title: "Film 2 Title").first).to eq(comment)
+      expect(Comment.show(title: "Film 2 Title")).to eq(comment)
     end
-
   end
 
   describe '.add' do
     it 'it can add comments' do
-      # Setup
-      connection = PG.connect(dbname: 'faldo_movie_ratings_test')
-      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 1 Title', '10');")
-      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 2 Title', '7');")
-      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 3 Title', '8');")
+      connect_to_test_database_and_enter_3_films
+      comment = Comment.add(title: "Film 2 Title", comment:
+        "This is a comment about the film that user can make")
 
-      comment_to_add = "This is a comment about the film that user can make"
-      # Exercise
-      comment = Comment.add(title: "Film 2 Title", comment: comment_to_add)
-      # Verify
-      p comment
       expect(Comment.show(title: "Film 2 Title")).to eq(comment)
     end
   end
 
   describe '#==' do
-    it 'two comments are equal if their text match' do
-      comment_1 = Comment.new(title: "Film 2 Title", comment: "This is a comment about the film that users can make")
-      comment_2 = Comment.new(title: "Film 2 Title", comment: "This is a comment about the film that users can make")
+    it 'two comments are equal if their ids match' do
+      add_film_and_rating_to_test_database("Film Title", "10")
+      comment_1 = Comment.add(title: "Film Title", comment: "Random comment")
+      comment_2 = Comment.show(title: "Film Title")
 
       expect(comment_1).to eq(comment_2)
     end
+  end
+
+  def connect_to_test_database_and_enter_3_films
+    connection = PG.connect(dbname: 'faldo_movie_ratings_test')
+    connection.exec("INSERT INTO films (title, rating) VALUES ('Film 1 Title', '10');")
+    connection.exec("INSERT INTO films (title, rating) VALUES ('Film 2 Title', '7');")
+    connection.exec("INSERT INTO films (title, rating) VALUES ('Film 3 Title', '8');")
+  end
+
+  def add_film_and_rating_to_test_database(title, rating)
+    connection = PG.connect(dbname: 'faldo_movie_ratings_test')
+    connection.exec("INSERT INTO films (title, rating) VALUES ('#{title}', '#{rating}');")
   end
 end
 

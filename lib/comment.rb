@@ -1,6 +1,6 @@
 class Comment
 
-  attr_reader :comment
+  attr_reader :id
 
   def initialize(title: title, comment: comment, id: id)
     @title = title
@@ -9,13 +9,13 @@ class Comment
   end
 
   def ==(other)
-    @comment == other.comment
+    @id== other.id
   end
 
   def self.show(title: title)
     connection = connect_to_correct_database
-    results = connection.exec("SELECT text FROM comments WHERE film_title = '#{title}'")
-    results.map { |comment| Comment.new(title: "#{title}", comment: results.first['text']) }
+    results = connection.exec("SELECT text, id, film_title FROM comments WHERE film_title = '#{title}'")
+    results.map { |comment| Comment.new(title: results.first['film_title'], comment: results.first['text'], id: results.first['id']) }
   end
 
   def self.add(title: title, comment: comment)
@@ -23,7 +23,6 @@ class Comment
     results = connection.exec("INSERT INTO comments (text, film_title)
       VALUES('#{comment}', '#{title}')
       RETURNING id, text, film_title;")
-    # wrap the return into an object
     results.map { |comment| Comment.new(title: results.first['film_title'],
       comment: results.first['text'], id: results.first['id'])}
   end
