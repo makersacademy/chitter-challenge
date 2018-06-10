@@ -2,9 +2,10 @@ class Comment
 
   attr_reader :comment
 
-  def initialize(title: title, comment: comment)
+  def initialize(title: title, comment: comment, id: id)
     @title = title
     @comment = comment
+    @id = id
   end
 
   def ==(other)
@@ -12,22 +13,19 @@ class Comment
   end
 
   def self.show(title: title)
-    # Connect to database
     connection = connect_to_correct_database
-    # Execute query to retrieve the data
     results = connection.exec("SELECT text FROM comments WHERE film_title = '#{title}'")
-    p results.first['text']
-    p "TEXT ABOVE"
-    # Return an array of objects that have strings of text as state
     results.map { |comment| Comment.new(title: "#{title}", comment: results.first['text']) }
   end
 
   def self.add(title: title, comment: comment)
-    # connect to database
     connection = connect_to_correct_database
-    # sql query to add comment to table
-    results = connection.exec("INSERT INTO comments (text, film_title) VALUES('#{comment}', '#{title}');")
+    results = connection.exec("INSERT INTO comments (text, film_title)
+      VALUES('#{comment}', '#{title}')
+      RETURNING id, text, film_title;")
     # wrap the return into an object
+    results.map { |comment| Comment.new(title: results.first['film_title'],
+      comment: results.first['text'], id: results.first['id'])}
   end
 
   private

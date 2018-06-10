@@ -19,21 +19,22 @@ describe Comment do
 
   end
 
-  # describe '.add' do
-  #   it 'it can add comments' do
-  #     # Setup
-  #     connection = PG.connect(dbname: 'faldo_movie_ratings_test')
-  #     connection.exec("INSERT INTO films (title, rating) VALUES ('Film 1 Title', '10');")
-  #     connection.exec("INSERT INTO films (title, rating) VALUES ('Film 2 Title', '7');")
-  #     connection.exec("INSERT INTO films (title, rating) VALUES ('Film 3 Title', '8');")
-  #
-  #     comment = "This is a comment about the film that user can make"
-  #     # Exercise
-  #     Comment.add(title: "Film 2 Title", comment: comment)
-  #     # Verify
-  #     expect(Comment.show(title: "Film 2 Title")).to include(comment)
-  #   end
-  # end
+  describe '.add' do
+    it 'it can add comments' do
+      # Setup
+      connection = PG.connect(dbname: 'faldo_movie_ratings_test')
+      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 1 Title', '10');")
+      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 2 Title', '7');")
+      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 3 Title', '8');")
+
+      comment_to_add = "This is a comment about the film that user can make"
+      # Exercise
+      comment = Comment.add(title: "Film 2 Title", comment: comment_to_add)
+      # Verify
+      p comment
+      expect(Comment.show(title: "Film 2 Title")).to eq(comment)
+    end
+  end
 
   describe '#==' do
     it 'two comments are equal if their text match' do
