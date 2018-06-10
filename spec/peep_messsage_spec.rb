@@ -1,6 +1,12 @@
 require 'peep_message'
 
 describe PeepMessage do
+  
+  before(:each) do
+    ChitterSignUp.new_user("Maurice Bendrix", "mauribendrix", "mauribendrix@gmail.com", "ilovesarah")
+    ChitterSignUp.new_user("Sarah Miles", "smiles", "sarahmiles@gmail.com", "ilovemauri")
+  end
+
   describe '.create' do
     it 'Creates new a peep message' do
       message = "Hiiiii Maurice"
@@ -22,9 +28,9 @@ describe PeepMessage do
 
   describe '.all' do
     it 'Returns all messages (peeps) in an array of newest to oldest' do
-      message_1 = PeepMessage.create("Maurice, it has been too long", "Sarah Miles", "Smiles", Time.now)
+      message_1 = PeepMessage.create("Maurice, it has been too long", "Sarah Miles", "smiles", Time.now)
       message_2 = PeepMessage.create("Sarah! I missed you", "Maurice Bendrix", "mauribendrix", Time.now)
-      message_3 = PeepMessage.create("Henry is well...", "Sarah Miles", "Smiles", Time.now)
+      message_3 = PeepMessage.create("Henry is well...", "Sarah Miles", "smiles", Time.now)
       expected_messages = [
         message_3,
         message_2,

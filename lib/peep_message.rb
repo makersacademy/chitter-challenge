@@ -50,7 +50,7 @@ class PeepMessage
     connection.exec(
       "INSERT INTO peeps (message, name, username, time)
       VALUES ('#{message}', '#{name}', '#{username}', '#{time}')
-      RETURNING id, message, name, username, time"
+      RETURNING peep_id, message, name, username, time"
     )
   end
 

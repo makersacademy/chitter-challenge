@@ -1,5 +1,6 @@
 require 'pg'
 require 'peep_message'
+require 'sign_up'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
@@ -24,8 +25,7 @@ SimpleCov.start
 RSpec.configure do |config|
   config.before(:each) do
     connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("TRUNCATE peeps;")
+    connection.exec("TRUNCATE users, peeps;")
     connection.close
   end
   config.after(:suite) do
