@@ -5,7 +5,7 @@ Chitter Challenge
 The task
 ---------
 
-This is my response to the fourth weekend challenge at Makers Academy, to build a  Chitter web app, using a TDD approach (test coverage is 100% with SimpleCov). The user should be able to see a list of peeps and sign up to post their own peeps, according to the following user stories:
+This is my response to the fourth weekend challenge at Makers Academy, to build a  Chitter web app, using a TDD approach (test coverage is >98% with SimpleCov). The user should be able to see a list of peeps and sign up to post their own peeps, according to the following user stories:
 
 
 ```

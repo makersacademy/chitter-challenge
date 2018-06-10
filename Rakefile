@@ -21,7 +21,7 @@ task :setup do
     connection.exec("CREATE TABLE peeps \
                    (id SERIAL PRIMARY KEY, \
                     peep VARCHAR(140), username VARCHAR(60), \
-                    created_at TIMESTAMP  DEFAULT current_timestamp(0));")
+                    created_at TIMESTAMP DEFAULT current_timestamp(0));")
   end
 end
 
