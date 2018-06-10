@@ -8,6 +8,7 @@ class ChitterManager < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all
     erb(:index)
   end
 
