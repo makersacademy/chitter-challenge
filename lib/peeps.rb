@@ -1,11 +1,11 @@
 require_relative './user'
 class Peeps
-  attr_reader :id, :peep, :user_id
+  attr_reader :id, :text, :user
 
   def initialize(id, user_id, text)
     @id = id
     @text = text
-    @user_id = Peeps.find(user_id)
+    @user = User.find(user_id)
   end
 
   def self.all
@@ -18,7 +18,7 @@ class Peeps
   def self.create(options)
     result = DatabaseConnection.query(
       "INSERT INTO peeps(user_id, text)
-      VALUES('#{options[:user_id]}','#{options[:text]}')
+      VALUES('#{options[:user_id].to_i}','#{options[:text]}')
       RETURNING id, user_id, text;"
     )
     Peeps.new(result[0]['id'], result[0]['user_id'], result[0]['text'])
@@ -30,7 +30,7 @@ class Peeps
 
   def self.find(id)
     return nil unless id
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id.to_i}'")
     User.new(
       result[0]['id'],
       result[0]['email'],

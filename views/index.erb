@@ -10,7 +10,7 @@
           <a class="nav-link" href="#">You are signed in as <%= @user.name %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/peep" name = 'peep'>Peep</a>
+          <a class="nav-link" href="/new_peep" name = 'peep'>Peep</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/sign_out" name = 'sign_out'>Sign out</a>
@@ -22,13 +22,15 @@
 
   <div class="my-3 p-3 bg-white rounded box-shadow">
     <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+    <% @peeps.each do |peep| %>
     <div class="media pt-3">
       <img src="" alt="" class="mr-2 rounded">
       <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+        <strong class="d-block text-gray-dark">@<%= peep.user.username %></strong>
+        <%= peep.text %>
       </p>
     </div>
+    <% end %>
 
   </div>
 </div>

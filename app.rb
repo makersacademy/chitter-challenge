@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './database_connection_setup'
 require_relative './lib/user'
+require_relative './lib/peeps'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -8,6 +9,7 @@ class Chitter < Sinatra::Base
   get '/' do
     @title = 'Chitter'
     @user = User.find(session[:user_id])
+    @peeps = Peeps.all
     if @user
       erb :index
     else
@@ -77,7 +79,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_peep' do
-    Peep.create(peep: params['peep'])
+    @user = User.find(session[:user_id])
+    Peeps.create(text: params['text'], user_id: @user.id)
     redirect '/'
   end
 

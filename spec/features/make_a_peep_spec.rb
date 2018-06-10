@@ -12,7 +12,7 @@ feature 'make a peep' do
     fill_in('password', with: 'hunter123')
     click_button('Sign in')
     visit('/new_peep')
-    fill_in('peep', with: 'Testing 123')
+    fill_in('text', with: 'Testing 123')
     click_button('Make Peep')
 
     expect(page).to have_content 'Testing 123'
