@@ -35,8 +35,8 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
 User flow:
-* visit /signup
-* enter username, email, password, conf password and display name
+**DONE** visit /signup
+**DONE** enter username, email, password, conf password and display name
 
 HARDER
 
@@ -73,3 +73,4 @@ Proper walkthrough
 git clone this project
 bundle
 run *rake setup* the test and development databases
+We can now set up new databases using rake teardown followed by rake setup.

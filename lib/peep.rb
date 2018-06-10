@@ -10,9 +10,9 @@ class Peep
 
     def self.all
         if ENV['ENVIRONMENT'] == 'test'
-            connection = PG.connect(dbname: 'peep_test')
+            connection = PG.connect(dbname: 'chitter_test')
         else
-            connection = PG.connect(dbname: 'peep')
+            connection = PG.connect(dbname: 'chitter')
         end
         
         result = connection.exec("SELECT * FROM peeps")
@@ -22,9 +22,9 @@ class Peep
 
     def self.create(options)
         if ENV['ENVIRONMENT'] == 'test'
-            connection = PG.connect(dbname: 'peep_test')
+            connection = PG.connect(dbname: 'chitter_test')
         else
-            connection = PG.connect(dbname: 'peep')
+            connection = PG.connect(dbname: 'chitter')
         end
         
         result = connection.exec("INSERT INTO peeps (content, date) VALUES('#{options[:content]}', current_timestamp) RETURNING id, content, date")
