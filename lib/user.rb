@@ -1,6 +1,6 @@
 require 'pg'
 class User
-  attr_reader :id, :email, :username, :first_name, :last_name, :password
+  attr_reader :id, :email, :username, :name, :password
 
   def initialize(id, email, username, name, password)
     @id = id
@@ -11,6 +11,42 @@ class User
   end
 
   def self.all
+    result = DatabaseConnection.query("SELECT * FROM users")
+    result.map do |user|
+      User.new(
+        user['id'],
+        user['email'],
+        user['username'],
+        user['name'],
+        user['password'])
+    end
+  end
 
+  def self.create(options)
+    result = DatabaseConnection.query(
+      "INSERT INTO users(email, username, name, password)
+      VALUES('#{options[:email]}','#{options[:username]}',
+       '#{options[:name]}','#{options[:password]}')
+      RETURNING id, email, username, name, password;"
+    )
+    User.new(
+      result[0]['id'],
+      result[0]['email'],
+      result[0]['username'],
+      result[0]['name'],
+      result[0]['password'],
+      )
+  end
+
+  def self.find(id)
+    return nil unless id
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+    User.new(
+      result[0]['id'],
+      result[0]['email'],
+      result[0]['username'],
+      result[0]['name'],
+      result[0]['password'],
+      )
   end
 end
