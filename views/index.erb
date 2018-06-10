@@ -31,6 +31,11 @@
               <button type="submit" id="comment-<%= film.title %>" name="title" value="<%= film.title %>">Comment</button>
             </form>
           </td>
+          <td>
+              <% @comments.each do |comment| %>
+                  <%= comment.comment %>
+              <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

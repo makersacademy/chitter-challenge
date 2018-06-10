@@ -12,7 +12,7 @@ class FaldoMovieRatings < Sinatra::Base
 
   get '/' do
     @films = Film.all(params[:sort_by])
-    # @comments = Comment.show
+    @comments = Comment.all
     erb :index
   end
 
