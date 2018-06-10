@@ -49,7 +49,8 @@ CREATE TABLE chitter ( id SERIAL PRIMARY KEY,
                      );
 CREATE TABLE users ( id SERIAL PRIMARY KEY, 
                      email VARCHAR(60),
-                     password VARCHAR(140) 
+                     password VARCHAR(140),
+                     username VARCHAR(8) 
                    );
 
 CREATE DATABASE chitter_challenge_test;
@@ -61,7 +62,8 @@ CREATE TABLE chitter ( id SERIAL PRIMARY KEY,
                      );
 CREATE TABLE users ( id SERIAL PRIMARY KEY, 
                      email VARCHAR(60), 
-                     password VARCHAR(140) 
+                     password VARCHAR(140),
+                     username VARCHAR(8) 
                    );
 
 ```
