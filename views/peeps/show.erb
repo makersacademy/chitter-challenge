@@ -1,35 +1,45 @@
-<%=flash[:notice]%>
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</head>
 
-<% if @user %>
-  <h1>Welcome, <%= @user.username %></h1>
-<% end %>
+<body>
+  <%=flash[:notice]%>
 
-<form action="/" method="get">
-  <input type='submit' value = "Log Out!"/>
-</form>
-
-<ul>
-  <% @peeps.each do |peep| %>
-    <li id = "peep-<%= peep.id %>">>
-        <%= peep.text %> <p></p>
-        Posted at: <%= peep.time %><p></p>
-        Posted by: <%= peep.username %>
-      </a>
-      <form action="/peeps/<%= peep.id %>/delete" method="post">
-        <input type='hidden' name='_method' value='DELETE'/>
-        <input type='hidden' name='id' value='<%= peep.id %>'>
-        <input type='submit' value = "Delete!"/>
-      </form>
-      <form action="/peeps/edit" method="get">
-        <input id="hidden" type="hidden" name="id" value='<%= peep.id %>'>
-        <input type='submit' value = "Edit!"/>
-      </form>
-    </li>
-    <p></p><p></p>
+  <% if @user %>
+    <h1>Welcome, <%= @user.username %></h1>
   <% end %>
-</ul>
+
+  <form action="/" method="get">
+    <input type='submit' value = "Log Out!"/>
+  </form>
+
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li id = "peep-<%= peep.id %>">>
+          <%= peep.text %> <p></p>
+          Posted at: <%= peep.time %><p></p>
+          Posted by: <%= peep.username %>
+        </a>
+        <form action="/peeps/<%= peep.id %>/delete" method="post">
+          <input type='hidden' name='_method' value='DELETE'/>
+          <input type='hidden' name='id' value='<%= peep.id %>'>
+          <input type='submit' value = "Delete!"/>
+        </form>
+        <form action="/peeps/edit" method="get">
+          <input id="hidden" type="hidden" name="id" value='<%= peep.id %>'>
+          <input type='submit' value = "Edit!"/>
+        </form>
+      </li>
+      <p></p><p></p>
+    <% end %>
+  </ul>
 
 
-<form action="/peeps/new" method="get">
-  <input type='submit' value = "New Peep!"/>
-</form>
+  <form action="/peeps/new" method="get">
+    <input type='submit' value = "New Peep!"/>
+  </form>
+</body>
+</html>  
