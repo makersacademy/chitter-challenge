@@ -1,5 +1,5 @@
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
+  <h3>Welcome, <%= @user.email %></h3>
 <% end %>
 
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -11,6 +11,11 @@
   <div class="btn-group mr-2" role="group" aria-label="Second group">
     <form action="/" method="get">
       <button type="submit" id="sort-alphabetically" name="sort_by" value="a_to_z">Sort A-Z</button>
+    </form>
+  </div>
+  <div class="btn-group mr-2" role="group" aria-label="Third group">
+    <form action="/users/new" method="get">
+      <button type="submit" value="Register">Register</button>
     </form>
   </div>
 </div>
