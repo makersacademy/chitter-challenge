@@ -1,4 +1,5 @@
 require 'pg'
+require 'database_connection'
 
 class Peep
     attr_reader :id, :content, :date
@@ -9,25 +10,12 @@ class Peep
     end
 
     def self.all
-        if ENV['ENVIRONMENT'] == 'test'
-            connection = PG.connect(dbname: 'chitter_test')
-        else
-            connection = PG.connect(dbname: 'chitter')
-        end
-        
-        result = connection.exec("SELECT * FROM peeps")
-        
+        result = DatabaseConnection.query("SELECT * FROM peeps")
         result.map{ |peep| Peep.new(peep['id'], peep['content'], peep['date']) }
     end
 
     def self.create(options)
-        if ENV['ENVIRONMENT'] == 'test'
-            connection = PG.connect(dbname: 'chitter_test')
-        else
-            connection = PG.connect(dbname: 'chitter')
-        end
-        
-        result = connection.exec("INSERT INTO peeps (content, date) VALUES('#{options[:content]}', current_timestamp) RETURNING id, content, date")
+        result = DatabaseConnection.query("INSERT INTO peeps (content, date) VALUES('#{options[:content]}', current_timestamp) RETURNING id, content, date")
         Peep.new(result.first['id'], result.first['content'], result.first['date'])
     end
 

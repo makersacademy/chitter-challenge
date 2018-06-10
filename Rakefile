@@ -1,4 +1,5 @@
 require 'pg'
+require 'database_connection'
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
   
@@ -8,11 +9,11 @@ if ENV['RACK_ENV'] != 'production'
 
   task :test_database_setup do
     p "Cleaning database"
-    connection = PG.connect(dbname: 'chitter_test')
+    DatabaseConnection.setup('chitter_test')
 
     # Clear the database
-    connection.exec("TRUNCATE peeps;")
-    connection.exec("TRUNCATE users;")
+    DatabaseConnection.query("TRUNCATE peeps;")
+    DatabaseConnection.query("TRUNCATE users;")
   end
 
   task :setup do
@@ -21,9 +22,9 @@ if ENV['RACK_ENV'] != 'production'
     ['chitter', 'chitter_test'].each do |database|
       connection = PG.connect
       connection.exec("CREATE DATABASE #{database};")
-      connection = PG.connect(dbname: database)
-      connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(140), date timestamp);")
-      connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(140),
+      DatabaseConnection.setup(database)
+      DatabaseConnection.query("CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(140), date timestamp);")
+      DatabaseConnection.query("CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(140),
       display_name VARCHAR(140), email VARCHAR(140), password VARCHAR(140));")
     end
   end
