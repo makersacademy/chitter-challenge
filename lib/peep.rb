@@ -10,26 +10,28 @@ class Peep
   end
 
   def self.post(options)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+    connection = database_connection
     result = connection.exec("INSERT INTO peeps (peep) VALUES('#{options[:peep]}') RETURNING id, peep, created_at")
     Peep.new(result.first['id'], result.first['peep'], result.first['created_at'])
   end
 
   def self.display
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+    connection = database_connection
     result = connection.exec("SELECT * FROM peeps")
     result.map { |peeps| Peep.new(peeps['id'], peeps['peep'], peeps['created_at']) }
   end
 
   def ==(other)
     @id == other.id
+  end
+
+  private
+
+  def self.database_connection
+    if ENV['ENVIRONMENT'] == 'test'
+      PG.connect(dbname: 'chitter_test')
+    else
+      PG.connect(dbname: 'chitter')
+    end
   end
 end
