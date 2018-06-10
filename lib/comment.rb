@@ -12,13 +12,6 @@ class Comment
     @id== other.id
   end
 
-  def self.show(title: title)
-    connection = connect_to_correct_database
-    results = connection.exec("SELECT text, id, film_title FROM comments WHERE film_title = '#{title}'")
-    results.map { |comment| Comment.new(title: results.first['film_title'],
-      comment: results.first['text'], id: results.first['id']) }
-  end
-
   def self.add(title: title, comment: comment)
     connection = connect_to_correct_database
     results = connection.exec("INSERT INTO comments (text, film_title)
@@ -49,3 +42,12 @@ class Comment
     end
   end
 end
+
+  # I built this before I created .all, I don't think I need it
+  # but leaving here in case it proves useful in future
+  # def self.show(title: title)
+  #   connection = connect_to_correct_database
+  #   results = connection.exec("SELECT text, id, film_title FROM comments WHERE film_title = '#{title}'")
+  #   results.map { |comment| Comment.new(title: results.first['film_title'],
+  #     comment: results.first['text'], id: results.first['id']) }
+  # end
