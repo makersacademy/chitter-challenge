@@ -15,15 +15,14 @@ class Film
   def self.all(sort_by = nil)
     connection = connect_to_correct_database
 
-    # If sort_by is a_to_z then use SELECT by alpha
-
     if sort_by == "a_to_z"
-      result = connection.exec("SELECT * FROM films ORDER BY UPPER(title) ASC;")
+      result = connection.exec("SELECT title, rating, date(date_added) FROM films ORDER BY UPPER(title) ASC;")
     else
-      result = connection.exec("SELECT * FROM films")
+      result = connection.exec("SELECT title, rating, date(date_added) FROM films;")
     end
 
-    result.map{ |film| Film.new(title: film['title'], rating: film['rating'], date_added: film['date_added']) }
+
+    result.map{ |film| Film.new(title: film['title'], rating: film['rating'], date_added: film['date']) }
   end
 
   def self.create(options)
@@ -32,12 +31,11 @@ class Film
 
     result = connection.exec("INSERT INTO films (title, rating, date_added)
       VALUES('#{options[:title]}', '#{options[:rating]}', 'NOW()')
-      RETURNING title, rating, date_added")
+      RETURNING title, rating, date(date_added)")
+
     Film.new(title: result.first['title'],
-      rating: result.first['rating'], date_added: result.first['date_added'])
+      rating: result.first['rating'], date_added: result.first['date'])
   end
-
-
 
   private
 

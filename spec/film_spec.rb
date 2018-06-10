@@ -35,12 +35,10 @@ describe Film do
 
     it 'returns the date the film was added' do
       film_1 = Film.create(title: 'Film 1 Title', rating: '10')
-
       list_of_films = Film.all
-
       film_date = list_of_films.first.date_added
 
-      expect(film_date).to eq("#{Time.now.strftime("%d/%m/%Y")}")
+      expect(film_date).to eq("#{Time.now.strftime("%Y-%m-%d")}")
     end
   end
 
