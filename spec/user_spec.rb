@@ -2,10 +2,10 @@ require 'user'
 
 
 describe '.create' do
-    it 'create a new user' do
-        user = User.create(username: 'myname', email: 'test@example.com', password: 'password123')
-        expect(user.id).not_to be_nil
-    end
+    it 'hash password using BCrypt' do
+        expect(BCrypt::Password).to receive(:create).with('password123')
+        User.create(username: 'myname', email: 'test@example.com', password: 'password123')
+  end
 end
 
 
