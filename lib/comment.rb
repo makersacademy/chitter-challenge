@@ -14,11 +14,8 @@ class Comment
 
   def self.add(options)
     connection = connect_to_correct_database
-    results = connection.exec("INSERT INTO comments (text, film_title)
-      VALUES('#{options[:comment]}', '#{options[:title]}')
-      RETURNING id, text, film_title;")
-    results.map { |comment| Comment.new(title: results.first['film_title'],
-      comment: results.first['text'], id: results.first['id'])}
+    results = insert_into_database_and_return(connection, options)
+    wrap_comment_object_around(results)
   end
 
   def self.all
@@ -40,6 +37,17 @@ class Comment
     else
       PG.connect(dbname: 'faldo_movie_ratings')
     end
+  end
+
+  def self.insert_into_database_and_return(connection, options)
+    connection.exec("INSERT INTO comments (text, film_title)
+      VALUES('#{options[:comment]}', '#{options[:title]}')
+      RETURNING id, text, film_title;")
+  end
+
+  def self.wrap_comment_object_around(results)
+    results.map { |comment| Comment.new(title: results.first['film_title'],
+      comment: results.first['text'], id: results.first['id'])}
   end
 end
 
