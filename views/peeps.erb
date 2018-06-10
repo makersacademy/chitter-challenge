@@ -1,0 +1,10 @@
+ <%= styled_flash %>
+ <ul>
+   <% @peeps.reverse_each do |peeps| %>
+     <li><%= peeps.peep %> (posted at: <%= peeps.time_posted %>)</li>
+   <% end %>
+ </ul>
+
+ <form action='/' method='post'>
+   <input type='submit' value='Post again' />
+ </form>
