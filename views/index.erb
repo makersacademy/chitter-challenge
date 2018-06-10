@@ -4,6 +4,7 @@
   <% @peeps.each do |peep| %>
     <li>
       <a> <%= peep.name %> (<%= peep.username %>) said: <%= peep.message %></a>
+      Posted at: <%= peep.time %>
     </li>
   <% end %>
 </ul>
