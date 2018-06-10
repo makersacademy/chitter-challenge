@@ -1,11 +1,16 @@
-<p>
-  <form action="/addfilm" method="get">
-    <input type="submit" id="addfilm" value="Add Film">
-  </form>
 
-  <form action="/" method="get">
-    <button type="submit" id="sort-alphabetically" name="sort_by" value="a_to_z">Sort A-Z</button>
-  </form>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+    <form action="/addfilm" method="get">
+      <input type="submit" id="addfilm" value="Add Film">
+    </form>
+  </div>
+  <div class="btn-group mr-2" role="group" aria-label="Second group">
+    <form action="/" method="get">
+      <button type="submit" id="sort-alphabetically" name="sort_by" value="a_to_z">Sort A-Z</button>
+    </form>
+  </div>
+</div>
 
   <table class="table">
     <thead>
@@ -26,4 +31,3 @@
     </tbody>
   </table>
   <%= styled_flash %>
-</p>
