@@ -2,8 +2,11 @@ require 'uri'
 require 'sinatra'
 require 'sinatra/flash'
 require 'sinatra/base'
+require './lib/messenger'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     redirect '/chitter'
@@ -18,9 +21,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/peep' do
-    @message = 'Hi there!'
-    erb :peep
+    Messenger.create(params['message'])
+    erb :posted
   end
+
+  # get '/chitter/peep/posted' do
+  #   erb :posted
+  # end
 
   run if app_file == $0
 end

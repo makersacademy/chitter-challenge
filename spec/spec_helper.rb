@@ -1,3 +1,13 @@
+require 'simplecov'
+require 'simplecov-console'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  # Want a nice code coverage website? Uncomment this next line!
+  # SimpleCov::Formatter::HTMLFormatter
+])
+SimpleCov.start
+
 ENV['RACK_ENV'] = 'test'
 
 # Bring in the contents of the `app.rb` file
@@ -10,16 +20,6 @@ require 'rspec'
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = Chitter
-
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
 
 RSpec.configure do |config|
   config.after(:suite) do
