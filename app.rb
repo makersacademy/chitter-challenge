@@ -31,24 +31,34 @@ class Chitter < Sinatra::Base
   end
 
   post '/confirm' do
-    session[:username] = params[:username]
-    if User.already_exists?(username: session[:username])
+    if User.already_exists?(username: params[:username])
       redirect '/nameerror'
+    elsif params[:username] == "" || params[:password] == ""
+      redirect '/signuperror'
     else User.save(name: params[:name], username: params[:username], email:  params[:email], password: params[:password])
     end
+    session[:username] = params[:username]
     erb(:confirm)
   end
 
   get '/nameerror' do
-    "Sorry, that username is already taken"
+    erb(:nameerror)
   end
 
   get '/usererror' do
-    "Sorry, that username is not registered"
+    erb(:usererror)
+  end
+
+  get '/passworderror' do
+    erb(:passworderror)
   end
 
   get '/login' do
     erb(:login)
+  end
+
+  get '/signuperror' do
+    erb(:signuperror)
   end
 
   post '/login' do
@@ -59,14 +69,14 @@ class Chitter < Sinatra::Base
       session[:username] = user.username
       redirect '/'
     else
-      "Sorry, incorrect password"
+      redirect '/passworderror'
     end
-    
+
   end
 
   post '/logout' do
     session.clear
-    "Goodbye!"
+    redirect '/'
   end
 
   run! if app_file == $0

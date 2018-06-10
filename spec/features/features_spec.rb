@@ -7,7 +7,7 @@ feature 'Makers can post messages to chitter' do
     visit '/peep'
     expect expect(page).to have_field("peep")
   end
-  # 
+  #
   # scenario 'Makers can post their peeps' do
   #   visit '/peep'
   #   fill_in('peep', with: "Test message")
@@ -25,17 +25,18 @@ feature 'Makers can sign up for Chitter' do
     visit '/sign_up'
     fill_in('username', with: "Beelzebub")
     fill_in('email', with: "j.snow@gmail.com")
+    fill_in('password', with: "iluvmum")
     click_button 'Sign Up'
     expect expect(page).to have_content("Thanks for signing up for Chitter, Beelzebub")
   end
   scenario 'Makers cannot have a username that is already taken' do
     visit '/sign_up'
     fill_in('username', with: "John Snow")
-    fill_in('email', with: "j.snow@gmail.com")
+    fill_in('password', with: "cheekyboy")
     click_button 'Sign Up'
     visit '/sign_up'
     fill_in('username', with: "John Snow")
-    fill_in('email', with: "j.snow@gmail.com")
+    fill_in('password', with: "cheekyboy")
     click_button 'Sign Up'
     expect(page).to have_content("Sorry, that username is already taken")
   end
