@@ -7,9 +7,11 @@
 
 <ul style="list-style-type: none">
   <% @peeps.each do |peep| %>
-    <li>
+    <li id = "peep-<%= peep.id %>">
       <div style='background-color:#ecf2f9'>
         <%= peep.content %>
+        <p style='background-color:#fff2e6'>Posted at: <%= peep.timestamp %>
+        </p>
       </div>
     </li>
     <br>

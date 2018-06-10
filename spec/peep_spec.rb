@@ -22,10 +22,19 @@ describe Peep do
     end
   end
 
+  # describe '.time' do
+  #   it 'returns a string holding the current time' do
+  #     fake_time = double :time
+  #     allow(fake_time).to receive(:now).and_return("test time")
+  #     peep = Peep.new(1, "content", fake_time)
+  #     expect(Peep.time).to eq "test_time"
+  #   end
+  # end
+
   describe '#==' do
     it 'two bookmarks are equal if their ids match' do
-      peep_1 = Peep.new(1, content: 'Test peep')
-      peep_2 = Peep.new(1, content: 'Test peep')
+      peep_1 = Peep.new(1, 'Test peep', timestamp: '10-06-18 17:12')
+      peep_2 = Peep.new(1, 'Test peep', timestamp: '10-06-18 17:12')
 
       expect(peep_1).to eq peep_2
     end
