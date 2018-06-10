@@ -1,5 +1,9 @@
 <h1>Welcome to Chitter!</h1>
 
+<% if @user %>
+  <h1>You are signed in as <%= @user.username %></h1>
+<% end %>
+
 <form action='/posts' method='post'>
   <input type='text' name='peep' />
   <input type='submit' value='Post' />
