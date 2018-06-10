@@ -37,6 +37,23 @@ feature 'Makers can sign up for Chitter' do
     fill_in('username', with: "John Snow")
     fill_in('email', with: "j.snow@gmail.com")
     click_button 'Sign Up'
-    expect expect(page).to have_content("Sorry, that username is already taken")
+    expect(page).to have_content("Sorry, that username is already taken")
+  end
+end
+
+# As a Maker
+# So that only I can post messages on Chitter as me
+# I want to log in to Chitter
+feature 'Makers who already have accounts can login to Chitter' do
+  scenario 'Makers can input their username and email address' do
+    visit '/sign_up'
+    fill_in('username', with: "Mavis")
+    fill_in('password', with: "Seekrit")
+    click_button 'Sign Up'
+    visit '/login'
+    fill_in('username', with: "Mavis")
+    fill_in('password', with: "Seekrit")
+    click_button 'Log In'
+    expect(page).to have_content("Hi, Mavis!")
   end
 end

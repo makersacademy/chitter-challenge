@@ -26,4 +26,10 @@ class User
     User.all.map(&:username).include?("#{options[:username]}")
   end
 
+  def self.authenticate(username, password)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}';")
+    return unless result[0]['password'] == password
+    user = User.new(result[0]['id'], result[0]['name'], result[0]['username'], result[0]['email'], result[0]['password'])
+  end
+
 end

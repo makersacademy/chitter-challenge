@@ -18,4 +18,12 @@ describe User do
     end
   end
 
+  describe '.authenticate' do
+    it 'returns a user given a correct email and password, if one exists' do
+      user = User.save(username: 'person', password: 'password')
+      authenticated_user = User.authenticate("person", "password")
+      expect(authenticated_user.username).to eq user.username
+    end
+  end
+
 end

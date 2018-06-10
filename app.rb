@@ -29,13 +29,27 @@ class Chitter < Sinatra::Base
     session[:username] = params[:username]
     if User.already_exists?(username: session[:username])
       redirect '/nameerror'
-    else User.save(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    else User.save(name: params[:name], username: params[:username], email:  params[:email], password: params[:password])
     end
     erb(:confirm)
   end
 
   get '/nameerror' do
     "Sorry, that username is already taken"
+  end
+
+  get '/login' do
+    erb(:login)
+  end
+
+  post '/login' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:username] = user.username
+      redirect '/'
+    else
+      "Sorry, incorrect password"
+    end
   end
 
   run! if app_file == $0
