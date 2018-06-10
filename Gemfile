@@ -7,6 +7,7 @@ gem 'capybara'
 gem 'sinatra'
 gem 'pg'
 gem 'bcrypt'
+gem "sinatra-flash"
 
 group :test do
   gem 'rspec'

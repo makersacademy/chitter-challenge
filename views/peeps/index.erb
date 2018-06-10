@@ -1,3 +1,15 @@
 <% if @user %>
   <h1>Hello, <%= @user.display_name %></h1>
+  <form action="/logout" method="post">
+  <input type="submit" value="Sign out">
+  </form>
+  <form action="/new" method="post">
+  <input type="text" name="content">
+  <input type="submit" value="Submit">
+  </form>
+  <ul>
+    <% @peeps.each do |peep| %>
+        <li><%= peep.content%> <%= peep.date%></li>
+    <% end %>
+  </ul>
 <% end %>

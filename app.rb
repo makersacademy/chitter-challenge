@@ -1,10 +1,13 @@
 require 'sinatra/base'
+require './database_connection_setup'
 require './lib/peep.rb'
 require './lib/user.rb'
-require './database_connection_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
     enable :sessions
+    register Sinatra::Flash
+
     get '/' do
         @peeps = Peep.all.reverse
         erb :index
@@ -25,7 +28,7 @@ class Chitter < Sinatra::Base
     get '/signup' do
         erb :signup
     end
-
+    
     post '/signup' do
         user = User.create(
             display_name: params['display_name'],
@@ -35,5 +38,27 @@ class Chitter < Sinatra::Base
         )
         session[:user_id] = user.id
         redirect '/peeps'
+    end
+
+    get '/login' do
+        erb :login
+    end
+
+    post '/login' do
+        user = User.authenticate(params['email'], params['password'])
+
+        if user
+            session[:user_id] = user.id
+            redirect('/peeps')
+        else
+            flash[:notice] = 'Please check your email or password'
+            redirect('/login')
+        end
+    end
+
+    post '/logout' do
+        session.clear
+        flash[:notice] = "Log back in soon!"
+        redirect('/')
     end
 end

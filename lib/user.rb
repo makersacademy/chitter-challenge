@@ -1,5 +1,5 @@
 require 'bcrypt'
-require 'database_connection'
+require_relative 'database_connection'
 class User
 
     attr_reader :id, :display_name, :username, :email, :password
@@ -26,6 +26,15 @@ class User
     def self.find(id)
         return nil unless id
         result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+        User.new(result.first['id'], result.first['display_name'], result.first['username'], result.first['email'], result.first['password'])
+    end
+
+    def self.authenticate(email, password)
+        result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+
+        return unless result.any?
+        return unless BCrypt::Password.new(result[0]['password']) == password
+        
         User.new(result.first['id'], result.first['display_name'], result.first['username'], result.first['email'], result.first['password'])
     end
 end

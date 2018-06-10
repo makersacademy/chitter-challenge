@@ -74,3 +74,6 @@ git clone this project
 bundle
 run *rake setup* the test and development databases
 We can now set up new databases using rake teardown followed by rake setup.
+
+ways to improve:
+make routes restful
