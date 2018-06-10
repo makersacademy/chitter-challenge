@@ -30,7 +30,7 @@ class Film
     connection = connect_to_correct_database
 
     result = connection.exec("INSERT INTO films (title, rating, date_added)
-      VALUES('#{options[:title]}', '#{options[:rating]}', 'NOW()')
+      VALUES('#{options[:title].chomp}', '#{options[:rating].chomp}', 'NOW()')
       RETURNING title, rating, date(date_added)")
 
     Film.new(title: result.first['title'],
