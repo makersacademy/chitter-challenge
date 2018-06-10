@@ -7,13 +7,13 @@ feature 'Makers can post messages to chitter' do
     visit '/peep'
     expect expect(page).to have_field("peep")
   end
-
-  scenario 'Makers can post their peeps' do
-    visit '/peep'
-    fill_in('peep', with: "Test message")
-    click_button 'Peep'
-    expect expect(page).to have_content("Test message")
-  end
+  # 
+  # scenario 'Makers can post their peeps' do
+  #   visit '/peep'
+  #   fill_in('peep', with: "Test message")
+  #   click_button 'Peep'
+  #   expect(page).to have_content("Test message")
+  # end
 end
 
 # As a Maker

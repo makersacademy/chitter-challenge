@@ -8,8 +8,13 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    redirect '/login_or_sign_up' unless session[:username]
     @peeps = Peep.all
     erb(:index)
+  end
+
+  get '/login_or_sign_up' do
+    erb(:login_or_sign_up)
   end
 
   get '/peep' do
@@ -38,18 +43,30 @@ class Chitter < Sinatra::Base
     "Sorry, that username is already taken"
   end
 
+  get '/usererror' do
+    "Sorry, that username is not registered"
+  end
+
   get '/login' do
     erb(:login)
   end
 
   post '/login' do
+    redirect '/usererror' unless User.already_exists?(username: params[:username])
     user = User.authenticate(params[:username], params[:password])
+
     if user
       session[:username] = user.username
       redirect '/'
     else
       "Sorry, incorrect password"
     end
+    
+  end
+
+  post '/logout' do
+    session.clear
+    "Goodbye!"
   end
 
   run! if app_file == $0

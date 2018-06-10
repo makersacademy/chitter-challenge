@@ -3,8 +3,9 @@ Hi, <%= session[:username] %>!
 <form action='/peep' method='get'>
   <input type='submit' value='Peep'>
 </form>
-<form action='/sign_up' method='get'>
-  <input type='submit' value='Sign Up'>
+
+<form action="/logout" method="post">
+  <input type="submit" value="Sign Out" />
 </form>
 <ul>
   <% @peeps.each do |peep| %>
