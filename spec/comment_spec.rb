@@ -13,7 +13,7 @@ describe Comment do
       connection.exec("INSERT INTO comments (text, film_title) VALUES('#{comment}', 'Film 2 Title');")
 
       # Verify
-      expect(Comment.show("Film 2 Title")).to include(comment)
+      expect(Comment.show(title: "Film 2 Title")).to include(comment)
     end
 
   end
