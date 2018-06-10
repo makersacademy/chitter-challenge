@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
       params['message'],
       params['name'],
       params['username'],
-      Time.now.strftime("%H:%M")
+      Time.now
     )
     redirect '/peeps'
   end
