@@ -29,5 +29,28 @@ class Chitter < Sinatra::Base
     erb :new_user_confirmation
   end
 
+  get '/sign_in' do
+    erb :sign_in
+  end
+
+  post '/sign_in' do
+    user = User.authenticate(
+      params['username'],
+      params['password']
+      )
+    if user
+      session[:user_id] = user.id
+      redirect('/sign_in_confirmation')
+    else
+      @error = true
+      erb :sign_in
+    end
+  end
+
+  get '/sign_in_confirmation' do
+    @user = User.find(session[:user_id])
+    erb :sign_in_confirmation
+  end
+
   run! if app_file == $0
 end

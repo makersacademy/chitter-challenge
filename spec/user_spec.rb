@@ -34,5 +34,16 @@ describe User do
     end
   end
 
+  describe '#authenticate' do
+    it 'returns a user given a correct username and password' do
+      user = enter_user
+      authenticated_user = User.authenticate('tester', 'hunter123')
 
+      expect(authenticated_user.id).to eq user.id
+    end
+    it 'returns nil when given an incorrect username' do
+      user = enter_user
+      expect(User.authenticate('incorrectusername','hunter123')).to be_nil
+    end
+  end
 end
