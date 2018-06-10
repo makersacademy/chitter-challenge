@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class ChitterSignUp
 
@@ -17,15 +18,12 @@ class ChitterSignUp
   end
 
   def self.new_user(name, username, email, password)
+    encrypted_password = BCrypt::Password.create(password)
     connection = database_connection
     return false unless unique_username?(username) && unique_email?(email)
-    result = insert_into_database(connection, name, username, email, password)
-    id = result.first['user_id']
-    name = result.first['name']
-    username = result.first['username']
-    email = result.first['email']
-    password = result.first['password']
-    ChitterSignUp.new(id, name, username, email, password)
+    result = insert_into_database(connection, name, username, email, encrypted_password)
+    ChitterSignUp.new(result[0]['user_id'], result[0]['name'],
+      result[0]['username'], result[0]['email'], result[0]['password'])
   end
 
   def self.all

@@ -12,9 +12,14 @@ describe ChitterSignUp do
       name = "Henry Miles"
       username = "hmiles"
       email = "hmiles@gmail.com"
-      password = "ilovesarah"
+      password = "iloveher"
       chitter_user = ChitterSignUp.new_user(name, username, email, password)
       expect(ChitterSignUp.all).to include chitter_user
+    end
+
+    it 'Hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password12')
+      ChitterSignUp.new_user('Bob', 'bobbob', 'bob@gmail.com', 'password12')
     end
 
     it 'Does not create a new user if email or username is in use' do
@@ -22,7 +27,7 @@ describe ChitterSignUp do
       username = "mauribendrix"
       email = "mauribendrix@gmail.com"
       password = "iloveher!"
-      chitter_user = ChitterSignUp.new_user(name, username, email, password)
+      ChitterSignUp.new_user(name, username, email, password)
       users = ChitterSignUp.all
       names = users.map(&:name)
       expect(names).not_to include "Mauri Bendrix"
