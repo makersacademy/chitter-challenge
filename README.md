@@ -30,7 +30,7 @@ Running a local WEBrick web server</br>
 $ ``` rvm install 2.5.0 ```</br>
 $ ``` bundle ``` to install the required gems</br>
 $ ``` rackup ``` to load the webserver</br>
-Visit ``` localhost:8080 ``` in your browser of choide</br>
+Visit ``` localhost:9292 ``` in your browser of choide</br>
 $ ``` rspec ``` to run all tests
 
 
@@ -47,6 +47,10 @@ CREATE TABLE chitter ( id SERIAL PRIMARY KEY,
                        Time_Stamp TIMESTAMP WITHOUT TIME ZONE NOT NULL 
                        DEFAULT (current_timestamp AT TIME ZONE 'UTC')
                      );
+CREATE TABLE users ( id SERIAL PRIMARY KEY, 
+                     email VARCHAR(60),
+                     password VARCHAR(140) 
+                   );
 
 CREATE DATABASE chitter_challenge_test;
 \c chitter_challenge_test
@@ -55,6 +59,10 @@ CREATE TABLE chitter ( id SERIAL PRIMARY KEY,
                        Time_Stamp TIMESTAMP WITHOUT TIME ZONE NOT NULL 
                        DEFAULT (current_timestamp AT TIME ZONE 'UTC')
                      );
+CREATE TABLE users ( id SERIAL PRIMARY KEY, 
+                     email VARCHAR(60), 
+                     password VARCHAR(140) 
+                   );
 
 ```
 
