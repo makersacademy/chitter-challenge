@@ -1,10 +1,13 @@
 <div class="container mw-50">
   <form action='/' method='post'>
     <div class="input-group input-group-lg">
-      <input type="text" class="form-control" placeholder="post something boring ...">
+      <input type="text" name="peep" class="form-control" placeholder="post something boring ...">
       <div class="input-group-btn">
-        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-hand-down"></i></button>
+        <button class="btn btn-default" type="submit" value="peep"><i class="glyphicon glyphicon-hand-down"></i></button>
       </div>
     </div>
   </form>
 </div>
+<% @peeps.each do |output| %>
+<%= output.peep %></br>
+<% end %>

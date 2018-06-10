@@ -37,16 +37,25 @@ $ ``` rspec ``` to run all tests
 To recreate this project, you will need a local postgres database installation and the following databases:
 
 ``` 
+
 psql
 
 CREATE DATABASE chitter_challenge;
 \c chitter_challenge
-CREATE TABLE chitter ( id SERIAL PRIMARY KEY, Peeps VARCHAR(128), TimeStamp TIME);
-
+CREATE TABLE chitter ( id SERIAL PRIMARY KEY, 
+                       Peeps VARCHAR(128), 
+                       Time_Stamp TIMESTAMP WITHOUT TIME ZONE NOT NULL 
+                       DEFAULT (current_timestamp AT TIME ZONE 'UTC')
+                     );
 
 CREATE DATABASE chitter_challenge_test;
 \c chitter_challenge_test
-CREATE TABLE chitter ( id SERIAL PRIMARY KEY, Peeps VARCHAR(128), TimeStamp TIME);
+CREATE TABLE chitter ( id SERIAL PRIMARY KEY, 
+                       Peeps VARCHAR(128), 
+                       Time_Stamp TIMESTAMP WITHOUT TIME ZONE NOT NULL 
+                       DEFAULT (current_timestamp AT TIME ZONE 'UTC')
+                     );
+
 ```
 
 ```SELECT * FROM chitter;```
