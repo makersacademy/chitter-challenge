@@ -43,7 +43,7 @@ psql
 CREATE DATABASE chitter_challenge;
 \c chitter_challenge
 CREATE TABLE chitter ( id SERIAL PRIMARY KEY, 
-                       Peeps VARCHAR(128), 
+                       Peeps VARCHAR(140), 
                        Time_Stamp TIMESTAMP WITHOUT TIME ZONE NOT NULL 
                        DEFAULT (current_timestamp AT TIME ZONE 'UTC')
                      );
@@ -56,7 +56,7 @@ CREATE TABLE users ( id SERIAL PRIMARY KEY,
 CREATE DATABASE chitter_challenge_test;
 \c chitter_challenge_test
 CREATE TABLE chitter ( id SERIAL PRIMARY KEY, 
-                       Peeps VARCHAR(128), 
+                       Peeps VARCHAR(140), 
                        Time_Stamp TIMESTAMP WITHOUT TIME ZONE NOT NULL 
                        DEFAULT (current_timestamp AT TIME ZONE 'UTC')
                      );
