@@ -9,6 +9,7 @@ require 'rake'
 require 'rspec'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'peep'
+require 'features/web_helpers'
 
 Capybara.app = Chitter
 Rake.application.load_rakefile
