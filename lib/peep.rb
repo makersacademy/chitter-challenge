@@ -29,7 +29,6 @@ class Peep
 
     def self.read
         sql_query = "SELECT * FROM chitter ORDER BY time_stamp DESC"
-
         database.exec(sql_query).map { |peep|
             Peep.new(peep['id'], peep['peep'], peep['time_stamp']) }
     end
