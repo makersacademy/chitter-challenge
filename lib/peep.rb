@@ -14,7 +14,7 @@ class Peep
   end
 
   def self.save(options)
-    result = DatabaseConnection.query("INSERT INTO peep_log (peep, time, username) VALUES('#{options[:peep]}', '#{Time.new.strftime("%H:%M %d/%m/%y")}', '#{options[:username]}') RETURNING id, peep, time, username;")
+    result = DatabaseConnection.query("INSERT INTO peep_log (peep, time, username) VALUES('#{options[:peep].delete(?')}', '#{Time.new.strftime("%H:%M %d/%m/%y")}', '#{options[:username]}') RETURNING id, peep, time, username;")
     Peep.new(result[0]['id'], result[0]['peep'], result[0]['time'], result[0]['username'])
   end
 
