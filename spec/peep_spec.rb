@@ -52,8 +52,8 @@ describe Peep do
 
       Peep.delete(peep_2.id)
 
-      expect(Peep.all).not_to include peep_2
-      expect(Peep.all).to include peep_1
+      expect(Peep.all.length).to eq (1)
+      expect(Peep.all.first.text).to eq 'peep test 1'
     end
   end
 

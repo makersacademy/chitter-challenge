@@ -6,8 +6,8 @@ feature 'log out' do
     fill_in('password', with: 'password123')
     click_button('Submit')
 
-    click button("Log Out")
+    click_button("Log Out!")
 
-    expect(page).to have_content "Welcome to Chitter!"    
+    expect(page).to have_content "Welcome to Chitter!"
   end
 end
