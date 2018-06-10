@@ -8,7 +8,9 @@ feature 'Sort by' do
 
     click_button("sort-alphabetically")
 
-    expect(page).to have_content("A Bugs Tale 8/10 2018-06-10 Back to the Future 9/10 2018-06-10 Cars 5/10 2018-06-10")
+    expect(page).to have_content("A Bugs Tale 8/10 2018-06-10 Comment
+      Back to the Future 9/10 2018-06-10 Comment
+      Cars 5/10 2018-06-10 Comment")
   end
 
   xscenario 'user can sort by rating' do

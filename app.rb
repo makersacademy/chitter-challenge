@@ -28,5 +28,15 @@ class FaldoMovieRatings < Sinatra::Base
     redirect("/")
   end
 
+  get "/comment/:title" do
+    @film_to_comment_on = params[:title]
+    erb :comment
+  end
+
+  post "/comment/:title" do
+    # Film.add_comment(film, comment)
+    redirect("/")
+  end
+
   run! if app_file == $0
 end

@@ -1,0 +1,8 @@
+<form action="/comment/<%= @film_to_comment_on %>" method="post">
+  Comment: <br>
+  <input type="text" name="comment">
+  <input type="hidden" name="title" value="<%= @film_to_comment_on %>">
+  <input type="submit" value="Submit">
+</form>
+
+<%= styled_flash %>

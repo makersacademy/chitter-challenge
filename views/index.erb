@@ -26,6 +26,11 @@
           <td><%= film.title %></td>
           <td><%= film.rating %>/10</td>
           <td><%= film.date_added %></td>
+          <td>
+            <form action="/comment/<%= film.title %>" method="get">
+              <button type="submit" id="comment-<%= film.title %>" name="title" value="<%= film.title %>">Comment</button>
+            </form>
+          </td>
         </tr>
       <% end %>
     </tbody>
