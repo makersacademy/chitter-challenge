@@ -13,6 +13,7 @@ SimpleCov.start
 
 ENV['ENVIRONMENT'] = 'test'
 
+require 'orderly'
 require 'rspec'
 require 'capybara'
 require 'capybara/rspec'

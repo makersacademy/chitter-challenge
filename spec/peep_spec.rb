@@ -6,7 +6,6 @@ describe Peep do
     describe '#==' do
         it 'matching ids are equivalent' do
             peep_1 = Peep.create(peep: 'peep')
-
             expect(peep_1).to eq (peep_1)
         end
     end
@@ -28,9 +27,9 @@ describe Peep do
             peep_3 = Peep.create(peep: 'peep_3')
 
             expected_peeps = [
-                peep_1,
+                peep_3,
                 peep_2,
-                peep_3
+                peep_1
             ]
 
             expect(Peep.read).to eq expected_peeps

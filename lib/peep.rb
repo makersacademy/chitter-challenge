@@ -17,20 +17,20 @@ class Peep
 
 
     def self.create(create)
-        sql_query = "INSERT INTO chitter (peeps)
+        sql_query = "INSERT INTO chitter (peep)
                      VALUES('#{create[:peep]}')
-                     RETURNING id, peeps, time_stamp"
+                     RETURNING id, peep, time_stamp"
 
         result = database.exec(sql_query)
-        Peep.new(result.first['id'], result.first['peeps'], result.first['time_stamp'])
+        Peep.new(result.first['id'], result.first['peep'], result.first['time_stamp'])
     end
 
 
     def self.read
-        sql_query = "SELECT * FROM chitter"
+        sql_query = "SELECT * FROM chitter ORDER BY time_stamp DESC"
 
-        database.exec(sql_query).map { |peeps|
-            Peep.new(peeps['id'], peeps['peeps'], peeps['time_stamp']) }
+        database.exec(sql_query).map { |peep|
+            Peep.new(peep['id'], peep['peep'], peep['time_stamp']) }
     end
 
 
