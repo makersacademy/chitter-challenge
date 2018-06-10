@@ -1,3 +1,4 @@
+require 'comment'
 require 'pg'
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -34,7 +35,7 @@ class FaldoMovieRatings < Sinatra::Base
   end
 
   post "/comment/:title" do
-    # Comment.add(params[:title], params[:comment])
+    Comment.add(title: params[:title], comment: params[:comment])
     redirect("/")
   end
 

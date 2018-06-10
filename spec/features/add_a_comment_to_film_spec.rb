@@ -11,6 +11,7 @@ feature 'Add a comment to a film' do
       it's got a bunch of text and some numbers!! 012345"
     # Exercise
     click_button("comment-Inception")
+    save_and_open_page
     fill_in('comment', with: comment)
     click_button("Submit")
     # Verify
