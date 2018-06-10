@@ -59,15 +59,11 @@ describe Peep do
 
   describe '.edit' do
     it 'updates a peep in the database' do
-      Peep.create(text: 'peep test 1', username: "test_user")
-      Peep.edit(text: 'edited peep', username: "test_user")
+      peep = Peep.create(text: 'peep test 1', username: "test_user")
 
-      peeps = Peep.all
-      texts = peeps.map(&:text)
+      Peep.edit(id: peep.id, text: 'edited peep', username: "test_user")
 
-
-      expect(texts).not_to include "peep test 1"
-      expect(texts).to include "edited peep"
+      expect(Peep.all.first.text).to eq("edited peep")
     end
   end
 

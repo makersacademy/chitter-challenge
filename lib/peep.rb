@@ -14,12 +14,16 @@ class Peep
    @id = other.id
   end
 
-  def self.all
+  def self.setup_db
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_app_test')
+      PG.connect(dbname: 'chitter_app_test')
     else
-      connection = PG.connect(dbname: 'chitter_app')
+      PG.connect(dbname: 'chitter_app')
     end
+  end
+
+  def self.all
+    connection = setup_db
 
     result = connection.exec("SELECT * FROM peeps")
     unordered_list = result.map { |peep| Peep.new(peep['id'], peep['text'], peep['username'], peep['time']) }
@@ -27,11 +31,7 @@ class Peep
   end
 
   def self.create(options)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_app_test')
-    else
-      connection = PG.connect(dbname: 'chitter_app')
-    end
+    connection = setup_db
 
     return false unless exceed_character_length?(options[:text])
     result = connection.exec("INSERT INTO peeps (text, username, time) VALUES('#{options[:text]}', '#{options[:username]}', '#{Time.new.strftime('%I:%M %p on %A, %B %C %Y')}') RETURNING id, text, time, username")
@@ -39,32 +39,19 @@ class Peep
   end
 
   def self.delete(peep_id)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_app_test')
-    else
-      connection = PG.connect(dbname: 'chitter_app')
-    end
+    connection = setup_db
 
     connection.exec("DELETE FROM peeps WHERE id = ('#{peep_id}')")
   end
 
   def self.edit(options)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_app_test')
-    else
-      connection = PG.connect(dbname: 'chitter_app')
-    end
+    connection = setup_db
 
     connection.exec("UPDATE peeps SET text=('#{options[:text]}') WHERE id=('#{options[:id]}')")
   end
 
-
   def self.find(peep_id)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_app_test')
-    else
-      connection = PG.connect(dbname: 'chitter_app')
-    end
+    connection = setup_db
 
     result = connection.exec("SELECT * FROM peeps WHERE id = #{peep_id}")
     Peep.new(result.first['id'], result.first['text'], result.first['username'], result.first['time'])
