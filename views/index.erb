@@ -31,9 +31,16 @@
               <button type="submit" id="comment-<%= film.title %>" name="title" value="<%= film.title %>">Comment</button>
             </form>
           </td>
-          <td></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <%= styled_flash %>
+
+
+<!-- I want to show all of the comments that appear for the film
+that its on. As a human I would look at the array of comments, and
+for each element, if it had the title then I would add it  -->
+
+<!-- Another way would be to create a .comments method on the film
+class and then just return this in the index. This is easier - gna do this  -->

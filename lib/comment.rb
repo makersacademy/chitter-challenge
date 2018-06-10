@@ -1,6 +1,6 @@
 class Comment
 
-  attr_reader :id
+  attr_reader :id, :comment
 
   def initialize(title: title, comment: comment, id: id)
     @title = title

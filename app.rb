@@ -1,8 +1,8 @@
-require 'comment'
+require './lib/comment'
+require './lib/film'
 require 'pg'
 require 'sinatra/base'
 require 'sinatra/flash'
-require './lib/film'
 require 'uri'
 
 class FaldoMovieRatings < Sinatra::Base
@@ -12,6 +12,7 @@ class FaldoMovieRatings < Sinatra::Base
 
   get '/' do
     @films = Film.all(params[:sort_by])
+    # @comments = Comment.show
     erb :index
   end
 
