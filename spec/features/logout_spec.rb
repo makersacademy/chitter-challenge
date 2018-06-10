@@ -10,7 +10,7 @@ feature 'Logging out' do
         visit '/login'
         fill_in('email', with: 'contact@matthewwareing.com')
         fill_in('password', with: 'test')
-        click_button('submit')
+        click_button('Submit')
 
         click_button('Sign out')
 

@@ -1,6 +1,6 @@
 <% if @user %>
   <h1>Hello, <%= @user.display_name %></h1>
-  <form action="/logout" method="post">
+  <form action="/logout" method="get">
   <input type="submit" value="Sign out">
   </form>
   <form action="/new" method="post">

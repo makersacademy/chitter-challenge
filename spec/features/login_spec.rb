@@ -9,7 +9,7 @@ feature 'Logging In' do
         visit('/login')
         fill_in('email', with: 'contact@matthewwareing.com')
         fill_in('password', with: 'test')
-        click_button('submit')
+        click_button('Submit')
 
         expect(page).to have_content("Hello, #{user.display_name}")
     end
@@ -25,7 +25,7 @@ feature 'Logging In' do
         visit '/login'
         fill_in('email', with: 'wrongt@email.com')
         fill_in('password', with: 'test')
-        click_button('submit')
+        click_button('Submit')
 
         expect(page).to have_content("Please check your email or password")
     end
@@ -41,7 +41,7 @@ feature 'Logging In' do
         visit '/login'
         fill_in('email', with: 'contact@matthewwareing.com')
         fill_in('password', with: 'wrongpassword')
-        click_button('submit')
+        click_button('Submit')
 
         expect(page).to have_content("Please check your email or password")
     end

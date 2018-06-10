@@ -46,7 +46,6 @@ class Chitter < Sinatra::Base
 
     post '/login' do
         user = User.authenticate(params['email'], params['password'])
-
         if user
             session[:user_id] = user.id
             redirect('/peeps')
@@ -56,9 +55,9 @@ class Chitter < Sinatra::Base
         end
     end
 
-    post '/logout' do
+    get '/logout' do
+        erb :index
         session.clear
         flash[:notice] = "Log back in soon!"
-        redirect('/')
     end
 end

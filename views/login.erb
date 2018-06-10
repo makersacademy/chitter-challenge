@@ -1,6 +1,47 @@
-<%= styled_flash %>
-<form action="/login" method="post">
-    Email or Username:<input type="text" name="email">
-    Password:<input type="password" name="password">
-    <input type="submit" value="submit">
-</form>
+  <body class="segoe">
+         <div class="topcontainer">
+             <div class="topbar">
+                 <i class="fab fa-twitter logocenter" aria-hidden="true"></i>
+             </div>
+ 
+             <div class="AppContent wrapper wrapper-signup" id="page-container">
+                 <link rel="stylesheet" href="https://abs.twimg.com/a/1511833274/css/t1/t1_signup.bundle.css">
+                 <div class="page-canvas">
+                     <div class="signup-wrapper">
+                         <h1>
+                             Login to Chitters.
+                         </h1>
+                         <%= styled_flash %> 
+                         <form action="/login" method="post">
+                            <div class="t1-form signup " id="phx-signup-form">
+                                <div class="textbox">
+                                    <div class="prompt email">
+                                        <div data-fieldname="email" class="field">
+                                            <div class="sidetip">
+                                                <p id="emailerror" role="alert" class="invalid error">Please enter a valid email.</p>
+                                            </div>
+                                            <input type="email" placeholder="Email" aria-required="true" class="email-input" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="prompt password">
+                                        <div data-fieldname="password" class="field">
+                                            <div class="sidetip">
+                                                <p id="passerror" role="alert" class="blank error">Please enter a password.</p>
+                                            </div>
+                                            <input type="password" placeholder="Password" aria-required="true" name="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="doit">
+                                    <div class="sign-up-box">
+                                        <input type="submit" value="Submit" id="submit_button" class="signup EdgeButton EdgeButton--primary EdgeButton--large submit">
+                                    </div>
+                                </div>
+                            </div>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </body>
+ </html>

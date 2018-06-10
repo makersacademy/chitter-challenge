@@ -1,6 +1,7 @@
+<%= styled_flash %> 
 <form action="/new" method="post">
   <input type="text" name="content">
-  <input type="submit" value="Submit">
+  <input type="submit" value="submit">
 </form>
 <ul>
   <% @peeps.each do |peep| %>
@@ -8,4 +9,3 @@
   <% end %>
 </ul>
 
-Log back in soon!
