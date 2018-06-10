@@ -2,13 +2,15 @@
   <form class="form-signin" action = '/sign_in' method = 'post'>
     <img class="mb-4" src="\images\logo.png" alt="" width="144" height="144">
     <h1 class="h3 mb-3 font-weight-normal">Sign in to Chitter</h1>
-
+    <h6>
+  <small class="text-muted">Don't have an account? Create one <a href = '/signup'>here</a></small>
+</h6>
     <% if @error %>
     <div class="alert alert-danger">
     It looks like you entered your username or password wrong.
     </div>
     <% end %>
-    
+
     <input type="text" name = "username" class="form-control" placeholder="Desired Username" required autofocus>
     <input type="password" name = 'password' class="form-control" placeholder="Desired Password" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
