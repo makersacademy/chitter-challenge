@@ -21,11 +21,11 @@ class Comment
   def self.all
     connection = connect_to_correct_database
     results = connection.exec("SELECT * FROM comments;")
-    counter = -1
+    counter = 0
     results.map do |comment|
       counter += 1
-      Comment.new(title: results[counter]['film_title'],
-        comment: results[counter]['text'], id: results[counter]['id'])
+      Comment.new(title: results[counter-1]['film_title'],
+        comment: results[counter-1]['text'], id: results[counter-1]['id'])
     end
   end
 
