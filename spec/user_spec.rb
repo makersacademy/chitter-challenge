@@ -27,3 +27,11 @@ describe '.find' do
     expect(User.find(nil)).to eq nil
   end
 end
+
+describe '.create' do
+  it 'hashes the password using BCrypt' do
+    expect(BCrypt::Password).to receive(:create).with('password123')
+
+    User.create(email: 'test@example.com', password: 'password123')
+  end
+end

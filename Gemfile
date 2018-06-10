@@ -4,6 +4,8 @@ gem 'pg'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'capybara'
+gem 'bcrypt'
+
 
 
 ruby '2.5.0'
