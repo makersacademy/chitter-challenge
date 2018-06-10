@@ -32,7 +32,17 @@ describe Peep do
                 peep_1
             ]
 
-            expect(Peep.read).to eq expected_peeps
+            expect(Peep.read).to eq(expected_peeps)
+        end
+    end
+
+
+    describe '.time' do
+        it 'returns time a peep was posted in month day format' do
+            
+            peep = Peep.new(1, 'peep_1', '2018-06-10 10:27:58.348763')
+            expect(peep.time).to eq('June 10')
+
         end
     end
 

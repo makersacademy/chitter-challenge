@@ -34,6 +34,11 @@ class Peep
     end
 
 
+    def time
+        t = Time.parse(timestamp)
+        t.strftime(format='%B %d')
+    end
+
 
     private
 
