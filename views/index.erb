@@ -7,16 +7,23 @@
     <button type="submit" id="sort-alphabetically" name="sort_by" value="a_to_z">Sort A-Z</button>
   </form>
 
-  <ul>
-    <% @films.each do |film| %>
-    <div class ='row'>
-        <div class="title"> <%= film.title %> </div>
-        <div class="rating"> <%= film.rating %>/10 </div>
-        <div class="date"> <%= film.date_added %> </div>
-    </div>
-    <% end %>
-    <%= @bookmark_to_add %>
-  </ul>
-
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Date Added</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @films.each do |film| %>
+        <tr>
+          <td><%= film.title %></td>
+          <td><%= film.rating %>/10</td>
+          <td><%= film.date_added %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <%= styled_flash %>
 </p>
