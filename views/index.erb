@@ -7,7 +7,9 @@
 </form>
 <ul>
   <% @peeps.each do |peep| %>
-    <p><%= peep.time %>
-      <%= peep.peep %></p>
+    <p><%= peep.username %> says:
+      <%= peep.peep %><br>
+      <%= peep.time %>
+    </p>
   <% end %>
 </ul>

@@ -5,6 +5,8 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     @peeps = Peep.all
     erb(:index)
@@ -15,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.save(peep: params[:peep])
+    Peep.save(peep: params[:peep], username: session[:username])
     redirect '/'
   end
 
@@ -24,8 +26,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/confirm' do
-    @user = params[:username]
-    User.save(username: params[:username], email: params[:email], password: params[:password])
+    session[:username] = params[:username]
+    User.save(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     erb(:confirm)
   end
 
