@@ -9,31 +9,55 @@ Chitter Challenge
 
 #### How to use the website:
 1. Load localhost server via ```rackup config.ru``` and note the port number listed.
-2. Visit 'localhost:XXXX' with the port number.
+2. Visit 'localhost:9292'.
 
 #### How to run the tests:
-Spec file includes unit tests and feature tests sub folder. All tests can be run via ```rspec```.
-
+Spec file includes unit tests and feature tests sub folder.
+All tests can be run via ```rspec```.
 
 ### Approach to solving the challenge:
-
 1. Set up Sinatra file system and frame work with Controller and Views.
 2. Created Capybara feature tests for ensuring the user behaviour was as expected.
-3. Worked through the Red, Green, Refactor process to address each user story.
+3. Worked through the Red, Green, Refactor process to address each user story via TDD.
+4. Set up PG database with one to many relationship between users and peeps (messages).  
 
 ### Status at point of push:
-
+100% test coverage.
+No rubocop issues.
+Issue - due to PSQL queries, peeps (messages) must not include an apostrophe.
 
 ### Description of what code does:
-
+Chitter is a message display web application that enables visitors find out what others are up to. The site shows a thread of messages posted. Users can also sign up and then post peep messages themselves.
 
 ### Code Style:
 Standard Ruby, with Capybara and Rspec syntax for testing.
 
 ### Features:
+1. Past peeps (messages) are displayed in reverse chronological order.
+2. Only users who have signed up can post to Chitter.
+3. Optimising for user sign up with click through to sign up where relevant.
+4. Email and username user for sign up must be unique otherwise an error message will be shown.
+5. Passwords are securely encrypted in the user database.
 
 ### Code Example:
-Extract from the
+Extract from the code:
+```
+def self.new_user(name, username, email, password)
+  encrypted_password = encrypt_password(password)
+  return false unless valid_sign_up?(username, email)
+  result = add_to_database(name, username, email, encrypted_password)
+  ChitterSignUp.new(result[0]['user_id'], result[0]['name'],
+    result[0]['username'], result[0]['email'], result[0]['password'])
+end
+
+def self.all
+  result = DatabaseConnection.query("SELECT * FROM users")
+  result.map do |user|
+    ChitterSignUp.new(user['user_id'], user['name'], user['username'],
+                      ]user['email'], user['password'])
+  end
+end
+```
 
 Instructions Set by Makers Academy
 -------
