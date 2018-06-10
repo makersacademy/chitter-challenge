@@ -8,6 +8,7 @@ class User
 
   def initialize(id, name, username, email, password)
     @id = id
+    @name = name
     @username = username
     @email = email
     @password = password
@@ -31,7 +32,7 @@ class User
   def self.authenticate(username, password)
     result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}';")
     return unless BCrypt::Password.new(result[0]['password']) == password
-    user = User.new(result[0]['id'], result[0]['name'], result[0]['username'], result[0]['email'], result[0]['password'])
+    User.new(result[0]['id'], result[0]['name'], result[0]['username'], result[0]['email'], result[0]['password'])
   end
 
 end

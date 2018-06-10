@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
       redirect '/nameerror'
     elsif params[:username] == "" || params[:password] == ""
       redirect '/signuperror'
-    else User.save(name: params[:name], username: params[:username], email:  params[:email], password: params[:password])
+    else User.save(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     end
     session[:username] = params[:username]
     erb(:confirm)
