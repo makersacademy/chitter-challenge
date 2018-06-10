@@ -34,7 +34,7 @@ class FaldoMovieRatings < Sinatra::Base
   end
 
   post "/comment/:title" do
-    # Film.add_comment(film, comment)
+    # Comment.add(params[:title], params[:comment])
     redirect("/")
   end
 
