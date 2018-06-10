@@ -19,7 +19,7 @@ task :setup do
                     email VARCHAR(60), password VARCHAR(140), \
                     name VARCHAR(60), username VARCHAR(60));")
     connection.exec("CREATE TABLE peeps \
-                   (id SERIAL PRIMARY KEY REFERENCES users, \
+                   (id SERIAL PRIMARY KEY, \
                     peep VARCHAR(140), username VARCHAR(60), \
                     created_at TIMESTAMP  DEFAULT current_timestamp(0));")
   end
