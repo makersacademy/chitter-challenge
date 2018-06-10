@@ -21,14 +21,14 @@ describe PeepMessage do
   end
 
   describe '.all' do
-    it 'Returns all messages (peeps) in an array' do
+    it 'Returns all messages (peeps) in an array of newest to oldest' do
       message_1 = PeepMessage.create("Maurice, it has been too long", "Sarah Miles", "Smiles")
       message_2 = PeepMessage.create("Sarah! I missed you", "Maurice Bendrix", "mauribendrix")
       message_3 = PeepMessage.create("Henry is well...", "Sarah Miles", "Smiles")
       expected_messages = [
-        message_1,
+        message_3,
         message_2,
-        message_3
+        message_1
       ]
       expect(PeepMessage.all).to eq expected_messages
     end

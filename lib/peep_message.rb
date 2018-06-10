@@ -18,7 +18,7 @@ class PeepMessage
   def self.all
     connection = database_connection
     result = connection.exec("SELECT * FROM peeps")
-    result.map do |peep|
+    peeps = result.to_a.reverse.map do |peep|
       PeepMessage.new(peep['id'], peep['message'],
                       peep['name'], peep['username'])
     end
