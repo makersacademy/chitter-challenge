@@ -1,8 +1,10 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
   enable :sessions
 
   get '/' do
@@ -15,6 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
+    flash[:notice] = "That's too long, be more concise!" unless \
     Peep.post(peep: params['peep'], user: params['username'])
     redirect '/posts'
   end

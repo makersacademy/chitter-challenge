@@ -7,12 +7,12 @@
     <input type='text' name='peep' />
     <label for="username">What is your username?</label>
     <input type='text' name='username' />
-    <input type='submit' value='Post' />
+    <input class='btn btn-primary' type='submit' value='Post' />
   </form>
 <% else %>
   <h3>You need to sign up before you can start posting</h3>
   <form action='/users/new' method='post'>
-    <input type='submit' value='Sign Up'>
+    <input class='btn btn-primary' type='submit' value='Sign Up'>
   </form>
 <% end %>
 

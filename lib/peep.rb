@@ -11,6 +11,7 @@ class Peep
   end
 
   def self.post(options)
+    return false if too_long?(options[:peep])
     connection = database_connection
     result = connection.exec("INSERT INTO peeps (peep, username) \
     VALUES('#{options[:peep]}', '#{options[:user]}') \
@@ -37,5 +38,10 @@ class Peep
     else
       PG.connect(dbname: 'chitter')
     end
+  end
+
+  private_class_method
+  def self.too_long?(peep)
+    peep.length > 140
   end
 end

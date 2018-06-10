@@ -1,3 +1,8 @@
+<%= styled_flash %>
+
+
+<h2>Peep Peep!</h2>
+
 <ul>
   <% @peeps.reverse_each do |peeps| %>
     <li><%= peeps.peep %>, by <%= peeps.user %> (posted at: <%= peeps.created_at %>)</li>
@@ -5,5 +10,5 @@
 </ul>
 
 <form action='/' method='post'>
-  <input type='submit' value='Write another peep' />
+  <input class='btn btn-primary' type='submit' value='Write another peep' />
 </form>
