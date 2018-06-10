@@ -12,6 +12,7 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/post' do
+    Peep.create(content: params['content'])
     redirect('/')
   end
 
