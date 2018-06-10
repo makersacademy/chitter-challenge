@@ -14,6 +14,7 @@
     <div class = 'col-lg-1'>
       <%= film.title %>
       <%= film.rating %>/10
+      <%= film.date_added %>
     </div>
   </div>
   <% end %>
@@ -21,15 +22,3 @@
 </ul>
 
 <%= styled_flash %>
-
-<!-- when the button is clicked I want the order to be
-changed to aplha.
-- currently its just whatever the order is in the database
-
-* I could do it in the database before I pull it out
-(and specify this is a Film.all(sort_by: alphabetical))
-OR
- -->
-
-<!-- one option is to redirect to another page that sorts out the logic -->
-<!-- another option is to have a class method that  -->
