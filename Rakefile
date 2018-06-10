@@ -15,8 +15,8 @@ task :setup do
     connection = PG.connect
     connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
-    connection.exec("CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(140), created_at TIMESTAMP DEFAULT current_timestamp(0));")
     connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), name VARCHAR(60), username VARCHAR(60));")
+    connection.exec("CREATE TABLE peeps (id SERIAL PRIMARY KEY REFERENCES users, peep VARCHAR(140), created_at TIMESTAMP DEFAULT current_timestamp(0));")
   end
 end
 
@@ -27,8 +27,9 @@ task :test_database_setup do
   connection = PG.connect(dbname: 'chitter_test')
 
   # Clear the databases
-  connection.exec("TRUNCATE peeps;")
-  connection.exec("TRUNCATE users;")
+  connection.exec("TRUNCATE users, peeps;")
+  connection.exec("ALTER SEQUENCE users_id_seq RESTART;")
+  connection.exec("ALTER SEQUENCE peeps_id_seq RESTART;")
 
 end
 

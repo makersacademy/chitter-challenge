@@ -2,13 +2,15 @@
 
 <% if @user %>
   <h2>You are signed in as <%= @user.username %></h2>
+  <form action='/posts' method='post'>
+    <input type='text' name='peep' />
+    <input type='submit' value='Post' />
+  </form>
 <% else %>
+  <h3>You need to sign up before you can start posting</h3>
   <form action='/users/new' method='post'>
     <input type='submit' value='Sign Up'>
   </form>
 <% end %>
 
-<form action='/posts' method='post'>
-  <input type='text' name='peep' />
-  <input type='submit' value='Post' />
-</form>
+<a href='/posts'>View previous peeps here</a>
