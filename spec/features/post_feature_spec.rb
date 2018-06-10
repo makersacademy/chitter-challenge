@@ -6,6 +6,7 @@ feature "Post peep:" do
   scenario "User can post a peep on the homepage." do
     visit('/')
     fill_in('peep', with: "My first peep")
+    fill_in('user', with: "My first user")
     click_button "Submit"
     expect(page).to have_content "My first peep"
   end

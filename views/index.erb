@@ -1,5 +1,13 @@
 <h1>Submit your peep to chitter</h1>
 <form action = '/peep' method = 'post'>
-  <input type = "text" name = "peep"/>
+  <div style="float:top;">
+    <label for="user">User</label>
+    <input type = "text" name = "user"/>
+  </div>
+  <br>
+  <div style="float:top;">
+    <label for="peep">Peep</label>
+    <input type = "text" name = "peep"/>
+  </div>
   <input type = "submit" value = "Submit"/>
 </form>
