@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
+gem 'bcrypt'
 gem 'capybara'
 gem 'pg'
 gem 'rake'
