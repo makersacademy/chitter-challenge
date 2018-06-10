@@ -37,6 +37,7 @@ class Film
       rating: result.first['rating'], date_added: result.first['date'])
   end
 
+
   private
 
   def self.connect_to_correct_database
