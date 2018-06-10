@@ -1,4 +1,5 @@
 require 'pg'
+require_relative './database_connection'
 
 class User
 
@@ -19,6 +20,10 @@ class User
   def self.all
     result = DatabaseConnection.query("SELECT * FROM users;")
     result.map { |user| User.new(user['id'], user['name'], user['username'], user['email'], user['password']) }
+  end
+
+  def self.already_exists?(options)
+    User.all.map(&:username).include?("#{options[:username]}")
   end
 
 end

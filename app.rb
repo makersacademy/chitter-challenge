@@ -27,8 +27,15 @@ class Chitter < Sinatra::Base
 
   post '/confirm' do
     session[:username] = params[:username]
-    User.save(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    if User.already_exists?(username: session[:username])
+      redirect '/nameerror'
+    else User.save(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    end
     erb(:confirm)
+  end
+
+  get '/nameerror' do
+    "Sorry, that username is already taken"
   end
 
   run! if app_file == $0

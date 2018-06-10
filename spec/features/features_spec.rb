@@ -23,9 +23,20 @@ end
 feature 'Makers can sign up for Chitter' do
   scenario 'There is a sign-up page with a form for username and email address' do
     visit '/sign_up'
+    fill_in('username', with: "Beelzebub")
+    fill_in('email', with: "j.snow@gmail.com")
+    click_button 'Sign Up'
+    expect expect(page).to have_content("Thanks for signing up for Chitter, Beelzebub")
+  end
+  scenario 'Makers cannot have a username that is already taken' do
+    visit '/sign_up'
     fill_in('username', with: "John Snow")
     fill_in('email', with: "j.snow@gmail.com")
     click_button 'Sign Up'
-    expect expect(page).to have_content("Thanks for signing up for Chitter, John Snow")
+    visit '/sign_up'
+    fill_in('username', with: "John Snow")
+    fill_in('email', with: "j.snow@gmail.com")
+    click_button 'Sign Up'
+    expect expect(page).to have_content("Sorry, that username is already taken")
   end
 end
