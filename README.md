@@ -27,7 +27,7 @@ No rubocop issues.
 Issue - due to PSQL queries, peeps (messages) must not include an apostrophe.
 
 ### Description of what code does:
-Chitter is a message display web application that enables visitors find out what others are up to. The site shows a thread of messages posted. Users can also sign up and then post peep messages themselves.
+Chitter is a social messaging web application that enables visitors find out what others are up to. The site shows a thread of messages posted. Users can also sign up and then post peep messages themselves.
 
 ### Code Style:
 Standard Ruby, with Capybara and Rspec syntax for testing.
