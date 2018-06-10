@@ -1,24 +1,22 @@
-<h1> Faldo-Movie-Ratings </h1>
+<p>
+  <form action="/addfilm" method="get">
+    <input type="submit" id="addfilm" value="Add Film">
+  </form>
 
-<form action="/addfilm" method="get">
-  <input type="submit" id="addfilm" value="Add Film">
-</form>
+  <form action="/" method="get">
+    <button type="submit" id="sort-alphabetically" name="sort_by" value="a_to_z">Sort A-Z</button>
+  </form>
 
-<form action="/" method="get">
-  <button type="submit" id="sort-alphabetically" name="sort_by" value="a_to_z">Sort A-Z</button>
-</form>
-
-<ul>
-  <% @films.each do |film| %>
-  <div class ='row'>
-    <div class = 'col-lg-1'>
-      <%= film.title %>
-      <%= film.rating %>/10
-      <%= film.date_added %>
+  <ul>
+    <% @films.each do |film| %>
+    <div class ='row'>
+        <div class="title"> <%= film.title %> </div>
+        <div class="rating"> <%= film.rating %>/10 </div>
+        <div class="date"> <%= film.date_added %> </div>
     </div>
-  </div>
-  <% end %>
-  <%= @bookmark_to_add %>
-</ul>
+    <% end %>
+    <%= @bookmark_to_add %>
+  </ul>
 
-<%= styled_flash %>
+  <%= styled_flash %>
+</p>

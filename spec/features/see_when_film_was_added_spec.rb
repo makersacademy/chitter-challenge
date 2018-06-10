@@ -1,3 +1,7 @@
+# As a user
+# So that I can better appreciate the context of a review
+# I want to see the time at which it was made
+
 feature 'See date added' do
   scenario 'User can see when the film was added' do
     visit("/")
