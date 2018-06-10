@@ -74,5 +74,5 @@ CREATE TABLE users ( id SERIAL PRIMARY KEY,
 ----+-------+-----------
 
 ### TODO : Add User Authentication and login/logout
-
+https://github.com/codahale/bcrypt-ruby
 https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/17.md
