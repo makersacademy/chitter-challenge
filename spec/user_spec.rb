@@ -45,5 +45,9 @@ describe User do
       user = enter_user
       expect(User.authenticate('incorrectusername','hunter123')).to be_nil
     end
+    it 'returns nil when given an incorrect password' do
+      user = enter_user
+      expect(User.authenticate('tester', 'wrongpassword')).to be_nil
+    end
   end
 end
