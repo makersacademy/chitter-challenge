@@ -3,7 +3,7 @@ describe Comment do
     it 'shows the comments for given film' do
       connection = PG.connect(dbname: 'faldo_movie_ratings_test')
 
-      # Create films in database 
+      # Create films in database
       connection.exec("INSERT INTO films (title, rating) VALUES ('Film 1 Title', '10');")
       connection.exec("INSERT INTO films (title, rating) VALUES ('Film 2 Title', '7');")
       connection.exec("INSERT INTO films (title, rating) VALUES ('Film 3 Title', '8');")
@@ -18,16 +18,19 @@ describe Comment do
 
   end
 
-  # describe '.add' do
-  #   it 'it can add comments' do
-  #     # Setup
-  #     add database with 'Film Title' in it
-  #     comment = "This is a comment about the film that user can make"
-  #     # Exercise
-  #     Comment.add(title: "Film Title", comment: comment)
-  #     comments_for_film = Comment.show("Film Title")
-  #     # Verify
-  #     expect(comments_for_film).to include(comment)
-  #   end
-  # end
+  describe '.add' do
+    it 'it can add comments' do
+      # Setup
+      connection = PG.connect(dbname: 'faldo_movie_ratings_test')
+      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 1 Title', '10');")
+      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 2 Title', '7');")
+      connection.exec("INSERT INTO films (title, rating) VALUES ('Film 3 Title', '8');")
+
+      comment = "This is a comment about the film that user can make"
+      # Exercise
+      Comment.add(title: "Film 2 Title", comment: comment)
+      # Verify
+      expect(Comment.show(title: "Film 2 Title")).to include(comment)
+    end
+  end
 end
