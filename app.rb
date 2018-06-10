@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    Peep.post(peep: params['peep'])
+    Peep.post(peep: params['peep'], user: params['username'])
     redirect '/posts'
   end
 
@@ -33,7 +33,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params['email'], password: params['password'], name: params['name'], username: params['username'])
+    user = User.create(email: params['email'], password: params['password'], \
+                       name: params['name'], username: params['username'])
     session[:user_id] = user.id
     redirect '/'
   end

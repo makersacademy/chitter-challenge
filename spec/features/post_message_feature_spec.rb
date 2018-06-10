@@ -12,6 +12,7 @@ feature 'Post a peep to Chitter' do
     fill_in('username', with: 'testusername')
     click_button('Submit')
     fill_in('peep', with: "My first peep")
+    fill_in('username', with: "Simone")
     click_button('Post')
     expect(page).to have_content "My first peep"
   end

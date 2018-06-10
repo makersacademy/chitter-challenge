@@ -15,8 +15,13 @@ task :setup do
     connection = PG.connect
     connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
-    connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), name VARCHAR(60), username VARCHAR(60));")
-    connection.exec("CREATE TABLE peeps (id SERIAL PRIMARY KEY REFERENCES users, peep VARCHAR(140), created_at TIMESTAMP DEFAULT current_timestamp(0));")
+    connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, \
+                    email VARCHAR(60), password VARCHAR(140), \
+                    name VARCHAR(60), username VARCHAR(60));")
+    connection.exec("CREATE TABLE peeps \
+                   (id SERIAL PRIMARY KEY REFERENCES users, \
+                    peep VARCHAR(140), username VARCHAR(60), \
+                    created_at TIMESTAMP  DEFAULT current_timestamp(0));")
   end
 end
 
@@ -34,7 +39,8 @@ task :test_database_setup do
 end
 
 task :teardown do
-  p "Destroying databases...type 'y' to confirm that you want to destroy the Chitter databases. This will remove all data in those databases!"
+  p "Destroying databases...type 'y' to confirm that you want to destroy \
+  the Chitter databases. This will remove all data in those databases!"
 
   # Get a confirmation from the user!
   confirm = STDIN.gets.chomp

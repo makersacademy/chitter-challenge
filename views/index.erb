@@ -3,7 +3,10 @@
 <% if @user %>
   <h2>You are signed in as <%= @user.username %></h2>
   <form action='/posts' method='post'>
+    <label for="peep">What do you want to say?</label>
     <input type='text' name='peep' />
+    <label for="username">What is your username?</label>
+    <input type='text' name='username' />
     <input type='submit' value='Post' />
   </form>
 <% else %>

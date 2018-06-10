@@ -12,9 +12,11 @@ feature 'Viewing peeps' do
     fill_in('username', with: 'testusername')
     click_button('Submit')
     fill_in('peep', with: "This peep is very profound")
+    fill_in('username', with: "Simone")
     click_button('Post')
     click_button('Write another peep')
     fill_in('peep', with: "This one is not, it is just a cat GIF")
+    fill_in('username', with: "Simone")
     click_button('Post')
     expect("This one is not, it is just a cat GIF").to appear_before("This peep is very profound")
   end
@@ -31,6 +33,7 @@ feature 'Viewing peeps' do
     fill_in('username', with: 'testusername')
     click_button('Submit')
     fill_in('peep', with: "This peep should have a time stamp")
+    fill_in('username', with: "Simone")
     click_button('Post')
     expect(page).to have_content("posted at: ")
   end

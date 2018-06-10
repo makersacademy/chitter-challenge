@@ -4,8 +4,8 @@ describe Peep do
 
   describe '.display' do
     it 'shows a list of posted peeps' do
-      peep_1 = Peep.post(peep: "Can anybody hear me?")
-      peep_2 = Peep.post(peep: "Helloooo?")
+      peep_1 = Peep.post(peep: "Can anybody hear me?", user: "Simone")
+      peep_2 = Peep.post(peep: "Helloooo?", user: "Simone")
 
       expected_peep_1 = peep_1
       expected_peep_2 = peep_2

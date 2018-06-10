@@ -1,24 +1,30 @@
 require 'pg'
 
 class Peep
-  attr_reader :id, :peep, :created_at
+  attr_reader :id, :peep, :user, :created_at
 
-  def initialize(id, peep, created_at)
+  def initialize(id, peep, user, created_at)
     @id = id
     @peep = peep
+    @user = user
     @created_at = created_at
   end
 
   def self.post(options)
     connection = database_connection
-    result = connection.exec("INSERT INTO peeps (peep) VALUES('#{options[:peep]}') RETURNING id, peep, created_at")
-    Peep.new(result.first['id'], result.first['peep'], result.first['created_at'])
+    result = connection.exec("INSERT INTO peeps (peep, username) \
+    VALUES('#{options[:peep]}', '#{options[:user]}') \
+    RETURNING id, peep, username, created_at")
+    Peep.new(result.first['id'], result.first['peep'], \
+    result.first['username'], result.first['created_at'])
   end
 
   def self.display
     connection = database_connection
     result = connection.exec("SELECT * FROM peeps")
-    result.map { |peeps| Peep.new(peeps['id'], peeps['peep'], peeps['created_at']) }
+    result.map { |peeps| Peep.new(peeps['id'], peeps['peep'], \
+                 peeps['username'], peeps['created_at'])
+    }
   end
 
   def ==(other)
