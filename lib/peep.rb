@@ -11,6 +11,7 @@ class Peep
         @timestamp = timestamp
     end
 
+
     def ==(peep)
         @id == peep.id
     end
