@@ -25,8 +25,6 @@ class Peep
     @id == other.id
   end
 
-  private
-
   def self.database_connection
     if ENV['ENVIRONMENT'] == 'test'
       PG.connect(dbname: 'chitter_test')

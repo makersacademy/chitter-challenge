@@ -33,8 +33,6 @@ class User
     User.new(result[0]['id'], result[0]['email'], result[0]['password'], result[0]['name'], result[0]['username'])
   end
 
-  private
-
   def self.database_connection
     if ENV['ENVIRONMENT'] == 'test'
       PG.connect(dbname: 'chitter_test')

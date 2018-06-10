@@ -10,7 +10,7 @@ feature 'Registration' do
     fill_in('password', with: 'password123')
     fill_in('name', with: 'Test name')
     fill_in('username', with: 'testusername')
-    click_button ('Submit')
+    click_button('Submit')
     expect(page).to have_content 'You are signed in as testusername'
   end
 end
