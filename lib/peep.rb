@@ -35,8 +35,7 @@ class Peep
 
 
     def time
-        t = Time.parse(timestamp)
-        t.strftime(format='%B %d')
+        Time.parse(timestamp).strftime(format='%B %d')
     end
 
 
