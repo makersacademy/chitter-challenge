@@ -9,6 +9,7 @@ gem 'capybara'
 gem 'pry'
 gem 'shotgun'
 gem 'pg'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

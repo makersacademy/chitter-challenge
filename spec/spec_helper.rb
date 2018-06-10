@@ -1,5 +1,7 @@
 require 'peep'
+require 'user'
 require 'pg'
+
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'

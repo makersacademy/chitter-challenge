@@ -1,5 +1,6 @@
 feature 'create new peep' do
   scenario 'a user creates a new peep less than or equal to 280 chars' do
+
     visit '/'
     fill_in('username', with: 'stro2275')
     fill_in('password', with: 'password123')
@@ -20,7 +21,7 @@ feature 'create new peep' do
     fill_in('username', with: 'stro2275')
     fill_in('password', with: 'password123')
     click_button('Submit')
-
+    
     click_button('New Peep!')
     fill_in('text', with: long_text)
     click_button('Peep')
