@@ -19,10 +19,10 @@ class Chitter < Sinatra::Base
 
   post '/posts' do
     Peep.post(peep: params['peep'])
-    redirect '/posts'
+    redirect '/peeps'
   end
 
-  get '/posts' do
+  get '/peeps' do
     @peeps = Peep.showpeeps
     erb :peeps
   end
