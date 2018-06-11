@@ -1,8 +1,71 @@
-<form action="/signup" method="post">
-    display name:<input type="text" name="display_name">
-    username: <input type="text" name="username">
-    email:<input type="email" name="email">
-    password:<input type="password" name="password">
-    confirm password:<input type="password" name="confirm_password">
-    <input type="submit" value="submit">
-</form>
+  <body class="segoe">
+         <div class="topcontainer">
+             <div class="topbar">
+                 <i class="fab fa-twitter logocenter" aria-hidden="true"></i>
+             </div>
+ 
+             <div class="AppContent wrapper wrapper-signup" id="page-container">
+                 <link rel="stylesheet" href="https://abs.twimg.com/a/1511833274/css/t1/t1_signup.bundle.css">
+                 <div class="page-canvas">
+                     <div class="signup-wrapper">
+                         <h1>
+                             Sign up to Chitters.
+                         </h1>
+                         <%= styled_flash %> 
+                         <form action="/signup" method="post">
+                            <div class="t1-form signup " id="phx-signup-form">
+                                <div class="textbox">
+                                    <div class="prompt name">
+                                        <div data-fieldname="name" class="field">
+                                            <div class="sidetip">
+                                                <p id="nameerror" role="alert" class="blank invalid error">What's your name?</p>
+                                            </div>
+                                            <input type="text" placeholder="Full name" aria-required="true" maxlength="50" id="full-name" class="" name="display_name">
+                                        </div>
+                                    </div>
+                                    <div class="prompt name">
+                                        <div data-fieldname="name" class="field">
+                                            <div class="sidetip">
+                                                <p id="nameerror" role="alert" class="blank invalid error">What's your name?</p>
+                                            </div>
+                                            <input type="text" placeholder="Username" aria-required="true" maxlength="50" id="full-name" class="" name="username">
+                                        </div>
+                                    </div>
+                                    <div class="prompt email">
+                                        <div data-fieldname="email" class="field">
+                                            <div class="sidetip">
+                                                <p id="emailerror" role="alert" class="invalid error">Please enter a valid email.</p>
+                                            </div>
+                                            <input type="email" placeholder="Email" aria-required="true" class="email-input" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="prompt password">
+                                        <div data-fieldname="password" class="field">
+                                            <div class="sidetip">
+                                                <p id="passerror" role="alert" class="blank error">Please enter a password.</p>
+                                            </div>
+                                            <input type="password" placeholder="Password" aria-required="true" name="password">
+                                        </div>
+                                    </div>
+                                    <div class="prompt password">
+                                        <div data-fieldname="password" class="field">
+                                            <div class="sidetip">
+                                                <p id="passerror" role="alert" class="blank error">Please enter a password.</p>
+                                            </div>
+                                            <input type="password" placeholder="Password Confirmation" aria-required="true" name="confirm_password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="doit">
+                                    <div class="sign-up-box">
+                                        <input type="submit" value="Submit" id="submit_button" class="signup EdgeButton EdgeButton--primary EdgeButton--large submit">
+                                    </div>
+                                </div>
+                            </div>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </body>
+ </html>

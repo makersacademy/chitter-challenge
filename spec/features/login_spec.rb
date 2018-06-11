@@ -11,7 +11,7 @@ feature 'Logging In' do
         fill_in('password', with: 'test')
         click_button('Submit')
 
-        expect(page).to have_content("Hello, #{user.display_name}")
+        expect(page).to have_content("#{user.display_name}")
     end
     
     it 'a user sees error when email entered incorrectly' do

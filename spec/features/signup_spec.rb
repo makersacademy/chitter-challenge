@@ -6,8 +6,8 @@ feature 'Signing up' do
         fill_in('email', with: 'contact@matthewwareing.com')
         fill_in('password', with: 'test')
         fill_in('confirm_password', with: 'test')
-        click_button('submit')
+        click_button('Submit')
 
-        expect(page).to have_content("Hello, Matt")
+        expect(page).to have_content("Matt")
     end
 end

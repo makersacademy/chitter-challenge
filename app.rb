@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
     post '/new' do
         peep = params['content']
         Peep.create(content: peep)
-        redirect '/'
+        redirect '/peeps'
     end
 
     get '/signup' do

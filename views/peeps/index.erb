@@ -1,15 +1,98 @@
-<% if @user %>
-  <h1>Hello, <%= @user.display_name %></h1>
-  <form action="/logout" method="get">
-  <input type="submit" value="Sign out">
-  </form>
-  <form action="/new" method="post">
-  <input type="text" name="content">
-  <input type="submit" value="Submit">
-  </form>
-  <ul>
-    <% @peeps.each do |peep| %>
-        <li><%= peep.content%> <%= peep.date%></li>
-    <% end %>
-  </ul>
-<% end %>
+<body class="segoe" style="background: rgb(230, 236, 240);">
+             <div class="topbar" style="background:rgba(255,255,255, 0.9);">
+                 <i class="fab fa-twitter logocenter" aria-hidden="true" style="color: #00aced"></i>
+                                             <div class="posttweetbutcont">
+                                 <form action="/logout" method="get">
+                                 <button id="posttweetbut" class="posttweetbut" type="submit" style="background-color: #00aced; float: right;">Sign out</button>
+                                 </form>
+                            </div> 
+             </div>
+         <div>
+             <div class="wallcontainer">
+                 <div class="profilecard">
+                     <div class="profilecardhead"></div>
+                     <div class="profilecardimagediv">
+                         <img src="https://www.biography.com/.image/t_share/MTIwNjA4NjMzMjIxNzExMzcy/napoleon-i-9420291-2-402.jpg">
+                         
+                     </div>
+ 
+                     <div class="profilecardnameidcont">
+                         <div class="profilecardnamecont">
+                             <span id="profilecardname"></span>
+                         </div>
+                         <span id="profilecarduid"></span>
+                          <%= @user.display_name.capitalize %>
+                          <br>
+                         @<%= @user.username %></h1>
+                     </div>
+ 
+                     <div class="profilecardstatsdiv">
+                         <ul class="profilecardstatslist">
+                             <li class="profilecardstatslistitem">
+                                 <span class="dispblk">
+                                     <span class="statslistitemhead">Tweets</span>
+                                     <span id="statslistitemcount" class="statslistitemcount"><%= @peeps.length %></span>
+                                 </span>
+                             </li>
+ 
+                             <li class="profilecardstatslistitem">
+                                 <span class="dispblk">
+                                     <span class="statslistitemhead">Following</span>
+                                     <span class="statslistitemcount">0</span>
+                                 </span>
+                             </li>
+ 
+                             <li class="profilecardstatslistitem">
+                                 <span class="dispblk">
+                                     <span class="statslistitemhead">Followers</span>
+                                     <span class="statslistitemcount">2.5m</span>
+                                 </span>
+                             </li>
+                         </ul>
+                     </div>
+                 </div>
+ 
+ 
+                 <div class="rightcontainer">
+                     <div class="posttweetcontainer">
+                         <img class="posttweetprofimg" src="https://www.biography.com/.image/t_share/MTIwNjA4NjMzMjIxNzExMzcy/napoleon-i-9420291-2-402.jpg">
+                         <div class="ml56px">
+                         <form action="/new" method="post">
+                             <div class="posttweettacontainer">
+                                 <textarea id="posttweetta" class="posttweetta" placeholder="What's happening?" name="content"></textarea>
+                                 <div class="posttweetcountcont">
+                                     <span class="posttweetcount"><span id="totalchars">0</span>/250</span>
+                                 </div>
+                             </div>
+                             <div class="posttweetbutcont">
+                                 <button id="posttweetbut" class="posttweetbut" type="submit">Tweet</button>
+                             </div>
+                          </form>
+                         </div>
+                     </div>
+                     <div>
+                     
+                         <ul id="tweetscontainer" class="tweetscontainer">
+                            <% if @user %>           
+                              <ul>
+                                <% @peeps.each do |peep| %>
+                                	<div class="media-body">
+                                    <h4 class="media-heading">Tweet title</h4>
+                                    <%= peep.content%>
+                                    <ul class="nav nav-pills nav-pills-custom">
+                                      <li><a href="#"><span class="glyphicon glyphicon-share-alt"></span></a></li>
+                                      <li><a href="#"><span class="glyphicon glyphicon-retweet"></span></a></li>
+                                      <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                                      <li><span><%= peep.date%></span></a></li>
+                                      <li><a href="#"><span class="glyphicon glyphicon-option-horizontal"></span></a></li>
+                                    </ul>
+                                  </div>
+                                <% end %>
+                              </ul>
+                            <% end %>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </body>
