@@ -14,7 +14,7 @@ feature 'Viewing peeps' do
     visit '/'
     fill_in('peep', with: "this is my first peep")
     click_button('Post')
-    click_button('Post agagin')
+    click_button('Post again')
     fill_in('peep', with: "this is my second peep")
     click_button('Post')
     expect("this is my first peep").to appear_before("this is my second peep")

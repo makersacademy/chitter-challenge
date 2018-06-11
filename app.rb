@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    p 'postsss'
     erb :index
   end
 
@@ -18,7 +19,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
+    p 'posts'
     Peep.post(peep: params['peep'])
+    p 'anotherpost'
     redirect '/peeps'
   end
 

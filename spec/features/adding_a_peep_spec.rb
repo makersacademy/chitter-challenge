@@ -7,8 +7,9 @@ feature 'Adding a peep to chitter' do
   scenario 'User adds a peep to chitter' do
     visit '/'
     fill_in('peep', with: 'this is my first peep')
+    expect(page).to have_button('Post')
     click_button('Post')
-    expect(page).to have_content 'this is my first peep'
+    expect(page).to have_content("this is my first peep")
 
   end
 end
