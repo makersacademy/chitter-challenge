@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #e05915;
+  text-decoration: none;
+}
+
+body {
+	background-color: #c2dde6;
+	font-family: Snell Roundhand, cursive;
+}
+
+
+.logo {
+	font-size: 100px;
+}
+
+
+.peep_button {
+     width: 75px;
+     height: 40px;
+     font-size: 14px;
+     font-weight: 600
+}
+
+#peeps {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  background-color: #c2dde6;
+  font-family: Snell Roundhand, cursive;
+  color: #431c5d;
+  text-align: center;
+}
+
+#signup {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  background-color: #c2dde6;
+  font-family: Snell Roundhand, cursive;
+  color: #431c5d;
+  text-align: center;
+}
+
+#confirm {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  background-color: #c2dde6;
+  font-family: Snell Roundhand, cursive;
+  color: #431c5d;
+  text-align: center;
+}
+
+#peep {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  background-color: #c2dde6;
+  font-family: Snell Roundhand, cursive;
+  color: #431c5d;
+  text-align: center;
+}
+
+#login_or_sign_up {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+	background-color: #c2dde6;
+	font-family: Snell Roundhand, cursive;
+	color: #431c5d;
+	text-align: center;
+}
+
+#login {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+	background-color: #c2dde6;
+	font-family: Snell Roundhand, cursive;
+	color: #431c5d;
+	text-align: center;
+}
+
+#errors {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+	background-color: #c2dde6;
+	font-family: Snell Roundhand, cursive;
+	color: #431c5d;
+	text-align: center;
+}

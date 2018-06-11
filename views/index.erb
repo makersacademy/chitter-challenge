@@ -1,17 +1,23 @@
-<h1>Chitter</h1>
-Hi, <%= session[:username] %>!<br>
+<link href='/css/application.css' rel='stylesheet' type='text/css'>
+<div id = 'peeps'>
+<h1 class='logo'>Chitter</h1>
+<p style="font-size:40px">Hi, <%= session[:username] %>!<br></p>
 <form action='/peep' method='get'>
-  <input type='submit' value='Peep'>
+  <input type='submit' class='peep_button' value='Peep'>
 </form>
 
 <form action="/logout" method="post">
-  <input type="submit" value="Sign Out" />
+  <input type="submit" class='peep_button' value="Sign Out" />
 </form>
+<br>
 <ul>
   <% @peeps.each do |peep| %>
-    <p><%= peep.username %> says:
+    <p style="font-size:25px"><%= peep.username %> says:
       <%= peep.peep %><br>
       <%= peep.time %>
+      <br>
+      <br>
     </p>
   <% end %>
 </ul>
+</div>
