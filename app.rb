@@ -2,10 +2,12 @@ require 'sinatra/base'
 require './lib/peep.rb'
 require './lib/user.rb'
 require './database_connection_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     redirect '/login_or_sign_up' unless session[:username]
@@ -32,33 +34,23 @@ class Chitter < Sinatra::Base
 
   post '/confirm' do
     if User.already_exists?(username: params[:username])
-      redirect '/nameerror'
+      flash[:notice] = "Sorry, that username is already taken"
+      redirect '/login_or_sign_up'
     elsif params[:username] == "" || params[:password] == ""
-      redirect '/signuperror'
+      flash[:notice] = "Sorry, inappropriate Username or Password"
+      redirect '/login_or_sign_up'
     else User.save(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     end
     session[:username] = params[:username]
     erb(:confirm)
   end
 
-  get '/nameerror' do
-    erb(:nameerror)
-  end
-
   get '/usererror' do
     erb(:usererror)
   end
 
-  get '/passworderror' do
-    erb(:passworderror)
-  end
-
   get '/login' do
     erb(:login)
-  end
-
-  get '/signuperror' do
-    erb(:signuperror)
   end
 
   post '/login' do
@@ -69,7 +61,8 @@ class Chitter < Sinatra::Base
       session[:username] = user.username
       redirect '/'
     else
-      redirect '/passworderror'
+      flash[:notice] = "Sorry, incorrect password"
+      redirect '/login_or_sign_up'
     end
 
   end
