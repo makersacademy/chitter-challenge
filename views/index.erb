@@ -1,8 +1,8 @@
+<h2>Wellcome to chitter!</h2>
 
-<form action='/post' method='post'>
-  <label>Compose a new Peep</label><br>
-  <textarea cols="50" rows="5" type='text' name='content'></textarea><br>
-  <input type='submit' value='Post'>
+<form action='/signup' method='get'>
+  <label>Don't have an account? Sign up here to be able to post to Chitter:</label>
+  <input type='submit' value='Sign up'>
 </form>
 
 <ul style="list-style-type: none">
@@ -10,7 +10,7 @@
     <li id = "peep-<%= peep.id %>">
       <div style='background-color:#ecf2f9'>
         <%= peep.content %>
-        <p style='background-color:#fff2e6'>Posted at: <%= peep.timestamp %>
+        <p style='background-color:#fff2e6'>Posted at: <%= peep.timestamp %> by <%= peep.username %>
         </p>
       </div>
     </li>
