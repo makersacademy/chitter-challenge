@@ -43,5 +43,4 @@ class PeepMessage
       RETURNING peep_id, message, name, username, time"
     )
   end
-
 end

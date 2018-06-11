@@ -3,9 +3,11 @@ Chitter Challenge
 
 ### Quickstart:
 #### How to install the code:
-1. Fork this project.
-2. Run ```bundle``` to ensure you have all the relevant gems.
+1. Fork this project
+2. Run ```bundle``` to ensure you have all the relevant gems
 3. Use Ruby 2.5.0
+4. Run ```rake setup``` to generate the test and non test databases
+5. When finished with the application, run ```rake teardown``` remove databases
 
 #### How to use the website:
 1. Load localhost server via ```rackup config.ru``` and note the port number listed.
