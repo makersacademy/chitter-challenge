@@ -11,7 +11,7 @@ end
 task :setup do
   p "Creating databases..."
 
-  ['chitter', 'chitter_test'].each do |database|
+  ['chitter_test', 'chitter'].each do |database|
     connection = PG.connect
     connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
@@ -29,8 +29,8 @@ task :test_database_setup do
 
   connection = PG.connect(dbname: 'chitter_test')
 
-  connection.exec("TRUNCATE peeps;")
-  connection.exec("TRUNCATE users;")
+  connection.exec("TRUNCATE users, peeps CASCADE;")
+  connection.close
 end
 
 task :teardown do

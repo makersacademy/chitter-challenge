@@ -1,7 +1,7 @@
 require 'peep_message'
 
 describe PeepMessage do
-  
+
   before(:each) do
     ChitterSignUp.new_user("Maurice Bendrix", "mauribendrix", "mauribendrix@gmail.com", "ilovesarah")
     ChitterSignUp.new_user("Sarah Miles", "smiles", "sarahmiles@gmail.com", "ilovemauri")

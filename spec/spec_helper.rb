@@ -1,9 +1,10 @@
 require 'pg'
-require 'peep_message'
-require 'sign_up'
+require 'rake'
 
-ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
+ENV['RACK_ENV'] = 'test'
+
+Rake.application.load_rakefile
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
@@ -24,9 +25,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("TRUNCATE users, peeps;")
-    connection.close
+    Rake::Task['test_database_setup'].execute
   end
   config.after(:suite) do
     puts
