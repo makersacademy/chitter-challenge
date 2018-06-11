@@ -21,12 +21,7 @@ class Comment
   def self.all
     connection = connect_to_correct_database
     results = connection.exec("SELECT * FROM comments;")
-    counter = 0
-    results.map do |comment|
-      counter += 1
-      Comment.new(title: results[counter-1]['film_title'],
-        comment: results[counter-1]['text'], id: results[counter-1]['id'])
-    end
+    create_new_comment_from(results)
   end
 
   private
@@ -48,6 +43,13 @@ class Comment
   def self.wrap_comment_object_around(results)
     results.map { |comment| Comment.new(title: results.first['film_title'],
       comment: results.first['text'], id: results.first['id'])}
+  end
+
+  def self.create_new_comment_from(results)
+    results.map do |comment|
+      Comment.new(title: comment['film_title'],
+        comment: comment['text'], id: comment['id'])
+    end
   end
 end
 
