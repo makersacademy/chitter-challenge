@@ -27,9 +27,9 @@ class Peep
 
   def self.database
     if ENV['ENVIRONMENT'] == 'test'
-      PG.connect(dbname: 'chitter_test')
+      return PG.connect(dbname: 'chitter_test')
     else
-      PG.connect(dbname: 'chitter')
+      return PG.connect(dbname: 'chitter')
     end
   end
 end

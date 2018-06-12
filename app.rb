@@ -27,6 +27,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.showpeeps
+    puts @peeps
     erb :peeps
   end
 
