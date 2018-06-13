@@ -44,5 +44,6 @@ To install all the dependencies, run: bundle install
 To set up the database run brew install postgresql and create two databases, one for testing, using the following PostgreSQL commands  
   - CREATE TABLE peeps (id SERIAL PRIMARY KEY, username VARCHAR(15), message VARCHAR(150), time VARCHAR(60));')  
   - CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(15), email VARCHAR(60), username VARCHAR(15), password TEXT);')  
+
 After setting up, run: rackup config.ru and you will be able to access the app at localhost:9292  
 To Test: run rspec
