@@ -1,6 +1,6 @@
 require 'pg'
 class User
-  attr_reader :id, :username
+  attr_reader :id, :username, :email, :password, :name
 
   def initialize(id, email, password, name, username)
     @id = id
@@ -17,14 +17,16 @@ class User
   def self.all
     connection = connect_to_database
     result = connection.exec("SELECT * FROM users")
-    result.map { |user| User.new(user['id'], user['email'], user['password'], user['name'], user['username']) }
+    result.map { |user| User.new(user['id'], user['email'], user['password'],
+      user['name'], user['username']) }
   end
 
   def self.create(options)
+    p options
     connection = connect_to_database
-    result = connection.exec("INSERT INTO users (email, password, name, username) VALUES
-    ('#{options[:email]}', '#{options[:password]}', '#{options[:name]}', '#{options[:username]}')
-    RETURNING id, email, password, name, username")
+    result = connection.exec("INSERT INTO users (email, password, name, username)
+    VALUES ('#{options[:email]}', '#{options[:password]}', '#{options[:name]}',
+      '#{options[:username]}') RETURNING id, email, password, name, username")
     User.new(result.first['id'], result.first['email'], result.first['password'],
       result.first['name'], result.first['username'])
   end

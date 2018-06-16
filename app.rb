@@ -21,18 +21,18 @@ class ChitterManager < Sinatra::Base
     user = User.create(email: params['email'], password: params['password'],
       name: params['name'], username: params['username'])
     session[:user_id] = user.id
-    redirect('/:username')
+    redirect('/:user_id')
   end
 
-  get '/:username' do
+  get '/:user_id' do
     @peeps = Peep.all
     @user = User.search(session[:user_id])
     erb(:signedin)
   end
 
-  post '/:username/post' do
+  post '/:user_id/post' do
     Peep.create(content: params['content'], username: params['username'])
-    redirect('/:username')
+    redirect('/:user_id')
   end
 
   run! if app_file == $0

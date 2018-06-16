@@ -23,8 +23,10 @@ class Peep
   def self.create(options)
     connection = connect_to_database
     result = connection.exec("INSERT INTO peeps (content, timestamp, username) VALUES
-    ('#{options[:content]}', '#{Time.now.strftime('%d-%m-%y %H:%M')}', '#{options[:username]}') RETURNING id, content, timestamp, username")
-    Peep.new(result.first['id'], result.first['content'], result.first['timestamp'], result.first['username'])
+    ('#{options[:content]}', '#{Time.now.strftime('%d-%m-%y %H:%M')}',
+    '#{options[:username]}') RETURNING id, content, timestamp, username")
+    Peep.new(result.first['id'], result.first['content'], result.first['timestamp'],
+      result.first['username'])
   end
 
   def self.connect_to_database

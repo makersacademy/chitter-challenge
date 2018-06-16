@@ -7,5 +7,6 @@ feature "A user can sign up for Chitter" do
     fill_in('name', with: 'Bob Ross')
     fill_in('username', with: 'BobRossPaints')
     click_button 'Sign up'
+    expect(page).to have_content 'You are signed in as:'
   end
 end
