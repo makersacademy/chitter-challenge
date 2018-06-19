@@ -21,7 +21,7 @@ Capybara.app = Chitter
 Rake.application.load_rakefile
 
 RSpec.configure do |config|
-  config.before(:suite) do
+  config.before(:each) do
     Rake::Task['test_database_setup'].execute
   end
   config.after(:suite) do

@@ -1,0 +1,21 @@
+Code review
+
+Step 0 - tests:
+  - All pass
+  - App works
+  - Labelling of tests is good
+    - Reading this tells me .create does 2 things.... refactor possible?
+    - user class could have improved readability... refactoring
+    - what does the user class understand? I think it perhaps should be 2 classes
+    - DRY out user class vs peep class. Maybe there should be a connection class?
+    - self.database_connection exists in both classes and does exactly the same thing
+
+Step 1 - progress:
+ - only missing log out
+
+ Step 2 - all good expect for:
+ - Installation in the readme BUT doesn't work
+ - "Want to load static assets such as CSS, images, and so on? Set a 'public folder' in your root, called 'static', then add the following configuration to your app.rb:"
+
+ Step
+ - split routes
