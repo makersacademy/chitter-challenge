@@ -17,7 +17,7 @@ def post_another_peep
   fill_in('peep', with: "This one is not, it is just a cat GIF")
   fill_in('username', with: "Simone")
   click_button('Post')
-end 
+end
 
 def post_long_peep
   fill_in('peep', with: "This peep is way too long, and I'm expecting to \
