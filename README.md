@@ -58,7 +58,7 @@ I have created 3 classes:
 - User - responsible for creating and displaying User information
 
 User can sign up and start creating peeps. Peeps are displayed on homepage, in reverse chronological order, with time stamp and username at the bottom of each peep. User can also see peeps created by other users.
-This task allowed me to solidify my understanding of how databases can interact with Ruby within a Sinatra application. I have also learnt how about Rakefile, and used it to set my database creation and destroy.
+This task allowed me to solidify my understanding of how databases can interact with Ruby within a Sinatra application. I have also learnt about Rakefile, and I used it to set my database creation and destroy.
 
 Application has 100% test coverage.
 
