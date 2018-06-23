@@ -1,16 +1,8 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
 Challenge:
 -------
-
-As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
@@ -35,27 +27,10 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
 Notes on functionality:
 ------
-
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
@@ -75,33 +50,42 @@ And/Or:
 
 Good luck and let the chitter begin!
 
-Code Review
------------
+## My approach
 
-In code review we'll be hoping to see:
+I have created 3 classes:
+- DatabaseConnection - responsible for setting up a connection to database and creating sql queries;
+- Peep - responsible for creating and displaying Peeps
+- User - responsible for creating and displaying User information
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+User can sign up and start creating peeps. Peeps are displayed on homepage, in reverse chronological order, with time stamp and username at the bottom of each peep. User can also see peeps created by other users.
+This task allowed me to solidify my understanding of how databases can interact with Ruby within a Sinatra application. I have also learnt how about Rakefile, and used it to set there my database creation and destroy.
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+Application has 100% test coverage.
 
-Notes on test coverage
-----------------------
+Areas for improvement:
+- more styling with css
+- proper sign up, log in and log out (currently user can but does not have to fill the sign up page)
+- add comments functionality
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+## Instructions
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+Run
 ```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+bundle install
+```
+Set up database
+```
+rake setup
+```
+Use rackup to open the app in the web browser
+```
+rackup config.ru
+```
+Enter the local-host into your web browser to start the game
+```
+http://localhost:9292
+```
+To destroy database
+```
+rake teardown
+```
