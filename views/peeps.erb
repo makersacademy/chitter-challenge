@@ -9,6 +9,7 @@ What's on your mind?<br>
 
 <ul>
   <% @peeps.each do |peep| %>
-  <li><%= peep.username %> --- <%= peep.content %></li>
+  <li><%= peep.username %></li>
+  <li><%= peep.content %></li>
   <% end %>
 </ul>
