@@ -10,3 +10,12 @@ feature 'Signing up' do
     expect(page).to have_content 'Welcome to Chitter Jane Doe'
   end
 end
+
+feature 'Posting a peep' do
+  scenario 'A user can post a peep' do
+    visit '/'
+    fill_in :post_peep, with: 'Man it\s hot!'
+    click_button 'Post Peep'
+    expect(page).to have_content 'Man it\s hot!'
+  end
+end
