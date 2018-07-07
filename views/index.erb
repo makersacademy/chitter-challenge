@@ -1,5 +1,6 @@
 <ul>
-  <% @blabs.each do |blab| %>
+  <% sorted_blabs = @blabs.sort_by { |blab| blab.timestamp }.reverse %>
+  <% sorted_blabs.each do |blab| %>
   <li><%= blab.content %></li>
   <% end %>
 </ul>

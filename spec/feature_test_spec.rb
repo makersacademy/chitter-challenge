@@ -2,7 +2,7 @@
 #
 # As a Maker
 # So that I can let people know what I am doing
-# I want to post a message (peep) to chitter
+# I want to post a message (blab) to blabber
 feature 'posting a message' do
   scenario 'user posts a message' do
     visit '/'
@@ -12,11 +12,21 @@ feature 'posting a message' do
   end
 end
 
-#
 # As a maker
 # So that I can see what others are saying
-# I want to see all peeps in reverse chronological order
-#
+# I want to see all blabs in reverse chronological order
+feature 'viewing blabs' do
+  scenario 'user sees blabs in reverse chronological order' do
+    visit '/'
+    fill_in 'content', with: 'my first blab!'
+    click_button 'blab'
+    fill_in 'content', with: 'my second blab!'
+    click_button 'blab'
+    fill_in 'content', with: 'my third blab!'
+    click_button 'blab'
+    expect(page).to have_content "my third blab! my second blab! my first blab!"
+  end
+end
 # As a Maker
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made

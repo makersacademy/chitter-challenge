@@ -18,6 +18,7 @@ task :setup do
     connection = PG.connect(dbname: database)
     connection.exec("CREATE TABLE blabs (
       id SERIAL PRIMARY KEY,
+      timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       content VARCHAR(128));")
   end
 end
