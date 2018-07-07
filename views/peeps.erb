@@ -1,16 +1,35 @@
-<%= flash[:welcome] %><br>
+<link rel="stylesheet" href="/style.css"/>
 
-What's on your mind?<br>
+<div id=body>
 
-<form action="/peeps" method='post'>
-  <input type="text" name="peep_input" ><br>
-  <input type="submit" value="Post Peep">
-</form>
+  <div id="header">
+    <div id="title">
+      chitter
+    </div>
+    <div id="tagline">
+      Where too many chits make a chat
+    </div>
+  </div>
 
-<ul>
-  <% @peeps.each do |peep| %>
-  <li>@<%= peep.username.downcase %></li>
-  <li><%= peep.content %></li>
-  <li><%= peep.time %></li>
-  <% end %>
-</ul>
+  <div id="welcome"><%= flash[:welcome] %></div>
+
+  <p>What's on your mind?</p>
+
+  <div id="post_peep">
+    <form action="/peeps" method='post'>
+      <input type="text" name="peep_input" ><br>
+      <input type="submit" value="Post Peep">
+    </form>
+  </div>
+
+  <p>Latest peeps</p>
+
+  <div id="peep">
+    <% @peeps.each do |peep| %>
+    <div id="username">@<%= peep.username.downcase %></div>
+    <div id="content"><%= peep.content %></div>
+    <div id="time"><%= peep.time %></div>
+    <% end %>
+  </div>
+
+</div>

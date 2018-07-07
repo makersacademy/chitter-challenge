@@ -1,20 +1,135 @@
-body {
-  font-family: helvetica, arial, sans-serif;
+#body {
+  font-family: verdana, sans-serif;
+  margin-left: 130px;
+  margin-right: 130px;
+  margin-top: 40px;
 }
 
-div.username {
+#header {
+  background-color: #1DA1F2;
+  height: 70px;
+  padding: 30px;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+#title {
   font-weight: bold;
-  font-size: 70%;
-  font-family: serif;
+  font-size: 300%;
+  color: white;
 }
 
-div.peep_content {
-  font-size: 100%;
-  font-family: sans-serif;
+#tagline {
+  font-size: 120%;
+  color: white;
 }
 
-div.time {
+#sign_up {
+  border-radius: 25px;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  padding-bottom: 20px;
+  margin-top: 0px;
+  margin-right: 400px;
+  margin-left: 400px;
+}
+
+p {
   font-weight: bold;
-  font-size: 50%;
-  font-family: sans-serif;
+  color: #1DA1F2;
+  font-size: 25px;
+  padding-bottom: 20px;
+}
+
+
+.label {
+  font-weight: bold;
+  color: #1DA1F2;
+}
+
+.field {
+  border-bottom-style: solid;
+  border-bottom-color: #EDEDED;
+  border-bottom-width: 2px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+input[type=text] {
+  width: 100%;
+  height: 6%;
+  padding: 10px;
+  border: 0px;
+  font-size: 14px;
+}
+
+input[type=password] {
+  width: 100%;
+  height: 6%;
+  padding: 10px;
+  border: 0px;
+  font-size: 14px;
+}
+
+input[type=submit] {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  height: 7%;
+  background-color: #1DA1F2;
+  color: white;
+  border: none;
+}
+
+#post_peep input[type=text] {
+  height: 10%;
+  border-style: solid;
+  border-color: #EDEDED;
+  border-width: 2px;
+  font-size: 18px;
+}
+
+#post_peep input[type=submit] {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  width: 15%;
+  height: 7%;
+  background-color: #1DA1F2;
+  color: white;
+  border: none;
+}
+
+#username {
+  font-weight: bold;
+  color: #1DA1F2;
+  padding-bottom: 10px;
+}
+
+#content {
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+#time {
+  border-bottom-style: solid;
+  border-bottom-color: #EDEDED;
+  border-bottom-width: 2px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #878E88;
+}
+
+#welcome {
+  font-weight: bold;
+  color: #00AA0E;
+}
+
+#warning {
+  font-weight: bold;
+  color: red;
 }
