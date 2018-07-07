@@ -8,7 +8,13 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all
     erb :index
+  end
+
+  post '/' do
+    Peep.create(DUMMY, params[:content])
+    redirect '/'
   end
 
   get '/sign-up' do
