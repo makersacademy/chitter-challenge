@@ -20,8 +20,19 @@ describe User do
       expect(names).to include 'Chewbacca'
       expect(usernames).to include 'chewbacca'
     end
-    it 'returns false if the database already includes the given username' do
-      expect(User.create('Han Solo', 'hansolo', 'han_solo@gmail.com', 'pa$$w0rd1')).to be false
+  end
+
+  describe '.invalid_username?' do
+    it 'returns true if the database already includes the given username' do
+      chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
+      expect(User.invalid_username?(chewie.username)).to be true
+    end
+  end
+
+  describe '.invalid_email?' do
+    it 'returns true if the database already includes the given email' do
+      chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
+      expect(User.invalid_email?(chewie.email)).to be true
     end
   end
 

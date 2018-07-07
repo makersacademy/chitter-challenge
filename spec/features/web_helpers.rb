@@ -9,6 +9,7 @@ def sign_up
 end
 
 def duplicate_sign_up_username
+  # Rakefile already sets up Han Solo as a user
   visit '/'
   click_button 'Sign Up'
   fill_in :name, with: 'Han Solo'
@@ -19,20 +20,11 @@ def duplicate_sign_up_username
 end
 
 def duplicate_sign_up_email
+  # Rakefile already sets up Han Solo as a user
   visit '/'
   click_button 'Sign Up'
   fill_in :name, with: 'Han Solo'
   fill_in :username, with: 'han_solo'
-  fill_in :email, with: 'hansolo@gmail.com'
-  fill_in :password, with: 'pa$$w0rd'
-  click_button 'Sign Up'
-end
-
-def duplicate_sign_up_username_and_email
-  visit '/'
-  click_button 'Sign Up'
-  fill_in :name, with: 'Han Solo'
-  fill_in :username, with: 'hansolo'
   fill_in :email, with: 'hansolo@gmail.com'
   fill_in :password, with: 'pa$$w0rd'
   click_button 'Sign Up'

@@ -6,9 +6,12 @@ feature 'Signing up' do
     expect(page).to have_content 'Welcome to Chitter Jane Doe'
   end
   scenario 'User gets an error message if username is already taken' do
-    # Rakefile already sets up Han Solo as a user
     duplicate_sign_up_username
-    expect(page).to have_content 'Username already taken. Please try again'
+    expect(page).to have_content 'Sorry that username or email is already taken. Please try again.'
+  end
+  scenario 'User gets an error message if email is already taken' do
+    duplicate_sign_up_email
+    expect(page).to have_content 'Sorry that username or email is already taken. Please try again.'
   end
 
 end

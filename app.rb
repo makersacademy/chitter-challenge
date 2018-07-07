@@ -16,8 +16,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    if User.invalid?(params[:username])
-      flash[:notice_username]="Sorry that username is already taken. Try again."
+    if User.invalid_username?(params[:username])
+      flash[:notice]="Sorry that username or email is already taken. Please try again."
+      redirect '/sign-up'
+    elsif User.invalid_email?(params[:email])
+      flash[:notice]="Sorry that username or email is already taken. Please try again."
       redirect '/sign-up'
     else
       user = User.create(params[:name],params[:username],params[:email],params[:password])
