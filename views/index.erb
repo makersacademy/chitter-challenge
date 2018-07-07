@@ -1,0 +1,21 @@
+<center>
+<h1>Chitter</h2>
+
+<div>
+  <form action="/" method="POST">
+    <input style="height:30px;width:500px;" type='text' name='comment' placeholder='What do you feel like peeping today?'/>
+     <input type='submit' value='Peep This!'/>
+  </form>
+</div>
+
+<div>
+  <h2>What are member's peeping about today?</h2>
+  <% @peeps.each do |peep| %>
+        <ul>
+            <%= peep %>
+       </ul>
+  <% end %>
+</div>
+
+
+</center>

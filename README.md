@@ -44,8 +44,9 @@ I want to receive an email if I am tagged in a Peep
 * Ruby Sinatra Framework
 * PostgreSQL
 
+
 For testing:
-*RSpec
-*Capybara
+* RSpec
+* Capybara
 
 ## Instructions

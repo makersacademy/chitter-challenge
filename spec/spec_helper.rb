@@ -8,9 +8,16 @@ require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require_relative './setup_test_database'
 
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database!
+  end
+end
 
 require 'simplecov'
 require 'simplecov-console'
