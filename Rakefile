@@ -25,7 +25,9 @@ task :test_database_setup do
   # clear the users and peeps tables:
   connection.exec("TRUNCATE users, peeps;")
   # add some test data:
-  # [ insert test data here to refactor rspec tests later ]
+  User.create('Han Solo', 'hansolo', 'hansolo@gmail.com', 'pa$$w0rd1')
+  User.create('Luke Skywalker', 'lukeskywalker', 'lukeskywalker@gmail.com', 'pa$$w0rd2')
+  User.create('Princess Leia', 'princessleia', 'princessleia@gmail.com', 'pa$$w0rd3')
 end
 
 task :teardown do
