@@ -1,0 +1,10 @@
+<ul>
+  <% @blabs.each do |blab| %>
+  <li><%= blab.content %></li>
+  <% end %>
+</ul>
+
+<form action="/blabs" method="post">
+  <textarea name="content" rows="3" cols="50" placeholder="enter your inane thoughts here"></textarea><br>
+  <input type="submit" value="blab">
+</form>

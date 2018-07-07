@@ -1,8 +1,8 @@
 ### Chitter Challenge
 
-# Gabber
+# Blabber
 
-*Tired of twitter's market dominance? Try out Gabber instead. It's the hot new place to tell your friends what's on your mind and see what's on theirs. And it's totally free of right-wing trolls (for now).*
+*Tired of twitter's market dominance? Try out Blabber instead. It's the hot new place to tell your friends what's on your mind and see what's on theirs. And it's totally free of right-wing trolls (for now).*
 
 This app will allow multiple users to post and view messages in their browser. It will be built over a weekend as part of the curriculum at the Makers Academy coding bootcamp.
 
@@ -41,6 +41,7 @@ To run all available tests enter `rspec` in your terminal.
 ## Built with
 Sinatra -- as the web application framework
 PostgreSQL -- as the database mananagement system
+Rspec and Capybara -- as testing frameworks
 
 ## Authors
 The good people at [Makers Academy](https://makers.tech/) -- set up, Gemfile and instructions

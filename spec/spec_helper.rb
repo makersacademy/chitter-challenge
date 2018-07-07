@@ -1,3 +1,11 @@
+ENV['RACK_ENV'] = 'test'
+
+require './app.rb'
+require './spec/setup_test_database.rb'
+
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -8,5 +16,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-# RSpec.configure do |config|
-# end
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
+Capybara.app = Blabber
