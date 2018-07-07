@@ -4,7 +4,7 @@ class Peep
 
   def self.all
     Peep.check_environment
-    result = @connection.exec("SELECT * FROM peeps")
+    result = @connection.exec("SELECT * FROM peeps ORDER BY id DESC")
     result.map { |peep| peep['comment'] }
   end
 
