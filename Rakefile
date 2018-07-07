@@ -19,6 +19,16 @@ task :setup do
   end
 end
 
+task :test_database_setup do
+  p 'Resetting database...'
+  connection = PG.connect(dbname: 'chitter_test')
+  # clear the users and peeps tables:
+  connection.exec("TRUNCATE users, peeps;")
+  # add some test data:
+  # [ insert test data here to refactor rspec tests later ]
+
+end
+
 task :teardown do
   p "Deleting databases...type 'y' to confirm that you want to destroy the Chitter databases. This will remove all data in those databases!"
   confirm = STDIN.gets.chomp
@@ -28,3 +38,9 @@ task :teardown do
     connection.exec("DROP DATABASE #{ database };")
   end
 end
+
+#
+#
+# config.before(:each) do
+#     Rake::Task['test_database_setup'].execute
+#   end
