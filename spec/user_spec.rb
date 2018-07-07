@@ -23,12 +23,6 @@ describe User do
     it 'returns false if the database already includes the given username' do
       expect(User.create('Han Solo', 'hansolo', 'han_solo@gmail.com', 'pa$$w0rd1')).to be false
     end
-    it 'returns false if the database already includes the given email' do
-      expect(User.create('Han Solo', 'han_solo', 'hansolo@gmail.com', 'pa$$w0rd1')).to be false
-    end
-    it 'returns false if an email is not valid' do
-      expect(User.create('Darth Vader', 'darth_vader', 'some email', 'pa$$w0rd1')).to be false
-    end
   end
 
 end

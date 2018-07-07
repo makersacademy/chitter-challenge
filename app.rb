@@ -16,10 +16,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    user = User.create(params[:name],params[:username],params[:email],params[:password])
-    session[:current_user] = user.id
-    flash[:welcome]="Welcome to Chitter #{params[:name]}"
-    redirect '/peeps'
+    if User.invalid?(params[:username])
+      flash[:notice_username]="Sorry that username is already taken. Try again."
+      redirect '/sign-up'
+    else
+      user = User.create(params[:name],params[:username],params[:email],params[:password])
+      session[:current_user] = user.id
+      flash[:welcome]="Welcome to Chitter #{params[:name]}"
+      redirect '/peeps'
+    end
   end
 
   get '/peeps' do

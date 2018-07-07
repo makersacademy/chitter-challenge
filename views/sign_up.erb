@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="/style.css"/>
 
 <body>
+
+  <%= flash[:notice_username] %>
+
   <form action="/sign-up" method="post">
     Name:<input type="text" name="name"><br>
     Username:<input type="text" name="username"><br>
