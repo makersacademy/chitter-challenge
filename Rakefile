@@ -15,7 +15,7 @@ task :setup do
     connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
     connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR(60), password VARCHAR(60), email VARCHAR(100));")
-    connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users, content VARCHAR(240), time VARCHAR(60));")
+    connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, content VARCHAR(240), time VARCHAR(60));")
   end
 end
 
@@ -26,7 +26,6 @@ task :test_database_setup do
   connection.exec("TRUNCATE users, peeps;")
   # add some test data:
   # [ insert test data here to refactor rspec tests later ]
-
 end
 
 task :teardown do
@@ -38,9 +37,3 @@ task :teardown do
     connection.exec("DROP DATABASE #{ database };")
   end
 end
-
-#
-#
-# config.before(:each) do
-#     Rake::Task['test_database_setup'].execute
-#   end
