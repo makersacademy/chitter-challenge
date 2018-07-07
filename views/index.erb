@@ -11,9 +11,9 @@
   <% @peeps.each do |peep| %>
     <div>
         <ul>
-            <p> <font size='3'> <%= peep.comment %> </font> </br>
-              <font size='1'>  posted at <%= peep.time %> </font>
-            </p>
+          <p> <font size='3'> <%= peep.comment %> </font> </br>
+            <font size='1'>  posted on <%= peep.time %> by <%= peep.user %> </font>
+          </p>
        </ul>
     </div>
   <% end %>

@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    Peep.create(comment: params['comment'])
+    Peep.create(comment: params['comment'], user_id: params['user_id'])
     redirect("/users/#{params['username']}")
   end
 

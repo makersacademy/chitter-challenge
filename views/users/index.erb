@@ -10,6 +10,7 @@
   <form action="/" method="POST">
     <input style="height:30px;width:500px;" type='text' name='comment' placeholder='What do you feel like peeping today?'/>
     <input type="hidden" name="username" value="<%= @user.username %>">
+    <input type="hidden" name="user_id" value="<%= @user.id %>">
      <input type='submit' value='Peep This!'/>
   </form>
 </div>
@@ -20,7 +21,7 @@
     <div>
         <ul>
             <p> <font size='3'> <%= peep.comment %> </font> </br>
-              <font size='1'>  posted at <%= peep.time %> </font>
+              <font size='1'>  posted on <%= peep.time %> by <%= peep.user %> </font>
             </p>
        </ul>
     </div>
