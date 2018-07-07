@@ -13,7 +13,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    Peep.create(DUMMY, params[:content])
+    @user_id = session[:current_user]
+    Peep.create(@user_id, params[:content])
     redirect '/'
   end
 
@@ -22,7 +23,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    User.create(params[:name],params[:username],params[:email],params[:password])
+    user = User.create(params[:name],params[:username],params[:email],params[:password])
+    user
+    session[:current_user] = user.id
     flash[:welcome]="Welcome to Chitter #{params[:name]}"
     redirect '/'
   end
