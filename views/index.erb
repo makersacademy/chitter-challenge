@@ -11,9 +11,13 @@
 <div>
   <h2>What are member's peeping about today?</h2>
   <% @peeps.each do |peep| %>
+    <div>
         <ul>
-            <%= peep %>
+            <p> <font size='3'> <%= peep.comment %> </font> </br>
+              <font size='1'>  posted at <%= peep.time %> </font>
+            </p>
        </ul>
+    </div>
   <% end %>
 </div>
 
