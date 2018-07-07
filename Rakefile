@@ -39,3 +39,13 @@ task :teardown do
     connection.exec("DROP DATABASE #{database};")
   end
 end
+
+task :empty do
+  p "Emptying database tables...type 'y' to confirm that you want to empty your tables!"
+  confirm = STDIN.gets.chomp
+  return unless confirm == 'y'
+  ['chitter', 'chitter_test'].each do |database|
+    connection = PG.connect(dbname: database)
+    connection.exec("TRUNCATE users, peeps;")
+  end
+end
