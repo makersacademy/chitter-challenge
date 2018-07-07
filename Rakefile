@@ -34,6 +34,6 @@ task :teardown do
   return unless confirm == 'y'
   ['chitter', 'chitter_test'].each do |database|
     connection = PG.connect
-    connection.exec("DROP DATABASE #{ database };")
+    connection.exec("DROP DATABASE #{database};")
   end
 end

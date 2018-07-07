@@ -8,6 +8,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+require 'rake'
+Rake.application.load_rakefile
+
 RSpec.configure do |config|
 
   config.after(:suite) do
