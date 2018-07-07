@@ -14,8 +14,8 @@ class Peep
     else
       connection = PG.connect(dbname: "chitter")
     end
-    result = connection.exec("INSERT INTO peeps (user_id, content) VALUES('#{user_id}','#{content}') RETURNING id, user_id, content")
-    User.new(result.first['id'], result.first['user_id'], result.first['content'])
+    result = connection.exec("INSERT INTO peeps (user_id, content) VALUES('#{user_id}','#{content}')")
+    #Peep.new(result.first['id'], result.first['content'], result.first['user_id'])
   end
 
   def self.all

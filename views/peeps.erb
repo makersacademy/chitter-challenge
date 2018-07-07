@@ -1,0 +1,14 @@
+<%= flash[:welcome] %><br>
+
+What's on your mind?<br>
+
+<form action="/peeps" method='post'>
+  <input type="text" name="peep_input" ><br>
+  <input type="submit" value="Post Peep">
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <li><%= peep.username %> --- <%= peep.content %></li>
+  <% end %>
+</ul>

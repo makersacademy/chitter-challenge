@@ -8,14 +8,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    @peeps = Peep.all
     erb :index
-  end
-
-  post '/' do
-    @user_id = session[:current_user]
-    Peep.create(@user_id, params[:content])
-    redirect '/'
   end
 
   get '/sign-up' do
@@ -23,11 +16,21 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    user = User.create(params[:name],params[:username],params[:email],params[:password])
-    user
-    session[:current_user] = user.id
+    p user = User.create(params[:name],params[:username],params[:email],params[:password])
+    p session[:current_user] = user.id
     flash[:welcome]="Welcome to Chitter #{params[:name]}"
-    redirect '/'
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    p @peeps = Peep.all
+    erb :peeps
+  end
+
+  post '/peeps' do
+    p @user_id = session[:current_user]
+    p Peep.create(@user_id, params[:peep_input])
+    redirect '/peeps'
   end
 
   run! if app_file == $0
