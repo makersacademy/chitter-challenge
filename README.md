@@ -1,4 +1,4 @@
-# Bookmark Manager
+# Chitter
 
 ## Project description
 Week 4 weekend challenge includes building a small Twitter clone that allow the users to post messages to a public stream

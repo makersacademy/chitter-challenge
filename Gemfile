@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.5.0'
-
+gem 'bcrypt'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 

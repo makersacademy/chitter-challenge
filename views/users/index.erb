@@ -1,8 +1,16 @@
 <center>
 <div>
-<h1>Welcome to Chitter</h2>
+  <h1>Welcome <%= @user.name %></h1>
   <form action="/users/new" method='get'>
-    <input type="submit" value="Sign Up" />
+    <input type="submit" value="a button" />
+  </form>
+</div>
+
+<div>
+  <form action="/" method="POST">
+    <input style="height:30px;width:500px;" type='text' name='comment' placeholder='What do you feel like peeping today?'/>
+    <input type="hidden" name="username" value="<%= @user.username %>">
+     <input type='submit' value='Peep This!'/>
   </form>
 </div>
 

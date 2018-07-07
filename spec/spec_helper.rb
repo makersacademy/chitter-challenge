@@ -7,6 +7,7 @@ require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
 # Require all the testing gems
 require 'capybara'
 require 'capybara/rspec'
+require "features/web_helpers"
 require 'rspec'
 require_relative './setup_test_database'
 
