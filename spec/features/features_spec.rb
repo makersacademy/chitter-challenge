@@ -1,9 +1,24 @@
 require_relative './web_helpers.rb'
 
 feature 'Signing up' do
-  scenario 'A user can sign up for Chitter' do
+  scenario 'User can sign up for Chitter' do
     sign_up
     expect(page).to have_content 'Welcome to Chitter Jane Doe'
+  end
+  scenario 'User gets an error message if username is already taken' do
+    # Rakefile already sets up Han Solo as a user
+    duplicate_sign_up_username
+    expect(page).to have_content 'Username already taken. Please try again'
+  end
+  scenario 'User gets an error message if email is already registered' do
+    # Rakefile already sets up Han Solo as a user
+    duplicate_sign_up_username
+    expect(page).to have_content 'Email already registered. Please try again'
+  end
+  scenario 'User gets an error message if email is already registered' do
+    # Rakefile already sets up Han Solo as a user
+    duplicate_sign_up_username_and_email
+    expect(page).to have_content 'Username and email already registered. Please try again'
   end
 end
 
