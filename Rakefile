@@ -1,4 +1,5 @@
 require 'pg'
+require './lib/user.rb'
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
@@ -40,12 +41,16 @@ task :teardown do
   end
 end
 
-task :empty do
-  p "Emptying database tables...type 'y' to confirm that you want to empty your tables!"
+task :dev_database_reset do
+  p "Resetting development database...type 'y' to confirm that you want to reset your data!"
   confirm = STDIN.gets.chomp
   return unless confirm == 'y'
-  ['chitter', 'chitter_test'].each do |database|
-    connection = PG.connect(dbname: database)
-    connection.exec("TRUNCATE users, peeps;")
-  end
+  connection = PG.connect(dbname: 'chitter')
+  connection.exec("TRUNCATE users, peeps;")
+  han = User.create('Han Solo', 'hansolo', 'hansolo@gmail.com', 'pa$$w0rd1')
+  luke = User.create('Luke Skywalker', 'lukeskywalker', 'lukeskywalker@gmail.com', 'pa$$w0rd2')
+  leia = User.create('Princess Leia', 'princessleia', 'princessleia@gmail.com', 'pa$$w0rd3')
+  Peep.create(han.id, 'Laugh it up fuzzball.')
+  Peep.create(luke.id, 'Im Luke Skywalker. Im here to rescue you!')
+  Peep.create(leia.id, 'Help me Obiwan Kenobi. Youre my only hope.')
 end
