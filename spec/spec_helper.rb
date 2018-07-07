@@ -5,19 +5,22 @@ require_relative './features/web_helpers.rb'
 
 require 'capybara'
 require 'capybara/rspec'
+require 'rake'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
+Rake.application.load_rakefile
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
+  SimpleCov::Formatter::Console
 ])
 SimpleCov.start
 
 RSpec.configure do |config|
-  # config.before(:each) do
-  #   load 'setup_test_database.rb'
-  # end
+  config.before(:each) do
+    Rake::Task['setup_test_database'].execute
+  end
 end
 
 Capybara.app = Chitter
