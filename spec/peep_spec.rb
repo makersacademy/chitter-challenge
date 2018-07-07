@@ -8,17 +8,18 @@ describe Peep do
 
   describe '.create' do
     it 'creates a peep with a user id' do
-      Peep.create(@star_wars_fan.id, 'Laugh it up, fuzzball', Time.new)
+      Peep.create(@star_wars_fan.id, 'Laugh it up, fuzzball')
       peeps = Peep.all
       contents = peeps.map(&:content)
       expect(contents).to include 'Laugh it up, fuzzball'
     end
     it 'creates a peep with a time' do
-      time = Time.new
-      Peep.create(@star_wars_fan.id, 'Laugh it up, fuzzball', time)
+      time_now = Time.new
+      # giving too many zeroes
+      Peep.create(@star_wars_fan.id, 'Laugh it up, fuzzball', time_now)
       peeps = Peep.all
       times = peeps.map(&:time)
-      expect(times).to include time
+      expect(times).to include time_now
     end
   end
 

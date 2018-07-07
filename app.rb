@@ -16,20 +16,20 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    p user = User.create(params[:name],params[:username],params[:email],params[:password])
-    p session[:current_user] = user.id
+    user = User.create(params[:name],params[:username],params[:email],params[:password])
+    session[:current_user] = user.id
     flash[:welcome]="Welcome to Chitter #{params[:name]}"
     redirect '/peeps'
   end
 
   get '/peeps' do
-    p @peeps = Peep.all
+    @peeps = Peep.all
     erb :peeps
   end
 
   post '/peeps' do
-    p @user_id = session[:current_user]
-    p Peep.create(@user_id, params[:peep_input])
+    @user_id = session[:current_user]
+    Peep.create(@user_id, params[:peep_input])
     redirect '/peeps'
   end
 
