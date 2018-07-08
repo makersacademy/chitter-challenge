@@ -1,5 +1,15 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+# require_relative './setup_test_database'
+# require "features/web_helpers"
+
+ENV['ENVIRONMENT'] = 'test'
+
+# tell Capybara about our app class
+# Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
