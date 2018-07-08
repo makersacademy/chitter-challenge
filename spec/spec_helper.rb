@@ -11,6 +11,7 @@ require "features/web_helpers"
 require 'rspec'
 require_relative './setup_test_database'
 require 'rake'
+
 Rake.application.load_rakefile
 
 # Tell Capybara to talk to Chitter
@@ -22,7 +23,7 @@ RSpec.configure do |config|
 #   end
 # end
 
-config.before(:each) do
+  config.before(:each) do
     Rake::Task['test_database_setup'].execute
   end
 end
