@@ -24,6 +24,12 @@ class User
     User.new(result.first['id'], result.first['name'], result.first['username'], result.first['email'])
   end
 
+  def self.find(email)
+    connection = Database::Connection.create
+    result = connection.exec("SELECT * FROM users WHERE email='#{email}'")
+    result.map { |user| User.new(user['id'], user['name'], user['username'], user['email']) }
+  end
+
   def self.all
     connection = Database::Connection.create
     result = connection.exec("SELECT * FROM users")
