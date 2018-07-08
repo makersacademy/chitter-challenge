@@ -42,7 +42,18 @@ end
 # As a Maker
 # So that I can post messages on Blabber as me
 # I want to sign up for Blabber
-
+feature 'registration' do
+  scenario 'user can register for Blabber' do
+    visit '/'
+    click_button 'create an account'
+    fill_in 'username', with: 'The Testman'
+    fill_in 'name', with: 'Testee McTest'
+    fill_in 'email', with: 'test@testmail.com'
+    fill_in 'password', with: 'p@$$w0rd'
+    click_button 'register'
+    expect(page).to have_content 'Welcome, Testee McTest'
+  end
+end
 # HARDER
 #
 # As a Maker

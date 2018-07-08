@@ -1,3 +1,6 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
 <ul>
   <% @blabs.reverse.each do |blab| %>
   <li><%= blab.timestamp[0..15] %><br><%= blab.content %></li>
@@ -7,4 +10,8 @@
 <form action="/blabs" method="post">
   <textarea name="content" rows="3" cols="50" placeholder="enter your inane thoughts here"></textarea><br>
   <input type="submit" value="blab">
+</form>
+
+<form action="/users/new" method="get">
+  <input type="submit" value="create an account">
 </form>

@@ -1,5 +1,3 @@
-require './lib/database_connection'
-
 class Blab
   attr_reader :id, :timestamp, :content
 

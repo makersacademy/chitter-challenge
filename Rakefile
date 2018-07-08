@@ -8,6 +8,13 @@ if ENV['RACK_ENV'] != 'production'
   task default: [:spec]
 end
 
+task :test_database_setup do
+  p "Cleaning databases"
+
+  connection = PG.connect(dbname: 'blabber_test')
+  connection.exec("TRUNCATE blabs, users;")
+end
+
 task :setup do
   p "Creating databases"
 
@@ -20,6 +27,13 @@ task :setup do
       id SERIAL PRIMARY KEY,
       timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       content VARCHAR(128));")
+    connection.exec("CREATE TABLE users (
+      id SERIAL PRIMARY KEY,
+      username VARCHAR(60),
+      name VARCHAR(60),
+      email VARCHAR(60),
+      password VARCHAR(240)
+      );")
   end
 end
 

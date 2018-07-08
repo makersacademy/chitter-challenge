@@ -1,7 +1,7 @@
 require 'blab'
 
 describe Blab do
-  describe '$all' do
+  describe '.all' do
     it 'returns all the blabs' do
       blabs = [
         Blab.create('test blab one'),
@@ -12,7 +12,7 @@ describe Blab do
     end
   end
 
-  describe '$create' do
+  describe '.create' do
     it 'creates a new blab' do
       blab = Blab.create('test blab')
       expect(blab.id).not_to be_nil
