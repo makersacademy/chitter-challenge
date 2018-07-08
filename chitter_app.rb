@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require './lib/message'
+require './lib/user'
+
 
 class ChitterApp < Sinatra::Base
 
@@ -24,5 +26,18 @@ class ChitterApp < Sinatra::Base
     p "Form data submitted to the /messages route!"
 
     redirect '/messages'
+  end
+
+  get '/register/new' do
+    p params
+    erb :"register/new"
+  end
+
+  post '/register/confirm' do
+    User.create(first_name: params['first_name'], last_name: params['last_name'], date: params['date'])
+
+    p params
+    p "Form data submitted to the /register route!"
+    erb :"register/confirm"
   end
 end
