@@ -1,10 +1,12 @@
 require 'pg'
+require 'bcrypt'
 require_relative './peep'
 require_relative './database_connection.rb'
 
 class User
 
   include Database
+
 
   attr_reader :id, :name, :username, :email
 
@@ -17,7 +19,8 @@ class User
 
   def self.create(name, username, email, password)
     connection = Database::Connection.create
-    result = connection.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}','#{username}','#{email}','#{password}') RETURNING id, name, username, Email")
+    encrypted_password = BCrypt::Password.create(password)
+    result = connection.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}','#{username}','#{email}','#{encrypted_password}') RETURNING id, name, username, Email")
     User.new(result.first['id'], result.first['name'], result.first['username'], result.first['email'])
   end
 
