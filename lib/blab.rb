@@ -10,7 +10,7 @@ class Blab
   end
 
   def self.all
-    result = DatabaseConnection.exec("SELECT * FROM blabs;")
+    result = DatabaseConnection.exec("SELECT id, timestamp, content FROM blabs;")
     result.map do |blab|
       Blab.new(blab['id'], blab['timestamp'], blab['content'])
     end
