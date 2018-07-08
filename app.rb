@@ -19,6 +19,13 @@ class Chitter < Sinatra::Base
     erb :"sessions/new"
   end
 
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    session[:current_user] = user.id
+    flash[:logged_in]="Logged in as #{user.username}"
+    redirect '/peeps'
+  end
+
   post '/sign-up' do
     if User.invalid_username?(params[:username])
       flash[:notice]="Sorry that username or email is already taken. Please try again."
