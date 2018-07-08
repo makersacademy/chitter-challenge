@@ -35,6 +35,18 @@
   margin-left: 400px;
 }
 
+#log_in {
+  border-radius: 25px;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  padding-bottom: 20px;
+  margin-top: 0px;
+  margin-right: 400px;
+  margin-left: 400px;
+}
+
+
 p {
   font-weight: bold;
   color: #1DA1F2;

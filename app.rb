@@ -15,6 +15,10 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
   post '/sign-up' do
     if User.invalid_username?(params[:username])
       flash[:notice]="Sorry that username or email is already taken. Please try again."

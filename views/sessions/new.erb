@@ -11,18 +11,13 @@
     </div>
   </div>
 
-  <div id="warning"><%= flash[:notice] %></div>
-
-  <div id="sign_up">
+  <div id="log_in">
     <p>Please enter your details:</p>
-    <form action="/sign-up" method="post">
-        <div class="field"><div class="label">Name</div><div class="box"><input type="text" name="name"></div></div>
-        <div class="field"><div class="label">Username</div><div class="box"><input type="text" name="username"></div></div>
+    <form action="/sessions" method="post">
         <div class="field"><div class="label">Email</div><div class="box"><input type="text" name="email"></div></div>
         <div class="field"><div class="label">Password</div><div class="box"><input type="password" name="password"></div></div>
-      <input type="submit" value="Sign Up">
+      <input type="submit" value="Log In">
     </form>
   </div>
-
 
 </div>
