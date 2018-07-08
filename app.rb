@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'uri'
+require './lib/peep'
 
 
 class Chitter < Sinatra::Base
@@ -9,10 +10,12 @@ class Chitter < Sinatra::Base
     register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
   post '/post' do
+    Peep.create(posts_a_peep: params['posts_a_peep'])
     redirect('/')
   end
 

@@ -27,7 +27,10 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 
+
   config.before(:each) do
-    # setup_test_database!
+    connection = PG.connect(dbname: 'chitter_manager_test')
+    connection.exec("TRUNCATE peeps;")
+    connection.close
   end
 end

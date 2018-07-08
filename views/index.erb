@@ -5,4 +5,8 @@
   <input type="submit" value="Post">
 </form>
 
-<p>This is a first peep</p>
+<ul>
+  <% @peeps.each do |peep| %>
+  <li><%= peep.posts_a_peep  %></li>
+  <% end  %>
+</ul>
