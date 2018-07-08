@@ -7,7 +7,6 @@ class User
 
   include Database
 
-
   attr_reader :id, :name, :username, :email
 
   def initialize(id, name, username, email)
@@ -27,13 +26,19 @@ class User
   def self.find(email)
     connection = Database::Connection.create
     result = connection.exec("SELECT * FROM users WHERE email='#{email}'")
-    result.map { |user| User.new(user['id'], user['name'], user['username'], user['email']) }
+    User.new(result.first['id'], result.first['name'], result.first['username'], result.first['email'])
   end
 
   def self.all
     connection = Database::Connection.create
     result = connection.exec("SELECT * FROM users")
     result.map { |user| User.new(user['id'], user['name'], user['username'], user['email']) }
+  end
+
+  def self.authenticate(email, password)
+    connection = Database::Connection.create
+    result = connection.exec("SELECT * FROM users WHERE email='#{email}'")
+    User.new(result.first['id'], result.first['name'], result.first['username'], result.first['email'])
   end
 
   def self.invalid_username?(username)

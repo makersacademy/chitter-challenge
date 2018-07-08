@@ -29,7 +29,16 @@ describe User do
   describe '.find' do
     it 'returns a user given an email address' do
       chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
-      expect(User.find('chewbacca@gmail.com')).to eq chewie
+      found_user = User.find('chewbacca@gmail.com')
+      expect(found_user.id).to eq chewie.id
+    end
+  end
+
+  describe '.authenticate' do
+    it 'checks that a username has submitted the right email and password' do
+      chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
+      authenticated_chewie = User.authenticate('chewbacca@gmail.com', 'pa$$w0rd4')
+      expect(authenticated_chewie.id).to eq chewie.id
     end
   end
 
