@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class User
   attr_reader :id, :username, :name, :email, :password
@@ -13,14 +14,16 @@ class User
 
   def self.create(username, name, email, password)
     User.switch_db_if_test_env
+    encrypted_password = BCrypt::Password.create(password)
     user = @con.exec("INSERT INTO users (username, name, email, password)
-                      VALUES ('#{username}', '#{name}', '#{email}', '#{password}')
+                      VALUES ('#{username}', '#{name}', '#{email}', '#{encrypted_password}')
                       RETURNING id, username, name, email, password;")
     User.new(user.first['id'], user.first['username'], user.first['name'],
              user.first['email'], user.first['password'])
   end
 
   def self.retrieve(id)
+    return nil unless id
     User.switch_db_if_test_env
     user = @con.exec("SELECT * FROM users WHERE id=#{id};")
     User.new(user.first['id'], user.first['username'], user.first['name'],

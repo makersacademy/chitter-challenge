@@ -6,6 +6,10 @@ describe User do
       user = User.create('horus', 'Horus Lupercal', 'test@test.com', 'password123')
       expect(user.username).to eq('horus')
     end
+    it 'creates a hashed password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+      User.create('horus', 'Horus Lupercal', 'test@test.com', 'password123')
+    end
   end
   describe '.all' do
     it 'returns an array of user instances' do
