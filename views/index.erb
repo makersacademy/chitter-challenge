@@ -3,7 +3,8 @@
 <ul>
   <% @messages.each do |peep| %>
     <li>
-      <%= peep.message %>
+      <h2><%= peep.message %></h2>
+      <p>Date and time of peep: <%= peep.date %></p>
     </li>
   <% end %>
 </ul>

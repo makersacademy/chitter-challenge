@@ -24,5 +24,11 @@ describe Message do
 
         expect(Message.all).to eq expected_messages
       end
+
+      it 'returns date and time of message' do
+        message_1 = Message.create(message: 'Test message 1', date: '2018-07-08 00:00:00')
+
+        expect(message_1.date).to eq '2018-07-08 00:00:00'
+      end
     end
 end
