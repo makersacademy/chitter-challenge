@@ -23,7 +23,7 @@ class Blabber < Sinatra::Base
   end
 
   post '/blabs' do
-    Blab.create(params[:content])
+    Blab.create(params[:content], session[:user_id])
     redirect '/'
   end
 
@@ -40,9 +40,15 @@ class Blabber < Sinatra::Base
       session[:user_id] = user.id
       redirect('/')
     else
-      flash[:notice] = 'Invalid email or password'
+      flash[:notice] = 'invalid email or password'
       redirect('/sessions/new')
     end
+  end
+
+  post '/sessions/delete' do
+    session.clear
+    flash[:notice] = 'you are now logged out'
+    redirect('/')
   end
 
   run! if app_file == $PROGRAM_NAME

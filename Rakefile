@@ -23,16 +23,18 @@ task :setup do
     connection.exec("CREATE DATABASE #{database};")
 
     connection = PG.connect(dbname: database)
-    connection.exec("CREATE TABLE blabs (
-      id SERIAL PRIMARY KEY,
-      timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      content VARCHAR(128));")
     connection.exec("CREATE TABLE users (
       id SERIAL PRIMARY KEY,
       username VARCHAR(60),
       name VARCHAR(60),
       email VARCHAR(60),
       password VARCHAR(240)
+      );")
+    connection.exec("CREATE TABLE blabs (
+      id SERIAL PRIMARY KEY,
+      timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      content VARCHAR(128),
+      user_id INTEGER REFERENCES users (id)
       );")
   end
 end

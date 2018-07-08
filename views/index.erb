@@ -1,21 +1,26 @@
+<%= styled_flash %>
 <% if @user %>
-  <h1>Welcome, <%= @user.name %></h1>
-<% end %>
-<ul>
-  <% @blabs.reverse.each do |blab| %>
-  <li><%= blab.timestamp[0..15] %><br><%= blab.content %></li>
-  <% end %>
-</ul>
-
+  <h2>welcome, <%= @user.name %></h2>
 <form action="/blabs" method="post">
   <textarea name="content" rows="3" cols="50" placeholder="enter your inane thoughts here"></textarea><br>
   <input type="submit" value="blab">
 </form>
+<% else %>
+  <h2>please log in to blab</h2>
+<% end %>
+<% @blabs.reverse.each do |blab| %>
+<p><%= "#{blab.creator} at #{blab.timestamp[0..15]}" %><br><%= blab.content %></p>
+<% end %>
 
-<form action="/sessions/new" method="get">
-  <input type="submit" value="log in">
-</form>
-
+<% if @user %>
+  <form action="/sessions/delete" method="post">
+    <input type="submit" value="log out">
+  </form>
+<% else %>
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="log in">
+  </form>
+<% end %>
 <form action="/users/new" method="get">
   <input type="submit" value="create an account">
 </form>
