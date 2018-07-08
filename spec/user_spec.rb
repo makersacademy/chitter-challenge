@@ -20,7 +20,7 @@ describe User do
       expect(names).to include 'Chewbacca'
       expect(usernames).to include 'chewbacca'
     end
-    xit 'uses bcrypt to hash a password' do
+    it 'uses bcrypt to hash a password' do
       expect(BCrypt::Password).to receive(:create).with('pa$$w0rd4')
       User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
     end

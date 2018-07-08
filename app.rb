@@ -11,8 +11,23 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/sign-up' do
-    erb :sign_up
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    if User.invalid_username?(params[:username])
+      flash[:notice]="Sorry that username or email is already taken. Please try again."
+      redirect '/users/new'
+    elsif User.invalid_email?(params[:email])
+      flash[:notice]="Sorry that username or email is already taken. Please try again."
+      redirect '/users/new'
+    else
+      user = User.create(params[:name],params[:username],params[:email],params[:password])
+      session[:current_user] = user.id
+      flash[:welcome]="Welcome to Chitter #{user.username}"
+      redirect '/peeps'
+    end
   end
 
   get '/sessions/new' do
@@ -35,21 +50,6 @@ class Chitter < Sinatra::Base
     session.clear
     flash[:log_out]="You have successfully logged out. Come back soon."
     redirect '/'
-  end
-
-  post '/sign-up' do
-    if User.invalid_username?(params[:username])
-      flash[:notice]="Sorry that username or email is already taken. Please try again."
-      redirect '/sign-up'
-    elsif User.invalid_email?(params[:email])
-      flash[:notice]="Sorry that username or email is already taken. Please try again."
-      redirect '/sign-up'
-    else
-      user = User.create(params[:name],params[:username],params[:email],params[:password])
-      session[:current_user] = user.id
-      flash[:welcome]="Welcome to Chitter #{user.username}"
-      redirect '/peeps'
-    end
   end
 
   get '/peeps' do
