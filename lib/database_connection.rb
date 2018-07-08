@@ -2,11 +2,11 @@ require 'pg'
 
 class DatabaseConnection
 
-  def self.exec(command)
-    if ENV['RACK_ENV'] == 'test'
-      PG.connect(dbname: 'blabber_test').exec(command)
-    else
-      PG.connect(dbname: 'blabber').exec(command)
-    end
+  def self.setup(dbname)
+    @connection = PG.connect(dbname: dbname)
+  end
+  
+  def self.query(command)
+    @connection.exec(command)
   end
 end

@@ -10,14 +10,14 @@ class Blab
   end
 
   def self.all
-    result = DatabaseConnection.exec("SELECT id, timestamp, content FROM blabs;")
+    result = DatabaseConnection.query("SELECT id, timestamp, content FROM blabs;")
     result.map do |blab|
       Blab.new(blab['id'], blab['timestamp'], blab['content'])
     end
   end
 
   def self.create(content)
-    result = DatabaseConnection.exec("INSERT INTO blabs (content) VALUES ('#{content}') RETURNING id, timestamp, content;")
+    result = DatabaseConnection.query("INSERT INTO blabs (content) VALUES ('#{content}') RETURNING id, timestamp, content;")
     Blab.new(result.first['id'], result.first['timestamp'], result.first['content'])
   end
 

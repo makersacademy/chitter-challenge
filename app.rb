@@ -1,5 +1,6 @@
 require 'sinatra'
 require './lib/blab.rb'
+require './database_connection_setup'
 
 class Blabber < Sinatra::Base
   get '/' do

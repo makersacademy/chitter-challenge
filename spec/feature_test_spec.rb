@@ -35,13 +35,13 @@ feature 'viewing timestamps' do
     # regular expression to look for a single 'word' consisting of two digits
     # between 0 and 2 followed by a colon, a digit between 0 and 5 and a digit
     # between 0 and 9
-    expect(page).to have_content(/\b[0-2]{2}:[0-5]\d/)
+    expect(page).to have_content(/\b[0-2]\d:[0-5]\d/)
   end
 end
 
 # As a Maker
-# So that I can post messages on Chitter as me
-# I want to sign up for Chitter
+# So that I can post messages on Blabber as me
+# I want to sign up for Blabber
 
 # HARDER
 #
