@@ -1,10 +1,17 @@
 <h1>Chitter</h1>
-<p><a href="/messages/new">Add a message</a></p>
+<p><a href="/messages/new">Add a peep >> </a></p>
+<h2>Latest Peeps</h2>
 <ul>
-  <% @messages.each do |peep| %>
+  <% @messages.each do |message| %>
     <li>
-      <h2><%= peep.message %></h2>
-      <p>Date and time of peep: <%= peep.date %></p>
-    </li>
+      <h2>
+        <%= message.message %>
+      </h2>
+      <p>Date and time of peep: <%= message.date %></p>
+      <% message.users.each do |user| %>
+        <p>Peep from: <%= user.first_name %>&nbsp;<%= user.last_name %></p>
+      <% end %>
+    <ul>
+    </ul>
   <% end %>
 </ul>

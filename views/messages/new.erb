@@ -2,6 +2,7 @@
 <h2>Add a new message</h2>
 <form action="/messages" method="post">
   <input type="hidden" name="date" value="<%= DateTime.now %>">
+  <input type="hidden" name="user_id" value="<%= @user_id %>">
    Enter a message: <input type="text" name="message"/>
   <input type="submit" value="Add message"/>
 </form>
