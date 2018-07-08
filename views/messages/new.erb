@@ -1,6 +1,7 @@
 <h1>Chitter</h1>
 <h2>Add a new message</h2>
 <form action="/messages" method="post">
-  Enter a message: <input type="text" name="message"/>
+  <input type="hidden" name="date" value="<%= DateTime.now %>">
+   Enter a message: <input type="text" name="message"/>
   <input type="submit" value="Add message"/>
 </form>

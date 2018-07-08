@@ -20,7 +20,7 @@ class ChitterApp < Sinatra::Base
 
   post '/messages' do
     p params
-    Message.create(message: params['message'])
+    Message.create(message: params['message'], date: params['date'])
     p "Form data submitted to the /messages route!"
 
     redirect '/messages'
