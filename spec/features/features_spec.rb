@@ -41,8 +41,7 @@ end
 feature 'Posting a peep' do
   scenario 'A user can post a peep' do
     sign_up
-    fill_in :peep_input, with: 'A test peep!'
-    click_button 'Post Peep'
+    post_peep
     expect(page).to have_content 'A test peep!'
   end
 end

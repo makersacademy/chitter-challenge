@@ -14,8 +14,8 @@ describe Peep do
       expect(contents).to include 'Laugh it up, fuzzball'
     end
     xit 'creates a peep with a time' do
-      time_now = Time.new
       # giving too many zeroes
+      time_now = Time.new
       Peep.create(@star_wars_fan.id, 'Laugh it up, fuzzball', time_now)
       peeps = Peep.all
       times = peeps.map(&:time)
@@ -32,6 +32,3 @@ describe Peep do
     end
   end
 end
-
-# 'I\'m Luke Skywalker and I\'m here to rescue you!'
-# 'Help me Obi Wan Kenobi, you\'re my only hope'

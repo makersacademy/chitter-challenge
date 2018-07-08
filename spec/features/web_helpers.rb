@@ -53,3 +53,8 @@ def log_in_incorrect_password
   fill_in :password, with: 'wrong password'
   click_button 'Log In'
 end
+
+def post_peep
+  fill_in :peep_input, with: 'A test peep!'
+  click_button 'Post Peep'
+end
