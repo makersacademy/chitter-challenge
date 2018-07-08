@@ -1,5 +1,5 @@
-# STRAIGHT UP
-#
+# User stories
+
 # As a Maker
 # So that I can let people know what I am doing
 # I want to post a message (blab) to blabber
@@ -43,29 +43,32 @@ end
 # So that I can post messages on Blabber as me
 # I want to sign up for Blabber
 feature 'registration' do
-  scenario 'user can register for Blabber' do
-    visit '/'
-    click_button 'create an account'
-    fill_in 'username', with: 'The Testman'
-    fill_in 'name', with: 'Testee McTest'
-    fill_in 'email', with: 'test@testmail.com'
-    fill_in 'password', with: 'p@$$w0rd'
-    click_button 'register'
+  scenario 'user registers for Blabber' do
+    register_user
     expect(page).to have_content 'Welcome, Testee McTest'
   end
 end
-# HARDER
-#
+
 # As a Maker
-# So that only I can post messages on Chitter as me
-# I want to log in to Chitter
-#
+# So that only I can post messages on Blabber as me
+# I want to log in to Blabber
+feature 'logging in' do
+  scenario 'user logs in to Blabber' do
+    register_user
+    click_button 'log in'
+    fill_in 'email', with: 'test@testmail.com'
+    fill_in 'password', with: 'p@$$w0rd'
+    click_button 'log in'
+    expect(page).to have_content 'Welcome, Testee McTest'
+  end
+end
+
 # As a Maker
-# So that I can avoid others posting messages on Chitter as me
-# I want to log out of Chitter
+# So that I can avoid others posting messages on Blabber as me
+# I want to log out of Blabber
 #
 # ADVANCED
 #
 # As a Maker
-# So that I can stay constantly tapped in to the shouty box of Chitter
-# I want to receive an email if I am tagged in a Peep
+# So that I can stay constantly tapped in to the shouty box of Blabber
+# I want to receive an email if I am tagged in a blab
