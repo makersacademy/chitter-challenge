@@ -21,9 +21,14 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
-    session[:current_user] = user.id
-    flash[:logged_in]="Logged in as #{user.username}"
-    redirect '/peeps'
+    if user
+      session[:current_user] = user.id
+      flash[:logged_in]="Logged in as @#{user.username}"
+      redirect ('/peeps')
+    else
+      flash[:invalid_credentials] = "That email or password is incorrect. Please try again."
+      redirect '/sessions/new'
+    end
   end
 
   post '/sign-up' do
@@ -36,7 +41,7 @@ class Chitter < Sinatra::Base
     else
       user = User.create(params[:name],params[:username],params[:email],params[:password])
       session[:current_user] = user.id
-      flash[:welcome]="Welcome to Chitter #{params[:name]}"
+      flash[:welcome]="Welcome to Chitter #{user.username}"
       redirect '/peeps'
     end
   end

@@ -20,7 +20,7 @@ describe User do
       expect(names).to include 'Chewbacca'
       expect(usernames).to include 'chewbacca'
     end
-    it 'uses bcrypt to hash a password' do
+    xit 'uses bcrypt to hash a password' do
       expect(BCrypt::Password).to receive(:create).with('pa$$w0rd4')
       User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
     end
@@ -39,6 +39,10 @@ describe User do
       chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
       authenticated_chewie = User.authenticate('chewbacca@gmail.com', 'pa$$w0rd4')
       expect(authenticated_chewie.id).to eq chewie.id
+    end
+    it 'returns an empty array if the user gives the wrong email' do
+      chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
+      expect(User.authenticate('chew_bacca@gmail.com', 'pa$$w0rd4')).to be_nil
     end
   end
 

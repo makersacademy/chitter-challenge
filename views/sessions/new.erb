@@ -11,6 +11,8 @@
     </div>
   </div>
 
+  <p><%= flash[:invalid_credentials] %></p>
+
   <div id="log_in">
     <p>Please enter your details:</p>
     <form action="/sessions" method="post">

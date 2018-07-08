@@ -38,6 +38,7 @@ class User
   def self.authenticate(email, password)
     connection = Database::Connection.create
     result = connection.exec("SELECT * FROM users WHERE email='#{email}'")
+    return unless result.any?
     User.new(result.first['id'], result.first['name'], result.first['username'], result.first['email'])
   end
 
