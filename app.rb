@@ -21,5 +21,22 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/users/login' do
+    erb :log_in
+  end
+
+  post '/users' do
+    user = User.authenticate(params['username'], params['password'])
+    if user != nil
+      session[:usename] = user[0]['username']
+      session[:name] = user[0]['name']
+      redirect '/'
+    else
+      flash[:notice] = 'Invalid username or password'
+      redirect '/users/login'
+    end
+  end
+
+
   run! if app_file == $0
 end

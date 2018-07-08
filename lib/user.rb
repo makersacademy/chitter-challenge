@@ -32,6 +32,18 @@ end
     User.new(result.first['id'], result.first['username'], result.first['name'])
   end
 
+  def self.authenticate(username, password)
+    User.testing
+    result = @connection.exec("SELECT * FROM users WHERE username = '#{username}'")
+    if result.any?
+      if BCrypt::Password.new(result[0]['password']) == password
+        return result
+      else
+        return nil
+      end
+    end
+  end
+
   def ==(other)
     @id = other.id
   end

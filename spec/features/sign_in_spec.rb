@@ -10,6 +10,6 @@ feature 'sign up' do
     fill_in('password', with: 'test123')
     click_button('Sign up')
 
-    expect(page).to have content 'Welcome test'
+    expect(page).to have_content 'Welcome test'
   end
 end
