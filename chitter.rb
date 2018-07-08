@@ -1,9 +1,13 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
+require './lib/database_connection_setup'
+
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @peeps = Peep.all
@@ -31,6 +35,26 @@ class Chitter < Sinatra::Base
     erb :'users/index'
   end
 
-  run! if app_file == $0
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
 
+  post '/sessions' do
+    user = User.authenticate(params['email'], params['password'])
+    if user
+      session[:user_id] = user.id
+      redirect("/users/#{user.username}")
+    else
+      flash[:error] = 'Please check your log in details and try again'
+      redirect("/sessions/new")
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/')
+  end
+
+  run! if app_file == $0
 end

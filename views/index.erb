@@ -1,8 +1,12 @@
 <center>
 <div>
 <h1>Welcome to Chitter</h2>
+  <%= styled_flash %>
   <form action="/users/new" method='get'>
     <input type="submit" value="Sign Up" />
+  </form>
+  <form action="/sessions/new" method='get'>
+    <input type="submit" value="Log in" />
   </form>
 </div>
 
