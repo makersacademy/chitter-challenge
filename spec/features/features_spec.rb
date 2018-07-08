@@ -19,11 +19,20 @@ feature 'Logging in' do
   scenario 'An existing user can log in' do
     visit '/'
     click_button 'Log In'
-    fill_in :email, with: 'han_solo@google.com'
+    fill_in :email, with: 'hansolo@google.com'
     fill_in :password, with: 'pa$$w0rd'
     click_button 'Log In'
     expect(page).to have_content 'Welcome back to Chitter Han Solo'
   end
+  scenario 'A user is prompted if their email is invalid' do
+    visit '/'
+    click_button 'Log In'
+    fill_in :email, with: 'han_solo@google.com'
+    fill_in :password, with: 'pa$$w0rd'
+    click_button 'Log In'
+    expect(page).to have_content 'That email or password is incorrect. Please try again.'
+  end
+
 end
 
 
