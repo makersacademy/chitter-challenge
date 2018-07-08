@@ -50,6 +50,7 @@ task :dev_database_reset do
   han = User.create('Han Solo', 'hansolo', 'hansolo@gmail.com', 'pa$$w0rd1')
   luke = User.create('Luke Skywalker', 'lukeskywalker', 'lukeskywalker@gmail.com', 'pa$$w0rd2')
   leia = User.create('Princess Leia', 'princessleia', 'princessleia@gmail.com', 'pa$$w0rd3')
+  test = User.create('Test','test','test@email.com','test')
   Peep.create(han.id, 'Laugh it up fuzzball.')
   Peep.create(luke.id, 'Im Luke Skywalker. Im here to rescue you!')
   Peep.create(leia.id, 'Help me Obiwan Kenobi. Youre my only hope.')

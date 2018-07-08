@@ -31,6 +31,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:log_out]="You have successfully logged out. Come back soon."
+    redirect '/'
+  end
+
   post '/sign-up' do
     if User.invalid_username?(params[:username])
       flash[:notice]="Sorry that username or email is already taken. Please try again."

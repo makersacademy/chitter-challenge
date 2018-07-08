@@ -17,31 +17,26 @@ end
 
 feature 'Logging in' do
   scenario 'An existing user can log in' do
-    visit '/'
-    click_button 'Log In'
-    fill_in :email, with: 'hansolo@gmail.com'
-    fill_in :password, with: 'pa$$w0rd1'
-    click_button 'Log In'
+    log_in
     expect(page).to have_content 'Logged in as @hansolo'
   end
   scenario 'A user is prompted if their email is invalid' do
-    visit '/'
-    click_button 'Log In'
-    fill_in :email, with: 'incorrect email'
-    fill_in :password, with: 'pa$$w0rd1'
-    click_button 'Log In'
+    log_in_incorrect_email
     expect(page).to have_content 'That email or password is incorrect. Please try again.'
   end
   scenario 'A user is prompted if their password is invalid' do
-    visit '/'
-    click_button 'Log In'
-    fill_in :email, with: 'hansolo@gmail.com'
-    fill_in :password, with: 'incorrect password'
-    click_button 'Log In'
+    log_in_incorrect_password
     expect(page).to have_content 'That email or password is incorrect. Please try again.'
   end
 end
 
+feature 'Signing out' do
+  scenario 'A logged in user can sign out' do
+    log_in
+    click_button 'Log Out'
+    expect(page).to have_content 'You have successfully logged out. Come back soon.'
+  end
+end
 
 feature 'Posting a peep' do
   scenario 'A user can post a peep' do
