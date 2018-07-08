@@ -26,6 +26,13 @@ describe User do
     end
   end
 
+  describe '.find' do
+    it 'returns a user given an email address' do
+      chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
+      expect(User.find('chewbacca@gmail.com')).to eq chewie
+    end
+  end
+
   describe '.invalid_username?' do
     it 'returns true if the database already includes the given username' do
       chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
