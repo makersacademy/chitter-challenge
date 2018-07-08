@@ -8,7 +8,7 @@ feature 'Creating a new message to Chitter' do
   scenario 'a user can create a message' do
     visit('/messages/new')
     fill_in('message', with: 'This is a test message')
-    click_button('Add meesage')
+    click_button('Add message')
 
     expect(current_path).to eq '/messages'
     expect(page).to have_content 'This is a test message'
