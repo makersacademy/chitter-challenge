@@ -6,6 +6,11 @@ describe User do
       user = User.create('The Testman', 'Testee McTest', 'test@testmail.com', 'p@$$w0rd')
       expect(user.id).not_to be_nil
     end
+
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('p@$$w0rd')
+      User.create('The Testman', 'Testee McTest', 'test@testmail.com', 'p@$$w0rd')
+    end
   end
 
   describe '.find' do
