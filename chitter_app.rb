@@ -2,14 +2,13 @@ require 'sinatra/base'
 require './lib/message'
 require './lib/user'
 
-
 class ChitterApp < Sinatra::Base
 
   enable :sessions
 
   get '/' do
     p ENV['ENVIRONMENT']
-    redirect ('/messages')
+    redirect '/messages'
   end
 
   get '/messages' do

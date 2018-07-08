@@ -4,7 +4,7 @@ class Message
   attr_reader :id, :message, :date, :user_id
 
   def initialize(id, message, date, user_id)
-    @id  = id
+    @id = id
     @message = message
     @date = date
     @user_id = user_id
