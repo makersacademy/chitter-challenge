@@ -7,3 +7,10 @@ def sign_up
   fill_in :password, with: '1234'
   click_button 'Sign Up'
 end
+
+def log_in
+  visit '/sessions/new'
+  fill_in(:email, with: 'abc@abc.com')
+  fill_in(:password, with: '1234')
+  click_button('Log in')
+end

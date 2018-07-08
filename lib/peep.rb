@@ -13,7 +13,11 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT peeps.comment, peeps.time, peeps.id, users.username AS username FROM peeps INNER JOIN users ON peeps.user_id = users.id ORDER BY time DESC")
+    result = DatabaseConnection.query(
+      "SELECT peeps.comment, peeps.time, peeps.id, users.username AS username
+        FROM peeps
+          INNER JOIN users ON peeps.user_id = users.id
+            ORDER BY time DESC")
     result.map { |peep| Peep.new(peep['comment'], peep['time'], peep['id'], peep['username']) }
   end
 
