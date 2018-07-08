@@ -19,8 +19,11 @@ Ruby / SQL / HTML / CSS using PSQL & Sinatra web framework with Rspec & Capybara
 
 ## Implementation
 
+Clone/download repo and navigate to directory
 ```shell
-rackup
+$ bundle install
+$ rake initial_setup
+$ rackup
 ```
 Visit 'localhost:9292' in browser.
 
