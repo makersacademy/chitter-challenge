@@ -27,8 +27,16 @@ feature 'Logging in' do
   scenario 'A user is prompted if their email is invalid' do
     visit '/'
     click_button 'Log In'
-    fill_in :email, with: 'han_solo@gmail.com'
+    fill_in :email, with: 'incorrect email'
     fill_in :password, with: 'pa$$w0rd1'
+    click_button 'Log In'
+    expect(page).to have_content 'That email or password is incorrect. Please try again.'
+  end
+  scenario 'A user is prompted if their password is invalid' do
+    visit '/'
+    click_button 'Log In'
+    fill_in :email, with: 'hansolo@gmail.com'
+    fill_in :password, with: 'incorrect password'
     click_button 'Log In'
     expect(page).to have_content 'That email or password is incorrect. Please try again.'
   end

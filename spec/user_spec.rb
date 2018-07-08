@@ -40,9 +40,13 @@ describe User do
       authenticated_chewie = User.authenticate('chewbacca@gmail.com', 'pa$$w0rd4')
       expect(authenticated_chewie.id).to eq chewie.id
     end
-    it 'returns an empty array if the user gives the wrong email' do
+    it 'returns nil if the user gives the wrong email' do
       chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
-      expect(User.authenticate('chew_bacca@gmail.com', 'pa$$w0rd4')).to be_nil
+      expect(User.authenticate('wrong email', 'pa$$w0rd4')).to be_nil
+    end
+    it 'returns nil if the user gives the wrong email' do
+      chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
+      expect(User.authenticate('chewbacca@gmail.com', 'wrong password')).to be_nil
     end
   end
 

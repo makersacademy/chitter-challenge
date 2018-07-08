@@ -39,6 +39,7 @@ class User
     connection = Database::Connection.create
     result = connection.exec("SELECT * FROM users WHERE email='#{email}'")
     return unless result.any?
+    return unless BCrypt::Password.new(result.first['password']) == password
     User.new(result.first['id'], result.first['name'], result.first['username'], result.first['email'])
   end
 
