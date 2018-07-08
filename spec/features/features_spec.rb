@@ -13,8 +13,19 @@ feature 'Signing up' do
     duplicate_sign_up_email
     expect(page).to have_content 'Sorry that username or email is already taken. Please try again.'
   end
-
 end
+
+feature 'Logging in' do
+  scenario 'An existing user can log in' do
+    visit '/'
+    click_button 'Log In'
+    fill_in :email, with: 'han_solo@google.com'
+    fill_in :password, with: 'pa$$w0rd'
+    click_button 'Log In'
+    expect(page).to have_content 'Welcome back to Chitter Han Solo'
+  end
+end
+
 
 feature 'Posting a peep' do
   scenario 'A user can post a peep' do
