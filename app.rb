@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'pg'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -7,12 +8,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep' do
+    @posts = Peep.all
     erb :peep
   end
 
   post '/peep' do
+    if ENV['ENVIRONMENT'] == 'test'
+      con = PG.connect(dbname: 'chitter_test')
+    else
+      con = PG.connect(dbname: 'chitter')
+    end
     post = params['post']
-    con = PG.connect(dbname: 'chitter')
     con.exec("INSERT INTO posts (post) VALUES('#{post}')")
     redirect '/peep'
   end

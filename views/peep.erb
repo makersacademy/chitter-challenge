@@ -2,3 +2,9 @@
   <input type='text' name='post' placeholder='Get your peep on!' />
   <input type='submit' value='Peep' />
 </form>
+
+<ul>
+  <% @posts.each do |post| %>
+  <li><%= post %></li>
+  <% end %>
+</ul>
