@@ -23,7 +23,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/messages' do
-    Message.create(session[:user_id], message: params['message'], date: params['date'] )
+    Message.create(session[:user_id], message: params['message'],
+      date: params['date'])
 
     p "Form data submitted to the /messages route!"
 
@@ -35,7 +36,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/register/confirm' do
-    user = User.create(first_name: params['first_name'], last_name: params['last_name'], date: params['date'])
+    user = User.create(first_name: params['first_name'],
+      last_name: params['last_name'], date: params['date'])
 
     # we store the newly registered user's id in a session object so we can
     # parse it to the post '/messages' route

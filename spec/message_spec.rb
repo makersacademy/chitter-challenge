@@ -44,10 +44,10 @@ describe Message do
       user = User.create(first_name: 'Jay', last_name: 'Khan', date: '2018-07-08 00:00:00')
       message_1 = Message.create(user.id, message: 'Test message',
         date: '2018-07-08 00:00:00')
-      message_1.users.each { |user| @user = user }
+      message_1.users.each { |user_example| @user_test = user_example }
 
-      expect(@user.first_name).to eq 'Jay'
-      expect(@user.last_name).to eq 'Khan'
+      expect(@user_test.first_name).to eq 'Jay'
+      expect(@user_test.last_name).to eq 'Khan'
     end
   end
 end
