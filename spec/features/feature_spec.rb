@@ -38,7 +38,7 @@ feature 'user registration' do
     click_button('Sign Up')
     fill_in('username', with: 'horus')
     fill_in('name', with: 'Horus Lupercal')
-    fill_in('email', with: 'horus@the-great-crusade.org')
+    fill_in('email', with: 'test@test.com')
     fill_in('password', with: 'password1')
     click_button('Submit')
     expect(page).to have_text('Horus Lupercal')
@@ -48,6 +48,17 @@ end
 # As a Maker
 # So that only I can post messages on Chitter as me
 # I want to log in to Chitter
+
+feature 'logging in' do
+  scenario 'user is able to log in to Chitter' do
+    User.create('horus', 'Horus Lupercal', 'test@test.com', 'password123')
+    visit('/sessions/new')
+    fill_in('sign_in_email', with: 'test@test.com')
+    fill_in('sign_in_password', with: 'password123')
+    click_button('Sign in')
+    expect(page).to have_content('Hello, Horus Lupercal')
+  end
+end
 
 # As a Maker
 # So that I can avoid others posting messages on Chitter as me

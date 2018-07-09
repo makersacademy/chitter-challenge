@@ -24,4 +24,11 @@ describe User do
       expect(user1).to eq user2
     end
   end
+  describe '.authenticate' do
+    it 'returns a user instance if the username and password exist' do
+      user = User.create('horus', 'Horus Lupercal', 'test@test.com', 'password123')
+      authenticated = User.authenticate('test@test.com', 'password123')
+      expect(user.id).to eq authenticated.id
+    end
+  end
 end

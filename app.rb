@@ -11,14 +11,6 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/peeps/new' do
-    erb :'peeps/new'
-  end
-
-  post '/peeps' do
-    erb :'peeps/index'
-  end
-
   get '/users' do
     @user = User.retrieve(session[:user_id])
     erb :'users/index'
@@ -34,6 +26,16 @@ class Chitter < Sinatra::Base
                         params[:email],
                         params[:password])
     session[:user_id] = @user.id
+    redirect '/users'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:sign_in_email], params[:sign_in_password])
+    session[:user_id] = user.id
     redirect '/users'
   end
 

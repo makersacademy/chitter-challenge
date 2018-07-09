@@ -22,6 +22,12 @@ class User
              user.first['email'], user.first['password'])
   end
 
+  def self.authenticate(email, password)
+    query = @con.exec("SELECT * FROM users WHERE email='#{email}'")
+    user = User.new(query.first['id'], query.first['username'], query.first['name'],
+                    query.first['email'], query.first['password'])
+  end
+
   def self.retrieve(id)
     return nil unless id
     User.switch_db_if_test_env
