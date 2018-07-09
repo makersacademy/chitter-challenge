@@ -4,7 +4,7 @@
 
 *Tired of twitter's market dominance? Try out Blabber instead. It's the hot new place to tell your friends what's on your mind and see what's on theirs. And it's totally free of right-wing trolls (for now).*
 
-This app will allow multiple users to post and view messages in their browser. It will be built over a weekend as part of the curriculum at the Makers Academy coding bootcamp.
+This app allows multiple users to post and view messages in their browser. It was built over a weekend as part of the curriculum at the Makers Academy coding bootcamp.
 
 ## Getting started
 Enter the following commands in your terminal:
@@ -18,7 +18,6 @@ Install the required gems:
 Run the rake file to set up the required databases
 `rake setup`
 
-
 ## Usage
 Enter the following commands in your terminal:
 
@@ -28,19 +27,17 @@ Change into the main directory:
 Run the app:
 `rackup`
 
-*screenshot will be inserted here*
-
-
-Then open your browser, head to http://localhost:9292/ where you should find the page shown above. Then simply follow the instructions on the page.
+Then open your browser, head to http://localhost:9292/ and simply follow the instructions on the page.
 
 ## Running tests
-This app will come with a full feature test and unit tests with 100% coverage (determined using the simplecov gem).
+This app comes with a full feature test and unit tests with 100% coverage (determined using the simplecov gem).
 
 To run all available tests enter `rspec` in your terminal.
 
 ## Built with
 Sinatra -- as the web application framework
 PostgreSQL -- as the database mananagement system
+BCRypt -- as the password encryption tool
 Rspec and Capybara -- as testing frameworks
 
 ## Authors
