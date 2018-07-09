@@ -38,19 +38,13 @@ class Message
       connection = PG.connect(dbname: 'chitter')
     end
 
-    # We are RETURNING the ID and URL from the bookmark we just inserted into
-    # the database and then wrapping it to a Bookmark instance e.g
-    # => #<Bookmark:0x00007fe866135500 @id="95", @url="http://www.bbc.co.uk",
-    # @title="bbc">
+    # We are RETURNING the id, message, date, user_id from the message we just inserted into
+    # the database and then wrapping it to a Message instance
+
     result = connection.exec("INSERT INTO messages (message, date, user_id) VALUES('#{params[:message]}', '#{params[:date]}', '#{user_id}') RETURNING
     id, message, date, user_id")
     Message.new(result.first['id'], result.first['message'],
       result.first['date'], result.first['user_id'])
-
-  #   return false unless is_url?(params[:url])
-  # result = connection.exec("INSERT INTO bookmarks (url, title)
-  # VALUES('#{params[:url]}', '#{params[:title]}') RETURNING id, url, title")
-  # Bookmark.new(result.first['id'], result.first['url'], result.first['title'])
   end
 
   def users
