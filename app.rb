@@ -9,6 +9,11 @@ class Chitter < Sinatra::Base
 
   get '/peep' do
     @posts = Peep.all
+    @time = [
+      '2005-05-13 07:15:31.123456789',
+      '2005-05-13 07:15:31.123456789',
+      '2005-05-13 07:15:31.123456789'
+    ]
     erb :peep
   end
 

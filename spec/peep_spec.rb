@@ -8,9 +8,10 @@ describe Peep do
       con.exec("INSERT INTO posts VALUES(3, 'This is my third peep.');")
 
       expected_posts = [
-        'This is my first peep.',
+
+        'This is my third peep.',
         'This is my second peep.',
-        'This is my third peep.'
+        'This is my first peep.'
       ]
 
       expect(Peep.all).to eq expected_posts
