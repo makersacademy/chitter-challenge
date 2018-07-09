@@ -50,13 +50,13 @@ ___
 
 ### What I would do next
 
+* Move some of the longer if statements in the controller to the model
 * Guard against blank inputs when signing up
 * Ensure user submits a valid email address (check formatting using regex)
-* Fix stubbing in the time unit test to ensure it passess (currently failing because it includes milliseconds)
 * Full test isolation between classes
 * Add hashtag functionality using a many-to-many database relationship
 * Move database connection functions from module to full class
-* Tidy up CSS styling
+* Tidy up CSS styling!!
 
 ___
 
