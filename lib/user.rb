@@ -26,6 +26,7 @@ class User
   def self.authenticate(email, password)
     User.switch_db_if_test_env
     query = @con.exec("SELECT * FROM users WHERE email='#{email}'")
+    return unless query.any?
     User.new(query.first['id'], query.first['username'], query.first['name'],
              query.first['email'], query.first['password'])
   end
@@ -54,5 +55,4 @@ class User
   def ==(other)
     @id == other.id
   end
-
 end

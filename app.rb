@@ -14,7 +14,20 @@ class Chitter < Sinatra::Base
 
   # Feed of all submitted peeps
   get '/peeps' do
-    erb :peeps
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  # New peep form
+  get '/peeps/new' do
+    redirect '/sessions/new' if session[:user_id].nil?
+    erb :'peeps/new'
+  end
+
+  # Create new peep in database
+  post '/peeps' do
+    @peep = Peep.create(params[:content], session[:user_id])
+    redirect '/peeps'
   end
 
   # Logged-in user homepage
