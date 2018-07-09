@@ -16,22 +16,24 @@ class User
     User.switch_db_if_test_env
     encrypted_password = BCrypt::Password.create(password)
     user = @con.exec("INSERT INTO users (username, name, email, password)
-                      VALUES ('#{username}', '#{name}', '#{email}', '#{encrypted_password}')
-                      RETURNING id, username, name, email, password;")
+                      VALUES ('#{username}', '#{name}', '#{email}',
+                      '#{encrypted_password}') RETURNING id, username, name,
+                      email, password;")
     User.new(user.first['id'], user.first['username'], user.first['name'],
              user.first['email'], user.first['password'])
   end
 
   def self.authenticate(email, password)
+    User.switch_db_if_test_env
     query = @con.exec("SELECT * FROM users WHERE email='#{email}'")
-    user = User.new(query.first['id'], query.first['username'], query.first['name'],
-                    query.first['email'], query.first['password'])
+    User.new(query.first['id'], query.first['username'], query.first['name'],
+             query.first['email'], query.first['password'])
   end
 
   def self.retrieve(id)
     return nil unless id
     User.switch_db_if_test_env
-    user = @con.exec("SELECT * FROM users WHERE id=#{id};")
+    user = @con.exec("SELECT * FROM users WHERE id='#{id}';")
     User.new(user.first['id'], user.first['username'], user.first['name'],
              user.first['email'], user.first['password'])
   end
