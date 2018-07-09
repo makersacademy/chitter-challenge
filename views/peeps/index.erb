@@ -1,5 +1,9 @@
 <center>
   <% @peeps.each { |peep| %>
+    <% user = User.retrieve(peep.user_id) %>
     <%= peep.content %><br>
+    Posted by <%= user.name %> (<%= user.username %>) at
+    <%= peep.time.strftime(format='%H:%M on %-d %B %Y') %>
+    <br><br>
   <% } %>
 </center>

@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
 
   # Feed of all submitted peeps
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.sort_by { |peep| peep.time }.reverse
     erb :'peeps/index'
   end
 

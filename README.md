@@ -7,12 +7,13 @@ Fourth week (weekend) solo project, building a Twitter clone that allows users t
 
 ## Completion
 
-* Incomplete. Please see below.
+* All features & basic/harder user stories fully implemented.
+* All tests passing with 100% coverage.
+* Code conforms to Rubocop style guide.
 
 ## Learning Outcomes
 
-I ran out of time this week and was unable to implement all of the features for this challenge. Server build/destroy scripts are fully functional, as is the user sign-up/login process (although a number of guard conditions need to be introduced here). I was unable to implement basic peeps as I focused on getting the login process working first, which may have been a mistake in hindsight.
-I intend to complete this project over the next few evenings if possible.
+Initially spent more time than I would have liked implementing the sign up and login/log out processes, but this helped further down the line when I came to develop the 'peep' functionality as I could easily apply ownership to peeps. I enjoyed this challenge, although the site is very 'bare bones' and I would have liked to spend some time styling it. I feel fairly comfortable with routes and basic database management at this point, although I'd like to improve my understanding of how sessions are managed.
 
 ## Technical
 
@@ -30,5 +31,5 @@ Visit 'localhost:9292' in browser.
 
 ## Further Improvements
 
-* Introduce guard conditions to the login/logout process.
-* Implement basic 'peep' functionality.
+* Introduce further guard conditions to the login/logout process.
+* Style Chitter using CSS and HTML.

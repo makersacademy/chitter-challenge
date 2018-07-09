@@ -22,7 +22,7 @@ class Peep
   end
 
   def self.all
-    User.switch_db_if_test_env
+    Peep.switch_db_if_test_env
     peeps = @con.exec("SELECT * FROM peeps")
     peeps.map { |peep| Peep.new(peep['id'], peep['user_id'], peep['content'],
                                 peep['time'])}

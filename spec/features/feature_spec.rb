@@ -20,14 +20,15 @@ end
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made
 
-feature 'peep timeline' do
-  scenario 'peeps are arranged in reverse chronological order' do
-    visit('/')
-  end
-  scenario 'user is able to see the time at which a peep was created' do
-    visit('/')
-  end
-end
+# feature 'peep timeline' do
+#   scenario 'peeps are arranged in reverse chronological order' do
+#     multiple_posts
+#     visit('/peeps')
+#   end
+#   scenario 'user is able to see the time at which a peep was created' do
+#     visit('/')
+#   end
+# end
 
 # As a Maker
 # So that I can post messages on Chitter as me

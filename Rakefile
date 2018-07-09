@@ -18,7 +18,7 @@ task :initial_setup do
 
     con = PG.connect(dbname: "#{database}")
     con.exec('CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(15), name VARCHAR(30), email VARCHAR(60), password VARCHAR(140));')
-    con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users (id), content VARCHAR(140));')
+    con.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users (id), content VARCHAR(140), time VARCHAR(30));')
 
     print "🐦  Database '#{database}' has been set up.\n"
   end
