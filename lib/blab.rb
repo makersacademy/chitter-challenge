@@ -16,16 +16,21 @@ class Blab
   end
 
   def self.create(content, user_id)
-    result = DatabaseConnection.query("INSERT INTO blabs (content, user_id) VALUES ('#{content}', '#{user_id}') RETURNING id, timestamp, content, user_id;")
-    Blab.new(result.first['id'], result.first['timestamp'], result.first['content'], result.first['user_id'])
+    result = DatabaseConnection.query("INSERT INTO blabs (content, user_id)" +
+      " VALUES ('#{content}', '#{user_id}')" +
+      " RETURNING id, timestamp, content, user_id;")
+    Blab.new(
+      result.first['id'],
+      result.first['timestamp'],
+      result.first['content'],
+      result.first['user_id']
+    )
   end
 
   def creator
-    result = DatabaseConnection.query("SELECT username FROM users WHERE id = #{@user_id};")
+    result = DatabaseConnection.query(
+      "SELECT username FROM users WHERE id = #{@user_id};"
+    )
     result.first['username']
-  end
-
-  def ==(blab)
-    @id == blab.id
   end
 end

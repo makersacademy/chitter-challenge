@@ -23,8 +23,8 @@ feature 'viewing messages' do
     fill_in 'content', with: 'my third blab!'
     click_button 'blab'
     # regular expression to test if the beginning of the content consists of
-    # a timestamp followed by the string "my third blab!"
-    expect(page).to have_content(/\d{4}-\d{2}-\d{2} \b\d{2}:\d{2}(my third blab!)/)
+    # the username followed by a timestamp followed by the string "my third blab!"
+    expect(page).to have_content(/^(The Testman at )\d{4}-\d{2}-\d{2} \b\d{2}:\d{2}(my third blab!)/)
   end
 end
 
