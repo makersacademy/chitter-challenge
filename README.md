@@ -35,11 +35,11 @@ This app comes with a full feature test and unit tests with 100% coverage (deter
 To run all available tests enter `rspec` in your terminal.
 
 ## Built with
-Sinatra -- as the web application framework
-PostgreSQL -- as the database mananagement system
-BCRypt -- as the password encryption tool
-Rspec and Capybara -- as testing frameworks
+Sinatra -- as the web application framework  
+PostgreSQL -- as the database mananagement system  
+BCRypt -- as the password encryption tool  
+Rspec and Capybara -- as testing frameworks  
 
 ## Authors
-The good people at [Makers Academy](https://makers.tech/) -- set up, Gemfile and instructions
+The good people at [Makers Academy](https://makers.tech/) -- set up, Gemfile and instructions  
 [Cornelis Heuperman](https://github.com/heuperman) -- tests, code and flavour text

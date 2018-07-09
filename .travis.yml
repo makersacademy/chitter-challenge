@@ -4,10 +4,8 @@ rvm: '2.5.0'
 
 script:
   - mkdir -p spec && bundle exec rspec spec
+  - rake setup
 
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq postgresql-server-dev-9.3
-
-before_script:
-  - rake setup
