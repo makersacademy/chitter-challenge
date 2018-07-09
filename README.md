@@ -1,107 +1,77 @@
-Chitter Challenge
-=================
+# Chitter Challange
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+___
 
-Challenge:
--------
+## Summary
 
-As usual please start by forking this repo.
+Week 4 Makers Academy weekend project to develop a Twitter clone, called Chitter.</br>
+[Full instructions and user stories here.](https://github.com/makersacademy/chitter-challenge)
+___
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+## Credits
 
-Features:
--------
+Developed solo by Elishka Flint, with feedback from Daniel Jones during the Monday morning code review.
+___
+
+## Learning Outcomes
+
+### Topics Covered
+
+* Web applications using databases (including one-to-many and many-to-many relationships)
+* RESTful routes
+* The MVC model
+* Test-Driven Development using Rspec and Capybara
+* Object-Oriented Programming
+  - classes, methods, scope, instance variables
+  - ensuring code is DRY
+  - using Single Responsibility Principle
+
+### Personal Reflection
+
+This project was useful to consolidate everything learnt during a busy week 4 at Makers. I progressed through the user stories relatively comfortably and feel more confident with the MVC model than I did at the end of the week.
+
+___
+
+## State of Completion
+
+### Implemented Functionality
+
+#### Front-end
+* Sign up, log in (with authentication), password encryption, stream of tweets with time stamp and username
+* Flash messages (confirmations and errors) eg. on successful log in or attempting to sign up with an email which is already registered
+* Formatted using CSS
+* 91% test coverage (excluding rakefile and database connection module)
+
+#### Back-end
+* Databases to hold users and tweets
+* Classes to wrap data extracted from each database
+* Module for database connection in test and development environment
+* Rakefile to automate database tasks (set up, reset, teardown)
+
+### What I would do next
+
+* Guard against blank inputs when signing up
+* Ensure user submits a valid email address (check formatting using regex)
+* Fix stubbing in the time unit test to ensure it passess (currently failing because it includes milliseconds)
+* Full test isolation between classes
+* Add hashtag functionality using a many-to-many database relationship
+* Move database connection functions from module to full class
+* Tidy up CSS styling
+
+___
+
+## Technical
+
+### Tech/Frameworks Used
+
+Ruby, Sinatra, HTML, CSS, RSpec, Rubocop, Capybara, Rackup, PostgreSQL, Rake
+
+### Launching the Application
 
 ```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+$ git clone https://github.com/elishkaflint/chitter-challenge.git
+$ bundle
+$ rake dev_database_reset
+$ rackup config.ru
 ```
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+____

@@ -26,9 +26,9 @@ task :test_database_setup do
   # clear the users and peeps tables:
   connection.exec("TRUNCATE users, peeps;")
   # add some test data:
-  han = User.create('Han Solo', 'hansolo', 'hansolo@gmail.com', 'pa$$w0rd1')
-  luke = User.create('Luke Skywalker', 'lukeskywalker', 'lukeskywalker@gmail.com', 'pa$$w0rd2')
-  leia = User.create('Princess Leia', 'princessleia', 'princessleia@gmail.com', 'pa$$w0rd3')
+  User.create('Han Solo', 'hansolo', 'hansolo@gmail.com', 'pa$$w0rd1')
+  User.create('Luke Skywalker', 'lukeskywalker', 'lukeskywalker@gmail.com', 'pa$$w0rd2')
+  User.create('Princess Leia', 'princessleia', 'princessleia@gmail.com', 'pa$$w0rd3')
 end
 
 task :teardown do
@@ -47,10 +47,10 @@ task :dev_database_reset do
   return unless confirm == 'y'
   connection = PG.connect(dbname: 'chitter')
   connection.exec("TRUNCATE users, peeps;")
-  han = User.create('Han Solo', 'hansolo', 'hansolo@gmail.com', 'pa$$w0rd1')
-  luke = User.create('Luke Skywalker', 'lukeskywalker', 'lukeskywalker@gmail.com', 'pa$$w0rd2')
-  leia = User.create('Princess Leia', 'princessleia', 'princessleia@gmail.com', 'pa$$w0rd3')
-  test = User.create('Test','test','test@email.com','test')
+  User.create('Han Solo', 'hansolo', 'hansolo@gmail.com', 'pa$$w0rd1')
+  User.create('Luke Skywalker', 'lukeskywalker', 'lukeskywalker@gmail.com', 'pa$$w0rd2')
+  User.create('Princess Leia', 'princessleia', 'princessleia@gmail.com', 'pa$$w0rd3')
+  User.create('test', 'test', 'test', 'test')
   Peep.create(han.id, 'Laugh it up fuzzball.')
   Peep.create(luke.id, 'Im Luke Skywalker. Im here to rescue you!')
   Peep.create(leia.id, 'Help me Obiwan Kenobi. Youre my only hope.')

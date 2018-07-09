@@ -41,11 +41,11 @@ describe User do
       expect(authenticated_chewie.id).to eq chewie.id
     end
     it 'returns nil if the user gives the wrong email' do
-      chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
+      User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
       expect(User.authenticate('wrong email', 'pa$$w0rd4')).to be_nil
     end
     it 'returns nil if the user gives the wrong email' do
-      chewie = User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
+      User.create('Chewbacca', 'chewbacca', 'chewbacca@gmail.com', 'pa$$w0rd4')
       expect(User.authenticate('chewbacca@gmail.com', 'wrong password')).to be_nil
     end
   end

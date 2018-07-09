@@ -9,7 +9,7 @@
   background-color: #1DA1F2;
   height: 70px;
   padding: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   vertical-align: middle;
 }
 
@@ -51,7 +51,7 @@ p {
   font-weight: bold;
   color: #1DA1F2;
   font-size: 25px;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 
@@ -85,7 +85,7 @@ input[type=password] {
 }
 
 input[type=submit] {
-  margin-top: 20px;
+  margin-top: 5px;
   font-weight: bold;
   font-size: 20px;
   width: 100%;
@@ -104,6 +104,17 @@ input[type=submit] {
 }
 
 #post_peep input[type=submit] {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  width: 15%;
+  height: 7%;
+  background-color: #1DA1F2;
+  color: white;
+  border: none;
+}
+
+#log_out input[type=submit] {
   margin-top: 20px;
   font-weight: bold;
   font-size: 20px;

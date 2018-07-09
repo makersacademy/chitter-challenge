@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user'
 
-
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
@@ -17,15 +16,15 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     if User.invalid_username?(params[:username])
-      flash[:notice]="Sorry that username or email is already taken. Please try again."
+      flash[:notice] = "Sorry that username or email is already taken. Please try again."
       redirect '/users/new'
     elsif User.invalid_email?(params[:email])
-      flash[:notice]="Sorry that username or email is already taken. Please try again."
+      flash[:notice] = "Sorry that username or email is already taken. Please try again."
       redirect '/users/new'
     else
-      user = User.create(params[:name],params[:username],params[:email],params[:password])
+      user = User.create(params[:name], params[:username], params[:email], params[:password])
       session[:current_user] = user.id
-      flash[:welcome]="Welcome to Chitter #{user.username}"
+      flash[:welcome] = "Welcome to Chitter #{user.username}"
       redirect '/peeps'
     end
   end
@@ -38,8 +37,8 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:current_user] = user.id
-      flash[:logged_in]="Logged in as @#{user.username}"
-      redirect ('/peeps')
+      flash[:logged_in] = "Logged in as @#{user.username}"
+      redirect '/peeps'
     else
       flash[:invalid_credentials] = "That email or password is incorrect. Please try again."
       redirect '/sessions/new'
@@ -48,7 +47,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
-    flash[:log_out]="You have successfully logged out. Come back soon."
+    flash[:log_out] = "You have successfully logged out. Come back soon."
     redirect '/'
   end
 

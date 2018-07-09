@@ -15,7 +15,7 @@ class Peep
 
   def self.create(user_id, content, time = Time.new)
     connection = Database::Connection.create
-    result = connection.exec("INSERT INTO peeps (user_id, content, time) VALUES('#{user_id}','#{content}','#{time}')")
+    connection.exec("INSERT INTO peeps (user_id, content, time) VALUES('#{user_id}','#{content}','#{time}')")
   end
 
   def self.all
