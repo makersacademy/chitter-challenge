@@ -7,6 +7,6 @@ feature 'Viewing peeps' do
     click_button 'Post'
     fill_in('posts_a_peep', with: 'third')
     click_button 'Post'
-    expect(page).to have_content("third\nsecond\nfirst")
+    expect(page).to have_content("third second first")
   end
 end

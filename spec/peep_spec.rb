@@ -17,8 +17,9 @@ describe Peep do
   describe ".create" do
     it "should create a new peep" do
       peep = Peep.create(posts_a_peep: "this a created peep")
-      expect(Peep.all).to include "this a created peep"
+      expect(Peep.all).to include peep
     end
   end
+
 
 end

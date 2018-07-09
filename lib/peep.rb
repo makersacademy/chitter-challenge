@@ -22,7 +22,9 @@ class Peep
     Peep.new(result.first['id'], result.first['posts_a_peep'])
   end
 
-
+  def ==(other)
+    @id == other.id
+  end
 
   def self.connect_to_database
     if ENV['ENVIRONMENT'] == 'test'
