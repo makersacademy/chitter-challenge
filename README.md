@@ -1,7 +1,68 @@
-Chitter Challenge
+# Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
+My working version of the Chitter challenge.
+==================
+
+What is working:
+-------
+All of the following user stories listed below have been implemented.
+
+Test coverage is: 100%
+
+
+Instructions to Start
+-------
+Create the following databases:
+* Step 1: Open Terminal
+* Step 2: Type in the following command to switch to postgreSQL: psql postgres
+* Step 3: Type in the following command to create a TEST database  
+* Step 4: CREATE DATABASE chitter test;
+* Step 5: Type in the following command to connect to the database: \c chitter_test;
+* Step 6: Type in the following command to create tables in the database  
+* Step 7: CREATE TABLE users(id SERIAL PRIMARY KEY, first_name VARCHAR(60), last_name VARCHAR(60));
+* Step 8: CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(240), user_id INTEGER REFERENCES users (id));
+
+* Type in the following command to create a DEVELOPMENT database
+* CREATE DATABASE chitter test;
+* Repeat steps 5-8
+* Great, now you have created the databases the app requires!
+
+To get the code:
+* Clone the repo
+* Open Terminal and navigate to the root project folder
+* Run bundle install to ensure you have all the required gems
+* Type in the following command to start the Sinatara server: 'rackup -p 4567' (you can replace '4567' with another port number)
+* If the server has successfully started, you should see a message like this: '2018-07-01 21:10:36] INFO  WEBrick 1.4.2
+[2018-07-01 21:10:36] INFO  ruby 2.5.0 (2017-12-25) [x86_64-darwin17]
+[2018-07-01 21:10:36] INFO  WEBrick::HTTPServer#start: pid=70836 port=456'
+* open Chrome (or which ever browser you use) and type in the following in the address bar: 'http://localhost:4567' (replace '4567' with whichever port number you specified in the previous step)
+
+
+User Stories Implemented
+-----
+```
+STRAIGHT UP
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+
+
+<!-- * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
@@ -104,4 +165,4 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens! -->
