@@ -1,7 +1,7 @@
 require './app.rb'
 
-feature 'log in' do
-  scenario 'user can log in to chitter' do
+feature 'post peep' do
+  scenario 'user can fill out post peep form and see peep' do
     visit '/'
     click_button("Register")
     fill_in('email', with: 'test@gmail.com')
@@ -13,7 +13,9 @@ feature 'log in' do
     fill_in('username', with: 'test')
     fill_in('password', with: 'test123')
     click_button('Log in')
+    fill_in('message', with: 'My first peep')
+    click_button('Post')
 
-    expect(page).to have_content 'Welcome test'
+    expect(page).to have_content 'My first peep'
   end
 end

@@ -1,0 +1,28 @@
+<center>
+<body style='background-color:powderblue;'>
+Welcome <%= @username %>
+<br>
+<br>
+<form action ='/peeps/users' method='POST'>
+  <input type='hidden' name='name' value='<%=@name %>'>
+  <input type='hidden' name='username' value='<%=@username %>'>
+  <label for='peep'>
+    <input type='text' name='message' placeholder='peep'>
+  </label>
+  <input type='submit' value='Post'>
+</form>
+
+
+My Records
+<br>
+<% @peeps.each do |peep| %>
+  Name:<%= peep['name'] %>, Username:<%= peep['username']%>, Time: <%= peep['time'] %>
+  <br>
+  Peep:
+  <%= peep['message'] %>
+  <br>
+  <br>
+<% end %>
+<br>
+</body>
+</center>

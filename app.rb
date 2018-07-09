@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-# require './lib/peep'
+require './lib/peep'
 require './lib/user'
 require 'uri'
 
@@ -28,15 +28,29 @@ class Chitter < Sinatra::Base
   post '/users' do
     user = User.authenticate(params['username'], params['password'])
     if user != nil
-      session[:usename] = user[0]['username']
+      session[:username] = user[0]['username']
       session[:name] = user[0]['name']
-      redirect '/'
+      redirect '/peeps/users'
     else
       flash[:notice] = 'Invalid username or password'
       redirect '/users/login'
     end
   end
 
+  get '/peeps/users' do
+    @peeps = Peep.reverse(session[:username])
+    @username = session[:username]
+    @name = session[:name]
+    erb :home
+  end
+
+  post '/peeps/users' do
+    @username = session[:username]
+    @name = session[:name]
+    Peep.add(@username, @name, params['message'])
+    @peeps = Peep.reverse(session[:username])
+    redirect '/peeps/users'
+  end
 
   run! if app_file == $0
 end
