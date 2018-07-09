@@ -3,7 +3,7 @@ require 'peep'
 describe Peep do
   describe '.add' do
     it 'add message' do
-      peep =  Peep.add('jeff123', 'jeff', 'My first peep')
+      peep = Peep.add('jeff123', 'jeff', 'My first peep')
       expect(Peep.all).to include peep
     end
   end
