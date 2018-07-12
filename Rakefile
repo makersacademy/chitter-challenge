@@ -2,6 +2,11 @@ require 'rake'
 require 'pg'
 require 'rspec/core/rake_task'
 
+
+if ENV['RACK_ENV'] != 'production'
+
+  
+
   RSpec::Core::RakeTask.new :spec
 
   task :default do
@@ -95,7 +100,7 @@ require 'rspec/core/rake_task'
 
     end
   end
-
+end
 
 task :teardown do
   p 'Tearing down databases...'

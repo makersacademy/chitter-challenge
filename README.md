@@ -14,11 +14,11 @@
 
 <div align="center">
 
-[User Stories ](#projects)  |
-[Technology ](#recent-experience) |
-[Installation ](#skills) |
-[How-To ](#current-interests) |
-[Testing ](#current-interests)
+[User Stories ](#user-stories)  |
+[Technology ](#technology) |
+[Installation ](#installation) |
+[How-To ](#how-to) |
+[Testing ](#testing)
 
 </div>
 
