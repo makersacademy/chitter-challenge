@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    redirect '/login_or_sign_up' unless session[:username]
+    # redirect '/login_or_sign_up' unless session[:username]
     @peeps = Peep.all
     erb(:index)
   end
@@ -37,12 +37,9 @@ class Chitter < Sinatra::Base
       redirect '/login_or_sign_up'
     else User.save(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     end
+
     session[:username] = params[:username]
     erb(:confirm)
-  end
-
-  get '/usererror' do
-    erb(:usererror)
   end
 
   get '/login' do
@@ -62,7 +59,7 @@ class Chitter < Sinatra::Base
 
   end
 
-  post '/logout' do
+  get '/logout' do
     session.clear
     redirect '/'
   end

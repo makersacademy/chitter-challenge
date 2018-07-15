@@ -1,24 +1,26 @@
 <link href='/css/application.css' rel='stylesheet' type='text/css'>
-<div id = 'peeps'>
-<h1 class='logo'>Chitter</h1>
-<p style="font-size:40px">Hi, <%= session[:username] %>!<br></p>
-<form action='/' method='post'>
-  <input type='text' name='peep'><br>
-  <input type='submit' class='button' value='Peep'>
-</form>
-
-<form action="/logout" method="post">
-  <input type="submit" class='button' value="Sign Out" />
-</form>
-<br>
+<!-- <h1 class='logo'>Chitter</h1> -->
+<div class='navbar'>
 <ul>
-  <% @peeps.each do |peep| %>
-    <p style="font-size:25px"><%= peep.username %> says:
-      <%= peep.peep %><br>
-      <%= peep.time %>
-      <br>
-      <br>
-    </p>
-  <% end %>
+  <li class='navlink' id='navlogo'><a href="/">Chitter</a></li>
+  <li class='navlink'>Hi, <%= session[:username] %>!</li>
+  <li class='navlink'><a href="/logout">Log Out</a></li>
 </ul>
 </div>
+
+<ul>
+  <div class='peepform'>
+    <form action='/' method='post'>
+      <input type='textarea' name='peep' class='peep-area'><br>
+      <input type='submit' class='button' value='Peep' style="float: right; margin-top: 5px;">
+    </form>
+  </div>
+  <% @peeps.each do |peep| %>
+  <div id='peep'>
+    <p><%= peep.username %> says:
+      <%= peep.peep %><br>
+      <%= peep.time %>
+    </p>
+  </div>
+    <% end %>
+</ul>
