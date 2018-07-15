@@ -7,7 +7,8 @@ describe Peep do
 
   describe '.save' do
     it 'saves a peep to the database' do
-      expect(@peep.id).not_to be_nil
+      expect { Peep.save(peep: 'another peep') }.to change { Peep.all.count }.by 1
+      #expect(@peep.id).not_to be_nil
     end
   end
 

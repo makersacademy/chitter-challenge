@@ -2,11 +2,11 @@
 # As a Maker
 # So that I can let people know what I am doing
 # I want to post a message (peep) to chitter
-feature 'Makers can post messages to chitter' do
-  scenario 'Maker can type message text into a text form' do
-    visit '/peep'
-    expect expect(page).to have_field("peep")
-  end
+# feature 'Makers can post messages to chitter' do
+#   scenario 'Maker can type message text into a text form' do
+#     visit '/peep'
+#     expect expect(page).to have_field("peep")
+#   end
   #
   # scenario 'Makers can post their peeps' do
   #   visit '/peep'
@@ -14,7 +14,7 @@ feature 'Makers can post messages to chitter' do
   #   click_button 'Peep'
   #   expect(page).to have_content("Test message")
   # end
-end
+# end
 
 # As a Maker
 # So that I can post messages on Chitter as me
@@ -27,7 +27,7 @@ feature 'Makers can sign up for Chitter' do
     fill_in('email', with: "j.snow@gmail.com")
     fill_in('password', with: "iluvmum")
     click_button 'Sign Up'
-    expect expect(page).to have_content("Thanks for signing up for Chitter, Beelzebub")
+    expect(page).to have_content("Thanks for signing up for Chitter, Beelzebub")
   end
   scenario 'Makers cannot have a username that is already taken' do
     visit '/sign_up'

@@ -2,12 +2,13 @@
 <div id = 'peeps'>
 <h1 class='logo'>Chitter</h1>
 <p style="font-size:40px">Hi, <%= session[:username] %>!<br></p>
-<form action='/peep' method='get'>
-  <input type='submit' class='peep_button' value='Peep'>
+<form action='/' method='post'>
+  <input type='text' name='peep'><br>
+  <input type='submit' class='button' value='Peep'>
 </form>
 
 <form action="/logout" method="post">
-  <input type="submit" class='peep_button' value="Sign Out" />
+  <input type="submit" class='button' value="Sign Out" />
 </form>
 <br>
 <ul>

@@ -29,7 +29,16 @@ class User
     User.all.map(&:username).include?("#{options[:username]}")
   end
 
+  def self.password_or_username_empty(options)
+    if options[:username] == "" || options[:password] == ""
+      return true
+    else
+      return false
+    end
+  end
+
   def self.authenticate(username, password)
+    return unless User.already_exists?(username: username, password: password)
     result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}';")
     return unless BCrypt::Password.new(result[0]['password']) == password
     User.new(result[0]['id'], result[0]['name'], result[0]['username'], result[0]['email'], result[0]['password'])

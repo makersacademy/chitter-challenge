@@ -15,17 +15,13 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  get '/login_or_sign_up' do
-    erb(:login_or_sign_up)
-  end
-
-  get '/peep' do
-    erb(:peep)
-  end
-
-  post '/peep' do
+  post '/' do
     Peep.save(peep: params[:peep], username: session[:username])
     redirect '/'
+  end
+
+  get '/login_or_sign_up' do
+    erb(:login_or_sign_up)
   end
 
   get '/sign_up' do
@@ -36,8 +32,8 @@ class Chitter < Sinatra::Base
     if User.already_exists?(username: params[:username])
       flash[:notice] = "Sorry, that username is already taken"
       redirect '/login_or_sign_up'
-    elsif params[:username] == "" || params[:password] == ""
-      flash[:notice] = "Sorry, inappropriate Username or Password"
+    elsif User.password_or_username_empty(username: params[:username], password: params[:password])
+      flash[:notice] = "Sorry, you must specify a Username and Password"
       redirect '/login_or_sign_up'
     else User.save(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     end
@@ -54,14 +50,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    redirect '/usererror' unless User.already_exists?(username: params[:username])
     user = User.authenticate(params[:username], params[:password])
 
     if user
       session[:username] = user.username
       redirect '/'
     else
-      flash[:notice] = "Sorry, incorrect password"
+      flash[:notice] = "Sorry, incorrect password or username"
       redirect '/login_or_sign_up'
     end
 
