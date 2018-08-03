@@ -1,5 +1,4 @@
 <link href='/css/application.css' rel='stylesheet' type='text/css'>
-<!-- <h1 class='logo'>Chitter</h1> -->
 <div class='navbar'>
 <ul>
   <li class='navlink' id='navlogo'><a href="/">Chitter</a></li>
@@ -12,14 +11,14 @@
   <div class='peepform'>
     <form action='/' method='post'>
       <input type='textarea' name='peep' class='peep-area'><br>
-      <input type='submit' class='button' value='Peep' style="float: right; margin-top: 5px;">
+      <input type='submit' class='peep-button' value='Peep'>
     </form>
   </div>
   <% @peeps.each do |peep| %>
   <div id='peep'>
-    <p><%= peep.username %> says:
-      <%= peep.peep %><br>
-      <%= peep.time %>
+    <p><span class="username"><%= peep.username %></span>
+      <span class="peeptime"><%= peep.time %></span>
+      <br><%= peep.peep %>
     </p>
   </div>
     <% end %>

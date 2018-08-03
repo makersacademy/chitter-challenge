@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    # redirect '/login_or_sign_up' unless session[:username]
+    redirect '/login_or_sign_up' unless session[:username]
     @peeps = Peep.all
     erb(:index)
   end

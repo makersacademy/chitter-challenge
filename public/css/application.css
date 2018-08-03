@@ -49,6 +49,21 @@ body {
   height: 10%;
 }
 
+.peep-button {
+  float: right;
+  margin-top: 5px;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.peeptime {
+  font-size: 10px;
+  font-weight: lighter;
+}
+
 #peep {
   background-color: white;
   min-width: 20%;
@@ -58,4 +73,16 @@ body {
   border-width: 1px;
   margin-bottom: 5px;
   padding: 10px;
+}
+
+.login-signup-buttons {
+  text-align:center
+}
+
+.login-form {
+  text-align: center;
+}
+
+.form-inputs {
+  margin: 5px;
 }

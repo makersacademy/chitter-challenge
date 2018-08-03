@@ -32,7 +32,7 @@ I want to log out of Chitter
 Installation:
 -------------
 
-Download the files in the repo, install the required Gems and run via a Sinatra server via Rackup. You will also need to have PostgreSQL installed on your machine, and to create and initialise the database before you run the app. Navigate to http://localhost:9292/ in your browser to use.
+Download the files in the repo, `bundle install` the required Gems and run the server with `rackup`. You will also need to have PostgreSQL installed on your machine, and to create and initialise the database before you run the app. Navigate to http://localhost:9292/ in your browser to use.
 
 To clone the repo on your machine:
 
@@ -45,7 +45,7 @@ Technologies Used:
 * Ruby
 * PostgreSQL
 * HTML
-* TDD (via Rspec & Capybara)
+* TDD (Rspec & Capybara)
 * Sinatra
 * Bcrypt
 
