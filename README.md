@@ -1,5 +1,7 @@
 Chitter Challenge
 =================
+![Chitter](https://github.com/n-ckr-ch-rds-n/chitter-challenge/blob/master/assets/chitter.png)
+
 This app is a small Twitter clone that allows users to post messages to a public stream. It satisfies the following user stories:
 
 ```
