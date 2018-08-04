@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link href="<%= url('/css/styles.css') %>" rel="stylesheet" type="text/css" />
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css">
+    <!--[if lte IE 7]> 
+      <style type="text/css" media="all"> 
+      @import url("cssbuttons/ieBrowserHacks.css");
+      </style>
+    <![endif]--> 
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">Hey, it's Chitter. Let's Peep!</header>
+      <menu class="menu">
+        <div class="form">
+          <form action="/signup">
+            <div class="cssbutton colors blue">
+              <input type="submit" value="Sign-up">
+            </div>
+          </form>
+        </div>
+        <div class="form">
+          <form action="/login">
+            <div class="cssbutton colors blue">
+              <input type="submit" value="Log-in">
+            </div>
+          </form>
+        </div>
+      </menu>
+
+      <main class="peeps">Blah blah</main>
+      <footer class="footer">Footer</footer>
+      
+    </div>
+  </body>
+</html>

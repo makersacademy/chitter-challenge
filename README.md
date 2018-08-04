@@ -21,12 +21,15 @@ Progress Update:
 Putting Chitter to the Test
 -----------
 
-git clone https://github.com/Whatapalaver/chitter-challenge
-cd chitter-challenge
-bundle install
-rake setup
-rspec
-This will give you the application, and set up two databases: chitter_challenge for the development environment, and chitter_challenge_test for the test environment.
+Install and set up PostrgreSQL on your machine  
+Clone this repo to your local machine: `git clone` https://github.com/Whatapalaver/chitter-challenge
+Open the directory: `cd chitter-challenge`  
+Load the dem files: `bundle install`  
+Set up the databases: `rake setup`  
+*This will give you the application, and set up two databases: chitter_challenge for the development environment, and chitter_challenge_test for the test environment.*  
+Run the tests: `rspec`  
+Run the server: `Ruby 'app.rb`  
+Navigate to localhost:4567 to use the app in the browser  
 
 Features:
 -------

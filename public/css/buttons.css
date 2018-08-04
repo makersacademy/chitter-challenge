@@ -1,0 +1,67 @@
+/*	This file is part of CSS Buttons.
+
+    CSS Buttons is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    CSS Buttons is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CSS Buttons. If not, see .
+*/
+
+/* IE HACK for ALL COLOR Button(s) Background-Color */
+* html button.cssbutton.colors,* html button.cssbutton.colors.red,* html button.cssbutton.colors.green,* html button.cssbutton.colors.tan {background-color:transparent;}
+
+/* 	Blue Button */
+/*	Background-color */
+button.cssbutton.colors.blue span,a.cssbutton.colors.blue span,div.cssbutton.colors.blue input,button.cssbutton.colors.blue,a.cssbutton.colors.blue,div.cssbutton.colors.blue {
+background-color:#39F;
+color:#FFF;
+}
+/* 	:hover Background-color */
+button.cssbutton.colors.blue:hover,button.cssbutton.colors.blue:hover span,a.cssbutton.colors.blue:hover,a.cssbutton.colors.blue:hover span,div.cssbutton.colors.blue:hover,div.cssbutton.colors.blue:hover input {
+background-color:#39F;
+color:#FC0;
+}
+
+/* 	Green Button */
+/*	Background-color */
+button.cssbutton.colors.green span,a.cssbutton.colors.green span,div.cssbutton.colors.green input,button.cssbutton.colors.green,a.cssbutton.colors.green,div.cssbutton.colors.green {
+background-color:#98CC61;
+color:#FFF;
+}
+/*	:hover Background-color */
+button.cssbutton.colors.green:hover,button.cssbutton.colors.green:hover span,a.cssbutton.colors.green:hover,a.cssbutton.colors.green:hover span,div.cssbutton.colors.green:hover,div.cssbutton.colors.green:hover input {
+background-color:#C5E49D;
+color:#390;
+}
+
+/* 	Red Button */
+/*	Background-color */
+button.cssbutton.colors.red span,a.cssbutton.colors.red span,div.cssbutton.colors.red input,button.cssbutton.colors.red,a.cssbutton.colors.red,div.cssbutton.colors.red {
+background-color:#C30;
+color:#FFF;
+}
+/* 	:hover Background-color */
+button.cssbutton.colors.red:hover,button.cssbutton.colors.red:hover span,a.cssbutton.colors.red:hover,a.cssbutton.colors.red:hover span,div.cssbutton.colors.red:hover,div.cssbutton.colors.red:hover input {
+background-color:#900;
+color:#FFF;
+}
+
+
+/* 	Tan Button */
+/*	Background-color */
+button.cssbutton.colors.tan span,a.cssbutton.colors.tan span,div.cssbutton.colors.tan input,button.cssbutton.colors.tan,a.cssbutton.colors.tan,div.cssbutton.colors.tan {
+background-color:#C50;
+color:#FFF;
+}
+/* 	:hover Background-color */
+button.cssbutton.colors.tan:hover,button.cssbutton.colors.tan:hover span,a.cssbutton.colors.tan:hover,a.cssbutton.colors.tan:hover span,div.cssbutton.colors.tan:hover,div.cssbutton.colors.tan:hover input {
+background-color:#700;
+color:#FFF;
+}

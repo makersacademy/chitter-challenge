@@ -5,3 +5,4 @@ feature 'Viewing peeps' do
     expect(page).to have_button "Sign-up"
     expect(page).to have_button "Log-in"
   end
+end
