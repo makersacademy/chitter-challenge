@@ -4,7 +4,7 @@ feature 'authentication' do
 
     # Then sign in as them
     visit '/sessions/new'
-    fill_in(:email, with: 'stephanie@bossmanenterprises.com')
+    fill_in(:username, with: 'bossmansteph')
     fill_in(:password, with: 'saynuttin')
     click_button('Sign in')
     expect(page).to have_content 'Welcome, bossmansteph'

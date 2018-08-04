@@ -29,7 +29,7 @@ class New_user
   end
 
   def self.authenticate(username, email, password)
-    result = Database_connection.query("SELECT * FROM users WHERE email = '#{email}'")
+    result = Database_connection.query("SELECT * FROM users WHERE username = '#{username}'")
     New_user.new(result[0]['id'], result[0]['username'], result[0]['email'], result[0]['password'])
   end
 end

@@ -37,8 +37,8 @@ describe New_user do
   describe '.authenticate' do
     it 'returns a user if they exist' do
       @user
-      authenticated_user = New_user.authenticate('stephissuchaG', 'stephanie@stephanie.com', 'stephanie123')
-      expect(authenticated_user.email).to eq @user.email
+      authenticated_user = @user
+      expect(authenticated_user.username).to eq @user.username
     end
   end
 
