@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+ruby '2.5.1'
 
 gem 'rake'
+gem 'capybara'
+gem 'sinatra'
+gem 'pg'
 gem 'rubocop', '0.56.0'
 
 group :test do
