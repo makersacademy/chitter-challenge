@@ -8,6 +8,7 @@ RSpec.configure do |config|
   end
 end
 
+require 'bcrypt'
 require 'simplecov'
 require 'simplecov-console'
 require './app.rb'

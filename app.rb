@@ -27,8 +27,18 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     New_user.create(username: params['username'], email: params['email'], password: params['password'])
-    redirect '/user' # is this right?
+    redirect '/user' #think about this...
   end
+
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  post '/sessions' do
+  user = User.authenticate(params['email'], params['password'])
+  session[:user_id] = user.id
+  redirect('/user') #think about this too
+end
 
   run! if app_file == $0
 end
