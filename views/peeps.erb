@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Peeps</title>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- <div class="container">
+      <div class="row">
+        <h1 class="centered_text">Welcome to Chitter, <%= session[:username] %>!</h1>
+      </div>
+      <div class="row"
+        <div class="col-4">
+          <h3>What would you like to peep about today?</h3>
+          <div class="peepcontainer">
+            <form action="/peep" method="post">
+              <textarea class="peepfield" name="peep_text" placeholder="What's on your mind?"></textarea>
+              <button class="sendpeepbutton" type="submit">Send your peep</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-8" style="background-color: #000000">
+
+        </div>
+      </div>
+  </div> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p class="centered_text title">Welcome to Chitter, <%= session[:username] %>!</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+        <p class="subtitle">What would you like to peep about today?</p>
+        <div class="peepcontainer">
+          <form action="/peep" method="post">
+            <textarea class="peepfield" name="peep_text" placeholder="What's on your mind?"></textarea>
+            <button class="sendpeepbutton" type="submit">Send your peep</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        <% Peep.all.reverse.each do |entry| %>
+          <div class="postedpeepcontainer">
+            <div class="postedpeepnamediv">
+              <p class="postedpeepname"><%= entry[:name] %></p>
+            </div>
+            <div class="postedpeeptimediv">
+              <p class="postedpeeptime"><%= entry[:time] %>&nbsp;&nbsp;<%= entry[:date] %></p>
+            </div>
+            <div>
+              <p class="postedpeeptext"><%= entry[:peep] %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

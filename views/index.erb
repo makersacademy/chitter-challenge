@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Sign-up</title>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <p class="centered_text title">Welcome to Chitter!</p>
+    <div class="centered_div enternamediv">
+      <form action="/username" method="post">
+        <input class="namefield" name="username" placeholder="Enter your username"></input>
+        <button class="getpeepingbutton" type="submit">Get Peepin'</button>
+      </form>
+    </div>
+  </body>
+</html>
