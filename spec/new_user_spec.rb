@@ -33,12 +33,16 @@ describe New_user do
     end
   end
 
-
   describe '.authenticate' do
     it 'returns a user if they exist' do
       @user
       authenticated_user = @user
       expect(authenticated_user.username).to eq @user.username
+    end
+
+    it 'returns nil given an incorrect password' do
+    user = User.create(username: 'cheese', email: 'cheeto_cheeto.com', password: 'ste3222223')
+    expect(New_user.authenticate('cheese', 'wrongpasswords')).to be_nil
     end
   end
 

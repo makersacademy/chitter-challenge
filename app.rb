@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     New_user.create(username: params['username'], email: params['email'], password: params['password'])
-    redirect '/user' #think about this...
+    redirect '/user' # think about this...
   end
 
   get '/sessions/new' do
@@ -35,10 +35,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-  user = New_user.authenticate(params['username'], params['password'])
-  session[:user_id] = user.id
-  redirect('/user') #think about this too
-end
+    user = New_user.authenticate(params['username'], params['password'])
+    session[:user_id] = user.id
+    redirect('/user') # think about this too
+  end
+
+  post '/sessions/destroy' do
+  session.clear
+  "You have signed out"
+  redirect '/'
+  end
 
   run! if app_file == $0
 end
