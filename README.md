@@ -18,6 +18,16 @@ Progress Update:
 - [ ] I want to log out of Chitter
 - [ ] I want to receive an email if I am tagged in a Peep
 
+Putting Chitter to the Test
+-----------
+
+git clone https://github.com/Whatapalaver/chitter-challenge
+cd chitter-challenge
+bundle install
+rake setup
+rspec
+This will give you the application, and set up two databases: chitter_challenge for the development environment, and chitter_challenge_test for the test environment.
+
 Features:
 -------
 
