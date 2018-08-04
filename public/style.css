@@ -1,0 +1,40 @@
+
+   @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+   
+  
+
+   label{ 
+       font-family: 'Open Sans';
+       font-size: 18px;
+       color: darkblue; 
+       padding: 2%; 
+   }
+   .leftbox{ 
+       background-color:rgba(0, 0, 0, 0.4); 
+       width: 38%;
+       margin-left: 5%; 
+       margin-top: 1%;
+       border-radius: 25px;
+       padding: 2%;
+       padding-top: 1%;
+       float: left;
+   }
+   .rightbox{ 
+    background-color:rgba(230, 182, 25, 0.4); 
+    width: 45%;
+    height: 600px;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-right: 5%; 
+    border-radius: 25px;
+    padding: 2%;
+    padding-top: 1%;
+    float: right;
+}
+
+   .peepinput{
+    width: 100%;
+    height: 30%;
+    box-sizing: border-box;
+    padding: 2%; 
+   }
