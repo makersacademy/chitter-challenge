@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header">Hey, it's Chitter. Let's Peep!</header>
+      <header class="header">Hey, it's Chitter. Here are the Peeps!</header>
       <menu class="menu">
         <div class="form">
           <form action="/signup">
@@ -30,17 +30,13 @@
       </menu>
 
       <main class="peeps">
-        <div>Peep Away</div>
-        <div class="form">
-          <form action="/new" method="post">
-            <label for="username">Enter username</label>
-            <input type="text" id="username" name="username" />
-            <label for="peep">Enter Peep</label>
-            <input type="text" id="peep" name="peep"/>
-            <div class="cssbutton colors blue">
-              <input type="submit" value="add_peep">
-            </div>
-          </form>
+        <div>
+        <% @peeps.each do |peep| %>
+          <li id="peep_id- <%= peep.id %>">
+          <li id="username- <%= peep.username %>">
+          <li id="peep- <%= peep.peep %>">
+          <li id="time stamp- <%= peep.created_at %>">
+        <% end %>
         </div>
       </main>
       <footer class="footer">Footer</footer>

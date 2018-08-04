@@ -37,6 +37,7 @@
   justify-content: space-around;
   align-items: center; 
   background: powderblue;
+  margin: 0px
 }
 
 .footer {
@@ -70,7 +71,6 @@ body {
   padding: 15px 0;
 }
 .form {
-  background-color: lightblue;
   font-family: verdana;
   font-size: 15px;
   display: flex;
