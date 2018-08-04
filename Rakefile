@@ -14,7 +14,7 @@ task :setup do
     connection.exec("CREATE DATABASE #{ database };")
     connection = PG.connect(dbname: database)
     connection.exec("CREATE TABLE tweet_info(id SERIAL PRIMARY KEY, url VARCHAR(60), title VARCHAR(60));")
-    connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));")
+    connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(10) email VARCHAR(60), password VARCHAR(140));")
   end
 end
 

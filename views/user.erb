@@ -8,6 +8,13 @@
 <body>
 
 <% require './lib/user_posts' %>
+<% require './lib/New_user' %>
+
+
+<% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+<% end %>
+
   <% @all_posts.each { |post| %>
     <p> <%=post%> </p>
   <% }%>

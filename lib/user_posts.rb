@@ -1,5 +1,4 @@
-
-require 'database_connection'
+require './lib/database_connection'
 
 class User
   attr_reader
@@ -15,7 +14,7 @@ end
     result.map { |post| post['content'] }
   end
 
-  def self.create_tweet(options)
+  def self.create(options)
     Database_connection.query("INSERT INTO  tweet_info(content) VALUES('#{options[:content]}') RETURNING content, timestamp")
   end
 
