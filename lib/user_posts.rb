@@ -15,7 +15,7 @@ class User
 
   end
 
-  def create_tweet(option)
+  def self.create_tweet(options)
     if ENV['ENVIRONMENT'] == 'test'
     connection = PG.connect(dbname: 'user_tweets_test')
     else
@@ -23,5 +23,5 @@ class User
     end
     connection.exec("INSERT INTO tweet_info(content) VALUES('#{options[:content]}')")
   end
-  
+
 end
