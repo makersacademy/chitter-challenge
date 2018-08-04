@@ -11,6 +11,15 @@ class Chitter < Sinatra::Base
      erb :index
   end
 
+  post '/username' do 
+    session[:username] = params[:username]
+    redirect('/peeps')
+end
+
+get '/peeps' do 
+    erb :peeps
+end 
+
 #   get '/bookmarks' do
 #     @bookmarks = Bookmark.all
 #     erb :index
