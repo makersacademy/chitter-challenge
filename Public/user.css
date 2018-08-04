@@ -1,0 +1,29 @@
+
+.modal{
+	padding: 0 !important;
+	text-align: center;
+	&:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -4px;
+	}
+	.modal-dialog{
+		text-align: left;
+		display: inline-block;
+		text-align: left;
+		vertical-align: middle;
+		max-width: 90%;
+  }
+  .close{
+    position: absolute;
+    right: 0;
+    color: #fff;
+    text-shadow: none;
+    font-size: 30px;
+    line-height: 30px;
+    top: -40px;
+    opacity: 1;
+  }
+}

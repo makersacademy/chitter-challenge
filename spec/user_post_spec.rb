@@ -16,8 +16,13 @@ describe 'So that I can gather view all my posts' do
       'This is my second tweet',
       'This is my one hundredth tweet'
     ]
-
     expect(User.all).to eq expected_tweets
+  end
+end
 
+describe '.create_tweet' do
+  it 'creates a new post' do
+    User.create_tweet(content: 'This is yet another post')
+    expect(User.all).to include 'This is yet another post'
   end
 end

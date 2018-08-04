@@ -1,7 +1,26 @@
-<% require './lib/user_posts' %>
+<!DOCTYPE html>
 
+
+<head>
+
+</head>
+
+<body>
+
+<% require './lib/user_posts' %>
   <% @all_posts.each { |post| %>
     <p> <%=post%> </p>
   <% }%>
-<!---Including the button -->
-<button>
+
+  <button>new post</button>
+
+
+
+<form action="/user" method="post" >
+  <textarea name ="new_post">
+  </textarea>
+  <br>
+  <input type="submit" value="POST">
+</form>
+
+</body>

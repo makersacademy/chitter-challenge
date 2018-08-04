@@ -12,5 +12,11 @@ class Chitter < Sinatra::Base
     erb(:user)
   end
 
+  post '/user' do
+
+    User.create_tweet(content: params['new_post'])
+    redirect '/user'
+  end
+
   run! if app_file == $0
 end
