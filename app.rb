@@ -1,6 +1,8 @@
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+
   get '/' do
     redirect '/login'
   end
@@ -9,8 +11,13 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
-  post '/feed' do
-    @username = params[:username]
+  post '/username' do
+    session[:username] = params[:username]
+    redirect '/feed'
+  end
+
+  get '/feed' do
+    @username = session[:username]
     erb :feed
   end
 end
