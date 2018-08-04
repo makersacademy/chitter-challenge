@@ -9,9 +9,10 @@ feature " Shows all the user's posts" do
     # Visit the page
     visit('/user')
 
-    expect(page).to have_content "This is my first tweet"
-    expect(page).to have_content "This is my second tweet"
+
     expect(page).to have_content "This is my fifteenth tweet"
+    expect(page).to have_content "This is my second tweet"
+    expect(page).to have_content "This is my first tweet"
 
   end
 end

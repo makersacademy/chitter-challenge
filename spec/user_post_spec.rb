@@ -12,10 +12,11 @@ describe 'So that I can gather view all my posts' do
 
     # Visit the page
     expected_tweets = [
-      'This is my first tweet',
+      'This is my fifteenth tweet',
       'This is my second tweet',
-      'This is my fifteenth tweet'
+      'This is my first tweet',
     ]
+    
     expect(User.all).to eq expected_tweets
   end
 end
