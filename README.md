@@ -5,7 +5,7 @@ It's the end of Week 4 at Makers, and this weekend we're building a Twitter clon
 
 Chitter users can:   
 :hatching_chick: sign up,  
-:hatching_chick: peep (tweet) with time-stamps,  
+:hatching_chick: ~tweet~ **peep** with time-stamps,  
 :hatching_chick: view other users' peeps,  
 :hatching_chick: log in and out,  
 :hatching_chick: receive notification emails when tagged in peeps.  
