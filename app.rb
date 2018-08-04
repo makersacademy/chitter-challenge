@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/user_posts'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
