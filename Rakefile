@@ -1,8 +1,6 @@
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
-  
   RSpec::Core::RakeTask.new :spec
-  
   task default: [:spec]
 end
 
@@ -11,10 +9,11 @@ require 'pg'
 task :test_database_setup do
   p "Cleaning database..."
 
-  connection = PG.connect(dbname: 'bookmark_manager_test')
+  connection = PG.connect(dbname: 'chitter_challenge_test')
 
   # Clear the database
-  connection.exec("TRUNCATE links;")
+  connection.exec("TRUNCATE peeps;")
+  connection.exec("TRUNCATE users;")
 end
 
 task :setup do
@@ -49,4 +48,4 @@ task :setup do
                                       name VARCHAR(60), 
                                       username VARCHAR(60)
                                       );")
-  end
+end
