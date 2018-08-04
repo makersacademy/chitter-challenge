@@ -1,4 +1,4 @@
-feature 'We are able to take in usernames' do
+feature 'able to take in username' do
 
   scenario 'it prints the input name' do
     visit '/'

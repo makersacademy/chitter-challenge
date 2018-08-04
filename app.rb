@@ -9,12 +9,13 @@ class Chitter < Sinatra::Base
 
   post '/username' do
     session[:username] = params[:username]
-    redirect ('/user')
+    redirect ('/feed')
   end
 
-  get '/user' do
+  get '/feed' do
     @username = session[:username]
-    erb(:user)
+    @peep = params[:peep]
+    erb(:feed)
   end
 
   run! if app_file == $0

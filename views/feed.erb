@@ -1,0 +1,9 @@
+<h1> Hello, <%= @username %>!</h1>
+<h2><u> <%= @username %>'s peeps </u></h2>
+<%= @peep %><br><br>
+
+<form action='/feed'>
+  <label for="peep">Post a Peep</label><br>
+  <input type="text" name="peep" maxlength="240"/></br>
+  <input type="submit" value="Post!"/>
+</form>
