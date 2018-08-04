@@ -4,7 +4,7 @@ require './lib/New_user'
 require './database_connection_setup'
 
 class Chitter < Sinatra::Base
-enable 'sessions'
+  enable 'sessions'
 
   get '/' do
     erb(:index)
@@ -27,7 +27,7 @@ enable 'sessions'
 
   post '/users' do
     New_user.create(username: params['username'], email: params['email'], password: params['password'])
-    redirect '/user' #is this right?
+    redirect '/user' # is this right?
   end
 
   run! if app_file == $0

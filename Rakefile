@@ -11,7 +11,7 @@ task :setup do
 
   ['user_tweets', 'user_tweets_test'].each do |database|
     connection = PG.connect
-    connection.exec("CREATE DATABASE #{ database };")
+    connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
     connection.exec("CREATE TABLE tweet_info(id SERIAL PRIMARY KEY, url VARCHAR(60), title VARCHAR(60));")
     connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(10) email VARCHAR(60), password VARCHAR(140));")
@@ -25,7 +25,7 @@ task :test_database_setup do
 
   # Clear the database
   connection.exec("TRUNCATE tweet_info;")
-+  connection.exec("TRUNCATE users;")
+  + connection.exec("TRUNCATE users;")
 
   # Add the test data
   connection.exec("INSERT INTO tweet_info VALUES(This is my first tweet);")
@@ -39,6 +39,6 @@ task :teardown do
   return unless confirm == 'y'
   ['user_tweets', 'user_tweets_test'].each do |database|
     connection = PG.connect
-    connection.exec("DROP DATABASE #{ database }")
+    connection.exec("DROP DATABASE #{database}")
   end
 end

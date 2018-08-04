@@ -1,13 +1,19 @@
 require './lib/new_user'
 describe New_user do
 
-    before do
+  before do
     @user = New_user.create(username: 'stephisamazing', email: 'stephanie@stephanie.com', password: 'stephanie123')
   end
 
   describe '.create' do
     it 'creates a new user' do
       expect(@user.id).not_to be_nil
+    end
+
+    it 'encrypts password' do
+      expect(BCrypt::Password).to receive(:create).with('stephanie123')
+      New_user.create(username: 'stephissuchaG', email: 'stephanie@stephanie.com', password: 'stephanie123')
+
     end
   end
 
@@ -26,6 +32,5 @@ describe New_user do
       expect(New_user.find(nil)).to eq nil
     end
   end
-
 
 end
