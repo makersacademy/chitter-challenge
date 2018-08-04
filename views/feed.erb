@@ -1,9 +1,16 @@
 <h1> Hello, <%= @username %>!</h1>
 <h2><u> <%= @username %>'s peeps </u></h2>
-<%= @peep %><br><br>
+<ul>
+<% @peeps.each do |hash| %>
+  <%= hash[:username] %>: <%= hash[:peep] %>
+  <small><%= hash[:date] %> <%= hash[:time] %>
+<% end %>
+</ul>
 
-<form action='/feed'>
+<br><br>
+
+<form action='/feed' method='post'>
   <label for="peep">Post a Peep</label><br>
-  <input type="text" name="peep" maxlength="240"/></br>
+  <input type="text" name="peep" maxlength="240" placeholder="What's on your mind?"/></br>
   <input type="submit" value="Post!"/>
 </form>

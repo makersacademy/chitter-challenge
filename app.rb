@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './models/peep.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -12,9 +13,15 @@ class Chitter < Sinatra::Base
     redirect ('/feed')
   end
 
+  post '/feed' do
+    @username = session[:username]
+    Peep.add(@username, params[:peep])
+    redirect ('/feed')
+  end
+
   get '/feed' do
     @username = session[:username]
-    @peep = params[:peep]
+    @peeps = Peep.all
     erb(:feed)
   end
 
