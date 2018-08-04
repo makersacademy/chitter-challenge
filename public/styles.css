@@ -1,0 +1,18 @@
+.flash{
+  width: 370px;
+  padding: 5px;
+  font-weight: bold;
+  margin: 20px 0 20px 0;
+  background:#ddd;
+  color:#666;border:1px solid #ccc;
+}
+.success{
+  background:#DFF0D8;
+  color:#468847;
+  border:1px solid #D6E9C6;
+}
+.error{
+  background:#F2DEDE;
+  color:#B94A48;
+  border:1px solid #EED3D7;
+}
