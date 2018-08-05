@@ -10,6 +10,6 @@ feature 'submit a peep' do
     connection = PG.connect(dbname: 'chitter_test')
     connection.exec("SELECT * FROM peeps;")
 
-    expect(page).to have_content "Where we dropping boys?"
+    expect(page).to have_content "'Where we dropping boys?' by @eddyt993 at"
   end
 end
