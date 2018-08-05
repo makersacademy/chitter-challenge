@@ -2,7 +2,7 @@
 
 
 <head>
-
+  <link rel="stylesheet" type="text/css" href="<%= url("./user.css")%>">
 </head>
 
 <body>
@@ -10,26 +10,38 @@
 <% require './lib/user_posts' %>
 <% require './lib/New_user' %>
 
+#Grid split
 
-<% if @user %>
-  <h1>Welcome, <%= @user.username %></h1>
-<% end %>
-
-  <% @all_posts.each { |post| %>
-    <p> <%=post%> </p>
-  <% }%>
-
+<div id="div1">1
   <button>new post</button>
+    <form action="/user" method="post" >
+      <textarea name ="new_post">
+      </textarea>
+      <br>
+      <input type="submit" value="POST">
+    </form>
+</div>
 
-  <form action="/sessions/destroy" method="post">
-    <input type="submit" value="Sign out" />
-  </form>
+# Grid split
+<div id="div2">
+  <% if @user %>
+    <h1>Welcome, <%= @user.username %></h1>
+  <% end %>
 
-<form action="/user" method="post" >
-  <textarea name ="new_post">
-  </textarea>
-  <br>
-  <input type="submit" value="POST">
-</form>
+    <% @all_posts.each { |post| %>
+      <p> <%=post%> </p>
+    <% }%>
+</div>
+
+
+# Grid split 
+<div id="div3">
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Sign out" />
+    </form>
+</div>
+
+
+
 
 </body>

@@ -2,11 +2,6 @@ body{
   background-color: #B10F2E;
 }
 
-h1{
-  font-family: 'Reem Kufi', sans-serif;
-  font-size: 200px;
-  color: #F8F4E3;
-}
 
 #logo, #button{
   display: flex;
@@ -20,7 +15,6 @@ h1{
   height: 50px;
   padding: 10px;
   margin: 20px;
-  margin-top: -200px !important;
   color: #F8F4E3;
   font-size: 20px;
   outline: none;
@@ -33,4 +27,8 @@ h1{
   background-color: #F8F4E3;
   color: #B10F2E;
   border-color: #B10F2E;
+}
+
+a{
+ margin-top: -250px !important;
 }

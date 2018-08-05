@@ -1,11 +1,24 @@
-Sign up
+<head>
+  <link rel="stylesheet" type="text/css" href="<%= url("./new_user.css")%>">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+</head>
 
-<form action="/users" method="post">
-  Username
-  <input type="text" name="username" />
-  Email
-  <input type="email" name="email" />
-  Password
-  <input type="password" name="password" />
-  <input type="submit" value="Submit" />
+
+
+  <body>
+
+<div id = "form-div">
+
+<form id="form" action="/users" method="post">
+  <label>Username</label>
+  <input id= "form-input" type="text" name="username" />
+  <label>Email</label>
+  <input  id= "form-input"  type="email" name="email" />
+  <label>Password</label>
+  <input   id= "form-input"  class= "password" type="password" name="password" />
+  <input class = "submit" id= "form-input" type="submit" value="Submit" />
 </form>
+</div>
+
+</body>
