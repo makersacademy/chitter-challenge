@@ -8,6 +8,19 @@ Challenge:
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+Workflow:
+--------
+
+![Homepage](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Home_page_1.png)
+
+![Sign Up Page](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Sign_up_1.png)
+
+![Log In Page](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Log_in_3.png)
+
+![Add New Peep](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Add_new_peep_4.png)
+
+![Logged Out](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Log_out_5.png)
+
 Progress Update:
 -------
 - [x] I want to post a message (peep) to chitter
@@ -18,24 +31,11 @@ Progress Update:
 - [x] I want to log out of Chitter
 - [ ] I want to receive an email if I am tagged in a Peep
 
-Progress Update:
+Next Steps:
 ---------
 - [ ] I have only written the Happy Path for log-in. Need to capture edge cases eg. incorrect password 
 - [ ] Styling is pretty horrific - improvement required 
 - [ ] My authentication feature tests are failing and I have no idea - it works in production 
-
-Workflow:
---------
-
-[Homepage](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Home_page_1.png)
-
-[Sign Up Page](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Sign_up_1.png)
-
-[Log In Page](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Log_in_3.png)
-
-[Add New Peep](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Add_new_peep_4.png)
-
-[Logged Out](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Log_out_5.png)
 
 
 Putting Chitter to the Test
