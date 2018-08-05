@@ -1,1 +1,10 @@
-<center><h2>Welcome, <%=@username%>. Speak to the world below!</h2></center>
+<center><h2><%=@username%>, speak to the world below!</h2></center>
+<center><form action="/new" method="post">
+  <label for="peep">
+    Your message:
+    <input type="text" name="peep">
+  </label>
+  <input type="submit" value="Peep it">
+</form></center>
+
+#add an each method HERE to show all peeps in reverse order
