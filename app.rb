@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './model/db_processor'
+require_relative './model/verification'
 # main program class
 class App < Sinatra::Base
   enable :sessions
@@ -31,7 +32,7 @@ class App < Sinatra::Base
   end
 
   post '/login' do
-    
+
   end
 
   run! if app_file == $PROGRAM_NAME

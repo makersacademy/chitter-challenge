@@ -7,4 +7,12 @@ feature 'User Login' do
     click_button('Login')
     expect(page).to have_content('Welcome Durain')
   end
+  context 'verification tests' do
+    scenario 'User cannot login with wrong password' do
+
+    end
+    scenario 'User cannot login with wrong username' do
+
+    end
+  end
 end

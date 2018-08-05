@@ -6,4 +6,15 @@ feature 'User account creation' do
     click_button('Create Account')
     expect(page).to have_content('Account Created')
   end
+  context 'verification tests' do
+    scenario 'User cannot sign up with bad email' do
+
+    end
+    scenario 'User cannot sign up with bad password' do
+
+    end
+    scenario 'User cannot sign up with non uniq username' do
+
+    end
+  end
 end

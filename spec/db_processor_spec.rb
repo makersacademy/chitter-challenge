@@ -1,6 +1,7 @@
 require './model/db_processor'
 describe DbProcessor do
   let(:connection) { PG.connect(dbname: 'chitter-test', password: 'qweasd') }
+  let(:verication) { double :verification }
   before(:each) do 
     add_users_to_db
     add_twats_to_db 
@@ -24,8 +25,5 @@ describe DbProcessor do
       it { expect(DbProcessor.read('twats')).to eq(testing_twats) }
       it { expect(DbProcessor.read('users')).to eq(testing_users.map { |i| { username: i[:username], name: i[:name]}})}
     end
-  end
-  context 'verification' do
-
   end
 end
