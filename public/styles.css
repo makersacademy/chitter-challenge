@@ -17,6 +17,9 @@ body {
   padding: 2px;
   border-radius: 5px;
 }
+.leftcol {
+  padding-bottom: 4vh;
+}
 .namefield {
   height: 24px;
   width: 20vw;
@@ -61,7 +64,7 @@ body {
 }
 .rightcol {
   height: 80vh;
-  background-color: #FFFFFF;
+  overflow-y: scroll;
 }
 .sendpeepbutton {
   float: right;
