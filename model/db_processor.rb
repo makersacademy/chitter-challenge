@@ -4,11 +4,22 @@ class DbProcessor
 
   @connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
   def self.write(data, table)
-    @connection.exec("INSERT INTO #{table} (message, send_time) VALUES('#{data[:msg]}','#{data[:time]}');")
+    if table == 'twats'
+      @connection.exec("INSERT INTO #{table} (message, send_time) VALUES('#{data[:msg]}','#{data[:time]}');")
+    elsif table == 'users'
+      @connection.exec("INSERT INTO #{table} (username, password, email, name) VALUES('#{data[:username]}','#{data[:password]}','#{data[:email]}','#{data[:name]}');")
+    end
+  end
+
+  def self.verify(data, table)
+
   end
 
   def self.read(table)
-    @connection.exec("SELECT * FROM #{table};").map { |result| { date: result['send_time'], msg: result['message'] }}
+    if table == 'twats'
+      @connection.exec("SELECT * FROM #{table};").map { |result| { date: result['send_time'], msg: result['message'] }}
+    elsif table == 'users'
+      @connection.exec("SELECT * FROM #{table};").map { |result| { username: result['username'], name: result['name'] } }
+    end
   end
-
 end

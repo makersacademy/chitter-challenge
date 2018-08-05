@@ -74,18 +74,17 @@
   position: relative;
   margin-right: 20%;
   height: 80%;
-  text-shadow: 7px 5px 11px rgba(28,110,164,0.79);
-  font-family: Impact, Charcoal, sans-serif;
-  font-size: 100%;
-  letter-spacing: 3.2px;
-  word-spacing: 5.2px;
-  color: #FFFFFF;
-  font-weight: 700;
+}
+.leftcol {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  letter-spacing: -0.4px;
+  word-spacing: 2px;
+  color: black;
+  font-weight: 400;
   font-style: normal;
   font-variant: normal;
   text-transform: none;
-}
-.leftcol {
   float: left;
   width: 25%;
 }
@@ -102,13 +101,73 @@
   margin-top: 0%;
   background-color: blue;
   border-style: solid;
+  text-shadow: 7px 5px 11px rgba(28,110,164,0.79);
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 100%;
+  letter-spacing: 3.2px;
+  word-spacing: 5.2px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+.flash{
+  width: 600px;
+  padding: 5px;
+  font-weight: bold;
+  margin: 20px;
+  background: #ddd;
+  color: #666;
+  border: 1px solid #ccc;
+}
+.success {
+  background: #B1FF35;
+  color: green;
+  border: 1px solid #D6E9C6;
+}
+.fail {
+  background: red;
+  color: red;
+  border: 1px solid #D6E9C6;
 }
 </style>
 <body>
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
   <div class="logo">Twatter</div>
 <div class=leftcol>
-  <div class="profile">
-  <h1 class="profilehead">Your Profile</h1>
+  <div class="profile"align="center">
+  <h1 class="profilehead"align="center">Your Profile</h1>
+  <br>
+  <form id="new_account"action="/new"method="post">
+    Username
+    <input name="username"type="text">
+    <br>
+    Password
+    <input name="password"type="text">
+    <br>
+    email
+    <input name="email"type="text">
+    <br>
+    name
+    <input name="name"type="text">
+    <br><br>
+    <input id="create_account"value="Create Account"type="submit">
+  </form>
+  <form id="login"action="/login"method="post">
+    Username
+    <input name="login_username"type="text">
+    <br>
+    Password
+    <input name="login_password"type="text">
+    <br>
+    <input id="create_account"value="Login"type="submit">
+  </form>
   </div>
 </div>
 <form action="send-message" method="post">

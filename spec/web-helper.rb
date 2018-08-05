@@ -4,6 +4,7 @@ require 'pg'
 def setup_test_database
   connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
   connection.exec("TRUNCATE twats;")
+  connection.exec("TRUNCATE users;")
 end
 
 def test_date
@@ -14,6 +15,13 @@ def add_twats_to_db
   connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
   testing_twats.length.times do |i|
     connection.exec("INSERT INTO twats (message, send_time) VALUES('#{testing_twats[i][:msg]}', '#{testing_twats[i][:date]}');")
+  end
+end
+
+def add_users_to_db
+  connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
+  testing_users.length.times do |i|
+    connection.exec("INSERT INTO users (username, password, email, name) VALUES('#{testing_users[i][:username]}', '#{testing_users[i][:password]}', '#{testing_users[i][:email]}', '#{testing_users[i][:name]}');")
   end
 end
 
@@ -31,5 +39,9 @@ def testing_twats
 end
 
 def testing_users
-
+  [{ username: 'JackIsCool', password: 'hello', email: 'jackthom@gmail.com', name: 'Jack' },
+   { username: 'Durain24', password: '12345', email: 'Durain@gmail.com', name: 'Durain'   },
+   { username: 'UserBot3000', password: 'password', email: 'robo@gmail.com', name: 'Rob'  },
+   { username: 'UWotm8', password: 'password1', email: 'chav@chav.com', name: 'M8'        }
+  ]
 end

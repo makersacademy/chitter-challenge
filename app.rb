@@ -14,9 +14,24 @@ class App < Sinatra::Base
     @messages = DbProcessor.read('twats')
     erb(:index)
   end
+
   post '/send-message' do
-    DbProcessor.write({ msg: params.values.join, time: Time.now.strftime("%d/%m/%Y %H:%M")}, 'twats')
+    DbProcessor.write({ msg: params.values.join,
+                        time: Time.now.strftime("%d/%m/%Y %H:%M") }, 'twats')
     redirect('/home')
+  end
+
+  post '/new' do
+    DbProcessor.write({ username: params['username'], 
+                        password: params['password'],
+                        email:    params['email'], 
+                        name:     params['name'] }, 'users')
+    flash[:sucess] = 'Account Created'
+    redirect('/home')
+  end
+
+  post '/login' do
+    
   end
 
   run! if app_file == $PROGRAM_NAME
