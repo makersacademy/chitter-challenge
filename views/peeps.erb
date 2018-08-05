@@ -11,7 +11,7 @@
 
 <div class="rightbox">
 <h3> The peeps: </h3>
-<% @peeps.each do |peep| %>
+<% @peeps.reverse.each do |peep| %>
           <li> <b><%=peep.username%></b> said <i>"<%= peep.peep %>"</i> at <%=peep.time%>  </li>
         <% end %>
 <div>
