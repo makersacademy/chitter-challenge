@@ -1,22 +1,100 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+### Completed by Marek Schmidt
+#### See Instructions and User stories below
 
-Challenge:
--------
+## Context
+This was the fourth weekend project I attempted while at Maker's Academy. When completing this I had four weeks' worth of practical experience in Ruby and Rspec, and two weeks experience using Sinatra, Capybara, and building web apps, and five days' experience working with PSQL as a database.
 
-As usual please start by forking this repo.
+## Approach
+I wanted to simulate Twitter with this challenge, but I really enjoy the styling of Slack. I decided to combine the two a bit to make my own layout. Particularly, I wanted to keep the project idea of Twitter but separate peeps by the day they were created.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+This was quite a long project that included a few optional challenges. I knew this would be a tough week to finish the bonus challenges because I had never worked with validation before. I decided to focus more on the first four user stories and allow for the additional account validation if I had time.
 
-Features:
--------
+## Summary
+The user acts as a member of the Chitter website. Unfortunately, I never got to account creation and validation, so in its current state it simply asks for your name instead of logging in or signing up. Once the user enters his / her name, a "peep" can be made and is added to the feed of all previous peeps. All peeps are stored in a local psql database on my own machine. When viewing, the database is connected to and the peeps are retrieved including name, date, time, and text of each peep. When being displayed, these peeps are sorted in reverse chronological order both by the time created and the date created.
 
+## State of project and changes to be made
+The first four user stories have been satisfied, assuming that entering a name counts as "signing up". As i stated above, the rest have not been completed.
+
+The main addition I would like to make is the ability to log in or sign up, with user information being stored in the same database in a new table.
+
+I have only a few tests, but am at 100% test coverage. I have four offenses with rubocop, all of which have to do with long lines or long methods. I believe I could do some additional extracting into new methods to better use the SRP, but not now. Unfortunately, some long lines might be hard to clear up due to psql insertion queries.
+
+## Feature testing
+There is a folder called 'features' in the 'spec' folder specifically to test all main features of my program. For more detailed testing, however, try it yourself! Instructions are below.
+
+## How to use
+
+#### 1. Clone this repository
+
+#### 2. Install the required gems
+```
+bundle install
+```
+
+#### 3. Set up your psql database
+  * If you don't have psql installed, use Homebrew to install
+  ```
+  brew install postgresql
+  ```
+
+  * Allow Homebrew to start and stop the Postgres service
+  ```shell
+  ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+  ```
+
+  * Start PSQL
+  ```
+  psql
+  ```
+
+  * Create a database
+  ```
+  CREATE DATABASE "chitter";
+  ```
+
+  * Connect to your new database
+  ```
+  \c chitter;
+  ```
+
+  * Create a table for peeps in the chitter database
+  ```
+  CREATE TABLE peeps(id SERIAL PRIMARY KEY, name VARCHAR(40), peep VARCHAR(240), time VARCHAR(20), date VARCHAR(20));
+  ```
+
+  * Disconnect from the database
+  ```
+  \q
+  ```
+
+#### 4. Run the webpage using sinatra
+  * A rack environment has been included, so you can simply call rackup
+  ```
+  rackup
+  ```
+  * If using rackup, the default port will be 9292
+
+#### 5. Using a web browser, navigate to your local webpage
+  ```
+  localhost:9292
+  ```
+
+#### 6. Post some peeps!
+  * Enter your name and click "Get peepin'"
+
+  * Enter a peep to make in the text field on the left of the screen.
+
+  * View your peeps!
+
+#### 7. When finished, end the sinatra server
+  ```
+  ctrl+C
+  ```
+
+## User Stories & Instructions
 ```
 STRAIGHT UP
 
@@ -52,56 +130,3 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!

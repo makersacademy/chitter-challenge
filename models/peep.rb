@@ -10,7 +10,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter_test')
     end
     result = connection.exec "TABLE peeps"
-    resarray = result.map { |peep| { :name => peep['name'].gsub(/[†]/,"'"), :peep => peep['peep'].gsub(/[†]/,"'"), :time => peep['time'], :date => peep['date']} }
+    resarray = result.map { |peep| { :name => peep['name'].gsub(/[†]/, "'"), :peep => peep['peep'].gsub(/[†]/, "'"), :time => peep['time'], :date => peep['date'] } }
     all = Array.new
     resarray.each do |hash|
       pushed_hash = false
@@ -22,7 +22,7 @@ class Peep
         end
       end
       if pushed_hash == false
-        all.push({hash[:date] => [hash]})
+        all.push({ hash[:date] => [hash] })
       end
     end
     return sortbydate(all)
@@ -34,7 +34,7 @@ class Peep
     elsif ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     end
-    connection.exec "INSERT INTO peeps (name, peep, time, date) VALUES ('#{name.gsub(/[']/,"†")}', '#{peep_text.gsub(/[']/,"†")}', '#{Time.now.strftime('%H:%M:%S')}', '#{Time.now.strftime('%Y-%m-%d')}')"
+    connection.exec "INSERT INTO peeps (name, peep, time, date) VALUES ('#{name.gsub(/[']/, "†")}', '#{peep_text.gsub(/[']/, "†")}', '#{Time.now.strftime('%H:%M:%S')}', '#{Time.now.strftime('%Y-%m-%d')}')"
   end
 
   def self.convert_date(date)
@@ -43,15 +43,15 @@ class Peep
     return date
   end
 
-  private
+  # Need to learn how to make class methods private properly
 
   def self.sortbytime(array)
     # Why do I not have to call
-    return array.sort_by {|hash| hash[:time]}
+    return array.sort_by { |hash| hash[:time] }
   end
 
   def self.sortbydate(array)
-    return array.sort_by {|hash| hash.keys[0]}.reverse
+    return array.sort_by { |hash| hash.keys[0] }.reverse
   end
 
 end

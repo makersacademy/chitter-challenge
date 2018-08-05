@@ -1,7 +1,7 @@
 def setup_test_database
   connection = PG.connect(dbname: 'chitter_test')
 
-  #clear the bookmarks table
+  # clear the bookmarks table
   connection.exec("TRUNCATE peeps;")
 end
 
