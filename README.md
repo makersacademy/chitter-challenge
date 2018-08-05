@@ -51,7 +51,7 @@ Putting Chitter to the Test
 -----------
 
 Install and set up PostrgreSQL on your machine  
-Clone this repo to your local machine: `git clone` https://github.com/Whatapalaver/chitter-challenge
+Clone this repo to your local machine: `git clone` https://github.com/Whatapalaver/chitter-challenge  
 Open the directory: `cd chitter-challenge`  
 Load the dem files: `bundle install`  
 Set up the databases: `rake setup`  
