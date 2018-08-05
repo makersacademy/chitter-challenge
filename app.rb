@@ -8,29 +8,24 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-     erb :index
+    erb :index
   end
 
   post '/username' do 
     session[:username] = params[:username]
     redirect('/peeps')
-end
+  end
 
-post '/user_peep' do 
-  session[:user_peep] = params[:user_peep]
-  connection = if ENV['ENVIRONMENT'] == 'test'
-    PG.connect(dbname: 'chitter_test')
-  else
-    PG.connect(dbname: 'chitter')
-end
-  connection.exec("INSERT INTO peeps (username, peep, time) VALUES('#{session[:username]}', '#{session[:user_peep]}','#{Time.now.strftime("%H:%M:%S")}')")
-redirect ('/peeps')
-end 
+  post '/user_peep' do 
+    session[:user_peep] = params[:user_peep]
+    Peep.create(session[:username], session[:user_peep]) # need to take out of control 
+    redirect '/peeps'
+  end 
 
-get '/peeps' do 
-  @peeps = Peep.all  
-  erb :peeps
-end 
+  get '/peeps' do 
+    @peeps = Peep.all  
+    erb :peeps
+  end 
 
-run! if app_file == $PROGRAM_NAME
+  run! if app_file == $PROGRAM_NAME
 end
