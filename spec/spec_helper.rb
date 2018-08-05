@@ -14,6 +14,7 @@ require 'sinatra'
 require 'sinatra/flash'
 
 Capybara.app = Chitter
+Rake.application.load_rakefile
 
 # DataMapper.setup(:default, 'postgres://user:password@hostname/database')
 
@@ -26,12 +27,12 @@ SimpleCov.start
 
 RSpec.configure do |config|
   # config.before(:each) do
-  #   require_relative './setup_test_database'
+  #   require_relative './test_database_setup'
   # end
   config.include Capybara::DSL
 
   config.before(:each) do
-    Rake::Task['setup_test_database'].execute
+    Rake::Task['test_database_setup'].execute
   end
   
   config.mock_with :rspec do |mocks|

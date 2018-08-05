@@ -1,22 +1,29 @@
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new :spec
+  task default: [:spec]
+end
   # require 'dm-core'
   # require './lib/data_mapper_setup'
+
+  require 'pg'
+
+  task :test_database_setup do
+    p "Cleaning database..."
   
-  RSpec::Core::RakeTask.new :spec
+    connection = PG.connect(dbname: 'chitter_test')
   
-  task default: [:spec]
+    # Clear the database
+    connection.exec("TRUNCATE peeps;")
+    connection.exec("TRUNCATE users;")
+  end  
 
-  connection.exec("TRUNCATE peeps;")
-  connection.exec("TRUNCATE users;")
-end
+task :setup do
+  p "Connecting to databases and creating tables..."
 
-task :test_setup do
-  p "Cleaning databases..."
-
-  connection = PG.connect
-  connection.exec("CREATE DATABASE chitter;")
-  connection.exec("CREATE DATABASE chitter_test;")
+  # connection = PG.connect
+  # connection.exec("CREATE DATABASE chitter;")
+  # connection.exec("CREATE DATABASE chitter_test;")
 
   connection = PG.connect(dbname: 'chitter')
   connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, 
