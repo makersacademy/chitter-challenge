@@ -23,7 +23,7 @@ post '/user_peep' do
   else
     PG.connect(dbname: 'chitter')
 end
-  connection.exec("INSERT INTO peeps (username, peep, time) VALUES('#{session[:username]}', '#{session[:user_peep]}','17:34:12')")
+  connection.exec("INSERT INTO peeps (username, peep, time) VALUES('#{session[:username]}', '#{session[:user_peep]}','#{Time.now.strftime("%H:%M:%S")}')")
 redirect ('/peeps')
 end 
 
