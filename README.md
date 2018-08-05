@@ -13,7 +13,7 @@ Progress Update:
 - [x] I want to post a message (peep) to chitter
 - [x] I want to see all peeps in reverse chronological order
 - [x] I want to see the time at which it was made
-- [ ] I want to sign up for Chitter
+- [x] I want to sign up for Chitter
 - [ ] I want to log in to Chitter
 - [ ] I want to log out of Chitter
 - [ ] I want to receive an email if I am tagged in a Peep

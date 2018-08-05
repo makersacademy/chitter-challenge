@@ -19,7 +19,7 @@
 .wrapper {
   display: flex;  
   flex-flow: row wrap;
-  font-weight: bold;
+  
   text-align: center;
 }
 
@@ -47,6 +47,11 @@
 .peeps {
   text-align: left;
   background: deepskyblue;
+  font-size: 12px
+}
+
+.peeps li {
+  padding-left: 15px
 }
 
 .aside-1 {
