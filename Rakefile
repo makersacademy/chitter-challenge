@@ -19,7 +19,7 @@ end
   end  
 
 task :setup do
-  p "Connecting to databases and creating tables..."
+  p "Creating databases..."
 
   connection = PG.connect
   connection.exec("CREATE DATABASE chitter;")

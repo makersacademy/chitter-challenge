@@ -1,7 +1,11 @@
 <form action="/users/new">  
-  <input type="submit" value="Sign-up">
+  <input type="submit" value="Sign up">
 </form>
 
 <form action="/sessions/new">
-  <input type="submit" value="Log-in">
+  <input type="submit" value="Log in">
 </form>
+
+<% @peeps.reverse_each do |peep| %>
+  <li><%= peep.peep %>, by <%= peep.username %> (posted at: <%= peep.created_at %>)</li>
+<% end %>
