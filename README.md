@@ -10,14 +10,23 @@ We are going to write a small Twitter clone that will allow the users to post me
 
 Workflow:
 --------
+*The glorious technicolour homepage*  
 
 ![Homepage](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Home_page_1.png)
 
+*And the extraordinary Sign Up Page*  
+
 ![Sign Up Page](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Sign_up_1.png)
+
+*Does it get better than this Log In Page*  
 
 ![Log In Page](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Log_in_3.png)
 
+*Here is the main attraction - peeps and more peeps!*  
+
 ![Add New Peep](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Add_new_peep_4.png)
+
+*They think its over.....*
 
 ![Logged Out](https://github.com/Whatapalaver/chitter-challenge/blob/master/public/images/Log_out_5.png)
 
