@@ -15,7 +15,7 @@ class App < Sinatra::Base
     erb(:index)
   end
   post '/send-message' do
-    DbProcessor.write(params.values.join, 'twats')
+    DbProcessor.write({ msg: params.values.join, time: Time.now.strftime("%d/%m/%Y %H:%M")}, 'twats')
     redirect('/home')
   end
 

@@ -25,6 +25,9 @@ GEM
       mini_portile2 (~> 2.3.0)
     nokogiri (1.8.4-x64-mingw32)
       mini_portile2 (~> 2.3.0)
+    orderly (0.0.3)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
@@ -89,6 +92,7 @@ DEPENDENCIES
   bcrypt
   capybara
   nokogiri
+  orderly
   pg
   rake
   rspec

@@ -2,18 +2,13 @@
 require 'pg'
 class DbProcessor
 
-  def self.connection
-    @connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
-  end
-
+  @connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
   def self.write(data, table)
-    @connection = connection
-    @connection.exec("INSERT INTO #{table} (message) VALUES('#{data}');")
+    @connection.exec("INSERT INTO #{table} (message, send_time) VALUES('#{data[:msg]}','#{data[:time]}');")
   end
 
   def self.read(table)
-    @connection = connection
-    return @connection.exec("SELECT * FROM #{table};").map { |result| result['message'] }
+    @connection.exec("SELECT * FROM #{table};").map { |result| { date: result['send_time'], msg: result['message'] }}
   end
 
 end

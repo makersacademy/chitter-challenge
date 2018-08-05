@@ -3,25 +3,26 @@
 </head>
 <style>
   body{
- background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+  background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
 }
 .prfile {
   position: relative;
   border-style: outset;
 }
 .message_new {
-  margin-top: 2%;
+  transform: skew(5deg, 0deg);
   margin-right: 45%;
   margin-left: 25%;
   position: relative;
   border-radius:0px 50% 0% 50%;
-  background-color:rgb(235, 235, 235);
+  background:radial-gradient(ellipse farthest-side at center center, rgb(245, 245, 245) 0%, rgb(80, 161, 241) 80%);
   border-width:5px;
-  border-style:solid;
-  border-color:#4d9ba7;
+  border-style:outset;
+  border-color:lime;
 
 }
 .message_box {
+  transform: skew(-5deg, 0deg);
   position: relative;
   padding: 2%;
   width: 70%;
@@ -31,6 +32,7 @@
   
 }
 .message_sub {
+  transform: skew(-5deg, 0deg);
   position: relative;
   background-color: blue;
   color: white;
@@ -38,13 +40,77 @@
   border-radius:0px 10% 50% 50%;
 }
 .twats {
-  position: relative;  
+  border-width:8px;
+  border-style:solid;
+  border-radius: 20px 20px 30px 0px;
+  margin-left: 20%;
+  margin-right: 30%;
+  background:radial-gradient(circle farthest-side at center center, rgb(245, 238, 238) 0%, rgb(235, 237, 186) 80%); 
+}
+.date {
+  color: teal;
+  background:radial-gradient(circle farthest-side at center center, rgb(237, 152, 152) 0%, rgb(214, 237, 214) 80%);
+  border-style: dashed;
+  border-color: teal;
+  border-radius: 0px 30px 30px 0px;
+}
+.logo {
+  position: relative;
+  text-shadow: 7px 5px 11px rgba(28,110,164,0.79);
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 400%;
+  letter-spacing: 3.2px;
+  word-spacing: 5.2px;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: overline;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+.profile {
+  margin-top: 4%;
+  border-style: outset;
+  position: relative;
+  margin-right: 20%;
+  height: 80%;
+  text-shadow: 7px 5px 11px rgba(28,110,164,0.79);
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 100%;
+  letter-spacing: 3.2px;
+  word-spacing: 5.2px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+.leftcol {
+  float: left;
+  width: 25%;
+}
+.centercol {
+  overflow:hidden;
+}
+}
+.rightcol {
+  
+  float:right;
+  width: 50%;
+}
+.profilehead {
+  margin-top: 0%;
+  background-color: blue;
+  border-style: solid;
 }
 </style>
 <body>
+  <div class="logo">Twatter</div>
+<div class=leftcol>
   <div class="profile">
-    
+  <h1 class="profilehead">Your Profile</h1>
   </div>
+</div>
 <form action="send-message" method="post">
 <div class="message_new"align="center">
     <br><br>
@@ -53,14 +119,16 @@
    <br><br>
   </div>
 </form>
-  <div class="twats">
+<div id="messages"class="messages">
     <% unless @messages.nil? %>
-    <% @messages.each do |entry| %>
-    <li><%= entry %>
-    </li>
+    <% @messages.reverse.each do |entry| %>
+    <div id="twats"class="twats">
+    <h1 class="date"><%= entry[:date] %></h1>
+    <h2><%= entry[:msg] %></h2>
+    </div>
     <% end %>
     <% end %>
-  </div>
+</div>
 </body>
 
     
