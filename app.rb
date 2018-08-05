@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/setup_connect_database'
 ## require './data_mapper_setup'
 
 class Chitter < Sinatra::Base

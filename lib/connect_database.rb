@@ -1,6 +1,11 @@
 require 'pg'
 
-class DatabaseConnection
+class ConnectDatabase
+    # attr_reader :connection
+
+    # def initialize
+    #   @connection = connection
+    # end
 
   def self.setup(dbname)
     @connection = PG.connect(dbname: dbname)

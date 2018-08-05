@@ -6,7 +6,7 @@ feature 'Viewing peeps' do
     make_fake_peeps 
     visit('/peeps')
     expect(page).to have_content 'Mathematical!'
-    expect(page).to have_content 'Makin\' bacon pancakes'
+    expect(page).to have_content 'Making bacon pancakes'
     expect(page).to have_content 'Yay!'
   end
     # connection = PG.connect(dbname: 'chitter_test')

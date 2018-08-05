@@ -21,9 +21,9 @@ end
 task :setup do
   p "Connecting to databases and creating tables..."
 
-  # connection = PG.connect
-  # connection.exec("CREATE DATABASE chitter;")
-  # connection.exec("CREATE DATABASE chitter_test;")
+  connection = PG.connect
+  connection.exec("CREATE DATABASE chitter;")
+  connection.exec("CREATE DATABASE chitter_test;")
 
   connection = PG.connect(dbname: 'chitter')
   connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, 
