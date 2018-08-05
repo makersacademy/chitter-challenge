@@ -31,11 +31,8 @@
 
       <main class="peeps">
         <div>
-        <% @peeps.each do |peep| %>
-          <li id="peep_id- <%= peep.id %>">
-          <li id="username- <%= peep.username %>">
-          <li id="peep- <%= peep.peep %>">
-          <li id="time stamp- <%= peep.created_at %>">
+        <% @peeps.reverse_each do |peep| %>
+          <li><%= peep.peep %>, by <%= peep.username %> (posted at: <%= peep.created_at %>)</li>
         <% end %>
         </div>
       </main>

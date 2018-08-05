@@ -11,6 +11,7 @@ require 'rake'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative 'web_helpers.rb'
 
 Capybara.app = Chitter
 Rake.application.load_rakefile
@@ -25,7 +26,7 @@ SimpleCov.start
 RSpec.configure do |config|
 
   config.include Capybara::DSL
-  
+
   config.before(:each) do
     Rake::Task['test_database_setup'].execute
   end
