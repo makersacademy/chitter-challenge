@@ -13,20 +13,24 @@
     <div class="wrapper">
       <header class="header">Hey, it's Chitter. Here are the Peeps!</header>
       <menu class="menu">
-        <div class="form">
-          <form action="/signup">
-            <div class="cssbutton colors blue">
-              <input type="submit" value="Sign-up">
-            </div>
-          </form>
-        </div>
-        <div class="form">
-          <form action="/login">
-            <div class="cssbutton colors blue">
-              <input type="submit" value="Log-in">
-            </div>
-          </form>
-        </div>
+        <% if @user %>
+          <h1>Welcome, <%= @user.username %></h1>
+        <% else %>
+          <div class="form">
+            <form action="/users/new">
+              <div class="cssbutton colors blue">
+                <input type="submit" value="Sign-up">
+              </div>
+            </form>
+          </div>
+          <div class="form">
+            <form action="/login">
+              <div class="cssbutton colors blue">
+                <input type="submit" value="Log-in">
+              </div>
+            </form>
+          </div>
+        <% end %>
       </menu>
 
       <main class="peeps">
