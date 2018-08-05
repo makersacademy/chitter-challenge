@@ -25,6 +25,6 @@ def self.all
                else
                  PG.connect(dbname: 'chitter')
   end
-  connection.exec("INSERT INTO peeps (username, peep, time) VALUES ('#{session[:username]}', '#{session[:user_peep]}','17:34:12')")
+ 
   end
 end  
