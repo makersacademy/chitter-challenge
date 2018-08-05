@@ -55,7 +55,7 @@ end
 task :teardown do
   p "Destroying databases...type 'y' to confirm that you want to destroy the chitter_challenge databases. This will remove all data!"
 
-  # Get a confirmation from the user!
+  # Get confirmation from user!
   confirm = STDIN.gets.chomp
   return unless confirm == 'y'
 
@@ -64,6 +64,7 @@ task :teardown do
     # Drop each database in the list
     connection.exec("DROP DATABASE #{database}")
   end
+end
 
   # task :auto_upgrade do
   #   DataMapper.auto_upgrade!
@@ -74,4 +75,3 @@ task :teardown do
   #   DataMapper.auto_migrate!
   #   puts 'Auto-migrate complete. Data could have been lost.'
   # end
-end
