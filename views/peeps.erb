@@ -24,7 +24,7 @@
             </form>
           </div>
           <div class="form">
-            <form action="/login">
+            <form action="/sessions/new">
               <div class="cssbutton colors blue">
                 <input type="submit" value="Log-in">
               </div>
@@ -33,6 +33,24 @@
         <% end %>
       </menu>
 
+      <% if @user %>
+        <main class="peeps_add">
+          <div>Peep Away</div>
+          <div class="form">
+            <form action="/new" method="post">
+              <label for="username">Enter username</label>
+              <input type="text" id="username" name="username" />
+              <label for="peep">Enter Peep</label>
+              <input type="text" id="peep" name="peep"/>
+              <div></div>
+              <div class="cssbutton colors blue">
+                <input type="submit" value="add_peep">
+              </div>
+            </form>
+          </div>
+        </main>
+      <% end %>
+
       <main class="peeps">
         <div>
         <% @peeps.reverse_each do |peep| %>
@@ -40,7 +58,14 @@
         <% end %>
         </div>
       </main>
-      <footer class="footer">Footer</footer>
+      <footer class="footer">
+        <%= styled_flash %>
+        <form action="/sessions/destroy" method="post">
+          <div class="cssbutton colors blue">
+            <input type="submit" value="Log-out">
+          </div>
+        </form>
+      </footer>
 
     </div>
   </body>

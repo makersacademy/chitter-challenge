@@ -44,6 +44,12 @@
   background: lightgreen;
 }
 
+.peeps_add {
+  text-align: left;
+  background: pink;
+  font-size: 12px
+}
+
 .peeps {
   text-align: left;
   background: deepskyblue;

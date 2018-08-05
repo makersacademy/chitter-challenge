@@ -34,20 +34,16 @@
       </menu>
 
       <main class="peeps">
-        <div>Peep Away</div>
-        <div class="form">
-          <form action="/new" method="post">
-            <label for="username">Enter username</label>
-            <input type="text" id="username" name="username" />
-            <label for="peep">Enter Peep</label>
-            <input type="text" id="peep" name="peep"/>
-            <div class="cssbutton colors blue">
-              <input type="submit" value="add_peep">
-            </div>
-          </form>
+        <div>
+        <% @peeps.reverse_each do |peep| %>
+          <li><%= peep.peep %>, by <%= peep.username %> (posted at: <%= peep.created_at %>)</li>
+        <% end %>
         </div>
       </main>
-      <footer class="footer">Footer</footer>
+
+      <footer class="footer">
+        <%= styled_flash %>
+      </footer>
 
     </div>
   </body>
