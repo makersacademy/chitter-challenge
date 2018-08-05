@@ -1,0 +1,66 @@
+<head>
+  <title>Twatter</title>
+</head>
+<style>
+  body{
+ background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+}
+.prfile {
+  position: relative;
+  border-style: outset;
+}
+.message_new {
+  margin-top: 2%;
+  margin-right: 45%;
+  margin-left: 25%;
+  position: relative;
+  border-radius:0px 50% 0% 50%;
+  background-color:rgb(235, 235, 235);
+  border-width:5px;
+  border-style:solid;
+  border-color:#4d9ba7;
+
+}
+.message_box {
+  position: relative;
+  padding: 2%;
+  width: 70%;
+  height: 20%;
+  border-radius: 0px 20% 20% 20%;
+  box-sizing: border-box;
+  
+}
+.message_sub {
+  position: relative;
+  background-color: blue;
+  color: white;
+  padding: 1.5%;
+  border-radius:0px 10% 50% 50%;
+}
+.twats {
+  position: relative;  
+}
+</style>
+<body>
+  <div class="profile">
+    
+  </div>
+<form action="send-message" method="post">
+<div class="message_new"align="center">
+    <br><br>
+    <textarea id="new_message" class="message_box" name="new"rows="5"cols="5"></textarea>
+   <input type="submit" class="message_sub" value="Send">
+   <br><br>
+  </div>
+</form>
+  <div class="twats">
+    <% unless @messages.nil? %>
+    <% @messages.each do |entry| %>
+    <li><%= entry %>
+    </li>
+    <% end %>
+    <% end %>
+  </div>
+</body>
+
+    
