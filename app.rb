@@ -8,6 +8,7 @@ class App < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do 
+    DataProcessor.create(Verification, DbProcessor)
     redirect('/home')
   end
 
@@ -23,15 +24,20 @@ class App < Sinatra::Base
   end
 
   post '/new' do
-    DbProcessor.write({ username: params['username'], 
-                        password: params['password'],
-                        email:    params['email'], 
-                        name:     params['name'] }, 'users')
-    flash[:sucess] = 'Account Created'
+    flash[:sucess] = DataProcessor.create_account({ username: params['username'], 
+                                                    password: params['password'],
+                                                    email:    params['email'], 
+                                                    name:     params['name'] })
     redirect('/home')
   end
 
   post '/login' do
+    flash[:success] = DataProcessor.login(params['login_username'], 
+                                          params['login_password'])
+    redirect('home')
+  end
+
+  post '/logout' do
 
   end
 

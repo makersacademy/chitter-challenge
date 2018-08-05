@@ -20,8 +20,8 @@ class Verification
     password == result.map { |res| res['password'] }.join
   end
 
-  def self.verify_route(text, type)
-    
+  def self.valid_message?(message)
+    message.length < 500
   end
 
 end

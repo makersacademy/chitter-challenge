@@ -15,6 +15,10 @@ describe Verification do
       it { expect(Verification.valid_email?('notextafter@')).to eq(false) }
       it { expect(Verification.valid_email?('nodotcom@gmail')).to eq(false) }
     end
+    describe '.valid_message' do
+      it { expect(Verification).to respond_to(:valid_message?).with(1).argument }
+      it { expect(Verification.valid_message?('hello')).to eq(true) }
+    end
   end
   context 'db verification' do
     describe '#username_exists?' do
@@ -28,8 +32,5 @@ describe Verification do
       it { expect(Verification.password_match?('JackIsCool', 'wrong')).to eq(false) }
     end
   end
-  describe '#verify_route' do
-    it { expect(Verification).to respond_to(:verify_route).with(2).arguments }
 
-  end
 end
