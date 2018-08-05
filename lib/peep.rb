@@ -1,4 +1,4 @@
-require 'Time'
+require 'time'
 require 'pg'
 
 class Peep
@@ -13,12 +13,12 @@ class Peep
     result.map { |head| head['peep'] }
   end
 
-  def self.create(entry)
+  def self.create(entry, user)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peeps (peep) VALUES('#{entry}')")
+    connection.exec("INSERT INTO peeps (peep, username) VALUES('#{entry}', '#{user}')")
   end
 end
