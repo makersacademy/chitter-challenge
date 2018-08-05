@@ -9,10 +9,14 @@ This was the fourth weekend project I attempted while at Maker's Academy. When c
 ## Approach
 I wanted to simulate Twitter with this challenge, but I really enjoy the styling of Slack. I decided to combine the two a bit to make my own layout. Particularly, I wanted to keep the project idea of Twitter but separate peeps by the day they were created.
 
-This was quite a long project that included a few optional challenges. I knew this would be a tough week to finish the bonus challenges because I had never worked with validation before. I decided to focus more on the first four user stories and allow for the additional account validation if I had time.
+This was quite a long project that included a few optional challenges. I knew this would be a tough week to finish the bonus challenges for due to never working with validation. I decided to focus more on the first four user stories and allow for the additional account validation if I had time.
+
+I also made an effort to use a responsive design for this project, which turned out pretty well for the first attempt. It's not perfect in any sense of the word, but it is an improvement from last week.
+
+There was a bit of a challenge allowing for apostrophes in the body of a peep. I solved this by replacing all apostrophes with a unique UTF-8 character "†". Obviously, this is not the best solution, but it is quite unlikely to cause problems unless someone used that character in a peep, in which case it would be replaced by an apostrophe when being displayed on-screen. I hope to find a better solution for PSQL queries in the future.
 
 ## Summary
-The user acts as a member of the Chitter website. Unfortunately, I never got to account creation and validation, so in its current state it simply asks for your name instead of logging in or signing up. Once the user enters his / her name, a "peep" can be made and is added to the feed of all previous peeps. All peeps are stored in a local psql database on my own machine. When viewing, the database is connected to and the peeps are retrieved including name, date, time, and text of each peep. When being displayed, these peeps are sorted in reverse chronological order both by the time created and the date created.
+The user acts as a member of the Chitter website. Unfortunately, I never got to account creation and validation, so in its current state it simply asks for your name instead of logging in or signing up. Once the user enters his / her name, a "peep" can be made and is added to the feed of all previous peeps. All peeps are stored in a local psql database on the user's machine. When viewing, the database is connected to and the peeps are retrieved including name, date, time, and text of each peep. When being displayed, these peeps are sorted in reverse chronological order both by the time created and the date created, meaning the newest peep will always be on top.
 
 ## State of project and changes to be made
 The first four user stories have been satisfied, assuming that entering a name counts as "signing up". As i stated above, the rest have not been completed.
