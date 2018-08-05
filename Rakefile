@@ -49,3 +49,17 @@ task :setup do
                                       username VARCHAR(60)
                                       );")
 end
+
+task :teardown do
+  p "Destroying databases...type 'y' to confirm that you want to destroy the chitter_challenge databases. This will remove all data in those databases!"
+
+  # Get a confirmation from the user!
+  confirm = STDIN.gets.chomp
+  return unless confirm == 'y'
+
+  ['chitter_challenge', 'chitter_challenge_test'].each do |database|
+    connection = PG.connect
+    # Drop each database in the list
+    connection.exec("DROP DATABASE #{ database }")
+  end
+end

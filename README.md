@@ -10,9 +10,9 @@ We are going to write a small Twitter clone that will allow the users to post me
 
 Progress Update:
 -------
-- [ ] I want to post a message (peep) to chitter
-- [ ] I want to see all peeps in reverse chronological order
-- [ ] I want to see the time at which it was made
+- [x] I want to post a message (peep) to chitter
+- [x] I want to see all peeps in reverse chronological order
+- [x] I want to see the time at which it was made
 - [ ] I want to sign up for Chitter
 - [ ] I want to log in to Chitter
 - [ ] I want to log out of Chitter
