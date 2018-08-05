@@ -2,6 +2,7 @@ body{
   width: 100%;
   padding: 0px;
   margin: 0px;
+  background-color: #B10F2E;
 }
 
 
@@ -49,30 +50,36 @@ body{
 
 #div1{
     float:left;
-    background:red;
+    background:#B10F2E;
     width:25%;
 }
 
 #div2{
     overflow:hidden;
-    background:blue;
+    background:#B10F2E;
     width:50%;
 }
 
 #div3{
     float:right;
-    background:green;
+    background:#B10F2E;
     width:25%;
 }
 
+p{
+  font-family: 'Montserrat', sans-serif;
+}
 
 #grid-container {
   display: grid;
-  border-style: solid;
   margin: 40px;
-  height: 150px;
+  height: 200px;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#chitter{
+  color: #B10F2E;
 }

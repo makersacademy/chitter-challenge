@@ -2,23 +2,22 @@
 <head>
   <link rel="stylesheet" type="text/css" href="<%= url("./user.css")%>">
   <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
 <body>
 <% require './lib/user_posts' %>
 <% require './lib/New_user' %>
 
-# fixed  header
+
 <div class="navbar">
-  <a href="#home">Chitter</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
+  <a id = "chitter" href="#chitter">Chitter</a>
   <form id = "sign-out-form" action="/sessions/destroy" method="post">
     <input id = "logoffbtn"type="submit" value="Sign out" />
   </form>
 </div>
 
-#Grid split
+
 <div class = "container">
 <div id="div1">1
   <button>new post</button>
@@ -30,7 +29,7 @@
     </form>
 </div>
 
-# Grid split
+
 <div id="div2">
   <% if @user %>
     <h1>Welcome, <%= @user.username %></h1>
@@ -45,7 +44,6 @@
 </div>
 
 
-# Grid split
 <div id="div3">
 </div>
 </div>
