@@ -16,6 +16,17 @@ class Chitter < Sinatra::Base
     redirect('/peeps')
 end
 
+post '/user_peep' do 
+  session[:user_peep] = params[:user_peep]
+  connection = if ENV['ENVIRONMENT'] == 'test'
+    PG.connect(dbname: 'chitter_test')
+  else
+    PG.connect(dbname: 'chitter')
+end
+  connection.exec("INSERT INTO peeps (username, peep, time) VALUES('#{session[:username]}', '#{session[:user_peep]}','17:34:12')")
+redirect ('/peeps')
+end 
+
 get '/peeps' do 
   @peeps = Peep.all  
   erb :peeps

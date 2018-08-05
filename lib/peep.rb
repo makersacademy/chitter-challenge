@@ -19,12 +19,12 @@ def self.all
        result.map { |peep| Peep.new(peep['id'], peep['username'], peep['peep'], peep['time']) }
   end
 
-def self.create(options)
+  def self.create
   connection = if ENV['ENVIRONMENT'] == 'test'
                  PG.connect(dbname: 'chitter_test')
                else
                  PG.connect(dbname: 'chitter')
   end
-  connection.exec("INSERT INTO bookmarks (url) VALUES ('#{options[:url]}')")
-end
-end 
+  connection.exec("INSERT INTO peeps (username, peep, time) VALUES ('#{session[:username]}', '#{session[:user_peep]}','17:34:12')")
+  end
+end  

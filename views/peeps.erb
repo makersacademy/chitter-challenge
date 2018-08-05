@@ -1,16 +1,17 @@
 <div class="leftbox">
 <h1> Welcome @<%=session[:username]%> </h1>
-<form>
+<form action = "/user_peep" method = "post">
 <label for "user_peep">Compose peep:</label><br>
 <textarea name = "user_peep" class ="peepinput" >
-the peeps
+
 </textarea>
+<input type = "submit" value = "Peep">
 </form> 
 </div>
 
 <div class="rightbox">
 <h3> The peeps: </h3>
 <% @peeps.each do |peep| %>
-          <li><%= peep.peep %></li>
+          <li> <b><%=peep.username%></b> said <i>"<%= peep.peep %>"</i> at <%=peep.time%>  </li>
         <% end %>
 <div>
