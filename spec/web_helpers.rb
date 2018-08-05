@@ -10,3 +10,10 @@ def signup_test_user
   fill_in('email', with: 'test@example.com')
   fill_in('password', with: 'password123')
 end
+
+def signup_test_user2
+  fill_in('username', with: 'wally')
+  fill_in('name', with: 'Jane Wally')
+  fill_in('email', with: 'wally@example.com')
+  fill_in('password', with: 'password123')
+end

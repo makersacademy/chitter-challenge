@@ -37,3 +37,12 @@ describe '.create' do
     User.create(email: 'test@example.com', password: 'password123')
   end
 end
+
+describe '.authenticate' do
+  it 'returns a user given a correct username and password, if one exists' do
+    user = User.create(username: 'test3', name: 'test3', email: 'test3@example.com', password: 'password123')
+    authenticated_user = User.authenticate('test3@example.com', 'password123')
+
+    expect(authenticated_user.id).to eq user.id
+  end
+end
