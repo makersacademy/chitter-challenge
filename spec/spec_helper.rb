@@ -6,13 +6,16 @@ require 'capybara'
 require 'capybara/rspec'
 require 'cucumber'
 # require 'database_cleaner'
+require 'rake'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'sinatra'
+require 'sinatra/flash'
 
 Capybara.app = Chitter
 
-DataMapper.setup(:default, 'postgres://user:password@hostname/database')
+# DataMapper.setup(:default, 'postgres://user:password@hostname/database')
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -22,12 +25,17 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  config.mock_with :rspec do |mocks|
-    mocks.verify_partial_doubles = true
-  end
+  # config.before(:each) do
+  #   require_relative './setup_test_database'
+  # end
+  config.include Capybara::DSL
 
   config.before(:each) do
-    require_relative './test_db_setup'
+    Rake::Task['setup_test_database'].execute
+  end
+  
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
   end
 
   # config.before(:suite) do
