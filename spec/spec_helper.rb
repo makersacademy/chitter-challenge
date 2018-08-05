@@ -5,11 +5,14 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'cucumber'
+# require 'database_cleaner'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
 Capybara.app = Chitter
+
+DataMapper.setup(:default, 'postgres://user:password@hostname/database')
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -26,6 +29,19 @@ RSpec.configure do |config|
   config.before(:each) do
     require_relative './test_db_setup'
   end
+
+  # config.before(:suite) do
+  #   DatabaseCleaner.strategy = :transaction
+  #   DatabaseCleaner.clean_with(:truncation)
+  # end
+   
+  # config.before(:each) do
+  #   DatabaseCleaner.start
+  # end
+   
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # end
 
   config.after(:suite) do
     puts
