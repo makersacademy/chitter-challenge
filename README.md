@@ -91,11 +91,12 @@ bundle install
   ![Homepage](https://github.com/Mschmidt19/chitter-challenge/blob/master/screenshots/Screen%20Shot%202018-08-05%20at%208.50.59%20PM.jpg)
 
   * Enter a peep to make in the text field on the left of the screen.
-  ![Entering Peeps](https://github.com/Mschmidt19/chitter-challenge/blob/master/screenshots/Screen%20Shot%202018-08-05%20at%208.51.53%20PM.jpg)
+  ![Peep page](https://github.com/Mschmidt19/chitter-challenge/blob/master/screenshots/Screen%20Shot%202018-08-05%20at%208.57.14%20PM.jpg)
 
   * View your peeps!
   
   * Check out what it may look like on mobile!
+  ![Testing Responsiveness](https://github.com/Mschmidt19/chitter-challenge/blob/master/screenshots/Screen%20Shot%202018-08-05%20at%208.58.02%20PM.jpg)
 
 #### 7. When finished, end the sinatra server
   ```
