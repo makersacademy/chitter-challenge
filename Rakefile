@@ -25,29 +25,29 @@ task :setup do
 
   connection = PG.connect(dbname: 'chitter_challenge')
   connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, 
-                                      peep VARCHAR(140), 
-                                      username VARCHAR(60),
-                                      created_at TIMESTAMP DEFAULT current_timestamp(0)
-                                      );")
+                      peep VARCHAR(140), 
+                      username VARCHAR(60),
+                      created_at TIMESTAMP DEFAULT current_timestamp(0)
+                      );")
   connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, 
-                                      email VARCHAR(60), 
-                                      password VARCHAR(140),
-                                      name VARCHAR(60), 
-                                      username VARCHAR(60)
-                                      );")
+                      email VARCHAR(60), 
+                      password VARCHAR(140),
+                      name VARCHAR(60), 
+                      username VARCHAR(60)
+                      );")
 
   connection = PG.connect(dbname: 'chitter_challenge_test')
   connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, 
-                                      peep VARCHAR(140), 
-                                      username VARCHAR(60),
-                                      created_at TIMESTAMP DEFAULT current_timestamp(0)
-                                      );")
+                    peep VARCHAR(140), 
+                    username VARCHAR(60),
+                    created_at TIMESTAMP DEFAULT current_timestamp(0)
+                    );")
   connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, 
-                                      email VARCHAR(60), 
-                                      password VARCHAR(140),
-                                      name VARCHAR(60), 
-                                      username VARCHAR(60)
-                                      );")
+                    email VARCHAR(60), 
+                    password VARCHAR(140),
+                    name VARCHAR(60), 
+                    username VARCHAR(60)
+                    );")
 end
 
 task :teardown do
@@ -60,6 +60,6 @@ task :teardown do
   ['chitter_challenge', 'chitter_challenge_test'].each do |database|
     connection = PG.connect
     # Drop each database in the list
-    connection.exec("DROP DATABASE #{ database }")
+    connection.exec("DROP DATABASE #{database}")
   end
 end

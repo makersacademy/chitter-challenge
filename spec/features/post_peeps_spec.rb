@@ -4,7 +4,7 @@
 
 feature 'Posting peeps' do
   scenario 'A user can post peeps' do
-    visit ('/')
+    visit '/'
     fill_in('peep', with: "Here is a test peep")
     fill_in('username', with: "whatapalaver")
     click_button('add_peep')
