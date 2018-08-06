@@ -1,7 +1,9 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/user_posts'
 require './lib/New_user'
 require './database_connection_setup'
+
 
 class Chitter < Sinatra::Base
   enable 'sessions'
@@ -11,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/user' do
-    @user = New_user.find(session[:user_id])
+    @user = New_user.find(session[:id])
     @all_posts = User.all
     erb(:user)
   end
@@ -36,8 +38,16 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = New_user.authenticate(params['username'], params['password'])
-    session[:user_id] = user.id
+    session[:username] = user.username
     redirect('/user') # think about this too
+
+    if user
+       session[:username] = user.username
+       redirect('/')
+     else
+       flash[:notice] = 'Please check your email or password.'
+       redirect('/sessions/new')
+     end
   end
 
   post '/sessions/destroy' do

@@ -15,6 +15,8 @@ require './app.rb'
 require 'capybara'
 require 'capybara/rspec'
 require 'pg'
+require 'sinatra/flash'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

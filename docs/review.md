@@ -529,7 +529,7 @@ Avoid the following in your app file:
 class Chitter < Sinatra::Base
   helpers do
     def current_user
-      @user ||=  User.get(session[:user_id])
+      @user ||=  User.get(session[:id])
     end
   end
 end
@@ -547,7 +547,7 @@ end
 # app/helpers.rb
 module Helpers
   def current_user
-    @user ||=  User.get(session[:user_id])
+    @user ||=  User.get(session[:id])
   end
 end
 ```
