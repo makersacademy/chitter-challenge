@@ -4,6 +4,8 @@
 feature "Post a message(peep) to chitter." do
   scenario "User can post a peep on the homepage." do
     visit('/')
+    fill_in('name', with: "kirtiman")
+    fill_in('username', with: "kirt93")
     fill_in('peep', with: "This is my first peep on chitter!")
     click_button "Submit"
     expect(page).to have_content "This is my first peep on chitter!"

@@ -12,13 +12,16 @@ require 'rspec'
 require 'sinatra'
 require 'capybara/rspec'
 require 'sinatra/flash'
-
+require_relative './setup_test_database'
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = Chitter
 
-
-
+RSpec.configure do |config|
+    config.before(:each) do
+      setup_test_database
+    end
+end
 
 require 'simplecov'
 require 'simplecov-console'
