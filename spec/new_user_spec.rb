@@ -41,8 +41,8 @@ describe New_user do
     end
 
     it 'returns nil given an incorrect password' do
-    user = User.create(username: 'cheese', email: 'cheeto_cheeto.com', password: 'ste3222223')
-    expect(New_user.authenticate('cheese', 'wrongpasswords')).to be_nil
+      user = User.create(username: 'cheese', email: 'cheeto_cheeto.com', password: 'ste3222223')
+      expect(New_user.authenticate('cheese', 'wrongpasswords')).to be_nil
     end
   end
 

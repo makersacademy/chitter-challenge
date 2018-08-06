@@ -4,10 +4,10 @@ gem 'bcrypt'
 gem 'capybara'
 gem 'pg'
 gem 'rake'
+gem 'rerun'
 gem 'rspec'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'
-gem 'rerun'
 
 group :test do
   gem 'simplecov', require: false

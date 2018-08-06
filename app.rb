@@ -41,9 +41,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions/destroy' do
-  session.clear
-  "You have signed out"
-  redirect '/'
+    session.clear
+    "You have signed out"
+    redirect '/'
   end
 
   run! if app_file == $0

@@ -9,7 +9,7 @@ class User
 end
 
   def self.all
-    #retrieve all the tweets belonging to a user
+    # retrieve all the tweets belonging to a user
     # establishing the connection
     result = Database_connection.query('SELECT * FROM tweet_info ORDER BY timestamp DESC')
     result.map { |post| post['content'] }
