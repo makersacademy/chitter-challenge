@@ -1,3 +1,15 @@
+# Set the environment to test
+ENV['ENVIRONMENT'] = 'test'
+
+# Bring in the contents of the 'app.rb' file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+# Testing gems
+require 'rspec'
+require 'capybara'
+require 'capybara/rspec'
+
+
 require 'simplecov'
 require 'simplecov-console'
 
