@@ -1,7 +1,7 @@
 feature 'User account creation' do
   before(:each) do
-      visit('/') 
-      add_users_to_db
+    visit('/') 
+    add_users_to_db
   end
   scenario 'User can sign up for twatter' do
     fill_in('username', with: 'realuser')

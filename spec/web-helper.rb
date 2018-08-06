@@ -45,3 +45,11 @@ def testing_users
    { username: 'UWotm8', password: 'password1', email: 'chav@chav.com', name: 'M8'        }
   ]
 end
+
+def login_to_twat
+  visit('/')
+  add_users_to_db
+  fill_in('login_username', with: 'JackIsCool')
+  fill_in('login_password', with: 'hello')
+  click_button('Login')
+end

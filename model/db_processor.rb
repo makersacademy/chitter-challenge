@@ -19,4 +19,8 @@ class DbProcessor
       @connection.exec("SELECT * FROM #{table};").map { |result| { username: result['username'], name: result['name'] } }
     end
   end
+
+  def self.get_user_id(username)
+    @connection.exec("SELECT * FROM users WHERE username LIKE '#{username}';").map { |result| result['id'] }.join.to_i
+  end
 end

@@ -25,5 +25,9 @@ describe DbProcessor do
       it { expect(DbProcessor.read('twats')).to eq(testing_twats) }
       it { expect(DbProcessor.read('users')).to eq(testing_users.map { |i| { username: i[:username], name: i[:name]}})}
     end
+    describe '#.get_user_id' do
+      it { expect(DbProcessor).to respond_to(:get_user_id).with(1).arguments }
+      it { expect(DbProcessor.get_user_id('JackIsCool')).to be_an(Integer) }
+    end
   end
 end

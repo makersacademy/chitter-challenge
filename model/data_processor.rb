@@ -6,6 +6,7 @@ class DataProcessor
   def self.create(verification_class, db_proc_class)
     @verification_class = verification_class
     @db_proc_class = db_proc_class
+    # @db_proc_class.environment
   end
 
   def self.current_user

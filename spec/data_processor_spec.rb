@@ -4,6 +4,7 @@ describe DataProcessor do
   let(:db_proc_class) { double :db_proc_class }
   before(:each) do 
     add_users_to_db 
+    allow(db_proc_class).to receive(:environment)
     DataProcessor.create(verification, db_proc_class)
   end
   describe '#.verification' do

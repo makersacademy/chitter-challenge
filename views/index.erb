@@ -144,6 +144,7 @@
   <div class="profile"align="center">
   <h1 class="profilehead"align="center">Your Profile</h1>
   <br>
+  <% if @user.nil? %>
   <form id="new_account"action="/new"method="post">
     Username
     <input name="username"type="text">
@@ -168,6 +169,11 @@
     <br>
     <input id="create_account"value="Login"type="submit">
   </form>
+  <% else %>
+  <form id="user_profile"method="post"action="logout">
+  <input id="Logout"value="Logout"type="submit">
+  </form>
+    <% end %>
   </div>
 </div>
 <form action="send-message" method="post">
