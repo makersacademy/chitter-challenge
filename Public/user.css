@@ -2,14 +2,14 @@ body{
   width: 100%;
   padding: 0px;
   margin: 0px;
-  background-color: #B10F2E;
+  background-color: #F7717D;
 }
 
 
 /* The navigation bar */
 .navbar {
     overflow: hidden;
-    background-color: #333;
+    background-color: #F7717D;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
@@ -50,34 +50,36 @@ body{
 
 #div1{
     float:left;
-    background:#B10F2E;
+    background:#F7717D;
     width:25%;
 }
 
 #div2{
     overflow:hidden;
-    background:#B10F2E;
+    background:#F7717D;
     width:50%;
 }
 
 #div3{
     float:right;
-    background:#B10F2E;
+    background:#F7717D;
     width:25%;
 }
 
 p{
   font-family: 'Montserrat', sans-serif;
+  color: #F7717D;
 }
 
 #grid-container {
   display: grid;
-  margin: 40px;
+  margin: 50px;
   height: 200px;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 #myBtn{
@@ -90,11 +92,14 @@ textarea, #post{
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  outline: none;
+  border-style: none;
 }
 
 textarea{
   width: 60%;
   height: 60px;
+  font-size: 20px;
   overflow: auto;
   resize: none;
 }
@@ -108,6 +113,8 @@ textarea{
   font-size: 20px;
   outline: none;
   border-style: solid;
+  border-width: thick;
+  border-color: white;
   border-spacing: inherit;
   background-color: transparent;
 
@@ -116,14 +123,14 @@ textarea{
 #post-form{
   float: right;
   width: 90%;
+  color: #F7717D;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-::placeholder{
+#post_textarea::placeholder{
   font-size: 20px;
-  color: green;
 }
 
 #signout{
@@ -132,4 +139,11 @@ textarea{
   outline: none;
   border-style: none;
   background-color: transparent;
+}
+
+#post:hover{
+  background-color: white;
+  font-weight: bold;
+  color: #F7717D;
+  border-color: white;
 }

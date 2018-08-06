@@ -14,13 +14,15 @@
 
 <div class="navbar">
 
+
   <div id = "post-form">
   <form id = "post-form" action="/user" method="post" >
-    <textarea name ="new_post" placeholder="Describe yourself here...">
+    <textarea id="post_textarea"placeholder="enter new post" name ="new_post" >
     </textarea>
     <br>
     <input id ="post" type="submit" value="POST">
   </form>
+
   </div>
   <form id = "sign-out-form" action="/sessions/destroy" method="post">
     <input id = "signout" type="submit" value="Sign out" />

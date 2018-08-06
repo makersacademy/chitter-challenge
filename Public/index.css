@@ -1,11 +1,11 @@
 body{
-   background-color: #B10F2E;
+   background-color: #F7717D;
  }
 
  h1{
    font-family: 'Reem Kufi', sans-serif;
    font-size: 200px;
-   color: #F8F4E3;
+   color: white;
  }
 
  #logo, #button{
@@ -20,18 +20,20 @@ body{
    height: 50px;
    padding: 10px;
    margin: 20px;
-   color: #F8F4E3;
+   color: white;
    font-size: 20px;
    outline: none;
    border-style: solid;
+   border-width: medium;
    border-spacing: inherit;
+   border-color: white;
    background-color: transparent;
  }
 
  #inner_button:hover{
-   background-color: #F8F4E3;
-   color: #B10F2E;
-   border-color: #B10F2E;
+   background-color: white;
+   color: #F7717D;
+   border-color: #F7717D;
  }
 
  a{
