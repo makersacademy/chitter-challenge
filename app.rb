@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
 
   post '/username' do
     session[:username] = params[:username]
+    @password = params[:password]
     redirect '/feed'
   end
 

@@ -11,7 +11,7 @@ class Peep
     end
 
     result = connection.exec("SELECT * FROM peeps")
-    result.map { |title| "'#{title['peep']}' by @#{title['username']} at #{title['time']} on #{title['date']}" }
+    result.map { |title| "#{title['peep']} by @#{title['username']} at #{title['time']} on #{title['date']}" }
   end
 
   def self.create(entry, user)
@@ -21,7 +21,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
     time = Time.now
-    date = DateTime.now.strftime("%d/%m/%Y")
+    date = DateTime.now #.strftime("%d/%m/%Y")
     connection.exec("INSERT INTO peeps (peep, username, date, time) VALUES('#{entry}', '#{user}', '#{date}', '#{time}')")
   end
 end

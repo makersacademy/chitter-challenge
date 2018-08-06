@@ -8,6 +8,6 @@ feature 'submit a peep' do
     fill_in('peep', with: 'Where we dropping boys?')
     click_button 'Submit'
 
-    expect(page).to have_content "'Where we dropping boys?' by @eddyt993 at"
+    expect(page).to have_content "Where we dropping boys? by @eddyt993 at"
   end
 end
