@@ -64,7 +64,7 @@ label{
 
 
 .submit{
-  margin-top: 50px;
+  margin-top: 60px;
   height: 60px !important;
   color: #F7717D;
   text-align: center;
@@ -78,4 +78,8 @@ label{
   background-color: white !important;
   color: #F7717D;
   border-color: #F7717D;
+}
+
+#signup{
+  float: right;
 }

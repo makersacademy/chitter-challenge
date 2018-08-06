@@ -1,0 +1,85 @@
+body{
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sign-up{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0,auto;
+  border-style: solid;
+  padding: 0px;
+}
+
+h1{
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 20px;
+  color:#F7717D;
+}
+
+#form-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  background-color: #F7717D;
+  max-height: 400px;
+  padding: 40px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+
+#form-input{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 400px;
+  color:  #F7717D;
+  font-size: 20px;
+  height: 40px;
+  border-style: none;
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.password{
+  margin-bottom: 50px !important;
+}
+
+label{
+  font-size: 30px;
+  font-family: 'Reem Kufi', sans-serif;
+  color: white;
+}
+
+
+.submit{
+  margin-top: 50px !important;
+  height: 60px !important;
+  color: #F7717D;
+  text-align: center;
+  border-style: none;
+  font-size: 50px;
+  font-weight: bolder;
+  align-items: center;
+}
+
+  .sumbit:hover{
+  background-color: white !important;
+  color: #F7717D;
+  border-color: #F7717D;
+}
+
+#login{
+  float: right;
+}

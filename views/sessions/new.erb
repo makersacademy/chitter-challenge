@@ -1,16 +1,21 @@
 
 <head>
-  <link rel="stylesheet" type="text/css" href="./new.css">
+  <link rel="stylesheet" type="text/css" href="<%= url("./new.css")%>">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
 </head>
 
 <body>
-  <div class = "form-div">
-    <form action="/sessions" method="post">
+  <div id = "form-div">
+    <form id="form" action="/sessions" method="post">
+      <label id ="login">Log in</label>
+      </br>
+      </br>
       <label>Username</label>
-      <input id= "username" type="text" name="username" />
+      <input id= "form-input" type="text" name="username" />
       <label>Password</label>
-      <input id= "password" type="password" name="password" />
-      <input type="submit" value="Sign in" />
+      <input id= "form-input" type="password" name="password" />
+      <input id= "form-input" class="submit" type="submit" value="Sign in" />
     </form>
   </div>
 </body>

@@ -51,19 +51,20 @@ body{
 #div1{
     float:left;
     background:#F7717D;
-    width:25%;
+    width:33%;
 }
 
 #div2{
     overflow:hidden;
     background:#F7717D;
-    width:50%;
+    margin-top: 50px;
+    width:34%;
 }
 
 #div3{
     float:right;
     background:#F7717D;
-    width:25%;
+    width:33%;
 }
 
 p{
@@ -74,12 +75,12 @@ p{
 #grid-container {
   display: grid;
   margin: 50px;
-  height: 200px;
+  height: 250px;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  margin-top: 100px;
 }
 
 #myBtn{
