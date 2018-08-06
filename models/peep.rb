@@ -1,9 +1,9 @@
+# Peep class
+require_relative 'database_connection'
+
 class Peep
   def self.all
-    [
-      "123",
-      "456",
-      "789"
-    ]
+    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result.map { |peep| peep['content']}
   end
 end
