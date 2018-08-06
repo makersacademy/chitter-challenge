@@ -1,7 +1,7 @@
 require './models/peep'
 
 describe Peep do
-  describe'.all' do
+  describe '.all' do
     it 'shows all the peeps in an array' do
       insert_test_data
       peeps = Peep.all
