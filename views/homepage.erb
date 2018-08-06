@@ -6,5 +6,13 @@
   </label>
   <input type="submit" value="Peep it">
 </form></center>
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-----------------------------------------------------------------------
+<center><form action="/" method="get">
+  Click <input type="submit" value="Peep out"> to leave.
+</form></center>
 
-#add an each method HERE to show all peeps in reverse order
+<% @peeps.reverse_each do |peep| %>
+<p><%= peep %></p>
+<% end %>
