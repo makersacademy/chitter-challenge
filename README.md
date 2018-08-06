@@ -3,6 +3,12 @@ Chitter Challenge
 
 *Solo Weekend Challenge at the end of Makers Week 4*
 
+By the end of week 4 all Makers developers can:
+
+Build a simple web app with a database
+Follow an effective debugging process for database applications
+Explain the basics of how databases work (e.g. tables, SQL, basic relationships)
+
 Challenge:
 -------
 

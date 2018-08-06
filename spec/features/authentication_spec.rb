@@ -4,7 +4,6 @@ feature 'authentication' do
     visit '/sessions/new'
     fill_in("email", :with => 'test3@example.com')
     fill_in("password", :with => 'password123')
-    save_and_open_page
     find_button('Log in').click
     #click_button("Log in")
     expect(page).to have_content 'Welcome, test3'
