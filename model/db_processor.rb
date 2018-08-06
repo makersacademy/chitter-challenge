@@ -2,7 +2,7 @@
 require 'pg'
 class DbProcessor
 
-  @connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
+  @connection = PG.connect(dbname: 'chittertest', password: 'qweasd')
 
   def self.write(data, table)
     if table == 'twats'
