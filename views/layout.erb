@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link href="<%= url('/css/styles.css') %>" rel="stylesheet" type="text/css" />
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css">
+    <!--[if lte IE 7]> 
+      <style type="text/css" media="all"> 
+      @import url("cssbuttons/ieBrowserHacks.css");
+      </style>
+    <![endif]--> 
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

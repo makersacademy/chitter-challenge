@@ -1,72 +1,58 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <link href="<%= url('/css/styles.css') %>" rel="stylesheet" type="text/css" />
-    <link href="/css/buttons.css" rel="stylesheet" type="text/css">
-    <!--[if lte IE 7]> 
-      <style type="text/css" media="all"> 
-      @import url("cssbuttons/ieBrowserHacks.css");
-      </style>
-    <![endif]--> 
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">Hey, it's Chitter. Here are the Peeps!</header>
-      <menu class="menu">
-        <% if @user %>
-          <h1>Welcome, <%= @user.username %></h1>
-        <% else %>
-          <div class="form">
-            <form action="/users/new">
-              <div class="cssbutton colors blue">
-                <input type="submit" value="Sign-up">
-              </div>
-            </form>
-          </div>
-          <div class="form">
-            <form action="/sessions/new">
-              <div class="cssbutton colors blue">
-                <input type="submit" value="Log-in">
-              </div>
-            </form>
-          </div>
-        <% end %>
-      </menu>
-
-      <% if @user %>
-        <main class="peeps_add">
-          <div>Peep Away</div>
-          <div class="form">
-            <form action="/new" method="post">
-              <label for="username">Enter username</label>
-              <input type="text" id="username" name="username" />
-              <label for="peep">Enter Peep</label>
-              <input type="text" id="peep" name="peep"/>
-              <div></div>
-              <div class="cssbutton colors blue">
-                <input type="submit" value="add_peep">
-              </div>
-            </form>
-          </div>
-        </main>
-      <% end %>
-
-      <main class="peeps">
-        <div>
-        <% @peeps.reverse_each do |peep| %>
-          <li><%= peep.peep %>, by <%= peep.username %> (posted at: <%= peep.created_at %>)</li>
-        <% end %>
-        </div>
-      </main>
-      <footer class="footer">
-        <%= styled_flash %>
-        <form action="/sessions/destroy" method="post">
+<div class="wrapper">
+  <header class="header">Hey, it's Chitter. Here are the Peeps!</header>
+  <menu class="menu">
+    <% if @user %>
+      <h1>Welcome, <%= @user.username %></h1>
+    <% else %>
+      <div class="form">
+        <form action="/users/new">
           <div class="cssbutton colors blue">
-            <input type="submit" value="Log-out">
+            <input type="submit" value="Sign-up">
           </div>
         </form>
-      </footer>
+      </div>
+      <div class="form">
+        <form action="/sessions/new">
+          <div class="cssbutton colors blue">
+            <input type="submit" value="Log-in">
+          </div>
+        </form>
+      </div>
+    <% end %>
+  </menu>
 
+  <% if @user %>
+    <main class="peeps_add">
+      <div>Peep Away</div>
+      <div class="form">
+        <form action="/new" method="post">
+          <label for="username">Enter username</label>
+          <input type="text" id="username" name="username" />
+          <label for="peep">Enter Peep</label>
+          <input type="text" id="peep" name="peep"/>
+          <div></div>
+          <div class="cssbutton colors blue">
+            <input type="submit" value="add_peep">
+          </div>
+        </form>
+      </div>
+    </main>
+  <% end %>
+
+  <main class="peeps">
+    <div>
+    <% @peeps.reverse_each do |peep| %>
+      <li><%= peep.peep %>, by <%= peep.username %> (posted at: <%= peep.created_at %>)</li>
+    <% end %>
     </div>
-  </body>
-</html>
+  </main>
+  <footer class="footer">
+    <%= styled_flash %>
+    <form action="/sessions/destroy" method="post">
+      <div class="cssbutton colors blue">
+        <input type="submit" value="Log-out">
+      </div>
+    </form>
+  </footer>
+
+</div>

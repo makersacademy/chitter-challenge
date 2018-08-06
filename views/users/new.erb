@@ -1,44 +1,30 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <link href="<%= url('/css/styles.css') %>" rel="stylesheet" type="text/css" />
-    <link href="/css/buttons.css" rel="stylesheet" type="text/css">
-    <!--[if lte IE 7]> 
-      <style type="text/css" media="all"> 
-      @import url("cssbuttons/ieBrowserHacks.css");
-      </style>
-    <![endif]--> 
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">Welcome to Chitter. Let's get you signed up!</header>
-      <menu class="menu">
-        <div class="form">
-          <form action="/users" method="post">
-          <div>
-            <label for="username">Username: </label>
-            <input type="username" id="username" name="username">
-            <label for="name">Name: </label>
-            <input type="name" id="name" name="name">
-          </div>
-          <div>
-            <label for="email">email: </label>
-            <input type="email" id="email" name="email">
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password">
-          </div>
-            <div class="cssbutton colors blue">
-              <input type="submit" value="Sign-up">
-            </div>
-          </form>
+<div class="wrapper">
+  <header class="header">Welcome to Chitter. Let's get you signed up!</header>
+  <menu class="menu">
+    <div class="form">
+      <form action="/users" method="post">
+      <div>
+        <label for="username">Username: </label>
+        <input type="username" id="username" name="username">
+        <label for="name">Name: </label>
+        <input type="name" id="name" name="name">
+      </div>
+      <div>
+        <label for="email">email: </label>
+        <input type="email" id="email" name="email">
+        <label for="password">Password: </label>
+        <input type="password" id="password" name="password">
+      </div>
+        <div class="cssbutton colors blue">
+          <input type="submit" value="Sign-up">
         </div>
-      </menu>
-
-      <main>
-        
-      </main>
-      <footer class="footer">Footer</footer>
-
+      </form>
     </div>
-  </body>
-</html>
+  </menu>
+
+  <main>
+    
+  </main>
+  <footer class="footer">Footer</footer>
+
+</div>
