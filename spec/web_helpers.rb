@@ -11,5 +11,9 @@ def setup_test_database
 end
 
 def insert_test_data
-  
+  connection = PG.connect(dbname: 'chitter_test')
+
+  connection.exec("INSERT INTO peeps (content, time) VALUES ('123',NOW());")
+  connection.exec("INSERT INTO peeps (content, time) VALUES ('456',NOW());")
+  connection.exec("INSERT INTO peeps (content, time) VALUES ('789',NOW());")
 end
