@@ -10,7 +10,7 @@ class Peep
     elsif ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'chitter_challenge_test')
     end
-    result = connection.exec "TABLE peeps"
+    result = connection.exec("TABLE peeps")
     result.map { |peep| { :username => peep['username'], :peep => peep['peep'], :date => peep['date'], :time => peep['time']  } }
   end
 

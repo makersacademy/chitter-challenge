@@ -6,7 +6,7 @@ describe Peep do
 
   let(:time) { Time.now }
   before do
-    allow(Peep).to receive(:Time).and_return(time)
+    allow(Time).to receive(:now).and_return(time)
   end
 
   describe ".all" do

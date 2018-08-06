@@ -2,8 +2,8 @@
 <h2><u> <%= @username %>'s peeps </u></h2>
 <ul>
 <% @peeps.each do |hash| %>
-  <%= hash[:username] %>: <%= hash[:peep] %>
-  <small><%= hash[:date] %> <%= hash[:time] %>
+  <%= hash[:username] %>: <%= hash[:peep] %><br>
+  <small><%= hash[:date] %> <%= hash[:time] %><br><br> </small>
 <% end %>
 </ul>
 
@@ -13,4 +13,8 @@
   <label for="peep">Post a Peep</label><br>
   <input type="text" name="peep" maxlength="240" placeholder="What's on your mind?"/></br>
   <input type="submit" value="Post!"/>
+</form>
+
+<form action='/'>
+  <button type="submit">Log Out!</button>
 </form>
