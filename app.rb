@@ -25,8 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new' do
-    @username = session[:username]
-    Peep.add(@username, params[:peep])
+    Peep.add(session[:username], params[:peep])
     redirect '/homepage'
   end
 
