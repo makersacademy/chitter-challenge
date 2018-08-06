@@ -23,6 +23,10 @@
     <input id ="post" type="submit" value="POST">
   </form>
 
+  <% if @user %>
+    <h1>Welcome, <%= @user.username %></h1>
+  <% end %>
+
   </div>
   <form id = "sign-out-form" action="/sessions/destroy" method="post">
     <input id = "signout" type="submit" value="Sign out" />

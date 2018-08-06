@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/user' do
-    @user = New_user.find(session[:id])
+    @user = New_user.find(session[:user_id])
     @all_posts = User.all
     erb(:user)
   end
@@ -38,12 +38,12 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = New_user.authenticate(params['username'], params['password'])
-    session[:username] = user.username
+    user = New_user.find(session[:user_id])
     redirect('/user') # think about this too
 
     if user
-       session[:username] = user.username
-       redirect('/')
+       session[:user_id] = user.id
+       redirect('/user')
      else
        flash[:notice] = 'Please check your email or password.'
        redirect('/sessions/new')
