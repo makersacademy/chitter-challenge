@@ -5,7 +5,7 @@ feature 'can see all peeps' do
     connection.exec("INSERT INTO peeps (peep) VALUES ('Hello');")
     connection.exec("INSERT INTO peeps (peep) VALUES ('Hey');")
     connection.exec("INSERT INTO peeps (peep) VALUES ('Hi');")
-      
+
     visit '/peeps'
 
     expect(page).to have_content "Hello"
@@ -13,4 +13,19 @@ feature 'can see all peeps' do
     expect(page).to have_content "Hey"
 
   end
+
+  scenario 'can see peeps in reverse chronological order' do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    connection.exec("INSERT INTO peeps (peep) VALUES ('Hello');")
+    connection.exec("INSERT INTO peeps (peep) VALUES ('Hey');")
+    connection.exec("INSERT INTO peeps (peep) VALUES ('Hi');")
+
+    visit '/peeps'
+
+    expect("Hi").to appear_before "Hey"
+    expect("Hey").to appear_before "Hello"
+
+  end
+
 end
