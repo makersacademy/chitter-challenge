@@ -21,7 +21,7 @@ describe User do
 
   describe '.login' do
     context 'given a user has already signed up' do
-      it 'returns a User object' do
+      it 'returns a User object containing the username' do
         signup_info = {"name"=>"Dave", "email"=>"dave@dave.com", "password"=>"pw123", "username"=>"dave123"}
         user = User.signup(signup_info)
         login_info = {"email"=>"dave@dave.com", "password"=>"pw123"}

@@ -20,6 +20,11 @@ feature 'User has to sign up before being able to post' do
     expect(page).to have_content('dave123:')
   end
 
+  scenario 'after signing up the user can post' do
+    sign_up
+    expect(page).to have_button('Peep')
+  end
+
 end
 
 feature 'User can post a peep to Chitter' do
@@ -30,7 +35,7 @@ feature 'User can post a peep to Chitter' do
     expect(page).to have_content('This is a test peep')
   end
 
-  scenario 'and see the username who peeped' do
+  scenario 'and see the username of peep' do
     sign_up
     fill_in('peep', with: 'This is a test')
     click_button('Peep')
@@ -60,32 +65,38 @@ feature 'User can see peeps on Chitter' do
 end
 
 feature 'Users can logout' do
-  scenario 'given a user has already signed up they can logout' do
-    sign_up
-    expect(page).to have_button('Log out')
-    click_button('Log out')
-    expect(page).not_to have_button('Peep')
+  context 'given a user has already signed up' do
+    scenario 'they can logout' do
+      sign_up
+      expect(page).to have_button('Log out')
+      click_button('Log out')
+      expect(page).not_to have_button('Peep')
+    end
   end
 end
 
-feature 'Existing users can login' do
-  scenario 'given a user has signed up and logged out, they can log in' do
-    sign_up
-    click_button('Log out')
-    click_button('Log in')
-    fill_in('email', with: 'dave@dave.com')
-    fill_in('password', with: 'pw123')
-    click_button('Log in')
-    expect(page).to have_button('Peep')
-    expect(page).to have_content('dave123')
+feature 'Users can login' do
+  context 'given a user has signed up and logged out' do
+    scenario 'they can log in' do
+      sign_up
+      click_button('Log out')
+      click_button('Log in')
+      fill_in('email', with: 'dave@dave.com')
+      fill_in('password', with: 'pw123')
+      click_button('Log in')
+      expect(page).to have_button('Peep')
+      expect(page).to have_content('dave123')
+    end
   end
 
-  scenario 'inputting invalid/non-existent login info raises a message' do
-    visit ('/')
-    click_button('Log in')
-    fill_in('email', with: 'dave@dave.com')
-    fill_in('password', with: 'pw123')
-    click_button('Log in')
-    expect(page).to have_content('Error: invalid email and/or password')
+  context 'given invalid/non-existent login info' do
+    scenario 'a flash message is raised' do
+      visit ('/')
+      click_button('Log in')
+      fill_in('email', with: 'dave@dave.com')
+      fill_in('password', with: 'pw123')
+      click_button('Log in')
+      expect(page).to have_content('Error: invalid email and/or password')
+    end
   end
 end
