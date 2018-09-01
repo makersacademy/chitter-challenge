@@ -23,6 +23,7 @@ class User
     password = params['password']
     sqlquery = "SELECT username FROM users WHERE email='#{email}' AND password='#{password}';"
     result = DatabaseConnection.query(sqlquery)
+    return nil if result.ntuples == 0
     @current_user = User.new(result[0]['id'], result[0]['username'])
   end
 

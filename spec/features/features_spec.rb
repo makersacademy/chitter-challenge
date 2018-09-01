@@ -80,14 +80,12 @@ feature 'Existing users can login' do
     expect(page).to have_content('dave123')
   end
 
-  scenario 'inputting invalid/non-existent login info raises a flash message' do
-    sign_up
-    click_button('Log out')
+  scenario 'inputting invalid/non-existent login info raises a message' do
+    visit ('/')
     click_button('Log in')
     fill_in('email', with: 'dave@dave.com')
     fill_in('password', with: 'pw123')
     click_button('Log in')
-    expect(page).to have_button('Peep')
-    expect(page).to have_content('dave123')
+    expect(page).to have_content('Error: invalid email and/or password')
   end
 end

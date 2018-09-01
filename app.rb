@@ -1,5 +1,6 @@
 # app.rb
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep.rb'
 require './lib/user.rb'
 require './lib/database_connection'
@@ -8,6 +9,7 @@ require './database_connection_setup'
 class Chitter < Sinatra::Base
 
   enable :sessions, :method_override # allows us to use patch, delete etc
+  register Sinatra::Flash
 
   get '/' do
     @current_user = session[:current_user]
@@ -35,7 +37,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    User.login(params)
+    session[:current_user] = User.login(params)
+    if session[:current_user] == nil
+      flash[:invalid_login] = "Error: invalid email and/or password"
+      redirect '/login'
+    end
     redirect '/'
   end
 

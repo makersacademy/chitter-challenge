@@ -29,5 +29,13 @@ describe User do
         expect(login_user.username).to eq user.username
       end
     end
+
+    context 'given invalid/non-existent login details' do
+      it 'nil is returned' do
+        login_info = {"email"=>"dave@dave.com", "password"=>"pw123"}
+        login_user = User.login(login_info)
+        expect(login_user).to eq nil
+      end
+    end
   end
 end
