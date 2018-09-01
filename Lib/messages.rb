@@ -15,9 +15,8 @@ class Messages
   end
 
   def self.show
-    retrieve_data.map { | message | message['content'] }
+    retrieve_data.map { | message | Messages.new(message['id'], message['content'], message['created_at']) }
   end
-
 
   private
 
@@ -26,14 +25,11 @@ class Messages
   end
 
   def self.database_connection
-    if in_test?
-      PG.connect( dbname: 'chitter_test' )
-    else
-      PG.connect( dbname: 'chitter' )
+    in_test? ? PG.connect( dbname: 'chitter_test' ) : PG.connect( dbname: 'chitter' )
   end
 
   def self.in_test?
     ENV['RACK_ENV'] == 'test'
   end
-  
+
 end

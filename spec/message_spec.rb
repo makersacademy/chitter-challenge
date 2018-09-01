@@ -10,7 +10,8 @@ describe Messages do
 
   describe '#self.add' do
     it 'adds a message to the database' do
-      expect { messages.add(content) }.not_to raise_error
+      messages.add(content)
+      expect(messages.show[-1].content).to eq content
     end
   end
 
