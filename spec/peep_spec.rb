@@ -1,4 +1,5 @@
 # peep_spec.rb
+
 describe Peep do
   describe '.create' do
     it 'saves a new peep to the database' do
@@ -16,7 +17,7 @@ describe Peep do
 
   describe '.all' do
     it 'returns all the peeps as an array of Peep objects in reverse order' do
-      info = {"name"=>"Dave", "email"=>"dave@dave.com", "password"=>"pw123", "username"=>"dave123"}
+      info = { "name" => "Dave", "email" => "dave@dave.com", "password" => "pw123", "username" => "dave123" }
       current_user = User.signup(info)
       Peep.create('test1', current_user.id)
       Peep.create('test2', current_user.id)

@@ -11,7 +11,7 @@ def sign_up
 end
 
 def sign_up_with_another_unique_email
-  visit('/')
+  visit '/'
   click_button('Sign up')
   fill_in('name', with: 'Dave')
   fill_in('email', with: 'dave12@dave.com')
@@ -21,7 +21,7 @@ def sign_up_with_another_unique_email
 end
 
 def sign_up_with_another_unique_username
-  visit('/')
+  visit '/'
   click_button('Sign up')
   fill_in('name', with: 'Dave')
   fill_in('email', with: 'dave@dave.com')

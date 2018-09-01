@@ -1,4 +1,5 @@
 # feature_spec.rb
+
 require_relative '../setup_test_database'
 require_relative 'web_helpers'
 
@@ -70,7 +71,7 @@ feature 'User can see peeps on Chitter' do
     click_button('Peep')
     fill_in('peep', with: str2)
     click_button('Peep')
-    expect(page.body.index(str2)).to be < (page.body.index(str1))
+    expect(page.body.index(str2)).to be < page.body.index(str1)
   end
 
   scenario 'and also see the time when the peep was posted' do
@@ -109,7 +110,7 @@ feature 'Users can login' do
 
   context 'given invalid/non-existent login info' do
     scenario 'a flash message is raised' do
-      visit ('/')
+      visit '/'
       click_button('Log in')
       fill_in('email', with: 'dave@dave.com')
       fill_in('password', with: 'pw123')

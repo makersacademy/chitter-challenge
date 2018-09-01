@@ -30,8 +30,10 @@ class Chitter < Sinatra::Base
   post '/signup' do
     result = User.signup(params)
     if result.instance_of? Symbol
-      flash[:non_unique_details] = "Error: username already taken!" if result == :non_unique_username
-      flash[:non_unique_details] = "Error: email already taken!" if result == :non_unique_email
+      msg1 = "Error: username already taken!"
+      msg2 = "Error: email already taken!"
+      flash[:non_unique_details] = msg1 if result == :non_unique_username
+      flash[:non_unique_details] = msg2 if result == :non_unique_email
       redirect '/signup'
     end
     session[:current_user] = result
@@ -44,7 +46,7 @@ class Chitter < Sinatra::Base
 
   post '/login' do
     session[:current_user] = User.login(params)
-    if session[:current_user] == nil
+    if session[:current_user].nil?
       flash[:invalid_login] = "Error: invalid email and/or password"
       redirect '/login'
     end

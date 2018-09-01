@@ -25,7 +25,7 @@ class User
     password = params['password']
     sqlquery = "SELECT username FROM users WHERE email='#{email}' AND password='#{password}';"
     result = DatabaseConnection.query(sqlquery)
-    return nil if result.ntuples == 0
+    return nil if result.ntuples.zero?
     @current_user = User.new(result[0]['id'], result[0]['username'])
   end
 
@@ -36,12 +36,12 @@ class User
   def self.unique_email?(email)
     sqlquery = "SELECT email FROM users WHERE email='#{email}';"
     result = DatabaseConnection.query(sqlquery)
-    result.ntuples == 0
+    result.ntuples.zero?
   end
 
   def self.unique_username?(username)
     sqlquery = "SELECT username FROM users WHERE username='#{username}';"
     result = DatabaseConnection.query(sqlquery)
-    result.ntuples == 0
+    result.ntuples.zero?
   end
 end
