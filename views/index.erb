@@ -5,3 +5,11 @@
   <input type='submit' value='submit'>
 </form>
 
+<% @messages.each do | message | %>
+
+<li>
+  <%= message.content %>
+</li>
+
+<% end %>
+
