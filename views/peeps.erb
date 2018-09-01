@@ -6,7 +6,7 @@
 <body>
   <h1>Peeps</h1>
   <ul> <% @peeps.each do |peep| %>
-    <li> <%= peep %>
+    <li> <%= peep.peep %> <%= peep.time %>
     </li>
     <% end %> 
   </ul>

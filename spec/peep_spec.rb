@@ -10,9 +10,11 @@ describe '.all' do
       connection.exec("INSERT INTO peeps (peep) VALUES ('Hi');")
 
       peeps = Peep.all
-      expect(peeps).to include "Hello"
-      expect(peeps).to include "Hey"
-      expect(peeps).to include "Hi"
+      peep = peeps.first
+
+      expect(peep.peep).to eq "Hi"
+      expect(peeps.length).to eq 3
+
     end
   end
 end
@@ -22,8 +24,9 @@ describe '.create' do
     it 'returns a peep posted' do
 
       Peep.create("Hello peeps!")
+      peep = Peep.all.first
 
-      expect(Peep.all).to include "Hello peeps!"
+      expect(peep.peep).to eq "Hello peeps!"
     end
   end
 end
