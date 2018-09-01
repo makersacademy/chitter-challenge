@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -11,7 +12,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/send_peep' do
+    Peep.create(peep: params['peep'])
     erb :send_peep
+    redirect '/all_peeps'
+  end
+
+  get '/all_peeps' do
+    @peeps = Peep.all
+    erb :all_peeps
   end
 
   # start the server if ruby file executed directly
