@@ -6,6 +6,6 @@ feature 'sign up to chitter' do
     fill_in :email, with: "hpotter@gmail.com"
     fill_in :password, with: "Password123"
     click_button 'Sign up'
-    expect(page).to have_content "Welcome to Chitter, Scarface"
+    expect(page).to have_content "Welcome to Chitter Scarface"
   end
 end
