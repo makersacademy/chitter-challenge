@@ -12,7 +12,7 @@ describe Peeps do
       peeps = Peeps.all
 
       expect(peeps.length).to eq 3
-      expect(peeps[0].values[1]).to eq 'Peep test one'
+      expect(peeps[0].peep).to eq 'Peep test one'
     end
   end
 
@@ -20,7 +20,7 @@ describe Peeps do
     it 'creates the peep' do
       Peeps.create('Test peep')
       peep = Peeps.all
-      expect(peep[0].values[1]).to eq 'Test peep'
+      expect(peep[0].peep).to eq 'Test peep'
     end
   end
 
@@ -29,7 +29,7 @@ describe Peeps do
       allow(Peeps).to receive(:created_time).and_return "September 1, 2018 at 12:11 PM"
       Peeps.create('Test peep')
       peep = Peeps.all
-      expect(peep[0].values[2]).to eq "September 1, 2018 at 12:11 PM"
+      expect(peep[0].created_at).to eq "September 1, 2018 at 12:11 PM"
     end
   end
 end

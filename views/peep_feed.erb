@@ -3,9 +3,9 @@
 </form>
 <% @peeps.reverse.each do |peep| %>
   <div class="boxed">
-    <%= peep.values[1] %>
+    <%= peep.peep %>
   </div>
-  <%= peep.values[2] %>
+  <%= peep.created_at %>
   </br>
 </br>
 <% end %>
