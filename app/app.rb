@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/flash'
-require './lib/message'
 
 class App < Sinatra::Base
   enable :sessions
