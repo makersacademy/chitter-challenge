@@ -4,5 +4,6 @@ feature 'posting peeps on chitter' do
     fill_in :message, with: "Hello peeps!"
     click_button 'Post'
     expect(page).to have_content "Peeps"
+    expect(page).to have_content "Hello peeps!"
   end
 end

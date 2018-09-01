@@ -16,3 +16,14 @@ describe '.all' do
     end
   end
 end
+
+describe '.create' do
+  describe 'can add a peep' do
+    it 'returns a peep posted' do
+
+      Peep.create("Hello peeps!")
+
+      expect(Peep.all).to include "Hello peeps!"
+    end
+  end
+end

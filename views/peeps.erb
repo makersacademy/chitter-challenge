@@ -5,6 +5,10 @@
 </head>
 <body>
   <h1>Peeps</h1>
-  <h3> <%= @peeps %> </h3>
+  <ul> <% @peeps.each do |peep| %>
+    <li> <%= peep %>
+    </li>
+    <% end %> 
+  </ul>
 </body>
 </html>
