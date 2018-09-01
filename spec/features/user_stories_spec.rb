@@ -19,3 +19,10 @@ feature "can view peeps" do
     expect(top_peep).to have_content("This is another post.")
   end
 end 
+
+feature "can see when a peep was made" do
+  scenario "will display a timestamp" do
+    submit_peep
+    expect(page).to have_content("Posted at")
+  end
+end

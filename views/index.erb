@@ -13,7 +13,8 @@
 <div>
   <% @peeps.each do |peep| %>
     <div class="peep">
-      <p class="peep_body"> <%= peep %>  </p>
+      <p class="peep_body"> <%= peep.body %>  </p>
+      <p class="posted_at">Posted at <%= peep.posted_at %> </p>
     </div>
     <% end %>
 <div>
