@@ -2,7 +2,7 @@ Chitter Challenge
 =================
 
 _Write a small Twitter clone that will allow the users to post messages to a public stream._  
-[![Build Status](https://travis-ci.org/rebeccasedgwick/chitter-challenge.svg?branch= working-branch)](https://travis-ci.org/rebeccasedgwick/chitter-challenge)  
+[![Build Status](https://travis-ci.org/rebeccasedgwick/chitter-challenge.svg?branch=working-branch)](https://travis-ci.org/rebeccasedgwick/chitter-challenge)  
 
 Features:
 ----
