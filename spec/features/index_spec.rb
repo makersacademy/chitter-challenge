@@ -5,6 +5,6 @@ feature "Index page has links to other page(s)" do
     expect(page).to have_field "message"
     expect(page).to have_field "username"
     expect(page).to have_field "handle"
-    expect(page).to have_button "Post"
+    expect(page).to have_button "Save"
   end
 end
