@@ -14,23 +14,43 @@ The `User` class is responsible for managing user data (name, email, pw, handle)
 
 
 ```
-╔════════════╗   .post, .view,...   ╔════════════╗ 
-║            ║--------------------->║   Model    ║
-║ Controller ║  [array of objects]  ║   (Peep)   ║ 
-║            ║<---------------------║            ║
-╚════════════╝                      ╚════════════╝    
-                                          |
-                                          |       ╔════════════╗
-                                          |       ║            ║            
-                                          |------>║    User    ║
-                                          |       ║            ║
-                                          |       ╚════════════╝
-                                          | 
-                                          |                     ╔════════════╗      SQL query         ╔════════════╗
-                                          |                     ║ Connection ║----------------------->║    SQL     ║
-                                          |-------------------->║   Manager  ║   {result object}      ║  Database  ║
-                                                                ║            ║<-----------------------║            ║
-                                                                ╚════════════╝                        ╚════════════╝
+   Client
+╔════════════╗  
+║            ║ Sends HTTP requests
+║  Browser   ║ (GET, POST, PATH, DELETE)      
+║            ║
+╚════════════╝
+      |
+      |
+      |
+Server (Sinatra Framework) is listening on a specific port
+╔════════════╗
+║            ║ Rack maps HTTP requests/response into/from Ruby
+║    RACK    ║ Rac gives you a DSL to write the web app
+║            ║
+╚════════════╝
+      |
+      |
+      |
+   app.rb                       Model                 
+╔════════════╗             ╔════════════╗       
+║            ║------------>║            ║       
+║ Controller ║             ║    Peep    ║  
+║            ║<------------║   (class)  ║       
+╚════════════╝             ╚════════════╝ 
+      |                           |
+╔════════════╗                    |              ╔════════════╗
+║            ║                    |              ║            ║            
+║   Views    ║                    |------------->║    User    ║
+║            ║                    |              ║  (class)   ║
+╚════════════╝                    |              ╚════════════╝
+ Embedded Ruby                    | 
+                                  |              ╔════════════╗    SQL query    ╔════════════╗
+                                  |              ║ Connection ║---------------->║    SQL     ║
+                                  |------------->║   Manager  ║ {result object} ║  Database  ║
+                                                 ║  (class)   ║<----------------║            ║
+                                                 ╚════════════╝                 ╚════════════╝
+                                                 PG gem required
 ```
 
 
