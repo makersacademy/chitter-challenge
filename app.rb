@@ -13,6 +13,11 @@ class Chitter < Sinatra::Base
     Messages.add(params['content'])
     redirect '/'
   end
+
+  post '/delete/:id' do
+    Messages.delete(params['id'])
+    redirect '/'
+  end
   
   run! if app_file == $0
 end

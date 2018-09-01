@@ -4,7 +4,7 @@ describe Messages do
 
   let(:messages) { described_class }
   let(:id) { '1' }
-  let(:content) { 'Hello world' }
+  let(:content) { 'Rspec test' }
   let(:created_at) { '2018-09-01 13:43:08.10135' }
   let(:message_object) { described_class.new(id, content, created_at) }
 
@@ -18,6 +18,13 @@ describe Messages do
   describe '#self.show' do
     it 'returns an array of message objects' do
       expect(messages.show).not_to be_empty
+    end
+  end
+
+  describe '#self.delete' do
+    it 'deletes a message' do
+      messages.delete(id)
+      expect(messages.show.length).to eq 2
     end
   end
 

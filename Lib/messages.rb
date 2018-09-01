@@ -18,6 +18,10 @@ class Messages
     retrieve_data.map { | message | Messages.new(message['id'], message['content'], message['created_at']) }
   end
 
+  def self.delete(id)
+    database_connection.exec( "DELETE FROM messages WHERE id = #{id}" )
+  end
+  
   private
 
   def self.retrieve_data
@@ -25,10 +29,10 @@ class Messages
   end
 
   def self.database_connection
-    in_test? ? PG.connect( dbname: 'chitter_test' ) : PG.connect( dbname: 'chitter' )
+    in_test ? PG.connect( dbname: 'chitter_test' ) : PG.connect( dbname: 'chitter' )
   end
 
-  def self.in_test?
+  def self.in_test
     ENV['RACK_ENV'] == 'test'
   end
 

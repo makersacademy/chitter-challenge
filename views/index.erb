@@ -7,9 +7,14 @@
 
 <% @messages.each do | message | %>
 
-<li>
-  <%= message.content %>
-</li>
+
+
+<strong><%= message.content %></strong> </br>
+Posted at: <%= message.created_at.slice(11,8) %> 
+
+<form action='/delete/<%= message.id %>' method='post'>
+  <input type='submit' value='delete <%= message.content %>'>
+</form>
 
 <% end %>
 
