@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/chit'
 
 class Chitter < Sinatra::Base
 
@@ -7,12 +8,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/chit' do
-    $chit = params[:chit]
     redirect '/chits'
   end
 
   get '/chits' do
-    @chit = $chit
+    @chits = Chit.all
     erb :chit
   end
 
