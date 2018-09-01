@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './lib/chit'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -7,15 +7,20 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/chit' do
-    chit = params[:chit]
-    Chit.create(chit)
-    redirect '/chits'
+  post '/peep' do
+    peep = params[:peep]
+    Peep.create(peep)
+    redirect '/peeps'
   end
 
-  get '/chits' do
-    @chits = Chit.all
+  get '/peeps' do
+    @peeps = Peep.all
     erb :chit
+  end
+
+  get '/peeps_reverse' do
+    @reverse_peep = Peep.reverse
+    erb :reverse
   end
 
   run! if app_file == $0

@@ -1,11 +1,11 @@
-require 'chit'
+require 'peep'
 
 describe 'all' do
   it 'shows a list of all chits' do
-    Chit.create("hey!")
-    Chit.create("bye!")
-    chits = Chit.all
-    expect(chits).to include("hey!")
-    expect(chits).to include("bye!")
+    Peep.create("hey!")
+    Peep.create("bye!")
+    peeps = Peep.all
+    expect(peeps).to include("hey!")
+    expect(peeps).to include("bye!")
   end
 end
