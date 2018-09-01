@@ -7,7 +7,7 @@
   </head>
 
   <body>
-    <h1>Chitter</h1><br>
+    <h1>Chitter</h1>
     <% if @current_user == nil %>
       <div class="button-container">
         <form action="/signup" method="get">
@@ -18,7 +18,7 @@
         </form>
       </div>
     <% else %>
-      @<%= @current_user.username %>:
+      <p>@<%= @current_user.username %></p>
       <div class="button-container">
         <form action="/peep" method="post">
           <input type="text" name="peep" >
@@ -29,11 +29,14 @@
         </form>
       </div>
     <% end %>
+    <br><br>
+    <% @peeps.each do | peep | %>
+      <div class="peep-container">
+        <div class="name"><%= peep.name %> (@<%= peep.username%>) peeped:</div><br>
+        <div class="text"><%= peep.text %></div><br>
+        <div class="time"><%= peep.time %></div>
+      </div><br>
+    <% end %>
 
-    <ul>
-      <% @peeps.each do | peep | %>
-        <li><%= peep.name %> (@<%= peep.username%>) peeped:<br><%= peep.text %><br><%= peep.time %></li>
-      <% end %>
-    </ul>
   </body>
 </html>

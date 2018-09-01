@@ -1,10 +1,97 @@
+body {
+  background-color: #F5F5F5;
+  background-image: url("./images/background.jpg");
+  background-size: 30%;
+  background-repeat: repeat;
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+@font-face {
+  font-family: "gotham";
+  src: url("./Gotham-Light.ttf");
+}
+
+h1 {
+  font-family: "gotham";
+  text-align: center;
+  padding-top: 20px;
+  font-size: 60px;
+}
+
 form{
-    width:200px;           //JUST FOR SHOW
-    height:200px;          //JUST FOR SHOW
-    margin:1em;
+  width:200px;
+  height:200px;
+  text-align: center;
 }
 
 .button-container form,
 .button-container form div {
-    display: inline;
+  display: inline;
+}
+
+.sign-up-container form,
+.sign-up-container form div {
+  margin: auto;
+}
+
+input[type=submit] {
+  padding-top: 12px;
+  padding-right: 12px;
+  background-color: #DCDCDC;
+  border: 1px solid #BFBFBF;
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  font-family: "gotham";
+  font-size: 20px;
+}
+
+p {
+  font-family: "gotham";
+  font-size: 25px;
+}
+
+input[type=text] {
+  height: 30px;
+  background-color: white;
+  width: 200px;
+  margin-bottom: 15px;
+}
+
+.peep-container {
+  margin: auto;
+  width: 30%;
+  border: 1px solid #BFBFBF;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.name {
+  font-family: "gotham";
+  text-align: left;
+  font-size: 10px;
+  color: #B3B3B3;
+  padding-top: 20px;
+  padding-bottom: 1px;
+  padding-left: 15px;
+}
+
+.text {
+  font-family: "gotham";
+  text-align: left;
+  font-size: 16px;
+  padding-left: 15px;
+}
+
+.time {
+  font-family: "gotham";
+  text-align: right;
+  font-size: 10px;
+  color: #DCDCDC;
+  padding-bottom: 8px;
+  padding-right: 8px;
 }

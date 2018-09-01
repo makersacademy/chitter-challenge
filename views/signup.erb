@@ -7,17 +7,18 @@
   </head>
 
   <body>
-    <h1>Chitter</h1><br>
+    <h1>Chitter</h1>
     <p>Sign up</p>
     <p><%= flash[:non_unique_details] %></p>
-    <form action="/signup" method="post">
-      <input type="text" name="name" value="Name">
-      <input type="text" name="email" value="Email">
-      <input type="text" name="password" value="Password">
-      <input type="text" name="username" value="Username">
-      <input type="submit" value="Sign up">
-    </form><br><br>
-
+    <div class="sign-up-container">
+      <form action="/signup" method="post">
+        <input type="text" name="name" value="Name">
+        <input type="text" name="email" value="Email">
+        <input type="text" name="password" value="Password">
+        <input type="text" name="username" value="Username">
+        <input type="submit" value="Sign up">
+      </form>
+    </div><br><br><br><br>
     <div class="button-container">
       <form action="/login" method="get">
         <input type="submit" value="Log in">

@@ -10,11 +10,13 @@
     <h1>Chitter</h1><br>
     <p>Log in</p>
     <p><%= flash[:invalid_login] %></p>
-    <form action="/login" method="post">
-      <input type="text" name="email" value="Email">
-      <input type="text" name="password" value="Password">
-      <input type="submit" value="Log in">
-    </form><br><br>
+    <div class="sign-up-container">
+      <form action="/login" method="post">
+        <input type="text" name="email" value="Email">
+        <input type="text" name="password" value="Password">
+        <input type="submit" value="Log in">
+      </form>
+    </div>
     <div class="button-container">
       <form action="/signup" method="get">
         <input type="submit" value="Sign up">
