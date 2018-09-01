@@ -3,6 +3,7 @@ require 'simplecov-console'
 require 'capybara'
 require 'rspec'
 require 'capybara/rspec'
+require 'setup_test_database'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
