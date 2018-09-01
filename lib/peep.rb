@@ -21,6 +21,10 @@ class Peep
     result.map { | peep | Peep.new(peep['id'], peep['text'], peep['time']) }.reverse!
   end
 
+  def self.signup(params)
+    User.signup(params)
+  end
+
   private
 
   def self.format_time
