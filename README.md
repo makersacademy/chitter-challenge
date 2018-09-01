@@ -29,7 +29,7 @@ The `User` class is responsible for managing user data (name, email, pw, handle)
 Server (Sinatra Framework) is listening on a specific port
 ╔════════════╗
 ║            ║ Rack maps HTTP requests/response into/from Ruby
-║    RACK    ║ Rac gives you a DSL to write the web app
+║    RACK    ║ Rack provides the DSL to write the web app
 ║            ║
 ╚════════════╝
       |
@@ -85,7 +85,7 @@ When a user signs up to Chitter a unique id is assigned to them. When the user p
 
 `"SELECT text, time, username, name FROM peeps JOIN users ON peeps.user_id=users.id;"`
 
-In this way "table normalisation" has been adhered to: the unique data (the text string for name and username) is recorded only once in the database.
+In this way "table normalisation" has been applied to the database design: the unique data (the text string for name and username) is recorded only once in the database.
 
 
 ## How to Install
@@ -133,9 +133,9 @@ The following test specs are included:
 
 I also have some simple methods in `./spec/features/web_helpers.rb` to keep my feature tests DRY.
 
-To ensure that the application connects to the correct database, when `app.rb` is first executed I run `database_connection_setup`. This connects to the correct database (either the test or development version). I determine which database to connect to by checking environment variables (within my rspec `spec_helper.rb` file I set the RACK_ENV to `test`; if the app is not called from the RSpec environment then this variable is set to `development`).
+To ensure that the application connects to the correct database, when `app.rb` is first executed I run `database_connection_setup`. This connects to the correct database (either the test or development version). I determine which database to connect to by evaluating an environment variable (within my rspec `spec_helper.rb` file I set the RACK_ENV to `test`; if the app is not called from the RSpec environment then this variable is set to `development`).
 
-See also `./spec/spec_helper.rb` where I've included method `setup_test_database` to be called before each rspec test, ensuring my test database is clean before any tests. 
+See also `./spec/spec_helper.rb` where I've included method `setup_test_database` to be called before each rspec test, ensuring my test database is clean before any tests (all tables are truncated before carrying out a test). 
 
 
 ## Some areas for improvement
