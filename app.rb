@@ -9,6 +9,12 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    unless session[:current_user] == nil
+      @current_user = session[:current_user]
+      @current_user_name = @current_user.user_name
+    else
+      @current_user_name = "no one"
+    end
     erb :welcome
   end
 
@@ -48,6 +54,25 @@ class Chitter < Sinatra::Base
       flash[:sign_up_notice] = "Sign up successful"
       redirect '/'
     end
+  end
+
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/log_in/check_details' do
+    unless Users.log_in_checker(params[:user_name], params[:password])
+      flash[:log_in_fail] = "User name and/or password incorrect"
+      redirect '/log_in'
+    else
+      session[:current_user] = Users.select_user(params[:user_name])
+      redirect '/'
+    end
+  end
+
+  get '/log_out' do
+    session[:current_user] = nil
+    redirect '/'
   end
 
   run! if app_file == $0

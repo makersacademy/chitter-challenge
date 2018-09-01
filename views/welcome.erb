@@ -1,11 +1,19 @@
-<!-- <form action="/sign_in" method="get">
-  <input type="submit" name="sign_in" value="SIGN IN" />
-</form> -->
+<%= flash[:sign_up_notice] %>
+<%= @current_user_name %> is currently logged in </br>
+
 <form action="/sign_up" method="get">
   <input type="submit" value="SIGN UP" />
 </form>
 
-<%= flash[:sign_up_notice] %>
-<!-- <form action="/peep_feed" method="get">
-  <input type="submit" name="view_peeps" value="VIEW PEEP FEED" />
-</form> -->
+<form action="/log_in" method="get">
+  <input type="submit" value="LOG IN" />
+</form>
+
+<form action="/log_out" method="get">
+  <input type="submit" value="LOG OUT" />
+</form>
+
+
+<form action="/peep_feed" method="get">
+  <input type="submit" value="VIEW PEEPS" />
+</form>

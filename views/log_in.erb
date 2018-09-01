@@ -1,12 +1,10 @@
-<form action="/sign_up/check_details" method="post">
-  NAME:<input type="text" name="name" size="60" maxlength="60" required /></br>
+<form action="/log_in/check_details" method="post">
   USER NAME:<input type="text" name="user_name" size="60" maxlength="60" required /></br>
-  EMAIL:<input type="email" name="email" size="60" maxlength="60" required /></br>
   PASSWORD:<input type="password" name="password" size="60" maxlength="60" required /></br>
   <input type="submit" value="Submit" />
 </form>
 
-<%= flash[:notice] %></br>
+<%= flash[:log_in_fail] %>
 
 <form action="/" method="get">
   <input type="submit" value="BACK TO MAIN MENU">
