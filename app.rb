@@ -27,8 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    username = User.signup(params)
-    session[:username] = username
+    session[:username] = User.signup(params)
     redirect '/'
   end
 
