@@ -5,7 +5,7 @@ class Peep
   def self.all
     connection = select_database
 
-    peeps = connection.exec("SELECT * FROM peeps")
+    peeps = connection.exec("SELECT * FROM peeps ORDER BY id DESC")
 
     peeps.map do |peep|
       peep["body"]
@@ -17,8 +17,6 @@ class Peep
 
     connection.exec("INSERT INTO peeps (body) VALUES ('#{peep}');")
   end
-
-  private
 
   def self.select_database
     if ENV['ENVIRONMENT'] == 'test'
