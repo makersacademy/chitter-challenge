@@ -1,15 +1,14 @@
 require 'sinatra/base'
+require_relative './lib/peep_manager.rb'
 
 class Chitter < Sinatra::Base
-
-  enable :sessions
 
   get '/' do
     'Testing infrastructure'
   end
 
   get '/peep_feed' do
-    @peep = sessions[:peep]
+    @peeps = Peeps.all
     erb :peep_feed
   end
 
@@ -18,7 +17,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/post_peep' do
-    session[:peep] = params[:peep_field]
+    Peeps.create(params[:peep_field])
+    redirect('peep_feed')
   end
 
   run! if app_file == $0

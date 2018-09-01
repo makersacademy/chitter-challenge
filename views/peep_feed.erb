@@ -1,1 +1,6 @@
-<%= @peep %>
+<form action="/post_peep" method="get">
+  <input type="submit" name="PEEP" value="PEEP" />
+</form>
+<% @peeps.reverse.each do |peep| %>
+  <%= peep.values[1] %></br>
+<% end %>

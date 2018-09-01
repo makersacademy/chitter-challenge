@@ -4,7 +4,7 @@ require './app'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-# require_relative './setup_test_database'
+require 'test_database_setup'
 
 Capybara.app = Chitter
 
@@ -25,6 +25,9 @@ RSpec.configure do |config|
   # config.before(:each) do
   #   setup_test_database
   # end
+  config.before(:each) do
+    test_database_setup
+  end
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
