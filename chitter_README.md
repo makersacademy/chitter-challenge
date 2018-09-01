@@ -52,9 +52,9 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 ```
-* A User would like to post a message on a page.
-* This message should be sent to a database.
-* A page should broadcast the users message.
+* A User would like to post a message on a page.    |  
+* This message should be sent to a database.        |
+* A page should broadcast the users message.        |
 
 
 Class Responsibility Collaborator Cards
@@ -112,11 +112,11 @@ y  | -    |          |                   |
 
 Peeps
 ```
-id | content | timestamp |  tags | poster_id
--------------------------------------------
-1  |  "abc"  |  dd/mm/yy | users | account_id
-2  |  "abc"  |           |       |
-3  |  "abc"  |           |       |
+id | content | timestamp | poster_id
+-----------------------------------
+1  |  "abc"  |  dd/mm/yy | account_id
+2  |  "abc"  |           |
+3  |  "abc"  |           |
 
 ```
 

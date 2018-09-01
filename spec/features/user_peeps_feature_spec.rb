@@ -1,11 +1,12 @@
 require './app'
+require './setup_database_connection'
 
-feature 'users can peep' do
-  scenario 'displayed on main page' do
+feature 'users peep' do
+  scenario 'is displayed on main page' do
     visit '/'
     click_button 'Make a Peep'
     fill_in('peep', with: 'test peep')
-    click_button 'Submit'
+    click_button 'Send'
     expect(page).to have_content 'test peep'
   end
 end
