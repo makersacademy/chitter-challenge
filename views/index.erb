@@ -1,11 +1,24 @@
 <h1>Chitter Homepage</h1><br>
-<form action="/peep" method="post">
-  <input type="text" name="peep" >
-  <input type="submit" value="Peep">
-</form>
+<% if @current_user == nil %>
+  <form action="/signup" method="get">
+    <input type="submit" value="Sign up">
+  </form>
+  <form action='/login' method="get">
+    <input type="submit" value="Log in">
+  </form>
+<% else %>
+  <%= @current_user.username %>:
+  <form action="/logout" method="post">
+    <input type="submit" value="Log out">
+  </form><br>
+  <form action="/peep" method="post">
+    <input type="text" name="peep" >
+    <input type="submit" value="Peep">
+  </form>
+<% end %>
 
 <ul>
     <% @peeps.each do | peep | %>
-      <li><%= peep.text %> was posted at <%= peep.time %></li>
+      <li><%= peep.username%> peeped:<br><%= peep.text %><br><%= peep.time %></li>
     <% end %>
 </ul>

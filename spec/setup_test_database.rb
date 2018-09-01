@@ -1,3 +1,4 @@
+# setup_test_database.rb
 require 'pg'
 
 def setup_test_database

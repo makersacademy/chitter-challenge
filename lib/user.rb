@@ -1,8 +1,10 @@
+# user.rb
 class User
 
-  attr_reader :username
+  attr_reader :username, :id
 
-  def initialize(username)
+  def initialize(id, username)
+    @id = id
     @username = username
   end
 
@@ -11,9 +13,21 @@ class User
     email = params['email']
     password = params['password']
     username = params['username']
-    sqlquery = "INSERT INTO users(name, email, password, username) VALUES('#{name}', '#{email}', '#{password}', '#{username}') RETURNING username;"
+    sqlquery = "INSERT INTO users(name, email, password, username) VALUES('#{name}', '#{email}', '#{password}', '#{username}') RETURNING id, username;"
     result = DatabaseConnection.query(sqlquery)
-    result[0]['username']
+    @current_user = User.new(result[0]['id'], result[0]['username'])
+  end
+
+  def self.login(params)
+    email = params['email']
+    password = params['password']
+    sqlquery = "SELECT username FROM users WHERE email='#{email}' AND password='#{password}';"
+    result = DatabaseConnection.query(sqlquery)
+    @current_user = User.new(result[0]['id'], result[0]['username'])
+  end
+
+  def self.current_user
+    @current_user
   end
 
 end

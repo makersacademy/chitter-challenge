@@ -1,10 +1,12 @@
+# feature_spec.rb
 require_relative '../setup_test_database'
 require_relative 'web_helpers'
 
-feature 'User has to sign in before being able to post' do
-  scenario 'before signing in the user cannot post' do
+feature 'User has to sign up before being able to post' do
+  scenario 'before signing up the user cannot post' do
     visit('/')
     expect(page).to have_button('Sign up')
+    click_button('Sign up')
     fill_in('name', with: 'Dave')
     fill_in('email', with: 'dave@dave.com')
     fill_in('password', with: 'pw123')
@@ -12,6 +14,12 @@ feature 'User has to sign in before being able to post' do
     click_button('Sign up')
     expect(page).to have_button('Peep')
   end
+
+  scenario 'after signing up the username is displayed' do
+    sign_up
+    expect(page).to have_content('dave123:')
+  end
+
 end
 
 feature 'User can post a peep to Chitter' do
@@ -20,6 +28,13 @@ feature 'User can post a peep to Chitter' do
     fill_in('peep', with: 'This is a test peep')
     click_button('Peep')
     expect(page).to have_content('This is a test peep')
+  end
+
+  scenario 'and see the username who peeped' do
+    sign_up
+    fill_in('peep', with: 'This is a test')
+    click_button('Peep')
+    expect(page).to have_content 'dave123 peeped:'
   end
 end
 
@@ -40,6 +55,39 @@ feature 'User can see peeps on Chitter' do
     fill_in('peep', with: 'test')
     click_button('Peep')
     formatted_time = Time.now.strftime('%I:%M%p on %m/%d/%Y')
-    expect(page).to have_content("test was posted at #{formatted_time}")
+    expect(page).to have_content("#{formatted_time}")
+  end
+end
+
+feature 'Users can logout' do
+  scenario 'given a user has already signed up they can logout' do
+    sign_up
+    expect(page).to have_button('Log out')
+    click_button('Log out')
+    expect(page).not_to have_button('Peep')
+  end
+end
+
+feature 'Existing users can login' do
+  scenario 'given a user has signed up and logged out, they can log in' do
+    sign_up
+    click_button('Log out')
+    click_button('Log in')
+    fill_in('email', with: 'dave@dave.com')
+    fill_in('password', with: 'pw123')
+    click_button('Log in')
+    expect(page).to have_button('Peep')
+    expect(page).to have_content('dave123')
+  end
+
+  scenario 'inputting invalid/non-existent login info raises a flash message' do
+    sign_up
+    click_button('Log out')
+    click_button('Log in')
+    fill_in('email', with: 'dave@dave.com')
+    fill_in('password', with: 'pw123')
+    click_button('Log in')
+    expect(page).to have_button('Peep')
+    expect(page).to have_content('dave123')
   end
 end

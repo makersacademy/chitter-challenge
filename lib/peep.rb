@@ -1,24 +1,25 @@
+# peep.rb
 class Peep
 
-  attr_reader :id, :text, :time
+  attr_reader :text, :time, :username
 
-  def initialize(id, text, time=nil)
-    @id = id
+  def initialize(text, time, username)
     @text = text
     @time = time
+    @username = username
   end
 
-  def self.create(peep)
+  def self.create(peep, user_id)
     time = format_time
-    sqlquery = "INSERT INTO peeps(text, time) VALUES('#{peep}', '#{time}') RETURNING id, text, time"
+    sqlquery = "INSERT INTO peeps(text, time, user_id) VALUES('#{peep}', '#{time}', '#{user_id}') RETURNING id, text, time"
     result = DatabaseConnection.query(sqlquery)
-    Peep.new(result[0]['id'], result[0]['text'], result[0]['time'])
+    Peep.new(result[0]['text'], result[0]['time'], result[0]['name'])
   end
 
   def self.all
-    sqlquery = "SELECT * FROM peeps;"
+    sqlquery = "SELECT text, time, username FROM peeps JOIN users ON peeps.user_id=users.id"
     result = DatabaseConnection.query(sqlquery)
-    result.map { | peep | Peep.new(peep['id'], peep['text'], peep['time']) }.reverse!
+    result.map { | peep | Peep.new(peep['text'], peep['time'], peep['username']) }.reverse!
   end
 
   private

@@ -1,3 +1,4 @@
+# app.rb
 require 'sinatra/base'
 require './lib/peep.rb'
 require './lib/user.rb'
@@ -9,16 +10,14 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override # allows us to use patch, delete etc
 
   get '/' do
-    if session[:username] == nil
-      redirect '/signup'
-    else
-      @peeps = Peep.all
-      erb(:index)
-    end
+    @current_user = session[:current_user]
+    @peeps = Peep.all
+    erb(:index)
   end
 
   post '/peep' do
-    Peep.create(params[:peep])
+    id = session[:current_user].id
+    Peep.create(params[:peep], id)
     redirect '/'
   end
 
@@ -27,7 +26,21 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    session[:username] = User.signup(params)
+    session[:current_user] = User.signup(params)
+    redirect '/'
+  end
+
+  get '/login' do
+    erb(:login)
+  end
+
+  post '/login' do
+    User.login(params)
+    redirect '/'
+  end
+
+  post '/logout' do
+    session[:current_user] = nil
     redirect '/'
   end
 
