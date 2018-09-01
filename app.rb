@@ -8,6 +8,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/chit' do
+    chit = params[:chit]
+    Chit.create(chit)
     redirect '/chits'
   end
 
