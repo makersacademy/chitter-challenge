@@ -21,11 +21,11 @@ class Messages
   def self.delete(id)
     database_connection.exec( "DELETE FROM messages WHERE id = #{id}" )
   end
-  
+
   private
 
   def self.retrieve_data
-    database_connection.exec( "SELECT * FROM messages" )
+    database_connection.exec( "SELECT * FROM messages ORDER BY id DESC" )
   end
 
   def self.database_connection

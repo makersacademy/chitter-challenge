@@ -4,19 +4,27 @@ require './lib/messages'
 class Chitter < Sinatra::Base
 
   get '/' do
-    @messages = Messages.show
     erb :index
   end
 
   post '/' do
-    p params
-    Messages.add(params['content'])
-    redirect '/'
+    redirect '/messages'
   end
 
-  post '/delete/:id' do
+  get '/messages' do
+    @messages = Messages.show
+    erb :messages
+  end
+
+  post '/messages' do
+    p params
+    Messages.add(params['content'])
+    redirect '/messages'
+  end
+
+  post 'messages/delete/:id' do
     Messages.delete(params['id'])
-    redirect '/'
+    redirect '/messages'
   end
   
   run! if app_file == $0

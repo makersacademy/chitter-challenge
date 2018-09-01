@@ -1,20 +1,6 @@
-<h2>Welcome to Chitter</h2>
+<a href='/messages'>Post a message</a>
 
 <form action='/' method='post'>
-  <h3>Enter your message</h3><input type='text' name='content'>
+  <input type='text' name='name'>
   <input type='submit' value='submit'>
 </form>
-
-<% @messages.each do | message | %>
-
-
-
-<strong><%= message.content %></strong> </br>
-Posted at: <%= message.created_at.slice(11,8) %> 
-
-<form action='/delete/<%= message.id %>' method='post'>
-  <input type='submit' value='delete <%= message.content %>'>
-</form>
-
-<% end %>
-

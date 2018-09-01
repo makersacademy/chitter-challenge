@@ -11,7 +11,7 @@ describe Messages do
   describe '#self.add' do
     it 'adds a message to the database' do
       messages.add(content)
-      expect(messages.show[-1].content).to eq content
+      expect(messages.show[0].content).to eq content
     end
   end
 
