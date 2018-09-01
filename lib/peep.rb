@@ -1,12 +1,13 @@
 # peep.rb
 class Peep
 
-  attr_reader :text, :time, :username
+  attr_reader :text, :time, :username, :name
 
-  def initialize(text, time, username)
+  def initialize(text, time, username, name=nil)
     @text = text
     @time = time
     @username = username
+    @name = name
   end
 
   def self.create(peep, user_id)
@@ -17,9 +18,9 @@ class Peep
   end
 
   def self.all
-    sqlquery = "SELECT text, time, username FROM peeps JOIN users ON peeps.user_id=users.id"
+    sqlquery = "SELECT text, time, username, name FROM peeps JOIN users ON peeps.user_id=users.id"
     result = DatabaseConnection.query(sqlquery)
-    result.map { | peep | Peep.new(peep['text'], peep['time'], peep['username']) }.reverse!
+    result.map { | peep | Peep.new(peep['text'], peep['time'], peep['username'], peep['name']) }.reverse!
   end
 
   private

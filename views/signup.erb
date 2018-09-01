@@ -1,16 +1,30 @@
-<h1>Chitter</h1><br>
-<p>Sign up</p>
-<form action="/signup" method="post">
-  <input type="text" name="name" value="Name">
-  <input type="text" name="email" value="Email">
-  <input type="text" name="password" value="Password">
-  <input type="text" name="username" value="Username">
-  <input type="submit" value="Sign up">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter - Sign up</title>
+    <link rel="stylesheet" type="text/css" href="chitter.css"/>
+  </head>
 
-<form action="/login" method="get">
-  <input type="submit" value="Log in">
-</form>
-<form action="/" method="get">
-  <input type="submit" value="Home">
-</form>
+  <body>
+    <h1>Chitter</h1><br>
+    <p>Sign up</p>
+    <p><%= flash[:non_unique_details] %></p>
+    <form action="/signup" method="post">
+      <input type="text" name="name" value="Name">
+      <input type="text" name="email" value="Email">
+      <input type="text" name="password" value="Password">
+      <input type="text" name="username" value="Username">
+      <input type="submit" value="Sign up">
+    </form><br><br>
+
+    <div class="button-container">
+      <form action="/login" method="get">
+        <input type="submit" value="Log in">
+      </form>
+      <form action="/" method="get">
+        <input type="submit" value="Home">
+      </form>
+    </div>
+  </body>
+</html>

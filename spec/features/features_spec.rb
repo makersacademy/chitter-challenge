@@ -25,6 +25,24 @@ feature 'User has to sign up before being able to post' do
     expect(page).to have_button('Peep')
   end
 
+  context 'given username is already taken' do
+    scenario 'flash message is displayed to alert user' do
+      sign_up
+      click_button('Log out')
+      sign_up_with_another_unique_email
+      expect(page).to have_content('Error: username already taken!')
+    end
+  end
+
+  context 'given email is already taken' do
+    scenario 'flash message is displayed to alert user' do
+      sign_up
+      click_button('Log out')
+      sign_up_with_another_unique_username
+      expect(page).to have_content('Error: email already taken!')
+    end
+  end
+
 end
 
 feature 'User can post a peep to Chitter' do
@@ -35,11 +53,11 @@ feature 'User can post a peep to Chitter' do
     expect(page).to have_content('This is a test peep')
   end
 
-  scenario 'and see the username of peep' do
+  scenario 'and see the username and name of peeper' do
     sign_up
     fill_in('peep', with: 'This is a test')
     click_button('Peep')
-    expect(page).to have_content 'dave123 peeped:'
+    expect(page).to have_content 'Dave (@dave123) peeped:'
   end
 end
 

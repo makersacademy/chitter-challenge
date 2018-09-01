@@ -13,6 +13,8 @@ class User
     email = params['email']
     password = params['password']
     username = params['username']
+    return :non_unique_email unless unique_email?(email)
+    return :non_unique_username unless unique_username?(username)
     sqlquery = "INSERT INTO users(name, email, password, username) VALUES('#{name}', '#{email}', '#{password}', '#{username}') RETURNING id, username;"
     result = DatabaseConnection.query(sqlquery)
     @current_user = User.new(result[0]['id'], result[0]['username'])
@@ -31,4 +33,15 @@ class User
     @current_user
   end
 
+  def self.unique_email?(email)
+    sqlquery = "SELECT email FROM users WHERE email='#{email}';"
+    result = DatabaseConnection.query(sqlquery)
+    result.ntuples == 0
+  end
+
+  def self.unique_username?(username)
+    sqlquery = "SELECT username FROM users WHERE username='#{username}';"
+    result = DatabaseConnection.query(sqlquery)
+    result.ntuples == 0
+  end
 end

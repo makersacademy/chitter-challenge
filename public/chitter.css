@@ -1,0 +1,10 @@
+form{
+    width:200px;           //JUST FOR SHOW
+    height:200px;          //JUST FOR SHOW
+    margin:1em;
+}
+
+.button-container form,
+.button-container form div {
+    display: inline;
+}
