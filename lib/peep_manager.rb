@@ -19,7 +19,7 @@ class Peeps
 
   def self.create(peep)
     result = database_connect.exec("INSERT INTO peeps (peep, created_at) VALUES('#{peep}', '#{created_time}') RETURNING id, peep, created_at;")
-    Peeps.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
+    # Peeps.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
   end
 
   def self.created_time
