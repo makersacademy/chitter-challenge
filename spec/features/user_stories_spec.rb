@@ -6,3 +6,9 @@ feature "can post a peep" do
     expect(page).to have_content("This is a post.")
   end
 end
+
+feature "can view peeps" do
+  scenario "in reverse chronological order" do
+    
+  end
+end 
