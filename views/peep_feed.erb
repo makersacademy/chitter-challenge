@@ -2,5 +2,10 @@
   <input type="submit" name="PEEP" value="PEEP" />
 </form>
 <% @peeps.reverse.each do |peep| %>
-  <%= peep.values[1] %></br>
+  <div class="boxed">
+    <%= peep.values[1] %>
+  </div>
+  <%= peep.values[2] %>
+  </br>
+</br>
 <% end %>

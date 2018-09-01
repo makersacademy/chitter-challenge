@@ -17,10 +17,19 @@ describe Peeps do
   end
 
   describe '.create' do
-    it 'creates the bookmark' do
+    it 'creates the peep' do
       Peeps.create('Test peep')
       peep = Peeps.all
       expect(peep[0].values[1]).to eq 'Test peep'
+    end
+  end
+
+  describe '.create' do
+    it 'creates a timestamp for a peep' do
+      allow(Peeps).to receive(:created_time).and_return "September 1, 2018 at 12:11 PM"
+      Peeps.create('Test peep')
+      peep = Peeps.all
+      expect(peep[0].values[2]).to eq "September 1, 2018 at 12:11 PM"
     end
   end
 end

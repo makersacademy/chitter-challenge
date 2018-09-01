@@ -8,7 +8,11 @@ class Peeps
   end
 
   def self.create(peep)
-    database_connect.exec("INSERT INTO peeps (peep) VALUES('#{peep}');")
+    database_connect.exec("INSERT INTO peeps (peep, created_at) VALUES('#{peep}', '#{created_time}');")
+  end
+
+  def self.created_time
+    return Time.at(Time.now.to_i).strftime("%B %e, %Y at %I:%M %p")
   end
 
   def self.database_connect
