@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  post'/peeps' do
+  post '/peeps' do
     redirect '/peeps'
   end
 
