@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Post</title>
+</head>
+<body>
+  <h3>Welcome to Chitter, 
+    <% if @user %>
+    <%= @user.username %></h3>  
+    <% end %>
+  <form action="/peeps" method="post">
+    <input type="text" name="message">
+    <input type="submit" value="Post">    
+  </form>
+</body>
+</html>
