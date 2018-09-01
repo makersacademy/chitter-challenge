@@ -1,5 +1,22 @@
+# require testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+require './app'
+
 require 'simplecov'
 require 'simplecov-console'
+# require_relative './setup_test_database'
+
+ENV['ENVIRONMENT'] = 'test'
+ENV['RACK_ENV'] = 'test'
+
+# Bring in the contents of the app.rb file
+# require File.join(File.dirname(FILE), '..', 'app.rb')
+
+# Tell Capybara to talk to Chitter
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -7,6 +24,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+# RSpec.configure do |config|
+#   config.before(:each) do
+#     setup_test_database
+#   end
+# end
 
 RSpec.configure do |config|
   config.after(:suite) do
