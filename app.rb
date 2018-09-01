@@ -3,7 +3,15 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'hello world!'
+    erb :index
+  end
+
+  get '/send_peep' do
+    erb :send_peep
+  end
+
+  post '/send_peep' do
+    erb :send_peep
   end
 
   # start the server if ruby file executed directly
