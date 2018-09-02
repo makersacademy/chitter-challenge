@@ -1,4 +1,4 @@
-require 'create_new_peep_helper'
+require 'peep_helpers'
 
 feature "Messages are displayed in reverse chronological order" do
   let(:example_1) { "abc" }

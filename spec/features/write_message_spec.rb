@@ -1,4 +1,4 @@
-require 'create_new_peep_helper'
+require 'peep_helpers'
 
 feature "User can write a Peep" do
 

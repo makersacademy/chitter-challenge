@@ -42,5 +42,18 @@ class App < Sinatra::Base
     erb :view_all
   end
 
+  get "/sign_up" do
+    erb :sign_up
+  end
+
+  post "/new_user" do
+    User.create!(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    redirect "/sign_up_success"
+  end
+
+  get "/sign_up_success" do
+    erb :sign_up_success
+  end
+
   run! if app_file == $0
 end
