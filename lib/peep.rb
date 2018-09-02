@@ -9,32 +9,21 @@ class Peep
   end
 
   def self.all
-
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
-    result = connection.exec("SELECT * FROM feed;")
-
+    result = connection_to_database.exec("SELECT * FROM feed;")
     result.map do |peep|
       Peep.new(peep['id'], peep['peep'])
     end
   end
 
   def self.create(content)
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
-    result = connection.exec("INSERT INTO feed (peep) values ('#{content}');")
+    result = connection_to_database.exec("INSERT INTO feed (peep) VALUES ('#{content}') RETURNING id, peep;")
+    Peep.new(result[0]['id'], result[0]['peep'])
   end
 
-  # def self.connect_to_database
-  #   ENV['RACK_ENV'] == 'test' ? (db = 'bookmark_manager_test') : (db = 'bookmark_manager')
-  #   @connection = PG.connect(dbname: db)
-  # end
+private
+
+  def self.connection_to_database
+    ENV['RACK_ENV'] == 'test' ? (db = 'chitter_test') : (db = 'chitter')
+    PG.connect(dbname: db)
+  end
 end

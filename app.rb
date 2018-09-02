@@ -13,10 +13,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/feed/send_peep' do
-    peep = params[:peep_content]
+    peep = params[:peep_box]
     Peep.create(peep)
 
-    redirect '/feed'
+    redirect('/feed')
   end
 
 end
