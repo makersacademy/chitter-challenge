@@ -44,6 +44,19 @@ describe Peep do
   end
 
 
+  describe '.update' do
+    it 'updates a peep in the chitter feed' do
+      peep = Peep.create("Mug is white")
+      updated_peep = Peep.update(peep.id, "Mug is NOT white")
+
+      expect(updated_peep).to be_a Peep
+      expect(updated_peep.id).to eq(peep.id)
+      expect(updated_peep.text).to eq("Mug is NOT white")
+
+    end
+  end
+
+
 
 
 end

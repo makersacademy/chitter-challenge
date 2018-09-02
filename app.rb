@@ -31,6 +31,19 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/peeps/:id/edit' do
+    @peep_id = params[:id]
+    erb :'peeps/edit'
+  end
+
+
+  patch '/peeps/:id' do
+    p params
+    Peep.update(params[:id], params[:text])
+  #  "UPDATE bookmarks SET title='#{title}', url='#{url}' WHERE id='#{id}' RETURNING id, url, title;"
+    redirect '/peeps'
+  end
+
 
 run! if app_file == $0
 end

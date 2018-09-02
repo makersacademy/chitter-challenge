@@ -36,6 +36,18 @@ class Peep
   end
 
 
+  def self.update(id, text)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    result = connection.exec("UPDATE peeps SET text='#{text}' WHERE id='#{id}' RETURNING id, text;")
+    Peep.new(result[0]['id'], result[0]['text'])
+  end
+
+
+
 
   attr_reader :id, :text
 

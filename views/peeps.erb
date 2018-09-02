@@ -21,6 +21,10 @@
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" name="" value="Delete">
         </form>
+
+        <form class="" action="/peeps/<%= peep.id %>/edit" method="get">
+          <input type="submit" name="" value="Edit">
+        </form>
       </li>
       <% end %>
     </ul>
