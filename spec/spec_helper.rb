@@ -15,6 +15,7 @@ Capybara.app = App
 RSpec.configure do |config|
 
   config.before(:suite) do
+    ActiveRecord::Base.logger = nil
     ["users", "messages"].each do |table|
       ActiveRecord::Base.connection.execute(File.read("db/setup/#{table}.sql"))
     end
