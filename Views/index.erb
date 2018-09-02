@@ -7,13 +7,35 @@
   </head>
   <body>
     <h1>Chitter Feed</h1>
-    <div class="new_peep">
-      <form class="peep_entry" action="/new_peep" method="post">
-        <label for="new_peep">Enter Peep</label>
-        <input class="wide_input" type="text" name="new_peep">
-        <input type="submit" value="Submit">
-      </form>
+    <div class="login">
+      <!--  -->
+      <% if @active == nil %>
+        <form action="/register" method="get">
+          <input id="register_user" type="submit" value="Register">
+        </form>
+        <form action="/login" method="get">
+          <input id="login" type="submit" value="Log in">
+        </form>
+
+      <% else %>
+        Active user: <%= @active.username %>
+        <br>
+        <form action="/logout" method="get">
+          <input id="logout" type="submit" value="Log out">
+        </form>
+
+        <div class="new_peep">
+          <form class="peep_entry" action="/new_peep" method="post">
+            <label for="new_peep">Enter Peep</label>
+            <input class="wide_input" type="text" name="new_peep">
+            <input id="submit_peep" type="submit" value="Submit">
+          </form>
+        </div>
+
+      <% end %>
+
     </div>
+
     <div class="feed">
       <% @peeps.reverse_each do |peep| %>
         <div class="peep">

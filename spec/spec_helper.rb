@@ -19,6 +19,7 @@ SimpleCov.start
 RSpec.configure do |config|
   config.before(:each) do
     delete_and_fill_database
+    log_out_active
   end
 
   config.after(:suite) do

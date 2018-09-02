@@ -5,17 +5,18 @@ class Peep
 
   def self.all
     rs = DatabaseConnection.query("SELECT * FROM peeps")
-    rs.map{ |peep| Peep.new(peep['comment']) }
+    rs.map{ |peep| Peep.new(peep['comment'], peep['time']) }
   end
 
   def self.create(text)
-    rs = DatabaseConnection.query("INSERT INTO peeps (comment) VALUES ('#{text}') RETURNING id, comment, user_id, time;")
-    Peep.new(rs[0]['comment'])
+    rs = DatabaseConnection.query("INSERT INTO peeps (comment, time) VALUES ('#{text}', '#{Time.new}') RETURNING id, comment, user_id, time;")
+    Peep.new(rs[0]['comment'], rs[0]['time'])
   end
 
-  def initialize(text)
+  def initialize(text, time)
+    time = Time.parse(time)
     @text = text
-    @time = Time.new
+    @time = time
   end
 
   def nice_date
@@ -25,7 +26,6 @@ class Peep
   end
 
   def nice_time
-    p time.min
     min = two_digit(time.min.to_s)
     hour = two_digit(time.hour.to_s)
     "#{hour}:#{min}"
