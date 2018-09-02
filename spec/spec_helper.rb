@@ -24,7 +24,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-Capybara.app = BookmarkManager
+Capybara.app = ChitterChallenge
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
