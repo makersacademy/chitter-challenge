@@ -12,8 +12,8 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post "/peep/new" do
-    Peep.add(params[:new_peep])
+  post "/peep/:user_id/new" do
+    Peep.add(params[:new_peep], params[:user_id])
     redirect "/"
   end
 

@@ -2,7 +2,7 @@ require_relative './web_helpers.rb'
 
 feature "can post a peep" do
   scenario "can submit a peep" do
-    visit("/")
+    sign_up
     fill_in 'new_peep', with: "This is a post."
     click_button 'Submit'
     expect(page).to have_content("This is a post.")
@@ -11,6 +11,7 @@ end
 
 feature "can view peeps" do
   scenario "in reverse chronological order" do
+    sign_up
     submit_peep
     fill_in 'new_peep', with: "This is another post."
     click_button 'Submit'
@@ -22,6 +23,7 @@ end
 
 feature "can see when a peep was made" do
   scenario "will display a timestamp" do
+    sign_up
     submit_peep
     expect(page).to have_content("Posted at")
   end
