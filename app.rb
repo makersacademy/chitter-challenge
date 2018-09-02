@@ -8,7 +8,7 @@ class ChitterChallenge < Sinatra::Base
     erb(:index)
   end
 
-  get '/peeps' do
+  get '/peeps/index' do
     @peeps = Peep.all
     erb(:peeps)
   end
