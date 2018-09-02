@@ -1,5 +1,4 @@
 # Chitter Challenge
-=================
 
 This challenge aims to build a clone of 'Twitter' using the framework Sinatra, Ruby and PostgreSQL databases.
 This program was built test-first using RSpec and Capybara.
@@ -10,7 +9,7 @@ At the moment, this program doesn't include the following functionalities:
 
 Preview
 -------
-![Chitter Preview](./public/img/chitter.gif)
+![Chitter Preview](./public/img/Chitter.gif)
 
 Run the app
 -------
