@@ -15,3 +15,12 @@ feature 'Adding peeps' do
     expect(page).to have_content 'I do hope this works'
   end
 end
+
+feature 'Registering users' do
+  scenario 'user can register' do
+    visit('register')
+    fill_in :peep_input, with: 'I do hope this works'
+    click_button 'Submit'
+    expect(page).to have_content 'I do hope this works'
+  end
+end
