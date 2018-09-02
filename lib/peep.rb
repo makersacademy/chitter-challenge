@@ -47,6 +47,19 @@ class Peep
   end
 
 
+  def self.find(id)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    result = connection.exec("SELECT * FROM peeps WHERE id = #{id};")
+    Peep.new(result[0]['id'], result[0]['text'])
+  end
+
+  
+
+
 
 
   attr_reader :id, :text

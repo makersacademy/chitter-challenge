@@ -52,7 +52,18 @@ describe Peep do
       expect(updated_peep).to be_a Peep
       expect(updated_peep.id).to eq(peep.id)
       expect(updated_peep.text).to eq("Mug is NOT white")
+    end
+  end
 
+  describe '.find' do
+    it 'returns the requested peep' do
+      peep = Peep.create("bees make honey")
+
+      result = Peep.find(peep.id)
+
+      expect(result).to be_a Peep
+      expect(result.id).to eq(peep.id)
+      expect(result.text).to eq("bees make honey")
     end
   end
 

@@ -15,7 +15,7 @@ feature 'Edit peeps' do
     fill_in('text', :with => "bananas are red")
     click_button("Submit")
 
-    expect(current_path).to eq('/peeps')
+    expect(current_path).to eq '/peeps'
     expect(page).not_to have_content("bananas are yellow")
     expect(page).to have_content("bananas are red")
   end

@@ -1,5 +1,5 @@
-<form class="" action="/peeps/<%= @peep_id %>" method="post">
+<form class="" action="/peeps/<%= @peep.id %>" method="post">
   <input type="hidden" name="_method" value="PATCH">
-  <input type="text" name="text" value="">
+  <input type="text" name="text" value="<%= @peep.text %>">
   <input type="submit" name="" value="Submit">
 </form>
