@@ -8,3 +8,11 @@ describe '.all' do
     expect(peeps.first.peep).to eq "hello world!"
   end
 end
+
+describe '.create' do
+  it 'it creates a new peep' do
+    peep = Peep.create('i am the peep_spec test')
+    expect(peep).to be_a Peep
+    expect(peep.peep).to eq "i am the peep_spec test"
+  end
+end
