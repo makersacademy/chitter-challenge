@@ -17,20 +17,33 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users;")
 
     result.map do |user|
-      User.new(user["id"], user["email"], user["username"], user["name"], user["password"])
+      id = user["id"]
+      email = user["email"]
+      username = user["username"]
+      name = user["name"]
+      password = user["password"]
+
+      User.new(id, email, username, name, password)
     end
   end
 
   def self.create(details)
     select_database
 
+    email = details[:email]
+    username = details[:username]
+    name = details[:name]
+    password = details[:password]
+
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password, username, name)
-      VALUES ('#{details[:email]}', '#{details[:password]}', '#{details[:username]}', '#{details[:name]}')
+      VALUES ('#{email}', '#{password}', '#{username}', '#{name}')
       RETURNING id, email, username, password, name;"
     )
 
-    User.new(result[0]["id"], result[0]["email"], result[0]["username"], result[0]["name"], result[0]["password"])
+    id = result[0]["id"]
+
+    User.new(id, email, username, name, password)  
   end
 
   def self.find(id)
