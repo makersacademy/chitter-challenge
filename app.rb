@@ -20,7 +20,7 @@ class ChitterManager < Sinatra::Base
 
   get '/view_peeps_descending' do
     @peeps = Peep.view_peeps_descending
-    erb :home
+    erb :view_descending
     #"Hi"
   end
 
