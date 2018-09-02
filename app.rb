@@ -9,7 +9,7 @@ class ChitterChallenge < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    @order_message = "List Newest first"
+    @order_message = "List Oldest first"
     @order = true
     @peeps_url = '/peeps/asc'
 
@@ -18,7 +18,7 @@ class ChitterChallenge < Sinatra::Base
 
   get '/peeps/asc' do
     @peeps = Peep.all_asc
-    @order_message = "List Oldest first"
+    @order_message = "List Newest first"
     @order = false
     @peeps_url = '/peeps'
 
