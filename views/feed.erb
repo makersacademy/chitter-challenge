@@ -1,14 +1,25 @@
+<head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  
 <body style='text-align: center'>
-  <h1>Chitter</h1>
+
+  <div class="header">
+      <h1>Chitter.</h1>
+  </div>
+    
+  <div class="topnav">
+      <a href="/">Log In</a>
+    </div>
 
   <form action="/new" method="post">
-    <input type="text" name="peep" placeholder="Write a new peep...">
+    <input type="text" name="peep"   placeholder="Write a new peep...">
     <input type="submit" value="Post">
   </form>
 
   <%@peep.each do |peep|%>
     <%=peep.text%><br>
-    <%=peep.date%><%=peep.time%><br>
+    <%=peep.date%> <%=peep.time%><br><br>
   <%end%>
 </body>
 

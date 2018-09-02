@@ -10,6 +10,9 @@
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made
 
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to sign up for Chitter
 
 feature 'Posting Peeps' do 
   scenario 'user can post a peep to chitter' do
@@ -21,20 +24,9 @@ feature 'Posting Peeps' do
   end
 end
 
-feature 'Reverse chronology' do
-  # scenario 'peeps are shown in reverse chronological order' do
-  #   visit '/'
-  #   fill_in :peep, with: 'One'; click_button 'Post'
-  #   fill_in :peep, with: 'Two'; click_button 'Post'
-  #   fill_in :peep, with: 'Three'; click_button 'Post'
-  #   expect(page).to have_content 'Three Two One'
-  # end
-end
-
-feature 'Time of post' do
-  scenario 'user can see when each post was made' do
-    visit '/'
-    # expect(page).to have_content 'Three Two One'
-  end
-end
-
+# feature 'Posting Peeps' do 
+#   scenario 'user can post a peep to chitter' do
+#     visit '/'
+#     click_button 
+#   end
+# end
