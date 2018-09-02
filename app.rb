@@ -1,8 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/profile'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -13,9 +16,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    Profile.create(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
+    flash[:notice] = 'You must submit a valid email address.' unless Profile.create(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
     erb :signup
-    redirect '/send_peep'
+    redirect '/'
   end
 
   get '/send_peep' do

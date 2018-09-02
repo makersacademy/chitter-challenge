@@ -1,3 +1,6 @@
+require 'pg'
+require 'uri'
+
 class Profile
 
   def self.all
@@ -12,6 +15,7 @@ class Profile
   end
 
   def self.create(username:, name:, email:, password:)
+    return false unless is_email?(email)
     if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
@@ -20,4 +24,11 @@ class Profile
 
     result = connection.exec("INSERT INTO profile (username, name, email, password) VALUES( '#{username}', '#{name}', '#{email}', '#{password}' );")
   end
+
+private
+
+  def self.is_email?(email)
+    email =~ /\A#{URI::regexp(['@'])}\z/
+  end
+
 end
