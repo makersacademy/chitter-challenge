@@ -1,1 +1,6 @@
-<h1>hello world!</h1>
+<h1>List of Peeps</h1>
+<ul>
+    <% @peeps.each do |peep| %>
+      <li><%= peep.peep %> </li>
+    <% end %>
+</ul>
