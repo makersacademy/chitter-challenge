@@ -17,7 +17,7 @@ describe Peep do
       expect(peeps.length).to eq 3
       expect(peep).to be_a Peep
       expect(peep).to respond_to(:id)
-      expect(peep.text).to eq('the sky is blue')
+      expect(peep.text).to eq('fire is red')
     end
   end
 

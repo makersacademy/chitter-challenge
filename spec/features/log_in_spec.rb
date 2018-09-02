@@ -5,8 +5,8 @@ feature 'Log in page' do
   scenario 'a social media user can land on the home page and log in to chitter' do
     visit('/')
     expect(page).to have_content('Chitter')
-    expect(page).to have_button('Log in')
-    click_button('Log in')
-    expect(page).to have_content('Chitter')
+    expect(page).to have_button('Log in / Register')
+    click_button('Log in / Register')
+    expect(page).to have_content('Log in / Register')
   end
 end

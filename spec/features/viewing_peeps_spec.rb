@@ -1,7 +1,7 @@
 feature 'Viewing peeps' do
   # as a social media user
   # so i can see the chitter feed
-  # i want to be able to view the chitter peeps
+  # i want to be able to view the chitter peeps in reverse chronological order
   scenario 'A user can see the peeps' do
 
     connection = PG.connect(dbname: 'chitter_test')

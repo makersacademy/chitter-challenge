@@ -39,5 +39,17 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+
+  post '/users' do
+    #create the user - then
+    redirect '/peeps'
+  end
+
   run! if app_file == $0
 end

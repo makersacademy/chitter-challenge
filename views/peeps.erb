@@ -17,6 +17,8 @@
       <% @peeps.each do |peep| %>
       <li class="peep" id="peep-<%= peep.id %>">
         <%= peep.text %>
+        <br>
+        <p>Timestamp: <%= peep.created_at %></p>
         <form class="" action="/peeps/<%= peep.id %>" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" name="" value="Delete">
