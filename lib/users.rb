@@ -1,6 +1,9 @@
+require_relative './database_connect'
 require 'pg'
 
 class Users
+
+  extend DatabaseConnect
 
   attr_reader :id, :name, :user_name
 
@@ -18,16 +21,6 @@ class Users
     result = database_connect.exec("SELECT id, name, user_name FROM users")
     result.map do |user|
       return Users.new(id: user['id'], name: user['name'], user_name: user['user_name']) if user.values[2] == user_name
-    end
-  end
-
-  private
-
-  def self.database_connect
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
     end
   end
 

@@ -1,6 +1,9 @@
+require_relative './database_connect'
 require 'pg'
 
 class Peeps
+
+  extend DatabaseConnect
 
   attr_reader :peep, :created_at, :name, :user_name
 
@@ -24,14 +27,6 @@ class Peeps
 
   def self.created_time
     return Time.at(Time.now.to_i).strftime("%B %e, %Y at %I:%M %p")
-  end
-
-  def self.database_connect
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
   end
 
 end

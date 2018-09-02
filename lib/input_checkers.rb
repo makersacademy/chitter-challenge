@@ -1,6 +1,9 @@
+require_relative './database_connect'
 require 'pg'
 
-class Input_checkers
+class InputCheckers
+
+  extend DatabaseConnect
 
   def self.unique_input_checker(option, checking_key)
     result = database_connect.exec("SELECT #{checking_key} FROM users;")
@@ -16,16 +19,6 @@ class Input_checkers
       return true if items.values[0] == user_name && items.values[1] == password
     end
     false
-  end
-
-  private
-
-  def self.database_connect
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
   end
 
 end

@@ -41,10 +41,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up/check_details' do
-    if Input_checkers.unique_input_checker(params[:email], :email)
+    if InputCheckers.unique_input_checker(params[:email], :email)
       flash[:notice] = "Email address already in use"
       redirect '/sign_up'
-    elsif Input_checkers.unique_input_checker(params[:user_name], :user_name)
+    elsif InputCheckers.unique_input_checker(params[:user_name], :user_name)
       flash[:notice] = "User name already in use"
       redirect '/sign_up'
     else
@@ -59,7 +59,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_in/check_details' do
-    unless Input_checkers.log_in_checker(params[:user_name], params[:password])
+    unless InputCheckers.log_in_checker(params[:user_name], params[:password])
       flash[:log_in_fail] = "User name and/or password incorrect"
       redirect '/log_in'
     else
