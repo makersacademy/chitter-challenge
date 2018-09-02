@@ -1,7 +1,14 @@
 feature "see peeps" do
 
   before do
-    add_example_tweets
+    visit '/feed'
+
+    fill_in('peep_box', with: 'first peep')
+    click_button 'send peep'
+    fill_in('peep_box', with: 'second peep')
+    click_button 'send peep'
+    fill_in('peep_box', with: 'third peep')
+    click_button 'send peep'
   end
 
   scenario "see peeps" do
@@ -12,7 +19,7 @@ feature "see peeps" do
   end
 
   scenario "see peeps in reverse order" do
-
+    expect(page.body.index('second peep')).to be < page.body.index('first peep')
   end
 
 end

@@ -10,11 +10,10 @@ class Peep
   end
 
   def self.all
-    # May be to run this with ORDERED BY id/timestamp DESC
-    result = connection_to_database.exec("SELECT * FROM feed;")
-    # for each row
+    result = connection_to_database.exec("SELECT * FROM feed ORDER BY timestamp DESC;")
     result.map do |peep|
       Peep.new(peep['id'], peep['peep'], peep['timestamp'])
+      # This is currently creating new ones each time, why?
     end
   end
 
