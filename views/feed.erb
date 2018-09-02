@@ -1,9 +1,9 @@
 <!-- only add this after authentication?  -->
-<!-- <form action="/send_peep" method="post">
+<form action="/send_peep" method="post">
   <label for="peep_content"> What would you like to say? </label>
   <input type="text" name="create peep">
   <input type="submit" value="send peep">
-</form> -->
+</form>
 
 <% @peeps.each do |peep| %>
   <li> <%= peep.content %> </li>

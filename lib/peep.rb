@@ -9,7 +9,13 @@ class Peep
   end
 
   def self.all
-    connection = PG.connect(dbname: 'chitter')
+
+    if ENV['RACK_ENV'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
     result = connection.exec("SELECT * FROM feed;")
 
     result.map do |peep|
@@ -18,11 +24,17 @@ class Peep
   end
 
   def self.create(content)
-    connection = PG.connect(dbname: 'chitter')
+    if ENV['RACK_ENV'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
     result = connection.exec("INSERT INTO feed (peep) values ('#{content}');")
   end
 
-  # def connect_to_database
-
+  # def self.connect_to_database
+  #   ENV['RACK_ENV'] == 'test' ? (db = 'bookmark_manager_test') : (db = 'bookmark_manager')
+  #   @connection = PG.connect(dbname: db)
   # end
 end
