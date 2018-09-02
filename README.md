@@ -11,6 +11,7 @@
   /_/`"\\___
         `~~~`
 ```
+### PARTIAL COMPLETE
 
 #### User Stories
 
@@ -31,3 +32,7 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
 #### Domain Model
+```
+![Imgur](https://i.imgur.com/8jTGnnh.jpg)
+
+```
