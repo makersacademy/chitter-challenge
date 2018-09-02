@@ -13,8 +13,8 @@ describe Peep do
   describe ".all" do
     it "will return the body of the peep" do
       Peep.add("This is a post.", 1)
-      Peep.add("This is another post.", 2)
-      Peep.add("Yet again, this is a new post.", 3)
+      Peep.add("This is another post.", 1)
+      Peep.add("Yet again, this is a new post.", 1)
       
       peeps = Peep.all
       peep = Peep.all.first
