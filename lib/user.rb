@@ -17,7 +17,7 @@ class User
   end
 
   def self.login(email:, password:)
-    sqlquery = "SELECT username FROM users WHERE email='#{email}' AND password='#{password}';"
+    sqlquery = "SELECT id, username FROM users WHERE email='#{email}' AND password='#{password}';"
     result = DatabaseConnection.query(sqlquery)
     return nil if result.ntuples.zero?
     @current_user = User.new(result[0]['id'], result[0]['username'])

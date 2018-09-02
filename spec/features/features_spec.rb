@@ -60,6 +60,15 @@ feature 'User can post a peep to Chitter' do
     click_button('Peep')
     expect(page).to have_content 'Dave (@dave123) peeped:'
   end
+
+  scenario 'even if they are a returning user' do
+    sign_up
+    click_button('Log out')
+    log_in
+    fill_in('peep', with: 'This is a test')
+    click_button('Peep')
+    expect(page).to have_content 'Dave (@dave123) peeped:'
+  end
 end
 
 feature 'User can see peeps on Chitter' do

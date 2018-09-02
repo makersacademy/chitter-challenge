@@ -29,3 +29,10 @@ def sign_up_with_another_unique_username
   fill_in('username', with: 'dave1234')
   click_button('Sign up')
 end
+
+def log_in
+  click_button('Log in')
+  fill_in('email', with: 'dave@dave.com')
+  fill_in('password', with: 'pw123')
+  click_button('Log in')
+end
