@@ -1,6 +1,10 @@
 feature 'Can add a post' do
   it 'Adds a post to the chitter feed' do
     visit '/'
+    find('#login').click
+    fill_in :username, with: 'andrew'
+    fill_in :password, with: 'pwd12'
+    click_button "Submit"
     expect(page).to have_field :new_peep
     peep = "Hey everyone, just smashing out some code."
     fill_in :new_peep, with: peep

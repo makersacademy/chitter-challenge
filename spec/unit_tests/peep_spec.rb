@@ -1,8 +1,10 @@
 require 'peep'
 
 describe Peep do
+  let(:user_klass) { double :user_klass, active: user}
+  let(:user) { double :user, id: 1 }
   let(:comment) { 'Hi all. Just coding away' }
-  subject { described_class.create(comment) }
+  subject { described_class.create(comment, user_klass) }
   it 'saves the comment to the database' do
     expect(subject.text).to eq comment
   end

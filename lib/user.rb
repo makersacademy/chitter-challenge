@@ -2,7 +2,7 @@ require_relative 'database_connection'
 
 class User
 
-  attr_reader :username, :name, :email
+  attr_reader :username, :name, :email, :id
 
   def self.create(username, name, email, password)
     rs = DatabaseConnection.query("INSERT INTO users (username, name, email, password) VALUES ('#{username}', '#{name}', '#{email}', '#{password}') RETURNING id, username, name, email, password;")

@@ -1,22 +1,31 @@
 require_relative 'database_connection'
+require_relative 'user'
 
 class Peep
-  attr_reader :text, :time
+  attr_reader :text, :time, :username, :name
 
   def self.all
     rs = DatabaseConnection.query("SELECT * FROM peeps")
-    rs.map{ |peep| Peep.new(peep['comment'], peep['time']) }
+    rs.map{ |peep| Peep.new(peep['user_id'], peep['comment'], peep['time']) }
   end
 
-  def self.create(text)
-    rs = DatabaseConnection.query("INSERT INTO peeps (comment, time) VALUES ('#{text}', '#{Time.new}') RETURNING id, comment, user_id, time;")
-    Peep.new(rs[0]['comment'], rs[0]['time'])
+  def self.create(text, user_klass = User)
+    user_id = user_klass.active.id
+    rs = DatabaseConnection.query("INSERT INTO peeps (user_id, comment, time) VALUES ('#{user_id}', '#{text}', '#{Time.new}') RETURNING id, comment, user_id, time;")
+    Peep.new(rs[0]['user_id'], rs[0]['comment'], rs[0]['time'])
   end
 
-  def initialize(text, time)
+  def initialize(user_id, text, time)
     time = Time.parse(time)
+    @user_id = user_id
+    @username, @name = get_user_detail(user_id)
     @text = text
     @time = time
+  end
+
+  def get_user_detail(target_user_id)
+    rs = DatabaseConnection.query("SELECT username, name FROM users WHERE id = #{target_user_id}")
+    [rs[0]['username'], rs[0]['name']]
   end
 
   def nice_date

@@ -39,6 +39,9 @@
     <div class="feed">
       <% @peeps.reverse_each do |peep| %>
         <div class="peep">
+          <%= peep.name %>
+          (@<%= peep.username %>)
+          <br>
           <%= peep.nice_date %>
           <%= peep.nice_time %>
           <%= peep.text %>
