@@ -1,7 +1,13 @@
-def create_new_peep(body)
+def create_new_peep_one(body)
+  sign_up
   visit("/write_message")
-  fill_in "name", with: "Author Name"
-  fill_in "username", with: "username"
+  fill_in "message", with: body
+  click_button "Save"
+end
+
+def create_new_peep_two(body)
+  sign_up
+  visit("/write_message")
   fill_in "message", with: body
   click_button "Save"
 end

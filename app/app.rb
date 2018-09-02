@@ -22,18 +22,25 @@ class App < Sinatra::Base
   end
 
   get "/write_message" do
-    erb :write_message
+    if session[:user_id].nil?
+      redirect "/sign_up"
+    else
+      erb :write_message
+    end
   end
 
   post "/add" do
-    user = User.create!(name: params[:name], username: params[:username])
-    message = Message.new(body: params[:message])
-    message.user = user
-    if message.save
-      redirect "/view_all"
+    if session[:user_id].nil?
+      redirect "/sign_up"
     else
-      flash[:error] = message.errors.full_messages.join(" ,")
-      redirect "/write_message"
+      message = Message.new(body: params[:message])
+      message.user_id = session[:user_id]
+      if message.save
+        redirect "/view_all"
+      else
+        flash[:error] = message.errors.full_messages.join(", ")
+        redirect "/write_message"
+      end
     end
   end
 
@@ -47,8 +54,20 @@ class App < Sinatra::Base
   end
 
   post "/new_user" do
-    User.create!(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    redirect "/sign_up_success"
+    user = User.create(
+      name: params[:name],
+      username: params[:username],
+      email: params[:email],
+      password: params[:password]
+    )
+    
+    if user.valid?
+      session[:user_id] = user.id
+      redirect "/sign_up_success"
+    else
+      flash[:user_error] = user.errors.full_messages.join(", ")
+      redirect "/sign_up"
+    end
   end
 
   get "/sign_up_success" do
