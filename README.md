@@ -64,21 +64,21 @@ Table name: peeps
 
 | Column name   | Data type        |
 | ------------- | -------------    |
-| id            | int4 (serial primary key)  |          
-| text          | varchar          |
-| time          | varchar          |
-| user_id       | int4 (join to link to `users` table            | 
+| id            | serial primary key  |          
+| text          | varchar(240)          |
+| time          | varchar(60)          |
+| user_id       | integer reference to users(id)  | 
 
 
 Table name: users
 
 | Column name   | Data type        |
 | ------------- | -------------    |
-| id            | int4             |
-| name          | varchar          |
-| email         | varchar          |
-| password      | varchar          |
-| username      | varchar          |
+| id            | serial primary key |
+| name          | varchar(60)          |
+| email         | varchar(60)          |
+| password      | varchar(60)          |
+| username      | varchar(60)          |
 
 
 When a user signs up to Chitter a unique id is assigned to them. When the user posts a peep, their user_id is stored (along with the text and time of the peep) in the peeps table. When we view the peeps on the homepage, an SQL `JOIN` query is used to manage these relational databases and link the peep's `user_id` to their `name` and `username`:
