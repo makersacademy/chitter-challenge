@@ -12,4 +12,8 @@ class ChitterChallenge < Sinatra::Base
     erb(:'peeps/index')
   end
 
+  get '/peeps/new' do
+    erb(:'peeps/new')
+  end
+
 end
