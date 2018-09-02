@@ -26,6 +26,17 @@ class Peep
   end
 
 
+  def self.delete(id)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    connection.exec("DELETE FROM peeps WHERE id = #{id}")
+  end
+
+
+
   attr_reader :id, :text
 
   def initialize(id, text)

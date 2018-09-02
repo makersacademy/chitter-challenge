@@ -35,6 +35,15 @@ describe Peep do
   end
 
 
+  describe '.delete' do
+    it 'deletes a peep from the chitter feed' do
+      peep = Peep.create("pizza is red and yellow")
+      Peep.delete(peep.id)
+      expect(Peep.all.length).to eq(0)
+    end
+  end
+
+
 
 
 end

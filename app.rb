@@ -3,6 +3,7 @@ require './lib/peep'
 
 
 class Chitter < Sinatra::Base
+  enable :sessions, :method_override
 
   get '/' do
     erb :index
@@ -21,6 +22,12 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     Peep.create(params['text'])
+    redirect '/peeps'
+  end
+
+
+  delete '/peeps/:id' do
+    Peep.delete(params[:id])
     redirect '/peeps'
   end
 
