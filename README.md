@@ -1,12 +1,12 @@
 Chitter Challenge
 =================
 
+This twitter clone allows users to post messages to the public. 
+
 User Stories
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -23,21 +23,6 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
 Notes on functionality:
@@ -45,29 +30,26 @@ Notes on functionality:
 
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
 
 ## Installation
 
 ```
 git clone https://github.com/cbp10/chitter-challenge
-cd <dirname>
+cd chitter-challenge
 bundle
+```
+
+### Create a database called 'chitter', (and 'chitter_test', if testing)
+
+### Create the following tables, e.g. in PostgreSQL
+
+```
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(150), time timestamptz, user_id INTEGER REFERENCES users (id));
+
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(30), username VARCHAR(20), email VARCHAR(60), password VARCHAR(20));
+
 ```
 
 ### To run the Chitter app
@@ -77,10 +59,14 @@ rackup
 ```
 Go to localhost:9292
 
-### To run the test 
+### To run the tests 
 
 ```
 rspec
 ```
+## Technologies used
 
+* Rspec and Capybara for testing
+* Ruby and Sinatra for the application
+* PostgreSQL for the database
 
