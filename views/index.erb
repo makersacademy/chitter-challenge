@@ -1,5 +1,9 @@
 <h1>Chitter</h1>
 
+<% if @user %>
+  <h3>Welcome, <%= @user.name %></h3>
+<% end %>
+
 <div>
   <form action="/peep/new" method="post">
     <div><label for="new_peep">New peep</label><div>

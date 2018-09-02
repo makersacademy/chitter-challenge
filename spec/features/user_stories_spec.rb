@@ -26,3 +26,16 @@ feature "can see when a peep was made" do
     expect(page).to have_content("Posted at")
   end
 end
+
+feature "signup" do
+  scenario "user can signup for an account" do
+    visit("/users/new")
+    fill_in "email", with: "ab@cd.com"
+    fill_in "username", with: "Test666"
+    fill_in "name", with: "Firstname"
+    fill_in "password", with: "123456"
+    click_button("Sign-up")
+
+    expect(page).to have_content("Welcome, Firstname")
+  end
+end
