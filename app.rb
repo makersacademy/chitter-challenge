@@ -1,16 +1,15 @@
 require 'sinatra/base'
 require './lib/peep.rb'
 
-
 class ChitterChallenge < Sinatra::Base
 
   get '/' do
     erb(:index)
   end
 
-  get '/peeps/index' do
+  get '/peeps' do
     @peeps = Peep.all
-    erb(:peeps)
+    erb(:'peeps/index')
   end
 
 end
