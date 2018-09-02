@@ -1,4 +1,10 @@
 <!-- only add this after authentication?  -->
+<%= flash[:signedup] %>
+
+<form action="/signup" method="get">
+  <input type="submit" value="signup">
+</form>
+
 <form action="/feed/send_peep" method="post">
   <label for="peep_content"> What would you like to say? </label>
   <input type="text" name="peep_box">

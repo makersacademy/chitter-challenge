@@ -10,6 +10,23 @@ describe Peep do
     end
   end
 
-  # how to test timestamp?
+  describe "#all" do
+      # let(:peep1) {Peep.create('first')}
+      # let(:peep2) {Peep.create('second')}
+
+    xit "returns all peeps" do
+      # peep1
+      # peep2
+      # expect(described_class.all).to include "first"
+      # expect(described_class.all).to include "second"
+    end
+
+    xit "returns all peeps in reverse chronological order" do
+      # expect(described_class.all).to eq ['second', 'first']
+    end
+  end
+
+
+  # how to test timestamp? peep1.timestamp eq Time.now?
 
 end
