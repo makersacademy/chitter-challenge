@@ -5,26 +5,24 @@
 <form action="/new_user" method="post">
   <label for="name">
     Enter your name:
-    <br>
     <input type="text" name="name">
   </label>
   <br>
   <br>
   <label for="username">
     Enter your username:
-    <br>
     <input type="text" name="username">
   </label>
   <br>
   <br>
   <label for="email">
     Enter your email address:
-    <br>
     <input type="text" name="email">
   </label>
+  <br>
+  <br>
   <label for="password">
     Enter your password:
-    <br>
     <input type="password" name="password">
   </label>
 
@@ -34,11 +32,3 @@
 <h3 style="color:red">
   <%= flash[:user_error] %>
 </h3>
-
-<h4>
-  <a href="/log_in" id="log_in">Already registered? Log in</a></h4>
-</h4>
-
-<h4>
-  <a href="/view_all" id="view_all">View Peeps</a></h4>
-</h4>

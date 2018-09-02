@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head></head>
 <h1>Welcome to Chitter!</h1>
-
-<h4>
-  <a href="/sign_up" id="sign_up">Sign up</a></h4>
-</h4>
-
-<h4>
-  <a href="/write_message" id="write_message">Write a Peep</a></h4>
-</h4>
-
-<h4>
-  <a href="/view_all" id="view_all">View Peeps</a></h4>
-</h4>
-
-<% if !session[:user_id].nil? %>
-  <h4>
-    <form action="/log_out" method="post">
-      <input type="submit" value="Log Out">
-    </form>
-  </h4>
-<% end %>
 
 <h3 style="color:blue">
   <%= flash[:notice] %>

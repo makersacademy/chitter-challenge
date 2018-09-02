@@ -1,0 +1,19 @@
+<html>
+<body>
+<%= yield %>
+
+<ul>
+  <li><a href="/sign_up" id="sign_up">Sign up</a></li>
+  <li><a href="/write_message" id="write_message">Write a Peep</a></li>
+  <li><a href="/view_all" id="view_all">View Peeps</a></li>
+  <% if session[:user_id].nil? %>
+    <li><a href="/log_in" id="log_in">Log in</a></li>
+    <% end %>
+</ul>
+<% if !session[:user_id].nil? %>
+    <form action="/log_out" method="post">
+      <input type="submit" value="Log Out">
+    </form>
+<% end %>
+</body>
+</html>
