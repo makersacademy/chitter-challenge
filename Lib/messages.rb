@@ -12,7 +12,7 @@ class Messages
   end
 
   def self.add(content, name)
-    database_connection.exec( "INSERT INTO messages(content,name) VALUES('#{content}','#{name}')" )
+    database_connection.exec("INSERT INTO messages(content,name) VALUES('#{content}','#{name}')")
   end
 
   def self.show
@@ -20,17 +20,17 @@ class Messages
   end
 
   def self.delete(id)
-    database_connection.exec( "DELETE FROM messages WHERE id = #{id}" )
+    database_connection.exec("DELETE FROM messages WHERE id = #{id}")
   end
 
-  private
+  private_class_method
 
   def self.retrieve_data
-    database_connection.exec( "SELECT * FROM messages ORDER BY id DESC" )
+    database_connection.exec("SELECT * FROM messages ORDER BY id DESC")
   end
 
   def self.database_connection
-    in_test ? PG.connect( dbname: 'chitter_test' ) : PG.connect( dbname: 'chitter' )
+    in_test ? PG.connect(dbname: 'chitter_test') : PG.connect(dbname: 'chitter')
   end
 
   def self.in_test
