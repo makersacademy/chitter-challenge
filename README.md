@@ -1,10 +1,10 @@
-Chitter Challenge
+Chitter Weekend Challenge
 ============
 
 The challenge for the weekend was to create my own version of twitter using the knowledge I have learnt so far but also incorporating the use of databases which we have covered this week at Makers.
 
 ## How it works
-Users are first presented with a view of the main page inviting them to sign up, log in or view peeps. 
+Users are first presented with a view of the main page inviting them to sign up, log in or view peeps.
 
 ### Sign up
 signing up takes the user to a screen inviting them to enter there details which are them stored on the database. All user names and emails must be unique and guard causes are in place to tell the user if one of them is already in use.
@@ -68,11 +68,11 @@ Notes on implimented functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle
 
 ## Testing
-To run the tests use `rspec` from the root directory. 
+To run the tests use `rspec` from the root directory.
 Currently 100% test coverage.
 
 ## Technologies used
-- Ruby 
+- Ruby
 - Sinatra
 - PostgreSQL
 - Pony (email gem)
@@ -88,6 +88,3 @@ A creation on an `.env` is needed in the root directory and added to the `.gitig
 
 		USER_NAME = "email address"
 		PASSWORD = "email password"		
-
-
-
