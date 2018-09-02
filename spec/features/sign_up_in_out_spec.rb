@@ -18,4 +18,10 @@ feature "Users have logins" do
     expect(page).to have_content "Email has already been taken"
     expect(page).to_not have_content "Sign up successful"
   end
+
+  scenario "Registered users can log in" do
+    log_in
+    expect(page).to have_content "Welcome back"
+    expect(page).to_not have_content "Error"
+  end
 end

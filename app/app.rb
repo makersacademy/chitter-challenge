@@ -60,7 +60,7 @@ class App < Sinatra::Base
       email: params[:email],
       password: params[:password]
     )
-    
+
     if user.valid?
       session[:user_id] = user.id
       redirect "/sign_up_success"
@@ -72,6 +72,25 @@ class App < Sinatra::Base
 
   get "/sign_up_success" do
     erb :sign_up_success
+  end
+
+  get "/log_in" do
+    erb :log_in
+  end
+
+  post "/log_in_user" do
+    user = User.find_by(username: params[:username])
+    if user.valid?
+      session[:user_id] = user.id
+      redirect "/log_in_success"
+    else
+      flash[:user_error] = user.errors.full_messages.join(", ")
+      redirect "/log_in"
+    end
+  end
+
+  get "/log_in_success" do
+    erb :log_in_success
   end
 
   run! if app_file == $0

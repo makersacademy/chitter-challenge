@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<h1>Log in to Chitter</h1>
+<form action="/log_in_user" method="post">
+  <label for="username">
+    Enter your username:
+    <br>
+    <input type="text" name="username">
+  </label>
+  <br>
+  <br>
+  <label for="password">
+    Enter your password:
+    <br>
+    <input type="password" name="password">
+  </label>
+
+  <p><input type="submit" value="Log in"></p>
+</form>
+
+<h3 style="color:red">
+  <%= flash[:user_error] %>
+</h3>
