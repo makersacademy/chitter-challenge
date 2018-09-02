@@ -1,9 +1,6 @@
 <h1>All peeps</h1>
 
-<ul>
   <% @peeps.each do | peep | %>
-    <li>
-        <%= peep %>
-    </li>
+        <%= peep.peep %>
+        sent at <%= peep.time %>
   <% end %>
-</ul>

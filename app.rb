@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/send_peep' do
-    Peep.create(peep: params['peep'])
+    # Peep.create(peep: params['peep'])
+    Peep.create(peep: params[:peep])
     erb :send_peep
     redirect '/all_peeps'
   end

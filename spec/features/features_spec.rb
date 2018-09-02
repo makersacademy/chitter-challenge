@@ -18,4 +18,13 @@ feature 'Features - Chitter' do
     expect(page).to have_content('my first peep, hurray!')
   end
 
+  # As a Maker
+  # So that I can better appreciate the context of a peep
+  # I want to see the time at which it was made
+  scenario 'user want to see when a peep was sent' do
+    visit('/all_peeps')
+    peep = Peep.create(peep: 'my first peep, hurray!')
+    expect(page).to have_content('sent at')
+  end
+
 end
