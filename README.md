@@ -142,6 +142,7 @@ See also `./spec/spec_helper.rb` where I've included method `setup_test_database
 
 Thinking on what I'd like to do more on:
 
+- Currently the peeps can't contain apostrophes: they break the SQL query. To include these characters I'd like to include a method to evaluate the peep string and include double '', e.g. 'This isn't a test' would become 'This isn''t a test'. Alternatively I could look at using ORMS gems ActiveRecord/DataMapper and whether they would handle these cases.
 - Currently the passwords for Chitter are stored in plain text. Ideally these would be encrypted with the model, and saved in the encrypted format. I'd also need a decrypter in my model to check password upon login.
 - I'd like users to be able to respond to existing peeps, either with more comments or some kind of validation.
 - Maybe my users could get notification (email, text) when their peeps gets a response?
