@@ -8,7 +8,6 @@ describe InputCheckers do
     connection.exec("INSERT INTO users (name, user_name, email, password) VALUES('test name', 'test user name', 'test@email.com', 'testpassword');")
   end
 
-
   describe '#unique_input_checker' do
     it 'returns true if an email argument matches an email in database' do
       expect(InputCheckers.unique_input_checker("test@email.com", :email)).to eq true
@@ -28,4 +27,5 @@ describe InputCheckers do
       expect(InputCheckers.log_in_checker('incorrect user name', 'incorrect password')).to eq false
     end
   end
+  
 end

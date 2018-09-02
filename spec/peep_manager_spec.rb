@@ -8,7 +8,7 @@ describe Peeps do
 
   describe '#all' do
     it 'returns a list of peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
+      PG.connect(dbname: 'chitter_test')
 
       Peeps.create("Peep test one", 1)
       Peeps.create("Peep test two", 1)

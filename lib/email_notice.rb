@@ -10,13 +10,11 @@ class EmailNotice
     result = database_connect.exec("SELECT user_name, email FROM users;")
     result.each do |user|
       if peep.include? "##{user.values[0]}"
-        return send_email_alert(user.values[1], current_user_name, peep) #tagged users email and the user name of the tagger
+        return send_email_alert(user.values[1], current_user_name, peep) # tagged users email and the user name of the tagger
       end
     end
     nil
   end
-
-  private
 
   def self.send_email_alert(user_email, current_user_name, peep)
     Pony.mail({

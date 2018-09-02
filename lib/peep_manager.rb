@@ -25,8 +25,6 @@ class Peeps
     database_connect.exec("INSERT INTO peeps (peep, created_at, user_id) VALUES('#{peep}', '#{created_time}', '#{current_user_id}');")
   end
 
-private
-
   def self.created_time
     return Time.at(Time.now.to_i).strftime("%B %e, %Y at %I:%M %p")
   end
