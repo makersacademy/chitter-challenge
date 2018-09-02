@@ -2,6 +2,9 @@
 <html>
 <head></head>
 
-<h4><%= @name %></h4>
-<h4>@<%= @handle %></h4>
-<h5><%= @message %></h5>
+<% @messages.each do |message| %>
+  <h3><%= message.user.name %> (@<%= message.user.username %>)</h3>
+  <%= message.body %>
+  <h6><%= message.created_at %></h6>
+  <br><br>
+<% end %>
