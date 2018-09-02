@@ -6,17 +6,19 @@
 
 <% if @user %>
   <h3>Welcome, <%= @user.name %></h3>
+
+  <div>
+    <form action="/peep/new" method="post">
+      <div><label for="new_peep">New peep</label><div>
+      <div>
+        <textarea name="new_peep" rows="6" cols="50" maxlength="280"></textarea>
+      </div>
+      <button>Submit</button>
+    </form>
+  </div>  
 <% end %>
 
-<div>
-  <form action="/peep/new" method="post">
-    <div><label for="new_peep">New peep</label><div>
-    <div>
-      <textarea name="new_peep" rows="6" cols="50" maxlength="280"></textarea>
-    </div>
-    <button>Submit</button>
-  </form>
-</div>
+
 
 <div>
   <% @peeps.each do |peep| %>
