@@ -4,7 +4,11 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-      <%= peep.username %><br>
-      <%= peep.content %><br><br>
+  <%= peep.username %>
+  <br>
+    <textarea disabled rows="3" cols="50">
+      <%= peep.content %>
+    </textarea>
+    <br><br>
   <% end %>
 </ul>
