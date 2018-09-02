@@ -1,5 +1,17 @@
 Chitter Challenge
-=================
+============
+
+The challenge for the weekend was to create my own version of twitter using the knowledge I have learnt so far but also incorporate the use of databases which I have covered this week.
+
+## How it works
+Users are presented with a view of the main page inviting them to sign up,  
+
+
+How it works Approach (How you approached the problem) 
+Reflection (What would you do to make it better) 
+Progress of Problem solving (User-stories, tables) 
+Images (Of Product) Images (Of Documentation/Progress) 
+Team Members, if there were any.
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own

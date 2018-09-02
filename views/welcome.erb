@@ -26,11 +26,13 @@
     <input type="submit" value="LOG IN">
   </form>
 </div>
+<% if @current_user != nil %>
 <div class="fieldBlock">
   <form action="/log_out" method="get">
     <input type="submit" value="LOG OUT">
   </form>
 </div>
+<% end %>
 <div class="fieldBlock">
   <form action="/peep_feed" method="get">
     <input type="submit" value="VIEW PEEPS">
