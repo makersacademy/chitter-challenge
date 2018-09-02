@@ -1,7 +1,7 @@
 # Chitter Challenge
 ### A twitter clone. 
-Non-registered users can view all peeps.
-Registered users can view all peeps and post their own. 
+- Non-registered users can view all peeps.
+- Registered users can view all peeps and post their own. 
 
 #### Set-up:
 ```
@@ -16,7 +16,7 @@ To run tests use `rspec`.
 Currently 100% test coverage. 
 
 #### Technologies used: 
-Ruby
-Sinatra
-PostgreSQL
-BCrypt
+* Ruby
+* Sinatra
+* PostgreSQL
+* BCrypt
