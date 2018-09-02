@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/peep'
+require_relative './lib/peep_comment'
 require_relative './lib/user'
 require_relative './lib/database_connection'
 
@@ -39,6 +40,11 @@ class Chitter < Sinatra::Base
 
   get '/logout' do
     User.log_out
+    redirect '/'
+  end
+
+  get '/add_comment' do
+    Comment.create(params[:new_comment])
     redirect '/'
   end
 end

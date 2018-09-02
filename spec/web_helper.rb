@@ -11,3 +11,11 @@ end
 def log_out_active
   User.log_out
 end
+
+def log_in
+  visit '/'
+  find('#login').click
+  fill_in :username, with: 'andrew'
+  fill_in :password, with: 'pwd12'
+  click_button "Submit"
+end

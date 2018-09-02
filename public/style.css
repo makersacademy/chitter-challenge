@@ -11,6 +11,14 @@
   border: 1px solid black;
   border-radius: 15px;
   margin: 10px;
-  text-align: center;
   width: 60%;
+}
+
+.body {
+  text-align: center;
+}
+
+.pcomment {
+  text-align: right;
+  width: 40%;
 }

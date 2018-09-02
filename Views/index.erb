@@ -8,7 +8,6 @@
   <body>
     <h1>Chitter Feed</h1>
     <div class="login">
-      <!--  -->
       <% if @active == nil %>
         <form action="/register" method="get">
           <input id="register_user" type="submit" value="Register">
@@ -39,13 +38,23 @@
     <div class="feed">
       <% @peeps.reverse_each do |peep| %>
         <div class="peep">
-          <%= peep.name %>
-          (@<%= peep.username %>)
-          <br>
-          <%= peep.nice_date %>
-          <%= peep.nice_time %>
-          <%= peep.text %>
+          <div class="peep body">
+            <%= peep.name %>
+            (@<%= peep.username %>)
+            <br>
+            <%= peep.nice_date %>
+            <%= peep.nice_time %>
+            <%= peep.text %>
+          </div>
+          <div class="peep pcomment">
+            <form action="/add_comment" method="get">
+              <label for="new_comment">Comment: </label>
+              <input type="text" name="new_comment" value="">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
         </div>
+
       <% end %>
     </div>
   </body>
