@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -6,12 +7,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    @peep = $peep
+    @peep = Peep.all
     erb :feed
   end
 
   post '/feed' do
-    $peep = params[:peep]
+    peep = params['peep']
+    connection = PG.connect(dbname: 'chitter')
+    connection.exec("INSERT INTO peeps (text) VALUES('#{peep}')")
     redirect '/feed'
   end
 
