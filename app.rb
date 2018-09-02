@@ -8,7 +8,7 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions, :method_override # allows us to use patch, delete etc
+  enable :sessions
   register Sinatra::Flash
 
   get '/' do
@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    result = User.signup(params)
+    result = User.signup(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
     if result.instance_of? Symbol
       msg1 = "Error: username already taken!"
       msg2 = "Error: email already taken!"
@@ -45,7 +45,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    session[:current_user] = User.login(params)
+    session[:current_user] = User.login(email: params[:email], password: params[:password])
     if session[:current_user].nil?
       flash[:invalid_login] = "Error: invalid email and/or password"
       redirect '/login'

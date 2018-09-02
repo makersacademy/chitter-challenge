@@ -4,8 +4,7 @@ describe Peep do
   describe '.create' do
 
     before do
-      info = { "name" => "Dave", "email" => "dave@dave.com", "password" => "pw123", "username" => "dave123" }
-      @user = User.signup(info)
+      @user = User.signup(name: 'Dave', email: 'dave@dave.com', password: 'pw123', username: 'dave123')
     end
 
     it 'saves a new peep to the database' do
@@ -23,8 +22,7 @@ describe Peep do
 
   describe '.all' do
     it 'returns all the peeps as an array of Peep objects in reverse order' do
-      info = { "name" => "Dave", "email" => "dave@dave.com", "password" => "pw123", "username" => "dave123" }
-      current_user = User.signup(info)
+      current_user = User.signup(name: 'Dave', email: 'dave@dave.com', password: 'pw123', username: 'dave123')
       Peep.create(peep: 'test1', user_id: current_user.id)
       Peep.create(peep: 'test2', user_id: current_user.id)
       peeps = Peep.all
@@ -34,5 +32,4 @@ describe Peep do
       expect(peeps.first.username).to eq 'dave123'
     end
   end
-
 end
