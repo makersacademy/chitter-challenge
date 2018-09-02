@@ -11,7 +11,7 @@ class Peep
 
   def self.all
     create_connection_to_database
-    result = @connection.exec("SELECT * FROM peeps;")
+    result = @connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
     result.map do |peep|
       Peep.new(peep['id'], peep['peep'])
     end
@@ -19,7 +19,7 @@ class Peep
 
   def self.create(peep)
     create_connection_to_database
-    result = @connection.exec("INSERT INTO peeps(peep) VALUES ('#{ peep }') RETURNING id, peep;")
+    result = @connection.exec("INSERT INTO peeps(peep) VALUES ('#{ peep }') RETURNING id, peep; ")
     Peep.new(result[0]['id'], result[0]['peep'])
 
   end
