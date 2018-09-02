@@ -20,4 +20,11 @@ feature 'messages' do
     click_on 'delete Here is a tweet'
     expect(page).not_to have_content 'Here is a tweet'
   end
+
+  scenario 'user signs up with their name and it appears on the homepage' do
+    visit '/'
+    fill_in 'name', with: 'Freddie'
+    click_on 'submit'
+    expect(page).to have_content 'Freddie'
+  end
 end

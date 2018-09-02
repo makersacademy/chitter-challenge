@@ -3,11 +3,14 @@ require './lib/messages'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     erb :index
   end
 
   post '/' do
+    session[:user_name] = params[:name]
     redirect '/messages'
   end
 
@@ -18,11 +21,11 @@ class Chitter < Sinatra::Base
 
   post '/messages' do
     p params
-    Messages.add(params['content'])
+    Messages.add(params['content'], session[:user_name])
     redirect '/messages'
   end
-
-  post 'messages/delete/:id' do
+  
+  post '/messages/delete/:id' do
     Messages.delete(params['id'])
     redirect '/messages'
   end

@@ -2,20 +2,21 @@ require 'pg'
 
 class Messages
 
-  attr_reader :id, :content, :created_at
+  attr_reader :id, :content, :created_at, :name
 
-  def initialize(id, content, created_at)
+  def initialize(id, content, created_at, name)
     @id = id
     @content = content
     @created_at = created_at
+    @name = name
   end
 
-  def self.add(content)
-    database_connection.exec( "INSERT INTO messages(content) VALUES('#{content}')" )
+  def self.add(content, name)
+    database_connection.exec( "INSERT INTO messages(content,name) VALUES('#{content}','#{name}')" )
   end
 
   def self.show
-    retrieve_data.map { | message | Messages.new(message['id'], message['content'], message['created_at']) }
+    retrieve_data.map { | message | Messages.new(message['id'], message['content'], message['created_at'], message['name']) }
   end
 
   def self.delete(id)

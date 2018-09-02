@@ -1,4 +1,4 @@
-<h2>Welcome to Chitter</h2>
+<h2>Welcome, <%= session[:user_name] %> </h2>
 
 <form action='/messages' method='post'>
   <h3>Enter your message</h3><input type='text' name='content' required="required">
@@ -9,12 +9,15 @@
 
 
 
+<a style="color:blue;"><strong><%= message.name %>: </strong></a>
 <strong><%= message.content %></strong> </br>
 Posted at: <%= message.created_at.slice(11,8) %> 
+
 
 <form action='messages/delete/<%= message.id %>' method='post'>
   <input type='submit' value='delete <%= message.content %>'>
 </form>
+
 
 <% end %>
 
