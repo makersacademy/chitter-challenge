@@ -33,17 +33,17 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 
 
-## Installation
+### Installation
 
 ```
-git clone https://github.com/cbp10/chitter-challenge
-cd chitter-challenge
-bundle
+$ git clone https://github.com/cbp10/chitter-challenge
+$ cd chitter-challenge
+$ bundle
 ```
 
-### Create a database called 'chitter', (and 'chitter_test', if testing)
+Create a database called 'chitter', (and 'chitter_test', if testing)
 
-### Create the following tables, e.g. in PostgreSQL
+Create the following tables, e.g. in PostgreSQL
 
 ```
 CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(150), time timestamptz, user_id INTEGER REFERENCES users (id));
@@ -52,19 +52,20 @@ CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(30), username VARCHAR(20
 
 ```
 
-### To run the Chitter app
+### Run Chitter app
 
 ```
-rackup
+$ rackup
 ```
 Go to localhost:9292
 
-### To run the tests 
+### Run Tests
 
 ```
-rspec
+$ rspec
 ```
-## Technologies used
+
+### Technologies used
 
 * Rspec and Capybara for testing
 * Ruby and Sinatra for the application
