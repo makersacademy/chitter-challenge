@@ -17,4 +17,18 @@ describe Peep do
       expect(peeps).to include("fire is red")
     end
   end
+
+
+  describe '.create' do
+    it 'adds a peep to the peep feed' do
+      connection = PG.connect(dbname: 'chitter_test')
+      connection.exec("INSERT INTO peeps (text) VALUES ('space is black');")
+      peeps = Peep.all
+      expect(peeps).to include('space is black')
+    end
+  end
+
+
+
+
 end

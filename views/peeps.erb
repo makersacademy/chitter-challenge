@@ -6,6 +6,13 @@
   </head>
   <body>
     <h2>Chitter</h2>
+
+    <form class="" action="/peeps/add" method="get">
+      <input type="submit" name="" value="Add peep">
+    </form>
+
+
+
     <ul>
       <% @peeps.each do |peep| %>
       <li><%= peep %></li>
