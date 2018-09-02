@@ -2,11 +2,21 @@ require 'pg'
 
 class Peep 
 
+  attr_reader :text, :date, :time
+
+  def initialize(text, date, time)
+    @text = text
+    @date = date 
+    @time = time
+  end
+
   def self.all 
     connect_database
-    @connection.exec("SELECT * FROM peeps;").map { |peep| 
-      peep['text'] + ' ' + peep['date']  + ' ' + peep['time']}.reverse
+    @connection.exec("SELECT * FROM peeps;").map do |peep| 
+      Peep.new(peep['text'], peep['date'], peep['time'])
+    end
   end
+
     
   def self.add(peep)
     connect_database

@@ -7,8 +7,8 @@
   </form>
 
   <%@peep.each do |peep|%>
-    <%=peep%><br>
+    <%=peep.text%><br>
+    <%=peep.date%><%=peep.time%><br>
   <%end%>
-  <%=@peep%>
 </body>
 
