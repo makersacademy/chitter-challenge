@@ -10,7 +10,7 @@ end
 describe '.all' do
   it 'returns all users, wrapped in a User instance' do
     User.create('test@example.com', 'password123')
-    user = User.all.map { |object| object.id }
-    expect(user.id).to include user.id 
+    user = User.all.map { |object| object.email }
+    expect(user).to include 'test@example.com'
   end
 end

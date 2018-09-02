@@ -1,7 +1,10 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/user'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
 
   get '/' do
     erb :index
@@ -24,14 +27,19 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
-    erb :users
+    erb :"users/new"
   end
 
   post '/users' do
     email = params[:email]
     password = params[:password]
-    User.create(email, password)
-    redirect '/'
+    session[:user] = User.create(email, password)
+    redirect '/user/index'
+  end
+
+  get '/user/index' do
+    @user = session[:user]
+    erb :"users/index"
   end
 
   run! if app_file == $0

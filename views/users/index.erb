@@ -1,12 +1,7 @@
-welcome to chitter
-
-<a href='/users/new'> sign up </a>
-
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
+  <h1>Welcome <%= @user.email %></h1>
 <% end %>
 
-<br>
 <br>
 <form action="/peep" method="post">
   <input type="text" name="peep" placeholder="peep">
