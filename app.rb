@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/profile'
 
 class Chitter < Sinatra::Base
 
@@ -12,6 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
+    Profile.create(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
     erb :signup
     redirect '/send_peep'
   end
