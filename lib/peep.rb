@@ -13,7 +13,6 @@ class Peep
     result = connection_to_database.exec("SELECT * FROM feed ORDER BY timestamp DESC;")
     result.map do |peep|
       Peep.new(peep['id'], peep['peep'], peep['timestamp'])
-      # This is currently creating new ones each time, why?
     end
   end
 

@@ -35,7 +35,6 @@ class Chitter < Sinatra::Base
 
     User.signup(name, username, email, password)
     flash[:signedup] = 'You have created an account'
-    # set flash message to come on feed 'you have signed up'
     redirect '/feed'
   end
 end
