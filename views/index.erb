@@ -1,5 +1,9 @@
 <h1>Chitter</h1>
 
+<% if !@user %>
+<button><a href="/users/new">Sign-up</a></button>
+<% end %>
+
 <% if @user %>
   <h3>Welcome, <%= @user.name %></h3>
 <% end %>
