@@ -14,7 +14,11 @@
       </form>
     </div>
     <div class="feed">
-      Hey everyone, just smashing out some code.
+      <ul>
+        <% @peeps.reverse_each do |peep| %>
+        <li><%= peep.text %></li>
+        <% end %>
+      </ul>
     </div>
   </body>
 </html>
