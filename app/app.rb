@@ -1,8 +1,10 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/flash'
+require 'fileutils'
 
 if ENV['ENVIRONMENT'] == 'test'
+  FileUtils.touch("db/chitter-test.sqlite3")
   set :database, { adapter: "sqlite3", database: "./db/chitter-test.sqlite3" }
 else
   set :database, { adapter: "sqlite3", database: "./db/chitter.sqlite3" }

@@ -14,6 +14,12 @@ Capybara.app = App
 
 RSpec.configure do |config|
 
+  config.before(:suite) do
+    ["users", "messages"].each do |table|
+      ActiveRecord::Base.connection.execute(File.read("db/setup/#{table}.sql"))
+    end
+  end
+
   config.before(:each) do
     User.delete_all
     Message.delete_all
