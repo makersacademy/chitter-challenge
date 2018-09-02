@@ -5,7 +5,6 @@ ruby '2.5.1'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
-gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
