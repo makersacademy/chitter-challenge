@@ -1,6 +1,5 @@
 require 'sinatra/base'
 
-
 class ChitterChallenge < Sinatra::Base
 
   get '/' do
