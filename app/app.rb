@@ -79,12 +79,16 @@ class App < Sinatra::Base
   end
 
   post "/log_in_user" do
-    user = User.find_by(username: params[:username])
+    user = User.find_by(
+      username: params[:username],
+      password: params[:password]
+    )
+    
     if user.present?
       session[:user_id] = user.id
       redirect "/log_in_success"
     else
-      flash[:error] = "Error: user not found" 
+      flash[:error] = "Error: user not found"
       redirect "/log_in"
     end
   end
