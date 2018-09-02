@@ -5,7 +5,12 @@ class Chitter < Sinatra::Base
 
 
   get '/' do
-    'Testing infrastructure working'
+    erb :index
+  end
+
+
+  get '/peeps' do
+    'Chitter'
   end
 
 
