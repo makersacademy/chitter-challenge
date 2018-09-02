@@ -13,7 +13,7 @@ class Peep
   end
 
   def self.connect_database
-    ENV['ENV'] == 'test' ? database = 'chitter' : database = 'chitter'
+    ENV['ENV'] == 'test' ? database = 'chitter_test' : database = 'chitter'
     @connection = PG.connect(dbname: database)
   end
 
