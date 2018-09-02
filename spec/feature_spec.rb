@@ -6,6 +6,11 @@
 # So that I can see what others are saying  
 # I want to see all peeps in reverse chronological order
 
+# As a Maker
+# So that I can better appreciate the context of a peep
+# I want to see the time at which it was made
+
+
 feature 'Posting Peeps' do 
   scenario 'user can post a peep to chitter' do
     visit '/'
@@ -17,12 +22,19 @@ feature 'Posting Peeps' do
 end
 
 feature 'Reverse chronology' do
-  scenario 'peeps are shown in reverse chronological order' do
-    visit '/'
-    fill_in :peep, with: 'One'; click_button 'Post'
-    fill_in :peep, with: 'Two'; click_button 'Post'
-    fill_in :peep, with: 'Three'; click_button 'Post'
-    expect(page).to have_content 'Three Two One'
+  # scenario 'peeps are shown in reverse chronological order' do
+  #   visit '/'
+  #   fill_in :peep, with: 'One'; click_button 'Post'
+  #   fill_in :peep, with: 'Two'; click_button 'Post'
+  #   fill_in :peep, with: 'Three'; click_button 'Post'
+  #   expect(page).to have_content 'Three Two One'
+  # end
+end
 
+feature 'Time of post' do
+  scenario 'user can see when each post was made' do
+    visit '/'
+    # expect(page).to have_content 'Three Two One'
   end
 end
+
