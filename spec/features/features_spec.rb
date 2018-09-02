@@ -19,10 +19,10 @@ end
 feature 'Registering users' do
   scenario 'user can register' do
     visit('/register')
-    fill_in :registration_email, with: 'james.malvern@gmail.com'
+    fill_in :registration_email, with: 'test@gmail.com'
     fill_in :password, with: 'password'
 
     click_button 'Register'
-    expect(page).to have_content 'james.malvern@gmail.com', 'james malvern'
+    expect(page).to have_content 'test@gmail.com', 'password'
   end
 end

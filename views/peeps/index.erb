@@ -1,11 +1,13 @@
-<div>
-  <a href="/peeps/new" style="color: white; padding-left: 5px">Add a peep</a>
-  <% if @order %>
-    <a href="/peeps/asc" style="color: white; padding-left: 5px"><%= @order_message %></a>
-  <% elsif @order == false %>
-    <a href="/peeps" style="color: white; padding-left: 5px"><%= @order_message %></a>
-  <% end %>
-  <h1>List of Peeps</h1>
+<div style="padding-left:30%; padding-right: 30%">
+  <div style="padding-left:30%; padding-right:30%;">
+    <a href="/peeps/new" style="color: black; padding-left: 5px; ">Add a peep</a>
+    <% if @order %>
+      <a href="/peeps/asc" style="color: black; padding-left: 5px"><%= @order_message %></a>
+    <% elsif @order == false %>
+      <a href="/peeps" style="color: black; padding-left: 5px"><%= @order_message %></a>
+    <% end %>
+  </div>
+  <h1 style="padding-left:30%; padding-right:30%;">List of Peeps</h1>
   <ul style="color:green; list-style: none; padding-left:0px">
     <% @peeps.each do |peep| %>
       <div style="margin: 5px; background-color:white; color:blue; padding:10px">
