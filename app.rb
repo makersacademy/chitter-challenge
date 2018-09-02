@@ -1,7 +1,11 @@
 require 'sinatra/base'
+require_relative './lib/peep'
 
-class Chitter < Sinatra::Base
+class ChitterManager < Sinatra::Base
+  enable :sessions
+
   get '/' do
+    @peeps = Peep.view_all_peeps
     erb :home
   end
 
@@ -10,6 +14,10 @@ class Chitter < Sinatra::Base
     erb :add_new_peep
   end
 
+  post '/save_peep' do
+    Peep.create_new_peep(content: params[:peep])
+    redirect '/'
+  end
 
   run! if app_file == $0
 

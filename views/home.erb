@@ -1,3 +1,10 @@
 <form action="/add_new_peep" method="get">
   <input value="Add New Peep" type="submit" name="Add Peep">
 </form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+      <%= peep.username %><br>
+      <%= peep.content %><br><br>
+  <% end %>
+</ul>
