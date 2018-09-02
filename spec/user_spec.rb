@@ -8,6 +8,12 @@ describe User do
 
       expect(user.id).not_to be_nil
     end
+
+    it "hashes the password using BCrypt" do
+      expect(BCrypt::Password).to receive(:create).with("123456")
+
+      User.create(email: "ab@cd.com", username: "Test666", name: "Firstname", password: "123456")
+    end
   end
 
   describe ".all" do

@@ -1,5 +1,6 @@
 require "./lib/database_connection"
 require "./lib/select_database"
+require "bcrypt"
 
 class User
 
@@ -33,7 +34,7 @@ class User
     email = details[:email]
     username = details[:username]
     name = details[:name]
-    password = details[:password]
+    password = BCrypt::Password.create(details[:password])
 
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password, username, name)
