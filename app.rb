@@ -23,5 +23,16 @@ class Chitter < Sinatra::Base
     erb :reverse
   end
 
+  get '/users/new' do
+    erb :users
+  end
+
+  post '/users' do
+    email = params[:email]
+    password = params[:password]
+    User.create(email, password)
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
