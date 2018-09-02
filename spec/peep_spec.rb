@@ -2,14 +2,20 @@
 
 describe Peep do
   describe '.create' do
+
+    before do
+      info = { "name" => "Dave", "email" => "dave@dave.com", "password" => "pw123", "username" => "dave123" }
+      @user = User.signup(info)
+    end
+
     it 'saves a new peep to the database' do
-      peep = Peep.create('This is a test', 1)
+      peep = Peep.create('This is a test', @user.id)
       expect(peep).to be_a Peep
       expect(peep.text).to eq 'This is a test'
     end
 
     it 'saves the time when the peep was posted' do
-      peep = Peep.create('This is a test', 1)
+      peep = Peep.create('This is a test', @user.id)
       formatted_time = Time.now.strftime("%I:%M%p on %m/%d/%Y")
       expect(peep.time).to eq formatted_time
     end
