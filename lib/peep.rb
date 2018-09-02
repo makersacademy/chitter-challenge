@@ -1,4 +1,3 @@
 class Peep
 
-
 end
