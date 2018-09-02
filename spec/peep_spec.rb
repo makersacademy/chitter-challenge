@@ -10,4 +10,6 @@ describe Peep do
     end
   end
 
+  # how to test timestamp?
+
 end
