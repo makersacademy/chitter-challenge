@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require './lib/peep.rb'
+
 
 class ChitterChallenge < Sinatra::Base
 
@@ -7,6 +9,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb(:peeps)
   end
 
