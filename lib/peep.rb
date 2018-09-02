@@ -10,11 +10,9 @@ class Peep
     @name = name
   end
 
-  def self.create(peep, user_id)
+  def self.create(peep:, user_id:)
     time = format_time
     sqlquery = "INSERT INTO peeps(text, time, user_id) VALUES('#{peep}', '#{time}', '#{user_id}') RETURNING text, time;"
-#    sqlquery = "INSERT INTO peeps(text, time ) VALUES('#{peep}', '#{time}') RETURNING text, time;"
-
     result = DatabaseConnection.query(sqlquery)
     Peep.new(result[0]['text'], result[0]['time'])
   end

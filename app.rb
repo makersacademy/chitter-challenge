@@ -18,8 +18,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    id = session[:current_user].id
-    Peep.create(params[:peep], id)
+    #id = session[:current_user].id
+    Peep.create(peep: params[:peep], user_id: session[:current_user].id)
     redirect '/'
   end
 
