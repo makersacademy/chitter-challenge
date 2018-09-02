@@ -7,12 +7,20 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    erb :signup
+    redirect '/send_peep'
+  end
+
   get '/send_peep' do
     erb :send_peep
   end
 
   post '/send_peep' do
-    # Peep.create(peep: params['peep'])
     Peep.create(peep: params[:peep])
     erb :send_peep
     redirect '/all_peeps'

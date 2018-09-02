@@ -10,7 +10,7 @@ class Peep
     end
 
     result = connection.exec("SELECT * FROM peeps")
-    result.map do |peep|
+    result.reverse_each.map do |peep|
       Peep.new(id: peep['id'], peep: peep['peep'], time: peep['time'])
     end
   end
