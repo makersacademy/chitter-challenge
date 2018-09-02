@@ -42,7 +42,8 @@ li a:hover {
 <ul> <% count = 1 %>
   <br><br>
   <% @peeps.each do |peep| %>
-  <%= peep.username %>
+  <font size="2" face="verdana" color="blue">@<%= peep.username %>   </font>
+  <font size="2" face="verdana" color="darkgrey"><%= peep.created_at %></font>
   <br>
     <textarea name="<%= count %>" disabled rows="3" cols="50">
       <%= peep.content %>

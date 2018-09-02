@@ -24,10 +24,13 @@ describe Peep do
       # check for peep_1
       expect(peep_1).to be_a Peep
       expect(peep_1).to respond_to(:id)
+      expect(peep_1).to respond_to(:created_at)
       expect(peep_1.content).to eq "I'm a newbie, and this is my first peep!"
 
       # peep = the first peep created above
       peep_3 = Peep.view_all_peeps.last
+
+      p peep_3
 
       # check for peep_1
       expect(peep_3.content).to eq "I can't stop peeping, I think I'm addicted!"

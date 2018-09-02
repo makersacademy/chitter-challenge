@@ -26,6 +26,7 @@ feature "View all peeps in descending order" do
     #click_button 'Descending' # Fails - Failure/Error: click_button 'Descending'
                                         # Capybara::ElementNotFound:
                                         # Unable to find button "Descending"
+                                        
 
   end
 end
