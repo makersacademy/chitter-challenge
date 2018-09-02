@@ -2,13 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
+gem 'capybara'
+gem 'pg'
 gem 'rake'
 gem 'rubocop', '0.56.0'
-gem 'capybara'
 gem 'sinatra'
-gem 'pg'
 gem 'sinatra-flash'
-
 
 group :test do
   gem 'rspec'
