@@ -1,9 +1,7 @@
 feature "see peeps" do
 
   before do
-    Peep.create('first peep')
-    Peep.create('second peep')
-    Peep.create('third peep')
+    add_example_tweets
   end
 
   scenario "see peeps" do
