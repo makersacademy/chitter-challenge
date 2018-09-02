@@ -18,7 +18,7 @@ feature 'User has to sign up before being able to post' do
 
   scenario 'after signing up the username is displayed' do
     sign_up
-    expect(page).to have_content('dave123:')
+    expect(page).to have_content('dave123')
   end
 
   scenario 'after signing up the user can post' do
