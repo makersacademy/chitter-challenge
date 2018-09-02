@@ -10,13 +10,18 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/add_new_peep' do
-    "Hello World"
     erb :add_new_peep
   end
 
   post '/save_peep' do
     Peep.create_new_peep(content: params[:peep])
     redirect '/'
+  end
+
+  get '/view_peeps_descending' do
+    @peeps = Peep.view_peeps_descending
+    erb :home
+    #"Hi"
   end
 
   run! if app_file == $0

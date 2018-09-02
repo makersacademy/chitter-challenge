@@ -35,17 +35,22 @@ li a:hover {
 
 <ul>
   <li><a href="/">Home</a></li>
-  <li><a class="active" href="/add_new_peep">Add New Peep</a></li>
-  <li><a href="/view_peeps_descending">View Most Recent Peeps</a></li>
+  <li><a href="/add_new_peep">Add New Peep</a></li>
+  <li><a class="active" href="/view_peeps_descending">View Most Recent Peeps</a></li>
 </ul>
 
-<ul>
+<ul> <% count = 1 %>
+  <br><br>
+  <% @peeps.each do |peep| %>
+  <%= peep.username %>
   <br>
-  <br>
-     <form method="post" action="/save_peep" >
-        <input type="text" name="peep" placeholder="Peep" />
-        <input value="Submit" type="submit" name="Submit" />
-     </form>
-   <br>
-   <br>
+    <textarea name="<%= count %>" disabled rows="3" cols="50">
+      <%= peep.content %>
+    </textarea>
+    <br><br>
+    <% count += 1 %>
+  <% end %>
 </ul>
+
+</body>
+</html>

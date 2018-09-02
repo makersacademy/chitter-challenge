@@ -19,11 +19,18 @@ describe Peep do
       Peep.create_new_peep(content: "My second peep, I think I like it!")
       Peep.create_new_peep(content: "I can''t stop peeping, I think I''m addicted!")
       # peep = the first peep created above
-      peep = Peep.view_all_peeps.first
+      peep_1 = Peep.view_all_peeps.first
 
-      expect(peep).to be_a Peep
-      expect(peep).to respond_to(:id)
-      expect(peep.content).to eq "I'm a newbie, and this is my first peep!"
+      # check for peep_1
+      expect(peep_1).to be_a Peep
+      expect(peep_1).to respond_to(:id)
+      expect(peep_1.content).to eq "I'm a newbie, and this is my first peep!"
+
+      # peep = the first peep created above
+      peep_3 = Peep.view_all_peeps.last
+
+      # check for peep_1
+      expect(peep_3.content).to eq "I can't stop peeping, I think I'm addicted!"
     end
   end
 

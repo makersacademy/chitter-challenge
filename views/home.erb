@@ -1,14 +1,56 @@
-<form action="/add_new_peep" method="get">
-  <input value="Add New Peep" type="submit" name="Add Peep">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10;
+    overflow: hidden;
+    background-color: grey;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: lightgrey;
+}
+
+.active {
+    background-color: red;
+}
+</style>
+</head>
+<body>
 
 <ul>
+  <li><a class="active" href="/">Home</a></li>
+  <li><a href="/add_new_peep">Add New Peep</a></li>
+  <li><a href="/view_peeps_descending">View Most Recent Peeps</a></li>
+</ul>
+
+<ul> <% count = 1 %>
+  <br><br>
   <% @peeps.each do |peep| %>
   <%= peep.username %>
   <br>
-    <textarea disabled rows="3" cols="50">
+    <textarea name="<%= count %>" disabled rows="3" cols="50">
       <%= peep.content %>
     </textarea>
     <br><br>
+    <% count += 1 %>
   <% end %>
 </ul>
+
+</body>
+</html>
