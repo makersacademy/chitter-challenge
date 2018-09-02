@@ -14,3 +14,15 @@
 <h4>
   <a href="/view_all" id="view_all">View Peeps</a></h4>
 </h4>
+
+<% if !session[:user_id].nil? %>
+  <h4>
+    <form action="/log_out" method="post">
+      <input type="submit" value="Log Out">
+    </form>
+  </h4>
+<% end %>
+
+<h3 style="color:blue">
+  <%= flash[:notice] %>
+</h3>

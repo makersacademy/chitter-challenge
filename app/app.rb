@@ -83,7 +83,7 @@ class App < Sinatra::Base
       username: params[:username],
       password: params[:password]
     )
-    
+
     if user.present?
       session[:user_id] = user.id
       redirect "/log_in_success"
@@ -95,6 +95,13 @@ class App < Sinatra::Base
 
   get "/log_in_success" do
     erb :log_in_success
+  end
+
+  post "/log_out" do
+    old_user = User.find(session[:user_id])
+    flash[:notice] = "User #{old_user.username} logged out."
+    session[:user_id] = nil
+    redirect "/"
   end
 
   run! if app_file == $0

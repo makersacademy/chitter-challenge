@@ -33,4 +33,12 @@ feature "Users have logins" do
     expect(page).to have_content "Error: user not found"
     expect(page).to_not have_content "Welcome back"
   end
+
+  scenario "User can log out (if logged in)" do
+    log_in
+    visit("/")
+    click_button "Log Out"
+    expect(page).to have_content "User Username logged out"
+    expect(page).to_not have_content "Error"
+  end
 end
