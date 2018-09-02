@@ -18,14 +18,11 @@ class User
     User.new(result[0]['id'], result[0]['email'], result[0]['password'])
   end
 
-
-private
-
   def self.connect
     if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
+      PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'chitter')
+      PG.connect(dbname: 'chitter')
     end
   end
 end

@@ -14,7 +14,6 @@ Capybara.app = Chitter
 require 'simplecov'
 require 'simplecov-console'
 
-
 #
 # RSpec.configure do |config|
 #   config.before(:each) do

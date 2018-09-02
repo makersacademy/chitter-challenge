@@ -1,6 +1,20 @@
-<a href='/'> back to homepage </a>
-<br><br>
-<% @reverse_peep.each do |reverse| %>
-    <%= reverse.peep %><%= reverse.time %>
-    <br><br>
-  <% end %>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>CHITTER</h1>
+    </div>
+    <div id="content">
+      <form action="/user/index" method="get">
+        <input type="submit" value="back to homepage">
+      </form>
+      <br>
+      <% @reverse_peep.each do |reverse| %>
+          <font size="4"><%= reverse.peep %></font> <font size="1"> by <%= @user.email %> at <%= reverse.time %></font>
+          <br><br>
+        <% end %>
+    </div>
+  </div>
+</body>

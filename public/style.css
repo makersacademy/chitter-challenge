@@ -1,0 +1,25 @@
+body {
+  background-color: #EEE;
+}
+
+h1 {
+  margin: 0;
+}
+
+#container {
+  background-color: white;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  background-color: #66CCFF;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+#content {
+  padding: 10px;
+}

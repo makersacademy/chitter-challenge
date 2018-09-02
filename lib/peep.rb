@@ -16,7 +16,7 @@ class Peep
   end
 
   def self.create(peep, time = Time.now.strftime("%Y-%d-%m %H:%M:%S %Z"))
-    result = connect.exec("INSERT INTO chits (peep, time) VALUES ('#{peep}', '#{time}');")
+    connect.exec("INSERT INTO chits (peep, time) VALUES ('#{peep}', '#{time}');")
   end
 
   def self.reverse
@@ -24,13 +24,11 @@ class Peep
     result.map { |row| Peep.new(row['id'], row['peep'], row['time']) }
   end
 
-private
-
   def self.connect
     if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
+      PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'chitter')
+      PG.connect(dbname: 'chitter')
     end
   end
 

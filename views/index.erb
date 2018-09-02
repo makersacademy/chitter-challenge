@@ -1,14 +1,20 @@
-welcome to chitter
-
-<a href='/users/new'> sign up </a>
-
-<% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
-<% end %>
-
-<br>
-<br>
-<form action="/peep" method="post">
-  <input type="text" name="peep" placeholder="peep">
-  <input type="submit" value="post">
-</form>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>CHITTER</h1>
+      </div>
+      <div id="content">
+        <form action="/users/new" method="get">
+          <input type="submit" value="sign up">
+        </form>
+        <br>
+        <% @peeps.each do |chit| %>
+          <font size="4"><%= chit.peep %></font>  <font size="1"> by anon at <%= chit.time %></font>
+          <br><br>
+        <% end %>
+      </div>
+    </div>
+  </body>
