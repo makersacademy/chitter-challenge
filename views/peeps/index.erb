@@ -1,7 +1,9 @@
-<a href="/peeps/new">Add a peep</a>
-<h1>List of Peeps</h1>
-<ul>
+<div>
+  <a href="/peeps/new" style="color: white; padding-left: 50px">Add a peep</a>
+  <h1>List of Peeps</h1>
+  <ul style="color:green">
     <% @peeps.each do |peep| %>
       <li><%= peep.peep %> </li>
     <% end %>
-</ul>
+  </ul>
+</div>
