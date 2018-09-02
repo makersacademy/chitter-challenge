@@ -20,7 +20,8 @@ class User
 
   def self.create(email, password)
     create_connection_to_database
-    result = @connection.exec("INSERT INTO users(email, password) VALUES ('#{ email }', '#{ password }') RETURNING id, email; ")
+    result = @connection.exec("INSERT INTO users(email, password) 
+    VALUES ('#{email}', '#{password}') RETURNING id, email; ")
     User.new(result[0]['id'], result[0]['email'], result[0]['password'])
 
   end

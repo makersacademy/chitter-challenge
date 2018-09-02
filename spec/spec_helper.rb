@@ -25,7 +25,6 @@ require 'simplecov-console'
 
 Capybara.app = ChitterChallenge
 
-
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -40,8 +39,6 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
-
-
 
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
@@ -127,12 +124,3 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
-
-
-
-
-
-
-
-
-

@@ -2,7 +2,6 @@ require 'sinatra/base'
 require './lib/peep.rb'
 require './lib/user.rb'
 
-
 class ChitterChallenge < Sinatra::Base
 
   get '/' do
