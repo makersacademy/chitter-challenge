@@ -26,11 +26,15 @@ class App < Sinatra::Base
   end
 
   post "/add" do
-    user = User.create(name: params[:name], username: params[:username])
+    user = User.create!(name: params[:name], username: params[:username])
     message = Message.new(body: params[:message])
     message.user = user
-    message.save
-    redirect "/view_all"
+    if message.save
+      redirect "/view_all"
+    else
+      flash[:error] = message.errors.full_messages.join(" ,")
+      redirect "/write_message"
+    end
   end
 
   get "/view_all" do
