@@ -38,7 +38,7 @@ end
 
 def view_and_post_peep
   click_button('VIEW PEEPS')
-  click_button('POST A PEEP')
+  click_button('POST PEEP')
   fill_in('peep_field', with: 'peep test')
   click_button('Submit')
 end

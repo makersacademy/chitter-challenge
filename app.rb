@@ -51,7 +51,8 @@ class Chitter < Sinatra::Base
       redirect '/sign_up'
     else
       Users.create(params[:name], params[:user_name], params[:email], params[:password])
-      flash[:sign_up_notice] = "Sign up successful"
+      flash[:sign_up_notice] = "Sign up successful! Log in to get peeping!"
+      session[:current_user] = nil
       redirect '/'
     end
   end

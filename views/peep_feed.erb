@@ -1,21 +1,32 @@
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<h2>
+  LATEST PEEPS
+</h2>
+
 <% if @current_user != nil %>
-Hi <%= @current_user.user_name %>! Let's get peeping!</br>
-<form action="/post_peep" method="get">
-  <input type="submit" name="PEEP" value="POST A PEEP" />
-</form>
+  Hi <%= @current_user.user_name %>! Let's get peeping!</br>
+  <form action="/post_peep" method="get">
+  <input type="submit" name="PEEP" value="POST PEEP">
+  </form>
 <% end %>
 
 <form action="/" method="get">
-  <input type="submit" value="BACK TO MAIN MENU">
+  <input type="submit" value="MAIN MENU">
 </form>
 
 <% @peeps.reverse.each do |peep| %>
-  <div class="boxed">
-    <%= peep.peep %>
+  <div style="border: 5px solid #4b007a">
+    <div class="boxed-peep">
+      <%= peep.peep %>
+    </div>
+    Posted by: <%= peep.name %>, <%= peep.user_name %>
+    </br>
+    <%= peep.created_at %>
+    </br>
   </div>
-  <%= peep.name %>, <%= peep.user_name %>
   </br>
-  <%= peep.created_at %>
-  </br>
-</br>
 <% end %>
+</div>

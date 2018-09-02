@@ -1,23 +1,38 @@
-<%= flash[:sign_up_notice]%>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<h1>
+  CHITTER
+</h1>
+
+<%= flash[:sign_up_notice]%></br>
+
 <% if @current_user != nil %>
   <%= @current_user.user_name %> is currently logged in </br>
 <% else %>
-  no one is currently logged in
+  no one is currently logged in :(
+  </br>
 <% end %>
+<br>
 
-<form action="/sign_up" method="get">
-  <input type="submit" value="SIGN UP" />
-</form>
-
-<form action="/log_in" method="get">
-  <input type="submit" value="LOG IN" />
-</form>
-
-<form action="/log_out" method="get">
-  <input type="submit" value="LOG OUT" />
-</form>
-
-
-<form action="/peep_feed" method="get">
-  <input type="submit" value="VIEW PEEPS" />
-</form>
+<div class="fieldBlock">
+  <form action="/sign_up" method="get">
+    <input type="submit" value="SIGN UP">
+  </form>
+</div>
+<div class="fieldBlock">
+  <form action="/log_in" method="get">
+    <input type="submit" value="LOG IN">
+  </form>
+</div>
+<div class="fieldBlock">
+  <form action="/log_out" method="get">
+    <input type="submit" value="LOG OUT">
+  </form>
+</div>
+<div class="fieldBlock">
+  <form action="/peep_feed" method="get">
+    <input type="submit" value="VIEW PEEPS">
+  </form>
+</div>

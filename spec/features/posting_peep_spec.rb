@@ -17,7 +17,7 @@ feature 'Posting a peep' do
     sign_up_one
     log_in_one
     view_and_post_peep
-    click_button('POST A PEEP')
+    click_button('POST PEEP')
     fill_in('peep_field', with: 'more peep test')
     click_button('Submit')
     expect(page).to have_content('peep test')

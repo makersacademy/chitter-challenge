@@ -1,0 +1,46 @@
+html {
+  background-color: #000000;
+  background: url("color-2174045.png") no-repeat center center fixed;
+  background-size: cover
+}
+
+body {
+  text-align: center;
+  color: #1d2533;
+  font-family: courier;
+  font-size: 25
+}
+
+input[type=submit] {
+    width: 100px;
+    font-size: 15;
+    color: #000000;
+    background-color: #FEDC3D
+}
+
+h1 {
+    color: #0041b2;
+    font-style: italic;
+    font-size: 5em
+}
+
+h2 {
+    color: #0041b2;
+    font-style: italic;
+    font-size: 2em
+}
+
+.boxed-peep
+{
+  border-style:solid;
+  border-color:#F7B733;
+  background-color:#e8dfa2
+}
+
+.fieldBlock
+{
+  display: inline-flex;
+  width: 100px;
+  float: middle;
+  padding: 10px;
+}
