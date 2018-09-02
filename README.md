@@ -87,4 +87,6 @@ Currently the email setup in the `email_notice.rb` file to send alerts is for a 
 A creation on an `.env` is needed in the root directory and added to the `.gitignore` file. This needs to contain the user name and password details of the current gmail setup.
 
 		USER_NAME = "email address"
-		PASSWORD = "email password"		
+		PASSWORD = "email password"
+
+The background image used is CC0 Creative Commons (Free for commercial use. No attribution required)		
