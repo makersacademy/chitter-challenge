@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require_relative './database_connection_setup'
 
 
 class Chitter < Sinatra::Base
@@ -14,17 +15,14 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
-
   get '/peeps/add' do
     erb :'peeps/add'
   end
-
 
   post '/peeps' do
     Peep.create(params['text'])
     redirect '/peeps'
   end
-
 
   delete '/peeps/:id' do
     Peep.delete(params[:id])
@@ -36,12 +34,10 @@ class Chitter < Sinatra::Base
     erb :'peeps/edit'
   end
 
-
   patch '/peeps/:id' do
     Peep.update(params[:id], params[:text])
     redirect '/peeps'
   end
 
-
-run! if app_file == $0
+  run! if app_file == $0
 end
