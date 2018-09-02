@@ -24,4 +24,13 @@ feature "Users have logins" do
     expect(page).to have_content "Welcome back"
     expect(page).to_not have_content "Error"
   end
+
+  scenario "Unregistered users can't log in" do
+    visit("/log_in")
+    fill_in "username", with: "Username2"
+    fill_in "password", with: "password2"
+    click_button "Log in"
+    expect(page).to have_content "Error: user not found"
+    expect(page).to_not have_content "Welcome back"
+  end
 end

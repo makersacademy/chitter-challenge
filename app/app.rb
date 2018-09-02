@@ -80,11 +80,11 @@ class App < Sinatra::Base
 
   post "/log_in_user" do
     user = User.find_by(username: params[:username])
-    if user.valid?
+    if user.present?
       session[:user_id] = user.id
       redirect "/log_in_success"
     else
-      flash[:user_error] = user.errors.full_messages.join(", ")
+      flash[:error] = "Error: user not found" 
       redirect "/log_in"
     end
   end
