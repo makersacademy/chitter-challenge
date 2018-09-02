@@ -34,13 +34,13 @@ I want to sign up for Chitter
 Tech/framework used:
 -----
 
-Ruby, html, css, sinatra, capybara, rspec
+Ruby, html, css, sinatra, psql, capybara, rspec
 
 How to use:
 ------
 
 ```
-$ git clone https://github.com/[USERNAME]/chitter-challenge
+$ git clone https://github.com/leekarho/chitter-challenge
 $ bundle
 $ cd rps-challenge
 $ bundle
