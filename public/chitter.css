@@ -1,0 +1,83 @@
+body {
+  background-color: #ECECE8;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  color: #DE7067;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.signup {
+  color: #415D42;
+  width: 200px;
+  height: 50px;
+  background-color: #ECECE8;
+  padding-left: 15px;
+  margin-top: 10px;
+  border-bottom: 1px solid #779564;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.button {
+  background-color: #ECECE8;
+  height: 40px;
+  width: 120px;
+  border-radius: 30px;
+  border: 1px solid #779564;
+  color: #779564;
+  font-size: 20px;
+  margin: 20px;
+  display: inline;
+}
+
+.button_container form,
+.button_container form div {
+    display: inline;
+}
+
+.button_container button {
+    display: inline;
+    vertical-align: middle;
+}
+
+.sendp {
+  height: 100px;
+  width: 500px;
+  border: 1px solid #779564;
+  border-radius: 20px;
+  padding-left: 15px;
+  font-size: 20px;
+  color: #415D42;
+  background-color: #F7F7F9;
+}
+
+.allp {
+  margin: auto;
+  margin-bottom: 30px;
+  height: 100px;
+  width: 500px;
+  border: 1px solid #779564;
+  border-radius: 20px;
+  color: #415D42;
+  background-color: #F7F7F9;
+}
+
+.peep {
+  text-align: left;
+  padding: 20px 0px 20px 20px;
+  font-size: 20px;
+}
+
+.time {
+  text-align: right;
+  padding: 0px 20px 0px 0px;
+  font-size: 10px;
+}

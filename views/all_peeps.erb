@@ -1,8 +1,24 @@
 <h1>All peeps</h1>
 
-<ul>
-  <% @peeps.each do | peep | %>
-        <li><%= peep.peep %><br>
-        sent at <%= peep.time %></li>
-  <% end %>
-</ul>
+<div class="button_container">
+  <form action="/all_peeps" method="post">
+      <input class="sendp" type="text" name="peep" placeholder="peep" /> <br /><br />
+      <input class="button" type="submit" value="Submit">
+  </form>
+
+  <form action="/" method="get">
+    <input class="button" type="submit" value="Home">
+  </form>
+</div>
+
+
+  <ul>
+    <% @peeps.each do | peep | %>
+      <li>
+        <div class="allp">
+          <div class="peep"><%= peep.peep %></div><br>
+          <div class="time">sent at <%= peep.time %></div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
