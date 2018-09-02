@@ -10,7 +10,9 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec('SELECT * FROM peeps')
-    result.map { |peep| peep["text"] }
+    result.map do |peep|
+       Peep.new(peep["id"], peep["text"])
+     end
   end
 
   def self.create(text)
@@ -19,8 +21,19 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peeps (text) VALUES ('#{text}');")
+    result = connection.exec("INSERT INTO peeps (text) VALUES ('#{text}') RETURNING id, text;")
+    Peep.new(result[0]['id'], result[0]['text'])
   end
+
+
+  attr_reader :id, :text
+
+  def initialize(id, text)
+    @id = id
+    @text = text
+  end
+
+
 
 
 
