@@ -11,8 +11,8 @@ class Chitter < Sinatra::Base
     erb :feed
   end
 
-  post '/feed' do
-    Peep.add(params['peep'])
+  post '/new' do
+    Peep.add(params[:peep])
     redirect '/feed'
   end
 

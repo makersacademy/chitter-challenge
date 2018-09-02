@@ -16,10 +16,13 @@ feature 'Posting Peeps' do
   end
 end
 
-# feature 'Reverse chronology' do
-#   scenario 'peeps are shown in reverse chronological order' do
-#     fill_in :peep, with: 'Hello world!'
-#     fill_in :peep, with: 'Hello world!'
+feature 'Reverse chronology' do
+  scenario 'peeps are shown in reverse chronological order' do
+    visit '/'
+    fill_in :peep, with: 'One'; click_button 'Post'
+    fill_in :peep, with: 'Two'; click_button 'Post'
+    fill_in :peep, with: 'Three'; click_button 'Post'
+    expect(page).to have_content 'Three Two One'
 
-#   end
-# end
+  end
+end

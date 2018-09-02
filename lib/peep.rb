@@ -4,7 +4,7 @@ class Peep
 
   def self.all 
     connect_database
-    @connection.exec("SELECT * FROM peeps;").map { |peep| peep['text'] }
+    @connection.exec("SELECT * FROM peeps;").map { |peep| peep['text'] }.reverse
   end
     
   def self.add(peep)
