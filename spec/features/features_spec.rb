@@ -1,9 +1,9 @@
 Capybara.app = ChitterChallenge
 
 feature 'Viewing peeps' do
-  scenario 'user can see pre-added peeps' do
+  scenario 'user can see peeps' do
     visit('/peeps')
-    expect(page).to have_content "hello world!"
+    expect(page).to have_content "i am the peep_spec test"
   end
 end
 
@@ -18,11 +18,11 @@ end
 
 feature 'Registering users' do
   scenario 'user can register' do
-    visit('/register')
-    fill_in :registration_email, with: 'test@gmail.com'
+    visit('/users/new')
+    fill_in :registration_email, with: 'peeper@gmail.com'
     fill_in :password, with: 'password'
 
     click_button 'Register'
-    expect(page).to have_content 'test@gmail.com', 'password'
+    expect(page).to have_content 'peeper@gmail.com', 'password'
   end
 end

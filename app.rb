@@ -37,4 +37,21 @@ class ChitterChallenge < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/users' do
+    @users = User.all
+    erb(:'/users')
+  end
+
+  get '/users/new' do
+    erb(:'users/new')
+  end
+
+  post '/users' do
+    @email = params[:registration_email]
+    @password = params[:password]
+
+    User.create(email, password)
+    redirect '/users'
+  end
+
 end

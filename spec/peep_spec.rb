@@ -20,8 +20,7 @@ end
 
 describe '.register' do
   it 'stores a registered user' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("TRUNCATE users;")
+    setup_test_user_database
     user = User.create('test@gmail.com', 'password')
   end
 end
