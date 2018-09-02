@@ -1,12 +1,6 @@
 feature 'can see all peeps' do
   scenario 'see all peep messages' do
     connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("INSERT INTO users (name, username, email, password) VALUES ('Harry Potter', 'Scarface', 
-        'hpotter@gmail.com', 'Password123');")
-
-    result = connection.exec('SELECT id FROM users') 
-    user_id = result[0]['id']
       
     connection.exec("INSERT INTO peeps (peep, user_id) VALUES ('Hello', '#{user_id}');")
 
@@ -20,12 +14,6 @@ feature 'can see all peeps' do
 
   scenario 'can see peeps in reverse chronological order' do
     connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("INSERT INTO users (name, username, email, password) VALUES ('Harry Potter', 'Scarface', 
-        'hpotter@gmail.com', 'Password123');")
-
-    result = connection.exec('SELECT id FROM users') 
-    user_id = result[0]['id']
     
     connection.exec("INSERT INTO peeps (peep, user_id) VALUES ('Hello', '#{user_id}');")
     connection.exec("INSERT INTO peeps (peep, user_id) VALUES ('Hey', '#{user_id}');")
@@ -40,12 +28,6 @@ feature 'can see all peeps' do
 
   scenario 'can see what time of peeps' do
     connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("INSERT INTO users (name, username, email, password) VALUES ('Harry Potter', 'Scarface', 
-        'hpotter@gmail.com', 'Password123');")
-
-    result = connection.exec('SELECT id FROM users') 
-    user_id = result[0]['id']
 
     connection.exec("INSERT INTO peeps (peep, time, user_id) VALUES ('Hello', '2018-09-01 12:00', '#{user_id}')")
 
