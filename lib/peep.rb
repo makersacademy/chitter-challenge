@@ -3,14 +3,18 @@ require 'pg'
 class Peep 
 
   def self.all 
-    connection = PG.connect(dbname: 'chitter')
-    result = connection.exec("SELECT * FROM peeps;")
-    result.map { |peep| peep['text'] }
+    connect_database
+    @connection.exec("SELECT * FROM peeps;").map { |peep| peep['text'] }
+  end
+    
+  def self.add(peep)
+    connect_database
+    @connection.exec("INSERT INTO peeps (text) VALUES('#{peep}')")
   end
 
-  def self.add(peep)
-    connection = PG.connect(dbname: 'chitter')
-    connection.exec("INSERT INTO peeps (text) VALUES('#{peep}')")
+  def self.connect_database
+    ENV['ENV'] == 'test' ? database = 'chitter' : database = 'chitter'
+    @connection = PG.connect(dbname: database)
   end
 
 end

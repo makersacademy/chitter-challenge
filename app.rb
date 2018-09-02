@@ -13,7 +13,6 @@ class Chitter < Sinatra::Base
 
   post '/feed' do
     Peep.add(params['peep'])
-
     redirect '/feed'
   end
 
