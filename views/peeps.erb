@@ -7,6 +7,10 @@
   <h1>Peeps</h1>
   <ul> <% @peeps.each do |peep| %>
     <li> <%= peep.peep %> <%= peep.time %>
+         <% peep.users(peep.user_id).each do |user| %>
+           <%= user['name'] %>
+           <%= user['username'] %>
+        <% end %>
     </li>
     <% end %> 
   </ul>

@@ -2,24 +2,34 @@ feature 'can see all peeps' do
   scenario 'see all peep messages' do
     connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Hello')")
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Hey')")
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Hi')")
+    connection.exec("INSERT INTO users (name, username, email, password) VALUES ('Harry Potter', 'Scarface', 
+        'hpotter@gmail.com', 'Password123');")
+
+    result = connection.exec('SELECT id FROM users') 
+    user_id = result[0]['id']
+      
+    connection.exec("INSERT INTO peeps (peep, user_id) VALUES ('Hello', '#{user_id}');")
 
     visit '/peeps'
 
     expect(page).to have_content "Hello"
-    expect(page).to have_content "Hi"
-    expect(page).to have_content "Hey"
+    expect(page).to have_content "Harry Potter"
+    expect(page).to have_content "Scarface"
 
   end
 
   scenario 'can see peeps in reverse chronological order' do
     connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Hello')")
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Hey')")
-    connection.exec("INSERT INTO peeps (peep) VALUES ('Hi')")
+    connection.exec("INSERT INTO users (name, username, email, password) VALUES ('Harry Potter', 'Scarface', 
+        'hpotter@gmail.com', 'Password123');")
+
+    result = connection.exec('SELECT id FROM users') 
+    user_id = result[0]['id']
+    
+    connection.exec("INSERT INTO peeps (peep, user_id) VALUES ('Hello', '#{user_id}');")
+    connection.exec("INSERT INTO peeps (peep, user_id) VALUES ('Hey', '#{user_id}');")
+    connection.exec("INSERT INTO peeps (peep, user_id) VALUES ('Hi', '#{user_id}');")
 
     visit '/peeps'
 
@@ -31,7 +41,13 @@ feature 'can see all peeps' do
   scenario 'can see what time of peeps' do
     connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps (peep, time) VALUES ('Hello', '2018-09-01 12:00')")
+    connection.exec("INSERT INTO users (name, username, email, password) VALUES ('Harry Potter', 'Scarface', 
+        'hpotter@gmail.com', 'Password123');")
+
+    result = connection.exec('SELECT id FROM users') 
+    user_id = result[0]['id']
+
+    connection.exec("INSERT INTO peeps (peep, time, user_id) VALUES ('Hello', '2018-09-01 12:00', '#{user_id}')")
 
     visit '/peeps'
 
