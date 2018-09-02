@@ -8,12 +8,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
+    @peeps = Peep.all
     erb :feed
   end
 
-  get '/feed/send_peep' do
+  post '/feed/send_peep' do
     peep = params[:peep_content]
-    Peep.create(peep)
+
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec("INSERT INTO feed (peep) values ('#{peep}');")
+
     redirect '/feed'
   end
 
