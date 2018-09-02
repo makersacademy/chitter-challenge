@@ -9,16 +9,12 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    unless session[:current_user] == nil
-      @current_user = session[:current_user]
-      @current_user_name = @current_user.user_name
-    else
-      @current_user_name = "no one"
-    end
+    @current_user = session[:current_user]
     erb :welcome
   end
 
   get '/peep_feed' do
+    @current_user = session[:current_user]
     @peeps = Peeps.all
     erb :peep_feed
   end
@@ -28,8 +24,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/post_peep' do
+    @current_user = session[:current_user]
     @peep = params[:peep_field]
-    Peeps.create(@peep)
+    Peeps.create(@peep, @current_user.id)
     redirect('peep_feed')
   end
 

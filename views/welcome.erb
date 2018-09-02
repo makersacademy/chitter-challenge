@@ -1,5 +1,9 @@
 <%= flash[:sign_up_notice] %>
-<%= @current_user_name %> is currently logged in </br>
+<% if @current_user != nil %>
+  <%= @current_user.user_name %> is currently logged in </br>
+<% else %>
+  no one is currently logged in
+<% end %>
 
 <form action="/sign_up" method="get">
   <input type="submit" value="SIGN UP" />

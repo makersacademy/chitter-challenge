@@ -5,10 +5,7 @@ feature 'Log in to chitter' do
   scenario 'enter your user name and password' do
     visit('/sign_up')
     sign_up_one
-    click_button('LOG IN')
-    fill_in('user_name', with: 'user name test')
-    fill_in('password', with: 'password test')
-    click_button('Submit')
+    log_in_one
     expect(page).to have_content('user name test is currently logged in')
   end
 

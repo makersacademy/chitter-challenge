@@ -2,24 +2,24 @@ require 'pg'
 
 class Peeps
 
-  attr_reader :id, :peep, :created_at
+  attr_reader :peep, :created_at, :name, :user_name
 
-  def initialize(id:, peep:, created_at:)
-    @id = id
+  def initialize(peep:, created_at:, name:, user_name:)
     @peep = peep
     @created_at = created_at
+    @name = name
+    @user_name = user_name
   end
 
   def self.all
-    result = database_connect.exec("SELECT * FROM peeps;")
+    result = database_connect.exec("SELECT peep, created_at, name, user_name FROM peeps JOIN users ON (peeps.user_id=users.id);")
     result.map do |peeps|
-      Peeps.new(id: peeps['id'], peep: peeps['peep'], created_at: peeps['created_at'])
+      Peeps.new(peep: peeps['peep'], created_at: peeps['created_at'], name: peeps['name'], user_name: peeps['user_name'])
     end
   end
 
-  def self.create(peep)
-    result = database_connect.exec("INSERT INTO peeps (peep, created_at) VALUES('#{peep}', '#{created_time}') RETURNING id, peep, created_at;")
-    # Peeps.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
+  def self.create(peep, current_user_id)
+    result = database_connect.exec("INSERT INTO peeps (peep, created_at, user_id) VALUES('#{peep}', '#{created_time}', '#{current_user_id}');")
   end
 
   def self.created_time

@@ -1,10 +1,20 @@
+<% if @current_user != nil %>
+Hi <%= @current_user.user_name %>! Let's get peeping!</br>
 <form action="/post_peep" method="get">
-  <input type="submit" name="PEEP" value="PEEP" />
+  <input type="submit" name="PEEP" value="POST A PEEP" />
 </form>
+<% end %>
+
+<form action="/" method="get">
+  <input type="submit" value="BACK TO MAIN MENU">
+</form>
+
 <% @peeps.reverse.each do |peep| %>
   <div class="boxed">
     <%= peep.peep %>
   </div>
+  <%= peep.name %>, <%= peep.user_name %>
+  </br>
   <%= peep.created_at %>
   </br>
 </br>
