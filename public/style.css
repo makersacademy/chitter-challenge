@@ -1,0 +1,16 @@
+.new_peep {
+  padding: 20px;
+}
+
+.wide_input {
+  width: 400px;
+}
+
+.peep {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 10px;
+  text-align: center;
+  width: 60%;
+}

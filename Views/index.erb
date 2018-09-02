@@ -3,22 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Chitter Feed</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
   </head>
   <body>
     <h1>Chitter Feed</h1>
     <div class="new_peep">
       <form class="peep_entry" action="/new_peep" method="post">
         <label for="new_peep">Enter Peep</label>
-        <input type="text" name="new_peep">
+        <input class="wide_input" type="text" name="new_peep">
         <input type="submit" value="Submit">
       </form>
     </div>
     <div class="feed">
-      <ul>
-        <% @peeps.reverse_each do |peep| %>
-        <li><%= peep.text %></li>
-        <% end %>
-      </ul>
+      <% @peeps.reverse_each do |peep| %>
+        <div class="peep">
+          <%= peep.nice_date %>
+          <%= peep.nice_time %>
+          <%= peep.text %>
+        </div>
+      <% end %>
     </div>
   </body>
 </html>
