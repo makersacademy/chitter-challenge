@@ -14,7 +14,7 @@ class Users
   end
 
   def self.create(name, user_name, email, password)
-    result = database_connect.exec("INSERT INTO users (name, user_name, email, password) VALUES('#{name}', '#{user_name}', '#{email}', '#{password}') RETURNING id, name, user_name;")
+    database_connect.exec("INSERT INTO users (name, user_name, email, password) VALUES('#{name}', '#{user_name}', '#{email}', '#{password}') RETURNING id, name, user_name;")
   end
 
   def self.select_user(user_name)

@@ -1,3 +1,4 @@
+require_relative './lib/email_notice.rb'
 require_relative './lib/input_checkers.rb'
 require_relative './lib/peep_manager.rb'
 require_relative './lib/users.rb'
@@ -27,6 +28,7 @@ class Chitter < Sinatra::Base
   post '/post_peep' do
     @current_user = session[:current_user]
     @peep = params[:peep_field]
+    EmailNotice.check_peep(@peep, @current_user.user_name)
     Peeps.create(@peep, @current_user.id)
     redirect('peep_feed')
   end
