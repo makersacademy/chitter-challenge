@@ -9,7 +9,8 @@ class Peep
     
   def self.add(peep)
     connect_database
-    @connection.exec("INSERT INTO peeps (text, time) VALUES('#{peep}', '#{Time.now.strftime("%m/%d/%Y")}')")
+    time = Time.now.strftime("%m/%d/%Y")
+    @connection.exec("INSERT INTO peeps (text, time) VALUES('#{peep}', '#{time}');")
   end
 
   private
