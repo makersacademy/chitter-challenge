@@ -13,6 +13,13 @@
     <input type="submit" value="Make a Peep">
   </form>
   <br>
-  <p><%= @peep %></p>
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.content %>
+    </li>
+    <% end %>
+  </ul>
+
 </body>
 </html>

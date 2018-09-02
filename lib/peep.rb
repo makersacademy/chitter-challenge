@@ -2,7 +2,8 @@ require './lib/database_connection'
 require './setup_database_connection'
 
 class Peep
-
+  attr_reader :content
+  
   def initialize(id, content, timestamp, tags)
     @id = id
     @content = content
@@ -11,11 +12,14 @@ class Peep
   end
 
   def self.all
-    p "in .all #{DatabaseConnection.connection}"
     result = DatabaseConnection.query('SELECT * FROM peeps')
     result.map do |peep|
-      Peep.new(peep['id'], peep['content'], peep['timestamp'], peep['tags'])
+      Peep.new(peep['id'], peep['content'], peep['timestamp'], peep['author_id'])
     end
+  end
+
+  def self.create_peep(content, author_id)
+    DatabaseConnection.query("INSERT INTO peeps (content, author_id) VALUES ('#{content}', '#{author_id}')")
   end
 
 end
