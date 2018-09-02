@@ -9,6 +9,19 @@ class ChitterChallenge < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @order_message = "List Newest first"
+    @order = true
+    @peeps_url = '/peeps/asc'
+
+    erb(:'peeps/index')
+  end
+
+  get '/peeps/asc' do
+    @peeps = Peep.all_asc
+    @order_message = "List Oldest first"
+    @order = false
+    @peeps_url = '/peeps'
+
     erb(:'peeps/index')
   end
 

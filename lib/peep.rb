@@ -2,16 +2,27 @@ require 'pg'
 
 class Peep
 
-  attr_reader :id, :peep
+  attr_reader :id, :peep, :order
 
   def initialize(id, peep)
     @id = id
     @peep = peep
+    @order = true
   end
 
   def self.all
     create_connection_to_database
     result = @connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
+    @order = true
+    result.map do |peep|
+      Peep.new(peep['id'], peep['peep'])
+    end
+  end
+
+  def self.all_asc
+    create_connection_to_database
+    result = @connection.exec("SELECT * FROM peeps;")
+    @order = false
     result.map do |peep|
       Peep.new(peep['id'], peep['peep'])
     end
