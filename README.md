@@ -28,6 +28,7 @@ Database Model
 
 To run this app, you will need a database with two tables.
 Table 1: peeps
+
 | Column Name | Data Type |
 | ----------- | --------- |
 | id          | serial primary key |
@@ -35,6 +36,7 @@ Table 1: peeps
 | time        | varchar default to_char(Now(), 'HH24:MI') |
 
 Table 2: profile
+
 | Column Name | Data Type |
 | ----------- | --------- |
 | id          | serial primary key |
