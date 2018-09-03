@@ -7,25 +7,32 @@ Features:
 -------
 
 ```
-STRAIGHT UP
 
-As a Maker
+as a social media user
+so i can see the chitter feed
+i want to be able to view the chitter peeps
+
+As a social media user
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+as a social media user
+so i can remove peeps from my peep feed
+i want to delete a peep
+
+As a social media user
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a Maker
+As a social media user
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-As a Maker
+As a social media user
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
+
 
 As a Maker
 So that only I can post messages on Chitter as me
@@ -35,7 +42,7 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
+
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
@@ -63,17 +70,6 @@ And/Or:
 * Work on the CSS to make it look good.
 
 Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
 Notes on test coverage
 ----------------------
