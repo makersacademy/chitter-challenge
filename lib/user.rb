@@ -14,7 +14,7 @@ class User
     create_connection_to_database
     result = @connection.exec("SELECT * FROM users ORDER BY id DESC;")
     result.map do |user|
-      User.new(user['id'], user['email'], password['password'])
+      User.new(user['id'], user['email'], user['password'])
     end
   end
 
