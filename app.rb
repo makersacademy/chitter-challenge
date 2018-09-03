@@ -46,8 +46,8 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/users' do
-    @email = params[:email]
-    @password = params[:password]
+    email = params[:email]
+    password = params[:password]
 
     User.create(email, password)
     redirect '/users'
