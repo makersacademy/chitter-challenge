@@ -23,6 +23,27 @@ $ rackup -p 4567
 ```
 Then in your favourite browser, type `localhost:4567/` to access the homepage.
 
+Database Model
+-------
+
+To run this app, you will need a database with two tables.
+Table 1: peeps
+| Column Name | Data Type |
+| ----------- | --------- |
+| id          | serial primary key |
+| peep        | varchar(240) |
+| time        | varchar default to_char(Now(), 'HH24:MI') |
+
+Table 2: profile
+| Column Name | Data Type |
+| ----------- | --------- |
+| id          | serial primary key |
+| username    | varchar(30) |
+| email       | varchar (100) |
+| name        | varchar (300) |
+| password    | varchar (50) |
+
+
 Features:
 -------
 
@@ -43,14 +64,3 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
