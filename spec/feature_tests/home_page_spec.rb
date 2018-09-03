@@ -18,19 +18,24 @@ end
 
 feature 'Users' do
   it 'Registers new users' do
-    visit '/'
-    find('#register_user').click
-    fill_in :username, with: 'andrew2'
-    fill_in :name, with: 'A Wood'
-    fill_in :email, with: 'test@hotmail.co.uk'
-    fill_in :password, with: 'pwd12'
-    fill_in :pass2, with: 'pwd12'
-    click_button "Submit"
+    register_new
     expect(page).to have_content 'andrew2'
     expect(page).to have_content 'A Wood'
     expect(page).to have_content 'test@hotmail.co.uk'
     click_button "Home page"
     expect(page).to have_content 'andrew2'
+  end
+
+  it 'Can register, log out and log in' do
+    register_new
+    click_button "Home page"
+    click_button "Log out"
+    click_button "Log in"
+    fill_in :username, with: 'andrew2'
+    fill_in :password, with: 'pwd12'
+    click_button "Submit"
+    expect(page).to have_content 'andrew2'
+    expect(page).not_to have_content 'BACKTRACE'
   end
 
   it 'Logs-in users' do
