@@ -1,8 +1,11 @@
-<h1 style="padding-left:30%; padding-right:30%;">List of Users</h1>
-  <ul style="color:green; list-style: none; padding-left:0px">
-    <% @users.each do |user| %>
-      <div style="margin: 5px; background-color:white; color:blue; padding:10px">
-        <li><%= user.email %> </li>
-      </div>
-    <% end %>
-  </ul>
+<div style="padding-left:30%; padding-right: 30%">
+  <h1 style="padding-left:30%; padding-right:30%;">List of Users</h1>
+   <a style="font-size:30px; padding-left:30%; padding-right:30%" href="/peeps">Go to the Peeps</a>
+    <ul style="color:green; list-style: none; padding-left:0px">
+      <% @users.each do |user| %>
+        <div style="margin: 5px; background-color:white; color:blue; padding:10px">
+          <li><%= user.email %> </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
