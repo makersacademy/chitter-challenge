@@ -75,6 +75,7 @@ Currently 100% test coverage. See notes on setup below to set up the databases.
 - Ruby
 - Sinatra
 - PostgreSQL
+- BCrypt (password encryption)
 - Pony (email gem)
 
 ## Notes on setup
@@ -97,7 +98,7 @@ VARCHAR(60), created_at VARCHAR(60), user_id INTEGER);`
 users table setup:
 
 `CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(60), user_name VARCHAR(60), email VARCHAR(60), password VARCHAR(60));`
-		
+
 
 ### Email Setup
 -
@@ -107,7 +108,7 @@ A creation on an `.env` is needed in the root directory and added to the `.gitig
 
 		USER_NAME = "email address"
 		PASSWORD = "email password"
-		
+
 ### Extra Information
 -
 
