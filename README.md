@@ -15,6 +15,9 @@ log in takes the user to a log in page where a user name and password must be en
 ### View Peeps
 Any user whether or not they are logged in can view the peep feed but only logged in users are given the option to post.
 
+### Post a Peep
+If the user is logged in there will be an option on the page with the peep feed inviting them to post a peep. If selected the user is taken to a post peep page where they can enter a peep and hashtag other chitter users. If a valid user is hash tagged then an email alert is sent to that user containing the peep and who sent it.
+
 ### Other features
 A user can tag another user in in their peep by using a # symbol before their user name. Once this happens the user that has been tagged will receive an email contained the peep message and the user that tagged them, encouraging them to log in and start peeping again!
 
@@ -22,7 +25,7 @@ A user can tag another user in in their peep by using a # symbol before their us
 Before starting to code went through the user stories, wrote down in order the requirements and then started mapping out how I would eventually proceed with the MVC. This in turn pushed me into how I would eventually setup the Database, the tables and the information they will be holding. I refactored a few times throughout the process, mainly when I had to use class extraction but also when I saw an opportunity to keep the code DRY. Using TDD made me think about the problems one step at a time as I proceeded through the challenge.
 
 ## Reflection
-I was a bit daunted by the prospect of this challenge, it seemed like a lot to do over one weekend but as I proceeded through I found I was very comfortable with how the coding went. I was thinking throughout about the objects and trying to keep their responsilibitie separate and only letting them know as much as they needed to about each other. I really enjoyed the coding this weekend, it seemed to flow more than the other weekends! Getting the email took a bit of time as I found out the dotenv gem (used for hiding sensitive information) was not quite working as I expected and some research indicated an extra line needed to be added to the config.ru file to get it to work. Once I had met all the user stories I turned my hand to having a bit of fun with the CSS and html design. I would have liked to explored the encrypting of the passwords and would be looking to impliment something along the lines of BCrypt gem to help with this. Also making a feature that allow users to reply to peeps and start conversations along side the main peep feed.
+I was a bit daunted by the prospect of this challenge, it seemed like a lot to do over one weekend but as I proceeded through I found I was very comfortable with how the coding went. I was thinking throughout about the objects and trying to keep their responsibilities separate and only letting them know as much as they needed to about each other. I really enjoyed the coding this weekend, it seemed to flow more than the other weekends! Getting the email alerts to work took a bit of time as I found out the dotenv gem (used for hiding sensitive information) was not quite working as I expected and some research indicated an extra line needed to be added to the config.ru file to get it to work. Once I had met all the user stories I turned my hand to having a bit of fun with the CSS and html design. I would have liked to explored the encrypting of the passwords and would be looking to implement something along the lines of BCrypt gem to help with this. Also making a feature that allow users to reply to peeps and start conversations along side the main peep feed.
 
 ## User stories
 ```
@@ -75,7 +78,6 @@ Currently 100% test coverage. See notes on setup below to set up the databases.
 - Ruby
 - Sinatra
 - PostgreSQL
-- BCrypt (password encryption)
 - Pony (email gem)
 
 ## Notes on setup
