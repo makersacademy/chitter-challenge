@@ -24,7 +24,7 @@ You can see screenshots of these [here](./peeps_table.png) and [here](./users_ta
 
 ## Things to Improve/Add
 
-Add registration/log-in capability, peeps with specified authors, timestamp and external css. Use .reverse rather than expensive SQL query when reversing chronological order of peeps. Ultimately use joins for 'users' and 'peeps' tables to link users with their peeps.
+Add log-in capability, peeps with specified authors, timestamp and external css. Use .reverse rather than expensive SQL query when reversing chronological order of peeps. Ultimately use joins for 'users' and 'peeps' tables to link users with their peeps.
 
 Minor edge cases (amongst many) - validation of emails, max peep length, single quotation marks cause errors, the text now strays out of the peep box on the /peeps page, which wasn't happening earlier in the app's life. 
 
