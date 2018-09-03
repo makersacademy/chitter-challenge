@@ -19,7 +19,7 @@ This project responds to the following brief:
 
 Chitter requires a database called chitter, a table called peeps with columns id and peep.
 
-You can see screenshots of these [here](../blob/master/peeps_table.png)
+You can see screenshots of these [here](../master/peeps_table.png)
 
 
 ## Things to Improve/Add
