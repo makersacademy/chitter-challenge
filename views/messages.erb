@@ -1,3 +1,9 @@
+<head>
+  <link rel="stylesheet" href="main_styles.css" type="text/css" /> 
+</head>
+
+<body>
+
 <h2>Welcome, <%= session[:user_name] %> </h2>
 
 <form action='/messages' method='post'>
@@ -18,6 +24,6 @@ Posted at: <%= message.created_at.slice(11,8) %>
   <input type='submit' value='delete <%= message.content %>'>
 </form>
 
-
 <% end %>
 
+</body>
