@@ -1,11 +1,15 @@
 require 'input_checkers'
+require 'BCrypt'
 require 'pg'
+
+include BCrypt
 
 describe InputCheckers do
 
   before(:each) do
     connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO users (name, user_name, email, password) VALUES('test name', 'test user name', 'test@email.com', 'testpassword');")
+    password = Password.create("testpassword")
+    connection.exec("INSERT INTO users (name, user_name, email, password) VALUES('test name', 'test user name', 'test@email.com', $txt$#{password}$txt$);")
   end
 
   describe '#unique_input_checker' do
@@ -27,5 +31,5 @@ describe InputCheckers do
       expect(InputCheckers.log_in_checker('incorrect user name', 'incorrect password')).to eq false
     end
   end
-  
+
 end

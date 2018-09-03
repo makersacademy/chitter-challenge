@@ -1,9 +1,11 @@
 require_relative './database_connect'
+require 'bcrypt'
 require 'pg'
 
 class Users
 
   extend DatabaseConnect
+  include BCrypt
 
   attr_reader :id, :name, :user_name
 
@@ -14,7 +16,8 @@ class Users
   end
 
   def self.create(name, user_name, email, password)
-    database_connect.exec("INSERT INTO users (name, user_name, email, password) VALUES('#{name}', '#{user_name}', '#{email}', '#{password}') RETURNING id, name, user_name;")
+    encrypt_password = Password.create(password)
+    database_connect.exec("INSERT INTO users (name, user_name, email, password) VALUES('#{name}', '#{user_name}', '#{email}', $txt$#{encrypt_password}$txt$) RETURNING id, name, user_name;")
   end
 
   def self.select_user(user_name)
