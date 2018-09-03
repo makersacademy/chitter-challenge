@@ -19,8 +19,7 @@ This project responds to the following brief:
 
 Chitter requires a database called chitter, a table called peeps with columns id and peep.
 
-You can see screenshots of these [here](./peeps_table.png)
-Using my [TDD cycle tree](./tdd_cycle_tree.png)
+You can see screenshots of these [here](./peeps_table.png) and [here](./users_table.png)
 
 
 ## Things to Improve/Add
