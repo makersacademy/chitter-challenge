@@ -12,11 +12,13 @@ class Messages
   end
 
   def self.add(content, name)
-    database_connection.exec("INSERT INTO messages(content,name) VALUES('#{content}','#{name}')")
+    database_connection.exec("INSERT INTO messages(content,name) 
+      VALUES('#{content}','#{name}')")
   end
 
   def self.show
-    retrieve_data.map { | message | Messages.new(message['id'], message['content'], message['created_at'], message['name']) }
+    retrieve_data.map {| message | 
+      Messages.new(message['id'], message['content'], message['created_at'], message['name'])}
   end
 
   def self.delete(id)
