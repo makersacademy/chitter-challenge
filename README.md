@@ -3,7 +3,7 @@ Chitter Challenge
 
 * This meets all the 'straight up' requirements
 * All tests are green, test coverage is 100%
-* This uses a PostgreSQL database and Sinatra web app t
+* This uses a PostgreSQL database and Sinatra web app
 
 Setup:
 -----
