@@ -22,7 +22,7 @@ class Peeps
   end
 
   def self.create(peep, current_user_id)
-    database_connect.exec("INSERT INTO peeps (peep, created_at, user_id) VALUES('#{peep}', '#{created_time}', '#{current_user_id}');")
+    database_connect.exec("INSERT INTO peeps (peep, created_at, user_id) VALUES($txt$#{peep}$txt$, '#{created_time}', '#{current_user_id}');")
   end
 
   def self.created_time
