@@ -69,7 +69,7 @@ Notes on implimented functionality:
 
 ## Testing
 To run the tests use `rspec` from the root directory.
-Currently 100% test coverage.
+Currently 100% test coverage. See notes on setup below to set up the databases.
 
 ## Technologies used
 - Ruby
@@ -78,15 +78,37 @@ Currently 100% test coverage.
 - Pony (email gem)
 
 ## Notes on setup
+### Ruby
+-
 Ruby 2.5.0 is needed to run this current version of the chitter challenge.
 
 `ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin17]`
 
+
+### Database setup
+-
+PostgreSQL is used for the database setup. A database named `chitter` and a `chitter_test` are used with `peeps` and `users` tables. Currently the `pg` gem is used to connect to the local database.
+
+peeps table setup:
+
+`CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep
+VARCHAR(60), created_at VARCHAR(60), user_id INTEGER);`
+
+users table setup:
+
+`CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(60), user_name VARCHAR(60), email VARCHAR(60), password VARCHAR(60));`
+		
+
+### Email Setup
+-
 Currently the email setup in the `email_notice.rb` file to send alerts is for a gmail account but the details can be easily changed to use any email client.
 
 A creation on an `.env` is needed in the root directory and added to the `.gitignore` file. This needs to contain the user name and password details of the current gmail setup.
 
 		USER_NAME = "email address"
 		PASSWORD = "email password"
+		
+### Extra Information
+-
 
 The background image used is CC0 Creative Commons (Free for commercial use. No attribution required)		
