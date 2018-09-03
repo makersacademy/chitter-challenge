@@ -17,7 +17,7 @@ class Messages
   end
 
   def self.show
-    retrieve_data.map{ | message | 
+    retrieve_data.map { | message |
       Messages.new(message['id'], message['content'], message['created_at'], message['name']) }
   end
 
