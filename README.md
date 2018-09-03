@@ -19,6 +19,9 @@ This project responds to the following brief:
 
 Chitter requires a database called chitter, a table called peeps with columns id and peep.
 
+You can see screenshots of these [here](../blob/master/peeps_table.png)
+
+
 ## Things to Improve/Add
 
 Add registration/log-in capability, peeps with specified authors, timestamp and external css. Use .reverse rather than expensive SQL query when reversing chronological order of peeps. Ultimately use joins for 'users' and 'peeps' tables to link users with their peeps.
