@@ -8,8 +8,8 @@ class User
   attr_reader :username, :name, :email, :id, :password
 
   def self.create(username, name, email, password)
-    password = Password.create(password)
-    rs = DatabaseConnection.query("INSERT INTO users (username, name, email, password) VALUES ('#{username}', '#{name}', '#{email}', '#{password}') RETURNING id, username, name, email, password;")
+    password_hash = Password.create(password)
+    rs = DatabaseConnection.query("INSERT INTO users (username, name, email, password) VALUES ('#{username}', '#{name}', '#{email}', '#{password_hash}') RETURNING id, username, name, email, password;")
     @active_user = User.new(rs[0]['id'], rs[0]['username'], rs[0]['name'], rs[0]['email'],rs[0]['password'])
   end
 
@@ -22,11 +22,10 @@ class User
   end
 
   def self.log_in(username, password)
-    rs = DatabaseConnection.query("SELECT id, username, name, email, password from users WHERE username = '#{username}';") #" AND password = '#{password}';")
-    unless rs.cmd_tuples == 0
-      if Password.new(rs[0]['password']) == password
-        @active_user = User.new(rs[0]['id'], rs[0]['username'], rs[0]['name'], rs[0]['email'],rs[0]['password'])
-      end
+    rs = DatabaseConnection.query("SELECT id, username, name, email, password from users WHERE username = '#{username}';")
+    return nil if rs.cmd_tuples == 0
+    if Password.new(rs[0]['password']) == password
+      @active_user = User.new(rs[0]['id'], rs[0]['username'], rs[0]['name'], rs[0]['email'],rs[0]['password'])
     end
   end
 
