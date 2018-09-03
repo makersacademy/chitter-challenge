@@ -9,6 +9,7 @@ gem 'sinatra'
 gem 'sinatra-flash'
 
 group :test do
+  gem 'orderly'
   gem 'rspec'
   gem 'capybara'
   gem 'simplecov', require: false

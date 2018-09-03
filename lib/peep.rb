@@ -2,19 +2,19 @@ require './lib/database_connection'
 require './setup_database_connection'
 
 class Peep
-  attr_reader :content
-  
-  def initialize(id, content, timestamp, tags)
+  attr_reader :content, :posttime
+
+  def initialize(id, content, posttime, tags)
     @id = id
     @content = content
-    @timestamp = timestamp
+    @posttime = posttime
     @tags = tags
   end
 
   def self.all
-    result = DatabaseConnection.query('SELECT * FROM peeps')
+    result = DatabaseConnection.query('SELECT * FROM peeps ORDER BY posttime DESC')
     result.map do |peep|
-      Peep.new(peep['id'], peep['content'], peep['timestamp'], peep['author_id'])
+      Peep.new(peep['id'], peep['content'], peep['posttime'], peep['author_id'])
     end
   end
 

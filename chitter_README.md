@@ -52,10 +52,38 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 ```
-* A User would like to post a message on a page.    |  
-* This message should be sent to a database.        |
-* A page should broadcast the users message.        |
+* A User would like to post a message on a page.   |  
+* This message should be sent to a database.       |   Complete
+* A page should broadcast the users message.       |
 
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+
+* A User would like to see a record of peeps.      |
+* This record should be organised by date.         |   Ordered by id atm
+* Now is a good time to add a peep timestamp.      |
+
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+* Peeps are currently organised by id              |
+* A date value will allow better organisation.     |   Complete
+* A date will be stored in the peeps table.        |
+
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+
+* Users would like to have an account
+* User peeps should be tied to their account id
 
 Class Responsibility Collaborator Cards
 ---------------------------------------

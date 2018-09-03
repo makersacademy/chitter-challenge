@@ -6,12 +6,6 @@
 </head>
 
 <body>
-  <% if @user %>
-  <h1>
-    User: <%= @user.username %>
-    Id <%= @user.account_id %>
-  </h1>
-  <% end %>
   <form action="/signin" method="get">
     <input type="submit" value="Sign In">
   </form>
@@ -20,11 +14,15 @@
   </form>
   <br>
   <ul>
-    <% @peeps.each do |peep| %>
+    
     <li>
-      <%= peep.content %>
+      second test peep
     </li>
-    <% end %>
+    
+    <li>
+      first test peep
+    </li>
+    
   </ul>
 
 </body>
