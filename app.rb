@@ -11,6 +11,18 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/user/peep' do
+    peep = params[:peep]
+    Peep.create(peep)
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @user = session[:user]
+    @peeps = Peep.all
+    erb :"users/index"
+  end
+
   get '/peeps_reverse' do
     @reverse_peep = Peep.reverse
     @user = session[:user]
