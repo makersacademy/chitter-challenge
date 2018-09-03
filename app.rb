@@ -38,7 +38,7 @@ class ChitterChallenge < Sinatra::Base
 
   get '/users' do
     @users = User.all
-    erb(:'/users')
+    erb(:'users/index')
   end
 
   get '/users/new' do
@@ -46,7 +46,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/users' do
-    @email = params[:registration_email]
+    @email = params[:email]
     @password = params[:password]
 
     User.create(email, password)

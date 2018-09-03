@@ -23,7 +23,7 @@ Chitter requires a database called chitter, a table called peeps with columns id
 
 Add registration/log-in capability, peeps with specified authors, timestamp and external css. Use .reverse rather than expensive SQL query when reversing chronological order of peeps. Ultimately use joins for 'users' and 'peeps' tables to link users with their peeps.
 
-Minor edge cases (amongst many) - validation of emails, max peep length, 
+Minor edge cases (amongst many) - validation of emails, max peep length, single quotation marks cause errors, the text now strays out of the peep box on the /peeps page, which wasn't happening earlier in the app's life.
 
 
 
