@@ -30,5 +30,14 @@ class Chitter < Sinatra::Base
     redirect '/feed'
   end
 
+  get '/logout' do
+    erb :logout
+  end
+
+  post '/logout' do
+    session[:username] = nil
+    redirect '/feed'
+  end
+
   run! if app_file == $0
 end
