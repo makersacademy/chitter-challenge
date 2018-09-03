@@ -8,6 +8,7 @@ Chitter Challenge
 Setup:
 -----
 
+* Run `bundle install`s
 * To run the program you must set up a database locally (and for the tests to run, a test datbase needs to be set up also)
   * Create a database called chitter and a database called chitter_test
   * In chitter, create the following table:

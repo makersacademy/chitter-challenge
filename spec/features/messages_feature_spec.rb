@@ -1,5 +1,4 @@
 feature 'messages' do
-
   
   scenario 'should have input box for message' do
     visit '/messages'
