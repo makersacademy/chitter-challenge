@@ -1,0 +1,35 @@
+<head>
+    <link rel="stylesheet" href="home.css">
+</head>
+  
+<body style='text-align: center'>
+
+  <div class="header">
+      <h1>Chitter.</h1>
+  </div>
+  
+  <div class="topnav">
+        <% if @username %>
+      <a href="/logout"><%=@username %></a>
+        <% else %>
+      <a href="/login">Log In</a>
+        <% end %>
+    </div>
+
+  <form action="/new" method="post">
+    <input type="text" name="peep"   placeholder="Write a new peep..." required>
+    <input type="submit" value="Peep it!">
+  </form>
+
+    <%@peep.each do |peep|%>
+      <%if peep.username%>
+        <b><%=peep.username%></b>
+      <%end%>
+      <%=peep.text%>
+      <div class="peeptime">
+        <%=peep.date%> <%=peep.time%><br><br><br>
+      </div>
+    <%end%>
+
+</body>
+
