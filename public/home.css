@@ -41,6 +41,7 @@ input[type=submit] {
 .topnav {
   overflow: hidden;
   background-color: #333;
+  font-size: 90%
 }
 
 .topnav a {
@@ -55,4 +56,10 @@ input[type=submit] {
 .topnav a:hover {
   background-color: #ddd;
   color: black;
+}
+
+.peeptime {
+  font-size: 60%;
+  color: rgb(71, 71, 71);
+  padding: 2px;
 }

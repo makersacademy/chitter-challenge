@@ -7,19 +7,26 @@
   <div class="header">
       <h1>Chitter.</h1>
   </div>
-    
+  
   <div class="topnav">
+        <% if @username %>
+      <a href="/login"><%=@username %></a>
+        <% else %>
       <a href="/login">Log In</a>
+        <% end %>
     </div>
 
   <form action="/new" method="post">
-    <input type="text" name="peep"   placeholder="Write a new peep...">
-    <input type="submit" value="Post">
+    <input type="text" name="peep"   placeholder="Write a new peep..." required>
+    <input type="submit" value="Peep it!">
   </form>
 
-  <%@peep.each do |peep|%>
-    <%=peep.text%><br>
-    <%=peep.date%> <%=peep.time%><br><br>
-  <%end%>
+    <%@peep.each do |peep|%>
+      <%=peep.text%>
+      <div class="peeptime">
+        <%=peep.date%> <%=peep.time%><br><br><br>
+      </div>
+    <%end%>
+
 </body>
 

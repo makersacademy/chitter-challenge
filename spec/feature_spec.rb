@@ -3,16 +3,17 @@ feature 'Posting Peeps' do
     visit '/'
     expect(page).to have_content 'Chitter'
     fill_in :peep, with: 'Hello world!'
-    click_button 'Post'
+    click_button 'Peep it!'
     expect(page).to have_content 'Hello world!'
   end
 end
 
 feature 'Posting Peeps' do 
-  scenario 'user can post a peep to chitter' do
+  scenario 'users can log in' do
     visit '/'
     click_link 'Log In'
     fill_in :username, with: 'jnickson1'
+    click_button 'Log In'
     expect(page).to have_content 'jnickson1'
   end
 end
