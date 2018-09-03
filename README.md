@@ -17,7 +17,7 @@ This project responds to the following brief:
 * HTML
 * CSS
 
-Chitter requires a database called chitter, a table called peeps with columns id and peep.
+Chitter requires a database called chitter, a table called peeps with columns id and peep. The test databases are exactly the same tables, but the database is called chitter_test.
 
 You can see screenshots of these [here](./peeps_table.png) and [here](./users_table.png)
 
