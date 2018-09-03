@@ -13,6 +13,7 @@ This project responds to the following brief:
 
 ## Project Stack
 * Sinatra
+* Ruby
 * Postgres
 * HTML
 * CSS
