@@ -3,7 +3,7 @@ describe Peep do
 
   describe '.add' do
     it 'adds a peep and the time that the peep was posted' do
-      described_class.add('Test peep 1')
+      described_class.add(nil,'Test peep 1')
       described_class.add('Test peep 2')
       described_class.add('Test peep 3')
 

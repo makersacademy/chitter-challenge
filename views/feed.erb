@@ -22,6 +22,9 @@
   </form>
 
     <%@peep.each do |peep|%>
+      <%if peep.username%>
+        <b><%=peep.username%></b>
+      <%end%>
       <%=peep.text%>
       <div class="peeptime">
         <%=peep.date%> <%=peep.time%><br><br><br>

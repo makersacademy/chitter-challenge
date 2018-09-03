@@ -8,7 +8,7 @@ feature 'Posting Peeps' do
   end
 end
 
-feature 'Posting Peeps' do 
+feature 'Login' do 
   scenario 'users can log in' do
     visit '/'
     click_link 'Log In'

@@ -2,10 +2,11 @@ require 'pg'
 
 class Peep 
 
-  attr_reader :text, :date, :time
+  attr_reader :text, :date, :time, :username
 
-  def initialize(text, date, time)
+  def initialize(text, username, date, time)
     @text = text
+    @username = username
     @date = date 
     @time = time
   end
@@ -13,14 +14,14 @@ class Peep
   def self.all 
     connect_database
     @connection.exec("SELECT * FROM peeps;").map do |peep| 
-      Peep.new(peep['text'], peep['date'], peep['time'])
+      Peep.new(peep['text'], peep['username'], peep['date'], peep['time'])
     end
   end
 
-  def self.add(peep)
+  def self.add(peep, *username)
     connect_database
-    @connection.exec("INSERT INTO peeps (text, time, date) 
-                      VALUES('#{peep}', '#{time}', '#{date}');")
+    @connection.exec("INSERT INTO peeps (text, username, time, date) 
+                      VALUES('#{peep}', '#{username}', '#{time}', '#{date}');")
   end
 
   private_class_method def self.connect_database
