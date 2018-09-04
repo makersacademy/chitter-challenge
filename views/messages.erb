@@ -13,8 +13,6 @@
 
 <% @messages.each do | message | %>
 
-
-
 <a style="color:blue;"><strong><%= message.name %>: </strong></a>
 <strong><%= message.content %></strong> </br>
 Posted at: <%= message.created_at.slice(11,8) %> 

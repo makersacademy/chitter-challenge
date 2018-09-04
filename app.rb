@@ -20,7 +20,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    p params
     Messages.add(params['content'], session[:user_name])
     redirect '/messages'
   end
