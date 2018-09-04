@@ -1,5 +1,5 @@
 Chitter Weekend Challenge
-============
+=======
 
 The challenge for the weekend was to create my own version of twitter using the knowledge I have learnt so far but also incorporating the use of databases which we have covered this week at Makers.
 
@@ -25,7 +25,7 @@ A user can tag another user in in their peep by using a # symbol before their us
 Before starting to code went through the user stories, wrote down in order the requirements and then started mapping out how I would eventually proceed with the MVC. This in turn pushed me into how I would eventually setup the Database, the tables and the information they will be holding. I refactored a few times throughout the process, mainly when I had to use class extraction but also when I saw an opportunity to keep the code DRY. Using TDD made me think about the problems one step at a time as I proceeded through the challenge.
 
 ## Reflection
-I was a bit daunted by the prospect of this challenge, it seemed like a lot to do over one weekend but as I proceeded through I found I was very comfortable with how the coding went. I was thinking throughout about the objects and trying to keep their responsibilities separate and only letting them know as much as they needed to about each other. I really enjoyed the coding this weekend, it seemed to flow more than the other weekends! Getting the email alerts to work took a bit of time as I found out the dotenv gem (used for hiding sensitive information) was not quite working as I expected and some research indicated an extra line needed to be added to the config.ru file to get it to work. Once I had met all the user stories I turned my hand to having a bit of fun with the CSS and html design. I would have liked to explored the encrypting of the passwords and would be looking to implement something along the lines of BCrypt gem to help with this. Also making a feature that allow users to reply to peeps and start conversations along side the main peep feed.
+I was a bit daunted by the prospect of this challenge, it seemed like a lot to do over one weekend but as I proceeded through I found I was very comfortable with how the coding went. I was thinking throughout about the objects and trying to keep their responsibilities separate and only letting them know as much as they needed to about each other. I really enjoyed the coding this weekend, it seemed to flow more than the other weekends! Getting the email alerts to work took a bit of time as I found out the dotenv gem (used for hiding sensitive information) was not quite working as I expected and some research indicated an extra line needed to be added to the config.ru file to get it to work. Once I had met all the user stories I turned my hand to having a bit of fun with the CSS and html design. I would like to make a feature that allows users to reply to peeps and start conversations along side the main peep feed.
 
 ## User stories
 ```
@@ -81,15 +81,17 @@ Currently 100% test coverage. See notes on setup below to set up the databases.
 - Pony (email gem)
 
 ## Notes on setup
+
+### Install gems
+`bundle install`
+
 ### Ruby
---
 Ruby 2.5.0 is needed to run this current version of the chitter challenge.
 
 `ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin17]`
 
 
 ### Database setup
---
 PostgreSQL is used for the database setup. A database named `chitter` and a `chitter_test` are used with `peeps` and `users` tables. Currently the `pg` gem is used to connect to the local database.
 
 peeps table setup:
@@ -103,7 +105,6 @@ users table setup:
 
 
 ### Email Setup
---
 Currently the email setup in the `email_notice.rb` file to send alerts is for a gmail account but the details can be easily changed to use any email client.
 
 A creation on an `.env` is needed in the root directory and added to the `.gitignore` file. This needs to contain the user name and password details of the current gmail setup.
@@ -112,6 +113,4 @@ A creation on an `.env` is needed in the root directory and added to the `.gitig
 		PASSWORD = "email password"
 
 ### Extra Information
---
-
 The background image used is CC0 Creative Commons (Free for commercial use. No attribution required)		
