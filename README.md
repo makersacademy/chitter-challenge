@@ -1,107 +1,70 @@
-Chitter Challenge
-=================
+# Chitter
+Write a small Twitter clone that will allow the users to post messages to a public stream.
+Full instruction and user stories [here!](https://github.com/makersacademy/chitter-challenge)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+## How to get start
 ```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+$ git clone https://github.com/jeff1108/Chitter.rb.git
+$ cd Chitter.rb
+$ bundle install
 ```
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+### Start the Sinatra server
 ```
+$ rackup -p 0000 (can replace any number) / rackup config.ru
+```
+if the server has successfully started, you would see:
+```
+[2018-08-11 18:05:40] INFO WEBrick 1.4.2
+[2018-08-11 18:05:40] INFO ruby 2.5.0 (2017-12-25) [x86_64-darwin16]
+[2018-08-11 18:05:40] INFO WEBrick::HTTPServer#start: pid=62522 port=0000
+```
+Open Chrome and type ``http://localhost:0000``
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+## Learning Outcome 
+### Topic Covered 
+* PostgreSQL (one-to-many relationship)
+* RESTful routes
+* MVC model
+* Rspec, Capybara as test framework
+* Object-Oriented Programming
+* Classes, methods, instance variable
+* Ensuring code is DRY
+* Using Single Responsibility Principle
+
+## State of Completion
+### Implement Functionality
+* It can log in (with authentication) and sign up
+* It can post message with time stamp and username
+* Flash message when log in with invalid username or password
+* Two table (users and peeps) in database
+* Classes to wrap data extracted from each database
+* Module for database connection in test and development environment 
+* some CSS styling 
+* 97% test coverage
+
+### WHat I would do next
+* User rakefile to automate database task (setup, rest or teardown)
+* Use foreign key to link with wo tables
+* Use session replace instance variable in Controller
+* CSS styling 
+* Log out button
+* Receive an email if user is tagged in a peep by using many-to-many relationship
+
+## Introduction to setup database
+1. Type in the following command to switch to postgreSQL: ``psql postgres``
+2. Type in the following command to create a TEST database: ``postgres=#``
+3. Create database chitter_test
+4. Connect to the database: ``/c chitter_test``
+5. Type in the following command to create tables in the database: ``CREATE TABLE "table_name"``
+6. ``CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(15), email VARCHAR（60)， username VARCHAR(15). password TEXT)``
+7. ``CREATE TABLE peeps(id SERIAL PRIMARY KET, username VARCHAR(15), messages VARCHAR(240), time VARCHAR(60), name VARCHAR(15))``
+8. Type in the following command to create a DEVELOPMENT databse
+9. CREATE DATABASE chitter
+10. Repeat step 5-8
+
+## Technical
+### Tech
+* Ruby, Sinatra
+* HTML, CSS
+* Rspec, Capybara, Rubocop
+* Rackup, PostgreSQL
