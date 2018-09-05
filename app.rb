@@ -4,6 +4,8 @@ require './lib/profile'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     erb :index, :layout => :layout
   end
@@ -28,11 +30,18 @@ class Chitter < Sinatra::Base
   end
 
   get '/login_in' do
+    username = session[:username]
     erb :login_in
   end
 
   post '/login_in' do
+    session[:username] = params[:username]
+    @username = session[:username]
     redirect '/all_peeps'
+  end
+
+  post '/log_out' do
+    redirect '/'
   end
 
   # start the server if ruby file executed directly

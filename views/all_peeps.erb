@@ -1,5 +1,12 @@
 <h1>All peeps</h1>
 
+<%= @username %>
+
+<form action="/log_out" method="post">
+  <input class="button" type="submit" value="Log out">
+</form>
+
+
 <div class="button_container">
   <form action="/all_peeps" method="post">
       <input class="sendp" type="text" name="peep" placeholder="peep" /> <br /><br />
