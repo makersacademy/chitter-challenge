@@ -10,6 +10,7 @@ require_relative 'helper_methods'
 Capybara.app = ChitterApp
 
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

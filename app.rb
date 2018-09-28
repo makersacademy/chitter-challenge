@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require_relative 'load_database'
 
 class ChitterApp < Sinatra::Base
 
@@ -9,7 +8,6 @@ class ChitterApp < Sinatra::Base
   # end
 
   get '/' do
-    "Hello, Chitter!"
     erb :index
   end
 
