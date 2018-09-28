@@ -91,6 +91,7 @@ DEPENDENCIES
   launchy
   pg
   pry
+  rack
   rake
   rspec
   rubocop (= 0.56.0)

@@ -1,3 +1,6 @@
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
 require 'capybara'
 require 'capybara/rspec'
 require 'pry'
@@ -9,8 +12,7 @@ require_relative 'helper_methods'
 
 Capybara.app = ChitterApp
 
-ENV['RACK_ENV'] = 'test'
-ENV['ENVIRONMENT'] = 'test'
+initialize_test_users
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
