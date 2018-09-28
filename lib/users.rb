@@ -3,13 +3,12 @@ require_relative 'database_connection'
 
 class Users
 
-  def initialize(connection: DatabaseConnection.new)
+  def initialize(connection: DatabaseConnection.new, hasher: BCrypt::Password)
     @connection = connection
+    @hasher = hasher
   end
 
-  def create(name, username, email, password)
-    entry_hash = { name: name, username: username, email: email,
-                   password: password }
+  def create(entry_hash)
     insert_new_user(entry_hash) if valid_credentials?(entry_hash)
   end
 
@@ -23,10 +22,16 @@ class Users
   def delete
   end
 
-  #private
+  def sign_in(username, password)
+    user_password_pair = @connection.query("SELECT username, password FROM "\
+      "users WHERE username='#{username}';")
+    @hasher.new(user_password_pair[0][:password]) == password
+  end
+
+  private
 
   def insert_new_user(entry_hash)
-    entry_hash[:password] = BCrypt::Password.create(entry_hash[:password])
+    entry_hash[:password] = @hasher.create(entry_hash[:password])
     @connection.query('INSERT INTO users(name, username, email, password)'\
       " VALUES('#{entry_hash[:name]}', '#{entry_hash[:username]}', "\
       "'#{entry_hash[:email]}', '#{entry_hash[:password]}');")

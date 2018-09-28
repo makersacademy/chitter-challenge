@@ -2,7 +2,10 @@ require 'database_connection'
 
 RSpec.describe DatabaseConnection do
 
-  before(:each) { ENV['RACK_ENV'] = 'test' }
+  before(:each) do
+    ENV['RACK_ENV'] = 'test'
+    initialize_test_users
+  end
 
   it 'should connect to the development database in development' do
     ENV['RACK_ENV'] = 'development'
@@ -21,16 +24,23 @@ RSpec.describe DatabaseConnection do
     expect { described_class.new }.to raise_error 'No database environment specified'
   end
 
-  it 'should respond to SQL queries to that database' do
-    sql_query = 'SELECT name, username, email, password FROM users;'
+  it 'responds to SQL queries to that database (not including passwords)' do
+    sql_query = 'SELECT name, username, email FROM users;'
     query_result = [
-      { name: 'Billy', username: 'billy1', email: 'billy@mail.co.uk',
-        password: 'password' },
-      { name: 'Barry', username: 'barry1', email: 'barry@mail.co.uk',
-        password: 'password' },
-      { name: 'Berty', username: 'berty1', email: 'berty@mail.co.uk',
-        password: 'password' }
+      { name: 'Billy', username: 'billy1', email: 'billy@mail.com' },
+      { name: 'Barry', username: 'barry1', email: 'barry@mail.com' },
+      { name: 'Berty', username: 'berty1', email: 'berty@mail.com' }
     ]
-    expect(subject.query(sql_query)).to eq query_result
+    expect(query_comparer(subject.query(sql_query), query_result)).to eq true
+  end
+
+  it 'should correctly return encrypted passwords' do
+    sql_query = 'SELECT password FROM users;'
+    query_result = [
+      { password: 'password' },
+      { password: 'password' },
+      { password: 'password' }
+    ]
+    expect(bcrypt_comparer(subject.query(sql_query), query_result)).to eq true
   end
 end

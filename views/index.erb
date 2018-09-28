@@ -1,1 +1,13 @@
-<%= ENV['RACK_ENV'] %>
+<head>
+</head>
+
+<body>
+  <h3> Sign in </h3>
+  <form action='/sign_in' method='post'>
+    Username: <input type='text' name='username'/><br>
+    Password: <input type='text' name='password'/><br>
+    <input type='submit' value='Sign in'/><br>
+    <a href='/users/new'> Sign up for Chitter! </a>
+  <%= flash[:sign_up_message] %>
+  <%= flash[:sign_in_message] %>
+</body>
