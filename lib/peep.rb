@@ -1,9 +1,11 @@
+require 'pg'
+
 class Peep
 
   def self.all
-    @peeps = ["My first peep",
-    "My second peep",
-    "My third peep"].reverse
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec('SELECT * FROM peeps')
+    result.map { |text| text['peep'] }
   end
-
+  
 end

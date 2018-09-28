@@ -4,7 +4,7 @@ require './lib/peep'
 class Chitter < Sinatra::Base
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :peeps
   end
 
