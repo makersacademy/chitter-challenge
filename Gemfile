@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
+gem 'pg'
 gem 'rake'
 gem 'rerun'
 gem 'rubocop', '0.56.0'

@@ -28,6 +28,16 @@ To run the application:
 
 - `rubocop` to check for code styling issues
 
+- `brew install postgres` to install PostgreSQL
+
+  - `psql` to launch postgresql
+
+  - `create database chitter` to create the production database
+
+  - `create database chitter_test` to create the test database
+
+  - `\q' to exit psql
+
 - `rerun 'rackup'` to launch the web server
 
 - navigate to `http://localhost:9292/` to run the application in a web browser
@@ -47,6 +57,8 @@ To run the application:
 - `rubocop` for checking code style issues
 
 - `simplecov` for getting metrics on code coverage for the tests
+
+- `postgresql` to connect to and query the database
 
 ## Process
 
