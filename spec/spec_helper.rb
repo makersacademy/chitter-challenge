@@ -33,8 +33,8 @@ RSpec.configure do |config|
   end
 end
 
-RSpec.configure do |config|
-  config.before(:each) do
-    setup_test_database
-  end
-end
+# RSpec.configure do |config|
+#   config.before(:each) do
+#     setup_test_database
+#   end
+# end

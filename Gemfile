@@ -8,10 +8,9 @@ gem "sinatra"
 gem "addressable"
 gem "json_pure"
 gem 'data_mapper'
-gem 'dm-sqlite-adapter'
 gem "pg"
 gem "sinatra-flash"
-
+gem "dm-postgres-adapter"
 
 
 group :test do

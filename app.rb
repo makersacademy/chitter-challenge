@@ -7,7 +7,7 @@ require 'sinatra/flash'
 class ChitterManager < Sinatra::Base
 
   enable :method_override
-  
+
   register Sinatra::Flash
 
   get '/' do
