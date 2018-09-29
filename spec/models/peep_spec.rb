@@ -16,4 +16,11 @@ describe Peep do
       expect(peeps).to include("third peep")
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      Peep.create('new peep')
+      expect(Peep.all).to include 'new peep'
+    end
+  end
 end

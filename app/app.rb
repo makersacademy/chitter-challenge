@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './app/models/peep'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -11,8 +12,9 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     # p 'form submitted'
-    p @peep = params[:peep_text]
-    # redirect('/peeps')
+    peep = params['peep_text']
+    Peep.create(peep)
+    redirect '/peeps'
   end
 
   get '/peeps' do
