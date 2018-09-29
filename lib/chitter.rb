@@ -8,12 +8,9 @@ class Chitter
     else
       conn = PG.connect(dbname: 'chitter')
     end
-    chits = conn.exec("SELECT * FROM chits")
-    chits.map { |chit| chit['message'] }
-    # print a
-    # b = chits.map { |chit| chit['updated_at'] }
-    # print b
-    # a + b
+    chits = conn.exec("SELECT * FROM chits ORDER BY updated_at DESC")
+    p "******"
+    chits.map { |chit| chit['name'] + " - " + chit['updated_at'] + " ----- chitter message: " + chit['message'] }
   end
 
 end
