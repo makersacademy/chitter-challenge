@@ -4,9 +4,9 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/peep' do
-    erb :peep
-  end
+  # get '/peep' do
+  #   erb :peep
+  # end
 
   post '/peeps' do
     @user = current_user

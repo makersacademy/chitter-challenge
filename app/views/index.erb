@@ -1,4 +1,4 @@
-<h1> Chitter! </h1>
+
 <br>
 <br>
 <% unless current_user %>
@@ -12,9 +12,11 @@
 <br>
 <% end %>
 <% if current_user %>
-<form action='/peep' method='get'>
-  <input type="submit" value="Peep!" style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
-</form>
+  <form action='/peeps' method='post'>
+    <textarea name="peep" id="peep" style="width:96%;height:90px;background-color:white;color:black;border:2px solid black;padding:2%;font:22px/30px sans-serif;">
+    </textarea>
+    <input type="submit" value="Peep!" style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
+  </form>
 <% end %>
 
 <br>
