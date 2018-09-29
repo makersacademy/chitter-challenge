@@ -1,107 +1,89 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Overview
 
-Challenge:
--------
+To create an alternative version of Twitter called `Chitter`.
 
-As usual please start by forking this repo.
+A posted message is called a `peep`.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+`Peeps` are displayed in reverse chronological order.
 
-Features:
--------
+`Peeps` are displayed with the username of the user that created it and the date and time that it was created.
 
-```
-STRAIGHT UP
+A `user` can sign up, log in and create a `peep`, and log out.
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+To sign up, a `user` must have a unique email and username, a name and a password.
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+A `user` does not have to be logged in to see `peeps`.
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+## Set up
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+To run the application:
 
-HARDER
+- `git clone git@github.com:jonurry/chitter-challenge.git` to clone the repository
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
+- `bundle install` to install dependencies
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+- `rspec` to run all feature and unit tests tests
 
-ADVANCED
+- `rubocop` to check for code styling issues
 
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
+- `rerun 'rackup'` to launch the web server
 
-Notes on functionality:
-------
+- navigate to `http://localhost:9292/` to run the application in a web browser
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+## Technologies Used
 
-Bonus:
------
+- `rspec` for automated testing
 
-If you have time you can implement the following:
+- `sinatra` for the web server
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+- `capybara` for automating feature tests in the browser
 
-And/Or:
+- `rake` for automating tasks
 
-* Work on the CSS to make it look good.
+- `rerun` for automatically re-starting the web server when code files are changed
 
-Good luck and let the chitter begin!
+- `rubocop` for checking code style issues
 
-Code Review
------------
+- `simplecov` for getting metrics on code coverage for the tests
 
-In code review we'll be hoping to see:
+## Process
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+## Class Design
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+![Chitter UML Class Diagram](docs/chitter-class-diagram.jpg)
 
-Notes on test coverage
-----------------------
+## Routes
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+- `'/'` redirects to `'/peeps/all'`
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+- `'/peeps/all'` displays all peeps in reverse chronological order
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
+- `'/peeps/create'` creates a peep message
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+- `'/user/create'` creates a Chitter user
+
+- `'/user/login'` allows the user to login to Chitter
+
+## User Interface Design
+
+### Header (user not logged in)
+
+![Header when user is logged out](docs/header-logged-out.jpg)
+
+### Header (user not logged in)
+
+![Header when user is logged in](docs/header-logged-in.png)
+
+### User Log In
+
+![Log in](docs/log-in.jpg)
+
+### Create a Peep
+
+![Create a peep](docs/create-peep.jpg)
+
+### Display all Peeps
+
+![Display all peeps](docs/display-peeps.jpg)
