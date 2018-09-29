@@ -7,18 +7,28 @@ describe Peep do
   end
 
   describe '.add' do
-    let(:a) { Peep.add("hello") }
-    let(:b) { Peep.add("goodbye") }
-    it 'takes a message argument and saves to instance in .all' do
-      expect(Peep.all).to eq([a, b])
+    context 'message is empty' do
+      it 'nothing happens' do
+        Peep.add(" ")
+        expect(Peep.all).to eq([])
+      end
     end
 
-    it 'instance sets date to Time.now' do
-      expect(a.time).to eq(Time.parse("2018-09-20T15:00:00+00:00"))
-    end
+    context 'message is not empty' do
+      let(:a) { Peep.add("hello") }
+      let(:b) { Peep.add("goodbye") }
 
-    it 'instance sets text to argument' do
-      expect(a.text).to eq("hello")
+      it 'takes a message argument and saves to instance in .all' do
+        expect(Peep.all).to eq([a, b])
+      end
+
+      it 'instance sets date to Time.now' do
+        expect(a.time).to eq(Time.parse("2018-09-20T15:00:00+00:00"))
+      end
+
+      it 'instance sets text to argument' do
+        expect(a.text).to eq("hello")
+      end
     end
   end
 
