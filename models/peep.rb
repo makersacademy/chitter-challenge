@@ -5,7 +5,7 @@ class Peep
   property :time, Time
 
   def self.add(message)
-    Peep.create(text: message, time: Time.now)
+    Peep.create(text: message, time: Time.now) unless message.strip.empty?
   end
 
   def self.all_sorted
