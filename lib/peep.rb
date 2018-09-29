@@ -2,13 +2,11 @@ require 'dm-core'
 require 'dm-validations'
 require 'dm-migrations'
 require 'rubygems'
+require 'pry'
 
 
-if ENV['ENVIRONMENT'] = 'test'
-  DataMapper.setup(:default, 'postgres://aidanfaria:@localhost/chitter_test')
-else
-  DataMapper.setup(:default, 'postgres://aidanfaria:@localhost/chitter')
-end
+DataMapper.setup(:default, 'postgres://aidanfaria:@localhost/chitter')
+
 
 class Peep
   include DataMapper::Resource

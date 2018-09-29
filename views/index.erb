@@ -7,7 +7,6 @@
 
 <% Peep.all.each do |peep| %>
 <div>
-<%= peep.peep %> <%= peep.created_at.strftime("%H:%M%p") %>
+<%= peep.peep %> <%= peep.created_at.strftime("%H:%M%p %e %b %y") %>
 </div>
-
 <% end %>
