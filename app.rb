@@ -12,6 +12,8 @@ class ChitterManager < Sinatra::Base
 
   get '/' do
     @chitter = Chitter.all
+    @object = @chitter.get(1)
+    @thing = @object.message
     erb (:index)
   end
 

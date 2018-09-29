@@ -25,9 +25,12 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-   # def self.all
-   #   result = Chitter.all
-   # end
+   def self.all
+      #result = Chitter.all
+      result = Chitter.get(1)
+
+      
+    end
 
 # @chitter = Chitter.create(
 #   :message      => "A lot of text ...",
