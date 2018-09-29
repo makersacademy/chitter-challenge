@@ -6,22 +6,29 @@ describe Peep do
     it 'returns all peeps in reverse order' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      connection.exec("INSERT INTO peeps VALUES(1, 'My third peep');")
-      connection.exec("INSERT INTO peeps VALUES(2, 'My second peep');")
-      connection.exec("INSERT INTO peeps VALUES(3, 'My first peep');")
+      Peep.create(peep: "My third peep")
+      Peep.create(peep: "My second peep")
+      Peep.create(peep: "My first peep")
 
       peeps = Peep.all
+      peep = Peep.all.first
 
-      expect(peeps.first).to include "My third peep"
-      expect(peeps.last).to include "My first peep"
+      expect(peeps.length).to eq 3
+      expect(peep).to be_a Peep
+      expect(peep).to respond_to(:id)
+      expect(peep).to respond_to(:created_at)
+      expect(peep.peep).to eq "My third peep"
     end
   end
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create(peep: 'This is a test peep')
+      peep = Peep.create(peep: 'This is a test peep')
 
-      expect(Peep.all).to include 'This is a test peep'
+      expect(peep).to be_a Peep
+      expect(peep).to respond_to(:id)
+      expect(peep).to respond_to(:created_at)
+      expect(peep.peep).to eq 'This is a test peep'
     end
   end
 

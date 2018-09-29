@@ -1,10 +1,11 @@
 require 'sinatra/base'
 require './lib/peep'
+require 'data_mapper'
 
 class Chitter < Sinatra::Base
 
   get '/peeps' do
-    @peeps = Peep.all.reverse
+    @peeps = Peep.all
     erb :peeps
   end
 

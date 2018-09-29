@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    
+    <style type="text/css">
+
+    li {
+    list-style-type: none;
+    border: solid;
+    padding: 20px;
+    margin: 10px;
+    }
+
+    </style>
+
     <meta charset="utf-8">
     <title>Chitter</title>
   </head>
   <body>
     <h1>Chitter</h1>
     <ul>
-      <% @peeps.each do |peep| %>
-        <li><%= peep %></li>
+      <% @peeps.reverse_each do |peep| %>
+        <li>
+          <br>
+        <%= peep.peep %>
+        <br>
+         <p>Posted At: <%= peep.created_at %></p>
+        </li>
       <% end %>
     </ul>
     <form action="/peeps/new" method="get">
