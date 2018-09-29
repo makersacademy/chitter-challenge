@@ -1,5 +1,7 @@
 
 <% @chitter.each do |chitter_object| %>
-<% @message = chitter_object.message %>
-<br> <%= @message %> </br>
+
+<h1> <%= chitter_object.message %> </h1>
+<br> <%= chitter_object.created_at %> </br>
+<br> <%= chitter_object.posted_by %> </br>
  <% end %>
