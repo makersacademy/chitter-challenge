@@ -1,7 +1,7 @@
 require 'bcrypt'
 require_relative 'database_connection'
 
-class AllUsers
+class AllChitterUsers
 
   def initialize(connection: DatabaseConnection.new, hasher: BCrypt::Password)
     @connection = connection
@@ -20,7 +20,7 @@ class AllUsers
   def sign_in(username, password)
     user_password_pair = @connection.query("SELECT username, password FROM "\
       "users WHERE username='#{username}';")
-    return false if user_password_pair == []
+    return false if user_password_pair.empty?
 
     @hasher.new(user_password_pair[0][:password]) == password
   end
@@ -42,6 +42,8 @@ class AllUsers
   end
 
   def already_taken?(entry_hash)
-    false
-  end 
+    !@connection.query("SELECT * FROM users WHERE email = "\
+      "'#{entry_hash[:email]}' OR username = "\
+      "'#{entry_hash[:username]}';").empty?
+  end
 end

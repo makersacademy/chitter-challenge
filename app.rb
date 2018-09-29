@@ -10,7 +10,7 @@ class ChitterApp < Sinatra::Base
   register Sinatra::Flash
 
   configure do
-    set :users, AllUsers.new
+    set :users, AllChitterUsers.new
     set :current_user, User.new
   end
 

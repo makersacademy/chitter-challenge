@@ -1,4 +1,4 @@
-feature 'The user can sign themselves in' do
+feature 'The user can log themselves in' do
   scenario 'once they have signed up' do
     visit '/'
     log_in_as_billy

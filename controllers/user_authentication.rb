@@ -18,6 +18,7 @@ class ChitterApp < Sinatra::Base
 
     # SHOULDNT BE ABLE TO USE EMAIL OR USERNAME ALREADY IN USE
     if @users.create(entry_hash) == 'in use'
+      p 'WE GOT HERE!'
       flash[:sign_up_message] = already_used_message
     elsif @users.create(entry_hash)
       flash[:sign_up_message] = success_message

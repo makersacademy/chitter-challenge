@@ -1,7 +1,7 @@
 require 'all_users'
 require 'bcrypt'
 
-RSpec.describe AllUsers do
+RSpec.describe AllChitterUsers do
 
   let(:fake_connection) do
     double :DatabaseConnection,
@@ -24,9 +24,21 @@ RSpec.describe AllUsers do
     borace_sql = 'INSERT INTO users(name, username, email, password)'\
       " VALUES('#{borace_hash[:name]}', '#{borace_hash[:username]}', "\
       "'#{borace_hash[:email]}', '#{borace_hash[:password]}');"
-    expect(fake_connection).to receive(:query).with(borace_sql)
+    expect(fake_connection).to receive(:query)
 
     subject.create(borace_hash)
+  end
+
+  it 'should reject already used usernames' do
+    billy_hash = { name: 'Billy', email: 'billy@mail.com',
+                    username: 'billy02', password: 'password' }
+    expect(subject.create(billy_hash)).to eq 'in use'
+  end
+
+  it 'should reject already used emails' do
+    billy_hash = { name: 'Billy', email: 'billy2@mail.com',
+                    username: 'billy01', password: 'password' }
+    expect(subject.create(billy_hash)).to eq 'in use'
   end
 
   it 'should be able to return all user records' do
