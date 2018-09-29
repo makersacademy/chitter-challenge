@@ -14,12 +14,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.add(params[:message])
+    Peep.add(params[:message]) unless params[:message].empty?
     redirect('/peeps')
   end
 
-  get '/peeps/new' do
-    erb :create_peep
+  get '/peeps/:id' do
+    @peep = Peep.get(params[:id])
+    erb :peep
   end
 
   def set_up
