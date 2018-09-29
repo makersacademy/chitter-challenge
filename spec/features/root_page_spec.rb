@@ -5,3 +5,15 @@ feature 'set up' do
     expect(page).to have_content "Welcome to Twittarr."
   end
 end
+
+feature 'registration' do
+  scenario 'a user can sign up' do
+    visit '/'
+    click_on 'Sign Up'
+    fill_in('username', with: 'BatesFan')
+    fill_in('email', with: 'alfredhitchcock@hotmail.com')
+    fill_in('password', with: 'alfredosauce')
+    click_button('Submit')
+    expect(page).to have_content "Welcome, BatesFan!"
+  end
+end
