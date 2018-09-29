@@ -1,6 +1,6 @@
 <h1>Welcome to Chitter:</h1>
 <% if session[:user] %>
-    <h2>You are now signed in as <%= session[:user] %> </h2>
+    <h2>You are now signed in as <%= session[:user] %>, <a href="/logout">logout</a> </h2>
   <% else %>
 <h2>Please sign in <form class="" action="/sign_in" method="post">
   <input type="text" name="username" placeholder='enter username' required>
@@ -16,7 +16,7 @@ or <a href="/register">register</a> </form> <%= flash[:notice] %> </h2>
 </form>
 <% end %>
 
-<% Peep.all.each do |peep| %>
+<% Peep.all.reverse.each do |peep| %>
 <div>
 <%= peep.peep %>, posted by <%= User.get(peep[:user_id])[:user] %>, on the <%= peep.created_at.strftime("%H:%M%p %e %b %y") %>
 </div><br>
