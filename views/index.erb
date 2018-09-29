@@ -2,7 +2,7 @@
 <% if session[:user] %>
     <h2>You are now signed in as <%= session[:user] %> </h2>
   <% else %>
-<h2>Please sign in <form class="" action="index.html" method="post">
+<h2>Please sign in <form class="" action="/sign_in" method="post">
   <input type="text" name="username" placeholder='enter username' required>
   <input type="text" name="password" placeholder='enter password' required>
   <input type="submit" name="submit" value="sign in">

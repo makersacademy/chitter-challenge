@@ -8,7 +8,8 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'launchy'
 gem 'pry'
-
+gem 'capybara'
+gem 'sinatra'
 
 group :test do
   gem 'rspec'

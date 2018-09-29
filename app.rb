@@ -11,7 +11,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/post' do
-    Peep.create peep: params[:peep], created_at: Time.now, user_id: session[:user]
+    p User.first("#{session[:user]}")[:id]
+    Peep.create peep: params[:peep], created_at: Time.now, user_id: User.first("#{session[:user]}")[:id]
     redirect '/'
   end
 
@@ -22,6 +23,11 @@ class Chitter < Sinatra::Base
   post '/register' do
     session[:user] = params['username']
     User.create user: params['username'], firstname: params['firstname'], lastname: params['lastname'], email: params['email'], password: params[:password]
+    redirect '/'
+  end
+
+  post '/sign_in' do
+    session[:user] = params[:username]
     redirect '/'
   end
 
