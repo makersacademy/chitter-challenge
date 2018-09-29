@@ -1,9 +1,11 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'timecop'
 require 'pry'
 require 'data_mapper'
 require './models/peep'
 require './models/user'
+require 'web_helpers'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
