@@ -16,7 +16,7 @@
 
   <% @messages.each do |message| %>
     <p><%= message.message %></p>
-    <p><%= message.created_at %></p>
+    <p><%= message.created_at.strftime("Posted on %m/%d at %I:%M%p") %></p>
   <% end %>
 
 </body>
