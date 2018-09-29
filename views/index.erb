@@ -1,1 +1,14 @@
-  'Testing infrastructure'
+<h1>Welcome to Chitter</h1>
+
+<div>
+  <form action="/peep" method="get">
+    <input type="text" name="peep">
+    <input type="submit" value="Submit">
+  </form>
+  <br>
+  <br>
+  <ul>
+    <% @peep.each do |peep| %>
+    <li><%= peep %></li>
+    <% end %>
+  </ul>

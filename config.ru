@@ -1,3 +1,3 @@
 require_relative 'app'
 
-run Chittter
+run Chitter
