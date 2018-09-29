@@ -4,10 +4,6 @@
     <input id='submit_peep' type='submit' value='Post!'>
   </form>
 
-  <!-- <form action='/peeps/new' method='get'>
-    <input type='submit' value='Make Peep'>
-  </form> -->
-
   <%@peeps.each_with_index do |peep, index|%>
     <div class='peep' id=<%=index%> >
       <a href="/peeps/<%=peep.id%>"<p class='peep-text'>Peep <%=peep.id%>: <%=peep.text%></p></a>
