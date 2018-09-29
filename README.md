@@ -68,12 +68,12 @@ Testing screenshots:
 -------
 
 100% testing coverage and clean lint tester.  
-![Alt text](/https://github.com/andrewwood2/chitter-challenge/blob/master/screenshots/Testing_results1.png "Testing results 1")  
-![Alt text](/https://github.com/andrewwood2/chitter-challenge/blob/master/screenshots/Testing_results2.png "Testing results 2")   
+![Alt text](/screenshots/Testing_results1.png "Testing results 1")  
+![Alt text](/screenshots/Testing_results2.png "Testing results 2")   
 
 App screenshots:
 -------
 
-![Alt text](/https://github.com/andrewwood2/chitter-challenge/blob/master/screenshots/Feed_signed_out.png "Feed signed out")
-![Alt text](/https://github.com/andrewwood2/chitter-challenge/blob/master/screenshots/Register_page.png "Register page")
-![Alt text](/https://github.com/andrewwood2/chitter-challenge/blob/master/screenshots/Feed_signed_in.png "Feed signed in")
+![Alt text](/screenshots/Feed_signed_out.png "Feed signed out")
+![Alt text](/screenshots/Register_page.png "Register page")
+![Alt text](/screenshots/Feed_signed_in.png "Feed signed in")
