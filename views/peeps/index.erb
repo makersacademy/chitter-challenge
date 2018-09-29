@@ -1,4 +1,4 @@
-<h1>Welcome </h1>
+<h1>Welcome, <%= @user %></h1>
 <ul>
   <% @peeps.reverse_each do |peep| %>
   <li><%= peep.messages %> <%= peep.time_of_creation %></li>
