@@ -1,8 +1,12 @@
 # Twittarr - The pirated version of Twitter
+Deployed Here:
+-------
+[Twittarr](https://www.twittarr.herokuapp.com)
 
-Main Domain Model:
+Main Domain Model and Features:
 -------
 ![Main UML for Twittarr](./domain-models-and-user-stories/main-domain-model.png)
+![Features of Twittarr](./domain-models-and-user-stories/wireframe-features.png)
 
 Features:
 -------
