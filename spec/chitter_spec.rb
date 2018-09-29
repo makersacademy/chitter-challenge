@@ -3,7 +3,7 @@ require 'chitter'
 describe Chitter do
   describe '.all' do
     it 'returns all chits' do
-      conn = PG.connect( dbname: 'chitter_test')
+      conn = PG.connect(dbname: 'chitter_test')
 
       conn.exec("INSERT INTO chits(message) VALUES ('hello everyone');")
       conn.exec("INSERT INTO chits(message) VALUES ('this is a first chit');")

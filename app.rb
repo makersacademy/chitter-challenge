@@ -10,21 +10,26 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
+  post '/user_name' do
+    session[:name] = params[:name]
+    @name = session[:name]
+    redirect 'list_msgs'
+  end
+
   get '/list_msgs' do
     @msg = Chitter.all
     erb :list_msgs
   end
 
   get '/enter_msg' do
-    # session[:message] = params[:message]
-    # @msg = session[:message]
     erb :enter_msg
   end
 
   post '/enter_msg' do
     message = params['message']
+    @name = session[:name]
     conn = PG.connect(dbname: 'chitter')
-    conn.exec("INSERT INTO chits(message) VALUES('#{message}')")
+    conn.exec("INSERT INTO chits(name, message) VALUES('#{@name}', '#{message}')")
     redirect 'list_msgs'
   end
 
