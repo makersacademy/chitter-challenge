@@ -17,8 +17,13 @@
 
 <ul>
   <% @chats.each do |chat| %>
-    <li class="chat" id="chat-<%= chat.id %>">
+    <li class="chat" id="chat-<% chat.id %>">
       <%= chat.text %>
+      <ul>
+        <li>
+          Posted at: <%= chat.time %>
+        </li>
+      </ul>
     </li>
   <% end %>
 </ul>

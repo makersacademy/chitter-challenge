@@ -3,16 +3,18 @@ describe Chat do
 
   describe '.all' do
     it 'returns all chats stored in the database' do
-      @connection.exec("INSERT INTO chats (text) VALUES('Test 1');")
-      @connection.exec("INSERT INTO chats (text) VALUES('Test 2');")
-      @connection.exec("INSERT INTO chats (text) VALUES('Test 3');")
+      Chat.add('Test 1')
+      Chat.add('Test 2')
+      Chat.add('Most Recent Test')
 
       chats = Chat.all
-      chat = Chat.all.first
       expect(chats.length).to eq 3
+
+      chat = Chat.all.first
       expect(chat).to be_a Chat
       expect(chat).to respond_to(:id)
-      expect(chat.text).to eq 'Test 1'
+      expect(chat).to respond_to(:time)
+      expect(chat.text).to eq 'Most Recent Test'
     end
   end
 
