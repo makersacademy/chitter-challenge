@@ -3,7 +3,7 @@ require 'peep'
 describe Peep do
 
   describe '.all' do
-    it 'returns all tweets in reverse order' do
+    it 'returns all peeps in reverse order' do
       connection = PG.connect(dbname: 'chitter_test')
 
       connection.exec("INSERT INTO peeps VALUES(1, 'My third peep');")
@@ -16,4 +16,13 @@ describe Peep do
       expect(peeps.last).to include "My first peep"
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      Peep.create(peep: 'This is a test peep')
+
+      expect(Peep.all).to include 'This is a test peep'
+    end
+  end
+
 end
