@@ -9,5 +9,9 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/post' do
+    Peep.create peep: params[:peep], created_at: Time.now, user_id: 1
+    redirect '/'
+  end
 
 end
