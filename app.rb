@@ -11,6 +11,9 @@ class ChitterManager < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    'hi'
+    @chitter = Chitter.all
+    erb (:index)
   end
+
+
 end

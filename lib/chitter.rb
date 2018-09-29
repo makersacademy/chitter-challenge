@@ -1,10 +1,19 @@
 require 'rubygems'
 require "data_mapper"
 
+#
+# if ENV['ENVIRONMENT'] == 'test'
+#   DataMapper.setup(:default, 'postgres://localhost/chitter_test')
+# else
+#   DataMapper.setup(:default, 'postgres://localhost/chitter')
+# end
 
 DataMapper.setup(:default, 'postgres://localhost/chitter')
 
 class Chitter
+
+
+
   include DataMapper::Resource
 
   property :id,         Serial    # An auto-increment integer key
@@ -14,10 +23,18 @@ class Chitter
 end
 
 DataMapper.finalize
-DataMapper.auto_migrate!
 DataMapper.auto_upgrade!
 
-@chitter = Chitter.create(
-  :message      => "A lot of text ...",
-  :posted_by => "Florence",
-  :created_at => Time.now)
+   # def self.all
+   #   result = Chitter.all
+   # end
+
+# @chitter = Chitter.create(
+#   :message      => "A lot of text ...",
+#   :posted_by => "Florence",
+#   :created_at => Time.now)
+
+
+  # @test = Chitter.new(:message => "blah", :posted_by => "Florence",
+  # :created_at => Time.now)
+  # @test.save
