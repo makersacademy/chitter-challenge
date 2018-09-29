@@ -68,12 +68,16 @@ Testing screenshots:
 -------
 
 100% testing coverage and clean lint tester.  
+
 ![Alt text](/screenshots/Testing_results1.png "Testing results 1")  
 ![Alt text](/screenshots/Testing_results2.png "Testing results 2")   
 
 App screenshots:
 -------
 
-![Alt text](/screenshots/Feed_signed_out.png "Feed signed out")
-![Alt text](/screenshots/Register_page.png "Register page")
-![Alt text](/screenshots/Feed_signed_in.png "Feed signed in")
+View of feed when not signed in  
+![Alt text](/screenshots/Feed_signed_out.png "Feed signed out")  
+Registration page  
+![Alt text](/screenshots/Register_page.png "Register page")  
+View of feed when signed in  
+![Alt text](/screenshots/Feed_signed_in.png "Feed signed in")  
