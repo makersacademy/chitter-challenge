@@ -15,5 +15,8 @@ class ChitterManager < Sinatra::Base
     erb (:index)
   end
 
- 
+  get "peep/new" do
+    erb(:peep_new)
+  end
+
 end

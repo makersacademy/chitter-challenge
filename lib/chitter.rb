@@ -25,17 +25,12 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-   # def self.all
-   #    result = Chitter.all
-   # end
-
 
 
 # @chitter = Chitter.create(
 #   :message      => "A lot of text ...",
 #   :posted_by => "Florence",
 #   :created_at => Time.now)
-
 
   @test = Chitter.new(:message => "blah", :posted_by => "Florence",
   :created_at => Time.now)
