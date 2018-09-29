@@ -29,9 +29,13 @@ feature 'sign up' do
 
   scenario "user can't sign up without an email address" do
     expect { sign_up(email: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/signup')
+    expect(page).to have_content('Email must not be blank')
   end
 
   scenario "user can't sign up with an invalid email address" do
    expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
+   expect(current_path).to eq('/signup')
+   expect(page).to have_content('Email has an invalid format')
  end
 end
