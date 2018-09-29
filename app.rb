@@ -20,6 +20,7 @@ class Twittarr < Sinatra::Base
   end
   
   get '/dashboard' do
+    @username = session[:username]
     @messages = Message.all(:order => [:created_at.desc])
     erb :index
   end
@@ -30,7 +31,8 @@ class Twittarr < Sinatra::Base
   end
 
   post '/new/user' do
-    User.create(:email => params[:email], password: params[:password], username: params[:username])
+    User.create(:email => params[:email], :encrypted_password => params[:password],:username => params[:username])
+    session[:username] = params[:username]
     redirect '/dashboard'
   end
 

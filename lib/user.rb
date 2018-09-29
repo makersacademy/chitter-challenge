@@ -1,9 +1,10 @@
-require 'data_mapper'
+require 'bcrypt'
 
 class User
   include DataMapper::Resource
   
   property :id, Serial
-  property :username, String, unique: true
-  property :email, String, unique: true, required: true
+  property :email, Text
+  property :username, Text
+  property :encrypted_password, Text
 end

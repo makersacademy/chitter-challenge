@@ -2,7 +2,7 @@ feature 'set up' do
   scenario 'visit page' do
     visit '/'
     click_on 'Login'
-    expect(page).to have_content "Welcome to Twittarr."
+    expect(page).to have_text ""
   end
 end
 
@@ -14,6 +14,6 @@ feature 'registration' do
     fill_in('email', with: 'alfredhitchcock@hotmail.com')
     fill_in('password', with: 'alfredosauce')
     click_button('Submit')
-    expect(page).to have_content "Welcome, BatesFan!"
+    expect(page).to have_content "Ahoy, BatesFan!"
   end
 end

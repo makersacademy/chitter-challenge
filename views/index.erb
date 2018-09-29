@@ -7,7 +7,11 @@
   <title>Twittarr</title>
 </head>
 <body>
-  <h1>Welcome to Twittarr.</h1>
+  <% if @username %>
+    <h1>Ahoy, <%= @username %>!</h1>
+  <% else %>
+    <h1>Welcome to Twittarr</h1>
+  <% end %>
 
   <form action="/new" method="post">
     <input type="text" name="tweet">
