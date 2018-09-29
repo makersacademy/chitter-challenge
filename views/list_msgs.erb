@@ -1,17 +1,21 @@
-<h1> messages below... </h1>
+<div>
+  <body bgcolor="#E6E6FA">
+  <center>
+  <h1> messages below... </h1>
 
-<!-- <h2> <%= @msg %> </h2> -->
+  <!-- <h2> <%= @msg %> </h2> -->
 
-<ul style="list-style-type:square">
-  <% @msg.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-</ul>
+  <ul style="list-style-type:square">
+    <% @msg.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 
+  
+  <h2> To 'chit' please press enter </h2>
 
-
-<h2> To 'chit' please press enter </h2>
-
-<form action="/enter_msg">
-  <input type="submit" value="Enter">
-</form>
+  <form action="/enter_msg">
+    <input type="submit" value="Enter">
+  </form>
+  </center>
+</div>
