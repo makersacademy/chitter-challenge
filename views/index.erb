@@ -17,6 +17,6 @@ or <a href="/register">register</a> </form> </h2>
 
 <% Peep.all.each do |peep| %>
 <div>
-<%= peep.peep %> <%= peep.created_at.strftime("%H:%M%p %e %b %y") %>
+<%= peep.peep %>, posted by <%= User.get(peep[:user_id])[:user] %>, on the <%= peep.created_at.strftime("%H:%M%p %e %b %y") %> 
 </div>
 <% end %>
