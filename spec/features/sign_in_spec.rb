@@ -1,9 +1,4 @@
 feature 'Sign up' do
-  scenario 'when I register, I want it to then tell me I am logged in' do
-    register_frodo_swaggins
-    expect(page).to have_content 'You are now signed in as FrodoSwaggins'
-  end
-
   scenario 'when I log in, I want it to tell me I am logged in' do
     login_as_gimli
     expect(page).to have_content 'You are now signed in as GIMLITHEGREAT'

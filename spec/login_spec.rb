@@ -17,4 +17,16 @@ describe Login do
       expect(Login.user_pass_ok?('no-one', 'madeuppassword')).to eq false
     end
   end
+
+  describe '#user_exists' do
+    it 'returns true if a user already exists' do
+      add_some_users
+      expect(Login.user_exists?('bombadillo')).to eq true
+    end
+
+    it 'returns false if a user does not exist' do
+      add_some_users
+      expect(Login.user_exists?('EAGLES')).to eq false
+    end
+  end
 end

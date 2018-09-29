@@ -5,4 +5,8 @@ class Login
     user = User.first(:user => username)
     !!(user && user[:password] == password)
   end
+
+  def self.user_exists?(username)
+    !!(User.first(:user => username))
+  end
 end

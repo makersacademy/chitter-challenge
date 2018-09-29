@@ -13,6 +13,7 @@
        <label for="exampleInputEmail1">Username</label>
        <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="eg. FrodoSwaggins" required>
        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+       <big id="emailHelp" class="form-text text-muted"> <%= flash[:user_exists] %> </small>
      </div>
      <div class="form-group">
        <label for="exampleInputPassword1">First Name</label>
