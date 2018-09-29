@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/cheets'
 
 # DataMapper.setup(:default, 'postgres://user:password@hostname/database')
 
@@ -6,11 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @peep = [
-      'Test Cheet One',
-      'Test Cheet Two',
-      'Test Cheet Three'
-    ]
+    @cheets = Cheets.all
     erb :index
   end
 
