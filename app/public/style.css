@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    --blue: #3498db;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 5px 7px;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    transition: all 0.6s;
+}
+
+input[type='submit']:hover {
+    color: white;
+    background: var(--blue)
+}
+
+input[type='text'] {
+    text-align: center;
+}
+
+::placeholder {
+    color: var(--blue)
+}
+
+li {
+    list-style: none;
+}

@@ -1,5 +1,11 @@
 require 'simplecov'
 require 'simplecov-console'
+require_relative '../app/app.rb'
+require 'capybara'
+require_relative './db_helper.rb'
+
+Capybara.app = Chitter
+ENV['DATABASE'] = 'chitter_test'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -9,6 +15,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.before do
+    DBHelper.truncate_peeps
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
