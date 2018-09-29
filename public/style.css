@@ -1,0 +1,14 @@
+body { background-color: powderblue; }
+
+form { text-align: center; }
+.peep {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 1%;
+  text-align: center;
+}
+.peep-text { color: black; }
+.peep-date { color: lavender; }
