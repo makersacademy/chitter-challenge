@@ -15,3 +15,10 @@ def login_as_gimli
   fill_in 'password', with: 'erebor'
   click_button 'sign in'
 end
+
+def add_some_users
+  User.create user: 'GIMLITHEGREAT', firstname: 'gimli', lastname: 'son of gloin', email: 'outscoredpointyear@gmail.com', password: 'erebor'
+  User.create user: 'aragorn', firstname: 'aragorn', lastname: 'son of arathorn', email: 'nextkingofgondor@gmail.com', password: 'anduril'
+  User.create user: 'faramir', firstname: 'faramir', lastname: 'steward of gondor', email: 'mybrotherwasaboss@gmail.com', password: 'osgiliath'
+  User.create user: 'bombadillo', firstname: 'tom', lastname: 'bombadil', email: 'mostpowerful@gmail.com', password: 'gardener'
+end

@@ -10,6 +10,7 @@ gem 'launchy'
 gem 'pry'
 gem 'capybara'
 gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

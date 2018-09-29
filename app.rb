@@ -1,10 +1,13 @@
 require 'sinatra'
 require 'sinatra/base'
 require './lib/peep'
+require 'sinatra/flash'
+require './lib/login'
 
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -27,7 +30,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_in' do
-    session[:user] = params[:username]
+    if Login.user_pass_ok?(params[:username],params[:password])
+      session[:user] = params[:username]
+    else
+      flash[:notice] = "incorrect username or password"
+    end
     redirect '/'
   end
 
