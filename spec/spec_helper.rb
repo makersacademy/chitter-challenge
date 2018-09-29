@@ -1,5 +1,15 @@
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+
+ENV['CHATTER'] = 'TEST'
+
+require File.expand_path('../app/chatter_app.rb', __dir__)
+require File.expand_path('./features/helpers.rb', __dir__)
+
+Capybara.app = Chatter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -9,6 +19,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  # config.before(:each) { setup_test_database }
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
