@@ -5,6 +5,8 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     ast (2.4.0)
+    backports (3.11.4)
+    builder (3.2.3)
     capybara (3.8.2)
       addressable
       mini_mime (>= 0.1.3)
@@ -13,19 +15,48 @@ GEM
       rack-test (>= 0.6.3)
       xpath (~> 3.1)
     coderay (1.1.2)
+    coveralls (0.7.2)
+      multi_json (~> 1.3)
+      rest-client (= 1.6.7)
+      simplecov (>= 0.7)
+      term-ansicolor (= 1.2.2)
+      thor (= 0.18.1)
+    cucumber (3.1.2)
+      builder (>= 2.1.2)
+      cucumber-core (~> 3.2.0)
+      cucumber-expressions (~> 6.0.1)
+      cucumber-wire (~> 0.0.1)
+      diff-lcs (~> 1.3)
+      gherkin (~> 5.1.0)
+      multi_json (>= 1.7.5, < 2.0)
+      multi_test (>= 0.1.2)
+    cucumber-core (3.2.1)
+      backports (>= 3.8.0)
+      cucumber-tag_expressions (~> 1.1.0)
+      gherkin (~> 5.0)
+    cucumber-expressions (6.0.1)
+    cucumber-tag_expressions (1.1.1)
+    cucumber-wire (0.0.1)
     diff-lcs (1.3)
     docile (1.1.5)
+    gherkin (5.1.0)
     hirb (0.7.3)
     json (2.1.0)
     method_source (0.9.0)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2018.0812)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
+    multi_json (1.13.1)
+    multi_test (0.1.2)
     mustermann (1.0.3)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
+    pg (1.1.3)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -38,6 +69,8 @@ GEM
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
     rake (12.3.0)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -58,6 +91,8 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
+    rubocop-rspec (1.27.0)
+      rubocop (>= 0.56.0)
     ruby-progressbar (1.9.0)
     simplecov (0.15.1)
       docile (~> 1.1.0)
@@ -73,7 +108,13 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.4)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
+    thor (0.18.1)
     tilt (2.0.8)
+    tins (0.13.2)
     unicode-display_width (1.3.2)
     xpath (3.1.0)
       nokogiri (~> 1.8)
@@ -83,13 +124,18 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  coveralls
+  cucumber
+  pg
   pry
   rake
   rspec
   rubocop (= 0.56.0)
+  rubocop-rspec
   simplecov
   simplecov-console
   sinatra
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.5.1p57
