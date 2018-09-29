@@ -2,11 +2,12 @@
 
 <body>
   <h1>Chitter</h1>
-  <div>
-    <%@peeps.each do |peep|%>
-    <li>Peep<%=peep.id%>: <%=peep.text%></li>
+    <%@peeps.each_with_index do |peep, index|%>
+    <div class='peep' id=<%=index%> >
+      <p>Peep <%=peep.id%>: <%=peep.text%></p>
+      <p><%=peep.time_format%>
+    </div>
     <%end%>
-  </div>
 
   <form action='/peeps/new' method='get'>
     <input type='submit' value='Make Peep'>
