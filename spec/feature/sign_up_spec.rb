@@ -15,15 +15,23 @@ feature 'sign up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  scenario 'user cannot sign up if username is already in use' do
+  scenario "user can't sign up if username is already in use" do
     sign_up(username: 'AlbusD')
     expect { sign_up(username: 'AlbusD') }.not_to change(User, :count)
     expect(page).to have_content "Username is already taken"
   end
 
-  scenario 'user cannot sign up if email is already in use' do
+  scenario "user can't sign up if email is already in use" do
     sign_up(email: 'albus_dumbledore@hogwarts.co.uk')
     expect { sign_up(email: 'albus_dumbledore@hogwarts.co.uk') }.not_to change(User, :count)
     expect(page).to have_content "Email is already taken"
   end
+
+  scenario "user can't sign up without an email address" do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario "user can't sign up with an invalid email address" do
+   expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
+ end
 end
