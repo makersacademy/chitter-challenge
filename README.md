@@ -68,7 +68,7 @@ Testing screenshots:
 -------
 
 100% testing coverage and clean lint tester.
-![Alt text](/screenshots/Testing results 1.png?raw=true "Testing results 1")
+![Alt text](/https://github.com/andrewwood2/chitter-challenge/raw/master/screenshots/Testing results 1.png?raw=true "Testing results 1")
 ![Alt text](/screenshots/Testing results 2.png?raw=true "Testing results 2")  
 
 App screenshots:
