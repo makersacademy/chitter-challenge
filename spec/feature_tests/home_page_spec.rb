@@ -44,13 +44,13 @@ feature 'Users' do
     expect(page).not_to have_content 'BACKTRACE'
   end
 
-  # feature 'Peep comments' do
-  #   it 'allows me to comment on peeps' do
-  #     log_in
-  #     first('.pcomment').fill_in :new_comment, with: "Totally agree"
-  #     first('.pcomment').click_button "Submit"
-  #     expect(page).to have_content "Totally agree"
-  #     expect(page).not_to have_content 'BACKTRACE'
-  #   end
-  # end
+  feature 'Peep comments' do
+    it 'allows me to comment on peeps' do
+      log_in
+      first('.pcomment').fill_in :new_comment, with: "Totally agree"
+      first('.pcomment').click_button "Submit"
+      expect(page).to have_content "Totally agree"
+      expect(page).not_to have_content 'BACKTRACE'
+    end
+  end
 end

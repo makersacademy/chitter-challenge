@@ -8,10 +8,11 @@ class Chitter < Sinatra::Base
 
   DatabaseConnection.setup
 
-  before {@active = User.active}
+  before { @active = User.active }
 
   get '/' do
     @peeps = Peep.all
+    @comments = Comment.all
     erb :index
   end
 
@@ -25,7 +26,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/register' do
-    @user = User.create(params[:username], params[:name], params[:email], params[:password])
+    handle, name, email, pwd, _ = params.values
+    @user = User.create(handle, name, email, pwd)
     erb :user_details
   end
 
@@ -43,8 +45,8 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  get '/add_comment' do
-    Comment.create(params[:new_comment])
+  post '/add_comment/:id' do
+    Comment.create(params[:new_comment], params[:id])
     redirect '/'
   end
 end

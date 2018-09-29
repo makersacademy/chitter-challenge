@@ -1,7 +1,7 @@
 require 'peep'
 
 describe Peep do
-  let(:user_klass) { double :user_klass, active: user}
+  let(:user_klass) { double :user_klass, active: user }
   let(:user) { double :user, id: 1 }
   let(:comment) { 'Hi all. Just coding away' }
   subject { described_class.create(comment, user_klass) }
@@ -22,7 +22,8 @@ describe Peep do
 
   describe '#nice_date' do
     it 'returns the date of the peep in a nice format' do
-      expect(subject.nice_date).to eq "03-09-2018"
+      expect(subject.nice_date).to eq Time.now.strftime("%d-%m-%Y")
+      expect(subject.nice_date.length).to eq 10
     end
   end
   describe '#nice_time' do

@@ -46,13 +46,27 @@
             <%= peep.nice_time %>
             <%= peep.text %>
           </div>
-          <div class="peep pcomment">
-            <form action="/add_comment" method="get">
-              <label for="new_comment">Comment: </label>
-              <input type="text" name="new_comment" value="">
-              <input type="submit" value="Submit">
-            </form>
-          </div>
+          <% if @comments.any? { |c| c.peep_id == peep.id } %>
+            <div class="peep pcomment">
+              <% @comments.reverse_each do |c| %>
+                <% if c.peep_id == peep.id %>
+                  <%= c.name %>
+                  (@<%= c.username %>):
+                  <%= c.text %>
+                  <br>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+          <% if @active %>
+            <div class="peep pcomment">
+              <form action='/add_comment/<%= peep.id %>' method="post">
+                <label for="new_comment">Comment: </label>
+                <input type="text" name="new_comment" value="">
+                <input type="submit" value="Submit">
+              </form>
+            </div>
+          <% end %>
         </div>
 
       <% end %>

@@ -11,15 +11,12 @@ class DatabaseConnection
     @connection.exec(query)
   end
 
-  def self.connection
-    @connection
+  class << self
+    attr_reader :connection
   end
 
   def self.database
-    if ENV['RACK_ENV'] == 'test'
-      return 'chitter_manager_test'
-    else
-      return 'chitter_manager'
-    end
+    return 'chitter_manager_test' if ENV['RACK_ENV'] == 'test'
+    return 'chitter_manager'
   end
 end

@@ -19,7 +19,7 @@ describe User do
     end
     it 'it won\'t change the active user if details incorrect' do
       dc.log_out if dc.active != nil
-      user = dc.log_in('andrew', 'pwd123')
+      dc.log_in('andrew', 'pwd123')
       expect(dc.active).to eq nil
     end
   end
