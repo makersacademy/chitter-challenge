@@ -17,7 +17,8 @@ SimpleCov.start
 RSpec.configure do |config|
   config.before(:each) do
     DataMapper.setup(:default, 'postgres://aidanfaria:@localhost/chitter_test')
-
+    Peep.auto_migrate!
+    User.auto_migrate!
   end
   config.after(:suite) do
     puts

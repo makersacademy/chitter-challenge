@@ -2,11 +2,8 @@ require 'dm-core'
 require 'dm-validations'
 require 'dm-migrations'
 require 'rubygems'
-require 'pry'
-
 
 DataMapper.setup(:default, 'postgres://aidanfaria:@localhost/chitter')
-
 
 class Peep
   include DataMapper::Resource

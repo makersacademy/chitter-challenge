@@ -1,9 +1,19 @@
-<h1>Welcome to Chitter:
+<h1>Welcome to Chitter:</h1>
+<% if session[:user] %>
+    <h2>You are now signed in as <%= session[:user] %> </h2>
+  <% else %>
+<h2>Please sign in <form class="" action="index.html" method="post">
+  <input type="text" name="username" placeholder='enter username' required>
+  <input type="text" name="password" placeholder='enter password' required>
+  <input type="submit" name="submit" value="sign in">
+or <a href="/register">register</a> </form> </h2>
+<% end %>
+<% if session[:user] %>
 <form class="" action="/post" method="post">
   <input type="text" name="peep">
-  <input type="submit" name="submit" value="Peep">
+  <input type="submit" name="register" value="Peep">
 </form>
-</h1>
+<% end %>
 
 <% Peep.all.each do |peep| %>
 <div>
