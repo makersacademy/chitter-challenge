@@ -4,6 +4,11 @@ ruby '2.5.0'
 
 gem 'rake'
 gem 'rubocop', '0.56.0'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'launchy'
+gem 'pry'
+
 
 group :test do
   gem 'rspec'
