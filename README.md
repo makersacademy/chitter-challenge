@@ -1,22 +1,72 @@
-Chitter Challenge
-=================
+Chitter-Challenge
+==================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Task
 -------
-
-As usual please start by forking this repo.
-
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
--------
+* You don't have to be logged in to see the peeps.
+* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* The username and email are unique.
+* Peeps (posts to chitter) have the name of the maker and their user handle.
+* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
+Work on this challenge as conclusion of week 4, to work towards these goals:
+
+* I version-control my projects
+* I use a methodical approach to solving problems
+* I test-drive my code
+* I can work to a specification
+* I create effective documentation
+* I can design and build user interfaces
+* I can write standards-compliant, clean object-oriented code
+
+Instructions to run this at home
+-----
+```sh
+$ git clone git@github.com:fbl11/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle install
+$ shotgun -p 4567
+```
+go to http://127.0.0.1:4567/ in your browser
+
+STATUS
+-----
+
+Controller
+includes
+- chitter_app.rb
+- 
+- 
+
+Views
+both
+- 
+
+Model
+includes
+- 
+- 
+- 
+
+Rubocop / test coverage
+
+**Notes**
+```
+```
+
+**TO DO**
+
+- 
+
+Notes on use
+------------------
+```
+```
+
+User stories
+-----
 ```
 STRAIGHT UP
 
@@ -35,73 +85,18 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
-------
+* When the user visits the '/peeps' path, their browser sends a request to a controller we built.
+* When the controller gets the request, it asks the Peep class to give it all the peeps, i.e. the controller asks for Peep.all.
+* The Peep class goes and gets the peeps, and gives back all the peeps in an array? to the controller.
+* The controller renders the array? of peeps to a webpage, which it sends as a response to the user
+* The user presses 'add peep' to add a new peep
+* The user submits their peep through a text form and clicks submit
+* The controller gets the post request and stores the peep in the Peep class
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
+
+Author
 -----
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+Freya Becker [fbl11](https://github.com/fbl11/)
