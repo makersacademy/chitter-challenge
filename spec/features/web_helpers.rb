@@ -3,9 +3,25 @@ def visit_sign_up_page
   click_link 'Sign up for Chitter!'
 end
 
-def sign_in_as_billy
+def log_in_as_billy
   visit '/'
   fill_in 'username', with: 'billy1'
   fill_in 'password', with: 'password'
-  click_button 'Sign in'
-end 
+  click_button 'Log in'
+end
+
+def sign_up_for_chitter(name, username, email, password)
+  fill_in 'name', with: name
+  fill_in 'username', with: username
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  click_button 'Sign up'
+end
+
+def get_settings
+  Capybara.app.settings
+end
+
+def log_out_of_page
+    click_button 'Log out'
+end

@@ -1,7 +1,7 @@
-require 'users'
+require 'all_users'
 require 'bcrypt'
 
-RSpec.describe Users do
+RSpec.describe AllUsers do
 
   let(:fake_connection) do
     double :DatabaseConnection,

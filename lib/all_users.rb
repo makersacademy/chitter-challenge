@@ -1,7 +1,7 @@
 require 'bcrypt'
 require_relative 'database_connection'
 
-class Users
+class AllUsers
 
   def initialize(connection: DatabaseConnection.new, hasher: BCrypt::Password)
     @connection = connection

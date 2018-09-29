@@ -2,12 +2,24 @@
 </head>
 
 <body>
-  <h3> Sign in </h3>
-  <form action='/sign_in' method='post'>
-    Username: <input type='text' name='username'/><br>
-    Password: <input type='text' name='password'/><br>
-    <input type='submit' value='Sign in'/><br>
-    <a href='/users/new'> Sign up for Chitter! </a>
+  <% if @current_user.name.nil? %>
+    <div class ='log_in'>
+      <h3> Sign in </h3>
+      <form action='/log_in' method='post'>
+        Username: <input type='text' name='username'/><br>
+        Password: <input type='text' name='password'/><br>
+        <input type='submit' value='Log in'/><br>
+        <a href='/users/new'> Sign up for Chitter! </a>
+    </div>
+  <% else %>
+    <h1> You are logged in as <%= @current_user.username %> </h1>
+    <div class='log_out'>
+      <form action='/log_out' method='post'>
+        <input type='submit' value='Log out'/>
+      </form>
+    </div>
+  <% end %>
   <%= flash[:sign_up_message] %>
   <%= flash[:sign_in_message] %>
+  <%= flash[:logged_out] %>
 </body>
