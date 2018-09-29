@@ -1,13 +1,17 @@
-require 'simplecov'
-require 'simplecov-console'
 ENV['RACK_ENV'] = 'test'
 
-# require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'simplecov'
+require 'simplecov-console'
+require 'rubygems'
+require 'data_mapper'
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'pry'
 require 'rspec'
 # require './spec/features/web_helpers'
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
