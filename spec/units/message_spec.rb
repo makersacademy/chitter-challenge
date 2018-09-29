@@ -1,13 +1,20 @@
 require 'message'
+require 'pg'
 
 describe Message do
-  describe '.all' do
-    it 'returns all messages' do
-      messages = Message.all
-
-      expect(messages).to include("Arrr, my spleen!")
-      expect(messages).to include("Me pantaloons are on me head.")
-      expect(messages).to include("Her locker is like davey jones locker!")
+  context '.all' do
+    it 'adds messages' do
+      connection = PG.connect(dbname: 'twittarr_test')
+      connection.exec("INSERT INTO messages (message) VALUES ('Arrr, my spleen!');")
+      
+      expect(Message.all).not_to be_empty
+    end
+  end
+  
+  context '.create' do
+    it "adds new messages" do
+      our_message = Message.create(:message => "Her locker is like davey jones locker!", :created_at => Time.now)
+      expect(our_message.message).to eq 'Her locker is like davey jones locker!'
     end
   end
 end

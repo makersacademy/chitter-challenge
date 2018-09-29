@@ -1,10 +1,10 @@
 require 'data_mapper'
-require './lib/message'
 
 env = ENV['RACK_ENV'] || 'development'
 
-DataMapper.setup(:default, "postgres://localhost/twittarr_#{env}")
+require './lib/message.rb'
 
+DataMapper.setup(:default, "postgres://localhost/twittarr_#{env}")
 
 DataMapper.finalize
 

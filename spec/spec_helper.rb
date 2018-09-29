@@ -1,7 +1,5 @@
 ENV['RACK_ENV'] = 'test'
-ENV['DB_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
@@ -9,7 +7,6 @@ require 'pry'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
-
 Capybara.app = Twittarr
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -18,6 +15,21 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+RSpec.configure do |config|
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+end
 
 RSpec.configure do |config|
   config.after(:suite) do

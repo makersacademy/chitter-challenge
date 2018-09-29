@@ -9,10 +9,15 @@
 <body>
   <h1>Welcome to Twittarr.</h1>
 
-  <ul>
-    <% @messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+  <form action="/new/:tweet" method="post">
+    <input type="text" name="tweet">
+    <input type="submit" value="Arr, new tweet">
+  </form>
+
+  <% @messages.each do |message| %>
+    <p><%= message.message %></p>
+    <p><%= message.created_at %></p>
+  <% end %>
+
 </body>
 </html>
