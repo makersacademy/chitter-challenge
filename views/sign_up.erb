@@ -1,4 +1,9 @@
-<h1> Please fill in the form to sign up!</h1>
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
 
 <form action='/signup' method='post'>
   <label for='name'>

@@ -93,6 +93,8 @@ GEM
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
     rack (2.0.5)
+    rack-flash (0.1.2)
+      rack
     rack-protection (2.0.4)
       rack
     rack-test (1.1.0)
@@ -156,6 +158,7 @@ DEPENDENCIES
   dm-transactions
   pg
   pry
+  rack-flash
   rake
   rspec
   rubocop (= 0.56.0)
