@@ -10,14 +10,7 @@ class Peep
   def self.all
     self.connect_db
     result = @con.exec "SELECT peep, TO_CHAR(time, 'DD-MON-YYYY HH24:MI') FROM peeps ORDER BY time DESC"
-    array = []
-    result.each do |row|
-      peep = []
-      peep.push(row['peep'])
-      peep.push(row['to_char'])
-      array.push(peep)
-    end
-    array
+    result.map { |row| {:peep => row['peep'], :time => row['to_char']} }
   end
 
   private

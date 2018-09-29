@@ -1,5 +1,7 @@
 <div>
 <% @peep.each do |entry| %>
-  <%= entry %> <br />
+  <%= entry[:peep] %>
+  <%= entry[:time] %>
+  <br />
 <% end %>
 </div>
