@@ -15,8 +15,15 @@ class ChitterManager < Sinatra::Base
     erb (:index)
   end
 
-  get "peep/new" do
+  get '/peep/new' do
     erb(:peep_new)
+  end
+
+  post '/peep_added' do
+    @peep = Chitter.new(:message => params[:peep], :posted_by => "Florence",
+    :created_at => Time.now)
+    @peep.save
+    redirect '/'
   end
 
 end
