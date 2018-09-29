@@ -1,6 +1,5 @@
 <ul>
   <% @peeps.reverse_each do |peep| %>
-  <li><%= peep %></li>
+  <li><%= peep.messages %>><%= peep.time_of_creation %></li>
   <% end %>
-  'Test Peep'
 </ul>

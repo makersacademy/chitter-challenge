@@ -1,6 +1,13 @@
 require 'pg'
 
 class Peep
+attr_reader :messages, :time_of_creation
+
+  def initialize(messages:, time_of_creation:)
+    #@user_id  = user_id
+    @messages = messages
+    @time_of_creation = time_of_creation
+  end
 
   def self.create(message)
     if ENV['ENVIRONMENT'] == 'test'
@@ -8,8 +15,8 @@ class Peep
     else
       connection = PG.connect(dbname: 'peeps_manager')
     end
-    connection.exec ("INSERT INTO peeps (messages) VALUES ('#{message}');")
-    #message
+    result = connection.exec ("INSERT INTO peeps (messages) VALUES ('#{message}') RETURNING messages, time_of_creation;")
+    Peep.new(messages: result[0]['messages'], time_of_creation: result[0]['time_of_creation'])
   end
 
   def self.all
@@ -19,16 +26,9 @@ class Peep
       connection = PG.connect(dbname: 'peeps_manager')
     end
     rs = connection.exec ('SELECT * FROM peeps')
-    rs.map { |peep| peep['messages'] }
-
-    #  Peep.new(id: bookmark['id'], title: bookmark['title'], url: bookmark['url'])
-    #end
-    # [
-    #   "Testing messages",
-    #   "Is working",
-    #   "As expected"
-    #  ]
-
+    rs.map  do |peep|
+      Peep.new(messages: peep['messages'], time_of_creation: peep['time_of_creation'])
+    end
   end
 
 end
