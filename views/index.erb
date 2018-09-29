@@ -1,0 +1,10 @@
+Chitter
+<ul>
+  <% @messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<form action="/" method="get">
+  <input type=text name="message">
+  <input type=submit value="Submit">
+</form>
