@@ -23,13 +23,13 @@ feature 'adding peeps-' do
     login_as_gimli
     fill_in 'peep', with: "My PRECIOUS!"
     click_button 'Peep'
-    expect(page).to have_content "12:00PM 2 Feb 18"
+    expect(page).to have_content "12:00PM on 2 Feb 18"
   end
 
   scenario 'I want to see the username of whoever posted it' do
     login_as_gimli
     fill_in 'peep', with: "My PRECIOUS!"
     click_button 'Peep'
-    expect(page).to have_content "GIMLITHEGREAT"
+    expect(page).to have_content "posted by GIMLITHEGREAT"
   end
 end

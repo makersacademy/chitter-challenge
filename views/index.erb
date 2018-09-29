@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  </head>
+  <body>
+
 <h1>Welcome to Chitter:</h1>
 <% if session[:user] %>
     <h2>You are now signed in as <%= session[:user] %>, <a href="/logout">logout</a> </h2>
@@ -11,13 +20,16 @@ or <a href="/register">register</a> </form> <%= flash[:notice] %> </h2>
 <% end %>
 <% if session[:user] %>
 <form class="" action="/post" method="post">
-  <input type="text" name="peep">
+  <input type="text" name="peep" required>
   <input type="submit" name="register" value="Peep">
-</form>
+</form> <br>
 <% end %>
 
 <% Peep.all.reverse.each do |peep| %>
 <div>
-<%= peep.peep %>, posted by <%= User.get(peep[:user_id])[:user] %>, on the <%= peep.created_at.strftime("%H:%M%p %e %b %y") %>
+"<%= peep.peep %>" <br> <small> posted by <%= User.get(peep[:user_id])[:user] %>, at <%= peep.created_at.strftime("%H:%M%p on %e %b %y") %></small>
 </div><br>
 <% end %>
+
+</body>
+</html>

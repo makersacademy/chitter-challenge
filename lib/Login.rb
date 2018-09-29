@@ -7,6 +7,6 @@ class Login
   end
 
   def self.user_exists?(username)
-    !!(User.first(:user => username))
+    !!User.first(:user => username)
   end
 end
