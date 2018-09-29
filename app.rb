@@ -10,14 +10,22 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep' do
+    @first_name = session[:first_name]
     @peep = Peep.all
     erb (:peeps)
+  end
+
+  post '/peep_index' do
+    session[:first_name] = params[:first_name]
+    redirect('/peep')
   end
 
   post '/peep' do
     Peep.store(params[:peep])
     redirect('/peep')
   end
+
+
 
   run! if app_file == $0
 

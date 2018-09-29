@@ -1,4 +1,15 @@
 <div>
+
+Hello <%= @first_name %>, what's on your mind?
+
+<form action='/peep' method='post'>
+  <input type="text" name="peep">
+  <input type='submit' value='peep'>
+</form>
+
+</div>
+
+<div>
 <% @peep.each do |entry| %>
   <%= entry[:peep] %>
   <%= entry[:time] %>

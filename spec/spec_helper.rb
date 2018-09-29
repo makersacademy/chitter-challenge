@@ -5,6 +5,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require_relative './features/test_database_helper.rb'
+require_relative './features/web_helpers.rb'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
