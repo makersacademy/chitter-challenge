@@ -2,9 +2,17 @@ class Peep
   include DataMapper::Resource
   property :id, Serial
   property :text, Text
-  property :time, DateTime
+  property :time, Time
 
   def self.add(message)
-    self.create(text: message, time: Time.now)
+    Peep.create(text: message, time: Time.now)
+  end
+
+  def self.all_sorted
+    Peep.all.sort { |peep_1, peep_2| peep_2.id <=> peep_1.id }
+  end
+
+  def time_format
+    time.strftime("Posted at %e-%m-%y %H:%M")
   end
 end
