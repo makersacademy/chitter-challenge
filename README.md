@@ -60,4 +60,20 @@ Technologies used:
 Next steps:
 -------
 
+* Add more styling to the pages
+* Add topic hash tags
 * Refactor the way comments are found for each peep to be more efficient.
+
+Testing screenshots:
+-------
+
+100% testing coverage and clean lint tester.
+![Alt text](/screenshots/Testing results 1.png?raw=true "Testing results 1")
+![Alt text](/screenshots/Testing results 2.png?raw=true "Testing results 2")  
+
+App screenshots:
+-------
+
+![Alt text](/screenshots/Feed signed out.png "Feed signed out")
+![Alt text](/screenshots/Register page.png "Register page")
+![Alt text](/screenshots/Feed signed in.png "Feed signed in")

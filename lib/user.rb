@@ -9,8 +9,11 @@ class User
 
   def self.create(username, name, email, password)
     password_hash = Password.create(password)
-    rs = DatabaseConnection.query("INSERT INTO users (username, name, email, password) VALUES ('#{username}', '#{name}', '#{email}', '#{password_hash}') RETURNING id, username, name, email, password;")
-    @active_user = User.new(rs[0]['id'], rs[0]['username'], rs[0]['name'], rs[0]['email'], rs[0]['password'])
+    query = "INSERT INTO users (username, name, email, password) "\
+    "VALUES ('#{username}', '#{name}', '#{email}', '#{password_hash}') "\
+    "RETURNING id, username, name, email, password;"
+    rs = DatabaseConnection.query(query)
+    @active_user = User.new(rs[0])
   end
 
   def self.active
@@ -21,22 +24,19 @@ class User
     @active_user = nil
   end
 
-  def self.log_in(username, password)
-    rs = DatabaseConnection.query("SELECT id, username, name, email, password from users WHERE username = '#{username}';")
-    return nil if rs.cmd_tuples == 0
-    if Password.new(rs[0]['password']) == password
-      @active_user = User.new(rs[0]['id'], rs[0]['username'], rs[0]['name'], rs[0]['email'], rs[0]['password'])
-    end
+  def self.log_in(username, pwd)
+    query = "SELECT id, username, name, email, password from users "\
+            "WHERE username = '#{username}';"
+    rs = DatabaseConnection.query(query)
+    return nil if rs.cmd_tuples.zero?
+    @active_user = User.new(rs[0]) if Password.new(rs[0]['password']) == pwd
   end
 
-  def initialize(id, username, name, email, password)
-    @id = id
-    @username = username
-    @name = name
-    @email = email
-    @password = password
+  def initialize(args)
+    @id = args['id']
+    @username = args['username']
+    @name = args['name']
+    @email = args['email']
+    @password = args['password']
   end
-
-private
-
 end

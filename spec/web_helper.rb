@@ -3,8 +3,10 @@ require 'bcrypt'
 
 def delete_and_fill_database(_db = 'chitter_manager_test')
   DatabaseConnection.setup
+  DatabaseConnection.query("set client_min_messages='warning'")
   DatabaseConnection.query("TRUNCATE TABLE users CASCADE;")
   DatabaseConnection.query("TRUNCATE TABLE peeps;")
+  DatabaseConnection.query("TRUNCATE TABLE peep_comments;")
   user_id = DatabaseConnection.query("INSERT INTO users (id, username, name, email, password) VALUES (1, 'andrew', 'Andrew Wood', 'test@gmail.com', '#{BCrypt::Password.create('pwd12')}') RETURNING id;")[0]['id']
   DatabaseConnection.query("INSERT INTO peeps (user_id, comment, time) VALUES ('#{user_id}', 'Just watched GBBO', '#{Time.new}'), ('#{user_id}', 'Back to coding now', '#{Time.new}')")
 end

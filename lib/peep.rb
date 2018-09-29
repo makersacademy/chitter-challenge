@@ -10,7 +10,7 @@ class Peep
 
   def self.all
     rs = DatabaseConnection.query("SELECT * FROM peeps")
-    rs.map { |peep| Peep.new(peep['user_id'], peep['comment'], peep['time'], peep['id']) }
+    rs.map { |peep| Peep.new(peep) }
   end
 
   def self.create(text, user_klass = User)
@@ -19,16 +19,16 @@ class Peep
     "VALUES ('#{user_id}', '#{text}', '#{Time.new}') "\
     "RETURNING id, comment, user_id, time;"
     rs = DatabaseConnection.query(query)
-    Peep.new(rs[0]['user_id'], rs[0]['comment'], rs[0]['time'], rs[0]['id'])
+    Peep.new(rs[0])
   end
 
-  def initialize(user_id, text, time, id)
-    time = Time.parse(time)
-    @user_id = user_id
-    @username, @name = get_user_detail(user_id)
-    @text = text
+  def initialize(args)
+    time = Time.parse(args['time'])
+    @user_id = args['user_id']
+    @username, @name = get_user_detail(args['user_id'])
+    @text = args['comment']
     @time = time
-    @id = id
+    @id = args['id']
   end
 
 end

@@ -1,7 +1,8 @@
 module Peepesque
-  
+
   def get_user_detail(target_user_id)
-    rs = DatabaseConnection.query("SELECT username, name FROM users WHERE id = #{target_user_id}")
+    query = "SELECT username, name FROM users WHERE id = #{target_user_id}"
+    rs = DatabaseConnection.query(query)
     [rs[0]['username'], rs[0]['name']]
   end
 
@@ -19,10 +20,7 @@ module Peepesque
 
   private
   def two_digit(str)
-    if str.length == 1
-      return str.prepend("0")
-    else
-      return str
-    end
+    return str.prepend("0") if str.length == 1
+    return str
   end
 end
