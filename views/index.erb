@@ -1,15 +1,16 @@
-<title>Chitter</title>
-
-<body>
   <h1>Chitter</h1>
-    <%@peeps.each_with_index do |peep, index|%>
-    <div class='peep' id=<%=index%> >
-      <p>Peep <%=peep.id%>: <%=peep.text%></p>
-      <p><%=peep.time_format%>
-    </div>
-    <%end%>
-
-  <form action='/peeps/new' method='get'>
-    <input type='submit' value='Make Peep'>
+  <form action='/peeps' method='post'>
+    <input id='add_peep' type='text' name='message' placeholder='Insert Message Here!'>
+    <input id='submit_peep' type='submit' value='Post!'>
   </form>
-</body>
+
+  <!-- <form action='/peeps/new' method='get'>
+    <input type='submit' value='Make Peep'>
+  </form> -->
+
+  <%@peeps.each_with_index do |peep, index|%>
+    <div class='peep' id=<%=index%> >
+      <a href="/peeps/<%=peep.id%>"<p class='peep-text'>Peep <%=peep.id%>: <%=peep.text%></p></a>
+      <p class='peep-date'><%=peep.time_format%></p>
+    </div>
+  <%end%>
