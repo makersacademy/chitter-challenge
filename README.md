@@ -14,7 +14,7 @@ When the controller gets the request, it asks the Chitter class to give it all t
 The Chitter class goes and gets the messages, and gives back all the messages in an array to the controller.
 The controller renders the array of messages to a webpage, which it sends as a response to the user
 
-In this user story we will build the following:
+In this user story I will build the following:
 A Controller
 A Chitter class
 A messages view
