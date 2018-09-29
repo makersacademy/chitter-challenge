@@ -3,5 +3,4 @@ feature 'Homepage greets user' do
     visit ('/')
     expect(page).to have_content('Hello')
   end
-
 end
