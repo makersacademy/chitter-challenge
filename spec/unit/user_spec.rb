@@ -1,4 +1,4 @@
-require './models/user'
+require './app/models/user'
 
 describe User do
   let(:user) do
