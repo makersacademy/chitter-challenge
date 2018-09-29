@@ -18,8 +18,14 @@ feature 'registration' do
   end
 end
 
-feature 'authentication' do
-  scenario 'a user can sign in' do
-    User.create(email: 'fakeaccount@gmail.com', password: 'ew123')
-  end
-end
+# feature 'authentication' do
+#   scenario 'a user can sign in' do
+#     User.create(email: 'fakeaccount@gmail.com', password: 'ew123', username: 'Mini Me')
+
+#     visit '/login'
+#     fill_in("email", with: 'fakeaccount@gmail.com')
+#     fill_in("password", with: 'ew123')
+#     click_button('Sign In')
+#     expect(page).to have_content 'Ahoy, Mini Me!'
+#   end
+# end

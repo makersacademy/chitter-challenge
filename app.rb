@@ -15,12 +15,18 @@ class Twittarr < Sinatra::Base
   end
   
   get '/login' do
-    redirect '/dashboard'
+    erb :login
   end
 
   get '/signup' do
     erb :signup
   end
+
+  # post '/connect' do
+  #   user = User.get(:email => params[:email])
+  #   session[:user_id] = user.id
+  #   redirect '/dashboard'
+  # end
   
   get '/dashboard' do
     @messages = Message.all(:order => [:created_at.desc])
