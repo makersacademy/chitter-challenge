@@ -5,22 +5,29 @@ describe Peep do
       connection = PG.connect(dbname: 'chitter_test')
 
       # Add the test data
-      connection.exec("INSERT INTO peeps_data (peep) VALUES ('first peep')")
-      connection.exec("INSERT INTO peeps_data (peep) VALUES ('second peep')")
-      connection.exec("INSERT INTO peeps_data (peep) VALUES ('third peep')")
+      now = DateTime.now
+      Peep.create(peep: 'first peep', time: (now - 2).to_s)
+      Peep.create(peep: 'second peep',time: (now - 1).to_s)
+      Peep.create(peep: 'third peep',time: (now).to_s)
 
       peeps = Peep.all
-
-      expect(peeps).to include("first peep")
-      expect(peeps).to include("second peep")
-      expect(peeps).to include("third peep")
+      peep = peeps.first
+      
+      expect(peeps.length).to eq 3
+      expect(peep).to be_a Peep
+      expect(peep).to respond_to(:id)
+      expect(peep.peep_text).to eq 'third peep'
     end
   end
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create('new peep')
-      expect(Peep.all).to include 'new peep'
+      now = Time.now
+      peep = Peep.create(peep: 'Test time peep', time: now)
+      expect(peep).to be_a Peep
+      expect(peep).to respond_to(:id)
+      expect(peep.peep_text).to eq 'Test time peep'
+      expect(peep.time.strftime("%Y-%m-%d %H:%M:%S%z")).to eq now.strftime("%Y-%m-%d %H:%M:%S%z")
     end
   end
 end

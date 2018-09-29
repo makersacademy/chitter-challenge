@@ -1,7 +1,7 @@
-<h1>all peeps</h1>
+<h1>Peeps feed</h1>
 
 <ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li><%= peep %></li>
+  <% @peeps.each do |peep| %>
+    <li>Text : <%= peep.peep_text %> <sub>Updated at: <%= peep.time%></sub></li>
   <% end %>
 </ul>

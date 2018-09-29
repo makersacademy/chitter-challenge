@@ -1,11 +1,14 @@
+# As a maker
+# So that I can see what others are saying  
+# I want to see all peeps in reverse chronological order
 feature 'Viewing peeps' do
   scenario 'A user can see peeps reverse chronological order' do
     connection = PG.connect(dbname: 'chitter_test')
 
     # Add the test data
-    connection.exec("INSERT INTO peeps_data VALUES(1, 'first peep')")
-    connection.exec("INSERT INTO peeps_data VALUES(2, 'second peep')")
-    connection.exec("INSERT INTO peeps_data VALUES(3, 'third peep')")
+    Peep.create(peep: 'first peep', time: DateTime.now)
+    Peep.create(peep: 'second peep', time: DateTime.now)
+    Peep.create(peep: 'third peep', time: DateTime.now)
 
     visit('/peeps')
 

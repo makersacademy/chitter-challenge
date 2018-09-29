@@ -7,13 +7,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :'peep/new'
+    erb :'peeps/new'
   end
 
   post '/peeps' do
     # p 'form submitted'
-    peep = params['peep_text']
-    Peep.create(peep)
+    Peep.create(peep: params['peep_text'], time: DateTime.now.to_s )
     redirect '/peeps'
   end
 
