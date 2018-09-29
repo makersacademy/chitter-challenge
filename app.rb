@@ -4,7 +4,11 @@ require './lib/peep.rb'
 class Chitter < Sinatra::Application
 
   get '/' do
-    erb(:index)
+    erb :index
+  end
+
+  get '/users/new' do
+    erb :'/users/new'
   end
 
   get '/peeps/index' do
