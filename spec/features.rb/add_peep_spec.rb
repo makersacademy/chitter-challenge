@@ -19,7 +19,7 @@ feature 'adding peeps-' do
   end
 
   scenario 'I want to see the time I posted it at' do
-    allow(Time).to receive(:now).and_return(Time.new(2018,02,02,12,0,0,"+09:00"))
+    allow(Time).to receive(:now).and_return(Time.new(2018, 02, 02, 12, 0, 0, "+09:00"))
     login_as_gimli
     fill_in 'peep', with: "My PRECIOUS!"
     click_button 'Peep'
