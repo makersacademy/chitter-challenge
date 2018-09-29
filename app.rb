@@ -4,7 +4,7 @@ require './lib/message'
 
 class Twittarr < Sinatra::Base
   enable :sessions
-  set :session_secret, 'arrrrgh'
+  set :session_secret, 'arrgh'
 
   get '/' do
     erb :landing_page
@@ -19,9 +19,9 @@ class Twittarr < Sinatra::Base
     erb :index
   end
 
-  post '/new/tweet' do
-    @tweet = params[:tweet]
-    "hello #{@tweet}"
+  post '/new' do
+    Message.create(:message => params[:tweet], :created_at => Time.now)
+    redirect "/dashboard"
   end
 
   run! if app_file == $0
