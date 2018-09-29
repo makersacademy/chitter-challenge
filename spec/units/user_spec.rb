@@ -2,7 +2,7 @@ require 'user'
 
 RSpec.describe User do
 
-  context 'After logging in'do
+  context 'After logging in' do
     it 'has a username' do
       subject.log_in('billy1')
       expect(subject.username).to eq 'billy1'

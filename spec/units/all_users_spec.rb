@@ -43,13 +43,4 @@ RSpec.describe AllUsers do
   it 'should not sign in a user if given invalid credentials' do
     expect(subject.sign_in('billy2', 'password2')).to eq false
   end
-
-  xit 'should be able to update user records' do
-
-  end
-
-  xit 'should be able to delete user records' do
-
-  end
-
 end

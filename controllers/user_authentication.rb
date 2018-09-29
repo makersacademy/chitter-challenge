@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 
 class ChitterApp < Sinatra::Base
+  set :root, File.join(File.dirname(__FILE__), '..')
 
   get '/users/new' do
     erb :new_user
@@ -13,7 +14,12 @@ class ChitterApp < Sinatra::Base
                    username: params[:username], password: params[:password] }
     error_message = 'Invalid sign up details, please try again'
     success_message = 'You are now signed up to Chitter!'
-    if @users.create(entry_hash)
+    already_used_message = 'Username or email already in use, please try again'
+
+    # SHOULDNT BE ABLE TO USE EMAIL OR USERNAME ALREADY IN USE
+    if @users.create(entry_hash) == 'in use'
+      flash[:sign_up_message] = already_used_message
+    elsif @users.create(entry_hash)
       flash[:sign_up_message] = success_message
     else
       flash[:sign_up_message] = error_message
@@ -22,13 +28,12 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/log_in' do
-    # Need to fix error if username or password is nil
     @users = settings.users
     if @users.sign_in(params[:username], params[:password])
-      flash[:correct_sign_in?] = "You are now signed in as #{params[:username]}"
+      flash[:log_in_message] = "You are now signed in as #{params[:username]}"
       settings.current_user.log_in(params[:username])
     else
-      flash[:correct_sign_in?] = 'Incorrect login details, please try again.'
+      flash[:log_in_message] = 'Incorrect login details, please try again.'
     end
     redirect '/'
   end
@@ -38,5 +43,4 @@ class ChitterApp < Sinatra::Base
     flash[:logged_out] = 'You are now logged out.'
     redirect '/'
   end
-
 end

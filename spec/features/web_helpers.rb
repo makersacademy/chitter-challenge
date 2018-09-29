@@ -18,10 +18,10 @@ def sign_up_for_chitter(name, username, email, password)
   click_button 'Sign up'
 end
 
-def get_settings
+def retrieve_settings
   Capybara.app.settings
 end
 
 def log_out_of_page
-    click_button 'Log out'
+  click_button 'Log out'
 end

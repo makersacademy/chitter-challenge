@@ -9,6 +9,7 @@ class AllUsers
   end
 
   def create(entry_hash)
+    return 'in use' if already_taken?(entry_hash)
     insert_new_user(entry_hash) if valid_credentials?(entry_hash)
   end
 
@@ -16,15 +17,11 @@ class AllUsers
     @connection.query('SELECT name, username, email, password FROM users;')
   end
 
-  def update
-  end
-
-  def delete
-  end
-
   def sign_in(username, password)
     user_password_pair = @connection.query("SELECT username, password FROM "\
       "users WHERE username='#{username}';")
+    return false if user_password_pair == []
+
     @hasher.new(user_password_pair[0][:password]) == password
   end
 
@@ -43,4 +40,8 @@ class AllUsers
 
     entry_hash[:email] =~ /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   end
+
+  def already_taken?(entry_hash)
+    false
+  end 
 end
