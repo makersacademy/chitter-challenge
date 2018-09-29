@@ -3,7 +3,7 @@
 # I want to sign up for Chitter
 
 feature 'I want to register my details to sign in' do
-  scenario 'user nazz can enter name, email and password to register' do
+  scenario 'user should be able to enter details for registration' do
     visit('/')
     expect(page).to have_selector("input[value='Sign in']")
     click_button('Sign in')
@@ -12,13 +12,14 @@ feature 'I want to register my details to sign in' do
   end
 end
 
-# feature 'registration' do
-#   scenario 'a user can sign up' do
-#     visit '/users/new'
-#     fill_in('email', with: 'test@example.com')
-#     fill_in('password', with: 'password123')
-#     click_button('Submit')
-#
-#     expect(page).to have_content "Welcome, test@example.com"
-#   end
-# end
+feature 'registration' do
+  scenario 'a user can sign up' do
+    visit ('/users/new')
+    fill_in('names', with: 'Nazz Kadri')
+    fill_in('username', with: 'nazzk')
+    fill_in('email', with: 'test@example.com')
+    fill_in('password', with: 'password123')
+    click_button('Submit')
+    expect(page).to have_content "Welcome, nazzk"
+  end
+end

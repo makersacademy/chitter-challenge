@@ -2,6 +2,8 @@ require 'sinatra/base'
 require './lib/peep.rb'
 
 class Chitter < Sinatra::Application
+  enable :sessions
+  #register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -12,6 +14,7 @@ class Chitter < Sinatra::Application
   end
 
   post '/users' do
+    #session[name] = params[:name]
   # create the user and then...
     User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     redirect '/peeps/index'
