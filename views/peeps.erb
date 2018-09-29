@@ -1,3 +1,5 @@
 <div>
-<%= @peep %>
+<% @peep.each do |entry| %>
+  <%= entry %> <br />
+<% end %>
 </div>

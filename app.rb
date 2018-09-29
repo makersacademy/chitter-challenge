@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.store(params[:peeps])
+    Peep.store(params[:peep])
     redirect('/peep')
   end
 
