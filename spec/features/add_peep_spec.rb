@@ -34,7 +34,7 @@ feature 'add peeps' do
     click_button('Make Peep')
     fill_in('message', with: "Test")
     click_button('Post!')
-    # expect(page).to have_content("Test")
+    expect(page).to have_content("Test")
   end
 end
 
