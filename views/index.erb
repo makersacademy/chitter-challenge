@@ -7,17 +7,12 @@
   <title>Twittarr</title>
 </head>
 <body>
-  <% if @username %>
-    <h1>Ahoy, <%= @username %>!</h1>
-  <% else %>
-    <h1>Welcome to Twittarr</h1>
-  <% end %>
 
+  <h1>Ahoy, <%= session[:username] %>!</h1>
   <form action="/new" method="post">
     <input type="text" name="tweet">
     <input type="submit" value="Arr, new tweet">
   </form>
-
   <% @messages.each do |message| %>
     <p><%= message.message %></p>
     <p><%= message.created_at.strftime("Posted on %m/%d at %I:%M%p") %></p>

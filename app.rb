@@ -1,11 +1,14 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './data_mapper_setup'
 require './lib/message'
 require './lib/user'
+require_relative 'helpers'
 
 class Twittarr < Sinatra::Base
   enable :sessions
   set :session_secret, 'arrgh'
+  register Sinatra::Flash
 
   get '/' do
     erb :landing_page
@@ -20,7 +23,6 @@ class Twittarr < Sinatra::Base
   end
   
   get '/dashboard' do
-    @username = session[:username]
     @messages = Message.all(:order => [:created_at.desc])
     erb :index
   end
@@ -31,10 +33,11 @@ class Twittarr < Sinatra::Base
   end
 
   post '/new/user' do
-    User.create(:email => params[:email], :password => params[:password],:username => params[:username])
-    session[:username] = params[:username]
+    user = User.create(:email => params[:email], :password => params[:password],:username => params[:username])
+    session[:username] = user.username
     redirect '/dashboard'
   end
 
+  helpers helpers 
   run! if app_file == $0
 end

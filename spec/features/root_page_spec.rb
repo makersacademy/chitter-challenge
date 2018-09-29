@@ -17,3 +17,9 @@ feature 'registration' do
     expect(page).to have_content "Ahoy, BatesFan!"
   end
 end
+
+feature 'authentication' do
+  scenario 'a user can sign in' do
+    User.create(email: 'fakeaccount@gmail.com', password: 'ew123')
+  end
+end
