@@ -1,0 +1,24 @@
+<h1>
+  Welcome to Chatter!
+</h1>
+
+<form action="/add" method="post">
+  <div>
+    <input type="text" id="text" name="text">
+  </div>
+  <div class="button">
+    <button type="submit" value="Say Something">Say Something</button>
+  </div>
+</form>
+
+<h2>
+  Chats:
+</h2>
+
+<ul>
+  <% @chats.each do |chat| %>
+    <li class="chat" id="chat-<%= chat.id %>">
+      <%= chat.text %>
+    </li>
+  <% end %>
+</ul>
