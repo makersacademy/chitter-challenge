@@ -3,6 +3,7 @@ require_relative '../app.rb'
 require 'simplecov'
 require 'simplecov-console'
 require 'pry'
+require 'database_helper'
 
 Capybara.app = Chitter
 
