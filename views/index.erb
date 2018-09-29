@@ -1,1 +1,5 @@
-<%= @thing %>
+
+<% @chitter.each do |chitter_object| %>
+<% @message = chitter_object.message %>
+<br> <%= @message %> </br>
+ <% end %>
