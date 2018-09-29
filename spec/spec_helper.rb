@@ -8,6 +8,16 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+ENV['RACK_ENV'] = 'test'
+
+# Tell Capybara to talk to BookmarkManager
+Capybara.app = Chitter
+
 RSpec.configure do |config|
   config.after(:suite) do
     puts
