@@ -1,1 +1,7 @@
 <h1>all peeps</h1>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>

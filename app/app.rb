@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
     'welcome to Chitter'
   end
 
-  get '/peep/new' do
+  get '/peeps/new' do
     erb :'peep/new'
   end
 
@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb(:peeps)
   end
   run! if app_file == $0
