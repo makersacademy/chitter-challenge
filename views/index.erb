@@ -1,6 +1,7 @@
 <h1> Chitter! </h1>
 <br>
 <br>
+<% unless current_user %>
 <form action='/signup' method='get'>
   <input type="submit" value="Sign up!" style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
 </form>
@@ -9,15 +10,19 @@
 </form>
 <br>
 <br>
+<% end %>
+<% if current_user %>
 <form action='/peep' method='get'>
   <input type="submit" value="Peep!" style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
 </form>
+<% end %>
 
 <br>
 <br>
 
 <% if @peeps %>
   <% @peeps.each do |peep| %>
+    <p><%= peep.user.username %>
     <p><%= peep.message %></p>
     <p><%= peep.created_at %></p>
   <%end%>

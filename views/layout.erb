@@ -13,7 +13,12 @@
     <% end %>
     <% if current_user %>
       <h1>Welcome, <%= current_user.username %>!<h1>
-    <% end %>
+
+    <form action='/sessions' method='post' >
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log out'>
+    </form>
+  <% end %>
 
     <%= yield %>
   </body>

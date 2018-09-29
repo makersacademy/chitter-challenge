@@ -1,5 +1,5 @@
 require 'bcrypt'
-
+require_relative './peep'
 class User
 
   attr_reader :password
@@ -11,6 +11,7 @@ class User
   property :username, String, unique: true
   property :email, String, unique: true, required: true
   property :password_digest, Text
+  has n, :peeps
 
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address

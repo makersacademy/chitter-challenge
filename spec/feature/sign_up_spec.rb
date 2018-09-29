@@ -17,12 +17,14 @@ feature 'sign up' do
 
   scenario "user can't sign up if username is already in use" do
     sign_up(username: 'AlbusD')
+    click_button 'Log out'
     expect { sign_up(username: 'AlbusD') }.not_to change(User, :count)
     expect(page).to have_content "Username is already taken"
   end
 
   scenario "user can't sign up if email is already in use" do
     sign_up(email: 'albus_dumbledore@hogwarts.co.uk')
+    click_button 'Log out'
     expect { sign_up(email: 'albus_dumbledore@hogwarts.co.uk') }.not_to change(User, :count)
     expect(page).to have_content "Email is already taken"
   end

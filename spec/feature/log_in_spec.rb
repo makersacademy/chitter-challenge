@@ -11,4 +11,5 @@ feature 'log in' do
     sign_in(email: user.email,   password: user.password)
     expect(page).to have_content "Welcome, #{user.username}"
   end
+
 end

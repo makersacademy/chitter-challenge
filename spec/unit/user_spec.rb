@@ -1,3 +1,5 @@
+require './models/user'
+
 describe User do
   let(:user) do
     User.create(email: 'hermione_granger@hogwarts.co.uk', password: 'wingardiumleviosa',

@@ -8,4 +8,4 @@ DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
 DataMapper.finalize
 
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
