@@ -13,10 +13,9 @@ describe Peep do
       expect(peep).to respond_to(:id)
       expect(peep).to respond_to(:time)
       expect(peep.message).to eq('test peep 1')
-      # expect(peep.time).to eq()
     end
   end
-  
+
   describe '.create' do
     it 'adds a new peep' do
       peep = Peep.create(message: 'test peep 4')
