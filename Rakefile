@@ -11,7 +11,8 @@ end
 
 
 task :setup do
-    connection = PG.connect(dbname: 'chitter_test')
+  ['chitter', 'chitter_test'].each do |database|
+    connection = PG.connect(dbname: database)
     connection.exec('CREATE TABLE IF NOT EXISTS peeps(id SERIAL PRIMARY KEY, '\
       'contents VARCHAR(300), timestamp TIMESTAMPTZ, user_id INTEGER);')
     connection.exec('CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, '\
@@ -19,4 +20,5 @@ task :setup do
       'VARCHAR(100));')
     connection.exec('CREATE TABLE IF NOT EXISTS replies(id SERIAL PRIMARY KEY, '\
       'original_id INTEGER, reply_id INTEGER);')
+  end
 end
