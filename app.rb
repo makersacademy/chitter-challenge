@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require './data_mapper_setup'
 require './lib/message'
 require './lib/user'
@@ -9,6 +10,9 @@ class Twittarr < Sinatra::Base
   enable :sessions
   set :session_secret, 'arrgh'
   register Sinatra::Flash
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 
   get '/' do
     erb :landing_page
@@ -22,11 +26,16 @@ class Twittarr < Sinatra::Base
     erb :signup
   end
 
-  # post '/connect' do
-  #   user = User.get(:email => params[:email])
-  #   session[:user_id] = user.id
-  #   redirect '/dashboard'
-  # end
+  post '/connect' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/dashboard'
+    else
+      flash[:error] = 'The email or password is incorrect'
+      redirect '/login'
+    end
+  end
   
   get '/dashboard' do
     @messages = Message.all(:order => [:created_at.desc])
@@ -39,8 +48,9 @@ class Twittarr < Sinatra::Base
   end
 
   post '/new/user' do
-    user = User.create(:email => params[:email], :password => params[:password],:username => params[:username])
-    session[:username] = user.username
+    @user = User.create(:email => params[:email], :password => params[:password],:username => params[:username])
+    @user.save!
+    session[:username] = @user.username
     redirect '/dashboard'
   end
 
