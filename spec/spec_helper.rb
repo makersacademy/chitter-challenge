@@ -2,6 +2,8 @@ require 'simplecov'
 require 'simplecov-console'
 ENV['ENVIRONMENT'] = 'test'
 
+require 'rake'
+Rake.application.load_rakefile
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -19,7 +21,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    setup_test_database
+    Rake::Task['test_database_setup'].execute
   end
 
   config.after(:suite) do
