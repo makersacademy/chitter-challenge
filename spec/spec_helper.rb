@@ -14,6 +14,8 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods
   DataMapper::setup(:default, "postgres://localhost:5432/#{ENV['TEST_DATABASE']}")
   DataMapper.finalize
+  Message.auto_migrate!
+  User.auto_migrate!
 end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

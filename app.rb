@@ -72,8 +72,7 @@ class Chitter < Sinatra::Base
         username: User.first(:id => entry.userid)['username'],
         time: entry.time.strftime("%k:%M   %d/%m/%Y") }
     end
-
-    p @messageboard
+    
     erb :messageboard
   end
 
