@@ -31,6 +31,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DataMapper.auto_migrate!
+    User.logout
   end
 
   config.after(:suite) do
