@@ -10,9 +10,21 @@ if ENV['RACK_ENV'] != 'production'
     p "setting up test database..."
 
     connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("CREATE TABLE IF NOT EXISTS peeps (
+      id SERIAL PRIMARY KEY,
+      time TIMESTAMP,
+      message VARCHAR(200));"
+    )
+    connection.exec("CREATE TABLE IF NOT EXISTS users (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(60),
+      email VARCHAR(60),
+      password VARCHAR(140));"
+    )
     connection.exec("TRUNCATE peeps, users;")
   end
 
+  # call from command line to set up databases:  $> rake setup
   task :setup do
     p "Creating databases..."
 
