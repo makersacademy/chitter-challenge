@@ -8,18 +8,32 @@ class User
   property :password, String
 
   def self.add(args)
-    User.create(args) if User.unique?(args[:user], args[:email])
+    User.create(args) unless User.exists?(args[:user], args[:email])
   end
 
-  def self.unique?(user, email)
-    User.unique_user?(user) && User.unique_email?(email)
+  def self.login(username, password)
+    return unless User.exists_username?(username)
+    user = User.first(user: username)
+    @logged_in_user = user if user.password == password
   end
 
-  def self.unique_user?(user)
-    !User.all.map { |entry| entry.user }.include?(user)
+  def self.logout
+    @logged_in_user = nil
   end
 
-  def self.unique_email?(email)
-    !User.all.map { |entry| entry.email }.include?(email)
+  def self.instance
+    @logged_in_user
+  end
+
+  def self.exists?(username, email)
+    User.exists_username?(username) || User.exists_email?(email)
+  end
+
+  def self.exists_username?(username)
+    User.all.map { |entry| entry.user }.include?(username)
+  end
+
+  def self.exists_email?(email)
+    User.all.map { |entry| entry.email }.include?(email)
   end
 end
