@@ -9,6 +9,7 @@ class ChitterApp < Sinatra::Base
   # register Sinatra::Flash
 
   get '/' do
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all.reverse
     erb(:index)
   end
@@ -23,7 +24,9 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users' do
-    User.create(name: params[:name], email: params[:email], password: params[:password])
+    user = User.create(name: params[:name], email: params[:email],
+      password: params[:password])
+    session[:user_id] = user.id
     redirect '/'
   end
   
