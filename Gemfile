@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
-gem 'pg'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
 gem 'rake'
 gem 'rerun'
 gem 'rubocop', '0.56.0'

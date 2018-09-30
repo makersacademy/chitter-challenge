@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/dm-psql'
 
 class Chitter < Sinatra::Base
   get '/?' do

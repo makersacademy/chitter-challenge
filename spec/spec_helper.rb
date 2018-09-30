@@ -1,3 +1,6 @@
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
 
@@ -10,14 +13,16 @@ SimpleCov.start
 
 require 'capybara'
 require 'capybara/rspec'
+require 'data_mapper'
 require 'rspec'
 require_relative 'helper.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-ENV['RACK_ENV'] = 'test'
-
-# Tell Capybara to talk to BookmarkManager
 Capybara.app = Chitter
+DataMapper::Logger.new($stdout, :debug)
+# DataMapper.setup(:default, 'postgres://postgres@localhost/chitter_test')
+
+require './lib/dm-psql'
 
 RSpec.configure do |config|
   config.before(:each) do

@@ -30,35 +30,31 @@ To run the application:
 
 - `brew install postgres` to install PostgreSQL
 
-  - `psql` to launch postgresql
-
-  - `create database chitter` to create the production database
-
-  - `create database chitter_test` to create the test database
-
-  - `\q' to exit psql
-
 - `rerun 'rackup'` to launch the web server
 
 - navigate to `http://localhost:9292/` to run the application in a web browser
 
+- _**Note:**_ you may need to change DB_USER from 'jon' to your name in `dm-psql.rb`
+
 ## Technologies Used
 
-- `rspec` for automated testing
-
-- `sinatra` for the web server
-
 - `capybara` for automating feature tests in the browser
+
+- `data-mapper` as the ORM to map the model objects to the relational database
+
+- `postgresql` to connect to and query the database
 
 - `rake` for automating tasks
 
 - `rerun` for automatically re-starting the web server when code files are changed
 
+- `rspec` for automated testing
+
 - `rubocop` for checking code style issues
 
 - `simplecov` for getting metrics on code coverage for the tests
 
-- `postgresql` to connect to and query the database
+- `sinatra` for the web server
 
 ## Process
 
