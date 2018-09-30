@@ -28,4 +28,12 @@ feature "Chitter Homepage" do
       expect(current_path).to eq "/peeps/new"
     end
   end
+
+  feature "Sign Up button" do
+    scenario "takes you to sign up page" do
+      visit "/peeps"
+      click_button "Sign Up"
+      expect(current_path).to eq "/users/new"
+    end
+  end
 end
