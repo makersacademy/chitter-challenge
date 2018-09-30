@@ -1,3 +1,5 @@
+require 'pony'
+
 class PeepMailer
   def initialize(connection: DatabaseConnection)
   end

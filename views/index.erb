@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="public/style.css"/>
+  <link rel="stylesheet" type="text/css" href="<%= url('/style.css') %>"/>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
   <div class='peep_feed'>
     <% @peep_feed.top_peeps(30).each do |peep| %>
       <div class='peep'>
-        <p>Peeped by <%= peep.username %> on <%= peep.post_time %>at <%= peep.post_time %>. </p>
+        <p>Peeped by <%= peep.username %> <%= peep.post_time %>. </p>
         <% if peep.reply_to %>
           <p> This peep is a reply to <a href='/peeps/<%= peep.reply_to[:original_id] %>'>this peep</a> by <%= peep.reply_to[:username] %> at <%= peep.reply_to[:timestamp] %>. </p>
         <% end %>

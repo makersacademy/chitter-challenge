@@ -1,9 +1,9 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="public/style.css">
+  <link rel="stylesheet" type="text/css" href="<%= url('/style.css') %>">
 </head>
 
 <body>
-  <h1> Please fill out this form to create a new user </h1>
+  <h1> Please fill out this form to create an account. </h1>
   <form action='/users' method='post'>
     Name: <input type='text' name='name'/> <br>
     E-Mail: <input type='text' name='email'/> <br>

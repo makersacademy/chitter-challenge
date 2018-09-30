@@ -38,3 +38,7 @@ input[type=submit] {
   font-family: "Arial"
   color:			rgb(143, 140, 255);
 }
+
+div.peep {
+  background-color:	rgb(0, 152, 0) !important;
+}
