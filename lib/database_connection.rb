@@ -7,9 +7,7 @@ class DatabaseConnection
     if ENV['RACK_ENV'] == 'test'
       @connection = PG.connect(dbname: 'chitter_test')
     elsif ENV['RACK_ENV'] == 'production'
-      bits = URI.parse(ENV['DATABASE_URL'])
-      @connection = PG.connect(bits.hostname, bits.port, nil, nil,
-                               bits.path[1..-1], bits.user, bits.password)
+      connect_to_production
     elsif ENV['RACK_ENV'] == 'development'
       @connection = PG.connect(dbname: 'chitter')
     else
@@ -33,5 +31,11 @@ class DatabaseConnection
     output = Hash.new
     hash.keys.each { |key| output[key.to_sym] = hash[key] }
     output
+  end
+
+  def self.connect_to_production
+    bits = URI.parse(ENV['DATABASE_URL'])
+    @connection = PG.connect(bits.hostname, bits.port, nil, nil,
+                             bits.path[1..-1], bits.user, bits.password)
   end
 end
