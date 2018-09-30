@@ -7,7 +7,7 @@ describe User do
 
   describe '.add' do
     it 'stores an entry of user details' do
-      a = User.add("James", "js", "example@example.com", "p123")
+      a = User.add(name: "James", user: "js", email: "example@example.com", password: "p123")
       expect(User.all).to include(a)
       expect(a.id).to eq(1)
       expect(a.name).to eq("James")
@@ -17,14 +17,14 @@ describe User do
     end
 
     it 'does not store if email not unique' do
-      User.add("James", "js", "example@example.com", "p123")
-      User.add("Adam", "af", "example@example.com", "p456")
+      User.add(name: "James", user: "js", email: "example@example.com", password: "p123")
+      User.add(name: "Adam", user: "af", email: "example@example.com", password: "p456")
       expect(User.all.size).to eq(1)
     end
 
     it 'does not store if user not unique' do
-      User.add("James", "js", "example@example.com", "p123")
-      User.add("John", "js", "example123@example.com", "p456")
+      User.add(name: "James", user: "js", email: "example@example.com", password: "p123")
+      User.add(name: "John", user: "js", email: "example123@example.com", password: "p456")
       expect(User.all.size).to eq(1)
     end
   end
