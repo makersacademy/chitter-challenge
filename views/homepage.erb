@@ -1,12 +1,32 @@
 <h1>Welcome to Chitter!</h1>
+<h2>To post messages you must be a member</h2>
+<p>To become a member register below and then login </p>
 
+<form method="get" action="/register">
+  <input type="submit" value="Register" />
+</form>
+
+
+<% if session[:username] %>
+<p> Hello <%= session[:username] %> </p>
+<p>Please input your message below</p>
 <form method="post" action="/post_message">
   <input type="text" name="content" placeholder="CONTENT" />
   <input type="submit" value="Submit" />
 </form>
-
- <% Post.all.reverse.each do |post| %>
-<div>
-<%= post.content %> <%= post.created_at.strftime("%H:%M%p") %>
-</div>
+<% else %>
+<p>Once registered please login below</p>
+<form method="post" action="/login">
+  <input type="text" name="username" placeholder="USERNAME" />
+  <input type="text" name="password" placeholder="PASSWORD" />
+  <input type="submit" value="Login" />
+</form>
 <% end %>
+
+<P> Message feed </P>
+<P> <% Post.all.reverse.each do |post| %>
+  <div>
+  <%= post.content %> <%= post.created_at.strftime("%H:%M%p") %> <%= User.get(post[:user_id])[:username] %>
+  </div>
+  <% end %>
+</P>

@@ -9,7 +9,6 @@ gem 'capybara'
 gem 'pg'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-# gem 'launchy'
 gem 'pry'
 gem 'sinatra-flash'
 

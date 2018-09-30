@@ -37,7 +37,7 @@ end
     include DataMapper::Resource
 
     property :id, Serial
-    property :user, Text
+    property :username, Text
     property :firstname, Text
     property :lastname, Text
     property :email, String

@@ -26,6 +26,6 @@ feature 'post message' do
     click_button('Submit')
     fill_in('content', with: 'Test message    number 2')
     click_button('Submit')
-    expect(page.first).to have_content("Test message number2")
+    expect(page).to have_content("Test message number2\nTest message")
 end
 end
