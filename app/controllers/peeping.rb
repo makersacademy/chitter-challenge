@@ -8,9 +8,7 @@ class Chitter < Sinatra::Base
     @user = current_user
     Peep.create(message: params[:peep], user_id: @user.id)
     User.all.each do |user|
-      if params[:peep].include?(user.username)
-        SendTagAlert.call(user.email)
-      end
+      SendTagAlert.call(user.email) if params[:peep].include?(user.username)
     end
     redirect '/'
   end

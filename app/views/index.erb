@@ -24,8 +24,9 @@
 
 <% if @peeps %>
 <div class='peep'>
-  <% @peeps.each do |peep| %>
   <ul>
+  <% @peeps.each do |peep| %>
+
     <li><h5><%= peep.user.username %> peeped on <%= peep.created_at.strftime(" %d/%m/%y at %I:%M%p") %></h5></li>
     <h5><%= peep.message %></h5>
 
