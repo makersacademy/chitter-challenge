@@ -1,6 +1,6 @@
 feature "add new peep" do
   it "Adds a new peep" do
-    visit "/"
+    visit "/home"
     click_button "add"
     fill_in "peep", with: "Hungry"
     click_button "Submit"

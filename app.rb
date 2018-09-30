@@ -10,7 +10,16 @@ class ChitterManager < Sinatra::Base
 
   register Sinatra::Flash
 
-  get '/' do
+  get '/'do
+    erb (:sign_in)
+  end
+
+  post '/sign_in' do
+    @username = params[:username]
+    redirect '/home'
+  end
+
+  get '/home' do
     @chitter = Chitter.all(:order => [:id.desc])
     erb (:index)
   end
@@ -23,7 +32,7 @@ class ChitterManager < Sinatra::Base
     @peep = Chitter.new(:message => params[:peep], :posted_by => "Florence",
     :created_at => Time.now)
     @peep.save
-    redirect '/'
+    redirect '/home'
   end
 
 end
