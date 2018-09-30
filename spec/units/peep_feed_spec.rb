@@ -5,11 +5,9 @@ RSpec.describe PeepFeed do
   let(:fake_peep) { double :Peep, new: nil }
   let(:fake_connection) { double :DatabaseConnection, query: fake_result }
   let(:fake_user) { double :User, user_details: { id: 1 } }
-  let(:fake_mailer_class) { double :MailerClass, new: fake_mailer }
-  let(:fake_mailer) { double :Mailer, inform: true }
+
   subject do
-    described_class.new(connection: fake_connection, peep_type: fake_peep,
-                        mailer: fake_mailer_class)
+    described_class.new(connection: fake_connection, peep_type: fake_peep)
   end
 
   it 'creates peep objects when getting peeps' do
@@ -45,10 +43,5 @@ RSpec.describe PeepFeed do
     'LIMIT 1;'
     expect(fake_connection).to receive(:query).with(reply_query)
     subject.reply_peep(fake_user, "Hello to you too!", 2)
-  end
-
-  it 'instructs the mailer to send an email confirmation' do
-    expect(fake_mailer).to receive(:inform).with(fake_user, "Hello", 2)
-    subject.reply_peep(fake_user, "Hello", 2)
   end
 end
