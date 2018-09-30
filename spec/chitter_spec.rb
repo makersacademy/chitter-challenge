@@ -22,7 +22,7 @@ describe Chitter do
   end
 
   describe "#new" do
-    it "Creates a new chitter" do #but not saved because it's a test
+    it "Creates a new chitter" do 
       @test = Chitter.new(:message => "Buffy", :posted_by => "Florence", :created_at => Time.now)
       @test.save
       expect(Chitter.all message:"Buffy").to include(@test)
