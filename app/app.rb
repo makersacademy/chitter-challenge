@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  register Sinatra::Partial
 
   require_relative 'server'
   require_relative 'controllers/login'

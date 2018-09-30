@@ -25,13 +25,13 @@
 <% if @peeps %>
 <div class='peep'>
   <% @peeps.each do |peep| %>
-    <p><%= peep.user.username %> at <%= peep.created_at %></p>
+    <p><%= peep.user.username %> peeped on <%= peep.created_at.strftime(" %d/%m/%y at %I:%M%p") %></p>
     <p><%= peep.message %></p>
 
     <ul>
 
     <% peep.reply.each do |reply| %>
-    <li> <%= reply.user.username %> at <%= reply.created_at%> </li>
+    <li> <%= reply.user.username %> replied on <%= reply.created_at.strftime(" %d/%m/%y at %I:%M%p")%> </li>
      <p><%= reply.message%></p>
     <%end%>
   </ul>
