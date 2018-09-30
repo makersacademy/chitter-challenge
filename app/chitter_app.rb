@@ -5,9 +5,7 @@ require './lib/user'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
-  set :session_secret, "whatevs"
   register Sinatra::FormKeeper
-
 
   get '/' do
     @user = User.find(id: session[:user_id])
@@ -26,15 +24,14 @@ class ChitterApp < Sinatra::Base
 
   post '/users' do
     form do
-      field :name, :present => true, :length => 4..8
-      field :email, :present => true, :length => 4..20
-      field :password, :present => true, :length => 4..12
+      field :name, :present => true, :length => 4..50
+      field :mail, :present => true, :email => true
+      field :password, :present => true, :length => 4..140
     end
     if form.failed?
-      "Signup failed"
       erb(:'users/new')
     else
-      user = User.create(name: form[:name], email: form[:email],
+      user = User.create(name: form[:name], email: form[:mail],
       password: form[:password])
       session[:user_id] = user.id
       redirect '/'

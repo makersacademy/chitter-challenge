@@ -27,43 +27,59 @@ Instructions to run this at home
 $ git clone git@github.com:fbl11/chitter-challenge.git
 $ cd chitter-challenge
 $ bundle install
-$ shotgun -p 4567
+$ rake setup
+$ rackup -p 4567
 ```
 go to http://127.0.0.1:4567/ in your browser
+
+Notes on use
+------------------
+* Sign up requires email address, user name and password.
+* Feature tests for 'Registration' warn that constant Fixnum is deprecated.  This is caused by the use of gem 'sinatra-formkeeper'.
 
 STATUS
 -----
 
-Controller
-includes
-- chitter_app.rb
-- 
-- 
-
-Views
-both
-- 
-
-Model
-includes
-- 
-- 
-- 
-
-Rubocop / test coverage
-
 **Notes**
 ```
+Gemfile
+- 'bcrypt' to encrypt passwords
+- 'pg' to connect to psql database
+- 'sinatra-formkeeper' to validate user input
 ```
 
 **TO DO**
 
-- extract db_access to 'Connection' class
+- extract 'Database Setup' object
+- log in feature
+- log out feature
+- post under user name
 
-Notes on use
-------------------
-```
-```
+Controller
+includes
+- chitter_app.rb
+
+Views
+- index.erb
+- new.erb
+
+Model
+includes
+- peep.rb
+- user.rb
+
+Rubocop / test coverage
+
+Unit tests
+- peep_spec.rb
+- user_spec.rb
+Feature tests
+- signing_up_spec.rb
+- posting_peeps_spec.rb
+- viewing_peeps_spec.rb
+- visiting_website_spec.rb
+
+Coverage: 100%
 
 User stories
 -----
@@ -87,15 +103,19 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
-* When the user visits the '/peeps' path, their browser sends a request to a controller we built.
+Domain Model
+
+* When the user visits the '/' path, their browser sends a request to the controller.
 * When the controller gets the request, it asks the Peep class to give it all the peeps, i.e. the controller asks for Peep.all.
-* The Peep class goes and gets the peeps, and gives back all the peeps in an array? to the controller.
-* The controller renders the array? of peeps to a webpage, which it sends as a response to the user
-* The user presses 'add peep' to add a new peep
-* The user submits their peep through a text form and clicks submit
-* The controller gets the post request and stores the peep in the Peep class
-
-
+* The Peep class goes and gets the peeps, and gives back all the peeps in an array to the controller.
+* The controller renders the array of peeps to a webpage, which it sends as a response to the user.
+* When the user presses 'Submit' to post a new peep, their web browser sends a requst to the controller.
+* When the controller gets the request, it sends it too the Peep class to store the new peep in the database, i.e. the controller queries the database to Peep.create.
+* The controller then redirects the user to the '/' path.
+* When the user visits the 'users/new' path, their browser sends a request to the controller.
+* The controller reders the webpage with the user signup details.
+* When the user provides valid username, email address and password and presses 'Submit', their browser sends a request to the cotnroller.
+* When the controller gets the request, it sends it to the User class to store the user details in the database, i.e. the controller queries the database to User.create.
 
 Author
 -----

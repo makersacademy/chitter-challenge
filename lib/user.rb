@@ -15,8 +15,6 @@ class User
     result = db_access.exec("SELECT * FROM users;")
     result.map do |user|
       new_instance_from(user_hash: user)
-      # User.new(id: user['id'], name: user['name'], email: user['email'],
-      #   password: user['password'])
     end
   end
 
@@ -28,18 +26,13 @@ class User
       '#{encrypted_pw}'
     ) RETURNING id, name, email, password;")
     new_instance_from(user_hash: result[0])
-    # User.new(id: result[0]['id'], name: result[0]['name'],
-    #   email: result[0]['email'], password: result[0]['password'])
   end
 
   def self.find(id:)
     return nil unless id
     result = db_access.exec("SELECT * FROM users WHERE id = '#{id}';")
     new_instance_from(user_hash: result[0])
-    # User.new(id: result[0]['id'], name: result[0]['name'], 
-    #   email: result[0]['email'], password: result[0]['password'])
   end  
-
 
   private_class_method
 
@@ -52,7 +45,6 @@ class User
   end
 
   def self.new_instance_from(user_hash:)
-    # 'new' implicit singleton method - self.new (or in this case User.new)
     new(
       id: user_hash['id'],
       name: user_hash['name'],

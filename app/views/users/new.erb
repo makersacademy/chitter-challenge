@@ -6,21 +6,23 @@
         <label for='name'> Name:</label>
         <input type='text' name='name'>
         <% if form.failed_on?(:name, :present) %>
-          <p>Name not found</p>
+          <p>Please enter your username.</p>
         <% end %>
       </li>
       <li>
         <label for='email'> Email:</label>
-        <input type='text' name='email'>
-        <% if form.failed_on?(:email, :present) %>
-          <p>Email not found </p>
+        <input type='text' name='mail'>
+        <% if form.failed_on?(:mail, :present) %>
+          <p>Please enter your email address.</p>
+        <% elsif form.failed_on?(:mail, :email) %>
+          <p>Please enter a valid email address.</p>
         <% end %>
       </li>
       <li>
         <label for='password'> Password:</label>
         <input type='password' name='password'>
         <% if form.failed_on?(:password, :present) %>
-          <p>Password not found</p>
+          <p>Please enter a password.</p>
         <% end %>
       </li>
       <input type='submit' value='Submit'>

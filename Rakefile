@@ -13,7 +13,6 @@ if ENV['RACK_ENV'] != 'production'
     connection.exec("TRUNCATE peeps, users;")
   end
 
-  # call from command line to set up databases:  $> rake setup
   task :setup do
     p "Creating databases..."
 
