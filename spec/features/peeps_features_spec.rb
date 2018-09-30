@@ -4,12 +4,8 @@ feature 'Displays all peeps' do
     populate_database
     visit ('/')
     sign_up
-    fill_in 'peep', with: 'test3'
-    click_button 'peep'
     expect(page).to have_content('test1')
     expect(page).to have_content('test2')
-    expect(page).to have_content('test3')
-    expect(page).to have_content(Time.now.strftime "%d-%^b-%Y %H:%M")
   end
 
   scenario 'Displays time peep was posted' do
@@ -17,7 +13,7 @@ feature 'Displays all peeps' do
     populate_database
     visit ('/')
     sign_up
-    fill_in 'peep', with: 'test3'
+    fill_in 'peep', with: 'time_test'
     click_button 'peep'
     expect(page).to have_content(Time.now.strftime "%d-%^b-%Y %H:%M")
   end
