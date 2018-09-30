@@ -13,7 +13,7 @@ RSpec.describe Peep do
   end
 
   it 'should have a post time attached' do
-    expect(subject.post_time).to eq Time.now.strftime("%Y-%m-%d")
+    expect(subject.post_time).to eq 'now'
   end
 
   it 'knows when it is a reply' do
