@@ -25,3 +25,7 @@ end
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
+
+if ENV['ENVIRONMENT'] == 'test'
+  DataMapper.auto_migrate!
+end
