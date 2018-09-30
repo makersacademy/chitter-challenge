@@ -1,25 +1,67 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This is my proposal for the Makers Academy Weekend Challenge 4: The Chitter Challenge.
 
-Challenge:
+Technologies used
+----
+- Ruby as the programming language
+- Sinatra as the framework
+- HTML and CSS to create the views of the website
+
+Tests:
+- RSpec to create and run the unit tests
+- Capybara to create and run the feature tests
+
+Databases:
+- Datamapper as the ORM
+- PostgreSQL to create the databases
+- Rake as the task runner so that other developers can use this app without having to create the databases manually
+
+Setup
+----
+1. Download this repository.
+2. Run _bundle install_ in the command line to make sure all gems are installed.
+3. Run _rake setup_ in the command line so that the production and test databases are created.
+4. Run _rackup_ or _ruby app.rb_ in the command line to launch the local server.
+5. Go to http://localhost:9292 in your browser to see and use the app.
+
+Test with Rspec
+-----
+1. Open this directory in the command line
+2. Run _rspec_ (remember to run _bundle install_ and _rake setup_ beforehand)
+
+What is this challenge about?
+----
+This program is a small version of Twitter, where users can post messages so that everyone can read them:
+
+-You can see all messages posted in descending chronological order
+-You can sign up by creating your own account with your own credentials
+-You can log in
+-You can log out
+-You can post a message (you have to be logged in in order to be able to do so)
+
+Approach to solve the challenge
+----
+To solve the challenge, the following structure has been implemented:
+- A Rake file to create the two databases used: the production (chitter) and the test database (chitter_test).
+- A lib folder with the models(classes): a User and a Message class, together with the DataMapper and Models files to set up Datamapper:
+    - The User class is connected to a table called "Users" in the database. It stores stores the credentials of the user (name, email, username and password).
+    - The Message is connected to a table called "Messages". It stores the message texts posted, their timestamp and the user ID of the person who posted it.
+- A views folder
+- A public folder with the .css file
+- An app.rb file as the controler
+- A spec folder with all our tests (feature and unit tests)
+
+Challenge instructions
 -------
 
-As usual please start by forking this repo.
+Full instructions [here](https://github.com/makersacademy/chitter-challenge)
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+User Stories
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -36,8 +78,6 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
@@ -45,63 +85,4 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
