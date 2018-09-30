@@ -1,11 +1,17 @@
 require 'chitter'
 
 describe Message do
-  # describe '#add' do
-  #   it 'has a add method' do
-  #     expect(Message).to respond_to(:add)
-  #   end
-  # end
+  describe '#add' do
+    it 'has a add method' do
+      expect(Message).to respond_to(:add)
+    end
+
+    it 'adds a post in the database' do
+      PG.connect(dbname: 'chitter_db_test')
+      Message.add("Hello")
+      expect(Message.show).to include "Hello"
+    end
+  end
 
   it 'has a show method' do
     expect(Message).to respond_to(:show)
@@ -13,10 +19,11 @@ describe Message do
 
   it 'shows the data in the database' do
     connection = PG.connect(dbname: 'chitter_db_test')
-    connection.exec('TRUNCATE TABLE posts')
     connection.exec("INSERT INTO posts (message) VALUES ('First message');")
     connection.exec("INSERT INTO posts (message) VALUES ('Second message');")
     expect(Message.show).to include "First message"
     expect(Message.show).to include "Second message"
   end
+
+
 end

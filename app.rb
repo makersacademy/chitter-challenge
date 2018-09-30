@@ -9,6 +9,8 @@ get '/' do
 end
 
 post '/' do
+  Message.add(params[:message])
+  @messages = Message.show
   erb :index
 end
 
