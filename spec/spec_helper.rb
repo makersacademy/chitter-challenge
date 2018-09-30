@@ -1,6 +1,5 @@
 ENV['ENV_RACK'] = 'test'
 
-
 require_relative '../app.rb'
 require_relative '../data_mapper_setup'
 
@@ -12,8 +11,6 @@ require 'simplecov'
 require 'simplecov-console'
 
 Capybara.app = ChitterApp
-
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

@@ -8,14 +8,13 @@ def setup_databases(env = 'development')
   # env = ENV['RACK_ENV'] || 'development'
   # binding.pry
 
-  #DataMapper::Logger.new($stdout, :debug)
+  # DataMapper::Logger.new($stdout, :debug)
 
   DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
-
   DataMapper.finalize
 
-  DataMapper.auto_migrate! #if env == 'test'
+  DataMapper.auto_migrate!
 
   DataMapper.auto_upgrade!
 end
