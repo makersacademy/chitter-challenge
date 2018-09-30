@@ -1,6 +1,5 @@
 feature 'the user can sign up to chitter' do
   scenario 'from the home page' do
-    visit_sign_up_page
     sign_up_for_chitter('Borace', 'Borace01', 'Borace01', 'password')
     expect(page).to have_content 'Invalid sign up details, please try again'
     users = retrieve_settings.users
