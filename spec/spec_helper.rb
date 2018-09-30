@@ -24,19 +24,11 @@ SimpleCov.start
 
 RSpec.configure do |config|
 
-  config.before(:suite) do
-    setup_databases('test')
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
   config.before(:each) do
-    DatabaseCleaner.start
-  end
+    p "Setting up database......."
+    setup_databases('test')
 
-  # config.after(:each) do
-  #   DatabaseCleaner.clean
-  # end
+  end
 
   config.after(:suite) do
     # puts

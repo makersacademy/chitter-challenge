@@ -15,5 +15,7 @@ def setup_databases(env = 'development')
 
   DataMapper.finalize
 
+  DataMapper.auto_migrate! if env == 'test'
+
   DataMapper.auto_upgrade!
 end
