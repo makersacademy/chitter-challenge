@@ -24,7 +24,8 @@ class Chitter < Sinatra::Base
   end
 
   post('/sign-up') do
-    User.add(params[:username], params[:email])
+    flash[:notice] = User.add(params[:username].capitalize!, params[:email])
+    session[:username] = params[:username]
     redirect('/sign-up')
   end
 

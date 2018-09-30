@@ -17,7 +17,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before do
-    DBHelper.truncate_peeps
+    DBHelper.truncate_dbs
   end
 
   config.after(:suite) do

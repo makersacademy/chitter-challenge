@@ -1,3 +1,13 @@
+<% if flash[:notice] == 'success' %>
+  <div class='success' >
+    Thanks for signing up, <%= session[:username] %>!
+  </div>
+<% elsif flash[:notice] == 'fail' %>
+  <div class='fail' >
+    There was an error signing you up!
+  </div>
+<% end %>
+
 <form action="/sign-up" method="post">
   <input type="text" required name="username" id="" placeholder="username">
   <input type="email" required name="email" id="" placeholder="email">
