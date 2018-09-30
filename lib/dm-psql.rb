@@ -1,4 +1,6 @@
 require 'data_mapper'
+require_relative 'user'
+require_relative 'peep'
 
 DB_USER = 'jon'
 
@@ -9,36 +11,6 @@ else
 end
 
 DataMapper.setup(:default, DATABASE_URL)
-
-class Peep
-  include DataMapper::Resource
-
-  property :id, Serial, :key => true
-  property :peep, String
-  property :peep_time, Time
-
-  belongs_to :user
-
-  def inspect
-    "<#{self.class}: #{id}, #{peep}, #{peep_time}>"
-  end 
-end
-
-class User
-  include DataMapper::Resource
-
-  property :id, Serial, :key => true
-  property :name, String
-  property :username, String
-  property :email, String
-  property :password, String
-
-  has n, :peeps
-
-  def inspect
-    "<#{self.class}: #{id}, #{name}, #{username}, #{email}, #{password}>"
-  end 
-end
 
 DataMapper.finalize
 
