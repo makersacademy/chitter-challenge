@@ -2,6 +2,7 @@
   <h1>Chitter</h1>
   <% if @user %>
     <span>Hey, <%= @user.name %>!</span>
+    <a href="/peep/create" class="button">Create Peep</a>
   <% else %>
     <a href="/user/login" class="button">Log In</a>
     <a href="/user/register" class="button">Register</a>
@@ -11,8 +12,6 @@
 <% @peeps.each do |peep| %>
   <div>
     <p><%= peep.peep %></p>
-    <p><%= peep.user.name %> on <%= peep.peep_time %></p>
+    <p><%= peep.user.name %> on <%= peep.peep_time.strftime("%-d %b %Y at %H:%m:%S") %></p>
   </div>
 <% end %>
-<%=@peeps.length%>
-<%=@display%>

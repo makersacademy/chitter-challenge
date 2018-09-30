@@ -1,6 +1,7 @@
 feature 'header' do
   context 'user is not logged in' do
     scenario 'login' do
+      User.class_variable_set(:@@current_user, nil)
       visit '/'
       click_link('Log In')
       expect(current_path).to eq '/user/login'

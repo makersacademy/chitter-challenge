@@ -7,12 +7,6 @@ class Chitter < Sinatra::Base
   get '/?' do
     @user = User.class_variable_get(:@@current_user)
     @peeps = Peep.all(:order => [:peep_time.desc])
-    p @peeps.length
-    @display = ''
-    @peeps.each do |peep|
-      @display << "#{peep.peep}\n"
-    end
-    p @display
     erb :home
   end
 
@@ -46,6 +40,19 @@ class Chitter < Sinatra::Base
     User.class_variable_set(
       :@@current_user, 
       user      
+    )
+    redirect '/'
+  end
+
+  get '/peep/create/?' do
+    erb :create_peep
+  end
+
+  post '/peep/create/?' do
+    Peep.create(
+      peep: params[:peep],
+      peep_time: Time.now,
+      user: User.class_variable_get(:@@current_user)
     )
     redirect '/'
   end
