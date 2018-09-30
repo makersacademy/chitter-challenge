@@ -1,8 +1,8 @@
-require 'pg'
+require_relative './db_helper.rb'
 
 class Peeps
   def self.all
-    conn = connect_to_db
+    conn = DBHelper.connect_to_db
     res = conn.exec("
       SELECT
         message,
@@ -21,12 +21,7 @@ class Peeps
   end
 
   def self.add(msg)
-    conn = connect_to_db
+    conn = DBHelper.connect_to_db
     conn.exec("INSERT INTO peeps(message) VALUES('#{msg}')")
-  end
-
-  private
-  def self.connect_to_db
-    PG.connect( dbname: ENV['DATABASE'])
   end
 end

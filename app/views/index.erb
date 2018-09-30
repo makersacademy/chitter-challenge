@@ -3,8 +3,8 @@
 <div id="peeps">
   <% Peeps.all.each do |peep|%>
     <li>
-    <%= peep[:msg] %>
-    <%= "Created at #{peep[:created_at]}"%>
+      <%= peep[:msg] %>
+      <%= "Created at #{peep[:created_at]}"%>
     </li>
   <% end %>
 </div>

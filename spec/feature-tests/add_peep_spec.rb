@@ -1,5 +1,3 @@
-require 'capybara/rspec'
-
 feature 'add a peep' do
   scenario 'user visits their page and can add a peep' do
     visit('/')

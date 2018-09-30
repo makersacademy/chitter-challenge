@@ -1,8 +1,9 @@
 require 'simplecov'
 require 'simplecov-console'
-require_relative '../app/app.rb'
 require 'capybara'
-require_relative './db_helper.rb'
+require 'capybara/rspec'
+require_relative '../lib/db_helper.rb'
+require_relative '../app/app.rb'
 
 Capybara.app = Chitter
 ENV['DATABASE'] = 'chitter_test'
