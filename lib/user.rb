@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class User
   attr_reader :id, :name, :email, :password
@@ -19,9 +20,10 @@ class User
   end
 
   def self.create(name:, email:, password:)
+    encrypted_pw = BCrypt::Password.create(password)
     result = db_access.exec("INSERT INTO users (name, email, password) VALUES(
       '#{db_access.escape_string(name)}', '#{db_access.escape_string(email)}',
-      '#{db_access.escape_string(password)}')
+      '#{encrypted_pw}')
        RETURNING id, name, email, password;")
     User.new(id: result[0]['id'], name: result[0]['name'],
       email: result[0]['email'], password: result[0]['password'])
@@ -32,7 +34,7 @@ class User
     result = db_access.exec("SELECT * FROM users WHERE id = '#{id}';")
     User.new(id: result[0]['id'], name: result[0]['name'], 
       email: result[0]['email'], password: result[0]['password'])
-  end
+  end  
 
   private_class_method
 
