@@ -30,3 +30,10 @@
   </div>
   <% end %>
 </P>
+
+<% if session[:username] %>
+<p> Hello <%= session[:username] %> to logout click below </p>
+<form method="get" action="/logout">
+  <input type="submit" value="Logout" />
+</form>
+<% end %>

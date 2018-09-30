@@ -10,12 +10,16 @@ require 'rspec'
 
 Capybara.app = ChitterManager
 
-# RSpec.configure do |config|
-#   config.before(:each) do
-#     # truncate tables
-#   end
-# end
 
+SimpleCov.start
+
+RSpec.configure do |config|
+  config.before(:each) do
+    DataMapper.setup(:default, 'postgres://jamie:@localhost/messages_manager_test')
+    Post.auto_migrate!
+    User.auto_migrate!
+  end
+end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

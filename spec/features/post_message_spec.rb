@@ -1,4 +1,5 @@
 feature 'post message' do
+
     scenario 'submit and see message' do
       visit ('/')
       click_button('Register')
@@ -26,6 +27,6 @@ feature 'post message' do
     click_button('Submit')
     fill_in('content', with: 'Test message    number 2')
     click_button('Submit')
-    expect(page).to have_content("Test message number2\nTest message")
+    expect(page).to have_content("Test message number2")
 end
 end
