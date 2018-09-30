@@ -23,12 +23,12 @@ feature 'I want to see messages to chitter' do
   scenario 'I want to list my messages on chitter' do
     setup_test_database
     conn = PG.connect(dbname: 'peeps_test')
-    conn.exec ("INSERT INTO peeps (messages) VALUES ('Testing messages');")
-    conn.exec ("INSERT INTO peeps (messages) VALUES ('Is working');")
-    conn.exec ("INSERT INTO peeps (messages) VALUES ('As expected');")
+    conn.exec("INSERT INTO peeps (messages) VALUES ('Testing messages');")
+    conn.exec("INSERT INTO peeps (messages) VALUES ('Is working');")
+    conn.exec("INSERT INTO peeps (messages) VALUES ('As expected');")
     visit('/peeps/index')
     expect(page).to have_content("Testing messages")
-    #expect(page).to have_content(instance_of_Time)
+    # expect(page).to have_content(instance_of_Time)
     expect(page).to have_content("Is working")
     expect(page).to have_content("As expected")
   end
@@ -42,10 +42,14 @@ feature 'User can see the time message was posted' do
   scenario 'Update about time was posted at 11:45' do
     setup_test_database
     conn = PG.connect(dbname: 'peeps_test')
-    conn.exec ("INSERT INTO peeps (messages) VALUES ('Update about time');")
-    result = conn.exec ("SELECT time_of_creation FROM peeps WHERE (messages = 'Update about time');")
+    conn.exec("INSERT INTO peeps (messages) VALUES ('Update about time');")
+    result = conn.exec("SELECT time_of_creation FROM peeps WHERE (messages = 'Update about time');")
     visit('/peeps/index')
     expect(page).to have_content("Update about time")
-    expect(page).to have_content(result[0]['time_of_creation'])
+    time = result[0]['time_of_creation']
+    time = DateTime.parse(time, '%Y-%m-%dT%H:%M:S')
+    # expect(peep.time.strftime("%Y-%m-%d %H:%M:%S%z")).to eq now.strftime("%Y-%m-%d %H:%M:%S%z")
+    # expect(page).to have_content(result[0]['time_of_creation'])
+    expect(page).to have_content(time)
   end
 end

@@ -5,7 +5,7 @@ describe User do
   describe '.create' do
     it 'creates a new user' do
       setup_test_database
-      conn = PG.connect(dbname: 'peeps_test')
+      PG.connect(dbname: 'peeps_test')
       new_user = User.create(name: 'Nazz Kadri', username: 'nazzk', email: 'test@example.com', password: 'password123')
       expect(new_user).to be_a(User)
       expect(new_user).to respond_to(:username)
@@ -16,7 +16,7 @@ describe User do
   describe '.find' do
     it 'finds a user by ID' do
       setup_test_database
-      conn = PG.connect(dbname: 'peeps_test')
+      PG.connect(dbname: 'peeps_test')
       user = User.create(name: 'Nazz Kadri', username: 'nazzk', email: 'test@example.com', password: 'password123')
       result = User.find(user.username)
       expect(result.username).to eq user.username
@@ -32,7 +32,7 @@ describe User do
   describe '.authenticate' do
     it 'returns a user given a correct username and password, if one exists' do
       setup_test_database
-      conn = PG.connect(dbname: 'peeps_test')
+      PG.connect(dbname: 'peeps_test')
       user = User.create(name: 'Nazz Kadri', username: 'nazzk', email: 'test@example.com', password: 'password123')
       authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
       expect(authenticated_user.id).to eq user.id
@@ -42,7 +42,7 @@ describe User do
   describe '.authenticate' do
     it 'returns nil given an incorrect email address' do
       setup_test_database
-      conn = PG.connect(dbname: 'peeps_test')
+      PG.connect(dbname: 'peeps_test')
       user = User.create(name: 'Nazz Kadri', username: 'nazzk', email: 'test@example.com', password: 'password123')
       expect(User.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
     end
@@ -51,7 +51,7 @@ describe User do
   describe '.authenticate' do
     it 'returns nil given an incorrect password' do
       setup_test_database
-      conn = PG.connect(dbname: 'peeps_test')
+      PG.connect(dbname: 'peeps_test')
       user = User.create(name: 'Nazz Kadri', username: 'nazzk', email: 'test@example.com', password: 'password123')
       expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be_nil
     end

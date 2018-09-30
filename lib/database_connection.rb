@@ -1,7 +1,7 @@
 require 'pg'
 
 class DatabaseConnection
-attr_reader :connection
+  attr_reader :connection
 
   def self.setup(dbname)
     @connection = PG.connect(dbname: dbname)
@@ -14,5 +14,5 @@ attr_reader :connection
   def self.query(sql)
     @connection.exec(sql)
   end
-  
+
 end

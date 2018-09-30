@@ -75,6 +75,14 @@ And/Or:
 
 Good luck and let the chitter begin!
 
+Screenshots:
+
+https://www.dropbox.com/s/b2svwqubs5edcyh/Screen%20Shot%202018-09-30%20at%2018.46.13.png?dl=0
+https://www.dropbox.com/s/auv5cl6shumouu9/Screen%20Shot%202018-09-30%20at%2018.45.59.png?dl=0
+https://www.dropbox.com/s/qrhzuempv4x7cb7/Screen%20Shot%202018-09-30%20at%2018.45.23.png?dl=0
+
+I have covered all the features except advanced feature. In future, I plan to include that as well as want to do more refactoring and use database_connection objects.
+
 Code Review
 -----------
 
