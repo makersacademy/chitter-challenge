@@ -37,4 +37,23 @@ describe User do
     end
   end
 
+  describe '.authenticate' do
+    it 'returns a user given a correct username and password, if one exists' do
+      setup_test_database
+      conn = PG.connect(dbname: 'peeps_test')
+      user = User.create(name: 'Nazz Kadri', username: 'nazzk', email: 'test@example.com', password: 'password123')
+      authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
+      expect(authenticated_user.id).to eq user.id
+    end
+  end
+
+  describe '.authenticate' do
+    it 'returns nil given an incorrect email address' do
+      setup_test_database
+      conn = PG.connect(dbname: 'peeps_test')
+      user = User.create(name: 'Nazz Kadri', username: 'nazzk', email: 'test@example.com', password: 'password123')
+      expect(User.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
+  end
+end
+
 end
