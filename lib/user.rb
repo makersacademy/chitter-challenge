@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 #require 'database_connection'
 
 class User
@@ -44,6 +45,8 @@ class User
     end
     result = connection.exec("SELECT * FROM users WHERE email = '#{email}'")
     return unless result.any?
+    #return unless BCrypt::Password.new(result[0]['password']) == password
+    return unless result[0]['password'] == password
     User.new(id: result[0]['user_id'], name: result[0]['name'], username: result[0]['username'],email: result[0]['email'])
   end
 

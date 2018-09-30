@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './lib/peep.rb'
 require './lib/user.rb'
 require 'sinatra/flash'
+
 #require_relative './lib/database_connection.rb'
 
 class Chitter < Sinatra::Application
