@@ -20,6 +20,18 @@ class Chitter < Sinatra::Base
     erb :signup
   end
 
+  post '/signup' do
+    flash[:error_signup] = "Username or password already in use!"
+    redirect '/signup' if User.first(:username => params['username']) != nil
+    redirect '/signup' if User.first(:email => params['email']) != nil
+    User.create(
+      :username       => params['username'],
+      :email          => params['email'],
+      :password       => params['password']
+    )
+    redirect '/'
+  end
+
   post '/login' do
     attemped_login = User.first(:username => params['username'])
     if attemped_login == nil
