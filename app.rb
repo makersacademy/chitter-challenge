@@ -18,8 +18,17 @@ class ChitterManager < Sinatra::Base
   post '/sign_in' do
     session[:username] = params[:username]
     session[:name] = params[:name]
-    Users.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
-    redirect '/home'
+    string = "That username has already been taken, please sign in again"
+
+    array = Users.all
+    array.each{ |object|
+    if object.username == params[:username]
+      flash[:error] = string
+    else
+      Users.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
+    end
+    }
+    redirect "/home"
   end
 
   get '/home' do

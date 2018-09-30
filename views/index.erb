@@ -1,4 +1,8 @@
-
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+  </div>
+<% end %>
 
 <h1> Welcome <%= @username %> </h1>
 <% @chitter.each do |chitter_object| %>
