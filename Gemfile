@@ -2,19 +2,19 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
+gem 'pg'
+gem 'pry'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'pry'
-gem 'pg'
 
 group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rubocop-rspec'
-  gem 'coveralls', require: false
   gem 'capybara'
+  gem 'coveralls', require: false
+  gem 'cucumber'
+  gem 'rspec'
+  gem 'rubocop-rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end

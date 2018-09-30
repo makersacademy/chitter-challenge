@@ -11,4 +11,12 @@ describe Messages do
       expect(messages).to include('Welcome to Chitter')
     end
   end
+
+  describe '.create' do
+    it 'A user can create new messages' do
+      Messages.create(messages: 'My new message')
+
+      expect(Messages.all).to include 'My new message'
+    end
+  end
 end
