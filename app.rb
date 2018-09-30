@@ -9,18 +9,22 @@ class Chitter < Sinatra::Base
     erb :home
   end
 
-  get '/write_peep' do
+  post '/write_peep' do
     erb :write_peep
   end
 
-  post '/write_peep' do
+  get '/write_peep' do
     Peep.create(message: params['message'])
     redirect '/view_peeps'
   end
 
+  post '/view_peeps' do
+    erb :view_peeps
+  end
+
   get '/view_peeps' do
     @peeps = Peep.view_all
-    erb :view_peeps
+    redirect '/write_peep'
   end
 
 

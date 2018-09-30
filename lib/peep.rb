@@ -8,12 +8,17 @@ require 'rubygems'
 
 class Peep
   include DataMapper::Resource
+  attr_reader :message
 
   property :id,         Serial
   property :message,    String,   length: 1..280
   property :created_at, DateTime
 
   belongs_to :users
+
+  def initialize(message:)
+    @message = message
+  end
 
   def self.create(message:)
     if ENV['ENVIRONMENT'] == 'test'
@@ -24,7 +29,7 @@ class Peep
     connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
   end
 
-  def self.view_all
+  def self.view_all(message:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
