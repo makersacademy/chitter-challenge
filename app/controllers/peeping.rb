@@ -4,10 +4,6 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  # get '/peep' do
-  #   erb :peep
-  # end
-
   post '/peeps' do
     @user = current_user
     Peep.create(message: params[:peep], user_id: @user.id)

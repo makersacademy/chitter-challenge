@@ -1,5 +1,6 @@
 require 'dm-timestamps'
-require_relative './user.rb'
+require_relative './user'
+require_relative './peep'
 
 class Peep
   include DataMapper::Resource
@@ -7,4 +8,5 @@ class Peep
   property :message, Text, length: 1..141
   property :created_at, DateTime
   belongs_to :user
+  has n, :comments
 end
