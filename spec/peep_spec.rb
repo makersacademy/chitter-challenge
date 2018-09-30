@@ -28,5 +28,10 @@ describe Peep do
       expect(peep).to respond_to(:time)
       expect(peep.time).not_to be_empty
     end
+    it 'it sanitises peeps to make them sql-safe' do
+      peep = Peep.create(message: "It's a peep!")
+      expect(peep).to be_a(Peep)
+      expect(peep.message).to eq("It's a peep!")
+    end
   end
 end

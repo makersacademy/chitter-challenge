@@ -5,6 +5,9 @@
     <input type='text' name='new_peep'>
     <input type='submit' value='Submit'>
   </form>
+  <form action='/users/new' method='get'>
+    <input type='submit' value='Sign up'>
+  </form>
   <ul>
     <% @peeps.each do |peep| %>
       <li>

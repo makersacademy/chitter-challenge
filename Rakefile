@@ -10,8 +10,7 @@
     p "setting up test database..."
 
     connection = PG.connect(dbname: 'chitter_test')
-    # Clear the table
-    connection.exec("TRUNCATE peeps;")
+    connection.exec("TRUNCATE peeps, users;")
   end
 
   # call from command line to set up databases:  $> rake setup
@@ -25,6 +24,7 @@
       connection = PG.connect(dbname: database)
       connection.exec("CREATE TABLE IF NOT EXISTS peeps (
         id SERIAL PRIMARY KEY, time TIMESTAMP, message VARCHAR(200));")
+      connection.exec("CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY, name VARCHAR(60), email VARCHAR(60), password VARCHAR(140));")
     end
-    
   end
