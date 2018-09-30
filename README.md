@@ -58,7 +58,7 @@ Rubocop / test coverage
 
 **TO DO**
 
-- 
+- extract db_access to 'Connection' class
 
 Notes on use
 ------------------

@@ -31,13 +31,12 @@ class ChitterApp < Sinatra::Base
       field :password, :present => true, :length => 4..12
     end
     if form.failed?
-      "signup failed"
+      "Signup failed"
       erb(:'users/new')
     else
       user = User.create(name: form[:name], email: form[:email],
       password: form[:password])
       session[:user_id] = user.id
-      "singup success " + form[:name]
       redirect '/'
     end
   end

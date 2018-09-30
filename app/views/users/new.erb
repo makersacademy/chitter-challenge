@@ -1,31 +1,27 @@
 <h1>Sign up for Chitter</h1>
-
-<% if form.failed? %>
-  <% if form.failed_on?(:name, :present) %>
-    <p>Name not found</p>
-  <% end %>
-  <% if form.failed_on?(:email, :present) %>
-    <p>Email not found </p>
-  <% end %>
-  <% if form.failed_on?(:password, :present) %>
-    <p>Password not found</p>
-  <% end %>
-<% end %>
-
 <div>
   <form action='/users' method='post'>
     <ul>
       <li>
         <label for='name'> Name:</label>
         <input type='text' name='name'>
+        <% if form.failed_on?(:name, :present) %>
+          <p>Name not found</p>
+        <% end %>
       </li>
       <li>
         <label for='email'> Email:</label>
         <input type='text' name='email'>
+        <% if form.failed_on?(:email, :present) %>
+          <p>Email not found </p>
+        <% end %>
       </li>
       <li>
         <label for='password'> Password:</label>
-        <input type='text' name='password'>
+        <input type='password' name='password'>
+        <% if form.failed_on?(:password, :present) %>
+          <p>Password not found</p>
+        <% end %>
       </li>
       <input type='submit' value='Submit'>
     </ul>

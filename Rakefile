@@ -1,10 +1,10 @@
-# if ENV['RACK_ENV'] != 'production'
+if ENV['RACK_ENV'] != 'production'
   require 'pg'
   require 'rspec/core/rake_task'
 
-  # RSpec::Core::RakeTask.new :spec
+  RSpec::Core::RakeTask.new :spec
   
-  # task default: [:spec]
+  task default: [:spec]
 
   task :setup_test_db do
     p "setting up test database..."
@@ -28,3 +28,4 @@
         name VARCHAR(60), email VARCHAR(60), password VARCHAR(140));")
     end
   end
+end
