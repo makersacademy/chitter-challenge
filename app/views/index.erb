@@ -3,19 +3,19 @@
 <br>
 <% unless current_user %>
 <form action='/signup' method='get'>
-  <input type="submit" value="Sign up!" style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
+  <input type="submit" value="Sign up!" class="button1">
 </form>
 <form action='/login' method='get'>
-  <input type="submit" value="Log in" style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
+  <input type="submit" value="Log in" class="button1">
 </form>
 <br>
 <br>
 <% end %>
 <% if current_user %>
   <form action='/peeps' method='post'>
-    <textarea name="peep" id="peep" style="width:96%;height:90px;background-color:white;color:black;border:2px solid black;padding:2%;font:22px/30px sans-serif;">
+    <textarea name="peep" id="peep" >
     </textarea>
-    <input type="submit" value="Peep!" style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
+    <input type="submit" value="Peep!" class="button">
   </form>
 <% end %>
 
@@ -26,20 +26,19 @@
 <div class='peep'>
   <% @peeps.each do |peep| %>
   <ul>
-    <li><p><%= peep.user.username %> peeped on <%= peep.created_at.strftime(" %d/%m/%y at %I:%M%p") %></p></li>
-    <p><%= peep.message %></p>
+    <li><h5><%= peep.user.username %> peeped on <%= peep.created_at.strftime(" %d/%m/%y at %I:%M%p") %></h5></li>
+    <h5><%= peep.message %></h5>
 
     <ul>
-
     <% peep.reply.each do |reply| %>
-    <li> <%= reply.user.username %> replied on <%= reply.created_at.strftime(" %d/%m/%y at %I:%M%p")%> </li>
-     <p><%= reply.message%></p>
+      <h5><li> <%= reply.user.username %> replied on <%= reply.created_at.strftime(" %d/%m/%y at %I:%M%p")%> </li></h5>
+      <h5><%= reply.message%></h5>
     <%end%>
   </ul>
 </ul>
   <% if current_user %>
     <form action='/reply/<%= peep.id %>/new' method='get'>
-      <input type='submit' value='Reply' name='reply' style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
+      <input type='submit' value='Reply' name='reply' class="button">
     </form>
     <%end%>
   </div>

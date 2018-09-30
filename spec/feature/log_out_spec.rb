@@ -1,5 +1,4 @@
 feature 'log out' do
-
   before(:each) do
     User.create(username: 'RonWeasley',
                 email: 'ron_weasley@hogwarts.co.uk',

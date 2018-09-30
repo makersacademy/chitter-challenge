@@ -1,8 +1,8 @@
 <% if current_user %>
-  <h1>Welcome, <%= current_user.username %>!<h1>
+  <h2>Welcome, <%= current_user.username %>!<h2>
 
 <form action='/logout' method='post' >
   <input type='hidden' name='_method' value='delete'>
-  <input type='submit' value='Log out'style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
+  <input type='submit' value='Log out' class="button1">
 </form>
 <% end %>
