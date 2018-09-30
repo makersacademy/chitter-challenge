@@ -7,10 +7,9 @@ class DatabaseConnection
     if ENV['RACK_ENV'] == 'test'
       @connection = PG.connect(dbname: 'chitter_test')
     elsif ENV['RACK_ENV'] == 'production'
-      database_bits = URI.parse(ENV['DATABASE_URL'])
-      @connection = PG.connect(database_bits.hostname, database_bits.port, nil,
-                               nil, database_bits.path[1..-1],
-                               database_bits.user, database_bits.password)
+      bits = URI.parse(ENV['DATABASE_URL'])
+      @connection = PG.connect(bits.hostname, bits.port, nil, nil,
+                               bits.path[1..-1], bits.user, bits.password)
     elsif ENV['RACK_ENV'] == 'development'
       @connection = PG.connect(dbname: 'chitter')
     else

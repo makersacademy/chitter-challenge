@@ -1,9 +1,10 @@
 <head>
   <link rel="stylesheet" type="text/css" href="<%= url('/style.css') %>">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
 </head>
 
 <body>
-  <h1> CHITTER </h1>
+  <h1> Chitter </h1>
   <% if @current_user.user_details %>
   <h3> You are logged in as <%= @current_user.username %> </h3>
   <% end %>

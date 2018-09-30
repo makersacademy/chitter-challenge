@@ -1,15 +1,16 @@
 <head>
   <link rel="stylesheet" type="text/css" href="<%= url('/style.css') %>"/>
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
 </head>
 
 <body>
-  <h1> CHITTER </h1>
+  <h1> Chitter </h1>
   <% if @current_user.user_details.nil? %>
     <div class ='log_in'>
       <h3> Sign in </h3>
       <form action='/log_in' method='post'>
-        Username: <input type='text' name='username'/><br>
-        Password: <input type='password' name='password'/><br>
+        <label>Username: </label><input type='text' name='username'/><br>
+        <label>Password: </label><input type='password' name='password'/><br><br>
         <input type='submit' value='Log in'/><br>
         <a href='/users/new'> Sign up for Chitter! </a>
     </div>

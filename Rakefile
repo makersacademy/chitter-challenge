@@ -9,7 +9,6 @@ if ENV['RACK_ENV'] != 'production'
 
 end
 
-
 task :setup do
   ['chitter', 'chitter_test'].each do |database|
     connection = PG.connect(dbname: database)
@@ -18,7 +17,7 @@ task :setup do
     connection.exec('CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, '\
       'username VARCHAR(100), name VARCHAR(100), email VARCHAR(100), password '\
       'VARCHAR(100));')
-    connection.exec('CREATE TABLE IF NOT EXISTS replies(id SERIAL PRIMARY KEY, '\
-      'original_id INTEGER, reply_id INTEGER);')
+    connection.exec('CREATE TABLE IF NOT EXISTS replies(id SERIAL PRIMARY KEY,'\
+      ' original_id INTEGER, reply_id INTEGER);')
   end
 end

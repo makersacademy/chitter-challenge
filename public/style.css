@@ -1,26 +1,16 @@
-h1 {
-  font-size: 50px;
-  font-weight: bold;
-  color: #EDF5E1
-}
-
-img {
-  padding-top: 25px;
+h1, h2, h3, h4, h5, h6 {
+ font-family: 'Montserrat', sans-serif;
+ font-weight: 300;
+ font-size: 50px;
+ text-transform: uppercase;
+ color:			#EDF5E1
 }
 
 body {
   background-color: #5CDB95;
   text-align: center;
-  font-family: "Arial";
+  font-family: "Lora", serif;
   color: #05386B
-}
-
-input {
-  font-size: 40px;
-  font-weight: bold;
-  text-align: center;
-  width: 25%;
-  height: 8%;
 }
 
 select {
@@ -29,16 +19,24 @@ select {
   height: 5%;
 }
 
-input[type=submit] {
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+}
+input {
   border-top:		2px solid #379683;
   border-left:		2px solid #379683;
   border-right:		2px solid #379683;
   border-bottom:		2px solid #379683;
-  font-size:		27px !important;
+  font-size:		20px !important;
   background-color:	rgb(170, 255, 133);
-  font-weight:		bold;
-  font-family: "Arial";
-  color:			#379683
+  font-family: "Lora" serif;
+  color:			#379683;
+  display: inline-block;
+  float: left;
 }
 
 div.peep {

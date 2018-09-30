@@ -13,14 +13,14 @@ class Peep
 
   def time_ago(post_time)
     minutes = ((DateTime.now - DateTime.parse(post_time)) * 24 * 60).to_i
-  case minutes
-    when 0
-      'now'
-    when 1
-      "#{minutes} minute ago."
-    else
-      "#{minutes} minutes ago."
-  end
+    case minutes
+      when 0
+        'now'
+      when 1
+        "#{minutes} minute ago."
+      else
+        "#{minutes} minutes ago."
+    end
   end
 
   def reply?

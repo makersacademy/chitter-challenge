@@ -25,7 +25,6 @@ SimpleCov.start
 
 Rake.application.load_rakefile
 
-
 RSpec.configure do |config|
   config.before(:suite) do
     Rake::Task['setup'].execute
