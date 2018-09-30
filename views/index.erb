@@ -1,0 +1,48 @@
+<h1>Chitter</h1>
+<%if flash[:login] == "successful"%>
+  <p>Login successful!</p>
+<%elsif flash[:login] == "unsuccessful"%>
+  <p>Sorry login unsuccessful!</p>
+<%end%>
+
+<%if flash[:registration] == "successful"%>
+  <p>Registration successful! You are now logged in!</p>
+<%elsif flash[:registration] == "unsuccessful"%>
+  <p>Sorry user/email already taken!</p>
+<%end%>
+
+<%if flash[:logout]%>
+<p>You have logged out!</p>
+<%end%>
+
+
+
+<%unless @user%>
+<div>
+  <form id='register-form' method='get'>
+    <input formaction='/user/register' id='register' type='submit' value='Register'>
+    <input formaction='/user/login' id='login' type='submit' value='Login'>
+  </form>
+</div>
+
+<%else%>
+<div><h1>Welcome <%=@user.name%>!</h1>
+  <form id='logout-form' action='/user/logout' method='post'>
+    <input id='register' type='submit' value='Log out'>
+  </form>
+</div>
+
+<div>
+  <form action='/peeps' method='post'>
+    <input id='add_peep' type='text' name='message' placeholder='Insert Message Here!'>
+    <input id='submit_peep' type='submit' value='Post!'>
+  </form>
+</div>
+<%end%>
+
+<%@peeps.each_with_index do |peep, index|%>
+  <div class='peep' id=<%=index%> >
+    <a href="/peeps/<%=peep.id%>"<p class='peep-text'>Peep <%=peep.id%>: <%=peep.text%></p></a>
+    <p class='peep-date'><%=peep.time_format%></p>
+  </div>
+<%end%>

@@ -1,0 +1,8 @@
+<div class='peep'>
+  <p class='peep-text'>Peep <%=@peep.id%>: <%=@peep.text%></p>
+  <p class='peep-date'><%=@peep.time_format%></p>
+</div>
+
+<form action='/peeps' method='get'>
+  <input type='submit' value='Go Back'>
+</form>
