@@ -11,17 +11,17 @@ class ChitterApp < Sinatra::Base
     'Hello world'
   end
 
-  get '/chitter' do
+  get '/peeps' do
     @peeps = Peep.all.reverse
     erb :chitter_homepage
   end
 
-  post '/chitter' do
+  post '/peeps' do
     Peep.create(text: params["peep"])
-    redirect '/chitter'
+    redirect '/peeps'
   end
 
-  get '/chitter/peep' do
+  get '/peeps/new' do
     erb :peep
   end
 
