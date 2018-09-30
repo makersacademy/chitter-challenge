@@ -11,4 +11,8 @@ feature 'view peeps' do
     expect(page).to have_content('2017-12-25 10:00')
     expect(page).to have_content('2018-01-13 11:23')
   end
+  scenario 'shows name of peeper' do
+    visit '/peeps'
+    expect(page).to have_content('test@email.com')
+  end
 end

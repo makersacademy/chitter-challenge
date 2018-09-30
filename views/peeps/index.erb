@@ -1,11 +1,15 @@
 <% if flash[:message] %>
   <div style="font-weight: bold; color: green"><%= flash[:message] %></div>
 <% end %>
+<% if flash[:err_message] %>
+  <div style="font-weight: bold; color: red"><%= flash[:err_message] %></div>
+<% end %>
 <div style="float: left">
   <ul>
     <% @peeps.each do |peep| %>
       <p style="font-weight: bold"> <%= peep.content %></p>
       <p style="font-style: italic"> <%= peep.time %></p>
+      <p style="font-style: italic">User: <%= peep.email %></p>
     <% end %>
   </ul>
 </div>
