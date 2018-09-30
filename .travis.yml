@@ -2,8 +2,8 @@ language: ruby
 rvm: '2.5.0'
 
 script:
-  - mkdir -p spec && bundle exec rspec spec
   - bundle exec rake setup
+  - mkdir -p spec && bundle exec rspec spec
 
 
 before_install:
@@ -12,7 +12,6 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-  - psql -U postgres -tc "SELECT 1 FROM pg_database WHERE datname = 'my_db'" | grep -q 1 || psql -U postgres -c "CREATE DATABASE my_db"
 
 
 services:

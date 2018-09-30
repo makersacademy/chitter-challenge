@@ -11,6 +11,7 @@ body {
   background-color: rgb(152, 255, 107);
   text-align: center;
   font-family: "Arial";
+  color: rgb(255, 107, 245)
 }
 
 input {
@@ -28,17 +29,17 @@ select {
 }
 
 input[type=submit] {
-  border-top:		5px solid rgb(143, 140, 255);
-  border-left:		5px solid rgb(143, 140, 255);
-  border-right:		5px solid rgb(143, 140, 255);
-  border-bottom:		5px solid rgb(143, 140, 255);
+  border-top:		2px solid rgb(255, 107, 245);
+  border-left:		2px solid rgb(255, 107, 245);
+  border-right:		2px solid rgb(255, 107, 245);
+  border-bottom:		2px solid rgb(255, 107, 245);
   font-size:		27px !important;
-  background-color:	rgb(128, 152, 232);
+  background-color:	rgb(170, 255, 133);
   font-weight:		bold;
-  font-family: "Arial"
-  color:			rgb(143, 140, 255);
+  font-family: "Arial";
+  color:			rgb(255, 107, 245)
 }
 
 div.peep {
-  background-color:	rgb(0, 152, 0) !important;
+  background-color:	rgb(170, 255, 133) !important;
 }
