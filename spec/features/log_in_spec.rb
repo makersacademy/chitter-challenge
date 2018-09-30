@@ -1,5 +1,6 @@
 feature 'user log in' do
   scenario 'a user can log in' do
+    User.class_variable_set(:@@current_user, nil)
     visit '/'
     click_link('Log In')
     fill_in('username', with: 'test_user_1')

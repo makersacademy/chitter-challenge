@@ -14,6 +14,7 @@ SimpleCov.start
 require 'capybara'
 require 'capybara/rspec'
 require 'data_mapper'
+require 'pry'
 require 'rspec'
 require_relative 'helper.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')

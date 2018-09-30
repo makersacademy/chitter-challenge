@@ -6,7 +6,6 @@ class Chitter < Sinatra::Base
 
   get '/?' do
     @user = User.class_variable_get(:@@current_user)
-    p @user
     erb :home
   end
 
@@ -19,7 +18,24 @@ class Chitter < Sinatra::Base
       username: params['username'], 
       password: params['password']
     )
-    p "user: #{user}"
+    User.class_variable_set(
+      :@@current_user, 
+      user      
+    )
+    redirect '/'
+  end
+
+  get '/user/register/?' do
+    erb :register
+  end
+
+  post '/user/register/?' do
+    user = User.create(
+      name: params[:name],
+      username: params[:username],
+      email: params[:email],
+      password: params[:password]
+    )
     User.class_variable_set(
       :@@current_user, 
       user      
