@@ -6,6 +6,13 @@ class Chitter < Sinatra::Base
 
   get '/?' do
     @user = User.class_variable_get(:@@current_user)
+    @peeps = Peep.all(:order => [:peep_time.desc])
+    p @peeps.length
+    @display = ''
+    @peeps.each do |peep|
+      @display << "#{peep.peep}\n"
+    end
+    p @display
     erb :home
   end
 

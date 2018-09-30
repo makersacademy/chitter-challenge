@@ -4,6 +4,15 @@
     <span>Hey, <%= @user.name %>!</span>
   <% else %>
     <a href="/user/login" class="button">Log In</a>
-    <a id="register" href="/user/register" class="button">Register</a>
+    <a href="/user/register" class="button">Register</a>
   <% end %>
 </header>
+<h2>All Peeps</h2>
+<% @peeps.each do |peep| %>
+  <div>
+    <p><%= peep.peep %></p>
+    <p><%= peep.user.name %> on <%= peep.peep_time %></p>
+  </div>
+<% end %>
+<%=@peeps.length%>
+<%=@display%>
