@@ -9,8 +9,15 @@ class AllChitterUsers
   end
 
   def create(entry_hash)
-    return 'in use' if already_taken?(entry_hash)
-    insert_new_user(entry_hash) if valid_credentials?(entry_hash)
+    case
+      when already_taken?(entry_hash)
+        'Username or email already in use, please try again'
+      when valid_credentials?(entry_hash)
+        insert_new_user(entry_hash)
+        'You are now signed up to Chitter!'
+      else
+        'Invalid sign up details, please try again'
+    end
   end
 
   def all

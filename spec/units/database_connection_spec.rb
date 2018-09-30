@@ -4,7 +4,7 @@ RSpec.describe DatabaseConnection do
 
   before(:each) do
     ENV['RACK_ENV'] = 'test'
-    initialize_test_users
+    initialize_test_database
   end
 
   it 'should connect to the development database in development' do

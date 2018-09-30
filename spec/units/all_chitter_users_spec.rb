@@ -21,9 +21,6 @@ RSpec.describe AllChitterUsers do
   it 'should be able to create a new user' do
     borace_hash = { name: 'Borace', email: 'borace@mail.co.uk',
                     username: 'borace01', password: 'password' }
-    borace_sql = 'INSERT INTO users(name, username, email, password)'\
-      " VALUES('#{borace_hash[:name]}', '#{borace_hash[:username]}', "\
-      "'#{borace_hash[:email]}', '#{borace_hash[:password]}');"
     expect(fake_connection).to receive(:query)
 
     subject.create(borace_hash)
@@ -32,13 +29,15 @@ RSpec.describe AllChitterUsers do
   it 'should reject already used usernames' do
     billy_hash = { name: 'Billy', email: 'billy@mail.com',
                     username: 'billy02', password: 'password' }
-    expect(subject.create(billy_hash)).to eq 'in use'
+    in_use = 'Username or email already in use, please try again'
+    expect(subject.create(billy_hash)).to eq in_use
   end
 
   it 'should reject already used emails' do
     billy_hash = { name: 'Billy', email: 'billy2@mail.com',
                     username: 'billy01', password: 'password' }
-    expect(subject.create(billy_hash)).to eq 'in use'
+    in_use = 'Username or email already in use, please try again'
+    expect(subject.create(billy_hash)).to eq in_use
   end
 
   it 'should be able to return all user records' do

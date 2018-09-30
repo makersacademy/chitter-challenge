@@ -8,6 +8,6 @@ class Peep
   end
 
   def time_ago(post_time)
-    Date.strptime(post_time, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+    post_time
   end
 end

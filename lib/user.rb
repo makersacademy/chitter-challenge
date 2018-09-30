@@ -9,8 +9,8 @@ class User
 
   def log_in(username)
     @username = username
-    @user_details = @connection.query('SELECT id, name, email FROM users WHERE '\
-      "username = '#{username}';")[0]
+    @user_details = @connection.query('SELECT id, name, email FROM users WHERE'\
+      " username = '#{username}';")[0]
   end
 
   def log_out

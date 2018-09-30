@@ -12,19 +12,7 @@ class ChitterApp < Sinatra::Base
     @users = settings.users
     entry_hash = { name: params[:name], email: params[:email],
                    username: params[:username], password: params[:password] }
-    error_message = 'Invalid sign up details, please try again'
-    success_message = 'You are now signed up to Chitter!'
-    already_used_message = 'Username or email already in use, please try again'
-
-    # SHOULDNT BE ABLE TO USE EMAIL OR USERNAME ALREADY IN USE
-    if @users.create(entry_hash) == 'in use'
-      p 'WE GOT HERE!'
-      flash[:sign_up_message] = already_used_message
-    elsif @users.create(entry_hash)
-      flash[:sign_up_message] = success_message
-    else
-      flash[:sign_up_message] = error_message
-    end
+    flash[:sign_up_message] = @users.create(entry_hash)
     redirect '/'
   end
 

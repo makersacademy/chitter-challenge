@@ -1,7 +1,7 @@
 require 'pg'
 require 'bcrypt'
 
-def empty_test_users
+def empty_test_database
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec('TRUNCATE users RESTART IDENTITY;'\
     'TRUNCATE peeps RESTART IDENTITY')
@@ -20,9 +20,19 @@ def populate_test_users
   end
 end
 
-def initialize_test_users
-  empty_test_users
+def populate_test_peeps
+  connection = PG.connect(dbname: 'chitter_test')
+  peeps = [['Hello chitter', 1], ["What is up peeps", 2], ['Hi, Billy!', 3]]
+  peeps.each do |peep|
+    connection.exec('INSERT INTO peeps(contents, user_id, timestamp) '\
+      "VALUES('#{peep[0]}', #{peep[1]}, NOW());")
+  end
+end
+
+def initialize_test_database
+  empty_test_database
   populate_test_users
+  populate_test_peeps
 end
 
 def bcrypt_comparer(encrypted_query, unencrypted_query)

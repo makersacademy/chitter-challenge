@@ -12,7 +12,7 @@ require_relative 'helper_methods'
 
 Capybara.app = ChitterApp
 
-initialize_test_users
+initialize_test_database
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
