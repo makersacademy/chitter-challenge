@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'lib/database_connection'
 require_relative 'lib/peeps'
 require_relative 'lib/users'
@@ -13,6 +14,7 @@ end
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     'Chitter'
@@ -38,8 +40,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/signup' do
-    session[:user] = Users.create(params['email'], params['password'])
-    redirect '/users/welcome'
+    user = Users.create(params['email'], params['password'])
+    if user == false
+      flash[:err_message] = 'Email address is already taken.'
+      redirect 'users/signup'
+    else
+      session[:user] = user
+      redirect '/users/welcome'
+    end
   end
 
   post '/peeps/new' do
