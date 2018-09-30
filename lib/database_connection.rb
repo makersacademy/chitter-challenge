@@ -2,7 +2,7 @@ require 'pg'
 
 class DatabaseConnection
   def self.connection
-    PG.connect(dbname: 'chatter_test')
+    PG.connect(dbname: 'chitter_test')
   end
 
   def self.query(sql)

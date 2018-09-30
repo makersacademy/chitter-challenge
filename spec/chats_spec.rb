@@ -1,5 +1,5 @@
 describe Chat do
-  before(:each) { @connection = PG.connect dbname: 'chatter_test' }
+  before(:each) { @connection = PG.connect dbname: 'chitter_test' }
 
   describe '.all' do
     it 'returns all chats stored in the database' do
