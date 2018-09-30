@@ -7,9 +7,8 @@ class User
   property :email, String
   property :password, String
 
-  def self.add(name, user, email, password)
-    User.create(name: name, user: user,
-      email: email, password: password) if User.unique?(user, email)
+  def self.add(args)
+    User.create(args) if User.unique?(args[:user], args[:email])
   end
 
   def self.unique?(user, email)
