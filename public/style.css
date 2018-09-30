@@ -1,0 +1,40 @@
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+img {
+  padding-top: 25px;
+}
+
+body {
+  background-color: rgb(153, 204, 255);
+  text-align: center;
+  font-family: "Arial";
+}
+
+input {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  width: 25%;
+  height: 8%;
+}
+
+select {
+  font-size: 20px;
+  width: 5%;
+  height: 5%;
+}
+
+input[type=submit] {
+  border-top:		5px solid rgb(143, 140, 255);
+  border-left:		5px solid rgb(143, 140, 255);
+  border-right:		5px solid rgb(143, 140, 255);
+  border-bottom:		5px solid rgb(143, 140, 255);
+  font-size:		27px !important;
+  background-color:	rgb(128, 152, 232);
+  font-weight:		bold;
+  font-family: "Arial"
+  color:			rgb(143, 140, 255);
+}
