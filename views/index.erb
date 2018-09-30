@@ -7,7 +7,9 @@
   <title>Twittarr</title>
 </head>
 <body>
-
+  <form action="/logout" method="post">
+    <input type="submit" value="Sign Out">
+  </form>
   <h1>Ahoy, <%= session[:username] %>!</h1>
   <form action="/new" method="post">
     <input type="text" name="tweet">

@@ -38,8 +38,13 @@ class Twittarr < Sinatra::Base
   end
   
   get '/dashboard' do
-    @messages = Message.all(:order => [:created_at.desc])
-    erb :index
+    if session[:user_id]
+      @messages = Message.all(:order => [:created_at.desc])
+      erb :index
+    else
+      flash[:error] = 'Have to be logged in to do that.'
+      redirect '/login'
+    end
   end
 
   post '/new' do
@@ -51,7 +56,14 @@ class Twittarr < Sinatra::Base
     @user = User.create(:email => params[:email], :password => params[:password],:username => params[:username])
     @user.save!
     session[:username] = @user.username
+    session[:user_id] = @user.id
     redirect '/dashboard'
+  end
+
+  post '/logout' do
+    session.clear
+    flash[:notice] = 'Successfully logged out!'
+    redirect '/'
   end
 
   helpers helpers 
