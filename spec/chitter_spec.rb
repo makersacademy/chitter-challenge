@@ -32,7 +32,7 @@ describe Chitter do
     it "Creates a new chitter" do
       @test = Chitter.new(:message => "Buffy", :posted_by => "Florence", :created_at => Time.now)
       @test.save
-      expect(Chitter.all message:"Buffy").to include(@test)
+      expect(Chitter.all message: "Buffy").to include(@test)
     end
   end
 end

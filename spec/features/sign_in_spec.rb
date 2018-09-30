@@ -1,5 +1,3 @@
-
-
 feature "sign in" do
   scenario "user signs in" do
     visit '/'

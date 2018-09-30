@@ -1,7 +1,6 @@
 require 'rubygems'
 require "data_mapper"
 
-#
 if ENV['ENVIRONMENT'] == 'test'
   DataMapper.setup(:default, 'postgres://localhost/chitter_test')
 else
@@ -22,8 +21,6 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-#Users.create(:name => 'Bob', :username => "bobbie", :email => "jijij", :password => "jijiji")
-
 if ENV['ENVIRONMENT'] == 'test'
- DataMapper.auto_migrate!
+  DataMapper.auto_migrate!
 end
