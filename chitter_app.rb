@@ -65,9 +65,15 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/users/logout' do
+    session.clear
+    flash[:message] = 'You have logged out'
+    redirect '/peeps'
+   end
+
   post '/peeps/new' do
     Peeps.create(params['peep'])
-    redirect 'peeps'
+    redirect '/peeps'
   end
 
   run! if app_file == $0

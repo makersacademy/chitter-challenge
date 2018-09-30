@@ -1,4 +1,7 @@
-<div>
+<% if flash[:message] %>
+  <div style="font-weight: bold; color: green"><%= flash[:message] %></div>
+<% end %>
+<div style="float: left">
   <ul>
     <% @peeps.each do |peep| %>
       <p style="font-weight: bold"> <%= peep.content %></p>
@@ -6,3 +9,10 @@
     <% end %>
   </ul>
 </div>
+<% if session[:user] %>
+  <div style="float: right">
+    <form action='/users/logout' method='post'>
+      <input type="submit" value="Log out">
+    </form>
+  <div>
+<% end %>
