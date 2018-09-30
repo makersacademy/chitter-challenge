@@ -3,6 +3,8 @@ rvm: '2.5.0'
 
 script:
   - mkdir -p spec && bundle exec rspec spec
+  - bundle exec rake setup
+
 
 before_install:
 - sudo apt-get update -qq
@@ -10,3 +12,7 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+
+
+services:
+  - postgresql
