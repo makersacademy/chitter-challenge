@@ -4,20 +4,20 @@
 
 <h2>Sign Up!</h2>
 <form action="/users/create" method="post">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" autofocus>
-    <br>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username">
-    <br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password">
-    <br>
-  </div>
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" placeholder="Name" id="name" name="name" autofocus></td>
+    <tr>
+      <td>Username:</td>
+      <td><input type="text" placeholder="Username" id="username" name="username"></td>
+    <tr>
+      <td>Email:</td>
+      <td><input type="email" placeholder="Email" id="email" name="email"></td>
+    <tr>
+      <td>Password:</td>
+      <td><input type="password" placeholder="Password" id="password" name="password"></td>
+  </table>
   <div class="button">
     <button type="submit" value="submit">Submit</button>
   </div>

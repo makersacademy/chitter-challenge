@@ -4,8 +4,16 @@
   <%= flash[:notice] %>
 </h2>
 
+<h2>Log In!</h2>
+
 <form action="/users/authenticate" method="post">
-  <input type="email" name="email" />
-  <input type="password" name="password" />
+  <table>
+    <tr>
+      <td>Email:</td>
+      <td><input type="email" placeholder="Email" name="email" /></td>
+    <tr>
+      <td>Password:</td>
+      <td><input type="password" placeholder="Password" name="password" /></td>
+  </table>
   <input type="submit" value="Log In" />
 </form>

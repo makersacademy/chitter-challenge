@@ -1,107 +1,73 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+In week 4 of the Makers course I was asked to make a basic Twitter clone that allowed users to sign up, log in and out and post "peeps". Users were able to see peeps from other users without having to be signed in. Information was stored in a test database, with passwords securely encrypted with BCrypt and users being unique in both username and email.
 
-Challenge:
--------
+## Getting Started
 
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+Clone this repo down to your local machine: 
 ```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+git clone git@github.com:TinyGobby/chitter-challenge.git
+```
+or 
+```
+git clone https://github.com/TinyGobby/chitter-challenge.git
 ```
 
-Notes on functionality:
-------
+### Prerequisites
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+Ruby 2.5.0 or greater are required, if needed please install using `rvm install ruby 2.5.1` (ruby 2.5.1 selected as current stable build at time of publishing)
 
-Bonus:
------
 
-If you have time you can implement the following:
+### Installing
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+All gems are contained within the Gemfile, to install:
+```
+gem install bundler
+bundle install
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+A specific `chitter_test` database is required, paste the below into the command line to setup:
+
+```
+psql -c 'create database chitter_test;' 
+psql -c "CREATE TABLE users (id SERIAL PRIMARY KEY, password VARCHAR(140), name VARCHAR(60), username VARCHAR(60) UNIQUE, email VARCHAR(60) UNIQUE);"
+psql -c "CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR(144), time VARCHAR(32), hidden_timestamp TIMESTAMPTZ, user_id INTEGER REFERENCES users (id), user_username VARCHAR(60) REFERENCES users (username));"
+```
+
+Once all complete you should be able to run the file using rackup with: `rackup -p 4567` or using ruby with `ruby app/chitter_app.rb`, then when visiting `http://localhost:4567/` in your web browser you should see:
+
+![Screenshot](https://www.dropbox.com/s/ghcoctvng3uv9d6/empty_chitter.png?dl=0)
+
+## Running Tests
+
+`cd` into root project folder then use `rspec` to run the tests
+
+Feature tests can either be run alongside the unit tests using `rspec` or alone using `rspec spec/features`
+
+## Features
+
+### Users
+##### User Sign Up With BCrypt-Encrypted Password
+![Screenshot](https://www.dropbox.com/s/b3zi7izl7v61w3p/sign_up.png?dl=0)
+###### Unique Usernane and Email Address Required
+![Screenshot](https://www.dropbox.com/s/e56kdl3hmzrtvfl/incorrect_username_or_email.png?dl=0)
+##### User Log In
+![Screenshot](https://www.dropbox.com/s/v1fke9pn9qxotss/log_in.png?dl=0)
+![Screenshot](https://www.dropbox.com/s/1xs84ykw9gwkr9m/logged_in_no_peeps.png?dl=0)
+##### User Log Out
+![Screenshot](https://www.dropbox.com/s/tuuir28484f5s74/log_out.png?dl=0)
+
+### Peeps
+##### User Is Able To Peep When Logged In
+![Screenshot](https://www.dropbox.com/s/0m7vxrhpe3l8d5u/peeping.png?dl=0)
+![Screenshot](https://www.dropbox.com/s/2044m83bg162vtt/logged_in_with_peeps.png?dl=0)
+##### Peeps Remain Visible When Logged Out
+![Screenshot](https://www.dropbox.com/s/lvp0oh2lz9in6cj/peeps_not_logged_in.png?dl=0)
+
+## Author
+
+**Patrick Harris** - [TinyGobby](https://github.com/TinyGobby)
+
+## Acknowledgments
+
+Special thanks go to [Makers Academy](http://makers.tech)

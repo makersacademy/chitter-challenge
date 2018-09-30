@@ -1,17 +1,11 @@
 require 'pg'
 
 class DatabaseConnection
-  attr_reader :connection
-  
-  def self.setup(dbname)
-    @connection = PG.connect(dbname: 'chitter_test')
-  end
-
   def self.connection
-    @connection
+    PG.connect(dbname: 'chitter_test')
   end
 
   def self.query(sql)
-    @connection.exec(sql)
+    connection.exec(sql)
   end
 end
