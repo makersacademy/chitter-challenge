@@ -24,5 +24,16 @@ class Chitter < Sinatra::Base
     erb :peep
   end
 
+  get '/user/login' do
+  end
+
+  get '/user/register' do
+    erb :register
+  end
+
+  post '/user/register' do
+    p params
+  end
+
   run! if app_file == $0
 end
