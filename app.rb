@@ -4,13 +4,13 @@ require './lib/chitter'
 class ChitterApp < Sinatra::Base
 
 get '/' do
-  @messages = Message.show
+  @messages = Message.show.reverse
   erb :index
 end
 
 post '/' do
   Message.add(params[:message])
-  @messages = Message.show
+  @messages = Message.show.reverse
   erb :index
 end
 
