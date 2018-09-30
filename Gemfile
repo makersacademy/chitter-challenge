@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'pry'
 gem 'dm-postgres-adapter'
 gem 'data_mapper'
+gem 'sinatra-flash'
 
 group :test do
   gem 'pg'

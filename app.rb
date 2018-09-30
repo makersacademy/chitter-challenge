@@ -1,12 +1,14 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'pg'
 require './lib/message'
-
+require './lib/user'
 require 'data_mapper'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     DataMapper.setup(:default, 'postgres://localhost:5432/chitter')
@@ -19,8 +21,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    session['username'] = params['username']
-    redirect 'messageboard'
+    attemped_login = User.first(:username => params['username'])
+    if attemped_login == nil
+      flash[:error_login] = "Sorry, unknown username or password!"
+    elsif attemped_login['password'] == params['password']
+      session['username'] = params['username']
+      redirect 'messageboard'
+    end
+    redirect '/'
   end
 
   post '/message' do
