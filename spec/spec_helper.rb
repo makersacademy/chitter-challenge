@@ -1,13 +1,19 @@
 require 'simplecov'
 require 'simplecov-console'
-
 require 'capybara/rspec'
 require './app'
 require 'capybara'
 require 'rspec'
 require 'pry'
+require_relative 'web_helper'
 
-Capybara.app = Chitter 
+Capybara.app = Chitter
+
+RSpec.configure do |config|
+  config.include Rack::Test::Methods
+  DataMapper::setup(:default, "postgres://localhost:5432/chitter_test")
+  DataMapper.finalize
+end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

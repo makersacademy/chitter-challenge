@@ -17,12 +17,12 @@
     <h1>Chitter</h1>
     <form action="/message" method="post">
       <input required ='true' type="text" name="message">
-      <input type="submit" name="post" value="post!">
+      <input type="submit" name="post" value="Post!">
     </form>
-    <ul class='bookmarks'>
+    <ul>
       <% @messageboard.each do |message| %>
       <li>
-        <div class="">
+        <div>
           <h4><%=message[:username]%></h4>
           <h4><%=message[:time]%></h4>
         </div>
