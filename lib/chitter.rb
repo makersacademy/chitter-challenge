@@ -2,18 +2,17 @@ require 'rubygems'
 require "data_mapper"
 
 #
+if ENV['ENVIRONMENT'] == 'test'
+  DataMapper.setup(:default, 'postgres://localhost/chitter_test')
+else
+  DataMapper.setup(:default, 'postgres://localhost/chitter')
+end
 
 
 #DataMapper.setup(:default, 'postgres://localhost/chitter')
 
 class Chitter
 
-  if ENV['ENVIRONMENT'] == 'test'
-    DataMapper.setup(:default, 'postgres://localhost/chitter_test')
-    Chitter.all.destroy
-  else
-    DataMapper.setup(:default, 'postgres://localhost/chitter')
-  end
 
 
   include DataMapper::Resource
