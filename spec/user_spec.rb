@@ -27,17 +27,17 @@ describe User do
     end
   end
 
-  context ".sign_in"do
+  context ".sign_in" do
     it "should return false if username doesn't exist" do
       expect(User.sign_in(username: "Jim33", password: "password")).to eq false
     end
 
     it "should return false if password wrong" do
-      user = User.create(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
+      User.create(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
       expect(User.sign_in(username: "AbagnaleF", password: "password")).to eq false
     end
     it "should return User object if password right" do
-      user = User.create(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
+      User.create(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
       expect(User.sign_in(username: "AbagnaleF", password: "password12345")).to be_instance_of(User)
     end
   end

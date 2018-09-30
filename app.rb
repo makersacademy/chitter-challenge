@@ -18,7 +18,7 @@ class ChitterApp < Sinatra::Base
 
   post '/users' do
     string = "Sorry, that email or username has already been used."
-    unless user = User.make(email: params["email"], password: params["password"], username: params["username"], name: params["name"])
+    unless (user = User.make(email: params["email"], password: params["password"], username: params["username"], name: params["name"]))
       flash[:error] = string
       redirect '/users/new'
     else
@@ -30,18 +30,23 @@ class ChitterApp < Sinatra::Base
     erb :sign_up
   end
 
-  get '/users/sign_in'do
+  get '/users/sign_in' do
     erb :sign_in
   end
 
   post '/users/sign_in' do
     string = "Sorry, either your username or password were incorrect"
-    unless user = User.sign_in(username: params["username"], password: params["password"])
+    unless (user = User.sign_in(username: params["username"], password: params["password"]))
       flash[:error] = string
       redirect '/users/sign_in'
     else
       redirect "/users/#{user.id}"
     end
+  end
+
+  get '/users/sign_out' do
+    User.sign_out
+    redirect 'peeps'
   end
 
   get '/users/:id' do

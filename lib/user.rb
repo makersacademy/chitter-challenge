@@ -9,16 +9,16 @@ class User
   property :username, String
   property :name, String
 
-  def self.make(email: email, password: password, username: username, name: name)
-    return false unless self.new_email?(email)
-    return false unless self.new_username?(username)
-    self.create(email: email, password: password, username: username, name: name)
+  def self.make(email:, password:, username:, name:)
+    return false unless new_email?(email)
+    return false unless new_username?(username)
+    create(email: email, password: password, username: username, name: name)
   end
 
-  def self.sign_in(username: username, password: password)
-    return false unless self.username_exist?(username)
-    return false unless self.password_correct?(username, password)
-    @current_user = self.first(username: username)
+  def self.sign_in(username:, password:)
+    return false unless username_exist?(username)
+    return false unless password_correct?(username, password)
+    @current_user = first(username: username)
   end
 
   def self.sign_out
@@ -29,22 +29,20 @@ class User
     @current_user
   end
 
-  private
-
   def self.new_email?(email)
-    self.count(email: email) == 0
+    count(email: email).zero?
   end
 
   def self.new_username?(username)
-    self.count(username: username) == 0
+    count(username: username).zero?
   end
 
   def self.username_exist?(username)
-    self.count(username: username) != 0
+    count(username: username) != 0
   end
 
   def self.password_correct?(username, password)
-    user = self.first(username: username)
+    user = first(username: username)
     user.password == password
   end
 

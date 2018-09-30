@@ -1,7 +1,6 @@
-feature "Sing In Page"do
+feature "Sing In Page" do
   scenario "has sign in button that takes you to Users page" do
     User.create(email: "test@email.com", password: "password12345", username: "Jim33", name: "Jim Smith")
-    #binding.pry
     visit "/users/sign_in"
     fill_in("username", with: "Jim33")
     fill_in("password", with: "password12345")

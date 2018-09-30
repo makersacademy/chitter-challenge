@@ -34,26 +34,38 @@ feature "Chitter Homepage" do
         expect(current_path).to eq "/peeps/new"
       end
     end
-  end
 
-feature "if not Signed in" do
-  feature "Sign Up button" do
-    scenario "takes you to sign up page" do
-      visit "/peeps"
-      expect(page).not_to have_content("New Peep")
-      click_button "Sign Up"
-      expect(current_path).to eq "/users/new"
+    feature "Sign out button" do
+      scenario "logs out" do
+        logged_on
+        visit "/peeps"
+        expect(page).not_to have_content("Sign Up")
+        expect(page).not_to have_content("Sign In")
+        click_button "Sign Out"
+        expect(page).to have_content("Sign Up")
+        expect(page).to have_content("Sign In")
+      end
     end
   end
 
-  feature "Sign In button" do
-    scenario "takes you to sign in page" do
-      visit "/peeps"
-      expect(page).not_to have_content("New Peep")
-      click_button "Sign In"
-      expect(current_path).to eq "/users/sign_in"
+  feature "if not Signed in" do
+    feature "Sign Up button" do
+      scenario "takes you to sign up page" do
+        visit "/peeps"
+        expect(page).not_to have_content("New Peep")
+        click_button "Sign Up"
+        expect(current_path).to eq "/users/new"
+      end
+    end
+
+    feature "Sign In button" do
+      scenario "takes you to sign in page" do
+        visit "/peeps"
+        expect(page).not_to have_content("New Peep")
+        click_button "Sign In"
+        expect(current_path).to eq "/users/sign_in"
+      end
     end
   end
-end
 
 end
