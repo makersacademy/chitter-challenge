@@ -28,4 +28,39 @@ describe User do
       expect(User.all.size).to eq(1)
     end
   end
+
+  describe '.instance - singleton pattern' do
+    it 'is nil before logging in' do
+      expect(User.instance).to eq(nil)
+    end
+  end
+
+  describe '.login' do
+    it '.instance returns nil if username not found' do
+      User.login("js", "p123")
+      expect(User.instance).to eq(nil)
+    end
+
+    it '.instance returns nil if password is wrong' do
+      User.add(name: "James", user: "js", email: "example@example.com", password: "p123")
+      User.login("js", "p456")
+      expect(User.instance).to eq(nil)
+    end
+
+    it '.instance returns user instance if password correct' do
+      a = User.add(name: "James", user: "js", email: "example@example.com", password: "p123")
+      User.login("js", "p123")
+      expect(User.instance).to eq(a)
+    end
+  end
+
+  describe '.logout' do
+    it 'sets .instance to nil' do
+      a = User.add(name: "James", user: "js", email: "example@example.com", password: "p123")
+      User.login("js", "p123")
+      expect(User.instance).to eq(a)
+      User.logout
+      expect(User.instance).to eq(nil)
+    end
+  end
 end
