@@ -17,13 +17,11 @@ task :test_database_setup do
   connection.exec("TRUNCATE peeps;")
 end
 
-task :setup do
+task :create_db do
   p "Creating databases..."
 
   ['chitter', 'chitter_test'].each do |database|
     connection = PG.connect
     connection.exec("CREATE DATABASE #{ database };")
-    connection = PG.connect(dbname: database)
-    connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, url VARCHAR(60));")
   end
 end

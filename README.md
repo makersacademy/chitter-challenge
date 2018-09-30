@@ -16,7 +16,7 @@ bundle
 bundle update
 
 ### 4. Set up the database
-rake setup
+rake create_db
 
 ### 5. Run the server
 shotgun -p 4747
