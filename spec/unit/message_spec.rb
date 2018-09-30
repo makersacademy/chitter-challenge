@@ -1,13 +1,16 @@
 require 'message'
 
 describe Message do
-  it 'expects to find a message in the database' do
+  before(:each) do
     clean_database
     User.create(
       :username       => 'Tifa',
       :email          => "seventhheaven@gmail.com",
       :password       => "jugsandfists"
     )
+  end
+
+  it 'expects to find a message' do
     Message.create(
       :body       => "This is a message here",
       :userid     => 1,

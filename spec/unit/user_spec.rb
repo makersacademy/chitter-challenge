@@ -1,7 +1,7 @@
 require 'user'
 
 describe User do
-  it 'expects to find a message in the database' do
+  it 'expects to find a user' do
     clean_database
     User.create(
       :username       => "George",
