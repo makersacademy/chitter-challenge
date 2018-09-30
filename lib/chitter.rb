@@ -15,10 +15,11 @@ class Chitter
 
   include DataMapper::Resource
 
-  property :id,         Serial    # An auto-increment integer key
+  property :id,         Serial    
   property :message,    String    # A varchar type string, for short strings      # A text block, for longer string data.
   property :created_at, DateTime
-  property :posted_by,  String  # A DateTime, for any date you might like.
+  property :posted_by,  String
+  property :username,    String
 end
 
 DataMapper.finalize

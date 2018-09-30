@@ -4,8 +4,7 @@
 <% @chitter.each do |chitter_object| %>
 
 <h1> <%= chitter_object.message %> </h1>
-<br> <%= chitter_object.created_at %> </br>
-<br> <%= chitter_object.posted_by %> </br>
+<br> Posted by <%= chitter_object.username %>  (<%= chitter_object.posted_by %>) at <br> <%= chitter_object.created_at %> </br>
  <% end %>
 
  <form action="/peep/new" method = "get">

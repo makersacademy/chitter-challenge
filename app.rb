@@ -16,7 +16,8 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/sign_in' do
-    #session[:username] = params[:username]
+    session[:username] = params[:username]
+    session[:name] = params[:name]
     Users.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
     redirect '/home'
   end
@@ -32,7 +33,7 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/peep_added' do
-    @peep = Chitter.new(:message => params[:peep], :posted_by => session[:username],
+    @peep = Chitter.new(:message => params[:peep], :posted_by => session[:name], :username => session[:username],
     :created_at => Time.now)
     @peep.save
     redirect '/home'
