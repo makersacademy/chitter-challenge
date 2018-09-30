@@ -2,6 +2,7 @@ require 'user'
 
 describe User do
     it 'expects to find a message in the database' do
+      clean_database
       User.create(
         :username       => "George",
         :email          => "test@gmail.com",

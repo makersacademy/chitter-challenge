@@ -8,10 +8,11 @@ require 'pry'
 require_relative 'web_helper'
 
 Capybara.app = Chitter
+ENV['TEST_DATABASE'] = 'chitter_test'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
-  DataMapper::setup(:default, "postgres://localhost:5432/chitter_test")
+  DataMapper::setup(:default, "postgres://localhost:5432/#{ENV['TEST_DATABASE']}")
   DataMapper.finalize
 end
 

@@ -8,9 +8,10 @@
   <body>
     <h1>Sign in!</h1>
     <form action="/signup" method="post">
-      <input required ='true' type="text" name="username">
-      <input required ='true' type="email" name="email">
-      <input required ='true' type="password" name="password">
+      <input placeholder="username" required ='true' type="text" name="username">
+      <input placeholder="email" required ='true' type="email" name="email">
+      <input placeholder="password" required ='true' type="password" name="password">
+      <input placeholder="confirm password" required ='true' type="password" name="password-confirm">
       <input type="submit" name="signup" value="Sign me up!">
     </form>
   <h2> <%= flash[:error_signup] %></h2>

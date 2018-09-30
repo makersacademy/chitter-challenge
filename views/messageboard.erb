@@ -7,7 +7,7 @@
   </head>
   <body>
     <nav>
-      <li><%= @username %></li>
+      <li><%= @username.capitalize %></li>
       <li>
         <form action="/" method="get">
           <input type="submit" name="logout" value="Logout">
@@ -16,14 +16,14 @@
     </nav>
     <h1>Chitter</h1>
     <form action="/message" method="post">
-      <input required ='true' type="text" name="message">
+      <input placeholder="message here" required ='true' type="text" name="message">
       <input type="submit" name="post" value="Post!">
     </form>
     <ul>
       <% @messageboard.each do |message| %>
       <li>
         <div>
-          <h4><%=message[:username]%></h4>
+          <h4><%=message[:username].capitalize%></h4>
           <h4><%=message[:time]%></h4>
         </div>
         <p><%=message[:body]%></p>

@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
 
   get '/' do
     session['username'] = nil
-    DataMapper.setup(:default, "postgres://localhost:5432/chitter")
+    database = ENV['TEST_DATABASE'] || 'chitter'
+    DataMapper.setup(:default, "postgres://localhost:5432/#{database}")
     DataMapper.finalize
     erb :homepage
   end
@@ -22,24 +23,29 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    flash[:error_signup] = "Username or password already in use!"
-    redirect '/signup' if User.first(:username => params['username']) != nil
-    redirect '/signup' if User.first(:email => params['email']) != nil
-    User.create(
-      :username       => params['username'],
-      :email          => params['email'],
-      :password       => params['password']
-    )
-    redirect '/'
+    if User.first(:username => params['username'].downcase) != nil || User.first(:email => params['email'].downcase) != nil
+      flash[:error_signup] = "Username or password already in use!"
+      redirect '/signup'
+    elsif params['password'] != params['password-confirm']
+      flash[:error_signup] = "Please confirm password exactly!"
+      redirect '/signup'
+    else
+      User.create(
+        :username       => params['username'].downcase,
+        :email          => params['email'].downcase,
+        :password       => params['password']
+      )
+      redirect '/'
+    end
   end
 
   post '/login' do
-    attemped_login = User.first(:username => params['username'])
+    attemped_login = User.first(:username => params['username'].downcase)
     if attemped_login == nil
       flash[:error_login] = "Sorry, unknown username or password!"
     elsif attemped_login['password'] == params['password']
-      session['username'] = params['username']
-      redirect 'messageboard'
+      session['username'] = params['username'].downcase
+      redirect '/messageboard'
     end
     redirect '/'
   end
@@ -62,7 +68,7 @@ class Chitter < Sinatra::Base
     @messageboard = data.collect do |entry| {
         body: entry.body,
         username: User.first(:id => entry.userid)['username'],
-        time: entry.time  }
+        time: entry.time.strftime("%k:%M   %d/%m/%Y") }
     end
 
     p @messageboard
