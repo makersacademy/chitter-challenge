@@ -8,9 +8,9 @@
   <body>
     <h1>Sign in!</h1>
     <form action="/signup" method="post">
-      <input type="text" name="username">
-      <input type="email" name="email">
-      <input type="password" name="password">
+      <input required ='true' type="text" name="username">
+      <input required ='true' type="email" name="email">
+      <input required ='true' type="password" name="password">
       <input type="submit" name="signup" value="Sign me up!">
     </form>
   <h2> <%= flash[:error_signup] %></h2>

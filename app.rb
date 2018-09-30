@@ -11,6 +11,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    session['username'] = nil
     DataMapper.setup(:default, 'postgres://localhost:5432/chitter')
     DataMapper.finalize
     erb :homepage
@@ -44,17 +45,27 @@ class Chitter < Sinatra::Base
   end
 
   post '/message' do
+    redirect '/' if session['username'] == nil
+    user = User.first(:username => session['username'])
     Message.create(
       :body       => params['message'],
-      :userid     => 1,
+      :userid     => user.id,
       :time => Time.now
     )
     redirect '/messageboard'
   end
 
   get '/messageboard' do
-    @username = session['username']
-    @messageboard = Message.all(:order => [ :time.desc ])
+    redirect '/' if session['username'] == nil
+
+    data = Message.all(:order => [ :time.desc ])
+    @messageboard = data.collect do |entry| {
+        body: entry.body,
+        username: User.first(:id => entry.userid)['username'],
+        time: entry.time  }
+    end
+
+    p @messageboard
     erb :messageboard
   end
 

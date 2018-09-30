@@ -8,20 +8,25 @@
   <body>
     <nav>
       <li><%= @username %></li>
+      <li>
+        <form action="/" method="get">
+          <input type="submit" name="logout" value="Logout">
+        </form>
+      </li>
     </nav>
     <h1>Chitter</h1>
     <form action="/message" method="post">
-      <input type="text" name="message">
+      <input required ='true' type="text" name="message">
       <input type="submit" name="post" value="post!">
     </form>
     <ul class='bookmarks'>
       <% @messageboard.each do |message| %>
       <li>
         <div class="">
-          <h4><%=message.userid%></h4>
-          <h4><%=message.time%></h4>
+          <h4><%=message[:username]%></h4>
+          <h4><%=message[:time]%></h4>
         </div>
-        <p><%=message.body%></p>
+        <p><%=message[:body]%></p>
       </li>
     <% end %>
   </ul>
