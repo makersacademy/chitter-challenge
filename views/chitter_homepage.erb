@@ -4,7 +4,7 @@
     <li><%= @user_class.get(peep.user_id).username %></li>
     <li><%= @user_class.get(peep.user_id).name %></li>
     <li class="peep">"<%= peep.text %>"</li>
-    <li>peeped on <%= (peep.created_at).strftime("%d/%m/%Y at %I:%M%p") %></li>
+    <li class="peep-time">peeped on <%= (peep.created_at).strftime("%d/%m/%Y at %I:%M%p") %></li>
   </ul>
 <% end %>
 <% if @current_user %>

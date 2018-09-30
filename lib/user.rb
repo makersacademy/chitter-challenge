@@ -1,20 +1,23 @@
 require 'data_mapper'
+require 'bcrypt'
+
 class User
 
   include DataMapper::Resource
 
   property :id, Serial
   property :email, String
-  property :password, String
+  property :password, Text
   property :username, String
   property :name, String
 
   has n, :peeps
 
-  def self.make(email:, password:, username:, name:)
+  def self.make(email:, password:, username:, name:, encrypter: BCrypt::Password)
     return false unless new_email?(email)
     return false unless new_username?(username)
-    create(email: email, password: password, username: username, name: name)
+    encrypted_password = encrypter.create(password)
+    create(email: email, password: encrypted_password, username: username, name: name)
   end
 
   def self.sign_in(username:, password:)

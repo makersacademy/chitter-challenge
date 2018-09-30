@@ -12,7 +12,16 @@ describe User do
   end
 
   context ".make" do
+
+    let(:encrypter) { double :BCrypt }
+
+    it 'hashes the password using BCrypt' do
+      expect(encrypter).to receive(:create).with('password12345')
+      User.make(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale", encrypter: encrypter)
+    end
+
     it "should return User object for empty database" do
+      allow(encrypter).to receive(:create).with('password12345')
       expect(User.make(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")).to be_instance_of(User)
     end
 

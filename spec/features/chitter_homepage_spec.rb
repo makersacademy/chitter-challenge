@@ -25,11 +25,12 @@ feature "Chitter Homepage" do
       expect(first('.peep')).to have_content "This is the post_a_peep2 test peep"
     end
 
-    xscenario "should display peeps in reverse chronological order" do
-      Peep.create(text: "Test Peep1", created_at: Time.now)
-      Peep.create(text: "Test Peep2", created_at: Time.at(628_232_400))
+    scenario "should display peeps in reverse chronological order" do
+      logged_on
+      post_a_peep
+      post_a_peep2
       visit "/peeps"
-      expect(first('.peep')).to have_content '"Test Peep2" peeped on 28/11/1989 at 05:00AM'
+      expect(first('.peep-time')).to have_content (Time.now).strftime("%d/%m/%Y at %I:%M%p")
     end
   end
 
