@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   require_relative 'controllers/logout'
   require_relative 'controllers/peeping'
   require_relative 'controllers/signup'
-  require_relative 'controllers/commenting'
+  require_relative 'controllers/replying'
 
   run! if app_file == $0
 end

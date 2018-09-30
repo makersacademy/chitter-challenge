@@ -1,6 +1,6 @@
 require 'bcrypt'
 require_relative './peep'
-require_relative './comment'
+require_relative './reply'
 
 class User
 
@@ -14,8 +14,7 @@ class User
   property :email, String, unique: true, required: true
   property :password_digest, Text
   has n, :peep
-  has n, :comment
-
+  has n, :reply
 
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address

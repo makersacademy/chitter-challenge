@@ -30,14 +30,14 @@
 
     <ul>
 
-    <% peep.comments.each do |comment| %>
-    <li> <%= comment.user.username %> at <%= comment.created_at%> </li>
-     <p><%= comment.comment%></p>
+    <% peep.reply.each do |reply| %>
+    <li> <%= reply.user.username %> at <%= reply.created_at%> </li>
+     <p><%= reply.message%></p>
     <%end%>
   </ul>
   <% if current_user %>
-    <form action='/comments/<%= peep.id %>/new' method='get'>
-      <input type='submit' value='Comment' name='comment' style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
+    <form action='/reply/<%= peep.id %>/new' method='get'>
+      <input type='submit' value='Reply' name='reply' style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
     </form>
     <%end%>
   </div>
