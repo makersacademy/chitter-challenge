@@ -6,15 +6,7 @@ require 'pg'
 
 feature 'Posting messages' do
 
-  # scenario 'posted first message appears' do
-  #   visit('/enter_msg')
-  #   fill_in :message, with: 'hello everyone!'
-  #   click_button 'Submit'
-  #   expect(page).to have_content 'hello everyone!'
-  # end
-
-  scenario 'display chitter chits' do
-
+  scenario 'display chitter chits from datatbase' do
     conn = PG.connect(dbname: 'chitter_test')
 
     conn.exec("INSERT INTO chits (message) VALUES('hello everyone')")

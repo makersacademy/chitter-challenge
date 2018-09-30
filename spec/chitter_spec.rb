@@ -16,4 +16,5 @@ describe Chitter do
       expect(chitter).to include("fred - 2018-09-29 14:10:22.538287 ----- chitter message: this is a second!!!")
     end
   end
+
 end
