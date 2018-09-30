@@ -41,7 +41,7 @@ class Chitter < Sinatra::Base
 
   post '/login' do
     attemped_login = User.first(:username => params['username'].downcase)
-    if attemped_login == nil
+    if attemped_login.nil?
       flash[:error_login] = "Sorry, unknown username or password!"
     elsif attemped_login['password'] == params['password']
       session['username'] = params['username'].downcase
@@ -51,7 +51,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/message' do
-    redirect '/' if session['username'] == nil
+    redirect '/' if session['username'].nil?
     user = User.first(:username => session['username'])
     Message.create(
       :body       => params['message'],
@@ -62,9 +62,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/messageboard' do
-    redirect '/' if session['username'] == nil
+    redirect '/' if session['username'].nil?
     @username = session['username']
-    data = Message.all(:order => [ :time.desc ])
+    data = Message.all(:order => [:time.desc])
     @messageboard = data.collect do |entry| {
         body: entry.body,
         username: User.first(:id => entry.userid)['username'],

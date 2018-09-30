@@ -10,7 +10,6 @@ def signup_navigation
   click_button('Sign up!')
 end
 
-
 def happy_signup
   fill_in 'username', with: "Aeris"
   fill_in 'email', with: "oopsiperishedagain@gmail.com"

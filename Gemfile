@@ -2,17 +2,17 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'pry'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'
-gem 'pry'
-gem 'dm-postgres-adapter'
-gem 'data_mapper'
 gem 'sinatra-flash'
 
 group :test do
-  gem 'pg'
   gem 'capybara'
+  gem 'pg'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
