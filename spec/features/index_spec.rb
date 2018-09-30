@@ -12,10 +12,9 @@ feature 'main page' do
     visit('/')
     expect(current_path).to eq('/peeps')
   end
-end
 
-feature 'peep dashboard' do
-  it 'peeps are shown in reverse chronological order' do
+  scenario 'peeps are shown in reverse chronological order' do
+    register
     ["1", "2", "3"].each { |message| add_peep(message) }
     expect(page.find_by_id(0)).to have_content('3')
     expect(page.find_by_id(1)).to have_content('2')
