@@ -4,7 +4,7 @@ describe Users do
 
   describe "#all" do
     it "Returns a user object, which we can extract a name instance from" do
-      @test = Users.new(:name => "Florence", :username => "Flo", :email => "flohapgood@icloud.com", :password => "code")
+      @test = Users.new(:name => "Florence", :username => "Flo", :email => "madeup@icloud.com", :password => "code")
       @test.save
       array = Users.all
       user_object = array[@test.id - 1]
@@ -13,7 +13,7 @@ describe Users do
 
 
     it "Returns a user object, which we can extract a username instance from" do
-      @test = Users.new(:name => "Florence", :username => "@Flo", :email => "flohapgood@icloud.com", :password => "code")
+      @test = Users.new(:name => "Florence", :username => "@Flo", :email => "madeup@icloud.com", :password => "code")
       @test.save
       array = Users.all
       user_object = array[@test.id - 1]
