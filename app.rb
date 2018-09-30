@@ -6,10 +6,21 @@ require 'data_mapper'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     DataMapper.setup(:default, 'postgres://localhost:5432/chitter')
     DataMapper.finalize
     erb :homepage
+  end
+
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/login' do
+    session['username'] = params['username']
+    redirect 'messageboard'
   end
 
   post '/message' do
@@ -22,6 +33,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/messageboard' do
+    @username = session['username']
     @messageboard = Message.all(:order => [ :time.desc ])
     erb :messageboard
   end
