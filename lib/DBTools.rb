@@ -14,6 +14,16 @@ class DBTools
     end 
   end 
 
+  def self.connect
+    if ENV['RACK_ENV'] == 'test'
+      conn = PG.connect( dbname: 'chitter_test' )
+    else
+      conn = PG.connect( dbname: 'chitter' )
+    end 
+  end
+    
+  
+
   def self.setup_test_database
     conn = PG.connect( dbname: 'chitter_test' )
     conn.exec("TRUNCATE messages")
