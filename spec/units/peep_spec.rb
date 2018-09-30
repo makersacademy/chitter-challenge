@@ -1,7 +1,7 @@
 describe Peep do
   Timecop.freeze(Time.new(2018, 9, 20, 15, 0, 0, 0))
-  describe 'On creation' do
-    it '.all returns empty array' do
+  describe '.all' do
+    it 'returns empty array on creation' do
       expect(Peep.all).to be_empty
     end
   end
