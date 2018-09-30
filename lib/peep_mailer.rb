@@ -1,5 +1,5 @@
 class PeepMailer
-  def initialize
+  def initialize(connection: DatabaseConnection)
   end
 
   def inform(user, peep_text, reply_to)

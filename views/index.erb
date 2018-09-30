@@ -32,7 +32,7 @@
   <%= flash[:logged_out] %>
 
   <div class='peep_feed'>
-    <% @peep_feed.top_peeps(100).each do |peep| %>
+    <% @peep_feed.top_peeps(30).each do |peep| %>
       <div class='peep'>
         <p>Peeped by <%= peep.username %> on <%= peep.post_time %>at <%= peep.post_time %>. </p>
         <% if peep.reply_to %>
