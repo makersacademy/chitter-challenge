@@ -22,6 +22,7 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
+#Users.create(:name => 'Bob', :username => "bobbie", :email => "jijij", :password => "jijiji")
 
 #if ENV['ENVIRONMENT'] == 'test'
 #  DataMapper.auto_migrate!

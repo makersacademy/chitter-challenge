@@ -31,11 +31,10 @@ class ChitterManager < Sinatra::Base
       flash[:error] = string_2
       redirect "/"
     else
-      Users.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
+      @user = Users.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
+      @user.save
     end
     }
-
-
     redirect "/home"
   end
 
