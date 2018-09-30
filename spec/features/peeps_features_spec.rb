@@ -17,4 +17,14 @@ feature 'Displays all peeps' do
     click_button 'peep'
     expect(page).to have_content(Time.now.strftime "%d-%^b-%Y %H:%M")
   end
+
+  scenario 'Displays username of poster' do
+    clear_database
+    populate_database
+    visit ('/')
+    sign_up
+    fill_in 'peep', with: 'user_test'
+    click_button 'peep'
+    expect(page).to have_content('test_username')
+  end
 end

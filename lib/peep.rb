@@ -2,15 +2,15 @@ require 'pg'
 
 class Peep
 
-  def self.store(peep)
+  def self.store(peep, username)
     self.connect_db
-    @con.exec "INSERT INTO peeps (peep, time) VALUES ('#{peep}', CURRENT_TIMESTAMP)"
+    @con.exec "INSERT INTO peeps (peep, time, userid) VALUES ('#{peep}', CURRENT_TIMESTAMP, (SELECT userid from users WHERE username='#{username}'))"
   end
 
   def self.all
     self.connect_db
-    result = @con.exec "SELECT peep, TO_CHAR(time, 'DD-MON-YYYY HH24:MI') FROM peeps ORDER BY time DESC"
-    result.map { |row| {:peep => row['peep'], :time => row['to_char']} }
+    result = @con.exec "SELECT peeps.peep, TO_CHAR(peeps.time, 'DD-MON-YYYY HH24:MI'), users.username FROM peeps INNER JOIN users ON peeps.userid = users.userid ORDER BY time DESC"
+    result.map { |row| {:peep => row['peep'], :time => row['to_char'], :username => row['username']} }
   end
 
   private

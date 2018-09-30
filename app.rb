@@ -1,5 +1,6 @@
 require 'sinatra'
 require './lib/peep.rb'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
 
@@ -17,11 +18,13 @@ class Chitter < Sinatra::Base
 
   post '/peep_index' do
     session[:first_name] = params[:first_name]
+    session[:username] = params[:username]
+    User.store(params[:email], params[:password], params[:first_name], params[:last_name], params[:username])
     redirect('/peep')
   end
 
   post '/peep' do
-    Peep.store(params[:peep])
+    Peep.store(params[:peep], session[:username])
     redirect('/peep')
   end
 

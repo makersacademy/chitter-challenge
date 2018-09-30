@@ -13,6 +13,7 @@ Hello <%= @first_name %>, what's on your mind?
 <% @peep.each do |entry| %>
   <%= entry[:peep] %>
   <%= entry[:time] %>
+  <%= entry[:username] %>
   <br />
 <% end %>
 </div>
