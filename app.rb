@@ -26,6 +26,11 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/user/logout/?' do
+    User.class_variable_set(:@@current_user, nil)
+    redirect '/'
+  end
+
   get '/user/register/?' do
     erb :register
   end

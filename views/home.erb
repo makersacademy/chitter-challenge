@@ -3,6 +3,7 @@
   <% if @user %>
     <span>Hey, <%= @user.name %>!</span>
     <a href="/peep/create" class="button">Create Peep</a>
+    <a href="/user/logout" class="button">Log Out</a>
   <% else %>
     <a href="/user/login" class="button">Log In</a>
     <a href="/user/register" class="button">Register</a>
