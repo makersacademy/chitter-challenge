@@ -1,3 +1,4 @@
+
 require 'messages'
 
 describe Messages do

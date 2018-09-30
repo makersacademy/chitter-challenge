@@ -1,4 +1,6 @@
 require 'pg'
+require 'date'
+
 class Messages
 
   def self.all
@@ -19,4 +21,5 @@ class Messages
     end
       connection.exec("INSERT INTO messages (messages) VALUES('#{messages}')")
   end
+
 end
