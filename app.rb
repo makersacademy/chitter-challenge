@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'data_mapper'
 require './lib/models'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @user = User.get(session[:user_id])
@@ -32,10 +34,26 @@ class Chitter < Sinatra::Base
 
   post '/messages' do
     Message.create(text: params['post'], user_id: session[:user_id])
-    p params
-    session[:user_id]
     redirect '/'
   end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.first(:email => params['email'], :password => params['password'])
+    if user
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash[:notice] = 'Your email or your password is incorrect.'
+      redirect('/sessions/new')
+    end
+  end
+
+
+
 
   run! if app_file == $0
 end

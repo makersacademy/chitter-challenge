@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+    <base href="/">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+
+  <body>
+    <h1>Log in to Chitter account </h1>
+    <form action="/sessions" method="post">
+      <input type="email" name="email" placeholder="Enter your email"/><br>
+      <input type="password" name="password" placeholder="Enter your password"/><br>
+      <input type="submit" value="Log in" />
+    </form>
+    <h2><%= flash[:notice] %></h2>
+  </body>
+</html>

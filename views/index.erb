@@ -16,9 +16,12 @@
       </form> </br>
       <% else %>
         <h1>Welcome to Chitter</h1>
-        <form action="/users/new" method="get">
+        <form action="/sessions/new" method="get">
+          <input type="submit" value="Log in" />
+        </form> <form action="/users/new" method="get">
           <input type="submit" value="Sign up" />
         </form> </br>
+
     <% end %> <br>
 
     <% @messages.each do |message| %>
