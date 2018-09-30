@@ -4,20 +4,20 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-ENV['CHATTER'] = 'TEST'
+ENV['CHITTER'] = 'TEST'
 
-require File.expand_path('../app/chatter_app.rb', __dir__)
-require File.expand_path('../lib/chat.rb', __dir__)
+require File.expand_path('../app/chitter_app.rb', __dir__)
+require File.expand_path('../lib/peep.rb', __dir__)
 require File.expand_path('../lib/user.rb', __dir__)
 require File.expand_path('../lib/database_connection.rb', __dir__)
 require File.expand_path('./features/helpers.rb', __dir__)
 
-Capybara.app = Chatter
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 

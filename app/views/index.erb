@@ -7,13 +7,13 @@
   <h1>Hi <%= @user.username %>!</h1>
 <% end %>
 <h1>
-  Welcome to Chatter!
+  Welcome to Chitter!
 </h1>
 
 <form action="/add" method="post">
   <div>
     <label for="">
-    <input type="text" id="text" name="text">
+    <input type="text" placeholder="Say Something" id="text" name="text">
   </div>
   <div class="button">
     <button type="submit" value="Say Something">Say Something</button>
@@ -21,16 +21,16 @@
 </form>
 
 <h2>
-  Chats:
+  Peeps:
 </h2>
 
 <ul>
-  <% @chats.each do |chat| %>
-    <li class="chat" id="chat-<% chat.id %>">
-      <%= chat.text %>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<% peep.id %>">
+      <%= peep.text %>
       <ul>
         <li>
-          Posted at: <%= chat.time %>
+          Posted at: <%= peep.time %>
         </li>
       </ul>
     </li>

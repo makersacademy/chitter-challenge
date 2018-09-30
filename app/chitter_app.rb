@@ -1,13 +1,13 @@
 require 'sinatra/base'
-require './lib/chat.rb'
+require './lib/peep.rb'
 require './lib/user.rb'
 require './lib/database_connection.rb'
 
-class Chatter < Sinatra::Base
+class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @chats = Chat.all
+    @peeps = Peep.all
     @user = User.find(session[:user_id])
     erb(:index)
   end
@@ -17,7 +17,7 @@ class Chatter < Sinatra::Base
   end
 
   post '/add' do
-    Chat.add(params[:text])
+    Peep.add(params[:text])
     redirect '/'
   end
 
