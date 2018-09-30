@@ -1,0 +1,20 @@
+body {
+    background-color: #d5f4e6;
+    color: #618685;
+    font-size: 1.1em;
+    text-align: center;
+}
+h1 {
+    color: #618685;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.messages {
+  width: 300px;
+  border: 25px #618685;
+  padding: 25px;
+  margin: 25px;
+}

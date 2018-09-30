@@ -1,12 +1,31 @@
-<% if @user %>
-  <h1>Welcome to Chitter, <%= @user.username %></h1>
-<% end %> <br>
-<form action="/messages/new" method="get">
-  <input type="submit" value="Post a message" />
-</form> </br>
+<!DOCTYPE html>
 
-<% @messages.each do |message| %>
-  <div class="messages">
-    <%= message['text'] %>
-  </div>
-<% end %>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chitter</title>
+    <base href="/">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+
+  <body>
+    <% if @user %>
+      <h1>Welcome to Chitter, <%= @user.username %></h1>
+      <form action="/messages/new" method="get">
+        <input type="submit" value="Post a message" />
+      </form> </br>
+      <% else %>
+        <h1>Welcome to Chitter</h1>
+        <form action="/users/new" method="get">
+          <input type="submit" value="Sign up" />
+        </form> </br>
+    <% end %> <br>
+
+    <% @messages.each do |message| %>
+      <div class="messages">
+        <%= message['text'] %> <br>
+        Posted at <%= message['created_at'] %> by <%= message.user.name %>
+      </div>
+    <% end %>
+  </body>
+</html>
