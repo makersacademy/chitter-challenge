@@ -1,21 +1,36 @@
 require 'simplecov'
 require 'simplecov-console'
 
+ENV['ENVIRONMENT'] = 'test'
+
+require 'capybara'
+require 'capybara/rspec'
+require './app'
+require_relative 'setup_test_database'
+require 'simplecov'
+require 'simplecov-console'
+require 'rspec'
+
+Capybara.app = ChitterManager
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
 # at the top of spec/spec_helper.rb
 
 # Set the environment to "test"
-ENV['RACK_ENV'] = 'test'
+
 
 # Bring in the contents of the `app.rb` file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 # Require all the testing gems
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
+
 
 # Tell Capybara to talk to BookmarkManager
-Capybara.app = ChitterManager
+
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

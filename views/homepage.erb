@@ -1,0 +1,16 @@
+<form method="post" action="/post_message">
+  <input type="text" name="name" placeholder="NAME" />
+  <input type="text" name="content" placeholder="CONTENT" />
+  <input type="submit" value="Submit" />
+</form>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li class="message" id="message-<%= message.id %>">
+      <a> <%= message.name %> >
+        <br>
+        <%= message.content %>
+      </a>
+    </li>
+  <% end %>
+</ul>
