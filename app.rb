@@ -1,15 +1,16 @@
 require 'sinatra/base'
+require 'sinatra'
 require_relative './lib/message'
 
 class ChitterManager < Sinatra::Base
   enable :sessions
+
   get '/' do
-    @messages = Message.all
     erb :homepage
   end
 
   post '/post_message' do
-    Message.create(name: params[:name], content: params[:content])
+    Post.create(content: params[:content], created_at: Time.now, user_id: 1)
     redirect '/'
   end
 
