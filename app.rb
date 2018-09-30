@@ -49,6 +49,12 @@ class Chitter < Sinatra::Application
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/peeps/index')
+  end
+
   get '/peeps/index' do
     # @user = User.find(session[:username])
     # p @user
