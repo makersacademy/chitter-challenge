@@ -3,7 +3,7 @@
 # I want to see all peeps in reverse chronological order
 feature 'Viewing peeps' do
   scenario 'A user can see peeps reverse chronological order' do
-    connection = PG.connect(dbname: 'chitter_test')
+    # connection = PG.connect(dbname: 'chitter_test')
 
     # Add the test data
     Peep.create(peep: 'first peep', time: DateTime.now)

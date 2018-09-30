@@ -4,6 +4,7 @@ ENV['RACK_ENV'] = 'test'
 require './app/app.rb'
 # models
 require './app/models/peep'
+require './app/models/database_connection'
 # spec
 require 'capybara/rspec'
 require 'simplecov'

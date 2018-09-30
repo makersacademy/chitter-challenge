@@ -1,8 +1,9 @@
 describe Peep do
+  
   describe '.all' do
     it 'returns all peeps in reverse order' do
 
-      connection = PG.connect(dbname: 'chitter_test')
+      # connection = PG.connect(dbname: 'chitter_test')
 
       # Add the test data
       now = DateTime.now
