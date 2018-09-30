@@ -11,6 +11,7 @@ gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'uri'
 
 group :test do
   gem 'launchy'

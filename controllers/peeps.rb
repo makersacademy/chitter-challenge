@@ -22,4 +22,6 @@ class ChitterApp < Sinatra::Base
                                   params[:id])
     redirect '/'
   end
+  
+  run! if app_file == $0
 end

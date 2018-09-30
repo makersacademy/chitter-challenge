@@ -32,4 +32,6 @@ class ChitterApp < Sinatra::Base
     flash[:logged_out] = 'You are now logged out.'
     redirect '/'
   end
+
+  run! if app_file == $0
 end

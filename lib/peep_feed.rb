@@ -1,11 +1,12 @@
-require_relative 'peep'
 require_relative 'database_connection'
+require_relative 'peep'
+require_relative 'peep_mailer'
 
 class PeepFeed
-  def initialize(connection: DatabaseConnection, mailer: nil,
+  def initialize(connection: DatabaseConnection, mailer: PeepMailer,
                  peep_type: Peep)
     @connection = connection
-    @mailer = mailer
+    @mailer = mailer.new
     @peep_type = peep_type
   end
 
@@ -35,6 +36,7 @@ class PeepFeed
   end
 
   def reply_peep(user, peep_text, reply_to)
+    @mailer.inform(user, peep_text, reply_to)
     post_peep(user, peep_text)
     peep_id = @connection.query('SELECT id FROM peeps WHERE user_id = '\
       "#{user.user_details[:id].to_i} ORDER BY id DESC LIMIT 1;")[0][:id].to_i

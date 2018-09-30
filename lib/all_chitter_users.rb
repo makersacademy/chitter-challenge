@@ -45,6 +45,8 @@ class AllChitterUsers
     # This is the step where it would be good to sanitise the inputs to the SQL
     # query.
 
+    # This regexp just checks that there is some text, then an @, then more text
+    # then a ., then more text. Which is not a great check for an email.
     entry_hash[:email] =~ /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   end
 
