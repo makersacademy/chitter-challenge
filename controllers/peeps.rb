@@ -13,8 +13,13 @@ class ChitterApp < Sinatra::Base
 
   get '/peeps/:id' do
     @chosen_peep = settings.peep_feed.get_peep(params[:id])
-    p params
-    p @chosen_peep
+    @current_user = settings.current_user
     erb :individual_peep
+  end
+
+  post '/peeps/:id' do
+    settings.peep_feed.reply_peep(settings.current_user, params[:reply_content],
+                                  params[:id])
+    redirect '/'
   end
 end

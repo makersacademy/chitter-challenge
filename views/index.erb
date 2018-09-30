@@ -2,6 +2,7 @@
 </head>
 
 <body>
+  <h1> CHITTER </h1>
   <% if @current_user.user_details.nil? %>
     <div class ='log_in'>
       <h3> Sign in </h3>
@@ -12,7 +13,7 @@
         <a href='/users/new'> Sign up for Chitter! </a>
     </div>
   <% else %>
-    <h1> You are logged in as <%= @current_user.username %> </h1>
+    <h3> You are logged in as <%= @current_user.username %> </h3>
     <div class='log_out'>
       <form action='/log_out' method='post'>
         <input type='submit' value='Log out'/>
@@ -32,10 +33,18 @@
   <div class='peep_feed'>
     <% @peep_feed.top_peeps(100).each do |peep| %>
       <div class='peep'>
-        <p>Peeped by <%= peep.username %> on <%= peep.post_time %>at <%= peep.post_time %> </p>
+        <p>Peeped by <%= peep.username %> on <%= peep.post_time %>at <%= peep.post_time %>. </p>
+        <% if peep.reply_to %>
+          <p> This peep is a reply to <a href='/peeps/<%= peep.reply_to[:original_id] %>'>this peep by</a> <%= peep.reply_to[:username] %> at <%= peep.reply_to[:timestamp] %>. </p>
+        <% end %>
         <%= peep.content %>
         <br>
-      </div>
+        <% if @current_user.user_details %>
+        <form action='/peeps/<%= peep.id %>' method='get'>
+          <input type='submit' value='Reply'/>
+        </form>
+        <% end %>
+      </div><br>
     <% end %>
   </div>
 </body>

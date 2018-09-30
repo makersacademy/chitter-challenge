@@ -2,7 +2,7 @@ require 'peep'
 
 RSpec.describe Peep do
 
-  subject { described_class.new('billy1', 'Hello, Chitter!', Time.now.to_s) }
+  subject { described_class.new(1, 'billy1', 'Hello, Chitter!', Time.now.to_s) }
 
   it 'should have a username attached' do
     expect(subject.username).to eq 'billy1'

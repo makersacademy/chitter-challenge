@@ -2,9 +2,21 @@
 </head>
 
 <body>
+  <h1> CHITTER </h1>
+  <% if @current_user.user_details %>
+  <h3> You are logged in as <%= @current_user.username %> </h3>
+  <% end %>
   <div class='peep'>
     <p>Peeped by <%= @chosen_peep.username %> at <%= @chosen_peep.post_time %> </p>
     <%= @chosen_peep.content %>
     <br>
   </div>
+  <div class='peep_reply'>
+    <% if @current_user.user_details %>
+      <form action='/peeps/<%= @chosen_peep.id %>' method='post'>
+        <input type='text' name='reply_content'/>
+        <input type='submit' value='Reply'/>
+      </form>
+    <% end %>
+  <div>
 </body>
