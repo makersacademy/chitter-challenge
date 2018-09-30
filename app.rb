@@ -2,7 +2,7 @@ require "./lib/chitter"
 require 'sinatra/base'
 require_relative 'database_connection_setup'
 require 'sinatra/flash'
-
+require "./lib/users"
 
 class ChitterManager < Sinatra::Base
 
@@ -16,7 +16,8 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/sign_in' do
-    session[:username] = params[:username]
+    #session[:username] = params[:username]
+    Users.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
     redirect '/home'
   end
 

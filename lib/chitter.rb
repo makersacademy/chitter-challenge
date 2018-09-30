@@ -13,8 +13,6 @@ end
 
 class Chitter
 
-
-
   include DataMapper::Resource
 
   property :id,         Serial    # An auto-increment integer key

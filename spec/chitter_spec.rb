@@ -28,6 +28,7 @@ describe Chitter do
     end
   end
 
+
   describe "#new" do
     it "Creates a new chitter" do
       @test = Chitter.new(:message => "Buffy", :posted_by => "Florence", :created_at => Time.now)
