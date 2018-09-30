@@ -1,13 +1,19 @@
 describe Peeps do
+  let(:database) { DBHelper.connect_to_db }
   describe '.all' do
     it 'returns array of all tweets' do
-      expect { Peeps.add('Hello Chitter!') }.to_not raise_error 
+      time = Time.now
+      msg = 'Hello Chitter!'
+      database.exec("INSERT INTO peeps(created_at, message) VALUES('#{time}', '#{msg}')")
+      # format time to be the same as the db returns
+      expect(Peeps.all).to eq([{msg: msg, created_at: time.strftime('%H:%M %d/%m/%y')}])
     end
   end
 
   describe '.add' do
     it 'adds a peep to the DB' do
-      expect { Peeps.add('Hello Chitter!') }.to_not raise_error
+      Peeps.add('Hello Chitter!')
+      expect(database.exec('SELECT message FROM peeps').first).to eq({"message" => "Hello Chitter!"})
     end
   end
 end
