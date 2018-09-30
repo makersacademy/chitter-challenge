@@ -3,19 +3,23 @@
   <center>
   <h1> messages below... </h1>
 
-  <!-- <h2> <%= @msg %> </h2> -->
-
   <ul style="list-style-type:square">
     <% @msg.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
 
-  
   <h2> To 'chit' please press enter </h2>
 
   <form action="/enter_msg">
     <input type="submit" value="Enter">
   </form>
+
+  <h2> Or to restart and re-sign in with a new user name, then please press 'Re-sign' </h2>
+
+  <form action="/">
+    <input type="submit" value="Re-sign">
+  </form>
+
   </center>
 </div>
