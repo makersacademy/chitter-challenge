@@ -7,6 +7,7 @@ require 'sinatra/flash'
 class ChitterManager < Sinatra::Base
 
   enable :method_override
+  enable :sessions
 
   register Sinatra::Flash
 
@@ -15,12 +16,14 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/sign_in' do
-    @username = params[:username]
+
+    session[:username] = params[:username]
     redirect '/home'
   end
 
   get '/home' do
     @chitter = Chitter.all(:order => [:id.desc])
+    @username = session[:username]
     erb (:index)
   end
 
