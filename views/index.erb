@@ -1,4 +1,5 @@
 <head>
+  <link rel="stylesheet" type="text/css" href="public/style.css">
 </head>
 
 <body>
@@ -35,7 +36,7 @@
       <div class='peep'>
         <p>Peeped by <%= peep.username %> on <%= peep.post_time %>at <%= peep.post_time %>. </p>
         <% if peep.reply_to %>
-          <p> This peep is a reply to <a href='/peeps/<%= peep.reply_to[:original_id] %>'>this peep by</a> <%= peep.reply_to[:username] %> at <%= peep.reply_to[:timestamp] %>. </p>
+          <p> This peep is a reply to <a href='/peeps/<%= peep.reply_to[:original_id] %>'>this peep</a> by <%= peep.reply_to[:username] %> at <%= peep.reply_to[:timestamp] %>. </p>
         <% end %>
         <%= peep.content %>
         <br>

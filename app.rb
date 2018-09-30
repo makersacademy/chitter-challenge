@@ -18,10 +18,10 @@ class ChitterApp < Sinatra::Base
     set :peep_feed, PeepFeed.new
   end
 
-  # not_found do
-  #   status 404
-  #   erb :'404Page'
-  # end
+  not_found do
+    status 404
+    erb :'404_page'
+  end
 
   get '/' do
     @current_user = settings.current_user
