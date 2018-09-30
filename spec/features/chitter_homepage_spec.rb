@@ -3,19 +3,29 @@ require_relative "../web_helpers"
 feature "Chitter Homepage" do
   feature "News feed" do
     scenario "should display peep" do
-      Peep.create(text: "Test Peep1")
+      logged_on
+      post_a_peep
       visit "/peeps"
-      expect(page).to have_content "Test Peep1"
+      expect(page).to have_content "This is the post_a_peep test peep"
+    end
+
+    scenario "should display peepers name and handle" do
+      logged_on
+      post_a_peep
+      visit "/peeps"
+      expect(page).to have_content "AbagnaleF"
+      expect(page).to have_content "Frank Abagnale"
     end
 
     scenario "should display multiple peeps" do
-      Peep.create(text: "Test Peep1")
-      Peep.create(text: "Test Peep2")
+      logged_on
+      post_a_peep
+      post_a_peep2
       visit "/peeps"
-      expect(first('.peep')).to have_content "Test Peep2"
+      expect(first('.peep')).to have_content "This is the post_a_peep2 test peep"
     end
 
-    scenario "should display peeps in reverse chronological order" do
+    xscenario "should display peeps in reverse chronological order" do
       Peep.create(text: "Test Peep1", created_at: Time.now)
       Peep.create(text: "Test Peep2", created_at: Time.at(628_232_400))
       visit "/peeps"

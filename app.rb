@@ -56,12 +56,14 @@ class ChitterApp < Sinatra::Base
 
   get '/peeps' do
     @current_user = User.current_user
+    @user_class = User
     @peeps = Peep.all.reverse
     erb :chitter_homepage
   end
 
   post '/peeps' do
-    Peep.create(text: params["peep"])
+    User.current_user
+    Peep.create(text: params["peep"], user_id: User.current_user.id)
     redirect '/peeps'
   end
 

@@ -5,3 +5,15 @@ def logged_on
   fill_in("password", with: "password12345")
   click_button "Sign In"
 end
+
+def post_a_peep
+  visit "/peeps/new"
+  fill_in("peep", with: "This is the post_a_peep test peep")
+  click_button "Post"
+end
+
+def post_a_peep2
+  visit "/peeps/new"
+  fill_in("peep", with: "This is the post_a_peep2 test peep")
+  click_button "Post"
+end

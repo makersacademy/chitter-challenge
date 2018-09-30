@@ -9,6 +9,8 @@ class User
   property :username, String
   property :name, String
 
+  has n, :peeps
+
   def self.make(email:, password:, username:, name:)
     return false unless new_email?(email)
     return false unless new_username?(username)
