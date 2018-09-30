@@ -30,6 +30,21 @@ class Chitter < Sinatra::Base
     erb :"peeps/new"
   end
 
+  get '/users/login' do
+    erb :"users/login"
+  end
+
+  post '/users/login' do
+    user = Users.authenticate(params['email'], params['password'])
+    if user.is_a? String
+      flash[:err_message] = user
+      redirect '/users/login'
+    else
+      session[:user] = user
+      redirect '/users/welcome'
+    end
+  end
+
   get '/users/signup' do
     erb :"users/signup"
   end

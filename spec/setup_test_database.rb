@@ -1,4 +1,5 @@
 require 'database_connection'
+require 'bcrypt'
 
 def setup_test_database
   DatabaseConnection.setup('chitter_database_test')
@@ -12,4 +13,5 @@ def setup_test_database
   #setup table users
   DatabaseConnection.exec('DROP TABLE users')
   DatabaseConnection.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(240))')
+  DatabaseConnection.exec("INSERT INTO users (email, password) VALUES('test@email.com', '#{BCrypt::Password.create('password')}')")
 end
