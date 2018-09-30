@@ -26,4 +26,19 @@ describe User do
       expect(User.make(email: "different@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")).to eq false
     end
   end
+
+  context ".sign_in"do
+    it "should return false if username doesn't exist" do
+      expect(User.sign_in(username: "Jim33", password: "password")).to eq false
+    end
+
+    it "should return false if password wrong" do
+      user = User.create(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
+      expect(User.sign_in(username: "AbagnaleF", password: "password")).to eq false
+    end
+    it "should return User object if password right" do
+      user = User.create(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
+      expect(User.sign_in(username: "AbagnaleF", password: "password12345")).to be_instance_of(User)
+    end
+  end
 end

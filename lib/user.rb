@@ -15,6 +15,12 @@ class User
     self.create(email: email, password: password, username: username, name: name)
   end
 
+  def self.sign_in(username: username, password: password)
+    return false unless self.username_exist?(username)
+    return false unless self.password_correct?(username, password)
+    @current_user = self.first(username: username)
+  end
+
   private
 
   def self.new_email?(email)
@@ -23,6 +29,15 @@ class User
 
   def self.new_username?(username)
     self.count(username: username) == 0
+  end
+
+  def self.username_exist?(username)
+    self.count(username: username) != 0
+  end
+
+  def self.password_correct?(username, password)
+    user = self.first(username: username)
+    user.password == password
   end
 
 end
