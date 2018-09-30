@@ -4,7 +4,7 @@ class DatabaseConnection
   attr_reader :connection
   
   def self.setup(dbname)
-    @connection = PG.connect(dbname: dbname)
+    @connection = PG.connect(dbname: 'chitter_test')
   end
 
   def self.connection
