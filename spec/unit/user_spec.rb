@@ -5,6 +5,8 @@ describe User do
     User.create(email: 'hermione_granger@hogwarts.co.uk', password: 'wingardiumleviosa',
                password_confirmation: 'wingardiumleviosa')
   end
+  let(:mail_gun_client) { double :mail_gun_client }
+  let(:sandbox_domain_name) { ENV["sandbox_domain_name"] }
 
   it 'authenticates when given a valid email address and password' do
     authenticated_user = User.authenticate(user.email, user.password)

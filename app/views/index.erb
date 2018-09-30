@@ -25,7 +25,8 @@
 <% if @peeps %>
 <div class='peep'>
   <% @peeps.each do |peep| %>
-    <p><%= peep.user.username %> peeped on <%= peep.created_at.strftime(" %d/%m/%y at %I:%M%p") %></p>
+  <ul>
+    <li><p><%= peep.user.username %> peeped on <%= peep.created_at.strftime(" %d/%m/%y at %I:%M%p") %></p></li>
     <p><%= peep.message %></p>
 
     <ul>
@@ -35,6 +36,7 @@
      <p><%= reply.message%></p>
     <%end%>
   </ul>
+</ul>
   <% if current_user %>
     <form action='/reply/<%= peep.id %>/new' method='get'>
       <input type='submit' value='Reply' name='reply' style="background-color:purple;color:white;padding:5px;font-size:18px;border:none;padding:8px;">
