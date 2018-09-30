@@ -1,22 +1,19 @@
 class User
-  attr_reader :name, :username, :email
+  attr_reader :user_details, :username
 
   def initialize(connection: DatabaseConnection.new)
-    @name = nil
+    @user_details = nil
     @username = nil
-    @email = nil
     @connection = connection
   end
 
   def log_in(username)
     @username = username
-    user_details = @connection.query('SELECT name, email FROM users WHERE '\
+    @user_details = @connection.query('SELECT id, name, email FROM users WHERE '\
       "username = '#{username}';")[0]
-    @name = user_details[:name]
-    @email = user_details[:email]
   end
 
   def log_out
-    @name = @username = @email = nil
+    @user_details = @username = nil
   end
 end

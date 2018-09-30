@@ -2,7 +2,7 @@
 </head>
 
 <body>
-  <% if @current_user.name.nil? %>
+  <% if @current_user.user_details.nil? %>
     <div class ='log_in'>
       <h3> Sign in </h3>
       <form action='/log_in' method='post'>
@@ -18,8 +18,24 @@
         <input type='submit' value='Log out'/>
       </form>
     </div>
+    <div class='new_peep'>
+      <form action='/peeps' method='post'>
+        <input type='text' name='peep_text'/>
+        <input type='submit' value='Post peep'>
+      </form>
+    </div>
   <% end %>
   <%= flash[:sign_up_message] %>
   <%= flash[:log_in_message] %>
   <%= flash[:logged_out] %>
+
+  <div class='peep_feed'>
+    <% @peep_feed.top_peeps(100).each do |peep| %>
+      <div class='peep'>
+        <p>Peeped by <%= peep.username %> at <%= peep.post_time %> </p>
+        <%= peep.content %>
+        <br>
+      </div>
+    <% end %>
+  </div>
 </body>

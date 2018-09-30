@@ -8,14 +8,10 @@ RSpec.describe User do
       expect(subject.username).to eq 'billy1'
     end
 
-    it 'has a name' do
+    it 'has user details' do
       subject.log_in('billy1')
-      expect(subject.name).to eq 'Billy'
-    end
-
-    it 'has an email' do
-      subject.log_in('billy1')
-      expect(subject.email).to eq 'billy@mail.com'
+      billy_hash = { id: "1", name: "Billy", email: "billy@mail.com" }
+      expect(subject.user_details).to eq(billy_hash)
     end
   end
 
@@ -26,16 +22,10 @@ RSpec.describe User do
       expect(subject.username).to eq nil
     end
 
-    it 'does not have a name' do
+    it 'does not have user_details' do
       subject.log_in('billy1')
       subject.log_out
-      expect(subject.name).to eq nil
-    end
-
-    it 'does not have an email' do
-      subject.log_in('billy1')
-      subject.log_out
-      expect(subject.email).to eq nil
+      expect(subject.user_details).to eq nil
     end
   end
 end
