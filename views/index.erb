@@ -1,12 +1,22 @@
   <h1>Chitter</h1>
+
+<div>
+  <form id='register-form' method='get'>
+    <input formaction='/user/register' id='register' type='submit' value='Register'>
+    <input formaction='/user/login' id='login' type='submit' value='Login'>
+  </form>
+</div>
+
+<div>
   <form action='/peeps' method='post'>
     <input id='add_peep' type='text' name='message' placeholder='Insert Message Here!'>
     <input id='submit_peep' type='submit' value='Post!'>
   </form>
+</div>
 
-  <%@peeps.each_with_index do |peep, index|%>
-    <div class='peep' id=<%=index%> >
-      <a href="/peeps/<%=peep.id%>"<p class='peep-text'>Peep <%=peep.id%>: <%=peep.text%></p></a>
-      <p class='peep-date'><%=peep.time_format%></p>
-    </div>
-  <%end%>
+<%@peeps.each_with_index do |peep, index|%>
+  <div class='peep' id=<%=index%> >
+    <a href="/peeps/<%=peep.id%>"<p class='peep-text'>Peep <%=peep.id%>: <%=peep.text%></p></a>
+    <p class='peep-date'><%=peep.time_format%></p>
+  </div>
+<%end%>
