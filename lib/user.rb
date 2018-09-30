@@ -34,6 +34,11 @@ class User
     new_instance_from(user_hash: result[0])
   end  
 
+  def self.authenticate(email:, password:)
+    result = db_access.exec("SELECT * FROM users WHERE email = '#{email}';")
+    new_instance_from(user_hash: result[0])
+  end
+
   private_class_method
 
   def self.db_access
