@@ -8,7 +8,7 @@
   <ul>
     <% @peeps.each do |peep| %>
       <li>
-        <%= peep.time %>
+        <%= peep.formatted_time %>
         <%= peep.message %> 
       </li>
     <% end %>

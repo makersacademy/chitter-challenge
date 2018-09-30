@@ -26,17 +26,5 @@
       connection.exec("CREATE TABLE IF NOT EXISTS peeps (
         id SERIAL PRIMARY KEY, time TIMESTAMP, message VARCHAR(200));")
     end
-    # ^refactor of:
-    # connection = PG.connect
-    # connection.exec("CREATE DATABASE [IF NOT EXISTS] chitter;")
-    # connection.exec("CREATE DATABASE [IF NOT EXISTS] chitter_test;")
-
-    # connection = PG.connect(dbname: 'chitter')
-    # connection.exec("CREATE TABLE [IF NOT EXISTS] links(
-      # id SERIAL PRIMARY KEY, url VARCHAR(60));")
-
-    # connection = PG.connect(dbname: 'chitter_test')
-    # connection.exec("CREATE TABLE [IF NOT EXISTS] links(
-      # id SERIAL PRIMARY KEY, url VARCHAR(60));")
+    
   end
-# end
