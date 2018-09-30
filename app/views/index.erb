@@ -1,4 +1,8 @@
-<a href="/users/new">Sign Up</a>
+<% if @user %>
+  <a href="/users/log_out">Log Out</a>
+<% else %>
+  <a href="/users/log_in">Log In</a>/<a href="/users/new">Sign Up</a>
+<% end %>
 <% if @user %>
   <h1>Hi <%= @user.username %>!</h1>
 <% end %>
