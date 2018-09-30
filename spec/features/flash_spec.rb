@@ -1,5 +1,7 @@
 feature "flash message" do
   it "flashes an error if username is already taken" do
+    @test = Users.new(:name => "Florence", :username => "@Flo", :email => "flohapgood@madeup.com", :password => "code")
+    @test.save
     visit "/"
     fill_in 'username', with: '@Flo'
     click_button "Submit"
