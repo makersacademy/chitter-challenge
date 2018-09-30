@@ -5,7 +5,7 @@
   <input type="submit" value="Submit" />
 </form>
 
- <% Post.all.each do |post| %>
+ <% Post.all.reverse.each do |post| %>
 <div>
 <%= post.content %> <%= post.created_at.strftime("%H:%M%p") %>
 </div>

@@ -4,7 +4,7 @@ require 'dm-validations'
 require 'dm-migrations'
 
   # A Postgres connection:
-if ENV['ENVIRONMENT'] = 'test'
+if ENV['ENVIRONMENT'] == 'test'
   DataMapper.setup(:default, 'postgres://jamie:@localhost/messages_manager_test')
 else
   DataMapper.setup(:default, 'postgres://jamie:@localhost/messages_manager')
