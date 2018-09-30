@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep/all/?' do
-    'Display all peeps'
+    erb :home
   end
 
   run! if app_file == $0
