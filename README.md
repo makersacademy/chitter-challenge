@@ -1,14 +1,14 @@
 Chitter Challenge
 =================
 
-How to run:
+How to run
 -------
 - Clone the file and run "bundle install". 
 - Type psql in terminal create two empty databases, once called "chitter" and one called "chitter_test", using this walkthrough "https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/04_mac.md"
 - Run tests with rspec in terminal  
 - Run rackup in terminal and go to localhost:9292 to use the app. 
 
-Features:
+Features
 -------
 
 - User stories 1-4. 
@@ -27,14 +27,14 @@ My Goals
 ------
 - Apologies, but once again I don't have any specific goals which I'd like the feedback to be based around. I'm just looking for general feedback on how I could do better. 
 
-What I think I did well:
+What I think I did well
 ------
 - Complete test coverage
 - Test database and real database are seperate, with test database resetting each time 
 - Completely satisfied the needy Rubocop
 - It works 
 
-What I found difficult:
+What I found difficult
 -----
 I found installing the Datamapper ORM and getting it to work very challenging, party because of a lack of attention to instructions on my part. Once it was working, I found it very difficult to manipulate, but mainly that was because I was unclear what type of objects it was returning. Once I'd realised that was the problem and answered that for myself, it became much easier to use. That process taught me a lot, but it did eat into a lot of my time, so I didn't have time to try the harder user stories. 
 
