@@ -42,7 +42,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.first(:email => params['email'], :password => params['password'])
+    user = User.first(
+      :email => params['email'],
+      :password => params['password']
+    )
     if user
       session[:user_id] = user.id
       redirect('/')
