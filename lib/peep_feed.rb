@@ -1,6 +1,5 @@
 require_relative 'database_connection'
 require_relative 'peep'
-require_relative 'peep_mailer'
 
 class PeepFeed
   def initialize(connection: DatabaseConnection, peep_type: Peep)
