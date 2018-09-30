@@ -10,4 +10,14 @@ describe Chitter do
       expect(page).to have_content('Test Cheet Three')
     end
   end
+
+  feature 'Send Cheet' do
+    scenario 'User can post their own Cheets using a form' do
+      visit('/')
+      fill_in 'peep', with: 'User cheet'
+      click_button('Submit')
+
+      expect(page).to have_content('User cheet')
+    end
+  end
 end

@@ -1,7 +1,8 @@
 <h1>Welcome to Chitter</h1>
 
 <div>
-  <form action="/peep" method="get">
+  What's on your mind?<br>
+  <form action="/peep" method="post">
     <input type="text" name="peep">
     <input type="submit" value="Submit">
   </form>
@@ -10,5 +11,6 @@
   <ul>
     <% @cheets.each do |peep| %>
     <li><%= peep.body %></li>
+    <%= peep.created_at %>
     <% end %>
   </ul>

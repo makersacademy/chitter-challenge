@@ -2,13 +2,16 @@ require 'sinatra/base'
 require './lib/cheets'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
     @cheets = Cheets.all
     erb :index
   end
 
-  get '/peep' do
+  post '/peep' do
+    @cheets = Cheets.create(body: params['peep'])
+    redirect '/'
   end
 
   run! if app_file == $0

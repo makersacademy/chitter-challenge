@@ -8,7 +8,7 @@ class Cheets
 
   include DataMapper::Resource
   property :id,         Serial
-  property :body,       Text, :length => 240
+  property :body,       String
   property :created_at, DateTime
 
   DataMapper.finalize
