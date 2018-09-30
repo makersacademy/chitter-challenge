@@ -19,8 +19,7 @@ require_relative 'helper.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Chitter
-DataMapper::Logger.new($stdout, :debug)
-# DataMapper.setup(:default, 'postgres://postgres@localhost/chitter_test')
+# DataMapper::Logger.new($stdout, :debug)
 
 require './lib/dm-psql'
 

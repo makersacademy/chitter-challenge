@@ -40,5 +40,7 @@ class User
   end 
 end
 
+DataMapper.finalize
+
 User.auto_upgrade!
 Peep.auto_upgrade!
