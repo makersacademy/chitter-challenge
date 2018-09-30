@@ -18,7 +18,14 @@ describe Chitter do
       array = Chitter.all
       chitter_object = array[0]
       expect(chitter_object.posted_by).to eq("Florence")
+    end
+  end
 
+  describe "#new" do
+    it "Creates a new chitter" do #but not saved because it's a test
+      @test = Chitter.new(:message => "Buffy", :posted_by => "Florence", :created_at => Time.now)
+      @test.save
+      expect(Chitter.all message:"Buffy").to include(@test)
     end
   end
 end
