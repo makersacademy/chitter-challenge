@@ -2,7 +2,7 @@ require 'pg'
 
 class DatabaseConnection
 
-  def initialize
+  def self.setup
     if ENV['RACK_ENV'] == 'test'
       @connection = PG.connect(dbname: 'chitter_test')
     elsif ENV['RACK_ENV'] == 'production'
@@ -14,21 +14,19 @@ class DatabaseConnection
     end
   end
 
-  def db
+  def self.db
     @connection.db
   end
 
-  def query(sql)
-    parse_results(@connection.exec(sql))
+  def self.query(sql)
+    self.parse_results(@connection.exec(sql))
   end
 
-  private
-
-  def parse_results(pg_result)
-    pg_result.map { |hash| parse_hash(hash) }
+  def self.parse_results(pg_result)
+    pg_result.map { |hash| self.parse_hash(hash) }
   end
 
-  def parse_hash(hash)
+  def self.parse_hash(hash)
     output = Hash.new
     hash.keys.each { |key| output[key.to_sym] = hash[key] }
     output

@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require_relative 'database_connection_setup'
 require_relative 'controllers/user_authentication'
 require_relative 'controllers/peeps'
 require_relative 'lib/all_chitter_users'

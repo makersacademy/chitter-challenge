@@ -2,7 +2,7 @@ require_relative 'peep'
 require_relative 'database_connection'
 
 class PeepFeed
-  def initialize(connection: DatabaseConnection.new, mailer: nil,
+  def initialize(connection: DatabaseConnection, mailer: nil,
                  peep_type: Peep)
     @connection = connection
     @mailer = mailer

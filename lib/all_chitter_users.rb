@@ -3,7 +3,7 @@ require_relative 'database_connection'
 
 class AllChitterUsers
 
-  def initialize(connection: DatabaseConnection.new, hasher: BCrypt::Password)
+  def initialize(connection: DatabaseConnection, hasher: BCrypt::Password)
     @connection = connection
     @hasher = hasher
   end

@@ -1,7 +1,7 @@
 class User
   attr_reader :user_details, :username
 
-  def initialize(connection: DatabaseConnection.new)
+  def initialize(connection: DatabaseConnection)
     @user_details = nil
     @username = nil
     @connection = connection

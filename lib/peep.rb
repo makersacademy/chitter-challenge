@@ -2,7 +2,7 @@ class Peep
   attr_reader :id, :username, :content, :post_time, :reply_to
 
   def initialize(id, username, content, post_time, reply_to: nil,
-                 connection: DatabaseConnection.new)
+                 connection: DatabaseConnection)
     @id = id
     @username = username
     @content = content
