@@ -1,6 +1,7 @@
 feature 'authentication' do
-  scenario 'a user can sign in' do
-    visit '/'
+  scenario 'a user can log in' do
+    sign_in
+    click_button('Log out')
     click_button('Log in')
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'password123')
@@ -9,7 +10,8 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their email wrong' do
-    visit '/'
+    sign_in
+    click_button('Log out')
     click_button('Log in')
     fill_in('email', with: 'testito@example.com')
     fill_in('password', with: 'password123')
@@ -20,7 +22,8 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their email wrong' do
-    visit '/'
+    sign_in
+    click_button('Log out')
     click_button('Log in')
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'vivaelbetis')
@@ -31,12 +34,7 @@ feature 'authentication' do
   end
 
   scenario 'a user can sign out' do
-
-    visit '/'
-    click_button('Log in')
-    fill_in('email', with: 'test@example.com')
-    fill_in('password', with: 'password123')
-    click_button('Log in')
+    sign_in
     click_button('Log out')
     expect(page).not_to have_content 'Welcome, Test'
     expect(page).to have_content 'You have signed out.'

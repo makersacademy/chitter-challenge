@@ -1,11 +1,11 @@
 require 'pg'
 require 'bcrypt'
 
-# if ENV['RACK_ENV'] != 'production'
-#   require 'rspec/core/rake_task'
-#   RSpec::Core::RakeTask.new :spec
-#   task default: [:spec]
-# end
+if ENV['RACK_ENV'] != 'production'
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new :spec
+  task default: [:spec]
+end
 
 task :setup do
   [chitter, chitter_test].each do |database|
