@@ -23,7 +23,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    if User.first(:username => params['username'].downcase) != nil || User.first(:email => params['email'].downcase) != nil
+    find_username = User.first(:username => params['username'].downcase)
+    find_email = User.first(:email => params['email'].downcase)
+    if find_username != nil || find_email != nil
       flash[:error_signup] = "Username or password already in use!"
       redirect '/signup'
     elsif params['password'] != params['password-confirm']
