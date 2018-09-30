@@ -1,20 +1,23 @@
 <h2> Please fill in the form to sign up!</h2>
 
 <form action='/signup' method='post'>
-  <label for='name'>
-  <h4> Name: <input type='text' name='name' required class='field'/></h4>
- </label>
- <label for='username' >
-   <h4>Username: <input type='text' name='username' required class='field'/></h4>
- </label>
- <label for='email'>
- <h4>Email:<input name='email' type='text' value='<%= @user.email %>'class='email' required>
- </label>
- <label for='password'>
-  <h4> Password: <input type='password' name='password' required class='field' /></h4>
- </label>
- <label for='password_confirmation'>
-  <h4>Password: <input name='password_confirmation' type='password' required class='field'></h4>
-</label>
+  <table>
+          <tbody>
+  <tr><td><label for='name'>
+  <h4> Name: </label> </td><td><input type='text' name='name' required class='field'/></h4></td></tr>
+
+<tr><td><label for='username' >
+   <h4>Username: </label></td><td><input type='text' name='username' required class='field'/></h4></td></tr>
+
+ <tr><td><label for='email'>
+ <h4>Email:</label></td><td><input name='email' type='text' value='<%= @user.email %>'class='email' required></h4></td></tr>
+
+ <tr><td><label for='password'>
+  <h4> Password: </label></td><td><input type='password' name='password' required class='field' /></h4></td></tr>
+
+ <tr><td><label for='password_confirmation'>
+  <h4>Password:  </label></td><td> <input name='password_confirmation' type='password' required class='field'></h4></td></tr>
+   </tbody>
+ </table>
  <input type="submit" value="Sign up!" class="button">
 </form>

@@ -1,13 +1,15 @@
 <h2>Please log in</h2>
 
 <form action='/login' method='post'>
-  <label for='email'>
-    <h4>  Email: <input name='email' type='email' class='email'></h4>
-  </label>
+  <table>
+          <tbody>
+  <tr><td><label for='email'>
+    <h4>  Email: </label> </td><td> <input name='email' type='email' class='email'></h4></td></tr>
   <br>
-  <label for='password'>
-    <h4>  Password: <input name='password' type='password' class='field'></h4>
-  </label>
+  <tr><td><label for='password'>
+    <h4>  Password: </label> </td><td> <input name='password' type='password' class='field'></h4></td></tr>
+  </tbody>
+</table>
   <br>
   <input type='submit' value='Log in' class="button">
 </form>

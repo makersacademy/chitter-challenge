@@ -17,11 +17,19 @@
     cursor: pointer;
 }
 
+p {
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
 h1 {
-  text-align: center;
+  /* text-align: center; */
   font-size: 80px;
   color: purple;
   font-weight: bold;
+  margin-left: 20px;
 }
 
 .button1 {
@@ -48,12 +56,20 @@ h2 {
   font-size: 40px;
   color: purple;
   padding-bottom: 25px;
+  margin-left: 10px;
 }
 
 h4 {
   font-size: 20px;
   color: purple;
   padding-bottom: 0px;
+}
+
+h6 {
+  font-size: 25px;
+  color: purple;
+  padding-bottom: 25px;
+  margin-left: 10px;
 }
 
 h5 {
@@ -78,19 +94,35 @@ h5 {
   font-family: "Courier New", Courier, monospace;
     font-size: 16px;
     text-align: center;
-    width: 200px;
+    width: 330px;
     padding: 3px;
     margin-top: 40px;
     background-color: white;
     margin-bottom: 20px;
 }
+body {
+  margin-left: 20px;
+  color: purple;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+  margin: auto;
+  background-color: white;
+
+}
+
+div {
+  font-size: 20px;
+  color: purple;
+  margin-left: : 40px;
+}
 
 textarea {
-  width:96%;
+  width:40%;
   height:90px;
   background-color:white;
   color:black;
   border:2px solid purple;
   padding:2%;
   font:22px/30px sans-serif;
+  margin-left: 20px;
 }
