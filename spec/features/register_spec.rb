@@ -19,22 +19,20 @@ feature 'Register' do
   scenario 'register form contains elements' do
     visit('/')
     find('#register-form').find('#register').click
-    ['#name', '#username', '#email', '#password'].each do |element|
+    ['#name', '#user', '#email', '#password'].each do |element|
       expect(page).to have_css(element)
     end
   end
 
-  scenario 'submit leads to post /user/register' do
-    visit('/')
-    find('#register-form').find('#register').click
-    find('#register').find('#submit').click
-    expect(current_path).to eq('/user/register')
+  scenario 'flashes registration succesful' do
+    register
+    expect(page).to have_content('Registration successful! You are now logged in!')
   end
 
-  scenario 'params present in post /user/register' do
+  scenario 'flashes registration unsuccesful if using same user/email' do
     register
-    register_details.each do |details|
-      expect(page).to have_content(details[:field_input])
-    end
+    logout
+    register_same_user
+    expect(page).to have_content('Sorry user/email already taken!')
   end
 end
