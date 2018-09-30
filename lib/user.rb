@@ -8,4 +8,6 @@ class User
   property :password, String
 
   has n, :peeps
+
+  @@current_user = nil
 end

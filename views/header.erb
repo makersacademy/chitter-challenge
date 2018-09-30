@@ -1,4 +1,10 @@
 <header>
   <h1>Chitter</h1>
-  <a href="/user/login" class="button">Log In</a>
+  <p><%=user.name%></p>
+  <% if user %>
+    <span>Hey, <%= user.name %>!</span>
+  <% else %>
+    <a href="/user/login" class="button">Log In</a>
+    <a href="/user/register" class="button">Register</a>
+  <% end %>
 </header>
