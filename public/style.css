@@ -1,6 +1,7 @@
 h1 {
   font-size: 50px;
   font-weight: bold;
+  color: #EDF5E1
 }
 
 img {
@@ -8,10 +9,10 @@ img {
 }
 
 body {
-  background-color: rgb(152, 255, 107);
+  background-color: #5CDB95;
   text-align: center;
   font-family: "Arial";
-  color: rgb(255, 107, 245)
+  color: #05386B
 }
 
 input {
@@ -29,17 +30,17 @@ select {
 }
 
 input[type=submit] {
-  border-top:		2px solid rgb(255, 107, 245);
-  border-left:		2px solid rgb(255, 107, 245);
-  border-right:		2px solid rgb(255, 107, 245);
-  border-bottom:		2px solid rgb(255, 107, 245);
+  border-top:		2px solid #379683;
+  border-left:		2px solid #379683;
+  border-right:		2px solid #379683;
+  border-bottom:		2px solid #379683;
   font-size:		27px !important;
   background-color:	rgb(170, 255, 133);
   font-weight:		bold;
   font-family: "Arial";
-  color:			rgb(255, 107, 245)
+  color:			#379683
 }
 
 div.peep {
-  background-color:	rgb(170, 255, 133) !important;
+  background-color:	#8EE4AF !important;
 }
