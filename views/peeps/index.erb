@@ -1,0 +1,8 @@
+<div>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <p style="font-weight: bold"> <%= peep.content %></p>
+      <p style="font-style: italic"> <%= peep.time %></p>
+    <% end %>
+  </ul>
+</div>
