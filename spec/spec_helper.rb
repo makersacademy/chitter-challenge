@@ -4,7 +4,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-ENV['CHITTER'] = 'TEST'
+ENV['CHITTER_CHALLENGE'] = 'TEST'
 
 require File.expand_path('../app/chitter_app.rb', __dir__)
 require File.expand_path('../lib/peep.rb', __dir__)

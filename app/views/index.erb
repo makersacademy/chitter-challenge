@@ -23,7 +23,7 @@
 <% end %>
 
 <% if @user %>
-  <form action="/add" method="post">
+  <form action="/peep/add" method="post">
     <div>
       <label for="">
       <input type="text" placeholder="Say Something" id="text" name="text">
@@ -44,7 +44,7 @@
       <%= peep.text %>
       <ul>
         <li>
-          Posted at: <%= peep.time %>
+          Posted by <%= peep.username %> at <%= peep.time %>
         </li>
       </ul>
     </li>

@@ -22,15 +22,21 @@ class Chitter < Sinatra::Base
     erb(:'users/log_in')
   end
 
-  post '/add' do
-    Peep.add(params[:text])
+  post '/peep/add' do
+    @user = User.find(session[:user_id])
+    Peep.add(params[:text], @user.id, @user.username)
     redirect '/'
   end
 
   post '/users/create' do
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/'
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash[:notice] = 'That username or email is already in use, please choose another one'
+      redirect('/users/new')
+    end
   end
 
   post '/users/authenticate' do

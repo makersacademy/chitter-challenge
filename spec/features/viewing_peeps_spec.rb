@@ -15,4 +15,12 @@ feature 'Viewing peeps' do
 
     expect(page.body) =~ /Test peep 3.*Test peep 2.*Test peep 1/
   end
+
+  scenario 'peeps are shown with user name attached' do
+    sign_up_and_go_to_homepage
+    fill_in 'text', with: 'Test peep'
+    click_button 'Peep!'
+
+    expect(page).to have_content 'Posted by Test at '
+  end
 end

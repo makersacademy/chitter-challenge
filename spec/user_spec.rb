@@ -13,6 +13,22 @@ describe User do
       
       User.create(name: 'Test Name', username: 'Test', email: 'test@example.com', password: 'password123')
     end
+
+    it 'returns nil when given a duplicate username' do
+      User.create(name: 'Test Name', username: 'Test', email: 'test@example.com', password: 'password123')
+
+      duplicate_user = User.create(name: 'Test Name 2', username: 'Test', email: 'test2@example.com', password: 'password123')
+
+      expect(duplicate_user).not_to be_a User
+    end
+
+    it 'returns nil when given a duplicate email' do
+      User.create(name: 'Test Name', username: 'Test', email: 'test@example.com', password: 'password123')
+
+      duplicate_user = User.create(name: 'Test Name 2', username: 'Test2', email: 'test@example.com', password: 'password1234')
+
+      expect(duplicate_user).not_to be_a User
+    end
   end
 
   describe '.find' do
@@ -37,14 +53,13 @@ describe User do
       expect(authenticated_user.id).to eq @user.id
     end
 
-    it 'returns nil given an incorrect email address' do
+    it 'returns nil when given an incorrect email address' do
       expect(User.authenticate(email: 'fakeemail@example.com', password: 'password123')).to be_nil
     end
 
-    it 'returns nil given an incorrect password' do
+    it 'returns nil when given an incorrect password' do
       expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword123')).to be_nil
     end
   end
-
 
 end
