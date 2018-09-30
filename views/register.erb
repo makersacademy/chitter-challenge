@@ -1,5 +1,5 @@
 <form action='/user/register' method='post' id='register'>
-  <%['name', 'username', 'email', 'password'].each do |element|%>
+  <%['name', 'user', 'email', 'password'].each do |element|%>
   <input type='text' name=<%=element%> placeholder=<%=element%> id=<%=element%>>
   <%end%>
   <input type='submit' id='submit' value='Register'>
