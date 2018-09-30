@@ -4,4 +4,9 @@ if ENV['RACK_ENV'] != 'production'
   RSpec::Core::RakeTask.new :spec
   
   task default: [:spec]
+
+  desc 'Sets up test database'
+  task :setup do
+
+  end
 end

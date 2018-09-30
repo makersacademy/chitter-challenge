@@ -28,4 +28,23 @@ describe User do
       expect(result.email).to eq user.email
     end
   end
+
+  describe '.authenticate' do
+    before(:each) { @user = User.create(name: 'Test Name', username: 'Test', email: 'test@example.com', password: 'password123') }
+    it 'returns a user given a correct username and password, if one exists' do
+      authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
+
+      expect(authenticated_user.id).to eq @user.id
+    end
+
+    it 'returns nil given an incorrect email address' do
+      expect(User.authenticate(email: 'fakeemail@example.com', password: 'password123')).to be_nil
+    end
+
+    it 'returns nil given an incorrect password' do
+      expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword123')).to be_nil
+    end
+  end
+
+
 end

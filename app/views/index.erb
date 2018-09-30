@@ -1,24 +1,38 @@
-<% if @user %>
-  <a href="/users/log_out">Log Out</a>
-<% else %>
-  <a href="/users/log_in">Log In</a>/<a href="/users/new">Sign Up</a>
-<% end %>
-<% if @user %>
-  <h1>Hi <%= @user.username %>!</h1>
-<% end %>
-<h1>
-  Welcome to Chitter!
-</h1>
+<% require 'sinatra/flash' %>
 
-<form action="/add" method="post">
-  <div>
-    <label for="">
-    <input type="text" placeholder="Say Something" id="text" name="text">
-  </div>
-  <div class="button">
-    <button type="submit" value="Say Something">Say Something</button>
-  </div>
-</form>
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<% if @user %>
+  <form action="/users/log_out" method="post">
+    <input type="submit" value="Log Out" />
+  </form>
+<% else %>
+  <a href="/users/log_in">Log In</a> or <a href="/users/new">Sign Up</a>
+<% end %>
+
+<% if @user %>
+  <h1>
+    Hi <%= @user.username %>, welcome to Chitter!
+  </h1>
+<% else %>
+  <h1>
+    Chitter
+  </h1>
+<% end %>
+
+<% if @user %>
+  <form action="/add" method="post">
+    <div>
+      <label for="">
+      <input type="text" placeholder="Say Something" id="text" name="text">
+    </div>
+    <div class="button">
+      <button type="submit" value="Peep!">Peep!</button>
+    </div>
+  </form>
+<% end %>
 
 <h2>
   Peeps:

@@ -8,6 +8,6 @@ feature 'registration' do
     fill_in('password', with: 'password123')
     click_button('Submit')
 
-    expect(page).to have_content "Hi Test!"
+    expect(page).to have_content "Hi Test, welcome to Chitter!"
   end
 end

@@ -1,0 +1,11 @@
+<% require 'sinatra/flash' %>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<form action="/users/authenticate" method="post">
+  <input type="email" name="email" />
+  <input type="password" name="password" />
+  <input type="submit" value="Log In" />
+</form>

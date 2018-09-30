@@ -1,3 +1,3 @@
-require_relative './app/chatter_app'
+require_relative './app/chitter_app'
 
-run Chatter
+run Chitter
