@@ -36,7 +36,7 @@ psql -c "CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR(144), time VARC
 
 Once all complete you should be able to run the file using rackup with: `rackup -p 4567` or using ruby with `ruby app/chitter_app.rb`, then when visiting `http://localhost:4567/` in your web browser you should see:
 
-![Screenshot](https://www.dropbox.com/s/ghcoctvng3uv9d6/empty_chitter.png?dl=0)
+![Screenshot](https://i.imgur.com/BxtZviY.png)
 
 ## Running Tests
 
@@ -48,21 +48,21 @@ Feature tests can either be run alongside the unit tests using `rspec` or alone 
 
 ### Users
 ##### User Sign Up With BCrypt-Encrypted Password
-![Screenshot](https://www.dropbox.com/s/b3zi7izl7v61w3p/sign_up.png?dl=0)
-###### Unique Usernane and Email Address Required
-![Screenshot](https://www.dropbox.com/s/e56kdl3hmzrtvfl/incorrect_username_or_email.png?dl=0)
+![Screenshot](https://i.imgur.com/4Vk8zgt.png)
+##### Unique Usernane and Email Address Required
+![Screenshot](https://i.imgur.com/ELDwnot.png)
 ##### User Log In
-![Screenshot](https://www.dropbox.com/s/v1fke9pn9qxotss/log_in.png?dl=0)
-![Screenshot](https://www.dropbox.com/s/1xs84ykw9gwkr9m/logged_in_no_peeps.png?dl=0)
+![Screenshot](https://i.imgur.com/2wnFnN6.png)
+![Screenshot](https://i.imgur.com/iZCvxI1.png)
 ##### User Log Out
-![Screenshot](https://www.dropbox.com/s/tuuir28484f5s74/log_out.png?dl=0)
+![Screenshot](https://i.imgur.com/JaxYJRY.png)
 
 ### Peeps
 ##### User Is Able To Peep When Logged In
-![Screenshot](https://www.dropbox.com/s/0m7vxrhpe3l8d5u/peeping.png?dl=0)
-![Screenshot](https://www.dropbox.com/s/2044m83bg162vtt/logged_in_with_peeps.png?dl=0)
+![Screenshot](https://i.imgur.com/SS0iyVP.png)
+![Screenshot](https://i.imgur.com/7qdwFsn.png)
 ##### Peeps Remain Visible When Logged Out
-![Screenshot](https://www.dropbox.com/s/lvp0oh2lz9in6cj/peeps_not_logged_in.png?dl=0)
+![Screenshot](https://i.imgur.com/D6BA5VO.png)
 
 ## Author
 
