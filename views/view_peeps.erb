@@ -1,0 +1,13 @@
+<h1> Your peeps! </h1>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <%= peep %>
+  <% end %>
+</ul>
+
+<h1> Would you like to peep again?</h1>
+
+<form action='/write_peep' method="get">
+  <button type="submit" name="message" value="Peep!">Peep!</button>
+</form>
