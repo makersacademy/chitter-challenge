@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chitter Board</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <ul class='bookmarks'>
+      <% @messageboard.each do |message| %>
+      <li>
+        <div class="">
+          <h4><%=message.userid%></h4>
+          <h4><%=message.time%></h4>
+        </div>
+        <p><%=message.body%></p>
+      </li>
+    <% end %>
+  </ul>
+  </body>
+</html>
