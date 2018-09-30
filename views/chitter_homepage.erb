@@ -4,12 +4,15 @@
     <li class="peep">"<%= peep.text %>" peeped on <%= (peep.created_at).strftime("%d/%m/%Y at %I:%M%p") %></li>
   </ul>
 <% end %>
-<form action="/peeps/new">
-  <button type="submit" name="New_Peep">New Peep</button>
-</form>
-<form action="/users/new">
-  <button type="submit" name="Sign_Up">Sign Up</button>
-</form>
-<form action="/users/sign_in">
-  <button type="submit" name="Sign_In">Sign In</button>
-</form>
+<% if @current_user %>
+  <form action="/peeps/new">
+    <button type="submit" name="New_Peep">New Peep</button>
+  </form>
+<% else %>
+  <form action="/users/new">
+    <button type="submit" name="Sign_Up">Sign Up</button>
+  </form>
+  <form action="/users/sign_in">
+    <button type="submit" name="Sign_In">Sign In</button>
+  </form>
+<% end %>

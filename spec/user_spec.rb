@@ -41,4 +41,17 @@ describe User do
       expect(User.sign_in(username: "AbagnaleF", password: "password12345")).to be_instance_of(User)
     end
   end
+
+  context ".current_user" do
+    it "should return nil if no-one signed in" do
+      expect(User.current_user).to eq nil
+    end
+  end
+
+  context ".sign_out" do
+    it "should set @@current_user to nil" do
+      User.sign_out
+      expect(User.current_user).to eq nil
+    end
+  end
 end

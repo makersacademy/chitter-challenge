@@ -36,7 +36,7 @@ class ChitterApp < Sinatra::Base
 
   post '/users/sign_in' do
     string = "Sorry, either your username or password were incorrect"
-    unless user = User.sign_in(username: params[username], password: params[password])
+    unless user = User.sign_in(username: params["username"], password: params["password"])
       flash[:error] = string
       redirect '/users/sign_in'
     else
@@ -50,6 +50,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
+    @current_user = User.current_user
     @peeps = Peep.all.reverse
     erb :chitter_homepage
   end

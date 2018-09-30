@@ -1,3 +1,5 @@
+require_relative "../web_helpers"
+
 feature "Chitter Homepage" do
   feature "News feed" do
     scenario "should display peep" do
@@ -21,17 +23,24 @@ feature "Chitter Homepage" do
     end
   end
 
-  feature "Peep button" do
-    scenario "takes you to new peep form" do
-      visit "/peeps"
-      click_button "New Peep"
-      expect(current_path).to eq "/peeps/new"
+  feature "if Signed in" do
+    feature "Peep button" do
+      scenario "takes you to new peep form" do
+        logged_on
+        visit "/peeps"
+        expect(page).not_to have_content("Sign Up")
+        expect(page).not_to have_content("Sign In")
+        click_button "New Peep"
+        expect(current_path).to eq "/peeps/new"
+      end
     end
   end
 
+feature "if not Signed in" do
   feature "Sign Up button" do
     scenario "takes you to sign up page" do
       visit "/peeps"
+      expect(page).not_to have_content("New Peep")
       click_button "Sign Up"
       expect(current_path).to eq "/users/new"
     end
@@ -40,8 +49,11 @@ feature "Chitter Homepage" do
   feature "Sign In button" do
     scenario "takes you to sign in page" do
       visit "/peeps"
+      expect(page).not_to have_content("New Peep")
       click_button "Sign In"
       expect(current_path).to eq "/users/sign_in"
     end
   end
+end
+
 end

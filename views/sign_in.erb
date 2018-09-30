@@ -1,3 +1,10 @@
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
 <form action="/users/sign_in" method="post">
   <input type="text" name="username" placeholder="Username">
   <input type="text" name="password" placeholder="Password">

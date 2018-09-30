@@ -2,6 +2,7 @@ ENV['ENV_RACK'] = 'test'
 
 require_relative '../app.rb'
 require_relative '../data_mapper_setup'
+require_relative '../lib/user'
 
 require 'capybara'
 require 'capybara/rspec'
@@ -22,6 +23,8 @@ SimpleCov.start
 RSpec.configure do |config|
 
   config.before(:each) do
+    p "Logging out all current users"
+    User.sign_out
     p "Setting up database......."
     setup_databases('test')
 

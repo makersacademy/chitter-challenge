@@ -21,6 +21,14 @@ class User
     @current_user = self.first(username: username)
   end
 
+  def self.sign_out
+    @current_user = nil
+  end
+
+  def self.current_user
+    @current_user
+  end
+
   private
 
   def self.new_email?(email)
