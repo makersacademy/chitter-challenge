@@ -15,9 +15,8 @@ GEM
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       xpath (~> 3.1)
-    data_objects (0.10.17)
-      addressable (~> 2.1)
-    datamapper (1.2.0)
+    coderay (1.1.2)
+    data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
       dm-core (~> 1.2.0)
@@ -27,6 +26,9 @@ GEM
       dm-transactions (~> 1.2.0)
       dm-types (~> 1.2.0)
       dm-validations (~> 1.2.0)
+    data_objects (0.10.17)
+      addressable (~> 2.1)
+    database_cleaner (1.7.0)
     diff-lcs (1.3)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
@@ -69,6 +71,7 @@ GEM
     hirb (0.7.3)
     json (1.8.6)
     json_pure (1.8.6)
+    method_source (0.9.0)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     multi_json (1.13.1)
@@ -79,6 +82,9 @@ GEM
     parser (2.5.1.2)
       ast (~> 2.4.0)
     powerpack (0.1.2)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     public_suffix (3.0.3)
     rack (2.0.5)
     rack-protection (2.0.4)
@@ -134,8 +140,10 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  datamapper
+  data_mapper
+  database_cleaner
   dm-postgres-adapter
+  pry
   rake
   rspec
   rubocop (= 0.56.0)
@@ -144,7 +152,7 @@ DEPENDENCIES
   sinatra
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.16.5

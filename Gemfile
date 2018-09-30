@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+ruby '2.5.1'
 
 gem 'capybara'
-gem 'datamapper'
+gem 'data_mapper'
+gem 'database_cleaner'
 gem 'dm-postgres-adapter'
+gem 'pry'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'

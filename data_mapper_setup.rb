@@ -1,14 +1,19 @@
 require 'data_mapper'
+require 'pry'
 
-#require_relative 'lib/chitter.rb'
+require_relative 'lib/peep.rb'
 
-env = ENV['RACK_ENV'] || 'developement'
+def setup_databases(env = 'development')
 
-DataMapper::Logger.new($stdout, :debug)
+  # env = ENV['RACK_ENV'] || 'development'
+  # binding.pry
 
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
+  #DataMapper::Logger.new($stdout, :debug)
+
+  DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
 
-DataMapper.finalize
+  DataMapper.finalize
 
-DataMapper.auto_upgrade!
+  DataMapper.auto_upgrade!
+end
