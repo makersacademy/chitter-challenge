@@ -6,6 +6,9 @@ require './lib/user.rb'
 class Chitter < Sinatra::Application
   enable :sessions
   #register Sinatra::Flash
+  before do
+    @user = User.instance
+  end
 
   get '/' do
     erb :index
@@ -24,8 +27,9 @@ class Chitter < Sinatra::Application
   end
 
   get '/peeps/index' do
-    #@user = User.find(session[:username])
-    @user = session[:username]
+    @user = User.find(session[:username])
+    p @user
+    #@user = session[:username]
     @peeps = Peep.all
     erb :'/peeps/index'
   end

@@ -19,20 +19,22 @@ describe User do
     end
   end
 
-  # describe '.find' do
-  #   it 'finds a user by ID' do
-  #     setup_test_database
-  #     conn = PG.connect(dbname: 'peeps_test')
-  #     user = User.create(name: 'Nazz Kadri', username: 'nazzk', email: 'test@example.com', password: 'password123')
-  #     result = User.find(username: user)
-  #     expect(result.username).to eq user.username
-  #   end
-  # end
-  #
-  # describe '.find' do
-  #   it 'returns nil if there is no ID given' do
-  #     expect(User.find(nil)).to eq nil
-  #   end
-  # end
+  describe '.find' do
+    it 'finds a user by ID' do
+      setup_test_database
+      conn = PG.connect(dbname: 'peeps_test')
+      user = User.create(name: 'Nazz Kadri', username: 'nazzk', email: 'test@example.com', password: 'password123')
+      p user
+      result = User.find(user.username)
+      p result
+      expect(result.username).to eq user.username
+    end
+  end
+
+  describe '.find' do
+    it 'returns nil if there is no ID given' do
+      expect(User.find(nil)).to eq nil
+    end
+  end
 
 end
