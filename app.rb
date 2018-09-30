@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.get(session[:user_id])
+    @messages = Message.all(:order => [:id.desc])
     erb :index
   end
 
@@ -22,6 +23,17 @@ class Chitter < Sinatra::Base
       password: params['password']
     )
     session[:user_id] = user.id
+    redirect '/'
+  end
+
+  get '/messages/new' do
+    erb :'messages/new'
+  end
+
+  post '/messages' do
+    Message.create(text: params['post'], user_id: session[:user_id])
+    p params
+    session[:user_id]
     redirect '/'
   end
 

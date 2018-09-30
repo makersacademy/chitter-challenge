@@ -1,3 +1,12 @@
 <% if @user %>
   <h1>Welcome to Chitter, <%= @user.username %></h1>
+<% end %> <br>
+<form action="/messages/new" method="get">
+  <input type="submit" value="Post a message" />
+</form> </br>
+
+<% @messages.each do |message| %>
+  <div class="messages">
+    <%= message['text'] %>
+  </div>
 <% end %>
