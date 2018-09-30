@@ -1,0 +1,20 @@
+* {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1527685609591-44b0aef2400b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e4fd8eed1aab437c5b09b414328ced9c&auto=format&fit=crop&w=2691&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h2 {
+  padding-top: 15%;
+  color: white;
+  font-size: 3em;
+}
+
+.login {
+  padding-top: 2%;
+}

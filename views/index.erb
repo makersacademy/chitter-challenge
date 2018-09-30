@@ -4,20 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="dashboard.css">
   <title>Twittarr</title>
 </head>
 <body>
   <form action="/logout" method="post">
     <input type="submit" value="Sign Out">
   </form>
-  <h1>Ahoy, <%= session[:username] %>!</h1>
-  <form action="/new" method="post">
-    <input type="text" name="tweet">
-    <input type="submit" value="Arr, new tweet">
-  </form>
+  <div class="container post-tweet">
+    <h1>Ahoy, <%= session[:username] %>!</h1>
+    <form action="/new" method="post">
+      <input type="text" name="tweet">
+      <input type="submit" value="Arr, new tweet">
+    </form>
+  </div>
+
   <% @messages.each do |message| %>
-    <p><%= message.message %></p>
-    <p><%= message.created_at.strftime("Posted on %m/%d at %I:%M%p") %></p>
+    <div class="container message">
+      <p class="msg"><%= message.message %></p>
+      <p class="msg-owner"><a href="profile/<%= message.owner %>" ><%= message.owner %></a></p>
+      <p class="msg-time"><%= message.created_at.strftime("Posted on %m/%d at %I:%M%p") %></p>
+      <a href="/<%= message.id %>/reply">Reply</a>
+    </div>
   <% end %>
 
 </body>

@@ -1,5 +1,5 @@
 <% flash.keys.each do |type| %>
-  <div data-alert class="flash <%= type %> alert-box radius">
+  <div data-alert class="flash <%= type %> alert-box radius alert alert-secondary" role="alert">
     <%= flash[type] %>
     <a href="." class="close">&times;</a>
   </div>

@@ -29,6 +29,7 @@ class Twittarr < Sinatra::Base
   post '/connect' do
     user = User.authenticate(params[:email], params[:password])
     if user
+      session[:username] = @user.username
       session[:user_id] = user.id
       redirect '/dashboard'
     else
@@ -47,8 +48,27 @@ class Twittarr < Sinatra::Base
     end
   end
 
+  get '/profile/:username' do
+    @username = params[:username]
+    erb :profile
+  end
+
+  get '/:message/reply' do
+    @message = Message.get(params[:message])
+    session[:message] = @message
+    @replies = session[:replies]
+    erb :reply
+  end
+
+  post '/:message/reply/add' do
+    session[:replies] = []
+    @reply = params[:reply]
+    session[:replies] << @reply
+    redirect '/:message/reply'
+  end
+
   post '/new' do
-    Message.create(:message => params[:tweet], :created_at => Time.now)
+    Message.create(:message => params[:tweet], :created_at => Time.now, :owner => session[:username])
     redirect "/dashboard"
   end
 

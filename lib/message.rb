@@ -7,7 +7,7 @@ class Message
   property :id, Serial
   property :message, Text
   property :created_at, DateTime
-
+  property :owner, Text
   # def self.all
   #   ["Arrr, my spleen!", 
   #     "Me pantaloons are on me head.", 

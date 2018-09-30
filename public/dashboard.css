@@ -1,0 +1,10 @@
+.message {
+  text-align: center;
+  border: 2px solid black;
+  margin: 5%;
+  padding: 20px;
+}
+
+.msg-time {
+  font-style: italic;
+}
