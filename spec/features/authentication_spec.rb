@@ -1,7 +1,7 @@
 
 feature 'authenticate' do
   scenario 'user can enter her username and password to sign in' do
-    User.create(name: 'freya', username: 'frez' ,email: 'test456@example.com', password: 'password123456')
+    User.create(name: 'freya', username: 'frez', email: 'test456@example.com', password: 'password123456')
     # Then sign in as them
     visit '/sessions/new'
     fill_in(:email, with: 'test456@example.com')
@@ -14,7 +14,7 @@ end
 
 feature 'authentication' do
   scenario 'a user sees an error if they get their email wrong' do
-    User.create(name: 'freya', username: 'frez' ,email: 'test@example.com', password: 'password123')
+    User.create(name: 'freya', username: 'frez', email: 'test@example.com', password: 'password123')
     visit '/sessions/new'
     fill_in(:email, with: 'nottherightemail@me.com')
     fill_in(:password, with: 'password123')
@@ -26,7 +26,7 @@ end
 
 feature 'authentication' do
   scenario 'a user sees an error if they get their password wrong' do
-    User.create(name: 'freya', username: 'frez' ,email: 'test@example.com', password: 'password123')
+    User.create(name: 'freya', username: 'frez', email: 'test@example.com', password: 'password123')
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'wrongpassword')
@@ -39,7 +39,7 @@ end
 feature 'authentication' do
   scenario 'a user can sign out' do
     # Create the user
-    User.create(name: 'freya', username: 'frez' ,email: 'test@example.com', password: 'password123')
+    User.create(name: 'freya', username: 'frez', email: 'test@example.com', password: 'password123')
     # Sign in as that user
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')

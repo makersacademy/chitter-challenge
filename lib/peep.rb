@@ -7,6 +7,7 @@ attr_reader :messages, :time_of_creation
     #@user_id  = user_id
     @messages = messages
     @time_of_creation = time_of_creation
+    #@time_of_creation = DateTime.parse(time_of_creation, '%Y-%m-%d %H:%M:%S%z')
   end
 
   def self.create(message)

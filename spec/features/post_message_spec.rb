@@ -5,16 +5,15 @@
 
 feature 'I want to post message to chitter' do
   scenario 'I want to post Hello Everyone on chitter' do
-    visit('/peeps/new')
-    # expect(page).to have_selector("input[value='Post Title']")
+    visit('/peeps/index')
     fill_in('message', with: "Test Peep")
     click_button('submit')
     expect(current_path).to eq '/peeps/index'
     expect(page.status_code).to eq 200
     # within 'ul#peeps' do
     expect(page).to have_content('Test Peep')
-    end
   end
+end
 
   # As a maker
   # So that I can see what others are saying

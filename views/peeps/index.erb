@@ -1,18 +1,26 @@
-<h2>
-  <%= flash[:notice] %>
-</h2>
 
 <% if @username %>
 <h1>Welcome, <%= @username %></h1>
  <% else %>
  <h1> Welcome </h1>
  <% end %>
+ <form action="/sessions/destroy" method="post">
+   <input type="submit" value="Sign out" />
+ </form>
 <ul>
   <% @peeps.reverse_each do |peep| %>
-  <li><%= peep.messages %> <%= peep.time_of_creation %></li>
+  <li class ="peeps"><%= peep.messages %> <sub>Updated at: <%= peep.time_of_creation %></sub></li>
   <% end %>
 </ul>
 
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out" />
+<form action="/peeps" method="post">
+  <label for='message'>
+    <input type='textbox' name='message' placeholder="What's happening?" required>
+  </label>
+  <br>
+  <input type='submit' value='submit'></input>
 </form>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
