@@ -1,3 +1,6 @@
+<% if @user %>
+  <h1>Welcome,<%= @user.name %> (<%= @user.email %>)</h1>
+<% end %>
 <h1>Peeps feed</h1>
 
 <ul>
