@@ -1,0 +1,21 @@
+<h1>Chitter</h1>
+<form action="/home" method="post">
+  <label for="user_name">
+  Enter username 
+  <input type="text" name="user_name" maxlength="20">
+  </label>
+  <label for="user_name">
+  Enter your chit 
+  <input type="text" name="message" maxlength="60">
+  </label>
+  <input type="submit" value="submit">
+</form>
+<form action="/signup" method="get">
+  <input type="submit" value="Sign up">
+</form>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li>User name: <%= message["user_name"]%> Message: <%=message["message"] %> Time: <%= message["created_at"] %>
+  <% end %>
+</ul>
