@@ -1,9 +1,14 @@
+<a href="/users/new">Sign Up</a>
+<% if @user %>
+  <h1>Hi <%= @user.username %>!</h1>
+<% end %>
 <h1>
   Welcome to Chatter!
 </h1>
 
 <form action="/add" method="post">
   <div>
+    <label for="">
     <input type="text" id="text" name="text">
   </div>
   <div class="button">

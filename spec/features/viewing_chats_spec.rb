@@ -13,10 +13,6 @@ feature 'Viewing chats' do
     fill_in 'text', with: 'Test chat 3'
     click_button 'Say Something'
 
-    # doesn't actually test order
-
-    expect(page).to have_content 'Test chat 3'
-    expect(page).to have_content 'Test chat 2'
-    expect(page).to have_content 'Test chat 1'
+    expect(page.body) =~ /Test chat 3.*Test chat 2.*Test chat1/
   end
 end
