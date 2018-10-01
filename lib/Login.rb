@@ -1,4 +1,5 @@
 require_relative 'peep'
+require_relative 'user'
 
 class Login
   def self.user_pass_ok?(username, password)

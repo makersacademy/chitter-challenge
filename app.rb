@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/base'
 require './lib/peep'
+require './lib/user'
+require './lib/datamapper'
 require 'sinatra/flash'
 require './lib/login'
 
