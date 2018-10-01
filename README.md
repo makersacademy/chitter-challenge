@@ -54,6 +54,8 @@ Gemfile
 - log in feature
 - log out feature
 - post under user name
+  - Foreign Key (to link peeps and users tables)
+- consider 'timecop' to test timestamps
 
 Controller
 includes
