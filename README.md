@@ -40,6 +40,8 @@ I found installing the Datamapper ORM and getting it to work very challenging, p
 
 If I'd had more time
 -----------
-I think I have too much logic in my app.rb, if I'd had time I would have extracted my flash error message into the model more. 
+I think I have too much logic in my app.rb, if I'd had time I would have extracted my flash error message into the model more.
+
+I would have liked to have figured out how to make the time of the posts look better. I couldn't work out how do this in the html views. Requiring Time in erb prooved to be challenging. 
 
 
