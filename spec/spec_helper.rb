@@ -10,7 +10,6 @@ require 'rspec'
 
 Capybara.app = ChitterManager
 
-
 SimpleCov.start
 
 RSpec.configure do |config|

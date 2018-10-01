@@ -1,4 +1,12 @@
 <p>Please register by filling in the form below</p>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
 <form method="post" action="/register">
   <input type="text" name="username" placeholder="USERNAME" />
   <input type="text" name="firstname" placeholder="FIRSTNAME" />

@@ -8,7 +8,10 @@ feature 'logout' do
     fill_in('lastname', with: "rodney")
     fill_in('email', with: "jamie@jamie.com")
     click_button('Register')
-    click_on 'Logout'
+    fill_in('username', with: "jamie123")
+    fill_in('password', with: "qwerty")
+    click_button('Login')
+    click_button('Logout')
     expect(page).to_not have_button 'content'
   end
 
@@ -21,7 +24,10 @@ feature 'logout' do
     fill_in('lastname', with: "rodney")
     fill_in('email', with: "fred@jamie.com")
     click_button('Register')
-    click_on 'Logout'
+    fill_in('username', with: "fred")
+    fill_in('password', with: "qwerty")
+    click_button('Login')
+    click_button('Logout')
     expect(page).to_not have_button 'Logout'
   end
 end
