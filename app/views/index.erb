@@ -23,17 +23,17 @@
 <br>
 
 <% if @peeps %>
-<div class='peep'>
+
 
   <% @peeps.each do |peep| %>
-
-    <p><%= peep.user.username %></p> <div>peeped on <%= peep.created_at.strftime(" %d/%m/%y at %I:%M%p") %></div>
-    <h5><%= peep.message %></h5>
+<div class='peep' >
+    <p class='username'><%= peep.user.username %></p> <p class='time'>peeped on <%= peep.created_at.strftime(" %d/%m/%y at %I:%M%p") %></p>
+    <p class='message'><%= peep.message %></p>
 
 
     <% peep.reply.each do |reply| %>
-       <p><%= reply.user.username %></p> <div>replied on <%= reply.created_at.strftime(" %d/%m/%y at %I:%M%p")%> </div>
-      <h6><%= reply.message%></h6>
+       <p class='username'><%= reply.user.username %></p> <p class='time'>replied on <%= reply.created_at.strftime(" %d/%m/%y at %I:%M%p")%> </p>
+      <p class='reply'><%= reply.message%></p>
     <%end%>
 
   <% if current_user %>

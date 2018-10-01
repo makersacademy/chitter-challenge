@@ -4,13 +4,13 @@
   <table>
           <tbody>
   <tr><td><label for='name'>
-  <h4> Name: </label> </td><td><input type='text' name='name' required class='field'/></h4></td></tr>
+  <h4> Name: </label> </td><td><input type='text' name='name' required placeholder="e.g: Harry Potter"class='field'/></h4></td></tr>
 
 <tr><td><label for='username' >
-   <h4>Username: </label></td><td><input type='text' name='username' required class='field'/></h4></td></tr>
+   <h4>Username: </label></td><td><input type='text' name='username' placeholder="e.g:HarryP"required class='field'/></h4></td></tr>
 
  <tr><td><label for='email'>
- <h4>Email:</label></td><td><input name='email' type='text' value='<%= @user.email %>'class='email' required></h4></td></tr>
+ <h4>Email:</label></td><td><input name='email' type='text' placeholder="e.g:harry_potter@hogwarts.co.uk" value='<%= @user.email %>'class='email' required></h4></td></tr>
 
  <tr><td><label for='password'>
   <h4> Password: </label></td><td><input type='password' name='password' required class='field' /></h4></td></tr>

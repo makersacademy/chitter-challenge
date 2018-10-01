@@ -22,10 +22,10 @@ p {
   font-size: 30px;
   font-weight: bold;
   margin-left: 20px;
+
 }
 
 h1 {
-  /* text-align: center; */
   font-size: 80px;
   color: purple;
   font-weight: bold;
@@ -65,11 +65,21 @@ h4 {
   padding-bottom: 0px;
 }
 
-h6 {
-  font-size: 25px;
+.time {
+  font-size: 20px;
   color: purple;
   padding-bottom: 25px;
   margin-left: 10px;
+  font-style: italic;
+
+
+}
+
+.message {
+  font-size: 30px;
+  color: purple;
+  padding-bottom: 0px;
+  
 }
 
 h5 {
@@ -105,15 +115,27 @@ body {
   color: purple;
   font-size: 20px;
   font-family: "Courier New", Courier, monospace;
-  margin: auto;
+  margin: auto
   background-color: white;
+
+}
+
+.peep {
+  border:1px;
+  border-style:solid;
+  border-color:purple;
+  /* padding: 1em;" */
+  width:90%;
+
 
 }
 
 div {
   font-size: 20px;
   color: purple;
-  margin-left: : 40px;
+  margin-left: : 0px;
+background-color: white ;
+
 }
 
 textarea {
@@ -124,5 +146,5 @@ textarea {
   border:2px solid purple;
   padding:2%;
   font:22px/30px sans-serif;
-  margin-left: 20px;
+  margin-left: 10px;
 }

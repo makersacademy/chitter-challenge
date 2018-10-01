@@ -2,6 +2,7 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 require 'sinatra/partial'
+require_relative './helpers'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
@@ -20,11 +21,7 @@ class Chitter < Sinatra::Base
 
   enable :partial_underscores
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+  helpers Helpers
 
   run! if app_file == $0
 end
