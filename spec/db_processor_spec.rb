@@ -1,6 +1,6 @@
 require './model/db_processor'
 describe DbProcessor do
-  let(:connection) { PG.connect(dbname: 'chitter-test', password: 'qweasd') }
+  let(:connection) { PG.connect(dbname: 'chittertest', password: 'qweasd') }
   let(:verication) { double :verification }
   before(:each) do 
     add_users_to_db

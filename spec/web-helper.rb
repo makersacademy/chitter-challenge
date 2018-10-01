@@ -2,7 +2,7 @@ require 'pg'
 # file containing helper code for rspec tests
 
 def setup_test_database
-  connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
+  connection = PG.connect(dbname: 'chittertest', password: 'qweasd')
   connection.exec("TRUNCATE twats;")
   connection.exec("TRUNCATE users;")
 end
@@ -12,14 +12,14 @@ def test_date
 end
 
 def add_twats_to_db
-  connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
+  connection = PG.connect(dbname: 'chittertest', password: 'qweasd')
   testing_twats.length.times do |i|
     connection.exec("INSERT INTO twats (message, send_time) VALUES('#{testing_twats[i][:msg]}', '#{testing_twats[i][:date]}');")
   end
 end
 
 def add_users_to_db
-  connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
+  connection = PG.connect(dbname: 'chittertest', password: 'qweasd')
   testing_users.length.times do |i|
     connection.exec("INSERT INTO users (username, password, email, name) VALUES('#{testing_users[i][:username]}', '#{testing_users[i][:password]}', '#{testing_users[i][:email]}', '#{testing_users[i][:name]}');")
   end

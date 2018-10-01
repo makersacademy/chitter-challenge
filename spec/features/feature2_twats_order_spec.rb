@@ -6,7 +6,8 @@ feature 'Messages are displayed in correct order' do
     fill_in('new_message', with: 'this should be at the top')
     click_button('Send')
     within('div#messages') do 
-      expect(page.text).to match(/this should be at the top\n\r\n\r\n\r\n29\/06\/1993 14:40\n\r\nAs a Maker/)
+      # windows expect(page.text).to match(/this should be at the top\n\r\n\r\n\r\n29\/06\/1993 14:40\n\r\nAs a Maker/)
+      expect(page.text).to match(/this should be at the top\n29\/06\/1993 14:40\nAs a Maker/) # os
     end
   end
 end

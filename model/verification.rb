@@ -1,7 +1,7 @@
 # verification class
 class Verification
 
-  @connection = PG.connect(dbname: 'chitter-test', password: 'qweasd')
+  @connection = PG.connect(dbname: 'chittertest', password: 'qweasd')
 
   def self.valid_password?(password)
     !/\d\w/.match(password).nil? && password.length > 8 
