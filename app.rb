@@ -29,7 +29,7 @@ class Twittarr < Sinatra::Base
   post '/connect' do
     user = User.authenticate(params[:email], params[:password])
     if user
-      session[:username] = @user.username
+      session[:username] = user.username
       session[:user_id] = user.id
       redirect '/dashboard'
     else
