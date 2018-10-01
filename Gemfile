@@ -4,7 +4,7 @@ gem 'bcrypt'
 gem 'capybara'
 gem 'data_mapper', '1.2.0'
 gem 'database_cleaner'
-gem 'dm-postgres-adapter', :group => :production
+gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'pry'
 gem 'rake'
