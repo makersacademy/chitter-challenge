@@ -1,4 +1,4 @@
-feature 'set up' do
+xfeature 'set up' do
   scenario 'visit page' do
     visit '/'
     click_on 'Login'
@@ -6,7 +6,7 @@ feature 'set up' do
   end
 end
 
-feature 'registration' do
+xfeature 'registration' do
   scenario 'a user can sign up' do
     visit '/'
     click_on 'Sign Up'
@@ -17,15 +17,3 @@ feature 'registration' do
     expect(page).to have_content "Ahoy, BatesFan!"
   end
 end
-
-# feature 'authentication' do
-#   scenario 'a user can sign in' do
-#     User.create(email: 'fakeaccount@gmail.com', password: 'ew123', username: 'Mini Me')
-
-#     visit '/login'
-#     fill_in("email", with: 'fakeaccount@gmail.com')
-#     fill_in("password", with: 'ew123')
-#     click_button('Sign In')
-#     expect(page).to have_content 'Ahoy, Mini Me!'
-#   end
-# end
