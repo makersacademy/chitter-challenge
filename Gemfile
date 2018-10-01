@@ -4,6 +4,8 @@ ruby '2.5.0'
 
 gem 'bcrypt'
 gem 'capybara'
+gem 'dm-postgres-adapter'
+gem 'data_mapper'
 gem 'mailgun'
 gem 'pg'
 gem 'pony'
