@@ -1,15 +1,21 @@
 <link rel="stylesheet" href="style.css">
+<div class="centre">
+  <form action="/" method="post">
+    <input type="text" required placeholder="What's happening?" name="compose_tweet">
+    <input type="submit" value="Peep">
+  </form>
 
-<div id="peeps">
-  <% Peeps.all.each do |peep|%>
-    <li>
-      <%= peep[:msg] %>
-      <%= "Created at #{peep[:created_at]}"%>
-    </li>
-  <% end %>
+  <div id="peeps">
+    <% Peeps.all.each do |peep|%>
+      <div class="peep-container">
+        <div class="message">
+          <%= peep[:msg] %>
+        </div>
+
+        <div class="timestamp">
+          <%= peep[:created_at] %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<form action="/" method="post">
-  <input type="text" required placeholder="What's happening?" name="compose_tweet">
-  <input type="submit" value="Peep">
-</form>

@@ -11,6 +11,5 @@ class User
       conn.exec("INSERT INTO users(username, email) VALUES ('#{username}', '#{email}')")
       return 'success'
     end
-
   end
 end

@@ -6,7 +6,7 @@ class Peeps
     res = conn.exec("
       SELECT
         message,
-        TO_CHAR(created_at, 'HH24:MI DD/MM/YY')
+        TO_CHAR(created_at, 'HH12:MI AM - DD Mon YYYY')
       FROM
         peeps
       ORDER BY
@@ -16,7 +16,8 @@ class Peeps
     res.map do |peep| {
       msg: peep['message'],
       created_at: peep['to_char']
-      }
+    }
+    
     end
   end
 

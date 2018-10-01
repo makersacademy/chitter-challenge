@@ -6,7 +6,7 @@ describe Peeps do
       msg = 'Hello Chitter!'
       database.exec("INSERT INTO peeps(created_at, message) VALUES('#{time}', '#{msg}')")
       # format time to be the same as the db returns
-      expect(Peeps.all).to eq([{msg: msg, created_at: time.strftime('%H:%M %d/%m/%y')}])
+      expect(Peeps.all).to eq([{msg: msg, created_at: time.strftime('%I:%M %p - %d %b %Y')}])
     end
   end
 
