@@ -1,5 +1,7 @@
 # Chitter
 I was tasked with creating a twitter clone that allowed users to create an account, post tweets and log off. I had to use a database to securely store information and I had to set up a server that could connect to that database and route users correctly.
+
+![Database layout](https://i.imgur.com/hb3RSZU.png)
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 ### Prerequisites
