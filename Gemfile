@@ -4,6 +4,7 @@ ruby '2.5.0'
 
 gem 'bcrypt'
 gem 'capybara'
+gem 'mailgun'
 gem 'pg'
 gem 'pony'
 gem 'pry'
