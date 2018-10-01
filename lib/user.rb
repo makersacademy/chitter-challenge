@@ -22,6 +22,7 @@ class User
     else
       connection = PG.connect(dbname: 'peeps_manager')
     end
+    password = BCrypt::Password.create(password)
     result = connection.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}','#{username}','#{email}', '#{password}') RETURNING user_id, name, username, email;")
     User.new(id: result[0]['user_id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
   end
@@ -45,8 +46,8 @@ class User
     end
     result = connection.exec("SELECT * FROM users WHERE email = '#{email}'")
     return unless result.any?
-    # return unless BCrypt::Password.new(result[0]['password']) == password
-    return unless result[0]['password'] == password
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    #return unless result[0]['password'] == password
     User.new(id: result[0]['user_id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
   end
 

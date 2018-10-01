@@ -14,4 +14,12 @@ describe DatabaseConnection do
     expect(DatabaseConnection.connection).to eq connection
   end
 
+  # describe '.query' do
+  #   it 'tests a query' do
+  #     self.query('SELECT * FROM peeps')
+  #     DatabaseConnection.exec('SELECT * FROM peeps')
+  #
+  #   end
+  # end
+
 end
