@@ -1,24 +1,30 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Instructions:
+-------------
+To play the game first clone this repository.
 
-Challenge:
--------
+`git clone https://github.com/JonathanAndrews/chitter-challenge.git`
 
-As usual please start by forking this repo.
+To run the tests move to the directory the repository has been cloned to and run rspec.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+There are 27 tests, which are all passing, with 100% coverage of the lib files and feature tests for the web features.
+
+To see the repository in action first install the dependencies (just Sinatra for actually running the app) by running
+
+`bundle install`
+
+and then load the webpage by running
+
+`rackup config.ru -p 4567`
+
+Navigating to localhost:4567 in your web browser will then allow you to play the game.
 
 Features:
 -------
 
 ```
-STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
@@ -36,8 +42,6 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
@@ -46,62 +50,34 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
-
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
+Usage:
 ------
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+Sign Up
 
-Bonus:
------
+<img src="./readme_pics/Screen Shot 2018-10-01 at 09.18.54.png" />
 
-If you have time you can implement the following:
+Enter your email, password, Username and Name
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+<img src="./readme_pics/Screen Shot 2018-10-01 at 09.19.09.png" />
 
-And/Or:
+User page welcomes User
 
-* Work on the CSS to make it look good.
+<img src="./readme_pics/Screen Shot 2018-10-01 at 09.19.56.png" />
 
-Good luck and let the chitter begin!
+Chitter Homepage
 
-Code Review
------------
+<img src="./readme_pics/Screen Shot 2018-10-01 at 09.20.09.png" />
 
-In code review we'll be hoping to see:
+Post a peep
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+<img src="./readme_pics/Screen Shot 2018-10-01 at 09.20.23.png" />
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+Chitter Homepage
 
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+<img src="./readme_pics/Screen Shot 2018-10-01 at 09.21.07.png" />
