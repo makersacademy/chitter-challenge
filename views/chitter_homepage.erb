@@ -1,0 +1,24 @@
+<h1>Chitter Homepage</h1>
+<% @peeps.each do |peep| %>
+  <ul>
+    <li><%= @user_class.get(peep.user_id).username %></li>
+    <li><%= @user_class.get(peep.user_id).name %></li>
+    <li class="peep">"<%= peep.text %>"</li>
+    <li class="peep-time">peeped on <%= (peep.created_at).strftime("%d/%m/%Y at %I:%M%p") %></li>
+  </ul>
+<% end %>
+<% if @current_user %>
+  <form action="/peeps/new">
+    <button type="submit" name="New_Peep">New Peep</button>
+  </form>
+  <form action="/users/sign_out">
+    <button type="submit" name="sign_out">Sign Out</button>
+  </form>
+<% else %>
+  <form action="/users/new">
+    <button type="submit" name="Sign_Up">Sign Up</button>
+  </form>
+  <form action="/users/sign_in">
+    <button type="submit" name="Sign_In">Sign In</button>
+  </form>
+<% end %>
