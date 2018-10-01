@@ -68,12 +68,14 @@ class Twittarr < Sinatra::Base
   end
 
   post '/new' do
-    Message.create(:message => params[:tweet], :created_at => Time.now, :owner => session[:username])
+    Message.create(:message => params[:tweet], :created_at => Time.now, 
+      :owner => session[:username])
     redirect "/dashboard"
   end
 
   post '/new/user' do
-    @user = User.create(:email => params[:email], :password => params[:password],:username => params[:username])
+    @user = User.create(:email => params[:email], :password => params[:password], 
+      :username => params[:username])
     @user.save!
     session[:username] = @user.username
     session[:user_id] = @user.id
