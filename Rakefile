@@ -19,5 +19,6 @@ end
 
 task :test_database_setup do
   connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("TRUNCATE users, messages;")
+  connection.exec('TRUNCATE messages RESTART IDENTITY')
+  connection.exec('TRUNCATE users RESTART IDENTITY CASCADE')
 end

@@ -2,4 +2,5 @@ require_relative 'user'
 require_relative 'message'
 
 DataMapper.finalize
-DataMapper.automigrate!
+DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
