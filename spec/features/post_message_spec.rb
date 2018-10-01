@@ -27,10 +27,11 @@ feature 'I want to see messages to chitter' do
     conn.exec("INSERT INTO peeps (messages) VALUES ('Is working');")
     conn.exec("INSERT INTO peeps (messages) VALUES ('As expected');")
     visit('/peeps/index')
-    expect(page).to have_content("Testing messages")
-    # expect(page).to have_content(instance_of_Time)
-    expect(page).to have_content("Is working")
-    expect(page).to have_content("As expected")
+    # expect(page).to have_content("Testing messages")
+    # # expect(page).to have_content(instance_of_Time)
+    # expect(page).to have_content("Is working")
+    # expect(page).to have_content("As expected")
+    expect(page.body) =~ /As expected.*Is working.*Testing messages/
   end
 end
 
