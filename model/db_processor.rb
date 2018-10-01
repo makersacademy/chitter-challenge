@@ -14,7 +14,7 @@ class DbProcessor
 
   def self.read(table)
     if table == 'twats'
-      @connection.exec("SELECT * FROM #{table};").map { |result| { date: result['send_time'], msg: result['message'] }}
+      @connection.exec("SELECT * FROM #{table};").map { |result| { date: result['send_time'], msg: result['message'] } }
     elsif table == 'users'
       @connection.exec("SELECT * FROM #{table};").map { |result| { username: result['username'], name: result['name'] } }
     end

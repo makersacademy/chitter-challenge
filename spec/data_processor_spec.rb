@@ -54,10 +54,10 @@ describe DataProcessor do
   context 'Message methods' do
     describe '#.post_message' do
       before(:each) do
-         allow(verification).to receive(:valid_message?).and_return(true)
-         allow(db_proc_class).to receive(:write)
-        end
-      it { expect(DataProcessor).to respond_to(:post_message).with(1).argument}
+        allow(verification).to receive(:valid_message?).and_return(true)
+        allow(db_proc_class).to receive(:write)
+      end
+      it { expect(DataProcessor).to respond_to(:post_message).with(1).argument }
       it { expect(DataProcessor.post_message({ msg: 'hello' })).to eq('You just twatted!') }
     end
   end
@@ -83,7 +83,7 @@ describe DataProcessor do
                                                  email: 'invalidemail',
                                                  name: 'notaname' }
                                                 )).to eq('invalid email')
-}
+      }
     end
     describe '#.post_message' do
       it { expect(DataProcessor.post_message({ msg: 'averylongmsg' })).to eq('above character limit') }

@@ -9,8 +9,8 @@ class DataProcessor
     # @db_proc_class.environment
   end
 
-  def self.current_user
-    @current_user
+  class << self
+    attr_reader :current_user
   end
 
   def self.login(username, password)

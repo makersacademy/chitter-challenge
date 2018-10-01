@@ -11,7 +11,7 @@ describe DbProcessor do
       it { expect(DbProcessor).to respond_to(:write).with(2).arguments }
       it 'can add a message to the db' do
         DbProcessor.write({ msg: 'My name is earl', time: test_date }, 'twats')
-        expect(DbProcessor.read('twats').last).to eq({ date: test_date, msg: 'My name is earl' } )
+        expect(DbProcessor.read('twats').last).to eq({ date: test_date, msg: 'My name is earl' })
       end
       it 'can add a user to the db' do
         DbProcessor.write({ username: 'Durain', password: 'password', email: '123@gmail.com', name: 'Durain' }, 'users')
@@ -23,7 +23,7 @@ describe DbProcessor do
     describe '#.read' do
       it { expect(DbProcessor).to respond_to(:read).with(1).arguments }
       it { expect(DbProcessor.read('twats')).to eq(testing_twats) }
-      it { expect(DbProcessor.read('users')).to eq(testing_users.map { |i| { username: i[:username], name: i[:name]}})}
+      it { expect(DbProcessor.read('users')).to eq(testing_users.map { |i| { username: i[:username], name: i[:name] } }) }
     end
     describe '#.get_user_id' do
       it { expect(DbProcessor).to respond_to(:get_user_id).with(1).arguments }
