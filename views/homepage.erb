@@ -34,7 +34,7 @@
 <P> Message feed </P>
 <P> <% Post.all.reverse.each do |post| %>
   <div>
-  <%= post.content %> <%= post.created_at.strftime("%H:%M%p") %> <%= User.get(post[:user_id])[:username] %>
+  <%= post.content %> <%= post.created_at.strftime("%H:%M%p") %> <%= session[:username] %>
   </div>
   <% end %>
 </P>

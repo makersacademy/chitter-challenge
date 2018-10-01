@@ -4,15 +4,14 @@ require_relative 'message'
 class Login
 
   def self.exists?(username)
-    !!User.first(:username => username)
+    !! User.first(:username => username)
   end
-  # def self.succesful?(username, password)
-  #
-  #
-  # end
+
   def self.valid?(username, password)
     user = User.first(:username => username)
-    !(user.password != password)
+    if user
+      !(user.password != password)
+    end
   end
     # attr_accessor :password_confirmation
     # attr_accessor :email_repeated
