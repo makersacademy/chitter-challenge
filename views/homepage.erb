@@ -1,0 +1,47 @@
+<h1>Welcome to Chitter!</h1>
+<h2>To post messages you must be a member</h2>
+<p>To become a member register below and then login </p>
+
+<form method="get" action="/register">
+  <input type="submit" value="Register" />
+</form>
+
+
+<% if session[:username] %>
+<p> Hello <%= session[:username] %> </p>
+<p>Please input your message below</p>
+<form method="post" action="/post_message">
+  <input type="text" name="content" placeholder="CONTENT" />
+  <input type="submit" value="Submit" />
+</form>
+<% else %>
+<p>Once registered please login below</p>
+<form method="post" action="/login">
+  <input type="text" name="username" placeholder="USERNAME" />
+  <input type="text" name="password" placeholder="PASSWORD" />
+  <input type="submit" value="Login" />
+</form>
+<% end %>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
+
+<P> Message feed </P>
+<P> <% Post.all.reverse.each do |post| %>
+  <div>
+  <%= post.content %> <%= post.created_at.strftime("%H:%M%p") %> <%= post.user[:username] %>
+  </div>
+  <% end %>
+</P>
+
+<% if session[:username] %>
+<p> Hello <%= session[:username] %> to logout click below </p>
+<form method="get" action="/logout">
+  <input type="submit" value="Logout" />
+</form>
+<% end %>
