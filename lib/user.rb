@@ -36,6 +36,7 @@ class User
 
   def self.authenticate(email:, password:)
     result = db_access.exec("SELECT * FROM users WHERE email = '#{email}';")
+    return nil unless result.any?
     new_instance_from(user_hash: result[0])
   end
 
