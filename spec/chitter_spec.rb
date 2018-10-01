@@ -1,4 +1,5 @@
 require 'chitter'
+require 'timecop'
 
 describe Message do
   describe '#add' do
@@ -25,5 +26,10 @@ describe Message do
     expect(Message.show).to include "Second message"
   end
 
+  it 'shows the time that the app was posted' do
+    connection = PG.connect(dbname: 'chitter_db_test')
+    connection.exec("INSERT INTO posts (message) VALUES ('First message');")
+    expect(Message.time).to be_kind_of(Date)
+  end
 
 end

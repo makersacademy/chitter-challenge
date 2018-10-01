@@ -9,7 +9,7 @@ class Message
     end
 
     messages = connection.exec('SELECT * FROM posts')
-    messages.map { |post| post['message'] }
+    messages.map { |post|  post['message'] }
 
   end
 
@@ -22,4 +22,16 @@ class Message
 
     connection.exec("INSERT INTO posts (message) VALUES ('#{message}')")
   end
+
+  def self.time
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_db_test')
+    else
+      connection = PG.connect(dbname: 'chitter_db')
+    end
+
+    date = connection.exec('SELECT * FROM posts')
+    date.map { |post|  post['date'] }
+  end
+
 end

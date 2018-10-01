@@ -1,4 +1,5 @@
 require 'pg'
+require 'timecop'
 
 feature 'Index page' do
   scenario 'should welcome me to the page' do
@@ -38,6 +39,16 @@ feature 'Index page' do
     within ('ul') do
       expect(all('li')[0].text).to eq 'Second message'
       expect(all('li')[1].text).to eq 'First message'
+    end
+  end
+
+  scenario 'show a time and date' do
+    date = Time.local(2018)
+    Timecop.freeze(date) do
+      visit('/')
+      fill_in 'message', with: 'First message'
+      click_on 'Submit'
+      expect(page).to have_content("created_at: #{date.to_s}")
     end
   end
 end
