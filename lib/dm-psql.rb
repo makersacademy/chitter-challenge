@@ -2,7 +2,7 @@ require 'data_mapper'
 require_relative 'user'
 require_relative 'peep'
 
-DB_USER = 'jon'
+DB_USER = ''
 
 if ENV['ENVIRONMENT'] == 'test'
   DATABASE_URL = "postgres://#{DB_USER}@localhost/chitter_test"
