@@ -3,3 +3,9 @@
 <form action="/add" method="get">
   <input type="submit" value="Add">
 </form>
+
+<div>
+  <% @peeps.each do |peep| %>
+    <%= peep.text %><br>
+  <% end %>
+</div>
