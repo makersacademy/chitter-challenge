@@ -4,7 +4,6 @@ require 'data_mapper'
 DataMapper.setup(:default, 'postgres://localhost/chitter')
 
 class Cheets
-  attr_reader :cheets
 
   include DataMapper::Resource
   property :id,         Serial
