@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @cheets = Cheets.all
+    @cheets = Cheets.all.reverse
     erb :index
   end
 

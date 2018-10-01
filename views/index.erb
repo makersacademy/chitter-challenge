@@ -1,16 +1,31 @@
+<head>
+  <style>
+  body { background-color: deepskyblue; }
+  h1   { color: floralwhite;
+         font-family: helvetica;
+       }
+  div   { border: 1px solid;
+          background-color: floralwhite;
+          font-family: helvetica;
+        }
+  </style>
+</head>
+
 <h1>Welcome to Chitter</h1>
 
-<div>
-  What's on your mind?<br>
+
+What's on your mind?<br>
   <form action="/peep" method="post">
     <input type="text" name="peep">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Peep!">
   </form>
   <br>
   <br>
-  <ul>
-    <% @cheets.each do |peep| %>
-    <li><%= peep.body %></li>
-    <%= peep.created_at %>
-    <% end %>
-  </ul>
+  <div>
+    <ul>
+      <% @cheets.each do |peep| %>
+      <li><%= peep.body %></li>
+      <%= peep.created_at %>
+      <% end %>
+    </ul>
+</div>

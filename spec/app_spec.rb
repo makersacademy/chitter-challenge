@@ -15,7 +15,7 @@ describe Chitter do
     scenario 'User can post their own Cheets using a form' do
       visit('/')
       fill_in 'peep', with: 'User cheet'
-      click_button('Submit')
+      click_button('Peep!')
 
       expect(page).to have_content('User cheet')
     end
