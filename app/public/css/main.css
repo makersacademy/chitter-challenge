@@ -1,7 +1,7 @@
 .button {
     display: inline-block;
     width: 120px;
-    background-color: purple;
+    background-color: Turquoise;
     border: 2px solid white;
     color: white;
     text-decoration: none;
@@ -27,7 +27,7 @@ p {
 
 h1 {
   font-size: 80px;
-  color: purple;
+  color: Turquoise ;
   font-weight: bold;
   margin-left: 20px;
 }
@@ -36,7 +36,7 @@ h1 {
   float: right;
   display: inline-block;
   width: 120px;
-  background-color: purple;
+  background-color: Turquoise ;
   border: 2px solid white;
   color: white;
   text-decoration: none;
@@ -54,42 +54,57 @@ h1 {
 
 h2 {
   font-size: 40px;
-  color: purple;
+  color: Turquoise ;
   padding-bottom: 25px;
   margin-left: 10px;
 }
 
 h4 {
   font-size: 20px;
-  color: purple;
+  color: Turquoise ;
   padding-bottom: 0px;
 }
 
 .time {
   font-size: 20px;
-  color: purple;
-  padding-bottom: 25px;
+  color: black ;
+  padding-bottom: 0px;
   margin-left: 10px;
   font-style: italic;
 
 
 }
+.username {
+  font-size: 40px;
+  color: black  ;
+  padding-bottom: 0px;
+  padding-left:0px;
 
+}
+
+.reply {
+  font-size: 30px;
+  color: black  ;
+  padding-bottom: 0px;
+  padding-left:20px;
+
+}
 .message {
   font-size: 30px;
-  color: purple;
+  color: black  ;
   padding-bottom: 0px;
-  
+  padding-left:20px;
+
 }
 
 h5 {
   font-size: 30px;
-  color: purple;
+  color: Turquoise ;
   padding-bottom: 0px;
 }
 
 .email {
-  border: 2px solid purple ;
+  border: 2px solid black   ;
   font-family: "Courier New", Courier, monospace;
     font-size: 16px;
     text-align: left;
@@ -100,7 +115,7 @@ h5 {
     margin-bottom: 20px;
 }
 .field {
-  border: 2px solid purple ;
+  border: 2px solid Turquoise   ;
   font-family: "Courier New", Courier, monospace;
     font-size: 16px;
     text-align: center;
@@ -112,7 +127,7 @@ h5 {
 }
 body {
   margin-left: 20px;
-  color: purple;
+  color: Turquoise  ;
   font-size: 20px;
   font-family: "Courier New", Courier, monospace;
   margin: auto
@@ -123,16 +138,20 @@ body {
 .peep {
   border:1px;
   border-style:solid;
-  border-color:purple;
+  border-color:black  ;
   /* padding: 1em;" */
   width:90%;
 
 
 }
+body {
+    background-color: black;
+}
 
 div {
   font-size: 20px;
-  color: purple;
+  color:   color: black ;
+;
   margin-left: : 0px;
 background-color: white ;
 
@@ -143,7 +162,8 @@ textarea {
   height:90px;
   background-color:white;
   color:black;
-  border:2px solid purple;
+  border:2px solid   color: Turquoise ;
+;
   padding:2%;
   font:22px/30px sans-serif;
   margin-left: 10px;
