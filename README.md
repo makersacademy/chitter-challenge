@@ -58,26 +58,26 @@ I want to receive an email if I am tagged in a Peep
 Usage:
 ------
 
-*Sign Up*
+**Sign Up**
 
 <img src="./readme_pics/Screen Shot 2018-10-01 at 09.18.54.png" />
 
-*Enter your email, password, Username and Name*
+**Enter your email, password, Username and Name**
 
 <img src="./readme_pics/Screen Shot 2018-10-01 at 09.19.09.png" />
 
-*User page welcomes User*
+**User page welcomes User**
 
 <img src="./readme_pics/Screen Shot 2018-10-01 at 09.19.56.png" />
 
-*Chitter Homepage*
+**Chitter Homepage**
 
 <img src="./readme_pics/Screen Shot 2018-10-01 at 09.20.09.png" />
 
-*Post a peep*
+**Post a peep**
 
 <img src="./readme_pics/Screen Shot 2018-10-01 at 09.20.23.png" />
 
-*Chitter Homepage*
+**Chitter Homepage**
 
 <img src="./readme_pics/Screen Shot 2018-10-01 at 09.21.07.png" />
