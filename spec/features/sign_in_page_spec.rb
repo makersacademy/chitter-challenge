@@ -1,6 +1,6 @@
 feature "Sing In Page" do
   scenario "has sign in button that takes you to Users page" do
-    User.create(email: "test@email.com", password: "password12345", username: "Jim33", name: "Jim Smith")
+    User.make(email: "test@email.com", password: "password12345", username: "Jim33", name: "Jim Smith")
     visit "/users/sign_in"
     fill_in("username", with: "Jim33")
     fill_in("password", with: "password12345")
@@ -17,7 +17,7 @@ feature "Sing In Page" do
   end
 
   scenario "rejects unknown passwords" do
-    User.create(email: "test@email.com", password: "password12345", username: "Jim33", name: "Jim Smith")
+    User.make(email: "test@email.com", password: "password12345", username: "Jim33", name: "Jim Smith")
     visit "/users/sign_in"
     fill_in("username", with: "Jim33")
     fill_in("password", with: "password")
