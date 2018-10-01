@@ -1,6 +1,5 @@
 require "./lib/chitter"
 require 'sinatra/base'
-require_relative 'database_connection_setup'
 require 'sinatra/flash'
 require "./lib/users"
 
