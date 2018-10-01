@@ -16,8 +16,10 @@ class Peep
 
   belongs_to :users
 
-  def initialize(message:)
+  def initialize(id:, message:, created_at:)
     @message = message
+    @id = id
+    @created_at = created_at
   end
 
   def self.create(message:)
@@ -26,10 +28,10 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
+    connection.exec("INSERT INTO peeps (message, created_at) VALUES('#{message}', NOW())")
   end
 
-  def self.view_all(message:)
+  def self.view_all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else

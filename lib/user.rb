@@ -8,7 +8,6 @@ require 'rubygems'
 class Users
  include DataMapper::Resource
 
-
  property :id,         Serial,    key: true
  property :username,   String,    unique: true, required: true
  property :password,   String,    length: 7..20
