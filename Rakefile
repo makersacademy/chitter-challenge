@@ -1,6 +1,6 @@
-require 'data_mapper_setup'
+require_relative './data_mapper_setup'
 
-if ENV['RACK_ENV'] != 'production'
+if ENV['RACK_ENV'] != 'development'
   require 'rspec/core/rake_task'
   
   RSpec::Core::RakeTask.new :spec
