@@ -38,6 +38,8 @@ class User
     User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
   end
 
+  private_class_method
+
   def self.duplicate_username?(username)
     username = DatabaseConnection.query("SELECT username FROM users WHERE username = '#{username}';")
     username.any?
