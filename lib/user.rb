@@ -48,7 +48,7 @@ class User
 
   def self.password_correct?(username, password)
     user = first(username: username)
-    user.password == password
+    BCrypt::Password.new(user.password) == password
   end
 
 end

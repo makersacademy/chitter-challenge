@@ -22,6 +22,7 @@ class ChitterApp < Sinatra::Base
       flash[:error] = string
       redirect '/users/new'
     else
+      User.sign_in(username: params["username"], password: params["password"])
       redirect "/users/#{user.id}"
     end
   end

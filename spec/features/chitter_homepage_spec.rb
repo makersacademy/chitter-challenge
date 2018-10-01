@@ -30,7 +30,7 @@ feature "Chitter Homepage" do
       post_a_peep
       post_a_peep2
       visit "/peeps"
-      expect(first('.peep-time')).to have_content (Time.now).strftime("%d/%m/%Y at %I:%M%p")
+      expect(first('.peep-time')).to have_content(Time.now.strftime("%d/%m/%Y at %I:%M%p"))
     end
   end
 

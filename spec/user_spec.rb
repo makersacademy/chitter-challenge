@@ -42,11 +42,12 @@ describe User do
     end
 
     it "should return false if password wrong" do
-      User.create(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
+      User.make(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
       expect(User.sign_in(username: "AbagnaleF", password: "password")).to eq false
     end
+
     it "should return User object if password right" do
-      User.create(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
+      User.make(email: "test@email.com", password: "password12345", username: "AbagnaleF", name: "Frank Abagnale")
       expect(User.sign_in(username: "AbagnaleF", password: "password12345")).to be_instance_of(User)
     end
   end
