@@ -15,7 +15,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/post' do
-    Peep.create peep: params[:peep], created_at: Time.now, user_id: User.first("#{session[:user]}")[:id]
+    p "#{session[:user]}"
+    Peep.create(peep: params[:peep],
+                created_at: Time.now,
+                user_id: User.first("user" => "#{session[:user]}")[:id])
     redirect '/'
   end
 
@@ -28,7 +31,7 @@ class Chitter < Sinatra::Base
       flash[:user_exists] = "that username is already taken"
       redirect '/register'
     else
-      session[:user] = params['username']
+      session[:user] = params[:username]
       User.create user: params['username'], firstname: params['firstname'], lastname: params['lastname'], email: params['email'], password: params[:password]
       redirect '/'
     end

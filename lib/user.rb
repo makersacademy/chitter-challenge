@@ -4,6 +4,7 @@ require 'dm-migrations'
 require 'rubygems'
 require_relative 'peep'
 
+
 class User
   include DataMapper::Resource
 
