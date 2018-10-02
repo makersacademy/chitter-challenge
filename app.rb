@@ -15,7 +15,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/post' do
-    p "#{session[:user]}"
     Peep.create(peep: params[:peep],
                 created_at: Time.now,
                 user_id: User.first("user" => "#{session[:user]}")[:id])
