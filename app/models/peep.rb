@@ -9,4 +9,16 @@ class Peep
   property :created_at, DateTime
   belongs_to :user
   has n, :reply
+
+
+  def self.find_mentions(message)
+    mentions = []
+    message.split.each do |word|
+      if word.chars.first == "@"
+        word.slice!(0)
+        mentions.push(word)
+      end
+    end
+    mentions
+  end
 end

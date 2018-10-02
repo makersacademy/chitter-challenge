@@ -11,11 +11,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Partial
 
   require_relative './models/send_tag_alert'
-  require_relative 'controllers/login'
-  require_relative 'controllers/logout'
-  require_relative 'controllers/peeping'
-  require_relative 'controllers/signup'
-  require_relative 'controllers/replying'
+  require_relative 'controllers/account'
+  require_relative 'controllers/peeps'
 
   set :partial_template_engine, :erb
 
