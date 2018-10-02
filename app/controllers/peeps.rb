@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
     Peep.create(message: message, user_id: @user.id)
 
     mentions = Peep.find_mentions(message)
-    if !mentions.empty?
+    unless !mentions.empty?
       mentions.each do |mention|
         User.all.each do |user|
           SendTagAlert.call(user.email) if mention == user.username

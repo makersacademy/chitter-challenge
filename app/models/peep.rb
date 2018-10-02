@@ -10,7 +10,6 @@ class Peep
   belongs_to :user
   has n, :reply
 
-
   def self.find_mentions(message)
     mentions = []
     message.split.each do |word|
