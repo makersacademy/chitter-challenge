@@ -28,11 +28,13 @@ end
 feature 'Sign up' do
   scenario 'User signs up' do
     visit '/users/signup'
+    fill_in 'name', with: "Donald Drumpf"
     fill_in 'email', with: "donald@whitehouse.gov"
+    fill_in 'username', with: "therealdonalddrumpf"
     fill_in 'password', with: "iloveputin"
     click_button('Sign up')
     expect(current_path).to eq '/users/welcome'
-    expect(page).to have_content ('Welcome to Chitter, donald@whitehouse.gov')
+    expect(page).to have_content ('Welcome to Chitter, Donald Drumpf')
   end
   scenario 'User whose email is used signs up' do
     visit '/users/signup'
