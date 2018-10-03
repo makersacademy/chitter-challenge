@@ -51,11 +51,12 @@ class Chitter < Sinatra::Base
 
   get '/users/welcome' do
     @user = session[:user]
+    p "welcome", @user
     erb :"users/welcome"
   end
 
   post '/users/signup' do
-    user = Users.create(params['email'], params['password'])
+    user = Users.create(params['name'],params['username'],params['email'], params['password'])
     if user == false
       flash[:err_message] = 'Email address is already taken.'
       redirect 'users/signup'

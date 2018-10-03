@@ -5,7 +5,7 @@ feature 'Log in' do
     fill_in 'password', with: 'password'
     click_button('Log in')
     expect(current_path).to eq '/users/welcome'
-    expect(page).to have_content 'Welcome to Chitter, test@email.com'
+    expect(page).to have_content 'Welcome to Chitter, test_name'
   end
   scenario 'user enters wrong password' do
     visit 'users/login'

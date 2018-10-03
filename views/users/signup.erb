@@ -1,6 +1,8 @@
 <form  action='signup' method='post'>
-  <input style="display: block" type='text' name='email'>
-  <input style="display: block" type='password' name='password'>
+  <input style="display: block" type='name' name='name' placeholder='Name'>
+  <input style="display: block" type='username' name='username' placeholder='Username'>
+  <input style="display: block" type='text' name='email' placeholder='Email'>
+  <input style="display: block" type='password' name='password' placeholder='Password'>
   <input style="display: block" type='submit' value='Sign up'>
 </form>
 <% if flash[:err_message] %>
