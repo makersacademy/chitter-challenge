@@ -13,6 +13,10 @@ feature 'view peeps' do
   end
   scenario 'shows name of peeper' do
     visit '/peeps'
-    expect(page).to have_content('test@email.com')
+    expect(page).to have_content('test_name')
+  end
+  scenario 'shows username of peeper' do
+    visit '/peeps'
+    expect(page).to have_content('test_username')
   end
 end

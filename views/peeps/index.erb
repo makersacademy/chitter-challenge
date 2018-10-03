@@ -9,7 +9,7 @@
     <% @peeps.each do |peep| %>
       <p style="font-weight: bold"> <%= peep.content %></p>
       <p style="font-style: italic"> <%= peep.time %></p>
-      <p style="font-style: italic">User: <%= peep.email %></p>
+      <p style="font-style: italic">User: <%= peep.name %>, <%= peep.username %></p>
     <% end %>
   </ul>
 </div>
