@@ -29,7 +29,7 @@ or <a href="/register">register</a> </form> <%= flash[:notice] %> </h2>
 
 <% Peep.all.reverse.each do |peep| %>
 <p>
-<div>
+<div class="message">
 "<%= peep.peep %>" <br> <small> posted by <%= User.get(peep[:user_id])[:user] %>, at <%= peep.created_at.strftime("%H:%M%p on %e %b %y") %></small>
 </div><br>
 </p>
