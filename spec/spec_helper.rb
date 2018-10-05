@@ -26,9 +26,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  DataMapper::setup(:default, "postgres://andres@localhost/test_chitter")
-  DataMapper.finalize
-
   config.before(:each) do
     DataMapper.auto_migrate!
     User.logout

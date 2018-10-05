@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'data_mapper'
-require './controllers/controller_helper'
+require './models/setup'
 require './models/peep'
 require './models/user'
 
@@ -14,7 +14,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    set_up
     @user = User.instance
     @peeps = Peep.all_sorted
     erb :index
