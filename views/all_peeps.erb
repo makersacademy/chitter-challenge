@@ -24,7 +24,7 @@
       <li>
         <div class="allp">
           <div class="peep"><%= peep.peep %></div><br>
-          <div class="time">sent at <%= peep.time %></div>
+          <div class="time">sent at <%= peep.created_at.strftime("%H:%M:%S - %d/%m/%Y") %></div>
         </div>
       </li>
     <% end %>

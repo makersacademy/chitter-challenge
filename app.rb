@@ -1,8 +1,10 @@
 require 'sinatra/base'
+require 'sinatra/activerecord'
 require './lib/peep'
-require './lib/profile'
+require './lib/user'
 
 class Chitter < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
 
   enable :sessions
 
@@ -15,7 +17,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    Profile.create(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
+    User.create(username: params[:username],
+      name: params[:name],
+      email: params[:email],
+      password: params[:password])
     redirect '/all_peeps'
   end
 
