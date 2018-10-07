@@ -1,7 +1,7 @@
 # Twittarr - The pirated version of Twitter
 Deployed Here:
 -------
-[Twittarr](https://www.twittarr.herokuapp.com)
+[Twittarr](https://twittarr.herokuapp.com/)
 
 Main Domain Model and Features:
 -------
