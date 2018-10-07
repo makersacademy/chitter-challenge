@@ -10,7 +10,9 @@ class Chitter
     end
     chits = conn.exec("SELECT * FROM chits ORDER BY updated_at DESC")
     p "******"
-    chits.map { |chit| chit['name'] + " - " + chit['updated_at'] + " ----- chitter message: " + chit['message'] }
+    chits.map {
+       |chit| chit['name'] + " - " + chit['updated_at'] + " ----- chitter message: " + chit['message']
+     }
   end
 
 end

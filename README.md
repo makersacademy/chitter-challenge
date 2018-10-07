@@ -51,3 +51,17 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
+
+01/10/18 Code Review with Alex (things to do!)
+----------------------------------------------
+- "Name" feature & erb page the same, index/welcome page.
+- Index...  not testing for an image (can do with Capybara).
+            not testing for a form (fill-in, submit).
+- List_msgs...  not testing form.
+                not testing resigning.
+- Enter message...  not testing image & form.
+- add clicks.
+
+"App: your app includes code (skinny controller. Instead might want to #add in chitter)".
+
+For this README... add instructions for set-up, bundle, postgres etc...
