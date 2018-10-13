@@ -18,12 +18,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    User.create(username: params[:username],
+    user= User.create(username: params[:username],
       name: params[:name],
       email: params[:email],
       password: params[:password])
-    session[:username] = params[:username]
-    redirect '/all_peeps'
+
+    if user.valid?
+      session[:username] = params[:username]
+      redirect '/all_peeps'
+    else
+      flash[:error] = "Ooops something is missing"
+      redirect ('/signup')
+    end
   end
 
   get '/all_peeps' do

@@ -19,6 +19,7 @@ feature 'Features - Sign in' do
     fill_in :password, with: '1234'
     click_button 'Submit'
     expect(page).to have_content('Wrong username/password')
+    expect(page).not_to have_content('Welcome back')
   end
 
   scenario 'user used a wrong password' do
@@ -27,5 +28,6 @@ feature 'Features - Sign in' do
     fill_in :password, with: '123'
     click_button 'Submit'
     expect(page).to have_content('Wrong username/password')
+    expect(page).not_to have_content('Welcome back')
   end
 end

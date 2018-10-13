@@ -1,5 +1,7 @@
 <h1>Sign up</h1>
 
+<%= flash[:error] %>
+
 <form action="/signup" method="post">
     <input class="signup"  type="text" name="username" placeholder="username" /> <br />
     <input class="signup" type="text" name="name" placeholder="name" /> <br />

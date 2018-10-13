@@ -8,5 +8,21 @@
   </head>
   <body>
       <%= yield %>
+
+      <div class="button_container">
+        <% if session[:username].nil? %>
+        <form action="/signup" method="get">
+          <input class="button" type="submit" value="Sign up">
+        </form>
+        <form action="/login" method="get">
+          <input class="button" type="submit" value="Log in">
+        </form>
+        <% else %>
+        <form action="/all_peeps" method="get">
+          <input class="button" type="submit" value="See peeps">
+        </form>
+        <% end %>
+      </div>
+
   </body>
 </html>
