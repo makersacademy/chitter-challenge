@@ -1,11 +1,17 @@
 feature 'Features - Retrieve peeps' do
-  # As a maker
-  # So that I can see what others are saying
-  # I want to see all peeps in reverse chronological order
+  before do
+    user = User.create(username: 'test', name: 'rspec', password: '1234',
+      email: 'test@email.com')
+    visit('/login')
+    fill_in :username, with: 'test'
+    fill_in :password, with: '1234'
+    click_button 'Submit'
+    peep = Peep.create(peep: 'my first peep', user_id: user.id)
+    Peep.create(peep: 'my second peep', user_id: user.id)
+  end
+
   scenario 'user wants to see all peeps in reverse chronological order' do
-    Peep.create(peep: 'my first peep')
-    Peep.create(peep: 'my second peep')
-    visit('/all_peeps')
+    click_button 'See peeps'
     expect(page.body.index('my first peep')).to be > (page.body.index('my second peep'))
   end
 

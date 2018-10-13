@@ -10,5 +10,7 @@ feature 'Features - Write peeps' do
     fill_in :peep, with: 'my first peep, hurray!'
     click_button 'Submit'
     expect(page).to have_content('my first peep, hurray!')
+    expect(page).to have_content('test')
+    expect(page).to have_content('rspec')
   end
 end

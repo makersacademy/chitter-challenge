@@ -25,6 +25,7 @@ Sign up successfully <%= @username %>
         <div class="allp">
           <div class="peep"><%= peep.peep %></div><br>
           <div class="time">sent at <%= peep.created_at.strftime("%H:%M:%S - %d/%m/%Y") %></div>
+          <div class="user">by <%= peep.user.name %> (@<%= peep.user.username %>) </div>
         </div>
       </li>
     <% end %>
