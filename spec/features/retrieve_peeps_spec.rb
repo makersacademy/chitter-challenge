@@ -6,13 +6,13 @@ feature 'Features - Retrieve peeps' do
     fill_in :username, with: 'test'
     fill_in :password, with: '1234'
     click_button 'Submit'
-    peep = Peep.create(peep: 'my first peep', user_id: user.id)
+    Peep.create(peep: 'my first peep', user_id: user.id)
     Peep.create(peep: 'my second peep', user_id: user.id)
   end
 
   scenario 'user wants to see all peeps in reverse chronological order' do
     click_button 'See peeps'
-    expect(page.body.index('my first peep')).to be > (page.body.index('my second peep'))
+    expect(page.body.index('my first peep')).to be > page.body.index('my second peep')
   end
 
   scenario 'user wants to see when a peep was sent' do

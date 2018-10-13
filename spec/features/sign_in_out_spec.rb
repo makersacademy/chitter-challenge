@@ -6,7 +6,7 @@ feature 'Features - Sign in' do
   end
 
   scenario 'user wants to sign in' do
-    visit ('/login')
+    visit '/login'
     fill_in :username, with: 'test'
     fill_in :password, with: '1234'
     click_button 'Submit'
@@ -14,7 +14,7 @@ feature 'Features - Sign in' do
   end
 
   scenario 'user does not exists' do
-    visit ('/login')
+    visit '/login'
     fill_in :username, with: 'rspec'
     fill_in :password, with: '1234'
     click_button 'Submit'
@@ -23,7 +23,7 @@ feature 'Features - Sign in' do
   end
 
   scenario 'user used a wrong password' do
-    visit ('/login')
+    visit '/login'
     fill_in :username, with: 'test'
     fill_in :password, with: '123'
     click_button 'Submit'

@@ -29,7 +29,7 @@ class Chitter < Sinatra::Base
       redirect '/all_peeps'
     else
       flash[:error] = "Ooops something is missing"
-      redirect ('/signup')
+      redirect '/signup'
     end
   end
 
