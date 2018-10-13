@@ -27,10 +27,6 @@ feature 'I want to see messages to chitter' do
     conn.exec("INSERT INTO peeps (messages) VALUES ('Is working');")
     conn.exec("INSERT INTO peeps (messages) VALUES ('As expected');")
     visit('/peeps/index')
-    # expect(page).to have_content("Testing messages")
-    # # expect(page).to have_content(instance_of_Time)
-    # expect(page).to have_content("Is working")
-    # expect(page).to have_content("As expected")
     expect(page.body) =~ /As expected.*Is working.*Testing messages/
   end
 end
@@ -49,8 +45,6 @@ feature 'User can see the time message was posted' do
     expect(page).to have_content("Update about time")
     time = result[0]['time_of_creation']
     time = DateTime.parse(time, '%Y-%m-%dT%H:%M:S')
-    # expect(peep.time.strftime("%Y-%m-%d %H:%M:%S%z")).to eq now.strftime("%Y-%m-%d %H:%M:%S%z")
-    # expect(page).to have_content(result[0]['time_of_creation'])
     expect(page).to have_content(time)
   end
 end

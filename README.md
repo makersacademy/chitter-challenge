@@ -81,7 +81,14 @@ https://www.dropbox.com/s/b2svwqubs5edcyh/Screen%20Shot%202018-09-30%20at%2018.4
 https://www.dropbox.com/s/auv5cl6shumouu9/Screen%20Shot%202018-09-30%20at%2018.45.59.png?dl=0
 https://www.dropbox.com/s/qrhzuempv4x7cb7/Screen%20Shot%202018-09-30%20at%2018.45.23.png?dl=0
 
-I have covered all the features except advanced feature. In future, I plan to include that as well as want to do more refactoring and use database_connection objects.
+TO DO LIST:
+
+I have covered all the features except advanced feature.
+In future, I plan to include that as well as want to do more refactoring and use database_connection objects.
+I plan to include more CSS to make it look better.
+
+TEST COVERAGE:
+I have got 100% test coverage. All tests are passing.
 
 Code Review
 -----------
