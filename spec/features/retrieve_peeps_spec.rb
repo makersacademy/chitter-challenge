@@ -6,7 +6,7 @@ feature 'Features - Retrieve peeps' do
     Peep.create(peep: 'my first peep')
     Peep.create(peep: 'my second peep')
     visit('/all_peeps')
-    expect(page.body.index('my first peep')).to be < (page.body.index('my second peep'))
+    expect(page.body.index('my first peep')).to be > (page.body.index('my second peep'))
   end
 
   scenario 'user wants to see when a peep was sent' do

@@ -18,12 +18,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    user= User.create(username: params[:username],
+    user = User.create(username: params[:username],
       name: params[:name],
       email: params[:email],
       password: params[:password])
 
     if user.valid?
+      session[:current_user] = user
       session[:username] = params[:username]
       redirect '/all_peeps'
     else
@@ -33,12 +34,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/all_peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :all_peeps, :layout => :layout
   end
 
   post '/all_peeps' do
-    Peep.create(peep: params[:peep])
+    Peep.create(peep: params[:peep], user_id: session[:current_user].id)
     redirect '/all_peeps'
   end
 
@@ -50,6 +51,7 @@ class Chitter < Sinatra::Base
     user = User.find_by(username: params[:username],
       password: params[:password])
     if user.present?
+      session[:current_user] = user
       session[:username] = params[:username]
       redirect '/login_success'
     else

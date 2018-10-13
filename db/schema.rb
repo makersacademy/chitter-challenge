@@ -17,9 +17,10 @@ ActiveRecord::Schema.define(version: 2018_10_06_144830) do
 
   create_table "peeps", force: :cascade do |t|
     t.string "peep"
-    t.string "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_peeps_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,4 +30,5 @@ ActiveRecord::Schema.define(version: 2018_10_06_144830) do
     t.string "password"
   end
 
+  add_foreign_key "peeps", "users"
 end
