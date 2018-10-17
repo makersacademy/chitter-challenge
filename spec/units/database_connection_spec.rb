@@ -14,6 +14,13 @@ RSpec.describe DatabaseConnection do
     expect(DatabaseConnection.db).to eq 'chitter'
   end
 
+  it 'should connect to the production database in development' do
+    ENV['RACK_ENV'] = 'production'
+    ENV['DATABASE_URL'] = 'postgres://localhost:5432/chitter_test'
+    DatabaseConnection.setup
+    expect(DatabaseConnection.db).to eq 'chitter_test'
+  end
+
   it 'raises an error if it is in an unknown environment' do
     ENV['RACK_ENV'] = 'unknown'
     error_message = 'No database environment specified'

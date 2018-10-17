@@ -1,11 +1,8 @@
 require_relative 'database_connection'
 require_relative 'peep'
-require_relative 'peep_mailer'
 
 class PeepFeed
-  def initialize(connection: DatabaseConnection, peep_type: Peep,
-                 mailer: PeepMailer.new)
-    @mailer = mailer
+  def initialize(connection: DatabaseConnection, peep_type: Peep)
     @connection = connection
     @peep_type = peep_type
   end
@@ -41,6 +38,5 @@ class PeepFeed
       "#{user.user_details[:id].to_i} ORDER BY id DESC LIMIT 1;")[0][:id].to_i
     @connection.query('INSERT INTO replies(original_id, reply_id) VALUES('\
       "#{reply_to.to_i}, #{peep_id});")
-    @mailer.send_notification(peep_id, reply_to)
   end
 end
