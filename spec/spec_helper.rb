@@ -1,3 +1,9 @@
+require 'simplecov'
+SimpleCov.start
+
+require 'codecov'
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
@@ -5,7 +11,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'pry'
 require 'rake'
-require 'simplecov'
 require 'simplecov-console'
 require_relative '../database_connection_setup'
 require_relative '../app.rb'
