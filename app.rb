@@ -67,6 +67,7 @@ class Chitter < Sinatra::Base
 
   post '/log_out' do
     session[:username] = nil
+    flash[:notice] = "See you later!"
     redirect '/'
   end
 

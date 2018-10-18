@@ -1,5 +1,7 @@
 # Chitter Challenge
 
+[![Build Status](https://travis-ci.org/ChocolatineMathou/chitter-challenge.svg?branch=master)](https://travis-ci.org/ChocolatineMathou/chitter-challenge)
+
 This challenge aims to build a clone of 'Twitter' using the framework Sinatra, Ruby and PostgreSQL databases.
 This program was built test-first using RSpec and Capybara.
 

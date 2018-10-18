@@ -30,4 +30,14 @@ feature 'Features - Sign in' do
     expect(page).to have_content('Wrong username/password')
     expect(page).not_to have_content('Welcome back')
   end
+
+  scenario 'user wants to log out' do
+    visit '/login'
+    fill_in :username, with: 'test'
+    fill_in :password, with: '1234'
+    click_button 'Submit'
+    click_button 'See peeps'
+    click_button 'Log out'
+    expect(page).to have_content('See you later!')
+  end
 end
