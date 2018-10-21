@@ -50,9 +50,9 @@ CREATE DATABASE chitter;
 Create the following tables
 
 ```
-CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(150), time timestamptz, user_id INTEGER REFERENCES users (id));
-
 CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(30), username VARCHAR(20), email VARCHAR(60), password VARCHAR(20));
+
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(150), time timestamptz, user_id INTEGER REFERENCES users (id));
 ```
 
 ### Run Chitter app
