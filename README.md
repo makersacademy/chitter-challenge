@@ -41,9 +41,13 @@ $ cd chitter-challenge
 $ bundle
 ```
 
-Create a database called 'chitter', (and 'chitter_test', if testing)
+Create a database called 'chitter', (and 'chitter_test', if testing), e.g. in PostgreSQL
 
-Create the following tables, e.g. in PostgreSQL
+```
+CREATE DATABASE chitter;
+```
+
+Create the following tables
 
 ```
 CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(150), time timestamptz, user_id INTEGER REFERENCES users (id));
