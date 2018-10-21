@@ -25,8 +25,8 @@ class Peep
       con = PG.connect(dbname: 'chitter')
     end
     time = Time.new
-    result = con.exec("INSERT INTO peeps (peep, time, user_id) 
-      VALUES ('#{peep}', '#{time}', '#{user_id}') 
+    result = con.exec("INSERT INTO peeps (peep, time, user_id)
+      VALUES ('#{peep}', '#{time}', '#{user_id}')
       RETURNING peep, time, user_id;")
     Peep.new(result[0]['peep'], result[0]['time'], result[0]['user_id'])
   end
@@ -37,12 +37,13 @@ class Peep
     @user_id = user_id
   end
 
-  def users(user_id)
+  def user
     if ENV['RACK_ENV'] == 'test'
       con = PG.connect(dbname: 'chitter_test')
     else
       con = PG.connect(dbname: 'chitter')
     end
-    con.exec("SELECT * FROM users WHERE id = '#{user_id}';")
+    result = con.exec("SELECT * FROM users WHERE id = '#{user_id}';")
+    return result[0]
   end
 end

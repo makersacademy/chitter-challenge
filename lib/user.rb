@@ -8,10 +8,10 @@ class User
     else
       con = PG.connect(dbname: 'chitter')
     end
-    result = con.exec("INSERT INTO users (name, username, email, password) 
-      VALUES ('#{name}', '#{username}', '#{email}', '#{password}') 
+    result = con.exec("INSERT INTO users (name, username, email, password)
+      VALUES ('#{name}', '#{username}', '#{email}', '#{password}')
       RETURNING id, name, username, email, password;")
-    @user = User.new(result[0]['id'], result[0]['name'], result[0]['username'], 
+    @user = User.new(result[0]['id'], result[0]['name'], result[0]['username'],
       result[0]['email'], result[0]['password'])
   end
 
@@ -21,10 +21,6 @@ class User
     @username = username
     @email = email
     @password = password
-  end
-
-  def self.instance
-    @user
   end
 
 end
