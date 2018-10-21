@@ -4,9 +4,8 @@ describe '.create' do
   describe 'create a user with name, username, email and password' do
     it 'returns all user details' do
 
-      User.create("Harry Potter", "Scarface", 
+      user = User.create("Harry Potter", "Scarface", 
         "hpotter@gmail.com", "Password123")
-      user = User.instance
 
       expect(user.name).to eq "Harry Potter"
       expect(user.username).to eq "Scarface"
