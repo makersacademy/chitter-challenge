@@ -5,11 +5,6 @@
 This challenge aims to build a clone of 'Twitter' using the framework Sinatra, Ruby and PostgreSQL databases.
 This program was built test-first using RSpec and Capybara.
 
-
-## Preview
-
-![Chitter Preview](./public/img/Chitter.gif)
-
 ## Features
 
 ```
@@ -40,7 +35,7 @@ I want to log out of Chitter
 
 ## Database Model
 
-To run this app, you will need two databases (test and development environments). Since I used activerecord and provided the migration files in this repo, you only need to run the followings commands:  
+To run this app, you will need two databases (test and development environments). Since I used Activerecord and provided the migration files in this repo, you only need to run the followings commands:  
 
 ```
 $ rake db:create # to create the databases
