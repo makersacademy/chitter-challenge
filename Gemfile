@@ -6,7 +6,6 @@ gem 'bcrypt'
 gem 'capybara'
 gem 'codecov', :require => false, :group => :test
 gem 'dm-postgres-adapter'
-gem 'data_mapper'
 gem 'mailgun'
 gem 'pg'
 gem 'pony'

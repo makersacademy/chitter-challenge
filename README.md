@@ -44,3 +44,25 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 ```
+
+## Example
+
+### The Peep Feed
+
+The following function collects the peep feed: it sends a SQL query to the DatabaseConnection and the returns a load of peeps, which are parsed into new Peep objects. These are then displayed to the app.
+
+```ruby
+def top_peeps(number)
+  query_results = @connection.query('SELECT peeps.id, peeps.contents, '\
+    'peeps.timestamp, users.username FROM peeps INNER JOIN users ON '\
+    "peeps.user_id = users.id ORDER BY peeps.timestamp DESC LIMIT #{number}")
+  query_results.map do |hash|
+    @peep_type.new(hash[:id], hash[:username], hash[:contents],
+                   hash[:timestamp])
+  end
+end
+```
+
+## License
+
+This repo is licensed under the MIT license.
