@@ -1,0 +1,9 @@
+<h2> Chitter </h2>
+<%= @peeps %>
+<form action="/peep_post" method="post">
+  <fieldset>
+    <legend> What are you doing? </legend>
+    <input type="text" name="peep">
+    <input type="submit" value="Post" >
+  </fieldset>
+</form>
