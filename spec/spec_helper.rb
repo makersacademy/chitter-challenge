@@ -1,3 +1,15 @@
+require 'capybara'
+require 'rspec'
+require 'rspec/capybara'
+require_relative './../app.rb'
+Capybara.app = Chitter
+
+
+
+
+
+
+
 require 'simplecov'
 require 'simplecov-console'
 
