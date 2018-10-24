@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="/style.css">
-</head>
+<%= erb :head_with_style %>
 <body>
-  <div class="nav-bar">
-    <a href="/"><h1>🐧 chitter</h1></a>
-  </div>
+  <%= erb :navbar %>
   <div class="page-container">
     <h3>Sign up to get started.</h3>
     <form class="sign-up-form" action="/sign_up" method="post">
-      <label for="Name">
+      <label for="name">
       Name
-      <input type="text" name="Name">
+      <input type="text" name="name">
       </label>
-      <label for="Username">
+      <label for="username">
       Username
-      <input type="text" name="Username">
+      <input type="text" name="username">
       </label>
-      <label for="Email">
+      <label for="email">
       Email
-      <input type="email" name="Email">
+      <input type="email" name="email">
       </label>
-      <label for="Password">
+      <label for="password">
       Password
-      <input type="password" name="Password">
+      <input type="password" name="password">
       </label>
-      <button id="sign-up" type="submit" name="Sign Up">Sign Up</button>
+      <button class="sign-up-button" type="submit" name="Sign Up">Sign Up</button>
     </form>
   </div>
 </div>
