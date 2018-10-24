@@ -5,6 +5,14 @@ include Password
 
 class User
 
+  def self.check_if_unique(username, email)
+    User.all.each do |user|
+      return false if user.username == username
+      return false if user.email == email
+    end
+    true
+  end
+
   def self.create(name:, username:, email:, password:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')

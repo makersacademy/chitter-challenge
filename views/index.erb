@@ -25,6 +25,8 @@
       <button class="sign-up-button" type="submit" name="Sign Up">Sign Up</button>
     </form>
   </div>
-</div>
+  <% if !@unique_user %>
+    <%= erb :"errors/unique_user" %>
+  <% end %>
 </body>
 </html>
