@@ -1,6 +1,24 @@
 describe User do
 
-  subject(:user) { described_class.create(name: "Firstname Lastname", username: "username", email: "email@email.com", password: "password") }
+  describe '.create' do
+    it 'creates a new user' do
+      user = User.create(name: 'Firstname Lastname', username: 'username', email: 'email@email.com', password: 'password')
+      expect(user).to be_a User
+    end
+  end
+
+  describe '.all' do
+    it 'returns a list of users' do
+      User.create(name: 'Firstname Lastname', username: 'username', email: 'email@email.com', password: 'password')
+
+      users = User.all
+
+      expect(users.first).to be_a User
+      expect(users.first.name).to eq 'Firstname Lastname'
+    end
+  end
+
+  subject(:user) { User.create(name: "Firstname Lastname", username: "username", email: "email@email.com", password: "password") }
 
   describe "#name" do
     it "returns full name of user" do
