@@ -40,7 +40,7 @@ describe User do
 
   describe "#password" do
     it "returns password of user" do
-      expect(user.password).to eq "password"
+      expect(test_password("password", user.password)).to be true
     end
   end
 
