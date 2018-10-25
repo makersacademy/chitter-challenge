@@ -16,7 +16,7 @@ class Cheet
     else
       conn = PG.connect(dbname: 'chitter_database')
     end
-    result = conn.exec( "SELECT * FROM cheets" )
+    result = conn.exec("SELECT * FROM cheets")
     result.map { |row| Cheet.new(row['id'], row['user'], row['cheet']) }
   end
 
@@ -26,7 +26,7 @@ class Cheet
     else
       conn = PG.connect(dbname: 'chitter_database')
     end
-      conn.exec("INSERT INTO cheets (cheet) VALUES ('#{cheet}');")
+    conn.exec("INSERT INTO cheets (cheet) VALUES ('#{cheet}');")
   end
 
 end

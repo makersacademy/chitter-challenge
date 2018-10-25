@@ -4,7 +4,7 @@ require './lib/cheet'
 class Chitter < Sinatra::Base
 
   get '/' do
-    @cheets = Cheet.all
+    @cheets = Cheet.all.reverse
     erb :index
   end
 
@@ -12,6 +12,5 @@ class Chitter < Sinatra::Base
     Cheet.create(params[:cheet])
     redirect '/'
   end
-
 
 end
