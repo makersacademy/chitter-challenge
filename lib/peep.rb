@@ -15,7 +15,7 @@ class Peep
     query = "SELECT * FROM peeps ORDER BY peep_time DESC;"
     rows = DatabaseConnection.query(query)
     rows.map do |row|
-      Peep.new(id: row["id"], time: Time.parse(row["peep_time"]), username: row["username"], content: row["content"])
+      Peep.new(id: row["peep_id"], time: Time.parse(row["peep_time"]), username: row["username"], content: row["content"])
     end
   end
 
