@@ -20,12 +20,37 @@ input[name=cheet] {
   margin-left: 5%;
 }
 
+input[type=password] {
+  border: 1px solid #e6e9ec;
+  border-radius: 8px;
+  box-shadow: inset 0px 1px 3px 0px rgba(0,1,1,0.06);
+  height: 44px;
+  padding: 0 1em;
+  margin: 0.5em 0;
+}
+
+input[type=email] {
+  border: 1px solid #e6e9ec;
+  border-radius: 8px;
+  box-shadow: inset 0px 1px 3px 0px rgba(0,1,1,0.06);
+  height: 44px;
+  padding: 0 1em;
+  margin: 0.5em 0;
+}
+
 input[type=text] {
   border: 1px solid #e6e9ec;
   border-radius: 8px;
   box-shadow: inset 0px 1px 3px 0px rgba(0,1,1,0.06);
   height: 44px;
   padding: 0 1em;
+  margin: 0.5em 0;
+}
+
+div[name=sign_in_box] {
+  margin: 0 auto;
+  list-style-type: none;
+  width: 60%
 }
 
 .cheet_block {
@@ -42,6 +67,18 @@ ul {
   background-color: #d1e5e1
   padding: 0;
   margin: 0;
+}
+
+.sign_in {
+  float: left;
+  list-style-type: none;
+  vertical-align: top;
+}
+
+.logging_in {
+  float: left;
+  list-style-type: none;
+  vertical-align: top;
 }
 
 .messages {

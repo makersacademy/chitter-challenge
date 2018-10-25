@@ -8,6 +8,10 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/register' do
+    erb :register
+  end
+
   post '/new-cheet' do
     Cheet.create(params[:cheet])
     redirect '/'
