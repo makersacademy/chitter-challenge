@@ -18,7 +18,9 @@ class Cheet
       conn = PG.connect(dbname: 'chitter_database')
     end
     result = conn.exec("SELECT * FROM cheets")
-    result.map { |row| Cheet.new(row['id'], row['user'], row['cheet'], row['timestamp']) }
+    result.map do |row|
+      Cheet.new(row['id'], row['user'], row['cheet'], row['timestamp'])
+    end
   end
 
   def self.create(cheet)

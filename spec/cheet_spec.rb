@@ -7,6 +7,11 @@ describe Cheet do
       cheets = Cheet.all
       expect(cheets.first.cheet).to include "My first cheet"
     end
+    it 'has a timestamp' do
+      add_test_cheets
+      cheets = Cheet.all
+      expect(cheets.first).to respond_to(:timestamp)
+    end
   end
   context 'creating tweets' do
     it 'adds a cheet to the db' do
