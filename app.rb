@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/user'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
@@ -12,16 +13,17 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sign_up' do
-    session[:name] = params[:name]
-    session[:username] = params[:username]
-    session[:email_address] = params[:email_address]
-    session[:password] = params[:password]
-    redirect "/#{params[:username]}"
+    name = params[:name]
+    username = params[:username]
+    emailaddress = params[:emailaddress]
+    password = params[:password]
+    User.create(name: name, username: username, emailaddress: emailaddress, password: password)
+    redirect "/#{username}"
   end
 
   get '/:username' do
-    @name = session[:name]
-    @username = session[:username]
+    @name = User.name
+    @username = params[:username]
     erb :profile
   end
 
