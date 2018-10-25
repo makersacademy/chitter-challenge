@@ -2,8 +2,9 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user'
 require_relative './lib/peep'
+require_relative './lib/chitter'
 
-class Chitter < Sinatra::Base
+class ChitterApp < Sinatra::Base
 
   register Sinatra::Flash
   enable :sessions
@@ -29,6 +30,10 @@ class Chitter < Sinatra::Base
     redirect '/post'
   end
 
-  run! if app_file == $0
+  get '/chitter' do
+    @peeps = Chitter.all(Peep)
+    erb :chitter
+  end
 
+  run! if app_file == $0
 end

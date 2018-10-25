@@ -3,6 +3,9 @@
   <textarea name='peep' type='text'></textarea>
   <input type='submit' value='Peep'></input>
 </form>
+<form action="/chitter" method="get">
+  <input type="submit" value="View peeps">
+</form>
 
 <% flash.keys.each do |post| %>
   <div data-alert class="flash <%= post %> alert-box radius">

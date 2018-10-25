@@ -5,13 +5,16 @@
 feature 'Posting a peep' do
   before do
     visit '/post'
+    fill_in 'peep', with: "Hi there"
+    click_button "Peep"
   end
 
   scenario 'create a peep' do
-    expect(page).to have_content "What would you like to say?"
-    fill_in 'peep', with: "Hi there"
-    click_button "Peep"
     expect(page).to have_content "Peep posted"
   end
 
+  scenario 'see peeps' do
+    click_button "View peeps"
+    expect(page).to have_content "Hi there"
+  end
 end

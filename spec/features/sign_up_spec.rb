@@ -5,15 +5,29 @@
 feature 'Sign up for Chitter' do
   before do
     visit '/'
-  end
-
-  scenario 'Can enter name, username, email, password, and submit' do
-    expect(page).to have_content "Welcome to Chitter!"
     fill_in "name", with: "Caitlin"
     fill_in "username", with: "Caitlincooling"
     fill_in "email", with: "Caitlin@test.com"
     fill_in "password", with: "caitlin123"
-    click_button "Submit"
+    click_button "Sign up"
+  end
+
+  scenario 'Can enter name, username, email, password, and submit' do
     expect(page).to have_content "Hi Caitlin"
+  end
+
+  scenario 'Once signed in a user can view the peeps' do
+    click_button "Post peep"
+    fill_in 'peep', with: "Hi there"
+    click_button "Peep"
+    click_button "View peeps"
+    expect(page).to have_content "Hi there"
+  end
+
+  scenario 'Once signed in the user can post peeps' do
+    click_button "Post peep"
+    fill_in 'peep', with: "Hi there"
+    click_button "Peep"
+    expect(page).to have_content "Peep posted"
   end
 end

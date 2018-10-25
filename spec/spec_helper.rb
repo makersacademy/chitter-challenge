@@ -18,7 +18,7 @@ require 'pg'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-Capybara.app = Chitter
+Capybara.app = ChitterApp
 
 RSpec.configure do |config|
   config.after(:suite) do
