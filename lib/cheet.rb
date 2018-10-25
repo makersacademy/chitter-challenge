@@ -2,12 +2,13 @@ require 'pg'
 
 class Cheet
 
-  attr_reader :id, :user, :cheet
+  attr_reader :id, :user, :cheet, :timestamp
 
-  def initialize(id, user, cheet)
+  def initialize(id, user, cheet, timestamp)
     @id = id
     @user = user
     @cheet = cheet
+    @timestamp = timestamp
   end
 
   def self.all
@@ -17,7 +18,7 @@ class Cheet
       conn = PG.connect(dbname: 'chitter_database')
     end
     result = conn.exec("SELECT * FROM cheets")
-    result.map { |row| Cheet.new(row['id'], row['user'], row['cheet']) }
+    result.map { |row| Cheet.new(row['id'], row['user'], row['cheet'], row['timestamp']) }
   end
 
   def self.create(cheet)
