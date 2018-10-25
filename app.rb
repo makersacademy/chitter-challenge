@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
     if User.check_if_unique(username, email)
       session[:unique_user] = true
       User.create(name: name, username: username, email: email, password: password)
-      redirect "/#{username}"
+      redirect "/u/#{username}"
     else
       session[:unique_user] = false
       redirect "/"
@@ -39,8 +39,28 @@ class Chitter < Sinatra::Base
     redirect "/peeps"
   end
 
+  get '/log-in' do
+    if session[:correct_password] == nil
+      @correct_password = true
+    else
+      @correct_password = session[:correct_password]
+    end
+    erb :log_in
+  end
 
-  get '/:username' do
+  post 'log-in' do
+    username = params[:username]
+    password = params[:password]
+    if User.check_password(username, password)
+      session[:correct_password] = true
+      redirect "/u/#{username}"
+    else
+      session[:correct_password] = false
+      redirect "/log-in"
+    end
+  end
+
+  get '/u/:username' do
     @name = User.all.last.name
     @username = User.all.last.username
     session[:username] = @username

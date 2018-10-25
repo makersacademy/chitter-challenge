@@ -9,6 +9,10 @@ a {
   text-decoration: none;
 }
 
+.log-in-text a {
+  color: black
+}
+
 .nav-bar {
   background-color: #55ACEE;
   padding: 10px;
@@ -52,6 +56,32 @@ a {
 
 .form-container {
   margin: 50px auto;
+}
+
+.log-in-form {
+  margin: 50px auto;
+  display: grid;
+  text-align: right;
+  transform: translateX(-80px);
+}
+
+.log-in-form input {
+  margin: 10px;
+  height: 25px;
+  width: 250px;
+  border-radius: 2px;
+  border: none;
+  padding-left: 5px;
+}
+
+.log-in-button {
+  margin-top: 50px;
+  height: 50px;
+  width: 100px;
+  transform: translateX(250px);
+  border-radius: 4px;
+  font-size: medium;
+  border: none;
 }
 
 .new-peep-form {

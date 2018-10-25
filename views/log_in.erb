@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<%= erb :head_with_style %>
+<body>
+  <%= erb :navbar %>
+  <div class="page-container">
+    <form class="log-in-form" action="/log-in" method="post">
+      <label for="username">
+      Username
+      <input type="text" name="username">
+      </label>
+      <label for="password">
+      Password
+      <input type="password" name="password">
+      </label>
+      <button class="log-in-button" type="submit" name="Log In">Log In</button>
+    </form>
+  </div>
+  <% if !@correct_password %>
+    <%= erb :"errors/correct_password" %>
+  <% end %>
+</body>
+</html>

@@ -1,5 +1,17 @@
 describe User do
 
+  describe '.check_password' do
+    it '' do
+      # TODO
+    end
+  end
+
+  describe '.check_if_unique' do
+    it '' do
+      # TODO
+    end
+  end
+
   describe '.create' do
     it 'creates a new user' do
       user = User.create(name: 'Firstname Lastname', username: 'username', email: 'email@email.com', password: 'password')

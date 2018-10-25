@@ -5,6 +5,23 @@ include Password
 
 class User
 
+  def self.check_password(username, password)
+    user = User.find_by_username(username)
+    if test_password(password, user.password)
+      return true
+    else
+      return false
+    end
+  end
+
+  def self.find_by_username(username)
+    User.each.all do |user|
+      if user.username == username
+        return user
+      end
+    end
+  end
+
   def self.check_if_unique(username, email)
     User.all.each do |user|
       return false if user.username == username
