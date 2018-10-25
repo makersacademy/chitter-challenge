@@ -8,11 +8,5 @@ class User
     @user = user
     @pass = pass
     @confirm = confirm
-
   end
-
-  # def self.create(email, name, user, pass, confirm)
-  #   User.new(email, name, user, pass, confirm)
-  # end
-
 end

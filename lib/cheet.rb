@@ -1,4 +1,5 @@
 require 'pg'
+require 'database'
 
 class Cheet
 
@@ -10,26 +11,16 @@ class Cheet
     @cheet = cheet
     @timestamp = timestamp
   end
-  
+
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      conn = PG.connect(dbname: 'chitter_database_test')
-    else
-      conn = PG.connect(dbname: 'chitter_database')
-    end
-    result = conn.exec("SELECT * FROM cheets")
+    result = Database.query("SELECT * FROM cheets")
     result.map do |row|
       Cheet.new(row['id'], row['user'], row['cheet'], row['timestamp'])
     end
   end
 
   def self.create(cheet)
-    if ENV['ENVIRONMENT'] == 'test'
-      conn = PG.connect(dbname: 'chitter_database_test')
-    else
-      conn = PG.connect(dbname: 'chitter_database')
-    end
-    conn.exec("INSERT INTO cheets (cheet) VALUES ('#{cheet}');")
+    Database.query("INSERT INTO cheets (cheet) VALUES ('#{cheet}');")
   end
 
 end
