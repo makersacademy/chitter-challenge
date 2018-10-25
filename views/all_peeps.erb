@@ -1,2 +1,8 @@
 <h2> Recent Peeps </h2>
-<%= @peeps %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+    <%= peep.text %> by <%= peep.name %>
+    </li>
+  <% end %>
+</ul>

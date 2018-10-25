@@ -1,9 +1,18 @@
 <h2> Chitter </h2>
-<%= @peeps %>
 <form action="/peep_post" method="post">
   <fieldset>
     <legend> What are you doing? </legend>
+    Name
+    <input type="text" name="name">
+    Username
+    <input type="text" name="username">
+    Peep
     <input type="text" name="peep">
     <input type="submit" value="Post" >
   </fieldset>
 </form>
+
+<% @peeps.each do |peep| %>
+<div> <%= peep.text %> by <%= peep.name %>(<%= peep.username %>) at <%= peep.time %>
+<% end %>
+</div>

@@ -2,25 +2,35 @@ require 'pg'
 
 class Chitter
 
+attr_reader :id, :name, :username, :text, :time
+
+  def initialize(id, name, username, text, time)
+    @id = id
+    @name = name
+    @username = username
+    @text = text
+    @time = time
+  end
+
   def self.all
     if ENV['ENVIRONMENT'] = 'test'
       con = PG.connect :dbname => 'chitter_test'
     else
-      con = PG.connect :dbname => 'chitter'
+      con = PG.connect :dbname => 'chitter_manager'
     end
-      rs = con.exec "SELECT * FROM peeps"
-      t = rs.map { |row| row['text'] }
-      u = rs.map { |row| row['username'] }
-      return "#{t.join} by #{u.join}"
+      rs = con.exec "SELECT * FROM peeps ORDER BY time DESC"
+      rs.map do |peep|
+        Chitter.new(peep['id'], peep['name'], peep['username'], peep['text'], peep['time'])
+      end
   end
 
-  def self.create_peep(text)
+  def self.create_peep(name, username, text)
     if ENV['ENVIRONMENT'] = 'test'
       con = PG.connect :dbname => 'chitter_test'
     else
-      con = PG.connect :dbname => 'chitter'
+      con = PG.connect :dbname => 'chitter_manager'
     end
-      rs = con.exec "INSERT INTO peeps (text) VALUES('#{text}')"
+      con.exec "INSERT INTO peeps (name, username, text) VALUES('#{name}', '#{username}', '#{text}');"
   end
 
 end
