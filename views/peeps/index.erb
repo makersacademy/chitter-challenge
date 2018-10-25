@@ -1,5 +1,9 @@
 Test Peep 1
 
+<% @peeps.each do |peep| %>
+  <p><%= peep.content %></p>
+<% end %>
+
 <form action = '/peeps/new'>
   <input type = 'submit'  value = 'New Peep'>
 </form>
