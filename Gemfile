@@ -5,6 +5,7 @@ ruby '2.5.1'
 gem 'capybara'
 gem 'pg'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 
