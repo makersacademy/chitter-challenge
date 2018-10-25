@@ -1,9 +1,13 @@
 require 'sinatra/base'
 require './lib/cheet'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
+    @current_user = session[:current_user]
     @cheets = Cheet.all.reverse
     erb :index
   end
@@ -18,7 +22,8 @@ class Chitter < Sinatra::Base
     user = params[:Username]
     pass = params[:Password]
     confirm = params[:Confirm_Password]
-    User.create(email, name, user, pass, confirm)
+    current_user = User.new(email, name, user, pass, confirm)
+    session[:current_user] = current_user
     redirect '/'
   end
 

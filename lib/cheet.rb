@@ -10,7 +10,7 @@ class Cheet
     @cheet = cheet
     @timestamp = timestamp
   end
-
+  
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       conn = PG.connect(dbname: 'chitter_database_test')

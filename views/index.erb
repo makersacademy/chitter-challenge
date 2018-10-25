@@ -8,6 +8,10 @@
 
 <h1 style="text-align: center;"> Chitterfeed </h1>
 
+<% unless @current_user.nil? %>
+  <h2 style="text-align: center;"> Logged in as <%= @current_user.name %></h1>
+<% end %>
+
 <div class ="logging_in">
   <form class="login" action="/login"  method="post">
     <li><input type="text" name="Username" placeholder="Username"></li>
