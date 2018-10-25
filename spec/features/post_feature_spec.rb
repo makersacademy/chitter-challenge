@@ -1,7 +1,6 @@
 feature 'post' do
   scenario 'should post a peep' do
-    visit '/'
-    click_button 'Open Chitter App'
+    visit '/peeps'
     fill_in('name', with: 'Anouska Hopkins')
     fill_in('username', with: 'ahopkins')
     fill_in('post', with: 'My first post')
