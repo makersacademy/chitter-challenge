@@ -15,6 +15,10 @@ SimpleCov.start
 Capybara.app = App
 
 RSpec.configure do |config|
+  config.before(:each) do
+    require 'setup_test_database'
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
