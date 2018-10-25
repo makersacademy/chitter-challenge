@@ -1,0 +1,10 @@
+<h1>Please enter your new peep</h1>
+
+<form action = '/peeps/<%= @peep.id %>' method = 'post'>
+  <input id="hidden" type="hidden" name="_method" value="patch"
+
+  <label for='content'>Content</label>
+  <input type = 'text' name = 'content' value='<%= @peep.content %>'>
+
+  <input type = 'submit' value = 'Submit'>
+</form>

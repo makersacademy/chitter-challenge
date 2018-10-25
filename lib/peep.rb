@@ -19,6 +19,17 @@ class Peep
     end
   end
 
+  def self.find(id)
+    query = "SELECT * FROM peeps WHERE peep_id = '#{id}'"
+    result = DatabaseConnection.query(query).first
+    Peep.new(id: result["peep_id"], time: Time.parse(result["peep_time"]), username: result["username"], content: result["content"])
+  end
+
+  def self.change(id, new_content)
+    query = "UPDATE peeps SET content = '#{new_content}' WHERE peep_id = '#{id}';"
+    DatabaseConnection.query(query)
+  end
+
   def self.delete(id)
     query = "DELETE FROM peeps WHERE peep_id = '#{id}';"
     DatabaseConnection.query(query)

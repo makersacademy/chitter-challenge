@@ -49,4 +49,21 @@ describe Peep do
       expect(Peep.all[0].id).to eq @peep_two.id
     end
   end
+
+  describe '.find' do
+    scenario 'returns a peep with the passed id' do
+      found_peep = Peep.find(@peep_one.id)
+      expect(found_peep.id).to eq @peep_one.id
+      expect(found_peep.content).to eq @peep_one.content
+      expect(found_peep.username).to eq @peep_one.username
+    end
+  end
+
+  describe '.change' do
+    scenario 'it updates content of a peep' do
+      Peep.change(@peep_one.id, "new_content")
+      new_peep = Peep.find(@peep_one.id)
+      expect(new_peep.content).to eq "new_content"
+    end
+  end
 end
