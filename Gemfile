@@ -4,8 +4,13 @@ ruby '2.5.0'
 
 gem 'rake'
 gem 'rubocop', '0.56.0'
+gem 'sinatra'
+gem 'pg'
+gem 'pry'
 
 group :test do
+  gem 'capybara'
+  gem 'launchy'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
