@@ -6,3 +6,12 @@ feature 'posting peeps' do
     expect(page).to have_content 'Hello world'
   end
 end
+
+feature 'listing peeps' do
+  scenario 'user can see peeps in reverse chronology' do
+    Peep.create(message: 'number 1')
+    Peep.create(message: 'number 2')
+    visit '/peeps'
+    expect(page).to have_content 'number 2 number 1'
+  end
+end
