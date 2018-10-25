@@ -2,6 +2,6 @@
 
 | Noun      | Verb        |
 |-----------|-------------|
-| messages  | post        |
-| time      | see/view    |
-|           | sign up     |
+| messages: | post        |
+|  -time    | see/view    |
+| user      | sign up     |
