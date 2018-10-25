@@ -12,6 +12,16 @@ class Chitter < Sinatra::Base
     erb :register
   end
 
+  post '/registered' do
+    email = params[:Email]
+    name = params[:Name]
+    user = params[:Username]
+    pass = params[:Password]
+    confirm = params[:Confirm_Password]
+    User.create(email, name, user, pass, confirm)
+    redirect '/'
+  end
+
   post '/new-cheet' do
     Cheet.create(params[:cheet])
     redirect '/'

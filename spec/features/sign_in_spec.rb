@@ -4,9 +4,9 @@ feature 'signing in' do
     click_button 'Register'
     fill_in('Username', with: 'User101')
     fill_in('Password', with: 'password')
-    fill_in('Confirm Password', with: 'password')
+    fill_in('Confirm_Password', with: 'password')
     fill_in('Email', with: 'my@email.com')
     click_button 'Submit'
-    expect(page).to have content "Signed in as User101"
+    expect(page).to have_content "Signed in as User101"
   end
 end
