@@ -9,7 +9,7 @@ describe Chitter do
 
   it 'lists all peeps' do
     peeps = Chitter.all
-    expect(peeps).to eq 'My first peep'
+    expect(peeps).to include 'My first peep'
   end
 
 end

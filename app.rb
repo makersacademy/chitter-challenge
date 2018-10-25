@@ -4,7 +4,7 @@ require './lib/chitter'
 class App < Sinatra::Base
 
   get '/chitter' do
-    @peeps = Chitter.all.to_s
+    @peeps = Chitter.all.join(",")
     erb(:index)
   end
 
