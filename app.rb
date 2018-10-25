@@ -28,9 +28,22 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peeps' do
+    @username = session[:username]
+    @last_peep = session[:last_peep]
+    erb :peeps
+  end
+
+  post '/peeps/new' do
+    session[:last_peep] = params[:new_peep]
+    redirect "/peeps"
+  end
+
+
   get '/:username' do
     @name = User.all.last.name
     @username = User.all.last.username
+    session[:username] = @username
     erb :profile
   end
 

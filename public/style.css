@@ -26,8 +26,6 @@ a {
 
 .sign-up-button {
   margin-top: 50px;
-  background-color: #55ACEE
-  color: white;
   height: 50px;
   width: 100px;
   transform: translateX(250px);
@@ -50,4 +48,39 @@ a {
   border-radius: 2px;
   border: none;
   padding-left: 5px;
+}
+
+.form-container {
+  margin: 50px auto;
+}
+
+.new-peep-form {
+  margin: 50px auto;
+}
+
+.new-peep-form input {
+  margin: 10px;
+  height: 50px;
+  width: 250px;
+  border-radius: 2px;
+  border: none;
+  padding-left: 5px;
+  font-size: large;
+}
+
+.peep-button {
+  margin-top: 50px;
+  height: 50px;
+  width: 100px;
+  border-radius: 4px;
+  font-size: medium;
+  border: none;
+}
+
+.peep-container {
+  margin-top: 50px;
+  background-color: white;
+  width: 200px;
+  height: 100px;
+  transform: translateX(125px);
 }

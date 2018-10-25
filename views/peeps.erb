@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<%= erb :head_with_style %>
+<body>
+  <%= erb :navbar %>
+  <div class="page-container">
+    <div class="peep-container">
+      <div class="username-handle">
+        @<%= @username %>
+      </div>
+      <br>
+      <div class="peep-text">
+        <%= @last_peep %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
