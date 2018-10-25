@@ -27,10 +27,10 @@ class User
 
   private
   def self.find_db
-    @conn = if ENV['RACK_ENV'] == 'test'
-      conn = PG.connect(dbname: 'chitter_test')
+    if ENV['RACK_ENV'] == 'test'
+      @conn = PG.connect(dbname: 'chitter_test')
     else
-      conn = PG.connect(dbname: 'chitter')
+      @conn = PG.connect(dbname: 'chitter')
     end
   end
 end
