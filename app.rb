@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -23,6 +24,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/post' do
+    Peep.create(params[:peep])
     flash[:post] = "Peep posted"
     redirect '/post'
   end

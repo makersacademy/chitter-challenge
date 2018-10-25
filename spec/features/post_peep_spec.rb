@@ -13,4 +13,5 @@ feature 'Posting a peep' do
     click_button "Peep"
     expect(page).to have_content "Peep posted"
   end
+
 end
