@@ -14,6 +14,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'sinatra/base'
 require 'rspec'
+require 'pg'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -24,5 +25,11 @@ RSpec.configure do |config|
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  end
+
+  config.before(:each) do
+    conn = PG.connect(dbname: 'chitter_test')
+    conn.exec('DROP TABLE IF EXISTS users;')
+    conn.exec('CREATE TABLE "public"."users" ("id" serial,"name" text,"username" text,"email" text,"password" text, PRIMARY KEY (id));')
   end
 end

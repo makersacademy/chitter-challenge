@@ -11,7 +11,7 @@ feature 'Sign up for Chitter' do
     expect(page).to have_content "Welcome to Chitter!"
     fill_in "name", with: "Caitlin"
     fill_in "username", with: "Caitlincooling"
-    fill_in "email", with: "Caitlin.cooling@icloud.com"
+    fill_in "email", with: "Caitlin@test.com"
     fill_in "password", with: "caitlin123"
     click_button "Submit"
     expect(page).to have_content "Hi Caitlin"
