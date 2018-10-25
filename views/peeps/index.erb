@@ -2,6 +2,7 @@ Test Peep 1
 
 <% @peeps.each do |peep| %>
   <p><%= peep.content %></p>
+  <h5>posted by <%= peep.username %></h5>
 <% end %>
 
 <form action = '/peeps/new'>
