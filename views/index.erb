@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="/css/style.css"/>
+  </head>
+
+  <body>
+<h1>Welcome to Chitter</h1>
+<form action="/peep" method="post">
+  <button type="submit" value="Post a Peep">Post a Peep</button>
+  </form>
+  <%# <%=@peeps%> %>
+  <%@peeps.each do |peep_row|%>
+  <p>Peep: <%=peep_row[:peep]%></p>
+  <%end%>
+  </body>
+</html>

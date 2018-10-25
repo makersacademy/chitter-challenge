@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+
+p {
+  font-family: 'Fjalla One', sans-serif;
+  margin-left: 1.66%;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+}
+
+a {
+  font-family: 'Fjalla One', sans-serif;
+  margin-left: 1.66%;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 35px;
+  color: white;
+  text-align: center;
+}
+
+body {
+  background-image: url("/images/peeps.jpeg");
+  background-color: #cccccc;
+  font-family: 'Fjalla One', sans-serif;
+  margin-left: 1.66%;
+  font-size: 22px;
+  font-weight: 400;
+  color: white;
+}
