@@ -41,4 +41,12 @@ describe Peep do
       expect(first_peep.content).to eq @peep_two.content
     end
   end
+
+  describe '.delete' do
+    scenario 'removes correct peep from database' do
+      Peep.delete(@peep_one.id)
+      expect(Peep.all.length).to eq 1
+      expect(Peep.all[0].id).to eq @peep_two.id
+    end
+  end
 end
