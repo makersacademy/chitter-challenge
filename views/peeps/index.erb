@@ -9,6 +9,10 @@
       <input id='hidden' type='hidden' name='_method' value='delete'>
       <input type='submit' id='Delete_<%= peep.id %>' value='Delete'>
     </form>
+
+    <form action = '/peeps/<%= peep.id %>/edit'>
+      <input type='submit' id='Edit_<%= peep.id %>' value='Edit'>
+    </form>
   </div>
 <% end %>
 
