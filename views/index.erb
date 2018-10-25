@@ -1,4 +1,7 @@
 <h2> Chitter </h2>
+  <% unless @user.nil? %>
+      Logged in as <%= @user.name %>
+<% end %>
 <form action="/sign_up" method="post">
   <input type="submit" value="Sign Up">
 </form>
