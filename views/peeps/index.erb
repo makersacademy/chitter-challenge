@@ -1,5 +1,11 @@
 <h1>Chitter</h2>
 
+<div>
+  <form action = '/users/new'>
+    <input type="submit" value="Sign Up">
+  </form>
+</div>
+
 <% @peeps.each do |peep| %>
   <div style = 'background-color: #F0F3F4'>
     <h4><%= peep.username %></h4>
