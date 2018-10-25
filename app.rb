@@ -24,6 +24,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/user_peeps' do
+    @username = User.username
     @peeps = Peep.all
     erb :signed_in_peeps
   end
