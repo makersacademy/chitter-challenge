@@ -14,7 +14,7 @@ class User
     rs = Database.query("SELECT * FROM auth WHERE username = '#{user}'")
     raise "Invalid Username" if rs.ntuples == 0
     r = rs.map { |row| User.new(row['email'], row['name'], row['user'], row['pass'], row['user']) }
-    Chitter.current_user = r[0]
+    # STORE r[0] AS CURRENT USER !!!!!
   end
 
   def self.check(user)
