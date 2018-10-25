@@ -11,4 +11,11 @@ feature 'index page' do
     expect(page).to have_content 'Hello Gordon'
   end
 
+  scenario 'user posts to Chitter and then sees it on the homepage' do
+    visit '/'
+    fill_in('peep', with: 'This is my first ever peep!')
+    click_button 'Post'
+    expect(page).to have_content 'This is my first ever peep!'
+  end
+
 end

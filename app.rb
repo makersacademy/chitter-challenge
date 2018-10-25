@@ -14,6 +14,10 @@ class App < Sinatra::Base
     redirect '/'
   end
 
+  post '/new_peep' do
+    redirect '/'
+  end
+
   run! if app_file == $0
 
 end
