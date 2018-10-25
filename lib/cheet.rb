@@ -1,3 +1,5 @@
+require 'pg'
+
 class Cheet
 
   attr_reader :id, :user, :cheet

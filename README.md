@@ -5,7 +5,9 @@ These are the following User Stories used to build my Chitter App.
 - I will have a database for Chitter
 - A table "auth" for Authentication
 - a table of cheets
-- a table for each comment thread, linked to cheets by id 
+- a table for each comment thread, linked to cheets by id
+- a timestamp for each cheet
+
 
 
 User Stories

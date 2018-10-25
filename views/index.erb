@@ -4,7 +4,9 @@
 </form>
 
 <ul>
+  <% @cheets.each do |cheet| %>
   <li>
-    My first cheet
+    <%= cheet.cheet %>
   </li>
+  <% end %>
 <ul>

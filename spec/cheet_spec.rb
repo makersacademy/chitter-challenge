@@ -9,6 +9,10 @@ describe Cheet do
     end
   end
   context 'creating tweets' do
-
+    it 'adds a cheet to the db' do
+      Cheet.create("Another cheet")
+      cheets = Cheet.all
+      expect(cheets.first.cheet).to include "Another cheet"
+    end
   end
 end
