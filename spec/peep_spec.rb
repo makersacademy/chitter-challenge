@@ -10,7 +10,7 @@ describe Peep do
       expect(peep).to be_a Peep
       expect(peep.username).to eq 'user1'
       expect(peep.content).to eq 'content1'
-      expect(peep.time).to eq fixed_time
+      expect(peep.time).to eq fixed_time.strftime("%H:%M")
     end
   end
 
