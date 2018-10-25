@@ -22,11 +22,11 @@ feature "adding peeps" do
     end
 
     scenario "user can see username on peeps page" do
-      expect(page).to have_content 'posted by TestUser'
+      expect(page).to have_content 'TestUser'
     end
 
     scenario "user can see time of post on the peeps page" do
-      expect(page).to have_content "at #{@time}"
+      expect(page).to have_content "#{@time}"
     end
 
   end

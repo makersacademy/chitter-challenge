@@ -1,8 +1,11 @@
-Test Peep 1
+<h1>Chitter</h2>
 
 <% @peeps.each do |peep| %>
-  <p><%= peep.content %></p>
-  <h5>posted by <%= peep.username %> at <%= peep.time %></h5>
+  <div style = 'background-color: #F0F3F4'>
+    <h4><%= peep.username %></h4>
+    <p><%= peep.content %></p>
+    <h5><%= peep.time %></h5>
+  </div>
 <% end %>
 
 <form action = '/peeps/new'>
