@@ -25,11 +25,4 @@ describe Cheet do
       expect(cheets.first.cheet).to include "Another cheet"
     end
   end
-  # let(:user) {double(:user, name: 'John', user: 'JJ44' ) }
-  # context 'current user' do
-  #   it 'stores the active user' do
-  #     Cheet.logged_in_as(user)
-  #     expect(Cheet.current_user.name).to eq "John"
-  #   end
-  # end
 end

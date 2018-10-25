@@ -16,5 +16,4 @@ describe User do
       expect(user.name).to eq "Alfie"
     end
   end
-
 end

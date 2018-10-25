@@ -1,5 +1,5 @@
 require 'pg'
-require 'database'
+require_relative 'database'
 
 class Cheet
 
