@@ -11,6 +11,8 @@ feature "registration" do
     end
 
     scenario "user sees sign up form" do
+      expect(page).to have_field(:username)
+      expect(page).to have_field(:password)
       expect(page).to have_field(:name)
       expect(page).to have_field(:email)
     end
@@ -27,8 +29,9 @@ feature "registration" do
       scenario "user sees welcome message on peeps page" do
         expect(page).to have_content "Welcome, Mr User!"
       end
-      scenario "user does not see Sign In button on peeps page" do
+      scenario "user does not see Sign Up/In button on peeps page" do
         expect(page).not_to have_selector(:button, "Sign Up")
+        expect(page).not_to have_selector(:button, "Sign In")
       end
     end
 

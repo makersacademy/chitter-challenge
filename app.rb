@@ -58,5 +58,13 @@ class Chitter < Sinatra::Base
     erb(:"sessions/new")
   end
 
+  post '/sessions' do
+    User.login(
+      username: params[:username],
+      password: params[:password]
+    )
+    redirect '/peeps'
+  end
+
   run! if app_file == $0
 end
