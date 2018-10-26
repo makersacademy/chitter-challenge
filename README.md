@@ -71,3 +71,7 @@ CREATE DATABASE chitter;
 ```sql
 CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(140));
 ```
+5. Run the query in db/migrations/02_create_users_table.sql:
+```sql
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60));
+```
