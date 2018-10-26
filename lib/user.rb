@@ -47,12 +47,11 @@ class User
   end
 
   def self.login(username, password)
-    sql = %{SELECT * FROM users WHERE username = '#{username}' AND password = '#{password}' ORDER BY id DESC LIMIT 1;}
+    sql = %{SELECT * FROM users WHERE username = '#{username}'
+    AND password = '#{password}' ORDER BY id DESC LIMIT 1;}
     # p sql
     record = DatabaseConnection.query(sql)
-    # p sql
-    # p record
-    # p record.any?.to_s
+
     return unless record.any?
     # p "this is a test"
     # return unless BCrypt::Password.new(result[0]['password']) == password

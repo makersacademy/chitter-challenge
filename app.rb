@@ -50,6 +50,14 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/user/logout' do
+    # p "sessions clear"
+    session.clear
+    # flash[:notice] = 'You have signed out.'
+    # redirect('/bookmarks')
+    redirect '/'
+  end
+
   run! if app_file == $0
 
 end

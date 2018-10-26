@@ -12,6 +12,13 @@
 
     <% if @user %>
       <h1>Welcome, <%= @user.username %></h1>
+      <p>
+
+        <a href="/user/logout">
+          <button class="postpeep" type="button" value="Logout">
+            <span class="icon"></span>Logout</button>
+        </p>
+      </p>
       <%else%>
       <%if @registered%><p>
         Thank you for registering</p>
