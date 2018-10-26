@@ -7,7 +7,7 @@ require 'simplecov-console'
 
 ENV['RACK_ENV'] = 'test'
 
-Capybara.app = BookmarkManager
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
