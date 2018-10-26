@@ -1,11 +1,79 @@
-Chitter Challenge
-=================
+#Chitter Challenge
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
+
+### Todo
+- [ ] Set up App Environment
+- [ ] Set up database and test database
+- [ ] User story 1
+  - [ ] OCR Card
+  - [ ] Feature Tests
+  - [ ] Unit Tests
+  - [ ] Tests pass
+  - [ ] Tests Refactored
+  - [ ] Code Refactored
+- [ ] User story 2
+  - [ ] OCR Card
+  - [ ] Feature Tests
+  - [ ] Unit Tests
+  - [ ] Tests pass
+  - [ ] Tests Refactored
+  - [ ] Code Refactored
+- [ ] User story 3
+  - [ ] OCR Card
+  - [ ] Feature Tests
+  - [ ] Unit Tests
+  - [ ] Tests pass
+  - [ ] Tests Refactored
+  - [ ] Code Refactored
+- [ ] User story 4
+  - [ ] OCR Card
+  - [ ] Feature Tests
+  - [ ] Unit Tests
+  - [ ] Tests pass
+  - [ ] Tests Refactored
+  - [ ] Code Refactored
+- [ ] User story 5
+  - [ ] OCR Card
+  - [ ] Feature Tests
+  - [ ] Unit Tests
+  - [ ] Tests pass
+  - [ ] Tests Refactored
+  - [ ] Code Refactored
+- [ ] User story 6
+  - [ ] OCR Card
+  - [ ] Feature Tests
+  - [ ] Unit Tests
+  - [ ] Tests pass
+  - [ ] Tests Refactored
+  - [ ] Code Refactored
+- [ ] User story 7
+  - [ ] OCR Card
+  - [ ] Feature Tests
+  - [ ] Unit Tests
+  - [ ] Tests pass
+  - [ ] Tests Refactored
+  - [ ] Code Refactored
+- [ ] Gem file contains all dependency gems
+- [ ] Edge cases
+- [ ] README
+  - [ ] Explain your approach to the challenge
+  - [ ] how to set up
+  - [ ] show the full story of how your app is used (from a user's perspective)
+
+### Considerations
+- [ ] Rake file
+- [ ] All test related gems are in a test group
+- [ ] Make sure that your spec_helper:
+  - [ ] requires in a single app file that requires all the other dependencies required by the app.
+  - [ ] Connects your feature testing framework (probably Capybara) with your application.
+  - [ ] Cleans the database between each test.
+
+Form validation - https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/15.md
 
 Challenge:
 -------
