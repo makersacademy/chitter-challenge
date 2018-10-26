@@ -15,7 +15,7 @@ class User
   end
 
   def self.find_by_username(username)
-    User.each.all do |user|
+    User.all.each do |user|
       if user.username == username
         return user
       end
