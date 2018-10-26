@@ -20,7 +20,7 @@ I want to sign up for Chitter
 ```
 
 ### CRC Cards ###
-![crc cards](https://www.dropbox.com/s/npcdly5sfv2icsn/crc_cards.png?dl=0)
+![crc cards](https://www.dropbox.com/s/npcdly5sfv2icsn/crc_cards.png)
 
 ## Dependancies ##
 * Capybara
