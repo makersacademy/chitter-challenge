@@ -1,3 +1,17 @@
+1. Git clone https://github.com/hurc87/chitter-challenge.git
+2. git pull https://github.com/hurc87/chitter-challenge.git
+3. Bundle install to install all gems
+4. Connect to 'psql' by typing psql in terminal
+6. type 'CREATE DATABASE peep_manager_2;' to create database
+7. type in \c peep_manager_2;
+8. Run query saved in file 02_setting_up_table.sql
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
