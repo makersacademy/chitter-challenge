@@ -1,10 +1,12 @@
 require 'user'
-
-describe User do
-  describe 'check_details' do
-    it 'should check the sign up username and email are not already in our database' do
-      User.sign_up("anouskahopkins@gmail.com", "hello1234", "anouska hopkins", "ach94")
-      expect(User.sign_up("anouskahopkins@gmail.com", "hello1234", "anouska hopkins", "ach94")).to raise_error 'email or username already taken!'
-    end
-  end
-end
+#
+# describe User do
+#   describe 'finds a user' do
+#     it 'finds a user by id' do
+#       user = User.sign_up(email: "ahopkins94@hotmail.com", password: "hello1234", name: "anouska", username: "ahopkins94")
+#       result = User.find(id: user.id)
+#       expect(result.id).to eq user.id
+#       expect(result.email).to eq user.email
+#     end
+#   end
+# end
