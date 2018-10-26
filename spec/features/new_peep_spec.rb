@@ -2,8 +2,8 @@ require 'pry'
 
 feature "adding peeps" do
   before do
-    create_user
     visit '/'
+    sign_up
     click_button 'New Peep'
   end
 

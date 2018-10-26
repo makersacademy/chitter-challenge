@@ -1,8 +1,8 @@
 feature "deleting peeps" do
   before do
-    create_user
-    create_peeps
     visit '/'
+    sign_up
+    create_peeps
   end
 
   scenario 'should see delete button' do

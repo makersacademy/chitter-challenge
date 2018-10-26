@@ -1,16 +1,16 @@
 feature "signing in" do
   before do
-    create_user
+    visit '/'
+    sign_up
     reset_users
+    visit '/'
   end
   scenario "'Sign In' button on main page" do
-    visit '/'
     expect(page).to have_selector(:button, "Sign In")
   end
 
   context "user clicks button" do
     before do
-      visit '/'
       click_button "Sign In"
     end
 
