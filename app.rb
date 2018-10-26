@@ -7,6 +7,8 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/peeps' do
+    p ENV
+
     @peeps = Peep.all
     erb :'index'
   end
