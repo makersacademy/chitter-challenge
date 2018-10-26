@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Chitter</title>
+</head>
+  <body style="text-align: center; font-size:40px">
+    <hr width="50%"></hr>
+    <h1>Chitter Posted Peeps</h1>
+    <hr width="50%"></hr>
+    <div style="margin-right: 215px; margin-left: 215px">
+    <ul>
+    <% @messages.each do |message| %>
+      <li><%= message[:peep] %> <%= message[:date] %> <%= message[:tag] %> </a></li>
+    <% end %>
+    </ul>
+    </div>
+    </div>
+  </body>
+</html>

@@ -15,12 +15,9 @@ feature 'Viewing Posts' do
 
 
 
-    visit('/post_peep')
+    visit('/peeps')
     expect(page).to have_content 'It was a great week at Makers!', '@Br0ckers'
     expect(page).to have_content 'We learned about databases!', '@Br0ckers'
     expect(page).to have_content 'databases suck!', '@Br0ckers'
-    # expect(page).to have_link('Makers', href: "http://www.makersacademy.com")
-    # expect(page).to have_link('Destroy', href: "http://www.destroyallsoftware.com")
-    # expect(page).to have_link('Google', href: "http://www.google.com")
   end
 end

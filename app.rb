@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require './lib/bookmark'
+require './lib/message'
 
 class Chitter < Sinatra::Base
 
@@ -9,6 +9,11 @@ class Chitter < Sinatra::Base
 
   post '/post_peep' do
     redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @messages = Message.all
+    erb :peeps
   end
   #
   # get '/bookmarks' do
