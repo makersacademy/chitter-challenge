@@ -1,3 +1,4 @@
+require './database_setup.rb'
 require 'sinatra/base'
 require 'sinatra/flash'
 
