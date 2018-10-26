@@ -14,7 +14,8 @@ class User
   end
 
   def self.register(name)
-    result = DatabaseConnection.query("INSERT INTO users(name) VALUES ('#{name}') RETURNING id, name;")
+    result = DatabaseConnection.query("INSERT INTO users(name) VALUES
+    ('#{name}') RETURNING id, name;")
     result.map do |peep|
       User.new(id: peep['id'], name: peep['name'])
     end
