@@ -5,10 +5,8 @@ feature 'Viewing posts' do
   end
 
   scenario 'seeing posts on page' do
-    connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("INSERT INTO messages (content) VALUES ('This is a test message');")
-    connection.exec("INSERT INTO messages (content) VALUES('This is a second test message');")
+    Message.create(content: "This is a test message")
+    Message.create(content: "This is a second test message")
 
     visit('/')
     expect(page).to have_content 'This is a test message'
