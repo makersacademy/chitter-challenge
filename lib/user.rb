@@ -10,6 +10,12 @@ class User
     end
   end
 
+  def self.create(email, password, name, username)
+    DatabaseManager.query("INSERT INTO users(email,password,name,username)" \
+      "VALUES('#{email}','#{password}', '#{name}', '#{username}') " \
+      "RETURNING id, email, password, name, username")
+  end
+
   def initialize(id:, email:, password:, name:, username:)
     @id = id
     @email = email
