@@ -1,6 +1,23 @@
 Chitter Challenge
 =================
 
+## How to Use ##
+1. Open Terminal and clone the repository:
+```bash
+git clone https://github.com/melissasedgwick/chitter-challenge.git
+```
+2. Change into the project directory:
+```bash
+cd bookmark-manager
+```
+3. Run the program:
+```bash
+rackup
+```
+4. Access the program from `localhost:9292`
+
+__________________________________________________
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
