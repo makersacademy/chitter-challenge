@@ -13,18 +13,10 @@
 <% end %>
 
 <div class ="logging_in">
-  <form class="login" action="/login"  method="post">
-    <li><input type="text" name="Username" placeholder="Username"></li>
-    <li><input type="text" name="Password" placeholder="Password"></li>
-    <li><input type="submit" name="Log In" Value="Log In"></li>
-  </form>
-  <form class="register" action="/register"  method="get">
-    <input type="submit" name="Register" Value="Register">
-  </form>
   <form class="logout" action="/logout"  method="get">
     <input type="submit" name="Logout" Value="Logout">
   </form>
-  <%= flash[:notice] %>
+  <aside style="font-size:0.4em;"<%= flash[:notice] %></aside>
 </div>
 
 <div class=messages>

@@ -1,10 +1,12 @@
 require 'sinatra/base'
 require './lib/cheet'
 require './lib/user'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @current_user = session[:current_user]
@@ -14,8 +16,20 @@ class Chitter < Sinatra::Base
 
   post '/login' do
     user = User.login(params[:Username], params[:Password])
-    session[:current_user] = user
-    redirect('/')
+
+    if user == 'fail'
+      flash[:notice] = "Invalid username or password"
+      redirect('/')
+    else
+      session[:current_user] = user
+      redirect "/profile"
+    end
+  end
+
+  get '/profile' do
+    @cheets = Cheet.all.reverse
+    @current_user = session[:current_user]
+    erb :profile
   end
 
   get '/logout' do
@@ -29,13 +43,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/registered' do
-    email = params[:Email]
-    name = params[:Name]
-    user = params[:Username]
-    pass = params[:Password]
-    confirm = params[:Confirm_Password]
-    current_user = User.new(email, name, user, pass, confirm)
-    User.check(current_user)
+    current_user = User.create(params[:Email], params[:Name], params[:Username], params[:Password], params[:Confirm_Password])
+
     session[:current_user] = current_user
     redirect '/'
   end

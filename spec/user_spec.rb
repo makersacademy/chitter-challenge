@@ -1,7 +1,7 @@
 require 'user'
 
 describe User do
-  let(:user) { described_class.new("an@email.com", "Alfie", "runticle", "runrunrun", "runrunrun") }
+  let(:user) { described_class.new("1", "an@email.com", "Alfie", "runticle", "runrunrun", "runrunrun") }
   context "A user:" do
     it 'has a username' do
       expect(user.user).to eq "runticle"

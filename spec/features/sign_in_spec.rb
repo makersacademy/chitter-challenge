@@ -1,4 +1,4 @@
-require 'pry'
+
 feature 'As a user:' do
   scenario 'I can create an account' do
     create_account('jones')
@@ -16,11 +16,27 @@ feature 'As a user:' do
     expect(page).not_to have_content "Logged in as John"
   end
   scenario 'I can log in' do
-    create_account('jimmy', 'jimmy')
+    create_account('Jimmy', 'Jimmy')
     click_button 'Logout'
-    fill_in('Username', with: 'jimmy')
-    fill_in('Password', with: 'runrunrun')
+    fill_in('Username', with: 'Jimmy')
+    fill_in('Password', with: 'password')
     click_button 'Log In'
-    expect(page).to have_content "Logged in as jimmy"
+    expect(page).to have_content "Logged in as Jimmy"
+  end
+  scenario 'Wrong password' do
+    create_account('Jimmy')
+    click_button 'Logout'
+    fill_in('Username', with: 'Jimmy')
+    fill_in('Password', with: 'incorrect')
+    click_button 'Log In'
+    expect(page).to have_content "Invalid username or password"
+  end
+  scenario 'unknown username' do
+    create_account('Jimmy')
+    click_button 'Logout'
+    fill_in('Username', with: 'John')
+    fill_in('Password', with: 'password')
+    click_button 'Log In'
+    expect(page).to have_content "Invalid username or password"
   end
 end
