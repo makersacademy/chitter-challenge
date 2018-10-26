@@ -9,4 +9,10 @@ feature "Welcome to Chitter!" do
     visit('/')
     expect(page).to have_button "Sign Up"
   end
+
+  scenario "I see a welcome page with a log in button" do
+    visit('/')
+    expect(page).to have_button "Log In"
+  end
+
 end
