@@ -6,3 +6,17 @@
 <form action="/log_in" method="get">
     <input type="submit" value="Log In">
 </form>
+
+<form action="/peep/new" method="get">
+    <input type="submit" value="peep">
+</form>
+
+
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+        <%= peep.name %>, <%= peep.username %> posted: "<%= peep.post %>" at <%= peep.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>

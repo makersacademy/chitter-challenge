@@ -22,7 +22,32 @@ class User
     User.new(name: result[0]['name'], username: result[0]['username'], emailaddress: result[0]['emailaddress'], password: result[0]['password'])
   end
 
+  def self.all
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_database_test')
+    else
+      connection = PG.connect(dbname: 'chitter_database')
+    end
+    result = connection.exec("SELECT * FROM users")
+    result.map do |user|
+      User.new(name: user['name'], username: user['username'], emailaddress: user['emailaddress'], password: user['password'])
+    end
+  end
+
   def self.name
     @name
+  end
+
+  def self.password_authentication(username, password)
+    user = User.find_username(username)
+    password == user.password
+  end
+
+  def self.find_username(username)
+    User.all.each do |user|
+      if user.username == username
+        return user
+      end
+    end
   end
 end

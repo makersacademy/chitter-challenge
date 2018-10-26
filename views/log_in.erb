@@ -1,0 +1,13 @@
+<div><%= flash[:notice] %></div>
+
+<form class="log-in-form" action="/log_in" method="post">
+  <label for="username">
+  Username
+  <input type="text" name="username">
+  </label>
+  <label for="password">
+  Password
+  <input type="password" name="password">
+  </label>
+  <button class="log-in-button" type="submit" name="Log In">Log In</button>
+</form>

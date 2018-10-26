@@ -1,10 +1,14 @@
 require 'sinatra/base'
 require './lib/user'
+require './lib/peep'
+require 'sinatra/flash'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -21,10 +25,39 @@ class ChitterApp < Sinatra::Base
     redirect "/#{username}"
   end
 
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/log_in' do
+    username = params[:username]
+    password = params[:password]
+    if User.password_authentication(username, password)
+      session[:password_authentication] = true
+      redirect "/#{username}"
+    else
+      session[:password_authentication] = false
+      flash[:notice] = "Password incorrect, try again!"
+      redirect '/log_in'
+    end
+  end
+
   get '/:username' do
     @name = User.name
     @username = params[:username]
     erb :profile
+  end
+
+  get '/peep/new' do
+    erb :'peep/new'
+  end
+
+  post 'peep/new' do
+    name = params[:name]
+    username = params[:username]
+    post = params[:post]
+    Peep.post(params[:name], params[:username], params[:post])
+    redirect '/'
   end
 
     run! if app_file == $0
