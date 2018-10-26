@@ -2,6 +2,7 @@ require 'pry'
 
 feature "adding peeps" do
   before do
+    create_user
     visit '/'
     click_button 'New Peep'
   end
@@ -22,7 +23,7 @@ feature "adding peeps" do
     end
 
     scenario "user can see username on peeps page" do
-      expect(page).to have_content 'TestUser'
+      expect(page).to have_content 'user1'
     end
 
     scenario "user can see time of post on the peeps page" do

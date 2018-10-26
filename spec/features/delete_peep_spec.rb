@@ -1,7 +1,7 @@
 feature "deleting peeps" do
   before do
-    @peep_one = Peep.create(username: "user1", content: "content1")
-    @peep_two = Peep.create(username: "user2", content: "content2")
+    create_user
+    create_peeps
     visit '/'
   end
 

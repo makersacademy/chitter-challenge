@@ -3,7 +3,6 @@ require './lib/peep'
 require './lib/user'
 
 class Chitter < Sinatra::Base
-  USERNAME = "TestUser"
 
   set :port, 6789
 
@@ -22,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(username: USERNAME, content: params[:content])
+    Peep.create(username: User.current.username, content: params[:content])
     redirect '/peeps'
   end
 
@@ -46,7 +45,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    #create new user
+    User.create(
+      username: params[:username],
+      password: params[:password],
+      name: params[:name],
+      email: params[:email]
+    )
     redirect '/peeps'
   end
 
