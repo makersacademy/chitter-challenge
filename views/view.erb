@@ -1,0 +1,11 @@
+array of bookmarks
+
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li><%= bookmark %></li>
+  <% end %>
+</ul>
+
+<form action="/add" method="get">
+  <input type="submit" value="Add">
+</form>

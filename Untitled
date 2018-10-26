@@ -1,0 +1,2 @@
+INSERT INTO users (username, tag) VALUES ('Neil', '@Br0ckers');
+INSERT INTO messages (peep, tag) VALUES ('What a great start to chitter!', 'Br0ckers');
