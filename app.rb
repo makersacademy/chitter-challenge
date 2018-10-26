@@ -16,9 +16,8 @@ class Chitter < Sinatra::Base
 
   post '/login' do
     user = User.login(params[:Username], params[:Password])
-
     if user == 'fail'
-      flash[:notice] = "Invalid username or password"
+      flash[:notice] = "Invalid credentials"
       redirect('/')
     else
       session[:current_user] = user
@@ -44,9 +43,13 @@ class Chitter < Sinatra::Base
 
   post '/registered' do
     current_user = User.create(params[:Email], params[:Name], params[:Username], params[:Password], params[:Confirm_Password])
-
-    session[:current_user] = current_user
-    redirect '/'
+    if current_user == 'not unique'
+      flash[:message] = "Username or email already taken"
+      redirect '/register'
+    else
+      session[:current_user] = current_user
+      redirect '/'
+    end
   end
 
   post '/new-cheet' do

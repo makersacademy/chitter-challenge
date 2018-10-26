@@ -53,6 +53,11 @@ div[name=sign_in_box] {
   width: 60%
 }
 
+div.flash_message {
+  font-size: 0.6em;
+  color: #B00B1E;
+}
+
 .cheet_block {
   list-style-type: none;
   padding-left: 0.1em;

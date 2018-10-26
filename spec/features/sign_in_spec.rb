@@ -29,7 +29,7 @@ feature 'As a user:' do
     fill_in('Username', with: 'Jimmy')
     fill_in('Password', with: 'incorrect')
     click_button 'Log In'
-    expect(page).to have_content "Invalid username or password"
+    expect(page).to have_content "Invalid credentials"
   end
   scenario 'unknown username' do
     create_account('Jimmy')
@@ -37,6 +37,6 @@ feature 'As a user:' do
     fill_in('Username', with: 'John')
     fill_in('Password', with: 'password')
     click_button 'Log In'
-    expect(page).to have_content "Invalid username or password"
+    expect(page).to have_content "Invalid credentials"
   end
 end

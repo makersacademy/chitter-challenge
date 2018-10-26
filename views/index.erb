@@ -24,7 +24,7 @@
   <form class="logout" action="/logout"  method="get">
     <input type="submit" name="Logout" Value="Logout">
   </form>
-  <%= flash[:notice] %>
+  <div class="flash_message"><%= flash[:notice] %></div>
 </div>
 
 <div class=messages>
