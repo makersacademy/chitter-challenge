@@ -1,20 +1,25 @@
 require_relative './database_connection'
 
 class Peep
-  attr_reader :message
+  attr_reader :id, :message, :time
 
-  def initialize(message)
+  def initialize(id:, message:, time:)
     @message = message
+    @time = time
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map { |peep|
-      Peep.new(peep['message'])
+      Peep.new(id: peep['id'], message: peep['message'], time: peep['time'])
     }
   end
 
   def self.post(message)
-    DatabaseConnection.query("INSERT INTO peeps(message) VALUES ('#{message}')")
+    time = Time.now
+    result = DatabaseConnection.query("INSERT INTO peeps(message, time) VALUES ('#{message}', '#{time}') RETURNING id, message, time;")
+    result.map do |peep|
+      Peep.new(id: peep['id'], message: peep['message'], time: peep['time'])
+    end
   end
 end
