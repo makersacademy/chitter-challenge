@@ -1,8 +1,8 @@
 require 'sinatra/base'
 
-class ChipperManager < Sinatra::Base
+class ChitterManager < Sinatra::Base
   get '/' do
-    'Chipper'
+    'Chitter'
   end
 
   run! if app_file == $0
