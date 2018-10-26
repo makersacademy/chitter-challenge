@@ -1,6 +1,10 @@
 def setup_test_database
   connection = PG.connect(dbname: 'chitter_test')
+  connection.exec('DROP TABLE IF EXISTS users;')
   connection.exec('DROP TABLE IF EXISTS peeps;')
+  connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, " \
+    "email VARCHAR(100), password VARCHAR(20), name VARCHAR(50), " \
+    "username VARCHAR(20));")
   connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, " \
     "text VARCHAR(140), time VARCHAR(20));")
 end

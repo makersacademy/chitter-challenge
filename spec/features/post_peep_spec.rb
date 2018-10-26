@@ -13,4 +13,10 @@ feature 'posting a peep' do
     click_button 'Peep'
     expect(page).to have_content 'Please enter text before peeping!'
   end
+
+  scenario 'shows the username and name of the peep poster' do
+    fill_in :peep_entry, with: 'My first peep'
+    click_button 'Peep'
+    expect(page).to have_content 'albob123 (Alice Bobson) posted'
+  end
 end
