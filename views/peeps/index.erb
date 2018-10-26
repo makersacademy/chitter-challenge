@@ -1,12 +1,13 @@
 <h1>Chitter</h2>
-
-<p>Welcome, <%= @user.name %>!</p>
-
-<div>
-  <form action = '/users/new'>
-    <input type="submit" value="Sign Up">
-  </form>
-</div>
+<% if @user.nil? %>
+  <div>
+    <form action = '/users/new'>
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
+<% else %>
+  <p>Welcome, <%= @user.name %>!</p>
+<% end %>
 
 <% @peeps.each do |peep| %>
   <div style = 'background-color: #F0F3F4'>

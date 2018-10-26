@@ -3,6 +3,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'helper_methods'
+require 'pry'
 require_relative './../app'
 require_relative './helper_methods'
 Capybara.app = Rack::Builder.parse_file('config.ru').first
@@ -20,6 +21,7 @@ SimpleCov.start
 RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
+    reset_users
   end
   config.after(:suite) do
     puts

@@ -21,6 +21,10 @@ class User
     @current
   end
 
+  def self.current=(value)
+    @current = value
+  end
+
   attr_reader :username, :password, :name, :email
   def initialize(username:, password:, name:, email:)
     @username, @password, @name, @email = username, password, name, email
