@@ -18,11 +18,12 @@ class User
     end
   end
 
-  def initialize(details)
-    @name = details[:name]
-    @username = details[:username]
-    @email = details[:email]
-    @password = details[:password]
+  def self.exists?(username, email)
+    find_db
+    @conn.exec("SELECT * FROM users WHERE(username = '#{username}') OR (email = '#{email}');").map do |user|
+      return true
+    end
+    false
   end
 
   def self.find_db
@@ -31,5 +32,12 @@ class User
     else
       @conn = PG.connect(dbname: 'chitter')
     end
+  end
+
+  def initialize(details)
+    @name = details[:name]
+    @username = details[:username]
+    @email = details[:email]
+    @password = details[:password]
   end
 end

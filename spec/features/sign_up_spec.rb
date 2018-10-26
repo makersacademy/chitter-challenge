@@ -30,4 +30,14 @@ feature 'Sign up for Chitter' do
     click_button "Peep"
     expect(page).to have_content "Peep posted"
   end
+
+  scenario 'Can only enter a user name that doesnt exist yet' do
+    visit '/'
+    fill_in "name", with: "Cait"
+    fill_in "username", with: "Caitlincooling"
+    fill_in "email", with: "Caitlin@test.com"
+    fill_in "password", with: "cait123"
+    click_button "Sign up"
+    expect(page).to have_content "Sorry those details have already been registered, please try again"
+  end
 end

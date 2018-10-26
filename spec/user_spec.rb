@@ -35,4 +35,18 @@ describe User do
       expect(user.name).to eq details[:name]
     end
   end
+
+  describe '::exists?' do
+    it 'Checks if a username is already in the db' do
+      expect(User.exists?("Caitlincooling", "caitlin@test.com")).to eq false
+      User.create(details)
+      expect(User.exists?("Caitlincooling", "c123@test.com")).to eq true
+    end
+
+    it 'checks if an email is already in the db' do
+      expect(User.exists?("Caitlincooling", "caitlin@test.com")).to eq false
+      User.create(details)
+      expect(User.exists?("Ccooling", "caitlin@test.com")).to eq true
+    end
+  end
 end

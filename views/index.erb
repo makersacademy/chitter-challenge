@@ -11,3 +11,9 @@
   <p>If you just want to browse</p>
   <input type="submit" value="View peeps">
 </form>
+
+<% flash.keys.each do |sign_up| %>
+  <div data-alert class="flash <%= sign_up %> alert-box radius">
+    <%= flash[sign_up] %>
+  </div>
+<% end %>
