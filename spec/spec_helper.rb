@@ -6,7 +6,7 @@ require 'rspec'
 require './app.rb'
 require_relative 'features/web_helpers'
 
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 Capybara.app = ChitterApp
 

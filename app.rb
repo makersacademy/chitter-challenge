@@ -21,8 +21,15 @@ class ChitterApp < Sinatra::Base
     username = params[:username]
     emailaddress = params[:emailaddress]
     password = params[:password]
-    User.create(name: name, username: username, emailaddress: emailaddress, password: password)
-    redirect "/#{username}"
+    if User.unique_check(username, emailaddress)
+      session[:unique_check] = true
+      User.create(name: name, username: username, emailaddress: emailaddress, password: password)
+      redirect "/#{username}"
+    else
+      session[:unique_check] = false
+      flash[:notice] = "Username/Password already taken"
+      redirect '/sign_up'
+    end
   end
 
   get '/log_in' do

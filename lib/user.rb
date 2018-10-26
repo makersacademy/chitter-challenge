@@ -50,4 +50,11 @@ class User
       end
     end
   end
+
+  def self.unique_check(username, emailaddress)
+    User.all.each do |user|
+      return false if user.username == username
+      return false if user.emailaddress == emailaddress
+    end
+  end
 end
