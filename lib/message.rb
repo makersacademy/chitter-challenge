@@ -14,7 +14,12 @@ class Message
   end
 
   def user_name(user_handle = @user_handle)
-
+    @user_handle = user_handle
+    connection = PG.connect(dbname: 'chitterdb')
+    export = connection.exec("SELECT user_name FROM users WHERE user_handle = '#{@user_handle}';")
+    obj = export.map{|result| result}
+    objhash = obj[0]
+    @user_name = objhash["user_name"]
   end
 
   def text(text)
