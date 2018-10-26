@@ -1,12 +1,8 @@
-require 'pg'
-
 feature 'Viewing peeps' do
   scenario 'A user can see the peeps' do
-    connection = PG.connect(dbname: 'peep_manager_test')
-
-    connection.exec("INSERT INTO peeps VALUES (1, 'message one');")
-    connection.exec("INSERT INTO peeps VALUES (2, 'message two');")
-    connection.exec("INSERT INTO peeps VALUES (3, 'message three');")
+    Peep.create(message: 'message one', user_name: 'user1')
+    Peep.create(message: 'message two', user_name: 'user1')
+    Peep.create(message: 'message three', user_name: 'user1')
 
     visit('/peeps')
 

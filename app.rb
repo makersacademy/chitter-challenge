@@ -2,6 +2,9 @@ require 'sinatra/base'
 require './lib/peep'
 
 class ChitterManager < Sinatra::Base
+
+  enable :sessions, :method_override
+
   get '/' do
     'Chitter'
   end
@@ -15,8 +18,13 @@ class ChitterManager < Sinatra::Base
     erb :'new'
   end
 
-  post '/peeps' do
-    Peep.create(message: params[:message])
+  post '/new' do
+    Peep.create(message: params[:message], user_name: params[:user_name])
+    redirect '/peeps'
+  end
+
+  delete '/:id' do
+    Peep.delete(id: params[:id])
     redirect '/peeps'
   end
 
