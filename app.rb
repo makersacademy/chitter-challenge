@@ -39,11 +39,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/new' do
-    "<p>You have signed up, Joe Bloggs</p><p>Your username is: peeper1234</p><p>The email address you have registered with is test@test.com</p>"
-    # sql = %{INSERT INTO peeps
-    # #   (peep) VALUES ('#{params[:peep]}') RETURNING id, peep;}
-    #   # p sql
-    # DatabaseConnection.query(sql)
+
+    sql = %{INSERT INTO users
+      (firstname, lastname, username, password, email)
+      VALUES ('#{params[:firstname]}', '#{params[:lastname]}',
+        '#{params[:username]}', '#{params[:password]}', '#{params[:email]}')
+        RETURNING id, firstname, lastname, username, password, email;}
+      # p sql
+    user = DatabaseConnection.query(sql)
+    "<p>You have signed up, #{user[:firstname]} #{user[:lastname]}</p><p>Your username is: #{user[:username]}</p><p>The email address you have registered with is #{user[:email]}</p>"
   end
 
   run! if app_file == $0

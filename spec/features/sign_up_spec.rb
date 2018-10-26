@@ -15,7 +15,8 @@ feature 'Sign up for Chitter' do
     visit('/')
     click_link('Register for Chitter')
     # p current_path
-    fill_in :realname, with: 'Joe Bloggs'
+    fill_in :firstname, with: 'Joe'
+    fill_in :lastname, with: 'Bloggs'
     fill_in :username, with: 'peeper1234'
     fill_in :password, with: 'supersecretpassword'
     fill_in :email, with: 'test@test.com'
