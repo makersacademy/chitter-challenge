@@ -15,7 +15,7 @@ class Cheet
   def self.all
     result = Database.query("SELECT * FROM cheets")
     result.map do |row|
-      Cheet.new(row['id'], row['user'], row['cheet'], row['timestamp'])
+      Cheet.new(row['id'], row['user'], row["cheet"], row['timestamp'])
     end
   end
 

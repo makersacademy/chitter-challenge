@@ -15,12 +15,12 @@ feature 'As a user:' do
     click_button 'Logout'
     expect(page).not_to have_content "Logged in as John"
   end
-  # scenario 'I can log in' do
-  #   create_account('jimmy')
-  #   click_button 'Logout'
-  #   fill_in('Username', with: 'jimmy')
-  #   fill_in('Password', with: 'runrunrun')
-  #   click_button 'Log In'
-  #   expect(page).to have_content "Logged in as jimmy"
-  # end
+  scenario 'I can log in' do
+    create_account('jimmy', 'jimmy')
+    click_button 'Logout'
+    fill_in('Username', with: 'jimmy')
+    fill_in('Password', with: 'runrunrun')
+    click_button 'Log In'
+    expect(page).to have_content "Logged in as jimmy"
+  end
 end

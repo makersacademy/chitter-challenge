@@ -12,9 +12,8 @@ class User
 
   def self.login(user, pass)
     rs = Database.query("SELECT * FROM auth WHERE username = '#{user}'")
-    raise "Invalid Username" if rs.ntuples == 0
-    r = rs.map { |row| User.new(row['email'], row['name'], row['user'], row['pass'], row['user']) }
-    # STORE r[0] AS CURRENT USER !!!!!
+    # raise "Invalid Username" if rs.ntuples == 0
+    User.new(rs[0]['email'], rs[0]['name'], rs[0]['user'], rs[0]['pass'], rs[0]['user'])
   end
 
   def self.check(user)

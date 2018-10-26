@@ -9,11 +9,11 @@ def clear_test_db
   conn.exec("TRUNCATE auth")
 end
 
-def create_account(name)
+def create_account(user, name = "John")
   visit '/'
   click_button 'Register'
-  fill_in('Name', with: 'John')
-  fill_in('Username', with: "#{name}")
+  fill_in('Name', with: "#{name}")
+  fill_in('Username', with: "#{user}")
   fill_in('Password', with: 'password')
   fill_in('Confirm_Password', with: 'password')
   fill_in('Email', with: 'my@email.com')

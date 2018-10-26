@@ -13,10 +13,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    pass = params[:Password]
-    user = params[:Username]
-    User.login(user, pass)
-    redirect '/'
+    user = User.login(params[:Username], params[:Password])
+    session[:current_user] = user
+    redirect('/')
   end
 
   get '/logout' do
