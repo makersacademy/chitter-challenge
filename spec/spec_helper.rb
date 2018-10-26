@@ -1,4 +1,4 @@
-ENV['RACK ENV']='test'
+ENV['R ENV'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
@@ -16,6 +16,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.before(:each) do
+    connection = PG.connect(dbname: 'chitter_manager_test')
+    connection.exec("TRUNCATE peeps")
+  end
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

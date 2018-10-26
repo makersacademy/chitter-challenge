@@ -1,20 +1,22 @@
 require 'sinatra/base'
 require 'rack'
+require './lib/chitter'
+require 'time'
 
- class App < Sinatra::Base
+class App < Sinatra::Base
 
-   enable :sessions
+  enable :sessions
 
-   get '/' do
-     @new_peep = session[:new_peep]
-     erb :homepage
-   end
+  get '/' do
+    @chitters = Chitter.all
+    erb :homepage
+  end
 
-   post '/peep' do
-     session[:new_peep] = params[:peep]
-     redirect '/'
-   end
+  post '/peep' do
+    Chitter.add(text: params[:peep], username: 'Becka', peep_time: DateTime.now)
+    redirect '/'
+  end
 
-   run! if app_file == $0
+  run! if app_file == $0
 
 end

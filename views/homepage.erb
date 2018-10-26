@@ -1,7 +1,15 @@
 Welcome to chitter
 
-<br>My first peep
-<br> <%= @new_peep %>
+ <ul>
+  <% @chitters.each do |chitter| %>
+    <li>
+        <%= chitter.text %>
+        <br><%= chitter.peep_time %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
 
 <form action ="/peep" method = "post">
   <input type ="text" name="peep" value placeholder = "What's on your mind?" >
