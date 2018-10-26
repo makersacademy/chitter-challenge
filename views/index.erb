@@ -3,6 +3,7 @@
 <span class="user">
   <% if session[:current_user] == nil %>
     <a href="/sign-up"><button>Sign Up</button></a>
+    <a href="/login"><button>Login</button></a>
   <% else %>
     <h2>Hi, <%= @user.name %>!</h2>
 

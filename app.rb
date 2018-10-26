@@ -26,6 +26,15 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get 'login' do
+    erb :login
+  end
+
+  post 'login' do
+    session[:current_user] = User.find(params['username'], params['password'])
+    redirect '/'
+  end
+
   get '/logout' do
     session.delete(:current_user)
     redirect '/'
