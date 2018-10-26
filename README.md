@@ -96,11 +96,14 @@ Allow Homebrew to start and stop the Postgres service
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
-
+###Set up databases
 Connect to psql
 Create the database using the psql command ```CREATE DATABASE chitter;```
 Connect to the database using the pqsl command ```\c chitter;```
 Run the query in the file ```01_create_peeps_table.sql```
+
+repeat these steps but create a data base called chitter_test
+
 
 
 Challenge:
