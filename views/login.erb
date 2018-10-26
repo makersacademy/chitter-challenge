@@ -1,25 +1,13 @@
 <%= erb :base %>
 
 <div class="container">
-<form action="/chitter/save_new_user" method="post">
-  <div class="form-group">
-    <label for="exampleInputFirstName">First name</label>
-    <input type="first_name" name="first_name" class="form-control" id="exampleInputFirstName" aria-describedby="emailHelp" placeholder="Enter first name">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputLastName">Last name</label>
-    <input type="last_name" name="last_name" class="form-control" id="exampleInputLastName" aria-describedby="emailHelp" placeholder="Enter last name">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-  </div>
+<form action="/chitter/users" method="post">
   <div class="form-group">
     <label for="exampleInputUsername">Username</label>
     <input type="username" name="username" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Enter username">
   </div>
   <div class="form-group">
-    <label for="exampleInputUsername">Password</label>
+    <label for="exampleInputPassword">Password</label>
     <input type="password" name="password" class="form-control" id="exampleInputPassword" aria-describedby="emailHelp" placeholder="Enter password">
   </div>
   <%# <div class="form-group">

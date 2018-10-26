@@ -2,11 +2,14 @@
 <% if @user != nil %>
 <h3>Welcome, <%= @user.first_name %></h3>
 <% end %>
-<% @peeps.each do |peep| %>
-<div class="card" style="width: 18rem; margin: 10px; background: LightGrey;">
-  <div class="card-body">
-  <p class="card-text"><%= peep.content %>
-    <small>(<%= peep.time %>)</small></p>
+<% if @peeps != nil %>
+  <% @peeps.each do |peep| %>
+  <div class="card" style="width: 18rem; margin: 10px; background: LightGrey;">
+    <div class="card-body">
+      <h5 class="card-title"><%= User.find(peep.user_id).username %></h5>
+      <p class="card-text"><%= peep.content %>
+      <small>(<%= peep.time %>)</small></p>
+    </div>
   </div>
-</div>
+  <% end %>
 <% end %>
