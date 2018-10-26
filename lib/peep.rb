@@ -8,7 +8,7 @@ class Peep
     @message = message
   end
 
-  def self.view_all
+  def self.view_all_peeps
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
@@ -21,7 +21,7 @@ class Peep
     end
   end
 
-  def self.post_peep(message:)
+  def self.new_peep(message:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else

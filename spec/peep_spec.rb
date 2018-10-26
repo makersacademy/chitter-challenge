@@ -2,15 +2,15 @@ require 'peep'
 require 'database_helpers'
 
 describe Peep do
-  describe '#view_all' do
+  describe '#view_all_peeps' do
     it 'returns all peeps' do
 
     # Add the test data
-      peep = Peep.post_peep(message: 'This is a peep')
-      Peep.post_peep(message: 'This is another peep')
-      Peep.post_peep(message: 'This is a third peep')
+      peep = Peep.new_peep(message: 'This is a peep')
+      Peep.new_peep(message: 'This is another peep')
+      Peep.new_peep(message: 'This is a third peep')
 
-      peeps = Peep.view_all
+      peeps = Peep.view_all_peeps
 
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
@@ -19,9 +19,9 @@ describe Peep do
     end
   end
 
-  describe '#post_peep' do
-    it 'posts a new peep' do
-      peep = Peep.post_peep(message: 'Test peep')
+  describe '#new_peep' do
+    it 'creates a new peep' do
+      peep = Peep.new_peep(message: 'Test peep')
       persisted_data = persisted_data(id: peep.id)
 
       expect(peep).to be_a Peep

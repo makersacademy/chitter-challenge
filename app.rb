@@ -4,12 +4,12 @@ require 'peep'
 class Chitter < Sinatra::Base
   get '/' do
 
-    @peeps = Peep.view_all
+    @peeps = Peep.view_all_peeps
     erb :index
   end
 
   post '/post-peep' do
-    Peep.post_peep(message: params[:message])
+    Peep.new_peep(message: params[:message])
     redirect '/'
   end
 
