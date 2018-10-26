@@ -14,6 +14,10 @@ class ChitterApp < Sinatra::Base
     redirect '/peeps'
   end
 
+  before do
+    @user = User.instance
+  end
+
   get '/sign_up' do
     erb :sign_up
   end
@@ -24,7 +28,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/user_peeps' do
-    @username = User.username
+    @name = @user.username
     @peeps = Peep.all
     erb :signed_in_peeps
   end
