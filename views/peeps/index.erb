@@ -16,6 +16,13 @@
       <input type="submit" value="Sign Out">
     </form>
   </div>
+
+  <div>
+    <form action = '/peeps/new'>
+      <input type = 'submit'  value = 'New Peep'>
+    </form>
+  </div>
+
 <% end %>
 
 <% @peeps.each do |peep| %>
@@ -33,7 +40,3 @@
     </form>
   </div>
 <% end %>
-
-<form action = '/peeps/new'>
-  <input type = 'submit'  value = 'New Peep'>
-</form>
