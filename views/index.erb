@@ -6,6 +6,8 @@
   <% else %>
     <h2>Hi, <%= @user.name %>!</h2>
 
+    <a href="/logout"><button>Logout</button></a>
+
     <form action="/post" method="post">
       <input type="text" id="peep_content" name="peep_content">
       <input type="submit" value="Post">
