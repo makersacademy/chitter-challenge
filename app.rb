@@ -1,8 +1,8 @@
 require 'sinatra/base'
-#require './lib/chitter.rb'
+# require './lib/chitter.rb'
 
 class Chitter < Sinatra::Base
-enable :sessions
+  enable :sessions
 
   get '/' do
     erb :index

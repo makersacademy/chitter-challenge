@@ -23,8 +23,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-
-
 ENV['ENVIRONMENT'] = 'test'
 ENV['RACK_ENV'] = 'test'
 
