@@ -19,8 +19,16 @@ feature 'Viewing posts' do
     Message.create(content: "This message was written third")
 
     visit('/')
-    expect(first('.message')).to have_content "This message was written third"
+    expect(page.all('.message')[0]).to have_content "This message was written third"
     expect(page.all('.message')[1]).to have_content "This message was written second"
     expect(page.all('.message')[2]).to have_content "This message was written first"
   end
+
+  scenario 'shows timestamp on peeps' do
+    Message.create(content: "Test message", time: "2018-10-26 12:20:00 +0100")
+
+    visit('/')
+    expect(page).to have_content "26/10/18 12:20: Test message"
+  end
+
 end
