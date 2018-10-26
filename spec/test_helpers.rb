@@ -24,3 +24,10 @@ def add_peeps_to_test_database
   Peep.create('My second peep')
   Peep.create('My third peep')
 end
+
+def add_users_to_test_database
+  connection = PG.connect(dbname: 'chitter_test')
+  connection.exec("INSERT INTO users(email,password,name,username)" \
+    "VALUES('albob123@gmail.com','password123','Alice Bobson','albob123'), " \
+    "('bobal321@gmail.com','password321','Bob Alson','bobal321')")
+end
