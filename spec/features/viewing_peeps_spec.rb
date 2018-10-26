@@ -11,4 +11,12 @@ feature 'Viewing peeps' do
     visit '/'
     expect(page.find('.peep:nth-of-type(1)')).to have_content 'This is also a test peep!'
   end
+
+  scenario 'peeps are displayed with their posted time' do
+    Peep.post('This is a test peep!')
+    Peep.post('This is also a test peep!')
+    peeps = Peep.all
+    visit '/'
+    expect(page).to have_content peeps[0].time
+  end
 end
