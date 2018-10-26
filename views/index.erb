@@ -1,5 +1,10 @@
 <h1>Chitter</h1>
 
+<form action="/post" method="post">
+  <input type="text" id="peep_content" name="peep_content">
+  <input type="submit" value="Post">
+</form>
+
 <% @peeps.each do |peep| %>
   <%= peep %><br>
 <% end %>

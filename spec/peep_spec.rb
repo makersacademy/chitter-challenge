@@ -7,4 +7,11 @@ describe Peep do
       expect(peeps).to include 'This is a test peep!'
     end
   end
+
+  describe '#post' do
+    it 'creates a new peep' do
+      Peep.post("This is another test peep!")
+      expect(Peep.all).to include 'This is another test peep!'
+    end
+  end
 end
