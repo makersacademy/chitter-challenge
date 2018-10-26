@@ -9,8 +9,8 @@ class Peep
     end
   end
 
-  def self.create(text:)
-    return false unless text
+  def self.create(text)
+    return false if text.empty?
     DatabaseManager.query("INSERT INTO peeps(text,time)" \
       "VALUES('#{text}','#{format(Time.now)}') RETURNING id, text, time")
   end
