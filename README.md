@@ -8,7 +8,7 @@ git clone https://github.com/melissasedgwick/chitter-challenge.git
 ```
 2. Change into the project directory:
 ```bash
-cd bookmark-manager
+cd chitter-challenge
 ```
 3. Run the program:
 ```bash
