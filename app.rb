@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
 
   get '/messages' do
     @messages = Message.all
+    p @messages
     erb :'messages/index'
   end
 
