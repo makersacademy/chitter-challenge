@@ -16,6 +16,20 @@ rackup
 ```
 4. Access the program from `localhost:9292`
 
+5. Create the database to store the messages by following the steps below.
+
+
+## Database Setup ##
+
+Connect to `psql` and create the `chitter` and `chitter_test` databases:
+
+```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+
+For both databases, follow the db/migrations/ files to setup the necessary tables.
+
 __________________________________________________
 
 * Challenge time: rest of the day and weekend, until Monday 9am
