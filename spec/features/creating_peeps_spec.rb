@@ -1,4 +1,4 @@
-feature 'Posting a Peep' do
+feature 'Feature - Posting a Peep' do
   scenario 'A user can post a Peep to Chitter' do
     visit('/')
     fill_in('message', with: 'A Peep posted by a user')

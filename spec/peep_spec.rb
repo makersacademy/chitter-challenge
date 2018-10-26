@@ -1,28 +1,32 @@
 require 'peep'
+require 'database_helpers'
 
 describe Peep do
   describe '#view_all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
 
     # Add the test data
-      connection.exec("INSERT INTO peeps (message) VALUES ('This is a peep');")
-      connection.exec("INSERT INTO peeps (message) VALUES('This is another peep');")
-      connection.exec("INSERT INTO peeps (message) VALUES('This is a third peep');")
+      peep = Peep.post_peep(message: 'This is a peep')
+      Peep.post_peep(message: 'This is another peep')
+      Peep.post_peep(message: 'This is a third peep')
 
-      peep = Peep.view_all
+      peeps = Peep.view_all
 
-      expect(peep).to include("This is a peep")
-      expect(peep).to include("This is another peep")
-      expect(peep).to include("This is a third peep")
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.message).to eq 'This is a peep'
     end
   end
 
   describe '#post_peep' do
     it 'posts a new peep' do
-      Peep.post_peep(message: 'This is a peep posted using the post_peep method')
+      peep = Peep.post_peep(message: 'Test peep')
+      persisted_data = persisted_data(id: peep.id)
 
-      expect(Peep.view_all).to include 'This is a peep posted using the post_peep method'
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data['id']
+      expect(peep.message).to eq 'Test peep'
     end
   end
 end
