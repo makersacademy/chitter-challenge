@@ -1,6 +1,6 @@
 feature 'Signing up' do
   scenario 'a user signs up for Chitter' do
-    visit '/new-user'
+    visit '/sign-up'
     fill_in 'username', with: 'Mittens'
     fill_in 'password', with: 'password'
     click_button 'Register'

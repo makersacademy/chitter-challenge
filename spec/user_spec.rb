@@ -9,11 +9,17 @@ describe User do
     end
   end
 
-  describe '#register' do
+  describe '#self.register' do
     it 'adds a user to the database' do
       user = User.register('Aimee')
       result = find_by_id(id: user.id)
       expect(user.name).to eq result['name']
+    end
+  end
+
+  describe '#self.login' do
+    it 'logs a user in' do
+      
     end
   end
 end
