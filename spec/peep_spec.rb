@@ -1,7 +1,7 @@
 require 'peep'
 
 describe Peep do
-  describe '.view_all' do
+  describe '#view_all' do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
@@ -15,6 +15,14 @@ describe Peep do
       expect(peep).to include("This is a peep")
       expect(peep).to include("This is another peep")
       expect(peep).to include("This is a third peep")
+    end
+  end
+
+  describe '#post_peep' do
+    it 'posts a new peep' do
+      Peep.post_peep(message: 'This is a peep posted using the post_peep method')
+
+      expect(Peep.view_all).to include 'This is a peep posted using the post_peep method'
     end
   end
 end
