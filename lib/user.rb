@@ -2,7 +2,7 @@ require 'pg'
 
 class User
 
-  attr_reader :post_id, :user_id, :time, :content
+  attr_reader :first_name, :last_name, :email, :username, :user_id
 
   def initialize(first_name, last_name, email, username, user_id)
     @first_name = first_name

@@ -5,7 +5,11 @@ require 'pry'
 
 class ChitterApp < Sinatra::Base
 
+  enable :sessions
+
   get '/chitter' do
+    # @user = session[:user_id]
+    @user = User.find(session[:user_id]) if session[:user_id] != nil
     @peeps = Chitter.all_peeps
     erb(:index)
   end
@@ -25,6 +29,7 @@ class ChitterApp < Sinatra::Base
 # I am not sure whether this routing is right:
   post '/chitter/save_new_user' do
     user = User.create(params[:first_name], params[:last_name], params[:email], params[:username])
+    session[:user_id] = user.user_id
     redirect('/chitter')
   end
 
