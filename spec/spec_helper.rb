@@ -4,8 +4,9 @@ require 'capybara/rspec'
 require 'rspec'
 require 'helper_methods'
 require 'pry'
+require 'rake'
 require_relative './../app'
-require_relative './helper_methods'
+
 Capybara.app = Rack::Builder.parse_file('config.ru').first
 
 require 'simplecov'
@@ -18,9 +19,11 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+Rake.application.load_rakefile
+
 RSpec.configure do |config|
   config.before(:each) do
-    setup_test_database
+    Rake::Task['test_database_setup'].execute
     User.sign_out
   end
   config.after(:suite) do

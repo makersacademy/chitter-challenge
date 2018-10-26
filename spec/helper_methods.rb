@@ -1,8 +1,3 @@
-def setup_test_database
-  DatabaseConnection.setup('chitter_test')
-  DatabaseConnection.query('TRUNCATE peeps, users;')
-end
-
 def sign_up
   click_button "Sign Up"
   fill_in(:username, with: "user1")
