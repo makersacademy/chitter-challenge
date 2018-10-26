@@ -5,6 +5,15 @@ body {
   background-color: #E1E8ED;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+li {
+  display: inline;
+}
+
 a {
   text-decoration: none;
 }
@@ -15,12 +24,11 @@ a {
 
 .nav-bar {
   background-color: #55ACEE;
-  padding: 10px;
+  padding-top: 0;
 }
 
 .nav-bar a {
   color: white;
-  letter-spacing: 1px;
 }
 
 .page-container {

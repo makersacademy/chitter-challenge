@@ -64,6 +64,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/log-out' do
+    redirect "/"
+  end
+
   get '/u/:username' do
     user = session[:user]
     @name = user.name
