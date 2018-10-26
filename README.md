@@ -8,9 +8,10 @@
 
 ### Todo
 - [ ] Set up App Environment
+  - [ ] Hello World test
 - [ ] Set up database and test database
 - [ ] User story 1
-  - [ ] OCR Card
+  - [x] OCR Card
   - [ ] Feature Tests
   - [ ] Unit Tests
   - [ ] Tests pass
