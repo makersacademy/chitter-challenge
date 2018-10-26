@@ -13,7 +13,10 @@ class Peep
     sql = %{select id, peep, posted_datetime from peeps order by id desc}
       # p sql
     peeps = DatabaseConnection.query(sql)
-    peeps.map {|record| {id: record["id"], peep: record["peep"], posted_date: Peep.date_only(record["posted_datetime"])} }
+    peeps.map { |record| { id: record["id"],
+      peep: record["peep"],
+      posted_date: Peep.date_only(record["posted_datetime"]) }
+    }
   end
 
   def self.create(message)

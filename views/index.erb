@@ -9,11 +9,18 @@
 
   <body>
     <h1>Welcome to Chitter</h1>
-    <p>
-      <a href="/user/register">
-        <button class="postpeep" type="button" value="Register for Chitter">
-          <span class="icon"></span>Register for Chitter</button>
-      </p>
+
+    <% if @user %>
+      <h1>Welcome, <%= @user.username %></h1>
+      <%else%>
+      <p>You need to register: </p>
+        <a href="/user/register">
+          <button class="postpeep" type="button" value="Register for Chitter">
+            <span class="icon"></span>Register for Chitter</button>
+        </p>
+    <% end %>
+
+
       <!-- <button class="button"><span class="icon"></span>Button</button> -->
       <p>
         <a href="/peep">
