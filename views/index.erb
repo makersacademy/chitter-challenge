@@ -5,8 +5,10 @@
   <input type="submit" value="Post">
 </form>
 
-<div class="peeps">
+<ol class="peeps" style="list-style-type:none">
   <% @peeps.each do |peep| %>
-    <%= peep.message %><br>
+    <div class="peep">
+      <%= peep.message %>
+    </div>
   <% end %>
-</div>
+</ol>
