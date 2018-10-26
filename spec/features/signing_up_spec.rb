@@ -4,6 +4,7 @@ feature 'Signing up' do
     click_link 'Sign Up'
     fill_in 'username', with: 'Mittens'
     click_button 'Register'
-    expect(page).to have_content 'Hi Mittens!'
+    expect(page.find('.user')).to have_content 'Hi, Mittens!'
+    expect(page).not_to have_content 'Sign Up'
   end
 end

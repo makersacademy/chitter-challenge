@@ -1,6 +1,12 @@
 <h1>Chitter</h1>
 
-<a href="/sign-up"><button>Sign Up</button></a>
+<span class="user">
+  <% if session[:current_user] == nil %>
+    <a href="/sign-up"><button>Sign Up</button></a>
+  <% else %>
+    <h2>Hi, <%= @user.name %>!</h2>
+  <% end %>
+</span>
 
 <form action="/post" method="post">
   <input type="text" id="peep_content" name="peep_content">
