@@ -16,4 +16,12 @@ describe Message do
     end
   end
 
+  describe '#create' do
+    it 'creates a new message' do
+      Message.create(content: "TEST CONTENT")
+
+      expect(Message.all).to include "TEST CONTENT"
+    end
+  end
+
 end
