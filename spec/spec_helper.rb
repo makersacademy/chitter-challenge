@@ -21,7 +21,7 @@ SimpleCov.start
 RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
-    reset_users
+    User.sign_out
   end
   config.after(:suite) do
     puts

@@ -2,6 +2,10 @@ require 'bcrypt'
 
 class User
 
+  def self.current
+    @current
+  end
+
   def self.create(username:, password:, name:, email:)
     encrypted_password = BCrypt::Password.create(password)
     query = "INSERT INTO users VALUES('#{username}', '#{encrypted_password}', '#{name}', '#{email}');"
@@ -15,12 +19,8 @@ class User
     true
   end
 
-  def self.current
-    @current
-  end
-
-  def self.current=(value)
-    @current = value
+  def self.sign_out
+    @current = nil
   end
 
   private

@@ -2,8 +2,7 @@ feature "signing in" do
   before do
     visit '/'
     sign_up
-    reset_users
-    visit '/'
+    click_button "Sign Out"
   end
   scenario "'Sign In' button on main page" do
     expect(page).to have_selector(:button, "Sign In")

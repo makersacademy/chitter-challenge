@@ -72,5 +72,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    User.sign_out
+    redirect '/peeps'
+  end
+
   run! if app_file == $0
 end

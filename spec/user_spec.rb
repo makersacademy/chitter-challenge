@@ -61,4 +61,12 @@ describe User do
       end
     end
   end
+
+  describe '.sign_out' do
+    it 'resets User.current' do
+      User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
+      User.sign_out
+      expect(User.current).to be_nil
+    end
+  end
 end
