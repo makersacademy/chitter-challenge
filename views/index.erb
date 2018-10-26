@@ -1,0 +1,9 @@
+<h1>Chitter</h1>
+
+<form action='/incoming' method='post'>
+  <input type='text' name='message' placeholder='message'>
+  <input type='submit' value='post'>
+</form>
+
+
+<h2><%= session[:message] %></h2>
