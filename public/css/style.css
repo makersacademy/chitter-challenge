@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
-
+@import url('https://fonts.googleapis.com/css?family=Chewy|Kaushan+Script|Lobster|Monoton|Pacifico|Permanent+Marker|Press+Start+2P|VT323');
+@import url('https://fonts.googleapis.com/css?family=Bungee|Bungee+Inline|Faster+One|Just+Another+Hand|Nanum+Pen+Script|Reenie+Beanie');
 
 p {
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Reenie Beanie', sans-serif;
   margin-left: 1.66%;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 400;
-  color: white;
+  color: black;
 }
 
 a {
@@ -14,30 +15,31 @@ a {
   margin-left: 1.66%;
   font-size: 20px;
   font-weight: 400;
-  color: white;
+  color: black;
   text-decoration: underline;
 }
 
 h1 {
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Permanent Marker', cursive;
   font-size: 50px;
-  color: white;
+  color: black;
   text-align: center;
 }
 
 h2 {
   font-family: 'Fjalla One', sans-serif;
   font-size: 35px;
-  color: white;
+  color: black;
   text-align: center;
 }
 
 body {
   background-image: url("/images/peeps.jpeg");
+  background-size: 100%;
   background-color: #cccccc;
   font-family: 'Fjalla One', sans-serif;
   margin-left: 1.66%;
   font-size: 22px;
   font-weight: 400;
-  color: white;
+  color: black;
 }

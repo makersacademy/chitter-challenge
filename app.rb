@@ -1,6 +1,7 @@
 require 'sinatra/base'
-require 'pg'
+# require 'pg'
 require './lib/peep'
+require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
@@ -17,18 +18,18 @@ class Chitter < Sinatra::Base
 
   post '/peep/new' do
 # p "fdasfdsfdsa"
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+    # if ENV['ENVIRONMENT'] == 'test'
+    #   connection = PG.connect(dbname: 'chitter_test')
+    # else
+    #   connection = PG.connect(dbname: 'chitter')
+    # end
     # connection = PG.connect(dbname: 'chitter')
     # p connection
 
     sql = %{INSERT INTO peeps
       (peep) VALUES ('#{params[:peep]}') RETURNING id, peep;}
       # p sql
-    connection.exec(sql)
+    DatabaseConnection.query(sql)
     redirect '/'
   end
 

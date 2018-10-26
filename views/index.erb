@@ -3,16 +3,19 @@
 
   <head>
     <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16"/>
   </head>
 
   <body>
-<h1>Welcome to Chitter</h1>
-<form action="/peep" method="post">
-  <button type="submit" value="Post a Peep">Post a Peep</button>
-  </form>
-  <%# <%=@peeps%> %>
-  <%@peeps.each do |peep_row|%>
-  <p>Peep: <%=peep_row[:peep]%></p>
-  <%end%>
+    <h1>Welcome to Chitter</h1>
+    <form action="/peep" method="post">
+      <button type="submit" value="Post a Peep">Post a Peep</button>
+    </form>
+
+    <%@peeps.each do |peep_row|%>
+      <p>Peep:
+        <%=peep_row[:peep]%></p>
+    <%end%>
   </body>
 </html>
