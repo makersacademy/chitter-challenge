@@ -11,17 +11,15 @@ describe Message do
 
       messages = Message.all
 
-      expect(messages).to include "Hello world, I'm chittering!"
-      expect(messages).to include "Yes, yes you are"
-      expect(messages).to include "It's great fun!"
+      expect(messages[-1].message).to eq("Hello world, I'm chittering!")
     end
   end
 
   describe '.create' do
     it 'creates a peep' do
-      Message.create(body: 'testing, 1, 2, 3')
+      message = Message.create(message: 'testing, 1, 2, 3', time: Time.now)
 
-      expect(Message.all).to include('testing, 1, 2, 3')
+      expect(message.message).to eq('testing, 1, 2, 3')
     end
   end
 end

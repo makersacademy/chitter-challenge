@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/message.rb'
+require 'date'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -10,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/incoming' do
-    Message.create(body: params['message'])
+    Message.create(message: params['message'], time: Time.now)
     redirect '/'
   end
 
