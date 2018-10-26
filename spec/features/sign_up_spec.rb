@@ -5,9 +5,14 @@ feature "Sign up" do
     expect(page).to have_field("Username")
   end
 
+  scenario "I see a sign up form with a name field" do
+    visit('/sign_up')
+    expect(page).to have_field("Name")
+  end
+
   scenario "I see a sign up form with a email field" do
     visit('/sign_up')
     expect(page).to have_field("email")
   end
-  
+
 end
