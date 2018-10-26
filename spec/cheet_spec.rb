@@ -17,6 +17,11 @@ describe Cheet do
       cheets = Cheet.all
       expect(cheets.first.user).to eq('Anonymous')
     end
+    it "tweet has a username if logged in" do
+      add_test_cheets_with_user
+      cheets = Cheet.all
+      expect(cheets.first.user).to eq('User1')
+    end
   end
   context 'creating tweets' do
     it 'adds a cheet to the db' do

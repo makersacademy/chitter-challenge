@@ -28,7 +28,7 @@ class User
     rs = Database.query("SELECT * FROM auth WHERE username = '#{user}'")
     return "fail" if rs.ntuples == 0
     return "fail" if check_login_password(pass, rs[0]['password']) == false
-    User.new(rs[0]['id'], rs[0]['email'], rs[0]['name'], rs[0]['username'], rs[0]['password'])
+    find_by_username(user)
   end
 
   def self.check_if_unique(user)

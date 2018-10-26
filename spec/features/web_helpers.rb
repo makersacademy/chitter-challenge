@@ -3,6 +3,11 @@ def add_test_cheets
   conn.exec("INSERT INTO cheets (cheet) VALUES ('My first cheet'), ('My second cheet');")
 end
 
+def add_test_cheets_with_user
+  conn = PG.connect(dbname: 'chitter_database_test')
+  conn.exec("INSERT INTO cheets(cheet, username) VALUES ('My first cheet', 'User1'), ('My second cheet', 'User2');")
+end
+
 def clear_test_db
   conn = PG.connect(dbname: 'chitter_database_test')
   conn.exec("TRUNCATE cheets")
