@@ -1,7 +1,7 @@
 feature "signing in" do
   before do
     visit '/'
-    sign_up
+    sign_up_1
     click_button "Sign Out"
   end
   scenario "'Sign In' button on main page" do

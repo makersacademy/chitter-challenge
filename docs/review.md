@@ -211,7 +211,7 @@ Ensure your feature tests look like feature tests, not unit tests. They're proba
 ```ruby
 scenario 'Can create peeps after sign up'  do
   # Use a sign up helper we created earlier
-  sign_up_and_create_peep('Test text')
+  sign_up_1_and_create_peep('Test text')
 
   expect(current_path).to eq '/peeps'
   expect(page.status_code).to eq 200
@@ -226,17 +226,17 @@ end
 
 ```ruby
 scenario 'Current path is correct after signing up and peeping'  do
-  sign_up_and_create_peep('Test text')
+  sign_up_1_and_create_peep('Test text')
   expect(current_path).to eq '/peeps'
 end
 
 scenario 'Status code is correct after signing up and peeping'  do
-  sign_up_and_create_peep('Test text')
+  sign_up_1_and_create_peep('Test text')
   expect(page.status_code).to eq 200
 end
 
 scenario 'Peep is shown after signing up and peeping'  do
-  sign_up_and_create_peep('Test text')
+  sign_up_1_and_create_peep('Test text')
   within 'ul#peeps' do
     expect(page).to have_content('Test text')
   end

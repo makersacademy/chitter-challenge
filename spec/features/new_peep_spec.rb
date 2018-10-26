@@ -3,7 +3,7 @@ require 'pry'
 feature "adding peeps" do
   before do
     visit '/'
-    sign_up
+    sign_up_1
   end
 
   scenario "user does not see New Peep button unless signed in" do

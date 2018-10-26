@@ -28,6 +28,15 @@ task :setup do
   end
 end
 
+task :create_connection do
+  DATABASES = {
+    'test' => 'chitter_test',
+    'development' => 'chitter'
+  }
+  database = DATABASES[ENV['ENVIRONMENT']]
+  DatabaseConnection.setup(database)
+end
+
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new :spec

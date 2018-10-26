@@ -1,7 +1,7 @@
 feature "signing out" do
   before do
     visit '/'
-    sign_up
+    sign_up_1
   end
 
   scenario 'can see Sign Out button' do
