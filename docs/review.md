@@ -158,10 +158,10 @@ end
 
 ## Clean the Database between tests
 
-Each test (feature or unit) should: 
+Each test (feature or unit) should:
 
 - Start on an empty database.
-- Create whatever data is needed for that test.
+- Create whatever dataGemfile is needed for that test.
 - Run using that data, perhaps manipulating it.
 
 You can set up a manual Rake task for this. Or, if you're using an ORM like [DataMapper](http://datamapper.org/) or [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html), you can use the [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner) gem:
