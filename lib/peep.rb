@@ -2,14 +2,15 @@ require_relative "database_manager"
 
 class Peep
   attr_reader :id, :text, :time
-  
+
   def self.all
     select_all.map do |peep|
-      Peep.new(peep['id'], peep['text'], peep['time'])
+      Peep.new(id: peep['id'], text: peep['text'], time: peep['time'])
     end
   end
 
-  def self.create(text)
+  def self.create(text:)
+    return false unless text
     DatabaseManager.query("INSERT INTO peeps(text,time)" \
       "VALUES('#{text}','#{format(Time.now)}') RETURNING id, text, time")
   end
@@ -22,7 +23,7 @@ class Peep
     DatabaseManager.query('SELECT * FROM peeps')
   end
 
-  def initialize(id, text, time)
+  def initialize(id:, text:, time:)
     @id = id
     @text = text
     @time = time

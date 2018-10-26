@@ -21,8 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    p params
-    Peep.create(params[:peep])
+    redirect '/peeps' if Peep.create(params[:peep])
+    flash.next[:warning] = 'Please enter text before peeping!'
     redirect '/peeps'
   end
 

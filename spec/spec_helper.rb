@@ -1,4 +1,4 @@
-ENV['ENVIONMENT'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require 'capybara'
 require 'capybara/rspec'

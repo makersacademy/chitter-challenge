@@ -19,14 +19,18 @@ describe Peep do
 
   describe '::create' do
     it 'should enter a peep into the database' do
-      result = described_class.create('My fourth peep').first
+      result = described_class.create(text: 'My fourth peep').first
       expect(result['id']).to eq '4'
       expect(result['text']).to eq 'My fourth peep'
     end
 
     it 'should return the formatted current time as the peep entry time' do
-      result = described_class.create('My first peep').first
+      result = described_class.create(text: 'My first peep').first
       expect(result['time']).to eq formatted_time
+    end
+
+    it 'should return false if the peep text is empty' do
+      expect(described_class.create(text: nil)).to eq false
     end
   end
 end

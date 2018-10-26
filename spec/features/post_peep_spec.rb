@@ -8,4 +8,9 @@ feature 'posting a peep' do
     click_button 'Peep'
     expect(page).to have_content 'My first peep'
   end
+
+  scenario 'shows error message if peep text is empty' do
+    click_button 'Peep'
+    expect(page).to have_content 'Please enter text before peeping!'
+  end
 end
