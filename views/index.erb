@@ -2,4 +2,9 @@
 
 <h2>Posts:</h2>
 
-<p>This is a Chitter post</p>
+<ul>
+  <% @messages.each do |message| %>
+    <%= message %>
+    <br><br>
+  <% end %>
+</ul>

@@ -6,6 +6,7 @@ feature 'Viewing posts' do
 
   scenario 'seeing posts on page' do
     visit('/')
-    expect(page).to have_content 'This is a Chitter post'
+    expect(page).to have_content 'This is a test message'
+    expect(page).to have_content 'This is a second test message'
   end
 end
