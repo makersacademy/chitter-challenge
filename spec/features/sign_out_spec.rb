@@ -19,5 +19,9 @@ feature "signing out" do
     scenario "user does not see Sign Out button" do
       expect(page).not_to have_selector(:button, "Sign Out")
     end
+
+    scenario "user sees signed out message" do
+      expect(page).to have_content "Signed out."
+    end
   end
 end

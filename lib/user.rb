@@ -37,9 +37,9 @@ class User
 
   def self.valid?(username, password)
     query = "SELECT * FROM users WHERE username = '#{username}';"
-    result = DatabaseConnection.query(query).first
-    return false if result.nil?
-    return false unless BCrypt::Password.new(result["password"]) == password
+    result = DatabaseConnection.query(query)
+    return false unless result.any?
+    return false unless BCrypt::Password.new(result[0]["password"]) == password
     return true
   end
   public

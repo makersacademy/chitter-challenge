@@ -1,4 +1,7 @@
 <h1>Chitter</h2>
+
+<p><%= flash[:notice] %>
+
 <% if @user.nil? %>
   <div>
     <form action = '/users/new'>
