@@ -13,12 +13,12 @@ SimpleCov.start
 
 Capybara.app = Chitter
 
-# require_relative 'setup_test_database.rb'
+require_relative 'setup_test_database.rb'
 
 ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
   config.before(:each) do
-#    setup_test_database
+    setup_test_database
   end
 end
