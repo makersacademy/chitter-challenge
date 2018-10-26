@@ -36,6 +36,10 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+### Database Migration
+
+Run psql, then implement all sql commands listed in db folder.
+
 Notes on functionality:
 ------
 

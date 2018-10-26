@@ -1,0 +1,10 @@
+<%= erb :base %>
+
+<% @peeps.each do |peep| %>
+<div class="card" style="width: 18rem; margin: 10px; background: LightGrey;">
+  <div class="card-body">
+  <p class="card-text"><%= peep.content %>
+    <small>(<%= peep.time %>)</small></p>
+  </div>
+</div>
+<% end %>
