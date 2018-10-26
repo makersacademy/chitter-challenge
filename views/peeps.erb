@@ -7,11 +7,18 @@
 <% end %>
 
 <%= flash[:message] %>
-My first peep
+<% @peeps.reverse_each do |peep| %>
+  <article class='peep'>
+    <h3><%= peep.time %><h3>
+      <article class='peep_body'>
+        <p><%= peep.text %></p>
+      </article>
+  </article>
+<% end %>
 
 <% if @username %>
   <form action='/peeps' method='post'>
-    <input id='peep_entry' type='text' placeholder='Peep away!'>
+    <input id='peep_entry' type='text' name='peep' placeholder='Peep away!'>
     <button type='Submit'>Peep</button>
   </form>
 <% end %>

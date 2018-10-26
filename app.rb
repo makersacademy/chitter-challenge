@@ -1,6 +1,7 @@
 require './database_setup.rb'
 require 'sinatra/base'
 require 'sinatra/flash'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -11,9 +12,18 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    flash.now[:message] = 'No peeps posted yet!'
+    @peeps = Peep.all
+    if @peeps.empty?
+      flash.now[:message] = 'No peeps posted yet!'
+    end
     @username = session[:username]
     erb :peeps
+  end
+
+  post '/peeps' do
+    p params
+    Peep.create(params[:peep])
+    redirect '/peeps'
   end
 
   get '/sign_up' do
