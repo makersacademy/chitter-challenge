@@ -19,9 +19,10 @@ class Peep
     }
   end
 
-  def self.create(message)
+  def self.create(message, user_id)
     sql = %{INSERT INTO peeps
-      (peep) VALUES ('#{message}') RETURNING id, peep, posted_datetime;}
+      (peep, user_id) VALUES
+      ('#{message}', '#{user_id}') RETURNING id, peep, posted_datetime;}
       # p sql
     DatabaseConnection.query(sql)
   end
@@ -38,6 +39,10 @@ class Peep
     #   # newdate = Date.strptime(datex, "%d/%m/%Y")
     #   # p newdate
 
+  end
+
+  def self.find_username(user_id)
+    User.find(user_id)
   end
 
 end

@@ -2,23 +2,30 @@ require 'peep'
 require_relative '../lib/database_connection'
 
 describe Peep do
+
+  # let(:user) { double :user, :id => 1, :username => "peeper1234" }
   describe '#create' do
+
     it 'posts a peep' do
-      Peep.create("adding a peep")
+      user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
+      # p user.id
+      Peep.create("adding a peep", user.id)
       expect(Peep.all[0][:peep]).to eq "adding a peep"
     end
   end
 
   describe '#all' do
     it 'returns peeps' do
-      Peep.create('peep a')
-      Peep.create('peep b')
+      user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
+      Peep.create('peep a', user.id)
+      Peep.create('peep b', user.id)
       expect(Peep.all).to be_a(Array)
     end
 
     it 'returns peeps sorted' do
-      Peep.create('peep a new')
-      Peep.create('peep b new')
+      user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
+      Peep.create('peep a new', user.id)
+      Peep.create('peep b new', user.id)
       # p Peep.all
       expect(Peep.all[0][:peep]).to eq "peep b new"
     end
@@ -28,6 +35,14 @@ describe Peep do
     it 'formats a date' do
 
       expect(Peep.date_only("2018-10-26 11:26:57.230095")).to eq "26/10/2018 11:26:57"
+    end
+  end
+
+  describe '#find_username' do
+    it 'returns a username from an id' do
+      user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
+      expect(Peep.find_username(user.id).username).to eq "peeper1234"
+
     end
   end
 end

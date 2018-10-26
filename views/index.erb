@@ -71,22 +71,24 @@
   <!-- <% if @user %>
     <h1>Welcome, <%= @user.username %></h1>
   <%end%>-->
-</div> 
+</div>
   <div class="menu"><p>
-    <a href="/peep">
+    <% if @user %><a href="/peep">
       <button class="postpeep" type="button" value="Post a Peep">
         <span class="icon"></span>Post a Peep</button>
-    </a>
+    </a><%else%>Login or register to post a peep<%end%>
   </p></div>
-  <div class="main">  <%
-  @peeps.each do |peep_row|%>
+  <div class="main">
+  <%@peeps.each do |peep_row|%>
       <!-- <%=peep_row%> -->
     </p>
-    <p>Peep:
+    <p><%=peep_row[:peeper]%> wrote a Peep:
       <%=peep_row[:peep]%>
       - sent
       <%=peep_row[:posted_date]%></p>
-  <%end%></div>
+  <%end%>
+
+</div>
   <div class="login">
     <!-- <p>You need to register: </p> -->
       <% if @user %>
@@ -113,8 +115,8 @@
     </p>
   </form>
       <a href="/user/register">
-        <button class="postpeep" type="button" value="Register for Chitter">
-          <span class="icon"></span>Register for Chitter</button>
+        <button class="postpeep" type="button" value="Register">
+          <span class="icon"></span>Register</button>
       </p>
       <%end%></div>
 

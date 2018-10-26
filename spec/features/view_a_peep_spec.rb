@@ -8,12 +8,14 @@
 
 feature 'Viewing a Peep' do
   scenario 'a user can see a peep in the list' do
+    register_user
     create_single_peep
     # p URI.parse(current_url)
     expect(page).to have_content('Peep: Woohoo, I am peeping')
   end
 
   scenario 'a user can see multiple a peeps in the list' do
+    register_user
     create_2_peeps
     # p URI.parse(current_url)
     expect(page).to have_content('Peep: Woohoo, I am peeping - sent 26/10/2018')
