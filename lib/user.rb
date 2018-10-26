@@ -18,6 +18,6 @@ class User
     ('#{name}') RETURNING id, name;")
     result.map do |peep|
       User.new(id: peep['id'], name: peep['name'])
-    end
+    end[0]
   end
 end

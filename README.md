@@ -54,6 +54,11 @@ rackup
 
 6. Create the database to store the bookmarks by following the steps below.
 
+7. Run the Rspec tests to ensure the program is functioning correctly:
+```bash
+rspec
+```
+
 ### Create the Database ###
 1. In Terminal, connect to PostgreSQL:
 ```sql
