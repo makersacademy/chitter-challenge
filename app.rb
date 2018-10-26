@@ -8,6 +8,14 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/sign-up' do
+    erb :sign_up
+  end
+
+  post '/new-user' do
+    User.new(params['username'])
+  end
+
   post '/post' do
     Peep.post(params['peep_content'])
     redirect '/'
