@@ -19,6 +19,9 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
+### CRC Cards ###
+![crc cards](https://www.dropbox.com/s/npcdly5sfv2icsn/crc_cards.png?dl=0)
+
 ## Dependancies ##
 * Capybara
 * PG
