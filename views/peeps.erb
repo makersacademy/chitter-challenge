@@ -7,10 +7,11 @@
 <% end %>
 
 <%= flash[:message] %>
+My first peep
 
 <% if @username %>
   <form action='/peeps' method='post'>
-    <input type='text' placeholder='Peep away!'>
+    <input id='peep_entry' type='text' placeholder='Peep away!'>
     <button type='Submit'>Peep</button>
   </form>
 <% end %>
