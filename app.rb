@@ -39,8 +39,14 @@ class ChitterApp < Sinatra::Base
 
   post '/chitter/users' do
     @user = User.authenticate(params[:username], params[:password])
-    session[:user_id] = @user.user_id
-    redirect('/chitter')
+    if @user
+      session[:user_id] = @user.user_id
+      redirect('/chitter')
+    else
+      # flash[:notice] = 'Please check your username or password'
+      redirect('/chitter/login')
+    end
+    # session[:user_id] = @user.user_id
   end
 
   get '/chitter/logout' do
