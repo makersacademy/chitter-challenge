@@ -10,6 +10,12 @@
   </div>
 <% else %>
   <p>Welcome, <%= @user.name %>!</p>
+  <div>
+    <form action = '/sessions' method = 'post'>
+      <input type='hidden' id='hidden' name='_method' value='delete'>
+      <input type="submit" value="Sign Out">
+    </form>
+  </div>
 <% end %>
 
 <% @peeps.each do |peep| %>
