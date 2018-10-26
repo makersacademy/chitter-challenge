@@ -5,7 +5,11 @@
   <%= erb :navbar %>
   <div class="page-container">
     <div class="welcome-user">
-      Welcome, <%= @name %>! Your username is <%= @username %>.
+      <% if @new_user %>
+        Welcome, <%= @name %>! Your username is <%= @username %>.
+      <% else %>
+        Welcome back, @<%= @username %>.
+      <% end %>
     </div>
     <div class="form-container">
       <form class="new-peep-form" action="/peeps/new" method="post">

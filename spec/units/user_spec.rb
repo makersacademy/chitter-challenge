@@ -1,5 +1,11 @@
 describe User do
 
+  describe '.find_by_username' do
+    it '' do
+      # TODO
+    end
+  end
+
   describe '.check_password' do
     it '' do
       # TODO
