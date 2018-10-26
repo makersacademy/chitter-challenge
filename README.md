@@ -76,6 +76,33 @@
 
 Form validation - https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/15.md
 
+##Set up
+
+Run bundle to install dependencies
+
+```
+$> bundle
+```
+
+Use Homebrew to install the PostgresSQL
+
+```
+$> brew install postgresql
+```
+
+Allow Homebrew to start and stop the Postgres service
+
+```
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
+
+Connect to psql
+Create the database using the psql command ```CREATE DATABASE chitter;```
+Connect to the database using the pqsl command ```\c chitter;```
+Run the query in the file ```01_create_peeps_table.sql```
+
+
 Challenge:
 -------
 
