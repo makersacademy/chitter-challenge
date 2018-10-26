@@ -1,26 +1,14 @@
-require 'pg'
+require_relative 'database_connection'
 
 class Message
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
-    result = connection.exec("SELECT * FROM messages;")
+    result = DatabaseConnection.query("SELECT * FROM messages;")
     result.map { |message| message['content'] }
   end
 
   def self.create(content:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
-    connection.exec("INSERT INTO messages (content) VALUES('#{content}');")
+    DatabaseConnection.query("INSERT INTO messages (content) VALUES('#{content}');")
   end
 
 end

@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'lib/message'
+require_relative 'database_connection_setup'
 
 class Chitter < Sinatra::Base
 
