@@ -3,7 +3,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'helper_methods'
-require 'pry'
 require 'rake'
 require_relative './../app'
 

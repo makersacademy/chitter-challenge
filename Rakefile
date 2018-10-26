@@ -33,6 +33,7 @@ task :create_connection do
     'test' => 'chitter_test',
     'development' => 'chitter'
   }
+  ENV['ENVIRONMENT'] ||= 'development'
   database = DATABASES[ENV['ENVIRONMENT']]
   DatabaseConnection.setup(database)
 end

@@ -1,8 +1,13 @@
 <h1>Please enter your login details below.</h1>
 
 <form action = '/sessions' method = 'post'>
+
+  <label for='username'>Username</label>
   <input type="text" maxlength="20" name="username" required>
+
+  <label for='password'>Password</label>
   <input type="password" maxlength="20" name="password" required>
+  
   <div>
     <%= flash[:notice] %>
   </div>

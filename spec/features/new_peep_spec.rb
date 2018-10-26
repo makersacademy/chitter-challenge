@@ -1,5 +1,3 @@
-require 'pry'
-
 feature "adding peeps" do
   before do
     visit '/'

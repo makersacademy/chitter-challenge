@@ -1,10 +1,9 @@
 #\ -w -p 6789
-require_relative "./app"
-require 'rake'
 use Rack::MethodOverride
 
-ENV['ENVIRONMENT'] ||= 'development'
+require 'rake'
 Rake.application.load_rakefile
 Rake::Task['create_connection'].execute
 
+require_relative "./app"
 run Chitter
