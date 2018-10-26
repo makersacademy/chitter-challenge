@@ -22,5 +22,10 @@ describe User do
     expect{User.add(username: 'Becka', email: 'anotherfakeemail12345@hotmail.co.uk', password: 'fakepassword')}.to raise_error 'Username already taken'
   end
 
+  it 'cannot add users with the same email' do
+    User.add(username: 'Becka', email: 'notarealemail12345@hotmail.co.uk', password: 'fakepassword')
+    expect{User.add(username: 'Bex', email: 'notarealemail12345@hotmail.co.uk', password: 'fakepassword')}.to raise_error 'Email already taken'
+  end
+
 
 end
