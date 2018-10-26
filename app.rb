@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/peep' do
+  get '/peep' do
     erb :peep
   end
 
@@ -32,6 +32,18 @@ class Chitter < Sinatra::Base
     # DatabaseConnection.query(sql)
     Peep.create(params[:peep])
     redirect '/'
+  end
+
+  get '/user/register' do
+    erb :register
+  end
+
+  post '/user/new' do
+    "<p>You have signed up, Joe Bloggs</p><p>Your username is: peeper1234</p><p>The email address you have registered with is test@test.com</p>"
+    # sql = %{INSERT INTO peeps
+    # #   (peep) VALUES ('#{params[:peep]}') RETURNING id, peep;}
+    #   # p sql
+    # DatabaseConnection.query(sql)
   end
 
   run! if app_file == $0
