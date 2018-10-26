@@ -3,6 +3,9 @@
 <form action = '/sessions' method = 'post'>
   <input type="text" name="username">
   <input type="text" name="password">
+  <div>
+    <%= flash[:notice] %>
+  </div>
 
   <input type="submit" value="Submit">
 </form>

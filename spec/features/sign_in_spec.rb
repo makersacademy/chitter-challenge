@@ -19,7 +19,7 @@ feature "signing in" do
       expect(page).to have_field(:password)
     end
 
-    context "user fills in form" do
+    context "user enters valid details" do
       before do
         fill_in("username", with: "user1")
         fill_in("password", with: "password1")
@@ -34,7 +34,23 @@ feature "signing in" do
         expect(page).not_to have_selector(:button, "Sign Up")
         expect(page).not_to have_selector(:button, "Sign In")
       end
+    end
 
+    context "user enters invalid details" do
+      scenario "invalid password" do
+        fill_in("username", with: "user1")
+        fill_in("password", with: "wrong_password")
+        click_button "Submit"
+        expect(page).to have_content "Incorrect username or password."
+      end
+
+      scenario "invalid username" do
+        fill_in("username", with: "wrong_user")
+        fill_in("password", with: "password1")
+        click_button "Submit"
+        save_and_open_page
+        expect(page).to have_content "Incorrect username or password."
+      end
     end
   end
 end

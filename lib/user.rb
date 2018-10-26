@@ -6,10 +6,16 @@ class User
     encrypted_password = BCrypt::Password.create(password)
     query = "INSERT INTO users VALUES('#{username}', '#{encrypted_password}', '#{name}', '#{email}');"
     DatabaseConnection.query(query)
-    login(username: username, password: password)
+    login(username, password)
   end
 
-  def self.login(username:, password:)
+  def self.authenticate(username:, password:)
+    return false unless valid?(username, password)
+    login(username, password)
+    true
+  end
+
+  def self.login(username, password)
     query = "SELECT * FROM users WHERE username = '#{username}';"
     result = DatabaseConnection.query(query)
     @current = User.new(
@@ -18,6 +24,14 @@ class User
       name: result.first["name"],
       email: result.first["email"]
     )
+  end
+
+  def self.valid?(username, password)
+    query = "SELECT * FROM users WHERE username = '#{username}';"
+    result = DatabaseConnection.query(query).first
+    return false if result.empty?
+    return false unless BCrypt::Password.new(result["password"]) == password
+    return true
   end
 
   def self.current
