@@ -5,7 +5,7 @@
 feature 'Log in to Chitter' do
 
   scenario 'A user can log in' do
-    user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
+    User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
     # register_user
     visit('/')
     # user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
