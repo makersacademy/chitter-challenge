@@ -6,7 +6,7 @@
 </form>
 
 <ol class="peeps" style="list-style-type:none">
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <div class="peep">
       <%= peep.message %>
     </div>
