@@ -16,4 +16,12 @@ describe Message do
       expect(messages).to include "It's great fun!"
     end
   end
+
+  describe '.create' do
+    it 'creates a peep' do
+      Message.create(body: 'testing, 1, 2, 3')
+
+      expect(Message.all).to include('testing, 1, 2, 3')
+    end
+  end
 end

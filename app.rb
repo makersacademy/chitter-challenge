@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/incoming' do
+    Message.create(body: params['message'])
     redirect '/'
   end
 

@@ -1,3 +1,10 @@
+<style>
+  body {
+     background-image: url("https://i.redd.it/qngpcp04gklx.jpg");
+     background-size: cover;
+  }
+</style>
+
 <h1>Chitter</h1>
 
 <form action='/incoming' method='post'>
@@ -5,5 +12,8 @@
   <input type='submit' value='post'>
 </form>
 
-
-<h2><%= @timeline.each { |message| message } %></h2>
+<ul>
+  <% @timeline.each do |message| %>
+    <li><%= message %></li>
+      <% end %>
+</ul>
