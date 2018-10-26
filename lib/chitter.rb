@@ -1,10 +1,12 @@
 class Chitter
 
   def self.all(message)
+    messages = []
     find_db
     @conn.exec("SELECT * FROM peeps").map do |peep|
-      message.new(peep['content'], peep['time'])
+      messages << message.new(peep['content'], peep['time'])
     end
+    messages.reverse!
   end
 
   def self.find_db
