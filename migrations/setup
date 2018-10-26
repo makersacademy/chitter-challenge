@@ -1,7 +1,9 @@
 CREATE DATABASE chitter_manager ;
 \c chitter_manager
 CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHAR(20), peep_time TIMESTAMP, text VARCHAR(140));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20), email VARCHAR, password VARCHAR(20));
 
 CREATE DATABASE chitter_manager_test;
 \c chitter_manager_test
 CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHAR(20), peep_time TIMESTAMP, text VARCHAR(140));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20), email VARCHAR, password VARCHAR(20));
