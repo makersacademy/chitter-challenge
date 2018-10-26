@@ -1,2 +1,8 @@
 <%= erb :'partials/header' %>
+<% if @username %>
+<h2>Hello <%= @username %>
+  <% else %>
+<h2>Hello guest</h2>
+<% end %>
+
 <%= flash[:message] %>
