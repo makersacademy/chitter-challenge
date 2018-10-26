@@ -4,10 +4,10 @@ ruby '2.5.1'
 
 gem 'capybara'
 gem 'pg'
-gem 'sinatra'
-gem 'sinatra-flash'
 gem 'rake'
 gem 'rubocop', '0.56.0'
+gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

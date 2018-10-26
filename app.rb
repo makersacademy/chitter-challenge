@@ -15,8 +15,8 @@ class ChitterApp < Sinatra::Base
 
   post '/welcome' do
     User.create(name: params[:name], username: params[:name], email: params[:email], password: params[:password])
-    user = User.all.select{ |user| user.name == params[:name] }.first
-    @name = user.name
+    current_user = User.all.select { |user| user.name == params[:name] }.first
+    @name = current_user.name
     erb :welcome
   end
 

@@ -7,7 +7,6 @@ class Chitter
     end
   end
 
-  private
   def self.find_db
     if ENV['RACK_ENV'] == 'test'
       @conn = PG.connect(dbname: 'chitter_test')

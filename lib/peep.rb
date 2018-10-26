@@ -11,10 +11,9 @@ class Peep
 
   def self.create(content, time)
     find_db
-    @conn.exec("INSERT INTO peeps(content,time) VALUES('#{content}','#{time}') RETURNING content;")
+    @conn.exec("INSERT INTO peeps(content,time) VALUES('#{content}','#{time}') RETURNING content, time;")
   end
 
-  private
   def self.find_db
     if ENV['RACK_ENV'] == 'test'
       @conn = PG.connect(dbname: 'chitter_test')

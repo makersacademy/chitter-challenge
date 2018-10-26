@@ -14,7 +14,7 @@ class User
   def self.all
     find_db
     @conn.exec("SELECT * FROM users").map do |user|
-      User.new(name: user['name'], username: user['username'], email: user['email'], password: user['password'] )
+      User.new(name: user['name'], username: user['username'], email: user['email'], password: user['password'])
     end
   end
 
@@ -25,7 +25,6 @@ class User
     @password = details[:password]
   end
 
-  private
   def self.find_db
     if ENV['RACK_ENV'] == 'test'
       @conn = PG.connect(dbname: 'chitter_test')
