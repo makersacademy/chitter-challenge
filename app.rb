@@ -5,11 +5,7 @@ require 'pg'
 class Chitter < Sinatra::Base
 
   get '/' do
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitterdb_test')
-    else
-      connection = PG.connect(dbname: 'chitterdb')
-    end
+    ENV['ENVIRONMENT'] == 'test' ? (connection = PG.connect(dbname: 'chitterdb_test')) : (connection = PG.connect(dbname: 'chitterdb'))
     
     result = connection.exec("SELECT * FROM messages ORDER BY message_date LIMIT 10;")
     @messages = result.map { |message|
