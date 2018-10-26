@@ -11,8 +11,6 @@ feature "registration" do
     end
 
     scenario "user sees sign up form" do
-      expect(page).to have_field(:username)
-      expect(page).to have_field(:password)
       expect(page).to have_field(:name)
       expect(page).to have_field(:email)
     end
