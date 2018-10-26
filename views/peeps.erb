@@ -1,4 +1,6 @@
 <% @peeps.reverse.each do |peep| %>
-  <%= peep %>
-  <br><br>
+  <b><%= peep.message %></b>
+  <br>
+  Posted at: <%= peep.time %>
+  <br><br><br>
 <% end %>

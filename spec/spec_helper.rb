@@ -7,6 +7,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'rake'
 
 Capybara.app = Chitter
 
@@ -17,8 +18,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+Rake.application.load_rakefile
+
 RSpec.configure do |config|
   config.before(:each) do
-    setup_test_database
+    Rake::Task['test_database_setup'].execute
   end
 end
