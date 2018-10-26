@@ -15,7 +15,7 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/new' do
-    erb :'new'
+    erb :'index'
   end
 
   post '/new' do

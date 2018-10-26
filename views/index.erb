@@ -1,5 +1,11 @@
 <p>'Post your peep to Chitter'</p>
 
+<form action="/new" method="post">
+  <input type="text" name="message" placeholder="Message"/>
+  <input type="text" name="user_name" placeholder="Username"/>
+  <input type="submit" value="Submit"/>
+</form>
+
 <ul>
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>" >
