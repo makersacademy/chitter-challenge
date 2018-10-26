@@ -15,4 +15,9 @@ feature "Sign up" do
     expect(page).to have_field("email")
   end
 
+  scenario "I see a sign up form with a password field" do
+    visit('/sign_up')
+    expect(page).to have_field("Password")
+  end
+
 end
