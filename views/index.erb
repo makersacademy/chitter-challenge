@@ -5,13 +5,13 @@
     <a href="/sign-up"><button>Sign Up</button></a>
   <% else %>
     <h2>Hi, <%= @user.name %>!</h2>
+
+    <form action="/post" method="post">
+      <input type="text" id="peep_content" name="peep_content">
+      <input type="submit" value="Post">
+    </form>
   <% end %>
 </span>
-
-<form action="/post" method="post">
-  <input type="text" id="peep_content" name="peep_content">
-  <input type="submit" value="Post">
-</form>
 
 <ol class="peeps" style="list-style-type:none">
   <% @peeps.reverse.each do |peep| %>
