@@ -44,7 +44,10 @@ class Chitter < Sinatra::Base
   post '/registered' do
     current_user = User.create(params[:Email], params[:Name], params[:Username], params[:Password], params[:Confirm_Password])
     if current_user == 'not unique'
-      flash[:message] = "Username or email already taken"
+      flash[:message] = "Username or email already taken."
+      redirect '/register'
+    elsif current_user == 'no match'
+      flash[:message] = "Passwords don't match."
       redirect '/register'
     else
       session[:current_user] = current_user
