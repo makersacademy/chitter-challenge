@@ -12,18 +12,7 @@ feature 'Sign up for Chitter' do
   # end
 
   scenario 'A user can enter their sign up details' do
-    visit('/user/register')
-    # click_link('Register for Chitter')
-    # p current_path
-    fill_in :firstname, with: 'Joe'
-    fill_in :lastname, with: 'Bloggs'
-    fill_in :username, with: 'peeper1234'
-    fill_in :password, with: 'supersecretpassword'
-    fill_in :email, with: 'test@test.com'
-    click_button('Register')
-
-     # p URI.parse(current_url)
-     # p current_path
-    expect(page).to have_content "Welcome, peeper1234"
+    register_user
+    expect(page).to have_content "Thank you for registering"
   end
 end

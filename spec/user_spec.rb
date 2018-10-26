@@ -23,4 +23,12 @@ describe User do
     end
   end
 
+  describe '#login' do
+    it 'returns a user on successful login' do
+      user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
+      logged_in_user = User.login('peeper1234', 'p4s5w0rd')
+      expect(logged_in_user.id).to eq user.id
+    end
+  end
+
 end

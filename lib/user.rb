@@ -44,7 +44,24 @@ class User
       username: record[0]['username'],
       password: record[0]['password'],
       email: record[0]['email'] })
+  end
 
+  def self.login(username, password)
+    sql = %{SELECT * FROM users WHERE username = '#{username}' AND password = '#{password}' ORDER BY id DESC LIMIT 1;}
+    # p sql
+    record = DatabaseConnection.query(sql)
+    # p sql
+    # p record
+    # p record.any?.to_s
+    return unless record.any?
+    # p "this is a test"
+    # return unless BCrypt::Password.new(result[0]['password']) == password
+    User.new({ id: record[0]['id'],
+      firstname: record[0]['firstname'],
+      lastname: record[0]['lastname'],
+      username: record[0]['username'],
+      password: record[0]['password'],
+      email: record[0]['email'] })
   end
 
   attr_reader :id, :firstname, :lastname, :username, :password, :email

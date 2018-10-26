@@ -8,9 +8,10 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    # p "user:"
+    @registered = session[:registered]
     # p session[:user_id]
     @user = User.find(session[:user_id])
+    # p @user
     @peeps = Peep.all
     erb :index
   end
@@ -29,8 +30,22 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/new' do
-    user = User.create(params[:firstname], params[:lastname],
+    User.create(params[:firstname], params[:lastname],
         params[:username], params[:password], params[:email])
+
+    # session[:user_id] = user.id
+    session[:registered] = true
+    redirect '/'
+  end
+
+  post '/user/login' do
+    user = User.login(params[:username], params[:password])
+    # p user
+     # p params[:username]
+     # p params[:password]
+     # p "logged in: #{user}"
+    # session[:user_id] = user.id
+    session[:registered] = true
     session[:user_id] = user.id
     redirect '/'
   end

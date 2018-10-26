@@ -12,3 +12,13 @@ def create_2_peeps
   fill_in :peep, with: 'This is another peep'
   click_button('Peep')
 end
+
+def register_user
+  visit('/user/register')
+  fill_in :firstname, with: 'Joe'
+  fill_in :lastname, with: 'Bloggs'
+  fill_in :username, with: 'peeper1234'
+  fill_in :password, with: 'supersecretpassword'
+  fill_in :email, with: 'test@test.com'
+  click_button('Register')
+end

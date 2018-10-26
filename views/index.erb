@@ -13,11 +13,29 @@
     <% if @user %>
       <h1>Welcome, <%= @user.username %></h1>
       <%else%>
+      <%if @registered%><p>
+        Thank you for registering</p>
+        <p>
+          <form action="/user/login" method="post">
+
+          <p>
+          <input type="text" name="username" placeholder="enter your desired username" /></p>
+          <br />
+          <input type="text" name="password" placeholder="enter your password" /></p>
+          </p>
+
+          <p>
+
+            <button type="submit" class="peep_only_btn" value="Login"><span class="icon"></span>Login</button>
+          </p>
+        </form></p>
+        <%else%>
       <p>You need to register: </p>
         <a href="/user/register">
           <button class="postpeep" type="button" value="Register for Chitter">
             <span class="icon"></span>Register for Chitter</button>
         </p>
+        <%end%>
     <% end %>
 
 
