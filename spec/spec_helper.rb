@@ -16,6 +16,7 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
+require 'features/web_helpers'
 
 Capybara.app = Chitter
 

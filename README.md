@@ -56,3 +56,32 @@ Notes on functionality:
 * Makers sign up to chitter with their email, password, name and a username.
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
+
+### Database setup
+
+Connect to `psql` and create the `chitter_test` and `chitter_test` databases:
+ ```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+### To run the Bookmark Manager app:
+
+  ```
+ rackup -p 3000
+ ```
+
+ To view bookmarks, navigate to `localhost:3000/`.
+
+### To run tests:
+
+ ```
+ rspec
+ ```
+
+ ### To run linting:
+
+ ```
+ rubocop
+ ```

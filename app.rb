@@ -26,10 +26,11 @@ class Chitter < Sinatra::Base
     # connection = PG.connect(dbname: 'chitter')
     # p connection
 
-    sql = %{INSERT INTO peeps
-      (peep) VALUES ('#{params[:peep]}') RETURNING id, peep;}
-      # p sql
-    DatabaseConnection.query(sql)
+    # sql = %{INSERT INTO peeps
+    #   (peep) VALUES ('#{params[:peep]}') RETURNING id, peep;}
+    #   # p sql
+    # DatabaseConnection.query(sql)
+    Peep.create(params[:peep])
     redirect '/'
   end
 

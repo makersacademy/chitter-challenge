@@ -9,13 +9,19 @@
 
   <body>
     <h1>Welcome to Chitter</h1>
+    <!-- <button class="button"><span class="icon"></span>Button</button> -->
     <form action="/peep" method="post">
-      <button type="submit" value="Post a Peep">Post a Peep</button>
-    </form>
 
-    <%@peeps.each do |peep_row|%>
+      <button class="postpeep" type="submit" value="Post a Peep"><span class="icon"></span>Post a Peep</button>
+      <!-- <button type="submit" value="Post a Peep">Post a Peep</button> -->
+    </form>
+<!-- # <%=@peeps%> -->
+    <%
+    @peeps.each do |peep_row|%>
+    <!-- <%=peep_row%> -->
+    </p>
       <p>Peep:
-        <%=peep_row[:peep]%></p>
+        <%=peep_row[:peep]%> - sent <%=peep_row[:posted_date]%></p>
     <%end%>
   </body>
 </html>
