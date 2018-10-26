@@ -1,6 +1,7 @@
 require(File.join(File.dirname(__FILE__), '..', 'app.rb'))
 require 'capybara'
 require 'capybara/rspec'
+require_relative './database_helpers'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
