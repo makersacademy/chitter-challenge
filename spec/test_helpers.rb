@@ -1,7 +1,8 @@
 def setup_test_database
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec('DROP TABLE IF EXISTS peeps;')
-  connection.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(140));')
+  connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, " \
+    "text VARCHAR(140), time VARCHAR(20));")
 end
 
 def sign_up_as_alice_bobson
