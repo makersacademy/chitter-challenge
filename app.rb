@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   USERNAME = "TestUser"
@@ -11,6 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @user = User.current
     @peeps = Peep.all
     erb(:"peeps/index")
   end
@@ -41,6 +43,11 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     erb(:"users/new")
+  end
+
+  post '/users' do
+    #create new user
+    redirect '/peeps'
   end
 
   run! if app_file == $0

@@ -1,4 +1,4 @@
 def setup_test_database
   DatabaseConnection.setup('chitter_test')
-  DatabaseConnection.query('TRUNCATE peeps;')
+  DatabaseConnection.query('TRUNCATE peeps, users;')
 end
