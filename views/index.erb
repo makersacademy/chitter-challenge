@@ -1,5 +1,13 @@
 <h1>Chitter!</h1>
 
+<form action="/users/sign-up" method="get">
+  <input type="submit" value="Sign Up" />
+</form>
+
+<% if @user %>
+  <h2>Welcome, <%= @user.name %>
+<% end %>
+
 <h2>Posts:</h2>
 
 <ul>

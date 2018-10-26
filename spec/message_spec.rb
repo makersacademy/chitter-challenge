@@ -9,6 +9,7 @@ describe Message do
 
       messages = Message.all
 
+      expect(messages.length).to eq 2
       expect(messages[0].content).to eq("This is a test message")
       expect(messages[0].time).to eq("2018-10-26 12:20:00 +0100")
       expect(messages[1].content).to eq("This is a second test message")
