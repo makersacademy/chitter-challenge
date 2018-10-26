@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new-user' do
-    session[:current_user] = User.new(params['username'])
+    session[:current_user] = User.register(params['username'])
     redirect '/'
   end
 
