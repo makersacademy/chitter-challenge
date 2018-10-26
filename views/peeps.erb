@@ -1,7 +1,7 @@
 <%= erb :'partials/header' %>
 
-<% if @username %>
-  <h2>Hello <%= @username %></h2>
+<% if @user %>
+  <h2>Hello <%= @user.username %></h2>
 <% else %>
   <h2>Hello guest</h2>
 <% end %>
@@ -17,7 +17,7 @@ albob123 (Alice Bobson) posted
   </article>
 <% end %>
 
-<% if @username %>
+<% if @user %>
   <form action='/peeps' method='post'>
     <input id='peep_entry' type='text' name='peep' placeholder='Peep away!'>
     <button type='submit'>Peep</button>

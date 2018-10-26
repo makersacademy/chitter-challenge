@@ -12,11 +12,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps, @user = Peep.all, User.all.first
     if @peeps.empty?
       flash.now[:message] = 'No peeps posted yet!'
     end
-    @username = session[:username]
     erb :peeps
   end
 
@@ -31,7 +30,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    session[:username] = params[:username]
+    User.create(
+      params[:email], params[:password], params[:name], params[:username]
+    )
     redirect '/peeps'
   end
 

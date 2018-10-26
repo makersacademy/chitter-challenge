@@ -1,3 +1,5 @@
+require_relative "database_manager"
+
 class User
   attr_reader :id, :email, :password, :name, :username
 
@@ -27,4 +29,6 @@ class User
   def self.select_all
     DatabaseManager.query('SELECT * FROM users')
   end
+
+  private_class_method :select_all
 end
