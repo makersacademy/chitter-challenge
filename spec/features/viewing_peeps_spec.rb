@@ -8,6 +8,8 @@ feature 'Home page' do
 
   feature 'viewing peeps' do
     scenario 'peeps are visible' do
+      connection = PG.connect(dbname: 'chitter_test')
+      connection.exec("INSERT INTO chitter (peeps) VALUES ('Knock knock');")
       visit '/peeps'
       expect(page).to have_content 'Knock knock'
     end
