@@ -19,4 +19,48 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
-### CRC Cards ###
+## Dependancies ##
+* Capybara
+* PG
+* Rspec
+* Rubocop
+* Simplecov
+* Simplecov-Console
+* Sinatra
+
+*NOTE: These can be installed by running `bundle` in the root of the directory.*
+
+## How to Use ##
+1. Open Terminal and clone the repository:
+```bash
+git clone https://github.com/aimeecraig/chitter-challenge.git
+```
+2. Change into the project directory:
+```bash
+cd chitter-challenge
+```
+3. Run the program:
+```bash
+rackup
+```
+4. Access the program from `localhost:9292`.
+
+5. Create the database to store the bookmarks by following the steps below.
+
+### Create the Database ###
+1. In Terminal, connect to PostgreSQL:
+```sql
+psql
+```
+2. Create the database:
+```sql
+CREATE DATABASE chitter;
+```
+3. Connect to the database:
+```sql
+\c chitter;
+```
+4. Run the query in db/migrations/01_create_peeps_table.sql:
+```sql
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(140));
+```
