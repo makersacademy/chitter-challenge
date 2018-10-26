@@ -15,6 +15,15 @@ class User
     true
   end
 
+  def self.current
+    @current
+  end
+
+  def self.current=(value)
+    @current = value
+  end
+
+  private
   def self.login(username, password)
     query = "SELECT * FROM users WHERE username = '#{username}';"
     result = DatabaseConnection.query(query)
@@ -29,18 +38,14 @@ class User
   def self.valid?(username, password)
     query = "SELECT * FROM users WHERE username = '#{username}';"
     result = DatabaseConnection.query(query).first
-    return false if result.empty?
+    return false if result.nil?
     return false unless BCrypt::Password.new(result["password"]) == password
     return true
   end
+  public
 
-  def self.current
-    @current
-  end
 
-  def self.current=(value)
-    @current = value
-  end
+
 
   attr_reader :username, :password, :name, :email
   def initialize(username:, password:, name:, email:)

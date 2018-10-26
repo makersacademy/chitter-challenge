@@ -1,11 +1,12 @@
 require 'user'
 
 describe User do
-  before do
-    @user_one = User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
-  end
 
   describe '.create' do
+    before do
+      @user_one = User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
+    end
+
     it 'returns a user' do
       expect(@user_one).to be_a User
     end
@@ -30,6 +31,7 @@ describe User do
   describe '.authenticate' do
     context "with valid details" do
       before do
+        User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
         User.authenticate(username: "user1", password: "password1")
         @user = User.current
       end
@@ -44,6 +46,19 @@ describe User do
         expect(@user.email).to eq "user1@example.com"
       end
     end
-  end
 
+    context "with invalid details" do
+      before do
+        @result = User.authenticate(username: "user1", password: "wrong")
+      end
+
+      it "should return false" do
+        expect(@result).to be_falsy
+      end
+
+      it "should not set current user" do
+        expect(User.current).to be_nil
+      end
+    end
+  end
 end

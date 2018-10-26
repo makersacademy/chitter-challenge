@@ -48,7 +48,6 @@ feature "signing in" do
         fill_in("username", with: "wrong_user")
         fill_in("password", with: "password1")
         click_button "Submit"
-        save_and_open_page
         expect(page).to have_content "Incorrect username or password."
       end
     end
