@@ -21,4 +21,5 @@ def register_user
   fill_in :password, with: 'supersecretpassword'
   fill_in :email, with: 'test@test.com'
   click_button('Register')
+  # p current_path
 end

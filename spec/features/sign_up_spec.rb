@@ -13,6 +13,6 @@ feature 'Sign up for Chitter' do
 
   scenario 'A user can enter their sign up details' do
     register_user
-    expect(page).to have_content "Thank you for registering"
+    expect(page).to have_content "Registration successful"
   end
 end

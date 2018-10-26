@@ -68,16 +68,22 @@ textarea {
 }
 
 .postpeep {
-    background-color: rgb(236, 221, 87);
+  display: inline-flex;
+  align-items: center;
+  background-color: rgb(236, 221, 87);
     border: 2px solid black;
     color: black;
-    padding: 15px 32px;
+    padding: 5px 5px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    /* display: inline-block; */
+    font-family: 'Reenie Beanie', sans-serif;
+    margin-left: 1.66%;
+    font-size: 30px;
+    font-weight: 400;
     margin: 4px 2px;
     cursor: pointer;
+    /* vertical-align: middle; */
 }
 .postpeep .icon {
     background: url(/images/peep_purple_icon_40x40.png) no-repeat;
@@ -99,16 +105,22 @@ textarea {
 }
 
 .peep_only_btn {
-    background-color: rgb(236, 221, 87);
+  display: inline-flex;
+  align-items: center;
+  background-color: rgb(236, 221, 87);
     border: 2px solid black;
     color: black;
-    padding: 15px 32px;
+    padding: 5px 5px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    /* display: inline-block; */
+    font-family: 'Reenie Beanie', sans-serif;
+    margin-left: 1.66%;
+    font-size: 30px;
+    font-weight: 400;
     margin: 4px 2px;
     cursor: pointer;
+    /* vertical-align: middle; */
 }
 
 .peep_only_btn .icon {
@@ -122,4 +134,31 @@ textarea {
     float: left;
     width: 40px;
     height: 40px;
+}
+
+.header { grid-area: header; height: 100px; }
+.menu { grid-area: menu; height: 100px; }
+.main { grid-area: main; background-color: #ffffff;}
+.login { grid-area: login; height: 100px; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header login'
+    'main main main main main login';
+  grid-gap: 10px;
+  /* background-color: #2196F3; */
+  padding: 10px;
+}
+.grid-container > div {
+
+    font-family: 'Reenie Beanie', sans-serif;
+    margin-left: 1.66%;
+    font-size: 30px;
+    font-weight: 400;
+    color: black;
+
+  text-align: ;
+  padding: 20px 0;
+  font-size: 30px;
 }

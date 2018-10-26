@@ -51,6 +51,7 @@ class User
     AND password = '#{password}' ORDER BY id DESC LIMIT 1;}
     # p sql
     record = DatabaseConnection.query(sql)
+    # p record
 
     return unless record.any?
     # p "this is a test"

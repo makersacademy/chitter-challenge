@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <h1>Welcome to Chitter</h1>
+    <!-- <h1>Welcome to Chitter</h1>
 
     <% if @user %>
       <h1>Welcome, <%= @user.username %></h1>
@@ -46,7 +46,7 @@
     <% end %>
 
 
-      <!-- <button class="button"><span class="icon"></span>Button</button> -->
+
       <p>
         <a href="/peep">
           <button class="postpeep" type="button" value="Post a Peep">
@@ -56,12 +56,68 @@
 
       <%
     @peeps.each do |peep_row|%>
-        <!-- <%=peep_row%> -->
+
       </p>
       <p>Peep:
         <%=peep_row[:peep]%>
         - sent
         <%=peep_row[:posted_date]%></p>
-    <%end%>
+    <%end%> -->
+
+    <div class="grid-container">
+  <div class="header"><h1>Welcome to Chitter<% if @user %>, <%= @user.username %>
+    <%end%></h1>
+
+  <!-- <% if @user %>
+    <h1>Welcome, <%= @user.username %></h1>
+  <%end%>-->
+</div> 
+  <div class="menu"><p>
+    <a href="/peep">
+      <button class="postpeep" type="button" value="Post a Peep">
+        <span class="icon"></span>Post a Peep</button>
+    </a>
+  </p></div>
+  <div class="main">  <%
+  @peeps.each do |peep_row|%>
+      <!-- <%=peep_row%> -->
+    </p>
+    <p>Peep:
+      <%=peep_row[:peep]%>
+      - sent
+      <%=peep_row[:posted_date]%></p>
+  <%end%></div>
+  <div class="login">
+    <!-- <p>You need to register: </p> -->
+      <% if @user %>
+
+        <p>
+      Registration successful
+          <a href="/user/logout">
+            <button class="postpeep" type="button" value="Logout">
+              <span class="icon"></span>Logout</button>
+          </p>
+
+      <%else%>
+    <form action="/user/login" method="post">
+
+    <p>
+    <label for"username">username: </label><input type="text" name="username" placeholder="enter your desired username" />
+    <br />
+    <label for"password">password: </label><input type="password" name="password" placeholder="enter your password" /></p>
+
+
+    <p>
+
+      <button type="submit" class="peep_only_btn" value="Login"><span class="icon"></span>Login</button>
+    </p>
+  </form>
+      <a href="/user/register">
+        <button class="postpeep" type="button" value="Register for Chitter">
+          <span class="icon"></span>Register for Chitter</button>
+      </p>
+      <%end%></div>
+
+</div>
   </body>
 </html>
