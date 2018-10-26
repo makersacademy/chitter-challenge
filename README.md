@@ -39,13 +39,17 @@ git clone https://github.com/aimeecraig/chitter-challenge.git
 ```bash
 cd chitter-challenge
 ```
-3. Run the program:
+3. Install the dependancies:
+```bash
+bundle install
+```
+4. Run the program:
 ```bash
 rackup
 ```
-4. Access the program from `localhost:9292`.
+5. Access the program from `localhost:9292`.
 
-5. Create the database to store the bookmarks by following the steps below.
+6. Create the database to store the bookmarks by following the steps below.
 
 ### Create the Database ###
 1. In Terminal, connect to PostgreSQL:
