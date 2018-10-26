@@ -25,7 +25,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/post' do
-    Peep.create(params[:peep])
+    Peep.create(params[:peep], Time.now)
     flash[:post] = "Peep posted"
     redirect '/post'
   end

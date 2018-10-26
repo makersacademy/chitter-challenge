@@ -3,7 +3,7 @@ class Chitter
   def self.all(message)
     find_db
     @conn.exec("SELECT * FROM peeps").map do |peep|
-      message.new(peep['content']).content
+      message.new(peep['content'], peep['time'])
     end
   end
 

@@ -20,3 +20,17 @@ end
 # As a Maker
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made
+
+feature 'Viewing the time that a peep was posted' do
+  before do
+    visit '/post'
+    fill_in 'peep', with: "Hi there"
+    click_button "Peep"
+    visit '/'
+    click_button "View peeps"
+  end
+
+  scenario 'When viewing peeps' do
+    expect(page).to have_content "Peep was posted at:"
+  end
+end

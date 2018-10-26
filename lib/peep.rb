@@ -1,14 +1,17 @@
+require 'pg'
+
 class Peep
 
-  attr_reader :content
+  attr_reader :content, :time
 
-  def initialize(content)
+  def initialize(content, time)
     @content = content
+    @time = time
   end
 
-  def self.create(content)
+  def self.create(content, time)
     find_db
-    @conn.exec("INSERT INTO peeps(content) VALUES('#{content}') RETURNING content;")
+    @conn.exec("INSERT INTO peeps(content,time) VALUES('#{content}','#{time}') RETURNING content;")
   end
 
   private

@@ -1,4 +1,6 @@
 <h1>Chitter</h1>
 <% @peeps.each do |peep| %>
-<li><%= peep %></li>
+<li style='list-style-type: none;'>
+<%= peep.content %> <br> Peep was posted at: <%= peep.time %>
+</li>
 <% end %>

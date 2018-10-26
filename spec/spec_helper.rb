@@ -32,6 +32,6 @@ RSpec.configure do |config|
     conn.exec('DROP TABLE IF EXISTS users;')
     conn.exec('DROP TABLE IF EXISTS peeps;')
     conn.exec('CREATE TABLE "public"."users" ("id" serial,"name" text,"username" text,"email" text,"password" text, PRIMARY KEY (id));')
-    conn.exec('CREATE TABLE "public"."peeps" ("id" serial,"content" text, PRIMARY KEY (id));')
+    conn.exec('CREATE TABLE "public"."peeps" ("id" serial,"content" text, PRIMARY KEY (id), time TIMESTAMP);')
   end
 end
