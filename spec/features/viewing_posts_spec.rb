@@ -12,4 +12,15 @@ feature 'Viewing posts' do
     expect(page).to have_content 'This is a test message'
     expect(page).to have_content 'This is a second test message'
   end
+
+  scenario 'seeing posts in reverse chronological order' do
+    Message.create(content: "This message was written first")
+    Message.create(content: "This message was written second")
+    Message.create(content: "This message was written third")
+
+    visit('/')
+    expect(first('.message')).to have_content "This message was written third"
+    expect(page.all('.message')[1]).to have_content "This message was written second"
+    expect(page.all('.message')[2]).to have_content "This message was written first"
+  end
 end

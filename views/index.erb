@@ -3,9 +3,9 @@
 <h2>Posts:</h2>
 
 <ul>
-  <% @messages.each do |message| %>
-    <%= message %>
-    <br><br>
+  <% @messages.reverse.each do |message| %>
+    <p class="message"><%= message %></p>
+    <br>
   <% end %>
 </ul>
 
