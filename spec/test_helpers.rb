@@ -14,3 +14,9 @@ def sign_up_as_alice_bobson
   fill_in :username, with: 'albob123'
   click_button 'Submit'
 end
+
+def add_peeps_to_test_database
+  Peep.create('My first peep')
+  Peep.create('My second peep')
+  Peep.create('My third peep')
+end

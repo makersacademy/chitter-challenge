@@ -1,8 +1,12 @@
 require_relative "database_manager"
 
 class Peep
+  attr_reader :id, :text, :time
+  
   def self.all
-    ['My first peep']
+    select_all.map do |peep|
+      Peep.new(peep['id'], peep['text'], peep['time'])
+    end
   end
 
   def self.create(text)
@@ -14,5 +18,15 @@ class Peep
     time.strftime('%d %b %Y, %H:%M')
   end
 
-  private_class_method :format
+  def self.select_all
+    DatabaseManager.query('SELECT * FROM peeps')
+  end
+
+  def initialize(id, text, time)
+    @id = id
+    @text = text
+    @time = time
+  end
+
+  private_class_method :format, :select_all
 end
