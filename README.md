@@ -30,6 +30,12 @@ CREATE DATABASE chitter_test;
 
 For both databases, follow the db/migrations/ files to setup the necessary tables.
 
+## Testing ##
+
+To run tests:
+
+`rspec`
+
 __________________________________________________
 
 * Challenge time: rest of the day and weekend, until Monday 9am
