@@ -1,13 +1,16 @@
+require 'bcrypt'
+
 class User
 
   def self.create(username:, password:, name:, email:)
-    query = "INSERT INTO users VALUES('#{username}', '#{password}', '#{name}', '#{email}');"
+    encrypted_password = BCrypt::Password.create(password)
+    query = "INSERT INTO users VALUES('#{username}', '#{encrypted_password}', '#{name}', '#{email}');"
     DatabaseConnection.query(query)
     login(username: username, password: password)
   end
 
   def self.login(username:, password:)
-    query = "SELECT * FROM users WHERE username = '#{username}' AND password = '#{password}'"
+    query = "SELECT * FROM users WHERE username = '#{username}';"
     result = DatabaseConnection.query(query)
     @current = User.new(
       username: username,
