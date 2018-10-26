@@ -2,8 +2,8 @@
 # So that I can let people know what I am doing
 # I want to post a message (peep) to chitter
 
-feature 'Adding Peep' do
-  scenario 'a user can add a peep' do
+feature 'post a Peep' do
+  scenario 'a user can post a peep' do
     register_user
     # p session[:user_id]
     # p current_path

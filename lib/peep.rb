@@ -10,12 +10,17 @@ class Peep
     #   connection = PG.connect(dbname: 'chitter')
     # end
 
-    sql = %{select id, peep, posted_datetime from peeps order by id desc}
+    sql = %{select id, peep, posted_datetime, user_id
+      from peeps order by id desc}
       # p sql
     peeps = DatabaseConnection.query(sql)
+    # p peeps
+    # p peeps[0]["user_id"]
+    # p find_username(peeps[0].id)
     peeps.map { |record| { id: record["id"],
       peep: record["peep"],
-      posted_date: Peep.date_only(record["posted_datetime"]) }
+      posted_date: Peep.date_only(record["posted_datetime"]),
+      peeper: find_username(record["user_id"]) }
     }
   end
 
@@ -42,7 +47,7 @@ class Peep
   end
 
   def self.find_username(user_id)
-    User.find(user_id)
+    User.find(user_id).username
   end
 
 end

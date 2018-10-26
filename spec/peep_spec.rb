@@ -41,7 +41,7 @@ describe Peep do
   describe '#find_username' do
     it 'returns a username from an id' do
       user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
-      expect(Peep.find_username(user.id).username).to eq "peeper1234"
+      expect(Peep.find_username(user.id)).to eq "peeper1234"
 
     end
   end

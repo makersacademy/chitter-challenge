@@ -145,7 +145,7 @@ textarea {
   display: grid;
   grid-template-areas:
     'header header header header header login'
-    'main main main main main login';
+    'menu main main main main login';
   grid-gap: 10px;
   /* background-color: #2196F3; */
   padding: 10px;
