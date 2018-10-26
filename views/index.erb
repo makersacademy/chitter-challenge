@@ -6,4 +6,4 @@
 </form>
 
 
-<h2><%= session[:message] %></h2>
+<h2><%= @timeline.each { |message| message } %></h2>

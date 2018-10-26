@@ -1,16 +1,15 @@
 require 'sinatra/base'
-# require './lib/chitter.rb'
+require './lib/message.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @timeline = Message.all
     erb :index
   end
 
   post '/incoming' do
-    Message.new(params[:message])
-
     redirect '/'
   end
 
