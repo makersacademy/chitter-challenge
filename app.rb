@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require '././lib/message'
+require '././lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :method_override
