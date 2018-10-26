@@ -15,12 +15,13 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/new' do
-    erb :'index'
+    @peeps = Peep.all
+    erb :'signed_in'
   end
 
   post '/new' do
     Peep.create(message: params[:message], user_name: params[:user_name])
-    redirect '/peeps'
+    redirect '/new'
   end
 
   delete '/:id' do
