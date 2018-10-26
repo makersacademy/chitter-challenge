@@ -5,7 +5,8 @@
 <ul>
   <% @messages.reverse.each do |message| %>
     <p class="message">
-      <%= DateTime.parse(message.time).strftime("%d/%m/%y %H:%M") %>: <%= message.content %></p>
+      <%= DateTime.parse(message.time).strftime("%d/%m/%y %H:%M") %>:
+      <%= message.content %></p>
     <br>
   <% end %>
 </ul>
