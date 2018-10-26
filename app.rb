@@ -56,7 +56,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/new-cheet' do
-    Cheet.create(params[:cheet])
+    @current_user = session[:current_user]
+    Cheet.create(params[:cheet], @current_user.user)
     redirect '/'
   end
 

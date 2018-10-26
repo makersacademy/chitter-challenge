@@ -19,8 +19,8 @@ class Cheet
     end
   end
 
-  def self.create(cheet)
-    Database.query("INSERT INTO cheets (cheet) VALUES ('#{cheet}');")
+  def self.create(cheet, username)
+    Database.query("INSERT INTO cheets (cheet, username) VALUES ('#{cheet}', '#{username}');")
   end
 
 end
