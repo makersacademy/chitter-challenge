@@ -1,0 +1,19 @@
+create database chitter
+
+create database chitter_test
+
+create table chitter_user
+  (user_id serial primary key,
+  name varchar(200),
+  email varchar(30),
+  password varchar(30),
+  receive_email varchar(1));
+
+create table message
+  (id serial primary key,
+  message varchar(200),
+  sender integer,
+  sent_time timestamptz,
+  response_to integer null,
+  foreign key (sender)references chitter_user(user_id),
+  foreign key (response_to)references message(id));
