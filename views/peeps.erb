@@ -1,8 +1,16 @@
 <%= erb :'partials/header' %>
+
 <% if @username %>
-<h2>Hello <%= @username %>
-  <% else %>
-<h2>Hello guest</h2>
+  <h2>Hello <%= @username %>
+<% else %>
+  <h2>Hello guest</h2>
 <% end %>
 
 <%= flash[:message] %>
+
+<% if @username %>
+  <form action='/peeps' method='post'>
+    <input type='text' placeholder='Peep away!'>
+    <button type='Submit'>Peep</button>
+  </form>
+<% end %>

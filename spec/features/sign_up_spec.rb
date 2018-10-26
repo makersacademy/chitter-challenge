@@ -12,12 +12,17 @@ feature 'signing up to chitter' do
   end
 
   scenario 'submitting should show peeps page with user-specific greeting' do
-    fill_in :email, with: 'albob@gmail.com'
-    fill_in :password, with: 'password123'
-    fill_in :name, with: 'Alice Bobson'
-    fill_in :username, with: 'albob123'
-    click_button 'Submit'
+    sign_up_as_alice_bobson
     expect(page).to have_current_path('/peeps')
     expect(page).to have_content 'Hello albob123'
+  end
+
+  scenario 'should be able to see peep entry field if signed up' do
+    peep_entry_field = "input[type='text'][placeholder='Peep away!']"
+    visit '/peeps'
+    expect(page).not_to have_css(peep_entry_field)
+    visit '/sign_up'
+    sign_up_as_alice_bobson
+    expect(page).to have_css(peep_entry_field)
   end
 end
