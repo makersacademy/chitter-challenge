@@ -1,0 +1,9 @@
+<%= flash[:message] %>
+<% @current_peeps.reverse_each do |peep| %>
+  <article class='peep'>
+    <h3><%= peep.user.name %> (<%= peep.user.username %>) posted at </h3><h3><%= peep.time %><h3>
+      <article class='peep_body'>
+        <p><%= peep.text %></p>
+      </article>
+  </article>
+<% end %>
