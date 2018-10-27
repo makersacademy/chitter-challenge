@@ -31,7 +31,7 @@ describe User do
     end
 
     it 'returns nil on unsuccessful login' do
-      user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
+      User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
       logged_in_user = User.login('peeper1234', 'p4s5w0rd-wrong')
       expect(logged_in_user).to eq nil
     end

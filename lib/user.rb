@@ -3,44 +3,19 @@ require_relative 'database_connection'
 
 class User
 
-  # def self.all
-  #   # if ENV['ENVIRONMENT'] == 'test'
-  #   #   connection = PG.connect(dbname: 'chitter_test')
-  #   # else
-  #   #   connection = PG.connect(dbname: 'chitter')
-  #   # end
-  #
-  #   sql = %{select * from users}
-  #     # p sql
-  #   peeps = DatabaseConnection.query(sql)
-  #   peeps.map {|record| {id: record["id"],
-  #     firstname: record["firstname"],
-  #     lastname: record["lastname"],
-  #     username: record["username"],
-  #     password: record["password"],
-  #     email: record["email"]} }
-  # end
-  @signup_error = nil
-
   def self.create(firstname, lastname, username, password, email)
-    # p validate_signup(username, email).empty?
-     # if email_in_use(email).nil?
-       if validate_signup(username, email).empty?
-    # if @signup_error.nil?
 
+    return validate_signup(username, email).join("\n") unless validate_signup(username, email).empty?
+    # if validate_signup(username, email).empty?
     sql = %{INSERT INTO users (firstname, lastname, username, password, email)
       VALUES ('#{firstname}', '#{lastname}', '#{username}', '#{password}',
       '#{email}') RETURNING id, firstname, lastname, username, password, email;}
     record = DatabaseConnection.query(sql)
-    User.new({ id: record[0]['id'],
-      firstname: record[0]['firstname'],
-      lastname: record[0]['lastname'],
-      username: record[0]['username'],
-      password: record[0]['password'],
-      email: record[0]['email'] })
-    else
-      return validate_signup(username, email).join("\n")
-    end
+
+    User.new({ id: record[0]['id'], firstname: record[0]['firstname'],
+      lastname: record[0]['lastname'], username: record[0]['username'],
+      password: record[0]['password'], email: record[0]['email'] })
+
   end
 
   def self.find(id)
@@ -73,13 +48,17 @@ class User
       email: record[0]['email'] })
   end
 
-def self.validate_signup(username, email)
-  validation = []
-  validation << email_in_use(email) unless email_in_use(email).nil?
-  validation << username_in_use(username) unless username_in_use(username).nil?
-  return validation
-  # p validation
-end
+  def self.validate_signup(username, email)
+    validate = []
+    validate << email_in_use(email) unless email_in_use(email).nil?
+    # p validation
+    # p "A-----"
+    validate << username_in_use(username) unless username_in_use(username).nil?
+    # p validation
+    # p "B-----"
+    return validate
+    # p validation
+  end
 
   attr_reader :id, :firstname, :lastname, :username, :password, :email
 

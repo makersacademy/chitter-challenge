@@ -36,19 +36,19 @@ class Chitter < Sinatra::Base
     user = User.create(params[:firstname], params[:lastname],
         params[:username], params[:password], params[:email])
         # user = nil
-        if user.instance_of? User
-    session[:user_id] = user.id
-  else
-    flash[:notice] = user
-
-  end
+        # p user
+    if user.instance_of? User
+      session[:user_id] = user.id
+    else
+      flash[:notice] = user
+    end
     # session[:registered] = true
     redirect '/'
   end
 
   post '/user/login' do
     user = User.login(params[:username], params[:password])
-    p user
+    # p user
     if user.nil?
       flash[:notice] = "Incorrect username or password.  Please try again"
     else
