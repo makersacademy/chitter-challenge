@@ -4,9 +4,9 @@ require 'peeps'
 describe Peeps do
   describe '.all' do
     it 'returns a list of peeps' do
-      peeps = Peeps.all
+      Peeps.create(peep: 'Hello World')
 
-      expect(peeps).to include "Hello World"
+      expect(Peeps.all).to include "Hello World"
     end
   end
 end

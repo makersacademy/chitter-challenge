@@ -5,6 +5,14 @@ require './app'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
+RSpec.configure do |config|
+  config.before(:all) do
+    puts "Resetting test enviroment..."
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("TRUNCATE chitter;")
+  end
+end
+
 ENV['RACK_ENV'] = 'test'
 Capybara.app = Chitter
 
@@ -14,14 +22,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
-
-# Once I can add to the database, this will allow me to clean the test enviroment every time
-# RSpec.configure do |config|
-#   config.before(:each) do
-#     connection = PG.connect(dbname: 'chitter_test')
-#     connection.exec("TRUNCATE chitter_test;")
-#   end
-# end
 
 RSpec.configure do |config|
   config.after(:suite) do
