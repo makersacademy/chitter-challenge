@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user.rb'
+require_relative './lib/peep.rb'
 require_relative './database_connection_setup.rb'
 
 # Chitter class
@@ -12,6 +13,8 @@ class Chitter < Sinatra::Base
     if session[:username]
       @user = User.find(column: 'username', value: session[:username])
     end
+    @peeps = Peep.all
+    p @peeps
     erb :index
   end
 
@@ -33,6 +36,18 @@ class Chitter < Sinatra::Base
       session[:username] = user.username
       redirect('/')
     end
+  end
+
+  get '/users/:username/peeps/new' do
+    @username = params[:username]
+    erb :'peeps/new'
+  end
+
+  post '/users/:username/peeps' do
+    username = session[:username]
+    user = User.find(column: 'username', value: "#{username}")
+    Peep.create(text: params[:peep_text], user_id: user.id)
+    redirect '/'
   end
 
   run! if app_file == $PROGRAM_NAME

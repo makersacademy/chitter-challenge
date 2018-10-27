@@ -2,4 +2,16 @@
 <% if @user %>
   <h2>Welcome, <%= @user.name%></h2>
   <h2>You are logged in with this email: <%= @user.email%></h2>
+  <form action="/users/<%= @user.username %>/peeps/new" method="get">
+    <input type="submit" value="Peep">
+  </form>
 <% end %>
+<% if @peeps %>
+  <% @peeps.each do |peep| %>
+  <ul>
+    <li>
+    <h2> <%= peep.text %></h2>
+    </li>
+  </ul>
+  <% end %>
+<% end%>
