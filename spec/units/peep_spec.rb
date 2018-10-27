@@ -19,4 +19,26 @@ describe Peep do
       expect(subject.username).to eq 'anonymous'
     end
   end
+
+  describe '.all' do
+    it "should retrieve all peeps from the db in reverse chronological order" do
+      DatabaseConnection.query("INSERT INTO
+        peeps (id, text, time, username)
+        VALUES
+        ('1', 'This is peep 1', '10:45:00', 'Mario'),
+        ('2', 'This is peep 2', '10:46:00', 'Luigi');"
+      )
+
+      expect(Peep.all[0].id).to eq '2'
+      expect(Peep.all[1].id).to eq '1'
+    end
+  end
+
+  # describe '.create' do
+  #   it "adds a new peep to the database" do
+  #     Peep.create(text: 'This is Peep 1',
+  #       time: "#{Time.now.hour}:#{Time.now.min}:#{Time.now.sec}"
+  #     )
+  #   end
+  # end
 end
