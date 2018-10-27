@@ -8,6 +8,7 @@ class Chitter
     @username = username
     @peep_time = peep_time
     @text = text
+    @id = id
   end
 
   # TODO make non-text specific

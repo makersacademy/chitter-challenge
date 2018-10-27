@@ -13,19 +13,34 @@ class App < Sinatra::Base
   get '/' do
     @user = session[:user_id]
     flash[:notice] = session[:failed_login]
+    flash[:alert] = session[:peep_error]
     @chitters = Chitter.all
     erb :homepage
   end
 
+# TODO make this take name of user
+
   post '/peep' do
-    Chitter.add(text: params[:peep], username: 'Becka', peep_time: DateTime.now)
+    if session[:user_id].nil?
+      session[:peep_error] = "You must log in to peep"
+    else
+      Chitter.add(text: params[:peep],
+                  username: 'Becka',
+                  peep_time: DateTime.now)
+    end
     redirect '/'
   end
 
   post '/authenticate' do
-    successful = User.authenticate(username: params['username'], password: params['password'])
+    successful = User.authenticate(username: params['username'],
+                                  password: params['password'])
     session[:user_id] = params['username'] if successful
-    session[:failed_login] = "Log in unsuccessful" if ! successful
+    session[:failed_login] = "Log in unsuccessful" unless successful
+    redirect '/'
+  end
+
+  post '/logout' do
+    session[:user_id] = nil
     redirect '/'
   end
 

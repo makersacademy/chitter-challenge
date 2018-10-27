@@ -1,6 +1,6 @@
 
- <%= flash[:notice] %>
-
+<%= session[:failed_login] %>
+<%= session[:peep_error] %>
 
  <%= "Welcome back to chitter, #{@user}" if @user %>
  <%= "Welcome to chitter, please sign in to peep" if @user.nil? %>
@@ -10,6 +10,7 @@
     <li>
         <%= chitter.text %>
         <br><%= chitter.peep_time %>
+        <br><%= "Posted by: #{chitter.username}" %>
       </a>
     </li>
   <% end %>
@@ -21,6 +22,9 @@
   <input type ="submit" name="log in" value="log in">
 </form>
 
+<form action ="logout" method = "post">
+  <input type ="submit" name="log out" value="log out">
+</form>
 
 
 <form action ="/peep" method = "post">

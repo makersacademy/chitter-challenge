@@ -22,17 +22,22 @@ class User
   def self.all
     con = connect_to_database
     data = con.exec("SELECT * FROM users")
-    data.map { |user| User.new(username: user['username'], password: user['password'], email: user['email']) }
+    data.map do |user| User.new(username: user['username'],
+                              password: user['password'],
+                              email: user['email'])
+    end
   end
 
   def self.authenticate(username:, password:)
     con = connect_to_database
-    user_data = con.exec("SELECT * FROM users WHERE username = '#{username}'").first
+    user_data = con.exec("SELECT * FROM users
+                          WHERE username = '#{username}'"
+                         ).first
     return false if user_data.nil?
     user_data['password'] == password
   end
 
-  private
+  private_class_method
 
   def self.availability_checks(username, email)
     raise "Username already taken" unless username_available?(username)
@@ -50,9 +55,8 @@ class User
   end
 
   def self.connect_to_database
-    ENV['R ENV'] == "test" ? db = 'chitter_manager_test' : db = 'chitter_manager'
+    db = ENV['R ENV'] == "test" ? 'chitter_manager_test' : 'chitter_manager'
     PG.connect(dbname: db)
   end
-
 
 end
