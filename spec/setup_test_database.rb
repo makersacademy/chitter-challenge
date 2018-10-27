@@ -5,4 +5,7 @@ def setup_test_database
 
   # Clears the peeps table
   connection.exec("TRUNCATE peeps;")
+
+  # Clears the users table
+  connection.exec("TRUNCATE users;")
 end
