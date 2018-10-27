@@ -105,3 +105,15 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+## Setting up the environment
+
+CREATE DATABASE chitter; (also create a chitter_test database replica using the same commands)
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR (80) UNIQUE NOT NULL,
+  password VARCHAR (140) NOT NULL,
+  name VARCHAR (100) NOT NULL,
+  email VARCHAR (355) UNIQUE NOT NULL
+);
