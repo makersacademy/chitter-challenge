@@ -7,6 +7,8 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.message %></li>
+    <li>
+      <%= peep.message %> - created at: <span id="<%= peep.id %>-created-at"><%= peep.created_at %></span>
+    </li>
   <% end %>
 </ul>

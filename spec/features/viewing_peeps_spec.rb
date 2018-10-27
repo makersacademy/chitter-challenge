@@ -12,4 +12,15 @@ feature 'Feature - Viewing Peeps' do
     expect(page).to have_content "This is another peep"
     expect(page).to have_content "This is a third peep"
   end
+
+  scenario 'Peeps have data/time stamp' do
+    peep = Peep.new_peep(message: "This is a peep with time")
+    visit('/')
+
+    peep_time = find_by_id("#{peep.id}-created-at")
+
+    expect(peep_time).to have_text peep.created_at
+
+  end
+
 end
