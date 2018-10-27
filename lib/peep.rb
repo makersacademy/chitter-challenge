@@ -1,4 +1,4 @@
-require 'pg'
+require 'database_connection'
 
 class Peep
   attr_reader :id, :message
@@ -9,26 +9,15 @@ class Peep
   end
 
   def self.view_all_peeps
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
-    result = connection.exec("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps")
     result.map do |peep|
       Peep.new(id: peep['id'], message: peep['message'])
     end
   end
 
   def self.new_peep(message:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
 
-    result = connection.exec("INSERT INTO peeps
+    result = DatabaseConnection.query("INSERT INTO peeps
       (message) VALUES('#{message}') RETURNING id, message")
     Peep.new(id: result[0]['id'], message: result[0]['message'])
   end
