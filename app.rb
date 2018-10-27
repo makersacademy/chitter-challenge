@@ -7,6 +7,10 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/post_peep' do
+    erb :post_peep
+  end
+
   get '/sign_up' do
     erb :sign_up
   end
