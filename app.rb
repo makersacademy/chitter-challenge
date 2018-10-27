@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/chitter'
 require './lib/user'
 require 'pry'
@@ -6,6 +7,7 @@ require 'pry'
 class ChitterApp < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/chitter' do
     @user = User.find(session[:user_id]) if session[:user_id] != nil
@@ -43,10 +45,8 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = @user.user_id
       redirect('/chitter')
     else
-      # flash[:notice] = 'Please check your username or password'
       redirect('/chitter/login')
     end
-    # session[:user_id] = @user.user_id
   end
 
   get '/chitter/logout' do
