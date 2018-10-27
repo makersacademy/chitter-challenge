@@ -6,7 +6,7 @@ create table chitter_user
   (user_id serial primary key,
   name varchar(200),
   email varchar(30),
-  password varchar(30),
+  password varchar(140),
   receive_email varchar(1));
 
 create table message
@@ -17,3 +17,6 @@ create table message
   response_to integer null,
   foreign key (sender)references chitter_user(user_id),
   foreign key (response_to)references message(id));
+
+  ALTER TABLE message ALTER COLUMN sent_time SET DEFAULT now();
+  ALTER TABLE chitter_user ALTER COLUMN password TYPE varchar(140);

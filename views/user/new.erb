@@ -1,0 +1,42 @@
+<div style = "background: pink">
+  <h1>Welcome to Chitter</h1>
+  <h2>New User! Create your login and start chittering</h2>
+
+
+
+  <form method="post" action="/user/new" >
+    <br>
+    <label> NAME:     </label>
+    <input type="name" name="name" required>
+    <br>
+    <br>
+    <label> PASSWORD: </label>
+    <input type="password" name="password1" required>
+    <br>
+    <label> REENTER PASSWORD: </label>
+    <input type="password" name="password2" required>
+    <br>
+    <br>
+    <label> EMAIL:     </label>
+    <input  type="email" name="email" value="a@yahoo.com" required>
+    <br>
+    <br>
+    <label>RECEIVE EMAILS:</label>
+    <input type="name" name="receive_email" value="y"> <br>
+
+<br><br>
+    <input type="submit" value="submit" name="submit">
+  </form>
+  <br>
+  <h5><a href="/user/forgot">Forgot Password</a><h5>
+  <h5><a href="/user/new">New User</a><h5>
+</div>
+
+<div style = "background: red">
+<br>
+</h2><% if flash[:usernotice]%>
+  <%= flash[:usernotice]%>
+  <%end%>
+
+  <br>
+</div>

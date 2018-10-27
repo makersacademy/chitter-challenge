@@ -1,0 +1,29 @@
+<div style = "background: green">
+<h1>Welcome to Chitter</h1>
+<h2>Forgot password? We can help!</h2>
+
+<form method="post" action="/user/forgot" >
+  <br>
+  <label> NAME:     </label>
+  <input type="name" name="name" required>
+  <br>
+  <br>
+  <label> EMAIL: </label>
+  <input type="email" name="email" required>
+  <br>
+  <br>
+  <input type="submit" value="submit" name="submit">
+</form>
+<br>
+
+<h5><a href="/user/new">New User</a><h5>
+  <br>
+</div>
+
+<div style = "background: red">
+<br>
+</h2><% if flash[:usernotice]%>
+  <%= flash[:usernotice]%>
+  <%end%>
+  <br>
+</div>

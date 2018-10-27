@@ -1,0 +1,50 @@
+<div style = "background: green" "outline: 4px solid red" "outline-offset: 15px">
+  <h1>This is Chitter, the poor cousin of Twitter</h1>
+  <%if flash[:personalgreeting]%>
+   <h2><%=flash[:personalgreeting]%><h2><h5><a href="/user/logout">Logout</a><h5>
+  <%end%>
+   <hr>
+
+  <% if @messages %>
+    <h2>Here are the messages:</h2>
+    <table style="width:100%">
+      <tr><th>Index</th><th>Peep</th> <th>Sender</th><th>Sent at</th><th></th><th></th></tr>
+      <%@messages.each_with_index do |message, index| %>
+      <form method="post" action="/message/reply/<%= message.id %>" >
+        <tr><td><%=index+1%>.</td><td><%= message.text%></td> <td><%=message.sender%></td><td><%= message.sent_time%></td>
+        <%if session[:userid]!=nil%><td><input type="text" name="replytext" size="20" value ="your reply"></td><td><input type="submit" value="reply" name="reply"></td><%params[:original] = message.id%><%end%></tr>
+      </form>
+      <%end%>
+    </table>
+  <% else %>
+    <h2>There are no messages to display</h2>
+  <%end%>
+<hr>
+  <form method="post" action="/message/new" >
+    <%if session[:userid] == nil%>
+      Login or Signup to start posting
+      <h5><a href="/user">Login</a><h5>
+      <h5><a href="/user/new">New User</a><h5>
+      <hr>
+    <%else %>
+      <br>
+      <label> New Message:     </label>
+      <input type="message" name="message" size="100">
+      <br><br>
+      <input type="submit" value="submit" name="submit">
+      <br><hr>
+    <%end%>
+  </form>
+</div>
+<div style = "background: red">
+<br>
+</h2><% if flash[:usernotice]%>
+  <%= flash[:usernotice]%>
+  <%end%>
+<br>
+<%if flash[:messagenotice]%>
+  <%= flash[:messagenotice]%>
+  <%end%>
+<br>
+<br>
+</div>

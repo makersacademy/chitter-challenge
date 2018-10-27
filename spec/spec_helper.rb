@@ -9,7 +9,7 @@ require 'simplecov-console'
 
 # Set the environment to "test"
 ENV['ENVIRONMENT'] = 'test'
-
+setup_test_database
 # Bring in the contents of the `app.rb` file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
