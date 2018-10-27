@@ -1,0 +1,10 @@
+<h1> Chitter </h1>
+<h1> </h1>
+
+  <p> Welcome <%= @user.name %> </p>
+  <p> Chitter is a place where you can post peeps about your life! </p>
+  <form action="/user/<%= @user.id %>" method="get">
+    <input type="submit" value="Start Peeping!" />
+  </form>
+
+  <p> See what others are peeping: </p>

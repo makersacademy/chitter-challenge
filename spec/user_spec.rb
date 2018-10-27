@@ -1,4 +1,4 @@
-require 'user.rb'
+require 'user'
 
 describe User do
 
@@ -37,11 +37,11 @@ describe User do
     end
   end
 
-  # describe '.create' do
-  #   it 'creates a new user when login form completed' do
-  #     user = User.create(name: 'RaySmith', email: 'smith.raylene@gmail.com', username: 'RayRay', password: 'password123')
-  #     expect(user.name).to eq 'RaySmith'
-  #   end
-  # end
+  describe '.create' do
+    it 'creates a new user when login form completed' do
+      user = User.create(name: 'RaySmith', email: 'smith.raylene@gmail.com', username: 'RayRay', password: 'password123')
+      expect(user.name).to eq 'RaySmith'
+    end
+  end
 
 end
