@@ -5,7 +5,6 @@ require './lib/user'
 require_relative 'chitter_helpers'
 require_relative 'database_setup'
 
-
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
@@ -20,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    get_current_peeps
     if @peeps.empty?
       flash.now[:message] = 'No peeps posted yet!'
     end
@@ -43,6 +42,12 @@ class Chitter < Sinatra::Base
     )
     session[:id] = User.all.last.id
     redirect '/peeps'
+  end
+
+  post '/peeps/session/destroy' do
+    session.clear
+    flash.next[:message] = 'You have signed out.'
+    redirect '/'
   end
 
   run! if app_file == $PROGRAM_NAME
