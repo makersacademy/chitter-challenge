@@ -1,3 +1,5 @@
+require 'pg'
+
 class User
 
   attr_reader :id, :name, :email, :username, :password
@@ -18,10 +20,16 @@ class User
     end
   end
 
-  def self.find
+  def self.create(name:, email:, username:, password:)
+    setup_connection
+    result = @@connection.exec("INSERT INTO users (name, email, username, password) VALUES ('#{name}', '#{email}', '#{username}', '#{password}') RETURNING id, name, email, username, password;")
+    User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], username: result[0]['username'], password: result[0]['password'])
   end
 
-  def self.create(name:, email:, username:, password:)
+  def self.find(id:)
+    setup_connection
+    result = @@connection.exec("SELECT * FROM users WHERE id = #{id};")
+    User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], username: result[0]['username'], password: result[0]['password'])
   end
 
   def self.setup_connection

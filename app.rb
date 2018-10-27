@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
