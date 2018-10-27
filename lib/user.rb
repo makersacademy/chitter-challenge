@@ -33,14 +33,6 @@ class User
     )
   end
 
-  def self.authenticate(email, password)
-    user = DatabaseManager.query("SELECT * FROM users WHERE " \
-      "email = '#{email}'").first
-    return false unless user
-    return false unless user['password'] == password
-    create_instance(user)
-  end
-
   def initialize(id:, email:, password:, name:, username:)
     @id = id
     @email = email
@@ -49,5 +41,5 @@ class User
     @username = username
   end
 
-  private_class_method :select_all, :create_instance
+  private_class_method :select_all
 end
