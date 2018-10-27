@@ -1,6 +1,8 @@
 Chitter Challenge
 =================
 
+Technologies: Ruby, Sinatra, Rspec, PostgreSQL, HTML
+
 ## How to Use ##
 1. Open Terminal and clone the repository:
 ```bash
