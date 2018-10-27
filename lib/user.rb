@@ -41,5 +41,5 @@ class User
     @username = username
   end
 
-  private_class_method :select_all
+  private_class_method :select_all, :create_user_instance
 end

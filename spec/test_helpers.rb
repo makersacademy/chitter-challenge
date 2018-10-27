@@ -20,6 +20,13 @@ def sign_up_as_alice_bobson
   click_button 'Submit'
 end
 
+def log_in_as_alice_bobson
+  visit '/'
+  fill_in :email, with: 'albob123@gmail.com'
+  fill_in :password, with: 'password123'
+  click_button 'Log in'
+end
+
 def add_peeps_to_test_database
   add_users_to_test_database
   Peep.create('My first peep', '1')

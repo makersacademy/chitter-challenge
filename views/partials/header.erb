@@ -1,6 +1,6 @@
 <h1>Chitter</h1>
 <% if @user %>
-  <form action='/peeps/session/destroy' method='post'>
+  <form action='/session/destroy' method='post'>
     <button type='submit' name='id' value='<%= @user.id %>'>Sign out</button>
   </form>
 <% end %>
