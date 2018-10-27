@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require './lib/chitter'
+require './lib/peeps'
 
 class Chitter < Sinatra::Base
 enable :sessions
@@ -10,6 +10,7 @@ enable :sessions
 
   post '/peep' do
     @peep = params[:peep]
+    @peeps = Peeps.all
     erb(:peep)
   end
 

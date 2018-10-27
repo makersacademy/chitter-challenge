@@ -1,2 +1,7 @@
 <h1>Peep:</h1>
 <h1><%= @peep %></h1>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
