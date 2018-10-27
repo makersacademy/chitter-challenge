@@ -8,9 +8,15 @@
   <input type="submit" value="Sign In" />
 </form>
 
+<form action="/users/sign-out" method="post">
+  <input type="submit" value="Sign Out" />
+</form>
+
 <% if @user %>
   <h2>Welcome, <%= @user.name %>
 <% end %>
+
+<p><%= flash[:notice] %></p>
 
 <h2>Posts:</h2>
 
