@@ -1,3 +1,4 @@
+require './database_connection_setup'
 require 'sinatra'
 
 class Chitter < Sinatra::Base
