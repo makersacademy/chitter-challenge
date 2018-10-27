@@ -28,6 +28,13 @@ describe Message do
 
       expect(message.time).to eq "2018-10-26 12:20:00 +0100"
     end
+
+    it 'adds user name and handle to message' do
+      message = Message.create(content: "TEST", user_name: "Test Name", user_handle: "Test Username")
+
+      expect(message.user_name).to eq "Test Name"
+      expect(message.user_handle).to eq "Test Username"
+    end
   end
 
 end

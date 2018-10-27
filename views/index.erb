@@ -23,6 +23,7 @@
 <ul>
   <% @messages.reverse.each do |message| %>
     <p class="message">
+      <%= message.user_name %> (@<%= message.user_handle %>) wrote: <br>
       <%= DateTime.parse(message.time).strftime("%d/%m/%y %H:%M") %>:
       <%= message.content %></p>
     <br>

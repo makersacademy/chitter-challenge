@@ -27,7 +27,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Message.create(content: params['content'])
+    user = User.find(id: session[:user_id])
+    Message.create(content: params['content'], user_name: user.name, user_handle: user.username)
     redirect '/'
   end
 
