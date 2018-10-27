@@ -1,26 +1,33 @@
+<head>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
 
+<body>
 <%= session[:failed_login] %>
 <%= session[:peep_error] %>
-
+<h1>
  <%= "Welcome back to chitter, #{@user}" if @user %>
  <%= "Welcome to chitter, please sign in to peep" if @user.nil? %>
+ <form action ="authenticate" method = "post">
+   <input type ="text" name="username" value placeholder = 'username here'>
+   <input type ="text" name="password" value placeholder = 'password here'>
+   <input type ="submit" name="log in" value="log in">
+ </form>
 
- <ul>
+</h1>
+
+
   <% @chitters.each do |chitter| %>
-    <li>
+      <div class="peeps">
         <%= chitter.text %>
         <br><%= chitter.peep_time %>
         <br><%= "Posted by: #{chitter.username}" %>
+        </div>
       </a>
-    </li>
   <% end %>
-</ul>
 
-<form action ="authenticate" method = "post">
-  <input type ="text" name="username">
-  <input type ="text" name="password">
-  <input type ="submit" name="log in" value="log in">
-</form>
+
+
 
 <form action ="logout" method = "post">
   <input type ="submit" name="log out" value="log out">
@@ -31,3 +38,4 @@
   <input type ="text" name="peep" value placeholder = "What's on your mind?" >
   <input type ="submit" name="submit peep" value="submit peep">
 </form>
+</body>

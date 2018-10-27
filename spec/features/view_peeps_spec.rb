@@ -55,6 +55,10 @@ feature do
       expect(page).to have_content "blah blah blah"
       expect(page).to have_content "Posted by: Jess"
     end
+
+    scenario 'fix above test' do
+      expect(page).to have_content 'this should not appear on the page'
+    end
   end
 
   def log_in(username = 'Becka')

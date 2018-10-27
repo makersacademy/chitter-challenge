@@ -5,29 +5,28 @@ feature do
   end
 
   scenario 'succesfully logs in to homepage' do
-    visit '/'
-    fill_in 'username', with: 'Becka'
-    fill_in 'password', with: 'fakepassword'
-    click_on 'log in'
+    sign_in
     expect(page).to have_content 'Welcome back to chitter, Becka'
   end
 
   scenario 'unsuccessful attempt to log in to homepage' do
-    visit '/'
-    fill_in 'username', with: 'Becka'
-    fill_in 'password', with: 'wrongpassword'
-    click_on 'log in'
+    sign_in(wrong_password = true)
     expect(page).to have_content 'Log in unsuccessful'
   end
 
   scenario 'logs in and logs out' do
-    visit '/'
-    fill_in 'username', with: 'Becka'
-    fill_in 'password', with: 'fakepassword'
-    click_on 'log in'
+    sign_in
     click_on 'log out'
     expect(page).not_to have_content 'Welcome back to chitter, Becka'
     expect(page).to have_content 'Welcome to chitter'
+  end
+
+  def sign_in(wrong_password = false)
+    visit '/'
+    fill_in 'username', with: 'Becka'
+    password = wrong_password ? 'wrongpassword' : 'fakepassword'
+    fill_in 'password', with: password
+    click_on 'log in'
   end
 
 end

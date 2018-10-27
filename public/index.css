@@ -1,0 +1,23 @@
+h1 {
+  color: white;
+  background-color: blue;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 2px;
+}
+
+* {
+  font-family: "Gill Sans"
+}
+
+.peeps {
+          border-radius: 5px;
+          background-color: rgb(239, 234, 246);
+          padding-left: 10px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          color: gray;
+          margin: 10px;
+          border-color: white;
+          border-width: thick;
+        }
