@@ -17,9 +17,12 @@ describe User do
     end
   end
 
-  describe '#self.login' do
-    it 'logs a user in' do
-      
+  describe '#self.find' do
+    it 'finds a user from the database' do
+      User.register('Aimee', 'password')
+      found_user = User.find('Aimee', 'password')
+      expect(found_user.name).to eq 'Aimee'
+      expect(found_user.password).to eq 'password'
     end
   end
 end
