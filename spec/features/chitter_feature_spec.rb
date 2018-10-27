@@ -13,11 +13,25 @@ feature 'Viewing Posts' do
     connection.exec("INSERT INTO messages (peep, tag) VALUES ('We learned about databases!', '@Br0ckers');")
     connection.exec("INSERT INTO messages (peep, tag) VALUES ('databases suck!', '@Br0ckers');")
 
-
-
-    visit('/peeps')
+    visit('/')
+    click_link('See Peeps')
     expect(page).to have_content 'It was a great week at Makers!', '@Br0ckers'
     expect(page).to have_content 'We learned about databases!', '@Br0ckers'
     expect(page).to have_content 'databases suck!', '@Br0ckers'
+  end
+end
+
+
+feature 'Adding Posts' do
+  scenario 'A user can add a Post' do
+    connection = PG.connect(dbname: 'chitter_db_test')
+
+    visit('/')
+    click_link('Post a new Peep')
+    fill_in('MESSAGE', :with => 'Saturday morning I worked on my Friday challenge!')
+    fill_in('TAG', :with => '@Br0ckers')
+    click_button('Add')
+    # expect(page).to have_link('BBC', href: "http://www.bbc.co.uk")
+    expect(page).to have_content('Saturday morning I worked on my Friday challenge!', '@Br0ckers')
   end
 end

@@ -15,7 +15,10 @@ class Chitter < Sinatra::Base
     @messages = Message.all
     erb :peeps
   end
-  #
+
+  get '/post_peep' do
+    erb :post_peeps
+  end
   # get '/bookmarks' do
   #   @bookmarks = Bookmark.all
   #   erb :bookmarks
