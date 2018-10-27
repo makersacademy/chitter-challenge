@@ -4,7 +4,7 @@ This is a Ruby twitter app using Sinatra and a Postgres database. Users can 'che
 
 'peep' and 'cheet' is used interchangably in this README!
 
-## Setup ##
+## Setup ##
 
 - Clone this repo
 - Download Postgresql ``` brew install Postgres ```
