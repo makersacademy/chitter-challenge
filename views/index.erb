@@ -1,6 +1,10 @@
 <div class="container">
   <h1>Chitter</h1>
 
+  <form action="write_peep">
+    <input type="submit" value="Post a Peep">
+  </form>
+
   <% @peeps.each do |peep| %>
     <p>
     <%= peep.username %>
@@ -10,6 +14,7 @@
     <br>
     <%= peep.time %> - <%= peep.date %>
     </p>
+    <br>
   <% end %>
 
 </div>
