@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user.rb'
+require_relative './database_connection_setup.rb'
 
 # Chitter class
 class Chitter < Sinatra::Base
@@ -8,7 +9,9 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    @user = User.find(id: session[:user_id])
+    if session[:username]
+      @user = User.find(column: 'username', value: session[:username])
+    end
     erb :index
   end
 

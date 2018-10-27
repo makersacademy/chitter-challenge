@@ -17,8 +17,10 @@ end
 task :setup do
   ['chitter', 'chitter_test'].each do |database|
     connection = PG.connect
-    connection.exec("CREATE DATABASE #{ database };")
+    connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
-    connection.exec("CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(100), email VARCHAR(60), password VARCHAR(140));")
+    connection.exec("CREATE TABLE users (id SERIAL PRIMARY KEY, "\
+      "name VARCHAR(100), username VARCHAR(100), email VARCHAR(60), "\
+      "password VARCHAR(140));")
   end
 end
