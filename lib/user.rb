@@ -5,10 +5,7 @@ class User
 
   def self.all
     select_all.map do |user|
-      User.new(
-        id: user['id'], email: user['email'], password: user['password'],
-        name: user['name'], username: user['username']
-      )
+      create_user_instance(user)
     end
   end
 
@@ -18,16 +15,29 @@ class User
       "RETURNING id, email, password, name, username")
   end
 
+  def self.select_all
+    DatabaseManager.query('SELECT * FROM users')
+  end
+
+  def self.find(peep_user_id)
+    user = DatabaseManager.query("SELECT * FROM users WHERE " \
+      "id = #{peep_user_id}").first
+    create_user_instance(user)
+  end
+
+  def self.create_user_instance(user)
+    User.new(
+      id: user['id'], email: user['email'], password: user['password'],
+      name: user['name'], username: user['username']
+    )
+  end
+
   def initialize(id:, email:, password:, name:, username:)
     @id = id
     @email = email
     @password = password
     @name = name
     @username = username
-  end
-
-  def self.select_all
-    DatabaseManager.query('SELECT * FROM users')
   end
 
   private_class_method :select_all

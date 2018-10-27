@@ -18,9 +18,9 @@ albob123 (Alice Bobson) posted
 <% end %>
 
 <% if @user %>
-  <form action='/peeps' method='post'>
+  <form action='/peeps/<%= @user.id %>/new' method='post'>
     <input id='peep_entry' type='text' name='peep' placeholder='Peep away, <%= @user.username %>!'>
-    <button type='submit'>Peep</button>
+    <button type='submit' name='id' value='<%= @user.id %>'>Peep</button>
   </form>
 <% end %>
 <%= flash[:warning] %>

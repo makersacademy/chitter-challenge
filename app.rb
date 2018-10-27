@@ -20,8 +20,8 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
-  post '/peeps' do
-    redirect '/peeps' if Peep.create(params[:peep])
+  post '/peeps/:id/new' do
+    redirect '/peeps' if Peep.create(params[:peep], params[:id])
     flash.next[:warning] = 'Please enter text before peeping!'
     redirect '/peeps'
   end

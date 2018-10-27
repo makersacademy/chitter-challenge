@@ -13,11 +13,11 @@ class Peep
   def self.create(text, user_id)
     return false if text.empty?
     DatabaseManager.query("INSERT INTO peeps(text,time,user_id) " \
-    "VALUES('#{text}', '#{format(Time.now)}', '#{user_id}') " \
+    "VALUES('#{text}', '#{format_time(Time.now)}', '#{user_id}') " \
     "RETURNING id, text, time, user_id")
   end
 
-  def self.format(time)
+  def self.format_time(time)
     time.strftime('%d %b %Y, %H:%M')
   end
 
@@ -30,6 +30,10 @@ class Peep
     @text = text
     @time = time
     @user_id = user_id
+  end
+
+  def user(user_class = User)
+    user_class.find(@user_id)
   end
 
   private_class_method :format, :select_all

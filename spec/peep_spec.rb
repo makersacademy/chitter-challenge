@@ -2,6 +2,7 @@ require 'peep'
 
 describe Peep do
   let(:formatted_time) { Time.now.strftime('%d %b %Y, %H:%M') }
+  let(:user_class) { double(:user_class) }
 
   before do
     add_peeps_to_test_database
@@ -9,7 +10,6 @@ describe Peep do
 
   describe '::all' do
     it 'should return peeps' do
-      binding.pry
       peep = described_class.all.first
       expect(peep).to be_a Peep
       expect(peep.text).to eq 'My first peep'
@@ -33,6 +33,14 @@ describe Peep do
 
     it 'should return false if the peep text is empty' do
       expect(described_class.create("", '1')).to eq false
+    end
+  end
+
+  describe '#user' do
+    it 'should find the correct user that posted a peep' do
+      peep = described_class.all.first
+      expect(user_class).to receive(:find).with(peep.user_id)
+      peep.user(user_class)
     end
   end
 end

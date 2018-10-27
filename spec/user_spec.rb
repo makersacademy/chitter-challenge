@@ -1,6 +1,8 @@
 require 'user'
 
 describe User do
+  let(:peep) { double(:peep, user_id: '1') }
+
   describe '::all' do
     it 'should return users' do
       add_users_to_test_database
@@ -24,6 +26,15 @@ describe User do
       expect(result['password']).to eq 'testpassword'
       expect(result['name']).to eq 'Test User'
       expect(result['username']).to eq 'usertest'
+    end
+  end
+
+  describe '::find' do
+    it "should return the correct user given a peep's user id" do
+      add_users_to_test_database
+      user = described_class.all.first
+      result = described_class.find(peep.user_id)
+      expect(result.id).to eq user.id
     end
   end
 end
