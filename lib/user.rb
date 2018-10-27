@@ -20,7 +20,7 @@ class User
   end
 
   def self.find(id = nil)
-    return nil unless id
+    return unless id
     user = DatabaseManager.query("SELECT * FROM users WHERE " \
       "id = '#{id}'").first
     create_instance(user)
