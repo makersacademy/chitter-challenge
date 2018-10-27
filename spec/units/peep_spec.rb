@@ -22,12 +22,7 @@ describe Peep do
 
   describe '.all' do
     it "should retrieve all peeps from the db in reverse chronological order" do
-      DatabaseConnection.query("INSERT INTO
-        peeps (id, text, time, username)
-        VALUES
-        ('1', 'This is peep 1', '10:45:00', 'Mario'),
-        ('2', 'This is peep 2', '10:46:00', 'Luigi');"
-      )
+      add_two_peeps
 
       expect(Peep.all[0].id).to eq '2'
       expect(Peep.all[1].id).to eq '1'
