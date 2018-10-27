@@ -30,7 +30,7 @@ describe User do
       user = User.create(name: 'Gary Oak',
         username: '@blue',
         email: 'gary@pallet.com',
-        password:'eevee123'
+        password: 'eevee123'
       )
 
       expect(user.name).to eq 'Gary Oak'
@@ -41,10 +41,10 @@ describe User do
     it "encrypts the password" do
       expect(BCrypt::Password).to receive(:create).with('eevee123')
 
-      user = User.create(name: 'Gary Oak',
+      User.create(name: 'Gary Oak',
         username: '@blue',
         email: 'gary@pallet.com',
-        password:'eevee123'
+        password: 'eevee123'
       )
     end
   end
@@ -54,12 +54,20 @@ describe User do
       add_user_to_db
       expect(User.username_in_db?('@red')).to eq true
     end
+
+    it "returns false if user is not already in db" do
+      expect(User.username_in_db?('@red')).to eq false
+    end
   end
 
   describe '.email_in_db?' do
     it "returns true if email is already in db" do
       add_user_to_db
       expect(User.email_in_db?('ash@pallet.com')).to eq true
+    end
+
+    it "returns false if email is not already in db" do
+      expect(User.email_in_db?('ash@pallet.com')).to eq false
     end
   end
 end

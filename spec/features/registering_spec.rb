@@ -31,11 +31,25 @@ feature "Registering on Chitter" do
     click_link 'Register'
     fill_in :name, with: 'Ash Ketchum'
     fill_in :username, with: '@red'
-    fill_in :email, with: 'ash@pallet.com'
+    fill_in :email, with: 'pikachu@pallet.com'
     fill_in :password, with: 'pikachu123'
     fill_in :confirm_password, with: 'pikachu123'
 
     click_button 'Register'
     expect(page).to have_content "Username already taken"
+  end
+
+  scenario "email already in db" do
+    add_user_to_db
+    visit '/'
+    click_link 'Register'
+    fill_in :name, with: 'Ash Ketchum'
+    fill_in :username, with: '@blue'
+    fill_in :email, with: 'ash@pallet.com'
+    fill_in :password, with: 'pikachu123'
+    fill_in :confirm_password, with: 'pikachu123'
+
+    click_button 'Register'
+    expect(page).to have_content "Email is already in use"
   end
 end
