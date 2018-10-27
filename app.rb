@@ -25,10 +25,17 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
+  get '/peeps/:id' do
+    if current_peeps.empty?
+      flash.now[:message] = 'No peeps posted yet!'
+    end
+    erb :peeps
+  end
+
   post '/peeps/:id/new' do
     redirect '/peeps' if Peep.create(params[:peep], params[:id])
     flash.next[:warning] = 'Please enter text before peeping!'
-    redirect '/peeps'
+    redirect "/peeps/:id"
   end
 
   get '/sign_up' do
@@ -40,14 +47,14 @@ class Chitter < Sinatra::Base
       params[:email], params[:password], params[:name], params[:username]
     ).first
     session[:id] = new_user['id']
-    redirect '/peeps'
+    redirect "/peeps/#{session[:id]}"
   end
 
   post '/session/new' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:id] = user.id
-      redirect '/peeps'
+      redirect "/peeps/#{session[:id]}"
     else
       flash.next[:warning] = 'Your email or password is incorrect. Please ' \
         'try again.'

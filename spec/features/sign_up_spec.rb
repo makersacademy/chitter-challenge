@@ -10,7 +10,7 @@ feature 'signing up to chitter' do
 
   scenario 'submitting should show peeps page with user-specific greeting' do
     sign_up_as_alice_bobson
-    expect(page).to have_current_path('/peeps')
+    expect(page).to have_current_path('/peeps/1')
     expect(page).to have_content 'Hello albob123'
   end
 

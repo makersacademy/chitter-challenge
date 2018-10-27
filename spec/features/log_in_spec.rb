@@ -14,7 +14,7 @@ feature 'logging in' do
 
   scenario 'takes the user to the peeps page with their username greeting' do
     log_in_as_alice_bobson
-    expect(page).to have_current_path '/peeps'
+    expect(page).to have_current_path '/peeps/1'
     expect(page).to have_content 'Hello albob123'
   end
 
