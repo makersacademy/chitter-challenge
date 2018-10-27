@@ -30,7 +30,7 @@ feature 'Adding Posts' do
     click_link('Post a new Peep')
     fill_in('MESSAGE', :with => 'Saturday morning I worked on my Friday challenge!')
     fill_in('TAG', :with => '@Br0ckers')
-    click_button('Add')
+    click_button('Submit Post')
     # expect(page).to have_link('BBC', href: "http://www.bbc.co.uk")
     expect(page).to have_content('Saturday morning I worked on my Friday challenge!', '@Br0ckers')
   end
