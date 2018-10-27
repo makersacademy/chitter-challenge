@@ -1,3 +1,4 @@
+
 feature "Sign up" do
 
   scenario "I see a sign up form with a username field" do
