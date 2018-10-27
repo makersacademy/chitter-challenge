@@ -2,6 +2,9 @@
 <ul>
 <% @peeps.reverse_each do |peep| %>
 <ol>
-    <%= peep.message %>
-</ol>  <% end %>
+    <b><%= peep.message %></b>
+    <br>
+    Posted at: <%= peep.peep_timestamp %>
+</ol>
+<% end %>
 </ul>

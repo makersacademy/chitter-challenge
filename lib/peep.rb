@@ -3,25 +3,24 @@ require 'uri'
 
 class Peep
 
-  attr_reader :id, :message
+  attr_reader :id, :message, :peep_timestamp
 
-  def initialize(id:, message:)
+  def initialize(id:, message:, peep_timestamp:)
     @id  = id
     @message = message
+    @peep_timestamp = peep_timestamp
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
     result.map do |peep|
-      Peep.new(id: peep['id'], message: peep['message'])
+      Peep.new(id: peep['id'], message: peep['message'], peep_timestamp: peep['peep_timestamp'])
     end
-
-    # result.map { |peep| peep['message'] }
   end
 
-  def self.create(message:)
-    result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{message}') RETURNING id, message;")
-    Peep.new(id: result[0]['id'], message: result[0]['message'])
+  def self.create(message:, peep_timestamp:)
+    result = DatabaseConnection.query("INSERT INTO peeps (message, peep_timestamp) VALUES('#{message}', '#{peep_timestamp.strftime("%Y-%m-%d %k:%M")}') RETURNING id, message, peep_timestamp;")
+    Peep.new(id: result[0]['id'], message: result[0]['message'], peep_timestamp: result[0]['peep_timestamp'])
   end
 
 end

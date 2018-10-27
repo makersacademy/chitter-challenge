@@ -5,8 +5,8 @@ describe Peep do
   describe '.all' do
     it 'returns all peeps' do
 
-      peep = Peep.create(message: 'My first peep')
-      Peep.create(message: 'Hello')
+      peep = Peep.create(message: 'My first peep', peep_timestamp: Time.now)
+      Peep.create(message: 'Hello', peep_timestamp: Time.now)
 
       peeps = Peep.all
 
@@ -20,7 +20,7 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      peep = Peep.create(message: 'Test Peep')
+      peep = Peep.create(message: 'Test Peep', peep_timestamp: Time.now)
       persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
       expect(peep).to be_a Peep
