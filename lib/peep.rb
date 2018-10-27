@@ -16,14 +16,13 @@ class Peep
     Peep.new(
       id: result['id'],
       text: result['text'], 
-      user_id: result['user_id'],
-      time: result['time']
+      user_id: result['user_id'], time: result['time']
     )
   end
 
   def self.all
     peeps = DatabaseConnection.query("SELECT * FROM peeps")
-    peeps.map do |peep|
+    all = peeps.map do |peep|
       Peep.new(
         id: peep['id'],
         text: peep['text'], 
@@ -31,9 +30,10 @@ class Peep
         time: peep['time']
       )
     end
+    all.sort_by { |peep| Time.parse(peep.time) }.reverse
   end
 
   def self.timestamp
-    Time.new.strftime("%H:%M")
+    Time.new.strftime("%y-%m-%d %H:%M")
   end
 end

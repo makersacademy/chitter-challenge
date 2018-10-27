@@ -1,6 +1,5 @@
 feature 'Adding a new peep and viewing it' do
   scenario 'A user can add a peep to Chitter' do
-    # user = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
     visit '/users/new'
     fill_in('name', with: 'John')
     fill_in('username', with: 'john')

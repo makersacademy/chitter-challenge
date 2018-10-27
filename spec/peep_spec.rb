@@ -17,27 +17,29 @@ describe Peep do
     it 'calls .timestamp for time' do
       user = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
       expect(Peep).to receive(:timestamp)
-      peep = Peep.create(text: 'My peep message', user_id: "#{user.id}")
+      Peep.create(text: 'My peep message', user_id: "#{user.id}")
     end
   end
 
   describe '.all' do
-    it 'creates a returns all peeps' do
+    it 'returns all peeps in reverse chronological order' do
       user = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
       peep1 = Peep.create(text: 'My peep message', user_id: "#{user.id}")
       peep2 = Peep.create(text: 'My peep message2', user_id: "#{user.id}")
       
       peeps = Peep.all
       expect(peeps.length).to eq 2
-      expect(peeps.first.text).to eq peep1.text
-      expect(peeps.first.id).to eq peep1.id
+      expect(peeps.first.text).to eq peep2.text
+      expect(peeps.first.id).to eq peep2.id
     end
   end
 
   describe '.timestamp' do
+    let(:time) { double :time, strftime: "12:00"}
     it 'creates a timestamp from a current time' do
+      allow(Time).to receive(:new).and_return(time)
       timestamp = Peep.timestamp
-      expect(timestamp).to eq "#{Time.new.strftime("%H:%M")}"
+      expect(timestamp).to eq "12:00"
     end
   end
 end
