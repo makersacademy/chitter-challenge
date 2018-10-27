@@ -11,4 +11,10 @@ module DatabaseHelper
     )
   end
 
+  def add_user_to_db
+    DatabaseConnection.query("INSERT INTO
+      users (name, username, email, password)
+      VALUES ('Ash Ketchum', '@red', 'ash@pallet.com', 'pikachu123');"
+    )
+  end
 end
