@@ -1,4 +1,5 @@
 require 'pg'
+require_relative './lib/database_connection.rb'
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'

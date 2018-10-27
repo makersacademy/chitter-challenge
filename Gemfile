@@ -8,6 +8,7 @@ gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'selenium-webdriver'
 gem 'sinatra'
+gem "sinatra-flash"
 
 group :test do
   gem 'rspec'
