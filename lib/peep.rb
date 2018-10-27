@@ -6,7 +6,7 @@ class Peep
   attr_reader :id, :message, :peep_timestamp
 
   def initialize(id:, message:, peep_timestamp:)
-    @id  = id
+    @id = id
     @message = message
     @peep_timestamp = peep_timestamp
   end

@@ -17,7 +17,6 @@ describe Peep do
     end
   end
 
-
   describe '.create' do
     it 'creates a new peep' do
       peep = Peep.create(message: 'Test Peep', peep_timestamp: Time.now)
