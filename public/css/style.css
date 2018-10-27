@@ -1,0 +1,73 @@
+body {
+  background-image: url(../images/purple.jpg);
+}
+
+h1 {
+  font-size: 100px;
+  color: rgb(241,83,200);
+  text-shadow: white 0px 0px 200px;
+}
+
+.container_div {
+  width: 100%;
+  height: auto;
+}
+
+.title_div {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.message_div {
+  width: 70%;
+  height: auto;
+  text-align: center;
+  padding-left: 15%;
+}
+
+.peep_box {
+  background-color: white;
+  color: rgb(49,0,22);
+  border: solid 2px rgb(49,0,22);
+  padding: 20px;
+  height: 40px;
+  margin: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+#button {
+  border: solid 1px rgb(49,0,22);
+  color: rgb(49,0,22);
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+#button:hover {
+  color: rgb(241,83,200);
+}
+
+#peep {
+  background-color: white;
+  color: rgb(49,0,22);
+  border: solid 2px rgb(49,0,22);
+  height: 40px;
+  margin: 20px;
+  width: 50%;
+  padding-left: 15%;
+}
+
+#username {
+  background-color: white;
+  color: rgb(49,0,22);
+  border: solid 2px rgb(49,0,22);
+  height: 40px;
+  margin: 20px;
+  width: 25%;
+  padding-left: 15%;
+}

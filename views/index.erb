@@ -1,14 +1,22 @@
-<p>'Post your peep to Chitter'</p>
-
-<ul>
-  <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>" >
-      <%= peep.message %>
-      <%= peep.user_name %>
-      <form action="/<%= peep.id %>" method="post">
-        <input type="hidden" name="_method" value="DELETE"/>
-        <input type="submit" value="Delete"/>
-      </form>
-    </li>
-  <% end %>
-</ul>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="container_div">
+    <div class="title_div">
+      <h1>Chitter</h1>
+    </div>
+    <div class="message_div">
+      <ul>
+        <% @peeps.each do |peep| %>
+        <div class="peep_box">
+          <li class="peep" id="peep-<%= peep.id %>" >
+            <%= peep.message %>
+            <%= peep.user_name %>
+          </li>
+        </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</body>

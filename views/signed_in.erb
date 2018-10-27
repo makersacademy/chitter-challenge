@@ -1,20 +1,36 @@
-<p>'Post your peep to Chitter'</p>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="container_div">
+    <div class="title_div">
+      <h1>Chitter</h1>
+    </div>
+    <div class="message_div">
 
-<form action="/new" method="post">
-  <input type="text" name="message" placeholder="Message"/>
-  <input type="text" name="user_name" placeholder="Username"/>
-  <input type="submit" value="Submit"/>
-</form>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>" >
-      <%= peep.message %>
-      <%= peep.user_name %>
-      <form action="/<%= peep.id %>" method="post">
-        <input type="hidden" name="_method" value="DELETE"/>
-        <input type="submit" value="Delete"/>
+      <form action="/new" method="post">
+        <input type="text" name="message" placeholder="Post your peep to Chitter" id="peep"/>
+        <input type="text" name="user_name" placeholder="Username" id="username"/>
+        <input type="submit" value="Submit" id="button"/>
       </form>
-    </li>
-  <% end %>
-</ul>
+
+      <ul>
+        <% @peeps.each do |peep| %>
+        <div class="peep_box">
+          <li class="peep" id="peep-<%= peep.id %>" >
+            <%= peep.message %>
+            <%= peep.user_name %>
+            <form action="/<%= peep.id %>" method="post">
+              <input type="hidden" name="_method" value="DELETE"/>
+              <input type="submit" value="Delete" id="button"/>
+            </form>
+          </li>
+        </div>
+        <% end %>
+      </ul>
+
+
+    </div>
+  </div>
+</body>

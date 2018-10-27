@@ -4,8 +4,8 @@
 
 feature 'Posting peeps' do
   scenario 'A user can post a peep to chitter' do
-    visit '/peeps'
+    visit '/new'
 
-    expect(page).to have_content 'Post your peep to Chitter'
+    expect(page).to have_content 'Chitter'
   end
 end
