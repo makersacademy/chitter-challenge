@@ -31,4 +31,21 @@ describe Peep do
       expect(peep.created_at).to eq persisted_data['created_at']
     end
   end
+
+  describe '#peep_time' do
+    it 'creates a new Time object' do
+      peep = Peep.new_peep(message: 'Test peep')
+
+      expect(peep.peep_time).to be_a Time
+    end
+  end
+
+  describe '#formatted_peep_time' do
+    it 'converts peep_time into user friendly time format' do
+      peep = Peep.new(id: 9999, message: "Hello world", created_at: '2018-10-27 17:29:45.446675+01', peep_time: Time.new(2018,10,27,17,29,45,'+01:00'))
+
+      expect(peep.formatted_peep_time).to eq '05:29PM 27/10/2018'
+
+    end
+  end
 end

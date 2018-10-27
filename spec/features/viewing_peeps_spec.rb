@@ -17,9 +17,9 @@ feature 'Feature - Viewing Peeps' do
     peep = Peep.new_peep(message: "This is a peep with time")
     visit('/')
 
-    peep_time = find_by_id("#{peep.id}-created-at")
+    peep_time = find_by_id("#{peep.id}-peep-time")
 
-    expect(peep_time).to have_text peep.created_at
+    expect(peep_time).to have_text peep.formatted_peep_time
 
   end
 
