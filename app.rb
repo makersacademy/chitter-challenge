@@ -17,8 +17,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/post_peep' do
-    erb :post_peeps
+    erb :post_peep
   end
+
+  post '/message' do
+    Message.add(params[:MESSAGE], params[:TAG])
+    redirect '/peeps'
+  end
+
   # get '/bookmarks' do
   #   @bookmarks = Bookmark.all
   #   erb :bookmarks

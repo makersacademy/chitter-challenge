@@ -1,7 +1,6 @@
 require 'pg'
 require 'Date'
 
-
 class Message
 
   def self.all
@@ -19,6 +18,17 @@ class Message
 
   def date
     Date.new
+  end
+
+  def self.add(peep, tag)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_db_test')
+    else
+      connection = PG.connect(dbname: 'chitter_db')
+    end
+
+    connection.exec("INSERT INTO messages (peep, tag) VALUES ('#{peep}', '#{tag}');")
+
   end
 
 end

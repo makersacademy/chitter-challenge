@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Chitter</title>
+  <title>Chitter Posts</title>
 </head>
   <body style="text-align: center; font-size:40px">
     <hr width="50%"></hr>
@@ -8,7 +8,7 @@
     <hr width="50%"></hr>
     <div style="margin-right: 215px; margin-left: 215px">
     <ul>
-    <% @messages.each do |message| %>
+    <% @messages.reverse_each do |message| %>
       <li><%= message[:peep] %> <%= message[:date] %> <%= message[:tag] %> </a></li>
     <% end %>
     </ul>
