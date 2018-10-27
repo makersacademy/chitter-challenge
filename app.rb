@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/write_peep' do
+  get '/peep/new' do
     erb :write_peep
   end
 
