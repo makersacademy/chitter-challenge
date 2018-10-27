@@ -19,7 +19,7 @@ albob123 (Alice Bobson) posted
 
 <% if @user %>
   <form action='/peeps' method='post'>
-    <input id='peep_entry' type='text' name='peep' placeholder='Peep away!'>
+    <input id='peep_entry' type='text' name='peep' placeholder='Peep away, <%= @user.username %>!'>
     <button type='submit'>Peep</button>
   </form>
 <% end %>

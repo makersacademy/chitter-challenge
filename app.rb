@@ -2,6 +2,7 @@ require './database_setup.rb'
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peep'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -12,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps, @user = Peep.all, User.all.first
+    @peeps, @user = Peep.all, User.all.last
     if @peeps.empty?
       flash.now[:message] = 'No peeps posted yet!'
     end

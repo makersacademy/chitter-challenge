@@ -1,5 +1,5 @@
 feature 'signing up to chitter' do
-  scenario 'should fields for email, password, name, and username' do
+  scenario 'should have fields for email, password, name, and username' do
     visit '/'
     click_button 'Sign up'
     expect(page).to have_css("input[type='text'][placeholder='albob@gmail.com']")
@@ -15,7 +15,7 @@ feature 'signing up to chitter' do
   end
 
   scenario 'should be able to see peep entry field if signed up' do
-    peep_entry_field = "input[type='text'][placeholder='Peep away!']"
+    peep_entry_field = "input[type='text'][placeholder='Peep away, albob123!']"
     visit '/'
     click_button 'View all peeps'
     expect(page).not_to have_css(peep_entry_field)
