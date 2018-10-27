@@ -1,7 +1,8 @@
 <%= erb :base %>
 <% if @user != nil %>
   <div class="container">
-  <form action="/chitter/save_new" method="post">
+  <%# <form action="/chitter/save_new" method="post"> %>
+  <form action="/chitter" method="post">
     <div class="form-group">
       <label for="exampleInputContent">Enter Post</label>
       <input type="content" name="content" class="form-control" id="exampleInputContent" aria-describedby="emailHelp" placeholder="Enter post">

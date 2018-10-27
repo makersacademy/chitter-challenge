@@ -19,38 +19,38 @@ class ChitterApp < Sinatra::Base
     @user = User.find(session[:user_id]) if session[:user_id] != nil
     erb(:new)
   end
-# I am not sure whether this routing is right; could be post '/chitter'
-  post '/chitter/save_new' do
+
+  post '/chitter' do
     @user = Chitter.create(session[:user_id], params[:content])
     redirect('/chitter')
   end
 
-  get '/chitter/signup' do
+  get '/chitter/users/new' do
     erb(:signup)
   end
-# I am not sure whether this routing is right; could be post '/users'
-  post '/chitter/save_new_user' do
+
+  post '/chitter/users' do
     user = User.create(params[:first_name], params[:last_name], params[:email], params[:username], params[:password])
     session[:user_id] = user.user_id
     redirect('/chitter')
   end
 
-  get '/chitter/login' do
+  get '/chitter/sessions/new' do
     erb(:login)
   end
 
-  post '/chitter/users' do
+  post '/chitter/sessions' do
     @user = User.authenticate(params[:username], params[:password])
     if @user
       session[:user_id] = @user.user_id
       redirect('/chitter')
     else
-      redirect('/chitter/login')
+      redirect('/chitter/sessions/new')
     end
   end
 
-  get '/chitter/logout' do
-    session[:user_id] = nil
+  get '/chitter/sessions/logout' do
+    session.clear
     redirect('/chitter')
   end
 
