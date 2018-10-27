@@ -3,7 +3,7 @@ require 'user'
 describe User do
   let(:peep) { double(:peep, user_id: '1') }
 
-  describe '::all' do
+  describe '.all' do
     it 'should return users' do
       add_users_to_test_database
       user = described_class.all.first
@@ -16,7 +16,7 @@ describe User do
     end
   end
 
-  describe '::create' do
+  describe '.create' do
     it 'should be able to insert a user into the database' do
       result = described_class.create(
         'test@gmail.com', 'testpassword', 'Test User', 'usertest'
@@ -29,7 +29,7 @@ describe User do
     end
   end
 
-  describe '::find' do
+  describe '.find' do
     it "should return the correct user given a peep's user id" do
       add_users_to_test_database
       user = described_class.all.first

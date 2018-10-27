@@ -8,7 +8,7 @@ describe Peep do
     add_peeps_to_test_database
   end
 
-  describe '::all' do
+  describe '.all' do
     it 'should return peeps' do
       peep = described_class.all.first
       expect(peep).to be_a Peep
@@ -19,7 +19,7 @@ describe Peep do
     end
   end
 
-  describe '::create' do
+  describe '.create' do
     it 'should enter a peep into the database' do
       result = described_class.create('My fourth peep', '2').first
       expect(result['id']).to eq '4'
