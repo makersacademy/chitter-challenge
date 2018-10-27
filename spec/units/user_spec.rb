@@ -37,5 +37,15 @@ describe User do
       expect(user.username).to eq '@blue'
       expect(user.email).to eq 'gary@pallet.com'
     end
+
+    it "encrypts the password" do
+      expect(BCrypt::Password).to receive(:create).with('eevee123')
+
+      user = User.create(name: 'Gary Oak',
+        username: '@blue',
+        email: 'gary@pallet.com',
+        password:'eevee123'
+      )
+    end
   end
 end
