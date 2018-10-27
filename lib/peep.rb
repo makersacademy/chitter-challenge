@@ -11,7 +11,7 @@ class Peep
   end
 
   def self.view_all_peeps
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY created_at DESC")
     result.map do |peep|
       Peep.new(id: peep['id'],
         message: peep['message'],

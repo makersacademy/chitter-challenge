@@ -13,10 +13,13 @@ describe Peep do
       peeps = Peep.view_all_peeps
 
       expect(peeps.length).to eq 3
-      expect(peeps.first).to be_a Peep
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.message).to eq 'This is a peep'
-      expect(peeps.first.created_at).to eq peep.created_at
+      expect(peeps.last).to be_a Peep
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.message).to eq 'This is a peep'
+      expect(peeps.last.created_at).to eq peep.created_at
+      expect(peeps[0].created_at > peeps[1].created_at).to eq true
+      expect(peeps[1].created_at > peeps[2].created_at).to eq true
+
     end
   end
 
@@ -42,7 +45,7 @@ describe Peep do
 
   describe '#formatted_peep_time' do
     it 'converts peep_time into user friendly time format' do
-      peep = Peep.new(id: 9999, message: "Hello world", created_at: '2018-10-27 17:29:45.446675+01', peep_time: Time.new(2018,10,27,17,29,45,'+01:00'))
+      peep = Peep.new(id: 9999, message: "Hello world", created_at: '2018-10-27 17:29:45.446675+01', peep_time: Time.new(2018, 10, 27, 17, 29, 45, '+01:00'))
 
       expect(peep.formatted_peep_time).to eq '05:29PM 27/10/2018'
 
