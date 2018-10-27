@@ -36,11 +36,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    session[:id] = User.create(
+    valid_user = User.create(
       email: params[:email], password: params[:password],
       name: params[:name], username: params[:username]
-    ).first['id']
-    if session[:id]
+    )
+    if valid_user
+      session[:id] = valid_user.first['id']
       redirect "/peeps/#{session[:id]}"
     else
       flash.next[:warning] = 'Please fill in all fields.'
