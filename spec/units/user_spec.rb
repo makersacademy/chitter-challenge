@@ -53,7 +53,13 @@ describe User do
     it "returns true if user is already in db" do
       add_user_to_db
       expect(User.username_in_db?('@red')).to eq true
+    end
+  end
 
+  describe '.email_in_db?' do
+    it "returns true if email is already in db" do
+      add_user_to_db
+      expect(User.email_in_db?('ash@pallet.com')).to eq true
     end
   end
 end
