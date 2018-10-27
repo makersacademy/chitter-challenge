@@ -18,6 +18,7 @@ class Message
 
   def date
     Date.new
+    # Added for date instance checking possibly obsolete, will review.
   end
 
   def self.add(peep, tag)

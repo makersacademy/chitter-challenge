@@ -35,3 +35,16 @@ feature 'Adding Posts' do
     expect(page).to have_content('Saturday morning I worked on my Friday challenge!', '@Br0ckers')
   end
 end
+
+feature 'Registering a new User' do
+  scenario 'An individual can register themselves' do
+    connection = PG.connect(dbname: 'chitter_db_test')
+
+    visit('/')
+    click_link('Sign up')
+    fill_in('NAME', :with => 'Neil')
+    fill_in('TAG', :with => 'Br0ckers')
+    click_button('Add User')
+    expect(page).to have_content('Neil', 'Br0ckers', "Is now registered")
+  end
+end
