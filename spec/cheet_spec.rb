@@ -23,7 +23,7 @@ describe Cheet do
       expect(cheets.first.user).to eq('User1')
     end
   end
-  context 'creating tweets' do
+  context 'creating cheets' do
     it 'adds a cheet to the db' do
       Cheet.create("Another cheet", 'Alfie')
       cheets = Cheet.all

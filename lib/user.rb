@@ -26,7 +26,7 @@ class User
 
   def self.login(user, pass)
     rs = Database.query("SELECT * FROM auth WHERE username = '#{user}'")
-    return "fail" if rs.ntuples == 0
+    return "fail" if rs.ntuples.zero?
     return "fail" if check_login_password(pass, rs[0]['password']) == false
     find_by_username(user)
   end
@@ -42,7 +42,7 @@ class User
     p 'user registered'
   end
 
-  private
+  private_class_method
 
   def self.check_login_password(entered_pass, stored_pass)
     entered_pass == stored_pass

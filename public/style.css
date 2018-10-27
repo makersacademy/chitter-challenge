@@ -3,6 +3,11 @@ body {
   font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
 }
 
+a, a:link, a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .new_cheet {
   margin: auto;
 }

@@ -1,0 +1,30 @@
+<html>
+
+<head>
+  <title> Chitter </title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<h1 style="text-align: center;"><a href="/"> Cheet </a></h1>
+
+<div class=messages>
+
+  <div class=new_cheet >
+    <form action="/new-cheet" method="post">
+      <input type="text" name="cheet" placeholder="Cheet">
+      <input type="submit" value="Submit" >
+    </form>
+  </div>
+
+  <ul class=cheet_block>
+    <% @cheets.each do |cheet| %>
+    <li>
+      <ul>
+        <li><a href="/cheets" id="<%= cheet.id %>"> <%= cheet.cheet %> </a></li>
+        <li><sub>  <%= cheet.user %> @ <%= cheet.timestamp[0...-7] %></sub></li>
+      </ul>
+    </li>
+    <% end %>
+  <ul>
+</div>

@@ -64,5 +64,5 @@ class Chitter < Sinatra::Base
       redirect '/profile'
     end
   end
-
+  
 end
