@@ -1,17 +1,20 @@
-## Chitter ##
+# Chitter #
 
 This is a Ruby twitter app using Sinatra and a Postgres database. Users can 'cheet' anonymously, or register and sign in/out. Cheets are stored in a postgres database, as are users.
 
-# Setup #
+'peep' and 'cheet' is used interchangably in this README!
 
--  Clone this repo
-- Run ``` bundle ``` in the root folder
+## Setup ##
+
+- Clone this repo
 - Download Postgresql ``` brew install Postgres ```
-- Setup Postgres databases using queries in db/migrations folder or download Table Plus to simplify your life.
+- Run ``` bundle ``` in the root folder
+- Setup Postgres database using queries in db/migrations folder or download Table Plus to simplify your life.
+- Setup test database using the same queries; name it chitter_database_test
 - Run the server ``` rackup ```
 - Open ``` localhost:9292 ```
 
-# User Stories #
+### User Stories ###
 
 ```
 As a Maker

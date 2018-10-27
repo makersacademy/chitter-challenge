@@ -1,0 +1,1 @@
+CREATE TABLE auth(id SERIAL PRIMARY KEY, username VARCHAR(30), password VARCHAR(128), email VARCHAR(30), name TEXT);
