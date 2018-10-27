@@ -3,6 +3,7 @@ require_relative 'database_connection'
 class User
   USERNAME_ALREADY_IN_USE = 'used username'
   EMAIL_ALREADY_IN_USE = 'used email'
+
   attr_reader :id, :name, :username, :email
   def initialize(id:, name:, username:, email:)
     @id = id
