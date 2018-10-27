@@ -1,9 +1,6 @@
 feature 'Posting peeps' do
   scenario 'user posts a peep' do
-    visit '/'
-    click_link 'Sign Up'
-    fill_in 'username', with: 'Mittens'
-    click_button 'Register'
+    sign_up
     fill_in 'peep_content', with: 'This is a test peep!'
     click_button 'Post'
     expect(page).to have_content 'This is a test peep!'
