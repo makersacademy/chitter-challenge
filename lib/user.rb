@@ -15,10 +15,11 @@ class User
   end
 
   def self.register(username:, password:)
-    result = DatabaseConnection.query("INSERT INTO users(username, password) VALUES
-    ('#{username}', '#{password}') RETURNING id, username, password;")
+    result = DatabaseConnection.query("INSERT INTO users(username, password)
+    VALUES ('#{username}', '#{password}') RETURNING id, username, password;")
     result.map do |user|
-      User.new(id: user['id'], username: user['username'], password: user['password'])
+      User.new(id: user['id'], username: user['username'],
+        password: user['password'])
     end[0]
   end
 
@@ -26,7 +27,8 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users WHERE username =
       '#{username}' AND password = '#{password}';")
     result.map do |user|
-      User.new(id: user['id'], username: user['username'], password: user['password'])
+      User.new(id: user['id'], username: user['username'],
+        password: user['password'])
     end[0]
   end
 end
