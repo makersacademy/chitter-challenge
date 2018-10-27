@@ -1,7 +1,13 @@
-<h1>Chitter</h1>
-<% @peeps.each do |peep| %>
-<li style='list-style-type: none;'>
-<%= peep.content %> <br> Peep was posted at: <%= peep.time %>
-</li>
-<br>
-<% end %>
+<head>
+  <link rel="stylesheet" type = "text/css" href="/stylesheet.css">
+</head>
+
+<body>
+  <h1>Chitter</h1>
+  <% @peeps.each do |peep| %>
+  <li style='list-style-type: none;'>
+  <%= peep.content %> <br> Peep was posted at: <%= peep.time %>
+  </li>
+  <br>
+  <% end %>
+</body>

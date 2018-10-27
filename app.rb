@@ -13,16 +13,21 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
-  post '/welcome' do
+  post '/index' do
     if User.exists?(params[:username], params[:email])
       flash[:sign_up] = "Sorry those details have already been registered, please try again"
       redirect '/'
     else
-      User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-      current_user = User.all.select { |user| user.name == params[:name] }.first
-      @name = current_user.name
-      erb :welcome
+      new_user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+      new_user = User.all.select { |user| user.username == params[:username]}.first
+      redirect "/welcome/#{new_user.username}"
     end
+  end
+
+  get '/welcome/:username' do
+    current_user = User.all.select { |user| user.username == params[:username]}.first
+    @name = current_user.name
+    erb :welcome
   end
 
   get '/post' do

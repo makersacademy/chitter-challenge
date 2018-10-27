@@ -1,0 +1,20 @@
+body {
+  background-color: #cae8a7;
+  font-family: helvetica;
+  margin: auto;
+  text-align: center;
+  position: fixed;
+  top: 25%;
+  left: 10%;
+  width: 80%;
+}
+
+textarea {
+  width: 25em;
+  height: 10em;
+  background-color: #eaede8;
+}
+
+#details {
+  background-color: #eaede8;
+}

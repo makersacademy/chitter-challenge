@@ -1,19 +1,25 @@
-<h1>Welcome to Chitter!</h1>
-<form action='/welcome' method='post'>
-  <p>Sign up to start peeping</p>
-  Name:<input name='name' type='text'></input>
-  Username:<input name='username' type='text'></input>
-  Email:<input name='email' type='text'></input>
-  Password:<input name='password' type='password'></input>
-  <input type='submit' value='Sign up'></input>
-</form>
-<form action="/chitter" method="get">
-  <p>If you just want to browse</p>
-  <input type="submit" value="View peeps">
-</form>
+<head>
+  <link rel="stylesheet" type = "text/css" href="/stylesheet.css">
+</head>
 
-<% flash.keys.each do |sign_up| %>
-  <div data-alert class="flash <%= sign_up %> alert-box radius">
-    <%= flash[sign_up] %>
-  </div>
-<% end %>
+<body>
+  <h1>Welcome to Chitter!</h1>
+  <form action='/index' method='post'>
+    <h3>Sign up to start peeping</h3>
+    Name:<input id='details' name='name' type='text'></input>
+    Username:<input id='details' name='username' type='text'></input>
+    Email:<input id='details' name='email' type='text'></input>
+    Password:<input id='details' name='password' type='password'></input>
+    <input type='submit' value='Sign up'></input>
+  </form>
+  <form action="/chitter" method="get">
+    <h3>Or if you just want to browse</h3>
+    <input type="submit" value="View peeps">
+  </form>
+
+  <% flash.keys.each do |sign_up| %>
+    <div data-alert class="flash <%= sign_up %> alert-box radius">
+      <%= flash[sign_up] %>
+    </div>
+  <% end %>
+</body>

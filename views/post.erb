@@ -1,14 +1,21 @@
-<h1>What would you like to say?</h1>
-<form action='/post' method='post'>
-  <textarea name='peep' type='text'></textarea>
-  <input type='submit' value='Peep'></input>
-</form>
-<form action="/chitter" method="get">
-  <input type="submit" value="View peeps">
-</form>
+<head>
+  <link rel="stylesheet" type = "text/css" href="/stylesheet.css">
+</head>
 
-<% flash.keys.each do |post| %>
-  <div data-alert class="flash <%= post %> alert-box radius">
-    <%= flash[post] %>
-  </div>
-<% end %>
+<body>
+  <h1>What would you like to say?</h1>
+  <form action='/post' method='post'>
+    <textarea name='peep' type='text'></textarea>
+    <br>
+    <input type='submit' value='Peep'></input>
+  </form>
+  <form action="/chitter" method="get">
+    <input type="submit" value="View peeps">
+  </form>
+
+  <% flash.keys.each do |post| %>
+    <div data-alert class="flash <%= post %> alert-box radius">
+      <%= flash[post] %>
+    </div>
+  <% end %>
+</body>

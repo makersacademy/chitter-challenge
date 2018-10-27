@@ -1,7 +1,14 @@
-<h1>Hi <%= @name %></h1>
-<form action="/chitter" method="get">
-  <input type="submit" value="View peeps">
-</form>
-<form action="/post" method="get">
-  <input type="submit" value="Post peep">
-</form>
+<head>
+  <link rel="stylesheet" type = "text/css" href="/stylesheet.css">
+</head>
+
+<body>
+  <h1>Hi <%= @name %>, welcome to Chitter!</h1>
+  <h3>What would you like to do?</h3>
+  <form action="/chitter" method="get">
+    <input type="submit" value="View peeps">
+  </form>
+  <form action="/post" method="get">
+    <input type="submit" value="Post peep">
+  </form>
+</body>
