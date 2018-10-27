@@ -1,5 +1,7 @@
+<h1>Timeline</h1>
 <ul>
 <% @peeps.reverse_each do |peep| %>
-    <li><%= peep %></li>
-  <% end %>
+<ol>
+    <%= peep.message %>
+</ol>  <% end %>
 </ul>
