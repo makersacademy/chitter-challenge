@@ -10,10 +10,6 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   helpers ChitterHelpers
 
-  before do
-    current_user
-  end
-
   get '/' do
     erb :index
   end
@@ -26,6 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:id' do
+    current_user
     if current_peeps.empty?
       flash.now[:message] = 'No peeps posted yet!'
     end
@@ -51,13 +48,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/session/new' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
+    if user = User.authenticate(params[:email], params[:password])
       session[:id] = user.id
       redirect "/peeps/#{session[:id]}"
     else
-      flash.next[:warning] = 'Your email or password is incorrect. Please ' \
-        'try again.'
+      flash.next[:warning] = 'Your email or password is incorrect.'
       redirect '/'
     end
   end

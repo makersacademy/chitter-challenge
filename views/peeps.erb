@@ -1,25 +1,7 @@
 <%= erb :'partials/header' %>
 
-<% if @current_user %>
-  <h2>Hello <%= @current_user.username %></h2>
-<% else %>
-  <h2>Hello guest</h2>
-<% end %>
+<h2>Hello guest</h2>
 
-<%= flash[:message] %>
-<% @current_peeps.reverse_each do |peep| %>
-  <article class='peep'>
-    <h3><%= peep.user.name %> (<%= peep.user.username %>) posted at </h3><h3><%= peep.time %><h3>
-      <article class='peep_body'>
-        <p><%= peep.text %></p>
-      </article>
-  </article>
-<% end %>
+<%= erb :'partials/all_peeps' %>
 
-<% if @current_user %>
-  <form action='/peeps/<%= @current_user.id %>/new' method='post'>
-    <input id='peep_entry' type='text' name='peep' placeholder='Peep away, <%= @current_user.username %>!'>
-    <button type='submit' name='id' value='<%= @current_user.id %>'>Peep</button>
-  </form>
-<% end %>
 <%= flash[:warning] %>

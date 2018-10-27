@@ -19,7 +19,7 @@ feature 'logging in' do
   end
 
   scenario 'displays a warning message if email is incorrect' do
-    warning = 'Your email or password is incorrect. Please try again.'
+    warning = 'Your email or password is incorrect.'
     fill_in :email, with: '123albob@gmail.com'
     fill_in :password, with: 'password123'
     click_button 'Log in'
@@ -28,7 +28,7 @@ feature 'logging in' do
   end
 
   scenario 'displays a warning message if email is incorrect' do
-    warning = 'Your email or password is incorrect. Please try again.'
+    warning = 'Your email or password is incorrect.'
     fill_in :email, with: 'albob123@gmail.com'
     fill_in :password, with: '321password'
     click_button 'Log in'
