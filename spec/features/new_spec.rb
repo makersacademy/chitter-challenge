@@ -1,14 +1,14 @@
 require_relative './web_helpers'
 
-feature 'Add New Post,' do
-  scenario 'user signs up and enters a new post' do
+feature 'Add New Post' do
+  scenario 'user can sign up and enter a new post' do
     visit('/chitter')
     sign_up
     add_new_post
     expect(page).to have_content("First post by Amy")
   end
 
-  scenario 'user logs in and enter a new post' do
+  scenario 'user can log in and enter a new post' do
     visit('/chitter')
     sign_up
     log_out

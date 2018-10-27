@@ -1,16 +1,29 @@
 <%= erb :base %>
-
-<% if @user != nil %>
-<h3>Welcome, <%= @user.first_name %></h3>
-<% end %>
-<% if @peeps != nil %>
-  <% @peeps.each do |peep| %>
-  <div class="card" style="width: 18rem; margin: 10px; background: LightGrey;">
-    <div class="card-body">
-      <h5 class="card-title"><%= User.find(peep.user_id).username %></h5>
-      <p class="card-text"><%= peep.content %>
-      <small>(<%= peep.time %>)</small></p>
+<body class="bg-light">
+  <main role="main" class="container">
+    <% if @user != nil %>
+    <h3 class="mx-auto m-3" style="width: 200px; color: DarkSlateBlue;">Welcome, <%= @user.first_name %>!</h3>
+    <% end %>
+    <div class="d-flex align-items-center p-3 my-3 text-white-50 rounded shadow-sm" style="background-color:DarkSlateBlue">
+        <img class="mr-3" src=/images/megaphone_white.png alt="" width="48" height="48">
+        <div class="lh-100">
+          <h6 class="mb-0 text-white lh-100">Chitter</h6>
+          Talk to fellow Makers!
+        </div>
     </div>
-  </div>
-  <% end %>
-<% end %>
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-grey pb-2 mb-0">Recent Updates</h6>
+    <% if @peeps != nil %>
+      <% @peeps.each do |peep| %>
+      <div class="media text-muted pt-3">
+        <img alt="40x40" class="mr-2 rounded" style="width: 40px; height: 40px;" src="/images/megaphone.png" data-holder-rendered="true">
+        <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark"><%= User.find(peep.user_id).username %>:</strong>
+          <%= peep.content %>
+          <small>(<%= peep.time %>)</small>
+        </p>
+      </div>
+      <% end %>
+    <% end %>
+  </main>
+</body>

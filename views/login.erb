@@ -1,23 +1,20 @@
 <%= erb :base %>
-
-<div class="container">
-<form action="/chitter/sessions" method="post">
-  <div class="form-group">
-    <label for="exampleInputUsername">Username</label>
-    <input type="username" name="username" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Enter username">
+<body class="bg-light">
+  <div class="mx-auto" style="width: 400px;">
+    <form class="form-signin" action="/chitter/sessions" method="post">
+      <div class="py-5 text-center">
+        <img class="mb-4" src="/images/megaphone_icon.png" alt="" width="72" height="72">
+        <h2>Log In to Chitter</h2>
+      </div>
+      <div class="form-label-group">
+        <label for="exampleInputUsername">Username</label>
+        <input type="username" name="username" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Enter username">
+      </div>
+      <div class="form-label-group">
+        <label for="exampleInputPassword">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword" aria-describedby="emailHelp" placeholder="Enter password">
+      </div>
+      <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Submit</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword">Password</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword" aria-describedby="emailHelp" placeholder="Enter password">
-  </div>
-  <%# <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div> %>
-  <%# <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div> %>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
+</body>
