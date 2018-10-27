@@ -1,8 +1,17 @@
-## My Approach ##
+## Chitter ##
 
+This is a Ruby twitter app using Sinatra and a Postgres database. Users can 'cheet' anonymously, or register and sign in/out. Cheets are stored in a postgres database, as are users.
 
+# Setup #
 
-User Stories
+-  Clone this repo
+- Run ``` bundle ``` in the root folder
+- Download Postgresql ``` brew install Postgres ```
+- Setup Postgres databases using queries in db/migrations folder or download Table Plus to simplify your life.
+- Run the server ``` rackup ```
+- Open ``` localhost:9292 ```
+
+# User Stories #
 
 ```
 As a Maker
@@ -20,4 +29,12 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
 ```
