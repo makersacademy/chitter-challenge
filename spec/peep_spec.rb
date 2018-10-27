@@ -10,4 +10,11 @@ describe Peep do
       expect(peeps).to include('Knock knock')
     end
   end
-end
+
+  describe '.create' do
+      it 'creates a new text' do
+        Peep.create(text: 'Hello world')
+        expect(Peep.all).to include 'Hello world'
+      end
+    end
+ end
