@@ -8,8 +8,8 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT * FROM chitter;")
-    result.map { |row| row['peeps'] }
+    result = connection.exec("SELECT * FROM peeps;")
+    result.map { |row| row['peep'] }
   end
 
   def self.create(text:)
@@ -19,7 +19,8 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    connection.exec("INSERT INTO chitter (peeps) VALUES('#{text}')")
+    connection.exec("INSERT INTO peeps (peep) VALUES('#{text}')")
+
   end
 
 end

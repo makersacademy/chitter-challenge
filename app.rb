@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/peep'
 
-
 class Chitter < Sinatra::Base
 
 get '/' do
@@ -18,9 +17,7 @@ get '/peeps/new' do
 end
 
 post '/peeps' do
-  peeps = params['text']
-  connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("INSERT INTO chitter (peeps) VALUES('#{text}')")
+  Peep.create(text: params['text'])
   redirect '/peeps'
 end
 
