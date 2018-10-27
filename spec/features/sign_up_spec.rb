@@ -20,4 +20,8 @@ feature "Sign up" do
     expect(page).to have_field("Password")
   end
 
+  scenario "I see a sign up button I can click on" do
+    visit('/sign_up')
+    expect(page).to have_button("Sign Up")
+  end
 end
