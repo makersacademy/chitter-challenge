@@ -13,6 +13,12 @@ describe Peep do
       expect(peep.id).to eq persisted_data['id']
       expect(peep.text).to eq 'My peep message'
     end
+
+    it 'calls .timestamp for time' do
+      user = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
+      expect(Peep).to receive(:timestamp)
+      peep = Peep.create(text: 'My peep message', user_id: "#{user.id}")
+    end
   end
 
   describe '.all' do
@@ -25,6 +31,13 @@ describe Peep do
       expect(peeps.length).to eq 2
       expect(peeps.first.text).to eq peep1.text
       expect(peeps.first.id).to eq peep1.id
+    end
+  end
+
+  describe '.timestamp' do
+    it 'creates a timestamp from a current time' do
+      timestamp = Peep.timestamp
+      expect(timestamp).to eq "#{Time.new.strftime("%H:%M")}"
     end
   end
 end

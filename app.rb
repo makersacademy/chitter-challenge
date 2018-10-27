@@ -14,7 +14,6 @@ class Chitter < Sinatra::Base
       @user = User.find(column: 'username', value: session[:username])
     end
     @peeps = Peep.all
-    p @peeps
     erb :index
   end
 
