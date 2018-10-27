@@ -10,6 +10,7 @@ class User
 
   def self.sign_up(name, email, username, password)
     self.connection.exec("INSERT INTO users (name, email, username, password) VALUES ('#{name}', '#{email}', '#{username}', '#{password}')")
+    self.log_in(username, password)
   end
 
   def self.log_in(username, password)
