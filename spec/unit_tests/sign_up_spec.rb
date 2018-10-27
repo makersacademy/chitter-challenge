@@ -23,4 +23,16 @@ describe 'Sign Up' do
     expect(result[0]["password"]).to eq 'a password'
   end
 
+  it 'fails to create a user with duplicate username' do
+    User.sign_up('a name', 'an email', 'a username', 'a password')
+
+    expect { User.sign_up('another name', 'another email', 'a username', 'another password') }.to raise_error
+  end
+
+  it 'fails to create a user with duplicate email' do
+    User.sign_up('a name', 'an email', 'a username', 'a password')
+
+    expect { User.sign_up('another name', 'an email', 'another username', 'another password') }.to raise_error
+  end
+
 end
