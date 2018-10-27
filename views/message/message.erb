@@ -1,18 +1,34 @@
 <div style = "background: green" "outline: 4px solid red" "outline-offset: 15px">
   <h1>This is Chitter, the poor cousin of Twitter</h1>
-  <%if flash[:personalgreeting]%>
-   <h2><%=flash[:personalgreeting]%><h2><h5><a href="/user/logout">Logout</a><h5>
+  <%if session[:username]%>
+   <h2>Welcome, <%=session[:username]%><h2><h5><a href="/user/logout">Logout</a><h5>
   <%end%>
-   <hr>
-
+  <hr>
   <% if @messages %>
     <h2>Here are the messages:</h2>
     <table style="width:100%">
-      <tr><th>Index</th><th>Peep</th> <th>Sender</th><th>Sent at</th><th></th><th></th></tr>
+      <tr><th>Index</th><th>Peep</th> <th>Sender</th><th>Sent at</th><th></th><th></th><th></th></tr>
       <%@messages.each_with_index do |message, index| %>
-      <form method="post" action="/message/reply/<%= message.id %>" >
-        <tr><td><%=index+1%>.</td><td><%= message.text%></td> <td><%=message.sender%></td><td><%= message.sent_time%></td>
-        <%if session[:userid]!=nil%><td><input type="text" name="replytext" size="20" value ="your reply"></td><td><input type="submit" value="reply" name="reply"></td><%params[:original] = message.id%><%end%></tr>
+        <tr>
+          <!-- <li class="messages" id="<%=message.id%>"> -->
+          <td><%=index+1%>.</td>
+          <td><%= message.text%></td>
+          <td><%=message.sender%></td>
+          <td><%= message.sent_time%></td>
+          <%if session[:userid]!=nil%>
+            <td><form method="get" action="/message/<%=message.id%>/reply">
+              <input type="submit" value="reply" name="reply">
+              </form></td>
+            <td><form method="get" action="/message/<%=message.id%>/update">
+                <input type="submit" value="update" name="update">
+              </form></td>
+            <td><form action="/message/<%= message.id %>" method="post">
+                <input type='hidden' name='_method' value='delete'/>
+                <input type="submit" value="delete" name="delete"/>
+              </form></td>
+          <%end%>
+        <!-- </li> -->
+      </tr>
       </form>
       <%end%>
     </table>
@@ -37,7 +53,6 @@
   </form>
 </div>
 <div style = "background: red">
-<br>
 </h2><% if flash[:usernotice]%>
   <%= flash[:usernotice]%>
   <%end%>
@@ -45,6 +60,5 @@
 <%if flash[:messagenotice]%>
   <%= flash[:messagenotice]%>
   <%end%>
-<br>
 <br>
 </div>

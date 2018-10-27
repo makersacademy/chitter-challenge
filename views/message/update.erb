@@ -1,0 +1,6 @@
+<form action="/message/<%= @message.id%>" method="post">
+<h1>  Updating message: <%= @message.id%> <br></h1>
+  <input type="hidden" name="_method" value="PATCH" />
+  <input type="text" name="updatetext" value= "<%= @message.text%>" size="100"/>
+  <input type="submit" value="update" name="update"/>
+</form>

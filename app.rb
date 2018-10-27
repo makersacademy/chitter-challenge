@@ -8,32 +8,44 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
 
-  get "/" do
+  get "/message" do
     @messages = Message.all
-    if !(@messages.is_a? Array)
-      flash[:messagenotice] = "No messages to display"
-      @messages = nil
-    end
-    flash[:personalgreeting] = "Welcome, #{session[:username]}" if session[:username]
+    @messages = nil if !(@messages.is_a? Array)
     erb :"message/message"
   end
 
   post "/message/new" do
     @message = Message.create(text: params[:message], sender: session[:userid])
     flash[:messagenotice] = "New message created"
-    redirect "/"
+    redirect "/message"
   end
 
-  post "/message/update/:id" do
-    @message = Message.update(text: params[:message], sender: session[:userid])
+  delete '/message/:id' do
+    Message.delete(id: params[:id])
+    flash[:messagenotice] = "Message deleted"
+    redirect '/message'
+  end
+
+  patch "/message/:id" do
+    @message = Message.update(text: params[:updatetext], sender: session[:userid],id: params[:id])
     flash[:messagenotice] = "Message updated"
-    redirect "/"
+    redirect "/message"
   end
 
-  post "/message/reply/:id" do
-    @message = Message.reply(text: params[:replytext], sender: session[:userid], original: params[:original])
+  post "/message/:id/reply" do
+    @message = Message.reply(text: params[:replytext], sender: session[:userid], response_to: params[:id])
     flash[:messagenotice] = "Message replied to"
-    redirect "/"
+    redirect "/message"
+  end
+
+  get "/message/:id/reply" do
+    @message = Message.find(id: params[:id])
+    erb :"message/reply"
+  end
+
+  get "/message/:id/update" do
+    @message = Message.find(id: params[:id])
+    erb :"message/update"
   end
 
   get "/user" do
@@ -43,16 +55,15 @@ class Chitter < Sinatra::Base
   get "/user/logout" do
     session.clear
     flash[:usernotice] = "Logout successful"
-    redirect "/"
+    redirect "/message"
   end
 
   post "/user" do
-    p "now verify this user"
     user = User.login(name: params[:name],password: params[:password])
     if user.is_a?(User)
       session[:username] = user.name
       session[:userid] = user.id
-      redirect "/"
+      redirect "/message"
     else
       flash[:usernotice] = user
       redirect "/user"
@@ -64,11 +75,10 @@ class Chitter < Sinatra::Base
   end
 
   post "/user/new" do
-    p "now create"
     user = User.create(name: params[:name],password: params[:password1],email: params[:email],receive_email: params[:receive_email])
     if user.is_a?(User)
       flash[:usernotice] = "New user created! Welcome, #{user.name}. Login now to start chittering"
-      redirect "/"
+      redirect "/message"
     else
       flash[:usernotice] = message
       redirect "/user/new"
@@ -80,7 +90,6 @@ class Chitter < Sinatra::Base
   end
 
   post "/user/forgot" do
-    p "now forgot"
     message = User.send_password_email(name: params[:name],email: params[:email])
     flash[:usernotice] = message
     redirect "/user" if  message == "Email sent"

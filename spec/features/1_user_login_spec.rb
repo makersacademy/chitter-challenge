@@ -1,12 +1,10 @@
 require "user"
+require "./spec/features/0_web_helper.rb"
 
 feature 'Feature: Login' do
   scenario 'a valid user can log in with correct password' do
-    User.create(name: "Elvis", email: 'test@example.com', password: 'password', receive_email: 'y')
-    visit '/user'
-    fill_in :name, with: 'Elvis'
-    fill_in :password, with: 'password'
-    click_button('submit')
+    sign_in
+    expect(current_path).to eq '/message'
     expect(page).to have_content 'Welcome, Elvis'
   end
 
@@ -16,6 +14,7 @@ feature 'Feature: Login' do
     fill_in :name, with: 'Elvis2'
     fill_in :password, with: 'password123'
     click_button('submit')
+    expect(current_path).to eq '/user'
     expect(page).to have_content 'Incorrect password'
   end
 
@@ -25,6 +24,7 @@ feature 'Feature: Login' do
     fill_in :name, with: 'user'
     fill_in :password, with: 'password'
     click_button('submit')
+    expect(current_path).to eq '/user'
     expect(page).to have_content 'No such user'
   end
 

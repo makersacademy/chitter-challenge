@@ -1,0 +1,6 @@
+<form action="/message/<%=@message.id%>/reply" method="post">
+  <h1>  Original message was:  <br></h1>
+   <h3><%= @message.text %></h3>
+  <input type="text" name="replytext" value="some reply"size="100"/>
+  <input type="submit" value="reply" name="reply"/>
+</form>
