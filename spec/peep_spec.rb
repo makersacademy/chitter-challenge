@@ -16,3 +16,10 @@ describe Peep do
     end
   end
 end
+
+#describe '.add' do
+#  it 'adds a new peep' do
+#    Peep.add(text: 'Test Peep')
+#    expect(Peep.all).to include 'Test Peep'
+#  end
+#end
