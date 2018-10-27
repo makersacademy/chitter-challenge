@@ -20,9 +20,9 @@ class User
   end
 
   def self.find(id = nil)
-    return nil if id == nil
+    return nil unless id
     user = DatabaseManager.query("SELECT * FROM users WHERE " \
-      "id = #{id}").first
+      "id = '#{id}'").first
     create_user_instance(user)
   end
 
@@ -31,6 +31,12 @@ class User
       id: user['id'], email: user['email'], password: user['password'],
       name: user['name'], username: user['username']
     )
+  end
+
+  def self.authenticate(email, password)
+    user = DatabaseManager.query("SELECT * FROM users WHERE " \
+      "email = '#{email}'").first
+    create_user_instance(user)
   end
 
   def initialize(id:, email:, password:, name:, username:)
