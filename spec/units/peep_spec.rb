@@ -2,7 +2,12 @@ require 'peep'
 
 describe Peep do
   describe '#initialisation' do
-    subject { described_class.new(id: '1', text: 'Peep 1', time: '12:34:56') }
+    subject {
+      described_class.new(id: '1',
+        text: 'Peep 1',
+        time: '12:34:56',
+        date: '27/10/2018')
+    }
     it "has an id" do
       expect(subject.id).to eq '1'
     end
@@ -13,6 +18,10 @@ describe Peep do
 
     it "has a time" do
       expect(subject.time).to eq '12:34:56'
+    end
+
+    it "has a date" do
+      expect(subject.date).to eq '27/10/2018'
     end
 
     it "has a username" do
