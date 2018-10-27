@@ -6,10 +6,10 @@
   <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
-<h1 style="text-align: center;"> Chitterfeed </h1>
+<h1 style="text-align: center;"><a href="/" style="text-decoration:none;color:black;"> Chitterfeed</a></h1>
 
 <% unless @current_user.nil? %>
-  <h2 style="text-align: center;"> Logged in as <%= @current_user.name %></h1>
+  <aside style="text-align: center;"> Welcome, <%= @current_user.name %>!</aside>
 <% end %>
 
 <div class ="logging_in">

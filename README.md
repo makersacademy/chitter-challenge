@@ -1,13 +1,5 @@
 ## My Approach ##
 
-These are the following User Stories used to build my Chitter App.
-
-- I will have a database for Chitter
-- A table "auth" for Authentication
-- a table of cheets
-- a table for each comment thread, linked to cheets by id
-- a timestamp for each cheet CHECK
-
 
 
 User Stories
@@ -29,9 +21,3 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
-
-Classes:
-
-- Message
-- Authentication
-- Database

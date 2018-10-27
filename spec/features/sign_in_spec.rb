@@ -2,12 +2,12 @@
 feature 'As a user:' do
   scenario 'I can create an account' do
     create_account('jones')
-    expect(page).to have_content "Logged in as John"
+    expect(page).to have_content "Welcome, John"
   end
   scenario 'I can log out' do
     create_account('james')
     click_button 'Logout'
-    expect(page).not_to have_content "Logged in as John"
+    expect(page).not_to have_content "Welcome, John"
   end
   scenario 'I can log in' do
     create_account('Jimmy', 'Jimmy')
@@ -15,7 +15,7 @@ feature 'As a user:' do
     fill_in('Username', with: 'Jimmy')
     fill_in('Password', with: 'password')
     click_button 'Log In'
-    expect(page).to have_content "Logged in as Jimmy"
+    expect(page).to have_content "Welcome, Jimmy"
   end
 end
 feature "Logging in:" do

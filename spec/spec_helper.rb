@@ -12,16 +12,15 @@ require 'features/web_helpers'
 require 'simplecov'
 require 'simplecov-console'
 
-RSpec.configure do |config|
-  config.before(:each) do
-    # setup_test_database
-  end
-end
-
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = Chitter
 
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+ SimpleCov::Formatter::Console,
+ SimpleCov::Formatter::HTMLFormatter
+])
 SimpleCov.start
+
 
 RSpec.configure do |config|
   config.before(:each) do

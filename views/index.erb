@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
-<h1 style="text-align: center;"> Chitterfeed </h1>
+<h1 style="text-align: center;"><a href="/" style="text-decoration:none; color:black;"> Chitterfeed</a></h1>
 
 <% unless @current_user.nil? %>
   <h2 style="text-align: center;"> Logged in as <%= @current_user.name %></h1>
@@ -15,7 +15,7 @@
 <div class ="logging_in">
   <form class="login" action="/login"  method="post">
     <li><input type="text" name="Username" placeholder="Username"></li>
-    <li><input type="text" name="Password" placeholder="Password"></li>
+    <li><input type="password" name="Password" placeholder="Password"></li>
     <li><input type="submit" name="Log In" Value="Log In"></li>
   </form>
   <form class="register" action="/register"  method="get">
