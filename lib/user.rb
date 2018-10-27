@@ -20,8 +20,14 @@ class User
   #     password: record["password"],
   #     email: record["email"]} }
   # end
+  @signup_error = nil
 
   def self.create(firstname, lastname, username, password, email)
+    # p validate_signup(username, email).empty?
+     # if email_in_use(email).nil?
+       if validate_signup(username, email).empty?
+    # if @signup_error.nil?
+
     sql = %{INSERT INTO users (firstname, lastname, username, password, email)
       VALUES ('#{firstname}', '#{lastname}', '#{username}', '#{password}',
       '#{email}') RETURNING id, firstname, lastname, username, password, email;}
@@ -32,6 +38,9 @@ class User
       username: record[0]['username'],
       password: record[0]['password'],
       email: record[0]['email'] })
+    else
+      return validate_signup(username, email).join("\n")
+    end
   end
 
   def self.find(id)
@@ -64,7 +73,31 @@ class User
       email: record[0]['email'] })
   end
 
+def self.validate_signup(username, email)
+  validation = []
+  validation << email_in_use(email) unless email_in_use(email).nil?
+  validation << username_in_use(username) unless username_in_use(username).nil?
+  return validation
+  # p validation
+end
+
   attr_reader :id, :firstname, :lastname, :username, :password, :email
+
+  private_class_method
+
+  def self.email_in_use(email)
+    sql = %{SELECT * FROM users WHERE email = '#{email}';}
+    record = DatabaseConnection.query(sql)
+    return "There is already an account with this email address" if record.any?
+  end
+
+  def self.username_in_use(username)
+    sql = %{SELECT * FROM users WHERE username = '#{username}';}
+    record = DatabaseConnection.query(sql)
+    return "There is already an account with this username" if record.any?
+  end
+
+private
 
   def initialize(userdetails)
     @id = userdetails[:id]

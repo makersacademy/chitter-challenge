@@ -1,14 +1,16 @@
 require 'sinatra/base'
 # require 'pg'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
 require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
-    @registered = session[:registered]
+    # @registered = session[:registered]
     # p session[:user_id]
     @user = User.find(session[:user_id])
     # p @user
@@ -26,28 +28,32 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/register' do
+    @user = User.find(session[:user_id])
     erb :register
   end
 
   post '/user/new' do
     user = User.create(params[:firstname], params[:lastname],
         params[:username], params[:password], params[:email])
-
+        # user = nil
+        if user.instance_of? User
     session[:user_id] = user.id
+  else
+    flash[:notice] = user
+
+  end
     # session[:registered] = true
     redirect '/'
   end
 
   post '/user/login' do
     user = User.login(params[:username], params[:password])
-    # p user
-     # p params[:username]
-     # p params[:password]
-     # p "logged in: #{user}"
-    # session[:user_id] = user.id
-    # session[:registered] = true
-    # p user
-    session[:user_id] = user.id
+    p user
+    if user.nil?
+      flash[:notice] = "Incorrect username or password.  Please try again"
+    else
+      session[:user_id] = user.id
+    end
     redirect '/'
   end
 

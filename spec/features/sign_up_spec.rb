@@ -15,4 +15,18 @@ feature 'Sign up for Chitter' do
     register_user
     expect(page).to have_content "Registration successful"
   end
+
+  scenario 'A user can try to register with same email address' do
+    User.create("Joe", "Bloggs", "peeper1234-test", "p4s5w0rd-test", "test@test.com")
+    register_user
+    expect(page).to have_content "There is already an account with this email address"
+    expect(page).not_to have_content "Welcome to Chitter, peeper1234-test"
+  end
+
+  scenario 'A user can try to register with same username' do
+    User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd-test", "test-test@test.com")
+    register_user
+    expect(page).to have_content "There is already an account with this username"
+    expect(page).not_to have_content "Welcome to Chitter, peeper1234"
+  end
 end
