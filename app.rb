@@ -30,6 +30,9 @@ class Chitter < Sinatra::Base
     if params[:password] != params[:confirm_password]
       flash[:notice] = 'Passwords do not match'
       redirect to '/user/new'
+    elsif User.username_in_db?(params[:username])
+      flash[:notice] = "Username already taken"
+      redirect to '/user/new'
     else
       User.create(name: params[:name],
         username: params[:username],
@@ -37,7 +40,6 @@ class Chitter < Sinatra::Base
         password: params[:password]
       )
       flash[:notice] = 'Thank you for registering with Chitter. Login to start Peeping!'
-
       redirect to '/'
     end
   end
