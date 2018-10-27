@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Chitter</h1>
+
+  <% @peeps.each do |peep| %>
+    <p>
+    <%= peep.username %>
+    <br>
+    <%= peep.text %>
+    <br>
+    <br>
+    <%= peep.time %> - <%= peep.date %>
+    </p>
+  <% end %>
+
+</div>

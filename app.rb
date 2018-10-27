@@ -1,10 +1,12 @@
 require './database_connection_setup'
+require './lib/peep'
 require 'sinatra'
 
 class Chitter < Sinatra::Base
 
   get '/' do
-    "Hello World"
+    @peeps = Peep.all
+    erb :index
   end
 
 end
