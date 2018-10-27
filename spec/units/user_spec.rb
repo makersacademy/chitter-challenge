@@ -48,4 +48,12 @@ describe User do
       )
     end
   end
+
+  describe '.username_in_db?' do
+    it "returns true if user is already in db" do
+      add_user_to_db
+      expect(User.username_in_db?('@red')).to eq true
+
+    end
+  end
 end

@@ -25,4 +25,13 @@ class User
       email: result[0]['email']
     )
   end
+
+  def self.username_in_db?(username)
+    result = DatabaseConnection.query("SELECT * FROM users
+      WHERE username = '#{username}';")
+
+    array = result.map { |user| user }
+    return false if array.empty?
+    true
+  end
 end
