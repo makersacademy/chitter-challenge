@@ -26,17 +26,27 @@ class User
 
   def self.username_in_db?(username)
     result = DatabaseConnection.query("SELECT * FROM users
-      WHERE username = '#{username}';")
-
+      WHERE username = '#{username}';"
+    )
     in_db?(result)
   end
 
   def self.email_in_db?(email)
     result = DatabaseConnection.query("SELECT * FROM users
-      WHERE email = '#{email}';")
-
+      WHERE email = '#{email}';"
+    )
     in_db?(result)
   end
+
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users
+      WHERE email = '#{email}'"
+    )
+    User.new(id: result[0]['id'], name: result[0]['name'],
+      username: result[0]['username'], email: result[0]['email']
+    )
+  end
+
 
   private_class_method
   def self.in_db?(result)

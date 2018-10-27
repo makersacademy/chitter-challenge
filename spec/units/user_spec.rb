@@ -2,11 +2,8 @@ require 'user'
 
 describe User do
   describe '#initialize' do
-    subject {
-      described_class.new(id: '1',
-        name: 'Ash Ketchum',
-        username: '@red',
-        email: 'ash@pallet.com')
+    subject { described_class.new(id: '1', name: 'Ash Ketchum',
+      username: '@red', email: 'ash@pallet.com')
     }
     it "has an id" do
       expect(subject.id).to eq '1'
@@ -27,12 +24,9 @@ describe User do
 
   describe '.create' do
     it "should add a new user to the db" do
-      user = User.create(name: 'Gary Oak',
-        username: '@blue',
-        email: 'gary@pallet.com',
-        password: 'eevee123'
+      user = User.create(name: 'Gary Oak', username: '@blue',
+        email: 'gary@pallet.com', password: 'eevee123'
       )
-
       expect(user.name).to eq 'Gary Oak'
       expect(user.username).to eq '@blue'
       expect(user.email).to eq 'gary@pallet.com'
@@ -41,11 +35,8 @@ describe User do
     it "encrypts the password" do
       expect(BCrypt::Password).to receive(:create).with('eevee123')
 
-      User.create(name: 'Gary Oak',
-        username: '@blue',
-        email: 'gary@pallet.com',
-        password: 'eevee123'
-      )
+      User.create(name: 'Gary Oak', username: '@blue', email: 'gary@pallet.com',
+        password: 'eevee123')
     end
   end
 
@@ -68,6 +59,18 @@ describe User do
 
     it "returns false if email is not already in db" do
       expect(User.email_in_db?('ash@pallet.com')).to eq false
+    end
+  end
+
+  describe '.authenticate' do
+    it "returns a user when given corrent login info" do
+      user = User.create(name: 'Professor Oak', username: '@p_oak',
+        email: 'p_oak@pallet.com', password: 'pokedex123'
+      )
+      authenticated_user = User.authenticate(email: 'p_oak@pallet.com',
+        password: 'pokedex123'
+      )
+      expect(authenticated_user.id).to eq user.id
     end
   end
 end
