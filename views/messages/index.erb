@@ -1,5 +1,8 @@
 <ul>
-  <% @messages.reverse.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
+  <% @messages.reverse.each do |msg| %>
+    <li>
+      <%= msg.time %>
+      <%= msg.message %>
+    </li>
+  <% end %>
 </ul>
