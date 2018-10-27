@@ -14,10 +14,10 @@ class Peep
       ORDER BY time DESC
     ")
 
-    p result.map { |peep|
+    result.map { |peep|
       Peep.new(id: peep['id'],
         text: peep['text'],
-        time: peep['time'],
+        time: peep['time'][0..4],
         username: peep['username'])
     }
   end

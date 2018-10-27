@@ -24,8 +24,8 @@ describe Peep do
     it "should retrieve all peeps from the db in reverse chronological order" do
       add_two_peeps
 
-      expect(Peep.all[0].id).to eq '2'
-      expect(Peep.all[1].id).to eq '1'
+      expect(Peep.all[0].time).to eq '10:46'
+      expect(Peep.all[1].time).to eq '10:45'
     end
   end
 
