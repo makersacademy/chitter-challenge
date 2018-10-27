@@ -21,10 +21,6 @@ class Chitter < Sinatra::Base
     erb :register
   end
 
-  get '/registered' do
-    erb :registered
-  end
-
   post '/peep' do
     Peep.create(text: params[:peep])
     redirect to '/'
@@ -40,9 +36,10 @@ class Chitter < Sinatra::Base
         email: params[:email],
         password: params[:password]
       )
-      redirect to '/registered'
-    end
+      flash[:notice] = 'Thank you for registering with Chitter. Login to start Peeping!'
 
+      redirect to '/'
+    end
   end
 
   run! if app_file == $0

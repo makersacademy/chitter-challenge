@@ -1,6 +1,12 @@
 <div class="container">
   <h1>Chitter</h1>
-  
+
+  <% flash.keys.each do |notice| %>
+  <div>
+    <%= flash[notice] %>
+  </div>
+  <% end %>
+
   <a href="/user/new">Register</a>
 
   <form action="/peep/new">
