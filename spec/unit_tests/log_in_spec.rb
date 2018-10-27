@@ -5,9 +5,20 @@ describe 'Log in' do
   end
 
   it 'fails with non matching password' do
-    User.sign_up('a name', 'an existing username', 'an email', 'correct password')
+    User.sign_up('a name', 'an email', 'an existing username', 'correct password')
 
     expect { User.log_in('an existing username', 'wrong password') }.to raise_error "Invalid credentials"
+  end
+
+  it 'logs in with valid credentials' do
+    User.sign_up('a name', 'an email', 'an existing username', 'correct password')
+
+    user = User.log_in('an existing username', 'correct password')
+
+    expect(user.id).to be > 0
+    expect(user.name).to eq 'a name'
+    expect(user.email).to eq 'an email'
+    expect(user.username).to eq 'an existing username'
   end
 
 end
