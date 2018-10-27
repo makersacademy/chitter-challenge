@@ -1,9 +1,9 @@
 module ChitterHelpers
-  def get_current_user
-    @user ||= User.find(session[:id])
+  def current_user
+    @current_user ||= User.find(session[:id])
   end
 
-  def get_current_peeps
-    @peeps ||= Peep.all
+  def current_peeps
+    @current_peeps ||= Peep.all
   end
 end

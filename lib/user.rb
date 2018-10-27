@@ -33,7 +33,7 @@ class User
     )
   end
 
-  def self.authenticate(email, password)
+  def self.authenticate(email, _password)
     user = DatabaseManager.query("SELECT * FROM users WHERE " \
       "email = '#{email}'").first
     create_user_instance(user)

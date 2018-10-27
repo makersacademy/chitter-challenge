@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   helpers ChitterHelpers
 
   before do
-    get_current_user
+    current_user
   end
 
   get '/' do
@@ -19,8 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    get_current_peeps
-    if @peeps.empty?
+    if current_peeps.empty?
       flash.now[:message] = 'No peeps posted yet!'
     end
     erb :peeps
@@ -37,10 +36,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    User.create(
+    new_user = User.create(
       params[:email], params[:password], params[:name], params[:username]
-    )
-    session[:id] = User.all.last.id
+    ).first
+    session[:id] = new_user['id']
     redirect '/peeps'
   end
 
