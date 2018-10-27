@@ -23,3 +23,14 @@ def register_user
   click_button('Register')
   # p current_path
 end
+
+def register_invalid_email
+  visit('/user/register')
+  fill_in :firstname, with: 'Joe'
+  fill_in :lastname, with: 'Bloggs'
+  fill_in :username, with: 'peeper1234'
+  fill_in :password, with: 'supersecretpassword'
+  fill_in :email, with: 'notanemail'
+  click_button('Register')
+  # p current_path
+end

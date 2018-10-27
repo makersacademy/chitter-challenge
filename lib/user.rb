@@ -1,4 +1,5 @@
 require_relative 'database_connection'
+require 'uri'
 # require Date
 
 class User
@@ -53,8 +54,10 @@ class User
     validate << email_in_use(email) unless email_in_use(email).nil?
     # p validation
     # p "A-----"
+    validate << valid_email?(email) unless valid_email?(email).nil?
     validate << username_in_use(username) unless username_in_use(username).nil?
-    # p validation
+    # validate << valid_email?(email)
+    # p valid_email?(email)
     # p "B-----"
     return validate
     # p validation
@@ -74,6 +77,12 @@ class User
     sql = %{SELECT * FROM users WHERE username = '#{username}';}
     record = DatabaseConnection.query(sql)
     return "There is already an account with this username" if record.any?
+  end
+
+  def self.valid_email?(email)
+
+# p email.match(URI::MailTo::EMAIL_REGEXP).nil?
+    return "Please enter a valid email address" if email.match(URI::MailTo::EMAIL_REGEXP).nil?
   end
 
 private

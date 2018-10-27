@@ -6,22 +6,24 @@
   </head>
 
   <body>
-<h1>Welcome to Chitter</h1><h2><%=flash[:notice]%></h2>
+<h1>Welcome to Chitter</h1>
 <% if @user %><p>
   You are already logged in - go <a href="/">back</a>
 </p>
 <%else%>
+
 <form action="/user/new" method="post">
+  <p><%=flash[:notice]%></p>
   <p>
-  <label for="firstname">firstname: </label><input type="text" name="firstname" placeholder="enter your first name" />
+  <label for="firstname">firstname: </label><input type="text" name="firstname" required placeholder="enter your first name" />
 <br />
-<label for="lastname">lastname: </label><input type="text" name="lastname" placeholder="enter your last name" />
+<label for="lastname">lastname: </label><input type="text" name="lastname" required placeholder="enter your last name" />
 <br />
-<label for="username">username: </label><input type="text" name="username" placeholder="enter your desired username" />
+<label for="username">username: </label><input type="text" name="username" required placeholder="enter your desired username" />
 <br />
-<label for="password">password: </label><input type="password" name="password" placeholder="enter your password" />
+<label for="password">password: </label><input type="password" name="password" required placeholder="enter your password" />
 <br />
-<label for="email">email: </label><input type="text" name="email" placeholder="enter your email address" />
+<label for="email">email: </label><input type="text" name="email" required placeholder="enter your email address" />
 <br />
 
   <button type="submit" class="peep_only_btn" value="Register"><span class="icon"></span>Register</button>

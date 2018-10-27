@@ -54,4 +54,12 @@ describe User do
     end
   end
 
+  describe '#valid_email?' do
+    it 'returns error message when email address is not valid' do
+      # User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
+      # User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd-1234", "test@test2.com")
+      expect(User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd-1234", "notanemail")).to eq "Please enter a valid email address"
+    end
+  end
+
 end

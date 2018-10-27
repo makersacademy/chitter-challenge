@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
+require 'uri'
 require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
@@ -39,11 +40,13 @@ class Chitter < Sinatra::Base
         # p user
     if user.instance_of? User
       session[:user_id] = user.id
+      redirect '/'
     else
       flash[:notice] = user
+      redirect back
     end
     # session[:registered] = true
-    redirect '/'
+
   end
 
   post '/user/login' do

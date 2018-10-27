@@ -45,7 +45,7 @@
       <% if @user %>
 
         <p>
-          Registration successful
+
           <a href="/user/logout">
             <button class="postpeep" type="button" value="Logout">
               <span class="icon"></span>Logout</button>
@@ -55,11 +55,11 @@
           <form action="/user/login" method="post">
 
             <p>
-              <label for"username"="for" username""="username""">username:
-              </label><input type="text" name="username" placeholder="enter your desired username"/>
+              <label for="username">username:
+              </label><input type="text" name="username" required placeholder="enter your desired username"/>
               <br/>
-              <label for"password"="for" password""="password""">password:
-              </label><input type="password" name="password" placeholder="enter your password"/></p>
+              <label for="password">password:
+              </label><input type="password" name="password" required placeholder="enter your password"/></p>
 
             <p>
 

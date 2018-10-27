@@ -13,7 +13,8 @@ feature 'Sign up for Chitter' do
 
   scenario 'A user can enter their sign up details' do
     register_user
-    expect(page).to have_content "Registration successful"
+    # expect(page).to have_content "Registration successful"
+    expect(page).to have_content "Welcome to Chitter, peeper1234"
   end
 
   scenario 'A user will fail to register with same email address' do
@@ -35,6 +36,12 @@ feature 'Sign up for Chitter' do
     register_user
     expect(page).to have_content "There is already an account with this username"
     expect(page).to have_content "There is already an account with this email address"
+    expect(page).not_to have_content "Welcome to Chitter, peeper1234"
+  end
+  scenario 'A user will fail to register with non valid email address' do
+    # User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "notanemail")
+    register_invalid_email
+    # expect(page).to have_content "Please "
     expect(page).not_to have_content "Welcome to Chitter, peeper1234"
   end
 end
