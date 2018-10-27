@@ -16,7 +16,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/write-peep' do
-    erb :write_peep
+    @user = User.find(id: session[:user_id])
+
+    if @user
+      erb :write_peep
+    else
+      flash[:notice2] = 'You must be signed in to write a Peep!'
+      redirect '/'
+    end
   end
 
   post '/peeps' do
