@@ -51,14 +51,18 @@ class Chitter < Sinatra::Base
       redirect '/register'
     else
       session[:current_user] = current_user
-      redirect '/'
+      redirect '/profile'
     end
   end
 
   post '/new-cheet' do
-    @current_user = session[:current_user]
-    Cheet.create(params[:cheet], @current_user.user)
-    redirect '/'
+    session[:current_user].nil? ? user = "Anonymous" : user = session[:current_user].user
+    Cheet.create(params[:cheet], user)
+    if session[:current_user].nil?
+      redirect '/'
+    else
+      redirect '/profile'
+    end
   end
 
 end

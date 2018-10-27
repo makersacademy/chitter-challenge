@@ -6,7 +6,7 @@ class Database
     if ENV['ENVIRONMENT'] == 'test'
       @conn = PG.connect(dbname: 'chitter_database_test')
     else
-      @conn = PG.connect(dbname: 'chitter_database_test')
+      @conn = PG.connect(dbname: 'chitter_database')
     end
   end
 
