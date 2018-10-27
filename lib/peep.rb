@@ -23,4 +23,24 @@ class Peep
         username: peep['username'])
     }
   end
+
+  def self.create (text:, username: 'anonymous')
+    DatabaseConnection.query("
+      INSERT INTO
+      peeps (text, time, date, username)
+      VALUES
+      ('#{text}', '#{Peep.current_time}', '#{Peep.current_date}', '#{username}');
+    ")
+  end
+
+  private
+
+  def self.current_time
+    Time.now.strftime("%H:%M:%S")
+  end
+
+  def self.current_date
+    Time.now.strftime("%Y-%m-%d")
+  end
+
 end

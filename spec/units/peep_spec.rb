@@ -38,11 +38,10 @@ describe Peep do
     end
   end
 
-  # describe '.create' do
-  #   it "adds a new peep to the database" do
-  #     Peep.create(text: 'This is Peep 1',
-  #       time: "#{Time.now.hour}:#{Time.now.min}:#{Time.now.sec}"
-  #     )
-  #   end
-  # end
+  describe '.create' do
+    it "adds a new peep to the database" do
+      Peep.create(text: 'This is peep 1')
+      expect(Peep.all[0].text).to eq "This is peep 1"
+    end
+  end
 end
