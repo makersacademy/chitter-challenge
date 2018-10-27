@@ -2,6 +2,11 @@ require 'user'
 
 describe User do
   let(:peep) { double(:peep, user_id: '1') }
+  let(:albob) { User.new(
+    id: '1', email: 'albob123@gmail.com', password: 'password123',
+    name: 'Alice Bobson', username: 'albob123'
+    )
+  }
 
   before do
     add_users_to_test_database
@@ -12,23 +17,29 @@ describe User do
       user = described_class.all.first
       expect(user).to be_a User
       expect(user.id).to eq '1'
-      expect(user.email).to eq 'albob123@gmail.com'
-      expect(user.password).to eq 'password123'
-      expect(user.name).to eq 'Alice Bobson'
-      expect(user.username).to eq 'albob123'
+      expect(user.email).to eq albob.email
+      expect(user.password).to eq albob.password
+      expect(user.name).to eq albob.name
+      expect(user.username).to eq albob.username
     end
   end
 
   describe '.create' do
     it 'should be able to insert a user into the database' do
       result = described_class.create(
-        'test@gmail.com', 'testpassword', 'Test User', 'usertest'
+        email: 'test@gmail.com', password: 'testpassword',
+        name: 'Test User', username: 'usertest'
       ).first
       expect(result['id']).to eq '3'
       expect(result['email']).to eq 'test@gmail.com'
       expect(result['password']).to eq 'testpassword'
       expect(result['name']).to eq 'Test User'
       expect(result['username']).to eq 'usertest'
+    end
+
+    it 'should return false if any fields are empty' do
+      expect(described_class.create(email: albob.email,
+        password: albob.password, name: "", username: "")).to eq false
     end
   end
 
@@ -42,13 +53,12 @@ describe User do
 
   describe '.authenticate' do
     it 'should return the correct user info' do
-      email, password = 'albob123@gmail.com', 'password123'
-      user = described_class.authenticate(email, password)
-      expect(user.email).to eq email
-      expect(user.password).to eq password
-      expect(user.name).to eq 'Alice Bobson'
-      expect(user.id).to eq '1'
-      expect(user.username).to eq 'albob123'
+      user = described_class.authenticate(albob.email, albob.password)
+      expect(user.email).to eq albob.email
+      expect(user.password).to eq albob.password
+      expect(user.name).to eq albob.name
+      expect(user.id).to eq albob.id
+      expect(user.username).to eq albob.username
     end
 
     it 'should not return user info for an incorrect email' do

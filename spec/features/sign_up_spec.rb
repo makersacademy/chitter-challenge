@@ -22,4 +22,11 @@ feature 'signing up to chitter' do
     sign_up_as_alice_bobson
     expect(page).to have_css(peep_entry_field)
   end
+
+  scenario 'should display a warning message if fields are left empty' do
+    visit '/'
+    click_button 'Sign up'
+    click_button 'Submit'
+    expect(page).to have_content 'Please fill in all fields.'
+  end
 end

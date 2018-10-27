@@ -35,6 +35,8 @@ def add_peeps_to_test_database
 end
 
 def add_users_to_test_database
-  User.create('albob123@gmail.com', 'password123', 'Alice Bobson', 'albob123')
-  User.create('bobal321@gmail.com', 'password321', 'Bob Alson', 'bobal321')
+  User.create(email: 'albob123@gmail.com', password: 'password123',
+    name: 'Alice Bobson', username: 'albob123')
+  User.create(email: 'bobal321@gmail.com', password: 'password321',
+    name: 'Bob Alson', username: 'bobal321')
 end

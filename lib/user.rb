@@ -9,7 +9,8 @@ class User
     end
   end
 
-  def self.create(email, password, name, username)
+  def self.create(email:, password:, name:, username:)
+    return false if [email, password, name, username].any?(&:empty?)
     DatabaseManager.query("INSERT INTO users(email,password,name,username)" \
       "VALUES('#{email}','#{password}', '#{name}', '#{username}') " \
       "RETURNING id, email, password, name, username")
