@@ -3,7 +3,7 @@ require 'user'
 describe 'Sign Up' do
 
   it 'persits a user with given details' do
-    user = User.sign_up('a name', 'an email', 'a username', 'a password')
+    User.sign_up('a name', 'an email', 'a username', 'a password')
 
     connection = PG.connect(dbname: 'chitter_test')
     result = connection.exec('SELECT * FROM users')
