@@ -5,9 +5,6 @@ describe User do
   describe '#create' do
     it 'creates a user' do
       user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
-      # sql = %{select * from users where username = 'peeper1234'}
-      # users = DatabaseConnection.query(sql)
-        # p users[0]
       expect(user).to be_a User
       expect(user.password).to eq "p4s5w0rd"
     end
@@ -17,7 +14,6 @@ describe User do
     it 'find a user by id' do
       user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
       result = User.find(user.id)
-        # p users[0]
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email
     end
@@ -49,15 +45,12 @@ describe User do
   describe '#username_in_use' do
     it 'returns error message when username is not unique' do
       User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
-      # User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd-1234", "test@test2.com")
       expect(User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd-1234", "test@test2.com")).to eq "There is already an account with this username"
     end
   end
 
   describe '#valid_email?' do
     it 'returns error message when email address is not valid' do
-      # User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
-      # User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd-1234", "test@test2.com")
       expect(User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd-1234", "notanemail")).to eq "Please enter a valid email address"
     end
   end

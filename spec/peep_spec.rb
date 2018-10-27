@@ -8,8 +8,6 @@ describe Peep do
 
     it 'posts a peep' do
       user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test1@test.com")
-# p "user: "
-#       p user# p user.id
       Peep.create("adding a peep", user.id)
       expect(Peep.all[0][:peep]).to eq "adding a peep"
     end
@@ -27,14 +25,12 @@ describe Peep do
       user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test3@test.com")
       Peep.create('peep a new', user.id)
       Peep.create('peep b new', user.id)
-      # p Peep.all
       expect(Peep.all[0][:peep]).to eq "peep b new"
     end
   end
 
   describe '#date_only' do
     it 'formats a date' do
-
       expect(Peep.date_only("2018-10-26 11:26:57.230095")).to eq "26/10/2018 11:26:57"
     end
   end

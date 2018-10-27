@@ -136,16 +136,17 @@ textarea {
     height: 40px;
 }
 
-.header { grid-area: header; height: 100px; }
-.menu { grid-area: menu; height: 100px; }
+ .header { grid-area: header; /*height: 100px;*/ }
+.menu { grid-area: menu; /*height: 100px;*/ }
 .main { grid-area: main; background-color: #ffffff;}
-.login { grid-area: login; height: 100px; }
+.login { grid-area: login; /*height: 100px;*/ }
 
 .grid-container {
   display: grid;
   grid-template-areas:
     'header header header header header login'
-    'menu main main main main login';
+    'main main main main main login'
+    'main main main main main menu';
   grid-gap: 10px;
   /* background-color: #2196F3; */
   padding: 10px;

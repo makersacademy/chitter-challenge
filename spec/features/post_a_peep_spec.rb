@@ -5,11 +5,7 @@
 feature 'post a Peep' do
   scenario 'a user can post a peep' do
     register_user
-    # p session[:user_id]
-    # p current_path
     create_single_peep
-    # p current_path
-    # p URI.parse(current_url)
     expect(page).to have_content('peeper1234 wrote a Peep: Woohoo, I am peeping')
   end
 end

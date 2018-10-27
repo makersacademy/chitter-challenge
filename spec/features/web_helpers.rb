@@ -21,7 +21,6 @@ def register_user
   fill_in :password, with: 'supersecretpassword'
   fill_in :email, with: 'test@test.com'
   click_button('Register')
-  # p current_path
 end
 
 def register_invalid_email
@@ -32,5 +31,4 @@ def register_invalid_email
   fill_in :password, with: 'supersecretpassword'
   fill_in :email, with: 'notanemail'
   click_button('Register')
-  # p current_path
 end
