@@ -50,5 +50,15 @@ describe User do
       expect(user.id).to eq '1'
       expect(user.username).to eq 'albob123'
     end
+
+    it 'should not return user info for an incorrect email' do
+      email, password = '123albob@gmail.com', 'password123'
+      expect(described_class.authenticate(email, password)).to eq false
+    end
+
+    it 'should not return user info for an incorrect password' do
+      email, password = 'albob123@gmail.com', '123password'
+      expect(described_class.authenticate(email, password)).to eq false
+    end
   end
 end

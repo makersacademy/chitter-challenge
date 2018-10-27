@@ -5,7 +5,7 @@ class User
 
   def self.all
     select_all.map do |user|
-      create_user_instance(user)
+      create_instance(user)
     end
   end
 
@@ -23,20 +23,22 @@ class User
     return nil unless id
     user = DatabaseManager.query("SELECT * FROM users WHERE " \
       "id = '#{id}'").first
-    create_user_instance(user)
+    create_instance(user)
   end
 
-  def self.create_user_instance(user)
+  def self.create_instance(user)
     User.new(
       id: user['id'], email: user['email'], password: user['password'],
       name: user['name'], username: user['username']
     )
   end
 
-  def self.authenticate(email, _password)
+  def self.authenticate(email, password)
     user = DatabaseManager.query("SELECT * FROM users WHERE " \
       "email = '#{email}'").first
-    create_user_instance(user)
+    return false unless user
+    return false unless user['password'] == password
+    create_instance(user)
   end
 
   def initialize(id:, email:, password:, name:, username:)
@@ -47,5 +49,5 @@ class User
     @username = username
   end
 
-  private_class_method :select_all, :create_user_instance
+  private_class_method :select_all, :create_instance
 end
