@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 
 require './app'
+require_relative 'support/database_helper'
 require 'capybara'
 require 'capybara/rspec'
 require 'rake'
@@ -21,7 +22,9 @@ RSpec.configure do |config|
   config.before(:each) do
     Rake::Task['clear_test_database'].execute
   end
-  
+
+  config.include DatabaseHelper
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
