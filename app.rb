@@ -31,11 +31,20 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-    User.create(name: params[:name],
-      username: params[:username],
-      email: params[:email],
-      password: params[:password]
-    )
-    redirect to '/registered'
+    if params[:password] != params[:confirm_password]
+      flash[:notice] = 'Passwords do not match'
+      redirect to '/user/new'
+    else
+      User.create(name: params[:name],
+        username: params[:username],
+        email: params[:email],
+        password: params[:password]
+      )
+      redirect to '/registered'
+    end
+
   end
+
+  run! if app_file == $0
+
 end

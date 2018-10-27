@@ -29,4 +29,11 @@
 
     <input type="submit" value="Register">
   </form>
+
+  <% flash.keys.each do |notice| %>
+  <div data-alert class="flash <%= notice %> alert-box radius">
+    <%= flash[notice] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+  <% end %>
 </div>
