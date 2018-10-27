@@ -19,9 +19,10 @@ class User
     DatabaseManager.query('SELECT * FROM users')
   end
 
-  def self.find(peep_user_id)
+  def self.find(id = nil)
+    return nil if id == nil
     user = DatabaseManager.query("SELECT * FROM users WHERE " \
-      "id = #{peep_user_id}").first
+      "id = #{id}").first
     create_user_instance(user)
   end
 

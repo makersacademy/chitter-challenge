@@ -1,19 +1,26 @@
-require './database_setup.rb'
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
+require_relative 'chitter_helpers'
+require_relative 'database_setup'
+
 
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
+  helpers ChitterHelpers
+
+  before do
+    get_current_user
+  end
 
   get '/' do
     erb :index
   end
 
   get '/peeps' do
-    @peeps, @user = Peep.all, User.all.last
+    @peeps = Peep.all
     if @peeps.empty?
       flash.now[:message] = 'No peeps posted yet!'
     end
@@ -34,6 +41,7 @@ class Chitter < Sinatra::Base
     User.create(
       params[:email], params[:password], params[:name], params[:username]
     )
+    session[:id] = User.all.last.id
     redirect '/peeps'
   end
 
