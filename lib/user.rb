@@ -1,23 +1,32 @@
 class User
-  attr_reader :id, :name
+  attr_reader :id, :username, :password
 
-  def initialize(id:, name:)
+  def initialize(id:, username:, password:)
     @id = id
-    @name = name
+    @username = username
+    @password = password
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM users;")
     result.map { |user|
-      User.new(id: user['id'], name: user['name'])
+      User.new(id: user['id'], username: user['username'])
     }
   end
 
-  def self.register(name)
-    result = DatabaseConnection.query("INSERT INTO users(name) VALUES
-    ('#{name}') RETURNING id, name;")
-    result.map do |peep|
-      User.new(id: peep['id'], name: peep['name'])
+  def self.register(username:, password:)
+    result = DatabaseConnection.query("INSERT INTO users(username, password) VALUES
+    ('#{username}', '#{password}') RETURNING id, username, password;")
+    result.map do |user|
+      User.new(id: user['id'], username: user['username'], password: user['password'])
+    end[0]
+  end
+
+  def self.find(username:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username =
+      '#{username}' AND password = '#{password}';")
+    result.map do |user|
+      User.new(id: user['id'], username: user['username'], password: user['password'])
     end[0]
   end
 end
