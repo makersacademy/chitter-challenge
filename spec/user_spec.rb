@@ -40,16 +40,25 @@ describe User do
     end
   end
 
-  describe '.create_instance' do
-    it 'should create a user with all attributes' do
-      result = DatabaseManager.query('SELECT * FROM users').first
-      user = described_class.create_instance(result)
-      expect(user).to be_a User
-      expect(user.id).to eq '1'
-      expect(user.email).to eq 'albob123@gmail.com'
-      expect(user.password).to eq 'password123'
+  describe '.authenticate' do
+    it 'should return the correct user info' do
+      email, password = 'albob123@gmail.com', 'password123'
+      user = described_class.authenticate(email, password)
+      expect(user.email).to eq email
+      expect(user.password).to eq password
       expect(user.name).to eq 'Alice Bobson'
+      expect(user.id).to eq '1'
       expect(user.username).to eq 'albob123'
+    end
+
+    it 'should not return user info for an incorrect email' do
+      email, password = '123albob@gmail.com', 'password123'
+      expect(described_class.authenticate(email, password)).to eq false
+    end
+
+    it 'should not return user info for an incorrect password' do
+      email, password = 'albob123@gmail.com', '123password'
+      expect(described_class.authenticate(email, password)).to eq false
     end
   end
 end

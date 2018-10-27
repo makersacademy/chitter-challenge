@@ -33,6 +33,14 @@ class User
     )
   end
 
+  def self.authenticate(email, password)
+    user = DatabaseManager.query("SELECT * FROM users WHERE " \
+      "email = '#{email}';").first
+    return false unless user
+    return false unless user['password'] == password
+    create_instance(user)
+  end
+
   def initialize(id:, email:, password:, name:, username:)
     @id = id
     @email = email
