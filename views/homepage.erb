@@ -1,4 +1,9 @@
-Welcome to chitter
+
+ <%= flash[:notice] %>
+
+
+ <%= "Welcome back to chitter, #{@user}" if @user %>
+ <%= "Welcome to chitter, please sign in to peep" if @user.nil? %>
 
  <ul>
   <% @chitters.each do |chitter| %>
@@ -10,8 +15,15 @@ Welcome to chitter
   <% end %>
 </ul>
 
+<form action ="authenticate" method = "post">
+  <input type ="text" name="username">
+  <input type ="text" name="password">
+  <input type ="submit" name="log in" value="log in">
+</form>
+
+
 
 <form action ="/peep" method = "post">
   <input type ="text" name="peep" value placeholder = "What's on your mind?" >
-  <input type ="submit" name="submit" value="submit">
+  <input type ="submit" name="submit peep" value="submit peep">
 </form>

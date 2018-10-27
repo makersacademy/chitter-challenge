@@ -3,7 +3,7 @@ require 'pry'
 
 class User
 
-  attr_reader :username
+  attr_reader :username, :current_user
 
   def initialize(username:, password:, email:)
     @password = password
@@ -23,6 +23,13 @@ class User
     con = connect_to_database
     data = con.exec("SELECT * FROM users")
     data.map { |user| User.new(username: user['username'], password: user['password'], email: user['email']) }
+  end
+
+  def self.authenticate(username:, password:)
+    con = connect_to_database
+    user_data = con.exec("SELECT * FROM users WHERE username = '#{username}'").first
+    return false if user_data.nil?
+    user_data['password'] == password
   end
 
   private
@@ -46,5 +53,6 @@ class User
     ENV['R ENV'] == "test" ? db = 'chitter_manager_test' : db = 'chitter_manager'
     PG.connect(dbname: db)
   end
+
 
 end
