@@ -1,0 +1,5 @@
+<h1>Chittter</h1>
+<% if @user %>
+  <h2>Welcome, <%= @user.name%></h2>
+  <h2>You are logged in with this email: <%= @user.email%></h2>
+<% end %>
