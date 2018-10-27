@@ -16,9 +16,7 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/peeps' do
-    #Peep.add(text: params[:text])
-    connection = PG.connect(dbname: 'peep_manager_test')
-    connection.exec("INSERT INTO bookmarks (text) VALUES('#{text}')")
+    Peep.add(text: params['peep text'])
     redirect '/peeps'
   end
 
