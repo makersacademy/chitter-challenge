@@ -32,6 +32,15 @@ class Chitter < Sinatra::Base
     erb :log_in
   end
 
+  post '/log_in' do
+    begin
+      user = User.log_in(username: params[:username], password: params[:password])
+    rescue => error
+      @error = error
+    end
+    erb :log_in
+  end
+
   run! if app_file == $0
 
 end
