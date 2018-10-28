@@ -10,4 +10,16 @@ feature "Sign up" do
     expect(page).to have_button("Sign Up")
   end
 
+  scenario "I am welcomed after signing up" do
+    visit('/sign_up')
+
+    fill_in "username", with: "edy"
+    fill_in "name", with: "Edyta"
+    fill_in "email", with: "edyta@gmail.com"
+    fill_in "password", with: "12334"
+    click_button 'Sign Up'
+
+    expect(page).to have_content("Hi, Edyta!")
+  end
+
 end

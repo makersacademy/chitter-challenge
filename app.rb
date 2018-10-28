@@ -1,10 +1,16 @@
 require 'pg'
 require 'sinatra'
+require './lib/user'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
-    erb :index
+    if session[:user_id].nil?
+      erb :index
+    else
+      erb "Hi, #{session[:user_name]}!"
+    end
   end
 
   get '/post_peep' do
@@ -13,6 +19,13 @@ class Chitter < Sinatra::Base
 
   get '/sign_up' do
     erb :sign_up
+  end
+
+  post '/sign_up' do
+    user = User.sign_up(params[:name], params[:username], params[:email], params[:password])
+    session[:user_id] = user.id
+    session[:user_name] = user.name
+    redirect '/'
   end
 
   get '/log_in' do
