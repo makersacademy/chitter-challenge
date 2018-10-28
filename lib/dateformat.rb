@@ -24,10 +24,3 @@ class DateTimeFormat
   end
 
 end
-
-times = [Time.now, Time.now + 60, Time.now + 60 * 60 * 24]
-
-p times.map { |time| DateTimeFormat.today?(time) }
-p times.map { |time|  DateTimeFormat.date_format(time) }
-p times.map { |time| DateTimeFormat.time_format(time) }
-p times.map { |time| DateTimeFormat.datetime_format(time) }
