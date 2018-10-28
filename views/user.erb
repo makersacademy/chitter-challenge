@@ -8,15 +8,11 @@
   </form>
 
   <ul>
-    <% @peeps.each do |peep| %>
+    <% @peeps.reverse.each do |peep| %>
       <li class="peep" id="peep-<%= peep.id %>">
         <p>
           <%= peep.peep %>
           <%= peep.time %>
         </p>
-        <!-- <form action="/peeps/<%= peep.id %>/comments/new" method="get">
-          <input type="submit" value="Add Comment" />
-        </form>
-      </li> -->
     <% end %>
   </ul>
