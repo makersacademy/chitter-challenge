@@ -18,15 +18,7 @@ class User
 
     raise 'Invalid credentials' if user_data.nil?
 
-    User.new(user_data["id"].to_i, user_data["name"], user_data["email"], user_data["username"])
-  end
-
-  def self.connection
-    if ENV['RACK_ENV'] == 'test'
-      PG.connect(dbname: 'chitter_test')
-    else
-      PG.connect(dbname: 'chitter')
-    end
+    User.create(user_data)
   end
 
   def self.find(id:)
@@ -34,7 +26,21 @@ class User
 
     return if user_data.nil?
 
+    User.create(user_data)
+  end
+
+  private
+  def self.create(user_data)
     User.new(user_data["id"].to_i, user_data["name"], user_data["email"], user_data["username"])
+  end
+
+  private
+  def self.connection
+    if ENV['RACK_ENV'] == 'test'
+      PG.connect(dbname: 'chitter_test')
+    else
+      PG.connect(dbname: 'chitter')
+    end
   end
 
 end
