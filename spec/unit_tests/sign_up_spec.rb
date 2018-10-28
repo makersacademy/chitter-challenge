@@ -3,7 +3,7 @@ require 'user'
 describe 'Sign Up' do
 
   it 'creates a user with given details' do
-    user = User.sign_up('a name', 'an email', 'a username', 'a password')
+    user = User.sign_up(name: 'a name', email: 'an email', username: 'a username', password: 'a password')
 
     expect(user.id).to be > 0
     expect(user.name).to eq 'a name'
@@ -12,7 +12,7 @@ describe 'Sign Up' do
   end
 
   it 'persits a user with given details' do
-    User.sign_up('a name', 'an email', 'a username', 'a password')
+    User.sign_up(name: 'a name', email: 'an email', username: 'a username', password: 'a password')
 
     result = PG.connect(dbname: 'chitter_test').exec('SELECT * FROM users')
 
@@ -24,15 +24,15 @@ describe 'Sign Up' do
   end
 
   it 'fails to create a user with duplicate username' do
-    User.sign_up('a name', 'an email', 'a username', 'a password')
+    User.sign_up(name: 'a name', email: 'an email', username: 'a username', password: 'a password')
 
-    expect { User.sign_up('another name', 'another email', 'a username', 'another password') }.to raise_error
+    expect { User.sign_up(name: 'another name', email: 'another email', username: 'a username', password: 'another password') }.to raise_error
   end
 
   it 'fails to create a user with duplicate email' do
-    User.sign_up('a name', 'an email', 'a username', 'a password')
+    User.sign_up(name: 'a name', email: 'an email', username: 'a username', password: 'a password')
 
-    expect { User.sign_up('another name', 'an email', 'another username', 'another password') }.to raise_error
+    expect { User.sign_up(name: 'another name', email: 'an email', username: 'another username', password: 'another password') }.to raise_error
   end
 
 end
