@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    current_user
     flash.now[:message] = 'No peeps posted yet!' if current_peeps.empty?
     erb :peeps
   end
