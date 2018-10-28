@@ -13,6 +13,6 @@ feature 'reply to a Peep' do
     fill_in :peep, with: 'I am replying to this message'
     click_button('Reply')
     # p current_path
-    expect(page).to have_content('peeper1234 replied: I am replying to this message')
+    expect(page).to have_content('Replying to Woohoo, I am peeping')
   end
 end

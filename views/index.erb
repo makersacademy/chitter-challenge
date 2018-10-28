@@ -35,10 +35,22 @@ function myFunction() {
       </div>
       <div class="main">
         <%@peeps.each do |peep_row|%>
-        <%=peep_row[:parent_peep]%>
 
 
-      <p><%=peep_row[:peeper]%><%if peep_row[:parent_peep].to_i == 0
+        <div id="<%=peep_row[:id]%>" class="peeplist-grid-container">
+          <div class="peeper"><%=peep_row[:peeper]%></div>
+
+          <div class="peep-main" ><%=peep_row[:peep]%><%if peep_row[:parent_peep].to_i != 0%><br />Replying to <a href="#<%=peep_row[:parent_peep].to_i%>"><%=Peep.find((peep_row[:parent_peep].to_i)).message%></a><%end%><hr/></div>
+          <div class="reply"><% if @user %>
+            <a href="/peep/<%=peep_row[:id]%>/reply">
+              <button class="postpeep" type="button" value="Reply">
+                <span class="icon"></span>Reply</button>
+            </a>
+              <%end%></div>
+          <div class="sentdate">when: <%=peep_row[:posted_date]%></div>
+        </div>
+
+        <!--<%=peep_row[:peeper]%><%if peep_row[:parent_peep].to_i == 0
         peep_prefix = "wrote a Peep"
         else
         peep_prefix = "replied"
@@ -46,15 +58,17 @@ function myFunction() {
         <%=peep_prefix%>:
         <%=peep_row[:peep]%>
         - sent
-        <%=peep_row[:posted_date]%></p>
-        <p>
+        <%=peep_row[:posted_date]%>
+
           <% if @user %>
             <a href="/peep/<%=peep_row[:id]%>/reply">
               <button class="postpeep" type="button" value="Reply">
                 <span class="icon"></span>Reply</button>
             </a>
               <%end%>
-            </p><hr/>
+            <hr/>-->
+
+
       <%end%>
 
     </div>
@@ -71,31 +85,31 @@ function myFunction() {
           </p>
 
         <%else%>
-          <form action="/user/login" method="post" >
-<div id="login_panel">
 
-            <p>
+<div id="login_panel">
+<form class="myloginform" action="/user/login" method="post" >
+
               <label for="username">username:
               </label><input type="text" name="username" required placeholder="enter your desired username"/>
-              <br/>
-              <label for="password">password:
-              </label><input type="password" name="password" required placeholder="enter your password"/></p>
 
-            <p>
+              <label for="password">password:
+              </label><input type="password" name="password" required placeholder="enter your password"/>
+
+
 
               <button type="submit" class="login_btn" id="Login" value="Login">
                 <span class="icon"></span>Login</button>
-                </div><button type="button" onclick="myFunction()" class="login_btn" id="login_show_button" class="peep_only_btn" value="Login">
+                </form></div><button type="button" onclick="myFunction()" class="login_btn" id="login_show_button" class="peep_only_btn" value="Login">
                 <span class="icon"></span>Login</button>
               <a href="/user/register">
                 <button class="postpeep" type="button" value="Register">
                   <span class="icon"></span>Register</button></a>
 
 
-          </form>
 
+</div>
         <%end%>
-      </div>
+
 
     </div>
   </body>

@@ -10,13 +10,13 @@ feature 'Viewing a Peep' do
   scenario 'a user can see a peep in the list' do
     register_user
     create_single_peep
-    expect(page).to have_content('Peep: Woohoo, I am peeping')
+    expect(page).to have_content("peeper1234\nWoohoo, I am peeping")
   end
 
   scenario 'a user can see multiple a peeps in the list' do
     register_user
     create_2_peeps
-    expect(page).to have_content('Peep: Woohoo, I am peeping - sent ')
-    expect(page).to have_content('Peep: This is another peep - sent ')
+    expect(page).to have_content("peeper1234\nWoohoo, I am peeping")
+    expect(page).to have_content("peeper1234\nThis is another peep")
   end
 end

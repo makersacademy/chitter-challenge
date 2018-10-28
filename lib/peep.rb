@@ -58,6 +58,7 @@ class Peep
       record[0]['peep'],
       record[0]['user_id'],
       record[0]['parent_peep'])
+
   end
 
   attr_reader :id, :tags, :valid_tags, :valid_tags_usernames
@@ -72,6 +73,9 @@ class Peep
     @tags = any_tags?
     @valid_tags = valid_tags?
     @invalid_tags = invalid_tags?
+
+    # p @message
+    # p @parent_peep
   end
 
   def any_tags?

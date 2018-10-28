@@ -11,7 +11,7 @@ p {
 }
 
 a {
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Reenie Beanie', sans-serif;
   margin-left: 1.66%;
   font-size: 20px;
   font-weight: 400;
@@ -178,8 +178,8 @@ textarea {
 }
 
  .header { grid-area: header; /*height: 100px;*/ }
-.menu { grid-area: menu; /*height: 100px;*/ }
-.main { grid-area: main; background-color: #ffffff;}
+.menu { grid-area: menu; vertical-align: top;/*height: 100px;*/ }
+.main { grid-area: main; background-color: #ffffff; overflow: auto; height:400px; }
 .login { grid-area: login; /*height: 100px;*/ }
 
 .grid-container {
@@ -188,9 +188,9 @@ textarea {
     'header header header header header login'
     'main main main main main login'
     'main main main main main menu';
-  grid-gap: 10px;
+  grid-gap: 5px;
   /* background-color: #2196F3; */
-  padding: 10px;
+  padding: 5px;
 }
 .grid-container > div {
 
@@ -201,6 +201,98 @@ textarea {
     color: black;
 
   text-align: ;
-  padding: 20px 0;
+  padding: 10px;
+  font-size: 30px;
+}
+
+.register-header { grid-area: header; }
+.spacer { grid-area: spacer; }
+.spacer { grid-area: spacer_r; }
+.register-main { grid-area: main; background-color: #ffffff; }
+
+.register-grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'spacer main main main main spacer_r';
+
+  grid-gap: 15px;
+  /* background-color: #2196F3; */
+  padding: 5px;
+}
+.register-grid-container > div {
+  font-family: 'Reenie Beanie', sans-serif;
+  margin-left: 1.66%;
+  font-size: 30px;
+  font-weight: 400;
+  color: black;
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* text-align: center; */
+  padding: 10px;
+  font-size: 30px;
+}
+
+.myForm {
+    display: grid;
+    grid-template-columns: [labels] auto [controls] 1fr;
+    grid-auto-flow: row;
+    grid-gap: .8em;
+    /* background: #eee; */
+    padding: 1.2em;
+  }
+  .myForm > label  {
+    grid-column: labels;
+    grid-row: auto;
+  }
+  .myForm > input,
+  .myForm > textarea {
+    grid-column: controls;
+    grid-row: auto;
+    /* border: none; */
+    padding: 1em;
+    width: 300px;
+  }
+
+  .myloginform {
+      display: grid;
+      grid-template-columns: [labels] auto [controls] 1fr;
+      grid-auto-flow: row;
+      grid-gap: .8em;
+      /* background: #eee; */
+      padding: 1.2em;
+    }
+    .myloginform > label  {
+      grid-column: labels;
+      grid-row: auto;
+    }
+    .myloginform > input,
+    .myloginform > textarea {
+      grid-column: controls;
+      grid-row: auto;
+      /* border: none; */
+      padding: 1em;
+      width: 100px;
+    }
+
+    .peeper { grid-area: peeper; }
+
+.peep-main { grid-area: peep-main; }
+.reply { grid-area: reply; text-align: right;}
+
+.sentdate { grid-area: sentdate; text-align: right;}
+
+.peeplist-grid-container {
+  display: grid;
+  grid-template-areas:
+    'peeper peeper peeper sentdate sentdate sentdate'
+    'peep-main peep-main peep-main peep-main peep-main reply';
+  grid-gap: 5px;
+  /* background-color: #2196F3; */
+  padding: 5px;
+}
+.peeplist-grid-container > div {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* text-align: center; */
+  padding: 1-px;
   font-size: 30px;
 }

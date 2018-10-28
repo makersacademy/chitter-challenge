@@ -6,29 +6,36 @@
   </head>
 
   <body>
-<h1>Welcome to Chitter</h1>
-<% if @user %><p>
-  You are already logged in - go <a href="/">back</a>
-</p>
-<%else%>
 
-<form action="/user/new" method="post">
-  <p><%=flash[:notice]%></p>
-  <p>
-  <label for="firstname">firstname: </label><input type="text" name="firstname" required placeholder="enter your first name" />
-<br />
-<label for="lastname">lastname: </label><input type="text" name="lastname" required placeholder="enter your last name" />
-<br />
-<label for="username">username: </label><input type="text" name="username" required placeholder="enter your desired username" />
-<br />
-<label for="password">password: </label><input type="password" name="password" required placeholder="enter your password" />
-<br />
-<label for="email">email: </label><input type="text" name="email" required placeholder="enter your email address" />
-<br />
+    <div class="register-grid-container">
+  <div class="register-header"><h1>Welcome to Chitter
+  </h1></div>
+  <div class="spacer">&nbsp;</div>
+  <div class="spacer_r">&nbsp;</div>
+  <div class="register-main"><% if @user %><p>
+    You are already logged in - go <a href="/">back</a>
+  </p>
+  <%else%>
+  <a href="/">
+    <button class="postpeep" type="button" value="Back">
+      <span class="icon"></span>Back</button>
+  </a>
+  <form class="myForm" action="/user/new" method="post">
+<%if !flash[:notice].nil?%>    <p><%=flash[:notice]%></p><%end%>
 
-  <button type="submit" class="peep_only_btn" value="Register"><span class="icon"></span>Register</button>
-</p>
-  </form>
-<%end%>
+    <label for="firstname">firstname: </label><input type="text" name="firstname" required placeholder="enter your first name" />
+  <label for="lastname">lastname: </label><input type="text" name="lastname" required placeholder="enter your last name" />
+  <label for="username">username: </label><input type="text" name="username" required placeholder="enter your desired username" />
+  <label for="password">password: </label><input type="password" name="password" required placeholder="enter your password" />
+  <label for="email">email: </label><input type="text" name="email" required placeholder="enter your email address" />
+
+    <button type="submit" class="peep_only_btn" value="Register"><span class="icon"></span>Register</button>
+
+    </form>
+  <%end%></div>
+
+
+</div>
+
   </body>
 </html>
