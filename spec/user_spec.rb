@@ -62,4 +62,31 @@ describe User do
       expect(result).to eq nil
     end
   end
+
+  describe '.authenticate' do
+    it 'returns the user if username and password match' do
+      user = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
+      authenticated_user = User.authenticate(username: 'john', password: 'password123')
+
+      expect(authenticated_user).to be_a User
+      expect(authenticated_user.id).to eq user.id
+      expect(authenticated_user.name).to eq 'John'
+      expect(authenticated_user.username).to eq 'john'
+      expect(authenticated_user.email).to eq 'john@example.com'
+    end
+
+    it 'returns nil if username doesn\'t exsists' do
+      User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
+      authenticated_user = User.authenticate(username: 'wrongjohn', password: 'password123')
+
+      expect(authenticated_user).to eq nil
+    end
+
+    it 'returns nil if the password doesn\'t match' do
+      User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
+      authenticated_user = User.authenticate(username: 'john', password: 'wrongpassword')
+
+      expect(authenticated_user).to eq nil
+    end
+  end
 end

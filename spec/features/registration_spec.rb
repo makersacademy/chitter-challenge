@@ -11,7 +11,7 @@ feature 'Registration' do
     expect(page).to have_content "You are logged in with this email: john@example.com"
   end
 
-  scenario 'a user see an error if the username is already registered' do
+  scenario 'a user sees an error if the username is already registered' do
     User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
     visit '/users/new'
     fill_in('name', with: 'John')
@@ -25,7 +25,7 @@ feature 'Registration' do
     expect(page).to have_content "Username already in use!"
   end
 
-  scenario 'a user see an error if the email is already registered' do
+  scenario 'a user sees an error if the email is already registered' do
     User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
     visit '/users/new'
     fill_in('name', with: 'John')
