@@ -2,7 +2,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require 'pg'
-require 'features/web_helpers'
+require 'features/setup_test_database'
 
 ENV['ENVIRONMENT'] = 'test'
 

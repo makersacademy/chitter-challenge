@@ -4,7 +4,7 @@ class Peep
 
   attr_reader :name, :username, :post, :time
 
-  def initialize(name, username, post, time)
+  def initialize(name:, username:, post:, time:)
     @name = name
     @username = username
     @post = post
@@ -18,10 +18,10 @@ class Peep
       conn = PG.connect(dbname: 'chitter_manager')
     end
     result = conn.exec( "SELECT * FROM peeps ORDER BY time DESC" )
-    result.map { |peep| Peep.new(peep['name'], peep['username'], peep['post'], peep['time']) }
+    result.map { |peep| Peep.new(name: peep['name'], username: peep['username'], post: peep['post'], time: peep['time']) }
   end
 
-  def self.post(name, username, post)
+  def self.post(name:, username:, post:)
     if ENV['ENVIRONMENT'] == 'test'
       conn = PG.connect(dbname: 'chitter_manager_test')
     else

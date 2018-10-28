@@ -8,6 +8,9 @@
   <input type="text" name="post" placeholder="peep">
   <input type="submit" value="submit">
 </form>
+<form action="/sign_in" method="get">
+  <input type="submit" value="sign in">
+</form>
 <ul id="peeps">
   <% @peeps.each do |peep| %>
   <li>
