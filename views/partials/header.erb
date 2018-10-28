@@ -1,6 +1,1 @@
 <h1>Chitter</h1>
-<% if @current_user %>
-  <form action='/session/destroy' method='post'>
-    <button type='submit' name='id' value='<%= @current_user.id %>'>Sign out</button>
-  </form>
-<% end %>

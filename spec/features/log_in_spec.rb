@@ -18,6 +18,17 @@ feature 'logging in' do
     expect(page).to have_content 'Hello albob123'
   end
 
+  scenario 'hides log in field when already logged in' do
+    log_in_as_alice_bobson
+    click_button 'Home'
+    expect(page).to have_current_path('/')
+    expect(page).not_to have_selector("input[type='text'][placeholder='Email']")
+    expect(page).not_to have_selector("input[type='text'][placeholder='Password']")
+    click_button 'Sign out'
+    expect(page).to have_selector("input[type='text'][placeholder='Email']")
+    expect(page).to have_selector("input[type='text'][placeholder='Password']")
+  end
+
   scenario 'displays a warning message if email is incorrect' do
     warning = 'Your email or password is incorrect.'
     fill_in :email, with: '123albob@gmail.com'

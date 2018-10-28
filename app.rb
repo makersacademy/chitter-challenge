@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   get '/peeps/:id' do
     current_user
     flash.now[:message] = 'No peeps posted yet!' if current_peeps.empty?
-    erb :peeps_id
+    erb :peeps
   end
 
   post '/peeps/:id/new' do

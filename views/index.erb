@@ -1,4 +1,6 @@
 <%= erb :'partials/header' %>
+
+<% unless current_user %>
 <form action='/session/new' method='post'>
   <label for='email'></label>
   <input type='text' name='email' placeholder='Email'>
@@ -6,12 +8,18 @@
   <input type='text' name='password' placeholder='Password'>
   <input type='submit' value='Log in'>
 </form>
+<form action='/sign_up' method='get'>
+  <button type='submit'>Sign up</button>
+</form>
+<% end %>
 
 <form action='/peeps' method='get'>
   <button type='submit'>View all peeps</button>
 </form>
-<form action='/sign_up' method='get'>
-  <button type='submit'>Sign up</button>
+<% if current_user %>
+<form action='/session/destroy' method='post'>
+  <button type='submit' name='id' value='<%= current_user.id %>'>Sign out</button>
 </form>
+<% end %>
 <%= flash[:message] %>
 <%= flash[:warning] %>

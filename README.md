@@ -19,4 +19,4 @@ For testing:
 - Enter the command found in `./db/migrations/02_create_users_table.sql`
 
 To run the app:
-- `shotgun config.ru`
+- `rackup config.ru`
