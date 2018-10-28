@@ -21,9 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    user = User.sign_up(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/'
+    start_session_for(User.sign_up(name: params[:name], email: params[:email], username: params[:username], password: params[:password]))
   end
 
   get '/log_in' do
@@ -32,13 +30,17 @@ class Chitter < Sinatra::Base
 
   post '/log_in' do
     begin
-      user = User.log_in(username: params[:username], password: params[:password])
-      session[:user_id] = user.id
-      redirect '/'
+      start_session_for(User.log_in(username: params[:username], password: params[:password]))
     rescue => error
       @error = error
     end
     erb :log_in
+  end
+
+  private
+  def start_session_for(user)
+    session[:user_id] = user.id
+    redirect '/'
   end
 
   run! if app_file == $0
