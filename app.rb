@@ -6,12 +6,10 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    if session[:user_id].nil?
-      erb :index
-    else
-      user = User.find(id: session[:user_id])
-      erb "Hi, #{user.name}!"
-    end
+    return erb :index if session[:user_id].nil?
+
+    user = User.find(id: session[:user_id])
+    erb "Hi, #{user.name}!"
   end
 
   get '/post_peep' do
@@ -35,6 +33,8 @@ class Chitter < Sinatra::Base
   post '/log_in' do
     begin
       user = User.log_in(username: params[:username], password: params[:password])
+      session[:user_id] = user.id
+      redirect '/'
     rescue => error
       @error = error
     end

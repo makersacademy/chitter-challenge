@@ -23,4 +23,15 @@ feature 'Log in' do
     expect(page).to have_button("Log in")
   end
 
+  scenario 'I see a welcome message after valid login' do
+    sign_up(name: "a user", username: "a username", password: "correct password")
+    visit('/log_in')
+
+    fill_in "username", with: "a username"
+    fill_in "password", with: "correct password"
+    click_button 'Log in'
+
+    expect(page).to have_content("Hi, a user!")
+  end
+
 end
