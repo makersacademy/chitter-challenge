@@ -1,4 +1,4 @@
-feature 'Logging' do
+feature 'Logging in' do
   scenario 'a user can login with a right username ans password' do
     User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
     visit '/sessions/new'
