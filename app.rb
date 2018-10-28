@@ -1,10 +1,12 @@
 require 'sinatra'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
 require './lib/database_connection_setup'
 
 class ChitterApp < Sinatra::Base
 enable :sessions
+register Sinatra::Flash
 
   get '/' do
     @peeps = Peep.all

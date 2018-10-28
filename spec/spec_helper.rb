@@ -3,6 +3,7 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require 'pg'
 require 'features/setup_test_database'
+require 'persisted_data_helpers'
 
 ENV['ENVIRONMENT'] = 'test'
 
