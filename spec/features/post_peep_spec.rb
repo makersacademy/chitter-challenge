@@ -9,7 +9,7 @@ feature 'Post a peep to chitter' do
   scenario 'I post a peep to chitter by clicking a button' do
     visit('/')
     visit('/post_peep')
-    expect(page).to have_button("Post Peep")
+    expect(page).to have_link(href: '/post_peep')
   end
 
 end
