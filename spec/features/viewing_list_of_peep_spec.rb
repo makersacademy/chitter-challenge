@@ -7,10 +7,9 @@ feature 'Viewing the list of peeps on the homepage' do
   end
   scenario 'see the peep list in reverse chronological order' do
     user = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
-    peep1 = Peep.create(text: "peep1", user_id: user.id)
-    peep2 = Peep.create(text: "peep2", user_id: user.id)
+    Peep.create(text: "peep1", user_id: user.id)
+    Peep.create(text: "peep2", user_id: user.id)
     visit '/'
-    # expect(page).to have_content
     expect(first('.peep')).to have_content "peep2"
   end
   scenario 'see the the user for each peep with a link to their profile' do
