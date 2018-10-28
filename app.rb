@@ -1,10 +1,19 @@
 require 'sinatra/base'
 require './lib/peeps'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 enable :sessions
 
   get '/' do
+    erb :"index"
+  end
+
+  post '/user' do
+    @User = User.sign_up(name: params[:name],
+                username: params[:username],
+                email: params[:email],
+                password: params[:password])
     redirect '/peep/new'
   end
 
@@ -14,6 +23,7 @@ enable :sessions
   end
 
   get '/peep/new' do
+    @user = User.name
     erb :"peep/new"
   end
 
