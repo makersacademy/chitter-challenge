@@ -12,6 +12,11 @@
   <a href="/session/new">Login</a>
   <% else %>
   <h4>Logged in as <%= @user.name %> (<%= @user.username %>)</h4>
+
+  <form action="/session" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Log out">
+  </form>
   <% end %>
 
   <form action="/peep/new">
