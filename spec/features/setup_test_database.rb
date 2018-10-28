@@ -3,5 +3,5 @@ require './lib/database_connection'
 
 def setup_test_database
   connection = PG.connect(dbname: 'chitter_manager_test')
-  connection.exec('TRUNCATE users CASCADE;')
+  connection.exec('TRUNCATE TABLE users CASCADE;')
 end
