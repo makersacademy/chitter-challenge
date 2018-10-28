@@ -6,6 +6,9 @@
   <input type="text" name="post">
   <input type="submit" value="submit">
 </form>
+<form action="/sign_out" method="post">
+  <input type="submit" value="sign out">
+</form>
 <ul id="peeps">
   <% @peeps.each do |peep| %>
   <li>

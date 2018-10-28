@@ -1,12 +1,7 @@
 <h1> Chitter App! </h1>
+<h1> <%= flash[:notice] %> <h1>
 <form action="/sign_up" method="get">
   <input type="submit" value="sign up">
-</form>
-<form action="/post" method="post">
-  <input type="text" name="name" placeholder="name">
-  <input type="text" name="username" placeholder="username">
-  <input type="text" name="post" placeholder="peep">
-  <input type="submit" value="submit">
 </form>
 <form action="/sign_in" method="get">
   <input type="submit" value="sign in">

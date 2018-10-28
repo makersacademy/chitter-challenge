@@ -39,18 +39,20 @@ register Sinatra::Flash
       redirect('/user_peeps')
     else
       flash[:notice] = 'Please check your username or password.'
-      redirect('/failed_sign_in')
+      redirect('/sign_in')
     end
-  end
-
-  get '/failed_sign_in' do
-    erb :failed_sign_in
   end
 
   get '/user_peeps' do
     @user = User.details(id: session[:user_id])
     @peeps = Peep.all
     erb :signed_in_peeps
+  end
+
+  post '/sign_out' do
+    session.clear
+    flash[:notice] = "You have signed out"
+    redirect '/'
   end
 
   run! if app_file == $0
