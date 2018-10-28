@@ -10,12 +10,11 @@
     <input type="submit" value="Sign Up" name="submit">
   </form>
 
-  <p> Already a member? Log In </p>
-<!--
-  <h2> Log In </h2>
-  <p> Enter your names to battle each other! </p>
-  <form action="/two_player_name" method="post">
-    <input type="text" name="player_2_name">
-    <input type="text" name="player_3_name">
-    <input type="submit" value="Let's Battle!" name="submit">
-  </form> -->
+  <p> Already a member? </p>
+  <p> Log In </p>
+
+  <form action="/log_in" method="post">
+    Username: <input type="text" name="existing_username">
+    Password: <input type="text" name="existing_password">
+    <input type="submit" value="Log In" name="log_in">
+  </form>

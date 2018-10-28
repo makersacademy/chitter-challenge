@@ -15,6 +15,12 @@ class Chitter < Sinatra::Base
     redirect '/welcome'
   end
 
+  post '/log_in' do
+    @user = User.find_user(username: params[:existing_username])
+    session[:user_id] = @user.id
+    redirect '/welcome'
+  end
+
   get '/welcome' do
     @user = User.find(id: session[:user_id])
     @users = User.all

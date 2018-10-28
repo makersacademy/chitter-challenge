@@ -8,3 +8,13 @@
   </form>
 
   <p> See what others are peeping: </p>
+
+  <ul>
+    <% @users.each do |user| %>
+      <li class="user" id="user-<%= user.id %>">
+        <p>
+          <%= user.username %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
