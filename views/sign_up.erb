@@ -1,13 +1,14 @@
 <%= erb :'partials/header' %>
+<br>
 <form action='/sign_up' method='post'>
-  <label for='email' type='text'><p>Enter your email:</p></label>
-  <input type='text' name='email' placeholder='albob@gmail.com'>
-  <label for='password' type='text'><p>Enter a password:</p></label>
-  <input type='text' name='password' placeholder='password'>
-  <label for='name' type='text'><p>Enter your name:</p></label>
-  <input type='text' name='name' placeholder='Alice Bobson'>
-  <label for='username' type='text'><p>Enter a username:</p></label>
-  <input type='text' name='username' placeholder='albob123'>
-  <button type='submit'>Submit</button>
+  <label class='sign_up_labels' for='email' type='text'><p>Email</p></label>
+  <input class='sign_up_info' type='text' name='email' placeholder='albob@gmail.com'><br><br>
+  <label class='sign_up_labels' for='password' type='text'><p>Password</p></label>
+  <input class='sign_up_info' type='text' name='password' placeholder='password'><br><br>
+  <label class='sign_up_labels' for='name' type='text'><p>Name</p></label>
+  <input class='sign_up_info' type='text' name='name' placeholder='Alice Bobson'><br><br>
+  <label class='sign_up_labels' for='username' type='text'><p>Username</p></label>
+  <input class='sign_up_info' type='text' name='username' placeholder='albob123'><br><br>
+  <button id='sign_up_submit' class='button' type='submit'>Submit</button>
 </form>
 <%= flash[:warning] %>

@@ -25,9 +25,24 @@ button#sign_up {
   width: 18%;
   height: 40px;
 }
+button#sign_up_submit {
+  width: 18%;
+  margin-left: 41%;
+  margin-top: 3%;
+}
 button#view_peeps {
   width: 18%;
   height: 40px;
+}
+form#sign_up {
+  text-align: center;
+}
+section#home_title {
+  padding-top: 10%;
+}
+section#home_buttons {
+  padding-top: 40px;
+  text-align: center;
 }
 .button {
   border-radius: 20px;
@@ -51,12 +66,31 @@ button#view_peeps {
   background-color: #2E7FC7;
   color: #fff;
 }
-section#home_title {
-  padding-top: 10%;
+.jumbotron {
+  margin-top: 0px;
+  padding-left: 40%;
+  background-color: inherit;
 }
-section#home_buttons {
-  padding-top: 40px;
-  text-align: center;
+.sign_up_labels {
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  font-size: 13px;
+  display: inline-block;
+  float: left;
+  width: 100px;
+  margin-top: 5px;
+  margin-left: 35%;
+}
+.sign_up_info {
+  display: inline-block;
+  float: left;
+  border-radius: 5px;
+  height: 32px;
+  border-width: 1px;
+  width: 20%;
+  font-size: 13px;
+  text-indent: 9px;
 }
 
 .log_in {
