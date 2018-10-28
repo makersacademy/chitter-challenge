@@ -1,4 +1,7 @@
-<h2>Sign in</h2>
+<h1>Sign in</h1>
+<h2 style="color:red">
+  <%= flash[:notice] %>
+</h2>
 <br>
 <form action="/sessions" method="post">
   <input type="username" name="username" placeholder="Username" />
