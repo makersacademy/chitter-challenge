@@ -1,11 +1,11 @@
 require 'user'
 
 describe User do
+  before do
+    @user_one = User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
+  end
 
   describe '.create' do
-    before do
-      @user_one = User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
-    end
 
     it 'returns a user' do
       expect(@user_one).to be_a User
@@ -28,10 +28,27 @@ describe User do
     end
   end
 
+  describe '.all' do
+    before do
+      @user_two = User.create(username: "user2", password: "password2", name: "Mrs User", email: "user2@example.com")
+    end
+    it 'returns an array of User objects' do
+      User.all.each do |user|
+        expect(user).to be_a User
+      end
+    end
+
+    it 'maintains same parameters of peeps' do
+      first_user = User.all[0]
+      expect(first_user.username).to eq "user1"
+      expect(first_user.name).to eq "Mr User"
+    end
+
+  end
+
   describe '.authenticate' do
     context "with valid details" do
       before do
-        User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
         User.authenticate(username: "user1", password: "password1")
         @user = User.current
       end
@@ -49,6 +66,7 @@ describe User do
 
     context "with invalid details" do
       before do
+        User.sign_out
         @result = User.authenticate(username: "user1", password: "wrong")
       end
 
@@ -64,7 +82,6 @@ describe User do
 
   describe '.sign_out' do
     it 'resets User.current' do
-      User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
       User.sign_out
       expect(User.current).to be_nil
     end
@@ -72,7 +89,6 @@ describe User do
 
   describe '.find' do
     scenario 'returns a user with the passed username' do
-      @user_one = User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
       found_user = User.find(@user_one.username)
       expect(found_user.username).to eq @user_one.username
       expect(found_user.name).to eq @user_one.name

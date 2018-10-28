@@ -68,12 +68,4 @@ describe Peep do
       expect(new_peep.content).to eq "new_content"
     end
   end
-
-  # describe '#tags?' do
-  #   it 'returns true if peep includes username' do
-  #     user2 = User.create(username: "user2", password: "password2", name: "Mrs User", email: "user2@example.com")
-  #     @peep_tag = Peep.create( username: 'user1', content: 'Tagging @user2' )
-  # #     expect(@peep_tag.tags?(user2)).to eq(true)
-  #   # end
-  # end
 end

@@ -13,6 +13,19 @@ class User
     login(username, password)
   end
 
+  def self.all
+    query = "SELECT * FROM users;"
+    rows = DatabaseConnection.query(query)
+    rows.map do |row|
+      User.new(
+        username: row["username"],
+        password: row["password"],
+        name: row["name"],
+        email: row["email"]
+      )
+    end
+  end
+
   def self.authenticate(username:, password:)
     return false unless valid?(username, password)
     login(username, password)
