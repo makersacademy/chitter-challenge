@@ -1,8 +1,9 @@
 describe User do
 
   describe '.find_by_username' do
-    it '' do
-      # TODO
+    it 'finds user by username' do
+      user = User.create(name: 'Firstname Lastname', username: 'username', email: 'email@email.com', password: 'password')
+      expect(User.find_by_username('username').name).to eq user.name
     end
   end
 
@@ -14,8 +15,9 @@ describe User do
   end
 
   describe '.check_if_unique' do
-    it '' do
-      # TODO
+    it 'returns false if user already exists' do
+      User.create(name: 'Firstname Lastname', username: 'username', email: 'email@email.com', password: 'password')
+      expect(User.check_if_unique('username', 'email@email.com')).to be false
     end
   end
 
