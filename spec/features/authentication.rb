@@ -1,13 +1,13 @@
 feature 'Feature - authentication' do
-  it 'a user can sign in' do
-    # Create a test user
-    User.create(first_name: 'Test',
+  before(:each) do
+    @user = User.create(first_name: 'Test',
       last_name: 'McTest',
       username: 'Testannosaurus',
       email: 'test@example.com',
       password: 'password123')
+  end
 
-    # Then sign in as them
+  it 'a user can sign in' do
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
@@ -17,8 +17,6 @@ feature 'Feature - authentication' do
   end
 
   scenario 'a user sees an error if they get their email wrong' do
-    User.create(email: 'test@example.com', password: 'password123')
-
     visit '/sessions/new'
     fill_in(:email, with: 'nottherightemail@me.com')
     fill_in(:password, with: 'password123')
@@ -29,8 +27,6 @@ feature 'Feature - authentication' do
   end
 
   scenario 'a user sees an error if they get their password wrong' do
-    User.create(email: 'test@example.com', password: 'password123')
-
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'wrongpassword')
@@ -41,16 +37,11 @@ feature 'Feature - authentication' do
   end
 
   scenario 'a user can sign out' do
-    # Create the user
-    User.create(email: 'test@example.com', password: 'password123')
-
-    # Sign in as that user
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
 
-    # Sign out
     click_button('Sign out')
 
     expect(page).not_to have_content 'Welcome, Testannosaurus'
