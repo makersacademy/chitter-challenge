@@ -1,5 +1,12 @@
 # Chitter #
 
+Chitter is a Twitter clone made to test my experience with web apps and
+databases. Users can register, login, log out of accounts, and post peeps.
+
+<video width="320" height="240" controls>
+  <source src="demo.mov" type="video/mp4">
+</video>
+
 ## User Stories ##
 ```
 As a Maker
