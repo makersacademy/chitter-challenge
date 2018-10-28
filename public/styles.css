@@ -2,12 +2,7 @@ body {
   background-color: #32B4DB;
   font-family: 'Roboto', sans-serif;
 }
-h1#home_title {
-  text-align: center;
-  color: #F5F6F7;
-  font-family: 'Baloo Bhaijaan', cursive;
-  font-size: 4rem;
-}
+
 article#sign_up_warning {
   text-align: center;
 }
@@ -36,11 +31,17 @@ button#sign_up_submit {
   margin-left: 41%;
   margin-top: 3%;
 }
+button#sign_up_home {
+  width: 18%;
+}
 button#view_peeps {
   width: 18%;
   height: 40px;
 }
 form#sign_up {
+  text-align: center;
+}
+form#sign_up_home_button {
   text-align: center;
 }
 section#home_title {
@@ -49,6 +50,12 @@ section#home_title {
 section#home_buttons {
   padding-top: 40px;
   text-align: center;
+}
+.chitter_title {
+  text-align: center;
+  color: #F5F6F7;
+  font-family: 'Baloo Bhaijaan', cursive;
+  font-size: 4rem;
 }
 .button {
   border-radius: 20px;

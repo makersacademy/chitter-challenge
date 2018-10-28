@@ -1,5 +1,7 @@
 <%= erb :'partials/header' %>
-
+<section id='peeps_title'>
+  <h1 class='chitter_title'>chitter.</h1>
+</section>
 <% if @current_user %>
   <h2>Hello <%= @current_user.username %></h2>
 <% else %>

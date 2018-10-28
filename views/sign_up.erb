@@ -1,6 +1,6 @@
 <%= erb :'partials/header' %>
 <section id='home_title'>
-  <h1 id='home_title'>chitter.</h1>
+  <h1 class='chitter_title'>chitter.</h1>
 </section>
 <br>
 <form action='/sign_up' method='post'>
@@ -13,6 +13,10 @@
   <label class='sign_up_labels' for='username' type='text'><p>Username</p></label>
   <input class='sign_up_info' type='text' name='username' placeholder='albob123'><br><br>
   <button id='sign_up_submit' class='button' type='submit'>Submit</button>
+</form>
+<br>
+<form id='sign_up_home_button' action='/' method='get'>
+  <button id='sign_up_home' class='button' type='submit'>Home</button>
 </form>
 <br><br>
 <article id='sign_up_warning' class='flash_message'>
