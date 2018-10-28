@@ -22,15 +22,15 @@ I want to see the time at which it was made
 
 ```
 
-### Setting up the databases
+#### Setting up the databases
 - If you already have a peep_manager database and a peep_manager_test database, you can skip this step. Otherwise, in the terminal, just run:
 
 ```
 $> rake setup
 ```
 
-### Setting up the project
+#### Setting up the project
 - After cloning this repo to your computer, make sure you're in the project directory and run the command `bundle` on your terminal.
 - To run the tests, use the command `rspec`.
-- To start the server use the command `rackup`.
+- To start the server, use the command `rackup`.
 - Happy peeping...
