@@ -37,4 +37,11 @@ describe CheckUsers do
       expect(CheckUsers.login("cait@test.com", 'password')).to eq false
     end
   end
+
+  describe '::choose' do
+    it 'retreives the current users info from the db' do
+      User.create(details)
+      expect(CheckUsers.choose(details[:username])).to eq details[:username]
+    end
+  end
 end

@@ -2,6 +2,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user'
+require_relative './lib/check_users'
 require_relative './lib/peep'
 require_relative './lib/chitter'
 
@@ -20,8 +21,8 @@ class ChitterApp < Sinatra::Base
       redirect '/'
     else
       User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-      new_user = CheckUsers.all.select { |user| user.username == params[:username] }.first
-      redirect "/welcome/#{new_user.username}"
+      new_user = CheckUsers.choose(params[:username])
+      redirect "/welcome/#{new_user}"
     end
   end
 

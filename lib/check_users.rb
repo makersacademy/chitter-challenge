@@ -1,6 +1,8 @@
 class CheckUsers
   @conn = nil
 
+  attr_reader :username
+
   def self.all
     find_db
     @conn.exec("SELECT * FROM users").map do |user|
@@ -24,12 +26,23 @@ class CheckUsers
     false
   end
 
+  def self.choose(username)
+    find_db
+    @conn.exec("SELECT * FROM users WHERE(username = '#{username}');").map do |user|
+      return user['username']
+    end
+  end
+
   def self.find_db
     if ENV['RACK_ENV'] == 'test'
       @conn = PG.connect(dbname: 'chitter_test')
     else
       @conn = PG.connect(dbname: 'chitter')
     end
+  end
+
+  def initialize(username)
+    @username = username
   end
 
   end
