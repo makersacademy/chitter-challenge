@@ -1,0 +1,29 @@
+<head>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+<h1>
+ <%= "Welcome back to chitter, #{@username}" %>
+ <form action ="logout" method = "post">
+   <input type ="submit" name="log out" value="log out">
+ </form>
+</h1>
+
+Wanna be heard?
+<form action ="/peep" method = "post">
+  <input type ="text" name="peep" value placeholder = "What's on your mind?" >
+  <input type ="submit" name="submit peep" value="submit peep">
+</form>
+</body>
+
+  <% @chitters.each do |chitter| %>
+      <div class="peeps">
+        <%= chitter.text %>
+        <br><%= chitter.peep_time %>
+        <br><%= "Posted by: #{chitter.username}" %>
+        </div>
+      </a>
+  <% end %>
+
+</body>

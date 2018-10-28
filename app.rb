@@ -18,8 +18,6 @@ class App < Sinatra::Base
     erb :homepage
   end
 
-# TODO make this take name of user
-
   post '/peep' do
     if session[:user_id].nil?
       session[:peep_error] = "You must log in to peep"
@@ -39,6 +37,12 @@ class App < Sinatra::Base
     redirect '/'
   end
 
+  get '/user_id' do
+    @chitters = Chitter.all
+    @username = session[:user_id]
+    erb :user_page
+  end
+
   post '/logout' do
     session[:user_id] = nil
     redirect '/'
@@ -49,8 +53,10 @@ class App < Sinatra::Base
   end
 
   post '/sign_up' do
-    added = User.add(username: params['username'], email: params['email'], password: params['password'])
-    session[:user_id] = params['username'] #if added
+    User.add(username: params['username'],
+                    email: params['email'],
+                    password: params['password'])
+    session[:user_id] = params['username'] # if added
     # session[:failed_login] = 'username or email already taken' unless added
     redirect '/'
   end

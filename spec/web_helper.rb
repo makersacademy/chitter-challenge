@@ -10,11 +10,6 @@ def sign_up
   click_on 'sign me up!'
 end
 
-def peep(message)
-  fill_in 'peep', with: message
-  click_on 'submit peep'
-end
-
 def log_in(username = 'Becka')
   visit '/'
   fill_in 'username', with: username
