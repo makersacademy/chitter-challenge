@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
+    @user = session[:user]
     erb :index
   end
 
@@ -19,6 +20,10 @@ class Chitter < Sinatra::Base
 
   get '/user/new' do
     erb :register
+  end
+
+  get '/session/new' do
+    erb :login
   end
 
   post '/peep' do
@@ -48,6 +53,13 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Thank you for registering with Chitter. Login to start Peeping!'
       redirect to '/'
     end
+  end
+
+  post '/session' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+
+    session[:user] = user
+    redirect to '/'
   end
 
   run! if app_file == $0

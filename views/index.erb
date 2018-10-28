@@ -6,8 +6,13 @@
     <%= flash[notice] %>
   </div>
   <% end %>
-
+  
+  <% if session[:user].nil? %>
   <a href="/user/new">Register</a>
+  <a href="/session/new">Login</a>
+  <% else %>
+  <h4>Logged in as <%= @user.name %> (<%= @user.username %>)</h4>
+  <% end %>
 
   <form action="/peep/new">
     <input type="submit" value="Post a Peep">
