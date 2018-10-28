@@ -1,15 +1,11 @@
 <h1>Chitter</h1>
 <% if @user %>
   <h2>Welcome, <%= @user.name%></h2>
-  <h2>You are logged in with this email: <%= @user.email%></h2>
   <form action="/users/<%= @user.username %>/peeps/new" method="get">
     <input type="submit" value="Peep">
   </form>
   <form action="/sessions/destroy" method="post">
     <input type="submit" value="Logout">
-  </form>
-   <form action="/users/<%= @user.username%>/peeps" method="get">
-    <input type="submit" value="My Profile">
   </form>
 <% end %>
 <% if @user.nil? %>
@@ -33,5 +29,3 @@
   </ul>
   <% end %>
 <% end%>
-
-

@@ -89,4 +89,13 @@ describe User do
       expect(authenticated_user).to eq nil
     end
   end
+
+  describe '#peeps' do
+    it 'calls Peep.where' do
+      john = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
+      Peep.create(text: "Johns peep", user_id: john.id)
+      expect(Peep).to receive(:where).with(user_id: john.id)
+      john.peeps
+    end
+  end
 end

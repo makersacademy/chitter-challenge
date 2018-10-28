@@ -42,4 +42,18 @@ describe Peep do
       expect(timestamp).to eq "12:00"
     end
   end
+
+  describe '.where' do
+    it 'returns peeps from a specific user' do
+      john = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
+      Peep.create(text: "Johns peep", user_id: john.id)
+      john_peeps_data = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = '#{john.id}'").to_a
+      john_peeps = Peep.where(user_id: john.id)
+
+      expect(john_peeps.length).to eq john_peeps_data.length
+      expect(john_peeps.first).to be_a Peep
+      expect(john_peeps.first.text).to eq "Johns peep"
+      expect(john_peeps.first.user_id).to eq john.id
+    end
+  end
 end

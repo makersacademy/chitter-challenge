@@ -36,4 +36,16 @@ class Peep
   def self.timestamp
     Time.new.strftime("%y-%m-%d %H:%M")
   end
+
+  def self.where(user_id:)
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = '#{user_id}'")
+    result.map do |peep|
+      Peep.new(
+        id: peep['id'],
+        text: peep['text'], 
+        user_id: peep['user_id'],
+        time: peep['time']
+      )
+    end
+  end
 end

@@ -13,6 +13,10 @@ class User
     @email = email
   end
 
+  def peeps
+    Peep.where(user_id: @id)
+  end
+
   def self.create(name:, username:, email:, password:)
     return USERNAME_ALREADY_IN_USE if User.username_exsist?(username)
     return EMAIL_ALREADY_IN_USE if User.email_exsist?(email)

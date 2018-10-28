@@ -13,8 +13,8 @@ class Chitter < Sinatra::Base
     if session[:username]
       @user = User.find(column: 'username', value: session[:username])
     end
-    @peeps = Peep.all
-    erb :index
+    peeps = Peep.all
+    erb :index, { locals: { peeps: peeps } }
   end
 
   get '/users/new' do
@@ -47,6 +47,13 @@ class Chitter < Sinatra::Base
     user = User.find(column: 'username', value: "#{username}")
     Peep.create(text: params[:peep_text], user_id: user.id)
     redirect '/'
+  end
+
+  get '/users/:username/peeps' do
+    username = session[:username]
+    @user = User.find(column: 'username', value: "#{username}")
+    peeps = @user.peeps
+    erb :'peeps/index', { locals: { peeps: peeps } }
   end
 
   get '/sessions/new' do
