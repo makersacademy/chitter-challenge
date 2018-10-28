@@ -3,13 +3,23 @@
     <input type="submit" value="Sign Up">
 </form>
 
-<form action="/log_in" method="get">
-    <input type="submit" value="Log In">
-</form>
-
 <form action="/peep/new" method="get">
     <input type="submit" value="peep">
 </form>
+
+<div><%= flash[:notice] %></div>
+
+<% if @user.nil? %>
+  <form action="/log_in" method="get">
+      <input type="submit" value="Log In">
+  </form>
+<% else %>
+  <form action = '/log_out' method = 'post'>
+      <input type='hidden' id='hidden' name='_method' value='delete'>
+      <input type="submit" value="Log Out">
+  </form>
+<% end %>
+
 
 
 <ul id="peeps">
