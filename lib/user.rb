@@ -7,11 +7,17 @@ class User
   def self.all_users
     sql = %{select * from users }
     users = DatabaseConnection.query(sql)
-    users.map { |un| { id: un["id"], firstname: un["firstname"], lastname: un["lastname"], username: un["username"], password: un["password"], email: un["email"] }  }
+    users.map { |un| { id: un["id"],
+      firstname: un["firstname"],
+      lastname: un["lastname"],
+      username: un["username"],
+      password: un["password"],
+      email: un["email"] }
+    }
   end
 
   def self.all_usernames
-     (all_users).map { |usr| usr[:username] }
+    all_users.map { |usr| usr[:username] }
   end
 
   def self.create(firstname, lastname, username, password, email)
@@ -43,7 +49,7 @@ class User
 
   def self.find_from_username(username)
     # p "ids: "
-    user = all_users.select { |user| user[:username] == username}
+    user = all_users.select { |usr| usr[:username] == username }
     # tagged.map { |tag| tag[:id]}
     User.new({ id: user[0][:id],
       firstname: user[0][:firstname],

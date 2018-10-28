@@ -21,7 +21,7 @@ function myFunction() {
           <%end%>
         </h1>
 
-        <!-- <% if @user %> <h1>Welcome, <%= @user.username %></h1> <%end%>-->
+
       </div>
       <div class="menu">
         <p>
@@ -35,13 +35,26 @@ function myFunction() {
       </div>
       <div class="main">
         <%@peeps.each do |peep_row|%>
-          <!-- <%=peep_row%> -->
-        </p>
-        <p><%=peep_row[:peeper]%>
-          wrote a Peep:
-          <%=peep_row[:peep]%>
-          - sent
-          <%=peep_row[:posted_date]%></p><hr/>
+        <%=peep_row[:parent_peep]%>
+
+
+      <p><%=peep_row[:peeper]%><%if peep_row[:parent_peep].to_i == 0
+        peep_prefix = "wrote a Peep"
+        else
+        peep_prefix = "replied"
+        end%>
+        <%=peep_prefix%>:
+        <%=peep_row[:peep]%>
+        - sent
+        <%=peep_row[:posted_date]%></p>
+        <p>
+          <% if @user %>
+            <a href="/peep/<%=peep_row[:id]%>/reply">
+              <button class="postpeep" type="button" value="Reply">
+                <span class="icon"></span>Reply</button>
+            </a>
+              <%end%>
+            </p><hr/>
       <%end%>
 
     </div>

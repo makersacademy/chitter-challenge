@@ -28,6 +28,19 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/peep/:id/reply' do
+    @peep = Peep.find(params[:id])
+    # p params[:id]
+    erb :reply
+  end
+
+  post '/peep/:id/reply/new' do
+    # p "testtesttest"
+    # p params[:parent_peep]
+    Peep.create(params[:peep], session[:user_id], params[:parent_peep])
+    redirect '/'
+  end
+
   get '/user/register' do
     @user = User.find(session[:user_id])
     erb :register

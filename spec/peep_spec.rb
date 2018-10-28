@@ -13,6 +13,21 @@ describe Peep do
     end
   end
 
+  describe '#reply' do
+
+    it 'reply to a peep' do
+      user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test1@test.com")
+      peep = Peep.create("adding a peep", user.id)
+      # p peep
+      # p "testtesttest"
+      # p peep.id
+      replypeep = Peep.reply("this is a reply", user.id, peep.id)
+      # p "dsdsfsdsd"
+      # p replypeep
+      expect(replypeep.parent_peep).to eq peep.id
+    end
+  end
+
   describe '#all' do
     it 'returns peeps' do
       user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test2@test.com")

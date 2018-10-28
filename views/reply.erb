@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <script>
+      function textCounter(field, field2, maxlimit) {
+        var countfield = document.getElementById(field2);
+        if (field.value.length > maxlimit) {
+          field.value = field.value.substring(0, maxlimit);
+          return false;
+        } else {
+          countfield.value = maxlimit - field.value.length;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Welcome to Chitter</h1>
+    <form action="/peep/<%=@peep.id%>/reply/new" method="post"><p>
+      Reply to:<br />
+      <%=@peep.message%>
+      </p>
+      <p>
+        <textarea autofocus="autofocus" onkeyup="textCounter(this,'counter',200);" name="peep" id="peep" required="required"></textarea>
+      </p>
+      <p>
+        <input disabled="disabled" maxlength="3" size="3" value="200" id="counter">
+        characters remaining
+      </p>
+      <p>
+<input type="hidden" name="parent_peep" value="<%=@peep.id%>">
+        <button type="submit" class="peep_only_btn" value="Reply">
+          <span class="icon"></span>Reply</button>
+      </p>
+    </form>
+
+  </body>
+</html>
