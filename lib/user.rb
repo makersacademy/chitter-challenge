@@ -69,10 +69,10 @@ class User
       result = connection.exec("SELECT * FROM users WHERE #{column} = '#{value}'")
     return nil if result.nil?
     User.new(
-      id: result['id'],
-      name: result['name'],
-      username: result['username'],
-      email: result['email']
+      id: result[0]['id'],
+      name: result[0]['name'],
+      username: result[0]['username'],
+      email: result[0]['email']
     )
   end
 end
