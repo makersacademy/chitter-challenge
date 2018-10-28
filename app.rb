@@ -8,6 +8,11 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  get '/' do
+    @user = User.find(id: session[:user_id])
+    erb :homepage
+  end
+
   get'/users/new' do
     erb :'users/new'
   end

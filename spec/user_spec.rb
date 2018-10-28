@@ -1,5 +1,6 @@
 require 'user'
 require 'database_helpers'
+require 'pry'
 
 describe User do
 

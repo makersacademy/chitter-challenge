@@ -16,4 +16,7 @@ group :test, :development do
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-nav'
 end

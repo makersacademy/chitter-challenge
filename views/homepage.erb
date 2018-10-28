@@ -1,0 +1,6 @@
+<%= erb :nav  %>
+
+<% if @user %>
+  <h4>Welcome, <%= @user.email %></h4>
+<% end %>
+<h4><%= flash[:notice] %></h4>
