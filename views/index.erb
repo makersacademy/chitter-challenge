@@ -1,26 +1,41 @@
-<h1>Chitter</h1>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
 
-<span class="user">
-  <% if session[:current_user] == nil %>
-    <a href="/sign-up"><button>Sign Up</button></a>
-    <a href="/login"><button>Login</button></a>
-  <% else %>
-    <h2>Hi, <%= @user.username %>!</h2>
+<div class="header">
+  Chitter
+</div>
 
-    <a href="/logout"><button>Logout</button></a>
+<div class="row">
+  <div class="column left">
+    <span class="user">
+      <% if session[:current_user] == nil %>
+        <a href="/sign-up"><button>Sign Up</button></a>
+        <a href="/login"><button>Login</button></a>
+      <% else %>
+        <h2>Hi, <%= @user.username %>!</h2>
 
-    <form action="/post" method="post">
-      <input type="text" id="peep_content" name="peep_content">
-      <input type="submit" value="Post">
-    </form>
-  <% end %>
-</span>
+        <a href="/logout"><button>Logout</button></a>
 
-<ol class="peeps" style="list-style-type:none">
-  <% @peeps.reverse.each do |peep| %>
-    <div class="peep">
-      <%= peep.message %>
-      <%= peep.time %>
-    </div>
-  <% end %>
-</ol>
+        <form action="/post" method="post">
+          <input type="text" class="peep_content" id="peep_content" name="peep_content">
+          <input type="submit" value="Post">
+        </form>
+      <% end %>
+    </span>
+  </div>
+  <div class="column right">
+    <ol class="peeps" style="list-style-type:none">
+      <% @peeps.reverse.each do |peep| %>
+        <div class="peep">
+          <%= peep.message %>
+          <%= peep.time %>
+        </div>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+<div class="footer">
+  © Aimee Craig, 2018
+</div>

@@ -1,0 +1,61 @@
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-align: center;
+}
+
+.header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+  font-size: 300%;
+  font-color: #FFD500;
+}
+
+button {
+  border: 2px solid #FFD500;
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: #FFD500;
+  font-color: white;
+}
+
+ol {
+  list-style: none;
+  padding-left: 0;
+}​
+
+input[type=submit] {
+  border: 2px solid #FFD500;
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+input[type=submit]:hover {
+  background-color: #FFD500;
+  font-color: white;
+}
+
+.column {
+  float: left;
+  background-color: white;
+}
+
+.left {
+  width: 30%;
+}
+
+.right {
+  width: 70%;
+  text-align: right;
+}
+
+.footer {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 10px;
+}
