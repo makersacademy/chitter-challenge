@@ -3,8 +3,7 @@
 Chitter is a Twitter clone made to test my experience with web apps and
 databases. Users can register, login, log out of accounts, and post peeps.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sHMdBeIwHEw"
- frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+![demo](public/demo.gif)
 
 ## User Stories ##
 ```
