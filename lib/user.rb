@@ -1,4 +1,5 @@
 require_relative "database_manager"
+require 'bcrypt'
 
 class User
   attr_reader :id, :email, :password, :name, :username
@@ -10,9 +11,9 @@ class User
   end
 
   def self.create(email:, password:, name:, username:)
-    return false if [email, password, name, username].any?(&:empty?)
+    return if [email, password, name, username].any?(&:empty?)
     DatabaseManager.query("INSERT INTO users(email,password,name,username)" \
-      "VALUES('#{email}','#{password}', '#{name}', '#{username}') " \
+      "VALUES('#{email}','#{BCrypt::Password.create(password)}', '#{name}', '#{username}') " \
       "RETURNING id, email, password, name, username")
   end
 
@@ -37,8 +38,8 @@ class User
   def self.authenticate(email, password)
     user = DatabaseManager.query("SELECT * FROM users WHERE " \
       "email = '#{email}';").first
-    return false unless user
-    return false unless user['password'] == password
+    return unless user
+    return unless BCrypt::Password.new(user['password']) == password
     create_instance(user)
   end
 

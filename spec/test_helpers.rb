@@ -3,7 +3,7 @@ def setup_test_database
   connection.exec('DROP TABLE IF EXISTS peeps;')
   connection.exec('DROP TABLE IF EXISTS users;')
   connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, " \
-    "email VARCHAR(100), password VARCHAR(20), name VARCHAR(50), " \
+    "email VARCHAR(100), password VARCHAR(60), name VARCHAR(50), " \
     "username VARCHAR(20));")
   connection.exec(
     "CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(140), " \
