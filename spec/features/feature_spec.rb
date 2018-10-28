@@ -12,7 +12,7 @@ feature 'posting a peep' do
     visit '/'
     click_button 'Peep'
     fill_in 'text', with: 'Hello, World!'
-    click_button 'Post'
+    click_button 'Peep'
     expect(page).to have_content 'Hello, World!'
   end
 end
