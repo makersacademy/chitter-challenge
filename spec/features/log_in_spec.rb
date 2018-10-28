@@ -1,3 +1,5 @@
+require 'web_helper'
+
 feature do
 
   before do
@@ -19,14 +21,6 @@ feature do
     click_on 'log out'
     expect(page).not_to have_content 'Welcome back to chitter, Becka'
     expect(page).to have_content 'Welcome to chitter'
-  end
-
-  def sign_in(wrong_password = false)
-    visit '/'
-    fill_in 'username', with: 'Becka'
-    password = wrong_password ? 'wrongpassword' : 'fakepassword'
-    fill_in 'password', with: password
-    click_on 'log in'
   end
 
 end

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.1'
 
 gem 'capybara'
+gem 'capybara-screenshot'
 gem 'pg'
 gem 'pry'
 gem 'rack'

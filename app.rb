@@ -25,7 +25,7 @@ class App < Sinatra::Base
       session[:peep_error] = "You must log in to peep"
     else
       Chitter.add(text: params[:peep],
-                  username: 'Becka',
+                  username: session[:user_id],
                   peep_time: DateTime.now)
     end
     redirect '/'
@@ -41,6 +41,17 @@ class App < Sinatra::Base
 
   post '/logout' do
     session[:user_id] = nil
+    redirect '/'
+  end
+
+  get '/sign_up' do
+    erb :sign_up
+  end
+
+  post '/sign_up' do
+    added = User.add(username: params['username'], email: params['email'], password: params['password'])
+    session[:user_id] = params['username'] #if added
+    # session[:failed_login] = 'username or email already taken' unless added
     redirect '/'
   end
 

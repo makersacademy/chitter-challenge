@@ -1,3 +1,5 @@
+require 'web_helper.rb'
+
 feature do
 
   context 'logging in as Becka' do
@@ -51,26 +53,11 @@ feature do
     end
 
     scenario "peeps show who posted them" do
-      peep("Jess's first peep")
-      expect(page).to have_content "blah blah blah"
+      peep("Jess first peep")
+      expect(page).to have_content "Jess first peep"
       expect(page).to have_content "Posted by: Jess"
     end
 
-    scenario 'fix above test' do
-      expect(page).to have_content 'this should not appear on the page'
-    end
-  end
-
-  def log_in(username = 'Becka')
-    visit '/'
-    fill_in 'username', with: username
-    fill_in 'password', with: 'fakepassword'
-    click_on 'log in'
-  end
-
-  def peep(message)
-    fill_in 'peep', with: message
-    click_on 'submit peep'
   end
 
 end
