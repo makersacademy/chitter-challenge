@@ -1,25 +1,38 @@
 <head>
-  <h1>Chitter!</h1>
   <link rel="stylesheet" type="text/css" href="styling.css">
-</head>
+  <div class="header">
 
-<form action="/users/sign-up" method="get">
-  <input type="submit" value="Sign Up" />
-</form>
+    <h1>Chitter!</h1>
 
-<form action="/users/sign-in" method="get">
-  <input type="submit" value="Sign In" />
-</form>
+    <div class="header-right">
 
-<% if @user %>
+      <% if !@user %>
+        <form action="/users/sign-up" method="get">
+          <input type="submit" value="Sign Up" class="header_button" />
+        </form>
 
-<form action="/users/sign-out" method="post">
-  <input type="submit" value="Sign Out" />
-</form>
+        <form action="/users/sign-in" method="get">
+          <input type="submit" value="Sign In" class="header_button" />
+        </form>
 
+      <% else %>
+
+        <form action="/users/sign-out" method="post">
+          <input type="submit" value="Sign Out" class="header_button" />
+        </form>
+
+      <% end %>
+
+    </div>
+  </div>
+
+  <% if @user %>
 
   <h2>Welcome, <%= @user.name %>
-<% end %>
+
+  <% end %>
+
+</head>
 
 <p><%= flash[:notice] %></p>
 

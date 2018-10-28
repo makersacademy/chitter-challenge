@@ -1,7 +1,19 @@
 <head>
-  <h1>Chitter!</h1>
   <link rel="stylesheet" type="text/css" href="../styling.css">
+  <div class="header">
+
+    <h1>Chitter!</h1>
+
+    <div class="header-right">
+
+      <form action="/" method="get">
+        <input type="submit" value="Back to Home Page" class="header_button">
+      </form>
+
+    </div>
+  </div>
 </head>
+
 
 <form action="/users" method="post">
   <input type="text" name="name" placeholder="Name" />
@@ -9,8 +21,4 @@
   <input type="email" name="email" placeholder="Email" />
   <input type="password" name="password" placeholder="Password" />
   <input type="submit" value="Submit" />
-</form>
-
-<form action="/" method="get">
-  <input type="submit" value="Back to Home Page">
 </form>

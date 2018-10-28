@@ -1,15 +1,23 @@
 <head>
-  <h1>Chitter!</h1>
   <link rel="stylesheet" type="text/css" href="../styling.css">
+  <div class="header">
+
+    <h1>Chitter!</h1>
+
+    <div class="header-right">
+
+      <form action="/" method="get">
+        <input type="submit" value="Back to Home Page" class="header_button">
+      </form>
+
+    </div>
+  </div>
 </head>
+
 
 <h2>New peep:</h2>
 
 <form action="/peeps" method="post" id="userform">
   <textarea name="content" form="userform" cols="50" rows="4">Enter text here...</textarea>
   <input type="submit" value="Post" />
-</form>
-
-<form action="/" method="get">
-  <input type="submit" value="Back to Home Page">
 </form>
