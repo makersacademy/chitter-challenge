@@ -4,6 +4,10 @@
   <h2>Welcome, <%= @user.username %></h2>
 <% end %>
 
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
+
 <form action="/peep/new" method="post">
   <input type="text" name="message" />
   <input type="submit" value="Peep" />
