@@ -11,11 +11,13 @@
   <input type="submit" value="Sign In" />
 </form>
 
+<% if @user %>
+
 <form action="/users/sign-out" method="post">
   <input type="submit" value="Sign Out" />
 </form>
 
-<% if @user %>
+
   <h2>Welcome, <%= @user.name %>
 <% end %>
 
