@@ -22,4 +22,12 @@ feature "Logged in welcome screen" do
     expect(page).not_to have_link("Log In", href: '/log_in')
   end
 
+  scenario "I see a log out button" do
+    sign_up
+
+    visit('/')
+
+    expect(page).to have_link("Log Out", href: '/log_out')
+  end
+
 end
