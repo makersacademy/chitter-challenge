@@ -1,21 +1,22 @@
-Chitter Challenge
-=================
+## Approach
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+I used TDD to develop my app. Used Sinatra framework and Capybara for testing.
+I tried to use REST (however I used usernames instead of id's since they are uniqe as well. I thought it provide better user experience.)
+Pony and Mail is used for email functionalities.
+Later on I want to add the comments and beatify the views.
 
-Challenge:
--------
+## Extra functionality
+- User profile with user's peeps only
+- Every peep has the peer's username with a link to the user's profile.
+- Tagging link automaticly created if tagged user exsists.
+- Tagged user get an email via Pony/Mail.
 
-As usual please start by forking this repo.
+### Used extra gems
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+- Pony for email
+- Mail for testing emails (comes with Pony)
 
-Features:
--------
+## User stories
 
 ```
 STRAIGHT UP
@@ -62,46 +63,36 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
------
 
-If you have time you can implement the following:
+## How to use
+ 
+### Getting started
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+To get started with Chitter:
 
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+```
+bundle install
+rake setup
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+This will give you the application, and set up two databases: `chitter` for the development environment, and `chitter_test` for the test environment.
+
+### To run the Chitter app:
+ 
+ ```
+ rackup -p 3000
+ ```
+ 
+ To view Chitter homepage, navigate to `localhost:3000`.
+ 
+### To run tests:
+ 
+ ```
+ rspec
+ ```
+ 
+### To run linting:
+ 
+ ```
+ rubocop
+ ```
