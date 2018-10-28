@@ -158,7 +158,7 @@ end
 
 ## Clean the Database between tests
 
-Each test (feature or unit) should: 
+Each test (feature or unit) should:
 
 - Start on an empty database.
 - Create whatever data is needed for that test.

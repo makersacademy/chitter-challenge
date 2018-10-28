@@ -69,4 +69,14 @@ describe User do
       expect(User.current).to be_nil
     end
   end
+
+  describe '.find' do
+    scenario 'returns a user with the passed username' do
+      @user_one = User.create(username: "user1", password: "password1", name: "Mr User", email: "user1@example.com")
+      found_user = User.find(@user_one.username)
+      expect(found_user.username).to eq @user_one.username
+      expect(found_user.name).to eq @user_one.name
+    end
+  end
+
 end

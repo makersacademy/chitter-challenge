@@ -56,6 +56,11 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/users/:username' do
+    @user = User.find(params[:username])
+    erb(:"users/profile")
+  end
+
   get '/sessions/new' do
     erb(:"sessions/new")
   end

@@ -14,6 +14,9 @@
 <% else %>
   <p>Welcome, <%= @user.name %>!</p>
   <div>
+    <form action = '/users/<%= @user.username %>'>
+      <input type="submit" value="View Profile">
+    </form>
     <form action = '/sessions' method = 'post'>
       <input type='hidden' id='hidden' name='_method' value='delete'>
       <input type="submit" value="Sign Out">

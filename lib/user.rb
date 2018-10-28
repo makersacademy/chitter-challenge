@@ -23,6 +23,17 @@ class User
     @current = nil
   end
 
+  def self.find(username)
+    query = "SELECT * FROM users WHERE username = '#{username}'"
+    result = DatabaseConnection.query(query).first
+    User.new(
+      username: username,
+      password: BCrypt::Password.new(result["password"]),
+      name: result["name"],
+      email: result["email"]
+    )
+  end
+
   private
   def self.login(username, password)
     query = "SELECT * FROM users WHERE username = '#{username}';"
