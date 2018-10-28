@@ -1,5 +1,7 @@
 <%= erb :'partials/header' %>
-
+<section id='home_title'>
+  <h1 id='home_title'>chitter.</h1>
+</section>
 <% unless current_user %>
   <form class='log_in' action='/session/new' method='post'>
     <label for='email'></label>
@@ -25,5 +27,8 @@
     </form>
   <% end %>
 </section>
-<%= flash[:message] %>
-<%= flash[:warning] %>
+<br><br>
+<article id='index_warning' class='flash_message'>
+  <%= flash[:message] %>
+  <%= flash[:warning] %>
+</article>

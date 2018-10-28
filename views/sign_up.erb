@@ -1,4 +1,7 @@
 <%= erb :'partials/header' %>
+<section id='home_title'>
+  <h1 id='home_title'>chitter.</h1>
+</section>
 <br>
 <form action='/sign_up' method='post'>
   <label class='sign_up_labels' for='email' type='text'><p>Email</p></label>
@@ -11,4 +14,7 @@
   <input class='sign_up_info' type='text' name='username' placeholder='albob123'><br><br>
   <button id='sign_up_submit' class='button' type='submit'>Submit</button>
 </form>
-<%= flash[:warning] %>
+<br><br>
+<article id='sign_up_warning' class='flash_message'>
+  <%= flash[:warning] %>
+</article>
