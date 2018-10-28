@@ -30,7 +30,11 @@ class User
   end
 
   def self.find(id:)
+    user_data = connection.exec("SELECT * FROM users WHERE id = #{id}").first
 
+    return if user_data.nil?
+
+    User.new(user_data["id"].to_i, user_data["name"], user_data["email"], user_data["username"])
   end
 
 end
