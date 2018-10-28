@@ -20,7 +20,7 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/new' do
-    Peep.create(message: params[:message], user_name: params[:user_name])
+    Peep.create(message: params[:message], user_name: params[:user_name], timeofpeep: Time.now)
     redirect '/new'
   end
 

@@ -2,12 +2,13 @@ require 'peep'
 require 'database_helpers'
 
 describe Peep do
+
   describe '.all' do
     it "returns all the peeps" do
 
-      peep = Peep.create(message: "message one", user_name: "user1")
-      Peep.create(message: "message two", user_name: "user1")
-      Peep.create(message: "message three", user_name: "user1")
+      peep = Peep.create(message: "message one", user_name: "user1", timeofpeep: Time.now)
+      Peep.create(message: "message two", user_name: "user1", timeofpeep: Time.now)
+      Peep.create(message: "message three", user_name: "user1", timeofpeep: Time.now)
 
       peeps = Peep.all
 
@@ -21,7 +22,7 @@ describe Peep do
 
   describe '.create' do
     it "creates a new peep" do
-      peep = Peep.create(message: 'test message', user_name: 'test_user')
+      peep = Peep.create(message: 'test message', user_name: 'test_user', timeofpeep: Time.now)
       persisted_data = persisted_data(id: peep.id)
 
       expect(peep).to be_a Peep
@@ -33,7 +34,7 @@ describe Peep do
 
   describe '.delete' do
     it "deletes a given bookmark" do
-      peep = Peep.create(message: 'test message', user_name: 'test_user')
+      peep = Peep.create(message: 'test message', user_name: 'test_user', timeofpeep: Time.now)
 
       Peep.delete(id: peep.id)
 

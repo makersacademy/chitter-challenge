@@ -8,11 +8,12 @@
     </div>
     <div class="message_div">
       <ul>
-        <% @peeps.each do |peep| %>
+        <% @peeps.reverse_each do |peep| %>
         <div class="peep_box">
           <li class="peep" id="peep-<%= peep.id %>" >
-            <%= peep.message %>
-            <%= peep.user_name %>
+          <%= peep.message %>
+          <br>
+          Posted at <%= peep.timeofpeep %> By <%= peep.user_name %>
           </li>
         </div>
         <% end %>

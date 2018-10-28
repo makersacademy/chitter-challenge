@@ -16,11 +16,12 @@
       </form>
 
       <ul>
-        <% @peeps.each do |peep| %>
+        <% @peeps.reverse_each do |peep| %>
         <div class="peep_box">
           <li class="peep" id="peep-<%= peep.id %>" >
             <%= peep.message %>
-            <%= peep.user_name %>
+            <br>
+            Posted at <%= peep.timeofpeep %> By <%= peep.user_name %>
             <form action="/<%= peep.id %>" method="post">
               <input type="hidden" name="_method" value="DELETE"/>
               <input type="submit" value="Delete" id="button"/>
