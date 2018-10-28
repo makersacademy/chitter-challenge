@@ -2,10 +2,17 @@
 <div>
   <form method=post action=/new_peep>
     <input type="text" name="peep">
-    <input type="submit" value="Post">
+    <input type="submit" value="Peep">
   </form>
 </div>
 
 <div>
-<p>This is my first ever peep!<p>
+  <ul>
+    <% @peeps.map do |peep| %>
+      <li>
+          <p><h2><%= peep.peep %></h2></p>
+          <p>User: <%= peep.username %>  Posted: <%= peep.time %></p>
+      </li>
+    <% end %>
+  </ul>
 </div>

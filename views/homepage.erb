@@ -6,5 +6,12 @@
 </div>
 
 <div>
-<p>This is my first ever peep!<p>
+  <ul>
+    <% @peeps.map do |peep| %>
+      <li>
+          <p><h2><%= peep.peep %></h2></p>
+          <p>User: <%= peep.username %>  Posted: <%= peep.time %></p>
+      </li>
+    <% end %>
+  </ul>
 </div>

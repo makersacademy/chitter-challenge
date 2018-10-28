@@ -15,6 +15,8 @@ class User
     con = connect_to_database
     con.exec("INSERT INTO users (first_name, last_name, email, password, username)
       VALUES('#{first_name}', '#{last_name}', '#{email}', '#{password}', '#{username}')")
+    # id = con.exec("SELECT id FROM users WHERE username='#{username}'")
+    # unique_id = id.map{|item| p item['id']}.join("")
     current_user(first_name, username)
   end
 

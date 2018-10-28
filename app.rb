@@ -1,11 +1,13 @@
 require 'sinatra/base'
 require './lib/user'
+require './lib/peep'
 require 'pry'
 
 class App < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @peeps = Peep.all
     session[:unique] = true
     erb :homepage
   end
@@ -26,11 +28,13 @@ class App < Sinatra::Base
   end
 
   get '/signed_in' do
+    @peeps = Peep.all
     @name = User.first_name
     erb :signed_in_homepage
   end
 
   post '/new_peep' do
+    Peep.create(params['peep'], User.username)
     redirect '/signed_in'
   end
 
