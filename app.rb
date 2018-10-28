@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep/new' do
+    @user = session[:user]
     erb :write_peep
   end
 

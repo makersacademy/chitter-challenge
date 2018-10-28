@@ -9,7 +9,7 @@ feature "Logging in" do
     fill_in :password, with: 'pikachu123'
 
     click_button 'Login'
-    expect(page).to have_content 'Logged in as Ash Ketchum (@red)'
+    expect(page).to have_content 'Ash Ketchum (@red)'
     expect(page).not_to have_link 'Login'
     expect(page).not_to have_link 'Register'
   end

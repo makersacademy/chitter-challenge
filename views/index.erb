@@ -7,30 +7,56 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<div class="container">
-  <h1>Chitter</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="">Chitter</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/peep/new">Post a Peep</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav navbar-right">
+      <% if session[:user].nil? %>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/new">Register</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/session/new">Login</a>
+      </li>
+      <% else  %>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= @user.name %> (<%= @user.username %>)
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <form action="/session" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Log out">
+          </form>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
   <% flash.keys.each do |notice| %>
     <div>
       <%= flash[notice] %>
     </div>
   <% end %>
-
-  <% if session[:user].nil? %>
-  <a href="/user/new">Register</a>
-  <a href="/session/new">Login</a>
-  <% else %>
-  <h4>Logged in as <%= @user.name %> (<%= @user.username %>)</h4>
-
-  <form action="/session" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Log out">
-  </form>
-  <% end %>
-
-  <form action="/peep/new">
-    <input type="submit" value="Post a Peep">
-  </form>
 
   <% @peeps.each do |peep| %>
     <div class="panel panel-info">
