@@ -17,6 +17,8 @@ feature 'Post a peep to chitter' do
   end
 
   scenario 'I can post a peep when logged in' do
+    sign_up
+
     post(peep: "my new peep")
 
     expect(page).to have_content("my new peep")

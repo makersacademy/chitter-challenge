@@ -2,3 +2,9 @@
 <br>
 
 <a href="/sign_up">Sign Up</a> | <a href="/log_in">Log In</a>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.text %></li>
+  <% end %>
+</ul>

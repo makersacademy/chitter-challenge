@@ -7,11 +7,12 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @peeps = Peep.all
+
     return erb :index if session[:user_id].nil?
 
     user = User.find(id: session[:user_id])
     @name = user.name
-    @peeps = Peep.all
     erb :logged_in
   end
 

@@ -10,8 +10,6 @@ def sign_up(name: "a name", email: "an email", username: "a username", password:
 end
 
 def post(peep:)
-  sign_up
-
   visit('/')
 
   fill_in "peep", with: peep
