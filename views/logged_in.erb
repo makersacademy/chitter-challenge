@@ -1,3 +1,6 @@
-Hi, <%= @name %>!
+Hi, <%= @name %>! <a href="/log_out">Log Out</a>
 
-<a href="/log_out">Log Out</a>
+<form action="/post_peep" method="post">
+  New Peep:<input type="text" name="peep"> <br>
+  <input type="submit" name="submit" value="Post peep!">
+</form>

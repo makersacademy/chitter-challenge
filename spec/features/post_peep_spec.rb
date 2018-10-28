@@ -1,15 +1,19 @@
 feature 'Post a peep to chitter' do
 
-  scenario 'I can write a peep in a text field' do
+  scenario 'I cannot post a peep when logged out' do
     visit('/')
-    visit('/post_peep')
-    expect(page).to have_field("New Peep")
+
+    expect(page).not_to have_field("peep")
+    expect(page).not_to have_button("Post peep!")
   end
 
-  scenario 'I post a peep to chitter by clicking a button' do
+  scenario 'I can post a peep when logged in' do
+    sign_up
+
     visit('/')
-    visit('/post_peep')
-    expect(page).to have_link(href: '/post_peep')
+
+    expect(page).to have_field("peep")
+    expect(page).to have_button("Post peep!")
   end
 
 end
