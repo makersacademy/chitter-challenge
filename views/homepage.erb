@@ -1,6 +1,30 @@
 <%= erb :nav  %>
 
-<% if @user %>
-  <h4>Welcome, <%= @user.email %></h4>
+<div class="container">
+  <h4><%= flash[:notice] %></h4>
+  <% if @user %>
+    <h4>Welcome, <%= @user.email %></h4>
+    <div class="jumbotron">
+      <form action="/peep" method="post">
+        <div class="form-group">
+          <h3>New Peep</h3>
+          <textarea class="form-control" name="new_peep" id="new_peep" placeholder="Enter peep here"></textarea>
+          <br>
+          <input class="btn btn-success float-right" type="submit" value="Post">
+        </div>
+      </form>
+    </div>
 <% end %>
-<h4><%= flash[:notice] %></h4>
+  <div class="">
+    <h3>Previous Peeps</h3>
+    <% for peep in @peeps %>
+      <div class="border">
+        <div class="border">
+          <%= peep.user.email  %> <%= peep.created_at.strftime(" peeped on %m/%d/%Y at %I:%M%p") %>
+        </div>
+        <%= peep.body %>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>

@@ -20,6 +20,8 @@ GEM
     hirb (0.7.3)
     jaro_winkler (1.5.1)
     json (2.1.0)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
     method_source (0.8.2)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
@@ -99,6 +101,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   capybara
+  mail
   pg
   pry
   pry-nav

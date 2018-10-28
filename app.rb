@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './database_setup'
 require './lib/user'
+require './lib/peep'
 
 class ChitterApp < Sinatra::Base
 
@@ -10,7 +11,13 @@ class ChitterApp < Sinatra::Base
 
   get '/' do
     @user = User.find(id: session[:user_id])
+    @peeps = Peep.all
     erb :homepage
+  end
+
+  post '/peep' do
+    Peep.create(body: params['new_peep'], user_id: session['user_id'])
+    redirect '/'
   end
 
   get'/users/new' do
