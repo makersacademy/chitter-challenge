@@ -1,14 +1,14 @@
 # Set the environment to "test"
 ENV['ENVIRONMENT'] = 'test'
-
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-require 'simplecov'
-require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
+require 'pony'
 require 'rspec'
 require 'rake'
+require 'simplecov'
+require 'simplecov-console'
 
 Rake.application.load_rakefile
 
@@ -21,10 +21,20 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+# Email override for testing environment
+Pony.override_options = {
+  :via => :test
+}
+
 RSpec.configure do |config|
 
   config.before(:each) do
     Rake::Task['test_database_setup'].execute
+    Mail::TestMailer.deliveries.clear
+  end
+
+  config.after(:each) do
+    Mail::TestMailer.deliveries.clear
   end
 
   config.after(:suite) do

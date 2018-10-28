@@ -24,7 +24,7 @@ describe Peep do
     it 'calls .tagging for tagging' do
       john = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
       User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
-      expect(Peep).to receive(:tagging).with(text: 'My peep message @jane')
+      expect(Peep).to receive(:tagging).with(text: 'My peep message @jane', user_id: john.id)
       Peep.create(text: 'My peep message @jane', user_id: "#{john.id}")
     end
   end
@@ -32,7 +32,7 @@ describe Peep do
   describe '.all' do
     it 'returns all peeps in reverse chronological order' do
       user = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
-      peep1 = Peep.create(text: 'My peep message', user_id: "#{user.id}")
+      Peep.create(text: 'My peep message', user_id: "#{user.id}")
       peep2 = Peep.create(text: 'My peep message2', user_id: "#{user.id}")
       
       peeps = Peep.all
