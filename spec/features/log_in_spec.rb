@@ -6,7 +6,7 @@ feature 'logging in' do
 
   scenario 'user can fill out email and password on the index page' do
     expect(page).to have_selector("input[type='text'][placeholder='Email']")
-    expect(page).to have_selector("input[type='text'][placeholder='Password']")
+    expect(page).to have_selector("input[type='password'][placeholder='Password']")
     fill_in :email, with: 'albob123@gmail.com'
     fill_in :password, with: 'password123'
     click_button 'Log in'
@@ -23,10 +23,10 @@ feature 'logging in' do
     click_button 'Home'
     expect(page).to have_current_path('/')
     expect(page).not_to have_selector("input[type='text'][placeholder='Email']")
-    expect(page).not_to have_selector("input[type='text'][placeholder='Password']")
+    expect(page).not_to have_selector("input[type='password'][placeholder='Password']")
     click_button 'Sign out'
     expect(page).to have_selector("input[type='text'][placeholder='Email']")
-    expect(page).to have_selector("input[type='text'][placeholder='Password']")
+    expect(page).to have_selector("input[type='password'][placeholder='Password']")
   end
 
   scenario 'displays a warning message if email is incorrect' do
