@@ -7,8 +7,9 @@ describe User do
   end
 
   describe '.check_password' do
-    it '' do
-      # TODO
+    it 'returns true if password is correct' do
+      user = User.create(name: 'Firstname Lastname', username: 'username', email: 'email@email.com', password: 'password')
+      expect(test_password('password', user.password)).to be true
     end
   end
 
