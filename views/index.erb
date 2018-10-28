@@ -21,11 +21,12 @@
   </form>
 <% end %>
 
-
-<form action="/peep/new" method="post">
+<% if @user %>
+<form id="peep-form" action="/peep/new" method="post">
   <input type="text" name="message" />
   <input type="submit" value="Peep" />
 </form>
+<% end %>
 
 <ul>
   <% @peeps.each do |peep| %>
