@@ -1,6 +1,10 @@
 <h1>Chitter</h1>
 
-<form action="/post-peep" method="post">
+<% if @user %>
+  <h2>Welcome, <%= @user.username %></h2>
+<% end %>
+
+<form action="/peep/new" method="post">
   <input type="text" name="message" />
   <input type="submit" value="Peep" />
 </form>
