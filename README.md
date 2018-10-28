@@ -1,24 +1,10 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+My first attempt at the Chitter challenge, the challenge was to build a twitter clone from scratch. There were various guideline user stories to accompany this challenge:
 
 ```
-STRAIGHT UP
+HAS BEEN MADE:
 
 As a Maker
 So that I can let people know what I am doing  
@@ -36,7 +22,7 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
+YET TO BE IMPLEMENTED:
 
 As a Maker
 So that only I can post messages on Chitter as me
@@ -45,63 +31,28 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
+**Sequence**
+
+![Chitter diagram](/img/Chitter_diagram.png)
+
+Starting from this sequential diagram and following the principles of TDD I first built the ability to 'peep', starting with a database to store the peeps, before building the ruby class to iterate over the database, and finally the erb file to view it in the browser. From there I built the page that stores all the peeps, and finally I began to build the User class, which took in User data from the sign up screen. At the moment it only returns the name you put in, but in the future this User database should be able to store and call back various information given by the user on sign up (and hopefully the passwords would be encrypted!).
+
 
 Notes on functionality:
 ------
 
 * You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
+*Technically* this is true in my code, if you go to the right page (/peep/index) you can see the peeps, but I don't yet know how to keep adding information to the main page, rather than creating different pages! Will fix at a later point.
 
 Code Review
 -----------
 
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+As far as I can tell, my coverage is at 100% from the 5 tests that encompass the feature and the unit tests.
 
 Notes on test coverage
 ----------------------
+The tests use the rake test enviroment and subsequently connect to my test versions of the databases. These databases reset at the beginning of every test in order to keep the space clean to work with. See the spec_helper.rb file for more.
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+In order to create this project, I utilized and used Atom, TablePlus, Ruby, Sinatra, SQL, Capybara and RSpec for testing and the command line to work with all of these tools.
