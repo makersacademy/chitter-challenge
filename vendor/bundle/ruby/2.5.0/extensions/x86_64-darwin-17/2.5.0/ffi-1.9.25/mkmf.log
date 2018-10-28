@@ -114,7 +114,7 @@ checked program was:
 "gcc -o conftest -I/Users/Joel/.rvm/rubies/ruby-2.5.1/include/ruby-2.5.0/x86_64-darwin17 -I/Users/Joel/.rvm/rubies/ruby-2.5.1/include/ruby-2.5.0/ruby/backward -I/Users/Joel/.rvm/rubies/ruby-2.5.1/include/ruby-2.5.0 -I. -I/usr/include/ffi  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L. -L/Users/Joel/.rvm/rubies/ruby-2.5.1/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lffi  -lruby.2.5.1 -lffi  -lpthread -ldl -lobjc "
 Undefined symbols for architecture x86_64:
   "_ffi_closure_alloc", referenced from:
-      _t in conftest-b74c6a.o
+      _t in conftest-96efc3.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:
@@ -164,7 +164,7 @@ checked program was:
 "gcc -o conftest -I/Users/Joel/.rvm/rubies/ruby-2.5.1/include/ruby-2.5.0/x86_64-darwin17 -I/Users/Joel/.rvm/rubies/ruby-2.5.1/include/ruby-2.5.0/ruby/backward -I/Users/Joel/.rvm/rubies/ruby-2.5.1/include/ruby-2.5.0 -I. -I/usr/include/ffi  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L. -L/Users/Joel/.rvm/rubies/ruby-2.5.1/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lffi  -lruby.2.5.1 -lffi  -lpthread -ldl -lobjc "
 Undefined symbols for architecture x86_64:
   "_ffi_raw_call", referenced from:
-      _t in conftest-a77bc3.o
+      _t in conftest-8495ff.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:
@@ -242,7 +242,7 @@ checked program was:
 "gcc -o conftest -I/Users/Joel/.rvm/rubies/ruby-2.5.1/include/ruby-2.5.0/x86_64-darwin17 -I/Users/Joel/.rvm/rubies/ruby-2.5.1/include/ruby-2.5.0/ruby/backward -I/Users/Joel/.rvm/rubies/ruby-2.5.1/include/ruby-2.5.0 -I. -I/usr/include/ffi  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L. -L/Users/Joel/.rvm/rubies/ruby-2.5.1/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lffi  -lruby.2.5.1 -lffi  -lpthread -ldl -lobjc "
 Undefined symbols for architecture x86_64:
   "_rb_thread_blocking_region", referenced from:
-      _t in conftest-2eef7d.o
+      _t in conftest-8dd99c.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:

@@ -1,5 +1,5 @@
 current directory: /Users/Joel/Makers/week4/chitter-challenge/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
-/Users/Joel/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20181028-77574-5uzwfv.rb extconf.rb
+/Users/Joel/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20181028-93890-1ovto1k.rb extconf.rb
 creating Makefile
 
 current directory: /Users/Joel/Makers/week4/chitter-challenge/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
@@ -48,4 +48,4 @@ linking shared-object bcrypt_ext.bundle
 
 current directory: /Users/Joel/Makers/week4/chitter-challenge/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
 make "DESTDIR=" install
-/usr/local/opt/coreutils/bin/ginstall -c -m 0755 bcrypt_ext.bundle ./.gem.20181028-77574-6v9lc5
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 bcrypt_ext.bundle ./.gem.20181028-93890-7cq6tt
