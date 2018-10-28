@@ -1,4 +1,5 @@
 require_relative './web_helpers'
+require 'pry'
 
 feature 'Logging In' do
   scenario 'user can log in with correct username and password' do
@@ -14,7 +15,7 @@ feature 'Logging In' do
     sign_up
     log_out
     log_in_wrong_username
-    expect(page).to_not have_content("Welcome, Amy")
+    expect(page).to have_content("Log In to Chitter")
   end
 
   scenario 'user cannot log in with wrong password' do
@@ -22,6 +23,6 @@ feature 'Logging In' do
     sign_up
     log_out
     log_in_wrong_password
-    expect(page).to_not have_content("Welcome, Amy")
+    expect(page).to have_content("Log In to Chitter")
   end
 end

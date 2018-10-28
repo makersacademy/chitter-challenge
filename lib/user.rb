@@ -1,7 +1,7 @@
 require 'bcrypt'
 require 'pg'
 require 'pry'
-require 'database_connection'
+require_relative './database_connection'
 
 class User
 
@@ -17,6 +17,8 @@ class User
   end
 
   def self.create(first_name, last_name, email, username, password)
+    return if self.has_email(email) # Aborts if email already exists
+    return if self.has_username(username) # Aborts if username already exists
     encrypted_password = BCrypt::Password.create(password)
     res = DatabaseConnection.query("INSERT INTO users (first_name, last_name, email, username, password) VALUES ('#{first_name}', '#{last_name}', '#{email}', '#{username}', '#{encrypted_password}') returning *;")
     User.new(res[0]['first_name'], res[0]['last_name'], res[0]['email'], res[0]['username'], res[0]['user_id'], res[0]['password'])
@@ -29,7 +31,18 @@ class User
 
   def self.find(id)
     res = DatabaseConnection.query("SELECT * FROM users WHERE user_id = '#{id}'")
+    return if res.ntuples == 0
     User.new(res[0]['first_name'], res[0]['last_name'], res[0]['email'], res[0]['username'], res[0]['user_id'], res[0]['password'])
+  end
+
+  def self.has_email(email)
+    res = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    res.ntuples == 0 ? false : true
+  end
+
+  def self.has_username(username)
+    res = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
+    res.ntuples == 0 ? false : true
   end
 
   def self.authenticate(username, password)

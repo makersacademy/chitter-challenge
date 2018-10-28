@@ -1,6 +1,6 @@
 require 'pg'
 require 'pry'
-require 'database_connection'
+require_relative './database_connection'
 
 class Chitter
 
@@ -20,6 +20,7 @@ class Chitter
 
   def self.all_peeps
     res = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time DESC;")
+    return if res.ntuples == 0
     res.map { |peep| Chitter.new(peep['post_id'], peep['user_id'], peep['time'], peep['content']) }
   end
 
