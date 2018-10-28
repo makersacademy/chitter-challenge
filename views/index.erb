@@ -1,25 +1,29 @@
 <%= erb :'partials/header' %>
 
 <% unless current_user %>
-<form action='/session/new' method='post'>
-  <label for='email'></label>
-  <input type='text' name='email' placeholder='Email'>
-  <label for='password'></label>
-  <input type='text' name='password' placeholder='Password'>
-  <input type='submit' value='Log in'>
-</form>
-<form action='/sign_up' method='get'>
-  <button type='submit'>Sign up</button>
-</form>
+  <form class='log_in' action='/session/new' method='post'>
+    <label for='email'></label>
+    <input class='info_entry' type='text' name='email' placeholder='Email'><br><br>
+    <label for='password'></label>
+    <input class='info_entry' type='text' name='password' placeholder='Password'><br>
+    <button id='log_in' class='button' type='submit'>Log in</button>
+  </form>
 <% end %>
-
-<form action='/peeps' method='get'>
-  <button type='submit'>View all peeps</button>
-</form>
-<% if current_user %>
-<form action='/session/destroy' method='post'>
-  <button type='submit' name='id' value='<%= current_user.id %>'>Sign out</button>
-</form>
-<% end %>
+<br>
+<section id='home_buttons' class='container'>
+  <form action='/peeps' method='get'>
+    <button id='view_peeps' class='button' type='submit'>View all peeps</button>
+  </form><br>
+  <% unless current_user %>
+    <form action='/sign_up' method='get'>
+      <button id='sign_up' class='button' type='submit'>Sign up</button>
+    </form>
+  <% end %>
+  <% if current_user %>
+    <form action='/session/destroy' method='post'>
+      <button type='submit' name='id' value='<%= current_user.id %>'>Sign out</button>
+    </form>
+  <% end %>
+</section>
 <%= flash[:message] %>
 <%= flash[:warning] %>

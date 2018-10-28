@@ -4,7 +4,7 @@ feature 'index page' do
   end
 
   scenario 'displays the title Chitter on the page' do
-    expect(page).to have_content 'Chitter'
+    expect(page).to have_content 'chitter'
   end
 
   scenario 'has a link to view the list of peeps' do

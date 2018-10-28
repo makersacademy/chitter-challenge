@@ -1,0 +1,74 @@
+body {
+  background-color: #32B4DB;
+  font-family: 'Roboto', sans-serif;
+}
+h1#home_title {
+  text-align: center;
+  color: #F5F6F7;
+  font-family: 'Baloo Bhaijaan', cursive;
+  font-size: 4rem;
+}
+button:focus{
+  outline:0px;
+}
+button {
+  height: 32px;
+  font-size: 14px;
+}
+button#log_in {
+  position: absolute;
+  right: 480px;
+  bottom: 0px;
+  height: 32px;
+}
+button#sign_up {
+  width: 18%;
+  height: 40px;
+}
+button#view_peeps {
+  width: 18%;
+  height: 40px;
+}
+.button {
+  border-radius: 20px;
+  border-width: 3px;
+  color: #32B4DB;
+  height: 32px;
+  width: 5%;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+.button:hover {
+  background-color: #2E7FC7;
+  color: #fff;
+}
+section#home_title {
+  padding-top: 10%;
+}
+section#home_buttons {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.log_in {
+  padding-top: 10px;
+  text-align: center;
+  position: relative;
+}
+.info_entry {
+  border-radius: 5px;
+  height: 32px;
+  border-width: 1px;
+  width: 20%;
+  font-size: 13px;
+  text-indent: 9px;
+}
