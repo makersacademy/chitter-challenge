@@ -15,12 +15,6 @@ describe Peep do
       expect(peep.text).to eq 'My peep message'
     end
 
-    it 'calls .timestamp for time' do
-      user = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
-      expect(Peep).to receive(:timestamp)
-      Peep.create(text: 'My peep message', user_id: "#{user.id}")
-    end
-
     it 'calls .tagging for tagging' do
       john = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
       User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
@@ -39,15 +33,6 @@ describe Peep do
       expect(peeps.length).to eq 2
       expect(peeps.first.text).to eq peep2.text
       expect(peeps.first.id).to eq peep2.id
-    end
-  end
-
-  describe '.timestamp' do
-    let(:time) { double :time, strftime: "12:00" }
-    it 'creates a timestamp from a current time' do
-      allow(Time).to receive(:new).and_return(time)
-      timestamp = Peep.timestamp
-      expect(timestamp).to eq "12:00"
     end
   end
 
