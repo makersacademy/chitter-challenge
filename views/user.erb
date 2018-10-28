@@ -1,7 +1,7 @@
 <h1> Chitter </h1>
 <h1> </h1>
 
-  <p> <%= @user.name %> </p>
+  <p> <%= @user.name %>   @<%= @user.username %> </p>
   <form action="/peep" method="post">
     What's on your mind? <input type="text" name="peep">
     <input type="submit" value="Peep" name="Peep">
@@ -10,9 +10,8 @@
   <ul>
     <% @peeps.reverse.each do |peep| %>
       <li class="peep" id="peep-<%= peep.id %>">
-        <p>
-          <%= peep.peep %>
-          <%= peep.time %>
-        </p>
+        <p> <%= @user.name %>   @<%= @user.username %>: </p>
+        <p> <%= peep.peep %> </p>
+        <p> <%= peep.time %> </p>
     <% end %>
   </ul>

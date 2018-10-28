@@ -31,6 +31,7 @@ class Chitter < Sinatra::Base
   get '/welcome' do
     @user = User.find(id: session[:user_id])
     @users = User.all
+    @peeps = Peep.all
     erb :welcome
   end
 

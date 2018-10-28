@@ -18,3 +18,14 @@
       </li>
     <% end %>
   </ul>
+
+<p> Recent peeps: </p>
+
+  <ul>
+    <% @peeps.reverse.each do |peep| %>
+      <li class="peep" id="peep-<%= peep.id %>">
+        <p> <%= peep.user_id %>   </p>
+        <p> <%= peep.peep %> </p>
+        <p> <%= peep.time %> </p>
+    <% end %>
+  </ul>
