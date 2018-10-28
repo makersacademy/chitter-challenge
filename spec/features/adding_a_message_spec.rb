@@ -1,6 +1,6 @@
 feature 'Feature - Adding a new message' do
   scenario 'a user can create a new message' do
-    visit('/messages/new')
+    visit('/messages')
     fill_in('message', with: "This is a new message")
     click_button('Submit')
 

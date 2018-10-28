@@ -26,7 +26,7 @@ describe Message do
   describe '.create' do
     it 'creates a new message' do
       msg = Message.create(message: 'This is a new message')
-      persisted_data = persisted_data(id: msg.id)
+      persisted_data = persisted_data(table: "chitter", id: msg.id)
       time_now = Time.new.strftime("%H:%M")
 
       expect(msg).to be_a Message

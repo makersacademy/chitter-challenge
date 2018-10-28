@@ -1,22 +1,34 @@
 require 'sinatra/base'
 require './lib/message'
+require './lib/user'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+
   get '/' do
     'Chitter'
   end
 
   get '/messages' do
+    # Fetch the user from the database, using an ID stored in the session
+    @user = User.find(session[:user_id])
     @messages = Message.all
     erb :'messages/index'
   end
 
-  get '/messages/new' do
-    erb :'messages/new'
-  end
-
   post '/messages' do
     Message.create(message: params['message'])
+    redirect '/messages'
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    user = User.create(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
+    session[:user_id] = user.id
     redirect '/messages'
   end
 

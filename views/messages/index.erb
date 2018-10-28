@@ -1,3 +1,12 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
+<a href="/users/new">Sign up for Chitter</a>
+<br><br>
+<form action="/messages" method="post">
+  <input type="text" name="message" placeholder="New Message" />
+  <input type="submit" value="Submit" />
+</form>
 <ul>
   <% @messages.reverse.each do |msg| %>
     <li>
