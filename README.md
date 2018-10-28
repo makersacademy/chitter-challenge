@@ -5,6 +5,7 @@ It’s back-end is built in Ruby/Sinatra & Postgres, front end in HTML, CSS & Bo
 
 ## Motivations for this project
 
+* Week 4 Makers Academy weekend challenge
 * Build a web app that uses a database
 * Build complete full-stack features - including controller, model, view and database code.
 * Implement RESTful routing conventions
