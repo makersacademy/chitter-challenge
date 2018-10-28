@@ -12,15 +12,21 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    user = User.create(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/welcome'
+    user = User.unique?(email: params[:email], username: params[:username])
+    if user
+      user = User.create(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
+      session[:user_id] = user.id
+      redirect '/welcome'
+    else
+      flash[:notice] = 'Error: This email and/or username already exists'
+      redirect('/')
+    end
   end
 
   post '/log_in' do
-    @user = User.authenticate(email: params[:existing_email], password: params[:existing_password])
-    if @user
-      session[:user_id] = @user.id
+    user = User.authenticate(email: params[:existing_email], password: params[:existing_password])
+    if user
+      session[:user_id] = user.id
       redirect '/welcome'
     else
       flash[:notice] = 'Error: The email you have entered is not in our system'
