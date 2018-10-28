@@ -73,9 +73,9 @@ class ChitterApp < Sinatra::Base
   post '/peep/new' do
     name = session[:name]
     username = session[:username]
-    user = User.find(column: username, value: "#{username}")
+    user = User.find(column: "username", value: "#{username}")
     post = params[:post]
-    Peep.post(name: name, username: username, post: post, time: Time.now)
+    Peep.post(name: user.name, username: user.username, post: post, time: Time.now)
     redirect '/'
   end
 
