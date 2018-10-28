@@ -4,7 +4,6 @@ require_relative './lib/peep.rb'
 require_relative './lib/user'
 require_relative './database_connection_setup'
 
-
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
@@ -48,7 +47,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect('/peeps')
     else
-      flash[:notice] = 'Please check your username or password.'
+      flash[:notice] = 'Error: Please check your username or password.'
       redirect('/sessions/new')
     end
   end

@@ -4,10 +4,10 @@
     <h1>Chitter</h1>
   </div>
   <% unless @user %>
-    <form action="/users/new" class="navbar-right">
+    <form action="/users/new" class="navbar-right col-xs-1">
       <input class="btn btn-primary" type="submit" value="Sign up"/>
     </form>
-    <form action="/sessions/new" class="navbar-right">
+    <form action="/sessions/new" class="navbar-right col-xs-1">
       <input class="btn btn-primary" type="submit" value="Sign in"/>
     </form>
   <% end %>
@@ -20,12 +20,17 @@
     <h2>@<%= @user.username %></h2>
   <% end %>
   <h1>Timeline</h1>
+  <% if flash[:notice] %>
+    <div class="alert alert-danger centered" role="alert">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <form action="/peeps/new">
     <input class="btn btn-primary btn-lg" type="submit" value="Post a Peep"/>
   </form>
-  <ul>
+  <ul class="list-group">
     <% @peeps.reverse_each do |peep| %>
-      <ol>
+      <ol class="list-group-item">
         <b><%= peep.message %></b>
         <br>
         Posted at:
@@ -33,8 +38,4 @@
       </ol>
     <% end %>
   </ul>
-
-  <h2 style="color:red">
-    <%= flash[:notice] %>
-  </h2>
 </div>

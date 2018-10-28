@@ -15,6 +15,6 @@ feature 'Viewing peeps' do
       Peep.create(message: 'Hello', peep_timestamp: time)
     end
     visit('/peeps')
-    expect(page).to have_content("Hello Posted at: #{time.strftime("%Y-%m-%d%k:%M")}\nMy first peep Posted at: #{time.strftime("%Y-%m-%d%k:%M")}")
+    expect(page).to have_content("Hello Posted at: #{time.strftime("%Y-%m-%d %k:%M")}\nMy first peep Posted at: #{time.strftime("%Y-%m-%d %k:%M")}")
   end
 end
