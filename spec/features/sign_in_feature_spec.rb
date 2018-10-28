@@ -25,5 +25,5 @@ feature 'sign in' do
     fill_in('password', with: 'wrongpassword')
     click_button('submit')
     expect(page).to have_content 'Please check your username or password'
- end
+  end
 end

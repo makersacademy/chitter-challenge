@@ -14,8 +14,8 @@ register Sinatra::Flash
   end
 
   post '/post' do
-    Peep.post(name: params[:name], username: params[:username], post: params[:post])
-    redirect '/'
+    Peep.post(post: params[:post], user_id: session[:user_id])
+    redirect '/user_peeps'
   end
 
   get '/sign_up' do
@@ -27,7 +27,7 @@ register Sinatra::Flash
   end
 
   post '/signed_up' do
-    user = User.sign_up(email: params[:email], password: params[:password],name: params[:name],username: params[:username])
+    user = User.sign_up(email: params[:email], password: params[:password], name: params[:name],username: params[:username])
     session[:user_id] = user.id
     redirect '/user_peeps'
   end
