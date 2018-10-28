@@ -63,14 +63,25 @@ describe User do
   end
 
   describe '.authenticate' do
-    it "returns a user when given corrent login info" do
-      user = User.create(name: 'Professor Oak', username: '@p_oak',
+    before(:each) do
+      @user = User.create(name: 'Professor Oak', username: '@p_oak',
         email: 'p_oak@pallet.com', password: 'pokedex123'
       )
+    end
+
+    it "returns a user when given corrent login info" do
       authenticated_user = User.authenticate(email: 'p_oak@pallet.com',
         password: 'pokedex123'
       )
-      expect(authenticated_user.id).to eq user.id
+      expect(authenticated_user.id).to eq @user.id
     end
+
+    it "returns nil if the email address is incorrect" do
+      authenticated_user = User.authenticate(email: 'poak@pallet.com',
+        password: 'pokedex123'
+      )
+      expect(authenticated_user).to be_nil
+    end
+
   end
 end
