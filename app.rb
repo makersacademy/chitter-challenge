@@ -43,13 +43,14 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/log_in' do
-    username = params[:username]
+    session[:username] = params[:username]
+    session[:name] = params[:name]
     password = params[:password]
-    if User.password_authentication(username, password)
+    if User.password_authentication(params[:username], password)
       session[:password_authentication] = true
       # session[:name] = name
       # session[:username] = username
-      redirect "/#{username}"
+      redirect "/#{params[:username]}"
     else
       session[:password_authentication] = false
       flash[:notice] = "Password incorrect, try again!"
@@ -74,7 +75,7 @@ class ChitterApp < Sinatra::Base
     username = session[:username]
     user = User.find(column: username, value: "#{username}")
     post = params[:post]
-    Peep.post(name: params[:name], username: params[:username], post: params[:post], time: Time.now)
+    Peep.post(name: name, username: username, post: post, time: Time.now)
     redirect '/'
   end
 
