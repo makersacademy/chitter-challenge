@@ -1,5 +1,4 @@
 require_relative 'database_connection'
-# require Date
 
 class Peep
 
@@ -8,8 +7,6 @@ class Peep
     sql = %{select id, peep, parent_peep, posted_datetime, user_id
       from peeps order by id desc}
     peeps = DatabaseConnection.query(sql)
-    # p "test here"
-    # p peeps[0]["parent_peep"]
     peeps.map { |record| { id: record["id"],
       peep: record["peep"],
       posted_date: Peep.date_only(record["posted_datetime"]),
@@ -19,23 +16,18 @@ class Peep
   end
 
   def self.create(message, user_id, parent_peep = 0)
-    # p message
-    # p user_id
-    # p parent_peep
+
     sql = %{INSERT INTO peeps
       (peep, user_id, parent_peep) VALUES
       ('#{message}', '#{user_id}', '#{parent_peep}')
       RETURNING id, peep, parent_peep, posted_datetime;}
-      # p sql
     newpeep = DatabaseConnection.query(sql)
-    # p newpeep[0]
     id = newpeep[0]["id"]
 
     Peep.new(id, message, user_id, parent_peep)
   end
 
   def self.reply(message, user_id, parent_peep)
-    # p parent_peep
     create(message, user_id, parent_peep)
 
   end
@@ -69,36 +61,24 @@ class Peep
     @message = message
     @user_id = user_id
     @parent_peep = parent_peep
-    # p "parent in initialize#{@parent_peep}"
     @tags = any_tags?
     @valid_tags = valid_tags?
     @invalid_tags = invalid_tags?
 
-    # p @message
-    # p @parent_peep
   end
 
   def any_tags?
-    # p tags = @message.scan(/@([\da-z\-]+)/)
     @message.scan(/@([\da-z\-]+)/).map { |m| m[0] }
-    # p @message.scan(/@([\da-z\-]+)/)
   end
 
   def valid_tags?
     users = User.all_usernames
-# p User.all_usernames
-    # users_arr = users.map { |record| record["username"] }
     @tags.select { |tag| users.include? tag }
-    # p @tags.reject { |tag| users_arr.include? tag}
   end
 
   def invalid_tags?
     users = User.all_usernames
-    # usernames = []
-    # users_arr = users.map { |record| record["username"] }
     @tags.reject { |tag| users.include? tag }
-    # p @tags.reject { |tag| users_arr.include? tag}
-
   end
 
 end

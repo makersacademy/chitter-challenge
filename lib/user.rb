@@ -1,6 +1,6 @@
+require 'bcrypt'
 require_relative 'database_connection'
 require 'uri'
-# require Date
 
 class User
 
@@ -21,11 +21,10 @@ class User
   end
 
   def self.create(firstname, lastname, username, password, email)
-
+    enc_password = BCrypt::Password.create(password)
     return validate_signup(username, email).join("\n") unless validate_signup(username, email).empty?
-    # if validate_signup(username, email).empty?
     sql = %{INSERT INTO users (firstname, lastname, username, password, email)
-      VALUES ('#{firstname}', '#{lastname}', '#{username}', '#{password}',
+      VALUES ('#{firstname}', '#{lastname}', '#{username}', '#{enc_password}',
       '#{email}') RETURNING id, firstname, lastname, username, password, email;}
     record = DatabaseConnection.query(sql)
 
@@ -48,9 +47,7 @@ class User
   end
 
   def self.find_from_username(username)
-    # p "ids: "
     user = all_users.select { |usr| usr[:username] == username }
-    # tagged.map { |tag| tag[:id]}
     User.new({ id: user[0][:id],
       firstname: user[0][:firstname],
       lastname: user[0][:lastname],
@@ -61,34 +58,21 @@ class User
 
   def self.login(username, password)
     sql = %{SELECT * FROM users WHERE username = '#{username}'
-    AND password = '#{password}' ORDER BY id DESC LIMIT 1;}
-    # p sql
+     ORDER BY id DESC LIMIT 1;}
     record = DatabaseConnection.query(sql)
-    # p record
-
     return unless record.any?
-    # p "this is a test"
-    # return unless BCrypt::Password.new(result[0]['password']) == password
-    User.new({ id: record[0]['id'],
-      firstname: record[0]['firstname'],
-      lastname: record[0]['lastname'],
-      username: record[0]['username'],
-      password: record[0]['password'],
-      email: record[0]['email'] })
+    return unless BCrypt::Password.new(record[0]['password']) == password
+    User.new({ id: record[0]['id'], firstname: record[0]['firstname'],
+      lastname: record[0]['lastname'], username: record[0]['username'],
+      password: record[0]['password'], email: record[0]['email'] })
   end
 
   def self.validate_signup(username, email)
     validate = []
     validate << email_in_use(email) unless email_in_use(email).nil?
-    # p validation
-    # p "A-----"
     validate << valid_email?(email) unless valid_email?(email).nil?
     validate << username_in_use(username) unless username_in_use(username).nil?
-    # validate << valid_email?(email)
-    # p valid_email?(email)
-    # p "B-----"
     return validate
-    # p validation
   end
 
   attr_reader :id, :firstname, :lastname, :username, :password, :email
@@ -109,8 +93,9 @@ class User
 
   def self.valid_email?(email)
 
-# p email.match(URI::MailTo::EMAIL_REGEXP).nil?
-    return "Please enter a valid email address" if email.match(URI::MailTo::EMAIL_REGEXP).nil?
+    if email.match(URI::MailTo::EMAIL_REGEXP).nil?
+      return "Please enter a valid email address"
+    end
   end
 
 private

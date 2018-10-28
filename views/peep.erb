@@ -17,21 +17,24 @@
   </head>
 
   <body>
-    <h1>Welcome to Chitter</h1>
-    <form action="/peep/new" method="post">
-      <p>
-        <textarea autofocus="autofocus" onkeyup="textCounter(this,'counter',200);" name="peep" id="peep" required="required"></textarea>
-      </p>
-      <p>
-        <input disabled="disabled" maxlength="3" size="3" value="200" id="counter">
-        characters remaining
-      </p>
-      <p>
+    <div class="register-grid-container">
+  <div class="register-header"><h1>Welcome to Chitter
+  </h1></div>
+  <div class="spacer">&nbsp;</div>
+  <div class="spacer_r">&nbsp;</div>
+  <div class="register-main"><form action="/peep/new" class="mypeepform" method="post">
 
-        <button type="submit" class="peep_only_btn" value="Peep">
-          <span class="icon"></span>Peep</button>
-      </p>
-    </form>
+      <label for="peep">Enter your message</label><textarea autofocus="autofocus" onkeyup="textCounter(this,'counter',200);" name="peep" id="peep" required="required"></textarea>
+
+      <label for="counter">Characters remaining</label><input disabled="disabled" maxlength="3" size="3" value="200" id="counter" name="counter">
+
+
+
+      <button type="submit" class="peep_only_btn" value="Peep">
+        <span class="icon"></span>Peep</button>
+
+  </form>
+  </div></div>
 
   </body>
 </html>

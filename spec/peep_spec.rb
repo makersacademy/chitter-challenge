@@ -3,7 +3,7 @@ require_relative '../lib/database_connection'
 
 describe Peep do
 
-  # let(:user) { double :user, :id => 1, :username => "peeper1234" }
+  # let(:user) { double :user, :id => 1, :firstname => "Joe", :lastname => "Bloggs", :username => "peeper1234", :password => "p4s5w0rd", :email => "test1@test.com" }
   describe '#create' do
 
     it 'posts a peep' do
@@ -18,12 +18,7 @@ describe Peep do
     it 'reply to a peep' do
       user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test1@test.com")
       peep = Peep.create("adding a peep", user.id)
-      # p peep
-      # p "testtesttest"
-      # p peep.id
       replypeep = Peep.reply("this is a reply", user.id, peep.id)
-      # p "dsdsfsdsd"
-      # p replypeep
       expect(replypeep.parent_peep).to eq peep.id
     end
   end

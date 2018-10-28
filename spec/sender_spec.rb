@@ -2,9 +2,6 @@
 # So that I can stay constantly tapped in to the shouty box of Chitter
 # I want to receive an email if I am tagged in a Peep
 
-# require 'sender'
-# require 'peep'
-# require 'user'
 describe "sending an email" do
   include Mail::Matchers
 

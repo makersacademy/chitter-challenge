@@ -50,30 +50,10 @@ function myFunction() {
           <div class="sentdate">when: <%=peep_row[:posted_date]%></div>
         </div>
 
-        <!--<%=peep_row[:peeper]%><%if peep_row[:parent_peep].to_i == 0
-        peep_prefix = "wrote a Peep"
-        else
-        peep_prefix = "replied"
-        end%>
-        <%=peep_prefix%>:
-        <%=peep_row[:peep]%>
-        - sent
-        <%=peep_row[:posted_date]%>
-
-          <% if @user %>
-            <a href="/peep/<%=peep_row[:id]%>/reply">
-              <button class="postpeep" type="button" value="Reply">
-                <span class="icon"></span>Reply</button>
-            </a>
-              <%end%>
-            <hr/>-->
-
-
       <%end%>
 
     </div>
     <div class="login">
-      <!-- <p>You need to register: </p> -->
       <p><%=flash[:notice]%></p>
       <% if @user %>
 

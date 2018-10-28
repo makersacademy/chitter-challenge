@@ -6,7 +6,7 @@ describe User do
     it 'creates a user' do
       user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
       expect(user).to be_a User
-      expect(user.password).to eq "p4s5w0rd"
+      expect(user.username).to eq "peeper1234"
     end
   end
 
@@ -22,7 +22,7 @@ describe User do
   describe '#login' do
     it 'returns a user on successful login' do
       user = User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
-      logged_in_user = User.login('peeper1234', 'p4s5w0rd')
+      logged_in_user = User.login('peeper1234', "p4s5w0rd")
       expect(logged_in_user.id).to eq user.id
     end
 

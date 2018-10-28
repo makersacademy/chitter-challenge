@@ -17,24 +17,26 @@
   </head>
 
   <body>
-    <h1>Welcome to Chitter</h1>
-    <form action="/peep/<%=@peep.id%>/reply/new" method="post"><p>
-      Reply to:<br />
-      <%=@peep.message%>
-      </p>
-      <p>
-        <textarea autofocus="autofocus" onkeyup="textCounter(this,'counter',200);" name="peep" id="peep" required="required"></textarea>
-      </p>
-      <p>
-        <input disabled="disabled" maxlength="3" size="3" value="200" id="counter">
-        characters remaining
-      </p>
-      <p>
+
+    <div class="register-grid-container">
+  <div class="register-header"><h1>Welcome to Chitter
+  </h1></div>
+  <div class="spacer">&nbsp;</div>
+  <div class="spacer_r">&nbsp;</div>
+  <div class="register-main">Reply to:<br />
+  <%=@peep.message%><form action="/peep/<%=@peep.id%>/reply/new" class="mypeepform" method="post">
+
+      <label for="peep">Enter your reply</label><textarea autofocus="autofocus" onkeyup="textCounter(this,'counter',200);" name="peep" id="peep" required="required"></textarea>
+
+      <label for="counter">Characters remaining</label><input disabled="disabled" maxlength="3" size="3" value="200" id="counter" name="counter">
+
+
 <input type="hidden" name="parent_peep" value="<%=@peep.id%>">
-        <button type="submit" class="peep_only_btn" value="Reply">
-          <span class="icon"></span>Reply</button>
-      </p>
-    </form>
+      <button type="submit" class="peep_only_btn" value="Reply">
+        <span class="icon"></span>Reply</button>
+
+  </form>
+  </div></div>
 
   </body>
 </html>
