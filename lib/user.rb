@@ -33,9 +33,18 @@ class User
     User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], username: result[0]['username'], password: result[0]['password'])
   end
 
-  def self.find_user(username:)
+  def self.find_user(email:)
     setup_connection
-    result = @@connection.exec("SELECT * FROM users WHERE username = '#{username}';")
+    result = @@connection.exec("SELECT * FROM users WHERE email = '#{email}';")
+    User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], username: result[0]['username'], password: result[0]['password'])
+  end
+
+  def self.authenticate(email:, password:)
+    setup_connection
+    result = @@connection.exec("SELECT * FROM users WHERE email = '#{email}';")
+    return unless result.any?
+    return unless result[0]['password'] == password
+    #return unless BCrypt::Password.new(result[0]['password']) == password
     User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], username: result[0]['username'], password: result[0]['password'])
   end
 

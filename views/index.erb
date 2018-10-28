@@ -1,6 +1,10 @@
 <h1> Chitter </h1>
 <h1> </h1>
 
+  <p>
+    <%= flash[:notice] %>
+  </p>
+
   <p> Sign Up </p>
   <form action="/sign_up" method="post">
     Name: <input type="text" name="name">
@@ -14,7 +18,7 @@
   <p> Log In </p>
 
   <form action="/log_in" method="post">
-    Username: <input type="text" name="existing_username">
+    Email: <input type="text" name="existing_email">
     Password: <input type="text" name="existing_password">
     <input type="submit" value="Log In" name="log_in">
   </form>

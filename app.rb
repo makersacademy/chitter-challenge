@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/user'
 require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -16,9 +18,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_in' do
-    @user = User.find_user(username: params[:existing_username])
-    session[:user_id] = @user.id
-    redirect '/welcome'
+    @user = User.authenticate(email: params[:existing_email], password: params[:existing_password])
+    if @user
+      session[:user_id] = @user.id
+      redirect '/welcome'
+    else
+      flash[:notice] = 'Error: The email you have entered is not in our system'
+      redirect('/')
+    end
   end
 
   get '/welcome' do
