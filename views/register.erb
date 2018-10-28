@@ -4,11 +4,11 @@
   <h1>Registration</h1>
 
   <% flash.keys.each do |notice| %>
-  <div data-alert class="flash <%= notice %> alert-box radius">
-    <%= flash[notice] %>
-    <a href="#" class="close">&times;</a>
-  </div>
-  <br>
+    <div class="alert alert-danger">
+      <%= flash[notice] %>
+      <a href="#" class="close">&times;</a>
+    </div>
+    <br>
   <% end %>
 
   <form action="/user" method="post">

@@ -1,4 +1,11 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
 <div class="container">
   <h1>Chitter</h1>
@@ -26,15 +33,10 @@
   </form>
 
   <% @peeps.each do |peep| %>
-    <p>
-    <%= peep.user.name %> <%= peep.user.username %>
-    <br>
-    <%= peep.text %>
-    <br>
-    <br>
-    <%= peep.time %> - <%= peep.date %>
-    </p>
-    <br>
+    <div class="panel panel-info">
+      <div class="panel-heading"><%= peep.user.name %> <%= peep.user.username %></div>
+      <div class="panel-body"><%= peep.text %></div>
+      <div class="panel-footer"><%= peep.time %> - <%= peep.date %></div>
+    </div>
   <% end %>
-
 </div>
