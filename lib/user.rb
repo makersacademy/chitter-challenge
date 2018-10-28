@@ -1,6 +1,15 @@
 require 'pg'
+require 'pry'
 
 class User
+
+  def self.unique?(username, email)
+    User.registered_users.each do |user|
+     return false if user['username'] == username
+     return false if user['email']== email
+    end
+   true
+  end
 
   def self.sign_up(first_name:, last_name:, email:, password:, username:)
     con = connect_to_database
@@ -18,6 +27,11 @@ class User
   end
 
   private
+
+  def self.registered_users
+    con = connect_to_database
+    result= con.exec("SELECT * FROM users")
+  end
 
   def self.current_user(first_name, username)
     @name = first_name

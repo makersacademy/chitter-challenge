@@ -1,3 +1,8 @@
+<% if @unique_user == false %>
+    <p>Both username and email must be unique.</p>
+    <p>Please try signing up again</p>
+<% end %>
+
 <div>
 <form method="post" action="/sign_up">
   <div><input type="text" placeholder="first name" name="first_name"></div>
