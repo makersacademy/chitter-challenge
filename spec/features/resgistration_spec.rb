@@ -5,7 +5,7 @@ feature 'Feature - registration' do
     fill_in('last_name', with: 'McTest')
     fill_in('username', with: 'Testannosaurus')
     fill_in('password', with: 'password123')
-    fill_in('email', with: 'test@example.com')
+    fill_in('email', with: 'test.mctest@gmail.com')
     fill_in('password', with: 'password123')
     click_button('Submit')
 

@@ -1,8 +1,12 @@
+<h1>Registration</h1>
+<h2>
+   <%= flash[:notice] %>
+</h2>
 <form action="/users" method="post">
-  <input type="text" name="first_name" />
-  <input type="text" name="last_name" />
-  <input type="text" name="username" />
-  <input type="email" name="email" />
-  <input type="password" name="password" />
+  <input type="text" name="first_name" placeholder="first name" />
+  <input type="text" name="last_name" placeholder="last name" />
+  <input type="text" name="username" placeholder="username"/>
+  <input type="email" name="email" placeholder="email address"/>
+  <input type="password" name="password" placeholder="password"/>
   <input type="submit" value="Submit" />
 </form>
