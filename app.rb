@@ -34,8 +34,17 @@ register Sinatra::Flash
 
   post '/signed_in' do
     user = User.sign_in(username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/user_peeps'
+    if user
+      session[:user_id] = user.id
+      redirect('/user_peeps')
+    else
+      flash[:notice] = 'Please check your username or password.'
+      redirect('/failed_sign_in')
+    end
+  end
+
+  get '/failed_sign_in' do
+    erb :failed_sign_in
   end
 
   get '/user_peeps' do

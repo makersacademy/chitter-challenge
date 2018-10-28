@@ -14,3 +14,15 @@ describe '.sign_up' do
     User.sign_up(email: 'test@example.com', password: 'hello', username: 'apple123', name: 'tasha')
   end
 end
+
+describe '.sign_in' do
+  it 'returns a user given a correct username and password, if one exists' do
+    user = User.sign_up(email: 'test@example.com', password: 'password123', username: 'apple123', name: 'tasha')
+    authenticated_user = User.sign_in(username: 'apple123', password: 'password123')
+    expect(authenticated_user.id).to eq user.id
+  end
+  it 'returns nil given an incorrect username' do
+    user = User.sign_up(email: 'test@example.com', password: 'password123', username: 'apple123', name: 'tasha')
+    expect(User.sign_in(username: 'hello', password: 'password123')).to be_nil
+  end
+end
