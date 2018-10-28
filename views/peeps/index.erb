@@ -1,15 +1,19 @@
-<div style="font-family:Verdana">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div class="container">
+  <div class="jumbotron">
+    <h1>Chitter</h1>
+  </div>
   <% unless @user %>
-    <form action="/sessions/new">
-      <input type="submit" value="Sign in"/>
+    <form action="/users/new" class="navbar-right">
+      <input class="btn btn-primary" type="submit" value="Sign up"/>
     </form>
-    <form action="/users/new">
-      <input type="submit" value="Sign up"/>
+    <form action="/sessions/new" class="navbar-right">
+      <input class="btn btn-primary" type="submit" value="Sign in"/>
     </form>
   <% end %>
   <% if @user %>
-    <form action="/sessions/destroy" method="post">
-      <input type="submit" value="Sign out"/>
+    <form action="/sessions/destroy" method="post" class="navbar-right">
+      <input class="btn btn-primary" type="submit" value="Sign out"/>
     </form>
     <h1>Welcome,
       <%= @user.name %></h1>
@@ -17,7 +21,7 @@
   <% end %>
   <h1>Timeline</h1>
   <form action="/peeps/new">
-    <input type="submit" value="Post a Peep"/>
+    <input class="btn btn-primary btn-lg" type="submit" value="Post a Peep"/>
   </form>
   <ul>
     <% @peeps.reverse_each do |peep| %>

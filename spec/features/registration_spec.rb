@@ -2,7 +2,7 @@ feature 'registration' do
   scenario 'a user can visit the sign up page from the homepage' do
     visit '/'
     click_button('Sign up')
-    expect(page).to have_content "Sign up"
+    expect(page).to have_content "Create an account"
   end
 
   scenario 'a user can sign up' do

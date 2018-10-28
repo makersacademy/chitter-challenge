@@ -3,8 +3,8 @@ feature 'authentication' do
   scenario 'a user can visit the sign in page from the homepage' do
     visit '/'
     click_button('Sign in')
-    
-    expect(page).to have_content "Sign in"
+
+    expect(page).to have_content "Log in to Chitter"
   end
 
   scenario 'a user can sign in' do

@@ -1,11 +1,20 @@
-<div style="font-family:Verdana">
-  <h1>Sign up</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div class="container">
+  <h1>Create an account</h1>
   <br>
   <form method="post" action="/users">
+    <div class="form-group">
     <input type="name" name="name" placeholder="Name">
+  </div>
+    <div class="form-group">
     <input type="username" name="username" placeholder="Username">
+  </div>
+    <div class="form-group">
     <input type="email" name="email" placeholder="Email">
+  </div>
+    <div class="form-group">
     <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Sign up">
+  </div>
+    <input class="btn btn-primary" type="submit" value="Sign up">
   </form>
 </div>
