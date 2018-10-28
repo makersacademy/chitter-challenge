@@ -1,0 +1,6 @@
+CREATE TABLE Peeps(
+  id SERIAL PRIMARY KEY,
+  body VARCHAR(1000) NOT NULL,
+  user_id INTEGER REFERENCES Users(id) ON DELETE CASCADE,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
