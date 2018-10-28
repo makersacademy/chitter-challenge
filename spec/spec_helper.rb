@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require './app'
 require_relative 'support/database_helper'
+require_relative 'support/web_helper'
 require 'capybara'
 require 'capybara/rspec'
 require 'rake'
