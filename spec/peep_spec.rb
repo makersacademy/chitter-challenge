@@ -1,4 +1,5 @@
 require 'peep'
+require 'database_helpers'
 
 describe Peep do
   describe '.all' do

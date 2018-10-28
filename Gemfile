@@ -13,3 +13,5 @@ end
 
 gem 'sinatra'
 gem 'capybara'
+gem 'pg'
+gem "bcrypt"
