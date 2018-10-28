@@ -2,8 +2,8 @@ require 'bcrypt'
 
 class User
 
-  def self.current
-    @current
+  class << self
+    attr_reader :current
   end
 
   def self.create(username:, password:, name:, email:)
@@ -47,7 +47,7 @@ class User
     )
   end
 
-  private
+  private_class_method
   def self.login(username, password)
     query = "SELECT * FROM users WHERE username = '#{username}';"
     result = DatabaseConnection.query(query)
@@ -66,10 +66,6 @@ class User
     return false unless BCrypt::Password.new(result[0]["password"]) == password
     return true
   end
-  public
-
-
-
 
   attr_reader :username, :password, :name, :email
   def initialize(username:, password:, name:, email:)

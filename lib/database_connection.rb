@@ -2,11 +2,11 @@ require 'pg'
 
 class DatabaseConnection
   def self.setup(database)
-    @connection = PG.connect( dbname: database )
+    @connection = PG.connect(dbname: database)
   end
 
-  def self.connection
-    @connection
+  class << self
+    attr_reader :connection
   end
 
   def self.query(sql_string)

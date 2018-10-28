@@ -16,7 +16,7 @@ feature "editing peeps" do
   end
 
   context "user clicks edit button" do
-    before { click_button "Edit_#{@peep_one.id}"}
+    before { click_button "Edit_#{@peep_one.id}" }
 
     scenario "user sees prefilled form" do
       expect(page).to have_field("content", with: "content1")

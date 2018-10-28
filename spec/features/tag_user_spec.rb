@@ -1,5 +1,3 @@
-require 'pry'
-
 feature "tagging users" do
   before do
     visit '/'

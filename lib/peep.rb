@@ -12,7 +12,7 @@ class Peep
       id: id,
       time: time,
       username: username,
-      content: Tagger.tag(content)
+      content: content
     )
   end
 

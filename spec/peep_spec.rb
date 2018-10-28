@@ -7,9 +7,9 @@ describe Peep do
     @t1 = Time.now
     @t2 = @t1 + 100
     allow(Time).to receive(:now).and_return(@t1)
-    @peep_one = Peep.create( username: 'user1', content: 'content1' )
+    @peep_one = Peep.create(username: 'user1', content: 'content1')
     allow(Time).to receive(:now).and_return(@t2)
-    @peep_two = Peep.create( username: 'user1', content: 'content2' )
+    @peep_two = Peep.create(username: 'user1', content: 'content2')
   end
 
   describe '.create' do

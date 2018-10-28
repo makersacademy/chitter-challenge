@@ -6,21 +6,19 @@ module Tagger
     User.all.each do |user|
       tag = "@#{user.username}"
       path = "/users/#{user.username}"
-      if content.include?(tag)
+      if tags?(content, user)
         content.gsub!(tag, link(tag, path))
       end
     end
     content
   end
 
-  private
-
   def self.link(string, path)
     "<a href='#{path}'>#{string}</a>"
   end
 
-  def self.tags?(user)
-    @content.include?("@#{user.username}")
+  def self.tags?(content, user)
+    content.include?("@#{user.username}")
   end
 
 end
