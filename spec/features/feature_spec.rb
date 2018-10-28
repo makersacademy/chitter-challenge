@@ -19,7 +19,26 @@ end
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
-#
+feature 'viewing all peeps' do
+  scenario 'a user visits the homepage and all peeps are displayed' do
+    visit '/'
+    click_button 'Peep'
+    fill_in 'text', with: 'Hello, World!'
+    click_button 'Peep'
+    visit '/'
+    click_button 'Peep'
+    fill_in 'text', with: 'Hello, World again!'
+    click_button 'Peep'
+    visit '/'
+    click_button 'Peep'
+    fill_in 'text', with: 'Hello, World once more!'
+    click_button 'Peep'
+    expect(page).to have_content 'Hello, World!'
+    expect(page).to have_content 'Hello, World again!'
+    expect(page).to have_content 'Hello, World once more!'
+  end
+end
+
 # As a Maker
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made

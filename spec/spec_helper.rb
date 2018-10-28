@@ -6,6 +6,7 @@ require 'rspec'
 require 'pg'
 require 'simplecov'
 require 'simplecov-console'
+require_relative './database_clean.rb'
 
 Capybara.app = Chitter
 
@@ -16,6 +17,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
   config.include Capybara::DSL
   config.default_formatter = 'doc'
 end
