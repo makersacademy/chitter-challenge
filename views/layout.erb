@@ -1,0 +1,38 @@
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <nav class="navbar" navbar-light bg-light>
+    <a class="navbar-brand" href="/peeps">Chitter</a>
+    <ul class="navbar-nav">
+    <% if @user.nil? %>
+      <li class="nav-item">
+        <form action = '/users/new'>
+          <input type="submit" value="Sign Up">
+        </form>
+      </li>
+      <li class="nav-item">
+        <form action = '/sessions/new'>
+          <input type="submit" value="Sign In">
+        </form>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <form action = '/users/<%= @user.username %>'>
+          <input type="submit" value="View Profile">
+        </form>
+      </li>
+      <li class="nav-item">
+        <form action = '/sessions' method = 'post'>
+          <input type='hidden' id='hidden' name='_method' value='delete'>
+          <input type="submit" value="Sign Out">
+        </form>
+      </li>
+    <% end %>
+    </ul>
+  </nav>
+  <div>
+    <%= yield %>
+  </div>
+</body>

@@ -36,7 +36,7 @@ class Peep
       id: result["id"],
       time: Time.parse(result["time"]),
       username: result["username"],
-      content: Tagger.tag(result["content"])
+      content: result["content"]
     )
   end
 

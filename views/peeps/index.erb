@@ -1,41 +1,19 @@
-<h1>Chitter</h2>
-
 <p><%= flash[:notice] %>
 
-<% if @user.nil? %>
-  <div>
-    <form action = '/users/new'>
-      <input type="submit" value="Sign Up">
-    </form>
-    <form action = '/sessions/new'>
-      <input type="submit" value="Sign In">
-    </form>
-  </div>
-<% else %>
-  <p>Welcome, <%= @user.name %>!</p>
-  <div>
-    <form action = '/users/<%= @user.username %>'>
-      <input type="submit" value="View Profile">
-    </form>
-    <form action = '/sessions' method = 'post'>
-      <input type='hidden' id='hidden' name='_method' value='delete'>
-      <input type="submit" value="Sign Out">
-    </form>
-  </div>
-
+<% if @user %>
+  <h3>Welcome, <%= @user.name %>!</h3>
   <div>
     <form action = '/peeps/new'>
       <input type = 'submit'  value = 'New Peep'>
     </form>
   </div>
-
 <% end %>
 
 <% @peeps.each do |peep| %>
-  <div style = 'background-color: #F0F3F4'>
+  <article class = 'peep'>
     <h4><%= peep.username %></h4>
     <p><%= peep.content %></p>
-    <h5><%= peep.time %></h5>
+    <h6><%= peep.time %></h5>
     <% if @user != nil && @user.username == peep.username %>
       <form action = '/peeps/<%= peep.id %>' method = 'post'>
         <input id='hidden' type='hidden' name='_method' value='delete'>
@@ -46,5 +24,5 @@
         <input type='submit' id='Edit_<%= peep.id %>' value='Edit'>
       </form>
     <% end %>
-  </div>
+  </article>
 <% end %>

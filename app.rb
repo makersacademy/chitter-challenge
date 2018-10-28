@@ -8,12 +8,15 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  before do
+    @user = User.current
+  end
+
   get '/' do
     redirect '/peeps'
   end
 
   get '/peeps' do
-    @user = User.current
     @peeps = Peep.all
     erb(:"peeps/index")
   end
