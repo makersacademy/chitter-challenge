@@ -1,5 +1,4 @@
 require 'peep'
-require 'timecop'
 
 describe Peep do
 
@@ -20,7 +19,7 @@ describe Peep do
   end
 
   context 'wrapping data in ruby' do
-    it 'should wrap peep data is ruby methods' do
+    it 'should wrap peep data in ruby methods' do
       peep = Peep.create(message: 'This is a peep')
       expect(peep.message).to eq 'This is a peep'
     end

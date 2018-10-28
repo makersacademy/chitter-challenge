@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'Hello world'
+    erb :navigation
   end
 
   get '/peeps/post' do
