@@ -24,7 +24,7 @@ class App < Sinatra::Base
     else
       Chitter.add(text: params[:peep],
                   username: session[:user_id],
-                  peep_time: DateTime.now)
+                  peep_time: Time.now)
     end
     redirect '/'
   end

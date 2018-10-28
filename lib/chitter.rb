@@ -1,4 +1,5 @@
 require 'pg'
+require_relative 'dateformat.rb'
 
 class Chitter
 

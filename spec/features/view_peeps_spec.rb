@@ -31,7 +31,7 @@ feature do
     end
 
     scenario 'peeps have timestamps and usernames' do
-      allow(DateTime).to receive(:now).and_return("2018-10-26 15:55:19")
+      allow(Time).to receive(:now).and_return("2018-10-26 15:55:19")
       peep('My second peep')
       expect(page).to have_content("2018-10-26 15:55:19")
       expect(page).to have_content "Posted by: Becka"
