@@ -52,8 +52,9 @@ class Chitter < Sinatra::Base
   get '/users/:username/peeps' do
     username = session[:username]
     @user = User.find(column: 'username', value: "#{username}")
-    peeps = @user.peeps
-    erb :'peeps/index', { locals: { peeps: peeps } }
+    user_profile = User.find(column: 'username', value: "#{params[:username]}")
+    peeps = user_profile.peeps
+    erb :'peeps/index', { locals: { peeps: peeps, user_profile: user_profile } }
   end
 
   get '/sessions/new' do

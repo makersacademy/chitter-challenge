@@ -1,4 +1,5 @@
 require 'peep'
+require 'user'
 require 'test_helpers'
 
 describe Peep do
@@ -54,6 +55,14 @@ describe Peep do
       expect(john_peeps.first).to be_a Peep
       expect(john_peeps.first.text).to eq "Johns peep"
       expect(john_peeps.first.user_id).to eq john.id
+    end
+  end
+
+  describe '#username' do
+    it 'returns the username of the owner of the peep' do
+      john = User.create(name: 'John', username: 'john', email: 'john@example.com', password: 'password123')
+      peep = Peep.create(text: "Johns peep", user_id: john.id)
+      expect(peep.username).to eq 'john'
     end
   end
 end

@@ -7,6 +7,10 @@ class Peep
     @time = time
   end
 
+  def username
+    User.find(column: 'id', value: @user_id).username
+  end
+
   def self.create(text:, user_id:)
     time = Peep.timestamp
     result = DatabaseConnection.query(

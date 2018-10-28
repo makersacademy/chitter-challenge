@@ -26,9 +26,10 @@
 <% if peeps %>
   <% peeps.each do |peep| %>
   <ul>
-    <li>
-    <h2> <%= peep.text %></h2>
-    <h3> <%= peep.time %></h3>
+    <li class="peep" id="peep-<%= peep.id %>">
+    <p> <%= peep.text %></p>
+    <span class="time">at <%= peep.time %> </span>
+    <span class="author">by <a href="/users/<%= peep.username %>/peeps"> <%= peep.username %></a></span>
     </li>
   </ul>
   <% end %>
