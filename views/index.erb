@@ -31,7 +31,10 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.message %> - created at: <span id="<%= peep.id %>-peep-time"><%= peep.formatted_peep_time %></span>
+      <%= peep.message %> - created at: <span id="<%= peep.id %>-peep-time"><%= peep.formatted_peep_time %></span> posted by <span id="<%= peep.id %>-username"><%= peep.username %></span>
     </li>
+
+
+
   <% end %>
 </ul>

@@ -18,6 +18,6 @@ feature 'Feature - Posting a Peep' do
     fill_in('message', with: 'A Peep posted by a user')
     click_button('Peep')
 
-    expect(page).torpe have_content 'A Peep posted by a user'
+    expect(page).to have_content 'A Peep posted by a user'
   end
 end

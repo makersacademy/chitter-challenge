@@ -13,13 +13,13 @@ class Chitter < Sinatra::Base
   get '/' do
 
     @user = User.find(session[:user_id])
-
     @peeps = Peep.view_all_peeps
     erb :index
   end
 
   post '/peep/new' do
-    Peep.new_peep(message: params[:message])
+    @user = User.find(session[:user_id])
+    Peep.new_peep(message: params[:message], user_id: @user.id)
     redirect '/'
   end
 
