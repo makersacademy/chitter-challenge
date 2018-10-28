@@ -1,4 +1,4 @@
-require 'setup_test_database'
+require 'rake'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -9,11 +9,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+Rake.application.load_rakefile
+
 RSpec.configure do |config|
 
   config.before(:each) do
-    setup_test_users
-    setup_test_peeps
+    Rake::Task['test_database_setup'].execute
   end
 
   config.after(:suite) do

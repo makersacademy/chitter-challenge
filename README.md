@@ -42,7 +42,9 @@ I want to log out of Chitter
 
 ## Database Migration
 
-The project requires a development and a test database.  To create these, connect to psql and then run these commands:
+The project requires a development and a test database. To set up the Databases
+using Rake, from command line run ```rake setup```
+Alternatively, to create these manually, connect to psql and then run these commands:
 ```
 CREATE DATABASE chitter;
 ```
