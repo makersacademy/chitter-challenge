@@ -64,7 +64,9 @@ rackup
 rspec
 ```
 
-### Create the Database ###
+### Create the Databases ###
+You will need to create two databases in order to test the program.
+
 1. In Terminal, connect to PostgreSQL:
 ```sql
 psql
@@ -85,3 +87,4 @@ CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(140));
 ```sql
 CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60));
 ```
+6. Follow steps 2-5 again, this time naming the database to `chitter_test`.
