@@ -1,6 +1,9 @@
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
   <h2>@<%= @user.username %></h2>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
 <% end %>
 <h1>Timeline</h1>
 <form action="/peeps/new">
@@ -15,3 +18,7 @@
 </ol>
 <% end %>
 </ul>
+
+<h2 style="color:red">
+  <%= flash[:notice] %>
+</h2>
