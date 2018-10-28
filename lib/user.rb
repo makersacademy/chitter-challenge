@@ -13,8 +13,8 @@ class User
   def self.create(email:, password:, name:, username:)
     return if [email, password, name, username].any?(&:empty?)
     DatabaseManager.query("INSERT INTO users(email,password,name,username)" \
-      "VALUES('#{email}','#{BCrypt::Password.create(password)}', '#{name}', '#{username}') " \
-      "RETURNING id, email, password, name, username")
+      "VALUES('#{email}','#{BCrypt::Password.create(password)}', '#{name}',
+      '#{username}') RETURNING id, email, password, name, username")
   end
 
   def self.select_all
