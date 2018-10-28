@@ -1,8 +1,19 @@
-# Chitter Challenge
-=================
+# Chitter
+
+Chitter is a basic clone of twitter where users can posts ‘peeps’ on a timeline.
+It’s back-end is built in Ruby/Sinatra & Postgres, front end in HTML, CSS & Bootstrap and test driven using RSpec & Capybara.
+
+## Motivations for this project
+
+* Build a web app that uses a database
+* Build complete full-stack features - including controller, model, view and database code.
+* Implement RESTful routing conventions
+* Build a Registration system & Authentication system
+* Use database GUIs to interact with databases
+* Set up a test environment
+* Test-Drive advanced Objects in Ruby, including adapter, wrapper, and service objects
 
 ## User Stories:
--------
 
 ```
 STRAIGHT UP
@@ -40,35 +51,60 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
-------
+## Features
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+* A user doesn’t have to be logged in to view peeps.
+* A user can view peeps and their timestamps in reverse chronological order
+* A user can add ‘peeps’ (posts to chitter)
+* A user can sign up to chitter with their email, password, name and a username
+* A user can sign in to chitter with their username & password
+* A user sees an error if they get their username wrong
+* A user sees an error if they get their password wrong
+* A user can sign out
 
-Bonus:
------
+### Screenshots
 
-If you have time you can implement the following:
+![ScreenShot1](./public/images/ScreenShot1.png)
+![ScreenShot2](./public/images/ScreenShot2.png)
+![ScreenShot3](./public/images/ScreenShot3.png)
+![ScreenShot4](./public/images/ScreenShot4.png)
+![ScreenShot5](./public/images/ScreenShot5.png)
+![ScreenShot6](./public/images/ScreenShot6.png)
+![ScreenShot7](./public/images/ScreenShot7.png)
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
+## Getting started
 
-* Work on the CSS to make it look good.
+### To set up the project
 
-Good luck and let the chitter begin!
+1. clone repo to your local machine `git clone https://github.com/MHUS25/chitter-challenge.git`
+2. Run the command `gem install bundle` (if you don't have bundle already)
+3. When the installation completes, `run bundle`
 
-Code Review
------------
+### To set up the database
 
-In code review we'll be hoping to see:
+Connect to `psql` and create the `chitter` and `chitter_test` databases:
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+## Usage
+
+To start the server, execute the ruby file directly `ruby app.rb`.
+Visit http://localhost:4567/ in your browser.
+
+## Running tests
+
+Run both feature and unit tests using:
+`rspec`
+
+## Next steps & ideas for extending the application:
+
+* Check usernames and emails are unique on sign up
+* Add the name of the user and their user handle to peeps on the Timeline
+* Implement ADVANCED user story
+* Automate migrations - Write a Rake task to set up the development and test databases
