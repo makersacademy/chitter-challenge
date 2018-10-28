@@ -12,15 +12,35 @@ attr_reader :name, :username, :email, :password
   end
 
   def self.create(name, username, email, password)
-    if ENV['ENVIRONMENT'] = 'test'
-      con = PG.connect :dbname => 'chitter_test'
-    else
-      con = PG.connect :dbname => 'chitter_manager'
-    end
-      rs = con.exec "SELECT * FROM users"
+    return nil if duplicate_username?(username)
+    database_env
+    @@con.exec "INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}');"
+      User.new(name, username, email, password)
+  end
+
+  def self.find_details(username)
+    return nil unless username
+    database_env
+    rs = @@con.exec("SELECT * FROM users WHERE username = '#{username}';")
       rs.map do |user|
-        User.new(user['id'], user['name'], user['username'], user['email'], user['password'])
-      end
+      User.new(user['name'], user['username'], user['email'], user['password'])
+     end
+  end
+
+  private_class_method
+
+  def self.database_env
+    @@con = if ENV['ENVIRONMENT'] = 'test'
+              PG.connect :dbname => 'chitter_test'
+            else
+              PG.connect :dbname => 'chitter_manager'
+             end
+  end
+
+  def self.duplicate_username?(username)
+    database_env
+    username = @@con.exec("SELECT * FROM users WHERE username = '#{username}';")
+      username.any?
   end
 
 end

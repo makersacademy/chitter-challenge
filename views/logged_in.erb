@@ -2,19 +2,13 @@
   <% unless @user.nil? %>
       Logged in as <%= @user.name %>
 <% end %>
-<form action="/sign_up" method="post">
-  <input type="submit" value="Sign Up">
+<form action="/chitter" method="get">
+  <input type="submit" value="Log out">
 </form>
-<form action="/log_in" method="post">
-  <input type="submit" value="Already signed up?">
-</form>
-<form action="/peep_post" method="post">
+
+<form action="/chitter/user_wall" method="post">
   <fieldset>
     <legend> What are you doing? </legend>
-    Name
-    <input type="text" name="name">
-    Username
-    <input type="text" name="username">
     Peep
     <input type="text" name="peep">
     <input type="submit" value="Post" >
