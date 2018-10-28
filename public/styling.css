@@ -1,0 +1,58 @@
+body {
+  background-image: url("background.jpg");
+  background-size: cover;
+  font-family: "Tahoma", Geneva, sans-serif;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.img1 {
+  border-radius: 8px;
+  width: 1000px;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img2 {
+  border-radius: 8px;
+  width: 300px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
