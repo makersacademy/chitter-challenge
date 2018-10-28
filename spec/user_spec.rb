@@ -21,4 +21,15 @@ describe User do
     expect(user.password).to eq 'blueskies1'
   end
 
+  it "creates a new user" do
+    user = User.new('Imogen', 'imogenmisso123', 'imogenmisso@hotmail.co.uk', 'blueskies1')
+    expect(user).to be_an_instance_of User
+  end
+
+  it "returns all details of a user with only username provided" do
+    user = User.new('Imogen Misso', 'imogenmisso123', 'imogenmisso@hotmail.co.uk', 'blueskies1')
+    details = User.find_details('imogenmisso123')
+    expect(details[0].name).to eq 'Imogen Misso'
+  end
+
 end

@@ -1,4 +1,10 @@
-<form action="/sign_up_post" method="post">
+
+<% require 'sinatra/flash' %>
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<form action="/users/authenticate" method="post">
   <fieldset>
     <legend> Please enter your details </legend>
     Enter your username

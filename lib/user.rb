@@ -27,6 +27,15 @@ attr_reader :name, :username, :email, :password
      end
   end
 
+  def self.authenticate(username)
+    database_env
+    rs = @@con.exec("SELECT FROM users WHERE username = '#{username}';")
+    return unless rs.any?
+      rs.map do |user|
+        User.new(user['name'], user['username'], user['email'], user['password'])
+      end
+  end
+
   private_class_method
 
   def self.database_env

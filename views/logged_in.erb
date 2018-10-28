@@ -1,12 +1,13 @@
+
 <h2> Chitter </h2>
   <% unless @user.nil? %>
       Logged in as <%= @user.name %>
 <% end %>
-<form action="/chitter" method="get">
+<form action="/" method="get">
   <input type="submit" value="Log out">
 </form>
 
-<form action="/chitter/user_wall" method="post">
+<form action="/user/wall" method="post">
   <fieldset>
     <legend> What are you doing? </legend>
     Peep

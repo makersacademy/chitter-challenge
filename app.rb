@@ -8,44 +8,57 @@ class App < Sinatra::Base
 enable :sessions
 register Sinatra::Flash
 
-  get '/chitter' do
+  get '/' do
     @peeps = Chitter.all
     erb(:index)
   end
 
-  post '/peep_post' do
+  post '/peep/new' do
     Chitter.create_peep(params[:name], params[:username], params[:peep])
-    redirect to('/chitter')
+    redirect to('/')
   end
 
-  post '/sign_up' do
+  get '/users/new' do
     erb(:sign_up)
   end
 
-  post '/sign_up_post' do
-    if params[:name] != nil
-      @user = User.create(params[:name], params[:username], params[:email], params[:password])
-      @@current_user = @user
-    else
-      @@current_user = User.find_details(params[:username])[0]
-    end
-    redirect to('/chitter/logged_in')
+  post '/users/sign_up' do
+    @user = User.create(params[:name], params[:username], params[:email], params[:password])
+      if @user
+        session[:current_user] = @user
+        redirect to('/user/logged_in')
+      else
+        flash[:notice] = 'That username is already in use, please choose another'
+        redirect to('/users/new')
+      end
   end
 
-  get '/chitter/logged_in' do
+  post '/users/authenticate' do
+    @user = User.authenticate(params[:username])
+    @current_user = User.find_details(params[:username])
+      if @current_user
+        session[:current_user] = @current_user[0]
+        redirect to('/user/logged_in')
+      else
+        flash[:notice] = 'You have entered an invalid username, try again!'
+        redirect to('/user/log_in')
+      end
+  end
+
+  get '/user/logged_in' do
     @peeps = Chitter.all
-    @user = @@current_user
+    @user = session[:current_user]
     erb(:logged_in)
   end
 
-  post '/chitter/user_wall' do
-    @user = @@current_user
+  post '/user/wall' do
+    @user = session[:current_user]
     Chitter.all
-    Chitter.create_peep(@@current_user.name, @@current_user.username, params[:peep])
-    redirect to('/chitter/logged_in')
+    Chitter.create_peep(@user.name, @user.username, params[:peep])
+    redirect to('/user/logged_in')
   end
 
-  post '/log_in' do
+  get '/user/log_in' do
     erb(:enter_log_in)
   end
 
