@@ -2,6 +2,11 @@ require 'pg'
 
 class Peeps
 
+  def initialize(peep, time)
+    @peep = peep
+    @time = time
+  end
+
   def self.all
     if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -9,7 +14,9 @@ class Peeps
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("SELECT * FROM chitter;") #need to change this to chitter in both test and otherwise
-    result.map { |peep| peep['peep'] }
+    result.map{|peep| Peeps.new(peep['peep'], peep['time'])
+      "#{peep['peep'] } -- #{peep['time']}"
+    }
   end
 
   def self.create(peep:)
