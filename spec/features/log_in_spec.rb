@@ -7,9 +7,11 @@ feature 'Log in to Chitter' do
   scenario 'A user can log in' do
     User.create("Joe", "Bloggs", "peeper1234", "p4s5w0rd", "test@test.com")
     visit('/')
+    # find('.loginshow').click
     fill_in :username, with: 'peeper1234'
     fill_in :password, with: 'p4s5w0rd'
-    click_button('Login')
+    find('#Login').click
+    # click_on(class: 'login_btn')
     expect(page).to have_content "Welcome to Chitter, peeper1234"
   end
 
@@ -18,7 +20,8 @@ feature 'Log in to Chitter' do
     visit('/')
     fill_in :username, with: 'peeper1234'
     fill_in :password, with: 'p4s5w0rd-wrong'
-    click_button('Login')
+    find('#Login').click
+    # click_on(class: 'login_btn')
     expect(page).to have_content "Incorrect username or password. Please try again"
     expect(page).to_not have_content "Welcome to Chitter, peeper1234"
   end

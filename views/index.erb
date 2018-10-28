@@ -5,6 +5,12 @@
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16"/>
+    <script>
+function myFunction() {
+    document.getElementById("login_panel").style.display = "block";
+    document.getElementById("login_show_button").style.display = "none";
+}
+</script>
   </head>
 
   <body>
@@ -52,7 +58,8 @@
           </p>
 
         <%else%>
-          <form action="/user/login" method="post">
+          <form action="/user/login" method="post" >
+<div id="login_panel">
 
             <p>
               <label for="username">username:
@@ -63,13 +70,15 @@
 
             <p>
 
-              <button type="submit" class="peep_only_btn" value="Login">
+              <button type="submit" class="login_btn" id="Login" value="Login">
+                <span class="icon"></span>Login</button>
+                </div><button type="button" onclick="myFunction()" class="login_btn" id="login_show_button" class="peep_only_btn" value="Login">
                 <span class="icon"></span>Login</button>
               <a href="/user/register">
                 <button class="postpeep" type="button" value="Register">
-                  <span class="icon"></span>Register</button>
-              </p>
-            </p>
+                  <span class="icon"></span>Register</button></a>
+
+
           </form>
 
         <%end%>

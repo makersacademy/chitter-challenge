@@ -42,4 +42,27 @@ describe Peep do
 
     end
   end
+
+  describe '#any_tags?' do
+    it 'finds tags in message' do
+      user = User.create("Joe", "Bloggs", "-taggedpeeper", "p4s5w0rd", "test4@test.com")
+      peep = Peep.create('hello @peeper-tagged @test-test-test', user.id)
+      expect(peep.any_tags?).to include "peeper-tagged"
+
+    end
+
+    it 'checks tags are valid - returns valid' do
+      user = User.create("Joe", "Bloggs", "peeper-tagged", "p4s5w0rd", "test4@test.com")
+      peep = Peep.create('hello @peeper-tagged @test-test-test', user.id)
+      expect(peep.valid_tags?).to include "peeper-tagged"
+      expect(peep.valid_tags?).not_to include "test-test-test"
+    end
+
+    it 'checks tags are valid - returns invalid' do
+      user = User.create("Joe", "Bloggs", "peeper-tagged", "p4s5w0rd", "test4@test.com")
+      peep = Peep.create('hello @peeper-tagged @test-test-test', user.id)
+      expect(peep.invalid_tags?).not_to include "peeper-tagged"
+      expect(peep.invalid_tags?).to include "test-test-test"
+    end
+  end
 end

@@ -3,6 +3,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'mail'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -16,6 +17,11 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
+
+Mail.defaults do
+  delivery_method :test # in practice you'd do this in spec_helper.rb
+end
+
 require 'features/web_helpers'
 
 Capybara.app = Chitter

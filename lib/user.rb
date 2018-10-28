@@ -4,6 +4,16 @@ require 'uri'
 
 class User
 
+  def self.all_users
+    sql = %{select * from users }
+    users = DatabaseConnection.query(sql)
+    users.map { |un| { id: un["id"], firstname: un["firstname"], lastname: un["lastname"], username: un["username"], password: un["password"], email: un["email"] }  }
+  end
+
+  def self.all_usernames
+     (all_users).map { |usr| usr[:username] }
+  end
+
   def self.create(firstname, lastname, username, password, email)
 
     return validate_signup(username, email).join("\n") unless validate_signup(username, email).empty?
@@ -29,6 +39,18 @@ class User
       username: record[0]['username'],
       password: record[0]['password'],
       email: record[0]['email'] })
+  end
+
+  def self.find_from_username(username)
+    # p "ids: "
+    user = all_users.select { |user| user[:username] == username}
+    # tagged.map { |tag| tag[:id]}
+    User.new({ id: user[0][:id],
+      firstname: user[0][:firstname],
+      lastname: user[0][:lastname],
+      username: user[0][:username],
+      password: user[0][:password],
+      email: user[0][:email] })
   end
 
   def self.login(username, password)

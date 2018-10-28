@@ -62,6 +62,10 @@ textarea {
     resize: none;
 }
 
+#login_panel {
+    display: none;
+}
+
 .postpeep:hover {
   background: #2196F3;
   color: white;
@@ -98,6 +102,43 @@ textarea {
     height: 40px;
 }
 
+
+.login_btn:hover {
+  background: #2196F3;
+  color: white;
+}
+
+.login_btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgb(236, 221, 87);
+    border: 2px solid black;
+    color: black;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-family: 'Reenie Beanie', sans-serif;
+    margin-left: 1.66%;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 4px 2px;
+    cursor: pointer;
+    /* vertical-align: middle; */
+}
+
+.login_btn .icon {
+    background: url(/images/peep_purple_icon_40x40.png) no-repeat;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px
+}
+.login_btn .span {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
 
 .peep_only_btn:hover {
   background: #2196F3;
