@@ -1,0 +1,25 @@
+<!-- <head> <LINK rel=stylesheet type="text/css"> </head>
+<body> -->
+
+<form action="/signup" method="get">
+  <input type='submit' value='Sign up'>
+</form>
+<form action="/login" method="get">
+  <input type='submit' value='Log in'>
+</form>
+
+<form action="/cheet" method="post">
+  <input type="text" name ="text_box">
+  <input type="submit" value="Cheet">
+</form>
+<br>
+
+<ul>
+<% @feed.each do |cheet| %>
+  <li class="wholecheet" id="<%=cheet.id%>">
+    <%= cheet.text %> <br>
+    <%= cheet.username %> : <%= cheet.timestamp %>
+  </li>
+<% end %>
+</ul>
+<!-- </body> -->
