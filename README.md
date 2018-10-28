@@ -17,3 +17,6 @@ For testing:
 - Connect to this database using `\c chitter_test;`.
 - Enter the command found in `./db/migrations/01_create_peeps_table.sql`.
 - Enter the command found in `./db/migrations/02_create_users_table.sql`
+
+To run the app:
+- `shotgun config.ru`
