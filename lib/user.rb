@@ -29,4 +29,8 @@ class User
     end
   end
 
+  def self.find(id:)
+
+  end
+
 end
