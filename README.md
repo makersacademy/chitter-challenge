@@ -1,5 +1,79 @@
 Chitter Challenge
 =================
+## About the Program
+
+This is a program that mimics Twitter. It has basic fucntionality which allows users to register, sign in and post 'Peeps', either has the registered user or anonymously. These 'Peeps' are then listed in reverse chronological order (see images below).
+
+The application was built using the stories provided by Makers Academy. It has an MVC architecture with a PostgreSQL database to store user information and 'Peeps'. It was built in Ruby and used RSpec and Capybara as the testing framework.
+
+TDD practices were used in the production of this program. User stories were broken down into feature test; the error messages inform the code that needs to be written. Unit tests were also written for that classes that make up the model and achieved 100% test coverage.
+
+The program has an OOD where each responsibility was assigned its own class, fulfilling the single responsibility principle. This should ensure that implementing any future changes or additional functionality can happen with minimal impact to the rest of the program.
+
+
+## Installation
+1. Clone this repo
+2. `cd` into the directory
+3. Run `bundle` to install the required gems
+4. Run `rake build_chitter_database`
+5. Run `ruby app.rb` to start the server
+6. Visit `http://localhost:4567` in your browser
+7. Enjoy!
+
+## Test
+Tests can be viewed within the `spec` folder in the directory
+
+To run the tests:
+1. Clone this repo
+2. `cd` into the directory
+3. Run `rspec`
+
+## Example Usage
+### Posting an anonymous peep
+![homepage](./images/homepage.png)
+- Click 'Post a Peep'
+
+![post a peep](./images/post_a_peep_anon.png)
+- Click 'Submit'
+
+![homepage](./images/homepage_with_anon_peep.png)
+
+### Registering
+![homepage](./images/homepage_with_anon_peep.png)
+- Click 'Register'
+
+![error](./images/registration_error.png)
+- Error if passwords do not match when registering
+
+![registration](./images/registration.png)
+- Click 'Register'
+
+![homepage](./images/homepage_registered.png)
+
+### Logging In
+![homepage](./images/homepage_registered.png)
+- Click 'Login'
+
+![error](./images/login_error.png)
+- Error message if incorrect password or email
+
+![login](./images/login.png)
+- Click 'Login'
+
+![homepage](./images/homepage_login.png)
+- While logged in, the users name and handle is persistant on the top right hand side while using the website
+
+### Posting Peeps While Logged In
+![homepage](./images/user_peeps.png)
+- Peeps while logged in contain the users full name and username
+
+### Logging Out
+![click name](./images/click_name.png)
+- Click name and click 'Log out'
+
+![homepage](./images/homepage_log_out.png)
+
+# Instructions for Chitter Challenge
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
@@ -21,11 +95,11 @@ Features:
 STRAIGHT UP
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a Maker
