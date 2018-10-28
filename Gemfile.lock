@@ -89,7 +89,6 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
-  timecop
 
 RUBY VERSION
    ruby 2.5.0p0
