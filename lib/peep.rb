@@ -28,6 +28,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter_database')
     end
     time = Time.now
-    connection.exec("INSERT INTO peeps (name, username, post, time) VALUES ('#{name}', '#{username}', '#{post}', '#{time}')")
+    result = connection.exec("INSERT INTO peeps (name, username, post, time) VALUES ('#{name}', '#{username}', '#{post}', '#{time}') RETURNING id, name, username, post, time;")
+    Peep.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], post: result[0]['post'], time: result[0]['time'])
   end
 end

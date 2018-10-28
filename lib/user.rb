@@ -59,9 +59,14 @@ class User
   end
 
   def self.find(column:, value:)
+
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_database_test')
+    else
+      connection = PG.connect(dbname: 'chitter_database')
+    end
     return nil if column.nil?
-    result = DatabaseConnection.query(
-      "SELECT * FROM users WHERE #{column} = '#{value}'").first
+      result = connection.exec("SELECT * FROM users WHERE #{column} = '#{value}'")
     return nil if result.nil?
     User.new(
       id: result['id'],
