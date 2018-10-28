@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/user'
 
 class App < Sinatra::Base
 
@@ -11,11 +12,18 @@ class App < Sinatra::Base
   end
 
   post '/sign_up' do
-    redirect '/'
+    #check user.unique? if false redirect :homepage
+    User.sign_up(first_name: params['first_name'], last_name: params['last_name'], email: params['email'], password: params['password'], username: params['username'])
+    redirect '/signed_in'
   end
 
   post '/new_peep' do
-    redirect '/'
+    redirect '/signed_in'
+  end
+
+  get '/signed_in' do
+    @name = User.first_name
+    erb :signed_in_homepage
   end
 
   run! if app_file == $0
