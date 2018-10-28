@@ -16,12 +16,11 @@ class Peep
     ")
 
     result.map { |peep|
-      if peep['id'] == 1
+      if peep['user_id'] == 1
         user = User.new
       else
         user = User.new(id: peep['id'], name: peep['name'], username: peep['username'], email: peep['email'])
       end
-
       Peep.new(id: peep['id'], text: peep['text'], time: peep['time'][0..4],
       date: "#{peep['date'][8..9]}/#{peep['date'][5..6]}/#{peep['date'][0..3]}", user: user
       )
