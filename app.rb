@@ -9,7 +9,8 @@ class Chitter < Sinatra::Base
     return erb :index if session[:user_id].nil?
 
     user = User.find(id: session[:user_id])
-    erb "Hi, #{user.name}!"
+    @name = user.name
+    erb :logged_in
   end
 
   get '/post_peep' do
