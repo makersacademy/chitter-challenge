@@ -1,3 +1,13 @@
+## Overview
+
+This is a simple Twitter clone. Users can sign up and post 'peeps'.
+
+## How to Run This App
+
+Clone the repo. From the terminal, run ```bundle install``` in the project directory. Create the databases needed (see Databases Migration above). Use ```rackup config.ru``` to run the web app locally, the connect to the port specified from your local browser.
+
+To run the tests, run ```rspec``` from the terminal in the root project directory.
+
 ## User Stories
 
 ```
@@ -28,53 +38,21 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-### Database Migration
+## Database Migration
 
-Run psql, then implement all sql commands listed in db folder.
+The project requires a development and a test database.  To create these, connect to psql and then run these commands:
+```
+CREATE DATABASE chitter;
+```
+and
+```
+CREATE DATABASE chitter_test;
+```
+Then for each database run commands listed in db folder.
 
-Notes on functionality:
-------
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+## Technologies Used
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+This is a Sinatra-based web app. Tests are set up using rspec and Capybara. PostgreSQL database connections are set up using PG. Passwords are encrypted using BCrypt.

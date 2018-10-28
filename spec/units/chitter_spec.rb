@@ -15,6 +15,8 @@ describe Chitter do
       Chitter.create('1', 'This is a peep')
       Chitter.create('1', 'This is also a peep')
       peeps = Chitter.all_peeps
+      expect(peeps.length).to eq 2
+      expect(peeps.first).to be_a Chitter
       expect(peeps[0].content).to eq('This is a peep')
       expect(peeps[1].content).to eq('This is also a peep')
     end

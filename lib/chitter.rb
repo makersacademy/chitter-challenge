@@ -1,5 +1,6 @@
 require 'pg'
 require 'pry'
+require 'database_connection'
 
 class Chitter
 
@@ -13,20 +14,13 @@ class Chitter
   end
 
   def self.create(user_id, content)
-    conn = db_connect
-    res = conn.exec("INSERT INTO peeps (user_id, content, time) VALUES ('#{user_id}', '#{content}', '#{Time.now}') returning *;")[0]
-    Chitter.new(res['post_id'], res['user_id'], res['time'], res['content'])
+    res = DatabaseConnection.query("INSERT INTO peeps (user_id, content, time) VALUES ('#{user_id}', '#{content}', '#{Time.now}') returning *;")
+    Chitter.new(res[0]['post_id'], res[0]['user_id'], res[0]['time'], res[0]['content'])
   end
 
   def self.all_peeps
-    conn = db_connect
-    res = conn.exec("SELECT * FROM peeps ORDER BY time DESC;")
+    res = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time DESC;")
     res.map { |peep| Chitter.new(peep['post_id'], peep['user_id'], peep['time'], peep['content']) }
-  end
-
-  def self.db_connect
-    db = ENV['RACK_ENV'] == 'test' ? 'chitter_test' : 'chitter'
-    PG.connect(dbname: db)
   end
 
 end
