@@ -3,6 +3,7 @@ feature "Sign up" do
 
   scenario "I see a sign up form with fields" do
     visit('/sign_up')
+
     expect(page).to have_field("username")
     expect(page).to have_field("name")
     expect(page).to have_field("email")
@@ -11,13 +12,7 @@ feature "Sign up" do
   end
 
   scenario "I am welcomed after signing up" do
-    visit('/sign_up')
-
-    fill_in "username", with: "edy"
-    fill_in "name", with: "Edyta"
-    fill_in "email", with: "edyta@gmail.com"
-    fill_in "password", with: "12334"
-    click_button 'Sign Up'
+    sign_up(name: "Edyta")
 
     expect(page).to have_content("Hi, Edyta!")
   end
