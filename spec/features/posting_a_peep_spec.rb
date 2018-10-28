@@ -4,7 +4,7 @@ feature "Positng a peep" do
     click_button 'Post a Peep'
     fill_in :peep, with: 'This is a test peep'
     click_button "Peep!"
-    expect(page).to have_content "anonymous This is a test peep"
+    expect(page).to have_content "anonymous\nThis is a test peep"
   end
 
   scenario "while logged in" do
@@ -15,7 +15,7 @@ feature "Positng a peep" do
     fill_in :peep, with: "Go Pikachu!"
     click_button 'Peep!'
 
-    expect(page).to have_content "Ash Ketchum @red Go Pikachu!"
+    expect(page).to have_content "Ash Ketchum @red\nGo Pikachu!"
 
   end
 end
