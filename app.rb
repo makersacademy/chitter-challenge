@@ -3,7 +3,7 @@ require 'sinatra/flash'
 require './lib/chitter'
 require './lib/user'
 require 'pry'
-require './database_connection_setup'
+require './lib/database_connection_setup'
 
 class ChitterApp < Sinatra::Base
 
