@@ -1,4 +1,4 @@
-feature 'PTest access to Chitter homepage' do
+feature 'Test access to Chitter homepage' do
   scenario 'visiting the index page' do
     visit('/')
     expect(page).to have_content "Chitter"
@@ -42,9 +42,9 @@ feature 'Registering a new User' do
 
     visit('/')
     click_link('Sign up')
-    fill_in('NAME', :with => 'Neil')
+    fill_in('USERNAME', :with => 'Neil')
     fill_in('TAG', :with => 'Br0ckers')
     click_button('Add User')
-    expect(page).to have_content('Neil', 'Br0ckers', "Is now registered")
+    expect(page).to have_content('Welcome Neil Your registration is now complete')
   end
 end

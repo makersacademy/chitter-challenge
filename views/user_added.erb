@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>Welcome</title>
+</head>
+  <body style="background-color: grey; text-align: center; font-size:40px; color:white">
+    <hr width="50%"></hr>
+    <h2>Sign up completed</h2>
+    <hr width="50%"></hr>
+    <div style="margin-right: 215px; margin-left: 215px; background-color: grey">
+    </div>
+    <br/>
+    <% @user_added.each do |user| %>
+      <li> Welcome <%= user[:username] %> Your registration is now complete  </a></li>
+    <% end %>
+    <div style="margin-right: 215px; margin-left: 215px; background-color: grey">
+      <form action="/message_signed_in" method="post">
+        MESSAGE <input type="text" name="MESSAGE">
+        TAG <input type="text" name="TAG">
+        <button name="Submit Post" type="submit"</button <h2>Submit Post</h2>>
+      </form>
+    </div>
+  </body>
+</html>

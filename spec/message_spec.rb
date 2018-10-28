@@ -21,9 +21,9 @@ describe Message do
   describe 'Displays add messgae via post method' do
     it 'returns added Peep' do
       connection = PG.connect(dbname: 'chitter_db_test')
-      Message.add('Test Post', '@Br0ckers')
+      Message.add('Posted By Neil : Test Post', '@Br0ckers')
       messages = Message.all
-      expect(messages).to include({peep: 'Test Post', date: (/2018-10/), tag: '@Br0ckers' })
+      expect(messages).to include({peep: 'Posted By Neil : Test Post', date: (/2018-10/), tag: '@Br0ckers' })
     end
   end
 end

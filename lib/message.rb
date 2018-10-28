@@ -1,5 +1,6 @@
 require 'pg'
 require 'Date'
+require './lib/user'
 
 class Message
 
@@ -27,9 +28,9 @@ class Message
     else
       connection = PG.connect(dbname: 'chitter_db')
     end
-
-    connection.exec("INSERT INTO messages (peep, tag) VALUES ('#{peep}', '#{tag}');")
-
+    act_user = User.last.last[:username.to_sym]
+    connection.exec("INSERT INTO messages (peep, tag) VALUES ('Posted By #{act_user} : #{peep}', '#{tag}');")
+    #{:last_user}:
   end
 
 end

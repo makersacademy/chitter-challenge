@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/message'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
@@ -13,6 +14,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @messages = Message.all
+
     erb :peeps
   end
 
@@ -22,6 +24,27 @@ class Chitter < Sinatra::Base
 
   post '/message' do
     Message.add(params[:MESSAGE], params[:TAG])
+    redirect '/peeps'
+  end
+
+  get '/register' do
+    @user_added = User.last
+    erb :register
+  end
+
+  post '/register' do
+    User.add(params[:USERNAME], params[:TAG])
+    redirect '/user_added'
+  end
+
+  get '/user_added' do
+    @user_added = User.last
+    erb :user_added
+  end
+
+  post '/message_signed_in' do
+    Message.add(params[:MESSAGE], params[:TAG])
+    # @user_now = User.last
     redirect '/peeps'
   end
 
