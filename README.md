@@ -73,6 +73,13 @@ I want to receive an email if I am tagged in a Peep
 ![ScreenShot6](./public/images/ScreenShot6.png)
 ![ScreenShot7](./public/images/ScreenShot7.png)
 
+## Approach
+
+* 3 Classes: Peep, User, & DatabaseConnection (extracted database setup object)
+* 4 Views: /peeps, /peeps/new, /sessions/new, /users/new. The index page redirects to /peeps.
+* Fully test driven app using RSpec & Capybara
+* Aimed to use the MVC pattern to improve the maintainability of the app
+* 100% test coverage with a total of 22 unit & feature tests (all passing)
 
 ## Getting started
 
