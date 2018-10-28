@@ -15,7 +15,7 @@ feature 'signing up to chitter' do
   end
 
   scenario 'should be able to see peep entry field if signed up' do
-    peep_entry_field = "input[type='text'][placeholder='Peep away, albob123!']"
+    peep_entry_field = "textarea[type='text'][placeholder='Peep away, albob123!']"
     visit '/'
     click_button 'View all peeps'
     expect(page).not_to have_css(peep_entry_field)

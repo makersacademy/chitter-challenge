@@ -1,13 +1,26 @@
 body {
   background-color: #32B4DB;
   font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
 }
-
+article#greeting {
+  position: fixed;
+  top: 3.5%;
+  left: 2%;
+  color: #F5F6F7;
+  font-family: 'Baloo Bhaijaan', cursive;
+  font-size: 2.5rem;
+}
 article#sign_up_warning {
   text-align: center;
 }
 article#index_warning {
   text-align: center;
+}
+article#peeps_main_form {
+  padding-top: 10px;
+  text-align: center;
+  height: 20%;
 }
 button:focus{
   outline:0px;
@@ -16,11 +29,27 @@ button {
   height: 32px;
   font-size: 14px;
 }
+button#peeps_home{
+  width: 10%;
+  position: fixed;
+  top: 3.5%;
+  right: 2%;
+}
+button#peeps_sign_out {
+  width: 10%;
+  position: fixed;
+  top: 3.5%;
+  right: 14%;
+}
 button#log_in {
   position: absolute;
   right: 480px;
   bottom: 0px;
   height: 32px;
+}
+button#peep_button {
+  width: 400px;
+  border-radius: 5px;
 }
 button#sign_up {
   width: 18%;
@@ -45,14 +74,32 @@ form#sign_up_home_button {
   text-align: center;
 }
 section#home_title {
+  text-align: center;
   padding-top: 10%;
+}
+section#peeps {
+  margin-top: 5%;
+  text-align: center;
+}
+section#peeps_header {
+  text-align: center;
+  position: fixed;
+  top: 1%;
+  left: 42.5%;
 }
 section#home_buttons {
   padding-top: 40px;
   text-align: center;
 }
+textarea#peep_entry {
+  height: 100px;
+  border: none;
+  resize: none;
+  margin-top: 10%;
+  font-size: 16px;
+  width: 400px;
+}
 .chitter_title {
-  text-align: center;
   color: #F5F6F7;
   font-family: 'Baloo Bhaijaan', cursive;
   font-size: 4rem;
@@ -76,13 +123,17 @@ section#home_buttons {
   outline: none;
 }
 .button:hover {
-  background-color: #2E7FC7;
+  background-color: #3584C1;
   color: #fff;
+}
+.container {
+  height: 10%;
 }
 .jumbotron {
   margin-top: 0px;
-  padding-left: 40%;
-  background-color: inherit;
+  padding-left: 10%;
+  background-color: #3584C1;
+  text-align: left;
 }
 .sign_up_labels {
   text-transform: uppercase;
