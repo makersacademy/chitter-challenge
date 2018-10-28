@@ -5,8 +5,7 @@
 feature 'Posting a peep' do
   before do
     visit '/post'
-    fill_in 'peep', with: "Hi there"
-    click_button "Peep"
+    post_peep
   end
 
   scenario 'create a peep' do

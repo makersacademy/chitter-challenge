@@ -1,3 +1,4 @@
+# require_relative 'peep_controller'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user'
@@ -10,7 +11,7 @@ class ChitterApp < Sinatra::Base
   enable :sessions
 
   get '/' do
-    erb :index
+    erb :'index'
   end
 
   post '/index' do
@@ -18,14 +19,19 @@ class ChitterApp < Sinatra::Base
       flash[:sign_up] = "Sorry those details have already been registered, please try again"
       redirect '/'
     else
-      new_user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-      new_user = User.all.select { |user| user.username == params[:username]}.first
+      User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+      new_user = User.all.select { |user| user.username == params[:username] }.first
       redirect "/welcome/#{new_user.username}"
     end
   end
 
+  post '/welcome' do
+    login_user = User.login(params[:email], params[:password])
+    redirect "/welcome/#{login_user}"
+  end
+
   get '/welcome/:username' do
-    current_user = User.all.select { |user| user.username == params[:username]}.first
+    current_user = User.all.select { |user| user.username == params[:username] }.first
     @name = current_user.name
     erb :welcome
   end
@@ -43,6 +49,10 @@ class ChitterApp < Sinatra::Base
   get '/chitter' do
     @peeps = Chitter.all(Peep)
     erb :chitter
+  end
+
+  get '/login' do
+    erb :login
   end
 
   run! if app_file == $0

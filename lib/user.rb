@@ -26,6 +26,14 @@ class User
     false
   end
 
+  def self.login(email, password)
+    find_db
+    @conn.exec("SELECT * FROM users WHERE(email = '#{email}') AND (password = '#{password}');").map do |user|
+      return user['username']
+    end
+    false
+  end
+
   def self.find_db
     if ENV['RACK_ENV'] == 'test'
       @conn = PG.connect(dbname: 'chitter_test')

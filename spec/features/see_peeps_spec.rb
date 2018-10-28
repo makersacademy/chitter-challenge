@@ -5,8 +5,7 @@
 feature 'Viewing peeps' do
   before do
     visit '/post'
-    fill_in 'peep', with: "Hi there"
-    click_button "Peep"
+    post_peep
     visit '/'
     click_button "View peeps"
   end
@@ -25,8 +24,7 @@ feature 'Viewing the time that a peep was posted' do
 
   before do
     visit '/post'
-    fill_in 'peep', with: "Hi there"
-    click_button "Peep"
+    post_peep
     visit '/'
     click_button "View peeps"
   end

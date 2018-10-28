@@ -15,6 +15,7 @@ require 'capybara/rspec'
 require 'sinatra/base'
 require 'rspec'
 require 'pg'
+require_relative './features/web_helper'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
