@@ -8,14 +8,12 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
-  get'/user_registration' do
-    erb :user_registration
+  get'/users/new' do
+    erb :'users/new'
   end
 
-  post '/register_user' do
+  post '/users' do
     user = User.create(
-      first_name: params['first_name'],
-      last_name: params['last_name'],
       email: params['email'],
       password: params['password']
     )
@@ -23,8 +21,8 @@ class ChitterApp < Sinatra::Base
     redirect '/'
   end
 
-  get '/session/new' do
-    erb :login
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
   post '/sessions' do
@@ -34,7 +32,7 @@ class ChitterApp < Sinatra::Base
       redirect('/')
     else
       flash[:notice] = 'Please check your email or password.'
-      redirect('/session/new')
+      redirect('/sessions/new')
     end
   end
 

@@ -1,0 +1,17 @@
+<%= erb :nav %>
+
+<div class="container">
+  <div class="jumbotron">
+    <h3>Registration</h3>
+    <form action="/users" method="post">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" name="email" id="email" required>
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password" required>
+        <br>
+        <input class="btn btn-success float-right" type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+</div>

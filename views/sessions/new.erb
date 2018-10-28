@@ -1,0 +1,19 @@
+<%= erb :nav %>
+
+<div class="container">
+  <div class="jumbotron">
+    <h3>Login</h3>
+    <h4>Enter email and password to login</h4>
+    <h2><%= flash[:notice] %></h2>
+    <form action="/sessions" method="post">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" name="email" id="email">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password">
+        <br>
+        <input class="btn btn-success float-right" type="submit" value="Sign in">
+      </div>
+    </form>
+  </div>
+</div>
