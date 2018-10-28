@@ -2,11 +2,11 @@
   <h1>Chitter</h1>
 
   <% flash.keys.each do |notice| %>
-  <div>
-    <%= flash[notice] %>
-  </div>
+    <div>
+      <%= flash[notice] %>
+    </div>
   <% end %>
-  
+
   <% if session[:user].nil? %>
   <a href="/user/new">Register</a>
   <a href="/session/new">Login</a>

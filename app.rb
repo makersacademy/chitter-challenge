@@ -58,8 +58,13 @@ class Chitter < Sinatra::Base
   post '/session' do
     user = User.authenticate(email: params[:email], password: params[:password])
 
-    session[:user] = user
-    redirect to '/'
+    if user.nil?
+      flash[:notice] = 'Incorrect email or password'
+      redirect to '/session/new'
+    else
+      session[:user] = user
+      redirect to '/'
+    end
   end
 
   run! if app_file == $0
