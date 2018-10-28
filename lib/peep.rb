@@ -33,7 +33,7 @@ class Peep
   end
 
   def self.date_only(date)
-    date = DateTime.parse(date.to_s)
+    date = Time.parse(date.to_s)
     date.strftime("%d/%m/%Y %H:%M:%S")
   end
 
