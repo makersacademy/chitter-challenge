@@ -5,4 +5,8 @@ Hi, <%= @name %>! <a href="/log_out">Log Out</a>
   <input type="submit" name="submit" value="Post peep!">
 </form>
 
-my new peep
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.text %></li>
+  <% end %>
+</ul>

@@ -17,12 +17,7 @@ feature 'Post a peep to chitter' do
   end
 
   scenario 'I can post a peep when logged in' do
-    sign_up
-
-    visit('/')
-
-    fill_in "peep", with: "my new peep"
-    click_button 'Post peep!'
+    post(peep: "my new peep")
 
     expect(page).to have_content("my new peep")
     expect(page).to have_field("peep")
