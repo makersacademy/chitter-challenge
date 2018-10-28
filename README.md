@@ -117,3 +117,10 @@ CREATE TABLE users (
   name VARCHAR (100) NOT NULL,
   email VARCHAR (355) UNIQUE NOT NULL
 );
+
+CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  text VARCHAR (280) NOT NULL,
+  timestamp TIMESTAMP
+);
