@@ -43,7 +43,27 @@ describe Peep do
     end
   end
 
-  describe '.authenticate' do
+  describe '#authenticate' do
+    it 'returns nil given an incorrect email address' do
+      user = User.create(first_name: 'Test',
+        last_name: 'McTest',
+        username: 'Testannosaurus',
+        email: 'test@example.com',
+        password: 'password123')
+
+     expect(User.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
+   end
+
+   it 'returns nil given an incorrect password' do
+     user = User.create(first_name: 'Test',
+       last_name: 'McTest',
+       username: 'Testannosaurus',
+       email: 'test@example.com',
+       password: 'password123')
+
+    expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be_nil
+  end
+
     it 'returns a user given a correct username and password, if one exists' do
       user = User.create(first_name: 'Test',
         last_name: 'McTest',

@@ -47,6 +47,9 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users
       WHERE email = '#{email}'")
 
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+
     User.new(id: result[0]['id'],
       first_name: result[0]['firstname'],
       last_name: result[0]['lastname'],
