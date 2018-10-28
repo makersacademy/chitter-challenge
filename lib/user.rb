@@ -1,4 +1,5 @@
 require 'pg'
+require_relative './peep'
 
 class User
 
@@ -30,6 +31,11 @@ class User
     setup_connection
     result = @@connection.exec("SELECT * FROM users WHERE id = #{id};")
     User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], username: result[0]['username'], password: result[0]['password'])
+  end
+
+  def peeps 
+    User.setup_connection
+    @@connection.exec("SELECT * FROM peeps WHERE user_id = #{id};")
   end
 
   def self.setup_connection

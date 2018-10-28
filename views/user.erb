@@ -6,3 +6,17 @@
     What's on your mind? <input type="text" name="peep">
     <input type="submit" value="Peep" name="Peep">
   </form>
+
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li class="peep" id="peep-<%= peep.id %>">
+        <p>
+          <%= peep.peep %>
+          <%= peep.time %>
+        </p>
+        <!-- <form action="/peeps/<%= peep.id %>/comments/new" method="get">
+          <input type="submit" value="Add Comment" />
+        </form>
+      </li> -->
+    <% end %>
+  </ul>

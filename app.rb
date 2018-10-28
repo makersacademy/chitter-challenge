@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/user'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -22,12 +23,13 @@ class Chitter < Sinatra::Base
 
   get '/user/:id' do
     @user = User.find(id: session[:user_id])
+    @peeps = Peep.where(user_id: session[:user_id])
     erb :user
   end
 
   post '/peep' do
     @user = User.find(id: session[:user_id])
-    @users = User.all
+    Peep.create(user_id: session[:user_id], peep: params[:peep])
     redirect '/user/:id'
   end
 
