@@ -1,4 +1,5 @@
 require 'peep'
+require 'persisted_data_helpers'
 
 describe Peep do
   describe 'all' do
@@ -11,9 +12,14 @@ describe Peep do
     end
   end
   describe 'post' do
-    it 'should be able to post a peep' do
-    Peep.post(name: "steve", username: "stevie93", post: "my first peep!")
-    expect(Peep.all[0].name).to eq "steve"
+    it 'should be create a peep' do
+      peep = Peep.post(name: "steve", username: "stevie93", post: "my first peep!")
+      persisted_data = persisted_data(table: :peeps, id: peep.id)
+      expect(peep.id).to eq persisted_data.first['id']
+    end
+    it 'should be able post a peep' do
+      Peep.post(name: "steve", username: "stevie93", post: "my first peep!")
+      expect(Peep.all[0].name).to eq "steve"
     end
     it 'should be able to post a peep' do
     Peep.post(name: "steve", username: "stevie93", post: "my first peep!")

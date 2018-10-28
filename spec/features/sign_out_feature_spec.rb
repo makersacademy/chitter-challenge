@@ -1,12 +1,6 @@
 feature 'sign_out' do
   scenario 'a user can sign out' do
-    visit '/'
-    click_button 'sign up'
-    fill_in('email', with: 'anouskahopkins@gmail.com')
-    fill_in('password', with: 'hello')
-    fill_in('name', with: 'anouska hopkins')
-    fill_in('username', with: 'ahopkins94')
-    click_button 'submit'
+    sign_up
     visit '/'
     click_button 'sign in'
     fill_in('username', with: 'ahopkins94')
