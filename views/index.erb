@@ -36,20 +36,25 @@
 
 <p><%= flash[:notice] %></p>
 
-<h2>Posts:</h2>
-
-<ul>
-  <% @messages.reverse.each do |message| %>
-    <p class="message">
-      <%= message.user_name %> (@<%= message.user_handle %>) wrote: <br>
-      <%= DateTime.parse(message.time).strftime("%d/%m/%y %H:%M") %>:
-      <%= message.content %></p>
-    <br>
-  <% end %>
-</ul>
 
 <form action="/write-peep" method="get">
   <input type="submit" value="Write Peep" />
 </form>
 
 <p><%= flash[:notice2] %></p>
+
+<h2>Posts:</h2>
+
+<ul>
+  <% @messages.reverse.each do |message| %>
+    <p class="message">
+      <%= message.user_name %> (@<%= message.user_handle %>) wrote: <br>
+      --------------------------------------------------------------------------------------------- <br>
+      <%= message.content %> <br>
+      --------------------------------------------------------------------------------------------- <br>
+      <%= DateTime.parse(message.time).strftime("%d/%m/%y %H:%M") %>
+    </p>
+
+    <br>
+  <% end %>
+</ul>

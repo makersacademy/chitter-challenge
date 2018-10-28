@@ -28,7 +28,7 @@ feature 'Viewing posts' do
     Message.create(content: "Test message", time: "2018-10-26 12:20:00 +0100")
 
     visit('/')
-    expect(page).to have_content "26/10/18 12:20: Test message"
+    expect(page).to have_content "26/10/18 12:20"
   end
 
   scenario 'shows name and username on peeps' do
