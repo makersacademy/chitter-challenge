@@ -14,7 +14,7 @@ register Sinatra::Flash
   end
 
   post '/post' do
-    Peep.post(params[:name], params[:username], params[:post])
+    Peep.post(name: params[:name], username: params[:username], post: params[:post])
     redirect '/'
   end
 

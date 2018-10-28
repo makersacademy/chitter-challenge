@@ -1,9 +1,9 @@
 <h1> Chitter App! </h1>
 <h1> Welcome <%= @user.username %>
 <form action="/post" method="post">
-  <input type="text" name="name">
-  <input type="text" name="username">
-  <input type="text" name="post">
+  <input type="text" name="name" placeholder="name">
+  <input type="text" name="username" placeholder ="username">
+  <input type="text" name="post" placeholder="post">
   <input type="submit" value="submit">
 </form>
 <form action="/sign_out" method="post">
