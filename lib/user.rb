@@ -57,4 +57,17 @@ class User
       return false if user.emailaddress == emailaddress
     end
   end
+
+  def self.find(column:, value:)
+    return nil if column.nil?
+    result = DatabaseConnection.query(
+      "SELECT * FROM users WHERE #{column} = '#{value}'").first
+    return nil if result.nil?
+    User.new(
+      id: result['id'],
+      name: result['name'],
+      username: result['username'],
+      email: result['email']
+    )
+  end
 end

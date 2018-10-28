@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require 'rspec'
 require './app.rb'
 require_relative 'features/web_helpers'
+require_relative 'database_helpers'
 
 ENV['ENVIRONMENT'] = 'test'
 
@@ -16,7 +17,11 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
-
+RSpec.configure do |config|
+  config.before(:each) do
+   reset_test_table
+ end
+end
 RSpec.configure do |config|
   config.after(:suite) do
     puts

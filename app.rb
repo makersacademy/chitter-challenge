@@ -8,6 +8,9 @@ class ChitterApp < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    if session[:username]
+      @user = User.find(column: 'username', value: session[:username])
+    end
     @peeps = Peep.all
     erb :index
   end
@@ -23,7 +26,10 @@ class ChitterApp < Sinatra::Base
     password = params[:password]
     if User.unique_check(username, emailaddress)
       session[:unique_check] = true
-      User.create(name: name, username: username, emailaddress: emailaddress, password: password)
+      User.create(name: name, username: username,
+         emailaddress: emailaddress, password: password)
+      session[:name] = name
+      session[:username] = username
       redirect "/#{username}"
     else
       session[:unique_check] = false
@@ -41,6 +47,8 @@ class ChitterApp < Sinatra::Base
     password = params[:password]
     if User.password_authentication(username, password)
       session[:password_authentication] = true
+      # session[:name] = name
+      # session[:username] = username
       redirect "/#{username}"
     else
       session[:password_authentication] = false
@@ -56,14 +64,17 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peep/new' do
+    @name = params[:name]
+    @username = params[:username]
     erb :'peep/new'
   end
 
   post 'peep/new' do
-    name = params[:name]
-    username = params[:username]
+    name = session[:name]
+    username = session[:username]
+    user = User.find(column: username, value: "#{username}")
     post = params[:post]
-    Peep.post(params[:name], params[:username], params[:post])
+    Peep.post(name: params[:name], username: params[:username], post: params[:post])
     redirect '/'
   end
 

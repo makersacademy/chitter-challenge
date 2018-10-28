@@ -27,6 +27,7 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter_database')
     end
+    time = Time.now
     connection.exec("INSERT INTO peeps (name, username, post, time) VALUES ('#{name}', '#{username}', '#{post}', '#{time}')")
   end
 end
