@@ -69,4 +69,12 @@ form {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
+
+.message{
+  margin: auto;
+  width: 40%;
+	margin-bottom: 10px;
+	border-radius: 2px;
+	border: solid 6px rgb(58, 161, 199);
+}
