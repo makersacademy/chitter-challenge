@@ -22,7 +22,8 @@ class User
 
   def self.create(firstname, lastname, username, password, email)
     enc_password = BCrypt::Password.create(password)
-    return validate_signup(username, email).join("\n") unless validate_signup(username, email).empty?
+    validate = validate_signup(username, email)
+    return validate.join("\n") unless validate.empty?
     sql = %{INSERT INTO users (firstname, lastname, username, password, email)
       VALUES ('#{firstname}', '#{lastname}', '#{username}', '#{enc_password}',
       '#{email}') RETURNING id, firstname, lastname, username, password, email;}
@@ -92,10 +93,9 @@ class User
   end
 
   def self.valid_email?(email)
+    error_msg = "Please enter a valid email address"
+    return error_msg if email.match(URI::MailTo::EMAIL_REGEXP).nil?
 
-    if email.match(URI::MailTo::EMAIL_REGEXP).nil?
-      return "Please enter a valid email address"
-    end
   end
 
 private
