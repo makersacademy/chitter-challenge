@@ -83,5 +83,12 @@ describe User do
       expect(authenticated_user).to be_nil
     end
 
+    it "returns nil if the password is incorrect" do
+      authenticated_user = User.authenticate(email: 'p_oak@pallet.com',
+        password: 'pokedex'
+      )
+      expect(authenticated_user).to be_nil
+    end
+
   end
 end
