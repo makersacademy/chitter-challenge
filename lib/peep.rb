@@ -16,13 +16,9 @@ class Peep
     ")
 
     result.map { |peep|
-      if peep['user_id'] == 1
-        user = User.new
-      else
-        user = User.new(id: peep['id'], name: peep['name'], username: peep['username'], email: peep['email'])
-      end
+      user = user(peep)
       Peep.new(id: peep['id'], text: peep['text'], time: peep['time'][0..4],
-      date: "#{peep['date'][8..9]}/#{peep['date'][5..6]}/#{peep['date'][0..3]}", user: user
+      date: format_date(peep['date']), user: user
       )
     }
   end
@@ -47,9 +43,13 @@ class Peep
     Time.now.strftime("%Y-%m-%d")
   end
 
-  # def self.user(id)
-  #   return User.new if id == '1'
-  #   User.new(id: peep['user_id'], name: peep['name'], username: peep['username'], email: peep['email'])
-  # end
+  def self.format_date(date)
+    "#{date[8..9]}/#{date[5..6]}/#{date[0..3]}"
+  end
 
+  def self.user(peep)
+    return User.new if peep['id'] == 1
+    User.new(id: peep['id'], name: peep['name'], username: peep['username'],
+      email: peep['email'])
+  end
 end
