@@ -43,4 +43,18 @@ describe Peep do
     end
   end
 
+  describe '.authenticate' do
+    it 'returns a user given a correct username and password, if one exists' do
+      user = User.create(first_name: 'Test',
+        last_name: 'McTest',
+        username: 'Testannosaurus',
+        email: 'test@example.com',
+        password: 'password123')
+
+      authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
+
+      expect(authenticated_user.id).to eq user.id
+    end
+  end
+
 end
