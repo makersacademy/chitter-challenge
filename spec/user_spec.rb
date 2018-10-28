@@ -25,4 +25,8 @@ describe '.sign_in' do
     user = User.sign_up(email: 'test@example.com', password: 'password123', username: 'apple123', name: 'tasha')
     expect(User.sign_in(username: 'hello', password: 'password123')).to be_nil
   end
+  it 'returns nil given an incorrect password' do
+    user = User.sign_up(email: 'test@example.com', password: 'password123', username: 'apple123', name: 'tasha')
+    expect(User.sign_in(username: 'apple123', password: 'wrongpassword')).to be_nil
+  end
 end
