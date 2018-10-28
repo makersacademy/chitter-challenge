@@ -56,4 +56,10 @@ class User
       username: result[0]['username'],
       email: result[0]['email'])
   end
+
+  def self.already_registered?(email:, username:)
+    result = DatabaseConnection.query("SELECT * FROM users
+      WHERE email = '#{email}' OR username = '#{username}'")
+    result.any?
+  end
 end

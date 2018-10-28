@@ -30,7 +30,14 @@ class Chitter < Sinatra::Base
   post '/users' do
     email = EmailAddress.new(params['email'])
 
-    if email.valid?
+    if !email.valid?
+      flash[:notice] = "Please use a valid email address"
+      redirect '/users/new'
+    elsif User.already_registered?(email: params['email'],
+       username: params['username'])
+      flash[:notice] = "An account has already been registed with that email address or username."
+      redirect '/users/new'
+    else
       user = User.create(first_name: params[:first_name],
         last_name: params[:last_name],
         username: params[:username],
@@ -38,11 +45,7 @@ class Chitter < Sinatra::Base
         password: params[:password])
       session[:user_id] = user.id
       redirect '/'
-    else
-      flash[:notice] = "Please use a valid email address"
-      redirect '/users/new'
     end
-
   end
 
   get '/sessions/new' do
