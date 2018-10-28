@@ -1,4 +1,12 @@
 feature 'authentication' do
+
+  scenario 'a user can visit the sign in page from the homepage' do
+    visit '/'
+    click_button('Sign in')
+    
+    expect(page).to have_content "Sign in"
+  end
+
   scenario 'a user can sign in' do
     User.create(name: 'Tester', username: 'ChitterTester', email: 'test@example.com', password: 'password123')
 
