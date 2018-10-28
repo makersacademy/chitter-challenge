@@ -1,7 +1,12 @@
 require 'sinatra/base'
-require './lib/user'
+require 'sinatra/flash'
+require 'data_mapper'
+require './models/user'
+require './models/setup'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :index
