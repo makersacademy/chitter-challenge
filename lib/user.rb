@@ -17,8 +17,8 @@ class User
   end
 
   def self.create(first_name, last_name, email, username, password)
-    return if self.has_email(email) # Aborts if email already exists
-    return if self.has_username(username) # Aborts if username already exists
+    return if has_email(email) # Aborts if email already exists
+    return if has_username(username) # Aborts if username already exists
     encrypted_password = BCrypt::Password.create(password)
     res = DatabaseConnection.query("INSERT INTO users (first_name, last_name, email, username, password) VALUES ('#{first_name}', '#{last_name}', '#{email}', '#{username}', '#{encrypted_password}') returning *;")
     User.new(res[0]['first_name'], res[0]['last_name'], res[0]['email'], res[0]['username'], res[0]['user_id'], res[0]['password'])
@@ -37,12 +37,12 @@ class User
 
   def self.has_email(email)
     res = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
-    res.ntuples == 0 ? false : true
+    !(res.ntuples.zero?)
   end
 
   def self.has_username(username)
     res = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
-    res.ntuples == 0 ? false : true
+    !(res.ntuples.zero?)
   end
 
   def self.authenticate(username, password)
