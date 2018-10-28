@@ -9,7 +9,7 @@ There are currently 31 feature and unit tests with 100% coverage.
 Here is an image of the home screen with an example username and password entered into the required fields.
 ![image](./example.png)
 
-### Features
+### Features
 
 - Signing up with email, password, name, and username
 - Logging in with email and password, and signing out
@@ -37,3 +37,5 @@ For testing:
 
 To run the app:
 - `rackup config.ru`!
+
+# :)
