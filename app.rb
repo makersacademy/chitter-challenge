@@ -9,7 +9,8 @@ class Chitter < Sinatra::Base
     if session[:user_id].nil?
       erb :index
     else
-      erb "Hi, #{session[:user_name]}!"
+      user = User.find(id: session[:user_id])
+      erb "Hi, #{user.name}!"
     end
   end
 
@@ -24,7 +25,6 @@ class Chitter < Sinatra::Base
   post '/sign_up' do
     user = User.sign_up(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
     session[:user_id] = user.id
-    session[:user_name] = user.name
     redirect '/'
   end
 
