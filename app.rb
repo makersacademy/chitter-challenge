@@ -38,6 +38,11 @@ class Chitter < Sinatra::Base
     erb :log_in
   end
 
+  get '/log_out' do
+    session[:user_id] = nil
+    redirect '/'
+  end
+
   private
   def start_session_for(user)
     session[:user_id] = user.id
