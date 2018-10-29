@@ -10,7 +10,6 @@ class Message
   end
 
   def self.all
-
     result = DatabaseConnection.query('SELECT * FROM peeps;')
     result.map { |peep| Message.new(id: peep['id'], message: peep['message'], time: peep['time']) }.reverse
   end

@@ -2,18 +2,41 @@
   body {
      background-image: url("https://i.redd.it/qngpcp04gklx.jpg");
      background-size: cover;
+     text-align: center;
+     font-family: cursive;
   }
+  h1 {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+
+  div {
+    width: 50%;
+    padding: auto;
+    background-color: white;
+    background-image: url("https://www.clipartmax.com/png/full/11-113933_mr-meeseeks-by-michaeltanzer1991-mr-meeseeks-existence-is-pain.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    border: 5px groove red;
+  }
+
 </style>
 
 <h1>Chitter</h1>
-
 <form action='/incoming' method='post'>
   <input type='text' name='message' placeholder='message'>
   <input type='submit' value='post'>
 </form>
-
+<div>
 <ul>
   <% @timeline.each do |message| %>
     <li><%= message.message %>:<%= message.time %></li>
   <% end %>
 </ul>
+</div>
+
+<form action='/new_account' method="get">
+  <input type="submit" value="register">
+</form>
