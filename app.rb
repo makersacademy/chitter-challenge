@@ -43,6 +43,7 @@ class ChitterManager < Sinatra::Base
   post '/users' do
     user = User.create(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
     session[:user_id] = user.id
+    session[:user_name] = user.name
     redirect '/new'
   end
 
@@ -65,7 +66,7 @@ class ChitterManager < Sinatra::Base
   post 'sessions/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
-    redirect '/peeps'
+    erb :index
   end
 
   run! if app_file == $0

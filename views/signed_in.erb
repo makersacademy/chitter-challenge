@@ -21,7 +21,7 @@
     <div class="message_div">
       <form action="/new" method="post">
         <input type="text" name="message" placeholder="Post your peep to Chitter" id="peep"/>
-        <input type="text" name="user_name" placeholder="Username" id="username"/>
+        <input type="text" name="user_name" placeholder="Username" id="username" Value ="<%= session[:user_name] if session[:user_name] %> "/>
         <input type="submit" value="Submit" id="button"/>
       </form>
 
