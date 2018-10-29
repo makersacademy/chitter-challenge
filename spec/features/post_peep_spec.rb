@@ -1,6 +1,6 @@
 feature 'post peep' do
   scenario 'user can post a peep to chitter' do
-    visit ('/')
+    visit '/'
     fill_in(:name, with: 'Imogen Misso')
     fill_in(:username, with: 'imogenmisso123')
     fill_in(:peep, with: 'My first peep')
@@ -9,7 +9,7 @@ feature 'post peep' do
   end
 
   scenario 'peeps are shown in reverse chronological order' do
-    visit ('/')
+    visit '/'
     fill_in(:name, with: 'Imogen Misso')
     fill_in(:username, with: 'imogenmisso123')
     fill_in(:peep, with: 'My first peep')

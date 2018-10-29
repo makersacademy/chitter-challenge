@@ -16,9 +16,9 @@ feature 'log in' do
   end
 
   scenario 'user can sign out' do
-  visit '/user/logged_in'
-  click_button('Log out')
-  expect(page).to have_button 'Sign Up'
+    visit '/user/logged_in'
+    click_button('Log out')
+    expect(page).to have_button 'Sign Up'
   end
 
 end

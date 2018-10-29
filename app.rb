@@ -5,8 +5,8 @@ require './lib/user'
 
 class App < Sinatra::Base
 
-enable :sessions
-register Sinatra::Flash
+  enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @peeps = Chitter.all
@@ -24,25 +24,25 @@ register Sinatra::Flash
 
   post '/users/sign_up' do
     @user = User.create(params[:name], params[:username], params[:email], params[:password])
-      if @user
-        session[:current_user] = @user
-        redirect to('/user/logged_in')
-      else
-        flash[:notice] = 'That username is already in use, please choose another'
-        redirect to('/users/new')
-      end
+    if @user
+      session[:current_user] = @user
+      redirect to('/user/logged_in')
+    else
+      flash[:notice] = 'That username is already in use, please choose another'
+      redirect to('/users/new')
+    end
   end
 
   post '/users/authenticate' do
     @user = User.authenticate(params[:username])
     @current_user = User.find_details(params[:username])
-      if @current_user
-        session[:current_user] = @current_user[0]
-        redirect to('/user/logged_in')
-      else
-        flash[:notice] = 'You have entered an invalid username, try again!'
-        redirect to('/user/log_in')
-      end
+    if @current_user
+      session[:current_user] = @current_user[0]
+      redirect to('/user/logged_in')
+    else
+      flash[:notice] = 'You have entered an invalid username, try again!'
+      redirect to('/user/log_in')
+    end
   end
 
   get '/user/logged_in' do
