@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './lib/peeps/peep'
+require './lib/peep'
 
 
 class Chitter < Sinatra::Base
@@ -13,15 +13,10 @@ class Chitter < Sinatra::Base
     erb :"chitter/index"
   end
 
-  post '/signup' do
-    user = params['user']
-  connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("INSERT INTO user (name) VALUES('#{name}')")
-  redirect '/peeps'
-    # user = User.create(name: params[:name],
-    # email: params[:email],
-    # username: params[:username], password: params[:password])
-    # session[:user_id] = user.id
+  post '/users' do
+    user = User.create(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    session[:user_id] = user.id
+    redirect '/peeps'
     end
 
   run! if app_file == $0
