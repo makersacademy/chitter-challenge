@@ -26,7 +26,7 @@
   <div class="register-main">Reply to:<br />
   <%=@peep.message%><form action="/peep/<%=@peep.id%>/reply/new" class="mypeepform" method="post">
 
-      <label for="peep">Enter your reply</label><textarea autofocus="autofocus" onkeyup="textCounter(this,'counter',200);" name="peep" id="peep" required="required"></textarea>
+      <label for="peep">Enter your reply<br />(tag other peepers with @username)</label><textarea autofocus="autofocus" onkeyup="textCounter(this,'counter',200);" name="peep" id="peep" required="required"></textarea>
 
       <label for="counter">Characters remaining</label><input disabled="disabled" maxlength="3" size="3" value="200" id="counter" name="counter">
 

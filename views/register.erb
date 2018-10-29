@@ -20,8 +20,9 @@
     <button class="postpeep" type="button" value="Back">
       <span class="icon"></span>Back</button>
   </a>
+  <%if !flash[:notice].nil?%>    <p><%=flash[:notice]%></p><%end%>
   <form class="myForm" action="/user/new" method="post">
-<%if !flash[:notice].nil?%>    <p><%=flash[:notice]%></p><%end%>
+
 
     <label for="firstname">firstname: </label><input type="text" name="firstname" required placeholder="enter your first name" />
   <label for="lastname">lastname: </label><input type="text" name="lastname" required placeholder="enter your last name" />

@@ -23,7 +23,8 @@ function myFunction() {
 
 
       </div>
-      <div class="menu">
+      
+      <div class="main">
         <p>
           <% if @user %>
             <a href="/peep">
@@ -32,8 +33,6 @@ function myFunction() {
             </a>
           <%else%>Login or register to post a peep<%end%>
         </p>
-      </div>
-      <div class="main">
         <%@peeps.each do |peep_row|%>
 
         <div id="<%=peep_row[:id]%>" class="peeplist-grid-container">
