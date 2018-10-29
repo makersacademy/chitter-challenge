@@ -71,10 +71,16 @@ form {
     cursor: pointer;
 }
 
-.message{
+.message {
   margin: auto;
   width: 40%;
 	margin-bottom: 10px;
 	border-radius: 2px;
 	border: solid 6px rgb(58, 161, 199);
+}
+
+.notice {
+  color: red;
+  font-size: 16px;
+  text-align: center;
 }
