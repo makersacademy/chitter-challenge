@@ -4,11 +4,14 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'mail'
+require 'rake'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
+
+Rake.application.load_rakefile
 
 require_relative './setup_test_database'
 
