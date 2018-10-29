@@ -3,6 +3,7 @@
 # I want to sign up for Chitter
 
 feature 'Sign up for Chitter' do
+  include WebHelper
   before do
     create_account
   end

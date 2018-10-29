@@ -3,6 +3,7 @@
 # I want to see all peeps on chitter
 
 feature 'Viewing peeps' do
+  include WebHelper
   before do
     visit '/post'
     post_peep
@@ -21,6 +22,7 @@ end
 # I want to see the time at which it was made
 
 feature 'Viewing the time that a peep was posted' do
+  include WebHelper
 
   before do
     visit '/post'

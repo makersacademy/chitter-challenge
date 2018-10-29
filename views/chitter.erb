@@ -1,11 +1,12 @@
 <head>
   <link rel="stylesheet" type = "text/css" href="/stylesheet.css">
+  <title>Chitter</title>
 </head>
 
-<body>
+<body class="chitter">
   <h1>Chitter</h1>
   <% @peeps.each do |peep| %>
-  <li style='list-style-type: none;'>
+  <li>
   <%= peep.content %> <br> Peep was posted at: <%= peep.time %>
   </li>
   <br>

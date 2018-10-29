@@ -3,6 +3,7 @@
 # I want to post a message (peep) to chitter
 
 feature 'Posting a peep' do
+  include WebHelper
   before do
     visit '/post'
     post_peep

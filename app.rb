@@ -1,4 +1,3 @@
-# require_relative 'peep_controller'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/user'
