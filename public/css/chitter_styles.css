@@ -36,3 +36,10 @@ div:empty {
 .alert {
   border: 0px
 }
+
+.form-signin {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-45%, -50%);
+}
