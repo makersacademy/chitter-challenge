@@ -3,6 +3,16 @@ Chitter Challenge
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+* [Features:](#features-)
+* [Notes on functionality:](#notes-on-functionality-)
+* [My approach](#my-approach)
+* [Test Results](#test-results)
+* [Setup instructions](#setup-instructions)
+  + [Database setup](#database-setup)
+  + [To run the Chitter app:](#to-run-the-chitter-app-)
+  + [To run tests:](#to-run-tests-)
+  + [To run linting:](#to-run-linting-)
+
 Features:
 -------
 
