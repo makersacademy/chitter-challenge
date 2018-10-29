@@ -1,1 +1,1 @@
-CREATE TABLE messages (id SERIAL PRIMARY KEY, message_date DATE, message_time TIME, message_text VARCHAR(160), author_handle VARCHAR(20));
+CREATE TABLE messages (id SERIAL PRIMARY KEY, message_date DATE, message_time TIME, message_text VARCHAR(160), author_handle VARCHAR(20), user_name VARCHAR(30));

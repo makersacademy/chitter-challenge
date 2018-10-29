@@ -29,8 +29,16 @@ class User
     @user_email = email
   end
 
+  def log_in(logged_in = @logged_in)
+    @logged_in = logged_in
+  end
+
   def log_out(logged_in = @logged_in)
     @logged_in = false
+  end
+
+  def self.create(user_handle, user_password)
+    @user = User.new(user_handle, user_password)
   end
 
   def self.instance

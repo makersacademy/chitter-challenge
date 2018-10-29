@@ -1,29 +1,36 @@
 class Message
-  attr_reader :user_handle
+  attr_reader :text, :user_handle, :user_name
 
-  def date
+  def initialize(text, handle, name)
     @date = Date.new
-  end
-
-  def time
     @time = Time.new
-  end
-
-  def user_handle(user)
-    @user_handle = user.handle
-  end
-
-  def user_name(user_handle = @user_handle)
-    @user_handle = user_handle
-    connection = PG.connect(dbname: 'chitterdb')
-    export = connection.exec("SELECT user_name FROM users WHERE user_handle = '#{@user_handle}';")
-    obj = export.map{|result| result}
-    objhash = obj[0]
-    @user_name = objhash["user_name"]
-  end
-
-  def text(text)
     @text = text
+    @user_handle = handle 
+    @user_name = name
+  end
+
+  def date(date = @date)
+    @date = date
+  end
+
+  def time(time = @time)
+    @time = time
+  end
+
+  def user_handle(handle = @user_handle)
+    @user_handle = handle
+  end
+
+  def user_name(name = @user_name)
+    @user_name = name
+  end
+
+  def text(text = @text)
+    @text = text
+  end
+
+  def self.create(text, handle, name)
+    @message = Message.new(text, handle, name)
   end
 
   def self.instance
