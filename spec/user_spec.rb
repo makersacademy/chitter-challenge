@@ -7,9 +7,14 @@ describe User do
   }
 
   it "new" do
-    @user = described_class.create(name: "John", password: "password", email: "email@hotmail.com", receive_email: "y")
-    expect(@user.name).to eq "John"
+    @user = described_class.create(name: "John2", password: "password", email: "email@hotmail.com", receive_email: "y")
+    expect(@user.name).to eq "John2"
     expect(@user.email).to eq "email@hotmail.com"
+  end
+
+  it "new - fail as user exists" do
+    @user = described_class.create(name: "John", password: "password", email: "email@hotmail.com", receive_email: "y")
+    expect(@user).to eq "Name already exists"
   end
 
   it "login" do
@@ -31,6 +36,15 @@ describe User do
 
   it "no password email for invalid user " do
     expect(described_class.send_password_email(name: "John8742", email: "email@hotmail.com")).to eq "No such user"
+  end
+
+  it "find" do
+    user2 = described_class.create(name: "John2", password: "password2", email: "email@hotmail.com", receive_email: "y")
+    expect(described_class.find(users: ["John","John2"]).length).to eq 2
+  end
+
+  it "find - no result" do
+    expect(described_class.find(users: ["KingKong","Godzilla"])).to eq "No user"
   end
 
 end

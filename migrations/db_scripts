@@ -19,3 +19,9 @@ create table message
   foreign key (response_to)references message(id));
 
   ALTER TABLE message ALTER COLUMN sent_time SET DEFAULT now();
+
+  create table email
+    (email_id serial primary key,
+    text varchar(200),
+    sender varchar(30),
+    receiver varchar(140));
