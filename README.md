@@ -1,27 +1,27 @@
 How to use:
 -------
 
--Clone the repo
--run 'bundle install'
--Create the databases needed(details in db folder)
--Use rackup config.ru to run the web app locally, then connect to the port specified from your local browser.
+* Clone the repo
+* run 'bundle install'
+* Create the databases needed(details in db folder)
+* Use rackup config.ru to run the web app locally, then connect to the port specified from your local browser.
 
 
 My Approach:
 -------
 
--Write test first before method/feature
--Initially began by creating a User class,
--Then set up ability to Sign up (without database)
--Created database
--Used database to authenticate users
--Used database to reject multiple usernames/email addresses
--Created Peep class
--Created Peep database
--Made peeping work
--Created Log-out function
--Created Delete function (1 test still not passing)
-*-Creating Edit function
+* Write test first before method/feature
+* Initially began by creating a User class,
+* Then set up ability to Sign up (without database)
+* Created database
+* Used database to authenticate users
+* Used database to reject multiple usernames/email addresses
+* Created Peep class
+* Created Peep database
+* Made peeping work
+* Created Log-out function
+* Created Delete function (1 test still not passing)
+* Still Creating Edit function
 
 
 Chitter Challenge
