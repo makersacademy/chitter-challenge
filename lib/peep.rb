@@ -18,7 +18,7 @@ class Peep
       connection = PG.connect(dbname: 'peep_manager')
     end
     result = connection.exec("SELECT * FROM peeps;")
-    result.map { |peep| "#{peep['text']}, #{peep['name']}" }
+    result.map { |peep| "#{Time.now.strftime '%Y-%m-%d %H:%M:%S'} #{peep['name']}: #{peep['text']}" }
   end
 
   def self.add(text:, name:)

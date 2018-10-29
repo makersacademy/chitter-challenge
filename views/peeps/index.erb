@@ -1,4 +1,19 @@
 Chitter
+
+<form>
+  <input type="submit" value="Sign up"/>
+</form>
+
+<form>
+  <input type="submit" value="Log in"/>
+</form>
+
 <form action="/peeps/new" method="get">
   <input type="submit" value="New Peep"/>
 </form>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
