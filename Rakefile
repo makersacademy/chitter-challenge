@@ -22,9 +22,8 @@ task :build_chitter_database do
       password VARCHAR(140)
       );"
     )
-    connection.exec("INSERT INTO users (
-      id, name)
-      VALUES ('1', 'anonymous');"
+    connection.exec("INSERT INTO users (name)
+      VALUES ('anonymous');"
     )
     connection.exec("CREATE TABLE peeps (
       id SERIAL PRIMARY KEY,
