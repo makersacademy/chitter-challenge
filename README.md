@@ -113,7 +113,7 @@ Run both feature and unit tests using:
 ## Next steps & ideas for extending the application:
 
 * Check usernames and emails are unique on sign up
-* Allow only logged in users to post peets
+* Allow only logged in users to post peeps
 * Add the name of the user and their user handle to peeps on the Timeline
 * Implement ADVANCED user story
 * Automate migrations - Write a Rake task to set up the development and test databases
