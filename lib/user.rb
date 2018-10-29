@@ -11,7 +11,6 @@ class User
       firstname: un["firstname"],
       lastname: un["lastname"],
       username: un["username"],
-      password: un["password"],
       email: un["email"] }
     }
   end
@@ -40,31 +39,12 @@ class User
       firstname: record[0]['firstname'],
       lastname: record[0]['lastname'],
       username: record[0]['username'],
-      password: record[0]['password'],
       email: record[0]['email'] })
   end
 
   def self.find_from_username(username)
     user = all_users.select { |usr| usr[:username] == username }
     User.new(create_user_hash(user))
-  end
-
-  def self.create_user_hash(user)
-    { id: user[0][:id],
-      firstname: user[0][:firstname],
-      lastname: user[0][:lastname],
-      username: user[0][:username],
-      password: user[0][:password],
-      email: user[0][:email] }
-  end
-
-  def self.create_user_hash_from_db(user)
-    { id: user[0]["id"],
-      firstname: user[0]["firstname"],
-      lastname: user[0]["lastname"],
-      username: user[0]["username"],
-      password: user[0]["password"],
-      email: user[0]["email"] }
   end
 
   def self.login(username, password)
@@ -84,7 +64,7 @@ class User
     return validate
   end
 
-  attr_reader :id, :firstname, :lastname, :username, :password, :email
+  attr_reader :id, :firstname, :lastname, :username, :email
 
   private_class_method
 
@@ -106,6 +86,22 @@ class User
 
   end
 
+  def self.create_user_hash(user)
+    { id: user[0][:id],
+      firstname: user[0][:firstname],
+      lastname: user[0][:lastname],
+      username: user[0][:username],
+      email: user[0][:email] }
+  end
+
+  def self.create_user_hash_from_db(user)
+    { id: user[0]["id"],
+      firstname: user[0]["firstname"],
+      lastname: user[0]["lastname"],
+      username: user[0]["username"],
+      email: user[0]["email"] }
+  end
+
 private
 
   def initialize(userdetails)
@@ -113,7 +109,6 @@ private
     @firstname = userdetails[:firstname]
     @lastname = userdetails[:lastname]
     @username = userdetails[:username]
-    @password = userdetails[:password]
     @email = userdetails[:email]
   end
 
