@@ -4,7 +4,7 @@ require './lib/peep'
 require 'sinatra/flash'
 
 class ChitterApp < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
   register Sinatra::Flash
 
   get '/' do
@@ -79,11 +79,27 @@ class ChitterApp < Sinatra::Base
     redirect '/'
   end
 
-  post '/log_out' do
+  delete '/log_out' do
     session.clear
     flash[:notice] = "You have been logged out."
     redirect '/'
   end
 
-    run! if app_file == $0
+  delete '/peeps/:post' do
+    Peep.delete(post: params[:post])
+    flash[:notice] = "Your peep has been deleted"
+    redirect '/'
+  end
+
+  get '/peeps/:post/edit' do
+    @peep_post = params[:post]
+    erb :'peep/edit'
+  end
+
+  patch '/peeps/:post' do
+    Peep.edit(new_post: params[:post])
+    redirect '/'
+  end
+
+  run! if app_file == $0
 end

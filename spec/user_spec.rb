@@ -1,3 +1,5 @@
+require 'database_helpers'
+
 describe 'User' do
 
   describe '.create' do
@@ -32,5 +34,7 @@ describe 'User' do
       expect(user.password).to eq 'ilovemrcuddles'
     end
   end
+
+  
 
 end

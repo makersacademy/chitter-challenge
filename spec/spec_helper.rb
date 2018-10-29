@@ -19,8 +19,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 RSpec.configure do |config|
   config.before(:each) do
-   reset_test_table
- end
+    reset_users_test_table
+    reset_peep_test_table
+  end
 end
 RSpec.configure do |config|
   config.after(:suite) do

@@ -5,9 +5,12 @@ feature 'visit the homepage' do
   end
 end
 
-feature 'see weets on homepage' do
+feature 'see a peep on homepage' do
   scenario 'see peeps from all users' do
     visit('/')
-    expect(page).to have_content "My first peep!"
+    click_button('peep')
+    fill_in('post', with: 'My first peep!')
+    click_button('Submit')
+    expect(page).to have_content('My first peep!')
   end
 end

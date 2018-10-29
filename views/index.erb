@@ -1,7 +1,10 @@
 <h1>Welcome to Chitter, like Twitter, but Shitter 💩</h1>
+
+<% if @user.nil? %>
 <form action="/sign_up" method="get">
     <input type="submit" value="Sign Up">
 </form>
+<% end %>
 
 <form action="/peep/new" method="get">
     <input type="submit" value="peep">
@@ -25,8 +28,16 @@
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li>
-        <%= peep.name %>, <%= peep.username %> posted: "<%= peep.post %>" at <%= peep.name %>
+        <%= peep.name %> (<%= peep.username %>) posted: "<%= peep.post %>" at <%= peep.time %>
       </a>
+      <form action = '/peeps/<%= peep.post %>' method = 'post'>
+      <input type='hidden' name='_method' value='DELETE'/>
+      <input type='submit' id='Delete_<%= peep.post %>' value='Delete'/>
+    </form>
+
+    <form action = '/peeps/<%= peep.post %>/edit' method = 'get'>
+      <input type='submit' id='Edit_<%= peep.post %>' value='Edit'>
+    </form>
     </li>
   <% end %>
 </ul>

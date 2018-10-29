@@ -1,0 +1,8 @@
+<form action = '/peeps/<%= @peep_post %>' method = 'post'>
+  <label for="peep">
+    Edited Peep:
+    <input id="hidden" type="hidden" name="_method" value="patch" />
+    <input type="text" name="post" />
+  </label>
+  <input type="submit" value="Submit">
+</form>
