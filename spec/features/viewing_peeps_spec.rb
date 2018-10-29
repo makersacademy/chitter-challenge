@@ -42,8 +42,6 @@ feature 'Feature - Viewing Peeps' do
 
     peep = Peep.new_peep(message: "This is a peep and it should show the username", user_id: @user.id)
 
-
-
     visit('/')
     user_one_name = find_by_id("#{peep.id}-username")
     user_two_name = find_by_id("#{second_peep.id}-username")
