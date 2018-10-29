@@ -40,6 +40,9 @@ class Chitter < Sinatra::Base
     if User.email_exist?(email: params[:email])
       flash[:notice] = "Email address already in use"
       redirect '/users/sign-up'
+    elsif User.username_exist?(username: params[:username])
+      flash[:notice] = "Username already in use"
+      redirect '/users/sign-up'
     else
       user = User.create(name: params[:name],
         username: params[:username],

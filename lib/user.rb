@@ -15,6 +15,8 @@ class User
 
   def self.create(name:, username:, email:, password:)
     raise "Email already in use" if User.email_exist?(email: email)
+    raise "Username already in use" if User.username_exist?(username: username)
+    
     encrypted_password = BCrypt::Password.create(password)
 
     result = DatabaseConnection.query("INSERT INTO users (name, username, email, password)
@@ -65,6 +67,11 @@ class User
 
   def self.email_exist?(email:)
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';")
+    result.any? ? true : false
+  end
+
+  def self.username_exist?(username:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';")
     result.any? ? true : false
   end
 end
