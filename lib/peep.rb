@@ -2,7 +2,7 @@ require_relative 'database_connection'
 
 class Peep
 
-attr_reader :message
+attr_reader :message, :time
 
 def initialize(id:, message:, time:)
   @id = id

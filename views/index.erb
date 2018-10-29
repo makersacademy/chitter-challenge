@@ -47,11 +47,26 @@
 
 </div>
 <form action='peep/new'>
-  <button class='btn'>
+
 
   <input type='submit' value='Peep'>
-</btn>
-</form>
-</center>
+  </form>
+
+
+
 </body>
+  <button class='btn'>
+<div>
+<% @peeps.each do |peep| %>
+<h3>
+<%= peep.message %>
+</h3>
+<h5>
+  <%= peep.time %>
+</h5>
+<% end %>
+</div>
+</btn>
+</body>
+</center>
 </html>
