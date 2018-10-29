@@ -15,7 +15,7 @@ feature 'index page' do
 
   scenario 'user sees peeps on first homepage' do
     con = PG.connect(dbname: 'chitter_test')
-    con.exec("INSERT INTO peeps (username, peep, time, user_id)VALUES('FayJ', 'Hello', '#{Time.now}', '100')")
+    con.exec("INSERT INTO peeps (username, peep, time)VALUES('FayJ', 'Hello', '#{Time.now}')")
     visit('/')
     expect(page).to have_content 'Hello'
   end

@@ -8,7 +8,7 @@ class Peep
     result = con.exec("SELECT * FROM peeps")
     result.map do |peep|
       Peep.new(peep['username'], peep['peep'], peep['time'])
-    end
+    end.reverse
   end
 
   def self.create(peep, username)
