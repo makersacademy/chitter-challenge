@@ -36,9 +36,8 @@ function myFunction() {
       <div class="main">
         <%@peeps.each do |peep_row|%>
 
-
         <div id="<%=peep_row[:id]%>" class="peeplist-grid-container">
-          <div class="peeper"><%=peep_row[:peeper]%></div>
+          <div class="peeper tooltip"><%=peep_row[:peeper]%><span class="tooltiptext"><%=User.find(peep_row[:peeper_id]).firstname%> <%=User.find(peep_row[:peeper_id]).lastname%></span></div>
 
           <div class="peep-main" ><%=peep_row[:peep]%><%if peep_row[:parent_peep].to_i != 0%><br />Replying to <a href="#<%=peep_row[:parent_peep].to_i%>"><%=Peep.find((peep_row[:parent_peep].to_i)).message%></a><%end%><hr/></div>
           <div class="reply"><% if @user %>

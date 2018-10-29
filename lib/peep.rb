@@ -11,7 +11,8 @@ class Peep
       peep: record["peep"],
       posted_date: Peep.date_only(record["posted_datetime"]),
       peeper: find_username(record["user_id"]),
-      parent_peep: record["parent_peep"] }
+      parent_peep: record["parent_peep"],
+      peeper_id: record["user_id"] }
     }
   end
 
