@@ -13,4 +13,20 @@ feature 'Registration' do
 
     expect(page).to have_content "Welcome, Melissa Sedgwick"
   end
+
+  scenario 'user cannot create second account with same email address' do
+    User.create(name: 'Test', username: 'test', email: 'test@test.com',
+      password: 'password'
+    )
+
+    visit ('/')
+    click_button 'Sign Up'
+    fill_in 'name', with: 'Test'
+    fill_in 'username', with: 'test_again'
+    fill_in 'email', with: 'test@test.com'
+    fill_in 'password', with: 'password123'
+    click_button 'Submit'
+    expect(page).not_to have_content("Welcome, Test")
+    expect(page).to have_content("Email address already in use")
+  end
 end

@@ -20,6 +20,14 @@ describe User do
         email: 'test@test.com', password: 'password123'
       )
     end
+
+    it 'does not create user if email already in use' do
+      user = User.create(name: "Test name", username: "Test username",
+        email: "test@test.come", password: "password"
+      )
+      expect{User.create(name: "Test name", username: "Test username2",
+        email: "test@test.come", password: "password")}.to raise_error("Email already in use")
+    end
   end
 
   describe '#all' do
@@ -86,4 +94,17 @@ describe User do
     end
   end
 
+  describe '#email_exist?' do
+    it 'returns true if email is in database' do
+      user = User.create(name: "Test name", username: "Test username",
+        email: "test@test.com", password: "password"
+      )
+
+      expect(User.email_exist?(email: 'test@test.com')).to eq true
+    end
+
+    it 'returns false if email is not in database' do
+      expect(User.email_exist?(email: 'anyrandomemail@test.com')).to eq false
+    end
+  end
 end
