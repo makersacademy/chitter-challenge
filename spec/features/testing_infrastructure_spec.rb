@@ -31,14 +31,14 @@ feature 'testing infrastructure' do
     visit '/'
     fill_in :text_box, with: "timecheck"
     click_button 'Cheet'
-    current_time = Time.now
-    expect(page).to have_content("timecheck Anonymous : #{current_time}")
+    current_time = Time.now.to_s
+    expect(page).to have_content("timecheck Anonymous : #{current_time[0...-6]}")
   end
 
   # As a Maker
   # So that I can post messages on Chitter as me
   # I want to sign up for Chitter?
-  
+
   scenario 'can sign up to chitter so comments have user' do
     visit '/'
     click_button 'Sign up'

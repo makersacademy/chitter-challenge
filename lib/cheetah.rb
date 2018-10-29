@@ -8,6 +8,7 @@ class Cheetah
 
   def self.request(name, pword)
     result = Connection.query("SELECT * FROM cheetahs WHERE(username = '#{name}' AND password = '#{pword}')")
+    return false unless result.any?
     Cheetah.new(result[0]["username"])
   end
 

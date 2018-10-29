@@ -8,10 +8,6 @@ class Connection
     query('TRUNCATE cheets')
   end
 
-  def self.connection
-    @connection
-  end
-
   def self.query(query)
     @connection.exec(query)
   end

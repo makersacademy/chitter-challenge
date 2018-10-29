@@ -1,5 +1,6 @@
-<!-- <head> <LINK rel=stylesheet type="text/css"> </head>
+<!-- <head> <LINK rel=stylesheet type="text/css" > </head>
 <body> -->
+<h1> <%=@welcome%> </h1>
 
 <form action="/signup" method="get">
   <input type='submit' value='Sign up'>
@@ -18,7 +19,7 @@
 <% @feed.each do |cheet| %>
   <li class="wholecheet" id="<%=cheet.id%>">
     <%= cheet.text %> <br>
-    <%= cheet.username %> : <%= cheet.timestamp %>
+    <%= cheet.username %> : <%= cheet.timestamp[0...-6] %>
   </li>
 <% end %>
 </ul>

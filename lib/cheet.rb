@@ -9,14 +9,12 @@ class Cheet
     @text = text
     @timestamp = timestamp
     @username = username
-
   end
 
   def self.all
-    list = Connection.query('SELECT * from cheets ORDER BY timestamp DESC;').map do |cheet|
+    Connection.query('SELECT * from cheets ORDER BY timestamp DESC;').map do |cheet|
       Cheet.new(cheet['id'].to_i, cheet['cheet'], cheet['timestamp'], cheet['username'])
     end
-    return list
   end
 
   def self.create(text, username = 'Anonymous')

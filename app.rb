@@ -7,6 +7,7 @@ require_relative './lib/boot_up_connection'
 class ChitterFeed < Sinatra::Base
   enable :sessions
   get "/" do
+    !!session[:user]? @welcome = "rawr #{session[:user].username}" : @welcome = "rawr cheetah"
     @feed = Cheet.all
     erb(:feed)
   end
