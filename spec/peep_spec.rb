@@ -30,7 +30,6 @@ describe Peep do
       expect(peeps.last.user_id).to eq @user.id
       expect(peeps.last.username).to eq @user.username
 
-
     end
   end
 

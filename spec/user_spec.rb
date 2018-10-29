@@ -60,11 +60,11 @@ describe User do
 
   describe '#already_registered?' do
     it 'returns true if account is already registered' do
-      expect(User.already_registered?(email:'test@example.com', username:'cookiemonster')).to eq true
+      expect(User.already_registered?(email: 'test@example.com', username: 'cookiemonster')).to eq true
 
-      expect(User.already_registered?(email:'test@gmail.com', username:'Testannosaurus')).to eq true
+      expect(User.already_registered?(email: 'test@gmail.com', username: 'Testannosaurus')).to eq true
 
-      expect(User.already_registered?(email:'test@gmail.com', username: 'cookiemonster')).to eq false
+      expect(User.already_registered?(email: 'test@gmail.com', username: 'cookiemonster')).to eq false
     end
   end
 end
