@@ -3,7 +3,7 @@ require 'pry'
 
 describe User do
   describe '#create' do
-    it 'can be created with first and last name, email, username and password' do
+    it 'can be created with name, email, username and password' do
       user = User.create('amy', 'smith', 'amy.smith@mail.com', 'AmyS', 'pines')
       expect(user.first_name).to eq('amy')
       expect(user.last_name).to eq('smith')
@@ -38,7 +38,8 @@ describe User do
 
     it 'rejects a user if password is incorrect' do
       User.create('amy', 'smith', 'amy.smith@mail.com', 'AmyS', 'pines')
-      expect(User.authenticate('AmyS', 'wrong_password')).to_not be_an_instance_of(User)
+      expect(User.authenticate('AmyS', 'wrong_password')).\
+      to_not be_an_instance_of(User)
     end
 
     it 'accepts a user if both username and password are correct' do

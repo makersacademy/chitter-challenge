@@ -31,7 +31,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/chitter/users' do
-    @user = User.create(params[:first_name], params[:last_name], params[:email], params[:username], params[:password])
+    @user = User.create(params[:first_name], params[:last_name], \
+      params[:email], params[:username], params[:password])
     if @user
       session[:user_id] = @user.user_id
       redirect('/chitter')

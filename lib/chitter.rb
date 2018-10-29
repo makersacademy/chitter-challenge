@@ -14,13 +14,15 @@ class Chitter
   end
 
   def self.create(user_id, content)
-    res = DatabaseConnection.query("INSERT INTO peeps (user_id, content, time) VALUES ('#{user_id}', '#{content}', '#{Time.now}') returning *;")
-    Chitter.new(res[0]['post_id'], res[0]['user_id'], res[0]['time'], res[0]['content'])
+    res = DatabaseConnection.query("INSERT INTO peeps (user_id, content, time) \
+    VALUES ('#{user_id}', '#{content}', '#{Time.now}') returning *;")
+    Chitter.new(res[0]['post_id'], res[0]['user_id'], \
+      res[0]['time'], res[0]['content'])
   end
 
   def self.all_peeps
     res = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time DESC;")
-    return if res.ntuples == 0
+    return if res.ntuples.zero?
     res.map { |peep| Chitter.new(peep['post_id'], peep['user_id'], peep['time'], peep['content']) }
   end
 
