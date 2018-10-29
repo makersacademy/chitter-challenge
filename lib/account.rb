@@ -1,6 +1,5 @@
 require 'pg'
 
-
 class Account
   attr_reader :id, :user_name, :first_name
   def initialize(id:, user_name:, first_name:)

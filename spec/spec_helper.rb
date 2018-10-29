@@ -41,7 +41,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
-
 # require 'features/web_helper.rb'
 Capybara.app = Chitter
 

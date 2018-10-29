@@ -4,7 +4,6 @@ require './lib/account.rb'
 require 'date'
 require './lib/database_connection_setup.rb'
 
-
 class Chitter < Sinatra::Base
   enable :sessions
 

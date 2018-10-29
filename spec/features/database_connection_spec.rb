@@ -1,7 +1,7 @@
 require './lib/database_connection.rb'
 
 describe DatabaseConnection do
-  describe '.setup'do
+  describe '.setup' do
     it "sets up a database connection" do
       expect(PG).to receive(:connect).with(dbname: 'chitter_challenge_test')
 

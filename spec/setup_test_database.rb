@@ -1,8 +1,8 @@
 require 'pg'
 def setup_test_database
-p 'Setting up test database...'
+  p 'Setting up test database...'
 
-connection = PG.connect(dbname: 'chitter_challenge_test')
+  connection = PG.connect(dbname: 'chitter_challenge_test')
 
-connection.exec("TRUNCATE peeps;")
+  connection.exec("TRUNCATE peeps;")
 end
