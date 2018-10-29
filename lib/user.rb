@@ -15,7 +15,7 @@ class User
 
     result = DatabaseConnection.query("INSERT INTO
       users (name, username, email, password)
-      VALUES ('#{name}', '#{username}', '#{email}', '#{encrypted_password}')
+      VALUES ('#{name}', '@#{username}', '#{email}', '#{encrypted_password}')
       RETURNING id, name, username, email;
     ")
 
