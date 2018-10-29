@@ -24,9 +24,12 @@ class Message
     end
   end
 
-  def self.create(content:, time: Time.now, user_name: 'default name', user_handle: 'default username')
-    result = DatabaseConnection.query("INSERT INTO messages (content, time, user_name, user_handle)
-    VALUES('#{content}', '#{time}', '#{user_name}', '#{user_handle}') RETURNING id, content, time, user_name, user_handle;")
+  def self.create(content:, time: Time.now, user_name: 'default name',
+    user_handle: 'default username')
+    result = DatabaseConnection.query("INSERT INTO messages (content,
+      time, user_name, user_handle)
+    VALUES('#{content}', '#{time}', '#{user_name}', '#{user_handle}')
+    RETURNING id, content, time, user_name, user_handle;")
     Message.new(id: result[0]['id'],
       content: result[0]['content'],
       time: result[0]['time'],

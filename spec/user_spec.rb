@@ -22,19 +22,21 @@ describe User do
     end
 
     it 'does not create user if email already in use' do
-      user = User.create(name: "Test name", username: "Test username",
+      User.create(name: "Test name", username: "Test username",
         email: "test@test.com", password: "password"
       )
-      expect{User.create(name: "Test name", username: "Test username2",
-        email: "test@test.com", password: "password")}.to raise_error("Email already in use")
+      expect { User.create(name: "Test name", username: "Test username2",
+        email: "test@test.com", password: "password")
+      }.to raise_error("Email already in use")
     end
 
     it 'does not create user if username already in use' do
-      user = User.create(name: "Test name", username: "Test username",
+      User.create(name: "Test name", username: "Test username",
         email: "test@test.com", password: "password"
       )
-      expect{User.create(name: "Test name", username: "Test username",
-        email: "test2@test.com", password: "password")}.to raise_error("Username already in use")
+      expect { User.create(name: "Test name", username: "Test username",
+        email: "test2@test.com", password: "password")
+      }.to raise_error("Username already in use")
     end
   end
 
@@ -86,7 +88,7 @@ describe User do
     end
 
     it 'returns nil given an incorrect email address' do
-      user = User.create(name: "Test name", username: "Test username",
+      User.create(name: "Test name", username: "Test username",
         email: "test@test.com", password: "password"
       )
 
@@ -94,7 +96,7 @@ describe User do
     end
 
     it 'returns nil given an incorrect password' do
-      user = User.create(name: "Test name", username: "Test username",
+      User.create(name: "Test name", username: "Test username",
         email: "test@test.com", password: "password"
       )
 
@@ -104,7 +106,7 @@ describe User do
 
   describe '#email_exist?' do
     it 'returns true if email is in database' do
-      user = User.create(name: "Test name", username: "Test username",
+      User.create(name: "Test name", username: "Test username",
         email: "test@test.com", password: "password"
       )
 
@@ -118,7 +120,7 @@ describe User do
 
   describe '#username_exist?' do
     it 'returns true if username is in database' do
-      user = User.create(name: "Test name", username: "Test username",
+      User.create(name: "Test name", username: "Test username",
         email: "test@test.com", password: "password"
       )
 

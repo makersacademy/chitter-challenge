@@ -1,6 +1,6 @@
 feature 'Registration' do
   scenario 'a user can sign up' do
-    visit ('/')
+    visit('/')
     click_button 'Sign Up'
 
     expect(current_path).to eq '/users/sign-up'
@@ -19,7 +19,7 @@ feature 'Registration' do
       password: 'password'
     )
 
-    visit ('/')
+    visit('/')
     click_button 'Sign Up'
     fill_in 'name', with: 'Test'
     fill_in 'username', with: 'test_again'
@@ -35,7 +35,7 @@ feature 'Registration' do
       password: 'password'
     )
 
-    visit ('/')
+    visit('/')
     click_button 'Sign Up'
     fill_in 'name', with: 'Test'
     fill_in 'username', with: 'test'
