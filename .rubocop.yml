@@ -68,6 +68,10 @@ Metrics/BlockLength:
 #     inject concretes)
 #   * Egregious non-idiomatic ruby like `def getFilename`
 
+AllCops:
+  Exclude:
+    - 'Rakefile'
+
 IndentationConsistency:
   Enabled: true
 IndentationWidth:
