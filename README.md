@@ -6,9 +6,9 @@ This is a simple Twitter clone. Users can sign up and post 'peeps'.
 
 ## How to Run This App
 
-Clone the repo. From the terminal, run ```bundle install``` in the project directory. Create the databases needed (see Databases Migration below). Use ```rackup config.ru``` to run the web app locally, then connect to the port specified from your local browser.
+Clone the repo. From the terminal, run ```bundle install``` in the project directory. Create databases needed (see Databases Migration below). Use ```rackup config.ru``` to run the web app locally, then connect to the specified port from your local browser.
 
-To run the tests, run ```rspec``` from the terminal in the root project directory.
+To run tests, run ```rspec``` from the terminal in the root project directory.
 
 ## User Stories
 
@@ -44,7 +44,7 @@ I want to log out of Chitter
 
 ## Database Migration
 
-The project requires a development and a test database. To set up the Databases
+The app requires a development and a test database. To set up the databases
 using Rake, from command line run ```rake setup```
 Alternatively, to create these manually, connect to psql and then run these commands:
 ```
