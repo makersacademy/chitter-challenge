@@ -11,3 +11,8 @@ before_script:
   - psql -c 'create database chitter_test;' -U postgres
   - psql -c 'create database chitter;' -U postgres
   - psql chitter -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(200));'
+  - psql chitter -c 'ALTER TABLE peeps ADD COLUMN posted_datetime TIMESTAMP;'
+  - psql chitter -c 'ALTER TABLE peeps ALTER COLUMN posted_datetime SET DEFAULT localtimestamp;'
+  - psql chitter -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, firstname VARCHAR(60), lastname VARCHAR(60), username VARCHAR(60), password VARCHAR(60), email VARCHAR(100));'
+  - psql chitter -c 'ALTER TABLE peeps ADD COLUMN user_id INTEGER REFERENCES users (id);'
+  - psql chitter -c 'ALTER TABLE peeps ADD COLUMN parent_peep int;'
