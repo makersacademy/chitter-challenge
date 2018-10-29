@@ -15,6 +15,7 @@ group :test do
   gem 'rubocop'
   gem 'capybara'
   gem 'coveralls', require: false
+  gem 'pg'
 
 
   gem 'simplecov', require: false

@@ -1,11 +1,24 @@
 require 'sinatra/base'
-#require './lib/peep'
+require './lib/peeps/peep'
 
-class Peep < Sinatra::Base
+
+class Chitter < Sinatra::Base
 
   get '/' do
     "Hello Peep"
   end
+
+  get '/chitter' do
+    @peeps = Peep.all
+    erb :"chitter/index"
+  end
+
+  post '/signup' do
+    user = User.create(name: params[:name],
+    email: params[:email],
+    username: params[:username], password: params[:password])
+    session[:user_id] = user.id
+    end
 
   run! if app_file == $0
 end
