@@ -1,3 +1,19 @@
+I have managed to complete the challenge up to the point where the user has the ability to sign up and be greeted on the homepage.
+
+INSTRUCTIONS
+
+$ git clone https://github.com/tomlightfoot/chitter_challenge
+$ bundle
+$ rspec
+
+CREATE DATABASE chitter
+CREATE DATABASE chitter_test
+Follow the db migrations instructions to create the tables for these databases.
+
+$ rackup
+
+This will run the app on localhost:9292.
+
 Chitter Challenge
 =================
 
