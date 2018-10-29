@@ -4,7 +4,7 @@
 4. Connect to 'psql' by typing psql in terminal
 6. type 'CREATE DATABASE peep_manager_2;' to create database
 7. type in \c peep_manager_2;
-8. Run query saved in file 02_setting_up_table.sql
+8. Run querys saved in bd/migrations
 9. Do the same to create a test database 'peep_manager_test;'
 
 

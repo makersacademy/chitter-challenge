@@ -7,8 +7,18 @@
       <h1>Chitter</h1>
     </div>
     <div class="message_div">
-
-
+    <% if @user %>
+    <div class="welcome">
+      <h2>Welcome, <%= @user.email %></h2>
+    </div>
+    <div class="sign_out">
+      <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out" />
+      </form>
+    </div>
+    <% end %>
+    </div>
+    <div class="message_div">
       <form action="/new" method="post">
         <input type="text" name="message" placeholder="Post your peep to Chitter" id="peep"/>
         <input type="text" name="user_name" placeholder="Username" id="username"/>
@@ -30,8 +40,6 @@
         </div>
         <% end %>
       </ul>
-
-
     </div>
   </div>
 </body>
