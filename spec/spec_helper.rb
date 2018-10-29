@@ -13,6 +13,10 @@ Rake.application.load_rakefile
 
 RSpec.configure do |config|
 
+  config.before(:suite) do
+    Rake::Task['setup'].execute
+  end
+
   config.before(:each) do
     Rake::Task['test_database_setup'].execute
   end
