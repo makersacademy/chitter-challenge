@@ -2,6 +2,8 @@
 
 This is a simple Twitter clone. Users can sign up and post 'peeps'.
 
+![alt text](/public/images/app_homepage.png)
+
 ## How to Run This App
 
 Clone the repo. From the terminal, run ```bundle install``` in the project directory. Create the databases needed (see Databases Migration below). Use ```rackup config.ru``` to run the web app locally, then connect to the port specified from your local browser.
