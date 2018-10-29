@@ -7,7 +7,6 @@ This is a Ruby twitter app using Sinatra and a Postgres database. Users can 'che
 ## Setup ##
 
 - Clone this repo
-- Download Postgresql ``` brew install Postgres ```
 - Run ``` bundle ``` in the root folder
 - Setup Postgres database using queries in db/migrations folder or download Table Plus to simplify your life.
 - Setup test database using the same queries; name it chitter_database_test
