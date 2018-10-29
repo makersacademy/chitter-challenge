@@ -1,5 +1,5 @@
 require 'pg'
-# require 'database_connection'
+require 'bcrypt'
 
 class User
 
@@ -18,8 +18,11 @@ class User
     else
       connection = PG.connect(dbname: 'chitter')
     end
+    # encrypt the plantext password
+    encrypted_password = BCrypt::Password.create(password)
 
-    result = connection.exec("INSERT INTO users (name, email, username, password) VALUES('#{name}', '#{email}', '#{username}', '#{password}') RETURNING id, name, email, username;")
+    # insert the encrypted password into the database, instead of the plaintext one
+    result = connection.exec("INSERT INTO users (name, email, username, password) VALUES('#{name}', '#{email}', '#{username}', '#{encrypted_password}') RETURNING id, name, email, username;")
     User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], username: result[0]['username'])
   end
 

@@ -14,6 +14,14 @@ describe '.create' do
   end
 end
 
+describe '.create' do
+  it 'hashes the password using BCrypt' do
+    expect(BCrypt::Password).to receive(:create).with('password123')
+
+    User.create(name: "Joe Bloggs", email: "test@example.com", username: "user1", password: "password123")
+  end
+end
+
 describe '.find' do
   it 'finds a user by ID' do
     user = User.create(name: 'Joe Bloggs', email: 'test@example.com', username: 'user1', password: 'pa33w0rd')
