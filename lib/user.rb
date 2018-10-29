@@ -28,10 +28,7 @@ class User
       VALUES ('#{firstname}', '#{lastname}', '#{username}', '#{enc_password}',
       '#{email}') RETURNING id, firstname, lastname, username, password, email;}
     record = DatabaseConnection.query(sql)
-
-    User.new({ id: record[0]['id'], firstname: record[0]['firstname'],
-      lastname: record[0]['lastname'], username: record[0]['username'],
-      password: record[0]['password'], email: record[0]['email'] })
+    User.new(create_user_hash_from_db(record))
 
   end
 
@@ -49,12 +46,25 @@ class User
 
   def self.find_from_username(username)
     user = all_users.select { |usr| usr[:username] == username }
-    User.new({ id: user[0][:id],
+    User.new(create_user_hash(user))
+  end
+
+  def self.create_user_hash(user)
+    { id: user[0][:id],
       firstname: user[0][:firstname],
       lastname: user[0][:lastname],
       username: user[0][:username],
       password: user[0][:password],
-      email: user[0][:email] })
+      email: user[0][:email] }
+  end
+
+  def self.create_user_hash_from_db(user)
+    { id: user[0]["id"],
+      firstname: user[0]["firstname"],
+      lastname: user[0]["lastname"],
+      username: user[0]["username"],
+      password: user[0]["password"],
+      email: user[0]["email"] }
   end
 
   def self.login(username, password)
@@ -63,9 +73,7 @@ class User
     record = DatabaseConnection.query(sql)
     return unless record.any?
     return unless BCrypt::Password.new(record[0]['password']) == password
-    User.new({ id: record[0]['id'], firstname: record[0]['firstname'],
-      lastname: record[0]['lastname'], username: record[0]['username'],
-      password: record[0]['password'], email: record[0]['email'] })
+    User.new(create_user_hash_from_db(record))
   end
 
   def self.validate_signup(username, email)
