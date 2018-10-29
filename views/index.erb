@@ -40,8 +40,16 @@
 
 <h1>Chitter</h1>
 
-<form action="/message" method="get">
+<% if @user %>
+  <h2>Welcome, <%= @user.name %></h2>
+<% end %>
+
+<form action="/message">
   <input type="submit" class="button" value="Post">
+</form>
+
+<form action="/registration">
+  <input type="submit" class="button" value="Sign up">
 </form>
 
 <ul>

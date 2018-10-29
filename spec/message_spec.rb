@@ -19,7 +19,7 @@ describe Message do
   describe '#create' do
     it 'Adds a bookmark to our database' do
       message = Message.create(message: "This is my first post to chitter", time: Time.now)
-      persisted_data = PG.connect(dbname: 'chitter_test').exec("SELECT * FROM messages WHERE id = #{message.id};").to_a
+      persisted_data = PG.connect(dbname: 'chitter_test').exec("SELECT * FROM messages WHERE id = #{message.id};")
 
       expect(message).to be_a Message
       expect(message.id).to eq persisted_data.first['id']
