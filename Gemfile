@@ -7,6 +7,7 @@ gem 'rubocop', '0.56.0'
 gem 'pg'
 gem 'sinatra'
 gem 'capybara'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
