@@ -18,7 +18,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    Message.create(message: params['message'])
+    @user = User.find(session[:user_id])
+    Message.create(message: params['message'], name: @user.name)
     redirect '/messages'
   end
 

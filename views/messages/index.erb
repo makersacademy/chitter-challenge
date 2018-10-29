@@ -10,6 +10,7 @@
 <ul>
   <% @messages.reverse.each do |msg| %>
     <li>
+      <%= msg.name %>
       <%= msg.time %>
       <%= msg.message %>
     </li>
