@@ -7,72 +7,72 @@
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
 ### Todo
-- [ ] Set up App Environment
-  - [ ] Hello World test
-- [ ] Set up database and test database
-- [ ] User story 1
+- [x] Set up App Environment
+  - [x] Hello World test
+- [x] Set up database and test database
+- [x] User story 1
+  - [x] OCR Card
+  - [x] Feature Tests
+  - [x] Unit Tests
+  - [x] Tests pass
+  - [x] Tests Refactored
+  - [x] Code Refactored
+- [x] User story 2
+  - [x] OCR Card
+  - [x] Feature Tests
+  - [x] Unit Tests
+  - [x] Tests pass
+  - [x] Tests Refactored
+  - [x] Code Refactored
+- [x] User story 3
+  - [x] OCR Card
+  - [x] Feature Tests
+  - [x] Unit Tests
+  - [x] Tests pass
+  - [x] Tests Refactored
+  - [x] Code Refactored
+- [x] User story 4
+  - [x] OCR Card
+  - [x] Feature Tests
+  - [x] Unit Tests
+  - [x] Tests pass
+  - [x] Tests Refactored
+  - [x] Code Refactored
+- [x] User story 5
+  - [x] OCR Card
+  - [x] Feature Tests
+  - [x] Unit Tests
+  - [x] Tests pass
+  - [x] Tests Refactored
+  - [x] Code Refactored
+- [x] User story 6
+  - [x] OCR Card
+  - [x] Feature Tests
+  - [x] Unit Tests
+  - [x] Tests pass
+  - [x] Tests Refactored
+  - [x] Code Refactored
+- [ ] User story 7
   - [x] OCR Card
   - [ ] Feature Tests
   - [ ] Unit Tests
   - [ ] Tests pass
   - [ ] Tests Refactored
   - [ ] Code Refactored
-- [ ] User story 2
-  - [ ] OCR Card
-  - [ ] Feature Tests
-  - [ ] Unit Tests
-  - [ ] Tests pass
-  - [ ] Tests Refactored
-  - [ ] Code Refactored
-- [ ] User story 3
-  - [ ] OCR Card
-  - [ ] Feature Tests
-  - [ ] Unit Tests
-  - [ ] Tests pass
-  - [ ] Tests Refactored
-  - [ ] Code Refactored
-- [ ] User story 4
-  - [ ] OCR Card
-  - [ ] Feature Tests
-  - [ ] Unit Tests
-  - [ ] Tests pass
-  - [ ] Tests Refactored
-  - [ ] Code Refactored
-- [ ] User story 5
-  - [ ] OCR Card
-  - [ ] Feature Tests
-  - [ ] Unit Tests
-  - [ ] Tests pass
-  - [ ] Tests Refactored
-  - [ ] Code Refactored
-- [ ] User story 6
-  - [ ] OCR Card
-  - [ ] Feature Tests
-  - [ ] Unit Tests
-  - [ ] Tests pass
-  - [ ] Tests Refactored
-  - [ ] Code Refactored
-- [ ] User story 7
-  - [ ] OCR Card
-  - [ ] Feature Tests
-  - [ ] Unit Tests
-  - [ ] Tests pass
-  - [ ] Tests Refactored
-  - [ ] Code Refactored
-- [ ] Gem file contains all dependency gems
-- [ ] Edge cases
-- [ ] README
-  - [ ] Explain your approach to the challenge
-  - [ ] how to set up
-  - [ ] show the full story of how your app is used (from a user's perspective)
+- [x] Gem file contains all dependency gems
+- [x] Edge cases
+- [x] README
+  - [x] Explain your approach to the challenge
+  - [x] how to set up
+  - [x] show the full story of how your app is used (from a user's perspective)
 
 ### Considerations
 - [ ] Rake file
-- [ ] All test related gems are in a test group
-- [ ] Make sure that your spec_helper:
+- [x] All test related gems are in a test group
+- [x] Make sure that your spec_helper:
   - [ ] requires in a single app file that requires all the other dependencies required by the app.
-  - [ ] Connects your feature testing framework (probably Capybara) with your application.
-  - [ ] Cleans the database between each test.
+  - [x] Connects your feature testing framework (probably Capybara) with your application.
+  - [x] Cleans the database between each test.
 
 Form validation - https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/15.md
 
@@ -100,7 +100,7 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 Connect to psql
 Create the database using the psql command ```CREATE DATABASE chitter;```
 Connect to the database using the pqsl command ```\c chitter;```
-Run the query in the file ```01_create_peeps_table.sql```
+Run the query in the sql files contained within the db folder
 
 repeat these steps but create a data base called chitter_test
 
