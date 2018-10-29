@@ -21,6 +21,10 @@
       <input type='hidden' id='hidden' name='_method' value='delete'>
       <input type="submit" value="Log Out">
   </form>
+  <h4>Logged in as <%= @username %>
+    <form action="/<%= @username %>" method="get">
+        <input type="submit" value="My profile">
+    </form>
 <% end %>
 
 

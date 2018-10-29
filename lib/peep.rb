@@ -47,7 +47,7 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter_database')
     end
-    connection.exec("UPDATE peeps SET post = '#{new_post}', WHERE post = '#{post}' RETURNING post;")
+    connection.exec("UPDATE peeps SET post = '#{new_post}', WHERE post = '#{post}' RETURNING name, username, post, time;")
     Peep.new(post: result[0]['post'])
   end
 end

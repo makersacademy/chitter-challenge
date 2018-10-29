@@ -9,6 +9,7 @@ class ChitterApp < Sinatra::Base
 
   get '/' do
     if session[:username]
+      @username = session[:username]
       @user = User.find(column: 'username', value: session[:username])
     end
     @peeps = Peep.all
