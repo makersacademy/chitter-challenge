@@ -13,16 +13,16 @@ Please checkout your reviewee's code and run their tests. Read the code and try 
 # Step 1:  How far did they get?
 
 * Features
-  * [ ] Sign up
-  * [ ] Log in
-  * [ ] Log out
-  * [ ] Peeping
-  * [ ] Listing Peeps
-  * [ ] Display time of peep
+  * [y] Sign up
+  * [y] Log in
+  * [y] Log out
+  * [y] Peeping
+  * [y] Listing Peeps
+  * [y] Display time of peep
 
 * Bonus Features
-  * [ ] Replying to peeps
-  * [ ] CSS styling
+  * [n] Replying to peeps
+  * [y] CSS styling
 
 The relevance of the subsequent steps may depend on how far the reviewee got with their challenge.
 
@@ -158,7 +158,7 @@ end
 
 ## Clean the Database between tests
 
-Each test (feature or unit) should: 
+Each test (feature or unit) should:
 
 - Start on an empty database.
 - Create whatever data is needed for that test.

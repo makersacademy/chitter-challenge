@@ -41,3 +41,11 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
+
+# Screenshots #
+
+![Image of HomePage](/images/home_page.png)
+
+![Image of Register](/images/register.png)
+
+![Image of Profile](/images/profile_logged_in.png)

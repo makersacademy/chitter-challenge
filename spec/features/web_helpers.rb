@@ -1,6 +1,6 @@
 def add_test_cheets
   conn = PG.connect(dbname: 'chitter_database_test')
-  conn.exec("INSERT INTO cheets (id, cheet) VALUES (1, 'My first cheet'), (2, 'My second cheet');")
+  conn.exec("INSERT INTO cheets (cheet) VALUES ('My first cheet'), ('My second cheet');")
 end
 
 def add_test_cheets_with_user
