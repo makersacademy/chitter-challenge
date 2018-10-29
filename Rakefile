@@ -8,11 +8,12 @@ if ENV['RACK_ENV'] != 'production'
   task default: [:spec]
 end
 
- task :test_database_setup do
+task :test_database_setup do
   connection = PG.connect(dbname: 'chitter_test')
   connection.exec("TRUNCATE users, peeps;")
 end
- task :setup do
+
+task :setup do
   ['chitter', 'chitter_test'].each do |database|
     connection = PG.connect
     connection.exec("CREATE DATABASE #{database};")
