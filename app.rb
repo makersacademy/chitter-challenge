@@ -42,7 +42,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/registered' do
-    current_user = User.create(params[:Email], params[:Name], params[:Username], params[:Password], params[:Confirm_Password])
+    current_user = User.create(
+                          params[:Email],
+                          params[:Name],
+                          params[:Username],
+                          params[:Password],
+                          params[:Confirm_Password])
     if current_user == 'not unique'
       flash[:message] = "Username or email already taken."
       redirect '/register'
@@ -56,13 +61,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/new-cheet' do
-    session[:current_user].nil? ? user = "Anonymous" : user = session[:current_user].user
+    current_user = session[:current_user]
+    current_user.nil? ? user = "Anonymous" : user = current_user.user
     Cheet.create(params[:cheet], user)
-    if session[:current_user].nil?
+    if current_user.nil?
       redirect '/'
     else
       redirect '/profile'
     end
   end
-  
+
 end
