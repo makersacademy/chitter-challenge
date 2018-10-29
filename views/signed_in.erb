@@ -9,7 +9,7 @@
     <div class="message_div">
     <% if @user %>
     <div class="welcome">
-      <h2>Welcome, <%= @user.email %></h2>
+      <h2>Welcome <%= @user.email %></h2>
     </div>
     <div class="sign_out">
       <form action="/sessions/destroy" method="post">

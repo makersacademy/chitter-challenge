@@ -63,10 +63,10 @@ class ChitterManager < Sinatra::Base
     end
   end
 
-  post 'sessions/destroy' do
+  post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
-    erb :index
+    redirect '/peeps'
   end
 
   run! if app_file == $0
