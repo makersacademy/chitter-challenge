@@ -1,7 +1,7 @@
 require 'user'
 
 describe User do
-  describe 'tests setting user information' do
+  describe 'tests setting and viewing user information' do
     it 'sets user email' do
       subject.set_email('email')
       expect(subject.get_email).to eq 'email'
