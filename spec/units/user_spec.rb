@@ -24,7 +24,7 @@ describe User do
 
   describe '.create' do
     it "should add a new user to the db" do
-      user = User.create(name: 'Gary Oak', username: '@blue',
+      user = User.create(name: 'Gary Oak', username: 'blue',
         email: 'gary@pallet.com', password: 'eevee123'
       )
       expect(user.name).to eq 'Gary Oak'
@@ -35,7 +35,7 @@ describe User do
     it "encrypts the password" do
       expect(BCrypt::Password).to receive(:create).with('eevee123')
 
-      User.create(name: 'Gary Oak', username: '@blue', email: 'gary@pallet.com',
+      User.create(name: 'Gary Oak', username: 'blue', email: 'gary@pallet.com',
         password: 'eevee123')
     end
   end
