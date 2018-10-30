@@ -1,5 +1,11 @@
 require 'pg'
 
+
+#If youi havent already installed PSQL
+#brew install postgresql
+#ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+#launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
 #First you must execute these commands to create the database using psql
 #pqsl postgres
 #CREATE DATABASE "MasterDatabase";
