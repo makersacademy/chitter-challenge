@@ -1,6 +1,14 @@
 Chitter Challenge
 =================
 
+# using heroku #
+
+1. check if you have the Heroku Toolbelt installed using "heroku --version", if you get an error install it from here https://devcenter.heroku.com/articles/heroku-cli
+
+2. make sure your gems are up to date using "bundle install"
+
+3. use "heroku open" to open the website
+------
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
