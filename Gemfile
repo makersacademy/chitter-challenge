@@ -8,7 +8,6 @@ gem 'pg'
 gem 'sinatra'
 gem 'capybara'
 gem 'shotgun'
-gem 'heroku'
 
 
 
