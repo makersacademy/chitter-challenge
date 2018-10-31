@@ -66,14 +66,9 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peep/new' do
-    if @user.nil?
-      flash[:notice] = "You must log in to post a peep"
-      redirect'/log_in'
-    else
       @name = params[:name]
       @username = params[:username]
       erb :'peep/new'
-    end
   end
 
   post '/peep/new' do

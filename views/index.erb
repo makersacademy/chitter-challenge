@@ -6,9 +6,11 @@
 </form>
 <% end %>
 
+<% if !@user.nil? %>
 <form action="/peep/new" method="get">
     <input type="submit" value="peep">
 </form>
+<% end %>
 
 <div><%= flash[:notice] %></div>
 
