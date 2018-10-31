@@ -19,7 +19,7 @@ class Database
   def createUser(username, userhandle, useremail, userpass)
     if NewUserAvaliable(useremail, userhandle)
       @db.exec("INSERT INTO Users (UserName, UserHandle, UserEmail, UserPass) VALUES('#{username}', '#{userhandle}', '#{useremail}', '#{userpass}')")
-      true
+      @db.exec("SELECT UserID FROM Users WHERE userhandle='#{userhandle}'")["userid"]
     else
       'USERERROR-CREDENTIALSTAKEN'
     end
@@ -27,7 +27,12 @@ class Database
   #Remove an exsisting user from the database cleanly so their id can be take
   def RemoveUser(useremail)
     userid = getuserdata(useremail)["userid"]
-    @db.exec("DELETE * FROM ")
+    RemoveUserData(userid)
+    RemoveUserCreds(userid)
+  end
+  #Create a new peep in the database
+  def CreatePeep(userhandle, content)
+    
   end
 
 
@@ -51,22 +56,25 @@ class Database
       false
     end
   end
-  
-  public
-
+  #Deletes the sub peep and peep data of user id
   def RemoveUserData(userid)
     result1 = @db.exec("SELECT PeepID FROM Peeps WHERE PeeperID='#{userid}'")
-    #puts result
     result1.each do |data1|
-      result2 = @db.exec("SELECT FROM SubPeeps WHERE MainPeepID='#{data1["peepid"]}'")
+      result2 = @db.exec("SELECT * FROM SubPeeps WHERE MainPeepID='#{data1["peepid"]}'")
       if !(result2.num_tuples.zero?)
         result2.each do |data2|
-          puts data2
-          #@db.exec("DELETE FROM SubPeeps WHERE PeepContent='#{data2["peepcontent"]}'")
+          @db.exec("DELETE FROM SubPeeps WHERE MainPeepID='#{data2["mainpeepid"]}'")
         end
       end
     end
+    @db.exec("DELETE FROM Peeps WHERE PeeperID='#{userid}'")
+  end
+  #Deletes user login creds
+  def RemoveUserCreds(userid)
+    @db.exec("DELETE FROM Users WHERE UserID='#{userid}'")
+  end
+  
+  def CreateAPeep()
   end
 end
-temp = Database.new
-temp.RemoveUserData(3)
+
