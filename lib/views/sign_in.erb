@@ -1,0 +1,199 @@
+<title> Chitter! </title>
+
+
+<body>
+  <div id="navbar">
+    <a href="/">Home</a>
+    <a href="/sign_up">Sign up</a>
+    <a href="/sign_in">Sign In</a>
+    <a href="#">FAQ</a>
+    <a href="#">Contact Us</a>
+  </div>
+  <div class="inner">
+    <p class="title">Sign in to Chatter!</p>
+    <p class="sub">Please sign into your account below</p>
+  </div>
+
+  <div class="inner">
+    <form class="form" action="/feed" method="post" accept-charset="utf-8">
+      <label for="username">Username</label>
+      <input type="username" name="username" id="username" maxlength="16" required="true"  />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required="true" />
+      <input type="submit" value="Login In">
+      <a class="button" onclick="goBack()">Back</a>
+    </form>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2017 - 2018 The Best Team 😎 All Rights Reserved</p>
+  </div>
+
+
+</body>
+
+<style>
+#navbar {
+  overflow: hidden;
+  background-color: #48414124;
+  width: 100%;
+}
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+.content {
+  padding: 16px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sticky + .content {
+  padding-top: 60px;
+}
+body{
+  background-color: lightblue;
+  margin: 0;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #48414124;
+  color: white;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+.inner{
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.title{
+  font: 600 2.5em/1 'Raleway', sans-serif;
+  color: rgba(0,0,0,.5);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 90px;
+}
+
+.sub{
+  font: 600 20px 'Raleway', sans-serif;
+  color: rgba(0,0,0,.5);
+  text-align: center;
+  text-transform: uppercase;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.form{
+  font-size: 16px;
+  background: #495C70;
+  padding: 30px 30px 120px 30px;
+  border: 5px solid #53687E;
+}
+
+.form input[type=password],
+.form input[type=username],
+.form textarea,
+.form label
+{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.form label {
+  display:block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.form label > span{
+  display: inline-block;
+  float: left;
+  width: 150px;
+}
+
+.form input[type=password],
+.form input[type=username]
+{
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed #83A4C5;
+  width: 100%;
+  outline: none;
+  padding: 0px 0px 5px 0px;
+  font-style: italic;
+  font-size: inherit;
+}
+.form textarea{
+  font-style: italic;
+  padding: 0px 0px 0px 0px;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px dashed #83A4C5;
+  width: 100%;
+  overflow: hidden;
+  resize:none;
+  height:20px;
+}
+
+.form textarea:focus,
+.form input[type=password]:focus,
+.form input[type=username]:focus
+{
+  border-bottom: 1px dashed #D9FFA9;
+}
+
+.form input[type=submit],
+.form input[type=reset]{
+  background: #576E86;
+  border: none;
+  padding: 16px 20px 16px 20px;
+  margin-top: 25px;
+  margin-left: 10px;
+  border-radius: 5px;
+  font: inherit;
+  color: #A8BACE;
+  float: right;
+}
+
+.button{
+  background: #576E86;
+  border: none;
+  padding: 16px 30px 16px 30px;
+  margin-top: 25px;
+  border-radius: 5px;
+  font: inherit;
+  color: #A8BACE;
+  float: left;
+}
+
+.button:hover{
+  background: #394D61;
+}
+
+.form input[type=submit]:hover{
+  background: #394D61;
+}
+</style>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>

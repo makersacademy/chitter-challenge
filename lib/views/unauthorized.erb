@@ -1,0 +1,150 @@
+<title> Chitter! </title>
+
+<body>
+  <div id="navbar">
+    <a href="/">Home</a>
+    <a href="/sign_up">Sign up</a>
+    <a href="/sign_in">Sign In</a>
+    <a href="#">FAQ</a>
+    <a href="#">Contact Us</a>
+  </div>
+  <div class="inner">
+    <h3 class="title">Access Denied!</h3>
+    <p class="sub">You don't have permssion to view this page</p>
+  </div>
+  <div class="img">
+    <img class="image" src="https://images.vexels.com/media/users/3/132074/isolated/preview/0117cb0129593faa02646a8277ca80e3-security-lock-icon-by-vexels.png">
+  </div>
+  <div class="inner">
+    <div class="btn-1">
+      <a class="btn-signup button" href="/sign_up">Sign up</a>
+    </div>
+    <div class="btn-2">
+      <a class="btn-login button" href="/sign_in">Sign in</a>
+    </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2017 - 2018 The Best Team 😎 All Rights Reserved</p>
+  </div>
+</body>
+
+<style>
+#navbar {
+  overflow: hidden;
+  background-color: #48414124;
+  width: 100%;
+}
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+.content {
+  padding: 16px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sticky + .content {
+  padding-top: 60px;
+}
+
+body{
+  background-color: lightblue;
+  margin: 0;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #48414124;
+  color: white;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.inner{
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.title{
+  font: 600 2.5em/1 'Raleway', sans-serif;
+  color: rgba(0,0,0,.5);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 90px;
+}
+
+.sub{
+  font: 600 20px 'Raleway', sans-serif;
+  color: rgba(0,0,0,.5);
+  text-align: center;
+  text-transform: uppercase;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.img{
+  max-width: 940px;
+  margin: 0 auto;
+  padding-bottom: 59px;
+}
+.image{
+  max-height: 300px;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.btn-1{
+  float: left;
+}
+.btn-2{
+  float: right;
+}
+.btn-signup {
+  padding: 14px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font: 100 1.5em/1 'Raleway', sans-serif;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.btn-login{
+  padding: 14px 51px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font: 100 1.5em/1 'Raleway', sans-serif;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button {
+  background-color: #48414124;
+  color: black;
+  border: 2px solid #008CBA;
+}
+.button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+</style>
