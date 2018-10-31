@@ -1,0 +1,215 @@
+<title> Chitter! </title>
+
+
+<body>
+  <div id="navbar">
+    <a href="/">Log out ⁉️</a>
+  </div>
+  <div class="inner">
+    <h3 class="title">Welcome Back, @user!</h3>
+    <p class="sub">See what your friends have been up to</p>
+  </div>
+
+  <div class="inner container">
+    <div class="post">
+      <form class="form" method="post" action="/feed">
+        <label for="text">Whats going on, @user?</label>
+        <textarea type="text" name="message" placeholder="Type your Message"></textarea>
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Clear">
+      </form>
+    </div>
+
+    <div class="feed">
+      <div class="feed-inner">
+        <p>See what your friends are up to!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2017 - 2018 The Best Team 😎 All Rights Reserved</p>
+  </div>
+</body>
+
+<style>
+#navbar {
+  overflow: hidden;
+  background-color: #48414124;
+  width: 100%;
+}
+/* Navbar links */
+#navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+}
+.content {
+  padding: 16px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sticky + .content {
+  padding-top: 60px;
+}
+
+body{
+  background-color: lightblue;
+  margin: 0;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #48414124;
+  color: white;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.inner{
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.title{
+  font: 600 2.5em/1 'Raleway', sans-serif;
+  color: rgba(0,0,0,.5);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 90px;
+}
+
+.sub{
+  font: 600 20px 'Raleway', sans-serif;
+  color: rgba(0,0,0,.5);
+  text-align: center;
+  text-transform: uppercase;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.container{
+  font-size: 16px;
+  background: #495C70;
+  padding: 30px 5px 400px 5px;
+  border: 5px solid #53687E;
+}
+
+.post{
+  max-width: 470px;
+  margin-left: 5px;
+  float: left;
+}
+
+.feed{
+  max-width: 460;
+  font-size: 16px;
+  background: #495C70;
+  padding: 30px 0px 295px 30px;
+  border: 5px solid #53687E;
+  width: 100%;
+  float: right;
+  margin-right: 7px;
+}
+
+.feed p{
+ text-align: center;
+ color: rgba(0,0,0,.5);
+ text-align: center;
+ margin: 0;
+ font-family: Georgia, "Times New Roman", Times, serif;
+ font-size: 16px;
+ color: #fff;
+}
+
+.form{
+  font-size: 16px;
+  background: #495C70;
+  padding: 30px 20px 170px 30px;
+  border: 5px solid #53687E;
+}
+
+.form input[type=text],
+.form textarea,
+.form label
+{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.form label {
+  display:block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.form label > span{
+  display: inline-block;
+  float: left;
+  width: 150px;
+}
+
+.form input[type=text]
+{
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed #83A4C5;
+  width: 100%;
+  outline: none;
+  padding: 0px 0px 5px 0px;
+  font-style: italic;
+  font-size: inherit;
+}
+.form textarea{
+  font-style: italic;
+  padding: 0px 0px 0px 0px;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px dashed #83A4C5;
+  border-top: 1px dashed #83A4C5;
+  width: 100%;
+  overflow: hidden;
+  resize:none;
+  height:100px;
+  margin-top: 5px;
+}
+
+.form textarea:focus,
+.form input[type=text]:focus,
+{
+  border-bottom: 1px dashed #D9FFA9;
+}
+
+.form input[type=submit],
+.form input[type=reset]{
+  background: #576E86;
+  border: none;
+  padding: 16px 20px 16px 20px;
+  margin-top: 25px;
+  margin-left: 10px;
+  border-radius: 5px;
+  font: inherit;
+  color: #A8BACE;
+  float: right;
+}
+
+.form input[type=submit]:hover{
+  background: #394D61;
+}
+</style>
