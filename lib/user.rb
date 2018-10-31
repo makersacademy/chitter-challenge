@@ -1,38 +1,38 @@
 class User
 
-  def set_email(email)
+  def change_email(email)
     @email = email
     'email set'
   end
 
-  def set_password(password)
+  def change_password(password)
     @password = password
     'password set'
   end
 
-  def set_name(name)
+  def change_name(name)
     @name = name
     'name set'
   end
 
-  def set_username(username)
+  def change_username(username)
     @username = username
     'username set'
   end
 
-  def get_email
+  def view_email
     @email
   end
 
-  def get_password
+  def view_password
     @password
   end
 
-  def get_name
+  def view_name
     @name
   end
 
-  def get_username
+  def view_username
     @username
   end
 end
