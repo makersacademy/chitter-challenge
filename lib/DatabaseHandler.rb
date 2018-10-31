@@ -4,7 +4,7 @@ require 'pg'
 class Database
   #Connect to Database on Initialize
   def initialize
-    @db = PG.connect(dbname: 'MasterDatabase')
+    @db = PG.connect(dbname: 'testdb')
   end
   #Returns true or false if the login creds are correct
   def verifyLogin(useremail, password)
@@ -25,7 +25,9 @@ class Database
     end
   end
   #Remove an exsisting user from the database cleanly so their id can be take
-  def RemoveUser()
+  def RemoveUser(useremail)
+    userid = getuserdata(useremail)["userid"]
+    @db.exec("DELETE * FROM ")
   end
 
 
@@ -49,5 +51,22 @@ class Database
       false
     end
   end
-end
+  
+  public
 
+  def RemoveUserData(userid)
+    result1 = @db.exec("SELECT PeepID FROM Peeps WHERE PeeperID='#{userid}'")
+    #puts result
+    result1.each do |data1|
+      result2 = @db.exec("SELECT FROM SubPeeps WHERE MainPeepID='#{data1["peepid"]}'")
+      if !(result2.num_tuples.zero?)
+        result2.each do |data2|
+          puts data2
+          #@db.exec("DELETE FROM SubPeeps WHERE PeepContent='#{data2["peepcontent"]}'")
+        end
+      end
+    end
+  end
+end
+temp = Database.new
+temp.RemoveUserData(3)
