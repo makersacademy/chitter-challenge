@@ -30,14 +30,27 @@ class Database
     RemoveUserData(userid)
     RemoveUserCreds(userid)
   end
-  #Create a new peep in the database
+  #Public Create a new peep in the database
   def CreatePeep(userhandle, content)
-    
+    CreateAPeep(userhandle, content)
+  end
+  #public get a peep data in the database from a specified day
+  def GetPeeps(year, month, day)
+    result =  GetPeepDataOnDay(year, month, day)
+    peeps = Array.new
+    result.each do |data|
+      peeps.push(data)
+    end
+    peeps
   end
 
 
   private
   
+  #Gets all peeps on a specific day
+  def GetPeepDataOnDay(year, month, day)
+    @db.exec("SELECT * FROM Peeps WHERE DATE (datetime)='#{year}-#{month}-#{day}'")
+  end
   #Gets the data about a specific user using their email
   def getuserdata(userEmail) 
     userData = @db.exec("SELECT * FROM Users WHERE UserEmail='#{userEmail}'")
@@ -73,8 +86,14 @@ class Database
   def RemoveUserCreds(userid)
     @db.exec("DELETE FROM Users WHERE UserID='#{userid}'")
   end
-  
-  def CreateAPeep()
+  #Adds a peep in the database
+  def CreateAPeep(userhandle, content)
+    @db.exec("INSERT INTO Peeps (PeeperID, PeepContent, datetime) VALUES((SELECT UserID from Users WHERE UserHandle='#{userhandle}'), '#{content}', NOW())")
   end
 end
+
+test = Database.new
+puts test.GetPeeps(2018,10,30)
+
+
 

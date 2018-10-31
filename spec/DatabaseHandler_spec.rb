@@ -24,4 +24,19 @@ describe Database do
       expect(subject.createUser("Darren Coombs", "Coombszy", "FAKEEMAIL3@hotmail.co.uk", "pass")).to eq "USERERROR-CREDENTIALSTAKEN"
     end
   end
+  describe 'can manipulate peeps in the database' do
+    it 'can add a peep' do
+      temp = Array.new
+      subject.GetPeeps(Date.today.year, Date.today.month, Date.today.day).each do |data|
+        temp.push(data)
+      end
+      start = temp.count
+      subject.CreatePeep('God', 'TESTPEEP-FROMRSPEC')
+      subject.GetPeeps(Date.today.year, Date.today.month, Date.today.day).each do |data|
+        temp.push(data)
+      end
+      after = temp.count
+      expect(start).to be < after
+    end
+  end
 end
