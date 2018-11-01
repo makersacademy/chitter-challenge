@@ -14,9 +14,9 @@ describe Database do
   end
   describe 'Can add a new user' do
     it 'can add a new user to the database' do
-      expect(subject.CreateUser("Kwame Mintah", "Wammy", "FAKEEMAIL2@hotmail.co.uk", "pass")).to be_between(0,99999)
-      expect(subject.verifyLogin("FAKEEMAIL2@hotmail.co.uk", "pass")).to eq true
-      subject.RemoveUser("FAKEEMAIL2@hotmail.co.uk")
+      expect(subject.CreateUser("Yannis Fabri", "Yanni", "RANDOMEMAIL@hotmail.co.uk", "pass")).to be_between(0,99999)
+      expect(subject.verifyLogin("RANDOMEMAIL@hotmail.co.uk", "pass")).to eq true
+      subject.RemoveUser("RANDOMEMAIL@hotmail.co.uk")
     end
     it 'cannot add users if the credentials are taken' do
       expect(subject.CreateUser("Benjamin Kearns", "Benny", "FAKEEMAIL@hotmail.co.uk", "pass")).to eq "USERERROR-CREDENTIALSTAKEN"
