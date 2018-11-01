@@ -33,6 +33,10 @@ class Database
   def CreatePeep(userhandle, content)
     CreateAPeep(userhandle, content)
   end
+  #Public create a new sub peep in the database
+  def CreateReplyPeep(mainpeepid, userhandle, content)
+    CreateSubPeep(mainpeepid, userhandle, content)
+  end
   #Public get a peep data in the database from a specified day
   def GetPeeps(year, month, day)
     result =  GetPeepDataOnDay(year, month, day)
@@ -50,10 +54,12 @@ class Database
   def DeletePeep(peepid)
     RemoveAPeep(peepid)
   end
+  
 
 
   private
   
+  #Creates a new user in the database and returns the new users ID
   def CreateAUser(username, userhandle, useremail, userpass)
     @db.exec("INSERT INTO Users (UserName, UserHandle, UserEmail, UserPass) VALUES('#{username}', '#{userhandle}', '#{useremail}', '#{userpass}')")
     @db.exec("SELECT UserID FROM Users WHERE userhandle='#{userhandle}'")[0]["userid"].to_i
@@ -104,6 +110,10 @@ class Database
   #Adds a peep in the database
   def CreateAPeep(userhandle, content)
     @db.exec("INSERT INTO Peeps (PeeperID, PeepContent, datetime) VALUES((SELECT UserID from Users WHERE UserHandle='#{userhandle}'), '#{content}', NOW()) RETURNING PeepID")[0]["peepid"]
+  end
+  #Adds a sub peep into the database
+  def CreateSubPeep(mainpeepid, userhandle, content)
+    @db.exec("INSERT INTO SubPeeps (MainPeepID, PeeperID, PeepContent, DateTime) VALUES(#{mainpeepid},(SELECT UserID from Users WHERE UserHandle='#{userhandle}'), '#{content}', NOW())")
   end
   #Removes a peep from the database and all traces of sub peeps
   def RemoveAPeep(peepid)
