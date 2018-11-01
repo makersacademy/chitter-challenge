@@ -30,7 +30,8 @@ class User
   end
 
   def change_userid
-    @userid = Database.createUser(@name, @username, @email, @password)
+    @database = Database.new
+    @userid = @database.CreateUser(@name, @username, @email, @password)
     'user ID set'
   end
 
