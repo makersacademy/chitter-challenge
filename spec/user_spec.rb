@@ -18,15 +18,13 @@ describe User do
       subject.change_username('username')
       expect(subject.view_username).to eq 'username'
     end
-=begin
-    it 'sets and views user id' do
+    it 'gets an error when creating a user with an email or username that already exists' do
       subject.change_email('email@gmail.com')
       subject.change_password('password123')
       subject.change_name('bob')
       subject.change_username('itsbob')
       subject.change_userid
-      expect(subject.view_userid).to eq 10
+      expect(subject.view_userid).to eq 'USERERROR-CREDENTIALSTAKEN'
     end
-=end
   end
 end
