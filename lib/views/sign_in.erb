@@ -6,20 +6,20 @@
     <a href="/">Home</a>
     <a href="/sign_up">Sign up</a>
     <a href="/sign_in">Sign In</a>
-    <a href="#">FAQ</a>
+    <a href="/feed">Post a peep</a>
     <a href="#">Contact Us</a>
   </div>
   <div class="inner">
-    <p class="title">Sign in to Chatter!</p>
+    <p class="title">Sign in to Chitter!</p>
     <p class="sub">Please sign into your account below</p>
   </div>
 
   <div class="inner">
     <form class="form" action="/feed" method="post" accept-charset="utf-8">
       <label for="username">Username</label>
-      <input type="username" name="username" id="username" maxlength="16" required="true"  />
+      <input type="username" name="UserName" id="username" maxlength="16" required="true"  />
       <label for="password">Password</label>
-      <input type="password" name="password" id="password" required="true" />
+      <input type="password" name="UserPass" id="password" required="true" />
       <input type="submit" value="Login In">
       <a class="button" onclick="goBack()">Back</a>
     </form>

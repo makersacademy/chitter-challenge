@@ -8,23 +8,23 @@
     <a href="/">Home</a>
     <a href="/sign_up">Sign up</a>
     <a href="/sign_in">Sign In</a>
-    <a href="#">FAQ</a>
+    <a href="/feed">Post a peep</a>
     <a href="#">Contact Us</a>
   </div>
   <div class="inner">
-    <h3 class="title">Sign up to Chatter!</h3>
+    <h3 class="title">Sign up to Chitter!</h3>
     <p class="sub">Please complete the form below to sign up</p>
   </div>
   <div class="inner">
     <form class="form" action="/feed" method="post" accept-charset="utf-8">
       <label for="name">Name</label>
-      <input type="name" name="name" id="name" required="true" />
+      <input type="name" name="UserHandle" id="name" required="true" />
       <label for="username">Username</label>
-      <input type="username" name="username" id="username" maxlength="16" required="true"  />
+      <input type="username" name="UserName" id="username" maxlength="16" required="true"  />
       <label for="email">Email</label>
       <input type="email" name="email" id="email" required="true" />
       <label for="password">Password</label>
-      <input type="password" name="password" id="password" required="true" onkeyup='check();' />
+      <input type="password" name="UserPass" id="password" required="true" onkeyup='check();' />
       <label for="password_confirmation">Password Confirmation</label>
       <input type="password" name="password_confirmation" id="password_confirmation" required="true"  onkeyup='check();' />
       <input type="submit" value="Sign Up">

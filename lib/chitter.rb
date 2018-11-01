@@ -16,8 +16,16 @@ class ChitterApp < Sinatra::Base
     erb :sign_in
   end
 
-  get '/feed' do
+  post '/feed' do
     erb :feed
+  end
+
+  get '/feed' do
+    redirect '/unauthorized'
+  end
+
+  post '/peep' do
+    erb :peep
   end
 
   get '/unauthorized' do
