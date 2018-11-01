@@ -18,5 +18,13 @@ describe User do
       subject.change_username('username')
       expect(subject.view_username).to eq 'username'
     end
+    it 'sets and views user id' do
+      subject.change_email('email')
+      subject.change_password('password')
+      subject.change_name('name')
+      subject.change_username('username')
+      subject.change_userid
+      expect(subject.view_username).to eq 1
+    end
   end
 end
