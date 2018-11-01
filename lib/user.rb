@@ -1,4 +1,13 @@
+require 'DatabaseHandler'
 class User
+  =begin
+    Variables                     Examples
+    @email = user's email         bob@gmail.com
+    @password = user's password   Password134
+    @name = user's name           Bob
+    @username = user's username   @TheBoyBob
+    @userid = user's ID           1
+  =end
 
   def change_email(email)
     @email = email
@@ -20,6 +29,10 @@ class User
     'username set'
   end
 
+  def change_userid
+    @userid = Database.createUser(@name, @username, @email, @password)
+  end
+
   def view_email
     @email
   end
@@ -34,5 +47,9 @@ class User
 
   def view_username
     @username
+  end
+
+  def view_userid
+    @userid
   end
 end
