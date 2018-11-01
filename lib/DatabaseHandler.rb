@@ -4,7 +4,7 @@ require 'pg'
 class Database
   #Connect to Database on Initialize
   def initialize
-    @db = PG.connect(dbname: 'testdb')
+    @db = PG.connect(dbname: 'MasterDatabase')
   end
   #Returns true or false if the login creds are correct
   def verifyLogin(useremail, password)
