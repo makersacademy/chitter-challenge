@@ -17,7 +17,7 @@ class Database
   end
   #Adds a new user to the database as long as the details are not already in use
   def CreateUser(username, userhandle, useremail, userpass)
-    if NewUserAvaliable(useremail, userhandle)
+    if NewUserAvailable(useremail, userhandle)
       CreateAUser(username, userhandle, useremail, userpass)
     else
       'USERERROR-CREDENTIALSTAKEN'
@@ -80,8 +80,8 @@ class Database
       userData[0]
     end
   end
-  #returns true of the user handle is avaliable and handle is not in use
-  def NewUserAvaliable(useremail, userhandle)
+  #returns true of the user handle is Available and handle is not in use
+  def NewUserAvailable(useremail, userhandle)
     result = @db.exec("SELECT * FROM Users WHERE UserEmail='#{useremail}' OR UserHandle='#{userhandle}'")
     if result.num_tuples.zero?
       true
