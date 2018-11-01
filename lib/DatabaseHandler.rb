@@ -4,7 +4,7 @@ require 'pg'
 class Database
   #Connect to Database on Initialize
   def initialize
-    @db = PG.connect(dbname: 'testdb')
+    @db = PG.connect(dbname: 'MasterDatabase')
   end
   #Returns true or false if the login creds are correct
   def verifyLogin(useremail, password)
@@ -16,10 +16,9 @@ class Database
     end
   end
   #Adds a new user to the database as long as the details are not already in use
-  def createUser(username, userhandle, useremail, userpass)
-    if NewUserAvaliable(useremail, userhandle)
-      @db.exec("INSERT INTO Users (UserName, UserHandle, UserEmail, UserPass) VALUES('#{username}', '#{userhandle}', '#{useremail}', '#{userpass}')")
-      @db.exec("SELECT UserID FROM Users WHERE userhandle='#{userhandle}'")["userid"]
+  def CreateUser(username, userhandle, useremail, userpass)
+    if NewUserAvailable(useremail, userhandle)
+      CreateAUser(username, userhandle, useremail, userpass)
     else
       'USERERROR-CREDENTIALSTAKEN'
     end
@@ -30,14 +29,54 @@ class Database
     RemoveUserData(userid)
     RemoveUserCreds(userid)
   end
-  #Create a new peep in the database
+  #Public Create a new peep in the database
   def CreatePeep(userhandle, content)
-    
+    CreateAPeep(userhandle, content)
   end
+  #Public create a new sub peep in the database
+  def CreateReplyPeep(mainpeepid, userhandle, content)
+    CreateSubPeep(mainpeepid, userhandle, content)
+  end
+  #Public get a peep data in the database from a specified day
+  def GetPeeps(year, month, day)
+    result =  GetPeepDataOnDay(year, month, day)
+    peeps = Array.new
+    result.each do |data|
+      peeps.push(data)
+    end
+    peeps
+  end
+  #Public get a specific peep
+  def GetAPeep(peepid)
+    GetSpecificPeep(peepid)
+  end
+  #Public delete a spefic peep and all subpeeps
+  def DeletePeep(peepid)
+    RemoveAPeep(peepid)
+  end
+  
 
 
   private
   
+  #Creates a new user in the database and returns the new users ID
+  def CreateAUser(username, userhandle, useremail, userpass)
+    @db.exec("INSERT INTO Users (UserName, UserHandle, UserEmail, UserPass) VALUES('#{username}', '#{userhandle}', '#{useremail}', '#{userpass}')")
+    @db.exec("SELECT UserID FROM Users WHERE userhandle='#{userhandle}'")[0]["userid"].to_i
+  end
+  #Gets all peeps on a specific day
+  def GetPeepDataOnDay(year, month, day)
+    @db.exec("SELECT * FROM Peeps WHERE DATE (datetime)='#{year}-#{month}-#{day}'")
+  end
+  #Get a specific peep data
+  def GetSpecificPeep(peepid)
+    peepData = @db.exec("SELECT * FROM Peeps WHERE PeepID='#{peepid}'")
+    if peepData.num_tuples.zero?
+      'PEEPERROR-DOESNOTEXIST'
+    else
+      peepData[0]
+    end
+  end
   #Gets the data about a specific user using their email
   def getuserdata(userEmail) 
     userData = @db.exec("SELECT * FROM Users WHERE UserEmail='#{userEmail}'")
@@ -47,8 +86,8 @@ class Database
       userData[0]
     end
   end
-  #returns true of the user handle is avaliable and handle is not in use
-  def NewUserAvaliable(useremail, userhandle)
+  #returns true of the user handle is Available and handle is not in use
+  def NewUserAvailable(useremail, userhandle)
     result = @db.exec("SELECT * FROM Users WHERE UserEmail='#{useremail}' OR UserHandle='#{userhandle}'")
     if result.num_tuples.zero?
       true
@@ -58,14 +97,9 @@ class Database
   end
   #Deletes the sub peep and peep data of user id
   def RemoveUserData(userid)
-    result1 = @db.exec("SELECT PeepID FROM Peeps WHERE PeeperID='#{userid}'")
-    result1.each do |data1|
-      result2 = @db.exec("SELECT * FROM SubPeeps WHERE MainPeepID='#{data1["peepid"]}'")
-      if !(result2.num_tuples.zero?)
-        result2.each do |data2|
-          @db.exec("DELETE FROM SubPeeps WHERE MainPeepID='#{data2["mainpeepid"]}'")
-        end
-      end
+    result = @db.exec("SELECT PeepID FROM Peeps WHERE PeeperID='#{userid}'")
+    result.each do |data|
+      @db.exec("DELETE FROM SubPeeps WHERE MainPeepID='#{data["peepid"]}'")
     end
     @db.exec("DELETE FROM Peeps WHERE PeeperID='#{userid}'")
   end
@@ -73,8 +107,20 @@ class Database
   def RemoveUserCreds(userid)
     @db.exec("DELETE FROM Users WHERE UserID='#{userid}'")
   end
-  
-  def CreateAPeep()
+  #Adds a peep in the database
+  def CreateAPeep(userhandle, content)
+    @db.exec("INSERT INTO Peeps (PeeperID, PeepContent, datetime) VALUES((SELECT UserID from Users WHERE UserHandle='#{userhandle}'), '#{content}', NOW()) RETURNING PeepID")[0]["peepid"]
+  end
+  #Adds a sub peep into the database
+  def CreateSubPeep(mainpeepid, userhandle, content)
+    @db.exec("INSERT INTO SubPeeps (MainPeepID, PeeperID, PeepContent, DateTime) VALUES(#{mainpeepid},(SELECT UserID from Users WHERE UserHandle='#{userhandle}'), '#{content}', NOW())")
+  end
+  #Removes a peep from the database and all traces of sub peeps
+  def RemoveAPeep(peepid)
+    @db.exec("DELETE FROM Peeps WHERE PeepID='#{peepid}'")
+    @db.exec("DELETE FROM SubPeeps WHERE MainPeepID='#{peepid}'")
   end
 end
+
+
 
