@@ -1,12 +1,10 @@
 require 'sinatra/base'
-require "sinatra/flash"
-require 'sinatra/partial'
 require 'shotgun'
 require_relative 'user'
 require_relative 'DatabaseHandler'
 $DB = Database.new
 class ChitterApp < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
 
   get '/' do
     erb :index
@@ -22,6 +20,11 @@ class ChitterApp < Sinatra::Base
 
   end
 
+  post '/log_out' do
+    session.clear
+    redirect '/'
+  end
+
   get '/sign_in' do
     erb :sign_in
   end
@@ -32,6 +35,8 @@ class ChitterApp < Sinatra::Base
       user.LogIn(params[:UserEmail])
       session.clear
       session[:user_id] = user.view_userid
+      session[:user_name] = user.view_name
+      session[:user_handle] = user.view_username
       redirect ('/feed')
     else
       @error = 'Username or password was incorrect'
@@ -41,6 +46,7 @@ class ChitterApp < Sinatra::Base
 
   get '/feed' do
     if current_user
+      @user = session[:user_name]
       erb :feed
     else
       redirect '/unauthorized'
@@ -48,6 +54,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peep' do
+    $DB.CreatePeep(session[:user_handle], params[:Peep])
     erb :peep
   end
 

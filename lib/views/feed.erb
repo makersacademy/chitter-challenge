@@ -4,17 +4,20 @@
 </head>
 <body>
   <div id="navbar">
-    <a href="/">Log out ⁉️</a>
+    <form method='post' action='/log_out'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log Out'>
+    </form>
   </div>
   <div class="inner">
-    <h3 class="title">Welcome Back, @user!</h3>
+    <h3 class="title">Welcome Back, <%= @user %>!</h3>
     <p class="sub">See what your friends have been up to</p>
   </div>
 
   <div class="inner container">
     <div class="post">
       <form class="form" method="post" action="/peep">
-        <label for="text">Whats going on, @user?</label>
+        <label for="text">Whats going on, <%= @user %>?</label>
         <textarea type="text" name="Peep" placeholder="Type your Message"></textarea>
         <input type="submit" value="Submit" />
         <input type="reset" value="Clear">
