@@ -36,13 +36,13 @@
     <li>
         <%= peep.name %> (<%= peep.username %>) posted: "<%= peep.post %>" at <%= peep.time %>
       </a>
-      <form action = '/peeps/<%= peep.post %>' method = 'post'>
+      <form action = '/peeps/<%= peep.id %>' method = 'post'>
       <input type='hidden' name='_method' value='DELETE'/>
-      <input type='submit' id='Delete_<%= peep.post %>' value='Delete'/>
+      <input type='submit' id='Delete_<%= peep.id %>' value='Delete'/>
     </form>
 
-    <form action = '/peeps/<%= peep.post %>/edit' method = 'get'>
-      <input type='submit' id='Edit_<%= peep.post %>' value='Edit'>
+    <form action = '/peeps/<%= peep.id %>/edit' method = 'get'>
+      <input type='submit' id='Edit_<%= peep.id %>' value='Edit'>
     </form>
     </li>
   <% end %>

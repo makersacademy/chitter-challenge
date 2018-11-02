@@ -86,19 +86,19 @@ class ChitterApp < Sinatra::Base
     redirect '/'
   end
 
-  delete '/peeps/:post' do
-    Peep.delete(post: params[:post])
+  delete '/peeps/:id' do
+    Peep.delete(id: params[:id])
     flash[:notice] = "Your peep has been deleted"
     redirect '/'
   end
 
-  get '/peeps/:post/edit' do
-    @peep_post = params[:post]
+  get '/peeps/:id/edit' do
+    @peep_id = params[:id]
     erb :'peep/edit'
   end
 
-  patch '/peeps/:post' do
-    Peep.edit(new_post: params[:post])
+  patch '/peeps/:id' do
+    Peep.edit(id: params[:id], name: params[:name], username: params[:username], post: params[:post], time: Time.now.asctime)
     redirect '/'
   end
 
