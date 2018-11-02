@@ -54,11 +54,33 @@ class Database
   def DeletePeep(peepid)
     RemoveAPeep(peepid)
   end
-  
+  #Public gets a user id
+  def GetUserID(useremail)
+    getuserdata(useremail)["userid"].to_i
+  end
+  def GetUserHandle(useremail)
+    getuserdata(useremail)["userhandle"]
+  end
+  def GetUserName(useremail)
+    getuserdata(useremail)["username"]
+  end
+  #Public check to see if a user exists
+  def DoesUserExist(userid)
+    userdata = getuserdataID(userid)
+    if userdata.num_tuples.zero?
+      false
+    else
+      true
+    end
+  end
 
 
   private
   
+  #Get user id
+  def getuserdataID(userid)
+    @db.exec("SELECT * FROM Users WHERE UserID='#{userid}'")
+  end
   #Creates a new user in the database and returns the new users ID
   def CreateAUser(username, userhandle, useremail, userpass)
     @db.exec("INSERT INTO Users (UserName, UserHandle, UserEmail, UserPass) VALUES('#{username}', '#{userhandle}', '#{useremail}', '#{userpass}')")

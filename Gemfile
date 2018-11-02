@@ -8,6 +8,8 @@ gem 'sinatra'
 gem 'capybara'
 gem 'shotgun'
 gem 'pg'
+gem "sinatra-flash"
+gem "sinatra-partial"
 
 
 

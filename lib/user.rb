@@ -1,4 +1,4 @@
-require 'DatabaseHandler'
+require_relative 'DatabaseHandler'
 class User
 =begin
   Variables                     Examples
@@ -8,6 +8,23 @@ class User
   @username = user's username   @TheBoyBob
   @userid = user's ID           1
 =end
+  def initialize
+    @db = Database.new
+  end
+
+  def CreateNewUser(useremail, userpassword, username, userhandle)
+    @username = userhandle
+    @name = username
+    @email = useremail
+    @userid = @db.CreateUser(@name, @username, @email, @password)
+  end
+
+  def LogIn(useremail)
+    @email = useremail
+    @username = @db.GetUserHandle(@email)
+    @name = @db.GetUserName(@email)
+    @userid = @db.GetUserID(@email)
+  end
 
   def change_email(email)
     @email = email
@@ -27,11 +44,6 @@ class User
   def change_username(username)
     @username = username
     'username set'
-  end
-
-  def change_userid
-    @userid = Database.createUser(@name, @username, @email, @password)
-    'user ID set'
   end
 
   def view_email
