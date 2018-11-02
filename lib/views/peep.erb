@@ -1,16 +1,19 @@
 <title>Chitter!</title>
+<head>
+  <link rel="shortcut icon" type="image/png" href="https://png.icons8.com/metro/1600/spy-male.png"/>
+</head>
 <body>
   <div id="navbar">
     <a href="/">Log out ⁉️</a>
   </div>
   <div class="inner">
     <h3 class="title">Message successfully posted!</h3>
-    <p class="sub">Status posted! 👍</p>
+    <p class="sub">Status posted!👍</p>
   </div>
 
   <div class="inner container">
     <div class="message">
-
+       <a class="button" onclick="goBack()">Back</a>
     </div>
   </div>
 
@@ -54,9 +57,10 @@ body{
 }
 
 .footer {
-  position: fixed;
-  left: 0;
+  position: absolute;
+  right: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   background-color: #48414124;
   color: white;
@@ -95,4 +99,25 @@ body{
   padding: 30px 5px 400px 5px;
   border: 5px solid #53687E;
 }
+
+.button{
+  background: #576E86;
+  border: none;
+  padding: 16px 30px 16px 30px;
+  margin-top: 25px;
+  border-radius: 5px;
+  font: inherit;
+  color: #A8BACE;
+  float: right;
+}
+
+.button:hover{
+  background: #394D61;
+}
 </style>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>

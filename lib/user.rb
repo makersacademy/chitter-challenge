@@ -46,6 +46,12 @@ class User
     'username set'
   end
 
+  def change_userid
+    @database = Database.new
+    @userid = @database.CreateUser(@name, @username, @email, @password)
+    'user ID set'
+  end
+
   def view_email
     @email
   end
