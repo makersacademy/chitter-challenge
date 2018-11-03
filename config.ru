@@ -1,2 +1,3 @@
 require_relative "./app"
- run Peep
+Rack::MethodOverride
+ run Chitter

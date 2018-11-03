@@ -1,23 +1,32 @@
+require 'bcrypt'
 require_relative './database_connection'
 class User
 
-  attr_reader :id, :email, :name, :username
+  attr_reader :id, :name, :email
 
-  def user
-  @user = id
-  @username = username
+  def initialize(id:, name:, email:)
+  @id = id
+  @name = name
   @email = email
-  @pw = password
+  #@password = password
   end
 
-  def self.create(name:, username:, email:, password:)
-    encrypted_password = BCrypt::Password.create(password)
-    result = DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{encrypted_password}') RETURNING id, name, username, email;")
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM users")
+    resuls.map { |user| User.new(user['id'], user['name'], user['email'], user['password']) }
+  end
+
+  def self.create(options)
+    password = BCrypt::Password.create(options[:password])
+
+    result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{options[:name]}', '#{options[:email]}', '#{password}') RETURNING id, name, email")
+
+    # result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{id}', '#{name}', '#{email}', '#{password}') RETURNING id, name, email;")
     User.new(
       id: result[0]['id'],
       name: result[0]['name'],
-      username: result[0]['username'],
       email: result[0]['email'],
+      #password: result[0]['password']
     )
     end
 
@@ -27,24 +36,20 @@ class User
    User.new(
      id: result[0]['id'],
      name: result[0]['name'],
-     username: result[0]['username'],
      email: result[0]['email'],
+     #password: result[0]['password']
    )
  end
 
- def self.authenticate(username:, password:)
-   result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
+ def self.authenticate(name:, password:)
+   result = DatabaseConnection.query("SELECT * FROM users WHERE name = '#{name}'")
    return unless result.any?
    return unless BCrypt::Password.new(result[0]['password']) == password
    User.new(
      id: result[0]['id'],
      name: result[0]['name'],
-     username: result[0]['username'],
      email: result[0]['email'],
+     #password: result[0]['password']
    )
  end
-end 
-  # def self.sign_up(name:, email:, username:, password:)
-  #   connection.exec("INSERT INTO users (name, email, username, password) VALUES ('#{name}', '#{email}', '#{username}', '#{password}')")
-  #   log_in(username: username, password: password)
-  # end
+end

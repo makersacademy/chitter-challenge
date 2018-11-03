@@ -5,13 +5,21 @@
   <form action="/users" method="post">
     <input type="text" name="name" placeholder="Name" />
     <input type="text" name="email" placeholder="Email" />
-    <input type="text" name="username" placeholder="Username" />
     <input type="text" name="password" placeholder="Password" />
     <input type="submit" value="Sign Up" name="submit">
   </form>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @peeps.reverse_each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      <%= @user %>
+      <input type="submit" value="delete" />
+    </li>
+
+        <%= peep.created_at %>
+        <li><%= peep.message %></li>
+        <br>
+        Posted date:
+        <li><%= peep.created_at %></li>
+    <% end %>
+  </ul>
