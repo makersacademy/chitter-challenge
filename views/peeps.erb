@@ -1,15 +1,16 @@
 
-<ul>
-  <% @peeps.reverse_each do |peep| %>
-  <li class="peep" id="peep-<%= peep.id %>">
-    <%= @user %>
-    <input type="submit" value="delete" />
-  </li>
-
-      <%= peep.created_at %>
-      <li><%= peep.message %></li>
-      <br>
-      Posted date:
-      <li><%= peep.created_at %></li>
+<h1>Welcome,
+      <%= @user.name %></h1>
+    <h2>@<%= @user.username %></h2>
   <% end %>
-</ul>
+  
+<ul class="list-group">
+   <% @peeps.reverse_each do |peep| %>
+     <ol class="list-group-item">
+       <b><%= peep.message %></b>
+       <br>
+       Posted at:
+       <%= peep.created_at %>
+     </ol>
+   <% end %>
+ </ul>

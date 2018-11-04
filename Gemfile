@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 ruby '2.5.1'
 
@@ -10,15 +10,15 @@ gem 'sinatra'
 gem 'sinatra-flash'
 
 group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rubocop-rspec'
-  gem 'rubocop'
   gem 'capybara'
+  gem 'cucumber'
+  gem 'rspec'
   gem 'coveralls', require: false
+  gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'pg'
-  gem 'timecop'
   gem 'rack-test'
+  gem 'timecop'
 
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

@@ -1,0 +1,9 @@
+<ul class="list-group">
+    <% @peeps.reverse_each do |peep| %>
+      <ol class="list-group-item">
+        <b><%= peep.message %></b>
+        <br>
+        Posted at:
+        <%= peep.created_at %>
+      </ol>
+    <% end %>

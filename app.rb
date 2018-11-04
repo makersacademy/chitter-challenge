@@ -3,13 +3,23 @@ require './lib/peep'
 require_relative './database_connection_setup'
 require_relative './lib/user'
 
-
 class Chitter < Sinatra::Base
   enable :sessions
-  #register Sinatra::Flash
+  # register Sinatra::Flash
   get '/peeps' do
-    "Welcome to Chitter"
+    @user = User.find(id: session[:user_id])
+    @peeps = Peep.all
+    erb :"peeps/index"
   end
+
+  post '/peeps' do
+    @peeps = Peep.create(
+      message: params[:message],
+      created_at: Time.now
+    )
+    redirect '/peeps'
+  end
+
   get '/' do
     "Timeline"
   end
@@ -24,10 +34,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params['name'], email: params['email'], password: params['password'])
+    user = User.create(
+      name: params['name'],
+      email: params['email'],
+      password: params['password']
+    )
     session[:user_id] = user.id
     redirect '/peeps'
-    end
+  end
 
   run! if app_file == $0
 end
