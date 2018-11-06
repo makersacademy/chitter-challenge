@@ -3,11 +3,79 @@ Chitter Challenge
 
  a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
--------
+ Tags: MVC, RSpec, TDD, OOP, Sinatra, Capybara, postgreSQL
+
+ ## Domain model
+
+ This program was built using the MVC structure and using sinatra as a framework. 
+
+ The Model consists of a peep object that handles the CRUD lifecycle of a peep, and a database connection object which uses the PG gem to connect to a postgreSQL database. The database connection object enables connection to either a test or a development database depending on the context in which it is called.
+
+ ```
+
+    Client
+╔════════════╗  
+║            ║ Sends HTTP requests
+║  Browser   ║ (GET, POST, PATCH, DELETE)
+║            ║
+╚════════════╝
+      |
+      |
+Sinatra Framework 
+╔════════════╗
+║            ║ 
+║   SERVER   ║ 
+║            ║
+╚════════════╝
+      |
+      |
+   app.rb                       Model
+╔════════════╗             ╔════════════╗          ╔════════════════════════╗
+║            ║------------>║            ║--------->║                        ║
+║ Controller ║             ║    Peep    ║          ║  Database connection   ║
+║            ║<------------║   (class)  ║<---------║    (class(PG))         ║
+╚════════════╝             ╚════════════╝          ╚════════════════════════╝
+      |                                                    |          |
+╔════════════╗                                            |          |
+║            ║                                            |          |
+║ Views (erb)║                                     ╔════════════════════════╗
+║            ║                                     ║                        ║
+╚════════════╝                                     ║      SQL Database      ║
+                                                    ║                        ║
+                                                    ╚════════════════════════╝
 
 ```
 
+## Database Model
+
+Table name: peeps
+
+| Column name   |  Data type     |
+| ------------- | -------------- |
+| id            | int4           |
+| text          | varchar(140)   |
+| created_at    | timestamp      |
+
+
+## Using the app
+
+You will need to create two PostgreSQL databases on your local machine, table names `chitter` and `chitter_test` using the above table template.
+
+```
+$ git clone https://github.com/Lucx14/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle install
+$ rackup
+```
+### To run tests
+```
+$ rspec
+```
+
+User Stories:
+-------
+
+```
 as a social media user
 so i can see the chitter feed
 i want to be able to view the chitter peeps
@@ -32,61 +100,16 @@ As a social media user
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-
-
-As a Maker
+As a social media user
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
-As a Maker
+As a social media user
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
-------
+# Project reflection
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+This was one of our first projects at Makers where we were exposed to the MVC structure and use of databases. We had the weekend to implement as much functionality as possible. I tried to focus on getting the CRUD functionality for the peeps working and would have like to have had more time to work on user sign in and sign out and building a users table in the database.  
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
