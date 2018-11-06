@@ -7,9 +7,6 @@ feature 'peeps are time stamped' do
     click_button('Add peep')
     fill_in('text', :with => 'space is black')
     click_button('Peep!')
-
     expect(page).to have_content('space is black')
-    # not too sure how to test for time!
-    expect(page).to have_content('Time of peep??')
   end
 end
