@@ -21,7 +21,7 @@
     <% @cheets.each do |cheet| %>
     <li>
       <ul>
-        <li><a href="/cheets" id="<%= cheet.id %>"> <%= cheet.cheet %> </a></li>
+        <li><a href="/cheets/<%= cheet.id %>/comments"> <%= cheet.cheet %> </a></li>
         <li><sub>  <%= cheet.user %> @ <%= cheet.timestamp[0...-7] %></sub></li>
       </ul>
     </li>

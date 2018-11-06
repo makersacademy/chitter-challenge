@@ -37,14 +37,16 @@
     </form>
   </div>
 
-  <ul class=cheet_block>
-    <% @cheets.each do |cheet| %>
-    <li>
-      <ul>
-        <li> <%= cheet.cheet %> </li>
-        <li><sub> <%= cheet.user %> @ <%= cheet.timestamp[0...-7] %></sub></li>
-      </ul>
-    </li>
-    <% end %>
-  <ul>
+    <ul class=cheet_block>
+      <% @cheets.each do |cheet| %>
+      <li>
+        <ul>
+          <li><a href="/cheets/<%= cheet.id %>/comments"> <%= cheet.cheet %> </a>
+            <input type="hidden" id=<%= cheet.id %>>
+          </li>
+          <li><sub>  <%= cheet.user %> @ <%= cheet.timestamp[0...-7] %></sub></li>
+        </ul>
+      </li>
+      <% end %>
+    <ul>
 </div>

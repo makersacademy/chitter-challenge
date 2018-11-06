@@ -24,4 +24,9 @@ class Cheet
                     VALUES ('#{cheet}', '#{username}');")
   end
 
+  def self.find_by_id(id)
+    rs = Database.query("SELECT * FROM cheets WHERE id = '#{id}'")
+    Cheet.new(rs[0]['id'], rs[0]['username'], rs[0]['cheet'], rs[0]['timestamp'])
+  end
+
 end
