@@ -1,6 +1,6 @@
 ## Overview
 
-This is a simple Twitter clone. Users can sign up and post 'peeps'. Users can log in and log out. Passwords are encrypted with BCrypt.
+This is a simple Twitter clone. Users can sign up and post 'peeps'. Users can log in and log out. Passwords are encrypted with BCrypt. This was a week 4 weekend challenge at Makers.
 
 ![alt text](/public/images/app_homepage.png)
 
