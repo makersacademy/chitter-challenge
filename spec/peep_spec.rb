@@ -21,7 +21,6 @@ describe Peep do
     end
   end
 
-
   describe '.create' do
     it 'adds a peep to the peep feed' do
 
@@ -34,7 +33,6 @@ describe Peep do
     end
   end
 
-
   describe '.delete' do
     it 'deletes a peep from the chitter feed' do
       peep = Peep.create("pizza is red and yellow")
@@ -42,7 +40,6 @@ describe Peep do
       expect(Peep.all.length).to eq(0)
     end
   end
-
 
   describe '.update' do
     it 'updates a peep in the chitter feed' do
@@ -66,8 +63,4 @@ describe Peep do
       expect(result.text).to eq("bees make honey")
     end
   end
-
-
-
-
 end
