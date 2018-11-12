@@ -6,7 +6,7 @@ feature 'Adding peeps' do
     visit('/peeps')
     click_button('Add peep')
     fill_in('text', :with => 'space is black')
-    click_button('Peep!')
+    click_button('Submit')
 
     expect(page).to have_content('space is black')
   end

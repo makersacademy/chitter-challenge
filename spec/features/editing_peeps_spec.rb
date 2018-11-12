@@ -4,7 +4,7 @@ feature 'Edit peeps' do
   # i want to edit a peep
   scenario 'A user can edit a peep' do
 
-    peep = Peep.create('bananas are yellow')
+    peep = Peep.create(text: 'bananas are yellow')
 
     visit('/peeps')
     expect(page).to have_content('bananas are yellow')
