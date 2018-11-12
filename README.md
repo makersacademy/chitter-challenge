@@ -3,7 +3,7 @@ Chitter Challenge
 
  a small Twitter clone that will allow the users to post messages to a public stream.
 
- Tags: MVC, RSpec, TDD, OOP, Sinatra, Capybara, postgreSQL
+ Tags: Ruby, MVC, RSpec, TDD, OOP, Sinatra, Capybara, postgreSQL, CRUD, registration, authentication
 
  ## Domain model
 
@@ -87,6 +87,10 @@ I want to post a message (peep) to chitter
 as a social media user
 so i can remove peeps from my peep feed
 i want to delete a peep
+
+As a social media user 
+So I can fix a typo or a mistake
+I want to be able to edit a peep
 
 As a social media user
 So that I can see what others are saying  
