@@ -46,6 +46,31 @@ Sinatra Framework
 
 ```
 
+
+## Using the app
+
+You will need to create two PostgreSQL databases on your local machine, table names `chitter` and `chitter_test` using the instructions below.
+
+```
+$ git clone https://github.com/Lucx14/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle install
+$ rackup
+```
+## Setting up a local database
+
+I have used psql to connect to a local postgreSQL relational database on my machine. To interact with this program you will need to do the same. Please follow these steps in the terminal
+
+* Connect to psql
+* Create the database using the psql command `CREATE DATABASE chitter;`
+* Connect to the database using the psql command `\c chitter`
+* Run the query I have saved in the file `01_create_peeps_table.sql` (in ./db/migrations)
+* Create a test database using psql command `CREATE DATABASE chitter_test;`
+* Connect to the test database `\c chitter_test`
+* Run the query I have saved in the file `01_create_peeps_table.sql` (in ./db/migrations)
+
+
+
 ## Database Model
 
 Table name: peeps
@@ -57,16 +82,14 @@ Table name: peeps
 | created_at    | timestamp      |
 
 
-## Using the app
 
-You will need to create two PostgreSQL databases on your local machine, table names `chitter` and `chitter_test` using the above table template.
+### To run the app
 
 ```
-$ git clone https://github.com/Lucx14/chitter-challenge.git
-$ cd chitter-challenge
-$ bundle install
 $ rackup
 ```
+Open up a browser and go to the localhost port that the terminal has opened (will probably be localhost:9292)
+
 ### To run tests
 ```
 $ rspec
