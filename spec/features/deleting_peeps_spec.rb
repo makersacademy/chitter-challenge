@@ -3,9 +3,9 @@ feature 'Deleting peeps' do
   # so i can remove peeps from my peep feed
   # i want to delete a peep
   scenario 'A user can delete a peep' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (text) VALUES ('apples are green');")
 
+    Peep.create(text: 'apples are green!')
+   
     visit('/peeps')
     expect(page).to have_content('apples are green')
     first('.peep').click_button('Delete')
