@@ -33,13 +33,13 @@ class Peep
       created_at: result[0]['created_at'])
   end
 
-  def self.delete(id)
+  def self.delete(id:)
     DatabaseConnection.query(
       "DELETE FROM peeps 
        WHERE id = #{id}")
   end
 
-  def self.update(id, text)
+  def self.update(id:, text:)
     result = DatabaseConnection.query(
       "UPDATE peeps 
        SET text='#{text}' 
@@ -51,7 +51,7 @@ class Peep
       created_at: result[0]['created_at'])
   end
 
-  def self.find(id)
+  def self.find(id:)
     result = DatabaseConnection.query(
       "SELECT * 
        FROM peeps 

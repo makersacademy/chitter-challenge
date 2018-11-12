@@ -36,7 +36,7 @@ describe Peep do
   describe '.delete' do
     it 'deletes a peep from the chitter feed' do
       peep = Peep.create(text: "pizza is red and yellow")
-      Peep.delete(peep.id)
+      Peep.delete(id: peep.id)
       expect(Peep.all.length).to eq(0)
     end
   end
@@ -44,7 +44,7 @@ describe Peep do
   describe '.update' do
     it 'updates a peep in the chitter feed' do
       peep = Peep.create(text: "Mug is white")
-      updated_peep = Peep.update(peep.id, "Mug is NOT white")
+      updated_peep = Peep.update(id: peep.id, text: "Mug is NOT white")
 
       expect(updated_peep).to be_a Peep
       expect(updated_peep.id).to eq(peep.id)
@@ -56,7 +56,7 @@ describe Peep do
     it 'returns the requested peep' do
       peep = Peep.create(text: "bees make honey")
 
-      result = Peep.find(peep.id)
+      result = Peep.find(id: peep.id)
 
       expect(result).to be_a Peep
       expect(result.id).to eq(peep.id)
