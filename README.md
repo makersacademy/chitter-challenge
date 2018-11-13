@@ -71,6 +71,7 @@ I have used psql to connect to a local postgreSQL relational database on my mach
 
 * Modify the peeps table for the development and test databases using the query in `02_add_time_to_peeps.sql`
 * Create a table for comments for the development and test databases using the query in `03_create_comments_table.sql`
+* Create a table for users for the development and test databases using the query in `04_create_users_table.sql`
 
 ## Database Model
 
@@ -89,6 +90,14 @@ I have used psql to connect to a local postgreSQL relational database on my mach
 | 1  | I agree!            | 223         |
 | 2  | I don't think so | 223         |
 | 3  | What a cool peep       | 444         |
+
+#### Users table
+
+| id | email                       | password |
+|----|----------------------------|-------------|
+| 1  | test@example.com            | ** Encrypted **         |
+| 2  | luke@gmail.com | ** Encrypted **         |
+| 3  | helen@yahoo.com       | ** Encrypted **         |
 
 ### To run the app
 
