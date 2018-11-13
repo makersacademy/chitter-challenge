@@ -72,6 +72,8 @@ describe Peep do
       expect(result.id).to eq(peep.id)
       expect(result.text).to eq("bees make honey")
     end
+
+    
   end
 
   let(:comment_class) { double(:comment_class) }

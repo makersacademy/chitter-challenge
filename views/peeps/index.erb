@@ -6,7 +6,9 @@
   </head>
   <body>
     <h2>Chitter</h2>
-
+    <% if @user %>
+      <h1>Welcome, <%= @user.email %></h1>
+    <% end %>
     <form class="" action="/peeps/new" method="get">
       <input type="submit" name="" value="Add peep">
     </form>
