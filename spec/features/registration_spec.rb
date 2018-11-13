@@ -9,4 +9,18 @@ feature 'registration' do
     click_button('Submit')
     expect(page).to have_content("Welcome, test@example.com")
   end
+
+  scenario 'email address is already taken' do
+    visit '/users/new'
+    fill_in('email', :with => 'test@example.com')
+    fill_in('password', :with => 'password123')
+    click_button('Submit')
+    click_button('Sign out')
+    visit '/users/new'
+    fill_in('email', :with => 'test@example.com')
+    fill_in('password', :with => 'password321')
+    click_button('Submit')
+    expect(page).to have_content('Error: email already taken!')
+  end
+
 end

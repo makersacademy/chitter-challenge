@@ -18,6 +18,12 @@ describe User do
       User.create(email: 'test@example.com', password: 'password123')
     end
 
+    it 'returns a message if email address is already in the database' do
+      User.create(email: 'test@example.com', password: 'password123')
+      user2 = User.create(email: 'test@example.com', password: 'password321')
+      expect(user2).to eq :non_unique_email
+    end
+
   end
   
   describe '.find' do

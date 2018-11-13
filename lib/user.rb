@@ -11,6 +11,8 @@ class User
   end
 
   def self.create(email:, password:)
+    return :non_unique_email unless unique_email?(email)
+    
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password) 
@@ -44,6 +46,14 @@ class User
     User.new(
       id: result[0]['id'], 
       email: result[0]['email'])
+  end
+
+  def self.unique_email?(email)
+    result = DatabaseConnection.query(
+      "SELECT * 
+       FROM users 
+       WHERE email = '#{email}'")
+    return true unless result.any?
   end
 
 end

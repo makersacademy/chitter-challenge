@@ -60,6 +60,10 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(email: params[:email], password: params[:password])
+    if user.instance_of? Symbol
+      flash[:non_unique_details] = "Error: email already taken!"
+      redirect '/users/new'
+    end
     session[:user_id] = user.id
     redirect '/peeps'
   end
