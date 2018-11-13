@@ -2,12 +2,12 @@ require 'pg'
 
 class Peep
 
-  attr_reader :id, :text, :created_at
+  attr_reader :id, :text, :time
 
-  def initialize(id:, text:, created_at:)
+  def initialize(id:, text:, time:)
     @id = id
     @text = text
-    @created_at = created_at
+    @time = time
   end
 
   def self.all
@@ -18,19 +18,20 @@ class Peep
       Peep.new(
         id: peep["id"], 
         text: peep["text"], 
-        created_at: peep["created_at"])
+        time: peep["time"])
     end.reverse
   end
 
   def self.create(text:)
+    time = format_time
     result = DatabaseConnection.query(
-      "INSERT INTO peeps (text) 
-       VALUES ('#{text}') 
-       RETURNING id, text, created_at;")
+      "INSERT INTO peeps (text, time) 
+       VALUES ('#{text}', '#{time}') 
+       RETURNING id, text, time;")
     Peep.new(
       id: result[0]['id'], 
       text: result[0]['text'], 
-      created_at: result[0]['created_at'])
+      time: result[0]['time'])
   end
 
   def self.delete(id:)
@@ -48,7 +49,7 @@ class Peep
     Peep.new(
       id: result[0]['id'], 
       text: result[0]['text'], 
-      created_at: result[0]['created_at'])
+      time: result[0]['time'])
   end
 
   def self.find(id:)
@@ -59,6 +60,13 @@ class Peep
     Peep.new(
       id: result[0]['id'], 
       text: result[0]['text'], 
-      created_at: result[0]['created_at'])
+      time: result[0]['time'])
   end
+
+  def self.format_time
+    Time.now.strftime("%I:%M%P on %m/%d/%Y")
+  end
+
+  private_class_method :format_time
+
 end

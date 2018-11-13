@@ -34,6 +34,13 @@ describe Peep do
       expect(peep.text).to eq('space is black')
 
     end
+
+    it 'saves the times when the peep is created' do
+      peep = Peep.create(text: 'testing for time')
+      formatted_time = Time.now.strftime("%I:%M%P on %m/%d/%Y")
+      expect(peep.time).to eq formatted_time
+    end
+
   end
 
   describe '.delete' do

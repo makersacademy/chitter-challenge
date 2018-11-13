@@ -69,6 +69,9 @@ I have used psql to connect to a local postgreSQL relational database on my mach
 * Connect to the test database `\c chitter_test`
 * Run the query I have saved in the file `01_create_peeps_table.sql` (in ./db/migrations)
 
+* Modify the peeps table for the development and test databases using the query in `02_add_time_to_peeps.sql`
+
+
 
 
 ## Database Model
@@ -79,7 +82,7 @@ Table name: peeps
 | ------------- | -------------- |
 | id            | int4           |
 | text          | varchar(140)   |
-| created_at    | timestamp      |
+| time    | varchar(60)      |
 
 
 
