@@ -23,4 +23,11 @@ feature 'registration' do
     expect(page).to have_content('Error: email already taken!')
   end
 
+  scenario 'user must provide a valid email address' do
+    visit '/users/new'
+    fill_in(:email, with: 'notanemail')
+    fill_in(:password, with: 'password123')
+    click_button('Submit')
+    expect(page).to have_content "You must enter a valid email address!"
+  end
 end

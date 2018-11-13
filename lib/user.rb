@@ -11,8 +11,9 @@ class User
   end
 
   def self.create(email:, password:)
+    return :invalid_email unless valid_email?(email)
     return :non_unique_email unless unique_email?(email)
-    
+
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
       "INSERT INTO users (email, password) 
@@ -56,4 +57,7 @@ class User
     return true unless result.any?
   end
 
+  def self.valid_email?(email)
+    email =~ URI::MailTo::EMAIL_REGEXP
+  end
 end
