@@ -1,0 +1,1 @@
+CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(140), peep_id INTEGER REFERENCES peeps (id));

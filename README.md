@@ -70,13 +70,11 @@ I have used psql to connect to a local postgreSQL relational database on my mach
 * Run the query I have saved in the file `01_create_peeps_table.sql` (in ./db/migrations)
 
 * Modify the peeps table for the development and test databases using the query in `02_add_time_to_peeps.sql`
-
-
-
+* Create a table for comments for the development and test databases using the query in `03_create_comments_table.sql`
 
 ## Database Model
 
-Table name: peeps
+#### Table name: peeps
 
 | Column name   |  Data type     |
 | ------------- | -------------- |
@@ -84,7 +82,13 @@ Table name: peeps
 | text          | varchar(140)   |
 | time    | varchar(60)      |
 
+#### Peeps has a one to many relationship with comments
 
+| id | text                       | peep_id |
+|----|----------------------------|-------------|
+| 1  | I agree!            | 223         |
+| 2  | I don't think so | 223         |
+| 3  | What a cool peep       | 444         |
 
 ### To run the app
 
