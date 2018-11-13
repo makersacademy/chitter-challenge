@@ -26,7 +26,7 @@ describe Peep do
     it 'adds a peep to the peep feed' do
 
       peep = Peep.create(text: 'space is black')
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(id: peep.id, table: 'peeps')
 
       expect(peep).to be_a Peep
       expect(peep).to respond_to(:id)
@@ -71,6 +71,26 @@ describe Peep do
       expect(result).to be_a Peep
       expect(result.id).to eq(peep.id)
       expect(result.text).to eq("bees make honey")
+    end
+  end
+
+  let(:comment_class) { double(:comment_class) }
+
+  describe '#comments' do
+    it 'returns a list of comments on the peep' do
+      peep = Peep.create(text: 'Testing123')
+
+      DatabaseConnection.query("INSERT INTO comments (id, text, peep_id) VALUES(1, 'Test comment', #{peep.id})")
+      comment = peep.comments.first
+
+      expect(comment.text).to eq 'Test comment'
+    end
+
+    it 'calls .where on the Comment class' do
+      peep = Peep.create(text: 'Test Peep')
+      expect(comment_class).to receive(:where).with(peep_id: peep.id)
+
+      peep.comments(comment_class)
     end
   end
 end

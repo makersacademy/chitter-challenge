@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require './lib/peep'
 require_relative './database_connection_setup'
 require 'uri'
+require './lib/comment'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
@@ -37,6 +38,16 @@ class Chitter < Sinatra::Base
 
   patch '/peeps/:id' do
     Peep.update(id: params[:id], text: params[:text])
+    redirect '/peeps'
+  end
+
+  get '/peeps/:id/comments/new' do
+    @peep_id = params[:id]
+    erb :'comments/new'
+  end
+
+  post '/peeps/:id/comments' do
+    Comment.create(text: params[:comment], peep_id: params[:id])
     redirect '/peeps'
   end
 

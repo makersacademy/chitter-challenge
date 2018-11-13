@@ -63,6 +63,10 @@ class Peep
       time: result[0]['time'])
   end
 
+  def comments(comment_class = Comment)
+    comment_class.where(peep_id: id)
+  end 
+
   def self.format_time
     Time.now.strftime("%I:%M%P on %m/%d/%Y")
   end
