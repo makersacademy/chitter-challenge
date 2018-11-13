@@ -28,7 +28,6 @@ describe Peep do
       peep = Peep.create(text: 'space is black')
       persisted_data = persisted_data(id: peep.id)
 
-
       expect(peep).to be_a Peep
       expect(peep).to respond_to(:id)
       expect(peep.id).to eq persisted_data.first['id']
