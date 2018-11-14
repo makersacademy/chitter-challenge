@@ -1,18 +1,40 @@
-<h4>Register/ Sign-up</h4>
-<p><%=  flash[:non_unique_details] %></p>
-<form class="" action="/users" method="post">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chitter: Sign up</title>
+  </head>
+  <body>
+    <h4>Register/ Sign-up</h4>
+    <p><%=  flash[:non_unique_details] %></p>
+    <form class="" action="/users" method="post">
 
-  <label for="">
-    Email address:
-    <br>
-    <input type="email" name="email" value="">
-  </label>
-  <br>
-  <label for="">
-    Password:
-    <br>
-    <input type="password" name="password" value="">
-  </label>
+      <label for="">
+        Email address:
+        <br>
+        <input type="email" name="email" value="">
+      </label>
 
-  <input type="submit" name="" value="Submit">
-</form>
+      <br>
+
+      <label for="">
+        Password:
+        <br>
+        <input type="password" name="password" value="">
+      </label>
+
+      <input type="submit" name="" value="Submit">
+    </form>
+
+    <h4>Already signed up? Please click below to log in</h4>
+    <form action="/sessions/new" method="get">
+      <input type="submit" value="Sign in">
+    </form>
+
+  </body>
+</html>
+
+
+

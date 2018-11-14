@@ -2,12 +2,23 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Chitter: Log in</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chitter: Welcome</title>
   </head>
   <body>
     <h3>Chitter</h3>
     <form class="" action="/users/new" method="get">
-      <input type="submit" name="" value="Register/ Sign-up">
+      <label>
+        New user
+        <input type="submit" name="" value="Register/ Sign-up">
+      </label>
+    </form>
+    <form action="/sessions/new" method="get">
+      <label>
+        Existing user
+        <input type="submit" value="Sign in">
+      </label>
     </form>
   </body>
 </html>

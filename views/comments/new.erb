@@ -1,4 +1,17 @@
-<form action="/peeps/<%= @peep_id %>/comments" method="POST">
-  <input name="comment" type="text" />
-  <input value="Submit" type="submit" />
-</form>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chitter: add comment</title>
+  </head>
+  <body>
+    <form action="/peeps/<%= @peep_id %>/comments" method="POST">
+      <input name="comment" type="text" />
+      <input value="Submit" type="submit" />
+    </form>
+  </body>
+</html>
+
+
