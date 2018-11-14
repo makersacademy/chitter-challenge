@@ -9,7 +9,7 @@
   <body>
     <h2>Chitter</h2>
     <% if @user %>
-      <h1>Welcome, <%= @user.email %></h1>
+      <h3>Welcome, <%= @user.email %></h3>
     <% end %>
     <form action="/sessions/destroy" method="post">
       <input type="submit" value="Sign out">
@@ -25,7 +25,7 @@
       <li class="peep" id="peep-<%= peep.id %>">
         <%= peep.text %>
         <br>
-        <p><%= peep.time %></p>
+        <p><%= @user.email %>: <%= peep.time %></p>
         <form class="" action="/peeps/<%= peep.id %>" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" name="" value="Delete">
