@@ -4,14 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
     <title>Chitter: add comment</title>
   </head>
   <body>
     <form action="/peeps/<%= @peep_id %>/comments" method="POST">
+      <h4>Add a comment...</h4>
       <input name="comment" type="text" />
-      <input value="Submit" type="submit" />
+      <br>
+      <input class="button" value="Submit" type="submit" />
     </form>
   </body>
 </html>
+
 
 

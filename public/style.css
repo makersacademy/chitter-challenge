@@ -1,0 +1,100 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-image: url("https://images.unsplash.com/photo-1518112166137-85f9979a43aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ab674267a8f6ab5dcd8923dc6cbb6541&auto=format&fit=crop&w=668&q=80");
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.main {
+    margin-top: 80px;
+}
+
+.header {
+    text-align: center;
+    width: 70%;
+    margin: 0px auto;
+    padding-bottom: 30px;
+}
+
+.peeps-container {
+    width: 70%;
+    margin: 0px auto;
+}
+
+.single-peep {
+    width: 80%;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.peep-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.comments {
+   
+    margin: 10px 0px;
+    text-align: left;
+}
+
+
+.welcome {
+    font-size: 20px;
+    width: 300px;
+    font-style: italic;
+    position: absolute;
+    top: 0px;
+}
+
+.sign-out {
+   position: absolute;
+   right: 20%;
+   top: 20px;
+}
+
+.peep-body {
+    background-color: rgba(211, 211, 211, 0.185);
+}
+
+h3 {
+    font-size: 60px;
+    font-weight: lighter;
+}
+
+h4 {
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+.button {
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin: 0px 10px;
+}
+
+.button:hover {
+    opacity: 0.6;
+}
+
+.user-login {
+    margin-top: 70px;
+    font-size: 30px;
+}
+
+.peep-time {
+    font-style: italic;
+    font-size: 15px;
+    text-align: right;
+    margin-right: 30px;
+    
+}
+
+.peep-text {
+    font-size: 20px;
+}
+

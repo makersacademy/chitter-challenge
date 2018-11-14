@@ -4,49 +4,86 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
     <title>Chitter: peeps</title>
   </head>
   <body>
-    <h2>Chitter</h2>
-    <% if @user %>
-      <h3>Welcome, <%= @user.email %></h3>
-    <% end %>
-    <form action="/sessions/destroy" method="post">
-      <input type="submit" value="Sign out">
-    </form>
-    <form class="" action="/peeps/new" method="get">
-      <input type="submit" name="" value="Add peep">
-    </form>
 
-
-
-    <ul>
-      <% @peeps.each do |peep| %>
-      <li class="peep" id="peep-<%= peep.id %>">
-        <%= peep.text %>
-        <br>
-        <p><%= @user.email %>: <%= peep.time %></p>
-        <form class="" action="/peeps/<%= peep.id %>" method="post">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" name="" value="Delete">
-        </form>
-
-        <form class="" action="/peeps/<%= peep.id %>/edit" method="get">
-          <input type="submit" name="" value="Edit">
-        </form>
-        <form action="/peeps/<%= peep.id %>/comments/new" method="get">
-          <input type="submit" value="Add Comment" />
-        </form>
-        <ul>
-          <% peep.comments.each do |comment| %>
-            <li><%= comment.text %></li>
-          <% end %>
-        </ul>
-      </li>
+    <div class="header">
+      <h3 class="header-title">Chitter</h3>
+      <% if @user %>
+      <h4 class="welcome">Welcome, <%= @user.email %></h4>
       <% end %>
-    </ul>
-    <h2>
-      <%= flash[:notice] %>
-    </h2>
+
+
+      <form class="sign-out" action="/sessions/destroy" method="post">
+        <input class="button" type="submit" value="Sign out">
+      </form>
+
+      <form class="add-peep" action="/peeps/new" method="get">
+        <input class="button" type="submit" name="" value="Add peep">
+      </form>
+
+    </div>
+    
+
+
+    <div class="peeps-container">
+    
+      <ul>
+        
+        <% @peeps.each do |peep| %>
+        <div class="single-peep">
+          <li class="peep" id="peep-<%= peep.id %>">
+            <div class="peep-body">
+              <p class="peep-text"><%= peep.text %></p>
+              <br>
+              <p class="peep-time"><%= @user.email %>: <%= peep.time %></p>
+            </div>
+            
+
+            <div class="peep-buttons">
+
+              <form action="/peeps/<%= peep.id %>/comments/new" method="get">
+                <input class="button" type="submit" value="Add Comment" />
+              </form>
+
+              <form class="" action="/peeps/<%= peep.id %>/edit" method="get">
+                <input class="button" type="submit" name="" value="Edit">
+              </form>
+              
+              <form class="" action="/peeps/<%= peep.id %>" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <input class="button" type="submit" name="" value="Delete">
+              </form>
+
+              
+
+              
+            </div>
+            
+            <div class="comments">
+              <ul>
+                <% peep.comments.each do |comment| %>
+                <li><%= comment.text %></li>
+                <% end %>
+              </ul>
+            </div>
+              
+          </li>
+        </div>
+        <% end %>
+      
+
+      </ul>
+    </div>
+    
+    <div class="flash">
+      <h2>
+        <%= flash[:notice] %>
+      </h2>
+    </div>
+    
   </body>
 </html>

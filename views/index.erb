@@ -4,22 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
     <title>Chitter: Welcome</title>
   </head>
   <body>
-    <h3>Chitter</h3>
-    <h4>Please Sign up or Sign in</h4>
-    <form class="" action="/users/new" method="get">
-      <label>
-        New user
-        <input type="submit" name="" value="Sign up">
-      </label>
-    </form>
-    <form action="/sessions/new" method="get">
-      <label>
-        Existing user
-        <input type="submit" value="Sign in">
-      </label>
-    </form>
+    <div class="main">
+      <h3>Chitter</h3>
+      <h4>Please Sign up or Sign in</h4>
+
+
+      <div class="user-login">
+        <form class="" action="/users/new" method="get">
+          <label>
+            New user
+            <br>
+            <input class="button" type="submit" name="" value="Sign up">
+          </label>
+        </form>
+        <br>
+        <form action="/sessions/new" method="get">
+          <label>
+            Existing user
+            <br>
+            <input class="button" type="submit" value="Sign in">
+          </label>
+        </form>
+      </div>
+
+
+    </div>
+    
+    
   </body>
 </html>
