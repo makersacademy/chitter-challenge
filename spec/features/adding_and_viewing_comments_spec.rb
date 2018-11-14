@@ -1,7 +1,9 @@
+require_relative 'web_helpers'
+
 feature 'Adding and viewing comments' do    
   scenario 'a comment is added to a peep' do
     peep = Peep.create(text: 'test peep')
-
+    sign_up
     visit '/peeps'
     first('.peep').click_button 'Add Comment'
 

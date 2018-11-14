@@ -1,3 +1,5 @@
+require_relative 'web_helpers'
+
 feature 'Edit peeps' do
   # as a social media user
   # so that i can make changes to a previous peep
@@ -5,7 +7,7 @@ feature 'Edit peeps' do
   scenario 'A user can edit a peep' do
 
     peep = Peep.create(text: 'bananas are yellow')
-
+    sign_up
     visit('/peeps')
     expect(page).to have_content('bananas are yellow')
 
@@ -19,5 +21,4 @@ feature 'Edit peeps' do
     expect(page).not_to have_content("bananas are yellow")
     expect(page).to have_content("bananas are red")
   end
-
 end

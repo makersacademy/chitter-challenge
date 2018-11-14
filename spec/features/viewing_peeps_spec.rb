@@ -1,3 +1,5 @@
+require_relative 'web_helpers'
+
 feature 'Viewing peeps' do
   # as a social media user
   # so i can see the chitter feed
@@ -6,7 +8,7 @@ feature 'Viewing peeps' do
     Peep.create(text: 'the sky is blue')
     Peep.create(text: 'the sea is green')
     Peep.create(text: 'fire is red')
-  
+    sign_up
     visit('/peeps')
 
     expect(page).to have_content("the sky is blue")

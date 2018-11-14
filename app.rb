@@ -16,8 +16,13 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @user = User.find(id: session[:user_id])
-    @peeps = Peep.all
-    erb :'peeps/index'
+    if session[:user_id].nil? 
+      redirect '/'
+    else
+      @peeps = Peep.all
+      erb :'peeps/index'
+    end
+    
   end
 
   get '/peeps/new' do
