@@ -39,7 +39,7 @@
             <div class="peep-body">
               <p class="peep-text"><%= peep.text %></p>
               <br>
-              <p class="peep-time"><%= @user.email %>: <%= peep.time %></p>
+              <p class="peep-time"><%= peep.email %>: <%= peep.time %></p>
             </div>
             
 
@@ -49,6 +49,7 @@
                 <input class="button" type="submit" value="Add Comment" />
               </form>
 
+              <% if @user.email == peep.email %>
               <form class="" action="/peeps/<%= peep.id %>/edit" method="get">
                 <input class="button" type="submit" name="" value="Edit">
               </form>
@@ -57,16 +58,16 @@
                 <input type="hidden" name="_method" value="DELETE">
                 <input class="button" type="submit" name="" value="Delete">
               </form>
-
-              
-
+              <% end %>
               
             </div>
             
             <div class="comments">
               <ul>
                 <% peep.comments.each do |comment| %>
+                <% if comment.text.length > 0 %>
                 <li><%= comment.text %></li>
+                <% end %>
                 <% end %>
               </ul>
             </div>

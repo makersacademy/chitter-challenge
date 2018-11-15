@@ -6,7 +6,8 @@ require 'peep'
 describe Comment do 
   describe '.create' do
     it 'creates a new comment' do
-      peep = Peep.create(text: 'Test 123')
+      user = User.create(email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: 'Test 123', user_id: user.id)
       comment = Comment.create(text: 'This is a test comment', peep_id: peep.id)
 
       persisted_data = persisted_data(table: 'comments', id: comment.id)
@@ -20,7 +21,8 @@ describe Comment do
 
   describe '.where' do
     it 'gets the relevant comments from the database' do
-      peep = Peep.create(text: 'Testing 123')
+      user = User.create(email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: 'Testing 123', user_id: user.id)
       Comment.create(text: 'This is a test comment', peep_id: peep.id)
       Comment.create(text: 'This is a second test comment', peep_id: peep.id)
 

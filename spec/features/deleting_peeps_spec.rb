@@ -5,9 +5,14 @@ feature 'Deleting peeps' do
   # so i can remove peeps from my peep feed
   # i want to delete a peep
   scenario 'A user can delete a peep' do
-
-    Peep.create(text: 'apples are green!')
-    sign_up
+    user = User.create(email: 'test@example.com', password: 'password123')
+    visit('/')
+    click_button('Sign in')
+    fill_in(:email, with: 'test@example.com')
+    fill_in(:password, with: 'password123')
+    click_button('Sign in')
+    Peep.create(text: 'apples are green!', user_id: user.id)
+    
     visit('/peeps')
     expect(page).to have_content('apples are green')
     first('.peep').click_button('Delete')

@@ -2,15 +2,18 @@ require 'peep'
 require 'database_helpers'
 
 describe Peep do
+
+  # before do
+  #   user = User.create(email: 'test@example.com', password: 'password123')
+  # end
+
   describe '.all' do
     it 'returns all peeps' do
-
-      connection = PG.connect(dbname: 'chitter_test')
-
-      connection.exec("INSERT INTO peeps (text) VALUES ('the sky is blue');")
-      connection.exec("INSERT INTO peeps (text) VALUES ('the sea is green');")
-      connection.exec("INSERT INTO peeps (text) VALUES ('fire is red');")
-
+      user = User.create(email: 'test@example.com', password: 'password123')
+      Peep.create(text: 'the sky is blue', user_id: user.id)
+      Peep.create(text: 'the sea is green', user_id: user.id)
+      Peep.create(text: 'fire is red', user_id: user.id)
+ 
       peeps = Peep.all
 
       peep = peeps.first
@@ -24,8 +27,8 @@ describe Peep do
 
   describe '.create' do
     it 'adds a peep to the peep feed' do
-
-      peep = Peep.create(text: 'space is black')
+      user = User.create(email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: 'space is black', user_id: user.id)
       persisted_data = persisted_data(id: peep.id, table: 'peeps')
 
       expect(peep).to be_a Peep
@@ -36,7 +39,8 @@ describe Peep do
     end
 
     it 'saves the times when the peep is created' do
-      peep = Peep.create(text: 'testing for time')
+      user = User.create(email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: 'testing for time', user_id: user.id)
       formatted_time = Time.now.strftime("%I:%M%P on %m/%d/%Y")
       expect(peep.time).to eq formatted_time
     end
@@ -45,7 +49,8 @@ describe Peep do
 
   describe '.delete' do
     it 'deletes a peep from the chitter feed' do
-      peep = Peep.create(text: "pizza is red and yellow")
+      user = User.create(email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: "pizza is red and yellow", user_id: user.id)
       Peep.delete(id: peep.id)
       expect(Peep.all.length).to eq(0)
     end
@@ -53,7 +58,8 @@ describe Peep do
 
   describe '.update' do
     it 'updates a peep in the chitter feed' do
-      peep = Peep.create(text: "Mug is white")
+      user = User.create(email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: "Mug is white", user_id: user.id)
       updated_peep = Peep.update(id: peep.id, text: "Mug is NOT white")
 
       expect(updated_peep).to be_a Peep
@@ -64,7 +70,8 @@ describe Peep do
 
   describe '.find' do
     it 'returns the requested peep' do
-      peep = Peep.create(text: "bees make honey")
+      user = User.create(email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: "bees make honey", user_id: user.id)
 
       result = Peep.find(id: peep.id)
 
@@ -80,7 +87,8 @@ describe Peep do
 
   describe '#comments' do
     it 'returns a list of comments on the peep' do
-      peep = Peep.create(text: 'Testing123')
+      user = User.create(email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: 'Testing123', user_id: user.id)
 
       DatabaseConnection.query("INSERT INTO comments (id, text, peep_id) VALUES(1, 'Test comment', #{peep.id})")
       comment = peep.comments.first
@@ -89,7 +97,8 @@ describe Peep do
     end
 
     it 'calls .where on the Comment class' do
-      peep = Peep.create(text: 'Test Peep')
+      user = User.create(email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: 'Test Peep', user_id: user.id)
       expect(comment_class).to receive(:where).with(peep_id: peep.id)
 
       peep.comments(comment_class)
