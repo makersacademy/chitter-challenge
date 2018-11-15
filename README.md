@@ -72,6 +72,7 @@ I have used psql to connect to a local postgreSQL relational database on my mach
 * Modify the peeps table for the development and test databases using the query in `02_add_time_to_peeps.sql`
 * Create a table for comments for the development and test databases using the query in `03_create_comments_table.sql`
 * Create a table for users for the development and test databases using the query in `04_create_users_table.sql`
+* Modify the peeps table for the development and test databases using the query in `05_add_userid_to_peeps.sql`
 
 ## Database Model
 
@@ -82,6 +83,7 @@ I have used psql to connect to a local postgreSQL relational database on my mach
 | id            | int4           |
 | text          | varchar(140)   |
 | time    | varchar(60)      |
+| user_id | INTEGER REFERENCES users (id)
 
 #### Peeps has a one to many relationship with comments
 
@@ -155,8 +157,3 @@ As a social media user
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
-
-# Project reflection
-
-This was one of our first projects at Makers where we were exposed to the MVC structure and use of databases. We had the weekend to implement as much functionality as possible. I tried to focus on getting the CRUD functionality for the peeps working and would have like to have had more time to work on user sign in and sign out and building a users table in the database.  
-
