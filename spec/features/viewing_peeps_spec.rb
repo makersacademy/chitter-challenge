@@ -1,12 +1,7 @@
 require 'timecop'
 require 'peep'
 
-feature 'Viewing hompage' do
-  scenario 'A user can see peeps' do
-    visit('/')
-    expect(page).to have_content "Timeline"
-  end
-end
+feature 'Hompage' do
 
   feature 'Viewing peeps' do
     scenario 'Users can view posted peeps time in reverse chronological order' do
@@ -18,3 +13,4 @@ end
       expect(page).to have_content("Second peep is also here! Posted at: #{time.strftime("%Y-%m-%d")}\nFirst peep here! Posted at: #{time.strftime("%Y-%m-%d")}")
     end
   end
+end

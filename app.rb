@@ -20,6 +20,11 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/peeps/new' do
+    erb :"peeps/new"
+  end
+
+
   get '/' do
     "Timeline"
   end

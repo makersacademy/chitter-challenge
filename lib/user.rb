@@ -12,9 +12,9 @@ class User
     @password = password
   end
 
-  def self.all
-    results = DatabaseConnection.query("SELECT * FROM users")
-    results.map { |user| User.new(
+  def self.all(id)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+    result.map { |user| User.new(
       user['id'],
       user['name'],
       user['email'],
