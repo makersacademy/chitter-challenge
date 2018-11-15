@@ -6,7 +6,6 @@ feature 'Adding peeps' do
   # i want to post a message (peep) to chitter.
   scenario 'A user can add a peep' do
     sign_up
-    visit('/peeps')
     click_button('Add peep')
     fill_in('text', :with => 'space is black')
     click_button('Submit')

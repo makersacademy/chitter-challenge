@@ -6,14 +6,9 @@ feature 'Edit peeps' do
   # i want to edit a peep
   scenario 'A user can edit a peep' do
     user = User.create(email: 'test@example.com', password: 'password123')
-    visit('/')
-    click_button('Sign in')
-    fill_in(:email, with: 'test@example.com')
-    fill_in(:password, with: 'password123')
-    click_button('Sign in')
     peep = Peep.create(text: 'bananas are yellow', user_id: user.id)
-    
-    visit('/peeps')
+    sign_in
+  
     expect(page).to have_content('bananas are yellow')
 
     first('.peep').click_button('Edit')

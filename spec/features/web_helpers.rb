@@ -7,7 +7,6 @@ def sign_up
 end
 
 def sign_in
-  User.create(email: 'test@example.com', password: 'password123')
   visit('/')
   click_button('Sign in')
   fill_in(:email, with: 'test@example.com')
