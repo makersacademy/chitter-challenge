@@ -11,13 +11,13 @@ gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
-  gem 'cucumber'
-  gem 'rspec'
   gem 'coveralls', require: false
-  gem 'rubocop'
-  gem 'rubocop-rspec'
+  gem 'cucumber'
   gem 'pg'
   gem 'rack-test'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'timecop'
 
   gem 'simplecov', require: false

@@ -22,7 +22,7 @@ class Peep
       )
     end
   end
-
+  
   def self.create(message:, created_at:)
     result = DatabaseConnection.query("INSERT INTO peeps
       (message, created_at) VALUES('#{message}', '#{created_at.strftime("%Y-%m-%d %k:%M")}')
@@ -31,5 +31,5 @@ class Peep
       id: result[0]['id'],
       message: result[0]['message'],
       created_at: result[0]['created_at'])
-   end
+  end
 end

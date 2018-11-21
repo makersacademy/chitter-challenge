@@ -39,24 +39,24 @@ class User
 
   def self.find(id:)
     return nil unless id
-   result = DatabaseConnection.query("SELECT * FROM users WHERE id = id ")
-   User.new(
-     id: result[0]['id'],
-     name: result[0]['name'],
-     email: result[0]['email'],
-     password: result[0]['password']
-  )
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = id ")
+    User.new(
+      id: result[0]['id'],
+      name: result[0]['name'],
+      email: result[0]['email'],
+      password: result[0]['password']
+   )
   end
 
- def self.authenticate(name:, password:)
-   result = DatabaseConnection.query("SELECT * FROM users WHERE name = '#{name}'")
-   return unless result.any?
-   return unless BCrypt::Password.new(result[0]['password']) == password
-   User.new(
-     id: result[0]['id'],
-     name: result[0]['name'],
-     email: result[0]['email'],
-     password: result[0]['password']
-   )
- end
+  def self.authenticate(name:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE name = '#{name}'")
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    User.new(
+      id: result[0]['id'],
+      name: result[0]['name'],
+      email: result[0]['email'],
+      password: result[0]['password']
+    )
+  end
 end
