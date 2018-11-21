@@ -1,3 +1,7 @@
+<% if @user %>
+  <h2>Welcome, <%= @user.email %></h2>
+<% end %>
+
 <ul class="list-group">
     <% @peeps.reverse_each do |peep| %>
       <ol class="list-group-item">

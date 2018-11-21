@@ -1,9 +1,9 @@
 
 <h1>Welcome,
-      <%= @user.name %></h1>
+      <%= @user.email %></h1>
     <h2>@<%= @user.username %></h2>
   <% end %>
-  
+
 <ul class="list-group">
    <% @peeps.reverse_each do |peep| %>
      <ol class="list-group-item">

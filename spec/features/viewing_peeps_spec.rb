@@ -11,6 +11,7 @@ feature 'Hompage' do
       end
       visit('/peeps')
       expect(page).to have_content("Second peep is also here! Posted at: #{time.strftime("%Y-%m-%d")}\nFirst peep here! Posted at: #{time.strftime("%Y-%m-%d")}")
+      
     end
   end
 end

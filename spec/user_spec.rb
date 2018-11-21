@@ -20,6 +20,6 @@ describe '.find' do
     result = User.find(id: user)
 
     expect(result.id).to eq user.id
-    expect(result).to eq user.name
+    expect(result.name).to eq user.name
   end
 end
