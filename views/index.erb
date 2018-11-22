@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chitter App</title>
+  <head>
+
+<body>
+
+  <h1> Welcome to Chitter Ver1 </h1>
+  <br>
+  <h3>Please enter your message.</h3>
+  <br>
+  <form action="/chitter" method="post">
+    <input type="text" name="message" placeholder="Add message" />
+    <input type="submit" value="Submit" />
+  </form>
+  <br>
+  <%= @message %>
+
+</body>
+</html>

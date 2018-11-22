@@ -3,7 +3,13 @@ require 'sinatra/base'
 
 class ChitterApp < Sinatra::Base
 
-  get '/chitter' do 
-   'Hello world'
+  get '/chitter' do
+    @message = params[:message]
+    erb :index
+  end
+
+  post '/chitter' do
+    @message = params[:message]
+    erb :index
   end
 end
