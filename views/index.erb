@@ -8,15 +8,19 @@
 <body>
 
   <h1> Welcome to Chitter Ver1 </h1>
-  <br>
-  <h3>Please enter your message.</h3>
+  <h3> Please enter your message.</h3>
   <br>
   <form action="/chitter" method="post">
-    <input type="text" name="message" placeholder="Add message" />
+    <input type="text" name="message" placeholder="Add message" size="80" />
     <input type="submit" value="Submit" />
   </form>
   <br>
   <%= @message %>
-
+  <br>
+  <h3> Click to add your message to Chitter. </h3>
+  <button type="button" name="add_message">Add Message</button>
+  <br>
+  <hr>
+  <br>
 </body>
 </html>
