@@ -11,15 +11,16 @@ feature 'view peeps' do
     Peep.create(description: 'two')
     Peep.create(description: 'three')
     visit('/')
-    expect(page.find('li:nth-child(3)')).to have_content 'one'
+    expect(page.find('li', match: :first)).to have_content 'three'
   end
 
   scenario 'view time the peep was made' do
-    Peep.create(description: 'one')
+    peep = Peep.create(description: 'one')
     Peep.create(description: 'two')
     Peep.create(description: 'three')
     visit('/')
     
+    expect(page).to have_content(peep[0]['creation_time'])
   end
 
 end
