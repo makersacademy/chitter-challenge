@@ -1,0 +1,5 @@
+Welcome to Chitter <br>
+
+<% @peeps.each do |peep| %>
+  <%= "#{peep.username}: #{peep.content}" %>
+<% end %>
