@@ -1,1 +1,12 @@
-<h1>HELLO WORLD</h1>
+<h1>CHITTER</h1>
+
+<ul>
+<% @peeps.each do |peep| %>
+  <% user = User.retrieve(user_id: peep.user_id) %>
+  <%= "<li>#{peep.message}" %>
+  <ul>
+  <%= "<li><strong>#{user.handle}</strong> (#{user.display_name})" %>
+  <%= "<li><em>at #{peep.date}</em>" %>
+  </ul>
+<% end %>
+</ul>
