@@ -10,7 +10,7 @@ class Peep
   def self.all
     db = connect()
 
-    result = db.exec("SELECT * FROM peeps;")
+    result = db.exec("SELECT * FROM peeps ORDER BY id DESC;")
 
     result.map { |peeps| peeps}
   end
