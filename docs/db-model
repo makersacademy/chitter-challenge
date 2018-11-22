@@ -1,17 +1,18 @@
 TABLE messages
 - id SERIAL PRIMARY KEY
 - text VARCHAR(140)
-- date_time_posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+- date_and_time_posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 - user VARCHAR(16) FOREIGN KEY REFERENCES users(username)
-  # user should be set UNIQUE when user accounts are implemented
-  # otherwise will allow posting messages without signing up
+  # user NOT NULL should be enforced when user accounts are implemented,
+  # otherwise messages can be posted without signing up
 
 TABLE users
-- username VARCHAR(16) NOT NULL PRIMARY KEY
+- username VARCHAR(16) PRIMARY KEY
 - email VARCHAR NOT NULL UNIQUE
-- name TEXT NOT NULL
+- name VARCHAR NOT NULL
 - password VARCHAR(16)
 - CHECK password LIKE '______%'
   # password should be no less than 6 characters long
-- CHECK name NOT LIKE '%[^a-zA-Z'-]%'
-  # name should contain alphabetic characters only
+- CHECK name NOT LIKE '%[^a-zA-Z''-]%'
+  # name should contain alphabetic characters [and ' and -] only
+  # escaping ' was tested in TablePlus, which failed when using \'
