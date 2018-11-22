@@ -12,9 +12,9 @@ describe Peep do
       peep = Peep.create(description: 'This is my first peep')
       Peep.create(description: 'The second peep')
       Peep.create(description: 'The third peep')
-    
+
       result = Peep.all
-      expect(result.first['description']).to eq('The third peep')
+      expect(result[0].description).to eq('The third peep')
     end
   end
 

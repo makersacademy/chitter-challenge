@@ -12,10 +12,11 @@
 		<input type='submit' name='submit' value='submit'>
   </form>
 
-  <ul>
     <% @peeps.each do |peep| %>
-      <li class="w3-panel w3-card"><%= peep['description'] %></li>
+      <ul>
+        <li class="w3-panel w3-card"><%= peep.description %>  </li>
+        <li>time_made: <%= peep.creation_time %></li>
+      </ul>
     <% end %>
-  </ul>
   
 </body>
