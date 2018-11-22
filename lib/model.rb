@@ -1,4 +1,8 @@
+require 'pg'
+
 class ChitterHandler
+  @connection = PG.connect :dbname => 'chitter'
+
   DEFAULT_PEEPS = [
     "The first peep on Chitter!",
     "Coming up with fun examples is HARD..."
@@ -6,7 +10,7 @@ class ChitterHandler
 
   class << self
     def retrieve_peeps
-      DEFAULT_PEEPS
+      @connection.exec("SELECT * FROM peeps").each.to_a
     end
   end
 end
