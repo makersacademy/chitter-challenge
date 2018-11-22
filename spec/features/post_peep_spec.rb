@@ -6,11 +6,11 @@ feature 'post a peep' do
     expect(current_path).to eq('/')
   end
 
-  scenario 'view peeps in reverse chronological order' do
-
-  end
-
-  scenario 'peeps show time posted' do
-
-  end
+  # scenario 'view peeps in reverse chronological order' do
+  #
+  # end
+  #
+  # scenario 'peeps show time posted' do
+  #
+  # end
 end
