@@ -4,6 +4,10 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
+  get '/' do
+    redirect '/cheets'
+  end
+
   get '/cheets' do
     erb(:"cheets/index")
   end
