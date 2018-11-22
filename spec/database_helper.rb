@@ -6,9 +6,13 @@ def reset_test_database
   connection.exec("TRUNCATE peeps;")
 
   connection.exec "INSERT INTO peeps(username, content)
-                   VALUES('danusia.x', 'Hello Chitter!'),
-                   ('hulgoblin', 'May Day is approaching'),
-                   ('alittlecross','What?!');"
+                   VALUES ('hulbgoblin', 'May Day is approaching');"
+
+  connection.exec "INSERT INTO peeps(username, content)
+                   VALUES ('alittlecross','What?!');"
+
+  connection.exec "INSERT INTO peeps(username, content)
+                   VALUES('danusia.x', 'Hello Chitter!');"
 
 end
 
