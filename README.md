@@ -10,6 +10,16 @@ User accounts will require a username and email address (both of which must be u
 
 ---
 
+### Instructions
+
+1. Clone this repo
+2. Run `bundle` from the command line while inside the repo
+3. To run the app, type `rackup` from the command line while inside the repo, then open your browser and enter `localhost:9292` in the address bar (9292 is the default port for `rackup` - you can optionally specify a different port e.g. `rackup -p 1234`)
+
+Tests have been set up to run with RSpec and Capybara. You can run the full suite using `rspec` or run a specific feature/unit spec file e.g. `rspec spec/features/chitter_spec.rb`
+
+---
+
 ### Implementation
 
 The `docs` directory includes a `db-model` file with details of the planned database contents, and a `user-stories` file listing the features specified by MA.
