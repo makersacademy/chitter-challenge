@@ -105,3 +105,13 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+# SETUP CHITTER DATABASE
+1. CREATE DATABASE chitter;
+2. CREATE TABLE users (user_id SERIAL PRIMARY KEY, handle VARCHAR(15), email VARCHAR(128), password VARCHAR(128), display_name VARCHAR(50));
+3. CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, message VARCHAR(280), date TIMESTAMP, user_id INTEGER, reply_to INTEGER);
+
+# SETUP CHITTER TEST DATABASE
+1. CREATE DATABASE chitter_test;
+2. CREATE TABLE users (user_id SERIAL PRIMARY KEY, handle VARCHAR(15), email VARCHAR(128), password VARCHAR(128), display_name VARCHAR(50));
+3. CREATE TABLE peeps (peep_id SERIAL PRIMARY KEY, message VARCHAR(280), date TIMESTAMP, user_id INTEGER, reply_to INTEGER);
