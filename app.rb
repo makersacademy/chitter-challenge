@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep/new' do
-    Peep.new(peep: params[:peep])
+    Peep.create(description: params[:peep])
   end
 
 end
