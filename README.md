@@ -40,6 +40,9 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+
+![Alt text](./images/chitter_diagram.png)
+Format: ![Alt Text](url)
 ```
 ![domain model](/Users/karenroberts/projects/chitter-challenge/images/chitter_diagram.png)
 
