@@ -4,8 +4,8 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
-  get '/' do
-    "Hello World!"
+  get '/cheets' do
+    erb(:"cheets/index")
   end
 
   run! if app_file == $0
