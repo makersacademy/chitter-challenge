@@ -25,6 +25,8 @@ I want to post a message (peep) to chitter
 `run from command line using 'rackup'`
 `open browser and enter 'http:/localhost:(servernumber)'``
 
+`1. CREATE TABLE peep(id SERIAL PRIMARY KEY, message VARCHAR(200));`
+
 ## Running tests
 
 `test_command` (`rspec`)`
