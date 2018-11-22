@@ -6,7 +6,6 @@ require './lib/users.rb'
 class Controller < Sinatra::Base
   enable :sessions
   get '/' do
-    p "session username is equal to #{session[:username]}"
     @peeps = Peeps.all
     erb(:index)
   end
@@ -42,7 +41,7 @@ class Controller < Sinatra::Base
       session[:logged_in] = true
       redirect('/')
     else
-      #flash error
+      redirect('/users/register')
     end
   end
 

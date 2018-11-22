@@ -1,6 +1,31 @@
 Chitter Challenge
 =================
 
+The Chitter challenge is a web app that functions in a similar way to twitter. I developed it as part of Makers Academy, a 12 week coding bootcamp in London.
+
+Set up
+-------
+* Type bundle into the terminal to install dependencies
+* Instructions on how to set up the database and test database can be found in the db/migrations
+* rackup to start the Sinatra web app
+* Access it at http://localhost:9292
+
+Notes on functionality and technologies
+---------------------------------------
+* Chitter is a database driven web app
+* Information about peeps/users/tags are selected from the database and wrapped in classes for easy reference
+* The web app follows an MVC (Model View Controller) structure.
+* The controller is stored in the app.rb file in the root folder, the views in /views and the model in /lib.
+* Sessions are used to enable logging in and out
+* Capybara is used to feature test the app
+* PSQL is used to access the databases
+* TablePlus was used to update and maintain the databases
+
+
+Instructions from Makers and user stories
+-----------------------------------------
+
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
@@ -74,34 +99,3 @@ And/Or:
 * Work on the CSS to make it look good.
 
 Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!

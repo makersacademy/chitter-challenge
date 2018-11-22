@@ -11,12 +11,16 @@ class Users
 
   def self.get_id(name)
     id = sql("select id from users where username = '#{name}' ")
-    id.each {|id| p id }
     return id.map { |id| { id: id['id'] } }.pop[:id].to_i
   end
 
   def self.login(username, password)
     tuple = sql("SELECT * from users WHERE username = '#{username}' AND password = '#{password}'")
+    return tuple.ntuples == 1
+  end
+
+  def self.is_a_user?(username)
+    tuple = sql("SELECT id from users WHERE username = '#{username}'")
     return tuple.ntuples == 1
   end
 

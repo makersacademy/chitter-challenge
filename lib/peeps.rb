@@ -26,6 +26,10 @@ class Peeps
           values (#{user_id}, '#{peep_content}', #{replying_to});")
   end
 
+  def self.tags(content)
+    a = content.scan(/@\w+/)
+  end
+
 
   private
 

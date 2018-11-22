@@ -1,0 +1,30 @@
+Set up the chitter database. First connect to the chitter database.
+
+psql chitter
+
+Then execute the following:
+
+CREATE TABLE users
+(
+  id serial PRIMARY KEY,
+  name varchar NOT NULL
+  password varchar NOT NULL,
+  username varchar NOT NULL,
+  email varchar NOT NULL
+);
+
+CREATE TABLE peeps
+(
+  id serial PRIMARY KEY,
+  user_id REFERENCES users(id),
+  message text NOT NULL,
+  time TIMESTAMP DEFAULT NOW(),
+  replying_to_id int
+);
+
+CREATE TABLE users_tags
+(
+  id serial PRIMARY KEY,
+  peep_id REFERENCES peeps(id),
+  user_id REFERENCES users(id)
+);

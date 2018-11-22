@@ -6,6 +6,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'rubocop', '0.56.0'
 gem 'pg'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'

@@ -2,6 +2,7 @@
 Welcome to chitter <%=session[:username]%>
 <a href="/users/logout">Log out</a>
 <% else %>
+    Log in to your account.
     <div class="log_in_or_register">
       <form action="/users/login" method="post">
         <input type="text" name="login_username">
@@ -25,6 +26,7 @@ Welcome to chitter <%=session[:username]%>
   </div>
 <% end %>
 
+<% if session[:logged_in] %>
 <div class="peep_poster">
   <form action="/peeps/post" method="post">
     Enter your post, <%= session[:username] %>
@@ -32,3 +34,6 @@ Welcome to chitter <%=session[:username]%>
     <input type="submit" id="Post">
   </form>
 </div>
+
+
+<% end %>

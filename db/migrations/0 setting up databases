@@ -1,0 +1,6 @@
+Open PSQL (type psql into the terminal)
+
+Execute the following:
+
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
