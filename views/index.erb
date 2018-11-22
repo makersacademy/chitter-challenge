@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <body style="background-color:powderblue;">
+  </head>
+
+  <body>
+    <style>
+      body {
+        text-align:center;
+        margin-top: 200px;
+        margin-bottom: 200px;
+      }
+      .speech-bubble {
+        background-color: #f8f8f8;
+        border: 1px solid #ff0000;
+        border-radius: 10px;
+        width: 40px;
+        text-align: center;
+        padding: 20px;
+        position: center;
+      }
+      .speech-bubble .arrow {
+        border-style: solid;
+        position: absolute;
+      }
+
+      .bottom {
+          border-color: #c8c8c8 transparent transparent transparent;
+          border-width: 8px 8px 0px 8px;
+          bottom: -8px;
+      }
+    </style>
+
+        <h1>Welcome to Chitter</h1>
+
+
+          <% @peeps.each do |peep| %>
+          <div class="speech-bubble">
+            <div class="arrow bottom right"></div>
+              <li style="list-style-type: none;"><%= peep.message %></li>
+            </div>
+          <% end %>
+
+
+    <form action="/peeps" method="post">
+    Type your message here: <input type="text" name="message" />
+    <input type="submit" value="Post" />
+    </form>
+
+    <div>
+    <img src= 'https://pre00.deviantart.net/4143/th/pre/i/2016/020/8/0/dead_bird_by_angi_shy-d9ilni4.png'>
+    <div>
+
+  </body>
+</html>
