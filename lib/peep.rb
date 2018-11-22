@@ -7,6 +7,14 @@ class Peep
       db.exec("INSERT INTO peeps(description,user_id) VALUES('#{description}',0) RETURNING id,description,current_date")
   end
 
+  def self.all
+    db = connect()
+
+    result = db.exec("SELECT * FROM peeps;")
+
+    result.map { |peeps| peeps}
+  end
+
   def self.connect
       connection = 'chitter'
       connection = 'chitter_test' if ENV['ENVIRONMENT'] == 'test'

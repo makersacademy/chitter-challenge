@@ -5,11 +5,14 @@
 
   <h1>Chitter</h1>
 
-  <%= @peeps.each do |peep| %>
-  <% end %>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li><%= peep['description'] %></li>
+    <% end %>
+  </ul>
 
 	<form action='/peeps/new' method='post'>
-		<input type='text' name='peep' placeholder="What's happening?">
+		<input type='text' id='peep' name='peep' placeholder="What's happening?">
 		<input type='submit' name='submit' value='submit'>
   </form>
   
