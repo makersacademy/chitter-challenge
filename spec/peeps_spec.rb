@@ -1,2 +1,0 @@
-describe Peeps do
-end
