@@ -1,7 +1,7 @@
 <h1>Your list of peeps</h1>
 <ul>
-    <% @peeps.each do |peeps| %>
-    <li><%= peeps %></li>
+    <% @peeps.each do |peep| %>
+    <li><%= peep.content %> was posted on: <%= peep.created_on %></li>
     <% end %>
 </ul>
 <h1> Post a new Peep! </h1>

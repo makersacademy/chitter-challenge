@@ -2,10 +2,12 @@ require 'pg'
 
 class Peep
 
-  def initialize(content)
+  attr_reader :content, :created_on
+
+  def initialize(content, created_on = "")
     @content = content
-    @user_id = null
-    @timestamp = null
+    # @user_id = null
+    @created_on = created_on
   end
 
   def self.all_peeps
@@ -14,8 +16,8 @@ class Peep
     else
       connection = PG.connect(dbname: 'peep_manager')
     end
-    result = connection.exec("SELECT * FROM peeps;")
-    result.map { |peep| peep['content'] }
+    result = connection.exec("SELECT content, created_on::date FROM peeps ORDER BY created_on DESC;")
+    result.map { |peep| Peep.new(peep['content'], peep['created_on']) }
   end
 
   def self.create_peep(content:)
