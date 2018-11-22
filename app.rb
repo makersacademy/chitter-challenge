@@ -9,14 +9,9 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  get '/peeps' do
-    @peep = session[:peep]['description']
-    erb(:peeps)
-  end
-
   post '/peeps/new' do
-    session[:peep] = Peep.create(description: params[:peep]).first
-    redirect '/peeps'
+    Peep.create(description: params[:peep]).first
+    redirect '/'
   end
 
 end
