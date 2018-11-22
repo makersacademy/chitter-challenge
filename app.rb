@@ -1,3 +1,4 @@
+require './lib/cheet'
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
@@ -9,6 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/cheets' do
+    @cheets = Cheet.all
     erb(:"cheets/index")
   end
 
