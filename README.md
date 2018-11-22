@@ -7,6 +7,13 @@ This is the Week 4 challenge, which followed on from a week focusing on the basi
 
 To complete this challenge I used the MVC model in order to keep code clean and readable.
 
+##User Stories
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
 
 ## Getting started
 
