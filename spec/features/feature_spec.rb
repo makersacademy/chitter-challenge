@@ -5,7 +5,7 @@ require 'spec_helper.rb'
 # I want to post a message (peep) to chitter
 feature 'Post message (peep) to chitter' do
   scenario 'allows to post a message to Chitter' do
-    visit '/'
+    visit '/chitter'
     expect(page).to have_content "Enter your message"
   end
 end
