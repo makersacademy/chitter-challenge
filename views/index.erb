@@ -1,5 +1,7 @@
 <head>
-	<title>Chitter</title>
+  <title>Chitter</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="<%= url('./stylesheets/index.css')%>">
 </head>
 <body>
 
@@ -12,7 +14,7 @@
 
   <ul>
     <% @peeps.each do |peep| %>
-      <li><%= peep['description'] %></li>
+      <li class="w3-panel w3-card"><%= peep['description'] %></li>
     <% end %>
   </ul>
   
