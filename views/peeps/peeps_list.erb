@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome to your Peep List bro!</h1>
+    <div class="">
+      Your Peeps:
+        <ul>
+          <% @peeps.each do |peep| %>
+          <li><%= peep %></li>
+          <% end %>
+        </ul>
+    </div>
+  </body>
+</html>
