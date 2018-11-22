@@ -7,6 +7,11 @@ feature 'view peeps' do
   end
 
   scenario 'view peeps in reverse chronological order' do
+    Peep.create(description: 'one')
+    Peep.create(description: 'two')
+    Peep.create(description: 'three')
+    visit('/')
+    expect(page.find('li:nth-child(3)')).to have_content 'one'
   end
 
 end
