@@ -11,7 +11,8 @@ class Peep
 
   def self.create(description:)
       db = connect()
-      db.exec("INSERT INTO peeps(description,user_id) VALUES('#{description}',0) RETURNING id,description")
+      clean = description.gsub(/\'/, "''")
+      db.exec("INSERT INTO peeps(description,user_id) VALUES('#{clean}',0) RETURNING id,description")
   end
 
   def self.all

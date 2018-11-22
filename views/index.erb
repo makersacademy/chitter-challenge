@@ -1,12 +1,12 @@
 <head>
   <title>Chitter</title>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="<%= url('./stylesheets/index.css')%>">
 </head>
 <body>
 
   <h1>Chitter</h1>
 
+<div class='page'>
   <form action='/peeps/new' method='post'>
 		<input type='text' id='peep' name='peep' placeholder="What's happening?">
 		<input type='submit' name='submit' value='submit'>
@@ -14,9 +14,9 @@
 
     <% @peeps.each do |peep| %>
       <ul>
-        <li class="w3-panel w3-card"><%= peep.description %>  </li>
-        <li>time_made: <%= peep.creation_time %></li>
+        <li id='description'><%= peep.description %>  </li>
+        <li id='time'><%= peep.creation_time %></li>
       </ul>
     <% end %>
-  
+</div>
 </body>
