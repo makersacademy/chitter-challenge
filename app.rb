@@ -15,4 +15,18 @@ class Chitter < Sinatra::Base
     ChitterHandler.add_peep(params['peep_message'], params['username'])
     redirect '/'
   end
+
+  get '/new-account' do
+    erb :new_account
+  end
+
+  post '/new-account' do
+    ChitterHandler.create_user(
+      username: params['username'],
+      email: params['email'],
+      name: params['name'],
+      password: params['password']
+    )
+    redirect '/'
+  end
 end

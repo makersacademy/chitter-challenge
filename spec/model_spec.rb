@@ -36,4 +36,19 @@ describe ChitterHandler do
       expect(test_peep[:username]).to eq "IAmUser"
     end
   end
+
+  context "#create_user" do
+    it "adds the user to the database" do
+      ChitterHandler.create_user(
+        username: "UserName1",
+        email: "email@allemails.org",
+        name: "This is my Name",
+        password: "password1"
+      )
+      user_record = ChitterHandler.find_user(username: "UserName1")
+      expect(user_record[:email]).to eq "email@allemails.org"
+      expect(user_record[:name]).to eq "This is my Name"
+      expect(user_record[:password]).to eq "password1"
+    end
+  end
 end

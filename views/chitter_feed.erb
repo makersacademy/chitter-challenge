@@ -1,6 +1,12 @@
 <h1>Chitter</h1>
+<% if ChitterHandler.signed_in_user %>
+  <%= "Signed in as: #{ChitterHandler.signed_in_user[:name]} [#{ChitterHandler.signed_in_user[:username]}]" %>
+<% end %>
 <form action='/new-peep'>
   <input type='submit' value='Give us a peep'>
+</form>
+<form action='new-account'>
+  <input type='submit' value='Sign up for Chitter'>
 </form>
 
 <% @peeps.reverse_each.with_index do |peep, index| %>
