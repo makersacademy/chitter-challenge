@@ -1,5 +1,7 @@
 <h1>login page</h1>
 
+<h2><%= flash[:notice] %></h2>
+
 <form action="/login" method="post">
   <input type="text" name="handle" placeholder="handle">
   <input type="password" name="password" placeholder="Password">

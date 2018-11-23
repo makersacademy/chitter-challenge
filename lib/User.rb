@@ -41,7 +41,7 @@ class User
   def self.authenticate(handle:, password:)
     user = DatabaseConnection.query("SELECT * FROM users WHERE handle = '#{handle}'").first
     p user
-    return unless user.any?
+    return if user == nil
     return unless BCrypt::Password.new(user['password']) == password
     User.new(
       user_id: user['user_id'],

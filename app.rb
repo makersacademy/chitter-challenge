@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './DatabaseConnection_setup'
 require './lib/Peep'
 require './lib/User'
@@ -8,6 +9,7 @@ class ChitterApp < Sinatra::Base
   run! if app_file == $0
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @user = User.retrieve(user_id: session[:user_id])
@@ -49,12 +51,14 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = user.user_id
       redirect '/'
     else
+      flash[:notice] = 'Please check your handle or password'
       redirect '/login'
     end
   end
 
   get '/logout' do
     session.clear
+    flash[:notice] = 'You have logged out'
     redirect '/'
   end
 
