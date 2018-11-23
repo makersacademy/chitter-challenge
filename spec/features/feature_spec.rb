@@ -1,7 +1,7 @@
 require 'pry'
 require_relative '../../lib/database_connection'
 feature 'user journey: ' do
-  let(:test_peep) { 'This is a test peep' }
+  let(:test_peep) { 'This is a test peep to test form submissions' }
 
   before :each do
     10.times do |num|
@@ -21,5 +21,18 @@ feature 'user journey: ' do
     fill_in 'content', with: test_peep
     click_on 'submit'
     expect(page).to have_content(test_peep)
+  end
+
+  scenario 'User can see the date that a peep was made' do
+    time = Time.new
+    min = time.min
+    if min < 10
+      min = "0" << min.to_s
+    end
+    posted_at = "Posted at #{time.hour}:#{min} on #{time.day}/#{time.month}/#{time.year}"
+    visit("/peeps/new")
+    fill_in 'content', with: test_peep
+    click_on 'submit'
+    expect(page).to have_content(posted_at)
   end
 end

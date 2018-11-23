@@ -1,3 +1,8 @@
-<% @peeps.each do |peep|  %>
-   <li> <%= peep.content %> </li>
+<% @peeps.each do |peep| %>
+  <p>
+  <em><%= format_peep_date(date: peep.date )%> </em>
+  <br>
+    <%= peep.content %>
+  <hr>
+  </p>
 <% end %>

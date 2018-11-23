@@ -1,29 +1,30 @@
 require_relative '../database_connection'
 class Peep
-  attr_accessor :content, :id
-  def initialize(content: content)
+  attr_accessor :content, :id, :date
+  def initialize(content:, date:)
     @content = content
+    @date = date
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
-    result.map { |record| Peep.new(content: record['content']) }
+    result.map { |record| Peep.new(content: record['content'], date: record['date_added']) }
   end
 
-  def self.create(content: content)
+  def self.create(content:)
     DatabaseConnection.query("INSERT INTO peeps (content) VALUES ('#{content}');")
   end
 
-  def self.find(id: id)
+  def self.find(id:)
     result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = #{id};")
-    result.map { |record| Peep.new(content: record['content']) }.first
+    result.map { |record| Peep.new(content: record['content'], date: record['date_added']) }.first
   end
 
-  def self.update(id: id, content: content)
+  def self.update(id:, content:)
     DatabaseConnection.query("UPDATE peeps SET content = '#{content}' WHERE id = #{id};")
   end
 
-  def self.delete(id: id)
+  def self.delete(id:)
     DatabaseConnection.query("DELETE FROM peeps WHERE id = #{id};")
   end
 end
