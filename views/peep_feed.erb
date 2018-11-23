@@ -1,2 +1,12 @@
-I am a peep
-I am also a peep
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chitter</title>
+</head>
+<body>
+	<% @peeps.each do |peep| %>
+  <h3><%= peep.author %></h3>
+  <p><%= peep.message_content %></p>
+	<% end %>
+</body>
+</html>

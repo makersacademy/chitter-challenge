@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './lib/dm'
 
 class Chitter < Sinatra::Base
 
@@ -7,6 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep_feed' do
+  	@peeps = Peep.all(:order => [:created_at.desc], :limit => 10)
   	erb(:peep_feed)
   end
 
