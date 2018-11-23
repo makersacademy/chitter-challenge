@@ -4,3 +4,11 @@
   <input type="text" name="content" size=100 placeholder="Your message">
   <input type="submit" value="Submit">
 </form>
+<p>Previous messages:</p>
+<ul>
+  <% @chitter.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+        <%= peep.content %> (<%= peep.timestamp %>)
+    </li>
+  <% end %>
+</ul>

@@ -11,7 +11,7 @@ require 'database_helpers'
 require 'rspec'
 
 # Tell Capybara to talk to Chitter
-Capybara.app = Chitter
+Capybara.app = ChitterApp
 require 'simplecov'
 require 'simplecov-console'
 

@@ -9,3 +9,18 @@ feature 'Post message (peep) to chitter' do
     expect(page).to have_content "Enter your message"
   end
 end
+# As a maker
+# So that I can see what others are saying
+# I want to see all peeps in reverse chronological order
+feature 'Show all peeps in reverse chronological order' do
+  scenario 'peeps are displayed in order on /chitter page' do
+    visit '/chitter'
+    fill_in :content, with: 'My first message'
+    click_button 'Submit'
+    fill_in :content, with: 'My second message'
+    click_button 'Submit'
+    expect(page.find('li:nth-child(1)')).to have_content('My first message')
+    expect(page.find('li:nth-child(2)')).to have_content('My second message')
+  end
+
+end
