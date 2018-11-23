@@ -1,6 +1,22 @@
 Chitter Challenge
 =================
 
+
+![entity relationship diagram](./Images/20181123_145258.jpg)
+
+Instructions
+
+1.Connect to psql
+2.Create the database using the psql command CREATE DATABASE chitter;
+3.Connect to the database using the pqsl command \c chitter;
+4.Run the query I have saved in the db/migrations folder 01_create_users_table.sql
+5.To change the primary key in your table run 02_changing_pkey_value.sql
+6. Create your second table by running 03_create_peeps_table.sql
+
+
+
+
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
