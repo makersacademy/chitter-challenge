@@ -5,5 +5,6 @@ def db_connection
 end
 
 def setup_database
-  db_connection.exec('TRUNCATE peeps')
+  db = db_connection
+  db.exec('TRUNCATE users')
 end

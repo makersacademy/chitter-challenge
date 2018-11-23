@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
+    @email = session[:email]
     erb(:index)
   end
 
@@ -24,6 +25,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
+    @user = User.create(params)
+    puts 'hello'
+    puts @user
+    session[:id] = @user.id
+    session[:email] = @user.email
     redirect('/')
   end
 
