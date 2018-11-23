@@ -6,6 +6,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
+    @peeps.each {|peep| p peep.creation_time }
     erb(:index)
   end
 

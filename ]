@@ -1,0 +1,19 @@
+Add css and Fix bug
+
+Add css 
+
+issue: database can't store single qoutes via the insert method which was in single qoutes
+
+solution: input values with single qoutes replaced with double single qoutes to input into database
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   lib/peep.rb
+#	modified:   public/stylesheets/index.css
+#	new file:   spec/features/sign_up_spec.rb
+#	modified:   views/index.erb
+#
