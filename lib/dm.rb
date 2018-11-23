@@ -3,11 +3,16 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
 
-DataMapper.setup(:default, "postgres://localhost/chitter")
+if ENV['ENVIRONMENT'] == 'test'
+	DataMapper.setup(:default, "postgres://localhost/chitter_test")
+else
+	DataMapper.setup(:default, "postgres://localhost/chitter")
+end
 
 
 class User
 	include DataMapper::Resource
+	User.raise_on_save_failure = true 
 
 	property :id, 						Serial
 	property :username, 			String
@@ -22,6 +27,7 @@ end
 
 class Peep
 	include DataMapper::Resource
+	Peep.raise_on_save_failure = true
 
 	property :message_id,				Serial
 	property :message_content, 	Text, required: true, lazy: :false, length: 1..180
