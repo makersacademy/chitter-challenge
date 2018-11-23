@@ -10,11 +10,12 @@ describe Peep do
     end
   end
 
- # context '#create' do
- #   it 'creates a new peep' do
- #     content = 'This is a test peep.'
- #     Peep.create(content: content)
- #     expect(Peep.all).to include content
- #   end
- # end
+  context '#create' do
+    it 'creates a new peep' do
+      10.times do |num|
+        Peep.create(content: "This is a test peep #{num}")
+      end
+      expect(Peep.all[7].content).to include ('This is a test peep 7')
+    end
+  end
 end
