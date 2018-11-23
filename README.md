@@ -14,8 +14,10 @@ Instructions
 * To change the primary key in your table run 02_changing_pkey_value.sql
 * Create your second table by running 03_create_peeps_table.sql
 
-
-
+----------------------------------------------
+----------------------------------------------
+Challenge:
+-------
 
 
 * Challenge time: rest of the day and weekend, until Monday 9am
@@ -24,8 +26,6 @@ Instructions
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
 
 As usual please start by forking this repo.
 
