@@ -7,7 +7,7 @@
 	<ul class="timeline">
 		<% @peeps.each do |peep| %>
 			<li>
-  			<h3><%= peep.author %></h3>
+  			<h3><%= peep.author %> @ <%= Helpers.format_datetime(peep.created_at) %></h3>
   			<p><%= peep.message_content %></p>
   		</li>
   	<% end %>

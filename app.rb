@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/dm'
+require_relative './lib/helpers'
 
 class Chitter < Sinatra::Base
 
