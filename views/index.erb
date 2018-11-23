@@ -1,9 +1,19 @@
-<h1> Welcome to Chitter</h1>
-<p>Enter your message:</p>
-<form action="/message" method="post">
-  <input type="text" name="content" size=100 placeholder="Your message">
-  <input type="submit" value="Submit">
-</form>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+  <p>Enter your message:</p>
+  <form action="/message" method="post">
+    <input type="text" name="content" size=100 placeholder="Your message">
+    <input type="submit" value="Submit">
+  </form>
+<% else %>
+  <h1> Welcome to Chitter</h1>
+  <p>You need to sign up to post peeps.</p><br>
+  <form action="/users/new" method="get">
+    <input type="submit" value="Sign up">
+  </form>
+<% end %>
+
 <p>Previous messages:</p>
 <ul>
   <% @chitter.each do |peep| %>

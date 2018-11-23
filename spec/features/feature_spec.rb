@@ -40,7 +40,7 @@ end
   # As a Maker
   # So that I can post messages on Chitter as me
   # I want to sign up for Chitter
-  xfeature 'Registration' do
+  feature 'Registration' do
   scenario 'a user can sign up' do
     visit '/chitter'
     click_button('Sign up')

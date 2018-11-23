@@ -11,9 +11,18 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/message' do
-  Message_manager.post_peep(content: params[:content])
-  redirect '/chitter'
-end
+    Message_manager.post_peep(content: params[:content])
+    redirect '/chitter'
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users/new' do
+    User.create(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    redirect '/chitter'
+  end
 
   run! if app_file == $0
 end
