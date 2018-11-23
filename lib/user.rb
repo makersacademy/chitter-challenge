@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class User
   attr_reader :user_name, :user_id
@@ -15,9 +16,11 @@ class User
       connection = PG.connect(dbname: 'chitter')
     end
 
+    encrypted_password = BCrypt::Password.create(password)
+
     User.user_name_available?(user_name)
 
-    results = connection.exec("INSERT INTO users (user_name, password) VALUES ('#{user_name}', '#{password}') RETURNING user_name, user_id;")
+    results = connection.exec("INSERT INTO users (user_name, password) VALUES ('#{user_name}', '#{encrypted_password}') RETURNING user_name, user_id;")
 
     User.new(results[0]['user_name'], results[0]['user_id'])
   end
@@ -34,6 +37,15 @@ class User
     fail "User already exists" if result.first != nil
   end
 
+  def self.login(user_name, password)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
 
+    
+
+  end
 
 end
