@@ -14,4 +14,8 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/login' do 
+    erb(:login_signup)
+  end
+
 end
