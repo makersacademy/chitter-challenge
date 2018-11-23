@@ -8,6 +8,12 @@ require 'database_helper'
 
 require_relative '../app.rb'
 
+RSpec.configure do |config|
+  config.before(:each) do
+    reset_test_database
+  end
+end
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

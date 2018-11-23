@@ -1,11 +1,5 @@
 require 'spec_helper'
 
-RSpec.configure do |config|
-  config.before(:each) do
-    reset_test_database
-  end
-end
-
 describe ChitterFeed do
 
   describe '.all' do
@@ -21,12 +15,12 @@ describe ChitterFeed do
     end
 
     it 'returns a list of peeps in chronological order' do
-      peep = Peep.create(username: 'hulbgoblin', content: 'Bleugh')
+      peep = Peep.create(user_id: 1, content: 'Bleugh').first
       peeps = ChitterFeed.all
 
       ordered_peeps = peeps.each { |p| p.timestamp }
 
-      expect(peeps[0].id).to eq peep.id
+      expect(peeps[0].id).to eq peep['id']
       expect(peeps[1].id).to eq ordered_peeps[1].id
       expect(peeps[2].id).to eq ordered_peeps[2].id
       expect(peeps[3].id).to eq ordered_peeps[3].id

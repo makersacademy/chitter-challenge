@@ -1,16 +1,20 @@
 require_relative '../spec_helper'
 
-RSpec.configure do |config|
-  config.before(:each) do
-    reset_test_database
-  end
-end
-
 feature 'Posting Peeps' do
   scenario 'can see peep I\'ve just posted' do
-    peep = Peep.create(username:"danusia.x", content:"Hello Chitter!")
     visit '/'
-    expect(page).to have_content "danusia.x"
-    expect(page).to have_content "Hello Chitter!"
+    click_button 'Peep here'
+
+    expect(current_path).to eq '/enter_peep'
+
+    fill_in :username, with: 'hulbgoblin'
+    fill_in :peep, with: 'Bleugh'
+    click_button 'Post peep'
+
+    peeps = ChitterFeed.all
+
+    expect(current_path).to eq '/'
+    expect(page).to have_content "hulbgoblin"
+    expect(page).to have_content "Bleugh"
   end
 end
