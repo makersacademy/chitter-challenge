@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -11,8 +12,8 @@ class Chitter < Sinatra::Base
     erb(:new)
   end
 
-  post '/new' do
-    Peep.create(text: params[:text], time: Time.now)
+  post '/' do
+    Peep.create(user_id: '1', content: params[:peep])
     redirect '/'
   end
 
