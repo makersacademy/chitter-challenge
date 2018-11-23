@@ -16,18 +16,15 @@
       }
       .speech-bubble {
         background-color: #f8f8f8;
-        border: 1px solid #ff0000;
+        border: 1px solid #0000ff;
         border-radius: 10px;
-        width: 40px;
+        width: 150px;
         text-align: center;
         padding: 20px;
         position: center;
-      }
-      .speech-bubble .arrow {
-        border-style: solid;
-        position: absolute;
-      }
 
+      }
+      
       .bottom {
           border-color: #c8c8c8 transparent transparent transparent;
           border-width: 8px 8px 0px 8px;
@@ -41,6 +38,7 @@
           <div class="speech-bubble">
             <div class="arrow bottom right"></div>
               <li style="list-style-type: none;"><%= peep.message %></li>
+              <h><i><font size="2"><%= peep.timestamp %></font</i></h>
             </div>
           <% end %>
 
