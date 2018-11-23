@@ -1,0 +1,9 @@
+<form action="/chitter/create_new" method="post">
+  <input type="text" name="add_message" placeholder="URL" />
+  <input type="text" name="title" value="<%= @message %>" />
+  <input type="submit" value="Submit" />
+</form>
+
+<form action="/chitter/create_new" method="post">
+  <button type="submit" name="add_message" id="Add_<%= msg.message %>" value="<%=msg.message%>">Add_message</button>
+</form>

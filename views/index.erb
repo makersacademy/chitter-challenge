@@ -8,7 +8,7 @@
 <body>
 
   <h1> Welcome to Chitter Ver1 </h1>
-  <h3> Please enter your message.</h3>
+  <h3> Please enter your message. &nbsp &nbsp Click 'Submit' to add your message to Chitter. </h3>
   <br>
   <form action="/chitter" method="post">
     <input type="text" name="message" placeholder="Add message" size="80" />
@@ -17,11 +17,20 @@
   <br>
   <%= @message %>
   <br>
-  <h3> Click to add your message to Chitter. </h3>
-  <button type="button" name="add_message">Add Message</button>
-  <br>
+
+  <!-- <form action="/chitter/create_new" method="post">
+    <button type="submit" name="Add_message" id="Add_<%= @message %>" value="<%=@message%>">Add_message</button>
+  </form> -->
+  <!-- <button type="button" name="add_message">Add Message</button> -->
   <hr>
   <br>
-  <%= @peep %>
+  <ul>
+  <% @peep.each do |msg| %>
+    <li>
+        <%= msg.message %>
+        <%= msg.date_created %>
+  <% end %>
+        <br>
+      </ul>
 </body>
 </html>
