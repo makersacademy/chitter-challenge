@@ -5,7 +5,7 @@ describe ChitterFeed do
   describe '.all' do
     it 'returns a list of peeps' do
       peeps = ChitterFeed.all
-      persisted_data = persisted_data(id: peeps.first.id)
+      persisted_data = persisted_data(table: 'peeps', id: peeps.first.id)
 
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep

@@ -1,0 +1,9 @@
+Enter your details below to sign up<br>
+
+<form action="/sign_up_details" method="post">
+  <input type="text" name="name" value="<%= params[:name] %>">
+  <input type="text" name="username">
+  <input type="text" name="email" value="<%= params[:email] %>">
+  <input type="text" name="password" value="">
+  <input type="submit" value="Create Account">
+</form>
