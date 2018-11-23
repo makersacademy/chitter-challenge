@@ -11,8 +11,8 @@ group :test do
   gem 'simplecov-console', require: false
 end
 
-gem 'capybara'
 gem 'bcrypt'
+gem 'capybara'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-flash'

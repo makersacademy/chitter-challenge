@@ -4,14 +4,16 @@ require_relative './lib/user'
 require './database_connection_setup'
 
 class ChitterApp < Sinatra::Base
+  enable :sessions
 
   get '/chitter' do
-    @chitter = Message_manager.show_peeps
-    erb (:index)
+    @user = User.find(id: session[:user_id])
+    @chitter = Message.show_peeps
+    erb(:index)
   end
 
   post '/message' do
-    Message_manager.post_peep(content: params[:content])
+    Message.post_peep(content: params[:content])
     redirect '/chitter'
   end
 
@@ -20,7 +22,9 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users/new' do
-    User.create(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    user = User.create(name: params['name'], username: params['username'], \
+      email: params['email'], password: params['password'])
+    session[:user_id] = user.id
     redirect '/chitter'
   end
 

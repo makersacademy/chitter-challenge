@@ -5,7 +5,7 @@ require 'spec_helper.rb'
 # I want to post a message (peep) to chitter
 feature 'Post message (peep) to Chitter' do
   scenario 'allows to post a message' do
-    visit '/chitter'
+    vist_and_signup
     expect(page).to have_content "Enter your message"
   end
 end
@@ -14,7 +14,7 @@ end
 # I want to see all peeps in reverse chronological order
 feature 'Display peeps' do
   scenario 'in reverse chronological order' do
-    visit '/chitter'
+    vist_and_signup
     fill_in :content, with: 'My first message'
     click_button 'Submit'
     fill_in :content, with: 'My second message'
@@ -23,12 +23,11 @@ feature 'Display peeps' do
     expect(page.find('li:nth-child(2)')).to have_content('My second message')
   end
 
-
   # As a Maker
   # So that I can better appreciate the context of a peep
   # I want to see the time at which it was made
   scenario 'with time at which it was made' do
-    visit '/chitter'
+    vist_and_signup
     fill_in :content, with: 'My first message'
     time = Time.now.strftime('%F %H:%M:%S')
     click_button 'Submit'
@@ -40,15 +39,9 @@ end
   # As a Maker
   # So that I can post messages on Chitter as me
   # I want to sign up for Chitter
-  feature 'Registration' do
+feature 'Registration' do
   scenario 'a user can sign up' do
-    visit '/chitter'
-    click_button('Sign up')
-    fill_in('name', with: 'Aga')
-    fill_in('username', with: 'Agausername')
-    fill_in('email', with: 'test@example.com')
-    fill_in('password', with: 'password123')
-    click_button('Submit')
+    vist_and_signup
 
     expect(page).to have_content "Welcome, Aga"
     expect(page).to have_content "Enter your message"

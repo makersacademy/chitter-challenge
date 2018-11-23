@@ -1,9 +1,9 @@
 require 'message_manager'
 
-describe Message_manager do
+describe Message do
   describe '.post_peep' do
     it 'saves a peep in a messages table in the database' do
-      peep = Message_manager.post_peep(content: 'My new peep')
+      peep = Message.post_peep(content: 'My new peep')
       persisted_data = persisted_data(id: peep.id, table: 'messages')
 
       expect(peep).to be_a Message
@@ -17,14 +17,14 @@ describe Message_manager do
       time_now = Time.parse("2018-11-22 12:00:00")
       allow(Time).to receive(:now) { time_now }
 
-      connection = PG.connect(dbname: 'chitter_test')
+      PG.connect(dbname: 'chitter_test')
 
       # Add the test data
-      peep = Message_manager.post_peep(content: "My first peep")
-      Message_manager.post_peep(content: "My second peep")
-      Message_manager.post_peep(content: "My third peep")
+      peep = Message.post_peep(content: "My first peep")
+      Message.post_peep(content: "My second peep")
+      Message.post_peep(content: "My third peep")
 
-      chitter_feed = Message_manager.show_peeps
+      chitter_feed = Message.show_peeps
 
       expect(chitter_feed.length).to eq 3
       expect(chitter_feed.first).to be_a Message

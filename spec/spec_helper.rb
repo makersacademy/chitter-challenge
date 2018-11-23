@@ -9,12 +9,12 @@ require 'capybara'
 require 'capybara/rspec'
 require 'database_helpers'
 require 'rspec'
+require 'web_helpers'
 
 # Tell Capybara to talk to Chitter
 Capybara.app = ChitterApp
 require 'simplecov'
 require 'simplecov-console'
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
