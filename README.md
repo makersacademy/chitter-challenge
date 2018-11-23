@@ -1,8 +1,23 @@
 Chitter Challenge
 =================
 
-![domain_model_1](put link here)
-![domain_model_2](put link here)
+![domain_model_1](https://github.com/davidgisbey/chitter-challenge/blob/master/domain_model_1.png?raw=true)
+![domain_model_2](https://github.com/davidgisbey/chitter-challenge/blob/master/Domain%20model%202.png?raw=true)
+
+# Chitter database connection instructions
+
+1. Connect to psql
+2. Create the database using the psql command  CREATE DATABASE chitter_database;
+3. Connect to the database using the pqsl command \c chitter_database;
+4. Run the query we have saved in the file 01_create_bookmarks_table.sql
+
+
+# Chitter test database connection instructions
+
+1. Connect to psql
+2. Create the database using the psql command  CREATE DATABASE chitter_database_test;
+3. Connect to the database using the pqsl command \c chitter_test_database;
+4. Run the query we have saved in the file 01_create_bookmarks_table.sql
 
 
 * Challenge time: rest of the day and weekend, until Monday 9am

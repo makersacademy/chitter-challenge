@@ -1,0 +1,11 @@
+<h1> Welcome to Chitter! </h1>
+
+<center><form action="/post-successful" method="post"><center>
+  <label for="player_name">
+    Post peep
+    <input type="text" name="peep_content">
+  </label>
+  <input type="submit" value="Post Peep">
+  <style> body {background-color: Skyblue;} </style>
+  <body> <%= @peeps %> </body>
+</form>
