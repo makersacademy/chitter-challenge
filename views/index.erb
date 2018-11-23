@@ -15,14 +15,13 @@ Welcome to chitter <%=session[:username]%>
 
 <% @peeps.each do |peep| %>
   <div class="peep_info">
-    @<%= peep[:username] %>
-    <%= peep[:name] %>
-    <%= peep[:time].strftime('%R') %>
-    <%= peep[:time].strftime('%d %h %Y') %>
-    <%= peep[:date] %>
+    @<%= peep.user%>
+    <%= peep.user %>
+    <%= peep.time.strftime('%R') %>
+    <%= peep.time.strftime('%d %h %Y') %>
   </div>
   <div class="peep_message">
-    <%= peep[:message] %>
+    <%= peep.message %>
   </div>
 <% end %>
 
