@@ -32,8 +32,6 @@ describe Peep do
 
       peeps = Peep.list
 
-      p peeps
-
       expect(peeps[0].content).to eq("1st on list")
       expect(peeps[1].content).to eq("2nd on list")
       expect(peeps[2].content).to eq("3rd on list")

@@ -1,7 +1,7 @@
 require 'pg'
 
 class User
-  attr_reader: :user_name, :user_id
+  attr_reader :user_name, :user_id
 
   def initialize(user_name, user_id)
     @user_name = user_name
@@ -15,9 +15,25 @@ class User
       connection = PG.connect(dbname: 'chitter')
     end
 
-    results = connection.exec("INSERT INTO users (user_name, password) VALUE ('#{user_name}', '#{password}' RETURNING user_id, user_name;")
+    User.user_name_available?(user_name)
 
-    User.new()
+    results = connection.exec("INSERT INTO users (user_name, password) VALUES ('#{user_name}', '#{password}') RETURNING user_name, user_id;")
 
+    User.new(results[0]['user_name'], results[0]['user_id'])
   end
+
+  def self.user_name_available?(user_name)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    result = connection.exec("SELECT * FROM users WHERE user_name = '#{user_name}';")
+
+    fail "User already exists" if result.first != nil
+  end
+
+
+
 end

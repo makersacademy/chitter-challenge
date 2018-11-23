@@ -7,6 +7,7 @@ gem 'pg'
 gem 'launchy'
 gem 'rake'
 gem 'rubocop', '0.56.0'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'
