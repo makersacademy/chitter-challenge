@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './database_connection_setup'
+require './DatabaseConnection_setup'
 require './lib/Peep'
 require './lib/User'
 

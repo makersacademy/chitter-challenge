@@ -11,7 +11,8 @@ class User
   end
 
   def self.create(handle, display_name, email, password)
-    DatabaseConnection.query("INSERT INTO users (handle, display_name, email, password) VALUES ('#{handle}', '#{display_name}', '#{email}', '#{password}')")
+    hashed_password = BCrypt::Password.create(password)
+    DatabaseConnection.query("INSERT INTO users (handle, display_name, email, password) VALUES ('#{handle}', '#{display_name}', '#{email}', '#{hashed_password}')")
   end
 
   def self.retrieve(user_id:)
