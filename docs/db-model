@@ -2,7 +2,7 @@ TABLE peeps
 + id SERIAL PRIMARY KEY
 + text VARCHAR(140)
 + date_and_time_posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- user VARCHAR(16) FOREIGN KEY REFERENCES users(username)
++ username VARCHAR(16) FOREIGN KEY REFERENCES users(username)
   # user NOT NULL should be enforced when user accounts are implemented,
   # otherwise messages can be posted without signing up
 

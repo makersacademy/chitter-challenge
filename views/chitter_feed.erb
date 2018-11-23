@@ -11,6 +11,6 @@
     <% timeref = [day, month, timeref].join(" ") %>
   <% end %>
   <p>
-    <%= @peeps.length - index %>. <%= peep[:text] %> (<%= timeref %>)
+    <%= @peeps.length - index %>. [<%= peep[:username] %>] <%= peep[:text] %> (<%= timeref %>)
   </p>
 <% end %>

@@ -12,14 +12,17 @@ class ChitterHandler
       select_connection.exec(query).map do |peep|
         { id: peep['id'],
           text: peep['text'],
-          datetime: peep['date_and_time_posted']
+          datetime: peep['date_and_time_posted'],
+          username: peep['username']
         }
       end
     end
 
-    def add_peep(message)
+    def add_peep(message, user = nil)
       message.gsub! "'", "''"
-      select_connection.exec "INSERT INTO peeps (text) VALUES('#{message}')"
+      user.gsub! "'", "''" if user
+      select_connection.exec \
+        "INSERT INTO peeps (text, username) VALUES('#{message}', '#{user}')"
     end
 
     private

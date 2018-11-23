@@ -2,7 +2,7 @@
 
 This is a social messaging app, created for Makers Academy (MA) as part of their apprenticeship program.
 
-Users can see a list of all messages that have been posted to the app, and submit a message of their own.
+Users can see a list of all messages that have been posted to the app, and submit a message of their own. They can, if they wish, give a username with their message; currently the username is just an additional text item, with no validation or 'account' attached to it.
 
 Later the app will require users to create an account and be logged in before they can submit a message. They will be able to view the list of messages without logging in. Each message will include details (name and username) of the user who submitted it.
 
