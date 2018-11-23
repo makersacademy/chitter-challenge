@@ -6,7 +6,15 @@
 </ul>
 <h1> Post a new Peep! </h1>
 
-<form action="/peeps" method="post">
+<form action="/chitter" method="post">
   <input type="text" name="content" />
-  <input type="submit" value="Submit" />
+  <input type="submit" value="Add peep" />
 </form>
+<br>
+<h1>Sign up to Chitter</h1>
+<form action="/chitter/users" method="get">
+  <input type="submit" value="Add user" />
+</form>
+<p>
+<%= flash[:notice] %>
+</p>

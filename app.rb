@@ -1,20 +1,33 @@
 require 'sinatra'
+require 'sinatra/flash'
 require './lib/peep'
+require './lib/user'
 
 class Chitter < Sinatra::Base
+enable :sessions
+register Sinatra::Flash
 
   get '/' do
     "Hello, this is my first peep"
   end
 
-  get '/peeps' do
+  get '/chitter' do
     @peeps = Peep.all_peeps
     erb(:index)
   end
 
-  post '/peeps' do
+  post '/chitter' do
     Peep.create_peep(content: params[:content])
-    redirect('/peeps')
+    redirect('/chitter')
   end
-  run! if app_file == $0
+
+  get '/chitter/users' do
+    erb(:newuser)
+  end
+
+  post '/chitter/newuser' do
+    flash[:notice] =  "You have signed up!" if User.create_user(params[:username], params[:password])
+    redirect('/chitter')
+  end
+    run! if app_file == $0
 end

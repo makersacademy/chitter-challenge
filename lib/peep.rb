@@ -6,7 +6,6 @@ class Peep
 
   def initialize(content, created_on = "")
     @content = content
-    # @user_id = null
     @created_on = created_on
   end
 
