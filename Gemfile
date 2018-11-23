@@ -8,6 +8,11 @@ gem 'capybara'
 gem 'sinatra'
 gem 'selenium-webdriver'
 gem 'pg'
+gem 'dm-core'
+gem 'dm-postgres-adapter'
+gem 'dm-migrations'
+gem 'dm-validations'
+gem 'dm-timestamps'
 
 group :test do
   gem 'rspec'

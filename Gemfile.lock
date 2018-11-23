@@ -14,7 +14,25 @@ GEM
       xpath (~> 3.2)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    data_objects (0.10.17)
+      addressable (~> 2.1)
     diff-lcs (1.3)
+    dm-core (1.2.1)
+      addressable (~> 2.3)
+    dm-do-adapter (1.2.0)
+      data_objects (~> 0.10.6)
+      dm-core (~> 1.2.0)
+    dm-migrations (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-postgres-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_postgres (~> 0.10.6)
+    dm-timestamps (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-validations (1.2.0)
+      dm-core (~> 1.2.0)
+    do_postgres (0.10.17)
+      data_objects (= 0.10.17)
     docile (1.1.5)
     extlib (0.9.16)
     ffi (1.9.25)
@@ -81,6 +99,11 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  dm-core
+  dm-migrations
+  dm-postgres-adapter
+  dm-timestamps
+  dm-validations
   pg
   rake
   rspec
