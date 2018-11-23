@@ -8,7 +8,7 @@ describe '.all_peeps' do
     connection.exec("INSERT INTO peeps VALUES(2, 'SECOND PEEP');")
     peeps = Peep.all_peeps
     expect(peeps.length).to eq(2)
-    expect(peeps.first).to eq('SECOND PEEP')
-    expect(peeps.last).to eq('FIRST PEEP')
+    expect(peeps.first.content).to eq('SECOND PEEP')
+    expect(peeps.last.content).to eq('FIRST PEEP')
   end
 end

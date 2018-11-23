@@ -16,7 +16,8 @@ class Peep
     else
       connection = PG.connect(dbname: 'peep_manager')
     end
-    result = connection.exec("SELECT content, created_on::date FROM peeps ORDER BY created_on DESC;")
+    result = connection.exec("SELECT content, created_on
+      FROM peeps ORDER BY created_on DESC;")
     result.map { |peep| Peep.new(peep['content'], peep['created_on']) }
   end
 
