@@ -3,8 +3,8 @@ require 'spec_helper.rb'
 # As a Maker
 # So that I can let people know what I am doing
 # I want to post a message (peep) to chitter
-feature 'Post message (peep) to chitter' do
-  scenario 'allows to post a message to Chitter' do
+feature 'Post message (peep) to Chitter' do
+  scenario 'allows to post a message' do
     visit '/chitter'
     expect(page).to have_content "Enter your message"
   end
@@ -12,8 +12,8 @@ end
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
-feature 'Show all peeps in reverse chronological order' do
-  scenario 'peeps are displayed in order on /chitter page' do
+feature 'Display peeps' do
+  scenario 'in reverse chronological order' do
     visit '/chitter'
     fill_in :content, with: 'My first message'
     click_button 'Submit'
@@ -22,18 +22,35 @@ feature 'Show all peeps in reverse chronological order' do
     expect(page.find('li:nth-child(1)')).to have_content('My first message')
     expect(page.find('li:nth-child(2)')).to have_content('My second message')
   end
-end
+
 
   # As a Maker
   # So that I can better appreciate the context of a peep
   # I want to see the time at which it was made
-  feature 'Display the time of the peep' do
-    scenario 'time appears on /chitter page' do
-      visit '/chitter'
-      fill_in :content, with: 'My first message'
-      time = Time.now.strftime('%F %H:%M:%S')
-      click_button 'Submit'
-      expect(page).to have_content('My first message')
-      expect(page).to have_content(time)
-    end
+  scenario 'with time at which it was made' do
+    visit '/chitter'
+    fill_in :content, with: 'My first message'
+    time = Time.now.strftime('%F %H:%M:%S')
+    click_button 'Submit'
+    expect(page).to have_content('My first message')
+    expect(page).to have_content(time)
   end
+end
+
+  # As a Maker
+  # So that I can post messages on Chitter as me
+  # I want to sign up for Chitter
+  xfeature 'Registration' do
+  scenario 'a user can sign up' do
+    visit '/chitter'
+    click_button('Sign up')
+    fill_in('name', with: 'Aga')
+    fill_in('username', with: 'Agausername')
+    fill_in('email', with: 'test@example.com')
+    fill_in('password', with: 'password123')
+    click_button('Submit')
+
+    expect(page).to have_content "Welcome, Aga"
+    expect(page).to have_content "Enter your message"
+  end
+end

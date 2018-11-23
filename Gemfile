@@ -12,5 +12,7 @@ group :test do
 end
 
 gem 'capybara'
+gem 'bcrypt'
 gem 'pg'
 gem 'sinatra'
+gem 'sinatra-flash'

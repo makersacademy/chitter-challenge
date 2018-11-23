@@ -4,10 +4,10 @@ describe Message_manager do
   describe '.post_peep' do
     it 'saves a peep in a messages table in the database' do
       peep = Message_manager.post_peep(content: 'My new peep')
-      # persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(id: peep.id, table: 'messages')
 
       expect(peep).to be_a Message
-      # expect(peep.id).to eq persisted_data[:id]
+      expect(peep.id).to eq persisted_data['id']
       expect(peep.content).to eq 'My new peep'
     end
   end
