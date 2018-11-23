@@ -2,8 +2,15 @@
 <form action='/new-peep'>
   <input type='submit' value='Give us a peep'>
 </form>
+
 <% @peeps.reverse_each.with_index do |peep, index| %>
+  <% timeref = peep[:datetime][11,8] %>
+  <% if Date.today.to_s != peep[:datetime][0,10] %>
+    <% day = peep[:datetime][8,2] %>
+    <% month = Date::MONTHNAMES[peep[:datetime][5,2].to_i] %>
+    <% timeref = [day, month, timeref].join(" ") %>
+  <% end %>
   <p>
-    <%= @peeps.length - index %>. <%= peep['text'] %>
+    <%= @peeps.length - index %>. <%= peep[:text] %> (<%= timeref %>)
   </p>
 <% end %>

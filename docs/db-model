@@ -10,7 +10,7 @@ TABLE users
 - username VARCHAR(16) PRIMARY KEY
 - email VARCHAR NOT NULL UNIQUE
 - name VARCHAR NOT NULL
-- password VARCHAR(16)
+- password VARCHAR
 - CHECK password LIKE '______%'
   # password should be no less than 6 characters long
 - CHECK name NOT LIKE '%[^a-zA-Z''-]%'

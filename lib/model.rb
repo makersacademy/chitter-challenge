@@ -8,7 +8,13 @@ class ChitterHandler
 
   class << self
     def retrieve_peeps
-      select_connection.exec("SELECT * FROM peeps").each.to_a
+      query = "SELECT * FROM peeps ORDER BY date_and_time_posted"
+      select_connection.exec(query).map do |peep|
+        { id: peep['id'],
+          text: peep['text'],
+          datetime: peep['date_and_time_posted']
+        }
+      end
     end
 
     def add_peep(message)
