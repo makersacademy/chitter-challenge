@@ -4,13 +4,14 @@ require './lib/peep'
 class ChitterApp < Sinatra::Base
 
   get '/chitter' do
-    @peep = Peep.all
     @message = params[:message]
+    @peep = Peep.all
     erb :index
   end
 
   post '/chitter' do
     @message = params[:message]
+    @peep = Peep.all
     erb :index
   end
 end
