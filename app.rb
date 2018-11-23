@@ -8,4 +8,11 @@ class ChitterApp < Sinatra::Base
     erb(:'/peeps/peeps_list')
   end
 
+  post '/peeps/peeps_list' do
+    Peep.add(params[:content])
+    redirect '/peeps/peeps_list'
+  end
+
+
+
 end

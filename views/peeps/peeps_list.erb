@@ -5,12 +5,19 @@
     <title></title>
   </head>
   <body>
+    <form class="" action="/peeps/peeps_list" method="post">
+      <label for="">
+        Write your peep in here!:
+        <input type="text" name="content" value="">
+        <input type="submit" name="" value="Submit">
+      </label>
+    </form>
     <h1>Welcome to your Peep List bro!</h1>
     <div class="">
       Your Peeps:
         <ul>
           <% @peeps.each do |peep| %>
-          <li><%= peep %></li>
+          <li><%= peep.content %> <%=peep.timestamp%></li>
           <% end %>
         </ul>
     </div>
