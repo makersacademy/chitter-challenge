@@ -13,5 +13,11 @@ class Chitter < Sinatra::Base
   	erb(:peep_feed)
   end
 
+  get '/new_peep' do
+  end
+
+  post '/new_peep' do
+  end
+
   run! if app_file == $0
 end
