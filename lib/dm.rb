@@ -2,13 +2,13 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
+require 'database_cleaner'
 
 if ENV['ENVIRONMENT'] == 'test'
 	DataMapper.setup(:default, "postgres://localhost/chitter_test")
 else
 	DataMapper.setup(:default, "postgres://localhost/chitter")
 end
-
 
 class User
 	include DataMapper::Resource
