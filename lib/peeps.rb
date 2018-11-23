@@ -2,21 +2,20 @@ require 'pg'
 
 class Peep
 
-  attr_reader :message, :timestamp
+  attr_reader :message
 
-  def initialize(message:, timestamp:)
+  def initialize(message:)
     @message = message
-    @timestamp = timestamp
   end
 
-  def self.post(message:, timestamp:)
+  def self.post(message:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("INSERT INTO peeps (message) VALUES('#{message}') RETURNING message, timestamp")
-    p Peep.new( message: result[0]['message'], timestamp: result[0]['timestamp'])
+    result = connection.exec("INSERT INTO peeps (message) VALUES('#{message}') RETURNING message")
+    p Peep.new(message: result[0]['message'])
   end
 
   def self.all
@@ -25,9 +24,9 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT message, timestamp FROM peeps")
+    result = connection.exec("SELECT message FROM peeps")
     result.map do |peep|
-    Peep.new(message: peep['message'], timestamp: peep['timestamp'])
+    Peep.new(message: peep['message'])
     end
   end
 end
