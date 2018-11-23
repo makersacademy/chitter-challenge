@@ -1,11 +1,13 @@
 Welcome to Chitter <br>
-<hr>
 <form class="button" action="/enter_peep" method="get">
   <input type="submit" value="Peep here">
 </form>
-<% @peeps.each do |peep| %>
-  <%= "#{peep.name} @#{peep.username}" %><br>
-  <%= "#{peep.content}" %><br>
-  <%= "#{peep.timestamp}" %><br>
-  <hr>
-<% end %>
+<hr>
+<div class="peep">
+  <% @peeps.each do |peep| %>
+    <%= "#{peep.name} @#{peep.username}" %><br>
+    <%= "#{peep.content}" %><br>
+    <%= "#{peep.timestamp}" %><br>
+    <hr>
+  <% end %>
+<div>

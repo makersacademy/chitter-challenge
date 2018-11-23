@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/chitter_feed'
+require './database_connection_setup'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
@@ -8,7 +9,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = ChitterFeed.all
-    
+
     erb :chitter_feed
   end
 
