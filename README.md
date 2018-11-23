@@ -18,7 +18,7 @@ User accounts will require a username and email address (both of which must be u
 
 A local PostgreSQL database (named 'chitter') was created for Chitter to use during development. The ChitterHandler class in lib/model.rb uses the `pg` gem to interact with the local database using PostgreSQL commands. There is no public database for this app so you will need to create one yourself based on the docs/db-model plot; the elements which have been implemented are listed with a + rather than a -.
 
-Tests have been set up to run with RSpec and Capybara. You can run the full suite using the `rspec` command, or run a specific feature/unit spec file e.g. `rspec spec/features/chitter_spec.rb`. Note there are default peeps specified in the ChitterHandler which will need to be manually inserted into the database for the tests to work.
+Tests have been set up to run with RSpec and Capybara. You can run the full suite using the `rspec` command, or run a specific feature/unit spec file e.g. `rspec spec/features/chitter_spec.rb`. Note the tests use a separate database named 'chitter-test' to avoid making a mess of the development/production databases; the setup_test_db method called by spec/spec_helper.rb empties 'chitter-test' and populates it with the default peeps specified in the ChitterHandler, before each test is run.
 
 ---
 
@@ -27,3 +27,7 @@ Tests have been set up to run with RSpec and Capybara. You can run the full suit
 The `docs` directory includes a `db-model` file with details of the planned database contents, and a `user-stories` file listing the features specified by MA.
 
 A basic home page was created to check the environment was set up correctly, then was expanded to show the list of peeps as this would be necessary for testing other elements of the app. ERB views are used by the controller (Chitter class in app.rb) to render pages. Feature and unit tests were written as appropriate for each stage.
+
+The list of peeps was originally presented without context. This was changed to showing them in a numbered list, starting with the last peep that was passed through from the ChitterHandler (reverse order).
+
+ChitterHandler#add_peep(message) includes a substitution ' -> '' in the message passed to it, as this message is interpolated into an SQL command which requires apostrophes to be escaped. Intermittent problems were encountered before applying this substitution.
