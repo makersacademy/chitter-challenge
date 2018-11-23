@@ -1,4 +1,5 @@
 require 'pg'
+require 'date'
 require_relative './peep'
 require_relative './user'
 
@@ -14,9 +15,13 @@ class ChitterFeed
                               ORDER BY timestamp DESC;"
     result.map do |peep|
       Peep.new(id: peep['id'], content: peep['content'],
-              timestamp: peep['timestamp'], name: peep['name'],
+              timestamp: self.format_timestamp(peep['timestamp']), name: peep['name'],
               username: peep['username'])
     end
+  end
+
+  def self.format_timestamp(timestamp)
+    DateTime.parse(timestamp).strftime('%a %d %b %H:%M')
   end
 
 end

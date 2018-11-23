@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = ChitterFeed.all
+    
     erb :chitter_feed
   end
 
@@ -16,8 +17,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_peep' do
-    p @user_id = User.find(params[:username])
-    p peep = Peep.create(user_id: @user_id, content: params[:peep]) if @user_id
+    @user_id = User.find(params[:username])
+    peep = Peep.create(user_id: @user_id, content: params[:peep]) if @user_id
     redirect '/'
   end
 

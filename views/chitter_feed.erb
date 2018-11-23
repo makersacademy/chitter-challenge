@@ -4,6 +4,8 @@ Welcome to Chitter <br>
   <input type="submit" value="Peep here">
 </form>
 <% @peeps.each do |peep| %>
-  <%= "#{peep.username}: #{peep.content}" %><br>
+  <%= "#{peep.name} @#{peep.username}" %><br>
+  <%= "#{peep.content}" %><br>
+  <%= "#{peep.timestamp}" %><br>
   <hr>
 <% end %>
