@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep_feed' do
-  	@peeps = Peep.all(:order => [:created_at.asc], :limit => 10)
+  	@peeps = Peep.all(:order => [:created_at.desc], :limit => 10)
   	erb(:peep_feed)
   end
 

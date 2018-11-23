@@ -33,21 +33,21 @@ feature 'Viewing peeps' do
   		date_of_birth: 	"010191"
   		)
   	Peep.create(
-  		message_content: 	"I am the oldest peep",
+  		message_content: 	"I am the newest peep",
   		created_at: 			Time.new,
   		author: 					"Test Account",
   		user_id: 					1
   		)
   	Peep.create(
-  		message_content: 	"I am the newest peep",
+  		message_content: 	"I am the oldest peep",
   		created_at: 			Time.new,
   		author: 					"Test Account",
   		user_id: 					1
   		)
     visit('/')
     within ".timeline" do
-    	expect(find("li:first-child").text).to have_content("I am the oldest peep")
-      expect(find("li:last-child").text).to have_content("I am the newest peep")
+    	expect(find("li:first-child").text).to have_content("I am the newest peep")
+      expect(find("li:last-child").text).to have_content("I am the oldest peep")
     end
   end
 end
