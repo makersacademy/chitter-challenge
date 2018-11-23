@@ -1,5 +1,20 @@
 <h1>CHITTER</h1>
 
+<% if @user %>
+  <h1>Welcome, <%= @user.handle %></h1>
+<% end %>
+
+<% if @user %>
+  <p><a href="/logout">Log out</a></p>
+  <textarea id="peep" form="peepform" name="peep" rows="5" cols="40" maxlength="240" placeholder="Peep away!"></textarea>
+
+  <form action="/" method="post" id="peepform">
+    <input type="submit" value="Submit">
+  </form>
+<% else %>
+  <p><a href="/signup">Sign up</a> | <a href="/login">Log in</a></p>
+<% end %>
+
 <ul style="list-style-type:none">
 <% @peeps.each do |peep| %>
   <% user = User.retrieve(user_id: peep.user_id) %>
