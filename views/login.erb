@@ -1,0 +1,22 @@
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" href="<%= url('./stylesheets/login.css')%>">
+</head>
+<body>
+
+<div id="header">
+  <h1><a href='/'>Chitter</a></h1>
+  
+</div>
+  <div class='page'>
+  <form action='/login' method='post'>
+  	<input type='text' id='email' name='email'>
+  	<input type='password' id='password' name='password'>
+  	<div id='login_container'><input type='submit' name='submit' value='login'></div>
+  </form>
+
+  <a href='/signup' id='create_account'>Create Account</a>
+</div>
+  
+
+</body>

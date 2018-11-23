@@ -1,0 +1,72 @@
+body, html{
+  margin:0;
+  padding: 0%;
+}
+*{
+  margin:0;
+}
+
+
+#header {
+  text-align: center;
+  display: flex;
+  font-size: 50px;
+  margin:0;
+  padding: 0;
+  width:100%;
+  border-bottom: 10px solid black;
+  line-height: 150%;
+}
+#header h1{
+  align-items: flex-start;
+  margin: 0;
+  width:100%;
+}
+
+#header a{
+  text-decoration: none;
+  color:black;
+}
+
+
+
+
+input[type=text],input[type=password] {
+  width:100%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 40px;
+}
+
+input[type=submit] {
+  width:100%;
+  font-size: 40px;
+  background-color: black;
+  color: white;
+  padding: 1px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+input[type=submit]:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+label {
+  width:100%;
+  display: block;
+}
+
+.page {
+  width:50%;
+  padding: 0%;
+  align-items: center;
+  margin: 0 auto;
+}
