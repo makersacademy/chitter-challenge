@@ -32,6 +32,7 @@ class Peep
 	property :message_id,				Serial
 	property :message_content, 	Text, required: true, lazy: :false, length: 1..180
 	property :created_at,			 	DateTime
+	property :user_id,					Integer
 	property :author,						String
 
 	belongs_to :user

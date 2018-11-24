@@ -1,8 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './lib/dm'
 require_relative './lib/helpers'
 
 class Chitter < Sinatra::Base
+	enable :sessions
+	register Sinatra::Flash
 
   get '/' do
     redirect(:peep_feed)
