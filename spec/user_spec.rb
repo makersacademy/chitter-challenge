@@ -76,9 +76,7 @@ describe User do
         username: 'test username',
         password: 'password123'
       )
-
       authenticated_user = User.authenticate(email: 'test@email.com', password: 'password123')
-
       expect(authenticated_user.id).to eq user.id
     end
 
@@ -89,8 +87,17 @@ describe User do
         username: 'test username',
         password: 'password123'
       )
-
       expect(User.authenticate(email: 'blah@notanemaik.com', password: 'password123')).to be_nil
+    end
+
+    it 'retuns nil for an incorrect password' do
+      User.create(
+        name: 'Test User',
+        email: 'test@email.com',
+        username: 'test username',
+        password: 'password123'
+      )
+      expect(User.authenticate(email: 'test@email.com', password: 'notrightpassword')).to be_nil
     end
   end
 

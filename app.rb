@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative './lib/user.rb'
 require_relative './lib/peep.rb'
+require 'sinatra/flash'
 
 # checks which databse to run
 require_relative './lib/database_connection_setup.rb'
@@ -8,6 +9,7 @@ require_relative './lib/database_connection_setup.rb'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -23,8 +25,21 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/peeps')
+
+    if user
+      session[:user_id] = user.id
+      redirect('/peeps')
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect('/sessions/new')
+    end
+
+  end
+
+  post '/sessions/destroy' do
+    sessions.clear
+    flash[:notice] = "You have signed out. Come back soon!"
+    redirect '/'
   end
 
   post '/users' do
