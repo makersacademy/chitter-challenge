@@ -1,11 +1,11 @@
 <div class="container">
 <h3>Sign in</h3>
 <h3>Enter email and password to sing in</h3>
-  <%= if flash[:notice] %>
-  <div class="alert">
-    <%= flash[:notice] %>
-  </div>
-    <%= end %>
+
+  <h3>
+  <%= flash[:notice] %>
+  </h3>
+
     <br>
 <form action="/sessions" method="post">
   <input type="text" name="name" placeholder="Name" />
