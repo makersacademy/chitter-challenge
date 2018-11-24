@@ -18,7 +18,6 @@ feature 'posting and viewing peeps' do
     click_button 'Submit'
 
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content 'This is a test peep'
-    expect(page).to have_content 'my_username'
+    expect(page).to have_content 'This is a test peep posted by my_username'
   end
 end

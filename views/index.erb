@@ -11,13 +11,9 @@
       <form action="/peeps/new" method="get">
         <input type="submit" value="Add Peep">
       </form>
-      <h3>Other Chitter Users:</h3>
-        <% @users.each do |user| %>
-          <li> <%= user.username %> <%= user.name %> </li>
-        <% end %>
       <h3>Peepline:</h3>
       <% @peeps.each do |peep| %>
-        <li> <%= peep.text %> </li>
+        <li> <%= peep.text %> posted by <%= @users.find(id: peep.user_id).username %> </li>
       <% end %>
     <% end %>
     <% unless @user %>
