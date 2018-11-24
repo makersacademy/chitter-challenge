@@ -10,10 +10,10 @@ describe Messages do
   end
 
   describe '.all' do
-    it 'returns a list of messages' do
-      message = Messages.create(username: 'leoncross', name: 'leon', message: 'My very first peep!!!')
+    it 'returns a list of messages in reverse cronological order' do
       Messages.create(username: 'abarskey', name: 'andrey', message: 'a small message')
       Messages.create(username: 'sjohn', name: 'steve', message: 'another message by steve')
+      message = Messages.create(username: 'leoncross', name: 'leon', message: 'My very first peep!!!')
 
       messages = Messages.all
 
@@ -22,16 +22,6 @@ describe Messages do
       expect(messages.first.id).to eq message.id
       expect(messages.first.username).to eq 'leoncross'
       expect(messages.first.name).to eq 'leon'
-    end
-  end
-
-  describe '.all_sorted' do
-    it 'returns a list of messages in reverse cronological order' do
-      Messages.create(username: 'leoncross', name: 'leon', message: 'My very first peep!!!')
-      Messages.create(username: 'abarskey', name: 'andrey', message: 'a small message')
-      Messages.create(username: 'sjohn', name: 'steve', message: 'another message by steve')
-
-      expect(Messages.all_sorted.first.name).to eq 'sjohn'
     end
   end
 end
