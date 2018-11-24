@@ -5,6 +5,14 @@ require 'capybara/rspec'
 require 'rspec'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database = true
+  end
+end
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
