@@ -15,13 +15,13 @@ feature 'posting and viewing peeps' do
     sign_in_and_sign_up
     click_button 'Add Peep'
     expect(current_path).to eq "/peeps/new"
-    fill_in 'message', with: 'This is a first test peep'
+    fill_in 'message', with: 'blah blah blah'
     click_button 'Submit'
     click_button 'Add Peep'
     expect(current_path).to eq "/peeps/new"
-    fill_in 'message', with: 'This is a second peep'
+    fill_in 'message', with: 'later peep'
     click_button 'Submit'
     expect(current_path).to eq '/peeps'
-    expect(first('.peep')).to have_content 'This is a second peep'
+    expect(first('.peep')).to have_content 'later peep'
   end
 end
