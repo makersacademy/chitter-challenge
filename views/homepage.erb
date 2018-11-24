@@ -1,6 +1,27 @@
 
 <form action="/post_message" method="post">
 
+  <style>
+
+    .left {
+    background-color: #ADD8E6
+;
+    width: 50%;
+    border: 1px solid black;
+    margin: 50;
+    text-indent: 20px;
+    /* position: absolute;
+    top: 30%;
+    left: 50%; */
+    /* -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+  }
+
+  </style>
+
+
+
+
 <h2>Chitter!</h2>
 <br>
 
@@ -31,7 +52,17 @@ Peep:<br>
 <h2>Messages</h2>
 
 
+<ul>
+  <left>
+  <div class="left">
+  <% @messages.each do |message| %>
 
+  <p> By: <%= message.name %> (<%= message.username %>)</p>
+  <p>        <%= message.message %></p>
+  <p><%= message.time[0..15] %></p>
+<p> --------------------------------------- </p>
+  <% end %>
+</left>
 
-
+</ul>
 </form>

@@ -5,6 +5,7 @@ require './lib/messages.rb'
 class Chitter < Sinatra::Base
 
   get '/' do
+    @messages = Messages.all
     erb :'homepage'
   end
 
