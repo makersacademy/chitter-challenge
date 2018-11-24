@@ -1,0 +1,17 @@
+Use class method instance variable for storing db connection
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Sat Nov 24 18:59:16 2018 +0000
+#
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   lib/database_connection.rb
+#	modified:   lib/user.rb
+#	modified:   spec/spec_helper.rb
+#	modified:   spec/users_spec.rb
+#
