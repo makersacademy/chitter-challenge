@@ -1,7 +1,7 @@
 require 'user'
 require 'peep'
-feature 'User Sign up' do
-  scenario 'User can sign up as a new user' do
+feature 'registgration' do
+  scenario 'a user can sign up as a new user' do
     visit('/users/new')
 
     fill_in('name', with: 'Sam')

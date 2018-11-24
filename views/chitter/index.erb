@@ -1,6 +1,5 @@
-<h1>Welcome to Chitter</h>
-<h1>  </h1>
-
+<div class="container">  
+  <h1>Welcome to Chitter</h1>
   <p> Sign Up </p>
   <form action="/users" method="post">
     <input type="text" name="name" placeholder="Name" />
@@ -16,8 +15,7 @@
       <input type="submit" value="delete" />
     </li>
         <li><%= peep.message %></li>
-        <br>
-        Posted date:
-        <li><%= peep.created_at %></li>
+        <li>Posted date:  <%= peep.created_at %></li>
     <% end %>
   </ul>
+</div>

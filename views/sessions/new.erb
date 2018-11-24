@@ -1,0 +1,16 @@
+<div class="container">
+<h3>Sign in</h3>
+<h3>Enter email and password to sing in</h3>
+  <%= if flash[:notice] %>
+  <div class="alert">
+    <%= flash[:notice] %>
+  </div>
+    <%= end %>
+    <br>
+<form action="/sessions" method="post">
+  <input type="text" name="name" placeholder="Name" />
+  <input type="email" name="email" placeholder="Email" />
+  <input type="password" name="password" placeholder="password" />
+  <input type="submit" value="Sign in">
+</form>
+</div>

@@ -1,5 +1,5 @@
-require_relative './database_connection'
 require 'bcrypt'
+require_relative './database_connection'
 
 class User
 
@@ -11,35 +11,43 @@ class User
     @email = email
     @password = password
   end
+  # def self.all(id)
+  #   result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+  #   result.map { |user| User.new(
+  #     user['id'],
+  #     user['name'],
+  #     user['email'],
+  #     user['password']
+  #     )
+  #   }
+  # end
 
-  def self.all(id)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
-    result.map { |user| User.new(
-      user['id'],
-      user['name'],
-      user['email'],
-      user['password']
-      )
-    }
-  end
+  # def self.create(options)
+  #   password = BCrypt::Password.create(options[:password])
+  #   result = DatabaseConnection.query("INSERT INTO users(name, email, password) VALUES('#{options[:name]}', '#{options[:email]}', '#{options[:password]}') RETURNING id, name, email;")
+  #   User.new(
+  #     id: result[0]['id'],
+  #     name: result[0]['name'],
+  #     email: result[0]['email'],
+  #     password: result[0]['password']
+  #     )
+  # end
 
-  def self.create(options)
-    password = BCrypt::Password.create(options[:password])
+  def self.create(name:, email:, password:)
+    encrypted_password = BCrypt::Password.create(password)
 
-    result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{options[:name]}',
-    '#{options[:email]}',
-    '#{options[:password]}') RETURNING id, name, email")
+    result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{encrypted_password}') RETURNING id, name, email;")
     User.new(
       id: result[0]['id'],
       name: result[0]['name'],
       email: result[0]['email'],
       password: result[0]['password']
-      )
+    )
   end
 
   def self.find(id:)
     return nil unless id
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = id ")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
     User.new(
       id: result[0]['id'],
       name: result[0]['name'],
@@ -48,8 +56,8 @@ class User
    )
   end
 
-  def self.authenticate(name:, password:)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE name = '#{name}'")
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
     return unless result.any?
     return unless BCrypt::Password.new(result[0]['password']) == password
     User.new(
@@ -59,4 +67,5 @@ class User
       password: result[0]['password']
     )
   end
+
 end
