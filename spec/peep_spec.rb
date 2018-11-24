@@ -33,7 +33,6 @@ describe Peep do
       peep = Peep.create(text: 'This is a test peep', user_id: user.id)
 
       persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{peep.id}")
-
       expect(peep.id).to eq persisted_data.first['id']
       expect(peep.text).to eq persisted_data.first['text']
       expect(peep.user_id).to eq persisted_data.first['user_id']

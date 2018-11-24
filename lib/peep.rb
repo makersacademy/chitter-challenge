@@ -16,17 +16,15 @@ class Peep
     Peep.new(
       id: result[0]['id'],
       text: result[0]['text'],
-      tstz: result[0]['tstz'],
       user_id: result[0]['user_id']
     )
   end
 
-  attr_reader :id, :text, :tstz, :user_id
+  attr_reader :id, :text, :user_id
 
-  def initialize(id:, text:, tstz:, user_id:)
+  def initialize(id:, text:, user_id:)
     @id = id
     @text = text
-    @tstz = tstz
     @user_id = user_id
   end
 
