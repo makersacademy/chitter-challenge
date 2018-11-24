@@ -1,0 +1,2 @@
+ALTER TABLE messages ADD COLUMN username VARCHAR(15);
+ALTER TABLE messages ADD COLUMN name VARCHAR(15);
