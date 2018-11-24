@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/homepage' do
-    @peep = session[:peep_content]
+    @peeps = Peep.all
     erb(:homepage)
   end
 
@@ -20,10 +20,8 @@ class Chitter < Sinatra::Base
        email, password) VALUES ('Dummy User', 'DummyUsername', \
          'dummyemail@domain.com', 123456789) RETURNING userid, name, \
          user_name, email, password;")
-    session[:peep] = Peep.create(userid: dummy_user[0]['userid'], \
-      timestamp: Time.now, content: params[:peep_content], \
-      threadpeep: params[:peep_content])
-    session[:peep_content] = params[:peep_content]
+    Peep.create(userid: dummy_user[0]['userid'], timestamp: Time.now, \
+      content: params[:peep_content], threadpeep: params[:peep_content])
     redirect '/homepage'
   end
 

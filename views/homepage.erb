@@ -11,5 +11,16 @@
         <input type="submit" name="" value="Make A Peep">
       </form>
     <h2><%= @peep %></h2>
+
+    <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <h2>
+          <%= peep.timestamp %>
+          <%= peep.content %>
+        </h2
+      </li>
+    <% end %>
+    </ul>
   </body>
 </html>

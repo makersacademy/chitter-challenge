@@ -18,4 +18,21 @@ describe Peep do
       expect(peep.content).to eq 'Is anyone there?'
     end
   end
+
+  describe '.all' do
+    it 'returns a list of peeps' do
+      dummy_user = DatabaseConnection.query("INSERT INTO users (name, user_name, email, password) VALUES ('Dummy User', 'DummyUsername', 'dummyemail@domain.com', 123456789) RETURNING userid, name, user_name, email, password;")
+
+      peep = Peep.create(userid: dummy_user[0]['userid'], timestamp: Time.now, content: 'Is anyone there?', threadpeep: 'Is anyone there?')
+      Peep.create(userid: dummy_user[0]['userid'], timestamp: Time.now, content: 'Get me out of here!', threadpeep: 'Get me out of here!')
+      Peep.create(userid: dummy_user[0]['userid'], timestamp: Time.now, content: 'The time has come', threadpeep: 'The time has come')
+
+      peeps = Peep.all
+
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.peepid).to eq peep.peepid
+      expect(peeps.first.content).to eq 'Is anyone there?'
+    end
+  end
 end

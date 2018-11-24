@@ -21,4 +21,13 @@ class Peep
       timestamp: result[0]['timestamp'], content: result[0]['content'], \
       threadpeep: result[0]['threadpeep'])
   end
+
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result.map do |peep|
+      Peep.new(peepid: peep['peepid'], userid: peep['userid'], \
+        timestamp: peep['timestamp'], content: peep['content'], \
+        threadpeep: peep['threadpeep'])
+    end
+  end
 end
