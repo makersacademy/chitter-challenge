@@ -4,7 +4,7 @@ feature 'Posting a peep' do
 		click_on("Post a Peep")
 		expect(page).to have_current_path('/new_peep')
 		fill_in('message_content', with: 'I am a new peep')
-		click_on('Submit')
+		click_on('Post')
 		expect(page).to have_current_path('/peep_feed')
 		within ".timeline" do
     	expect(find("li:first-child").text).to have_content("I am the new peep")
