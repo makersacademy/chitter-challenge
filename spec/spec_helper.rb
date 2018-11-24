@@ -1,3 +1,5 @@
+ENV['ENVIRONMENT'] = 'test'
+
 require './app'
 require './spec/web_helpers'
 
@@ -7,7 +9,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'sinatra'
 
-ENV['ENVIRONMENT'] = 'test'
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
