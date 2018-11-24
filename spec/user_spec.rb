@@ -50,7 +50,22 @@ describe User do
       expect(found_user.id).to eq persisted_data['id']
       expect(found_user.username).to eq user.username
     end
+  end
 
+  describe '.all' do
+    it 'returns all the users' do
+      user = User.create(
+        name: 'Test User',
+        email: 'test@email.com',
+        username: 'test username',
+        password: 'password123'
+      )
+
+      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM users WHERE id = #{user.id}")
+      expect(user.id).to eq persisted_data.first['id']
+      expect(user.name).to eq persisted_data.first['name']
+      expect(user.username).to eq persisted_data.first['username']
+    end
   end
 
 end

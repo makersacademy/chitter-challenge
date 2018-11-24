@@ -21,4 +21,23 @@ describe Peep do
     end
   end
 
+  describe '.all' do
+    it 'returns all the peeps' do
+      user = User.create(
+        name: 'Test User',
+        email: 'test@email.com',
+        username: 'test username',
+        password: 'password123'
+      )
+
+      peep = Peep.create(text: 'This is a test peep', user_id: user.id)
+
+      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{peep.id}")
+
+      expect(peep.id).to eq persisted_data.first['id']
+      expect(peep.text).to eq persisted_data.first['text']
+      expect(peep.user_id).to eq persisted_data.first['user_id']
+    end
+  end
+
 end

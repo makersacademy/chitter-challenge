@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/user.rb'
+require_relative './lib/peep.rb'
 
 # checks which databse to run
 require_relative './lib/database_connection_setup.rb'
@@ -29,6 +30,8 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @user = User.find(id: session[:user_id])
+    @users = User.all
+    @peeps = Peep.all
     erb :index
   end
 

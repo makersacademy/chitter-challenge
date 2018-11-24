@@ -7,10 +7,14 @@
   <body>
     <h1>Chitter!</h1>
     <% if @user %>
-    <h2>Welcome <%= @user.username %>, take a look the chitter peeps!</h2>
-    <form action="/peeps/new" method="get">
-      <input type="submit" value="Add Peep">
-    </form>
+      <h2>Welcome <%= @user.username %>, take a look the chitter peeps!</h2>
+      <form action="/peeps/new" method="get">
+        <input type="submit" value="Add Peep">
+      </form>
+      <h3>Peepline:</h3>
+      <% @peeps.each do |peep| %>
+        <li <%= peep %> </li>
+      <% end %>
     <% end %>
     <% unless @user %>
     <form action="/users/new" method="get">

@@ -3,11 +3,22 @@ require 'bcrypt'
 
 class User
 
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM users")
+    result.map do |user|
+      User.new(
+        id: user['id'],
+        username: user['username'],
+        name: user['name'],
+        email: user['email']
+      )
+    end
+  end
+
   def self.create(name:, username:, email:, password:)
     enctypted_password = BCrypt::Password.create(password)
 
     result = DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{enctypted_password}') RETURNING id, name, username, email;")
-
     User.new(
       id: result[0]['id'],
       name: result[0]['name'],
@@ -35,6 +46,5 @@ class User
     @email = email
     @username = username
   end
-
 
 end
