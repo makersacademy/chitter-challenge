@@ -18,14 +18,12 @@ class Chitter < Sinatra::Base
   end
 
   post	'/new_peep' do
-  	p params
   	peep = Peep.create(
   		message_content: params[:message_content],
   		created_at: Time.now,
   		author: "Testing",
   		user_id: 1
   	)
-  	p peep
   	redirect(:peep_feed)
   end
 
