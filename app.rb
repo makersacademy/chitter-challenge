@@ -28,8 +28,20 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = session[:user_id]
+    @user = User.find(id: session[:user_id])
     erb :index
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(
+      text: params[:message],
+      user_id: session[:user_id]
+    )
+    redirect '/peeps'
   end
 
   run! if app_file == $0

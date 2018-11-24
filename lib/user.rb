@@ -6,10 +6,11 @@ class User
   def self.create(name:, username:, email:, password:)
     enctypted_password = BCrypt::Password.create(password)
 
-    result = DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{enctypted_password}') RETURNING id, username, email;")
+    result = DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{enctypted_password}') RETURNING id, name, username, email;")
 
     User.new(
       id: result[0]['id'],
+      name: result[0]['name'],
       username: result[0]['username'],
       email: result[0]['email']
     )
@@ -20,15 +21,17 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id};")
     User.new(
       id: result[0]['id'],
+      name: result[0]['name'],
       username: result[0]['username'],
       email: result[0]['email']
     )
   end
 
-  attr_reader :id, :username, :email
+  attr_reader :id, :name, :username, :email
 
-  def initialize(id:, username:, email:)
+  def initialize(id:, name:, username:, email:)
     @id = id
+    @name = name
     @email = email
     @username = username
   end
