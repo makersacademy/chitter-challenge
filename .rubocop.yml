@@ -33,8 +33,8 @@
 # ==================
 #
 # Sometimes beginner devs interpret line or block length restrictions as a
-# reason to make things so abbreviated as to be unreadable. These messages are
-# designed to make you write more readable code - not less.
+# reason to make things so abbreviated as to be unreadable. These messages are
+# designed to make you write more readable code - not less.
 
 Metrics/LineLength:
   Max: 100
@@ -56,7 +56,7 @@ Metrics/BlockLength:
 # ==========
 #
 # Many devs, upon running a linter for the first time, see a big wall of errors
-# of dubious necessity and put it in the 'way too much trouble' box. Beginners
+# of dubious necessity and put it in the 'way too much trouble' box. Beginners
 # usually have far more pressing concerns than which sort of quotes they use.
 #
 # This makes Rubocop have a bigger 'payoff' for beginners without so much of

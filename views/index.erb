@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../public/style.css">.
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <h1>Welcome to the chitter social network</h1>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li class="peep" id="peep-<%= peep.id %>">
+          <h3><%= peep.username %>, <%= peep.date %></h3>
+          <p>
+            <%= peep.content %>
+          </p>
+
+        </li>
+      <% end %>
+    </ul>
+
+    <form action='/new' method='get'>
+    <div class="btn btn-sm animated-button sandy-one">
+      <button type="submit">Add peep</button>
+    </div>
+    </form>
+
+  </body>
+</html>
