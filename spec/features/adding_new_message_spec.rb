@@ -1,4 +1,4 @@
-feature 'send message' do
+feature 'Adding new message' do
 
   scenario 'User can post a message to chitter' do
     visit('/messages/new')
