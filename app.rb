@@ -18,9 +18,9 @@ class Chitter < Sinatra::Base
   post '/new' do
     dummy_user = DatabaseConnection.query("INSERT INTO users (name, user_name, \
        email, password) VALUES ('Dummy User', 'DummyUsername', \
-         'dummyemail@domain.com', 123456789) RETURNING userid, name, \
+         'dummyemail@domain.com', 123456789) RETURNING id, name, \
          user_name, email, password;")
-    Peep.create(userid: dummy_user[0]['userid'], timestamp: Time.now, \
+    Peep.create(userid: dummy_user[0]['id'], timestamp: Time.now, \
       content: params[:peep_content], threadpeep: params[:peep_content])
     redirect '/homepage'
   end
