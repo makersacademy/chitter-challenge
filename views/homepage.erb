@@ -5,20 +5,25 @@
     <title>Chitter Homepage</title>
   </head>
   <body>
-    <h1>Welcome to Chitter</h1>
-      <form class="" action="/new" method="post">
-        <input type="text" name="peep_content"/>
-        <input type="submit" name="" value="Make A Peep">
-      </form>
+    <h1>Welcome to Chitter<% if @user %>, <%= @user.name %>
+    <% end %>
+    </h1>
+    <form class="" action="/users/new" method="get">
+      <input type="submit" name="" value="Register for Chitter">
+    </form>
+    <form class="" action="/peep/new" method="post">
+      <input type="text" name="peep_content"/>
+      <input type="submit" name="" value="Make A Peep">
+    </form>
     <h2><%= @peep %></h2>
 
     <ul>
     <% @peeps.each do |peep| %>
       <li>
-        <h2>
+        <p>
           <%= peep.timestamp %>
           <%= peep.content %>
-        </h2
+        </p>
       </li>
     <% end %>
     </ul>

@@ -11,17 +11,33 @@ class Chitter < Sinatra::Base
   end
 
   get '/homepage' do
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb(:homepage)
   end
 
-  post '/new' do
-    dummy_user = DatabaseConnection.query("INSERT INTO users (name, user_name, \
-       email, password) VALUES ('Dummy User', 'DummyUsername', \
-         'dummyemail@domain.com', 123456789) RETURNING id, name, \
-         user_name, email, password;")
-    Peep.create(userid: dummy_user[0]['id'], timestamp: Time.now, \
+  post '/peep/new' do
+    @user = User.find(session[:user_id])
+
+    if @user == nil
+    @user = User.register(name: 'Faceless Old Woman', \
+      user_name: 'FacelessOW', email: 'mystery@domain.com', \
+      password: '123456789')
+    end
+    Peep.create(userid: @user.id, timestamp: Time.now, \
       content: params[:peep_content], threadpeep: params[:peep_content])
+
+    redirect '/homepage'
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    user = User.register(name: params[:name], user_name: params[:user_name], \
+      email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/homepage'
   end
 

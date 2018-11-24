@@ -4,6 +4,7 @@ feature 'Viewing the homepage' do
     expect(page).to have_content 'Welcome to Chitter'
     find('input[type="text"][name*="peep_content"]')
     expect(page).to have_button('Make A Peep')
+    expect(page).to have_button('Register for Chitter')
   end
 
   scenario 'A user can see peeps on the homepage' do
