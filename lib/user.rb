@@ -17,7 +17,6 @@ class User
     )
   end
 
-
   attr_reader :id, :username, :email
 
   def initialize(id:, username:, email:)

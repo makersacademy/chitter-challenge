@@ -12,7 +12,7 @@ describe User do
         password: 'password123'
       )
       persisted_data = persisted_data(table: :users, id: user.id)
-      p persisted_data
+
       expect(user).to be_a User
       expect(user.id).to eq persisted_data['id']
       expect(user.username).to eq 'test username'
