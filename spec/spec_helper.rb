@@ -34,7 +34,8 @@ RSpec.configure do |config|
     connection.exec("CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(160), time TIMESTAMP);")
     connection.exec('ALTER TABLE messages ADD COLUMN username VARCHAR(15);')
     connection.exec('ALTER TABLE messages ADD COLUMN name VARCHAR(15);')
-    connection.exec('ALTER TABLE "messages" ADD COLUMN time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP;')
+    connection.exec('ALTER TABLE messages DROP COLUMN time;')
+    connection.exec('ALTER TABLE messages ADD COLUMN time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP;')
   end
 
     config.before(:each) do
