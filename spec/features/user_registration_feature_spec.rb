@@ -9,6 +9,6 @@ feature 'user registration' do
     fill_in('username', with: 'my_username')
     click_button('Submit')
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content "Chitter!\nWelcome my_username, take a look the chitter peeps!"
+    expect(page).to have_content "Chitter!\nWelcome my_username, take a look the chitter timeline!"
   end
 end
