@@ -1,17 +1,15 @@
 class DatabaseConnection
-  attr_reader :connection  
 
   def self.setup(dbname)
     @connection = PG.connect(dbname: dbname)
-  end  
+  end
 
   def self.connection
     @connection
-  end  
+  end
 
-  def self.query(sql_query)
-    connection = DatabaseConnection.setup
-    connection.exec(sql_query)
+  def self.query(sql)
+    @connection.exec(sql)
   end
 
 end
