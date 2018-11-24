@@ -28,7 +28,14 @@ Capybara.app = Chitter
 
 
 RSpec.configure do |config|
-
+  config.before(:suite) do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(15) UNIQUE, email VARCHAR(40) UNIQUE, password VARCHAR(10), name VARCHAR(15));")
+    connection.exec("CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(160), time TIMESTAMP);")
+    connection.exec('ALTER TABLE messages ADD COLUMN username VARCHAR(15);')
+    connection.exec('ALTER TABLE messages ADD COLUMN name VARCHAR(15);')
+    connection.exec('ALTER TABLE "messages" ADD COLUMN time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP;')
+  end
 
     config.before(:each) do
       setup_test_database
