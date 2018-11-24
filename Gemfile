@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
+gem 'capybara'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'
-gem 'capybara'
 
 group :test do
   gem 'pg'

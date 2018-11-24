@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <h1>Chitter feed</h1>
+    <% @peep.each do |message| %>
+    <%= message.message %>
+    <br>
+    Peeped at: <%= message.message_created %>
+    <br>
+    <br>
+    <% end %>
+  </body>
+</html>
