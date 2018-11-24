@@ -1,15 +1,24 @@
 require 'sinatra/base'
-require './lib/chitter.rb'
+require './lib/sign_up.rb'
+require './lib/messages.rb'
 
-class Chitter_challenge < Sinatra::Base
+class Chitter < Sinatra::Base
 
-  get '/' do
-
-
+  get '/sign_up' do
+    erb :'sign_up'
   end
 
+  post '/sign_up_process' do
+    params[:username]
+    params[:name]
+    params[:email]
+    params[:password]
+    redirect '/sign_up_confirmation'
+  end
 
-
+  get '/sign_up_confirmation' do
+    erb :'sign_up_confirmation'
+  end
 
   run! if app_file == $0
 end
