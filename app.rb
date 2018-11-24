@@ -27,6 +27,5 @@ class Chitter < Sinatra::Base
     erb :'sign_up_confirmation'
   end
 
-
   run! if app_file == $0
 end

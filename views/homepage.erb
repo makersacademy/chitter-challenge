@@ -57,8 +57,8 @@ Peep:<br>
   <div class="left">
   <% @messages.each do |message| %>
 
-  <p> By: <%= message.name %> (<%= message.username %>)</p>
-  <p>        <%= message.message %></p>
+  <p>By: <%= message.name %> (<%= message.username %>)</p>
+  <p><%= message.message %></p>
   <p><%= message.time[0..15] %></p>
 <p> --------------------------------------- </p>
   <% end %>

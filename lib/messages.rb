@@ -23,10 +23,16 @@ class Messages
   end
 
   def self.all
-    result = @connection.exec("SELECT * FROM messages;")
+    result = @connection.exec("SELECT * FROM messages ORDER BY time DESC;")
     result.map do |message|
       Messages.new(id: message['id'], username: message['username'], name: message['name'],message: message['message'],time: message['time'])
     end
   end
-
+  #
+  # def self.all_sorted
+  #   result = @connection.exec("SELECT * FROM messages BY time ASC;")
+  #   result.map do |message|
+  #     Messages.new(id: message['id'], username: message['username'], name: message['name'],message: message['message'],time: message['time'])
+  #   end
+  # end
 end

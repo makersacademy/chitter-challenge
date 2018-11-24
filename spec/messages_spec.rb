@@ -24,4 +24,14 @@ describe Messages do
       expect(messages.first.name).to eq 'leon'
     end
   end
+
+  describe '.all_sorted' do
+    it 'returns a list of messages in reverse cronological order' do
+      Messages.create(username: 'leoncross', name: 'leon', message: 'My very first peep!!!')
+      Messages.create(username: 'abarskey', name: 'andrey', message: 'a small message')
+      Messages.create(username: 'sjohn', name: 'steve', message: 'another message by steve')
+
+      expect(Messages.all_sorted.first.name).to eq 'sjohn'
+    end
+  end
 end
