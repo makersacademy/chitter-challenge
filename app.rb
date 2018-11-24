@@ -1,5 +1,8 @@
 require 'sinatra/base'
 
+# checks which databse to run
+require_relative './lib/database_connection_setup.rb'
+
 class Chitter < Sinatra::Base
 
   get '/' do
