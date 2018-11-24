@@ -18,6 +18,7 @@ describe Peep do
       expect(peep.id).to eq persisted_data['id']
       expect(peep.text).to eq 'This is a test peep'
       expect(peep.user_id).to eq user.id
+      expect(peep.tstz).to eq persisted_data['tstz']
     end
   end
 

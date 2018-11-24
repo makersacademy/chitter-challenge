@@ -13,7 +13,7 @@
       </form>
       <h3>Peepline:</h3>
       <% @peeps.each do |peep| %>
-        <li> <%= peep.text %> posted by <%= @users.find(id: peep.user_id).username %> </li>
+        <li class="peep"> <%= peep.text %> posted by <%= @users.find(id: peep.user_id).username %> at <%= peep.tstz %></li>
       <% end %>
     <% end %>
     <% unless @user %>
