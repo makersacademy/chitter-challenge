@@ -8,7 +8,7 @@ feature 'user registration' do
     fill_in('password', with: 'password123')
     fill_in('username', with: 'my_username')
     click_button('Submit')
-    expect(current_path).to eq '/id:/peeps'
+    expect(current_path).to eq '/peeps'
     expect(page).to have_content "Welcome, my_username"
   end
 end

@@ -1,6 +1,6 @@
 feature 'user registration' do
   xscenario 'a user can sign up to chitter' do
-    visit '/'
+    visit '/peeps'
     click_button 'Sign Up'
     expect(current_path).to eq '/users/new'
     fill_in('name', with: 'Test Name')

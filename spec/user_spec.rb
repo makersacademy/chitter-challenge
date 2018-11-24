@@ -21,6 +21,10 @@ describe User do
   end
 
   describe '.find' do
+    it 'returns nil if there is no ID given' do
+      expect(User.find(id: nil)).to eq nil
+    end
+
     it 'returns a user from the db' do
       user = User.create(
         name: 'Test User',
