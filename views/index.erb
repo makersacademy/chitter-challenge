@@ -1,11 +1,23 @@
-<h1> Welcome to Chitter! </h1>
-
-<center><form action="/post-successful" method="post"><center>
-  <label for="player_name">
-    Post peep
-    <input type="text" name="peep_content">
-  </label>
-  <input type="submit" value="Post Peep">
+  <title>chitter homepage</title>
+  <h1><center> Welcome to Chitter! <center></h1>
+  <div>
+  <h2><form action="/sign-up">
+  <input type="submit" value="Sign up"style="float: right;"></form>
+  </div>
+  <div>
+  <h3><form action="/login">
+  <input type="submit" value="Login" style="float: right;"> </form></h3>
+  </div>
+  <body><center><form action="/peep-params" method="post">
+  <input type="text" name="peep_content">
+  <input type="submit" value="Post Peep"> <center></form>
   <style> body {background-color: Skyblue;} </style>
-  <body> <%= @peeps %> </body>
-</form>
+  <ul>
+ <% @peeps.each do |peep| %>
+
+      <br> <%= peep.time %>
+      <br> <%= peep.content %>
+
+ <% end %>
+</ul>
+  </body>

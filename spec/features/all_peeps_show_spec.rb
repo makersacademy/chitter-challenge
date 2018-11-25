@@ -2,11 +2,10 @@ require 'pg'
 
 feature 'list of peeps on homepage' do
   scenario 'user can see a list of peeps on the homepage' do
-    connection = PG.connect(dbname: 'chitter_database_test')
 
-    connection.exec("INSERT INTO peeps (content) VALUES ('Is this working?');")
-    connection.exec("INSERT INTO peeps (content) VALUES ('I overshare on social media!');")
-    connection.exec("INSERT INTO peeps (content) VALUES ('Does this have a different timestamp.');")
+    Peeps.create(content: 'Is this working?', time: Time.new)
+    Peeps.create(content: 'I overshare on social media!', time: Time.new)
+    Peeps.create(content: 'Does this have a different timestamp.', time: Time.new)
 
     visit('/')
 

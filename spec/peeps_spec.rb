@@ -1,18 +1,29 @@
 require 'peeps'
+require 'database_helpers'
 
 describe Peeps do
 
   it "should be able to post a list of peeps" do
-    connection = PG.connect(dbname: 'chitter_database_test')
 
-     peep = Peeps.all
+    peeps = Peeps.create(content: 'Is this working?', time: Time.new)
+    Peeps.create(content: 'I overshare on social media!', time: Time.new)
+    Peeps.create(content: 'Does this have a different timestamp.', time: Time.new)
 
-     connection.exec("INSERT INTO peeps (content) VALUES ('Is this working?');")
-     connection.exec("INSERT INTO peeps (content) VALUES ('I overshare on social media!');")
-     connection.exec("INSERT INTO peeps (content) VALUES ('Does this have a different timestamp.');")
+    peep = Peeps.all
 
-     expect(peep).to include("Is this working?")
-     expect(peep).to include("I overshare on social media!")
-     expect(peep).to include("Does this have a different timestamp.")
+     expect(peep.length).to eq(3)
+     expect(peep.first).to be_a(Peeps)
+     expect(peep.first.id).to eq peeps.id
+     expect(peep.first.content).to eq('Is this working?')
+
+  end
+
+  it 'creates a new bookmark' do
+    peep = Peeps.create(content: 'testing .create', time: Time.new)
+    persisted_data = persisted_data(id: peep.id)
+
+    expect(peep).to be_a Peeps
+    expect(peep.id).to eq persisted_data['id']
+    expect(peep.content).to eq('testing .create')
   end
 end
