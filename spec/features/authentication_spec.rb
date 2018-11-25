@@ -38,6 +38,11 @@ feature 'authentication' do
     expect(page).to have_content 'Please check your email or password.'
   end
 
+  scenario 'sign out is only possible if user has signed in' do
+    visit "/peeps"
+    expect{ page.find_button('Sign out') }.to raise_error(Capybara::ElementNotFound)
+  end
+
   scenario 'a user can sign out' do
       # Sign in as user
     visit '/sessions/new'
