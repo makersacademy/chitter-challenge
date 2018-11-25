@@ -1,5 +1,12 @@
+<h3>
+<%= flash[:notice] %>
+</h3>
+<% if @user %>
+<h1>Hello, <%= @user.email %></h1>
+<% end %>
 <div>
   <h1>Peep!</h1>
+  <h3>Add your peep here</h3>
   <br>
   <form action="/peeps" method="post">
     <input class="form-control" type="text" name="message" placeholder="What's happening?"/>

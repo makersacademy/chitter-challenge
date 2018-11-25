@@ -1,13 +1,11 @@
-<div class="container">  
+<% if @user %>
+<h1>Welcome, <%= @user.email %></h1>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
+<% end %>
+<div class="container">
   <h1>Welcome to Chitter</h1>
-  <p> Sign Up </p>
-  <form action="/users" method="post">
-    <input type="text" name="name" placeholder="Name" />
-    <input type="text" name="email" placeholder="Email" />
-    <input type="text" name="password" placeholder="Password" />
-    <input type="submit" value="Sign Up" name="submit">
-  </form>
-
   <ul>
     <% @peeps.reverse_each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">

@@ -10,28 +10,7 @@ class User
     @name = name
     @email = email
     @password = password
-  end
-  # def self.all(id)
-  #   result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
-  #   result.map { |user| User.new(
-  #     user['id'],
-  #     user['name'],
-  #     user['email'],
-  #     user['password']
-  #     )
-  #   }
-  # end
-
-  # def self.create(options)
-  #   password = BCrypt::Password.create(options[:password])
-  #   result = DatabaseConnection.query("INSERT INTO users(name, email, password) VALUES('#{options[:name]}', '#{options[:email]}', '#{options[:password]}') RETURNING id, name, email;")
-  #   User.new(
-  #     id: result[0]['id'],
-  #     name: result[0]['name'],
-  #     email: result[0]['email'],
-  #     password: result[0]['password']
-  #     )
-  # end
+  end  
 
   def self.create(name:, email:, password:)
     encrypted_password = BCrypt::Password.create(password)

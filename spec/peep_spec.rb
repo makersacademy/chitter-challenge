@@ -15,7 +15,7 @@ describe Peep do
       expect(peeps.first.id).to eq peep.id
       expect(peeps.first.message).to eq 'First peep!'
     end
-
+  end
     describe '.create' do
       it 'creates new peep' do
         peep = Peep.create(message: 'First peep goes here', created_at: Time.now)
@@ -28,4 +28,3 @@ describe Peep do
     end
 
   end
-end

@@ -1,5 +1,4 @@
 require 'user'
-# require 'peep'
 require 'database_helper'
 
 describe User do
@@ -8,7 +7,6 @@ describe User do
       user = User.create(name: 'name', email: 'sam@example.com', password: 'password123')
 
       persisted_data = persisted_data(table: :users, id: user.id)
-      # persisted_data = persisted_data(id: :user.id, table: users)
 
       expect(user).to be_a User
       expect(user.id).to eq persisted_data.first['id']
@@ -44,7 +42,6 @@ describe User do
     end
 
     it 'returns nil given an incorrect email addres' do
-      #user = User.create(email: 'sam@example.com', password: 'password123')
       expect(User.authenticate(email: 'nottheiremil.com', password: 'password123')).to be_nil
     end
 
