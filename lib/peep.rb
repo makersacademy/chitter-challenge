@@ -14,7 +14,7 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time_stamp DESC")
     result.map { |peep|
       Peep.new(id: peep['id'],
         user_name: peep['user_name'],
