@@ -7,7 +7,7 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY date_added ASC;")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY date_added DESC;")
     result.map { |record| Peep.new(content: record['content'], date: record['date_added']) }
   end
 
