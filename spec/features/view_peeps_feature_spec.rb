@@ -19,7 +19,7 @@ feature 'posting and viewing peeps' do
     fill_in 'message', with: 'blah blah blah'
     click_button 'Submit'
     expect(current_path).to eq '/peeps'
-    allow(Time).to receive(:now).and_return(Time.now+10)
+    allow(Time).to receive(:now).and_return(Time.now + 10)
     click_button 'Add Peep'
     expect(current_path).to eq "/peeps/new"
     fill_in 'message', with: 'later peep'

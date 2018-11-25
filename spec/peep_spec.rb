@@ -17,7 +17,7 @@ describe Peep do
 
       peep = Peep.create(text: 'This is a test peep', user_id: user_id)
 
-      persisted_data = persisted_data(table: 'peeps', id: peep.id )
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data['id']
