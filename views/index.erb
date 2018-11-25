@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <h1>Welcome to Chitter.<h1>
+      <br>
+    <h2>Posts</h2>
+    <div class="peeps_list">
+      <% @peeps.each do |peep| %>
+        <div class='peep_row'>
+          <div class='peep_attr'><%= peep.username %>@18:00</div>
+          <div class='peep_context'><%= peep.context %></div>
+          <div class='peep_attr'><%= peep.time %></div>
+        </div>
+    </div>
+    <% end %>
+    <br>
+    <br>
+    <a class="buttons" href='/post_peep'>Post Peep</a>
+    <a class="edit_button" href='/edit_bookmarks'>Edit Peep</a>
+    <br>
+    <br>
+  </body>
+</html>

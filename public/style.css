@@ -1,0 +1,93 @@
+  h1 {
+        font-family: arial;
+        text-align: center;
+        color: #3f3d3d;
+        font-size: 70px;
+      }
+
+  h2 {
+        font-family: arial;
+        text-align: center;
+        color: #3f3d3d;
+        font-size: 30px;
+        }
+
+  div.form_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+  div.peep_row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        }
+
+  div.peep_context {
+        background-color: #f21145;
+        border-radius: 15px;
+        font-family: arial;
+        text-align: center;
+        color: white;
+        margin: 10px;
+        text-decoration: none;
+        padding: 20px;
+        transition-duration: 0.2s;
+        }
+
+div.peep_context:hover, a:active {
+        background-color: white;
+        color: #f21145;
+        border: 2px solid #f21145;
+        }
+
+div.peep_attr {
+        background-color: #83ea7c;
+        border-radius: 15px;
+        font-family: arial;
+        text-align: center;
+        color: white;
+        margin: 10px;
+        text-decoration: none;
+        padding: 20px;
+        transition-duration: 0.2s;
+        }
+
+  a.buttons {
+        background-color: #5f9bf4;
+        border-radius: 15px;
+        font-family: arial;
+        text-align: center;
+        color: white;
+        margin: 10px;
+        padding: 10px;
+        text-decoration: none;
+        padding: 20px;
+        transition-duration: 0.2s;
+        }
+
+  a.buttons:hover, a:active {
+        background-color: white;
+        color: #5f9bf4;
+        border: 2px solid #5f9bf4;
+        }
+
+  a.edit_button {
+        background-color: #83ea7c;
+        border-radius: 15px;
+        font-family: arial;
+        text-align: center;
+        color: white;
+        margin: 10px;
+        padding: 10px;
+        text-decoration: none;
+        padding: 20px;
+        transition-duration: 0.2s;
+        }
+
+  a.edit_button:hover, a:active {
+      background-color: white;
+      color: #83ea7c;
+      border: 2px solid #83ea7c;
+      }
