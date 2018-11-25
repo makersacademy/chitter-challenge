@@ -22,6 +22,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
+    user = User.login(params[:email],params[:pwd])
+    session[:id] = user.id
+    session[:email] = user.email
     redirect('/')
   end
 

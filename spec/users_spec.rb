@@ -33,4 +33,12 @@ describe User do
     end
   end
 
+  describe '.login' do
+    it 'should verify user login is in database' do
+      created_user = User.create(user_info)
+      result = User.login(user_info['email'],user_info['password'])
+      expect(result.email).to eq created_user.email
+    end
+  end
+
 end
