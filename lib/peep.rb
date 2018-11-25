@@ -26,15 +26,17 @@ class Peep
 
   def time_diff(time)
     diff = Time.now - Time.parse(time)
+    s = "s"
+    s = "" if (diff.round == 1 || diff.round == 60 || diff.round == 3600 || diff.round == 86400)
     case diff
     when 0...60
-      "#{diff.round} seconds ago"
+      "#{diff.round} second#{s} ago"
     when 60...3600
-      "#{(diff/60).round} minutes ago"
+      "#{(diff/60).round} minute#{s} ago"
     when 3600...86400
-      "#{(diff/3600).round} hours ago"
+      "#{(diff/3600).round} hour#{s} ago"
     else
-      "#{(diff/86400).round} days ago"
+      "#{(diff/86400).round} day#{s} ago"
     end
   end
 end
