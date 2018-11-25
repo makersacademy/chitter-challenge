@@ -24,12 +24,8 @@ class Peep
   end
 
   def self.create(userid:, timestamp:, content:, threadpeep:)
-    # result = DatabaseConnection.query("INSERT INTO peeps (userid, timestamp, \
-    #   content, threadpeep) VALUES ('#{userid}', '#{timestamp}', '#{content}', \
-    #     '#{threadpeep}') RETURNING id, userid, timestamp, content, \
-    #     threadpeep;")
     result = DatabaseConnection.query("INSERT INTO peeps (userid, timestamp, \
-      content, threadpeep) VALUES ('#{userid}', '#{Time.now}', '#{content}', \
+      content, threadpeep) VALUES ('#{userid}', '#{timestamp}', '#{content}', \
         '#{threadpeep}') RETURNING id, userid, timestamp, content, \
         threadpeep;")
     Peep.new(id: result[0]['id'], userid: result[0]['userid'], \

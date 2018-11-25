@@ -33,7 +33,7 @@ class User
 
     result = DatabaseConnection.query("SELECT * FROM users WHERE \
       email = '#{email}' AND password = '#{password}'")
-    return nil unless result.any? 
+    return nil unless result.any?
     User.new(id: result[0]['id'], name: result[0]['name'], \
       user_name: result[0]['user_name'], email: result[0]['email'], \
       password: result[0]['password'])

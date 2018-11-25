@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>
+    <%= flash[:notice] %>
+    </h2>
+    <form class="" action="/sessions" method="post">
+      <input type="text" name="email" placeholder="your email address" value="">
+      <input type="text" name="password" placeholder="your password" value="">
+      <input type="submit" name="" value="Log in">
+    </form>
+  </body>
+</html>

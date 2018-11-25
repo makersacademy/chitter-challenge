@@ -1,33 +1,57 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './database_connection_setup'
 require_relative './lib/peep.rb'
 require 'time'
+require_relative './lib/user.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     redirect '/homepage'
   end
 
   get '/homepage' do
-    @user = User.find(session[:user_id])
-    @peeps = Peep.all
     erb(:homepage)
   end
 
-  post '/peep/new' do
-    @user = User.find(session[:user_id])
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
 
-    if @user == nil
-    @user = User.register(name: 'Faceless Old Woman', \
-      user_name: 'FacelessOW', email: 'mystery@domain.com', \
-      password: '123456789')
+  post '/sessions' do
+    user = User.verify(email: params[:email], password: params[:password])
+    if user
+      session[:userid] = user.id
+      session[:name] = user.name
+      redirect '/peeps/index'
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect '/sessions/new'
     end
-    Peep.create(userid: @user.id, timestamp: Time.now, \
+  end
+
+  get '/peeps/index' do
+    @name = session[:name]
+    p "@name or session[:name] is currently #{@name}"
+    @userid = session[:userid]
+    p "@userid or session[:userid] is currently #{@userid}"
+    @peeps = Peep.all
+    erb :'/peeps/index'
+  end
+
+  post '/peep/new' do
+    @userid = session[:userid]
+    @name = session[:name]
+
+    p "@userid or session[:userid] is currently #{@userid}"
+
+    Peep.create(userid: @userid, timestamp: Time.now, \
       content: params[:peep_content], threadpeep: params[:peep_content])
 
-    redirect '/homepage'
+    redirect '/peeps/index'
   end
 
   get '/users/new' do
@@ -37,8 +61,9 @@ class Chitter < Sinatra::Base
   post '/users' do
     user = User.register(name: params[:name], user_name: params[:user_name], \
       email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/homepage'
+    session[:userid] = user.id
+    session[:name] = user.name
+    redirect '/peeps/index'
   end
 
   run! if app_file == $0

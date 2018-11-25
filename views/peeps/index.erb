@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome to Chitter<% if @name %>, <%= @name %>
+    <% end %>
+    </h1>
+    <form class="" action="/peep/new" method="post">
+      <input type="text" name="peep_content"/>
+      <input type="submit" name="" value="Make A Peep">
+    </form>
+
+    <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <p>
+          <%= peep.timestamp %>
+          <%= peep.content %>
+        </p>
+      </li>
+    <% end %>
+    </ul>
+  </body>
+</html>
