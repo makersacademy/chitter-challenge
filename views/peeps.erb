@@ -1,0 +1,22 @@
+<h1>Welcome to Chitter!</h1>
+<h3>Peeps:</h3>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <li>
+    <div class="peep"> 
+      <%= peep.content%> 
+      <%= peep.date%>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
+
+<form action="/peeps" method="POST">
+  <p>I wanna peep about ... </p>
+  <div class="new_content">
+    <input type="text" name="content">
+  </div>
+  <input type="submit" value="Peep!"> 
+</form>
