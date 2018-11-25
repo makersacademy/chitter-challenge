@@ -9,13 +9,6 @@
   background-size: cover;
   -o-background-size: cover;
 }
-
-.grow:hover
-{
--webkit-transform: scale(1.3);
--ms-transform: scale(1.3);
-transform: scale(1.3);
-}
     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -37,33 +30,39 @@ transform: scale(1.3);
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             </li>
-            <% if @user == nil %>
-            <li class="nav-item active">
-              <a class="nav-link" href="/users/new">Sign in!</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/sessions/new">Log in!</a>
-            </li>
-             <% end %>
-             <% if @user %>
-             <li class="nav-item active">
-              <form method="post" action="/sessions/destroy">
-              <input class="btn btn-danger" type="submit" value="Log out!">
-              </form>
-            </li>
-             <% end %>
+            <!-- <li class="nav-item active">
+              <a class="nav-link" href="users/new">Sign in!</a>
+            </li> -->
+           <!--  <li class="nav-item active">
+              <a class="nav-link" href="/bookmarks/new">Create</a>
+            </li> -->
           </ul>
         </div>
       </div>
     </nav>
   </header>
   <body style="background-color: black">
-    <% if @user %>
-    <div class="row grow" style="margin-top: 4em; align-items: center; justify-content: center;">
-    <h1 style="color: white">Welcome, <%= @user.name %>!</h1>
-    <% end %>
-    <h2><%= flash[:notice] %></h2>
+<div class="row" style="margin-top: 4em; align-items: center; justify-content: center;">
+  <div class="col-sm-4" style="margin-top: 1.5%">
+    <div class="card">
+      <div class="card-body">
+        <form action="/sessions" method="post" class="container" >
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
+            <small class="form-text text-muted">Your Email?</small>
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="Enter Password">
+            <small class="form-text text-muted">Your Password?</small>
+          </div>
+          <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+        <h2><%= flash[:notice] %></h2>
+      </div>
+    </div>
   </div>
+</div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

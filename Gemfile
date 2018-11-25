@@ -9,6 +9,8 @@ gem 'rspec'
 gem 'capybara'
 gem 'pg'
 gem 'bcrypt'
+gem 'sinatra/flash'
+gem 'uri-handler'
 
 group :test do
   gem 'rspec'
