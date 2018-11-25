@@ -7,18 +7,21 @@
   <title>Peeps</title>
 </head>
 <body>
-<h1>Peeps:</h1>
-<ul>
-  <% @peeps.each do |peep| %>
-    <li style="list-style: none;" class="peep">
-      <p>
-        <%= peep.user_name %>
-        <%= peep.time_stamp %>
-        <%= peep.text %>
-      </p>
-    </li>
+  <% if @user %>
+    <h1>Welcome, <%= @user.name %></h1>
   <% end %>
-</ul>
+  <h1>Peeps:</h1>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li style="list-style: none;" class="peep">
+        <p>
+          <%= peep.user_name %>
+          <%= peep.time_stamp %>
+          <%= peep.text %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
 
 </body>
 </html>
