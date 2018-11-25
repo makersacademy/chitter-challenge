@@ -13,5 +13,15 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/create' do
+    Peep.create(user_name: params[:user_name], time_stamp: 'NOW()',
+                text: params[:text])
+    redirect '/peeps'
+  end
+
   run! if app_file == $0
 end
