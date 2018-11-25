@@ -30,7 +30,10 @@ HARDER
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
+```
+Not yet implemented:
 
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
@@ -42,59 +45,50 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 
 ```
+
+Here is my original diagram when I was planning this project.
+
 ![domain model](/Users/karenroberts/projects/chitter-challenge/images/chitter_diagram.png)
 
 ![git domain model](https://github.com/RobertsK284/chitter-challenge/blob/master/images/chitter_diagram.png)
 
-Notes on functionality:
-------
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+Notes:
 
-Bonus:
------
+I looked up Nazz Kadri's solution, especially for some of the trickier tests  and getting past some of the errors I was seeing from the Registration part onwards.
 
-If you have time you can implement the following:
+https://github.com/nazzkadri/chitter-challenge
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
+Database Setup Instructions:
 
-* Work on the CSS to make it look good.
+) `brew install PostgreSQL`
 
-Good luck and let the chitter begin!
+2) `ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents`
 
-Code Review
------------
+3) `launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist`
 
-In code review we'll be hoping to see:
+4) Run: `psql PostgreSQL`
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+5) Then, create the database in psql using:
+`CREATE DATABASE chitter;`.
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+6) Connect to the database using:
+`\c chitter`
 
-Notes on test coverage
-----------------------
+7) Run the query in the file,
+*01_create_users_table.sql*
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+8) Run the query in the file,
+*02_create_peeps_table.sql*
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+9) If you wish to run the tests, repeat steps 5 - 8 but this time creating a database called 'chitter_test'.
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
+Ruby Gem Installation Instructions:
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+1) Run: `bundle` or `bundle install` if you have not previously run bundle on your machine
+
+How To Run:
+
+1) Run `rackup` in the command line
+2) visit `http://localhost:9292/` in your browser.

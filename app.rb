@@ -35,9 +35,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps/index' do
     @name = session[:name]
-    p "@name or session[:name] is currently #{@name}"
     @userid = session[:userid]
-    p "@userid or session[:userid] is currently #{@userid}"
     @peeps = Peep.all
     erb :'/peeps/index'
   end
@@ -45,8 +43,6 @@ class Chitter < Sinatra::Base
   post '/peep/new' do
     @userid = session[:userid]
     @name = session[:name]
-
-    p "@userid or session[:userid] is currently #{@userid}"
 
     Peep.create(userid: @userid, timestamp: Time.now, \
       content: params[:peep_content], threadpeep: params[:peep_content])
