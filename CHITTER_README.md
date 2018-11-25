@@ -2,7 +2,15 @@
 
 This is a messaging web app that you can use to post messages (peeps) which are added to the Chitter feed.
 
+## Planning
+
+Before starting on the challenge I put together an entity relationship diagram to help plan the structure of the Chitter database.
+
 ![Entity Relationship Diagram](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/entity_relationship_diagram.png?raw=true)
+
+I drafted a rough mock up of the pages I thought would be needed to meet the requirements of the user stories.
+
+![Mock up of Chitter pages](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/mockup_of_chitter_pages.png?raw=true)
 
 ### To set up the database
 1. First connect to psql by typing `psql` in the command line
