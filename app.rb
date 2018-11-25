@@ -1,18 +1,29 @@
 require 'sinatra/base'
-require 'sinatra/flash'
+require_relative './lib/peep'
+require './lib/database_connection_setup.rb'
+require 'pg'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions, :method_override
+
   get '/' do
-    "Welcome to the peep show"
+    erb :home
   end
 
   get '/peeps' do
-    peeps = [
-      "This is a peep",
-      "This is another peep",
-      "Third peep here"
-    ]
+    @peeps = Peep.all
+    erb :'/peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    date = Time.now
+    Peep.create(username: params['username'], content: params[:content], date: "#{date.month}/#{date.day}/#{date.year}")
+    redirect '/peeps'
   end
 
   run! if app_file == $0

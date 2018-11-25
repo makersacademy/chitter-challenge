@@ -1,0 +1,20 @@
+<title>Chitter</title>
+<body>
+  <h1>Chitter away my friends</h1>
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      <h3><%= peep.username %>, <%= peep.date %></h3>
+      <p>
+        <%= peep.content %>
+      </p>
+
+    </li>
+    <% end %>
+  </ul>
+
+  <form action='/peeps/new' method='get'>
+    <input type="submit" name="" value="Add peep">
+  </form>
+
+</body>

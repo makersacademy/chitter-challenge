@@ -1,0 +1,3 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(240));
+ALTER TABLE peeps ADD username VARCHAR(25);
+ALTER TABLE peeps ADD date date;

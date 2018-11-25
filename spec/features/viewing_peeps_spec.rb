@@ -6,10 +6,10 @@ feature "Viewing peeps" do
   end
 
   scenario "View the peeps in a list" do
-    visit('/peeps')
+    Peep.create(username: 'AsadK', date: '02/02/2018', content: "Hello sir!")
 
-    expect(page).to have_content "This is a peep"
-    expect(page).to have_content "This is another peep"
-    expect(page).to have_content "Third peep here"
+    visit '/peeps'
+
+    expect(page).to have_content("Hello sir!")
   end
 end
