@@ -11,7 +11,7 @@ feature 'posting and viewing peeps' do
     expect(page).to have_content "This is a test peep posted by my_username"
   end
 
-  xscenario 'peeps show in reverse chronological order' do
+  scenario 'peeps show in reverse chronological order' do
     sign_in_and_sign_up
     click_button 'Add Peep'
     expect(current_path).to eq "/peeps/new"
