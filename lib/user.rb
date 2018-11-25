@@ -22,4 +22,30 @@ class User
       )
     end
   end
+
+  def self.find(id:)
+    return nil unless username
+    user = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}';")
+    user.map do |peep|
+      User.new(
+        id: user[0]['id'],
+        email: user[0]['email'],
+        name: user[0]['name'],
+        username: user[0]['username']
+      )
+  end
+
+  def self.authenticate(password:, username:)
+    user = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
+    return unless user.any?
+    return unless BCrypt::Password.new(user[0]['password']) == password
+    User.new(
+        id: user[0]['id'],
+        email: user[0]['email'],
+        name: user[0]['name'],
+        username: user[0]['username']
+      )
+    end
+  end
+
 end

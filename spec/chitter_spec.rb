@@ -15,13 +15,5 @@ describe Peep do
     expect(result[0].username).to eq 'luca89'
   end
 
-  # it 'creates a new peep' do
-  #   connection = PG.connect(dbname: "chitter_test")
-  #   connection.exec("TRUNCATE users, peeps;")
-  #   peep = Peep.create(message: 'new_message', username_id: 'luca89')
-  #   expect(result[0].message).to eq 'new_message'
-  #   expect(result[0].username).to eq 'luca89'
-  # end
-
 
 end

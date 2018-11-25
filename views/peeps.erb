@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-
   </head>
   <body>
-    <h3><a href="/">Sign up</a> if you want to post a peep
-    <br><br>
-    peeeeeeps! <br>
+    <h3><a href="/">Sign up</a> or <a href="/login">log in</a> if you want to post a peep or click <a href="/peeps">here</a> to see all the peeps</h3>
+    Peeeeeeps! <br>
     <% @peeps.each do |peep| %>
-    <%= peep.username %> at <%= peep.time %><br>
-    <%= peep.message %><br>
-
+      <%= peep.username %> at <%= peep.time %><br>
+      <%= peep.message %><br>
     <% end %>
-
+    <form action="/peep_new %>" method="post">
+      <input type="text" name="message" maxlength="250" />
+      <input type="submit" value="Post">
+    </form>
   </body>
 </html>
