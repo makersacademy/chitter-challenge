@@ -1,7 +1,7 @@
 <% if @user %>
   <h3> Welcome, <%= @user.user_name %> </h3>
   <form action="/sessions/destroy" method="post">
-    <input type="submit" value="Sign out" />
+    <input class="btn btn-secondry" type="submit" value="Sign out" />
   </form>
 <% end %>
 <% @peeps.each do |peep| %>

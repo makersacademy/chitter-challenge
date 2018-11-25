@@ -1,4 +1,3 @@
-require 'sinatra/base'
 require './database_connection_setup'
 require_relative './views/view_helpers'
 require_relative './models/peep'
@@ -9,6 +8,7 @@ class Chitter < Sinatra::Application
   include ViewHelpers
   set :sessions, true
   set :layout, true
+  set :public_folder, 'public'
 
   get '/' do
     redirect '/peeps'
