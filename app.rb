@@ -1,5 +1,6 @@
 require './lib/cheet'
 require 'sinatra/base'
+require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
