@@ -20,20 +20,35 @@ class Chitter < Sinatra::Base
   	erb(:new_peep)
   end
 
-  post	'/new_peep' do
-  	p "Does it get this far"
+  post '/new_peep' do
   	Peep.create(
   		message_content: params[:message_content],
   		created_at: Time.now,
   		author: "Testing",
   		user_id: 1
   	)
-  	p "It wont get this far"
   	redirect(:peep_feed)
   end
 
-  post '/create_peep' do
+  get '/create_peep' do
+  	if session[:id] == nil
+  		redirect(:sign_in)
+  	end
   	redirect(:new_peep)
+  end
+
+  get '/sign_in' do
+  	erb(:sign_in)
+  end
+
+  post '/sign_up' do
+  	User.create(
+  		username: params[:username],
+  		email: params[:email],
+  		first_name: params[:first_name],
+  		last_name: params[:last_name],
+  		password: params[:password]
+  	)
   end
 
   run! if app_file == $0

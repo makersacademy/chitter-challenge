@@ -1,6 +1,6 @@
 feature 'Posting a peep' do
 	scenario 'A user should be able to post a peep' do
-		User.create(
+		test_user = User.create(
   		username: 			"Test Usrname",
   		email: 					"test@test.com",
   		first_name: 		"Test",
