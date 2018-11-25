@@ -40,6 +40,8 @@ class Chitter < Sinatra::Application
   end
 
   post '/users' do
+    # TODO add validation for
+    # unique usernames and emails
     user =  User.create(user_name: params['user_name'],
                 email: params['email'],
                 password: params['password'],
