@@ -3,22 +3,38 @@ require './database_connection_setup'
 class Peep
   attr_reader :id, :user_id, :time, :content
 
-  def initialize(id:, user_id:, time:, content:)
+  def initialize(id:, user_id:, time_stamp:, content:)
     @id = id
     @user_id = user_id
-    @time = time
+    @time = time_diff(time_stamp)
     @content = content
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
 
-    result.map { |peep| Peep.new(id: peep['id'], user_id: peep['user_id'], time: peep['time_stamp'], content: peep['peep']) }
+    result.map { |peep| Peep.new(id: peep['id'], user_id: peep['user_id'], time_stamp: peep['time_stamp'], content: peep['peep']) }
   end
 
   def self.create(user_id:, content:)
     result = DatabaseConnection.query("INSERT INTO peeps (user_id, peep) VALUES('#{user_id}', '#{content}') RETURNING id, user_id, time_stamp, peep")
 
-    Peep.new(id: result[0]['id'], user_id: result[0]['user_id'], time: result[0]['time_stamp'], content: result[0]['peep'])
+    Peep.new(id: result[0]['id'], user_id: result[0]['user_id'], time_stamp: result[0]['time_stamp'], content: result[0]['peep'])
+  end
+
+  private
+
+  def time_diff(time)
+    diff = Time.now - Time.parse(time)
+    case diff
+    when 0...60
+      "#{diff.abs} seconds ago"
+    when 60...3600
+      "#{(diff/60).abs} minutes ago"
+    when 3600...86400
+      "#{(diff/3600).abs} hours ago"
+    when 86400...3600
+      "#{(diff/86400).abs} days ago"
+    end
   end
 end

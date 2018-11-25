@@ -3,6 +3,7 @@
   <% @peeps.each do |peep| %>
     <li class='peep' id="peep-<%= peep.id %>" >
       <%= peep.user_id %>
+      <%= peep.time %> ago
       <%= peep.content %>
     </li>
   <% end %>
