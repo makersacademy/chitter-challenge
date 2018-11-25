@@ -21,12 +21,14 @@ class Chitter < Sinatra::Base
   end
 
   post	'/new_peep' do
-  	peep = Peep.create(
+  	p "Does it get this far"
+  	Peep.create(
   		message_content: params[:message_content],
   		created_at: Time.now,
   		author: "Testing",
   		user_id: 1
   	)
+  	p "It wont get this far"
   	redirect(:peep_feed)
   end
 
