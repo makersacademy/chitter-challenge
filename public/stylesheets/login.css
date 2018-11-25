@@ -6,7 +6,6 @@ body, html{
   margin:0;
 }
 
-
 #header {
   text-align: center;
   display: flex;
@@ -27,9 +26,6 @@ body, html{
   text-decoration: none;
   color:black;
 }
-
-
-
 
 input[type=text],input[type=password],input[type=email] {
   width:100%;

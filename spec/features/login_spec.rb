@@ -11,6 +11,6 @@ feature 'log in' do
     expect(page).to have_field("pwd")
     click_button('login')
 
-     expect(page).to have_field("Welcome back, Abdi!")
+    expect(page).to have_field("Welcome back, Abdi!")
   end
 end
