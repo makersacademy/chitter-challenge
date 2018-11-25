@@ -19,6 +19,9 @@
         width: 101px;
         margin-right: 3px;
       }
+      form {
+        display: inline-block;
+      }
     </style>
   </head>
   <body>
@@ -38,8 +41,15 @@
       <p class="lead">Head on over to the Chitter feed to see what's going down.</p>
       <hr class="my-4">
       <p>Log in to send messages or sign up for a free account.</p>
-      <a id="login" class="btn btn-primary btn-lg" href="#" role="button">Login</a>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Sign up</a>
+      <span>
+      <%# <a class="btn btn-primary btn-lg" href="#" role="button">Sign up</a> %>
+      <form class="" action="/chitter/login" method="get">
+        <input class="btn btn-primary btn-lg" type="submit" name="" value="Login">
+      </form>
+      <form class="" action="/chitter/sign_up" method="get">
+        <input class="btn btn-primary btn-lg" type="submit" name="" value="Sign up">
+      </form>
+      </span>
     </div>
   </body>
 </html>

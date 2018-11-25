@@ -2,7 +2,20 @@
 # So that I can let people know what I am doing
 # I want to post a message (peep) to chitter
 
-feature 'Posting messages' do
+feature 'Chitter messaging' do
+
+  scenario 'can access messaging page from home page' do
+    visit '/'
+    click_link 'Post a Peep'
+    expect(page).to have_current_path '/chitter/messaging'
+  end
+
+  scenario 'can access chitter feed from home page' do
+    visit '/'
+    click_link 'Feed'
+    expect(page).to have_current_path '/chitter/feed'
+  end
+
   scenario 'message can be posted to Chitter feed' do
     visit '/'
     click_link 'Post a Peep'
@@ -16,6 +29,25 @@ feature 'Posting messages' do
     expect(page).to have_content "another random message"
   end
 
+  scenario 'can access chitter feed from home page' do
+    visit '/'
+    click_link 'Feed'
+    expect(page).to have_current_path '/chitter/feed'
+  end
+
+  scenario 'can go to messages from the feed' do
+    visit '/'
+    click_link 'Feed'
+    click_link 'Post a Peep'
+    expect(page).to have_current_path '/chitter/messaging'
+  end
+
+  scenario 'can return to the home page from the feed' do
+    visit '/'
+    click_link 'Feed'
+    click_link 'Home'
+    expect(page).to have_current_path '/chitter'
+  end
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order

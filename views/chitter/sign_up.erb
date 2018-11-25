@@ -14,16 +14,29 @@
     }
     h1{
       color: white;
-      padding-bottom: 10%;
+      margin-top: 30px;
+      padding-bottom: 50px;;
     }
-    #post {
-      width: 600px;
-      height: 400px
-      padding-bottom: 10px;
+
+    input {
+      margin: 10px;
     }
+
     #post_button {
       margin-top: 20px;
-      width: 20%;
+    }
+    label {
+      color: white;
+      float: left;
+    }
+    .container {
+      width: 500px;
+      clear: both;
+    }
+
+    .container input {
+      width: 100%;
+      clear: both;
     }
     </style>
   </head>
@@ -45,12 +58,22 @@
       </ul>
     </nav>
     <center>
-    <h1>Enter you message and then click Submit</h1>
-    <form class="" action="/messaging" method="post">
-      <input id="post" class="form-control" type="text" name="message">
-      <br>
-      <input id="post_button" class="btn btn-primary" type="submit" value="Submit">
-    </form>
+    <h1>Enter your details below then click Submit</h1>
+    <div class="container">
+      <form class="" action="/chitter/sign_up" method="post">
+        <label>Username: </label><input class="form-control" type="text" name="username">
+        <br>
+        <label>Password: </label><input class="form-control" type="text" name="password">
+        <br>
+        <label>E-mail: </label><input class="form-control" type="text" name="email">
+        <br>
+        <label>First Name: </label><input class="form-control" type="text" name="forename">
+        <br>
+        <label>Surname: </label><input class="form-control" type="text" name="surname">
+        <br>
+        <input id="post_button" class="btn btn-primary" type="submit" value="Submit">
+      </form>
+    </div>
     </center>
   </body>
 </html>

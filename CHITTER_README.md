@@ -2,7 +2,7 @@
 
 This is a messaging web app that you can use to post messages (peeps) which are added to the Chitter feed.
 
-
+![Entity Relationship Diagram](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/entity_relationship_diagram.png?raw=true)
 
 ### To set up the database
 1. First connect to psql by typing `psql` in the command line
