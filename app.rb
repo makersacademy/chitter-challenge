@@ -2,13 +2,16 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'uri'
 require_relative 'lib/user.rb'
+require_relative 'lib/message.rb'
 require_relative './database_connection_setup.rb'
+require 'date'
 
 class Chitter < Sinatra::Base
 	enable :sessions
 	register Sinatra::Flash
 
 	get '/' do
+		@messages = Message.all
 		@user = User.find(id: session[:user_id])
 		erb(:'index')
 	end
@@ -21,7 +24,17 @@ class Chitter < Sinatra::Base
 		erb(:'sessions/new')
 	end
 
+	get '/chitter/create' do
+		@user = User.find(id: session[:user_id])
+		erb(:'chitter/new')
+	end
+
 	# INICIO DE CRUD
+	post '/chitter' do
+		time = Time.now
+		message = Message.create(text: params['text'], m_date: time.strftime("%Y-%m-%d"), user_id: params['user_id'])
+		redirect('/')
+	end
 
 	post '/users' do
 		user = User.create(name: params['name'], u_name: params['u_name'], email: params['email'], password: params['password'])
