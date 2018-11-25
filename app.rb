@@ -17,12 +17,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/messaging' do
-    Peeps.save_peep(params[:message])
+    Peeps.create(params[:message])
     redirect '/chitter/feed'
   end
 
   get '/chitter/feed' do
-    @peep = Peeps.peep_show
+    @peep = Peeps.read
+    erb :"chitter/feed"
+  end
+
+  post '/chitter/feed' do
+    @peep = Peeps.read(params[:sort_by])
     erb :"chitter/feed"
   end
 

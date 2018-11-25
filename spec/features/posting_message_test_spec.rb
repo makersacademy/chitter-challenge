@@ -1,9 +1,46 @@
+# As a Maker
+# So that I can let people know what I am doing
+# I want to post a message (peep) to chitter
+
 feature 'Posting messages' do
-  scenario 'message can be made and displayed' do
+  scenario 'message can be posted to Chitter feed' do
     visit '/'
-    click_button 'Messaging'
+    click_link 'Post a Peep'
     fill_in "message", with: "some random message"
     click_button "Submit"
-    expect(page).to have_content "some random message"
+    click_link 'Post a Peep'
+    fill_in "message", with: "another random message"
+    click_button "Submit"
+
+    # expect(page.first('div')).to_not have_content "some random message"
+    expect(page).to have_content "another random message"
+  end
+
+# As a maker
+# So that I can see what others are saying
+# I want to see all peeps in reverse chronological order
+
+  scenario 'peeps can be sorted into descending order' do
+    visit '/'
+    click_link 'Post a Peep'
+    fill_in "message", with: "some random message"
+    click_button "Submit"
+    choose 'Newest first'
+    click_button "Sort"
+
+    expect(page.first('div')).to have_content "some random message"
+  end
+
+# As a Maker
+# So that I can better appreciate the context of a peep
+# I want to see the time at which it was made
+
+  scenario 'message contains the time it was posted' do
+    visit '/'
+    click_link 'Post a Peep'
+    fill_in "message", with: "some random message"
+    click_button "Submit"
+    time = Time.now
+    expect(page).to have_content time.strftime("%Y-%m-%d %H:%M")
   end
 end
