@@ -8,6 +8,7 @@ gem 'sinatra-flash'
 gem 'pg'
 gem 'pry'
 gem 'shotgun'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'

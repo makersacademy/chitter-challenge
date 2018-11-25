@@ -1,5 +1,6 @@
 require_relative '../database_helpers'
 require_relative '../../lib/models/user'
+require 'bcrypt'
 
 describe '#create' do
   it 'creates a new user' do
@@ -12,6 +13,14 @@ describe '#create' do
     expect(user.user_name).to eq persisted_data(table: 'users', id: '1').first['user_name']
     expect(user.email).to eq persisted_data(table: 'users',id: '1').first['email']
     expect(user.name).to eq persisted_data(table: 'users',id: '1').first['name']
+  end
+
+  it 'encrypts the password' do
+    expect(BCrypt::Password).to receive(:create).with('password123')
+    User.create(user_name: '@testuser',
+                email: 'test_email@not_real.com',
+                password: 'password123',
+                name: 'Joe Bloggs')
   end
 end
 
