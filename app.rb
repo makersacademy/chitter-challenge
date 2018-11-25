@@ -25,7 +25,7 @@ class Controller < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params['email'], password: params['password'])
+    user = User.create(email: params['email'], password: params['password'], name: params['name'], username: params['username'])
     session[:user_id] = user.id
     redirect '/peeps_page'
   end
@@ -35,12 +35,12 @@ class Controller < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(email: params[:email], password: params[:password])
+    user = User.authenticate(password: params[:password], username: params[:username])
     if user
       session[:user_id] = user.id
       redirect('/peeps_page')
     else
-      flash[:notice] = 'Please check your email or password.'
+      flash[:notice] = 'Please check your username or password.'
       redirect('/sessions/session_new')
     end
   end
@@ -48,7 +48,7 @@ class Controller < Sinatra::Base
   post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
-    redirect('/peeps_page')
+    redirect('/sessions/session_new')
   end
 
   run! if app_file == $0

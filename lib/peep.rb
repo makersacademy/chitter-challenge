@@ -9,7 +9,7 @@ require_relative './database_connection'
      @user_id = user_id
    end
 
-   def self.create(user_id:, text:)
+   def self.write(user_id:, text:)
      peep = DatabaseConnection.query("INSERT INTO peeps (user_id, text) VALUES ('#{user_id}','#{text}') RETURNING id, text, user_id;")
      Peep.new(
               id: peep[0]['id'],

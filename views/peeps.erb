@@ -5,6 +5,17 @@
     <title>Peeps</title>
   </head>
   <body>
-
+    <center>
+    <% if @user %>
+      <h3><font face="courier new"> Welcome on Chitter, <%= @user.username %>!</font></h3>
+    <% end %>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Sign out" />
+    </form>
+    <br><br>
+    <font face="courier new">
+    <a href="/home"> Homepage </a>
+    </font>
+    </center>
   </body>
 </html>
