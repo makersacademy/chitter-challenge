@@ -4,7 +4,7 @@ ruby '2.5.0'
 
 gem 'rake'
 gem 'sinatra'
-gem 'sinatra-flash'
+gem 'sinatra-flash', '~> 0.3.0'
 gem 'pg'
 gem 'pry'
 gem 'shotgun'
