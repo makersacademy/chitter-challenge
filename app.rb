@@ -38,8 +38,6 @@ class Chitter < Sinatra::Base
   #   erb :"chitter/index"
   # end
 
-
-
   post '/users' do
     user = User.create(
       name: params['name'],

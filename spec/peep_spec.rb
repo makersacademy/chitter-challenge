@@ -16,15 +16,15 @@ describe Peep do
       expect(peeps.first.message).to eq 'First peep!'
     end
   end
-    describe '.create' do
-      it 'creates new peep' do
-        peep = Peep.create(message: 'First peep goes here', created_at: Time.now)
-        persisted_data = persisted_data(table: 'peeps', id: peep.id)
+  describe '.create' do
+    it 'creates new peep' do
+      peep = Peep.create(message: 'First peep goes here', created_at: Time.now)
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
-        expect(peep).to be_a Peep
-        expect(peep.id).to eq persisted_data.first['id']
-        expect(peep.message).to eq 'First peep goes here'
-      end
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data.first['id']
+      expect(peep.message).to eq 'First peep goes here'
     end
-
   end
+
+end
