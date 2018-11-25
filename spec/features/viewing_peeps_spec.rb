@@ -4,8 +4,7 @@ feature 'Viewing peeps' do
   		username: 			"Test Usrname",
   		email: 					"test@test.com",
   		first_name: 		"Test",
-  		last_name: 			"Account",
-  		date_of_birth: 	"010191"
+  		last_name: 			"Account"
   		)
   	Peep.create(
   		message_content: 	"I am a peep",
@@ -30,7 +29,6 @@ feature 'Viewing peeps' do
   		email: 					"test@test.com",
   		first_name: 		"Test",
   		last_name: 			"Account",
-  		date_of_birth: 	"010191"
   		)
   	Peep.create(
   		message_content: 	"I am the newest peep",

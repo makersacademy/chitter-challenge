@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/dm'
 require_relative './lib/helpers'
+require 'bcrypt'
 
 class Chitter < Sinatra::Base
 	enable :sessions
@@ -42,13 +43,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-  	User.create(
+  	user = User.create(
   		username: params[:username],
   		email: params[:email],
   		first_name: params[:first_name],
   		last_name: params[:last_name],
   		password: params[:password]
   	)
+		session[:id] = user.id
+  	redirect(:peep_feed)
   end
 
   run! if app_file == $0

@@ -5,7 +5,6 @@ feature 'Posting a peep' do
   		email: 					"test@test.com",
   		first_name: 		"Test",
   		last_name: 			"Account",
-  		date_of_birth: 	"010191"
   		)
 		visit('/new_peep')
 		fill_in('message_content', with: 'I am a new peep')

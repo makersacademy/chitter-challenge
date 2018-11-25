@@ -5,7 +5,6 @@ feature 'Peeps are timestamped' do
   		email: 					"test@test.com",
   		first_name: 		"Test",
   		last_name: 			"Account",
-  		date_of_birth: 	"010191"
   		)
   	Peep.create(
   		message_content: 	"I am a peep",

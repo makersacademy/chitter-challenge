@@ -14,6 +14,7 @@ gem 'dm-postgres-adapter'
 gem 'dm-migrations'
 gem 'dm-validations'
 gem 'dm-timestamps'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'

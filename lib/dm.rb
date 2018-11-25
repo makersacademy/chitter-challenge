@@ -3,6 +3,7 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
 require 'database_cleaner'
+require 'bcrypt'
 
 if ENV['ENVIRONMENT'] == 'test'
 	DataMapper.setup(:default, "postgres://localhost/chitter_test")
@@ -15,12 +16,11 @@ class User
 	User.raise_on_save_failure = true 
 
 	property :id, 						Serial
-	property :username, 			String
+	property :username, 			String, required: true, unique: true
 	property :email, 					String, format: :email_address
 	property :first_name, 		String
 	property :last_name,			String
 	property :password, 			String, length: 8..16
-	property :date_of_birth, 	String, length: 8
 
 	has n, :peeps
 end
