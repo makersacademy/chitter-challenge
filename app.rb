@@ -14,11 +14,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :id.desc ], :limit => 20)
     erb(:all_peeps)
   end
 
-  post '/new-peep' do
+  post '/peeps/new' do
     Peep.create(body: params[:body], username: '@tomas', created_at: Time.now)
     redirect '/peeps'
   end

@@ -12,6 +12,7 @@ gem 'rubocop', '0.56.0'
 gem 'sinatra', '1.4.8'
 gem 'sinatra-flash'
 gem 'shotgun'
+gem 'timecop'
 
 group :test do
   gem 'capybara'

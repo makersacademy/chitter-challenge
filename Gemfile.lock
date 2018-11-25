@@ -130,6 +130,7 @@ GEM
       sinatra (>= 1.0.0)
     stringex (1.5.1)
     tilt (2.0.8)
+    timecop (0.9.1)
     unicode-display_width (1.4.0)
     uuidtools (2.1.5)
     xpath (3.2.0)
@@ -154,6 +155,7 @@ DEPENDENCIES
   simplecov-console
   sinatra (= 1.4.8)
   sinatra-flash
+  timecop
 
 RUBY VERSION
    ruby 2.5.0p0

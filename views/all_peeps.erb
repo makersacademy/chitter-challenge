@@ -3,7 +3,7 @@
   <li>
     <%= peep.body %>
     <%= peep.username %>
-    <%= peep.created_at %>
+    <%= peep.created_at.strftime("%H:%M:%S, %A %d %B %Y ") %>
   </li>
 <% end %>
 </ul>
