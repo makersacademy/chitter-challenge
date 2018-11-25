@@ -10,6 +10,10 @@ class Chitter < Sinatra::Application
   set :sessions, true
   set :layout, true
 
+  get '/' do
+    redirect '/peeps'
+  end
+
   get '/sessions/new' do
     erb(:"sessions/new")
   end
@@ -61,8 +65,11 @@ class Chitter < Sinatra::Application
   end
 
   post '/peeps/new' do
-
     Peep.create(content: params['content'], user_id: params['user_id'])
     redirect '/peeps'
+  end
+
+  get '/*' do
+    erb(:not_found)
   end
 end

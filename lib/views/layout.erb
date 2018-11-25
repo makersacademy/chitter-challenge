@@ -9,6 +9,10 @@
     <h2>
       <%= flash[:notice] %>
     </h2>
+    <li><a href="/sessions/new">Sign in</a></li>
+    <li><a href="/users/new">Sign up</a></li>
+    <li><a href="/peeps/new">Post a Peep!</a></li>
+    <li><a href="/peeps">View peeps</a></li>
     <%= yield %>
   </body>
 </html>
