@@ -2,10 +2,10 @@ Chitter Challenge
 =================
 
 ## Setup
-* If you haven't got PostgreSQL installed `$ brew install posgresql`
-* Connect to psql and create `chitter` and `chitter_test` databases.
-* Create the databases using the psql commands `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`
-* To set up the appropriate tables, connect to each database in psql and run the SQL scripts in the db/migrations folder in the given order.
+`$ brew install posgresql` if you haven't got PostgreSQL installed.  
+Connect to psql and create `chitter` and `chitter_test` databases.  
+Create the databases using the psql commands `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`.  
+To set up the appropriate tables, connect to each database in psql and run the SQL scripts in the db/migrations folder in the given order.  
 
 ## How To Run
 `bundle`  
