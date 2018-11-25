@@ -28,13 +28,13 @@ class Peep
     diff = Time.now - Time.parse(time)
     case diff
     when 0...60
-      "#{diff.abs} seconds ago"
+      "#{diff.round} seconds ago"
     when 60...3600
-      "#{(diff/60).abs} minutes ago"
+      "#{(diff/60).round} minutes ago"
     when 3600...86400
-      "#{(diff/3600).abs} hours ago"
-    when 86400...3600
-      "#{(diff/86400).abs} days ago"
+      "#{(diff/3600).round} hours ago"
+    else
+      "#{(diff/86400).round} days ago"
     end
   end
 end
