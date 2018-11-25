@@ -3,16 +3,27 @@
   <head>
     <meta charset="UTF-8">
     <title>Chitter</title>
+    <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="/css/bootstrap-grid.min.css" rel="stylesheet">
   </head>
   <body>
-    <h2>Welcome to Chitter</h2>
-    <h2>
-      <%= flash[:notice] %>
-    </h2>
-    <li><a href="/sessions/new">Sign in</a></li>
-    <li><a href="/users/new">Sign up</a></li>
-    <li><a href="/peeps/new">Post a Peep!</a></li>
-    <li><a href="/peeps">View peeps</a></li>
-    <%= yield %>
+    <div class="container">
+      <h2>Welcome to Chitter</h2>
+      <% if flash[:notice] %>
+        <div class="alert alert-warning" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li  class="breadcrumb-item"><a href="/sessions/new">Sign in</a> / </li>
+            <li  class="breadcrumb-item"><a href="/users/new">Sign up</a> / </li>
+            <li  class="breadcrumb-item"><a href="/peeps/new">Post a Peep!</a> / </li>
+            <li  class="breadcrumb-item"><a href="/peeps">View peeps</a></li>
+          </ol>
+        </nav>
+      <%= yield %>
+    </div>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
   </body>
 </html>
