@@ -1,3 +1,7 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
+
 <% @messages.each do |message| %>
   <div class="message" id="message-<%= message.id %>">
     <%= message.title %>
@@ -8,3 +12,6 @@
   </div>
   <br>
 <% end %>
+
+
+

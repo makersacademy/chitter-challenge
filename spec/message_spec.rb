@@ -17,7 +17,7 @@ describe Message do
   describe '.add' do
     it 'Adds a new message' do
       message = Message.add(title: 'First Post', body: 'Hello World')
-      persisted_data = persisted_data(id: message.id)
+      persisted_data = persisted_data(table: :messages, id: message.id)
 
       expect(message).to be_a Message
       expect(message.id).to eq persisted_data.first['id']
