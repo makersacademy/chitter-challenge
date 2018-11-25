@@ -9,18 +9,14 @@
 
   <body>
     <br>
-    <a class="buttons" href='/peeps'>See Peeps</a>
+
     <br>
-    <h1>Add Peep</h1>
+    <h1>Welcome to Chitter, <%= @user.username %>! </h1>
+    <h2>Check out who's posted or post your first peep!</h2>
     <br>
     <div class='form_container'>
-      <form action='/peeps' method="post">
-
-        <label for='context'></label>
-        <input type='text' name='context'>
-
-        <button type="submit">Post peep!</button>
-      </form>
+      <a class="edit_button" href='/post_peep'>Start Peeping!</a>
+      <a class="buttons" href='/peeps'>Home</a>
     </div>
       <br>
       <br>

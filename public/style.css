@@ -26,6 +26,7 @@
 
   div.peep_context {
         background-color: #f21145;
+        flex-grow: 2;
         border-radius: 15px;
         font-family: arial;
         text-align: center;
@@ -60,6 +61,7 @@ div.peep_attr {
         font-family: arial;
         text-align: center;
         color: white;
+        font-size: 20px;
         margin: 10px;
         padding: 10px;
         text-decoration: none;
@@ -76,6 +78,7 @@ div.peep_attr {
   a.edit_button {
         background-color: #83ea7c;
         border-radius: 15px;
+        font-size: 20px;
         font-family: arial;
         text-align: center;
         color: white;

@@ -34,4 +34,5 @@ attr_reader :id, :username, :context, :date, :time
     peeps = connection.exec("INSERT INTO peeps(context, time) VALUES('#{context}','#{Time.now.asctime}') RETURNING id, username, context, date, time;")
     Peeps.new(id: peeps[0]['id'], username: peeps[0]['username'], context: peeps[0]['context'], date: peeps[0]['date'], time: peeps[0]['time'])
   end
+
 end
