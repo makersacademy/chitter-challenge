@@ -54,7 +54,7 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @user = User.find(id: session[:user_id])
     @peeps = Peep.all
-    @users = User
+    @user_class = User
     erb :index
   end
 
