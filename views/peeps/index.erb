@@ -5,23 +5,29 @@
     <title></title>
   </head>
   <body>
-    <h1>Welcome to Chitter<% if @name %>, <%= @name %>
+    <form class="" action="/sessions/close" method="post">
+      <input type="submit" name="" value="Log out">
+    </form>
+    <h1>Welcome to Chitter<% if @userid %>, <%= @name %>
     <% end %>
     </h1>
     <form class="" action="/peep/new" method="post">
       <input type="text" name="peep_content"/>
       <input type="submit" name="" value="Make A Peep">
     </form>
-
     <ul>
     <% @peeps.each do |peep| %>
       <li>
         <p>
+          <%= @name %>
           <%= peep.timestamp %>
           <%= peep.content %>
         </p>
       </li>
     <% end %>
     </ul>
+    <h2>
+      <%= flash[:notice] %>
+    </h2>
   </body>
 </html>

@@ -6,10 +6,7 @@ feature 'logging in' do
   end
 
   scenario 'a user can login with email and password' do
-    visit('/sessions/new')
-    fill_in 'email', with: 'mystery@domain.com'
-    fill_in 'password', with: '123456789'
-    click_button 'Log in'
+    sign_in
     expect(page).to have_content 'Welcome to Chitter, Faceless Old Woman'
   end
 

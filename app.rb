@@ -33,6 +33,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/sessions/close' do
+    session.delete(:userid)
+    flash[:notice] = 'You have logged out.'
+    redirect '/peeps/index'
+  end
+
   get '/peeps/index' do
     @name = session[:name]
     @userid = session[:userid]
