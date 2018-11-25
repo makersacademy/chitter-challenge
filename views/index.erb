@@ -1,0 +1,6 @@
+<h1>Welcome to Chitter!</h1>
+
+<% @peeps.each do |peep| %>
+  <p><%= peep.body %><%= peep.id %>
+  </p>
+<% end %>
