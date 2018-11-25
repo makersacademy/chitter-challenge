@@ -2,9 +2,9 @@ Chitter Challenge
 =================
 
 ## How To Use
-* `$ brew install posgresql` if you haven't got PostgreSQL installed.
+* `$ brew install posgresql` if you haven't got PostgreSQL installed
 * `bundle`  
-* `rake setup`
+* `rake setup` will create the databases '`chitter` and `chitter_test`
 * `rackup`  
 * `http://localhost:9292/`  
 
