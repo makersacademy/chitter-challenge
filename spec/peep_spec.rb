@@ -1,24 +1,24 @@
-require 'peep'
+require "peep"
 
 describe Peep do
-  describe '.create' do
-    it 'creates a new peep in the database' do
-      peep = Peep.create(username: "KirillZ", date: '10/10/2018', content: "Hello World!")
+  describe ".create" do
+    it "creates a new peep in the database" do
+      peep = Peep.create(username: "KirillZ", date: "10/10/2018", content: "Hello World!")
       persisted_data = persisted_data(id: peep.id)
 
       expect(peep).to be_a Peep
-      expect(peep.id).to eq persisted_data['id']
-      expect(peep.username).to eq 'KirillZ'
-      expect(peep.date).to eq '2018-10-10'
-      expect(peep.content).to eq 'Hello World!'
+      expect(peep.id).to eq persisted_data["id"]
+      expect(peep.username).to eq "KirillZ"
+      expect(peep.date).to eq "2018-10-10 00:00:00"
+      expect(peep.content).to eq "Hello World!"
     end
   end
 
-  describe '.all' do
-    it 'returns all peeps' do
-      peep = Peep.create(username: 'Kirill',date: '03/016/2019',content: "Its my brithday!")
-      Peep.create(username: "Jamie",date: '03/11/2020',content: "What a great day!")
-      Peep.create(username: "Asad",date: '02/02/2017',content: "I am so alone")
+  describe ".all" do
+    it "returns all peeps" do
+      peep = Peep.create(username: "Kirill",date: "03/16/2019",content: "Its my brithday!")
+      Peep.create(username: "Jamie",date: "03/11/2020",content: "What a great day!")
+      Peep.create(username: "Asad",date: "02/02/2017",content: "I am so alone")
 
       peeps = Peep.all
 

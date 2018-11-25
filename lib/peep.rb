@@ -9,16 +9,11 @@ class Peep
     @date = date
   end
 
-  def self.all
-
-  end
-
   def self.create(username:, content:, date:)
-
     result = DatabaseConnection.query("INSERT INTO peeps
       (username, date, content)
       VALUES('#{username}', '#{date}','#{content}')
-      RETURNING id, username, content, date")
+      RETURNING id, username, content, date;")
 
     Peep.new(
       id: result[0]['id'],
@@ -28,7 +23,7 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
       Peep.new(
         content: peep['content'],

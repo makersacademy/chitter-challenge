@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @unsorted = Peep.all
+    @peeps = @unsorted.sort {|a,b| b.date <=> a.date}
     erb :index
   end
 
@@ -22,7 +23,7 @@ class Chitter < Sinatra::Base
 
   post '/add-peep' do
     date = Time.now
-    Peep.create(username: params['username'], content: params[:content], date: "#{date.month}/#{date.day}/#{date.year}")
+    Peep.create(username: params[:username], content: params[:content], date: date)
     redirect '/peeps'
   end
 
