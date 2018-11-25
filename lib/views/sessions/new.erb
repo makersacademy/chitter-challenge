@@ -2,8 +2,12 @@
   <%= flash[:notice] %>
 </h2>
 
+<h2>Sign in:</h2>
+
 <form action="/sessions" method="post">
+  <label for="email">Email</label>
   <input type="email" name="email" />
+  <label for="password">Password</label>
   <input type="password" name="password" />
   <input type="submit" value="Sign in" />
 </form>

@@ -1,3 +1,6 @@
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
 <% if @user %>
   <h3> Welcome, <%= @user.user_name %> </h3>
 <% end %>

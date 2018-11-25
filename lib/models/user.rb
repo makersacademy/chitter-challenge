@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative '../database_connection'
 require 'bcrypt'
 class User
   def self.create(name:, email:, user_name:, password:)

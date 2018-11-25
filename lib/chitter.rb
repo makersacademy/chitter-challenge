@@ -25,6 +25,12 @@ class Chitter < Sinatra::Application
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/peeps')
+  end
+
   get '/users/new' do
     erb(:'users/new')
   end
