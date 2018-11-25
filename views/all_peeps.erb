@@ -1,9 +1,16 @@
+<h1>Welcome, <%=@user.username%></h1>
+
+<form action="/peeps/new" method="post">
+  <input type="text" name="body" />
+  <input type="submit" value="Post new peep" />
+</form>
+
 <ul>
 <% @peeps.each do |peep| %>
   <li>
     <%= peep.body %>
     <%= peep.username %>
-    <%= peep.created_at.strftime("%H:%M:%S, %A %d %B %Y ") %>
+    <%= peep.created_at.strftime("%H:%M:%S, %A %d %B %Y") %>
   </li>
 <% end %>
 </ul>

@@ -9,17 +9,30 @@ DataMapper.finalize.auto_upgrade!
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     erb(:index)
   end
 
   get '/peeps' do
     @peeps = Peep.all(:order => [ :id.desc ], :limit => 20)
+    @user = User.first(:id => session[:user_id])
     erb(:all_peeps)
   end
 
   post '/peeps/new' do
     Peep.create(body: params[:body], username: '@tomas', created_at: Time.now)
+    redirect '/peeps'
+  end
+
+  get '/users/new' do
+    erb(:sign_up)
+  end
+
+  post '/users/new' do
+    user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/peeps'
   end
 
