@@ -5,6 +5,9 @@
   </form>
 <% end %>
 <% @peeps.each do |peep| %>
+  <% if peep.user %>
+    <h4><%= peep.user.name %> | <%= peep.user.user_name %></h4>
+  <% end %>
   <p>
   <em><%= format_peep_date(date: peep.date )%> </em>
   <br>

@@ -17,6 +17,18 @@ feature 'user journey: ' do
     end
   end
 
+  scenario 'peeps are listed with usernames and names of poster' do
+    create_user
+    sign_in
+    visit("/peeps/new")
+    fill_in 'content', with: test_peep
+    click_on 'submit'
+    expect(page).to have_content(test_peep)
+    expect(page).to have_content('@testuser')
+    expect(page).to have_content('Joe Bloggs')
+
+  end
+
   scenario 'A peep can be posted to chitter' do
     create_user
     sign_in

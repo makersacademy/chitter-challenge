@@ -56,4 +56,14 @@ describe Peep do
       expect( Peep.find(id: 2) ).to eq(nil)
     end
   end
+
+  context '#user' do
+    it 'can retrieve the user that made the peep' do
+      10.times do |num|
+        Peep.create(content: "This is a test peep #{num}", user_id: user.id)
+      end
+      peep = Peep.find(id: 3)
+      expect(peep.user.user_name).to eq(user.user_name)
+    end
+  end
 end
