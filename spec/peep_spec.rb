@@ -1,19 +1,21 @@
 describe Peep do
 
-  it 'can create peep' do
-    peep = Peep.create(description: 'This is my first peep')
-    result = peep.map{|peep| peep}
+  let(:user_info) { { 'first_name' => 'abdi', 'last_name' => 'abdi','email' => 'abdi2@gmail.com', 'password' => 'password123'} }
 
-    expect(result.first['description']).to eq('This is my first peep')
+  it 'can create peep' do
+    created_user = User.create(user_info)
+    result = Peep.create(description: 'This is my first peep', id: created_user.id)
+    expect(result[0]['description']).to eq('This is my first peep')
   end
 
   context 'result in reverse chronological order' do
     it 'can list all peeps' do
-      peep = Peep.create(description: 'This is my first peep')
-      Peep.create(description: 'The second peep')
-      Peep.create(description: 'The third peep')
+      created_user = User.create(user_info)
+      peep = Peep.create(description: 'This is my first peep',id: created_user.id)
+      Peep.create(description: 'The second peep',id: created_user.id)
+      Peep.create(description: 'The third peep',id: created_user.id)
 
-      result = Peep.all
+      result = Peep.all(id: created_user.id)
       expect(result[0].description).to eq('The third peep')
     end
   end

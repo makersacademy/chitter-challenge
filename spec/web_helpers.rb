@@ -21,3 +21,18 @@ def sign_up
   fill_in('confirm_pwd', with: 'password123')
   click_button('signup')
 end
+
+def login
+  user_info = { 'first_name' => 'abdi', 'last_name' => 'abdi','email' => 'abdi2@gmail.com', 'password' => 'password123'}
+  sign_up
+  visit('/login')
+  fill_in('email', with: user_info['email'])
+  fill_in('pwd', with: user_info['password'])
+  click_button('login')
+end
+
+def create_peeps
+  Peep.create(description: 'one', id: created_user.id )
+  Peep.create(description: 'two', id: created_user.id )
+  Peep.create(description: 'three', id: created_user.id )
+end

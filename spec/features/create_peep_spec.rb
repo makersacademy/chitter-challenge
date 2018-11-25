@@ -1,6 +1,7 @@
 feature 'create peep post' do
   scenario 'submit create peep form' do
     visit('/')
+    sign_up
     fill_in('peep', with: 'I am a peep.')
     click_button('peep')
 

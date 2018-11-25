@@ -1,45 +1,43 @@
 feature 'view peeps' do
 
-  let(:user_info) { {'first_name' => 'abdi', 'last_name' => 'abdi','email' => 'abdi2@gmail.com', 'password' => 'password123'} }
+  let(:user_info) { { 'first_name' => 'abdi', 'last_name' => 'abdi','email' => 'abdi2@gmail.com', 'password' => 'password123'} }
+  let (:created_user) { User.create(user_info) }
 
   scenario 'view peeps' do
-    Peep.create(description: 'test information')
-    visit('/')
+    login
+    Peep.create(description: 'test information', id: created_user.id )
     expect(page).to have_content('test information')
   end
 
   scenario 'view peeps in reverse chronological order' do
-    Peep.create(description: 'one')
-    Peep.create(description: 'two')
-    Peep.create(description: 'three')
-    visit('/')
-    expect(page.find('li', match: :first)).to have_content 'three'
+    login
+    visit('/peeps')
+    fill_in('peep', with: 'three')
+    click_button('peep')
+    fill_in('peep', with: 'two')
+    click_button('peep')
+    fill_in('peep', with: 'one')
+    click_button('peep')
+    expect(page.find('li', match: :first)).to have_content 'one'
   end
 
   scenario 'view time the peep was made' do
-    peep = Peep.create(description: 'one')
-    Peep.create(description: 'two')
-    Peep.create(description: 'three')
-    visit('/')
-    
+    login
+    peep = create_peeps
+
     expect(page).to have_content(peep[0]['creation_time'])
   end
   
   scenario 'view peeps belonging to my user account' do
-    peep = Peep.create(description: 'one')
-    Peep.create(description: 'two')
-    Peep.create(description: 'three')
-    created_user = User.create(user_info)
+
     visit('/')
 
     expect(page).not_to have_content('one')
     expect(page).not_to have_content('two')
     expect(page).not_to have_content('three')
 
-    visit('/login')
-    fill_in('email', with: 'abdi2@gmail.com')
-    fill_in('pwd', with: 'password123')
-    click_button('login')
+    login
+    create_peeps
 
     expect(page).to have_content('one')
     expect(page).to have_content('two')

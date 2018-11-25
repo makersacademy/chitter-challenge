@@ -1,0 +1,25 @@
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" href="<%= url('./stylesheets/index.css')%>">
+</head>
+<body>
+
+<div id="header">
+  <h1>Chitter </h1>
+  
+</div>
+  <a href="/logout" id="login_signup"><div id="login_signup_container">Log out</div></a>
+<div class='page'>
+  <h1><%= @email %></h1>
+  <form action='/peeps/new' method='post'>
+		<input type='text' id='peep' name='peep' placeholder="What's happening?">
+		<div id='peep_button'><input type='submit' name='submit' value='peep'></div>
+  </form>
+  <% @peeps.each do |peep| %>
+    <ul id='peep_container'>
+      <li id='description'><%= peep.description %>  </li>
+      <li id='time'><%= peep.creation_time %></li>
+    </ul>
+  <% end %>
+</div>
+</body>
