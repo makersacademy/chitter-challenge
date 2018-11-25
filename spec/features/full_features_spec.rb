@@ -1,4 +1,4 @@
-feature 'Adding new message' do
+feature 'Full features' do
 
   scenario 'A user can see messages' do
     Message.add(title: 'First Post', body: 'Hello World')

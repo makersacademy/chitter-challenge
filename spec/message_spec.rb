@@ -4,15 +4,13 @@ require 'database_helpers'
 describe Message do
 
   describe '.all' do
-    it 'User can post a message to chitter' do
-      message = Message.add(title: 'First Post', body: 'Hello World')
+    it 'Sees messages in a reverse chronological order' do
+      Message.add(title: 'First Post', body: 'Hello World')
+      Message.add(title: 'Second Post', body: 'Hello London')
       messages = Message.all
 
-      expect(messages.length).to eq 1
-      expect(messages.first).to be_a Message
-      expect(messages.first.id).to eq message.id
-      expect(messages.first.title).to eq 'First Post'
-      expect(messages.first.body).to eq 'Hello World'
+      expect(messages.first.title).to eq 'Second Post'
+      expect(messages.first.body).to eq 'Hello London'
     end
   end
 

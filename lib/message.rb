@@ -21,9 +21,16 @@ class Message
   end
 
   def self.all
-    result = @connection.exec("SELECT * FROM messages;")
+    result = @connection.exec("SELECT * FROM messages ORDER BY ID DESC;")
     result.map do |message|
       Message.new(id: message['id'], title: message['title'], body: message['body'])
     end
   end
+
+  # def self.all_in_reverse_order
+  #   result = @connection.exec("SELECT * FROM messages ORDER BY ID DESC;")
+  #   result.map do |message|
+  #     Message.new(id: message['id'], title: message['title'], body: message['body'])
+  #   end
+  # end
 end
