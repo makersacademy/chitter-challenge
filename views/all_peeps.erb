@@ -1,0 +1,9 @@
+<ul>
+<% @peeps.each do |peep| %>
+  <li>
+    <%= peep.body %>
+    <%= peep.username %>
+    <%= peep.created_at %>
+  </li>
+<% end %>
+</ul>
