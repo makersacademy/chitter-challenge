@@ -10,6 +10,11 @@ feature 'user journey: ' do
     end
   end
 
+  scenario 'user enters an un-routed url' do
+    visit('/this_is_not_the_url_youre_looking_for')
+    expect(page).to have_content('404 page not found')
+  end
+
   scenario 'the app can list all peeps' do
     visit("/peeps")
     10.times do |num|
