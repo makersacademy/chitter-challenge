@@ -1,0 +1,36 @@
+require_relative '../database_helpers'
+require_relative '../../lib/models/user'
+
+describe '#create' do
+  it 'creates a new user' do
+    user = User.create(user_name: '@testuser',
+                       email: 'test_email@not_real.com',
+                       password: 'password123',
+                       name: 'Joe Bloggs')
+    expect(user).to be_a User
+    expect(user.id).to eq persisted_data(table: 'users', id: '1').first['id']
+    expect(user.user_name).to eq persisted_data(table: 'users', id: '1').first['user_name']
+    expect(user.email).to eq persisted_data(table: 'users',id: '1').first['email']
+    expect(user.name).to eq persisted_data(table: 'users',id: '1').first['name']
+  end
+end
+
+describe '#find' do
+  it 'finds a user by ID' do
+    user = User.create(user_name: '@testuser',
+                       email: 'test_email@not_real.com',
+                       password: 'password123',
+                       name: 'Joe Bloggs')
+    result = User.find(user.id)
+
+    expect(result).to be_a User
+    expect(result.id).to eq user.id
+    expect(result.user_name).to eq user.user_name
+    expect(result.email).to eq user.email
+    expect(result.name).to eq user.name
+  end
+
+  it 'returns nil if there is no ID given' do
+    expect(User.find(nil)).to eq nil
+  end
+end

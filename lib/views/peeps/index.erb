@@ -1,3 +1,6 @@
+<% if @user %>
+  <h3> Welcome, <%= @user.user_name %> </h3>
+<% end %>
 <% @peeps.each do |peep| %>
   <p>
   <em><%= format_peep_date(date: peep.date )%> </em>

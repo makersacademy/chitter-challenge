@@ -4,3 +4,4 @@ CREATE TABLE peeps (
   content varchar(240)
 );
 
+ALTER TABLE users ADD COLUMN name VARCHAR(100);
