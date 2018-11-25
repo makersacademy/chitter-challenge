@@ -28,9 +28,11 @@ class User
   end
 
   def self.login(email, password)
+    return nil if email.empty? || password.empty?
+    
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';")
     if BCrypt::Password.new(result[0]['password_hash']) == password
-      User.new(id: result[0]['id'], email: result[0]['email'])   
+      user = User.new(id: result[0]['id'], email: result[0]['email'])
     end
   end
 
