@@ -1,0 +1,8 @@
+<% @messages.each do |message| %>
+  <div class="message" id="message-<%= message.id %>">
+    <%= message.title %>
+    <br>
+    <%= message.body %>
+  </div>
+  <br>
+<% end %>
