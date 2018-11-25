@@ -9,6 +9,9 @@
 <body>
   <% if @user %>
     <h1>Welcome, <%= @user.name %></h1>
+    <form action="peeps/new" method="get">
+      <input type="submit" value="post a peep">
+    </form>
   <% end %>
   <h1>Peeps:</h1>
   <ul>

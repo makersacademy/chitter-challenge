@@ -22,7 +22,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/create' do
-    Peep.create(user_name: params[:user_name], time_stamp: 'NOW()',
+    user = User.find(session[:user_id])
+    Peep.create(user_name: user.user_name, time_stamp: 'NOW()',
                 text: params[:text])
     redirect '/peeps'
   end
