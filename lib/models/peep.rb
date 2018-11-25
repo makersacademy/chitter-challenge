@@ -11,8 +11,8 @@ class Peep
     result.map { |record| Peep.new(content: record['content'], date: record['date_added']) }
   end
 
-  def self.create(content:)
-    DatabaseConnection.query("INSERT INTO peeps (content) VALUES ('#{content}');")
+  def self.create(content:, user_id:)
+    DatabaseConnection.query("INSERT INTO peeps (content, user_id) VALUES ('#{content}', '#{user_id}');")
   end
 
   def self.find(id:)

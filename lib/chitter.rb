@@ -51,11 +51,18 @@ class Chitter < Sinatra::Application
   end
 
   get '/peeps/new' do
-    erb(:'peeps/new')
+    @user = User.find(session[:user_id])
+    if @user
+      erb(:'peeps/new')
+    else
+      flash[:notice] = "You need to be signed in to post a peep"
+      redirect('peeps')
+    end
   end
 
   post '/peeps/new' do
-    Peep.create(content: params['content'])
+
+    Peep.create(content: params['content'], user_id: params['user_id'])
     redirect '/peeps'
   end
 end

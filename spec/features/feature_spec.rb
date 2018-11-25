@@ -1,5 +1,6 @@
 require 'pry'
 require_relative '../../lib/database_connection'
+require_relative './web_helpers'
 feature 'user journey: ' do
   let(:test_peep) { 'This is a test peep to test form submissions' }
 
@@ -17,6 +18,8 @@ feature 'user journey: ' do
   end
 
   scenario 'A peep can be posted to chitter' do
+    create_user
+    sign_in
     visit("/peeps/new")
     fill_in 'content', with: test_peep
     click_on 'submit'
@@ -24,6 +27,8 @@ feature 'user journey: ' do
   end
 
   scenario 'User can see the date that a peep was made' do
+    create_user
+    sign_in
     time = Time.new
     min = time.min
     if min < 10
@@ -34,5 +39,10 @@ feature 'user journey: ' do
     fill_in 'content', with: test_peep
     click_on 'submit'
     expect(page).to have_content(posted_at)
+  end
+
+  scenario 'a peep cannot be posted unless a user is signed in' do
+    visit('/peeps/new')
+    expect(page).to have_content("You need to be signed in to post a peep")
   end
 end
