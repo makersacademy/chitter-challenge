@@ -1,8 +1,10 @@
+require 'pg'
+require 'uri'
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'uri'
-# require_relative './lib/chitter.rb'
-# require_relative './lib/database_connection_setup.rb'
+require './lib/chitter'
+require './lib/user'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
@@ -14,8 +16,13 @@ class Chitter < Sinatra::Base
     erb :'index'
   end
 
-  get '/peeps' do
+  post '/user_new' do
+    User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    redirect '/peeps'
+  end
 
+  get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps'
   end
 

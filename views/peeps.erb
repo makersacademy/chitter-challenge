@@ -8,6 +8,12 @@
   <body>
     <h3><a href="/">Sign up</a> if you want to post a peep
     <br><br>
-    peeeeeeps!
+    peeeeeeps! <br>
+    <% @peeps.each do |peep| %>
+    <%= peep.username %> at <%= peep.time %><br>
+    <%= peep.message %><br>
+
+    <% end %>
+
   </body>
 </html>

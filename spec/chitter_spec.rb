@@ -1,17 +1,27 @@
 require 'chitter'
 require 'database_helpers'
+require './lib/database_connection.rb'
 
 describe Peep do
+
   it 'shows a list of all the peeps' do
-    PG.connect(dbname: 'chitter_test').query("INSERT INTO peeps (message,username_id) VALUES ('miao','lucaf');")
-    result = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps")
-
-    result.map do |peep|
-      Peep.new(id: peep['id'], username: peep['username_id'], time: peep['time'], message: peep['message'])
-    end
+    connection = PG.connect(dbname: "chitter_test")
+    connection.exec("TRUNCATE users, peeps;")
+    connection.query("INSERT INTO users (email,password,name,username) VALUES ('lucaf@gmail.com','password', 'luca', 'luca89');")
+    peep = Peep.create(message: 'new_message', username_id: 'luca89')
+    result = Peep.all
+    expect(result.length).to eq 1
+    expect(result[0].message).to eq 'new_message'
+    expect(result[0].username).to eq 'luca89'
   end
 
-  it 'creates a new peep' do
-    PG.connect(dbname: 'chitter_test').query("INSERT INTO peeps (message,username_id) VALUES ('miao','lucaf');")
-  end
+  # it 'creates a new peep' do
+  #   connection = PG.connect(dbname: "chitter_test")
+  #   connection.exec("TRUNCATE users, peeps;")
+  #   peep = Peep.create(message: 'new_message', username_id: 'luca89')
+  #   expect(result[0].message).to eq 'new_message'
+  #   expect(result[0].username).to eq 'luca89'
+  # end
+
+
 end
