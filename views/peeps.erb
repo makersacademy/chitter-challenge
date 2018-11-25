@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Peeps</title>
+</head>
+<body>
+<h1>Peeps:</h1>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li style="list-style: none;" class="peep">
+      <p>
+        <%= peep.user_name %>
+        <%= peep.time_stamp %>
+        <%= peep.text %>
+      </p>
+    </li>
+  <% end %>
+</ul>
+
+</body>
+</html>
