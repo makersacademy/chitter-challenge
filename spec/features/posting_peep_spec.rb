@@ -11,8 +11,6 @@ feature 'Posting Peeps' do
     fill_in :peep, with: 'Bleugh'
     click_button 'Post peep'
 
-    peeps = ChitterFeed.all
-
     expect(current_path).to eq '/'
     expect(page).to have_content "hulbgoblin"
     expect(page).to have_content "Bleugh"

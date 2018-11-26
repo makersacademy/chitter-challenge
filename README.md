@@ -1,9 +1,35 @@
+Chitter
+=======
+It's a Twitter clone that I made using Ruby, Sinatra, and PostgreSQL. I have written my tests using rspec and Capybara
+
 Installation Instructions
 =========================
 
-Fork and clone this respo
+Fork and clone this repo
 
 Run ```bundle```
+
+## Database setup instructions
+I used PostgreSQL to create a database called chitter, which contained two tables called 'users' and 'peeps'.
+
+1) `brew install PostgreSQL`
+
+2) `ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents`
+
+3) `launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist`
+
+4) Run: `psql PostgreSQL`
+
+5) Then, create the database in psql using:
+`CREATE DATABASE bookmark_manager;`
+
+6) Connect to the database using:
+`\c bookmark_manager`
+
+7) Run the query in the file, *01_create_users_table.sql*
+
+8) Run the query in the file, *02_create_peeps_table.sql*
+
 
 User Stories
 ============
@@ -63,36 +89,3 @@ If you have time you can implement the following:
 And/Or:
 
 * Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!

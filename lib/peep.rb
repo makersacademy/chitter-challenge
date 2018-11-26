@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative 'database_connection'
 
 class Peep
   attr_reader :id, :content, :timestamp, :name, :username
@@ -12,9 +12,9 @@ class Peep
   end
 
   def self.create(user_id:, content:)
-    result = DatabaseConnection.query("INSERT INTO peeps (user_id, content)
-                                      VALUES('#{user_id}', '#{content}')
-                                      RETURNING id, user_id, content;")
+    DatabaseConnection.query("INSERT INTO peeps (user_id, content)
+                              VALUES('#{user_id}', '#{content}')
+                              RETURNING id, user_id, content;")
   end
 
 end

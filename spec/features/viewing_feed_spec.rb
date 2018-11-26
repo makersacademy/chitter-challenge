@@ -1,6 +1,5 @@
 feature 'Chitter feed' do
   scenario 'peeps include name and username' do
-    peep = Peep.create(user_id: 3, content: 'Yarp!')
     visit '/'
 
     expect(first('.peep')).to have_content 'Dana Gajewska'
