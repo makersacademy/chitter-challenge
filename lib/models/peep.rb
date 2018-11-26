@@ -11,11 +11,7 @@ class Peep
     result = DatabaseConnection.query("SELECT * FROM peeps
                                       ORDER BY date_added DESC;")
 
-    result.map { |record| Peep.new(content: record['content'],
-                                   date: record['date_added'],
-                                   user_id: record['user_id']
-                                  )
-    }
+    result.map { |record|  peep_builder(record) }
   end
 
   def self.create(content:, user_id:)
@@ -25,10 +21,7 @@ class Peep
 
   def self.find(id:)
     result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = #{id};")
-    result.map { |record| Peep.new(content: record['content'],
-                                   date: record['date_added'],
-                                   user_id: record['user_id'])
-    }.first
+    result.map { |record| peep_builder(record) }.first
   end
 
   def self.update(id:, content:)
@@ -38,6 +31,12 @@ class Peep
 
   def self.delete(id:)
     DatabaseConnection.query("DELETE FROM peeps WHERE id = #{id};")
+  end
+
+  def self.peep_builder(record)
+    Peep.new(content: record['content'],
+             date: record['date_added'],
+             user_id: record['user_id'])
   end
 
   def user
