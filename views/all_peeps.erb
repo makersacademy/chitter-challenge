@@ -1,11 +1,10 @@
       <% if @user %>
-<h1>Welcome, <%=@user.username%></h1>
-      <% end %>
+<h1>Welcome, <%=@user.firstname%></h1>
 <form action="/peeps/new" method="post">
   <input type="text" name="body" />
   <input type="submit" value="Post new peep" />
 </form>
-
+      <% end %>
 <ul>
 <% @peeps.each do |peep| %>
   <li>

@@ -1,19 +1,17 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
-
 gem 'bcrypt-ruby'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'dm-rspec'
 gem 'json', '1.8.6'
 gem 'pg'
 gem 'rack'
 gem 'rake'
 gem 'rubocop', '0.56.0'
-gem 'sinatra', '1.4.8'
+gem 'sinatra'
 gem 'sinatra-flash'
 gem 'shotgun'
-gem 'timecop'
 gem 'warden'
 
 group :test do
@@ -22,4 +20,5 @@ group :test do
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'timecop'
 end

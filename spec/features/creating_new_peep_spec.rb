@@ -2,6 +2,8 @@ feature 'post new peep' do
   scenario 'user can post a new peep' do
     visit '/'
     click_button 'Sign up'
+    fill_in('firstname', with: 'Test')
+    fill_in('lastname', with: 'McTest')
     fill_in('username', with: 'mrtest')
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'password123')
@@ -16,6 +18,8 @@ feature 'post new peep' do
     Timecop.freeze(2018,11,25,10,0,0)
     visit '/'
     click_button 'Sign up'
+    fill_in('firstname', with: 'Test')
+    fill_in('lastname', with: 'McTest')
     fill_in('username', with: 'mrtest')
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'password123')
