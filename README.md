@@ -1,8 +1,20 @@
 Chitter Challenge
 =================
-Built using Ruby, Sinatra, Rspec, Capybara and Twitter bootstrap.
+Built using Ruby, Sinatra, Rspec, Capybara, Twitter bootstrap, and PostgresSQL.
 
-Start with:
+### To setup the databases
+First create two PostgresSQL Databases, one for production and one for dev/test:
+
+```
+CREATE DATABASE chitter_prod
+
+CREATE DATABASE chitter_test
+```
+
+Then run the migration files in `db/migrations/` into them.
+
+
+### To start the server:
 ```
 $ rackup
 ```
@@ -18,7 +30,7 @@ Run tests with:
 rspec
 ```
 
-TODO:
+### TODO:
 - email functionality.
 - comment functionality.
 - add rake tasks.
