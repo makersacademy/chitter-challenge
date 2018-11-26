@@ -23,7 +23,7 @@ body, html{
   width:100%;
 }
 
-#login_signup_container {
+#login_signup_container, #logout {
   float: right;
   padding: 20px;
   font-size: 40px;
@@ -36,11 +36,10 @@ body, html{
   color:black;
 }
 
-#login_signup_container:hover{
+#login_signup_container:hover, #logout:hover {
   border-radius: 0px;
   border-left: 10px solid black;
 }
-
 
 .page {
   width:50%;

@@ -1,16 +1,9 @@
 feature 'view peeps' do
 
   let(:user_info) { { 'first_name' => 'abdi', 'last_name' => 'abdi','email' => 'abdi2@gmail.com', 'password' => 'password123'} }
-  let (:created_user) { User.create(user_info) }
-
-  scenario 'view peeps' do
-    login
-    Peep.create(description: 'test information', id: created_user.id )
-    expect(page).to have_content('test information')
-  end
 
   scenario 'view peeps in reverse chronological order' do
-    login
+    login(user_info)
     visit('/peeps')
     fill_in('peep', with: 'three')
     click_button('peep')
@@ -22,8 +15,8 @@ feature 'view peeps' do
   end
 
   scenario 'view time the peep was made' do
-    login
-    peep = create_peeps
+    login(user_info)
+    peep = create_peeps(user_info)
 
     expect(page).to have_content(peep[0]['creation_time'])
   end
@@ -36,8 +29,8 @@ feature 'view peeps' do
     expect(page).not_to have_content('two')
     expect(page).not_to have_content('three')
 
-    login
-    create_peeps
+    login(user_info)
+    create_peeps(user_info)
 
     expect(page).to have_content('one')
     expect(page).to have_content('two')

@@ -9,30 +9,32 @@ def setup_database
   db.exec('TRUNCATE users;')
 end
 
-def sign_up
+def sign_up(user_info)
   visit('/')
   click_link('login_signup')
   click_link('create_account')
-  fill_in('fname', with: 'Abdi')
-  fill_in('lname', with: 'Abdi')
-  fill_in('email', with: 'abdi@gmail.com')
-  fill_in('confirm_email', with: 'abdi@gmail.com')
-  fill_in('pwd', with: 'password123')
-  fill_in('confirm_pwd', with: 'password123')
+  fill_in('fname', with: user_info['first_name'])
+  fill_in('lname', with: user_info['last_name'])
+  fill_in('email', with: user_info['email'])
+  fill_in('confirm_email', with: user_info['email'])
+  fill_in('pwd', with: user_info['password'])
+  fill_in('confirm_pwd', with: user_info['password'])
   click_button('signup')
 end
 
-def login
-  user_info = { 'first_name' => 'abdi', 'last_name' => 'abdi','email' => 'abdi2@gmail.com', 'password' => 'password123'}
-  sign_up
+def login(user_info)
+  sign_up(user_info)
   visit('/login')
   fill_in('email', with: user_info['email'])
   fill_in('pwd', with: user_info['password'])
   click_button('login')
 end
 
-def create_peeps
-  Peep.create(description: 'one', id: created_user.id )
-  Peep.create(description: 'two', id: created_user.id )
-  Peep.create(description: 'three', id: created_user.id )
+def create_peeps(user_info)
+  sign_up(user_info)
+  result = db_connection.exec("SELECT id FROM users WHERE email = '#{user_info['email']}';")
+  user_id = result[0]['id']
+  Peep.create(description: 'one', id: user_id )
+  Peep.create(description: 'two', id: user_id )
+  Peep.create(description: 'three', id: user_id )
 end
