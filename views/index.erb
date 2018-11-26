@@ -11,13 +11,18 @@
   <body><center><form action="/peep-params" method="post">
   <input type="text" name="peep_content">
   <input type="submit" value="Post Peep"> <center></form>
-  <style> body {background-color: Skyblue;} </style>
+  <style> body {background-color: Skyblue;}
+    .boxed {
+    border: 2px solid green ;
+    background-colour: green
+  } </style>
   <ul>
  <% @peeps.each do |peep| %>
 
+      <div class="boxed">
       <br> <%= peep.time %>
       <br> <%= peep.content %>
-
+      </div>
  <% end %>
 </ul>
   </body>
