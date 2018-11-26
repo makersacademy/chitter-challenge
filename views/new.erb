@@ -7,14 +7,17 @@
   </head>
 
   <body>
+
     <h1>Enter your peep</h1>
 
     <form action='/add-peep' method='post'>
-      <input type="text" name="username" placeholder="Your username" />
-      <br>
       <input type="text" name="content" placeholder="Some content" >
       <br>
       <button type="submit" class="button"><span>Submit</span></button>
+    </form>
+
+    <form action='/peeps' method='get'>
+      <button type="submit" class="button"><span>Back to peeps</span></button>
     </form>
 
   </body>

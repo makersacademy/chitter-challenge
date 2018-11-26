@@ -7,6 +7,6 @@ feature "peeps getting a time" do
     click_button "Submit"
     expect(page).to have_content "Some content"
     expect(page).to have_content "A user"
-    expect(page).to have_content "#{Time.now.hour}:#{Time.now.min}"
+    expect(page).to have_content "#{Time.now.hour}:"
   end
 end

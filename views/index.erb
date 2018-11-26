@@ -7,7 +7,13 @@
   </head>
 
   <body>
-    <h1>Welcome to the chitter social network</h1>
+
+    <% if @user %>
+    <h1>Welcome <%= @user.name %></h1>
+    <% else %>
+    <h1>Welcome stranger!</h1>
+    <% end %>
+
     <ul>
       <% @peeps.each do |peep| %>
         <li class="peep" id="peep-<%= peep.id %>">
@@ -20,11 +26,16 @@
       <% end %>
     </ul>
 
+    <% if @user %>
     <form action='/new' method='get'>
     <div>
       <button class="button" type="submit"><span>Add peep</span></button>
     </div>
     </form>
-
+    <% end %>
+    <form action='/' method='get'>
+      <button type="submit" class="button"><span>Login Menu</span></button>
+    </form>
+    
   </body>
 </html>

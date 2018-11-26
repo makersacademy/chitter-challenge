@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <h1>Welcome to the chitter social network</h1>
+
+    <h2 style="color: red;"><%= flash[:notice] %></h2>
+
+    <% if @user %>
+    <h1>Welcome <%= @user.name %></h1>
+    <form action="log-out" method="get">
+        <button type="submit" class="button"><span>Log out</span></button>
+    </form>
+    <% else %>
+    <h1>Welcome stranger!</h1>
+
+    <form action='/new-user' method='post'>
+      <input type="text" name="username" placeholder="Username" />
+      <br>
+      <input type="text" name="email" placeholder="johndoe@example.com" >
+      <br>
+      <input type="text" name="name" placeholder="John Doe" />
+      <br>
+      <input type="text" name="password" placeholder="**********" >
+
+      <button class="button" type="submit"><span>Sign up</span></button>
+    </form>
+
+    <form action='/log-in' method='post'>
+      <input type="text" name="username" placeholder="Username" />
+      <br>
+      <input type="text" name="password" placeholder="**********" >
+
+      <button class="button" type="submit"><span>Log in</span></button>
+    </form>
+    <% end %>
+  </body>
+</html>
