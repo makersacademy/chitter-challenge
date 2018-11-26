@@ -65,13 +65,13 @@ CREATE DATABASE chitter_test;
 
 To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
-### To run the Bookmark Manager app:
+### To run the Chitter app:
 
 ```
 rackup -p 9292
 ```
 
-To view bookmarks, navigate to `localhost:9292/chitter`.
+To view chitter, navigate to `localhost:9292/chitter`.
 
 ### To run tests:
 
