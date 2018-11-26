@@ -19,7 +19,8 @@ class Chitter < Sinatra::Application
   end
 
   post '/sessions' do
-    user = User.authenticate(email: params[:email], password: params[:password])
+    user = User.authenticate(email: params[:email],
+                             password: params[:password])
     if user
       session[:user_id] = user.id
       redirect('/peeps')
@@ -43,9 +44,9 @@ class Chitter < Sinatra::Application
     # TODO add validation for
     # unique usernames and emails
     user = User.create(user_name: params['user_name'],
-                email: params['email'],
-                password: params['password'],
-                name: params['name'])
+                       email: params['email'],
+                       password: params['password'],
+                       name: params['name'])
     session[:user_id] = user.id
     redirect '/peeps'
   end
@@ -67,7 +68,8 @@ class Chitter < Sinatra::Application
   end
 
   post '/peeps/new' do
-    Peep.create(content: params['content'], user_id: params['user_id'])
+    Peep.create(content: params['content'],
+                user_id: params['user_id'])
     redirect '/peeps'
   end
 
