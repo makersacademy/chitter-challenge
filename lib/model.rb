@@ -22,13 +22,15 @@ class ChitterHandler
 
     def add_peep(message, user = nil)
       message.gsub! "'", "''"
-      user.gsub! "'", "''" if user
-      query = "INSERT INTO peeps (text, username) VALUES('#{message}', '#{user}')"
+      user&.gsub! "'", "''"
+      query = "INSERT INTO peeps (text, username) VALUES"
+      query += "('#{message}', '#{user}')"
       select_connection.exec query
     end
 
     def create_user(username:, email:, name:, password:)
-      query = "INSERT INTO users VALUES('#{username}', '#{email}', '#{name}', '#{password}')"
+      query = "INSERT INTO users VALUES"
+      query += "('#{username}', '#{email}', '#{name}', '#{password}')"
       select_connection.exec query
       @signed_in_user = find_user(username: username)
     end
