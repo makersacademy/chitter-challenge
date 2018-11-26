@@ -4,7 +4,7 @@ feature "User can sign_up" do
 
     visit ('/user_authentication/sign_up')
 
-    fill_in 'username', with: "Thomas01"
+    fill_in 'user_name', with: "Thomas01"
 
     fill_in 'password', with: 'password010'
 

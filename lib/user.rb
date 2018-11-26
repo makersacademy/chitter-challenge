@@ -46,7 +46,6 @@ class User
 
     encrypted_password = BCrypt::Password.create(password) #might not be right way of checkin
 
-
     user = connection.exec("SELECT * FROM users WHERE user_name = '#{user_name}' AND;")
 
   end
