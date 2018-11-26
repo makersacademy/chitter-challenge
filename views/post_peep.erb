@@ -11,8 +11,12 @@
     <br>
     <a class="buttons" href='/peeps'>See Peeps</a>
     <br>
-    <h1>Add Peep</h1>
-    <br>
+
+    <% if @user %>
+      <h1>Post a peep, <%= @user.username %></h1>
+    <%else%>
+      <h1>Post annonymous peep.<h1>
+    <% end %>
     <div class='form_container'>
       <form action='/peeps' method="post">
 

@@ -10,7 +10,7 @@
         align-items: center;
         justify-content: center;
       }
-      
+
   h2 {
         font-family: arial;
         text-align: center;
@@ -23,7 +23,12 @@
         align-items: center;
         justify-content: center;
         }
+div.peeps_list {
+    margin: 40px;
 
+
+
+}
   div.peep_row {
         display: flex;
         flex-direction: row;
@@ -35,6 +40,7 @@
         flex-grow: 2;
         border-radius: 15px;
         font-family: arial;
+        font-size: 20px;
         text-align: center;
         color: white;
         margin: 10px;
@@ -54,6 +60,7 @@ div.peep_attr {
         border-radius: 15px;
         font-family: arial;
         text-align: center;
+        font-size: 20px;
         color: white;
         margin: 10px;
         text-decoration: none;
