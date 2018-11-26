@@ -3,34 +3,53 @@
   <head>
     <meta charset="UTF-8">
     <title>Chitter App</title>
+    <style>
+      /* body {
+    background-image: url("message_pictures.png");
+     } */
+      /* body {
+    background-color: darkblue; */
+/* } */
+div {
+    background-color: lightblue;
+    width: 300px;
+    border: 25px solid grey;
+    padding: 25px;
+    margin: 25px;
+}
+    </style>
   <head>
 
-<body>
+<body >
 
-  <h1> Welcome to Chitter Ver1 </h1>
-  <h3> Please enter your message. &nbsp &nbsp Click 'Submit' to add your message to Chitter. </h3>
+  <h1 style="text-align: center"> Welcome to Chitter Ver1 </h1>
+  <h3 style="text-align: center"> Please enter your message. &nbsp &nbsp Click 'Submit' to add your message to Chitter. </h3>
   <br>
   <form action="/chitter" method="post">
+    <input type="text" name="name" placeholder="Name" size="80" /><br>
+    <input type="text" name="username" placeholder="Username" size="80" /><br>
+    <input type="text" name="email" placeholder="Email" size="80" /><br>
+    <input type="text" name="password" placeholder="Password" size="80" /><br>
     <input type="text" name="message" placeholder="Add message" size="80" />
     <input type="submit" value="Submit" />
   </form>
   <br>
-  <%= @message %>
-  <br>
-
-  <!-- <form action="/chitter/create_new" method="post">
-    <button type="submit" name="Add_message" id="Add_<%= @message %>" value="<%=@message%>">Add_message</button>
-  </form> -->
-  <!-- <button type="button" name="add_message">Add Message</button> -->
   <hr>
   <br>
+
   <ul>
   <% @peep.each do |msg| %>
+    <div>
     <li>
-        <%= msg.message %>
-        <%= msg.date_created %>
+        <%= msg %>
+
+        <b>Peep</b> &nbsp<%= msg.message %><br>
+        <b>Created on:</b> &nbsp<%= msg.date_created %>
+        <b>Created by:</b> &nbsp<%= @name %>&nbsp aka &nbsp <%= @username %>
+    </div>
   <% end %>
-        <br>
-      </ul>
+        </li>
+  </ul>
+
 </body>
 </html>

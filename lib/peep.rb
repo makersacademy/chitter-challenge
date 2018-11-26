@@ -1,12 +1,13 @@
 require 'pg'
 
 class Peep
-  attr_reader :message, :date_created
+  attr_accessor :id, :message, :date_created
 
   def initialize(id, message, date_created)
     @id = id
     @message = message
     @date_created = date_created
+
   end
 
   def self.sql(query)
@@ -23,11 +24,10 @@ class Peep
     result.map do |sqlresult|
       Peep.new(sqlresult['id'], sqlresult['message'], sqlresult['date_created'])
     end
-
   end
 
   def self.add_message(message)
-    result = sql("INSERT INTO peep (message, date_created) VALUES ('#{message}', NOW()::timestamp(0)) RETURNING id, message, date_created;")
+    result = sql("INSERT INTO peep (message) VALUES ('#{message}') RETURNING id, message, date_created;")
     Peep.new(result[0]['id'], result[0]['message'], result[0]['date_created'])
   end
 end

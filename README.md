@@ -13,6 +13,14 @@ To complete this challenge I used the MVC model in order to keep code clean and 
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
 ```
 
 ## Getting started
@@ -25,10 +33,28 @@ I want to post a message (peep) to chitter
 `run from command line using 'rackup'`
 `open browser and enter 'http:/localhost:(servernumber)'``
 
-`1. CREATE TABLE peep(id SERIAL PRIMARY KEY, message VARCHAR(200));`
+# Create the bookmark_Manager database
+
+```
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter_manager;
+Connect to the database using the pqsl command \c chitter_manager;
+Run the query saved in the file 01_create_peep_table.sql
+Run the query saved in the file 02_add_timestamp_to_peep.sql
+```
+
+#Create test database
+
+```
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter_manager_test;
+Connect to the database using the pqsl command \c chitter_manager_test;
+Run the query saved in the file 01_create_peep_table.sql
+Run the query saved in the file 02_add_timestamp_to_peep.sql
+```
 
 ## Running tests
 
 `test_command` (`rspec`)`
 
-`Travis CI tests passed status badge added:
+<!-- `Travis CI tests passed status badge added: -->
