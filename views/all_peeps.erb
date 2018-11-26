@@ -1,5 +1,6 @@
+      <% if @user %>
 <h1>Welcome, <%=@user.username%></h1>
-
+      <% end %>
 <form action="/peeps/new" method="post">
   <input type="text" name="body" />
   <input type="submit" value="Post new peep" />

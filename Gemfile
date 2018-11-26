@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
+gem 'bcrypt-ruby'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'json', '1.8.6'
@@ -13,6 +14,7 @@ gem 'sinatra', '1.4.8'
 gem 'sinatra-flash'
 gem 'shotgun'
 gem 'timecop'
+gem 'warden'
 
 group :test do
   gem 'capybara'
