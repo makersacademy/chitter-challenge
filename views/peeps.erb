@@ -8,7 +8,10 @@
   <h1>Chitter </h1>
   
 </div>
-  <a href="/logout" id="logout"><div id="logout">Log out</div></a>
+  <form action='/logout' method='post'>
+    <div id="logout"><input type='submit' name='submit' value='logout'></div>
+  </form>
+  
 <div class='page'>
   <h1><%= @email %></h1>
   <form action='/peeps/new' method='post'>

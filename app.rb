@@ -22,7 +22,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/login' do 
-    puts 'login'
     erb(:login)
   end
 
@@ -32,9 +31,7 @@ class Chitter < Sinatra::Base
     session[:id] = user.id
     session[:email] = user.email
     redirect('/peeps')
-    puts '1'
     else
-    puts '2'
     redirect('/')
     end
   end
@@ -50,6 +47,11 @@ class Chitter < Sinatra::Base
     session[:email] = @user.email
     redirect('/peeps')
     end
+    redirect('/')
+  end
+
+  post '/logout' do
+    session.clear
     redirect('/')
   end
 

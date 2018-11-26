@@ -8,7 +8,7 @@ feature 'log out' do
 
   expect(page).to have_content('one')
   
-  click_link('logout')
+  click_button('logout')
 
   expect(page).not_to have_content('one')
 
