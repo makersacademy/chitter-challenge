@@ -10,8 +10,8 @@ class Peep
   end
 
   def self.post(message:)
-    result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{message}') RETURNING message")
-    p Peep.new(message: result[0]['message'])
+    result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{message}') RETURNING message, timestamp")
+    Peep.new(message: result[0]['message'], timestamp: result[0]['timestamp'])
   end
 
   def self.all
