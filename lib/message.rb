@@ -17,14 +17,18 @@ class Message
   end
 
   def self.add(body:, title:)
-    result = @connection.exec("INSERT INTO messages (body, title) VALUES('#{body}', '#{title}') RETURNING id, title, body, created_at;")
-    Message.new(id: result[0]['id'], title: result[0]['title'], body: result[0]['body'], created_at: result[0]['created_at'])
+    result = @connection.exec("INSERT INTO messages (body, title)"\
+                              " VALUES('#{body}', '#{title}')"\
+                              " RETURNING id, title, body, created_at;")
+    Message.new(id: result[0]['id'], title: result[0]['title'],
+                body: result[0]['body'], created_at: result[0]['created_at'])
   end
 
   def self.all
     result = @connection.exec("SELECT * FROM messages ORDER BY ID DESC;")
     result.map do |message|
-      Message.new(id: message['id'], title: message['title'], body: message['body'], created_at: message['created_at'])
+      Message.new(id: message['id'], title: message['title'],
+                  body: message['body'], created_at: message['created_at'])
     end
   end
 

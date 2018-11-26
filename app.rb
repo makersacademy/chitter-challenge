@@ -2,7 +2,6 @@ require 'sinatra/base'
 require './lib/message'
 require './lib/user'
 
-
 class ChitterChatter < Sinatra::Base
   enable :sessions
 
@@ -26,7 +25,9 @@ class ChitterChatter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params['email'], password: params['password'], name: params['name'])
+    user = User.create(email: params['email'],
+                       password: params['password'],
+                       name: params['name'])
     session[:user_id] = user.id
     redirect '/messages'
   end
@@ -35,7 +36,9 @@ class ChitterChatter < Sinatra::Base
     erb :"sessions/new"
   end
   post '/sessions' do
-    user = User.create(email: params['email'], password: params['password'], name: params['name'])
+    user = User.create(email: params['email'],
+                       password: params['password'],
+                       name: params['name'])
     session[:user_id] = user.id
     redirect('/messages')
   end
