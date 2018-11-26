@@ -1,5 +1,7 @@
 body {
-  margin: 0 auto;
+  margin: 10 auto;
+  background-image: url('./circuit.png');
+  align-content: center;
 }
 
 .button {
@@ -9,7 +11,7 @@ body {
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 28px;
+  font-size: 16px;
   padding: 20px;
   width: 200px;
   transition: all 0.5s;

@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="../public/style.css">
     <meta charset="utf-8">
     <title>Chitter - Add</title>
   </head>
 
-  <body>
+  <body style="background-image: url('./circuit.png');">
+      <h1>Enter your peep</h1>
 
-    <h1>Enter your peep</h1>
+      <form action='/peeps' method='post'>
+        <input type="text" name="content" placeholder="Some content" >
+        <br>
+        <button type="submit" class="button"><span>Submit</span></button>
+      </form>
 
-    <form action='/add-peep' method='post'>
-      <input type="text" name="content" placeholder="Some content" >
-      <br>
-      <button type="submit" class="button"><span>Submit</span></button>
-    </form>
-
-    <form action='/peeps' method='get'>
-      <button type="submit" class="button"><span>Back to peeps</span></button>
-    </form>
+      <form action='/peeps' method='get'>
+        <button type="submit" class="button"><span>Back to peeps</span></button>
+      </form>
 
   </body>
 </html>
