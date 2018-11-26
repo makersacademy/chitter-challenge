@@ -49,12 +49,8 @@ feature 'user journey: ' do
     time = Time.new
     hour = time.hour
     min = time.min
-    if min < 10
-      min = "0" << min.to_s
-    end
-    if hour < 10
-      hour = "0" << hour.to_s
-    end
+    min = "0" << min.to_s if min < 10
+    hour = "0" << hour.to_s if hour < 10
     posted_at = "Posted at #{hour}:#{min} on #{time.day}/#{time.month}/#{time.year}"
     visit("/peeps/new")
     fill_in 'content', with: test_peep
