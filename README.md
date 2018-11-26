@@ -68,7 +68,7 @@ Database Setup Instructions:
 
 3) `launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist`
 
-4) Run: `psql PostgreSQL`
+4) Run: `psql postgres`
 
 5) Then, create the database in psql using:
 `CREATE DATABASE chitter;`.
