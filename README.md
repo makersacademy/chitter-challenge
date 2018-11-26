@@ -48,12 +48,12 @@ Some of the challenges I encountered:
 
 ## Technologies used
 
-[Sinatra](http://sinatrarb.com/intro.html)
-[PostgreSQL](https://www.postgresql.org/download/)
-[Datamapper](https://datamapper.org/)
-[Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner)
-[RSpec](https://github.com/rspec/rspec)
-[Capybara](https://github.com/teamcapybara/capybara)
+- [Sinatra](http://sinatrarb.com/intro.html)
+- [PostgreSQL](https://www.postgresql.org/download/)
+- [Datamapper](https://datamapper.org/)
+- [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner)
+- [RSpec](https://github.com/rspec/rspec)
+- [Capybara](https://github.com/teamcapybara/capybara)
 
 ## Installation instructions
 
