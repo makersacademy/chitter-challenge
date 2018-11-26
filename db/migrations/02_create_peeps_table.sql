@@ -1,1 +1,1 @@
-CREATE TABLE peeps(peepId SERIAL PRIMARY KEY, userId integer REFERENCES users(userId), timestamp TIMESTAMP, content VARCHAR(140), threadPeep VARCHAR(140));
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, userId integer REFERENCES users(id), timestamp TIMESTAMP, content VARCHAR(140), threadPeep VARCHAR(140));
