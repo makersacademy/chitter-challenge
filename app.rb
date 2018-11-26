@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     Peep.post(message: params['message'])
-    Users.signup(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    p Users.signup(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
     session[:name] = params[:name]
     redirect '/peeps'
   end
