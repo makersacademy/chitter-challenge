@@ -1,6 +1,31 @@
 Chitter Challenge
 =================
+Built using Ruby, Sinatra, Rspec, Capybara and Twitter bootstrap.
 
+Start with:
+```
+$ rackup
+```
+or specify a port
+
+```
+$ rackup -p <port>
+```
+
+Run tests with:
+
+```
+rspec
+```
+
+TODO:
+- email functionality.
+- comment functionality.
+- add rake tasks.
+
+
+
+-------------------------------------------------------------
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
