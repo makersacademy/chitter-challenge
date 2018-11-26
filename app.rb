@@ -52,7 +52,6 @@ class Chitter < Sinatra::Base
 
     Peep.create(userid: @userid, timestamp: Time.now, \
       content: params[:peep_content], threadpeep: params[:peep_content])
-
     redirect '/peeps/index'
   end
 
