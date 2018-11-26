@@ -18,7 +18,7 @@ attr_reader :id, :username, :context, :date, :time
     else
         connection = PG.connect(dbname: 'chitter')
     end
-    peeps_list = connection.exec("SELECT * FROM peeps;")
+    peeps_list = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
 
     peeps_list.map do |peeps|
       Peeps.new(id: peeps['id'], username: peeps['username'], context: peeps['context'], date: peeps['date'], time: peeps['time'])

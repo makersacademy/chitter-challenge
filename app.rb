@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/peeps' do
-    # @user = Users.find(session[:user_id])
+    @user = Users.find(session[:user_id])
     @peeps = Peeps.all
     erb :index
   end
@@ -33,10 +33,10 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-  # get '/welcome' do
-  #   @user
-  #   erb :welcome
-  # end
+  get '/welcome' do
+    @user
+    erb :welcome
+  end
 
   run! if app_file == $0
 

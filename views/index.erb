@@ -4,18 +4,19 @@
     <meta charset="utf-8">
     <link type="text/css" rel="stylesheet" href="style.css">
     <title>Chitter</title>
-    <h1>Welcome to Chitter.<h1>
-      <div class='nav_bar'>
-        <a class="edit_button" href='/post_peep'>Post Peep</a>
-        <a class="buttons" href='/register'>Sign up</a>
-      </div>
+    <% if @user %>
+      <h1>Welcome, <%= @user.username %></h1>
+    <%else%>
+      <h1>Welcome to Chitter.<h1>
+    <% end %>
+    <div class='nav_bar'>
+      <a class="edit_button" href='/post_peep'>Post Peep</a>
+      <a class="buttons" href='/register'>Sign up</a>
+    </div>
   </head>
-
   <body>
-    <h2>Posts</h2>
-
-      
-
+    <h2>Posts<h2>
+    <br>
     <br>
     <div class="peeps_list">
       <% @peeps.each do |peep| %>

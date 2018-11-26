@@ -5,6 +5,12 @@
         font-size: 70px;
       }
 
+  div.nav_bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
   h2 {
         font-family: arial;
         text-align: center;
