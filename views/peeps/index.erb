@@ -1,6 +1,9 @@
 <title>Chitter</title>
 <body>
   <h1>Chitter away my friends</h1>
+  <form action='/peeps/new' method='get'>
+    <input type="submit" name="" value="Add peep">
+  </form>
   <ul>
     <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
@@ -12,9 +15,5 @@
     </li>
     <% end %>
   </ul>
-
-  <form action='/peeps/new' method='get'>
-    <input type="submit" name="" value="Add peep">
-  </form>
 
 </body>
