@@ -1,22 +1,43 @@
-<h1>Welcome to Chitter!</h1>
-<h3>Peeps:</h3>
+<head>
+    <link href='/style.css' rel="stylesheet" type="text/css" />
+</head>
 
-<ul>
-  <% @peeps.each do |peep| %>
-  <li>
-    <div class="peep"> 
-      <%= peep.content%> 
-      <%= peep.date%>
+<body> 
+    <div id="cats_background"> </div>
+
+  <!-- <h2 id="welcome">Welcome to Chitter! <%=@user.name%></h2>
+  <div id="cats_background"> </div> -->
+
+  <div class="peep_box_left">
+    <div>
+      <p>Peeps:</p>
+      <ul>
+        <% @peeps.each do |peep| %>
+        <li>
+          <div class="peep"> 
+            <%= peep.content%> 
+            <%= peep.date%>
+          </div>
+        </li>
+        <% end %>
+      </ul>
     </div>
-  </li>
-  <% end %>
-</ul>
-
-
-<form action="/peeps" method="POST">
-  <p>I wanna peep about ... </p>
-  <div class="new_content">
-    <input type="text" name="content">
   </div>
-  <input type="submit" value="Peep!"> 
-</form>
+
+  <div class="peep_box_right">
+    <div>
+      <form action="/peeps" method="POST">
+        <p id="welcome">Welcome to Chitter! <%=@user.name%>!</p>
+        <p>peep about ... </p>
+        <input id="new_content" type="text" name="content">
+        <p>
+          <input type="submit" value="Peep!">
+        </p> 
+      </form>
+    </div>
+
+    <form action="/" method="get">
+      <input type="submit" value="Log out">
+    </form>
+  </div>
+</body>

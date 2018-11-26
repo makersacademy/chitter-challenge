@@ -1,0 +1,29 @@
+<head>
+    <link href='/style.css' rel="stylesheet" type="text/css" />
+</head>
+
+<div id="couple_background"> </div>
+
+<div class="box">
+
+  <h3>Log in with your email </h3>
+  <p><%= flash[:notice] %></p>
+  <form action="/" method="POST">
+    <div>
+      <input type="email" name="login_email" placeholder="Email"/>
+      <input type="password" name="login_password" placeholder="Password"/>
+    </div>
+    <br>
+    <div>
+      <input type="submit" value="Log in"/>
+    </div>
+  </form>
+  <br>
+  <div>
+    <form action="/user_sign_in" method="POSE">
+      <p> or sign in today ! </p>
+      <input type="submit" value="Sign in">
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+<head>
+    <link href='/style.css' rel="stylesheet" type="text/css" />
+</head>
+
+<div id="couple_background"> </div>
+
+<div class="box">
+
+  <h3>Sign In: </h3>
+  <form action="/user_sign_in" method="POST">
+    <div>
+      <input type="email" name="signup_email" placeholder="Email">
+      <input type="password" name="signup_password" placeholder="Password">
+      <input type="text" name="signup_name" placeholder="Your Name">
+    </div>
+    <br>
+    <div>
+      <input type="submit" name="Sign up!">
+    </div>
+  </form>
+  <br> <p><%= flash[:notice] %></p>
+  <br>
+  <div>
+    <form action="/" method="get">
+      <input type="submit" value="Back">
+    </form>
+  </div>
+</div>

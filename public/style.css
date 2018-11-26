@@ -1,0 +1,97 @@
+html {
+  font-size: 20px;
+
+  background: #5d595b;
+  text-align: center;
+}
+
+#couple_background { 
+  background: url('/two_people.jpg') no-repeat fixed;
+  filter: blur(8px);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#cats_background { 
+  background: url('/cats.jpg') no-repeat fixed;
+  filter: blur(7px);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.box {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 70%;
+  padding: 20px;
+  text-align: center;
+}
+
+/*#welcome {
+  color: white;
+  padding: 10px;
+}*/
+
+.peep_box_left {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  /*font-weight: bold;*/
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 40%;
+  padding: 20px;
+  float: left;
+  text-align: left;
+  height: 50%;
+/*  scrolling: yes; 
+  style: overflow*/
+/*  text-align: center;*/
+}
+
+.peep {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.peep_box_right {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  /*font-weight: bold;*/
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 40%;
+  padding: 20px;
+  float: left;
+  text-align: left;
+  height: 50%
+/*  text-align: center;*/
+}
+
+#new_content {
+  height: 50%;
+  width: 70%;
+  font-size: 20px;
+  padding: 10px;
+}
