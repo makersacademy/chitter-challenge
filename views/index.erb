@@ -24,7 +24,7 @@
         position: center;
 
       }
-      
+
       .bottom {
           border-color: #c8c8c8 transparent transparent transparent;
           border-width: 8px 8px 0px 8px;
@@ -32,7 +32,7 @@
       }
     </style>
 
-        <h1>Welcome to Chitter</h1>
+        <h1>Welcome to Chitter <%= @name %></h1>
 
           <% @peeps.each do |peep| %>
           <div class="speech-bubble">
