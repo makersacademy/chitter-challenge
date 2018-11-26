@@ -1,0 +1,3 @@
+describe User do
+
+end

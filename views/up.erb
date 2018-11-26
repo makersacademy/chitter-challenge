@@ -1,0 +1,29 @@
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<div id='feed_border'>
+
+<div id='feed'>
+<form id='sign_up_form' action='/sign_up' method='post'></form>
+<div id='break'></div>
+<input class='form' id='sign_up' form='sign_up_form' type='text' name='username' placeholder='username'>
+<div id='break'></div>
+<input class='form' id='sign_up' form='sign_up_form' type='text' name='name' placeholder='name'>
+<div id='break'></div>
+<input class='form' id='sign_up' form='sign_up_form' type='text' name='email' placeholder='email'>
+<div id='break'></div>
+<input class='form' id='sign_up' form='sign_up_form' type='password' name='password' placeholder='password'>
+<div id='break'></div>
+<input class='form' id='sign_up' form='sign_up_form' type='password' name='repassword' placeholder='re-enter password'>
+<div id='break'></div>
+<button class='form' form='sign_up_form' type='submit' value='submit'>sign up</button>
+<div id='break'></div>
+<div class='form' >go <a href='/'>back</a></div>
+<div id='break'></div>
+<div class='form' ><%= flash[:sign_up] %></div>
+</div>
+
+</div>
+</body>

@@ -1,0 +1,24 @@
+<head>
+<link rel='stylesheet' type='text/css' href='style.css'>
+</head>
+
+<body>
+<div id='feed_border'>
+
+<div id='links-i'>
+  <div>sign <a href='in'>in</a> / <a href='up'>up</a></div>
+</div>
+
+<div id='space_div'></div>
+
+<div id='feed'>
+<% @peeps.each do |peep| %>
+  <div id='username'><%= peep.username %></div>
+  <div id='content'><%= peep.content %></div>
+  <div id='since'><%= peep.since %></div>
+  <div id='break'></div>
+<% end %>
+</div>
+
+</div>
+</body>

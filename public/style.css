@@ -1,0 +1,70 @@
+body, button, textarea, #sign_in, #sign_up {
+  font-family: Helvetica Neue;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+a, button, #username {
+  color: #0077ff;
+  font-weight: 400;
+}
+a {
+  text-decoration: none;
+}
+button {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0px;
+  cursor: pointer;
+}
+textarea {
+  resize: none;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#content, #since, #username {
+  padding-left: 5px;
+}
+
+#break {
+  height: 15px;
+}
+#feed {
+  width: 400px;
+  margin: 0 auto;
+}
+.form {
+  width: 400px;
+  text-align: center;
+}
+#feed_border {
+  width: 1200px;
+  margin: 0 auto;
+}
+#links-i {
+  float: left;
+  padding-top: 12px;
+}
+#links-s {
+  float: left;
+}
+#peep_div {
+  width: 0px;
+  height: 0px;
+}
+#since {
+  font-size: 15px;
+  color: #777777;
+}
+#space_div {
+  width: 0px;
+  height: 12px;
+}
+/* div {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ff0066
+} */

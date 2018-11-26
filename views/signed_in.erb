@@ -1,0 +1,28 @@
+<head>
+<link rel='stylesheet' type='text/css' href='style.css'>
+</head>
+
+<body>
+<div id='feed_border'>
+
+<div id='links-s'>
+  <div>sign <a href='out'>out</a> <%= User.username %></div>
+</div>
+
+<div id='peep_div'>
+<form id='peep_form' action='post_peep' method='post'></form>
+<textarea form='peep_form' name='content' rows='5' cols='30 ' maxlength='140' placeholder='what do you have to say?'></textarea>
+<button form='peep_form' type='submit' value='submit'>peep</button>
+</div>
+
+<div id='feed'>
+<% @peeps.each do |peep| %>
+  <div id='username'><%= peep.username %></div>
+  <div id='content'><%= peep.content %></div>
+  <div id='since'><%= peep.since %></div>
+  <div id='break'></div>
+<% end %>
+</div>
+
+</div>
+</body>
