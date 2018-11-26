@@ -14,5 +14,4 @@ class ChitterApp < Sinatra::Base
   end
 
 
-
 end
