@@ -2,6 +2,14 @@ Chitter Challenge
 =================
 Built using Ruby, Sinatra, Rspec, Capybara, Twitter bootstrap, and PostgresSQL.
 
+### To start:
+
+clone the repo and run:
+
+`$ bundle install`
+
+In the project root.
+
 ### To setup the databases
 First create two PostgresSQL Databases, one for production and one for dev/test:
 
@@ -15,6 +23,7 @@ Then run the migration files in `db/migrations/` into them.
 
 
 ### To start the server:
+
 ```
 $ rackup
 ```
