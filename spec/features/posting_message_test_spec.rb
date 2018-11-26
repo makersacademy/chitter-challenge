@@ -57,7 +57,7 @@ feature 'Chitter messaging' do
     click_link 'Post a Peep'
     fill_in "message", with: "some random message"
     click_button "Submit"
-    choose 'Newest first'
+    find('#newest', :visible => false).click
     click_button "Sort"
 
     expect(page.first('div')).to have_content "some random message"
