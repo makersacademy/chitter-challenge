@@ -15,5 +15,14 @@ class Chitter < Sinatra::Base
     erb(:"cheets/index")
   end
 
+  get '/cheets/new' do
+    erb(:"cheets/new")
+  end
+
+  post '/cheets/new' do
+    Cheet.create(content: params[:content])
+    redirect('/cheets')
+  end
+
   run! if app_file == $0
 end

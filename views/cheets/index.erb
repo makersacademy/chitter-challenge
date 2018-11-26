@@ -1,1 +1,12 @@
-Hello, world!
+<ul>
+  <% @cheets.each do |cheet| %>
+    <li>
+      <%= cheet.content %><br />
+      Posted on <%= cheet.timestamp[0..15] %>
+    </li>
+  <% end %>
+</ul>
+
+<form action='/cheets/new' method='get'>
+  <input type="submit" value="New Cheet" />
+</form>
