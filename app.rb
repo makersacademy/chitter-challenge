@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/peeps'
+require_relative './lib/users'
 require './database_connection_setup'
 
 
@@ -19,6 +20,7 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     Peep.post(message: params['message'])
+    Users.signup(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
     session[:name] = params[:name]
     redirect '/peeps'
   end
