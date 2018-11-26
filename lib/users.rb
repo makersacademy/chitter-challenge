@@ -10,7 +10,7 @@ class Users
 
   def self.create(username, password, email, forename, surname)
     connection = Users.choose_connection
-    query = "INSERT INTO users(username, password, email, forename, surname) VALUES ('#{username}, #{password}, #{email}, #{forename}, #{surname}') RETURNING *;"
+    query = "INSERT INTO users(username, password, email, forename, surname) VALUES ('#{username}', '#{password}', '#{email}', '#{forename}', '#{surname}') RETURNING *;"
     result = connection.exec(query)
     Users.new(result[0]['username'],
               result[0]['password'],
