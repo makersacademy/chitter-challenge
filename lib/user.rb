@@ -1,12 +1,16 @@
+require 'bcrypt'
 require 'pg'
 require './lib/database_connection'
 
 class User
 
   def self.create(name:, email:, user_name:, password:)
+    
+    encrypted_password = BCrypt::Password.create(password)
+
     result = DatabaseConnection.query("INSERT INTO users
       (name, email, user_name, password)
-      VALUES('#{name}', '#{email}', '#{user_name}', '#{password}')
+      VALUES('#{name}', '#{email}', '#{user_name}', '#{encrypted_password}')
       RETURNING id, name, email, user_name;")
     User.new(id: result[0]['id'],
       name: result[0]['name'],
