@@ -8,21 +8,32 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY date_added DESC;")
-    result.map { |record| Peep.new(content: record['content'], date: record['date_added'], user_id: record['user_id']) }
+    result = DatabaseConnection.query("SELECT * FROM peeps
+                                      ORDER BY date_added DESC;")
+
+    result.map { |record| Peep.new(content: record['content'],
+                                   date: record['date_added'],
+                                   user_id: record['user_id']
+                                  )
+    }
   end
 
   def self.create(content:, user_id:)
-    DatabaseConnection.query("INSERT INTO peeps (content, user_id) VALUES ('#{content}', '#{user_id}');")
+    DatabaseConnection.query("INSERT INTO peeps (content,
+                             user_id) VALUES ('#{content}', '#{user_id}');")
   end
 
   def self.find(id:)
     result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = #{id};")
-    result.map { |record| Peep.new(content: record['content'], date: record['date_added'], user_id: record['user_id']) }.first
+    result.map { |record| Peep.new(content: record['content'],
+                                   date: record['date_added'],
+                                   user_id: record['user_id'])
+    }.first
   end
 
   def self.update(id:, content:)
-    DatabaseConnection.query("UPDATE peeps SET content = '#{content}' WHERE id = #{id};")
+    DatabaseConnection.query("UPDATE peeps SET content
+                              = '#{content}' WHERE id = #{id};")
   end
 
   def self.delete(id:)

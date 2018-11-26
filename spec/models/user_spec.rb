@@ -12,8 +12,8 @@ describe User do
       expect(user).to be_a User
       expect(user.id).to eq persisted_data(table: 'users', id: '1').first['id']
       expect(user.user_name).to eq persisted_data(table: 'users', id: '1').first['user_name']
-      expect(user.email).to eq persisted_data(table: 'users',id: '1').first['email']
-      expect(user.name).to eq persisted_data(table: 'users',id: '1').first['name']
+      expect(user.email).to eq persisted_data(table: 'users', id: '1').first['email']
+      expect(user.name).to eq persisted_data(table: 'users', id: '1').first['name']
     end
 
     it 'encrypts the password' do
@@ -64,8 +64,8 @@ describe User do
       expect(User.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
     end
 
-     it 'returns nil given an incorrect password' do
-       User.create(user_name: '@testuser',
+    it 'returns nil given an incorrect password' do
+      User.create(user_name: '@testuser',
                    email: 'test_email@not_real.com',
                    password: 'password123',
                    name: 'Joe Bloggs')

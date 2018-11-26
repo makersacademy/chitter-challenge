@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rake'
-gem 'sinatra'
-gem 'sinatra-flash', '~> 0.3.0'
+gem 'bcrypt'
 gem 'pg'
 gem 'pry'
+gem 'rake'
 gem 'shotgun'
-gem 'bcrypt'
+gem 'sinatra'
+gem 'sinatra-flash', '~> 0.3.0'
 
 group :test do
   gem 'capybara'
