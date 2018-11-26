@@ -6,16 +6,38 @@
   </head>
   <body>
     <center>
+      <h1><font face="courier new"> Chitter Peeps Page </font></h1>
+      <font face="courier new">
+      <a href="/home">Homepage</a>
+      </font>
+      <br><br>
     <% if @user %>
       <h3><font face="courier new"> Welcome on Chitter, <%= @user.username %>!</font></h3>
     <% end %>
     <form action="/sessions/destroy" method="post">
-      <input type="submit" value="Sign out" />
+      <input type="submit" value="Sign out">
     </form>
-    <br><br>
-    <font face="courier new">
-    <a href="/home"> Homepage </a>
-    </font>
-    </center>
+      </center>
+    <h2><font face="courier new"> Users: </font></h2>
+    <ul>
+      <% @users.each do |user| %>
+      <li class="user" id="users-<%= user.id %>">
+        <h2><font face="courier new"> <%= user.username %> </font></h2>
+          <form action="peeps/<%= user.id %>/peep_new" method="get">
+          <input type="submit" value="Write a peep">
+        </form>
+        <form action="/peeps/<%= user.id %>" method="post">
+         <input type='hidden' name='_method' value='DELETE'/>
+         <input type="submit" value="Cancel User Account" />
+       </form>
+        <h4><font face="courier new"> Peeps: </font></h4>
+        <ul>
+          <% user.peeps.each do |peep| %>
+            <li><h3><font face="courier new"> <%= peep.text %> posted at <%= peep.mytime %></font></h3></li>
+          <% end %>
+        </ul>
+      </li>
+      <% end %>
+    </ul>
   </body>
 </html>

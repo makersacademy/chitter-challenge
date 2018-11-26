@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Peep</title>
+  </head>
+  <body>
+    <center>
+    <% if @user %>
+      <h3><font face="courier new"> Welcome on Chitter, <%= @user.username %>!</font></h3>
+    <% end %>
+    <h3><font face="courier new"> Write your peep: </font><h3>
+    <form action="/peeps/<%= @user_id %>" method="POST">
+      <input type="text" name="text" />
+      <input type="submit" value="Post Peep">
+    </form>
+    <br><br>
+    <font face="courier new">
+    <a href="/peeps"> Peeps List </a><br><br>
+    </font>
+    <font face="courier new">
+    <a href="/home"> Homepage </a>
+    </font>
+  </body>
+</html>

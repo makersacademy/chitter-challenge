@@ -1,5 +1,7 @@
+require 'pg'
 require 'bcrypt'
 require_relative './database_connection'
+require_relative './peep'
 
 class User
   attr_reader :id, :email, :name, :username
@@ -22,6 +24,22 @@ class User
              )
   end
 
+  def self.delete(id:)
+    DatabaseConnection.query("DELETE FROM users WHERE id = #{id}")
+  end
+
+  def self.list
+    users = DatabaseConnection.query "SELECT * FROM users;"
+    users.map do |user|
+      User.new(
+              id: user['id'],
+              email: user['email'],
+              name: user['name'],
+              username: user['username']
+              )
+     end
+   end
+
   def self.find(id:)
     return nil unless id
     user = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
@@ -43,6 +61,10 @@ class User
             name: user[0]['name'],
             username: user[0]['username']
           )
+  end
+
+  def peeps(peep_class = Peep)
+    peep_class.where(user_id: id)
   end
 
 end
