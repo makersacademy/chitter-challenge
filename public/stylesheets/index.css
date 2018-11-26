@@ -23,7 +23,7 @@ body, html{
   width:100%;
 }
 
-#login_signup_container, #logout {
+#login_signup_container {
   float: right;
   padding: 20px;
   font-size: 40px;
@@ -36,7 +36,7 @@ body, html{
   color:black;
 }
 
-#login_signup_container:hover, #logout:hover {
+#login_signup_container:hover {
   border-radius: 0px;
   border-left: 10px solid black;
 }
@@ -60,7 +60,7 @@ input[type=text],input[type=password],input[type=email]  {
   width:40%;
 }
 
-input[type=submit] {
+.page input[type=submit] {
   font-size: 40px;
   width:40%;
   background-color: black;
@@ -72,7 +72,7 @@ input[type=submit] {
   margin-bottom: 30px;
 }
 
-input[type=submit]:hover {
+.page input[type=submit]:hover {
   background: rgba(0, 0, 0, 0.8);
   color: white;
 }
@@ -111,4 +111,32 @@ li {
 
 #peep_button {
   text-align: right;
+}
+
+
+#logout_box{
+  float: right;
+  padding: 15px;
+  font-size: 40px;
+  line-height: 113%;
+  width:20%;
+  text-decoration: none;
+  z-index: 100;
+  position: absolute;
+  right:0;
+  top:0;
+  background-color: white;
+  color:black;
+ border:none;
+}
+
+#logout_box:hover {
+  border-radius: 0px;
+  border-left: 10px solid black;
+  cursor: pointer;
+}
+
+#logout{
+  margin:0;
+  padding: 0;
 }
