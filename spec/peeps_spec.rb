@@ -1,17 +1,20 @@
+require 'database_helpers'
+
 describe Peeps do
   describe '#create' do
     it 'can add data to the peeps table' do
-      connection = PG.connect(dbname: 'chitter_test')
       peep = Peeps.create("Test message")
+      persisted_data = persisted_data(peep.message_id)
 
       expect(peep.message).to eq "Test message"
+      expect(peep.message_id).to eq persisted_data['id']
+      expect(peep.message_created).to eq persisted_data['created']
     end
 
   end
 
   describe '#read' do
     it 'can read data from the peeps table' do
-      connection = PG.connect(dbname: 'chitter_test')
       Peeps.create("Test message")
       Peeps.create("Wasssuuuppp")
       Peeps.create("Hi everybody")
@@ -22,7 +25,6 @@ describe Peeps do
     end
 
     it 'has a record that contains a timestamp' do
-      connection = PG.connect(dbname: 'chitter_test')
       Peeps.create("Test message")
       time = Time.now.strftime("%Y-%m-%d %H:%M")
       messages = Peeps.read
@@ -33,7 +35,6 @@ describe Peeps do
 
   describe '#sort' do
     it 'can return records in descending order' do
-      connection = PG.connect(dbname: 'chitter_test')
       Peeps.create("Tester message")
       sleep 1
       Peeps.create("Wasssuuuppp")
