@@ -1,4 +1,6 @@
 require 'pg'
+require 'database_connection'
+
 class Peeps
 
   attr_reader :message_id, :message_created, :message, :username, :subject
@@ -21,9 +23,8 @@ class Peeps
   end
 
   def self.create(message)
-    connection = Peeps.choose_connection
-    query = "INSERT INTO peeps (message) VALUES ('#{message}') RETURNING *;"
-    result = connection.exec(query)
+    sql = "INSERT INTO peeps (message) VALUES ('#{message}') RETURNING *;"
+    result = DatabaseConnection.query(sql)
     Peeps.new(result[0]['id'],
               result[0]['created'],
               result[0]['message'],
@@ -32,22 +33,12 @@ class Peeps
   end
 
   def self.sort(val)
-    connection = Peeps.choose_connection
     if val == "descending"
-      result = connection.exec("SELECT * FROM peeps ORDER BY created DESC;")
+      result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY created DESC;")
     else
-      result = connection.exec("SELECT * FROM peeps;")
+      result = DatabaseConnection.query("SELECT * FROM peeps;")
     end
     result
-  end
-
-  def self.choose_connection
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-    connection
   end
 
 end
