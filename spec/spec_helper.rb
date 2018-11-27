@@ -5,6 +5,7 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'dm-rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
@@ -31,6 +32,8 @@ RSpec.configure do |config|
   #     example.run
   #   end
   # end
+
+  config.include(DataMapper::Matchers)
 
   config.before(:suite) do # <-- before entire test run
     DatabaseCleaner.strategy = :transaction
