@@ -3,9 +3,7 @@ require 'sinatra/flash'
 require 'data_mapper'
 require './lib/peep'
 require './lib/user'
-require 'date'
 require 'bcrypt'
-require 'warden'
 
   if ENV['RACK_ENV'] == 'test'
     DataMapper.setup(:default, 'postgres://localhost/chitter_test')
@@ -59,13 +57,22 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.first(:email => params[:email])
-    if user
+    if user == nil
+      flash[:notice] = 'Email address not recognised.'
+      redirect('/sessions/new')
+    elsif BCrypt::Password.new(user.password) == params[:password] && user
       session[:user] = user.id
       redirect '/peeps'
     else
-      flash[:notice] = 'Please check your email or password.'
+      flash[:notice] = 'Incorrect password.'
       redirect('/sessions/new')
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/')
   end
 
   run! if app_file == $0

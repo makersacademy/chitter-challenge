@@ -14,9 +14,4 @@ class User
 
   has n, :peeps
 
-
-  # def self.encrypted_password(password)
-  #   BCrypt::Password.create(password)
-  # end
-
 end
