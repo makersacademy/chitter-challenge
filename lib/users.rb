@@ -1,3 +1,5 @@
+require_relative 'database_connection'
+
 class Users
 
   def initialize(username, password, email, forename, surname)
