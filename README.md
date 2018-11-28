@@ -1,8 +1,15 @@
 Chitter Challenge
 =================
 
-## User Stories
-#### Completed
+A Twitter clone built using Sinatra, Datamapper and PostgreSQL.
+
+### Screenshots
+
+![chitter homepage screenshot](/public/images/homepage.png)
+![chitter homepage screenshot](/public/images/log-in.png)
+![chitter homepage screenshot](/public/images/sign-up.png)
+
+### User Stories
 ```
 As a Maker
 So that I can let people know what I am doing  
@@ -24,27 +31,27 @@ As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
-```
-#### Not complete
-```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
-## Approach
+### Installation
 
-I decided to use Datamapper ORM for this challenge, both so that I could understand how an ORM design pattern works in practice and so that the code required to interact with database could be kept to a minimum.
+Download or clone the repository to your local machine. Then run `bundle` to make sure you have all the necessary dependencies installed.
 
-Some of the challenges I encountered:
+```
+$ git clone https://github.com/tomasdoh/chitter_challenge
+$ bundle
+```
 
-- Initially it was difficult to get all of the dependencies working together (in the end I had to use Sinatra 1.4.8 and json 1.8.6).
-- I didn't use a test database and instead used Database Cleaner to ensure any test data was removed after each test. However, I'm not sure it's working as it should be right now.
-- I didn't use unit tests for the User and Peep classes as I wasn't sure how to test DataMapper. I've since come across some [specific RSpec matchers](https://github.com/greyblake/dm-rspec) for DataMapper and will try to implement them.
-- I ran out of time to implement a fully functioning authentication system, including encrypted password.
+### Usage
+
+Create a database and then use `rackup` to run a local server.
+```
+$ createdb chitter
+$ rackup
+```
 
 ## Technologies used
 
@@ -54,12 +61,3 @@ Some of the challenges I encountered:
 - [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner)
 - [RSpec](https://github.com/rspec/rspec)
 - [Capybara](https://github.com/teamcapybara/capybara)
-
-## Installation instructions
-
-```
-$ git clone https://github.com/tomasdoh/chitter_challenge
-$ bundle
-$ rspec
-$ rackup
-```
