@@ -1,10 +1,34 @@
-<h2>
-<%= flash[:notice] %>
-</h2>
+<!DOCTYPE html>
+<html>
 
+  <head>
+    <link href='/style.css' rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
 
-<form action="/sessions" method="post">
-  <input type="email" name="email" />
-  <input type="password" name="password" />
-  <input type="submit" value="Sign in" />
-</form>
+  <body>
+    <div class="flash">
+      <h3><%= flash[:notice] %></h3>
+    </div>
+    <div class="logo">
+      <h1>🐦</h1>
+    </div>
+    <div class="login">
+      <h1>log in</h1>
+    </div>
+    <div class="auth">
+    <form action="/sessions" method="post">
+      <div>
+        <input class="button" type="email" name="email" placeholder="email address" />
+      </div>
+      <div>
+        <input class="button" type="password" name="password" placeholder="password" />
+      </div>
+      <div>
+        <br>
+      <input class="button" type="submit" value="log in" />
+      </div>
+    </form>
+    </div>
+  </body>
+</html>

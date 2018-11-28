@@ -1,8 +1,40 @@
-<form action="/users" method="post">
-  <input type="text" name="firstname" />
-  <input type="text" name="lastname" />
-  <input type="text" name="username" />
-  <input type="email" name="email" />
-  <input type="password" name="password" />
-  <input type="submit" value="Sign up" />
-</form>
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link href='/style.css' rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="logo">
+      <h1>🐦</h1>
+    </div>
+    <div class="signup">
+      <h1>sign up</h1>
+    </div>
+    <div class="auth">
+    <form action="/users" method="post">
+      <div>
+      <input class="button" type="text" name="firstname" placeholder="first name" />
+      </div>
+      <div>
+      <input class="button" type="text" name="lastname" placeholder="last name" />
+      </div>
+      <div>
+      <input class="button" type="text" name="username" placeholder="username" />
+      </div>
+      <div>
+      <input class="button" type="email" name="email" placeholder="email address" />
+      </div>
+      <div>
+      <input class="button" type="password" name="password" placeholder="password" />
+      </div>
+      <div>
+        <br>
+      <input class="button" type="submit" value="sign up" />
+      </div>
+    </form>
+    </div>
+  </body>
+</html>

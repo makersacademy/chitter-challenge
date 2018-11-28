@@ -7,7 +7,7 @@ feature 'authentication' do
     visit '/sessions/new'
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'password123')
-    click_button('Sign in')
+    click_button('log in')
 
     expect(page).to have_content 'Welcome, Test'
   end
@@ -16,7 +16,7 @@ feature 'authentication' do
     visit '/sessions/new'
     fill_in('email', with: 'nottherightemail@me.com')
     fill_in('password', with: 'password123')
-    click_button('Sign in')
+    click_button('log in')
 
     expect(page).not_to have_content 'Welcome, Test'
     expect(page).to have_content 'Email address not recognised.'
@@ -26,7 +26,7 @@ feature 'authentication' do
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'wrongpassword')
-    click_button('Sign in')
+    click_button('log in')
 
     expect(page).not_to have_content 'Welcome, Test'
     expect(page).to have_content 'Incorrect password.'
@@ -36,8 +36,9 @@ feature 'authentication' do
     visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
-    click_button('Sign in')
-    click_button('Sign out')
+    click_button('log in')
+    click_button('sign out')
+    
     expect(page).not_to have_content 'Welcome, Test'
     expect(page).to have_content 'You have signed out.'
   end

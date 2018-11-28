@@ -1,0 +1,122 @@
+.signup h1 {
+  font-family: 'Roboto', sans-serif;
+  left: 0;
+  line-height: 200px;
+  margin: auto;
+  margin-top: -100px;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+.login h1 {
+  font-family: 'Roboto', sans-serif;
+  left: 0;
+  line-height: 200px;
+  margin: auto;
+  margin-top: -100px;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+.chitter h1 {
+  font-family: 'Roboto', sans-serif;
+  left: 0;
+  line-height: 200px;
+  margin: auto;
+  margin-top: -100px;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+.tagline h3 {
+  font-family: 'Roboto', sans-serif;
+  left: 0;
+  line-height: 270px;
+  margin: auto;
+  margin-top: -100px;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+.auth {
+  left: 0;
+  margin: auto;
+  margin-top: -100px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(4, 159, 245)
+}
+
+.welcome h1 {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+.logo h1 {
+  text-align: center;
+  font-size: 4em;
+}
+
+.peeps {
+  font-family: 'Roboto', sans-serif;
+  display: inline-block;
+  margin: 0px 330px;
+  font-size: 1.5em;
+}
+
+.button {
+  background-color: #e7e7e7; color: black;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.time {
+  font-size: 1em
+}
+
+.flash {
+  text-align: center;
+  font-size: 1em;
+  left: 0;
+  line-height: 250px;
+  margin: auto;
+  margin-top: -100px;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+.signout h3 {
+  text-align: center;
+  font-size: 1em;
+  left: 0;
+  line-height: 800px;
+  margin: auto;
+  margin-top: -100px;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}

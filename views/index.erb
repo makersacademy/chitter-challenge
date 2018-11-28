@@ -1,13 +1,39 @@
-<h1>Welcome to Chitter!</h1>
+<!DOCTYPE html>
+<html>
 
-<h2>
-<%= flash[:notice] %>
-</h2>
+  <head>
+    <link href='/style.css' rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
 
-<form action="/users/new" method="get">
-  <input type="submit" value="Sign up" />
-</form>
+  <body>
+    <div class="logo">
+      <h1>🐦</h1>
+    </div>
+    <div class="chitter">
+      <h1>chitter</h1>
+    </div>
+    <br>
+    <div class="tagline">
+      <h3>join the conversation.</h3>
+    </div>
 
-<form action="/sessions/new" method="get">
-  <input type="submit" value="Log in" />
-</form>
+    <div class="auth">
+      <form action="/users/new" method="get">
+        <input class="button" type="submit" value="sign up" width=100% />
+      </form>
+      <form action="/sessions/new" method="get">
+        <input class="button" type="submit" value="log in" />
+      </form>
+      <form action="/peeps" method="get">
+        <input class="button" type="submit" value="view peeps" />
+      </form>
+    </div>
+
+    <div class="signout">
+    <h3><%= flash[:notice] %></h3>
+    </div>
+
+  </body>
+
+</html>

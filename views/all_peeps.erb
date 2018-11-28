@@ -1,20 +1,34 @@
-      <% if @user %>
-<h1>Welcome, <%=@user.firstname%></h1>
-<form action="/peeps/new" method="post">
-  <input type="text" name="body" />
-  <input type="submit" value="Post new peep" />
-</form>
-      <% end %>
-<ul>
-<% @peeps.each do |peep| %>
-  <li>
-    <%= peep.body %>
-    <%= peep.username %>
-    <%= peep.created_at.strftime("%H:%M:%S, %A %d %B %Y") %>
-  </li>
-<% end %>
-</ul>
+<!DOCTYPE html>
+<html>
 
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out" />
-</form>
+  <head>
+    <link href='/style.css' rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+
+  <body>
+      <% if @user %>
+    <div class="welcome">
+      <h1>Welcome, <%=@user.firstname%> 🐦</h1>
+    </div>
+    <form action="/peeps/new" method="post">
+      <input class="button" type="text" name="body" placeholder="your peep here" />
+      <input class="button" type="submit" value="peep" />
+    </form>
+    <form action="/sessions/destroy" method="post">
+      <input class="button" type="submit" value="sign out" />
+    </form>
+      <% end %>
+    <div class="peeps">
+      <ul style="list-style-type: none;">
+        <% @peeps.each do |peep| %>
+          <li>
+            <b>@<%= peep.username %>:</b>
+            <%= peep.body %>
+            <h6><em><%= peep.created_at.strftime("%H:%M:%S, %A %d %B %Y") %></em></h6>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>
