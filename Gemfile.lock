@@ -8,7 +8,7 @@ GEM
     bcrypt (3.1.12)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-    capybara (3.11.1)
+    capybara (3.12.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -115,8 +115,6 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.10.0)
-    shotgun (0.9.2)
-      rack (>= 1.0)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -134,12 +132,10 @@ GEM
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
     stringex (1.5.1)
-    tilt (2.0.8)
+    tilt (2.0.9)
     timecop (0.9.1)
     unicode-display_width (1.4.0)
     uuidtools (2.1.5)
-    warden (1.2.8)
-      rack (>= 2.0.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -159,13 +155,11 @@ DEPENDENCIES
   rake
   rspec
   rubocop (= 0.56.0)
-  shotgun
   simplecov
   simplecov-console
   sinatra
   sinatra-flash
   timecop
-  warden
 
 BUNDLED WITH
-   1.16.1
+   1.17.1
