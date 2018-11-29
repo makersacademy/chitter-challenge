@@ -3,6 +3,8 @@ Chitter Challenge
 
 A Twitter clone built using Sinatra, Datamapper and PostgreSQL.
 
+[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+
 ### Screenshots
 
 ![chitter homepage screenshot](/public/images/homepage.png)
@@ -53,6 +55,16 @@ Create a database and then use `rackup` to run a local server.
 $ createdb chitter
 $ rackup
 ```
+
+### Approach
+
+I decided to use Datamapper ORM for this challenge, both so that I could understand how an ORM design pattern works in practice and so that the code required to interact with database could be kept to a minimum.
+Some of the challenges I encountered:
+
+- It was difficult to get all of the dependencies working together. The default json gem (2.1) was conflicting with DataMapper 1.2. In the end I had to use json 1.8.6.
+- Initially I wasn't using a test database and instead used Database Cleaner to ensure any test data was removed after each test. I've now implemented the use of a test database along with Database Cleaner.
+- I didn't use unit tests for the User and Peep classes during the development of the application as I wasn't sure how to test DataMapper. I've since used some [specific RSpec matchers](https://github.com/greyblake/dm-rspec) for DataMapper.
+- I found it challenging to get the authentication system working with an encrypted password without any clear guidance on how to implement this using DataMapper. I did find a solution in the end and the system now works consistently.
 
 ## Technologies used
 
