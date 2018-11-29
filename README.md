@@ -6,8 +6,9 @@ A Twitter clone built using Sinatra, Datamapper and PostgreSQL.
 ### Screenshots
 
 ![chitter homepage screenshot](/public/images/homepage.png)
-![chitter homepage screenshot](/public/images/log-in.png)
-![chitter homepage screenshot](/public/images/sign-up.png)
+![chitter peeps screenshot](/public/images/peeps.png)
+![chitter log-in screenshot](/public/images/log-in.png)
+![chitter sign-up screenshot](/public/images/sign-up.png)
 
 ### User Stories
 ```
