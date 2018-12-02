@@ -6,6 +6,10 @@ class DatabaseConnection
     @connection = PG.connect(dbname: dbname)
   end
 
+  # class << self
+  #   attr_reader :connection
+  # end
+
   class << self
     attr_reader :connection
   end
