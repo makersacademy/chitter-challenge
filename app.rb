@@ -33,11 +33,6 @@ class Chitter < Sinatra::Base
     erb :"peeps/new"
   end
 
-  # get '/chitter' do
-  #   @peeps = Peep.all
-  #   erb :"chitter/index"
-  # end
-
   post '/users' do
     user = User.create(
       name: params['name'],

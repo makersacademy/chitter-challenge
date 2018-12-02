@@ -1,16 +1,50 @@
-<h3>
-<%= flash[:notice] %>
-</h3>
-<% if @user %>
-<h1>Hello, <%= @user.email %></h1>
-<% end %>
-<div>
-  <h1>Peep!</h1>
-  <h3>Add your peep here</h3>
-  <br>
-  <form action="/peeps" method="post">
-    <input class="form-control" type="text" name="message" placeholder="What's happening?"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chitter</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+  .navbar-nav {
+    display: inline-block;
+  }
+  .navbar-nav ul li {
+    padding-right: 15px;
+  }
+  .navbar-nav a {
+    font-size: 1.5em;
+  }
+  </style>
+
+</head>
+<body>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li class="navbar-nav"><a class="navbar-nav" href="/peeps">Home</a></li>
+      <li class="navbar-nav"><a class="navbar-nav" href="/users/new">Sign up</a></li>
+      <li class="navbar-nav"><a class="navbar-nav" href="/sessions/new">Log in</a></li>
+    </ul>
+</nav>
+<div class="container">
+  <h3>
+  <%= flash[:notice] %>
+  </h3>
+  <% if @user %>
+  <h1>Hello, <%= @user.email %></h1>
+  <% end %>
+  <div>
+    <h1>Peep!</h1>
+    <h3>Add your peep here</h3>
     <br>
-    <input class="btn btn-primary" type="submit" value="Submit"/>
-  </form>
-</div>
+    <form action="/peeps" method="post">
+      <input class="form-control" type="text" name="message" placeholder="What's happening?"/>
+      <br>
+      <input class="btn btn-primary" type="submit" value="Submit"/>
+    </form>
+  </div>
+  </div>
+  </div>
+</body>
+</html>
