@@ -14,8 +14,7 @@ class Users
 
   def self.register(name, password, username, email)
     query = "('#{name}','#{password}','#{username}','#{email}')"
-    sql("INSERT INTO users(name, password, username, email) VALUES #{query} ")
-    return true
+    return sql("INSERT INTO users(name, password, username, email) VALUES #{query} Returning id ")[0]["id"].to_i  
   end
 
   def self.user_with_id(id)

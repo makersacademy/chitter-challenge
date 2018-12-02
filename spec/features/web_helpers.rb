@@ -8,7 +8,7 @@ def sign_up
   visit('/')
   click_link('Register a chitter account')
   fill_in('name', with: 'Mr User')
-  fill_in('Username',with: 'madeUpUser')
+  fill_in('username',with: 'madeUpUser')
   fill_in('email', with: "email@email.com")
   fill_in('password', with: "password")
   click_on('Submit')

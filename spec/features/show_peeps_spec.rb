@@ -9,6 +9,7 @@ feature "Index page" do
     expect(page).to have_content("@Canary")
   end
   scenario "name of user is shown" do
+    pending
     expect(page).to have_content("Mr Canary")
   end
   scenario "date of peep is shown" do

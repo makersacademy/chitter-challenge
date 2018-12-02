@@ -20,9 +20,10 @@ class Controller < Sinatra::Base
   end
 
   post '/users/register' do
-    if Users.register(params['name'], params['password'], params['Username'], params['email'])
-      session[:user_id] = Users.get_id(params['Username'])
-      session[:username] = params['Username']
+    id = Users.register(params['name'], params['password'], params['username'], params['email'])
+    if id
+      session[:user_id] = id
+      session[:username] = params['username']
       session[:logged_in] = true
       redirect('/')
     else
