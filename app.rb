@@ -9,38 +9,34 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/peeps' do
-    @user = Users.find(session[:id])
-    @peeps = Peeps.all
-    erb :index
-  end
+     @user = Users.find(session[:user_id])
+     @peeps = Peeps.all
+     erb :index
+   end
 
-  get '/post_peep' do
-    @user = Users.find(session[:id])
-    erb :post_peep
-  end
+   get '/peeps/new' do
+     erb :peeps_new
+   end
 
-  post '/peeps' do
-    @peep = Peeps.post(params[:context])
-    redirect '/peeps'
-  end
+   post '/peeps/new' do
+     @peep = Peeps.post(params[:context])
+     redirect '/peeps'
+   end
 
-  get '/register' do
-    erb :register
-  end
+   get '/register' do
+     erb :register
+   end
 
-  post '/register/new' do
-    user = Users.create(
-      username: params[:username],
-      email: params[:email],
-      password: params[:password])
-    session[:id] = user.id
-    redirect '/peeps'
-  end
+   post '/register/new' do
+     user = Users.create(username: params[:username],email: params[:email],password: params[:password])
+     session[:user_id] = user.id
+     redirect '/peeps'
+   end
 
-  get '/welcome' do
-    @user
-    erb :welcome
-  end
+   get '/welcome' do
+     @user
+     erb :welcome
+   end
 
   run! if app_file == $0
 

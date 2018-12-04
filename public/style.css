@@ -23,53 +23,45 @@
         align-items: center;
         justify-content: center;
         }
+
 div.peeps_list {
     margin: 40px;
-
-
-
 }
+
   div.peep_row {
         display: flex;
         flex-direction: row;
         justify-content: center;
         }
 
-  div.peep_context {
-        background-color: #f21145;
-        flex-grow: 2;
-        border-radius: 15px;
-        font-family: arial;
-        font-size: 20px;
-        text-align: center;
-        color: white;
-        margin: 10px;
-        text-decoration: none;
-        padding: 20px;
-        transition-duration: 0.2s;
-        }
+    div.peep_context {
+          background-color: #f21145;
+          flex-grow: 2;
+          border-radius: 15px;
+          font-family: arial;
+          font-size: 20px;
+          text-align: center;
+          color: white;
+          margin: 10px;
+          text-decoration: none;
+          padding: 20px;
+          }
 
-div.peep_context:hover, a:active {
-        background-color: white;
-        color: #f21145;
-        border: 2px solid #f21145;
-        }
-
-div.peep_attr {
-        background-color: #83ea7c;
-        border-radius: 15px;
-        font-family: arial;
-        text-align: center;
-        font-size: 20px;
-        color: white;
-        margin: 10px;
-        text-decoration: none;
-        padding: 20px;
-        transition-duration: 0.2s;
-        }
-
+  div.peep_attr {
+          background-color: #83ea7c;
+          border-radius: 15px;
+          font-family: arial;
+          text-align: center;
+          font-size: 20px;
+          color: white;
+          margin: 10px;
+          text-decoration: none;
+          padding: 20px;
+          flex-basis: auto;
+          }
   a.buttons {
         background-color: #5f9bf4;
+        border: 2px solid transparent;
         border-radius: 15px;
         font-family: arial;
         text-align: center;
@@ -86,6 +78,7 @@ div.peep_attr {
         background-color: white;
         color: #5f9bf4;
         border: 2px solid #5f9bf4;
+        border-radius: 15px;
         }
 
   a.edit_button {

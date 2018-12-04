@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <link type="text/css" rel="stylesheet" href="style.css">
     <title>Chitter</title>
+
+    <div>
     <% if @user %>
       <h1>Welcome, <%= @user.username %></h1>
     <%else%>
       <h1>Welcome to Chitter.<h1>
     <% end %>
+    </div>
 
     <div class='nav_bar'>
-      <a class="edit_button" href='/post_peep'>Post Peep</a>
+      <a class="edit_button" href='/peeps/new'>Post Peep</a>
       <% if @user %>
         <a class="buttons" href='/peeps'>Logout</a>
       <% else %>
@@ -28,14 +31,12 @@
           <% if @user %>
             <div class='peep_attr'><%= @user.username %></div>
           <% else %>
-          <div class='peep_attr'>annonymous</div>
+          <div class='peep_attr'><%= peep.username %></div>
           <% end %>
 
           <div class='peep_context'><%= peep.context %></div>
           <div class='peep_attr'><%= peep.time %></div>
         </div>
         <% end %>
-
-
   </body>
 </html>
