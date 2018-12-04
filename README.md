@@ -4,6 +4,8 @@ Chitter Challenge
 
 Weekend challenge Twitter clone using postgres and TDD in Ruby.
 
+![Screenshot](chitter_screen.png)
+
 ### Current version
 
 * Can post messages
