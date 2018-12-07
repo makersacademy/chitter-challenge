@@ -1,5 +1,8 @@
-Chitter Challenge
+# Chitter Challenge
 =================
+##
+https://travis-ci.com/becc-mu/chitter-challenge.svg?branch=master
+###
 ```
 STRAIGHT UP
 
