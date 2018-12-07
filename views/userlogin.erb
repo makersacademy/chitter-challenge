@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("/peace.jpeg");
+        font-family: "Verdana", sans-serif;
+      }
+
+      nav {
+       background-color: #FFFFFF;
+       width: 100%;
+       height: 70px;
+
+       position: relative;
+       top:  0px;
+       text-align: right;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        }
+
+      li {
+        display: inline;
+      }
+
+    </style>
+  </head>
+  <nav>
+
+    <ul>
+      <li><a href='/chitter'>Home</a><li> &nbsp &nbsp
+      <li><a href="/">Sign out</a></li>
+    </ul>
+
+  </nav>
+
+  <body>
+    <br>
+    <form action="/chitter/userlogin" method="post">
+      <input type="text" name="name" placeholder="Name" size="80" /><br>
+      <input type="text" name="username" placeholder="Username" size="80" /><br>
+      <input type="text" name="email" placeholder="Email" size="80" /><br>
+      <input type="text" name="password" placeholder="Password" size="80" /><br>
+      <input type="text" name="message" placeholder="Add message" size="80" />
+      <input type="submit" value="Submit" />
+    </form>
+    <br>
+
+  </body>
+</html>

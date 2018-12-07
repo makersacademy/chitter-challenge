@@ -1,7 +1,9 @@
-require 'pg'
+CONNECTION = PG.connect :dbname => 'chitter_manager_test'
 
-def spec_test_database
-  p "Setting up test database..."
-  connection = PG.connect(dbname: 'chitter_manager_test')
-  connection.exec("TRUNCATE peep;")
+def set_up_database
+  clear_database
+end
+
+def clear_database
+  CONNECTION.exec "TRUNCATE TABLE peep, users;"
 end

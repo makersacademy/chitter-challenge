@@ -1,6 +1,8 @@
 CREATE TABLE users (
+id SERIAL PRIMARY KEY,
+msgid INTEGER REFERENCES peep(id),
 name VARCHAR(60),
 username VARCHAR(30) UNIQUE,
 email VARCHAR(30) UNIQUE,
 password VARCHAR(10)
-); 
+);

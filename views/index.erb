@@ -4,51 +4,49 @@
     <meta charset="UTF-8">
     <title>Chitter App</title>
     <style>
-      /* body {
-    background-image: url("message_pictures.png");
-     } */
-      /* body {
-    background-color: darkblue; */
-/* } */
-div {
-    background-color: lightblue;
-    width: 300px;
-    border: 25px solid grey;
-    padding: 25px;
-    margin: 25px;
-}
+      body {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("/message_pictures.png");
+        font-family: "Verdana", sans-serif;
+      }
+
+      div {
+        background-color: lightblue;
+        width: 300px;
+        border: 25px solid grey;
+        padding: 25px;
+        margin: 25px;
+      }
     </style>
   <head>
 
 <body >
 
-  <h1 style="text-align: center"> Welcome to Chitter Ver1 </h1>
-  <h3 style="text-align: center"> Please enter your message. &nbsp &nbsp Click 'Submit' to add your message to Chitter. </h3>
-  <br>
-  <form action="/chitter" method="post">
-    <input type="text" name="name" placeholder="Name" size="80" /><br>
-    <input type="text" name="username" placeholder="Username" size="80" /><br>
-    <input type="text" name="email" placeholder="Email" size="80" /><br>
-    <input type="text" name="password" placeholder="Password" size="80" /><br>
-    <input type="text" name="message" placeholder="Add message" size="80" />
-    <input type="submit" value="Submit" />
-  </form>
-  <br>
-  <hr>
-  <br>
+  <h1 style="text-align: center; color: white"> Welcome to Chitter Ver1 </h1>
+    <h3 style="text-align: center; color: white"> To post a message. Please log into your account. </h3>
+    <h2 style="text-align: center; color: white"><a href="/chitter/post">Log in</a><br>
+     New to Chitter. <a href="/chitter/userlogin">Sign up now</a>
+   </h2>
 
+<hr>
+<br>
   <ul>
-  <% @peep.each do |msg| %>
-    <div>
-    <li>
-        <%= msg %>
+    <% @peep.each do |msg| %>
+      <div>
+        <li>
+          <%= msg %>
 
-        <b>Peep</b> &nbsp<%= msg.message %><br>
-        <b>Created on:</b> &nbsp<%= msg.date_created %>
-        <b>Created by:</b> &nbsp<%= @name %>&nbsp aka &nbsp <%= @username %>
-    </div>
-  <% end %>
-        </li>
+          <b>Peep</b> &nbsp<%= msg.message %><br>
+          <b>Created on:</b> &nbsp<%= msg.date_created %><br>
+          <b>By:</b> &nbsp<%= @name %>&nbsp aka &nbsp <%= @username %>
+     </div>
+         <% end %>
+       </li>
   </ul>
 
 </body>
