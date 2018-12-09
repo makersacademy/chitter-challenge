@@ -1,0 +1,14 @@
+<h1>Please enter your username and password</h1>
+<form action="/login" method="POST">
+  <input type="text" name="username" placeholder="Username" />
+  <input type="password" name="password" placeholder="Password" />
+  <input type="submit" value="Login" />
+</form>
+<form action="/register">
+  <input type="submit" value="Register" />
+</form>
+<% if @incorrect_details %>
+  <div id="failure" style="border: 2px solid green;">
+  <%= @incorrect_details %>
+  </div>
+<% end %>

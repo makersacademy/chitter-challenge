@@ -1,0 +1,72 @@
+feature 'Peeps' do
+  scenario 'Displays all peeps' do
+    visit('/')
+    click_button("Register")
+    fill_in('username', with: "new")
+    fill_in('password', with: "password")
+    click_button('Submit')
+    expect(page).to have_content("hello test")
+    expect(page).to have_content("test")
+    expect(page).to have_content("goodbye test")
+    expect(page).to have_content("test")
+    expect(page).to have_content("hello real")
+    expect(page).to have_content("real")
+    expect(page).to have_content("goodbye real")
+    expect(page).to have_content("real")
+  end
+  scenario 'pressing add a peep takes user to add peep page' do
+    visit('/')
+    click_button("Register")
+    fill_in('username', with: "new")
+    fill_in('password', with: "password")
+    click_button('Submit')
+    click_button('Add peep')
+    expect(page).to have_content("Post a peep")
+  end
+  scenario 'add a peep' do
+    visit('/')
+    click_button("Register")
+    fill_in('username', with: "new")
+    fill_in('password', with: "password")
+    click_button('Submit')
+    click_button('Add peep')
+    fill_in('body', with: "Hello!")
+    click_button('Post')
+    expect(page).to have_content("new")
+    expect(page).to have_content("Hello!")
+  end
+  scenario 'Displays all peeps in reverse chronological order after pressing button' do
+    visit('/')
+    click_button("Register")
+    fill_in('username', with: "new")
+    fill_in('password', with: "password")
+    click_button('Submit')
+    click_button('See latest first')
+    expect(page).to have_content("hello test")
+    expect(page).to have_content("test")
+    expect(page).to have_content("goodbye test")
+    expect(page).to have_content("test")
+    expect(page).to have_content("hello real")
+    expect(page).to have_content("real")
+    expect(page).to have_content("goodbye real")
+    expect(page).to have_content("real")
+  end
+  scenario 'Displays all peeps in chronological order after pressing button' do
+    visit('/')
+    click_button("Register")
+    fill_in('username', with: "new")
+    fill_in('password', with: "password")
+    click_button('Submit')
+    click_button('See latest first')
+    click_button('See earliest first')
+    expect(page).to have_content("hello test")
+    expect(page).to have_content("test")
+    expect(page).to have_content("goodbye test")
+    expect(page).to have_content("test")
+    expect(page).to have_content("hello real")
+    expect(page).to have_content("real")
+    expect(page).to have_content("goodbye real")
+    expect(page).to have_content("real")
+  end
+
+end

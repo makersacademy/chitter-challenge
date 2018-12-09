@@ -1,0 +1,1 @@
+CREATE TABLE Peeps (Peep_ID SERIAL PRIMARY KEY, Body VARCHAR(30) NOT NULL CHECK (length(Body)>0), Time_posted timestamp not null default now(), UserName VARCHAR(10), FOREIGN KEY (UserName) REFERENCES Users (UserName));

@@ -1,0 +1,27 @@
+<h1>Peep feed</h1>
+<form action="/">
+  <input type="submit" value="Sign out" />
+</form>
+<form action="/peeps/reverse" method="POST">
+  <input type="submit" value="See latest first" />
+</form>
+<form action="/peeps/chronological" method="POST">
+  <input type="submit" value="See earliest first" />
+</form>
+<form action="/peeps/add">
+  <input type="submit" value="Add peep" />
+</form>
+<div id="peeps">
+  <% @peeps.each do |peep| %>
+  <div id="body">
+    <%= peep.body %>
+  </div>
+  <div id="username">
+    <%= peep.username %>
+  </div>
+  <div id="timestamp">
+    <%= peep.timestamp %>
+  </div>
+  <br />
+  <% end %>
+</div

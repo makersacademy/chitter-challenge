@@ -1,0 +1,12 @@
+<h1>Please enter a unique username and password</h1>
+<% if @user_taken %>
+  <div id="success" style="border: 2px solid green;">
+  <%= @user_taken %>
+  </div>
+<% end %>
+<br />
+<form action="/register" method="POST">
+  <input type="text" name="username" placeholder="Username" />
+  <input type="password" name="password" placeholder="Password" />
+  <input type="submit" value="Submit" />
+</form>
