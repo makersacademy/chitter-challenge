@@ -53,6 +53,23 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+Technical Approach:
+-----
+
+This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+
+If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+
+Some useful resources:
+**DataMapper**
+- [DataMapper ORM](https://datamapper.org/)
+- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+
+**ActiveRecord**
+- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
+- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+
+
 Notes on functionality:
 ------
 
