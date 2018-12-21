@@ -1,89 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <style>
-      body {
-        background-image: url("https://newevolutiondesigns.com/images/freebies/abstract-background-60.jpg");
-      }
-    nav {
-      background-color: black;
-      height: 45px;
-    }
-    h1{
-      color: white;
-      margin-top: 30px;
-      padding-bottom: 50px;;
-    }
-
-    input {
-      margin: 10px;
-    }
-
-    #post_button {
-      margin-top: 20px;
-    }
-    label {
-      color: white;
-      float: left;
-    }
-    .container {
-      width: 500px;
-      clear: both;
-    }
-
-    .container input {
-      width: 100%;
-      clear: both;
-    }
-    </style>
-  </head>
-  <body>
-
-    <nav>
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Sign up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/chitter/feed">Feed</a>
-        </li>
-      </ul>
-    </nav>
-    <% if flash[:username_taken] %>
-      <div id="flash-notice" class="alert alert-danger" role="alert">
-        <%= flash[:username_taken] %>
-      </div>
-    <% elsif flash[:success] %>
-      <div id="flash-notice" class="alert alert-success" role="alert">
-        <%= flash[:success] %>
-      </div>
-    <% end %>
-    <center>
-    <h1>Enter your details below then click Submit</h1>
+<center>
+  <h1 id = "sign_up_heading">Enter your details below then click Submit</h1>
     <div class="container">
       <form class="" action="/chitter/sign_up" method="post">
-        <label>Username: </label><input class="form-control" type="text" name="username">
+        <label id="sign_up_labels">Username: </label><input class="form-control" type="text" name="username">
         <br>
-        <label>Password: </label><input class="form-control" type="text" name="password">
+        <label id="sign_up_labels">Password: </label><input class="form-control" type="text" name="password">
         <br>
-        <label>E-mail: </label><input class="form-control" type="text" name="email">
+        <label id="sign_up_labels">E-mail: </label><input class="form-control" type="text" name="email">
         <br>
-        <label>First Name: </label><input class="form-control" type="text" name="forename">
+        <label id="sign_up_labels">First Name: </label><input class="form-control" type="text" name="forename">
         <br>
-        <label>Surname: </label><input class="form-control" type="text" name="surname">
+        <label id="sign_up_labels">Surname: </label><input class="form-control" type="text" name="surname">
         <br>
         <input id="post_button" class="btn btn-primary" type="submit" value="Submit">
       </form>
     </div>
-    </center>
-  </body>
-</html>
+</center>

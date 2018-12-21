@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    erb :"chitter/welcome"
+    erb :index
   end
 
   get '/chitter/messaging' do

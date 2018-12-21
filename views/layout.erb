@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style media="screen">
+      <%# generic styling %>
+      #body {
+        background-image: url("https://newevolutiondesigns.com/images/freebies/abstract-background-60.jpg");
+        font-family: helvetica;
+        margin: 0 0;
+      }
+      nav {
+        background-color: black;
+        height: 45px;
+      }
+      #index_heading{
+        color: black;
+      }
+      #jumbotron-override {
+        background-color: rgb(224, 228, 229, 0.5);
+        color: black;
+      }
+      #login{
+        width: 101px;
+        margin-right: 3px;
+      }
+      span {
+        display: inline-block;
+      }
+      ul {
+      list-style-type: none;
+      margin: 0;
+      margin-bottom: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: black;
+      }
+      li {
+      float: right;
+      }
+      #home {
+        float: left;
+      }
+      <%# sign up erb styling %>
+      input {
+        margin: 10px;
+      }
+      #sign_up_heading{
+        color: white;
+        margin-top: 30px;
+        padding-bottom: 50px;;
+      }
+      #post_button {
+        margin-top: 20px;
+      }
+      #sign_up_labels {
+        color: white;
+        float: left;
+      }
+      .container {
+        width: 500px;
+        clear: both;
+      }
+
+      .container input {
+        width: 100%;
+        clear: both;
+      }
+      <%# messaging styling %>
+      #messaging_header{
+        color: white;
+        padding-bottom: 10%;
+      }
+      #post {
+        width: 600px;
+        height: 400px
+        padding-bottom: 10px;
+      }
+      #post_message_button {
+        margin-top: 20px;
+        width: 20%;
+      }
+      <%# feed styling %>
+      .peeps {
+        background-color: rgb(66, 188, 244, 0.6);
+        border-radius: 25px;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-bottom: 7px;
+        padding: 5px;
+      }
+      h1 {
+        color: white;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+      }
+
+      .feed_form {
+        width: 40%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+      }
+      label {
+        color: white;
+      }
+      #feed_label
+        padding-right: 5px;
+        color: white;
+      }
+      #sort {
+        margin-left: 7px;
+        width: 70px;
+      }
+      .peeps {
+
+      }
+      #newest {
+        margin-right: 10px;
+      }
+      #oldest {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body id = "body">
+    <ul>
+      <li id="home" class="nav-item">
+        <a class="nav-link active" href="/"><i class="fas fa-home"></i> Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/chitter/sign_up">Sign up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/chitter/messaging">Post a Peep</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/chitter/feed">Feed</a>
+      </li>
+    </ul>
+    <% if flash[:username_taken] %>
+      <div id="flash-notice" class="alert alert-danger" role="alert">
+        <%= flash[:username_taken] %>
+      </div>
+    <% elsif flash[:success] %>
+      <div id="flash-notice" class="alert alert-success" role="alert">
+        <%= flash[:success] %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

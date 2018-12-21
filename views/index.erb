@@ -1,0 +1,16 @@
+<center>
+<div id="jumbotron-override" class="jumbotron">
+  <h1 id="index_heading" class="display-4">Welcome to Chitter</h1>
+  <p class="lead">Head on over to the Chitter feed to see what's going down.</p>
+  <hr class="my-4">
+  <p>Log in to send messages or sign up for a free account.</p>
+  <span>
+  <%# <a class="btn btn-primary btn-lg" href="#" role="button">Sign up</a> %>
+  <form class="btn" action="/chitter/login" method="get">
+    <input class="btn btn-primary btn-lg" type="submit" name="" value="Login">
+  </form>
+  <form class="btn" action="/chitter/sign_up" method="get">
+    <input class="btn btn-primary btn-lg" type="submit" name="" value="Sign up">
+  </form>
+  </span>
+</div>

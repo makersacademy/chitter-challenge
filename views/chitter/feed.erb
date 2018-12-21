@@ -1,100 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <style>
-      #home {
-        float: left;
-      }
-      body {
-        background-image: url("https://newevolutiondesigns.com/images/freebies/abstract-background-60.jpg");
-      }
-    nav {
-      background-color: black;
-      height: 45px;
-    }
-    .peeps {
-      background-color: rgb(66, 188, 244, 0.6);
-      border-radius: 25px;
-      margin-left: 25%;
-      margin-right: 25%;
-      margin-bottom: 7px;
-      padding: 5px;
-    }
-    h1 {
-      color: white;
-    }
-
-    hr {
-      border: 0;
-      height: 1px;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    }
-
-    form {
-      width: 40%;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      margin-top: 25px;
-      margin-bottom: 20px;
-      <%# border: solid white;
-      border-radius: 25px;
-      border-style: inset;
-      border-width: 2px; %>
-    }
-    label {
-      padding-right: 5px;
-      color: white;
-    }
-    #sort {
-      margin-left: 7px;
-      width: 70px;
-    }
-    .peeps {
-
-    }
-    #newest {
-      margin-right: 10px;
-    }
-    #oldest {
-      margin-right: 10px;
-    }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <ul class="nav justify-content-end">
-        <li id="home" class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/chitter/sign_up">Sign up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/chitter/messaging">Post a Peep</a>
-        </li>
-      </ul>
-    </nav>
-    <center>
-        <h1>Welcome to the Chitter feed</h1>
-        <form class="" action="/chitter/feed" method="post">
-          <label>Newest first</label><input id="newest" type="radio" name="sort_by" value="descending" checked="checked">
-          <label>Oldest first</label><input id="oldest" type="radio" name="sort_by" value="ascending">
-          <input id="sort" class="btn btn-primary btn" type="submit" value="Sort">
-        </form>
-          <% @peep.each do |message| %>
-        <div class="peeps">
-          <%= message.message %>
-        <br>
-        <hr>
-          Peeped at: <%= message.message_created%>
-        </div>
-        <% end %>
-    </center>
-  </body>
-</html>
+<center>
+  <h1>Welcome to the Chitter feed</h1>
+  <form id = "feed_form" class="feed_form" action="/chitter/feed" method="post">
+    <label id= "feed_label">Newest first</label>
+    <input id="newest" type="radio" name="sort_by" value="descending" checked="checked">
+    <label id= "feed_label">Oldest first</label>
+    <input id="oldest" type="radio" name="sort_by" value="ascending">
+    <input id="sort" class="btn btn-primary btn" type="submit" value="Sort">
+  </form>
+    <% @peep.each do |message| %>
+  <div class="peeps">
+    <%= message.message %>
+  <br>
+  <hr>
+    Peeped at: <%= message.message_created%>
+  </div>
+  <% end %>
+</center>

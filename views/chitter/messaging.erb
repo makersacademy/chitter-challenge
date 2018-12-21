@@ -1,56 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <style>
-      body {
-        background-image: url("https://newevolutiondesigns.com/images/freebies/abstract-background-60.jpg");
-      }
-    nav {
-      background-color: black;
-      height: 45px;
-    }
-    h1{
-      color: white;
-      padding-bottom: 10%;
-    }
-    #post {
-      width: 600px;
-      height: 400px
-      padding-bottom: 10px;
-    }
-    #post_button {
-      margin-top: 20px;
-      width: 20%;
-    }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/chitter/sign_up">Sign up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/chitter/feed">Feed</a>
-        </li>
-      </ul>
-    </nav>
-    <center>
-    <h1>Enter you message and then click Submit</h1>
-    <form class="" action="/messaging" method="post">
-      <input id="post" class="form-control" type="text" name="message">
-      <br>
-      <input id="post_button" class="btn btn-primary" type="submit" value="Submit">
-    </form>
-    </center>
-  </body>
-</html>
+<center>
+  <h1 id="messaging_header">Enter you message and then click Submit</h1>
+  <form class="" action="/messaging" method="post">
+    <input id="post" class="form-control" type="text" name="message">
+    <br>
+    <input id="post_message_button" class="btn btn-primary" type="submit" value="Submit">
+  </form>
+</center>
