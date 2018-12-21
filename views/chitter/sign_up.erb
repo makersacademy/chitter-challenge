@@ -41,6 +41,7 @@
     </style>
   </head>
   <body>
+
     <nav>
       <ul class="nav justify-content-end">
         <li class="nav-item">
@@ -57,6 +58,15 @@
         </li>
       </ul>
     </nav>
+    <% if flash[:username_taken] %>
+      <div id="flash-notice" class="alert alert-danger" role="alert">
+        <%= flash[:username_taken] %>
+      </div>
+    <% elsif flash[:success] %>
+      <div id="flash-notice" class="alert alert-success" role="alert">
+        <%= flash[:success] %>
+      </div>
+    <% end %>
     <center>
     <h1>Enter your details below then click Submit</h1>
     <div class="container">

@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peeps'
 require './lib/users'
 require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     redirect '/chitter'
@@ -38,8 +40,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/sign_up' do
+    begin
     Users.create(params[:username], params[:password], params[:email],
                  params[:forename], params[:surname])
+    name = params[:forename]
+    flash[:success] = "Success, welcome to Chitter #{name}"
+    redirect '/chitter/sign_up'
+    rescue PG::UniqueViolation
+      flash[:username_taken] = "Sorry, that username is already taken. Please try again"
+      redirect '/chitter/sign_up'
+    end
     erb :"chitter/sign_up"
   end
 

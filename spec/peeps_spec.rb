@@ -4,7 +4,7 @@ describe Peeps do
   describe '#create' do
     it 'can add data to the peeps table' do
       peep = Peeps.create("Test message")
-      persisted_data = persisted_data(peep.message_id)
+      persisted_data = persisted_peeps_data(peep.message_id)
 
       expect(peep.message).to eq "Test message"
       expect(peep.message_id).to eq persisted_data['id']
