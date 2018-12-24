@@ -2,6 +2,8 @@
 <html>
   <head>
     <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/interface.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style media="screen">
@@ -36,13 +38,50 @@
       padding: 0;
       overflow: hidden;
       background-color: black;
+      color: white;
       }
-      li {
+      li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      }
+      li a:hover:not(.active) {
+      background-color: rgb(121, 167, 242, 0.3);
+      cursor: pointer;
+      }
+      .active {
+      background-color: #4CAF50;
+      }
+      #nav-li {
       float: right;
       }
       #home {
         float: left;
       }
+      #flash-notice{
+        margin-bottom: 0;
+      }
+
+      <%# index styling %>
+      #login_btn{
+        padding: 14px 33px;
+        background-color: #007bff;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+      }
+      #sign_up_btn{
+        padding: 14px 25px;
+        background-color: #007bff;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+      }
+
       <%# sign up erb styling %>
       input {
         margin: 10px;
@@ -62,6 +101,7 @@
       .container {
         width: 500px;
         clear: both;
+        margin-top: 80px;
       }
 
       .container input {
@@ -128,33 +168,80 @@
       #oldest {
         margin-right: 10px;
       }
+      #cross{
+        float: right;
+      }
+      .fas fa-bars{
+        color: white;
+      }
+      <%# #panel, #flip {
+        padding: 5px;
+        text-align: center;
+        color: white;
+        float: right;
+      }
+      #panel {
+        text-align: center;
+        display: none;
+        color: white;
+      } %>
+      #panel {
+        padding: 5px;
+        text-align: center;
+        background-color: rgb(0, 0, 0, 0.5);
+        color: white;
+        display: none;
+        position: absolute;
+        left: 80%;
+        border-radius: 4px;
+      }
+      .menu{
+        width: 300px;
+        list-style-type: none;
+      }
+      .menu-item{
+        padding: 10px;
+      }
+      <%# li:hover:not(.active) {
+      background-color: rgb(121, 167, 242, 0.3);
+      cursor: pointer;
+      } %>
     </style>
   </head>
   <body id = "body">
     <ul>
-      <li id="home" class="nav-item">
-        <a class="nav-link active" href="/"><i class="fas fa-home"></i> Home</a>
+      <li id="home" class="">
+        <a class="" href="/"><i class="fas fa-home"></i> Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Login</a>
+      <li id="nav-li" class="">
+        <a id="flip" class=""><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/chitter/sign_up">Sign up</a>
+      <li id="nav-li" class="">
+        <a class="" href="/chitter/feed">Feed</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/chitter/messaging">Post a Peep</a>
+      <li id="nav-li" class="">
+        <a class="" href="/chitter/messaging">Post a Peep</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/chitter/feed">Feed</a>
+      <li id="nav-li" class="">
+        <a class="" href="/sessions/destroy">Log out</a>
       </li>
     </ul>
-    <% if flash[:username_taken] %>
+    <span id="panel">
+      <span class="menu">
+        <li class= "menu-item"><a href="/chitter/messaging"><i class="fas fa-paper-plane"></i>  Post a message</a></li>
+        <li class= "menu-item"><a href="/chitter/feed"><i class="fas fa-th-list"></i>  Message feed</a></li>
+        <hr color="white">
+        <li class= "menu-item"><a href="/sessions/new"><i class="fas fa-sign-in-alt"></i>  Login</a></li>
+        <li class= "menu-item"><a href="/sessions/destroy"><i class="fas fa-sign-out-alt"></i>  Log out</a></li>
+      </span>
+    </span>
+    <% if flash[:error] %>
       <div id="flash-notice" class="alert alert-danger" role="alert">
-        <%= flash[:username_taken] %>
+        <%= flash[:error] %> <span id="cross"><i class="fas fa-times-circle"></i></span>
       </div>
     <% elsif flash[:success] %>
       <div id="flash-notice" class="alert alert-success" role="alert">
-        <%= flash[:success] %>
+        <%= flash[:success] %> <span id="cross"><i class="fas fa-times-circle"></i></span>
       </div>
     <% end %>
     <%= yield %>

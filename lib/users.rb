@@ -43,6 +43,26 @@ class Users
     check.nil?
   end
 
+  def self.password_valid?(password)
+    connection = Users.choose_connection
+    check = connection.exec("SELECT password FROM users WHERE password = '#{password}';")
+    check.nil?
+  end
+
+  def self.login(username, password)
+    connection = Users.choose_connection
+    user = connection.exec("SELECT * FROM users WHERE username = '#{username}';")
+    user.map do |user|
+      Users.new(user['username'], user['password'],
+                user['email'], user['forename'], user['surname'])
+    end
+    unless password == user[0]["password"]
+      false
+    else
+      true
+    end
+  end
+
   def self.choose_connection
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -51,8 +71,5 @@ class Users
     end
     connection
   end
+
 end
-
-
-Users.username_valid?("Ajay12")
-Users.read

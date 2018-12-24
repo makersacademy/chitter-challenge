@@ -6,6 +6,9 @@ feature 'Chitter messaging' do
 
   scenario 'can access messaging page from home page' do
     visit '/'
+    click_button "Sign up"
+    sign_up
+    visit '/'
     click_link 'Post a Peep'
     expect(page).to have_current_path '/chitter/messaging'
   end
@@ -17,6 +20,9 @@ feature 'Chitter messaging' do
   end
 
   scenario 'message can be posted to Chitter feed' do
+    visit '/'
+    click_button "Sign up"
+    sign_up
     visit '/'
     click_link 'Post a Peep'
     fill_in "message", with: "some random message"
@@ -37,6 +43,9 @@ feature 'Chitter messaging' do
 
   scenario 'can go to messages from the feed' do
     visit '/'
+    click_button "Sign up"
+    sign_up
+    visit '/'
     click_link 'Feed'
     click_link 'Post a Peep'
     expect(page).to have_current_path '/chitter/messaging'
@@ -54,6 +63,9 @@ feature 'Chitter messaging' do
 
   scenario 'peeps can be sorted into descending order' do
     visit '/'
+    click_button "Sign up"
+    sign_up
+    visit '/'
     click_link 'Post a Peep'
     fill_in "message", with: "some random message"
     click_button "Submit"
@@ -68,6 +80,9 @@ feature 'Chitter messaging' do
 # I want to see the time at which it was made
 
   scenario 'message contains the time it was posted' do
+    visit '/'
+    click_button "Sign up"
+    sign_up
     visit '/'
     click_link 'Post a Peep'
     fill_in "message", with: "some random message"

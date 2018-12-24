@@ -2,9 +2,9 @@
   <h1>Welcome to the Chitter feed</h1>
   <form id = "feed_form" class="feed_form" action="/chitter/feed" method="post">
     <label id= "feed_label">Newest first</label>
-    <input id="newest" type="radio" name="sort_by" value="descending" checked="checked">
+    <input id="newest" type="radio" name="sort_by" value="descending" >
     <label id= "feed_label">Oldest first</label>
-    <input id="oldest" type="radio" name="sort_by" value="ascending">
+    <input id="oldest" type="radio" name="sort_by" value="ascending" checked="checked">
     <input id="sort" class="btn btn-primary btn" type="submit" value="Sort">
   </form>
     <% @peep.each do |message| %>
