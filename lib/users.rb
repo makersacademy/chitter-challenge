@@ -31,6 +31,15 @@ class Users
     end
   end
 
+  def self.find(username)
+    connection = Users.choose_connection
+    result = connection.exec("SELECT * FROM users WHERE username = '#{username}';")
+    result.map do |user|
+      Users.new(user['username'], user['password'],
+                user['email'], user['forename'], user['surname'])
+    end
+  end
+
   def self.username_valid?(username)
     connection = Users.choose_connection
     check = connection.exec("SELECT username FROM users WHERE username = '#{username}';")
@@ -73,3 +82,6 @@ class Users
   end
 
 end
+
+user = Users.find("newUser333")
+p user[0].forename

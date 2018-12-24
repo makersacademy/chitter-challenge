@@ -222,9 +222,14 @@
       <li id="nav-li" class="">
         <a class="" href="/chitter/messaging">Post a Peep</a>
       </li>
+      <% if session[:username] %>
       <li id="nav-li" class="">
         <a class="" href="/sessions/destroy">Log out</a>
       </li>
+      <li id="nav-li" class="">
+        <a class="" href="/sessions/destroy"><i class="fas fa-user-circle"></i> <%= session[:forename] %></a>
+      </li>
+      <% end %>
     </ul>
     <span id="panel">
       <span class="menu">

@@ -49,8 +49,9 @@ class Chitter < Sinatra::Base
     begin
     Users.create(params[:username], params[:password], params[:email],
                  params[:forename], params[:surname])
-    name = params[:forename]
     session[:username] = params[:username]
+    session[:forename] = params[:forename]
+    name = session[:forename]
     flash[:success] = "Success, welcome to Chitter #{name}"
     redirect '/chitter/sign_up'
     rescue PG::UniqueViolation
@@ -66,9 +67,10 @@ class Chitter < Sinatra::Base
 
   post "/sessions" do
     if Users.login(params[:username], params[:password])
+      user = Users.find(params[:username])
       session[:username] = params[:username]
-      session[:forename] = params[:forename]
-      name = session[:username]
+      session[:forename] = user[0].forename
+      name = session[:forename]
       flash[:success] = "Welcome back #{name}!!"
       redirect :"/chitter/feed"
     else

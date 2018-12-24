@@ -19,6 +19,14 @@ feature 'Chitter messaging' do
     expect(page).to have_current_path '/chitter/feed'
   end
 
+  # same test but using the new slideToggle menu
+  scenario 'can access chitter feed from home page' do
+    visit '/'
+    find('#panel').click
+    click_link 'Message feed'
+    expect(page).to have_current_path '/chitter/feed'
+  end
+
   scenario 'message can be posted to Chitter feed' do
     visit '/'
     click_button "Sign up"
