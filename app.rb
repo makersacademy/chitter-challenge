@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/messaging' do
-    Peeps.create(params[:message])
+    Peeps.create(params[:message], session[:username])
     redirect '/chitter/feed'
   end
 

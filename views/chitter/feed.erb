@@ -9,10 +9,11 @@
   </form>
     <% @peep.each do |message| %>
   <div class="peeps">
-    <%= message.message %>
+    <span id="username">User: <%= message.username%></span>
+    <span id="time">Peeped at: <%= message.message_created%></span>
   <br>
   <hr>
-    Peeped at: <%= message.message_created%>
+    <%= message.message %>
   </div>
   <% end %>
 </center>

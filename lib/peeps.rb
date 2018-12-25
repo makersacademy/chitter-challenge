@@ -22,8 +22,8 @@ class Peeps
     end
   end
 
-  def self.create(message)
-    sql = "INSERT INTO peeps (message) VALUES ('#{message}') RETURNING *;"
+  def self.create(message, username)
+    sql = "INSERT INTO peeps (message, username) VALUES ('#{message}', '#{username}') RETURNING *;"
     result = DatabaseConnection.query(sql)
     Peeps.new(result[0]['id'],
               result[0]['created'],

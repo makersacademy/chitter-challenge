@@ -9,17 +9,11 @@ feature 'Chitter messaging' do
     click_button "Sign up"
     sign_up
     visit '/'
-    click_link 'Post a Peep'
+    find('#panel').click
+    click_link 'Post a message'
     expect(page).to have_current_path '/chitter/messaging'
   end
 
-  scenario 'can access chitter feed from home page' do
-    visit '/'
-    click_link 'Feed'
-    expect(page).to have_current_path '/chitter/feed'
-  end
-
-  # same test but using the new slideToggle menu
   scenario 'can access chitter feed from home page' do
     visit '/'
     find('#panel').click
@@ -32,10 +26,12 @@ feature 'Chitter messaging' do
     click_button "Sign up"
     sign_up
     visit '/'
-    click_link 'Post a Peep'
+    find('#panel').click
+    click_link 'Post a message'
     fill_in "message", with: "some random message"
     click_button "Submit"
-    click_link 'Post a Peep'
+    find('#panel').click
+    click_link 'Post a message'
     fill_in "message", with: "another random message"
     click_button "Submit"
 
@@ -45,7 +41,8 @@ feature 'Chitter messaging' do
 
   scenario 'can access chitter feed from home page' do
     visit '/'
-    click_link 'Feed'
+    find('#panel').click
+    click_link 'Message feed'
     expect(page).to have_current_path '/chitter/feed'
   end
 
@@ -54,14 +51,17 @@ feature 'Chitter messaging' do
     click_button "Sign up"
     sign_up
     visit '/'
-    click_link 'Feed'
-    click_link 'Post a Peep'
+    find('#panel').click
+    click_link 'Message feed'
+    find('#panel').click
+    click_link 'Post a message'
     expect(page).to have_current_path '/chitter/messaging'
   end
 
   scenario 'can return to the home page from the feed' do
     visit '/'
-    click_link 'Feed'
+    find('#panel').click
+    click_link 'Message feed'
     click_link 'Home'
     expect(page).to have_current_path '/chitter'
   end
@@ -74,7 +74,8 @@ feature 'Chitter messaging' do
     click_button "Sign up"
     sign_up
     visit '/'
-    click_link 'Post a Peep'
+    find('#panel').click
+    click_link 'Post a message'
     fill_in "message", with: "some random message"
     click_button "Submit"
     find('#newest', :visible => false).click
@@ -92,7 +93,8 @@ feature 'Chitter messaging' do
     click_button "Sign up"
     sign_up
     visit '/'
-    click_link 'Post a Peep'
+    find('#panel').click
+    click_link 'Post a message'
     fill_in "message", with: "some random message"
     click_button "Submit"
     time = Time.now

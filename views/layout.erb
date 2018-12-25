@@ -168,6 +168,15 @@
       #oldest {
         margin-right: 10px;
       }
+      #time{
+        float: right;
+        margin-right: 10px;
+      }
+      #username{
+        float: left;
+        margin-left: 10px;
+      }
+      <%# nav %>
       #cross{
         float: right;
       }
@@ -216,18 +225,18 @@
       <li id="nav-li" class="">
         <a id="flip" class=""><i class="fas fa-bars"></i></a>
       </li>
-      <li id="nav-li" class="">
+      <%# <li id="nav-li" class="">
         <a class="" href="/chitter/feed">Feed</a>
       </li>
       <li id="nav-li" class="">
         <a class="" href="/chitter/messaging">Post a Peep</a>
-      </li>
+      </li> %>
       <% if session[:username] %>
       <li id="nav-li" class="">
         <a class="" href="/sessions/destroy">Log out</a>
       </li>
       <li id="nav-li" class="">
-        <a class="" href="/sessions/destroy"><i class="fas fa-user-circle"></i> <%= session[:forename] %></a>
+        <a class=""><i class="fas fa-user-circle"></i> <%= session[:forename] %></a>
       </li>
       <% end %>
     </ul>
