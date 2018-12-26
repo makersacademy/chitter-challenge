@@ -8,7 +8,7 @@ Chitter Challenge
 * `rackup`  
 * `http://localhost:9292/`  
 
-## How to run tests
+## How to run tests
 * `rspec`  
 
 ## User Stories Implemented
