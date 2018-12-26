@@ -33,3 +33,55 @@ feature 'sign up' do
     expect(page).to have_content 'Sorry, that username is already taken. Please try again'
   end
 end
+
+feature 'Login' do
+
+  before 'test' do
+    visit '/'
+    click_button "Sign up"
+    sign_up
+    find('#panel').click
+    click_link 'Log out'
+  end
+
+  scenario 'incorrect credentials results in error message' do
+    visit '/'
+    find('#panel').click
+    click_link 'Login'
+    fill_in "username", with: "Someone233"
+    fill_in "password", with: "wrongPassword"
+    click_button "Submit"
+    expect(page).to have_content("Username or password was incorrect or you have not signed up")
+    expect(page).to have_current_path '/sessions/new'
+  end
+
+  scenario 'correct credentials results in success message and redirect' do
+    visit '/'
+    find('#panel').click
+    click_link 'Login'
+    fill_in "username", with: "Someone233"
+    fill_in "password", with: "abcd1234"
+    click_button "Submit"
+    expect(page).to have_content("Welcome back Someone!!")
+    expect(page).to have_current_path '/chitter/feed'
+  end
+end
+
+feature 'logout' do
+
+  before 'test' do
+    visit '/'
+    click_button "Sign up"
+    sign_up
+    find('#panel').click
+    click_link 'Log out'
+  end
+
+  scenario "it can end a user's session" do
+    login
+    find('#panel').click
+    click_link 'Log out'
+    expect(page).to have_content("You have signed out")
+    expect(page).to have_current_path '/chitter'
+  end
+end

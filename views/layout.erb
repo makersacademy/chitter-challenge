@@ -74,12 +74,8 @@
         border-radius: 5px;
       }
       #sign_up_btn{
-        padding: 14px 25px;
-        background-color: #007bff;
-        color: white;
+        padding: 11px 40px;
         font-size: 18px;
-        border: none;
-        border-radius: 5px;
       }
 
       <%# sign up erb styling %>
@@ -183,17 +179,6 @@
       .fas fa-bars{
         color: white;
       }
-      <%# #panel, #flip {
-        padding: 5px;
-        text-align: center;
-        color: white;
-        float: right;
-      }
-      #panel {
-        text-align: center;
-        display: none;
-        color: white;
-      } %>
       #panel {
         padding: 5px;
         text-align: center;
@@ -211,10 +196,6 @@
       .menu-item{
         padding: 10px;
       }
-      <%# li:hover:not(.active) {
-      background-color: rgb(121, 167, 242, 0.3);
-      cursor: pointer;
-      } %>
     </style>
   </head>
   <body id = "body">
@@ -225,16 +206,7 @@
       <li id="nav-li" class="">
         <a id="flip" class=""><i class="fas fa-bars"></i></a>
       </li>
-      <%# <li id="nav-li" class="">
-        <a class="" href="/chitter/feed">Feed</a>
-      </li>
-      <li id="nav-li" class="">
-        <a class="" href="/chitter/messaging">Post a Peep</a>
-      </li> %>
       <% if session[:username] %>
-      <li id="nav-li" class="">
-        <a class="" href="/sessions/destroy">Log out</a>
-      </li>
       <li id="nav-li" class="">
         <a class=""><i class="fas fa-user-circle"></i> <%= session[:forename] %></a>
       </li>
@@ -245,8 +217,11 @@
         <li class= "menu-item"><a href="/chitter/messaging"><i class="fas fa-paper-plane"></i>  Post a message</a></li>
         <li class= "menu-item"><a href="/chitter/feed"><i class="fas fa-th-list"></i>  Message feed</a></li>
         <hr color="white">
+        <% if session[:username].nil? %>
         <li class= "menu-item"><a href="/sessions/new"><i class="fas fa-sign-in-alt"></i>  Login</a></li>
+        <% else %>
         <li class= "menu-item"><a href="/sessions/destroy"><i class="fas fa-sign-out-alt"></i>  Log out</a></li>
+        <% end %>
       </span>
     </span>
     <% if flash[:error] %>

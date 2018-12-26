@@ -16,6 +16,24 @@ I also drafted an entity relationship diagram so that I could map out the proces
 
 ![Domain model diagram](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/Domain%20Model%20Diagram.png?raw=true)
 
+
+### Technology used
+
+To create the app I have used:
+- Ruby
+- Sinatra
+- JQuery
+- HTML
+- css
+- Bootstrap
+- Fontawesome
+- BCrypt
+
+Fort testing I used:
+- Rspec
+- Capybara
+
+
 ### To set up the database
 1. First connect to psql by typing `psql` in the command line
 

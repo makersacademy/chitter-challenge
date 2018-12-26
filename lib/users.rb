@@ -1,4 +1,5 @@
 require_relative 'database_connection'
+require 'bcrypt'
 
 class Users
   attr_reader :id, :username, :password, :email, :forename, :surname
@@ -13,7 +14,8 @@ class Users
 
   def self.create(username, password, email, forename, surname)
     connection = Users.choose_connection
-    query = "INSERT INTO users(username, password, email, forename, surname) VALUES ('#{username}', '#{password}', '#{email}', '#{forename}', '#{surname}') RETURNING *;"
+    encrypted_password = BCrypt::Password.create(password)
+    query = "INSERT INTO users(username, password, email, forename, surname) VALUES ('#{username}', '#{encrypted_password}', '#{email}', '#{forename}', '#{surname}') RETURNING *;"
     result = connection.exec(query)
     Users.new(result[0]['username'],
               result[0]['password'],
@@ -65,11 +67,7 @@ class Users
       Users.new(user['username'], user['password'],
                 user['email'], user['forename'], user['surname'])
     end
-    unless password == user[0]["password"]
-      false
-    else
-      true
-    end
+    BCrypt::Password.new(user[0]["password"]) == password
   end
 
   def self.choose_connection
@@ -82,6 +80,3 @@ class Users
   end
 
 end
-
-user = Users.find("newUser333")
-p user[0].forename

@@ -72,10 +72,10 @@ class Chitter < Sinatra::Base
       session[:forename] = user[0].forename
       name = session[:forename]
       flash[:success] = "Welcome back #{name}!!"
-      redirect :"/chitter/feed"
+      redirect '/chitter/feed'
     else
       flash[:error] = "Username or password was incorrect or you have not signed up"
-      redirect :"/index"
+      redirect '/sessions/new'
     end
   end
 
