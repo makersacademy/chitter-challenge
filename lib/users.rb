@@ -1,6 +1,6 @@
 require_relative 'database_connection'
 require 'bcrypt'
-require './credentials'
+# require './credentials'
 require 'mailgun-ruby'
 
 class Users
