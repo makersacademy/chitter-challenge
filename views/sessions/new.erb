@@ -2,11 +2,15 @@
 <h1>Please enter your login details below</h1>
 </center>
 <div id="container" class="container">
-  <form class="" action="/sessions" method="post">
+  <form class="login-form" action="/sessions" method="post">
     <label id="sign_up_labels">Username: </label><input class="form-control" type="text" name="username">
     <br>
     <label id="sign_up_labels">Password: </label><input class="form-control" type="text" name="password">
     <br>
     <input id="post_button" class="btn btn-primary" type="submit" name="" value="Submit">
+
+    <div id="sign-up-link">
+      Don't have an account? <a href="/chitter/sign_up"> Click here</a> to sign up for a free account
+    </div>
   </form>
 </div>

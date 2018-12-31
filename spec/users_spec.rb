@@ -1,4 +1,5 @@
 require 'database_helpers'
+require './credentials'
 
 describe Users do
   describe '#create' do
@@ -19,6 +20,14 @@ describe Users do
       encrypted = BCrypt::Password.new(user.password).instance_of? BCrypt::Password
       expect(user.password.length).to eq 60
       expect(encrypted).to be(true)
+    end
+  end
+
+  describe '#confim_signup' do
+    it 'e-mails the user to confirm successful sign up to Chitter' do
+      email = "ajaymungur@hotmail.com"
+      result = Users.confim_signup(email)
+      expect(result.event).to eq("delivered")
     end
   end
 

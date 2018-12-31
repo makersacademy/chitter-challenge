@@ -7,13 +7,21 @@
     <input id="oldest" type="radio" name="sort_by" value="ascending" checked="checked">
     <input id="sort" class="btn btn-primary btn" type="submit" value="Sort">
   </form>
-    <% @peep.each do |message| %>
-  <div class="peeps">
-    <span id="username">User: <%= message.username%></span>
-    <span id="time">Peeped at: <%= message.message_created%></span>
-  <br>
-  <hr>
-    <%= message.message %>
-  </div>
+  <% @peep.each do |message| %>
+    <div class="peeps">
+      <div id="peep-header">
+        User: <%= message.username%> 
+      </div>
+
+        <hr>
+      <div id="peep-middle">
+        <%= message.message %>
+      </div>
+        <hr>
+        <%# <span id="time">Peeped at: <%= message.message_created%>
+      <div id="peep-footer">
+        <span id="time">Peeped at: <%= message.message_created%></span>
+      </div>
+    </div>
   <% end %>
 </center>
