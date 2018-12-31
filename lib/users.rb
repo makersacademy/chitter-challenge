@@ -91,9 +91,9 @@ class Users
 
   def self.choose_connection
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
+      connection = PG.connect(dbname: 'dc95k2br607drq')
     else
-      connection = PG.connect(dbname: 'chitter')
+      connection = PG.connect(dbname: 'dc95k2br607drq')
     end
     connection
   end
