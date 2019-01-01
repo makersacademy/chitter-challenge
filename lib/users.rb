@@ -3,6 +3,8 @@ require 'bcrypt'
 # require './credentials'
 require 'mailgun-ruby'
 
+
+
 class Users
   attr_reader :id, :username, :password, :email, :forename, :surname
 
@@ -92,10 +94,8 @@ class Users
   def self.choose_connection
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
-    elsif condition
-      connection = PG.connect(dbname: 'postgres://swmnygzephvxtv:b1a27217b53a6dbfca764b306ff9190b46d9fc66def959f1498507291fffa539@ec2-54-225-89-156.compute-1.amazonaws.com:5432/dc95k2br607drq')
     else
-      connection = PG.connect(dbname: 'chitter')
+      connection = PG.connect(ENV['DATABASE_URL'])
     end
     connection
   end
