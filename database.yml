@@ -1,5 +1,5 @@
 development:
   adapter: postgresql
-  host: localhost
-  username: user
-  database: app-dev
+  host: ec2-54-225-89-156.compute-1.amazonaws.com
+  username: swmnygzephvxtv
+  database: dc95k2br607drq
