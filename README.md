@@ -1,107 +1,47 @@
-Chitter Challenge
-=================
+# Chitter
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This is a messaging web app that you can use to post messages (peeps) which are added to the Chitter feed.
 
-Challenge:
--------
+## Planning
 
-As usual please start by forking this repo.
+Before starting on the challenge I put together an entity relationship diagram to help plan the structure of the Chitter database.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+![Entity Relationship Diagram](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/entity_relationship_diagram.png?raw=true)
 
-Features:
--------
+I drafted a rough mock up of the pages I thought would be needed to meet the requirements of the user stories.
 
-```
-STRAIGHT UP
+![Mock up of Chitter pages](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/mockup_of_chitter_pages.png?raw=true)
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+I also drafted an entity relationship diagram so that I could map out the processes that would be required to provide the functionality outlined in the user stories.
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+![Domain model diagram](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/Domain%20Model%20Diagram.png?raw=true)
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+### Technology used
 
-HARDER
+To create the app I have used:
+- Ruby
+- Sinatra
+- JQuery
+- HTML
+- css
+- Bootstrap
+- Fontawesome
+- BCrypt
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
+Fort testing I used:
+- Rspec
+- Capybara
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
 
-ADVANCED
+### To set up the database
+1. First connect to psql by typing `psql` in the command line
 
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
+2. Next you will need to create the database using the psql command
+`CREATE DATABASE chitter;`
 
-Notes on functionality:
-------
+3. In order to connect to the database you will need to use the `pqsl` command `\c chitter;`
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+4. Once you have connected you can run the query which is saved in the file `01_create_users_table.sql`
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+5. The next query you will need to run is saved in the file `02_create_peeps_table.sql`
