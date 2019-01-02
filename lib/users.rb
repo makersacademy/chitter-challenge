@@ -17,10 +17,9 @@ class Users
   end
 
   def self.create(username, password, email, forename, surname)
-    connection = Users.choose_connection
     encrypted_password = BCrypt::Password.create(password)
     query = "INSERT INTO users(username, password, email, forename, surname) VALUES ('#{username}', '#{encrypted_password}', '#{email}', '#{forename}', '#{surname}') RETURNING *;"
-    result = connection.exec(query)
+    result = DatabaseConnection.query(query)
     Users.new(result[0]['username'],
               result[0]['password'],
               result[0]['email'],
@@ -29,8 +28,7 @@ class Users
   end
 
   def self.read
-    connection = Users.choose_connection
-    result = connection.exec("SELECT * FROM users;")
+    result = DatabaseConnection.query("SELECT * FROM users;")
     result.map do |user|
       Users.new(user['username'], user['password'],
                 user['email'], user['forename'], user['surname'])
@@ -38,8 +36,7 @@ class Users
   end
 
   def self.find(username)
-    connection = Users.choose_connection
-    result = connection.exec("SELECT * FROM users WHERE username = '#{username}';")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';")
     result.map do |user|
       Users.new(user['username'], user['password'],
                 user['email'], user['forename'], user['surname'])
@@ -47,29 +44,25 @@ class Users
   end
 
   def self.username_valid?(username)
-    connection = Users.choose_connection
-    check = connection.exec("SELECT username FROM users WHERE username = '#{username}';")
+    check = DatabaseConnection.query("SELECT username FROM users WHERE username = '#{username}';")
     check[0]["username"] != username
     # check.nil?
   end
 
   def self.email_valid?(email)
-    connection = Users.choose_connection
-    check = connection.exec("SELECT email FROM users WHERE email = '#{email}';")
+    check = DatabaseConnection.query("SELECT email FROM users WHERE email = '#{email}';")
     check[0]["email"] != email
     # check.nil?
   end
 
   def self.password_valid?(password)
-    connection = Users.choose_connection
-    check = connection.exec("SELECT password FROM users WHERE password = '#{password}';")
+    check = DatabaseConnection.query("SELECT password FROM users WHERE password = '#{password}';")
     BCrypt::Password.new(check[0]["password"]) != password
     # check.nil?
   end
 
   def self.login(username, password)
-    connection = Users.choose_connection
-    user = connection.exec("SELECT * FROM users WHERE username = '#{username}';")
+    user = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';")
     user.map do |user|
       Users.new(user['username'], user['password'],
                 user['email'], user['forename'], user['surname'])
@@ -89,15 +82,6 @@ class Users
                       }
     # Send your message through the client
     mg_client.send_message(domain, message_params)
-  end
-
-  def self.choose_connection
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: "chitter")
-    end
-    connection
   end
 
 end
