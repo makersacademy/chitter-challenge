@@ -255,6 +255,21 @@
         text-align: center;
         color: white;
       }
+      .hidden{
+        border: none;
+        background-color: rgba(10, 10, 10, 0);
+        color: white;
+      }
+      .hidden:hover:not(.active){
+        cursor: pointer;
+      }
+      .sort-buttons:hover:not(.active){
+        background-color: rgba(121, 167, 242, 0.3);
+      }
+      .sort-buttons{
+        padding: 10px;
+        width: 300px;
+      }
     </style>
   </head>
   <body id="body">
@@ -292,8 +307,14 @@
     </span>
     <span id="panel2">
       <span class="menu">
-        <li class= "menu-item"><i class="fas fa-sort-amount-up"></i> Newest first</li>
-        <li class= "menu-item"><i class="fas fa-sort-amount-down"></i> Oldest first</li>
+        <form class="" action="/chitter/feed" method="post">
+          <input type="hidden" name="sort_by" value="descending">
+          <span class="sort-buttons"><i class="fas fa-sort-amount-up"></i><input class="hidden"type="Submit" name="Newest First" value="Newest First"></span>
+        </form>
+        <form class="" action="/chitter/feed" method="post">
+          <input type="hidden" name="sort_by" value="ascending">
+          <span class="sort-buttons"><i class="fas fa-sort-amount-down"></i> <input class="hidden" type="Submit" name="Oldest first" value="Oldest first"></span>
+        </form>
       </span>
     </span>
     <% if flash[:error] %>

@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'bcrypt'
 gem 'capybara'
+gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
 gem 'mailgun-ruby'
 gem 'pg'
 gem 'rake'
@@ -12,7 +13,7 @@ gem 'sinatra'
 gem 'sinatra-flash'
 
 group :test do
-  gem 'pg'
+  # gem 'pg'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

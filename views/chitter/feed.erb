@@ -1,16 +1,16 @@
 <center>
   <h1>Welcome to the Chitter feed</h1>
-  <form id = "feed_form" class="feed_form" action="/chitter/feed" method="post">
+  <%# <form id = "feed_form" class="feed_form" action="/chitter/feed" method="post">
     <label id= "feed_label">Newest first</label>
     <input id="newest" type="radio" name="sort_by" value="descending" >
     <label id= "feed_label">Oldest first</label>
     <input id="oldest" type="radio" name="sort_by" value="ascending" checked="checked">
     <input id="sort" class="btn btn-primary btn" type="submit" value="Sort">
-  </form>
+  </form> %>
   <% @peep.each do |message| %>
     <div class="peeps">
       <div id="peep-header">
-        User: <%= message.username%> 
+        User: <%= message.username%>
       </div>
 
         <hr>
