@@ -47,16 +47,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/sign_up' do
-    begin
-    Users.create(params[:username], params[:password], params[:email],
-                 params[:forename], params[:surname])
-    session[:username] = params[:username]
-    session[:forename] = params[:forename]
-    name = session[:forename]
-    flash[:success] = "Success, welcome to Chitter #{name}"
-    redirect '/chitter/sign_up'
-    rescue PG::UniqueViolation
+    if Users.username_valid?(params[:username]) && Users.email_valid?(params[:email])
+      Users.create(params[:username], params[:password], params[:email],
+                   params[:forename], params[:surname])
+      session[:username] = params[:username]
+      session[:forename] = params[:forename]
+      name = session[:forename]
+      flash[:success] = "Success, welcome to Chitter #{name}"
+      redirect '/chitter/sign_up'
+    elsif !Users.username_valid?(params[:username])
       flash[:error] = "Sorry, that username is already taken. Please try again"
+      redirect '/chitter/sign_up'
+    else
+      flash[:error] = "Sorry, that email is already registered to an existing account. Please try again"
       redirect '/chitter/sign_up'
     end
     erb :"chitter/sign_up"

@@ -3,8 +3,8 @@ development:
   encoding: unicode
   database: chitter
   pool: 2
-  username: Ajay Mungur
-  password: tlN2rM332J
+  username:
+  password:
 
 production:
   adapter: postgresql

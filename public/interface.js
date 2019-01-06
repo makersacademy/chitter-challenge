@@ -5,9 +5,9 @@ $(document).ready(function() {
     $("#panel").slideToggle("slow");
   });
 
-  $("#panel").click(function(){
-    $("#panel").slideToggle("slow");
-  });
+  // $("#panel").click(function(){
+  //   $("#panel").slideToggle("slow");
+  // });
 
   $("#flip2").click(function(){
     $("#panel2").slideToggle("slow");

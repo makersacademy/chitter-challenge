@@ -1,6 +1,6 @@
 require_relative 'database_connection'
 require 'bcrypt'
-# require './credentials'
+require './credentials'
 require 'mailgun-ruby'
 
 
@@ -45,20 +45,25 @@ class Users
 
   def self.username_valid?(username)
     check = DatabaseConnection.query("SELECT username FROM users WHERE username = '#{username}';")
-    check[0]["username"] != username
-    # check.nil?
+    if check.ntuples == 0
+      return true
+    else
+      check[0]["username"] != username
+    end
   end
 
   def self.email_valid?(email)
     check = DatabaseConnection.query("SELECT email FROM users WHERE email = '#{email}';")
-    check[0]["email"] != email
-    # check.nil?
+    if check.ntuples == 0
+      return true
+    else
+      check[0]["email"] != email
+    end
   end
 
   def self.password_valid?(password)
     check = DatabaseConnection.query("SELECT password FROM users WHERE password = '#{password}';")
     BCrypt::Password.new(check[0]["password"]) != password
-    # check.nil?
   end
 
   def self.login(username, password)
@@ -71,7 +76,7 @@ class Users
   end
 
   def self.confim_signup(email)
-    domain = 'sandbox5b32a175946546f3bd75e54dbf8e75c7.mailgun.org'
+    domain = SANDBOX_KEY
     mg_client = Mailgun::Client.new(KEY)
 
     # Define your message parameters
