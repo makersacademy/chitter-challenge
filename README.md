@@ -1,25 +1,25 @@
 Chitter Challenge
 =================
 
-This web application was built with Ruby and Sinatra using PostgreSQL databases. The unit tests were written in RSpec and the feature tests were written with RSpec/capybara.
+This web app was built with Ruby and Sinatra using PostgreSQL databases. The unit tests were written in RSpec and the feature tests were written with RSpec/capybara.
 
 User stories:
 -------
 
 ```
-
-As a Maker
+As a Maker,
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
-
-As a maker
+```
+```
+As a Maker,
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
-
-As a Maker
+```
+```
+As a Maker,
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
-
 ```
 
 #### Setting up the databases
