@@ -1,12 +1,18 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
+gem 'activerecord'
+gem 'pg'
 gem 'rake'
-gem 'rubocop', '0.56.0'
+gem 'sinatra'
+gem 'sinatra-activerecord'
 
 group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'rspec'
+  gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
