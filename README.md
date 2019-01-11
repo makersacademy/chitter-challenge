@@ -1,8 +1,8 @@
 # Chitter Challenge
 
-This repository is a Ruby with Sinatra implementation of a small Twitter clone that will allow the users to post messages to a public stream. The instruction and user stories can be found [here]().
+This repository is a Ruby with Sinatra implementation of a small Twitter clone that will allow the users to post messages to a public stream. The instruction and user stories can be found [here](https://github.com/EllyChanx/chitter-challenge/blob/master/Instruction.md).
 
-####To set up the project
+#### To set up the project
 Clone this repository and then run: 
 
 ```
