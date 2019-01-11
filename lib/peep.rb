@@ -21,7 +21,7 @@ class Peep
   end
 
   def self.create(content:)
-    result = DatabaseConnection.query("INSERT INTO peeps (content) VALUES('#{content}') RETURNING id, content, date;")
+    result = DatabaseConnection.query("INSERT INTO peeps (content) VALUES( '#{content}' ) RETURNING id, content, date")
   end
 
 

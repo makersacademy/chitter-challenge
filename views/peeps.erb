@@ -8,24 +8,21 @@
   <!-- <h2 id="welcome">Welcome to Chitter! <%=@user.name%></h2>
   <div id="cats_background"> </div> -->
 
-  <div class="peep_box_left">
-    <div>
-      <p>Peeps:</p>
-      <ul>
-        <% @peeps.each do |peep| %>
+  <div class="peep_box_left" style="overflow: scroll">
+    <p>Peeps:</p>
+    <ul>
+      <% @peeps.each do |peep| %>
         <li>
           <div class="peep"> 
             <%= peep.content%> 
             <%= peep.date%>
           </div>
         </li>
-        <% end %>
-      </ul>
-    </div>
+      <% end %>
+    </ul>
   </div>
 
   <div class="peep_box_right">
-    <div>
       <form action="/peeps" method="POST">
         <p id="welcome">Welcome to Chitter! <%=@user.name%>!</p>
         <p>peep about ... </p>
@@ -34,7 +31,7 @@
           <input type="submit" value="Peep!">
         </p> 
       </form>
-    </div>
+    
 
     <form action="/" method="get">
       <input type="submit" value="Log out">
