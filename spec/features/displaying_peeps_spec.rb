@@ -21,4 +21,9 @@ feature 'Displaying Peeps' do
   scenario 'A user can see the time that a peep was created at' do
     expect(page).to have_content '01-01-00 00:00:00'
   end
+
+  scenario 'A user can see who posted a particular peep' do
+    expect(page).to have_content 'Joe King'
+    expect(page).to have_content 'haha88'
+  end
 end

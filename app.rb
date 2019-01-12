@@ -39,7 +39,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/profile' do
-    @current_user = User.get(session[:id])
-    erb :profile
+    if !session[:id].nil?
+      @current_user = User.get(session[:id])
+      erb :profile
+    else
+      redirect '/'
+    end
   end
 end
