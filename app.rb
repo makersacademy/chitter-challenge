@@ -1,8 +1,8 @@
 ENV['RACK_ENV'] = 'development'
 
+require './config/data_mapper'
 require 'pry'
 require 'sinatra/base'
-require './config/data_mapper'
 
 class Chitter < Sinatra::Base
   enable :sessions

@@ -7,6 +7,9 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
+require './app'
+require './spec/features/web_helper'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -27,7 +30,7 @@ RSpec.configure do |config|
       example.run
     end
   end
-  
+
   config.after(:suite) do
     puts
   end

@@ -1,4 +1,4 @@
-require 'data_mapper'
+require './lib/peep'
 
 ENV['RACK_ENV'] ||= 'development'
 
