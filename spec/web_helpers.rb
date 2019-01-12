@@ -1,5 +1,5 @@
 
-def sign_up(email, password)
+def sign_up(email = 'someone@somewhere.com', password = 'password')
     visit '/'
     click_on 'Sign up'
     fill_in :email, with: email

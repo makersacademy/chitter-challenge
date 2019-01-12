@@ -15,9 +15,11 @@ RSpec.feature 'Header Navigation' do
   end
 
   context ' a user is signed in' do 
+    before {
+      sign_up
+    }
     it 'should display logout option' do 
-      # visit '/'
-      # expect(page).to have_selector(:css, 'a[href="/logout"]')
+      expect(page).to have_selector(:css, 'a[href="/logout"]')
     end
   end 
 

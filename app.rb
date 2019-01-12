@@ -12,6 +12,8 @@ class ChitterApp < Sinatra::Base
     set :sessions, true
 
     get '/' do 
+        @user = User.get(session[:user_id])
+        p @user
         erb :home
     end
 
