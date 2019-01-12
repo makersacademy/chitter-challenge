@@ -7,6 +7,8 @@ end
 
 def sign_up
   visit '/users/sign_up'
+  fill_in :user_name, with: 'Test'
+  fill_in :user_username, with: 'TestTest'
   fill_in :user_email, with: 'test@test.com'
   fill_in :user_password, with: 'password'
   fill_in :user_password_confirmation, with: 'password'

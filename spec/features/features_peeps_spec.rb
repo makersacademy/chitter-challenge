@@ -21,14 +21,23 @@ RSpec.feature 'Peeps' do
       Timecop.return
     end
 
-    scenario 'A Maker can post a peep and see its content + timestamp' do
+    scenario 'A Maker can post a peep and see its title + timestamp on the home page' do
       sign_up
       click_link 'Create new peep'
       post_peep
+      visit '/'
       expect(page).to have_content 'First peep'
-      expect(page).to have_content 'I love summer!'
       expect(page).to have_content 'Created at 05:10AM on 17/12/2018'
+      expect(page).to have_content 'Created by Test @TestTest'
     end
+
+    scenario 'A Maker can post a peep and see its full content on the show page' do
+      sign_up
+      click_link 'Create new peep'
+      post_peep
+      expect(page).to have_content 'I love summer!'
+    end
+
   end
 
  # As a maker
@@ -46,22 +55,25 @@ RSpec.feature 'Peeps' do
       fill_in :peep_body, with: 'I love winter!'
       click_button 'Save Peep'
       visit '/'
-      expect(page).to have_content 'First peep'
-      expect(page).to have_content 'Second peep'
+      expect('Second peep').to appear_before('First peep')
     end
 
   end
+
+  context 'Sign up/log in/log out' do
 
   # As a Maker
   # So that I can post messages on Chitter as me
   # I want to sign up for Chitter
 
-  context 'Sign up/log in/log out' do
-
     scenario 'A Maker is able to sign up' do
       sign_up
       expect(page).to have_content 'Welcome! You have signed up successfully.'
     end
+
+  # As a Maker
+  # So that only I can post messages on Chitter as me
+  # I want to log in to Chitter
 
     scenario 'A Maker is able to sign in' do
       sign_up
@@ -69,6 +81,10 @@ RSpec.feature 'Peeps' do
       log_in
       expect(page).to have_content 'Signed in successfully.'
     end
+
+  # As a Maker
+  # So that I can avoid others posting messages on Chitter as me
+  # I want to log out of Chitter
 
     scenario 'A Maker is able to log out' do
       sign_up

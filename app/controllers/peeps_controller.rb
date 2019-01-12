@@ -6,13 +6,14 @@ class PeepsController < ApplicationController
     @peeps = Peep.all.order('created_at DESC')
   end
 
-  # holds the form for the new peep
   def new
+    # ensures peeps are created from the current user
+    @peep = current_user.peeps.build
   end
 
   # to save the peeps that are created
   def create
-    @peep = Peep.new(peep_params)
+    @peep = current_user.peeps.build(peep_params)
     @peep.save
 
     redirect_to @peep

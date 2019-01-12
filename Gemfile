@@ -54,6 +54,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'orderly'
   gem 'rspec-rails'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

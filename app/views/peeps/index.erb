@@ -10,12 +10,16 @@
 </div>
 
 <% @peeps.each do |peep| %>
-<div class = "peep" style = "margin-bottom: 2em">
+<div class = "peep" style = "margin: 2em">
   <div>
     <%= link_to peep.title, peep %>
   </div>
   <div>
     Created <%= peep.created_at.strftime("at %I:%M%p on %d/%m/%Y") %>
+  </div>
+
+  <div>
+    Created by <%= peep.user.name%> @<%= peep.user.username %>
   </div>
 </div>
 <% end %>
