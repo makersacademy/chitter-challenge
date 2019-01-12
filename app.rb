@@ -17,7 +17,7 @@ class App < Sinatra::Base
 
   post '/message' do
     session[:message] = params[:message]
-    p session[:messages]
+    session[:messages]
     redirect '/'
   end
 
