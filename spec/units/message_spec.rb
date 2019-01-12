@@ -2,7 +2,6 @@ require './lib/message'
 
 RSpec.describe 'Message' do
   let!(:message) { Message.create(content: 'test1') }
-  #let(:id) { :double }
   let(:time) { Time.now }
 
   describe 'content' do
