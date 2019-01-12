@@ -12,14 +12,21 @@ RSpec.feature 'posting messages' do
         end
         
         it 'allows user to post a message to the page' do
-            p page 
-            # post_message(dummy_message)
+            start_sign_up
+        
+            sign_up_name
+            sign_up_username
+            sign_up_email
+            sign_up_password
+            submit_sign_up
+          
+            post_message(dummy_message)
             expect(page).to have_content(dummy_message)
         end
             
         it 'should save with a time stamp' do
             time = DateTime.now
-            # post_message
+            post_message
             expect(page).to have_content time
         end
     end
