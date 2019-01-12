@@ -8,17 +8,16 @@ set :database_file, 'config/database.yml'
 class App < Sinatra::Base
 
   enable :sessions
+  enable :method_override
+
 
   get '/' do
-    session[:messages] ||= Array.new
-    @messages = session[:messages]
-    p @messages
+    @messages = Message.all
     erb :index
   end
 
   post '/message' do
-    session[:messages] << params[:message]
-    p session[:messages]
+    @message = Message.create({:content => params[:message]})
     redirect '/'
   end
 

@@ -7,6 +7,11 @@
 
 </div>
 <div>
-<%= @messages %>
+<% @messages.each do |message| %>
+<%= message.created_at %>
+<br>
+<%= message.content %>
+
+<% end %> 
 
 </div>
