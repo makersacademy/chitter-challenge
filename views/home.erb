@@ -1,11 +1,15 @@
 <h1> Welcome to chitter </h1>
 <% if session[:user_id] %>
-<%=  erb :"_add_post" %>
+   <%=  erb :"_add_post" %>
 <% end %>
+
 <div id = 'messages-container'>
     <% @messages.reverse.each do |message| %>
     <div class = 'message'>
         <%= message.created_at %>:<p><%= message.twenty_chars %></p>
+        <% if session[:user_id] %>
+           <button id='comment'>comment</button>
+        <% end %>
     </div>
     <% end %>
 </div>
