@@ -2,10 +2,10 @@ feature 'A user can sign up to use chitter' do
   scenario 'A user signs up' do
     visit '/'
     click_on 'Sign Up'
-    fill_in('name', with: 'Magnus')
-    fill_in('username', with: 'The Crimson King')
-    fill_in('email', with: 'Magnus@1000sons.co.pr')
-    fill_in('password', with: 'ilovemagic')
+    fill_in('Name', with: 'Magnus')
+    fill_in('Username', with: 'The Crimson King')
+    fill_in('Email', with: 'Magnus@1000sons.co.pr')
+    fill_in('Password', with: 'ilovemagic')
     click_on 'Sign Up'
 
     expect(page).to have_content('Welcome Magnus')
