@@ -1,9 +1,16 @@
 <h1>Chit chat</h1>
 
-<form action='/messages' method='post'>
+<form action="/messages" method="post">
 <div>
-<textarea rows="4" cols="50">Enter text here..</textarea>
+<textarea cols="50" row="5" name="content" placeholder="insert message here">
+</textarea>
 <br>
-<div>
-<input type='submit' value='Submit message'>
+<input type="submit" value="Submit message">
+</div>
 </form>
+
+<% @messages.each do |message|%>
+<%= message.content %>
+<% end %>
+
+

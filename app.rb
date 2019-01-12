@@ -10,8 +10,18 @@ class Chitter < Sinatra::Base
   enable :method_override
 
   get '/' do 
+    @messages = Message.all
     erb :index
   end 
 
+  post '/messages' do 
+    Message.create(content: params[:content])
+    redirect '/'
+  end
+
+  get '/messages/:id' do 
+    @message = Message.get(params[:id])
+    erb :messages
+  end
 
 end
