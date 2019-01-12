@@ -9,6 +9,8 @@ require './lib/peep'
 set :database_file, "config/database.yml"
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  set :method_override, true
 
   get '/' do
     @peeps = Peep.all
@@ -45,6 +47,11 @@ class Chitter < Sinatra::Base
     user = User.find(params[:id])
     peep = Peep.create(user_id: user.id, content: params[:content], created_at: Time.now)
     redirect "/profile/#{params[:id]}"
+  end
+
+  delete '/sessions' do
+    session.delete(:id)
+    redirect '/'
   end
 
 end

@@ -12,6 +12,14 @@ RSpec.feature 'profile' do
       expect(page.current_path).to eq '/profile/4'
       expect(page).to have_content 'I am a peep'
     end
-    
+    scenario 'User can log out' do
+      visit '/'
+      fill_in 'username', with: 'JoeyB'
+      fill_in 'password', with: 'password123'
+      click_button 'Sign In'
+      expect(page.current_path).to eq '/profile/5'
+      click_button 'Sign Out'
+      expect(page.current_path).to eq '/'
+    end
   end
 end
