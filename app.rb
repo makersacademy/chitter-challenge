@@ -6,7 +6,7 @@ class ChitterApp < Sinatra::Base
     set :sessions, true
 
     get '/' do 
-        'hi there'
+        erb :home
     end
   
 end  

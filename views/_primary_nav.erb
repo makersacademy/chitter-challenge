@@ -1,0 +1,6 @@
+<% if session[:user_id] %>
+  <%= logout %>
+<% else %>
+    <a href="/signin">Sign in</a>
+    <a href="/signup">Sign up</a> 
+<% end %>
