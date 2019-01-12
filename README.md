@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/AlinaGoaga/chitter-challenge.svg?branch=master)](https://travis-ci.org/AlinaGoaga/chitter-challenge)
+
 Chitter Challenge
 =================
 
