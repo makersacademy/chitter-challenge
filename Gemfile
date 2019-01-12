@@ -26,3 +26,5 @@ end
 
 
 gem "pry", "~> 0.12.2"
+
+gem "database_cleaner", "~> 1.7"
