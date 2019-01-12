@@ -1,0 +1,54 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  min-height: 100%;
+  /* border: 1px solid black; */
+}
+
+.signin {
+  float: right;
+  /* border: 1px solid black; */
+  clear: both;
+}
+
+header {
+  float: left;
+  /* border: 1px solid black; */
+}
+
+.intro{
+  clear: both;
+  /* float: left; */
+  /* border: 1px solid red; */
+}
+
+.justify{
+  text-align: justify;
+  padding: 10px;
+}
+
+.signup{
+  /* clear: both; */
+  /* float: center; */
+  /* border: 1px solid blue; */
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form_input {
+  margin-bottom: .8em;
+}
+
+input {
+  padding: .2em;
+}
+
+footer {
+  clear: both;
+  /* border: 1px solid brown; */
+}
