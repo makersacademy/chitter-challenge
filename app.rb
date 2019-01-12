@@ -79,5 +79,10 @@ class ChitterApp < Sinatra::Base
      
         redirect '/'
     end
+
+    private 
+
+    def check_mention
+    end
   
 end  
