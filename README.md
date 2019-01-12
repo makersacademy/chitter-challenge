@@ -1,4 +1,4 @@
-	Chitter Challenge
+Chitter Challenge
 =================
 
 As a Makers Academy weekend challenge I am going to write a small Twitter clone that will allow the users to post messages to a public stream.

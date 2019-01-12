@@ -31,8 +31,13 @@ class Chitter < Sinatra::Base
     erb :profile
   end
 
-  private
 
+  delete '/sign-out' do
+    session.delete(:user_id)
+    redirect '/'
+  end
+
+  private
 
   def current_user
     @current_user ||= User.get(session[:user_id])
