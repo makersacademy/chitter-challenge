@@ -75,7 +75,8 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/comment' do 
-        Comment.create(content: params[comment])
+        Comment.create(content: params[:comment])
+     
         redirect '/'
     end
   

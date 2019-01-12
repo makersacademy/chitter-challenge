@@ -30,8 +30,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background: #ececec;
-
 }
 ol, ul {
 	list-style: none;
@@ -52,5 +50,7 @@ table {
 /* ========= end of reset ==== */
 
 #comment_form{
-    overflow: hidden;
+
+	overflow: hidden;
+
 }
