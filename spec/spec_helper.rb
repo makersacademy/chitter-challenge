@@ -1,6 +1,8 @@
 ENV['RACK_ENV']='test'
 
 require 'rspec'
+require 'pry'
+require './lib/user'
 require 'capybara'
 require 'capybara/rspec'
 require 'simplecov'

@@ -14,7 +14,21 @@ As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+\dt- LISTS TABLES WITHIN DB
+
+Quickstart
+-------
+* $`git clone repo`
+* $`rake db:create` (created dbs that exist in database.yml file)
+* $`rake db:create_migration NAME=create_users`
+* $`rake db:create_migration NAME=create_`
+* $`rake db:create_migration NAME=create_` 
+* $`rake db:test:prepare`
+
+
+
+
+User Stories
 -------
 
 ```
@@ -52,6 +66,12 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+Extensions
+-----
+* Adding password encrytion - should be a gem
+*
+
 
 Technical Approach:
 -----

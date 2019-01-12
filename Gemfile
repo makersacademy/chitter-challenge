@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 ruby '2.5.1'
 
 gem "sinatra", "~> 2.0"
+gem "activerecord", "~> 5.2"
+gem "sinatra-activerecord", "~> 2.0"
+gem "postgres", "~> 0.8.1"
+gem "dm-postgres-adapter", "~> 1.2"
 gem 'rake'
 gem 'rubocop', '0.56.0'
 
@@ -15,3 +19,10 @@ end
 
 
 
+
+
+
+
+
+
+gem "pry", "~> 0.12.2"

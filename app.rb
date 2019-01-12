@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require 'sinatra/activerecord'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
@@ -12,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create(name: params[first_name], email: params[email], password: params[password])
+    user = User.create({firstname: params[:firstname], surname: params[:surname], email: params[:email], password: params[:password]})
   end
 
 end
