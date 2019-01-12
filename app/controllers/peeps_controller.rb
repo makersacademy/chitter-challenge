@@ -1,6 +1,7 @@
 class PeepsController < ApplicationController
 
   def index
+    @peeps = Peep.all.order('created_at DESC')
   end
 
   # holds the form for the new peep
@@ -22,6 +23,7 @@ class PeepsController < ApplicationController
 
   private
 
+  # making sure both params are required when a new peep is submitted
   def peep_params
     params.require(:peep).permit(:title, :body)
   end

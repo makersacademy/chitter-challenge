@@ -29,4 +29,20 @@ RSpec.feature 'Peeps' do
     end
   end
 
+ # As a maker
+ # So that I can see what others are saying
+ # I want to see all peeps in reverse chronological order
+
+  context 'Displaying of peeps' do
+    scenario 'Multiple peeps can be submitted and will appear on the main page' do
+      post_peep
+      visit '/peeps/new'
+      fill_in :peep_title, with: 'Second peep'
+      fill_in :peep_body, with: 'I love winter!'
+      click_button 'Save Peep'
+      visit '/'
+      expect(page).to have_content 'First peep'
+      expect(page).to have_content 'Second peep'
+    end
+  end
 end
