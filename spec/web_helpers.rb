@@ -37,7 +37,7 @@ end
 ### ------------------logout
   
    def logout_user
-     click_link('logout')
+     click_link 'logout'
    end
   
    def sign_in(email = 'someone@somewhere.com', password = 'password')

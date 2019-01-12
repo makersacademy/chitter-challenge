@@ -24,3 +24,5 @@ gem "data_mapper", "~> 1.0"
 gem "dm-postgres-adapter", "~> 1.0"
 
 gem "bcrypt", "~> 3.1"
+
+gem "dm-transactions", "~> 1.0"
