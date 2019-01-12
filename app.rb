@@ -6,6 +6,7 @@ require 'pry'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  enable :method_override
 
   get '/' do 
     erb(:index)
@@ -36,10 +37,21 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get "/profile/:id" do
-
+  get '/profile/:id' do
     @user = User.find(params[:id])
     erb(:profile)
+  end
+
+  get '/peep' do
+    erb(:peep)
+  end
+
+  post '/peep' do
+  end
+
+  delete '/sessions' do
+    session.delete(:id)
+    redirect '/'
   end
 
 end

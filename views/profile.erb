@@ -1,1 +1,18 @@
 <h2> Welcome to Chitter, <%= @user.firstname %>!</h2>
+
+<h3>Your Details</h3>
+<ul>
+  <li>Name: <%= @user.firstname %> <%= @user.surname %></li>
+  <li>Handle: <%= @user.username %></li>
+  <li>Email: <%= @user.email %></li>
+</ul>
+
+<form action='/newpeep' method='get'></form>
+  <input type='submit' value='PEEP' >
+</form>
+
+   <form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log out">
+    </form>
+
