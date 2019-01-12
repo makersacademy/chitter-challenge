@@ -3,6 +3,7 @@ require 'pry'
 
 ## classes 
 require './lib/user'
+require './lib/message'
 
 ## datamapper 
 require './config/datamapper'
@@ -13,6 +14,7 @@ class ChitterApp < Sinatra::Base
 
     get '/' do 
         @user = User.get(session[:user_id])
+        @messages = Message.all
         erb :home
     end
 
