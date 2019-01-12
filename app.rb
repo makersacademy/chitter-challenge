@@ -4,14 +4,38 @@ require 'sinatra/base'
 require './config/data_mapper.rb'
 require 'pry'
 
-
 class Chitter < Sinatra::Base
 
-enable :sessions
-enable :method_override
+  enable :sessions
+  enable :method_override
 
-get '/' do
-  erb :index
-end
+  get '/' do
+    erb :index
+  end
+
+  get '/sign-up' do
+    erb :sign_up
+  end
+
+  post '/sign-up' do
+    user = User.create(username: params[:username], email: params[:email], password: params[:password])
+  if user
+      session[:user_id] = user.id
+      redirect '/profile'
+    else
+      redirect '/'
+    end
+  end
+
+  get '/profile' do
+    erb :profile
+  end
+
+  private
+
+
+  def current_user
+    @current_user ||= User.get(session[:user_id])
+  end
 
 end

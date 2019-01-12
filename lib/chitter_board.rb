@@ -1,6 +1,6 @@
 require 'data_mapper'
 
-class ChitterBoard
+class User
   include DataMapper::Resource
   
   property :id, Serial 
