@@ -12,3 +12,11 @@
     <input type="submit" name="Sign In" value="Sign In">
   </form>
 </div>
+
+<% @peeps.reverse.each do |peep| %>
+  <div class=display_peeps>
+    <p> <%=peep.user.name%> (AKA: <%=peep.user.username%>) peeped: </p> 
+    <p><%=peep.content%> </p>
+    <p>Posted:<%=peep.created_at.strftime('%d-%m-%Y | %H:%M')%>
+   </div>
+  <% end %>

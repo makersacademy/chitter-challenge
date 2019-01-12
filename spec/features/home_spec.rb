@@ -22,5 +22,18 @@ RSpec.feature 'Homepage' do
       click_button 'Sign In'
       expect(page.current_path).to eq '/profile/2'
     end
+
+    scenario 'Displays peeps on the homepage' do
+      visit '/'
+      fill_in 'username', with: 'JoeyB'
+      fill_in 'password', with: 'password123'
+      click_button 'Sign In'
+      fill_in 'content', with: 'I am a peep'
+      click_button 'Post'
+      visit '/'
+      expect(page).to have_content 'I am a peep'
+    end
+  
   end
 end
+

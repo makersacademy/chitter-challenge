@@ -11,6 +11,7 @@ set :database_file, "config/database.yml"
 class Chitter < Sinatra::Base
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -36,12 +37,13 @@ class Chitter < Sinatra::Base
 
   get '/profile/:id' do
     @user = User.find(params[:id])
+    @peeps = Peep.all
     erb :profile
   end
 
   post '/peep/:id' do
     user = User.find(params[:id])
-    Peep.create(user_id: user.id, content: params[:content])
+    peep = Peep.create(user_id: user.id, content: params[:content], created_at: Time.now)
     redirect "/profile/#{params[:id]}"
   end
 
