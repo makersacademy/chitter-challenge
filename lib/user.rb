@@ -2,6 +2,8 @@ require 'sinatra/activerecord'
 
 class User < ActiveRecord::Base
 
+  has_many :peeps
+
   validates_presence_of :email
   validates :email, :uniqueness => { :message => "Email already signed up" }
   validates_presence_of :password

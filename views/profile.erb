@@ -1,1 +1,8 @@
-Welcome to Chitter <%=@user.name%>
+<h2> Welcome to Chitter <%=@user.name%> </h2>
+
+<form action=<%="/peep/#{@user.id}"%> method="post">
+  <div class="form_input">
+    <p>What's on your mind? <input type="text" name="content" placeholder="Send a peep!" required> </p>
+    <input type="submit" name="Post" value="Post">
+  </div>
+</form>

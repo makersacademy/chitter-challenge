@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= 'development'
 require 'sinatra'
 require 'sinatra/activerecord'
 require './lib/user'
+require './lib/peep'
 
 
 set :database_file, "config/database.yml"
@@ -36,6 +37,12 @@ class Chitter < Sinatra::Base
   get '/profile/:id' do
     @user = User.find(params[:id])
     erb :profile
+  end
+
+  post '/peep/:id' do
+    user = User.find(params[:id])
+    Peep.create(user_id: user.id, content: params[:content])
+    redirect "/profile/#{params[:id]}"
   end
 
 end
