@@ -26,7 +26,7 @@ class App < Sinatra::Base
 
   post '/signup' do
     session[:user] = User.create(name: params[:Name],
-       username: params[:Username], email: params[:Email], password: params[:Password])
+    username: params[:Username], email: params[:Email], password: params[:Password])
     redirect '/profile/:id'
   end
 

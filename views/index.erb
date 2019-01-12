@@ -1,5 +1,11 @@
 <h1> Chitter Chatter Pitta Patta</h1>
 <div>
+  <form action="/signup" method="get">
+    <input type="submit" value="Sign Up">
+  </form>
+</div>
+
+<div>
   <form action="/message" method="post">
     <textarea name='message' cols='40' rows='10'></textarea><br>
       <input type='submit' value='Post'>
@@ -8,15 +14,8 @@
 </div>
 <div>
 <% @messages.reverse.each do |message| %>
-<%= message.created_at %>
-<br>
-<%= message.content %>
+<%= message.created_at %> | : : : | <%= message.content %><br><br>
 
 <% end %>
 
-</div>
-<div>
-  <form action="/signup" method="get">
-    <input type="submit" value="Sign Up">
-  </form>
 </div>
