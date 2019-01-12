@@ -54,7 +54,7 @@ Features functionality:
 
 Minimum Viable Product (MVP:
 -----
-I've decided my MVP will be meeting the STRAIGHT UP user stories.
+I've decided my MVP will be meeting the HARDER and STRAIGHT UP user stories.
 
 
 Approach:
