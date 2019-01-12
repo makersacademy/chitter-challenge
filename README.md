@@ -122,3 +122,10 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+My README
+----------------------
+
+Added orderly gem to test for chronological order of peeps
+https://github.com/jmondo/orderly
