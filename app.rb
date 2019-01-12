@@ -37,7 +37,8 @@ class Chitter < Sinatra::Base
   end
 
   get "/profile/:id" do
-    @user = User.find_by(params[:id])
+
+    @user = User.find(params[:id])
     erb(:profile)
   end
 

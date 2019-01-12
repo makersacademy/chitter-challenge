@@ -126,6 +126,7 @@ DEPENDENCIES
   capybara (~> 3.12)
   database_cleaner (~> 1.7)
   dm-postgres-adapter (~> 1.2)
+  pg (~> 0.21.0)
   postgres (~> 0.8.1)
   pry (~> 0.12.2)
   rake
