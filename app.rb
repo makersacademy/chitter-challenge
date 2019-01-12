@@ -41,8 +41,8 @@ class ChitterApp < Sinatra::Base
     post '/signin' do 
     end
 
-    post '/add_message/:message' do |message|
-        Message.create(content: message) 
+    post '/add_message' do
+        Message.create(content: params[:message]) 
         redirect '/'
     end
 

@@ -16,16 +16,16 @@ RSpec.feature 'posting messages' do
             expect(page).to have_selector("input[name=message]")
         end
         
-        it 'allows user to post a message to the page' do
-            post_message(dummy_message)
-            expect(page).to have_content(dummy_message)
-        end
+    #     it 'allows user to post a message to the page' do
+    #         post_message(dummy_message)
+    #         expect(page).to have_content(dummy_message)
+    #     end
             
-        it 'should save with a time stamp' do
-            time = DateTime.now
-            post_message
-            expect(page).to have_content time
-        end
+    #     it 'should save with a time stamp' do
+    #         time = DateTime.now
+    #         post_message
+    #         expect(page).to have_content time
+    #     end
     end
 
     context ' a user is not logged on' do 
