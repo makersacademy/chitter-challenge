@@ -7,8 +7,18 @@ set :database_file, 'config/database.yml'
 
 class App < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
+    @message = session[:message]
+    p @message
     erb :index
+  end
+
+  post '/message' do
+    session[:message] = params[:message]
+    p session[:messages]
+    redirect '/'
   end
 
 end

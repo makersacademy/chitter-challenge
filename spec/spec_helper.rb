@@ -6,7 +6,6 @@ require 'rack'
 require 'rake'
 require 'database_cleaner'
 
-
 require './app'
 
 Capybara.app = App

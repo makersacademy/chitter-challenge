@@ -3,7 +3,6 @@ require './spec/spec_helper'
 feature 'A user can post a message' do
   scenario 'A user posts and then sees the message' do
     visit '/'
-    click_on 'Post a message'
     fill_in('message', with: 'first test')
     click_on 'Post'
 

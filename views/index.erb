@@ -1,1 +1,12 @@
-Hello world
+<h1> Chitter Chatter Pitta Patta</h1>
+<div>
+  <form action="/message" method="post">
+    <textarea name='message' cols='40' rows='10'></textarea><br>
+      <input type='submit' value='Post'>
+  </form>
+
+</div>
+<div>
+<%= @message %>
+
+</div>
