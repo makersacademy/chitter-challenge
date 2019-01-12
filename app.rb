@@ -18,8 +18,24 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
-    redirect '/'
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    session[:id] = user.id
+    redirect "/profile/#{session[:id]}"
+  end
+
+  post '/signin' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:id] = user.id
+      redirect "/profile/#{session[:id]}"
+    else
+      redirect '/'
+    end
+  end
+
+  get '/profile/:id' do
+    @user = User.find(params[:id])
+    erb :profile
   end
 
 end

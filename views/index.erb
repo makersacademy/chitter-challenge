@@ -3,3 +3,12 @@
 <p> Welcome to Chitter! The social media site exclusively for Makers students. <p>
 <p> To post your own Peeps you'll need an account. </p>
 <a href='/signup'> Sign Up Here! </a>
+
+<p> If you already have a Chitter account please sign in: </p>
+<div class="signin">
+  <form action="/signin" method="post">
+    <p>Username: <input type="text" name="username" placeholder="username" required> </p>
+    <p>Password: <input type='text' name='password' placeholder="password" required> </p>
+    <input type="submit" name="Sign In" value="Sign In">
+  </form>
+</div>
