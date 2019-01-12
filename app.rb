@@ -26,7 +26,7 @@ class ChitterApp < Sinatra::Base
     end 
 
     post '/signup' do 
-        user = User.create(email: params[:email], password: params[:password])
+        user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
         #redirect '/error2' unless user.valid?
         if user
             session[:user_id] = user.id

@@ -5,6 +5,8 @@ class User
 
   property :id, Serial
   property :email, String, :unique => true
+  property :username, String, :unique => true
+  property :name, String
   ## problem with bcrypt
   property :password, String
 
