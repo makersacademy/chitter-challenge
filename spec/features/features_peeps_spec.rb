@@ -34,7 +34,7 @@ RSpec.feature 'Peeps' do
  # I want to see all peeps in reverse chronological order
 
   context 'Displaying of peeps' do
-    scenario 'Multiple peeps can be submitted and will appear on the main page' do
+    scenario 'Peeps will appear on the main page in reverse chronological order' do
       post_peep
       visit '/peeps/new'
       fill_in :peep_title, with: 'Second peep'
@@ -43,6 +43,17 @@ RSpec.feature 'Peeps' do
       visit '/'
       expect(page).to have_content 'First peep'
       expect(page).to have_content 'Second peep'
+    end
+  end
+
+  # As a Maker
+  # So that I can post messages on Chitter as me
+  # I want to sign up for Chitter
+
+  context 'Sign up' do
+    scenario 'A Maker is able to sign up' do
+      sign_up
+      expect(page).to have_content 'Welcome! You have signed up successfully.'
     end
   end
 end
