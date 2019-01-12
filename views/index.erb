@@ -2,8 +2,14 @@
     <a href='/signup'>Sign Up</a>
     <a href='/login'>Log In</a>
 </div>
-<h6><br></h6>
+<h4>post a message</h4>
 <form action='/post_msg' method='post'>
   <textarea rows='8' cols='50' name='msg'></textarea><br>
   <input type='submit', value='send'>
 </form>
+<br><br>
+<div>
+<%@messages.reverse.each do |msg|%>
+<%=msg%><br>
+<%end%>
+</div>
