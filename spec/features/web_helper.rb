@@ -1,5 +1,4 @@
-def post_peep
-  visit '/'
-  fill_in :peep, with: 'Test peep'
+def second_peep
+  fill_in :peep, with: 'Second test peep'
   click_button 'Submit'
 end
