@@ -5,6 +5,7 @@ require 'pry'
 require './lib/user'
 require './lib/message'
 require './lib/comment'
+require './lib/comment_message'
 
 ## datamapper 
 require './config/datamapper'
@@ -15,7 +16,7 @@ class ChitterApp < Sinatra::Base
 
     get '/' do 
         @user = User.get(session[:user_id])
-        p Message.all
+        
         @messages = Message.all
     
         # if theres a user logged on and messages to display
