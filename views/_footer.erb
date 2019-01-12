@@ -1,0 +1,7 @@
+<footer>
+   made by me 
+</footer>
+<script src="<%= url("scripts/main.js")%>"></script>
+<% if @script %>
+    <script src="<%= url("scripts/#{@script}.js")%>"></script> 
+<% end %>
