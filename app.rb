@@ -13,4 +13,5 @@ class Chitter < Sinatra::Base
     erb :index
   end 
 
+
 end
