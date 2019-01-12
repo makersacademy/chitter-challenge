@@ -29,9 +29,9 @@ RSpec.feature 'commenting on messages' do
             expect(page).to have_selector('#comment_form', visible:true)
         end 
 
-        it 'form should be hidden on arrival to page' do 
-            expect(page).not_to have_selector('#comment_form')
-        end
+        # it 'form should be hidden on arrival to page' do 
+        #     expect(page).not_to have_selector('#comment_form')
+        # end
 
         context 'commenting on a post should reveal comments' do 
             let(:comment){ 'ahh release it in the park?'}
@@ -39,6 +39,10 @@ RSpec.feature 'commenting on messages' do
             before{
                 make_comment(comment)
             }
+
+            it 'should record a comment' do 
+                expect(page).to have_content(comment)
+            end
         end
 
     end

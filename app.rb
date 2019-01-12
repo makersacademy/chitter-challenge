@@ -4,6 +4,7 @@ require 'pry'
 ## classes 
 require './lib/user'
 require './lib/message'
+require './lib/comment'
 
 ## datamapper 
 require './config/datamapper'
@@ -67,6 +68,10 @@ class ChitterApp < Sinatra::Base
     get '/logout' do 
         session.clear
         redirect '/'
+    end
+
+    post '/comment' do 
+        
     end
   
 end  
