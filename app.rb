@@ -13,7 +13,6 @@ class ChitterApp < Sinatra::Base
 
     get '/' do 
         @user = User.get(session[:user_id])
-        p @user
         erb :home
     end
 
@@ -38,6 +37,16 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/signin' do 
+    end
+
+    post '/add_message/:message' do |message|
+        Message.create(content: message) 
+        redirect '/'
+    end
+
+    get '/logout' do 
+        session.clear
+        redirect '/'
     end
   
 end  

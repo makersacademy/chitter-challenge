@@ -1,4 +1,4 @@
-
+#### --------------------sign up
 ## this need to be tidied
 def start_sign_up
     visit '/'
@@ -34,7 +34,7 @@ def generic_signup
   submit_sign_up
 end
 
-###
+### ------------------logout
   
    def logout_user
      click_button('Log out')
@@ -47,3 +47,10 @@ end
      fill_in :password, with: password
      click_button 'Sign in'
    end
+
+ #### ------------ posting messages
+
+ def post_message(msg = 'dummy msg')
+   fill_in 'message', with: msg
+   click_button 'post'
+ end
