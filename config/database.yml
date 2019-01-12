@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: warble_development
+  pool: 2
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: warble_test
+  pool: 2
