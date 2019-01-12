@@ -9,6 +9,10 @@
         <%= message.created_at %>:<p><%= message.twenty_chars %></p>
         <% if session[:user_id] %>
            <button id='comment'>comment</button>
+           <form id='comment_form' action='/comment' method='post'>
+             <input type='text' name='comment'>
+             <input type='submit' value='comment!'>
+            </form>
         <% end %>
     </div>
     <% end %>

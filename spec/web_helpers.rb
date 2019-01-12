@@ -54,3 +54,12 @@ end
    fill_in :message, with: msg
    click_button 'post'
  end
+
+ ## ------- commenting on post 
+
+ def make_comment(comment = 'default comment')
+   click_button 'comment'
+   fill_in :comment, with: comment
+   click_button 'comment!'
+ end
+
