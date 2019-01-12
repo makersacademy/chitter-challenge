@@ -21,7 +21,7 @@ Quickstart
 * $`git clone repo`
 * $`rake db:create` (created dbs that exist in database.yml file)
 * $`rake db:create_migration NAME=create_users`
-* $`rake db:create_migration NAME=create_`
+* $`rake db:create_migration NAME=create_peeps`
 * $`rake db:create_migration NAME=create_` 
 * $`rake db:test:prepare`
 

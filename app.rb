@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require './lib/user'
+require './lib/peep'
 require 'pry'
 
 class Chitter < Sinatra::Base
