@@ -40,7 +40,7 @@ end
      click_link('logout')
    end
   
-   def sign_in(email, password)
+   def sign_in(email = 'someone@somewhere.com', password = 'password')
      visit '/'
      click_on 'Sign in'
      fill_in :email, with: email
@@ -51,6 +51,6 @@ end
  #### ------------ posting messages
 
  def post_message(msg = 'dummy msg')
-   fill_in 'message', with: msg
+   fill_in :message, with: msg
    click_button 'post'
  end

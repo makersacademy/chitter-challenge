@@ -39,6 +39,15 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/signin' do 
+        user = User.authenticate(params[:email], params[:password])
+        if user
+          session[:user_id] = user.id
+          redirect '/'
+        else
+            session[:errors] = 'error'
+            redirect '/signin'
+        end
+    
     end
 
     post '/add_message' do
