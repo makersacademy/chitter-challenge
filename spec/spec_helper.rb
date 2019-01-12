@@ -8,6 +8,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require 'database_cleaner'
+require 'web_helpers.rb'
+
 RSpec.configure do |config|
   config.after(:suite) do
     puts
