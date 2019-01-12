@@ -15,12 +15,11 @@
       </form>
 
     <h2>Peep History</h2>
-    <div class="">
-      <% @peeps.each do |peep| %>
+    <% @peeps.reverse.each do |peep| %>
+      <div class="">
         <%= peep.text %>
-      <% end %>
-    </div>
-
+      </div>
+    <% end %>
 
   </body>
 </html>

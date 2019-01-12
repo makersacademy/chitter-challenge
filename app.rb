@@ -1,5 +1,3 @@
-ENV['RACK_ENV'] = 'development'
-
 require './config/data_mapper'
 require 'pry'
 require 'sinatra/base'
@@ -7,6 +5,8 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
   enable :sessions
   enable :method_override
+
+  ENV['RACK_ENV'] = 'development'
 
   get '/' do
     @peeps = Peep.all
