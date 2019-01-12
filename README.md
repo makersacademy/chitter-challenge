@@ -1,7 +1,7 @@
 
-[![Build Status](https://travis-ci.org/AlinaGoaga/chitter-challenge.svg?branch=master)](https://travis-ci.org/AlinaGoaga/chitter-challenge)
 
-Chitter Challenge
+
+Chitter Challenge [![Build Status](https://travis-ci.org/AlinaGoaga/chitter-challenge.svg?branch=master)](https://travis-ci.org/AlinaGoaga/chitter-challenge)
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
