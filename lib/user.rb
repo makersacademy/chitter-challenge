@@ -10,7 +10,8 @@ class User
   ## problem with bcrypt
   property :password, String
 
-  # has n, :message, :comment
+  has n, :message
+  has n, :comment
 
 
   def self.authenticate(email, password)

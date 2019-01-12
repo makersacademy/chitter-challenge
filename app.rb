@@ -15,6 +15,7 @@ class ChitterApp < Sinatra::Base
 
     get '/' do 
         @user = User.get(session[:user_id])
+        p Message.all
         @messages = Message.all
     
         # if theres a user logged on and messages to display
