@@ -5,14 +5,22 @@
     <title></title>
   </head>
   <body>
-
     <h1>Chitter</h1>
+    <h2>Submit a peep</h2>
 
-    <form action="/peep" method="post">
-      <textarea name="peep" rows="3" cols="40" placeholder="Type peep here">
-      </textarea><br>
-      <input type="submit" value="Submit">
-    </form>
+      <form action="/peep" method="post">
+        <textarea name="peep" rows="3" cols="40"
+          placeholder="Type peep here"></textarea><br>
+        <input type="submit" value="Submit">
+      </form>
+
+    <h2>Peep History</h2>
+    <div class="">
+      <% @peeps.each do |peep| %>
+        <%= peep.text %>
+      <% end %>
+    </div>
+
 
   </body>
 </html>
