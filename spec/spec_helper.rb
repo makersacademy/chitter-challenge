@@ -1,6 +1,14 @@
 require 'simplecov'
 require 'simplecov-console'
 
+ENV['RACK_ENV'] = 'test'
+
+require 'capybara/rspec'
+require 'database_cleaner'
+require './app'
+
+Capybara.app = Warble
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
