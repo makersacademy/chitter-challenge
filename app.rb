@@ -10,14 +10,15 @@ class App < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @message = session[:message]
-    p @message
+    session[:messages] ||= Array.new
+    @messages = session[:messages]
+    p @messages
     erb :index
   end
 
   post '/message' do
-    session[:message] = params[:message]
-    session[:messages]
+    session[:messages] << params[:message]
+    p session[:messages]
     redirect '/'
   end
 
