@@ -7,6 +7,8 @@ gem 'data_mapper'
 gem 'pry'
 gem 'rake'
 gem 'rubocop', '0.56.0'
+gem 'sinatra'
+gem 'dm-postgres-adapter'
 
 group :test do
   gem 'database_cleaner'
