@@ -1,7 +1,8 @@
 require 'data_mapper'
+require './lib/message'
 
 
-DataMapper.setup(:default, "postgres://localhost/MessengerApp_#{ENV['RACK_ENV']}")
+DataMapper.setup(:default, "postgres://localhost/Chitter_#{ENV['RACK_ENV']}")
 
 DataMapper.finalize
 
