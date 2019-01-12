@@ -182,7 +182,7 @@ $ rake db:auto_migrate
 7. From the command line run the `rake` command followed by the `db:auto_migrate RACK_ENV=test` command. This will create your tables in your test DB.<br/>
 
 ```shell
-$ rake db:auto_migrate RACK_ENV=test
+$ rake db:auto_migrate RACK_ENV=testing
 ```
 
 8. Connect to psql and connect to your database using the `\c databasename;` command.<br/>
