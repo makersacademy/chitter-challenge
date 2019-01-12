@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter_development
+  pool: 50
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: database_name
+  pool: 50
