@@ -1,6 +1,9 @@
 require 'active_record'
 
 class User < ActiveRecord::Base
+
+  has_many :peeps
+
   validates :email, confirmation: true
   validates :email, :uniqueness => { :message => "This email already exists" }
   validates :username, :uniqueness => { :message => "This username already exists" }

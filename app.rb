@@ -47,6 +47,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
+    #need to have an id, a title, content, date created, user_id
+    peep = Peep.create({})
   end
 
   delete '/sessions' do
