@@ -20,6 +20,6 @@ feature 'Displaying Peeps' do
   end
 
   scenario 'A user can see the time that a peep was created at' do
-    expect(page).to have_content '2000-01-01 00:00:00'
+    expect(page).to have_content '01-01-00 00:00:00'
   end
 end

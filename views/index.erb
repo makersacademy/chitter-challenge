@@ -17,7 +17,7 @@
     <h2>Peep History</h2>
     <% @peeps.reverse.each do |peep| %>
       <div class="">
-        <%= peep.text %> -- <%= peep.created_at %>
+        <%= peep.text %> -- <%= peep.format_time %>
       </div>
     <% end %>
 
