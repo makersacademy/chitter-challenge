@@ -5,8 +5,7 @@
     <title></title>
   </head>
   <body>
-    <h1>Chitter</h1>
-    <a href="/signup">Sign Up</a>
+    <%= erb(:'partials/navigation') %>
 
     <h2>Submit a peep</h2>
       <form action="/peep" method="post">
@@ -17,7 +16,7 @@
 
     <h2>Peep History</h2>
     <% @peeps.reverse.each do |peep| %>
-      <div class="">
+      <div>
         <%= peep.text %> -- <%= peep.format_time %>
       </div>
     <% end %>

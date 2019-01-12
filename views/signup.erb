@@ -5,12 +5,13 @@
     <title></title>
   </head>
   <body>
-    <h1>Chitter</h1>
-    <a href="/signup">Sign Up</a>
+    <%= erb(:'partials/navigation') %>
     
+    <h2>Sign Up</h2>
+
     <form action="/signup" method="post">
       Email: <input type="text" name="email"><br>
-      Password: <input type="text" name="password"><br>
+      Password: <input type="password" name="password"><br>
       Name: <input type="text" name="name"><br>
       Username: <input type="text" name="username"><br>
 

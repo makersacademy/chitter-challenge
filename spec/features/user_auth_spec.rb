@@ -11,6 +11,8 @@ feature 'User Authentication' do
 
       expect(current_path).to eq '/profile'
       expect(page).to have_content 'Welcome, Joe King'
+      expect(page).to have_content 'Email: lol@makers.com'
+      expect(page).to have_content 'Username: haha88'
     end
   end
 end

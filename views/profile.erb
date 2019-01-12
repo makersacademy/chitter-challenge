@@ -5,6 +5,18 @@
     <title></title>
   </head>
   <body>
-    Welcome <%= current_user.name %>
+    <%= erb(:'partials/navigation') %>
+
+    <h2>Profile</h2>
+    <div>
+      Welcome, <%= @current_user.name %> <br>
+    </div>
+
+    <h3>Your details:</h3>
+    <div>
+      Email: <%= @current_user.email %><br>
+      Username: <%= @current_user.username %><br>
+    </div>
+    
   </body>
 </html>
