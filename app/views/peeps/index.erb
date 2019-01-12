@@ -1,4 +1,14 @@
 
+<div>
+  <%= link_to "Create new peep", new_peep_path %>
+</div>
+
+<div>
+  <%= link_to "Sign up", new_user_registration_path %>
+  <%= link_to "Log in", new_user_session_path %>
+  <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+</div>
+
 <% @peeps.each do |peep| %>
 <div class = "peep" style = "margin-bottom: 2em">
   <div>
