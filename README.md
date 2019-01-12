@@ -126,6 +126,39 @@ You can see your test coverage when you run your tests. If you want this in a gr
 
 My README
 ----------------------
+## Getting started
 
-Added orderly gem to test for chronological order of peeps
-https://github.com/jmondo/orderly
+1. Clone this repo `git clone git@github.com:Sindex42/chitter-challenge.git`
+2. Change directory `cd chitter-challenge`
+3. Run bundle to install dependencies `bundle`
+4. Install postgresql `brew install postgres`
+
+### Running tests
+
+1. Create the test database `createdb chitter_test;`
+2. Set up the test environment tables `rake db:auto_migrate RACK_ENV=test`
+3. Run the tests with `rspec` in the project root folder
+
+## Usage
+
+1. Create the development database `createdb chitter_development;`
+2. Set up the development environment tables `rake db:auto_migrate`
+3. Run rackup to start the server `rackup`
+4. Open up a browser and navigate to the following page [http://localhost:9292](http://localhost:9292)
+
+### Submitting a message
+
+1. Enter your message in the prompted field and click 'Submit'
+2. Repeat as neccessary
+
+## Technologies used
+
+Tech | Description
+------------- |-------------
+[postgresql](https://www.postgresql.org/) | Object-relational database management system
+[data_mapper](http://datamapper.org/) | Ruby ORM |
+[dm-postgres-adapter](https://github.com/datamapper/dm-postgres-adapter) | postgresql adapter for data_mapper
+[sinatra](http://sinatrarb.com/) | [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for creating web applications in ruby
+[capybara](https://github.com/teamcapybara/capybara) | Test framework for web development
+[database_cleaner](https://github.com/DatabaseCleaner/database_cleaner) | Used for cleaning databases before and after every test
+[orderly](https://github.com/jmondo/orderly) | Rspec matcher for asserting that this appears_before(that) in rspec request specs
