@@ -53,9 +53,11 @@ group :development do
 end
 
 group :test do
-  gem 'rspec'
+  gem 'capybara'
+  gem 'rspec-rails'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'timecop'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

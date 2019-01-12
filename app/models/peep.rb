@@ -1,0 +1,2 @@
+class Peep < ApplicationRecord
+end
