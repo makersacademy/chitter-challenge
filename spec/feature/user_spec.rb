@@ -1,5 +1,5 @@
 require 'user.rb'
-
+require 'web_helper.rb'
 feature "Sign up" do 
   scenario "User sees able to click a sign up button" do 
     visit '/'
@@ -46,5 +46,15 @@ feature "Sign up" do
     fill_in :password, with: "123"
     click_button 'Sign up'
     expect(page).to have_current_path '/signin'
+  end
+end
+
+feature 'Sign in' do 
+  scenario 'looks for sign in button' do 
+    signup_steps
+    fill_in :name, with: "Thomas"
+    fill_in :username, with: "Thomas974"
+    fill_in :email, with: "Thomas@test.com"
+    fill_in :password, with: "123"
   end
 end
