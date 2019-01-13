@@ -76,7 +76,6 @@ Demo
 ![signup](images/chitter_signup_page.png)
 ![signin](images/chitter_signin.png)
 ![profile](images/chitter_profile.png)
-![peep](images/peep_page.png)
 
 Extensions
 -------
