@@ -1,0 +1,6 @@
+<div>
+  <p>Recent peeps:</p>
+  <% peeps.reverse.each do |peep| %>
+  <p> <%= peep.content %> - <%= peep.time %> - <%= peep.user.username %></p>
+  <% end %>
+</div>

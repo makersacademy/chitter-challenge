@@ -3,11 +3,7 @@
 <div style = "margin-bottom: 1em"> Welcome to Chitter. Share your life with the world and spy the life of others ... This gonna become you favorite chitchat place ever!</div>
   <a class="btn btn-dark" href="/login">Log in</a>
   <a class="btn btn-dark" href="/signup">Sign up</a>
+
+<%= erb :'partial_peeps', :layout => false, :locals => { :peeps => @peeps } %>
+
 </html>
-<div>
-    <p>Recent peeps:</p>
-  </div>
-  <% @peeps.reverse.each do |peep| %>
-  <p> <%= peep.content %> - <%= peep.time %> - <%= peep.user.username %></p>
-  <% end %>
-</div>

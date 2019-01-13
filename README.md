@@ -2,10 +2,7 @@
 
 ## Project ##
 
-The project is to build a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+The project is to build a small Twitter clone that will allow the users to post messages to a public stream, based on the following user stories.<br/>.
 
 ```
 As a Maker
@@ -56,10 +53,10 @@ Use the `git clone` command and paste the clone URL then press enter :
 $ git clone https://github.com/your-username/your-repositary.git
 ```
 
-2. On your local machine go inside of the *madcoders_makersbnb* directory :
+2. On your local machine go inside of the *chitter_challenge* directory :
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd chitter_challenge
 ```
 3. To install all the *gems* contained in the *Gemfile*, install and run *Bundle* :
 Install :
@@ -77,12 +74,12 @@ $ bundle
 ### Database ###
 
 5. If you do not have it already, install *psql* on your local machine. Connect to your database and create two of them to be able to run the test and the app, using the `CREATE DATABASE databasename;` command.<br/>
-Make one called *makers_bnb_development* and one called *makers_bnb_test*.<br/>
+Make one called *chitter_development* and one called *chitter_test*.<br/>
 
 ```shell
 $ psql
-admin= CREATE DATABASE makers_bnb_development;
-admin= CREATE DATABASE makers_bnb_test;
+admin= CREATE DATABASE chitter_development;
+admin= CREATE DATABASE chitter_test;
 ```
 
 6. Exit from psql and from the command line run the `rake` command followed by the `db:auto_migrate` command. This will create your tables in your development DB.<br/>
@@ -102,43 +99,43 @@ Once you are connected to the database you've chosen, you can list the tables us
 
 ```shell
 $ psql
-admin= \c makers_bnb_development;
-makers_bnb_development= \dt
+admin= \c chitter_development;
+chitter_development= \dt
 ```
 9. You can connect to a specific table by using the `SELECT * FROM tablename;` command.<br/>
 
 ```shell
-makers_bnb_development= SELECT * FROM tablename;
+chitter_development= SELECT * FROM tablename;
 ```
 ### Run the tests ###
 
-1. Check that the codes are passing the test. From the root *madcoders_makersbnb* directory, run the *spec*.<br/>
+1. Check that the codes are passing the test. From the root *chitter_challenge* directory, run the *spec*.<br/>
 You can check all the files in one go:
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd chitter_challenge
 $ rspec
 ```
 To check only one file at a time :
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd chitter_challenge
 $ rspec spec/file_name_spec.rb
 ```
 
-2. Check that the code respects the quality of the *Rubocop* guideline, by running `rubocop` from the *madcoders_makersbnb* directory :
+2. Check that the code respects the quality of the *Rubocop* guideline, by running `rubocop` from the *chitter_challenge* directory :
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd chitter_challenge
 $ rubocop
 ```
 
 ## Run the app ##
 
-1. On the command line, from the root directory *madcoders_makersbnb*, use the `rackup` command :
+1. On the command line, from the root directory *chitter_challenge*, use the `rackup` command :
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd chitter_challenge
 $ rackup
 ```
 
@@ -146,26 +143,16 @@ You'll be able to see that the localhost port used is *9292*
 
 1. Open your browser and type the url of your *localhost:9292*  <br/>
 
-2. click on sign_in, enter your email address and password and click on `Sign in`.<br/>
+2. click on sign up, enter your email address, name, user name and password and click on `Sign up`.<br/>
 
-3. Now click on list and create some properties.<br/>
+3. Now type your peep and click on Post.<br/>
+You can see your peep displayed with the time and your username.
 
-4. Log out, and do the first three steps with a new user. You can repeat these steps as many as you want.<br/>
+4. Log out, and you will be bale to see your peeps displayed on the home page.<br/>
+If you sign up and create new peeps from new users account, all the peeps will be displayed on the user profile page but also on the home page without being logged in.
 
-5. Log out, and sign in or sign up. Go on the book section and search for available properties for the dates that you would like to.<br/>
-Click on the `request` button in front of the property you would like to book.
-
-6. Enjoy playing around with our app as much as you want :)
-
-
-## Authors ##
-
-Our 3 fabulous *MadCoders* team members who collaborate to build this app :<br/>
-@AlinaGoaga <br/>
-@joaoag (João Abbott-Gribben)<br/>
-@CelineKaslin
-
+5. Enjoy playing around with my app as much as you want :)
 
 ## Acknowledgements ##
 
-Code from sign_in_sign up web app from @dearshrewdwit (Edward Withers)
+Code from a group project I have work on : *madcoders_makersbnb* app
