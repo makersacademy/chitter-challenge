@@ -28,9 +28,9 @@ class App < Sinatra::Base
   end
 
   post '/signup' do
-    session[:user] = User.create(name: params[:Name],
-    username: params[:Username], email: params[:Email], password: params[:Password])
-    if session[:user].id != nil
+    session[:id] = User.create(name: params[:Name],
+    username: params[:Username], email: params[:Email], password: params[:Password]).id
+    if session[:id] != nil
       redirect '/profile/:id/home'
     else
       session[:error] = "Email already in use!! Try logging in..."
@@ -45,11 +45,12 @@ class App < Sinatra::Base
   post '/login' do
     @user = User.find_by(username: params["Username"], password: params["Password"])
     session[:id] = @user.id
+    p session[:id]
     redirect '/profile/:id/home'
   end
 
   get '/profile/:id/home' do
-    @id = session[:user].id
+    @id = session[:id]
     @user = User.find(@id)
     @messages = Message.all
     erb :profile
@@ -58,6 +59,11 @@ class App < Sinatra::Base
   post '/profile/:id/profile/message' do
     Message.create({ :content => params[:message], :user_id => session[:user].id })
     redirect '/profile/:id/home'
+  end
+
+  post '/logout' do
+    session.clear
+    redirect '/'
   end
 
 end
