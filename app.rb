@@ -20,7 +20,6 @@ class ChitterApp < Sinatra::Base
 
     get '/' do 
         @user = User.get(session[:user_id])
-        
         @messages = Message.all
     
         if @user && @messages
@@ -63,14 +62,19 @@ class ChitterApp < Sinatra::Base
 
     post '/add_message' do
         message = params[:message]
-        Message.create(content: message) 
+        Message.create(content: message)
+        message.users << session[:user_id]
+        message.save
+
         names =  UsersMentioned.find_names(message)
+        #----------this should be in amodule but error at the mo.
         names.each do|name|
             user = User.first(:username => name)
             if user
                 # error right now Email.send_message(user)
             end
         end
+        # -------- shouldnt be here
        redirect '/'
     end
 
