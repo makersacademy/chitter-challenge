@@ -6,6 +6,7 @@ require './lib/user'
 require './lib/message'
 require './lib/comment'
 require './lib/comment_message'
+require './lib/messaging'
 
 
 ## modules 
@@ -85,7 +86,11 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/comment' do 
-        Comment.create(content: params[:comment])
+        messageId = params[:message_id].to_i
+        comment = Comment.create(content: params[:comment])
+        message = Message.get(messageId)
+        message.comments << message
+        message.save
         redirect '/'
     end
 end  

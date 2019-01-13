@@ -11,9 +11,9 @@ class Message
   property :created_at, DateTime
   property :updated_at, DateTime
 
-  
+  ## handles commenting
   has n, :commentMessages
-  has n, :comment, :through => :commentMessages
+  has n, :comments, :through => :commentMessages
 
   	
   ## handles on message 

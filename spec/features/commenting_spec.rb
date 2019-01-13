@@ -22,30 +22,33 @@ RSpec.feature 'commenting on messages' do
 
     end
 
-    # context 'commenting ' do 
+    context 'commenting ' do 
 
-    #     it 'clicking on comment should reveal a form' do 
-    #         click_button 'comment'
-    #         expect(page).to have_selector('#comment_form', visible:true)
-    #     end 
+        it 'clicking on comment should reveal a form' do 
+            click_button 'comment'
+            expect(page).to have_selector('.comment_form', visible:true)
+        end 
+       
+        # make js attach hidden class then remove this
+        # it 'form should be hidden on arrival to page' do 
+        #     comment_form = page.find(:css, '.comment_form')
+        #     expect(page).not_to have_css('.comment_form')
+        # end
 
-    #     # it 'form should be hidden on arrival to page' do 
-    #     #     expect(page).not_to have_selector('#comment_form')
-    #     # end
-
-    #     context 'commenting on a post should reveal comments' do 
-    #         let(:comment){ 'ahh release it in the park?'}
+        context 'commenting on a post should reveal comments' do 
+            let(:comment){ 'ahh release it in the park?'}
             
-    #         before{
-    #             make_comment(comment)
-    #         }
+            before{
+                make_comment(comment)
+            }
 
-    #         it 'should record a comment' do 
-    #             expect(page).to have_content(comment)
-    #         end
-    #     end
 
-    # end
+            it 'should record a comment' do 
+                expect(page).to have_content(comment)
+            end
+        end
+
+    end
 
   
 end

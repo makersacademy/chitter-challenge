@@ -15,9 +15,15 @@
            <button class='comment' id='#{counter}' onClick='show_form(this.id)'>comment</button>
            <form class='comment_form' id="form-#{counter}" action='/comment' method='post'>
              <input type='text' name='comment'>
+             <input type="hidden" value='<%= message.id %>' name="message_id" />
              <input type='submit' value='comment!'>
             </form>
             <% counter += 1%>
+        <% end %>
+        <% message.comments.each do|comment| %>
+            <div class ='comment'>
+                <p><%=comment.content%></p>
+            </div>
         <% end %>
     </div>
     <% end %>

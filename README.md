@@ -34,10 +34,12 @@ My app allows a user to post to chitter. Messages display with a timestamp in re
 I want to sign up for Chitter
 I want to log in to Chitter
 I want to log out of Chitter
+It displays the username ofperson who posted
 
 ------------
 The app comes with login, sign up and sign out features.
 usernames and email are unique
+It displays the name of the user who poste it.
 
 #three
 send email to notify if user has been mentioned

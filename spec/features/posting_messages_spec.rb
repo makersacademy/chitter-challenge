@@ -24,11 +24,13 @@ RSpec.feature 'posting messages' do
             post_message
             expect(page).to have_content time
         end
-    end
 
-    context ' a user is not logged on' do 
-
-        it 'displays a list of messages' do 
+        it 'should show the username of who posted' do
+            # jack is generic sign up user name
+            post_message
+            expect(page).to have_content('jack')
         end
     end
+
+
 end
