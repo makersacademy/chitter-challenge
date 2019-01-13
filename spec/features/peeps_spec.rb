@@ -44,4 +44,11 @@ end
     expect(page).to have_content Time.now.strftime('%a, %d %b %Y, %H:%M:%S')
   end
 
+  scenario 'show user who wrote them' do
+    sign_up
+    fill_in :content, with: 'Can you see my name next to the peep?..'
+    click_button 'Post'
+    expect(page).to have_content '@chitter_forever'
+  end
+
  end
