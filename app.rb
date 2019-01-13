@@ -9,6 +9,7 @@ class Warble < Sinatra::Base
 
   register Sinatra::ActiveRecordExtension
   set :sessions, true
+  set :method_override, true
 
   get '/' do
     erb :index
@@ -49,6 +50,11 @@ class Warble < Sinatra::Base
     else
       redirect '/'
     end
+  end
+
+  delete '/sessions' do
+    session.delete(:id)
+    redirect '/'
   end
 
   private
