@@ -2,7 +2,11 @@ require 'user'
 
 describe User do
   let!(:user) { User.create(email: 'test@test.com',
-                            username: 'Test', 
+                            username: 'Test',
+                            password: 'secret123') }
+
+  let!(:user2) { User.create(email: 'test@test.com',
+                            username: 'Test2',
                             password: 'secret123') }
 
   context '#self.authenticate' do
@@ -17,5 +21,15 @@ describe User do
 
   it 'accepts correct password, user exists' do
     expect(User.authenticate('test@test.com', 'secret123')).to eq user
+  end
+
+  context '#valid?' do
+    it 'ensures user email exists' do
+      expect(user.valid?).to eq true
+    end
+
+    it "does not allow non-unique email address" do
+      expect(user2.valid?).to eq false
+    end
   end
 end
