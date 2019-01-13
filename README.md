@@ -53,7 +53,7 @@ fancy CSS
 ## Personal LO 
 
 - I wanted to connect js, css to views. 
-- I wanted to make better use of partials.
+- I wanted to make better use of partials by having a partial navigation bar.
 - I wanted to understand Datamapper
 - readable code
 - single responsibility code

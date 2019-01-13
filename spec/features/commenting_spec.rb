@@ -47,8 +47,5 @@ RSpec.feature 'commenting on messages' do
 
     # end
 
-    context 'viewing comments' do 
-
-        
-    end
+  
 end

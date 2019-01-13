@@ -4,15 +4,17 @@
 <% end %>
 
 <div id = 'messages-container'>
+    <% counter = 1 %>
     <% @messages.reverse.each do |message| %>
     <div class = 'message'>
         <%= message.created_at %>:<p><%= message.twenty_chars %></p>
         <% if session[:user_id] %>
-           <button class='comment'>comment</button>
-           <form class='comment_form' action='/comment' method='post'>
+           <button class='comment' id='#{counter}' onClick='show_form(this.id)'>comment</button>
+           <form class='comment_form' id="form-#{counter}" action='/comment' method='post'>
              <input type='text' name='comment'>
              <input type='submit' value='comment!'>
             </form>
+            <% counter += 1%>
         <% end %>
     </div>
     <% end %>

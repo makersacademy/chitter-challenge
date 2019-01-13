@@ -49,8 +49,8 @@ table {
 
 /* ========= end of reset ==== */
 
-#comment_form{
-
+.comment_form{
+    height: 0;
 	overflow: hidden;
 
 }
