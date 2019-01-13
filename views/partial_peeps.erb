@@ -1,6 +1,8 @@
 <div>
-  <p>Recent peeps:</p>
+  <p style="font-family:Comic Sans MS; color:#000080; font-size:17px; text-decoration:underline;">Recent peeps:</p>
   <% peeps.reverse.each do |peep| %>
-  <p> <%= peep.content %> - <%= peep.time %> - <%= peep.user.username %></p>
+  <p style="font-family:Comic Sans MS; color:#6495ED; font-size:15px;"><%= peep.content %> <br>
+    on: <%= peep.time.strftime('%a, %d %b %Y, %H:%M:%S') %> <br>
+    by: <%= peep.user.username %></p>
   <% end %>
 </div>

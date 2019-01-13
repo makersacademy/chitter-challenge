@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <form action="/sessions" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Log out">
-    </form>
-
-    <h1>Welcome, <%= current_user.username %>!</h1>
+    <h1 style="font-family:Comic Sans MS; color:#000080; font-size:25px;">Welcome, <%= current_user.username %> !</h1>
   </body>
-
 <div>
   <form action="/profile" method="post">
-      <label>Type your peep here:</label> <br><br>
-      <textarea name="content" rows="5" cols="80"></textarea> <br>
+      <label style="font-family:Comic Sans MS; color:#6495ED; font-size:15px;" >Something interesting to share with the world :</label> <br><br>
+      <textarea name="content" rows="5" cols="80"></textarea><br><br>
+      <input type="text" name="tag_someone" placeholder="Tag someone"><br><br>
       <input type="submit" name="Post" value="Post">
   </form>
-  <div>
+  </div>
 
 <%= erb :'partial_peeps', :layout => false, :locals => { :peeps => @peeps } %>
-
-</html>
+<div>
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log out">
+  </form>
+  </div>

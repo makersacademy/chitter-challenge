@@ -4,7 +4,7 @@ RSpec.feature 'User Authentication' do
   context 'Sign Up' do
     scenario 'A user can signup' do
       sign_up
-      expect(page).to have_content 'Welcome, Unicorn'
+      expect(page).to have_content 'Welcome, Unicorn!'
     end
   end
 
@@ -17,7 +17,7 @@ RSpec.feature 'User Authentication' do
     end
 
     scenario 'A signed in user can log out' do
-      sign_in
+      log_in
       click_button 'Log out'
       expect(page.current_path).to eq '/'
       expect(page).to have_content 'Sign up'

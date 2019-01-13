@@ -1,5 +1,11 @@
 # Chitter Challenge #
 
+## Screen shot ##
+
+![welcome](https://user-images.githubusercontent.com/43742795/51091856-5d4f9b00-1788-11e9-81dd-e76cf129fa44.png)
+
+![profile](https://user-images.githubusercontent.com/43742795/51091888-d51dc580-1788-11e9-991d-1e17c8fa8ba9.png)
+
 ## Project ##
 
 The project is to build a small Twitter clone that will allow the users to post messages to a public stream, based on the following user stories.<br/>.

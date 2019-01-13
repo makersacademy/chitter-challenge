@@ -1,4 +1,11 @@
-<a class="btn btn-dark" href="/login">Log in</a>
-<a class="btn btn-dark" href="/signup">Sign up</a>
+<p style="font-family:Comic Sans MS; color:White; font-size:13px;">To write peeps please sign up with us :</p>
+<form action="/signup" method="get">
+  <p> <input type="submit" value="Sign up"></p>
+</form>
+
+<p style="font-family:Comic Sans MS; color:White; font-size:13px;">If you are already one of our members :</p>
+<form action="/login" method="get">
+  <p> <input type="submit" value="Log in"></p>
+</form>
 
 <%= erb :'partial_peeps', :layout => false, :locals => { :peeps => @peeps } %>

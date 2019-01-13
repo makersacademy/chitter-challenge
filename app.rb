@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require './config/datamapper'
@@ -10,29 +10,34 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
-    erb (:index, :layout => :layout)
+    erb :index
   end
 
   get '/profile' do
     if signed_in?
       @peeps = Peep.all
-      erb (:profile, :layout => :layout)
+      erb :profile
     else
       redirect '/login'
     end
   end
 
   post '/profile' do
-    peep = Peep.create(content: params[:content], time: Time.now, user: current_user)
+    session[:tag_someone] = params[:tag_someone]
+    Peep.create(content: params[:content], time: Time.now, user: current_user)
+    if User.first(username: session[:tag_someone])
+      User.first(username: session[:tag_someone])
+    end
     redirect '/profile'
   end
 
   get '/signup' do
-    erb (:signup, :layout => :layout)
+    erb :signup
   end
 
   post '/signup' do
-    user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username] )
+    user = User.create(email: params[:email], password: params[:password],
+      name: params[:name], username: params[:username])
     if user.valid?
       session[:user_id] = user.id
       redirect '/profile'
@@ -42,7 +47,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/login' do
-    erb(:login, :layout => :layout)
+    erb :login
   end
 
   post '/login' do
