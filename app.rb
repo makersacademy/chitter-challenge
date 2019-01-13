@@ -1,13 +1,16 @@
 ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
-# require './lib/chitter'
-# require './config/data_mapper'
+require './lib/message'
+require './config/data_mapper'
+
 
 class Chitter < Sinatra::Base
   enable :sessions
+  enable :method_override
 
   get '/' do
-    "Is this thing on?"
+    erb :index
   end
 
 end
