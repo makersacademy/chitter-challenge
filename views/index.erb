@@ -2,18 +2,35 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="<%= url('css/message_view.css') %>">
     <title>Chitter App</title>
   </head>
   <body>
-    <h1>Chitter</h1>
-    <form action="/signup" method="post">
-      <label>Username: </label>
-      <input type="text" name="username">
-      <label>Email: </label>
-      <input type="email" name="email" placeholder="email address">
-      <label>Password: </label>
-      <input type="password" name="password" placeholder="password">
-      <input type="submit" name="Sign Up" value="Sign Up">
-    </form>
+    <div class="container">
+      <header>
+          <h1>Chitter</h1>
+      </header>
+      <p>The Twitter clone network</p>
+      <div class="form_area">
+        <form action="/signup" method="post">
+          <label>Username: </label>
+          <div id="username">
+            <input type="text" name="username" placeholder="username">
+          </div>
+          <br>
+          <label>Email: </label>
+          <div class="home_input">
+            <input type="email" name="email" placeholder="email address"> <br>
+          </div>
+          <br>
+          <label>Password: </label>
+          <div class="home_input">
+            <input type="password" name="password" placeholder="password">
+          </div>
+          <br>
+          <input type="submit" name="Sign Up" value="Sign Up">
+        </form>
+      </div>
+    </div>
   </body>
 </html>

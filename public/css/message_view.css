@@ -8,12 +8,17 @@ body {
   margin: 0 auto;
   background-color: #EDECE6;
   border-radius: 10px;
+  float: center;
 }
 
 header {
   position: relative;
   margin-left: 1em;
   color: #FF6E38;
+}
+.form_area {
+  position: relative;
+  margin-left: 200px;
 }
 
 #text_input {

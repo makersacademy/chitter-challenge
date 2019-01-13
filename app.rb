@@ -15,15 +15,19 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @messages = Message.all
-    @user = User.get(session[:id])
     erb(:peeps)
+  end
+
+  get "/chitter_profile" do
+    @messages = Message.all
+    erb(:chitter_profile)
   end
 
   post '/peep' do
     Message.create(
       content: params[:message]
     )
-    redirect '/peeps'
+    redirect '/chitter_profile'
   end
 
   post '/signup' do
@@ -33,7 +37,7 @@ class Chitter < Sinatra::Base
       password: params[:password]
     )
     session[:id] = user.id
-    redirect '/peeps'
+    redirect "/chitter_profile"
   end
 
 end
