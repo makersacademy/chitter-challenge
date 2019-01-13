@@ -1,4 +1,4 @@
-RSpec.feature 'emailing users' do
+RSpec.feature 'user mentioned' do
     # let(:dummy_email){ 'someone@somewhere.com' }
     # let(:dummy_password) { 'password' }
     # let(:dummy_username) { 'Ratchet' }
@@ -21,12 +21,12 @@ RSpec.feature 'emailing users' do
     #         generic_signup
     #         logout_user
     #         sign_in
-         
     #     }
 
     #     it 'returns a list of users mentioned' do 
     #         expect(post_message('@Ratchet')).to eql('Ratchet')
     #     end
+
 
     # end
 end

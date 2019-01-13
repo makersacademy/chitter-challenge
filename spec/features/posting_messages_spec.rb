@@ -19,7 +19,6 @@ RSpec.feature 'posting messages' do
         end
             
         it 'should save with a time stamp' do
-            
             time = DateTime.now
             post_message
             expect(page).to have_content time

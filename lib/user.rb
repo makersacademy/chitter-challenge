@@ -14,10 +14,6 @@ class User
   has n, :messagings
   has n, :messages, :through => :messagings
 
-
-
-
-
   def self.authenticate(email, password)
     user = first(email: email)
     return nil unless user

@@ -16,7 +16,6 @@ RSpec.feature 'Header Navigation' do
 
   context ' a user is signed in' do 
 
-
     it 'should display logout option' do
       generic_signup 
       expect(page).to have_selector(:css, 'a[href="/logout"]')

@@ -49,8 +49,12 @@ table {
 
 /* ========= end of reset ==== */
 
-.comment_form{
+.hide{
     height: 0;
 	overflow: hidden;
+}
 
+.show{
+	height: auto;
+	display:block
 }

@@ -40,7 +40,7 @@ class ChitterApp < Sinatra::Base
 
     post '/signup' do 
         user = User.first_or_create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
-        #redirect '/error2' unless user.valid?
+        redirect '/' unless user.valid?
         if user
             session[:user_id] = user.id
             redirect '/'
@@ -89,7 +89,7 @@ class ChitterApp < Sinatra::Base
         messageId = params[:message_id].to_i
         comment = Comment.create(content: params[:comment])
         message = Message.get(messageId)
-        message.comments << message
+        message.comments << comment
         message.save
         redirect '/'
     end
