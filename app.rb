@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   enable :method_override
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
