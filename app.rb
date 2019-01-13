@@ -16,9 +16,7 @@ class Warble < Sinatra::Base
   end
 
   post '/signin' do
-    p params[:sign_in_username]
-    p params[:sign_in_password]
-    p user = User.authenticate(params[:sign_in_username], params[:sign_in_password])
+    user = User.authenticate(params[:sign_in_username], params[:sign_in_password])
     if user
       session[:id] = user.id
       redirect "/private_profile/#{session[:id]}"
@@ -34,13 +32,12 @@ class Warble < Sinatra::Base
       password: params[:sign_up_password]
     )
 
-    if user
+    if user.valid?
       session[:id] = user.id
       redirect "/private_profile/#{session[:id]}"
     else
       redirect '/'
     end
-
   end
 
   get '/private_profile/:id' do
