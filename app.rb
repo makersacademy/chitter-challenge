@@ -37,6 +37,10 @@ class Chitter < Sinatra::Base
     erb :signin
   end
 
+  post '/signin' do 
+
+  end
+
 
 
 end

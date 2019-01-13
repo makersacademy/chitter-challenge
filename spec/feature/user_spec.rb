@@ -50,11 +50,21 @@ feature "Sign up" do
 end
 
 feature 'Sign in' do 
-  scenario 'looks for sign in button' do 
+  scenario 'checks for fields' do 
     signup_steps
     fill_in :name, with: "Thomas"
     fill_in :username, with: "Thomas974"
     fill_in :email, with: "Thomas@test.com"
     fill_in :password, with: "123"
   end
+
+  scenario 'Looks for signin button' do 
+    signup_steps
+    fill_in :name, with: "Thomas"
+    fill_in :username, with: "Thomas974"
+    fill_in :email, with: "Thomas@test.com"
+    fill_in :password, with: "123"
+    click_button "Sign in"
+  end
+
 end
