@@ -1,8 +1,8 @@
 require './lib/user.rb'
 
 RSpec.describe User do 
-  let!(:user) { User.create({firstname: "Doug", surname: "Holmes", email: "doug@doug", password: "carolisawesome"}) } 
-  let(:user_again) { User.create({firstname: "Doug", surname: "Holmes", email: "doug@doug", password: "carolisawesome"}) } 
+  let!(:user) { User.create({ firstname: "Doug", surname: "Holmes", email: "doug@doug", password: "carolisawesome" }) } 
+  let(:user_again) { User.create({ firstname: "Doug", surname: "Holmes", email: "doug@doug", password: "carolisawesome" }) } 
   describe '#create' do
    
     it 'stores users name' do
@@ -22,4 +22,4 @@ RSpec.describe User do
       expect(user_again.valid?).to eq false
     end
   end 
-end 
+end

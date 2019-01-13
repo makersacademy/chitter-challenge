@@ -1,32 +1,9 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Description
 -------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-\dt- LISTS TABLES WITHIN DB
-
-Quickstart
--------
-* $`git clone repo`
-* $`rake db:create` (created dbs that exist in database.yml file)
-* $`rake db:create_migration NAME=create_users`
-* $`rake db:create_migration NAME=create_peeps`
-* $`rake db:create_migration NAME=create_` 
-* $`rake db:test:prepare`
-* $`rake db:reset` (deletes all data)
-
-
+* Chitter is a small Twitter clone that allows users to post messages to a public stream. It was built using [Sinatra](http://sinatrarb.com/) and [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
 
 
 User Stories
@@ -68,27 +45,57 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+Installation
+-------
+- $ `git clone repo`
+- $ `bundle install`
+
+Database Config
+-------
+- $`rake db:create` (created dbs that exist in database.yml file)
+- $`rake db:create_migration NAME=create_users`
+```
+Insert this method into the *create_user.rb* migrate file that will be created within your db folder
+
+ def change
+    create_table(:users) do |u|
+      u.column(:firstname, :string)
+      u.column(:surname, :string)
+      u.column(:email, :string)
+      u.column(:password, :string)
+      u.column(:username, :string)
+    end
+```
+
+- $`rake db:create_migration NAME=create_peeps`
+```
+This command will allow this method into the *create_peeps.rb* migrate file that will be created within db folder
+ def change
+    create_table(:users) do |u|
+      u.column(:firstname, :string)
+      u.column(:surname, :string)
+      u.column(:email, :string)
+      u.column(:password, :string)
+    end
+```
+- $`rake db:migrate`
+- $`rake db:test:prepare`
+- $`rake db:reset` (deletes all data )
+
+QuickStart
+-----
+* `rackup`
+* `local server:9292`
+
+Testing
+-----
+* bundle exec rspec 
+PHOTO OF COVERAGE RUN
+ 
 Extensions
 -----
-* Adding password encrytion - should be a gem
-*
-
-
-Technical Approach:
------
-
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+* Adding password encryption
+* 
 
 
 Notes on functionality:
@@ -124,22 +131,3 @@ In code review we'll be hoping to see:
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!

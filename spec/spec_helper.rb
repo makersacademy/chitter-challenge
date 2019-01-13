@@ -1,4 +1,4 @@
-ENV['RACK_ENV']='test'
+ENV['RACK_ENV'] = 'test'
 
 require 'rspec'
 require 'pry'
@@ -9,7 +9,6 @@ require 'database_cleaner'
 require 'simplecov'
 require 'simplecov-console'
 
-
 require File.join(File.dirname(__FILE__), "..", "app.rb")
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -19,7 +18,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-Capybara.app=Chitter
+Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.after(:suite) do

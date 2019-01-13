@@ -11,6 +11,6 @@ RSpec.feature 'Sign in' do
     fill_in :username, with: 'cazzy3'
     fill_in :password, with: 'secret123'
     click_on 'Sign in'
-    expect(page.current_path).to eq ('/profile/1')
+    expect(page.current_path).to eq '/profile/1'
   end 
 end

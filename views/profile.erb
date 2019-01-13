@@ -1,4 +1,4 @@
-<h2> Welcome to Chitter, <%= @user.firstname %>!</h2>
+<h2> Welcome to Chitter, <%= @user.firstname.capitalize! %>!</h2>
 
 <h3>Your Details</h3>
 <ul>
@@ -11,8 +11,25 @@
   <input type='submit' value='PEEP' >
 </form>
 
-   <form action="/sessions" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Log out">
-    </form>
+<form action="/sessions" method="post">
+   <input type="hidden" name="_method" value="delete">
+   <input type="submit" value="Log out">
+ </form>
+
+
+  CHITTER FEED
+ 
+  <% @peeps.each do |peep| %>
+  <div>
+    <%= peep.content %>
+    <%= peep.created_at.strftime("%H:%M:%S - %d/%m/%y") %>
+    <%=  peep.user.firstname %>
+    <%= peep.user.username %>
+  </div>
+  <%end%>
+
+
+
+
+
 

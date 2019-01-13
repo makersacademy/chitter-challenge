@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   enable :method_override
 
   get '/' do 
+    # @peeps = Peep.all
     erb(:index)
   end
 
@@ -18,13 +19,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create({firstname: params[:firstname], surname: params[:surname], username: params[:username], email: params[:email], password: params[:password]})
+    user = User.create({ firstname: params[:firstname], surname: params[:surname], username: params[:username], email: params[:email], password: params[:password] })
     session[:id] = user.id
     redirect '/signin'
   end
 
   get '/signin' do
-   erb(:signin)
+    erb(:signin)
   end
 
   post '/signin' do
@@ -33,14 +34,15 @@ class Chitter < Sinatra::Base
       session[:id] = user.id 
       redirect("/profile/#{session[:id]}")
     else
-      #CAN CREATE LATER 
+      # CAN CREATE LATER 
       redirect '/error'
     end
   end
 
   get '/profile/:id' do
     @user = User.find(params[:id])
-    @peeps = Peeps.all
+    @users = User.all
+    @peeps = Peep.all
     erb(:profile)
   end
 
@@ -50,10 +52,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/:id' do
-    user = User.find(params[:id])
-    #need to have an id, a title, content, date created, user_id
-    peep = Peep.create({ title: params[:title], content: params[:content]})
-    redirect("profile/#{user.id}")
+    @user = User.find(params[:id])
+    peep = Peep.create({ user_id: @user.id, title: params[:title], content: params[:content] })
+    redirect("profile/#{@user.id}")
   end
 
   delete '/sessions' do
