@@ -46,6 +46,7 @@ Technical Approach:
 
 This application is built in Rails and uses Active Record to interact with the database. 
 Devise was implemented to handle user management (sign up, in, out)
+Bootstrap is used for styling making the app responsive to decives of different sizes.
 
 Notes on functionality:
 ------
@@ -56,18 +57,8 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 
 
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
 Notes on test coverage
 ----------------------
-
+Capybara and Rspec have been used to build feature tests. All tests are passing. 
+Test coverage is 98%.
 Rubocop is flagging long lines in Rails and Devise generated files. These have not been updated.
