@@ -24,6 +24,7 @@ Quickstart
 * $`rake db:create_migration NAME=create_peeps`
 * $`rake db:create_migration NAME=create_` 
 * $`rake db:test:prepare`
+* $`rake db:reset` (deletes all data)
 
 
 
