@@ -17,6 +17,12 @@
       Email: <%= @current_user.email %><br>
       Username: <%= @current_user.username %><br>
     </div>
-    
+
+    <div class="">
+      <form action="/signin" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign Out">
+      </form>
+    </div>
   </body>
 </html>

@@ -17,4 +17,16 @@ feature 'User Authentication' do
       expect(page).to have_content 'Error: email or username already exists'
     end
   end
+
+  context 'Signing in/out' do
+    scenario 'A user can sign out' do
+      signup
+      click_button 'Sign Out'
+      click_link 'Profile'
+
+      expect(current_path).to eq '/'
+      expect(page).to have_content 'You are not signed in'
+    end
+
+  end
 end

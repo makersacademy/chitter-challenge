@@ -45,8 +45,14 @@ class Chitter < Sinatra::Base
     if signed_in?
       erb :profile
     else
+      flash[:signout] = 'You are not signed in'
       redirect '/'
     end
+  end
+
+  delete '/signin' do
+    session.delete(:id)
+    redirect '/'
   end
 
   private
