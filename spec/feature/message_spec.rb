@@ -45,4 +45,9 @@
       visit '/'
       click_button "Sign up"
     end 
+    scenario "User is taken to a signup page" do 
+      visit '/'
+      click_button "Sign up"
+      expect(page).to have_current_path '/signup'
+    end
   end
