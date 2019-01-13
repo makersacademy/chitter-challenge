@@ -5,8 +5,19 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
-  property :email, String
+  property :username, String, :unique => true
+  property :email, String, :unique => true
   property :password, String
 
+  def self.authenticate(email, password)
+    user = first(email: email)
+    return nil unless user
+    if user.password == password
+      user
+    else
+      nil
+    end
+  end
+
 end
+

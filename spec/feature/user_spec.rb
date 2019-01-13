@@ -1,5 +1,6 @@
-require 'user.rb'
+require './lib/user.rb'
 require 'web_helper.rb'
+
 feature "Sign up" do 
   scenario "User sees able to click a sign up button" do 
     visit '/'
@@ -38,7 +39,7 @@ feature "Sign up" do
     fill_in :username, with: "Michael974"
   end
 
-  scenario "Submit button" do 
+  scenario "Checks route FROM /signup to /signin" do 
     visit '/signup'
     fill_in :name, with: "Thomas"
     fill_in :username, with: "Thomas974"
@@ -52,19 +53,20 @@ end
 feature 'Sign in' do 
   scenario 'checks for fields' do 
     signup_steps
-    fill_in :name, with: "Thomas"
-    fill_in :username, with: "Thomas974"
-    fill_in :email, with: "Thomas@test.com"
+    fill_in :email, with: "Thomas@tom.com"
     fill_in :password, with: "123"
   end
 
   scenario 'Looks for signin button' do 
     signup_steps
-    fill_in :name, with: "Thomas"
-    fill_in :username, with: "Thomas974"
-    fill_in :email, with: "Thomas@test.com"
-    fill_in :password, with: "123"
     click_button "Sign in"
   end
+
+  scenario "signing in directs you to profile page" do 
+    signup_steps
+    signin_steps
+    expect(page).to have_current_path '/profile/1'
+  end
+
 
 end
