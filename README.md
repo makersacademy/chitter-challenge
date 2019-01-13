@@ -34,7 +34,7 @@ My app allows a user to post to chitter. Messages display with a timestamp in re
 I want to sign up for Chitter
 I want to log in to Chitter
 I want to log out of Chitter
-It displays the username ofperson who posted
+It displays the username of person who posted
 
 ------------
 The app comes with login, sign up and sign out features.
@@ -46,10 +46,17 @@ send email to notify if user has been mentioned
 -----------
 my app is unable to send emails - 'connect 25 error'. Its is however able to search texts for usernames and validate them against the user table.
 
-# not yet achieved
-Peeps do not have the username of those who posted them on them yet
+#commenting
 commenting does not yet work
+-----
+commenting only works for one comment then theres a duplicate and it breaks..... 
+this is down to the way datamappers has mapped the tables together, im unsure of how to change datamapper to mimic the relationship i want.
+
+# not yet achieved
+
 fancy CSS
+------
+i ran out of time
 
 
 ## Personal LO 
