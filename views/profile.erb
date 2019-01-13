@@ -1,10 +1,11 @@
-  <form action='/sign-out' method='post'>
+  <form action='/sign-out' method='post' align="left">
     <input name='_method' type='hidden' value='delete'>
-    <input type = 'submit' id='log-out' value = 'Log out'>
+    <input type = 'submit' id='sign-out-header' name='log-out' value = 'Log out'>
   </form>
-
   <br>
+  <div id="bordered">
   <h1>Hello, <%= current_user.name %>!</h1>
+  </div>
   <br>
 
   <form action='/profile' method='post'>
@@ -17,17 +18,19 @@
      <br> 
      <input id='post' type='submit' value='Post my peep!'style="height:20px;width:100px">
      <br>
+     <br>
+     <br>
   </form>
-
+  <div id="bordered">
   <h2> Chitter feed </h2> 
   <% @peeps.reverse.each do | peep | %>
-  <div>
-   @<%= peep.user.username %><br>
-   <%= peep.display %><br>
-   <%= peep.time_created %> </div>
+  
+  <div id="bold-username"> @<%= peep.user.username %></div>
+  <div> <%= peep.display %> </div>
+  <div id="peep-time"> <%= peep.time_created %> </div>
   <br>
   <%end%>
-    
+  </div> 
  </div>
 
 
