@@ -1,124 +1,89 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Setup
 
+- Fork this repo 
+- git clone onto your machine
+- createdb chitter_app_development          #set up db
+- set RACK_ENV to development
+- use bundle install                        # will retreive and install gems 
+- rake auto_migrate                         # will create tables for you
+- run rackup to use the app or rspec to test
+
+
+##
 Challenge:
 -------
+to write a small Twitter clone that will allow the users to post messages to a public stream. Tests passing coverage 92% (email feature not working unsure of how to test).
 
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+## LO to encorperate the following features
 
 Features:
 -------
 
-```
-STRAIGHT UP
+# one
 
-As a Maker
-So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+------------
+My app allows a user to post to chitter. Messages display with a timestamp in reverse chronological order. You do not have to be logged in to see the peeps however your must be logged in to comment on them.
 
-As a Maker
-So that I can post messages on Chitter as me
+# two
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
 I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
+------------
+The app comes with login, sign up and sign out features.
+usernames and email are unique
 
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
-
-Technical Approach:
------
-
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
+#three
+send email to notify if user has been mentioned
 -----------
+my app is unable to send emails - 'connect 25 error'. Its is however able to search texts for usernames and validate them against the user table.
 
-In code review we'll be hoping to see:
+# not yet achieved
+Peeps do not have the username of those who posted them on them yet
+commenting does not yet work
+fancy CSS
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+## Personal LO 
 
-Notes on test coverage
-----------------------
+- I wanted to connect js, css to views. 
+- I wanted to make better use of partials.
+- I wanted to understand Datamapper
+- readable code
+- single responsibility code
+- clean tests
+- use a module
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+Whilst i have made better use of js, css and partials i am still struggling to understand how to implement relationships with datamapper. I understand relational databases and feel comfortble doing this task with sql, however im unsure what has n and belongs to do. Whilst i was able to use them to set out tables id like im unable to work with them.
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+I think my test are quite clean and my code is readable. I tried to keep the code to single responsibility however there was a problem with one of my method in UsersMentioned module - in order for this to work i have temporarily placed it inside the app route. 
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+## unforseen challenges 
+
+- my machine was unable to work with Bycrypt. To go around this i changed the data type into a string after first trying to reinstall gems etc. 
+
+- I made an error in my database cleaner configuration file which led to a whole file of tests constantly failing. This took a while to fix. 
+
+## reflection 
+
+I enjoyed this challenge and was able to do other tasks i had wanted to do such as using modules making better use of partials. However i still havent fully understood datamapper. 
+
+## technologies
+
+- JS
+- CSS
+- erb 
+- ruby 
+- Sinatra
+- datamapper
+- database_cleaner
+- rspec
+- capybara
+- psql

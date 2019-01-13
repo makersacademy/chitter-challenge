@@ -23,7 +23,6 @@ class ChitterApp < Sinatra::Base
         
         @messages = Message.all
     
-        # if theres a user logged on and messages to display
         if @user && @messages
             @script = 'comment_form'
         end
