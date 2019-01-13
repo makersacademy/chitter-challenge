@@ -6,7 +6,7 @@
 
 <h3>Past Peeps</h3>
 <div>
-  <%@peeps.each do |peep|%>
+  <%@peeps.reverse.each do |peep|%>
     <%=peep.message%>
     <br>
     <br>
