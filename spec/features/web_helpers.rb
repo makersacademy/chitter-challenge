@@ -18,3 +18,8 @@ def input_signup_details
   fill_in :sign_up_email, with: 'christos@makers.com'
   fill_in :sign_up_password, with: 'ClassicWoW'
 end
+
+def post_chirrup
+  fill_in :chirrup, with: 'Sqwark!'
+  click_button 'Post'
+end

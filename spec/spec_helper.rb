@@ -5,6 +5,8 @@ ENV['RACK_ENV'] = 'test'
 
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'orderly'
+
 require './app'
 
 Capybara.app = Warble

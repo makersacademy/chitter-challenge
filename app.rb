@@ -56,8 +56,8 @@ class Warble < Sinatra::Base
   end
 
   get '/chirrup-board' do
-    p @chirrups = Chirrup.all
-    erb :chirrups
+    @chirrups = Chirrup.all
+    erb :chirrup_board
   end
 
   post '/chirrup' do

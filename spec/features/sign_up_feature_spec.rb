@@ -6,7 +6,7 @@ RSpec.feature 'User Authentication' do
       visit '/'
       input_signup_details
       click_button 'Sign Up'
-      expect(page.current_path).to eq('/private_profile/6')
+      expect(page.current_path).to eq('/private_profile/7')
       expect(page).to have_content('christos')
     end
 

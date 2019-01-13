@@ -11,6 +11,7 @@ gem 'sinatra-activerecord'
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'orderly'
   gem 'pry'
   gem 'rspec'
   gem 'rubocop'
