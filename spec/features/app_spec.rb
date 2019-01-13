@@ -10,6 +10,6 @@ feature 'homepage' do
   scenario 'A user can signup' do
     signup
     expect(page).to have_content 'You signed up successfully!'
-    expect(page).to have_content 'Welcome, test@test.com'
+    expect(page).to have_content 'Welcome, Test'
   end
 end

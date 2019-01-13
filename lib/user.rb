@@ -5,7 +5,7 @@ class User
 
   property :id, Serial
   property :email, String
-  property :user_name, String
+  property :username, String
   property :password, BCryptHash
 
 end
