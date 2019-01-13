@@ -1,25 +1,14 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Welcome to Chitter! The only social network created exclusively for Makers students. With this web application you can sign up for an account and post your own updates, or Peeps, for others at Makers to see. A little birdy told me Chitter is the place to be!
 
 Features:
 -------
 
-```
-STRAIGHT UP
+Chitter currently enables its users to fulfill the following user stories:
 
+```
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -36,8 +25,6 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
@@ -46,8 +33,16 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
+```
+It also incorporates the below functionality:
+* You don't have to be logged in to see the peeps.
+* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* The username and email are unique.
+* Peeps (posts to chitter) have the name of the maker and their user handle.
 
+Still to come:
+
+```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
@@ -56,69 +51,71 @@ I want to receive an email if I am tagged in a Peep
 Technical Approach:
 -----
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+Chitter has been built using a `Postgres` database which is accesed through the `ActiveRecord` ORM. The Web App is founded on Sinatra.
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-
-Notes on functionality:
+Installation:
 ------
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+- Requirements:
 
-Bonus:
+ 1. Ruby and RVM, please see https://rvm.io/rvm/install for installation instructions
+ 2. PostgreSQL, please see http://www.postgresqltutorial.com/install-postgresql/ for installation instructions
+
+- Setup:
+
+Once your system has the above requirements installed, from your command line move to your project directory and run the following commands.
+
+ 1. To clone the repo:
+
+```
+ $ git clone git@github.com:rednblack99/chitter-challenge.git
+ $ cd chitter-challenge
+ $ bundle install
+```
+
+ 2. To set up the databases and database tables:
+
+ ```
+ $ psql
+ CREATE DATABASE chitter_development;
+ CREATE DATABASE chitter_test;
+ \q
+ $ rake db:migrate
+```
+
+ 3. Run locally:
+
+```
+ $ rackup
+```
+
+ 4. Visit Chittter on the browser of your choice at localhost:9292
+ 
+ Bonus. To run the tests:
+ 
+ ```
+ $ rspec
+ ```
+
+Status:
 -----
 
-If you have time you can implement the following:
+Currently Chitter is fully functional, passing all tests with 100% coverage and no Rubocop offences.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
+Modelling
 -----------
 
-In code review we'll be hoping to see:
+The below screenshot shows the model used to design Chitter's functionality. Built using Draw.io:
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+![Chitter Model](https://i.imgur.com/rG4ajya.png) 
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
-Notes on test coverage
+Screenshots
 ----------------------
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+The below screenshots (taken in Ruby) demonstrate how Chitter should display within your browser:
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+![Chitter Homepage](https://i.imgur.com/eaklB8N.png)
+![Chitter Signup](https://i.imgur.com/A5OzqGx.png)
+![Chitter Profile](https://i.imgur.com/Ovg2YF6.png)
