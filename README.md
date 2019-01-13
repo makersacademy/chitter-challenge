@@ -39,6 +39,7 @@ It displays the username of person who posted
 ------------
 The app comes with login, sign up and sign out features.
 usernames and email are unique
+ensures no duplicates and that email is of email format
 It displays the name of the user who poste it.
 
 #three
@@ -82,7 +83,7 @@ I think my test are quite clean and my code is readable. I tried to keep the cod
 
 ## reflection 
 
-I enjoyed this challenge and was able to do other tasks i had wanted to do such as using modules making better use of partials. However i still havent fully understood datamapper. 
+I enjoyed this challenge and was able to do other tasks i had wanted to do such as using modules making better use of partials. However i still havent fully understood how to link tables desirably in datamapper. 
 
 ## technologies
 

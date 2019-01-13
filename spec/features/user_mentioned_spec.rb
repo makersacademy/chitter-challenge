@@ -28,6 +28,5 @@ RSpec.feature 'emailing users' do
     #         expect(post_message('@Ratchet')).to eql('Ratchet')
     #     end
 
-       
     # end
 end
