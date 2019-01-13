@@ -13,6 +13,13 @@ feature 'homepage' do
       expect(page).to have_content 'Welcome, Test'
     end
 
+    scenario 'a user must have a unique email' do
+      signup
+      click_button 'Log out'
+      signup
+      expect(page).to have_content 'Error! Want to sign up or sign in?'
+      expect(page.current_path).to eq '/error'
+    end
   end
 
   scenario 'A user can signin' do
