@@ -11,9 +11,9 @@ gem 'sinatra-activerecord'
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'pry'
   gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
-  gem 'pry'
 end

@@ -26,10 +26,11 @@ describe 'User' do
   end
 
   context '#authenticate' do
-      let!(:user) {User.create(
-        username: 'chris',
-        email: 'chris@makers.com',
-        password: 'classicWoW') }
+    let!(:user) { User.create(
+      username: 'chris',
+      email: 'chris@makers.com',
+      password: 'classicWoW')
+    }      
     it "Sign in if username and password are correct" do
       expect(User.authenticate('chris', 'classicWoW')).to eq(user)
     end

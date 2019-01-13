@@ -7,7 +7,7 @@ feature 'User Authentication' do
       fill_in :sign_up_password, with: 'ClassicWoW'
       click_button 'Sign Up'
       p current_path
-      expect(page.current_path).to eq('/private_profile/5')
+      expect(page.current_path).to eq('/private_profile/6')
       expect(page).to have_content('christos')
     end
 

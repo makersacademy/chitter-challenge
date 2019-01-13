@@ -4,3 +4,7 @@
   <input type="hidden" name="_method" value="delete">
   <input type="submit" name="I'm done Warbeling, delete me!" value="I'm done Warbeling, delete me!">
 </form>
+
+<form action=<%="/private_profile/#{@user.id}"%> method="get">
+  <input type="submit" name="I'm not done Warbeling, don't delete me!" value="I'm not done Warbeling, don't delete me!">
+</form>
