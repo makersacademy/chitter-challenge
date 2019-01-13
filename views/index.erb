@@ -4,3 +4,10 @@
   <a class="btn btn-dark" href="/login">Log in</a>
   <a class="btn btn-dark" href="/signup">Sign up</a>
 </html>
+<div>
+    <p>Recent peeps:</p>
+  </div>
+  <% @peeps.reverse.each do |peep| %>
+  <p> <%= peep.content %> - <%= peep.time %> - <%= peep.user.username %></p>
+  <% end %>
+</div>

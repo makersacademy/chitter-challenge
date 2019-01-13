@@ -1,47 +1,99 @@
-# Chitter Challenge #
+# madcoders_makersbnb #
+# Makersbnb #
 
 ## Project ##
 
-The project is to build a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+We are building a web app similar to the Airbnb one, based on the following user stories.<br/>
 
 ```
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+As a user
+So that I can list properties
+I need to be able to sign up
 ```
 ```
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+As a user
+So I can access my account
+I need to be able to sign in
 ```
 ```
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+As a user
+So I can leave my account
+I need to be able to sign out
 ```
 ```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+As a user
+So that I can have guests
+I need to be able to list a new space
 ```
 ```
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
+As a user
+So I can have guests at multiple locations
+I need to be able to list multiple spaces
 ```
 ```
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+As a user
+So I can describe the space and price to my guests
+I need to be able to put title, describe space and give £ per night
 ```
 ```
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+As a user
+So guests know when they can stay
+I need to be able to display a range of dates where the space is available
 ```
+```
+As a user
+So that I can stay at a property
+I need to be able to book
+```
+```
+As a user
+So that I can stay at a property
+I need to be able to be approved by the owner
+```
+```
+As a user
+So that I can vet my guests
+I want to have the option of approving or denying user requests to stay
+```
+```
+As a user
+So that I don’t double-book guests
+I want to be able to block that date from being booked
+```
+```
+As a user
+So that I can keep the space open until it’s been booked
+I want to be have the space open for booking until the guest approves
+```
+
+## Our approach ##
+
+This project is done in a team of 3 people.<br/>
+We are using these high level skills :<br/>
+1. [XP values](#xp-values) to guide your behaviour<br/>
+2. The full [developer workflow](#development-workflow) (Creating issues, branching, reviewing, squirrelling, merging.<br/>
+3. Keeping code quality and test coverage using *Rspec*, *Capybara*, *simpleCov*, *Rubocop*<br/>
+4. Agile processes (diagram, morning stand up, afternoon retro)*
+
+We built our CRC Model based on the user story as following.<br/>
+
+![CRC model](https://user-images.githubusercontent.com/43742795/51039457-44d75900-15ad-11e9-8328-28f7f9f5d4d1.png)
+
+Due to the short time we had to build the app, we decided to prioritise our Minimum Viable Product by building our MVP as following :<br/>
+
+1. User is able to sign_up
+2. User is able to sign_out
+3. User is able to sign_in
+4. User is able to choose on their profile if they wish to list or book a property (list and book button on profile page)
+5. In the case of list, the user is redirected onto the list page and is able to fill a form about the property they wish to list.
+6. User is able to add the date of the availability for this property
+7. User can see on their profile the list of the properties that they have listed
+8. In the case of book, user is redirected onto a book page, where they are able to enter the dates they wish to book a property
+9. User clicks on search and a list of the available properties matching their dates is displayed
+10. User is able to click on a property to book it and is redirected on a page where they can see a message letting them know that the owner will have to approve their booking.<br/>
+
+The project has been built from this ![mockup](https://user-images.githubusercontent.com/43742795/51042620-a4853280-15b4-11e9-98e3-cc1a6ed273b5.png).
+
 ## How to use ##
 
 ### Set up ###

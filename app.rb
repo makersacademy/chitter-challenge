@@ -9,15 +9,22 @@ class Chitter < Sinatra::Base
   enable :method_override
 
   get '/' do
+    @peeps = Peep.all
     erb (:index)
   end
 
   get '/profile' do
     if signed_in?
+      @peeps = Peep.all
       erb (:profile)
     else
       redirect '/login'
     end
+  end
+
+  post '/profile' do
+    peep = Peep.create(content: params[:content], time: Time.now, user: current_user)
+    redirect '/profile'
   end
 
   get '/signup' do

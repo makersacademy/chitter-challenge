@@ -10,9 +10,21 @@
       <input type="submit" value="Log out">
     </form>
 
-    <h1>Welcome, <%= current_user.email %>!</h1>
-
-    <h2>Your info</h2>
-    <p>email: <%= current_user.email %></p>
+    <h1>Welcome, <%= current_user.username %>!</h1>
   </body>
+
+<div>
+  <form action="/profile" method="post">
+      <label>Type your peep here:</label> <br><br>
+      <textarea name="content" rows="5" cols="80"></textarea> <br>
+      <input type="submit" name="Post" value="Post">
+  </form>
+  <div>
+
+<div>
+  <p>Recent peeps:</p>
+  <% @peeps.reverse.each do |peep| %>
+  <p> <%= peep.content %> - <%= peep.time %> - <%= peep.user.username %></p>
+  <% end %>
+</div>
 </html>
