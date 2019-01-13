@@ -12,7 +12,7 @@ end
 def post_peep
   sign_up
   fill_in :peep, with: 'Writing a peep'
-  click_button 'Submit your peep'
+  click_button 'Post'
 end
 
 def log_in

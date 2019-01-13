@@ -3,6 +3,7 @@ require './lib/user'
 require './lib/peep'
 require './config/data_mapper'
 require 'pry'
+require 'pony'
 
 class Chitter < Sinatra::Base
   ENV['RACK_ENV'] ||= 'development'
@@ -11,13 +12,28 @@ class Chitter < Sinatra::Base
   enable :method_override
 
   get '/' do
-    @user = User.get(session[:user_id])
     @peep = Peep.all
     erb :index
   end
 
   post '/peep' do
+    session[:tag_someone] = params[:tag_someone]
     @peep = Peep.create(content: params[:peep], user: current_user)
+    if User.first(username: session[:tag_someone])
+      tagged = User.first(username: session[:tag_someone])
+      Pony.mail({
+        :to => 'you@example.com',
+        :via => :smtp,
+        :via_options => {
+          :address        => 'smtp.yourserver.com',
+          :port           => '25',
+          :user_name      => 'user',
+          :password       => 'password',
+          :authentication => :plain, # :plain, :login, :cram_md5, no auth by default
+          :domain         => "localhost.localdomain" # the HELO domain provided by the client to the server
+        }
+      })
+    end
     redirect '/profile'
   end
 
