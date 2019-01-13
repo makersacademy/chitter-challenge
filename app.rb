@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'pry'
 require 'sinatra/base'
@@ -8,7 +8,12 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "Hello World"
+    @peeps = Peep.all
+    erb :index
   end
 
-end
+  post '/peep' do
+    Peep.create(message: params[:message])
+    redirect '/'
+  end
+end  

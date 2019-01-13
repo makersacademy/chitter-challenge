@@ -1,0 +1,14 @@
+<h3>Post Your Peeps Here!</h3>
+<form action='/peep' method='post'>
+  <textarea name='message' rows='3' cols='45' placeholder='Enter peep'></textarea>
+  <input type='submit' value='Submit'>
+</form>
+
+<h3>Past Peeps</h3>
+<div>
+  <%@peeps.each do |peep|%>
+    <%=peep.message%>
+    <br>
+    <br>
+  <%end%>
+</div>
