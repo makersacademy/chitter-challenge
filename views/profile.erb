@@ -20,7 +20,7 @@
   </form>
 
   <h2> Chitter feed </h2> 
-  <% @peeps.each do | peep | %>
+  <% @peeps.reverse.each do | peep | %>
   <div>
    <%= peep.display %> </div>
   <br>
