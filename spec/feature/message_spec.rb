@@ -39,3 +39,10 @@
       expect(page).to have_content "Thomas Nguyen"
     end
    end
+
+   feature "Sign up" do 
+    scenario "User sees able to click a sign up button" do 
+      visit '/'
+      click_button "Sign up"
+    end 
+  end

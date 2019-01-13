@@ -24,4 +24,8 @@ class Chitter < Sinatra::Base
     erb :messages
   end
 
+  get '/signup' do 
+    erb :signup
+  end
+
 end
