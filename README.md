@@ -61,7 +61,7 @@ Notes on functionality:
 
 Notes on test coverage
 ----------------------
-Capybara and Rspec have been used to build feature tests. All tests are passing. 
-Test coverage is 98.95%.
-Rubocop is flagging long lines in Rails and Devise agenerated files. These have not been updated.
-Travis CI has also been set up and is passing.
+1. Capybara and Rspec have been used to build feature tests. All tests are passing. 
+2. Test coverage is 98.95%.
+3. Rubocop is flagging long lines in Rails and Devise agenerated files. These have not been updated.
+4. Travis CI has also been set up and is passing.
