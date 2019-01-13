@@ -27,8 +27,7 @@ RSpec.feature 'Peeps' do
       post_peep
       visit '/'
       expect(page).to have_content 'First peep'
-      expect(page).to have_content 'Created at 05:10AM on 17/12/2018'
-      expect(page).to have_content 'Created by Test @TestTest'
+      expect(page).to have_content 'Created by Test (@TestTest) on 17/12/2018 at 05:10AM'
     end
 
     scenario 'A Maker can post a peep and see its full content on the show page' do
@@ -107,9 +106,8 @@ RSpec.feature 'Peeps' do
       fill_in :peep_title, with: 'Second peep'
       fill_in :peep_body, with: 'I love winter!'
       click_button 'Save Peep'
-      visit '/'
-      click_link 'Add comment'
-      fill_in :comment, with: 'This is great!'
+      fill_in :comment_body, with: 'This is great!'
+      click_button 'Create Comment'
       expect(page).to have_content 'This is great!'
     end
   end
