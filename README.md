@@ -71,11 +71,11 @@ Testing
 
 Demo
 -------
-[homepage]!(images/chitter_homepate.png)
-[signup]!(images/chitter_signup.png)
-[signin]!(images/chitter_signin.png)
-[profile]!(images/chitter_profile.png)
-[peep]!(images/peep_page.png)
+![homepage](images/chitter_homepate.png)
+![signup](images/chitter_signup.png)
+![signin](images/chitter_signin.png)
+![profile](images/chitter_profile.png)
+![peep](images/peep_page.png)
 
 Extensions
 -------
