@@ -9,11 +9,11 @@ group :test do
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem "capybara", "~> 3.12"
+  gem "database_cleaner", "~> 1.7"
 end
 
-gem "capybara", "~> 3.12"
 
-gem "database_cleaner", "~> 1.7"
 
 gem "sinatra", "~> 2.0"
 
