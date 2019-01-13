@@ -14,3 +14,18 @@ def post_peep
   fill_in :peep, with: 'Writing a peep'
   click_button 'Submit your peep'
 end
+
+def log_in
+  sign_up
+  click_on 'Log out'
+  click_on 'Log In'
+  fill_in :email, with: 'myemail@email.com'
+  fill_in :password, with: 'mypassword'
+  click_button 'Sign In'
+end
+
+def log_out
+  sign_up
+  log_in
+  click_on 'Log out'
+end
