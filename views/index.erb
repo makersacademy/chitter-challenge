@@ -8,13 +8,21 @@
   <input type="submit" name="Sign In" value="Sign In">
 </form>
 
-<p>Join Warble! Submit your details below</p>
+<p>Chirrups!</p>
+<% @chirrups.reverse.each do |chirrup| %>
+  <div>
+    <%= chirrup.content %> -- <%= chirrup.created_at %>
+  </div>
+<% end %>
+
+<p>Join Warble so you can post Chirrups too!</p>
+<p>Submit your details below today:</p>
 
 <form action="/signup" method="post">
   <label for="username">Username:</label>
   <input type="text" name="sign_up_username" placeholder="username" required>
   <label for="email">email:</label>
-  <input type="text" name="sign_up_email" required>
+  <input type="text" name="sign_up_email" placeholder="email" required>
   <label for="password">Password:</label>
   <input type="password" name="sign_up_password" placeholder="password">
   <input type="submit" name="Sign Up" value="Sign Up">

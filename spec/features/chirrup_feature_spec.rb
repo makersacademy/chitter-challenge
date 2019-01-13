@@ -10,14 +10,23 @@ RSpec.feature 'Chirrup' do
       expect(page.current_path).to eq('/chirrup-board')
       expect(page).to have_content 'Sqwark!'
     end
+  end
 
-    scenario 'A user posts multiple messages and views them in reverse chronological order' do
+  context 'Viewing chirrups' do
+    scenario 'Chirrups displayed in reverse chronological order on chirrup board' do
       user = create_user('christos', 'christos@makers.com', 'ClassicWoW')
       message = create_message('Sqwark_1!')
       message = create_message('Sqwark_2!')
       sign_in
       click_button 'View Chirrups'
       click_button 'Post'
+      expect('Sqwark_2').to appear_before('Sqwark_1')
+    end
+
+    scenario 'Chirrups displayed in reverse chronological order on index page' do
+      message = create_message('Sqwark_1!')
+      message = create_message('Sqwark_2!')
+      visit '/'
       expect('Sqwark_2').to appear_before('Sqwark_1')
     end
 

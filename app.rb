@@ -13,6 +13,7 @@ class Warble < Sinatra::Base
   set :method_override, true
 
   get '/' do
+    @chirrups = Chirrup.all
     erb :index
   end
 
