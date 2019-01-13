@@ -40,16 +40,20 @@ class Chitter < Sinatra::Base
 
   get '/profile/:id' do
     @user = User.find(params[:id])
+    @peeps = Peeps.all
     erb(:profile)
   end
 
-  get '/peep' do
+  get '/peep/:id' do
+    @user = User.find(params[:id])
     erb(:peep)
   end
 
-  post '/peep' do
+  post '/peep/:id' do
+    user = User.find(params[:id])
     #need to have an id, a title, content, date created, user_id
-    peep = Peep.create({})
+    peep = Peep.create({ title: params[:title], content: params[:content]})
+    redirect("profile/#{user.id}")
   end
 
   delete '/sessions' do
