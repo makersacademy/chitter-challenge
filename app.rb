@@ -22,12 +22,12 @@ class Chitter < Sinatra::Base
     user = User.create({ firstname: params[:firstname], 
       surname: params[:surname], username: params[:username], 
       email: params[:email], password: params[:password] })
-      if user.valid?
-        session[:id] = user.id
-        redirect "/profile/#{session[:id]}"
-      else
-        redirect '/signin'
-      end
+    if user.valid?
+      session[:id] = user.id
+      redirect "/profile/#{session[:id]}"
+    else
+      redirect '/signin'
+    end
   end
 
   get '/signin' do
