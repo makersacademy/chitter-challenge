@@ -67,11 +67,11 @@ QuickStart
 Testing 
 -------
 - $ `rspec`
-[coverage]!(images/chitter_coverage.png)
+![coverage](images/chitter_coverage.png)
 
 Demo
 -------
-![homepage](images/chitter_homepate.png)
+![homepage](images/chitter_homepage.png)
 ![signup](images/chitter_signup.png)
 ![signin](images/chitter_signin.png)
 ![profile](images/chitter_profile.png)
