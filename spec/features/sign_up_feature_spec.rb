@@ -1,13 +1,20 @@
-RSpec.feature 'Warble' do
-  context 'Sign Up' do
-    scenario 'A new Warbler joins Warble and lands on their own profile page' do
+feature 'User Authentication' do
+  context 'Signup' do
+    let!(:user) { User.create(
+      username: 'singleguy', 
+      password: 'secretguy', 
+      password: 'Secret123'
+    ) }
+
+    scenario 'User can signup' do
       visit '/'
-      fill_in :username, with: 'christof'
-      fill_in :email, with: 'chris@makers.com'
-      fill_in :password, with: 'classicWoW'
+      fill_in :sign_up_username, with: 'awesomedave'
+      fill_in :sign_up_email, with: 'dave@makers.com' 
+      fill_in :sign_up_password, with: 'Secret123'
       click_button 'Sign Up'
-      expect(page.current_path).to eq('/private_profile/1')
-      expect(page).to have_content('christof')
     end
   end
+
 end
+
+

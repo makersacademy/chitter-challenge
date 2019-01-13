@@ -14,11 +14,23 @@ class Warble < Sinatra::Base
     erb :index
   end
 
+  post '/signin' do
+    p params[:sign_in_username]
+    p params[:sign_in_password]
+    p user = User.authenticate(params[:sign_in_username], params[:sign_in_password])
+    if user
+      session[:id] = user.id
+      redirect "/private_profile/#{session[:id]}"
+    else
+      redirect '/'
+    end
+  end
+
   post '/signup' do
     user = User.create(
-      email: params[:email],
-      username: params[:username],
-      password: params[:password]
+      username: params[:sign_up_username],
+      email: params[:sign_up_email],
+      password: params[:sign_up_password]
     )
 
     if user
