@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #EDECE6;
+  border-radius: 10px;
+}
+
+header {
+  position: relative;
+  margin-left: 1em;
+  color: #FF6E38;
+}
+
+#text_input {
+  margin-left: 1.5em;
+  width: 50%;
+}
+
+.message_content {
+  border: .5px solid #80808030;
+  margin: 1em;
+  padding: 6px;
+  background-color: #F8F7F3;
+  border-radius: 10px;
+}
+
+.message {
+  margin-bottom: -10px;
+}
+
+.message_area {
+  margin-top: 3em;
+}
+
+#time {
+  font-size: .8em;
+  border-top: .5px dashed #80808030;
+}
+
+#enter {
+  margin-left: 10em;
+  width: 100px;
+  box-shadow: 1px 1px 2px #FF6E38;
+  border-radius: 45px;
+}
