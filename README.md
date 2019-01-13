@@ -4,6 +4,12 @@
 Chitter Challenge [![Build Status](https://travis-ci.org/AlinaGoaga/chitter-challenge.svg?branch=master)](https://travis-ci.org/AlinaGoaga/chitter-challenge)
 =================
 
+![Image-of-application](https://github.com/AlinaGoaga/Chitter_TwitterClone/blob/master/app/assets/images/Home%20page%20Chitter.jpeg)
+
+![Image-of-application](https://github.com/AlinaGoaga/Chitter_TwitterClone/blob/master/app/assets/images/Show%20page%20Chitter.jpeg)
+
+![Image-of-application](https://github.com/AlinaGoaga/Chitter_TwitterClone/blob/master/app/assets/images/Screen%20Shot%202019-01-13%20at%2022.46.25.png)
+
 Features covered:
 -------
 
