@@ -9,8 +9,10 @@
 </div>
 </form>
 
-<% @messages.each do |message|%>
+<% @messages.reverse.each do |message|%>
+<br>
 <%= message.content %>
+<br>
 <% end %>
 
 
