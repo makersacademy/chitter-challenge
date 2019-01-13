@@ -38,6 +38,16 @@ class App < Sinatra::Base
     end
   end
 
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    @user = User.find_by(username: params["Username"], password: params["Password"])
+    session[:id] = @user.id
+    redirect '/profile/:id/home'
+  end
+
   get '/profile/:id/home' do
     @id = session[:user].id
     @user = User.find(@id)
