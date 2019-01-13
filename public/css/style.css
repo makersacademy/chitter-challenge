@@ -1,0 +1,87 @@
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #e2e2e2;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  min-height: 100%;
+}
+
+.stroke {
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+header {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: #ffb3a0;
+  padding-left: 2em;
+  padding-top: 1em;
+}
+
+.signin {
+  float: right;
+  padding-top: 1em;
+  clear: both;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.intro {
+  clear: both;
+  padding-left: 2em;
+  padding-top: 1em;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #ffb3a0;
+}
+
+.peeps_intro {
+  clear: both;
+  padding-left: 2em;
+  padding-top: 1em;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.display_peeps {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding-left: 4em;
+  background-color: #ffb3a0;
+}
+
+.signout {
+  float: right;
+  padding-top: 1em;
+  clear: both;
+}
+
+.post_peep {
+  clear: both;
+  padding-left: 2em;
+  padding-top: 1em;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+}
+
+.signup {
+  clear: both;
+  padding-left: 2em;
+  padding-top: 1em;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background-color: #ffb3a0;
+  border-radius: 25px;
+  padding-bottom: 1em;
+  padding-right: 1em;
+  float: left;
+}

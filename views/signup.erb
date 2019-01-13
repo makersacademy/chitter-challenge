@@ -1,13 +1,39 @@
-<h1> Chitter </h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="<%= url("/css/style.css")%>">
+    <title>Chitter</title>
+  </head>
 
-<p> To sign up for Chitter simply enter your details below: </p>
+  <body>
+    <div class="container">
 
-<form action="/signup" method="post">
-  <div class="form_input">
-    <p>Email: <input type="text" name="email" placeholder="email" required> </p>
-    <p>Name: <input type="text" name="name" placeholder="name" required> </p>
-    <p>Username: <input type="text" name="username" placeholder="username" required> </p>
-    <p>password: <input type="text" name="password" placeholder="password" minlength=8 required> </p>
-    <input type="submit" name="Sign Up" value="Sign Up">
-  </div>
-</form>
+        <div class="signout">
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" name="Sign Out" value="Sign Out">
+      </form>
+    </div>
+
+    <header>
+    <h1> Chitter </h1>
+    </header>
+
+    <div class="intro">
+    To sign up for Chitter simply enter your details below:
+    </div>
+
+    <form action="/signup" method="post">
+      <br>
+      <div class="signup">
+        <p>Email: <input type="text" name="email" placeholder="email" required> </p>
+        <p>Name: <input type="text" name="name" placeholder="name" required> </p>
+        <p>Username: <input type="text" name="username" placeholder="username" required> </p>
+        <p>password: <input type="text" name="password" placeholder="password" minlength=8 required> </p>
+        <input type="submit" name="Sign Up" value="Sign Up">
+      </div>
+    </form>
+    </div>
+  </body>
+</html>

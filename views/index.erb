@@ -1,22 +1,47 @@
-<h1> Chitter </h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="<%= url("/css/style.css")%>">
+    <title>Chitter</title>
+  </head>
+  
+  <body>
+    <div class="container">
+    
+    <div class="signin">
+    <form action="/signin" method="post">
+      Username: <input type="text" name="username" placeholder="username" required>
+      Password: <input type='text' name='password' placeholder="password" required>
+      <input type="submit" name="Sign In" value="Sign In">
+    </form>
+    </div>
 
-<p> Welcome to Chitter! The social media site exclusively for Makers students. <p>
-<p> To post your own Peeps you'll need an account. </p>
-<a href='/signup'> Sign Up Here! </a>
 
-<p> If you already have a Chitter account please sign in: </p>
-<div class="signin">
-  <form action="/signin" method="post">
-    <p>Username: <input type="text" name="username" placeholder="username" required> </p>
-    <p>Password: <input type='text' name='password' placeholder="password" required> </p>
-    <input type="submit" name="Sign In" value="Sign In">
-  </form>
-</div>
 
-<% @peeps.reverse.each do |peep| %>
-  <div class=display_peeps>
-    <p> <%=peep.user.name%> (AKA: <%=peep.user.username%>) peeped: </p> 
-    <p><%=peep.content%> </p>
-    <p>Posted:<%=peep.created_at.strftime('%d-%m-%Y | %H:%M')%>
-   </div>
-  <% end %>
+    <header>
+      <h1 class=stroke>Chitter</h1>
+    </header>
+    
+    <div class="intro">
+    <p> Welcome to Chitter! The social media site exclusively for Makers students. <p>
+    <p> To post your own Peeps you'll need to sign in or create an account. </p>
+    <a href='/signup'> Sign Up Here! </a>
+    </div>
+
+    <div class="peeps_intro">
+      <p> Check out the latest peeps from our users: </p>
+    </div>
+
+    <% @peeps.reverse.each do |peep| %>
+      <br>
+      <div class=display_peeps>
+        <p> <%=peep.user.name%> (AKA: <%=peep.user.username%>) peeped: </p> 
+        <p><%=peep.content%> </p>
+        <p>Posted:<%=peep.created_at.strftime('%d-%m-%Y | %H:%M')%>
+      </div>
+      <% end %>
+    </div>
+  </body>
+</html>
+
