@@ -23,3 +23,7 @@ def post_chirrup
   fill_in :chirrup, with: 'Sqwark!'
   click_button 'Post'
 end
+
+def create_message(message)
+  Chirrup.create(content: message)
+end

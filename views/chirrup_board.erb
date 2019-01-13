@@ -6,7 +6,5 @@
 
 
 <% @chirrups.reverse.each do |chirrup| %>
-  <div>
-    <%= chirrup.content %>
-  </div>
+  <%= chirrup.content %> -- <%= chirrup.created_at %>
 <% end %>
