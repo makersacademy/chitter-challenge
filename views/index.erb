@@ -6,9 +6,15 @@
   </head>
   <body>
     <h1>Chitter</h1>
-    <form action="/message" method="post">
+    <form action="/peep" method="post">
       <input type="text" name="message">
       <input type="submit" name="Enter" value="Enter">
     </form>
+    <% @messages.reverse.each do |message| %>
+      <%=message.content%>
+      <br>
+      <%= message.display_time%>
+      <br>
+    <% end %>
   </body>
 </html>
