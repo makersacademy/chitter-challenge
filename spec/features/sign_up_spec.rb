@@ -1,3 +1,5 @@
+require 'sinatra/flash'
+
 feature 'A user can sign up to use chitter' do
   scenario 'A user signs up' do
     visit '/'
@@ -29,6 +31,6 @@ feature 'A user can sign up to use chitter' do
     fill_in('Password', with: 'iloveheresy2')
     click_on 'Sign Up'
 
-    expect(flash[:error]).to be_present
+    expect(page).to have_content("Email already in use")
   end
 end

@@ -8,6 +8,7 @@ gem 'rake'
 gem 'shotgun', '~> 0.9.2'
 gem 'sinatra', '~> 2.0'
 gem 'sinatra-activerecord'
+gem 'sinatra-flash'
 gem 'tux'
 
 group :test do

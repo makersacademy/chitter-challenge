@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 
-  validates_uniqueness_of :email
-
+  validates :email, :uniqueness => { :message => "This email already exists" }
 
   has_many :messages
 
