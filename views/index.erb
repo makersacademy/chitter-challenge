@@ -2,37 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="<%= url('css/message_view.css') %>">
     <title>Chitter App</title>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1>Chitter</h1>
-      </header>
-      <div class="form_area">
-        <form action="/peep" method="post">
-          <textarea id="text_input" name="message" rows="2" ></textarea>
-          <br>
-          <input id ="enter" type="submit" name="Enter" value="Enter">
-        </form>
-      </div>
-
-      <div class="message_area">
-        <% @messages.reverse.each do |message| %>
-        <div class="message_content">
-          <div class="message">
-            <%=message.content%>
-          </div>
-          <br>
-          <div id="time">
-            <%= message.display_time%>
-          </div>
-          <br>
-        </div>
-        <% end %>
-      </div>
-
-    </div>
+    <h1>Chitter</h1>
+    <form action="/signup" method="post">
+      <label>Email: </label>
+      <input type="email" name="email" placeholder="email address">
+      <label>Password: </label>
+      <input type="password" name="password" placeholder="password">
+      <input type="submit" name="Sign Up" value="Sign Up">
+    </form>
   </body>
 </html>
