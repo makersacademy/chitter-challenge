@@ -1,4 +1,4 @@
-require 'user'
+require './models/user'
 
 context '#authenticate' do
 
@@ -9,6 +9,6 @@ context '#authenticate' do
      password: 'ilovemagic')
    }
    it "Sign in if username and password are correct" do
-     expect(User.authenticate('The Crimson King', 'classicWoW')).to eq(user)
+     expect(User.authenticate('The Crimson King', 'ilovemagic')).to eq(user)
    end
  end
