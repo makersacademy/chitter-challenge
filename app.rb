@@ -25,6 +25,8 @@ class Chitter < Sinatra::Base
     user = User.create(email: params[:email],
                        password: params[:password],
                        username: params[:username])
+
+    redirect '/error' unless user.valid?
     session[:user_id] = user.id
     flash[:signup_success] = 'You signed up successfully!'
     redirect '/profile'
@@ -32,6 +34,15 @@ class Chitter < Sinatra::Base
 
   get '/profile' do
     erb :profile
+  end
+
+  get '/error' do
+    erb :error
+  end
+
+  delete '/sessions' do
+    session.delete(:user_id)
+    redirect '/'
   end
 
   run! if app_file == $0

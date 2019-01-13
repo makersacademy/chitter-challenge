@@ -6,5 +6,11 @@
   </head>
   <body>
     <h2>Welcome, <%= current_user.username %></h2>
+
+
+    <form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log out">
+    </form>
   </body>
 </html>

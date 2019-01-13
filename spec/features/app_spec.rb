@@ -6,10 +6,29 @@ feature 'homepage' do
     expect(page).to have_content "Sign in"
     expect(page.current_path).to eq '/'
   end
+  feature 'signup' do
+    scenario 'A user can signup' do
+      signup
+      expect(page).to have_content 'You signed up successfully!'
+      expect(page).to have_content 'Welcome, Test'
+    end
 
-  scenario 'A user can signup' do
+  end
+
+  scenario 'A user can signin' do
     signup
     expect(page).to have_content 'You signed up successfully!'
     expect(page).to have_content 'Welcome, Test'
+  end
+
+  feature 'logout' do
+    scenario 'a user can log out' do
+      signup
+      click_button 'Log out'
+      expect(page).to have_content "Chitter"
+      expect(page).to have_content "Sign up"
+      expect(page).to have_content "Sign in"
+      expect(page.current_path).to eq '/'
+    end
   end
 end
