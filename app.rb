@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require './lib/message'
+require './lib/user'
 require './config/data_mapper'
 
 class Chitter < Sinatra::Base
@@ -14,15 +15,24 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @messages = Message.all
+    @user = User.get(session[:id])
     erb(:peeps)
   end
 
   post '/peep' do
-    Message.create(:content => params[:message])
+    Message.create(
+      content: params[:message]
+    )
     redirect '/peeps'
   end
 
   post '/signup' do
+    user = User.create(
+      username: params[:username],
+      email: params[:email],
+      password: params[:password]
+    )
+    session[:id] = user.id
     redirect '/peeps'
   end
 
