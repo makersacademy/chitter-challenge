@@ -21,11 +21,11 @@
     <h2> Previously on Chitter... </h2>
     <section>
           <% @peeps.reverse.each do |peep| %>
-          <ul style="list-style-type:none">
+          <ul style="list-style-type:none", padding-left: 0;>
             <li>
             <%= erb(:singlepeep, :locals => { :peep => peep }) %>
+            </ul>
             <% end %>
-          </ul>
         </section>
        </body>
     </center>
