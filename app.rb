@@ -30,8 +30,12 @@ class Chitter < Sinatra::Base
 
   post '/user_sign_in' do
     user = User.create(email: params[:signup_email], password: params[:signup_password], name: params[:signup_name])
+    if user == false
+      (flash[:notice] = 'Email already exist') 
+    else
+      (flash[:notice] = 'Sign in successful, please click [Back] and log in Chitter')
+    end
     # session[:user_id] = user.id
-    (flash[:notice] = 'Sign in successful, please click [Back] and log in Chitter') if (user)
     redirect back
   end
 
