@@ -1,4 +1,5 @@
 require 'user_mentioned'
+require 'user'
 
 describe UsersMentioned  do
 
@@ -22,15 +23,38 @@ describe UsersMentioned  do
         let(:user){ double }
 
         it 'should be able to validate if these are real users' do 
-            allow(user).to receive(:get).and_return('bob')
+            allow(user).to receive(:first).and_return('bob')
             expect(subject.validate_names(names, user)).to eql(['bob'])
         end
 
         it 'should be able to validate if these are real users - multiple' do 
-            allow(user).to receive(:get).and_return('bob', 'jack')
+            allow(user).to receive(:first).and_return('bob', 'jack')
             expect(subject.validate_names(names, user)).to eql(['bob'])
             expect(subject.validate_names(names, user)).to eql(['jack'])
         end
     end
+
+    # context 'checking user exist' do 
+    #     let(:dummy_email){ 'someone@somewhere.com' }
+    #     let(:dummy_password) { 'password' }
+    #     let(:dummy_username) { 'Ratchet' }
+    #     let(:dummy_name) { 'furball' }
+
+    #     before {
+    #         start_sign_up
+    #         sign_up_name(dummy_name)
+    #         sign_up_username(dummy_username)
+    #         sign_up_email(dummy_email)
+    #         sign_up_password(dummy_password)
+    #         submit_sign_up
+    #         logout_user
+    #     }
+
+    #     it 'should return name of mentioned' do 
+    #         generic_signup
+    #         expect(subject.validate_names('Ratchet', User)).to eql('Ratchet')
+    #         expect(post_message('@Ratchet')).to eql(Ratchet)
+    #     end
+    # end
 
 end

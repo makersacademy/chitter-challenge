@@ -1,12 +1,16 @@
 require 'sinatra/base'
 require 'pry'
 
-## classes 
+## classes/tables 
 require './lib/user'
 require './lib/message'
 require './lib/comment'
 require './lib/comment_message'
 
+
+## modules 
+require './lib/email'
+require './lib/user_mentioned'
 ## datamapper 
 require './config/datamapper'
 
@@ -55,7 +59,7 @@ class ChitterApp < Sinatra::Base
           session[:user_id] = user.id
           redirect '/'
         else
-            p user
+            user
             'error'
             # session[:errors] = 'error'
             # redirect '/signin'
@@ -64,9 +68,16 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/add_message' do
-        Message.create(content: params[:message]) 
-
-        redirect '/'
+        message = params[:message]
+        Message.create(content: message) 
+        names =  UsersMentioned.find_names(message)
+        names.each do|name|
+            user = User.first(:username => name)
+            if user
+                # error right now Email.send_message(user)
+            end
+        end
+       redirect '/'
     end
 
     get '/logout' do 

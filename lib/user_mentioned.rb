@@ -14,12 +14,23 @@ module UsersMentioned
         validated_users = []
 
         names_arr.each do |name|
-           user = table.get(name)
+           user = table.first(:username => name)
            if user
-            validated_users.push(user)
+            p validated_users.push(user)
+           else
+            p user
            end
         end
         return validated_users
+    end
+
+    def self.mentions(content,table)
+        names = find_names(content)
+        if names
+            names = validate_names(names, table)
+        else
+            'nothing'
+        end
     end
     
 end
