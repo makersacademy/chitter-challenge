@@ -1,4 +1,5 @@
 require './lib/message.rb'
+require './lib/user.rb'
 require 'pry'
 require 'dm-postgres-adapter'
 
