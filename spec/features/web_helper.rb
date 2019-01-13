@@ -33,3 +33,11 @@ def post_two_messages
   fill_in('message', with: 'third test')
   click_on 'Post'
 end
+
+def login
+  visit '/'
+  click_on 'Log In'
+  fill_in('Username', with: 'The Crimson King')
+  fill_in('Password', with: 'ilovemagic')
+  click_on 'Log In'
+end
