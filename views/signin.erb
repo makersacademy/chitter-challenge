@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" type="text/css" href="<%= url("/style/style.css") %>">
+  <meta charset="utf-8">
+  <title>Chitter: Sign In</title>
+</head>
+<body>
+  <nav>
+    <%= erb(:navbar)%>
+  </nav>
+  <center>
+    <%= erb(:title) %>
+    <%= erb(:signforms, :locals => { :action => "/signin", :name => "Submit" }) %>
+    <%= erb(:footer)%>
+  </center>
+</body>
+</html>
