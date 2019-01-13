@@ -1,1 +1,19 @@
-Blank test page
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" type="text/css" href="<%= url("/style/style.css") %>">
+  <meta charset="utf-8">
+  <title>Welcome to Chitter!</title>
+  <center>
+  <h1>
+    Welcome to Chitter!
+    </h1>
+    <br>
+    <form action="/peep" method="post">
+      <textarea name="peep" placeholder="What's on your mind, maker?">
+      </textarea><br>
+      <input type="submit" value="Submit">
+    </form>
+    </center>
+</head>
+</html>
