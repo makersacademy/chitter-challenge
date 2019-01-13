@@ -45,7 +45,6 @@ class Chitter < Sinatra::Base
     erb :profile
   end
 
-
   delete '/sign-out' do
     session.delete(:user_id)
     redirect '/'
