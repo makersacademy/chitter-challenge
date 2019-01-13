@@ -41,14 +41,21 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/profile' do
-    erb :profile
-  end
-
   delete '/sign-out' do
     session.delete(:user_id)
     redirect '/'
   end
+
+  get '/profile' do
+    @peeps = Peep.all
+    erb :profile
+  end
+
+  post '/profile' do
+    new_peep = current_user.peeps.create(content: params[:content], created_at: Time.now)    # binding.pry
+    redirect '/profile'
+  end
+
 
   private
 

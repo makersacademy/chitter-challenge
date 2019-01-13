@@ -15,4 +15,6 @@ class User
     user if user.password == password
   end
 
+  has n, :peeps
+
 end
