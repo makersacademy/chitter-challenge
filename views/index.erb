@@ -5,10 +5,12 @@
   <meta charset="utf-8">
   <title>Welcome to Chitter!</title>
   <center>
-  <h1>
-    Welcome to Chitter!
-    </h1>
-    <br>
+    <nav>
+      <%= erb(:navbar) %>
+    </nav>
+    <header>
+      <%= erb(:title) %>
+    </header>
     <form action="/peep" method="post">
       <textarea name="peep" placeholder="What's on your mind, maker?">
       </textarea><br>

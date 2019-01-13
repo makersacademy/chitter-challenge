@@ -1,15 +1,14 @@
 feature 'User Authentication' do
   context 'Sign Up' do
     scenario 'A user can sign up' do
-      visit '/'
-      click_on 'Sign Up'
-      fill_in :email, with: 'test@test.com'
-      fill_in :password, with: 'testpassword'
-      fill_in :fullname, with: 'testy mctestface'
-      fill_in :username, with: "test"
-      click_button 'Submit'
+      signuptest
+      expect(page).to have_content 'Welcome, testy mctestface'
+    end
 
-      expect(page).to have_content 'Welcome, test@test.com'
+    scenario "A user is redirected to their profile after signing up" do
+      signuptest
+      expect(current_path).to eq("/profile")
     end
   end
+
 end
