@@ -1,20 +1,7 @@
 feature 'Displaying Peeps' do
   let!(:user) { create_user }
-  let!(:first_peep) do
-    Peep.create(
-      text: 'Test peep',
-      created_at: '2000-01-01 00:00:00',
-      user: User.first
-      )
-  end
-
-  let!(:second_peep) do
-    Peep.create(
-      text: 'Second test peep',
-      created_at: '2000-01-01 00:00:05',
-      user: User.first
-      )
-  end
+  let!(:first_peep) { create_first_peep }
+  let!(:second_peep) { create_second_peep }
 
   background { visit '/' }
 
