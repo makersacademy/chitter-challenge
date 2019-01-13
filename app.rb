@@ -16,8 +16,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(text: params[:peep], user: current_user)
-    redirect '/'
+    peep = Peep.new(text: params[:peep], user: current_user)
+
+    if peep.save
+      redirect '/'
+    else
+      flash[:signout] = 'You are not signed in'
+      redirect '/'
+    end
   end
 
   get '/signup' do
