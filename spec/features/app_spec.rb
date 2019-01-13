@@ -6,6 +6,7 @@ feature 'homepage' do
     expect(page).to have_content "Sign in"
     expect(page.current_path).to eq '/'
   end
+
   feature 'signup' do
     scenario 'A user can signup' do
       signup
@@ -19,6 +20,17 @@ feature 'homepage' do
       signup
       expect(page).to have_content 'Error! Want to sign up or sign in?'
       expect(page.current_path).to eq '/error'
+    end
+  end
+
+  feature 'signin' do
+    let!(:user) { User.create(email: 'test@test.com',
+                              password: 'secret123',
+                              username: 'Test') }
+
+    scenario 'a user can sign in' do
+      signin
+      expect(page).to have_content 'Welcome, Test'
     end
   end
 

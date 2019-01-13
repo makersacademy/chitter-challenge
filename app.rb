@@ -21,12 +21,23 @@ class Chitter < Sinatra::Base
     erb :signup
   end
 
+  get '/signin' do
+    erb :signin
+  end
+
+  post '/signin' do
+    user = User.authenticate(params[:email], params[:password])
+    session[:user_id] = user.id
+    redirect '/profile'
+  end
+
   post '/signup' do
     user = User.create(email: params[:email],
                        password: params[:password],
                        username: params[:username])
 
     redirect '/error' unless user.valid?
+
     session[:user_id] = user.id
     flash[:signup_success] = 'You signed up successfully!'
     redirect '/profile'
