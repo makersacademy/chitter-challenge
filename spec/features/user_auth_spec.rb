@@ -49,7 +49,7 @@ feature 'User Authentication' do
       click_button 'Submit'
 
       expect(current_path).to eq '/signin'
-      expect(page).to have_content "Error: email address doesn't exist"
+      expect(page).to have_content 'Error: email address or password invalid'
     end
   end
 end

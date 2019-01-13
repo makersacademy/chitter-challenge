@@ -21,7 +21,8 @@
     <h2>Peep History</h2>
     <% @peeps.reverse.each do |peep| %>
       <div>
-        <%= peep.text %> -- <%= peep.format_time %> || <%= peep.user.name %> -- <%= peep.user.username %>
+        <%= peep.text %> -- <%= peep.format_time %> ||
+        <%= peep.user.name %> -- <%= peep.user.username %>
       </div>
     <% end %>
 

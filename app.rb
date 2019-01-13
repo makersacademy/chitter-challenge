@@ -17,13 +17,9 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     peep = Peep.new(text: params[:peep], user: current_user)
+    flash[:signout] = 'You are not signed in' unless peep.save
 
-    if peep.save
-      redirect '/'
-    else
-      flash[:signout] = 'You are not signed in'
-      redirect '/'
-    end
+    redirect '/'
   end
 
   get '/signup' do
@@ -66,6 +62,7 @@ class Chitter < Sinatra::Base
       session[:id] = user.id
       redirect '/profile'
     else
+      flash[:error] = 'Error: email address or password invalid'
       redirect '/signin'
     end
   end
