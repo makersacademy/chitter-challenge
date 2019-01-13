@@ -5,9 +5,9 @@ ruby '2.5.1'
 gem 'activerecord'
 gem 'pg'
 gem 'rake'
+gem 'rubocop', '0.56.0'
 gem 'sinatra'
 gem 'sinatra-activerecord'
-gem 'rubocop', '0.56.0'
 
 gem 'pry'
 

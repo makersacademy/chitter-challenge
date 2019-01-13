@@ -14,4 +14,3 @@ namespace :db do
     require "./app"
   end
 end
-
