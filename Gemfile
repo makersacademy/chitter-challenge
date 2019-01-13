@@ -4,11 +4,11 @@ ruby '2.5.1'
 
 gem 'capybara'
 gem 'data_mapper'
+gem 'dm-postgres-adapter'
 gem 'pry'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'
-gem 'dm-postgres-adapter'
 
 group :test do
   gem 'database_cleaner'
