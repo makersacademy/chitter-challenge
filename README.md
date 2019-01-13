@@ -41,6 +41,22 @@ I want to receive an email if I am tagged in a Peep
 ```
 ## How to use ##
 
+## Approach ##
+
+I built my CRC Model based on the user story as following.<br/>
+
+![CRC model](https://user-images.githubusercontent.com/43742795/51088801-354a4280-175c-11e9-9789-8f8c99791909.png)
+
+I decided to prioritise my Minimum Viable Product by building my MVP as following :<br/>
+
+1. User is able to sign_up.
+2. User is able to sign_out.
+3. User is able to sign_in.
+4. Once signed in, user is able to post peeps.
+5. All the peeps are displayed with a timestamp, a username who have created it and in reverse chronological order.
+6. All the peeps are displayed on the user profile page.
+7. All the peeps are also displayed on the homepage without the needs to be logged in.
+
 ### Set up ###
 
 1. clone the repo<br/>
@@ -152,6 +168,13 @@ You can see your peep displayed with the time and your username.
 If you sign up and create new peeps from new users account, all the peeps will be displayed on the user profile page but also on the home page without being logged in.
 
 5. Enjoy playing around with my app as much as you want :)
+
+## Technology used ##
+
+* Sinatra
+* postgresql
+* datamapper
+* Capybara
 
 ## Acknowledgements ##
 

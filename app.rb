@@ -10,13 +10,13 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
-    erb (:index)
+    erb (:index, :layout => :layout)
   end
 
   get '/profile' do
     if signed_in?
       @peeps = Peep.all
-      erb (:profile)
+      erb (:profile, :layout => :layout)
     else
       redirect '/login'
     end
@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/signup' do
-    erb (:signup)
+    erb (:signup, :layout => :layout)
   end
 
   post '/signup' do
@@ -42,7 +42,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/login' do
-    erb(:login)
+    erb(:login, :layout => :layout)
   end
 
   post '/login' do
