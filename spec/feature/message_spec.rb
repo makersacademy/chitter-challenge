@@ -57,4 +57,9 @@
       click_button "Sign up"
       expect(page).to have_content "Sign up homepage"
     end
+
+    scenario "Looks for email field on signup homepage" do
+      visit "/signup" 
+      fill_in :email, with: "test@test.com"
+    end
   end

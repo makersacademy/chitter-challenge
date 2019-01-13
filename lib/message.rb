@@ -6,5 +6,6 @@ class Message
   property :id, Serial
   property :content, Text
   property :created_at, DateTime
+  property :email, String
 end
 
