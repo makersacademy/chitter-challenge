@@ -44,7 +44,7 @@ Tech | Description
 [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner) | Used for cleaning databases before and after every test
 [dm-postgres-adapter](https://github.com/datamapper/dm-postgres-adapter) | postgresql adapter for data_mapper
 [sinatra](http://sinatrarb.com/) | [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for creating web applications in ruby
-[sinatra-flash](https://github.com/SFEley/sinatra-flash) | Used for showing error messages for email and username uniqueness validation
+[sinatra-flash](https://github.com/SFEley/sinatra-flash) | Used for showing error messages (e.g. for email and username uniqueness validation)
 [orderly](https://github.com/jmondo/orderly) | Rspec matcher for asserting that this appears_before(that) in rspec request specs
 [postgresql](https://www.postgresql.org/) | Object-relational database management system
 
