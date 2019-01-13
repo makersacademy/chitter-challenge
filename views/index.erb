@@ -8,18 +8,20 @@
   }
 </style> 
 </head>
-<a href="/signup">Sign up</a>
+<form action="/signup" method="get">
+  <input type="submit" value="Sign Up">
+</form>
+<form action="/signin" method="get">
+  <input type="submit" value="Sign In">
+</form>
+
 <center>
 <body>
   <h1>Chitter</h1>
-  <br><form action='/message' method='post'>
-    <h2>Enter Peep Below</h2><textarea name="content" cols="40" rows="5"></textarea>
-    <br><input type='submit' value='Send'>
-  </form>
-    <br>
+  
     <h2>Peeps</h2>
     <% @messages.reverse.each do |message| %>
-      <a href="/messages/<%= message.id %>"> <%= message.content %></a> - <%= message.timestamp %>
+      <%= message.content %></a> - <%= message.timestamp %>
     <%end%>  
 </body>
 </center>

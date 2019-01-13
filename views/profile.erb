@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<style>
+  body {
+    background-color: #99ccff;
+  }
+</style> 
+</head>
+ <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log out">
+  </form>
+
+<h1>Welcome to the Peep Show <%= current_user.username %>!</h1>
+<center>
+<body>
+  <h1>Chitter</h1>
+  <br><form action='/message' method='post'>
+    <h2>Enter Peep Below</h2><textarea name="content" cols="40" rows="5"></textarea>
+    <br><input type='submit' value='Send'>
+  </form>
+    <br>
+    <h2>Peeps</h2>
+    <% @messages.reverse.each do |message| %>
+      <a href="/messages/<%= message.id %>"> <%= message.content %></a> - <%= message.timestamp %>
+    <%end%>  
+</body>
+</center>
+</html>
