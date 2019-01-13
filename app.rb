@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
 
   post '/message' do
     message = Message.create(content: params[:content])
-    redirect '/'
+    redirect '/profile'
   end
 
   get '/signup' do

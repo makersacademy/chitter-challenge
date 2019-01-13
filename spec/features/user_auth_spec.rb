@@ -1,15 +1,31 @@
+require './lib/message'
+require 'capybara/rspec'
+require './spec/web_helper'
+
 RSpec.feature 'User Authentication' do
   context '4. Sign Up' do
     scenario 'A user can signup' do
-      visit '/'
-      click_on 'Sign Up'
-      fill_in :name, with: 'test'
-      fill_in :username, with: '@test'
-      fill_in :email, with: 'test@test.com'
-      fill_in :password, with: 'secret123'
-      click_button 'Sign Up'
+      signup_steps
+      expect(page).to have_content 'That email address is already registered'
+    end
+  end
 
+  context '5. Sign In' do
+    scenario 'A user can log in to Chitter' do
+      signin_steps
       expect(page).to have_content 'Welcome to the Peep Show @test'
     end
   end
+
+  context '6. Log Out' do
+    scenario 'A user can log out of Chitter' do
+      signin_steps
+      click_button 'Log out'
+      expect(page.current_path).to eq "/"
+    end
+  end
+
+
+
+
 end
