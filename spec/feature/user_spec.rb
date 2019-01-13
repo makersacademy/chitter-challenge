@@ -1,4 +1,4 @@
-require 'user.rb'
+
 
 feature "Sign up" do 
   scenario "User sees able to click a sign up button" do 
@@ -33,4 +33,8 @@ feature "Sign up" do
     fill_in :name, with: "Michael"
   end
 
+  scenario "Looks for username field" do
+    visit '/signup'
+    fill_in :username, with: "Michael974"
+  end
 end

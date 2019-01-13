@@ -1,2 +1,2 @@
-require './lib/user.rb'
+
 
