@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
-require 'sinatra/flash'
 require './models/message'
 require './models/user'
 
@@ -11,7 +10,6 @@ class App < Sinatra::Base
 
   enable :sessions
   enable :method_override
-  register Sinatra::Flash
 
   get '/' do
     @messages = Message.all
