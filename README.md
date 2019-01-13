@@ -72,13 +72,17 @@ Testing
 
 Demo
 -------
-* `Homepage:`
+Homepage
+-------
 ![homepage](images/chitter_homepage.png)
-* `Sign up page:`
+Sign up
+-------
 ![signup](images/chitter_signup_page.png)
-* `Log in page:`
+Log in
+-------
 ![signin](images/chitter_login_page.png)
-* `Users' profile page:`
+Profile
+-------
 ![profile](images/chitter_profile.png)
 
 Extensions
