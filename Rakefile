@@ -8,7 +8,7 @@ require './lib/comment_message'
 task default: %w[setup]
 
 task :setup do 
-    DataMapper.setup(:default, "postgres://localhost/chitter_app_development")
+    DataMapper.setup(:default, "postgres://localhost/chitter_app_#{ENV['RACK_ENV']}")
     DataMapper.finalize
     puts 'setting up database'
 end
