@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log out">
+    </form>
+
+    <h1>Welcome, <%= current_user.email %>!</h1>
+
+    <h2>Your info</h2>
+    <p>email: <%= current_user.email %></p>
+  </body>
+</html>
