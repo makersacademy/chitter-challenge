@@ -1,46 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="<%= url("/css/style.css")%>">
-    <title>Warble</title>
-  </head>
-  <body>
-    <div class="container">
-    <div class="signin">
-      <form action="/signin" method="post">
-        <label for="username">Username:</label>
-        <input type="text" name="sign_in_username" placeholder="username">
-        <label for="password">Password:</label>
-        <input type="password" name="sign_in_password" placeholder="password">
-        <input type="submit" name="Sign In" value="Sign In">
-      </form>
-    </div>
+<p>To sign in enter your details below!</p>
 
-    <header>
-        <h1>Let's Warble!</h1>
-    </header>
+<form action="/signin" method="post">
+  <label for="username">Username:</label>
+  <input type="text" name="sign_in_username" placeholder="username">
+  <label for="password">Password:</label>
+  <input type="password" name="sign_in_password" placeholder="password">
+  <input type="submit" name="Sign In" value="Sign In">
+</form>
 
-    <div class="signup">
-      <form action="/signup" method="post">
-        <div class="form_input">
-          <label for="username">Username:</label>
-          <input type="text" name="sign_up_username" placeholder="username" required>
-        </div>
-        <div class="form_input">
-          <label for="email">email:</label>
-          <input type="text" name="sign_up_email" required>
-        </div>
-        <div class="form_input">
-          <label for="password">Password:</label>
-          <input type="password" name="sign_up_password" placeholder="password">
-        </div>
-      <div class="form_input">
-        <input type="submit" name="Sign Up" value="Sign Up">
-      </div>
-    </form>
-    </div>
+<p>Join Warble! Submit your details below</p>
 
-  </div>
-
-</body>
+<form action="/signup" method="post">
+  <label for="username">Username:</label>
+  <input type="text" name="sign_up_username" placeholder="username" required>
+  <label for="email">email:</label>
+  <input type="text" name="sign_up_email" required>
+  <label for="password">Password:</label>
+  <input type="password" name="sign_up_password" placeholder="password">
+  <input type="submit" name="Sign Up" value="Sign Up">
+</form>

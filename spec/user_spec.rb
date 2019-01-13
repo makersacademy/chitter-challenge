@@ -2,15 +2,15 @@ require 'user'
 
 describe 'User' do
   user = User.create(
-    username: 'chris',
-    email: 'chris@makers.com',
+    username: 'christos',
+    email: 'christos@makers.com',
     password: 'classicWoW')
 
   context '#create' do
     it 'can be created' do
       user = User.create(
-        username: 'chris',
-        email: 'chris@makers.com',
+        username: 'christos',
+        email: 'christos@makers.com',
         password: 'classicWoW')
     end
   end
@@ -18,21 +18,21 @@ describe 'User' do
   context '#username' do
     it "displays User's username" do
       user = User.create(
-        username: 'chris',
-        email: 'chris@makers.com',
+        username: 'christos',
+        email: 'christos@makers.com',
         password: 'classicWoW')
-      expect(user.username).to eq('chris')
+      expect(user.username).to eq('christos')
     end
   end
 
   context '#authenticate' do
     let!(:user) { User.create(
-      username: 'chris',
-      email: 'chris@makers.com',
+      username: 'christos',
+      email: 'christos@makers.com',
       password: 'classicWoW')
-    }      
+    }
     it "Sign in if username and password are correct" do
-      expect(User.authenticate('chris', 'classicWoW')).to eq(user)
+      expect(User.authenticate('christos', 'classicWoW')).to eq(user)
     end
   end
 

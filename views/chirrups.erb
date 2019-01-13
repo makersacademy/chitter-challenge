@@ -1,0 +1,10 @@
+<form action="/chirrup" method="post">
+  <textarea name="chirrup" rows="4" cols="40" placeholder="Warble away!">
+  </textarea><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+<% @chirrups.each do |chirrup| %>
+    <%= chirrup.content %>
+  <% end %>

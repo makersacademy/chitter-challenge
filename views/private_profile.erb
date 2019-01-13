@@ -7,6 +7,10 @@
 
 <%= @user.username %>
 
+<form action="/chirrup-board" method="get">
+  <input type="submit" name="View Chirrups" value="View Chirrups"</input>
+</form>
+
 <footer>
   <a href=<%= "/delete_profile/#{@user.id}" %>>Delete Warble Account</a>
 </footer>

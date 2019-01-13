@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/base'
 require './lib/user'
+require_relative './lib/chirrup'
 
 set :database_file, 'config/database.yml'
 
@@ -52,6 +53,16 @@ class Warble < Sinatra::Base
   delete '/sessions' do
     session.delete(:id)
     redirect '/'
+  end
+
+  get '/chirrup-board' do
+    p @chirrups = Chirrup.all
+    erb :chirrups
+  end
+
+  post '/chirrup' do
+    Chirrup.create(content: params[:chirrup])
+    redirect '/chirrup-board'
   end
 
   get '/delete_profile/:id' do
