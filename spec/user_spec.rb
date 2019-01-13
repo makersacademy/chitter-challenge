@@ -17,10 +17,6 @@ describe 'User' do
 
   context '#username' do
     it "displays User's username" do
-      user = User.create(
-        username: 'christos',
-        email: 'christos@makers.com',
-        password: 'classicWoW')
       expect(user.username).to eq('christos')
     end
   end
@@ -41,9 +37,9 @@ describe 'User' do
       expect(user.valid?).to eq true
     end
 
-    it 'raises error if email of existing user used on signup' do
-      user_one = User.create(email: 'maker@maker.com', password: 'maker123')
-      user_two = User.create(email: 'maker@maker.com', password: 'maker123')
+    it 'Returns false if email of existing user used on signup' do
+      user_one = User.create(username: 'Christos', email: 'christos@maker.com', password: 'ClassicWoW')
+      user_two = User.create(username: 'Christos', email: 'christos@maker.com', password: 'ClassicWoW')
       expect(user_two.valid?).to eq false
     end
   end

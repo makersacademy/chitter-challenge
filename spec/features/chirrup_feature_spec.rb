@@ -13,12 +13,10 @@ RSpec.feature 'Chirrup' do
 
     scenario 'A user posts multiple messages and views them in reverse chronological order' do
       user = create_user('christos', 'christos@makers.com', 'ClassicWoW')
-      message = create_message('Sqwark!')
+      message = create_message('Sqwark_1!')
+      message = create_message('Sqwark_2!')
       sign_in
       click_button 'View Chirrups'
-      fill_in :chirrup, with: 'Sqwark_1!'
-      click_button 'Post'
-      fill_in :chirrup, with: 'Sqwark_2!'
       click_button 'Post'
       expect('Sqwark_2').to appear_before('Sqwark_1')
     end
