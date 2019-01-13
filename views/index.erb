@@ -7,10 +7,6 @@
   <body>
     <%= erb(:'partials/navigation') %>
 
-    <div >
-      <%= flash[:signout] %>
-    </div>
-
     <h2>Submit a peep</h2>
       <form action="/peep" method="post">
         <textarea name="peep" rows="3" cols="40"

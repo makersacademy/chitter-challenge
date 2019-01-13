@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     peep = Peep.new(text: params[:peep], user: current_user)
-    flash[:signout] = 'You are not signed in' unless peep.save
+    flash[:error] = 'You are not signed in' unless peep.save
 
     redirect '/'
   end
@@ -47,8 +47,8 @@ class Chitter < Sinatra::Base
     if signed_in?
       erb :profile
     else
-      flash[:signout] = 'You are not signed in'
-      redirect '/'
+      flash[:error] = 'You are not signed in'
+      redirect '/signin'
     end
   end
 
