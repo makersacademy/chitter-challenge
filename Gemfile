@@ -9,6 +9,7 @@ gem 'pry'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
+gem "sinatra-flash", "~> 0.3.0"
 
 group :test do
   gem 'capybara'
