@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   validates :email, confirmation: true
   validates :email, :uniqueness => { :message => "This email already exists" }
-  validates :username, :uniqueness => { :message => "This username already exists" }
+  validates :username, :uniqueness => 
+  { :message => "This username already exists" }
   validates :password, :presence => true
   
   def self.authenticate(username, password)

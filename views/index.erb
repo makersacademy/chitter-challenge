@@ -1,5 +1,17 @@
+<h2>Join Chitter Today</h2>
 <a href='/signup'>Sign Up</a>
 <a href='/signin'>Sign In</a>
+
+<h3>CHITTER FEED</h3>
+ 
+  <% @peeps.each do |peep| %>
+  <div>
+    <%= peep.content %>
+    <%= peep.created_at.strftime("%H:%M:%S - %d/%m/%y") %>
+    <%=  peep.user.firstname %>
+    <%= peep.user.username %>
+  </div>
+  <%end%>
 
 
  

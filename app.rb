@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   enable :method_override
 
   get '/' do 
-    # @peeps = Peep.all
+    @peeps = Peep.all
     erb(:index)
   end
 
@@ -19,7 +19,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create({ firstname: params[:firstname], surname: params[:surname], username: params[:username], email: params[:email], password: params[:password] })
+    user = User.create({ firstname: params[:firstname], 
+      surname: params[:surname], username: params[:username], 
+      email: params[:email], password: params[:password] })
     session[:id] = user.id
     redirect '/signin'
   end
@@ -33,9 +35,8 @@ class Chitter < Sinatra::Base
     if user
       session[:id] = user.id 
       redirect("/profile/#{session[:id]}")
-    else
-      # CAN CREATE LATER 
-      redirect '/error'
+    else 
+      redirect '/'
     end
   end
 
@@ -53,7 +54,8 @@ class Chitter < Sinatra::Base
 
   post '/peep/:id' do
     @user = User.find(params[:id])
-    peep = Peep.create({ user_id: @user.id, title: params[:title], content: params[:content] })
+    Peep.create({ user_id: @user.id, title: params[:title], 
+      content: params[:content] })
     redirect("profile/#{@user.id}")
   end
 
