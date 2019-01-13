@@ -50,6 +50,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/profile' do
+    @peeps = Peep.all
     if signed_in?
       erb :profile
     else
