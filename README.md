@@ -78,6 +78,7 @@ Homepage
 Sign up
 -------
 ![signup](images/chitter_signup_page.png)
+
 Log in
 -------
 ![signin](images/chitter_login_page.png)
