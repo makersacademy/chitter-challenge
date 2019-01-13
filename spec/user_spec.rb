@@ -1,6 +1,11 @@
 require 'user'
 
 describe 'User' do
+  warbler = User.create(
+    username: 'chris',
+    email: 'chris@makers.com',
+    password: 'classicWoW')
+
   context '#create' do
     it 'can be created' do
       warbler = User.create(

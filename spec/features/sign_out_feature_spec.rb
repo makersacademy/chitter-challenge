@@ -3,7 +3,8 @@ RSpec.feature 'Signin' do
     let!(:user) { User.create(
       username: 'christos',
       email: 'christos@makers.com',
-      password: 'ClassicWoW') }
+      password: 'ClassicWoW')
+    }    
 
     scenario 'Warbler signs in and lands on their profile' do
       visit '/'

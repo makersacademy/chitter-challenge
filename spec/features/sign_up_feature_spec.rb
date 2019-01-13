@@ -4,7 +4,8 @@ feature 'User Authentication' do
       username: 'singleguy', 
       password: 'secretguy', 
       password: 'Secret123'
-    ) }
+    )
+    }    
 
     scenario 'User can signup' do
       visit '/'
@@ -16,5 +17,3 @@ feature 'User Authentication' do
   end
 
 end
-
-
