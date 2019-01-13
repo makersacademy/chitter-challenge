@@ -46,9 +46,9 @@ To run this app:
 Technical Approach:
 -----
 
-This application is built in Rails and uses Active Record to interact with the database. Rails includes sqlite by default - the app has been updated to use postgreSQL. 
-Devise was implemented to handle user management (sign up, in, out)
-Bootstrap is used for styling, making the app responsive to devises of different sizes
+* This application is built in Rails and uses Active Record to interact with the database. Rails includes sqlite by default - the app has been updated to use postgreSQL. 
+* Devise was implemented to handle user management (sign up, in, out)
+* Bootstrap is used for styling, making the app responsive to devises of different sizes
 
 Notes on functionality:
 ------
@@ -61,7 +61,7 @@ Notes on functionality:
 
 Notes on test coverage
 ----------------------
-1. Capybara and Rspec have been used to build feature tests. All tests are passing. 
-2. Test coverage is 98.95%.
-3. Rubocop is flagging long lines in Rails and Devise agenerated files. These have not been updated.
-4. Travis CI has also been set up and is passing.
+* Capybara and Rspec have been used to build feature tests. All tests are passing. 
+* Test coverage is 98.95%.
+* Rubocop is flagging long lines in Rails and Devise agenerated files. These have not been updated.
+* Travis CI has also been set up and is passing.
