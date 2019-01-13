@@ -11,13 +11,28 @@ class Chitter < Sinatra::Base
   enable :method_override
 
   get '/' do
-    @peep = Peep.all
     erb :index
   end
 
   post '/peep' do
     @peep = Peep.create(content: params[:peep])
-    redirect '/'
+    redirect '/profile'
+  end
+
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect "/profile"
+  end
+
+  get '/profile' do
+    @user = User.get(session[:user_id])
+    @peep = Peep.all
+    erb :profile
   end
 
   run! if app_file == $0
