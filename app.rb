@@ -76,13 +76,6 @@ class ChitterApp < Sinatra::Base
 
     post '/comment' do 
         Comment.create(content: params[:comment])
-     
         redirect '/'
     end
-
-    private 
-
-    def check_mention
-    end
-  
 end  

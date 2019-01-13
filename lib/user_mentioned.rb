@@ -19,7 +19,7 @@ module UsersMentioned
             validated_users.push(user)
            end
         end
-
         return validated_users
     end
+    
 end

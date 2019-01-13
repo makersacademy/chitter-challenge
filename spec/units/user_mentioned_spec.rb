@@ -1,4 +1,4 @@
-require 'check_mention'
+require 'user_mentioned'
 
 describe UsersMentioned  do
 
