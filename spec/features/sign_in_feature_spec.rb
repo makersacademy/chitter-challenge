@@ -18,7 +18,7 @@ RSpec.feature 'Signin' do
       fill_in :sign_in_username, with: 'christos'
       fill_in :sign_in_password, with: 'ClassicWoW'
       click_button 'Sign In'
-      expect(page.current_path).to eq('/private_profile/2')
+      expect(page.current_path).to eq('/private_profile/3')
       expect(page).to have_content('christos')
     end
   end

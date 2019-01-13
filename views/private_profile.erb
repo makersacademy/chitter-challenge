@@ -4,4 +4,9 @@
     <input type="submit" name="Sign Out" value="Sign Out">
   </form>
 </div>
+
 <%= @user.username %>
+
+<footer>
+  <a href=<%= "/delete_profile/#{@user.id}" %>>Delete Account</a>
+</footer>

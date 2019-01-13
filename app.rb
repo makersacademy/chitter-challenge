@@ -1,6 +1,6 @@
 require 'sinatra'
-require 'sinatra/base'
 require 'sinatra/activerecord'
+require 'sinatra/base'
 require './lib/user'
 
 set :database_file, 'config/database.yml'
@@ -38,7 +38,6 @@ class Warble < Sinatra::Base
     else
       redirect '/'
     end
-
   end
 
   get '/private_profile/:id' do
@@ -52,6 +51,18 @@ class Warble < Sinatra::Base
 
   delete '/sessions' do
     session.delete(:id)
+    redirect '/'
+  end
+
+  get '/delete_profile/:id' do
+    @user = User.find(params[:id])
+    erb :delete_confirmation
+  end
+
+  delete '/delete_profile/:id' do
+    @user = User.find(params[:id])
+    session.delete(:id)
+    @user.destroy
     redirect '/'
   end
 

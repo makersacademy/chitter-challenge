@@ -7,7 +7,7 @@ feature 'User Authentication' do
       fill_in :sign_up_password, with: 'ClassicWoW'
       click_button 'Sign Up'
       p current_path
-      expect(page.current_path).to eq('/private_profile/4')
+      expect(page.current_path).to eq('/private_profile/5')
       expect(page).to have_content('christos')
     end
 
@@ -25,14 +25,13 @@ feature 'User Authentication' do
       click_button 'Sign Up'
       expect(page.current_path).to eq('/')
     end
-    
+
     scenario 'A user cannot signup if email already used' do
       visit '/'
       fill_in :sign_up_username, with: 'christopher'
       fill_in :sign_up_email, with: 'christopher@makers.com'
       fill_in :sign_up_password, with: 'ClassicWoW'
       click_button 'Sign Up'
-      p current_path
       click_button 'Sign Out'
       fill_in :sign_up_username, with: 'christopher'
       fill_in :sign_up_email, with: 'christopher1@makers.com'
