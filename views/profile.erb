@@ -19,7 +19,13 @@
      <br>
   </form>
 
-  
+  <h2> Chitter feed </h2> 
+  <% @peeps.each do | peep | %>
+  <div>
+   <%= peep.display %> </div>
+  <br>
+  <%end%>
+    
  </div>
 
 

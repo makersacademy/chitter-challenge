@@ -6,10 +6,12 @@ feature 'User peeps' do
     click_button 'Post'
   end
 
-  # scenario 'can be posted' do
-    # expect(page).to have_content 'My first peep!'
-    
-  # end
+  scenario 'can be posted' do
+    sign_up
+    fill_in :content, with: 'My first peep!'
+    click_button 'Post'
+    expect(page).to have_content 'My first peep!'
+  end
 
 end
 
