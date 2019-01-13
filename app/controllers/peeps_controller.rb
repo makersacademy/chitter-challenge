@@ -22,6 +22,7 @@ class PeepsController < ApplicationController
   # to show an individual peep
   def show
     @peep = Peep.find(params[:id])
+    @comment = Comment.new
   end
 
   private

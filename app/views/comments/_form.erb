@@ -1,0 +1,9 @@
+<%= form_for ([@peep, @comment]) do |f| %>
+<div>
+<% f.label :body %>
+<%= f.text_area :body %>
+</div>
+<div>
+<%= f.submit %>
+</div>
+<% end %>

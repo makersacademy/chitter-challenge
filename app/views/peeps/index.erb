@@ -1,25 +1,10 @@
-
-<div>
-  <%= link_to "Create new peep", new_peep_path %>
-</div>
-
-<div>
-  <%= link_to "Sign up", new_user_registration_path %>
-  <%= link_to "Log in", new_user_session_path %>
-  <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-</div>
-
+<h2> Welcome to Chitter! We hope you have a great time! </h2>
 <% @peeps.each do |peep| %>
-<div class = "peep" style = "margin: 2em">
-  <div>
-    <%= link_to peep.title, peep %>
+  <div class="p-4">
+    <%= link_to peep.title, peep %><br>
+    <%= peep.body[0...50] %> ...
+    <div class="font-italic">
+      Created by <%= peep.user.name%> (@<%= peep.user.username %>) <%= peep.created_at.strftime("on %d/%m/%Y at %I:%M%p") %>
+    </div>
   </div>
-  <div>
-    Created <%= peep.created_at.strftime("at %I:%M%p on %d/%m/%Y") %>
-  </div>
-
-  <div>
-    Created by <%= peep.user.name%> @<%= peep.user.username %>
-  </div>
-</div>
 <% end %>

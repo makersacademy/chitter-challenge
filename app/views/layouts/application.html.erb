@@ -14,12 +14,21 @@
     <p class="alert"><%= alert %></p>
   </head>
 
- <center>
   <body>
-    <div>
-      <%= link_to "Home page", root_path %>
+
+     <div class="modal-body row">
+        <div class="col-md-3">
+          <%= link_to "Home page", root_path %><br>
+          <%= link_to "Create new peep", new_peep_path %><br>
+          <%= link_to "Sign up", new_user_registration_path %><br>
+          <%= link_to "Log in", new_user_session_path %><br>
+          <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+        </div>
+      <div class="col-md-9 ">
+        <%= yield %>
+      </div>
     </div>
-    <%= yield %>
+
   </body>
- </center>
+
 </html>

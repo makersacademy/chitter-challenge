@@ -1,11 +1,16 @@
-<div>
-<%= @peep.title %>
+<div class="p-4">
+  <p class="font-weight-bold"><%= @peep.title %></p>
+  <%= @peep.body %><br>
+    <div class="font-italic">Created <%= @peep.created_at.strftime("on %d/%m/%Y at %I:%M%p") %>
+    </div>
 </div>
 
-<div>
-<%= @peep.body %>
+<div class="p-4 ml-3 font-italic">
+  <% @peep.comments.each do |comment| %>
+  <%= comment.body %> (by <%= comment.user.username %>)<br>
+  <% end %>
 </div>
 
-<div>
-  Created <%= @peep.created_at.strftime("at %I:%M%p on %d/%m/%Y") %>
+<div class="p-4"> Join the conversation:
+  <%= render "comments/form" %>
 </div>

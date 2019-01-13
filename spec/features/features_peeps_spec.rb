@@ -94,4 +94,24 @@ RSpec.feature 'Peeps' do
 
   end
 
+  # As a Maker
+  # So that I can start a conversation
+  # I want to reply to a peep from another maker
+
+  context 'Replying to peeps' do
+    scenario "A maker is able to post a comment on another Maker's peep" do
+      sign_up
+      click_link 'Create new peep'
+      post_peep
+      visit '/peeps/new'
+      fill_in :peep_title, with: 'Second peep'
+      fill_in :peep_body, with: 'I love winter!'
+      click_button 'Save Peep'
+      visit '/'
+      click_link 'Add comment'
+      fill_in :comment, with: 'This is great!'
+      expect(page).to have_content 'This is great!'
+    end
+  end
+
 end
