@@ -69,5 +69,12 @@ Functionality Implemented:
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 
+Functionality Ideas to be implemented in the future:
+------
+* Improved CSS.
+* Edit and Delete peep functionality
+* A text-to-speech funtion that provides audio output for each tweet.
+
+
 
 
