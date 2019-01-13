@@ -39,14 +39,18 @@ class App < Sinatra::Base
   end
 
   get '/login' do
+    @error = session[:error]
     erb :login
   end
 
   post '/login' do
     @user = User.find_by(username: params["Username"], password: params["Password"])
-    session[:id] = @user.id
-    p session[:id]
-    redirect '/profile/:id/home'
+    if session[:id] != nil
+      redirect '/profile/:id/home'
+    else
+      session[:error] = 'Incorrect details'
+      redirect '/login'
+    end 
   end
 
   get '/profile/:id/home' do

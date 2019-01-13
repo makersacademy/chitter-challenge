@@ -17,7 +17,7 @@ def sign_up_twice
   fill_in('Email', with: 'Horus@SOH.co.ct')
   fill_in('Password', with: 'iloveheresy')
   click_on 'Sign Up'
-  visit '/'
+  click_on 'Log Out'
   click_on 'Sign Up'
   fill_in('Name', with: 'Horus2')
   fill_in('Username', with: 'The Luna Wolf2')
