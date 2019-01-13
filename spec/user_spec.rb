@@ -1,6 +1,6 @@
 require './models/user'
 
-context '#authenticate' do
+describe '#authenticate' do
 
    let!(:user) { User.create(
      name: 'Magnus',
