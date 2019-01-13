@@ -62,4 +62,9 @@
       visit "/signup" 
       fill_in :email, with: "test@test.com"
     end
+
+    scenario "Looks for password field on signup homepage" do 
+      visit "/signup"
+      fill_in :password, with: "123"
+    end
   end

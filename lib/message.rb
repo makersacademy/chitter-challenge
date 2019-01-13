@@ -7,5 +7,6 @@ class Message
   property :content, Text
   property :created_at, DateTime
   property :email, String
+  property :password, String
 end
 
