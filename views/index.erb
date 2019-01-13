@@ -1,18 +1,19 @@
 <h1>Chit chat</h1>
 
 <form action="/messages" method="post">
-<div>
-<textarea cols="50" row="5" name="content" placeholder="insert message here">
-</textarea>
-<br>
-<input type="submit" value="Submit message">
-</div>
+  <div>
+  <textarea cols="50" row="5" name="content" placeholder="insert message here">
+  </textarea>
+  <br>
+  <input type="submit" value="Submit message">
+  </div>
 </form>
 
 <% @messages.reverse.each do |message|%>
-<br>
-<%= message.content %>
-<br>
+  <br>
+  <%= message.content %>
+  <%= message.created_at %> 
+  <br> 
 <% end %>
 
 
