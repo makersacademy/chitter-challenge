@@ -56,6 +56,14 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/signin' do
+    erb :signin
+  end
+
+  post '/signin' do
+    redirect '/profile'
+  end
+
   delete '/signin' do
     session.delete(:id)
     redirect '/'

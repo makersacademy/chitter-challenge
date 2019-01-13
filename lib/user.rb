@@ -10,4 +10,6 @@ class User
   property :username, String, :unique => true
 
   has n, :peep
+
+
 end

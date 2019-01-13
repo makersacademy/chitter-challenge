@@ -1,6 +1,6 @@
 feature 'Posting Peeps' do
   scenario 'A user can post a peep' do
-    signup
+    sign_up
     visit '/'
     fill_in :peep, with: 'Test peep'
     click_button 'Submit'
