@@ -1,1 +1,8 @@
-'Testing infrastructure working!'
+<form action="/peep" method="post">
+  <textarea name="peep" rows="3" cols="40" place_holder="What is happening?"></textarea>
+  <p> <input type="submit" value="Submit your peep"> </p>
+</form>
+
+<% @peep.reverse.each do |peep| %>
+<p> <%=peep.id%> <%= peep.content %> at: <%= peep.created_at.strftime('%a, %d %b %Y, %H:%M:%S') %> </p>
+<% end %>

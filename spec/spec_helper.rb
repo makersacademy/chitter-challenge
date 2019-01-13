@@ -8,6 +8,7 @@ require 'database_cleaner'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require './spec/features/web_helper'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
