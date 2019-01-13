@@ -8,7 +8,7 @@ describe Message do
 
 
   it 'knows if another user has been tagged' do
-    expect(Message.tag?).to eq true
+    expect(message.tag(message.content)).to eq true
   end
 
 end
