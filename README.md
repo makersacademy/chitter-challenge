@@ -4,7 +4,7 @@
 Chitter Challenge [![Build Status](https://travis-ci.org/AlinaGoaga/chitter-challenge.svg?branch=master)](https://travis-ci.org/AlinaGoaga/chitter-challenge)
 =================
 
-Features:
+Features covered:
 -------
 
 ```
@@ -35,30 +35,33 @@ I want to log out of Chitter
 As a Maker
 So that I can start a conversation
 I want to reply to a peep from another Maker
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
+To run this app:
+-----
+
+1. clone the repository and cd into the project 
+2. run rails s to start the server
+3. visit http://localhost:3000
 
 Technical Approach:
 -----
 
-This application is built in Rails and uses Active Record to interact with the database. 
+This application is built in Rails and uses Active Record to interact with the database. Rails includes sqlite by default - the app has been updated to use postgreSQL. 
 Devise was implemented to handle user management (sign up, in, out)
-Bootstrap is used for styling making the app responsive to decives of different sizes.
+Bootstrap is used for styling, making the app responsive to devises of different sizes
 
 Notes on functionality:
 ------
 
-* All users can see all peeps (regardless of them having signed up or being loged in).
-* Makers sign up to chitter with their email, password, name and username.
-* Both username and email have to be unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
+* All users can see all peeps (regardless of them having signed up or being loged in)
+* Makers sign up to chitter with their email, password, name and username
+* Both username and email are unique
+* Peeps (posts to chitter) have the name of the maker and their user handle
 
 
 Notes on test coverage
 ----------------------
 Capybara and Rspec have been used to build feature tests. All tests are passing. 
-Test coverage is 98%.
-Rubocop is flagging long lines in Rails and Devise generated files. These have not been updated.
+Test coverage is 98.95%.
+Rubocop is flagging long lines in Rails and Devise agenerated files. These have not been updated.
+Travis CI has also been set up and is passing.
