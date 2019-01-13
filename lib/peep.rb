@@ -7,4 +7,8 @@ class Peep
   property :content,      String
   property :created_at,   DateTime
 
+  def time
+    created_at.strftime("%H:%M:%S - %d/%m/%y")
+  end
+
 end

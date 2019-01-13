@@ -7,5 +7,17 @@
   <body>
     <a href="/signup">Sign up</a>
     <a href="/signin">Sign in</a>
+
+    <div class="peeps">
+      <% @peeps.reverse.each do |peep| %>
+        <br>
+        <div>
+          <%= peep.display %>
+        </div>
+
+          <%= message.time %>
+          <br>
+      <% end %>
+    </div>
   </body>
 </html>

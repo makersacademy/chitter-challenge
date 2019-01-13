@@ -9,6 +9,7 @@ require 'database_cleaner'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'timecop'
 
 Capybara.app = Chitter
 

@@ -155,6 +155,7 @@ GEM
     stringex (1.5.1)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    timecop (0.9.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.4.1)
@@ -180,6 +181,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-flash (~> 0.3.0)
+  timecop
 
 RUBY VERSION
    ruby 2.5.3p105

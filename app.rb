@@ -14,6 +14,8 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :method_override, true
 
+  @peeps = Peep.all
+
   get '/' do
     erb :index
   end
