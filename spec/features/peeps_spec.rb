@@ -1,3 +1,5 @@
+require 'timecop'  
+
 RSpec::Matchers.define :appear_before do |later_content|
   match do |earlier_content|
     begin
@@ -23,7 +25,6 @@ feature 'User peeps' do
 
 end
 
-
  feature 'All peeps' do
 
    scenario 'are displayed in reverse chronological order' do
@@ -35,8 +36,12 @@ end
     expect('Newest').to appear_before('Oldest')
    end
 
-#   scenario 'show time created' do
-  
-#   end
+  scenario 'show time created' do
+    Timecop.freeze
+    sign_up
+    fill_in :content, with: 'Time test!'
+    click_button 'Post'
+    expect(page).to have_content Time.now.strftime('%a, %d %b %Y, %H:%M:%S')
+  end
 
  end
