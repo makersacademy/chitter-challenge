@@ -22,6 +22,7 @@
     <section>
           <% @peeps.reverse.each do |peep| %>
           <ul style="list-style-type:none", padding-left: 0;>
+            <div class="">
             <li>
             <%= erb(:singlepeep, :locals => { :peep => peep }) %>
             </ul>
