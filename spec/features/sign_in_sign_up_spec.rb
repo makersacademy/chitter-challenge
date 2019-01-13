@@ -49,7 +49,25 @@ end
 
 feature 'User authentication' do
   
-  scenario 'user has to use correct password to sign in' do
+  scenario 'correct password required to sign in' do
+    visit '/'
+    click_button 'Sign up'
+    fill_in :name, with: 'C.H Itter'
+    fill_in :username, with: 'chitter_forever'
+    fill_in :email, with: 'chitter@chittering.com'
+    fill_in :password, with: 'gnirettihc123'
+    click_button 'Sign up'
+    click_button 'Log out'
+    click_button 'Sign in'
+    fill_in :email, with: 'chitter@chittering.com'
+    fill_in :password, with: 'wrongpassword321'
+    click_button 'Sign in'
+    expect(page.current_path).to eql '/'
+    expect(page).to have_button 'Sign in'
+    expect(page).to have_button 'Sign up'
+    end
+
+    scenario 'unique email required to sign up' do
     visit '/'
     click_button 'Sign up'
     fill_in :name, with: 'C.H Itter'
