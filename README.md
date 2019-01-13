@@ -1,6 +1,20 @@
 Chitter Challenge
 =================
 
+#Approach
+
+I considered the user stories provided below to make a bare-bones diagram of the product MVP.
+
+![Imgur](https://i.imgur.com/XV1YY2p.png)
+
+Utilising my learnings from my work undertaken previously in these two repos
+
+* [MakersBnB Group challenge](https://github.com/Sindex42/MakersBnB)
+* [Messenger App challenge](https://github.com/scass91/MessageApp)
+
+Chitter Challenge
+=================
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
