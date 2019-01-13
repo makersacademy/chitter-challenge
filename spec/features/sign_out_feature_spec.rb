@@ -1,16 +1,10 @@
-RSpec.feature 'Signin' do
-  context 'Existing user' do
-    let!(:user) { User.create(
-      username: 'christos',
-      email: 'christos@makers.com',
-      password: 'ClassicWoW')
-    }    
+require_relative 'web_helpers'
 
-    scenario 'Warbler signs in and lands on their profile' do
-      visit '/'
-      fill_in :sign_in_username, with: 'christos'
-      fill_in :sign_in_password, with: 'ClassicWoW'
-      click_button 'Sign In'
+RSpec.feature 'Sign out' do
+  context 'Existing user' do
+    scenario 'Warbler can sign out' do
+      user = create_user('christos', 'christos@makers.com', 'ClassicWoW')
+      sign_in
       click_button 'Sign Out'
       expect(page.current_path).to eq('/')
     end
