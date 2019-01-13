@@ -14,3 +14,8 @@ def signin
   fill_in :password, with: 'secret123'
   click_button 'Sign in'
 end
+
+def submit_peep
+  signin
+  fill_in :peep, with: 'My first test peep!'
+end

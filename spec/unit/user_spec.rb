@@ -32,4 +32,10 @@ describe User do
       expect(user2.valid?).to eq false
     end
   end
+
+  describe '#content' do
+    it 'returns the peep content' do
+      expect(user.username).to eq 'Test'
+    end
+  end
 end

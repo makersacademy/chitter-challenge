@@ -6,6 +6,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 
 require_relative'./lib/user'
+require_relative'./lib/peep'
 load './config/datamapper_setup.rb'
 
 class Chitter < Sinatra::Base
