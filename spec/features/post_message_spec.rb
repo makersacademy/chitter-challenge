@@ -1,4 +1,4 @@
-require './spec/spec_helper'
+require_relative 'web_helper'
 
 feature 'A user can post a message' do
   scenario 'A user posts and then sees the message' do
@@ -11,11 +11,7 @@ feature 'A user can post a message' do
   end
 
   scenario 'A user can see all previous messages' do
-    visit '/'
-    fill_in('message', with: 'second test')
-    click_on 'Post'
-    fill_in('message', with: 'third test')
-    click_on 'Post'
+    post_two_messages
 
     expect(page).to have_content('second test')
     expect(page).to have_content('third test')
