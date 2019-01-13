@@ -4,11 +4,11 @@ describe User do
   let!(:user) { create_user }
 
   describe '#authenticate' do
-    it "returns false if user doesn't exist" do
+    it "returns nil if user's email doesn't exist" do
       expect(User.authenticate('wrong@email.com', 'wrongpassword')).to eq nil
     end
 
-    it "returns false if wrong password" do
+    it "returns nil if user's password doesn't match" do
       expect(User.authenticate('lol@makers.com', 'wrongpassword')).to eq nil
     end
 

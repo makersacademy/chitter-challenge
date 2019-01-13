@@ -8,7 +8,7 @@ feature 'Posting Peeps' do
     expect(page).to have_content 'Test peep'
   end
 
-  scenario 'A user cannot post a peep id they are not signed in' do
+  scenario 'A user cannot post a peep if they are not signed in' do
     visit '/'
     fill_in :peep, with: 'Test peep'
     click_button 'Submit'

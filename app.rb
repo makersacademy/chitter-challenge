@@ -61,7 +61,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/signin' do
-    redirect '/profile'
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:id] = user.id
+      redirect '/profile'
+    else
+      redirect '/signin'
+    end
   end
 
   delete '/signin' do
