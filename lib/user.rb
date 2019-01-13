@@ -8,4 +8,6 @@ class User
   property :password, BCryptHash
   property :name, String
   property :username, String, :unique => true
+
+  has n, :peep
 end

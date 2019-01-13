@@ -1,25 +1,30 @@
 feature 'Displaying Peeps' do
-  let!(:peep) { Peep.create(text: 'Test peep', created_at: '2000-01-01 00:00:00') }
+  let!(:user) { create_user }
+  let!(:first_peep) do
+    Peep.create(
+      text: 'Test peep',
+      created_at: '2000-01-01 00:00:00',
+      user: User.first
+      )
+  end
+
+  let!(:second_peep) do
+    Peep.create(
+      text: 'Second test peep',
+      created_at: '2000-01-01 00:00:05',
+      user: User.first
+      )
+  end
+
   background { visit '/' }
 
-  scenario 'A user can see a peep' do
-    expect(page).to have_content 'Test peep'
-  end
-
-  scenario 'A user can see a history of all previous peeps' do
-    second_peep
-
-    expect(page).to have_content 'Test peep'
-    expect(page).to have_content 'Second test peep'
-  end
-
-  scenario 'A user can see the peeps in reverse chronological order' do
-    second_peep
+  scenario 'A user can see peeps in reverse chronological order' do
     expect('Second test peep').to appear_before 'Test peep'
   end
 
   scenario 'A user can see the time that a peep was created at' do
     expect(page).to have_content '01-01-00 00:00:00'
+    expect(page).to have_content '01-01-00 00:00:05'
   end
 
   scenario 'A user can see who posted a particular peep' do

@@ -3,7 +3,7 @@ def second_peep
   click_button 'Submit'
 end
 
-def create_user_jk
+def create_user
   User.create(
     email: 'lol@makers.com',
     password: 'funny123',

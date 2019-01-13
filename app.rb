@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(text: params[:peep])
+    Peep.create(text: params[:peep], user: current_user)
     redirect '/'
   end
 
@@ -39,11 +39,20 @@ class Chitter < Sinatra::Base
   end
 
   get '/profile' do
-    if !session[:id].nil?
-      @current_user = User.get(session[:id])
+    if signed_in?
       erb :profile
     else
       redirect '/'
     end
+  end
+
+  private
+
+  def signed_in?
+    !current_user.nil?
+  end
+
+  def current_user
+    @current_user ||= User.get(session[:id])
   end
 end
