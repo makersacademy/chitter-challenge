@@ -14,9 +14,8 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :method_override, true
 
-  @peeps = Peep.all
-
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -51,7 +50,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/profile' do
-    erb :profile
+    if signed_in?
+      erb :profile
+    else
+      redirect 'signin'
+    end
+  end
+
+  post '/peep' do
+    peep = Peep.create(:content => params[:peep])
+    peep.save
+    redirect '/profile'
   end
 
   get '/error' do

@@ -4,7 +4,7 @@ class Peep
   include DataMapper::Resource
 
   property :id,           Serial
-  property :content,      String
+  property :content,      String, :lazy => false
   property :created_at,   DateTime
 
   def time

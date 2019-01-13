@@ -16,6 +16,8 @@ def signin
 end
 
 def submit_peep
-  signin
+  visit '/'
+  signup
   fill_in :peep, with: 'My first test peep!'
+  click_button 'Submit'
 end

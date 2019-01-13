@@ -6,8 +6,14 @@
   </head>
   <body>
     <h2>Welcome, <%= current_user.username %></h2>
-
-
+    <br>
+    <h4>Would you like to leave a Peep?</h4>
+    <%= erb(:textarea, :locals => {
+      :object => "peep",
+      :content => nil,
+      :value => nil
+    }) %>
+    <br>
     <form action="/sessions" method="post">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Log out">
