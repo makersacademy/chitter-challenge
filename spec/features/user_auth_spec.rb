@@ -38,5 +38,18 @@ feature 'User Authentication' do
       expect(page).to have_content 'Email: lol@makers.com'
       expect(page).to have_content 'Username: haha88'
     end
+
+    scenario "A user gets an error if the email address doesn't exist" do
+      sign_up
+      click_button 'Sign Out'
+      visit '/'
+      click_link 'Sign In'
+      fill_in :email, with: 'wrong@email.com'
+      fill_in :password, with: 'funny123'
+      click_button 'Submit'
+
+      expect(current_path).to eq '/signin'
+      expect(page).to have_content "Error: email address doesn't exist"
+    end
   end
 end
