@@ -54,10 +54,10 @@ Installation
 
 Database Config
 -------
-- $`rake db:create` reated dbs that exist in database.yml file)
+- $`rake db:create` to dbs that exist in database.yml file)
 - $`rake db:migrate`
 - $`rake db:test:prepare`
-- $`rake db:reset` 
+- $`rake db:reset` use if wanting to wipe development table clean
 
 QuickStart
 -------
