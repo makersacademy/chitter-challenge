@@ -10,11 +10,11 @@ RSpec.describe 'Message' do
     end
   end
 
-  describe 'id' do
-    it "will return an id" do
-      expect(message.id).to eq("#{message.id}".to_i)
-    end
-  end
+  # describe 'id' do
+  #   it "will return an id" do
+  #     expect(message.id).to eq("#{message.id}".to_i)
+  #   end
+  # end
 
   describe '#timestamp' do
     it "will format created_at to display a more user friendly time" do

@@ -1,4 +1,5 @@
 require './lib/user.rb'
+require './lib/message.rb'
 require 'capybara/rspec'
 
 

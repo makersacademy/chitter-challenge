@@ -1,10 +1,13 @@
 require './lib/message'
+require './lib/user'
 require 'capybara/rspec'
 require './spec/web_helper'
+
 
 feature '1. Post Peep to Chitter' do
   scenario 'Post new message and display it beneath' do
     signup_steps
+    signin_steps
     fill_in('content', :with => 'Peep peep')
     click_button('Send')
     expect(page).to have_content('Peep peep')

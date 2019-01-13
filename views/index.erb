@@ -21,7 +21,10 @@
   
     <h2>Peeps</h2>
     <% @messages.reverse.each do |message| %>
-      <%= message.content %></a> - <%= message.timestamp %>
+    <div>
+      <%= message.content %><br>
+      <%= message.user.name %></a> - @<%= message.user.username %>
+      Posted at: <%= message.timestamp %><br><br>
     <%end%>  
 </body>
 </center>

@@ -13,18 +13,23 @@
     <input type="submit" value="Log out">
   </form>
 
-<h1>Welcome to the Peep Show <%= current_user.username %>!</h1>
+
 <center>
 <body>
-  <h1>Chitter</h1>
-  <br><form action='/message' method='post'>
+<h1>Chitter</h1><br>
+<h2>Welcome <%= current_user.username %>. Start Peeping!</h2>
+  
+  <br><form action='/message/:id' method='post'>
     <h2>Enter Peep Below</h2><textarea name="content" cols="40" rows="5"></textarea>
     <br><input type='submit' value='Send'>
   </form>
     <br>
     <h2>Peeps</h2>
     <% @messages.reverse.each do |message| %>
-      <a href="/messages/<%= message.id %>"> <%= message.content %></a> - <%= message.timestamp %>
+    <div>
+      <%= message.content %><br>
+      <%= message.user.name %></a> - @<%= message.user.username %>
+      Posted at: <%= message.timestamp %><br><br>
     <%end%>  
 </body>
 </center>

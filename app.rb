@@ -14,28 +14,14 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/message' do
-    message = Message.create(content: params[:content])
-    redirect '/profile'
-  end
-
   get '/signup' do
     erb :signup
   end
 
   post '/signup' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
-      redirect '/error'
-    else  
-      user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-      if user
-        session[:user_id] = user.id
-        redirect ("/profile")
-      else
-        redirect '/'
-      end
-    end
+    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session[:id] = user.id
+    redirect '/signin'
   end
 
   get '/signin' do
@@ -45,20 +31,29 @@ class Chitter < Sinatra::Base
   post '/signin' do
     user = User.authenticate(params[:email], params[:password])
     if user
-      session[:user_id] = user.id
-      redirect ("/profile")
+      session[:id] = user.id
+      redirect("/profile/#{session[:id]}")
     else
       redirect '/'
     end
   end
 
-  get '/profile' do
+  get '/profile/:id' do
     if signed_in?
+      @user = User.get(params[:id])
+      @users = User.all
       @messages = Message.all
       erb :profile
     else
       redirect 'signin'
     end
+  end
+
+  post '/message/:id' do
+    @user = User.get(params[:id])
+    message = Message.create({ user_id: session[:id], 
+      content: params[:content] })
+      redirect("/profile/#{session[:id]}")
   end
 
   get '/error' do
@@ -78,7 +73,7 @@ class Chitter < Sinatra::Base
   end
 
   def current_user
-    @current_user ||= User.get(session[:user_id])
+    @current_user ||= User.get(session[:id])
   end
 
   run! if app_file == $0
