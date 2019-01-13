@@ -27,8 +27,12 @@ class Chitter < Sinatra::Base
 
   post '/signin' do
     user = User.authenticate(params[:email], params[:password])
-    session[:user_id] = user.id
-    redirect '/profile'
+    if user
+      session[:user_id] = user.id
+      redirect '/profile'
+    else
+      redirect '/error'
+    end
   end
 
   post '/signup' do

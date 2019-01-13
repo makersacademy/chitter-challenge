@@ -28,16 +28,20 @@ feature 'homepage' do
                               password: 'secret123',
                               username: 'Test') }
 
-    scenario 'a user can sign in' do
+    scenario 'A user can signin' do
       signin
       expect(page).to have_content 'Welcome, Test'
     end
-  end
 
-  scenario 'A user can signin' do
-    signup
-    expect(page).to have_content 'You signed up successfully!'
-    expect(page).to have_content 'Welcome, Test'
+    scenario 'A user cannot sign in with an incorrect email address' do
+      visit '/'
+      click_on 'Sign in'
+      fill_in :email, with: 'WRONGEMAIL@test.com'
+      fill_in :password, with: 'secret123'
+      click_button 'Sign in'
+      expect(page).to have_content 'Error! Want to sign up or sign in?'
+      expect(page.current_path).to eq '/error'
+    end
   end
 
   feature 'logout' do
