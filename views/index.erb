@@ -1,4 +1,16 @@
-
 <form action="/signup" method="get">
   <p> <input type="submit" value="Sign Up"> </p>
 </form>
+
+
+<form action="/login" method="get">
+  <p> <input type="submit" value="Log In"> </p>
+</form>
+
+<form action="/profile" method="get">
+  <p> <input type="submit" value="My profile"> </p>
+</form>
+
+<% @peep.reverse.each do |peep| %>
+<p> <%= peep.id %> <%= peep.content %> at: <%= peep.created_at.strftime('%a, %d %b %Y, %H:%M:%S') %> by <%= peep.user.username %> </p>
+<% end %>

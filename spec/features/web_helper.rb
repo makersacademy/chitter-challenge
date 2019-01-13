@@ -2,9 +2,10 @@ def sign_up
   visit('/')
   click_on 'Sign Up'
   expect(page.current_path).to eq('/signup')
-  fill_in :username, with: 'myusername'
   fill_in :email, with: 'myemail@email.com'
   fill_in :password, with: 'mypassword'
+  fill_in :name, with: 'myname'
+  fill_in :username, with: 'myusername'
   click_on 'Submit'
 end
 
