@@ -45,12 +45,6 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
 Notes on functionality:
@@ -61,19 +55,6 @@ Notes on functionality:
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
 
 Code Review
 -----------
