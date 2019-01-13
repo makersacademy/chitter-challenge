@@ -1,10 +1,12 @@
 require './config/data_mapper'
 require 'pry'
 require 'sinatra/base'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
   enable :method_override
+  register Sinatra::Flash
 
   ENV['RACK_ENV'] = 'development'
 
@@ -34,6 +36,7 @@ class Chitter < Sinatra::Base
       session[:id] = user.id
       redirect '/profile'
     else
+      flash[:error] = 'Error: email or username already exists'
       redirect '/signup'
     end
   end

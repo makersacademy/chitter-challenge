@@ -8,6 +8,7 @@ gem 'json', '~> 1.8'
 gem 'pry'
 gem 'rake'
 gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'

@@ -6,8 +6,12 @@
   </head>
   <body>
     <%= erb(:'partials/navigation') %>
-    
+
     <h2>Sign Up</h2>
+
+    <div class="">
+        <%= flash[:error] %>
+    </div>
 
     <form action="/signup" method="post">
       Email: <input type="text" name="email"><br>
