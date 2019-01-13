@@ -5,19 +5,25 @@
   </form>
 <br>
 
-<form action="/messages" method="post">
+<br>
+  <form action='/signin' method='get'>
+  <input type="submit" value="Sign in">
+  </form>
+<br>
+
+<form action="/peeps" method="post">
   <div>
-  <textarea cols="50" row="5" name="content" placeholder="insert message here">
+  <textarea cols="50" row="5" name="content" placeholder="insert peep here">
   </textarea>
   <br>
-  <input type="submit" value="Submit message">
+  <input type="submit" value="Submit peep">
   </div>
 </form>
 
-<% @messages.reverse.each do |message|%>
+<% @peeps.reverse.each do |peep|%>
   <br>
-  <%= message.content %>
-  <%= message.created_at %> 
+  <%= peep.content %>
+  <%= peep.created_at %> 
   <br> 
 <% end %>
 

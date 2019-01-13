@@ -23,4 +23,31 @@ RSpec.describe User do
       expect(user).to have_attributes(:username => 'Michael974')
     end
   end
+
+  context "create" do 
+    let(:user) { User.create(name: "Test", username: "Test974", email: "Test@123", password: "1234") }
+    it "stores user name" do
+      expect(user.name).to eq "Test"
+    end
+
+    it "stores username" do 
+      expect(user.username).to eq "Test974"
+    end
+
+    it "stores user email" do
+      expect(user.email).to eq "Test@123"
+    end
+
+    it "stores user password" do
+      expect(user.password).to eq "1234"
+    end
+
+    it 'validates uniqueness of email property' do 
+      user1 = User.create(:email => 'test@gmail.com', :password => 'correct_password')
+      user2 = User.create(:email => 'test@gmail.com', :password => 'correct_password')
+      expect(user1.valid?).to eq true
+      expect(user2.valid?).to eq false
+    end 
+  end
+
 end
