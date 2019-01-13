@@ -38,6 +38,7 @@ class Warble < Sinatra::Base
     else
       redirect '/'
     end
+
   end
 
   get '/private_profile/:id' do
