@@ -1,3 +1,4 @@
+require './lib/user'
 require './lib/peep'
 
 ENV['RACK_ENV'] ||= 'development'

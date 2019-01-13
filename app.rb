@@ -22,12 +22,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    session[:username] = params[:username]
+    session[:email] = params[:email]
+    User.create(email: params[:email], password: params[:password], username: params[:usermame])
     redirect '/profile'
   end
 
   get '/profile' do
-    @username = session[:username]
+    @user = User.get(email: session[:email])
     erb :profile
   end
+
+  get '/login' do
+    erb :login
+  end
+
 end  
