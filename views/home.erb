@@ -10,7 +10,7 @@
         <p class='time'><%= message.created_at %></p>
         <p class ='message' ><%= message.content %></p>
         <%message.users.each do |user| %>
-            <p class= 'username'<%= user.name %></p>
+            <p class= 'username'><%= user.name %></p>
         <% end %>
         <% if session[:user_id] %>
            <button class='comment' id='#{counter}' onClick='show_form(this.id)'>comment</button>
