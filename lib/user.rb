@@ -3,6 +3,8 @@ require 'sinatra/activerecord'
 
 class User < ActiveRecord::Base
 
+  has_many :chirrups
+
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true
