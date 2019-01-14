@@ -10,6 +10,7 @@
 <br><br>
 <div>
 <%@messages.reverse.each do |msg|%>
-<%=msg.peep%><br>
+<%=msg.peep%>  ||
+<%=msg.time.upcase%><br>
 <%end%>
 </div>
