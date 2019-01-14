@@ -29,10 +29,15 @@ Visit 'http://localhost:9292/' in a web browser
 ##### For Testing
 RSpec
 Capybara
-###### Running tests
+##### Running tests
 Run rspec
 
 100% test coverage.
+
+##### Linter
+Rubocop
+
+0 Offences
 
 ### Notes
 I really struggled to get into this project, despite being quite excited about it prior to starting. I didn't put enough time or thought into it and I think that the is reflected in the app. The basic functionality is there but there are various areas which I would like to improve. These include:
