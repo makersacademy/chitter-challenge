@@ -22,12 +22,8 @@ describe 'User' do
   end
 
   context '#authenticate' do
-    let!(:user) { User.create(
-      username: 'christos',
-      email: 'christos@makers.com',
-      password: 'Makers123')
-    }
     it "Sign in if username and password are correct" do
+      User.create(username: 'christos', email: 'christos@maker.com', password: 'Makers123')
       expect(User.authenticate('christos', 'Makers123')).to eq(user)
     end
   end
@@ -43,5 +39,4 @@ describe 'User' do
       expect(user_two.valid?).to eq false
     end
   end
-
 end

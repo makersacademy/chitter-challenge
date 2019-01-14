@@ -62,7 +62,8 @@ class Warble < Sinatra::Base
   end
 
   post '/chirrup' do
-    Chirrup.create(content: params[:chirrup])
+    chirrup = Chirrup.new(content: params[:chirrup], user_id: session[:id])
+    chirrup.save
     redirect '/chirrup-board'
   end
 
