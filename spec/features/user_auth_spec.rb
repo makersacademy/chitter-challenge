@@ -24,7 +24,7 @@ feature 'User Authentication' do
       click_button 'Sign Out'
       click_link 'Profile'
 
-      expect(current_path).to eq '/'
+      expect(current_path).to eq '/signin'
       expect(page).to have_content 'You are not signed in'
     end
 
