@@ -21,5 +21,5 @@ gem "pry"
 
 gem "rake"
 
-# gem 'simplecov', require: false
-# gem 'simplecov-console', require: false
+gem 'simplecov', require: false
+gem 'simplecov-console', require: false

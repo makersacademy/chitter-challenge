@@ -15,7 +15,7 @@
 
     <h3> P E E P S: </h3> <% @peeps.reverse.each do |peep| %>
       <div>
-      <%= peep.content %>, sent at: <%= peep.created_at %>
+     <%= peep.content %>, <%= peep.created_at.asctime %>
       </div>
     <% end %>
    </center>
