@@ -3,7 +3,7 @@ require './config/data_mapper'
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
 
-  RSpec::Core::RakeTask.new :spec
+  RSpec::Core::RakeTask.new
 
   task default: [:migration, :spec]
 end
