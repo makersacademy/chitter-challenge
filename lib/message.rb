@@ -1,5 +1,10 @@
+require 'data_mapper'
+
 class Message
-  def self.all
-    ['default test message', '2nd test message']
-  end
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :peep, String
+  property :username, Text
+  property :created_at, DateTime
 end
