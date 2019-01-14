@@ -6,13 +6,18 @@
   </head>
   <body bgcolor="#8ffado">
     <center>
-    <h1> C H I T T E R </h1>
+    <h1>  C H I T T E R </h1>
 
     <form action="/peep" method="post">
       Peep: <input type="text" name="peep">
       <input type="submit" value="Send peep!">
     </form>
 
+    <h3> P E E P S: </h3> <% @peeps.reverse.each do |peep| %>
+      <div>
+      <%= peep.content %>, sent at: <%= peep.created_at %>
+      </div>
+    <% end %>
    </center>
   </body>
 </html>

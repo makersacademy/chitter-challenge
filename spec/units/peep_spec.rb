@@ -2,12 +2,12 @@ require 'peep'
 
 describe 'Peep' do
 
-  # let(:peep) {Peep.new(:content)}
-  let(:content) {double(content)}
+  subject(:peep) { Peep.create(
+    :content => "This is my first peep"
+    )}
 
-  it 'Allows new peep instances to accept content' do
-    peep = Peep.new
-    expect(peep.content).to eq(:content)
+  it 'Returns the content of the peep' do
+    expect(peep.content).to eq "This is my first peep"
   end
 
 end
