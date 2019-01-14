@@ -9,8 +9,7 @@
     <div class="container">
       <header>
         <h1>Chitter</h1>
-        <h2>Welcome socks101</h2>
-        <!-- <h1>Welcome "<%="#{session[:id]}"%>" </h1> -->
+        <h2>Welcome <%=@user.name%></h2>
       </header>
 
       <div>
@@ -22,7 +21,7 @@
       </div>
 
       <div class="message_area">
-        <% @messages.reverse.each do |message| %>
+        <% @peeps.reverse.each do |message| %>
         <div class="message_content">
           <div class="message">
             <%=message.content%>

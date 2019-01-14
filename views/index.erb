@@ -7,29 +7,60 @@
   </head>
   <body>
     <div class="container">
+      <div class="form_area">
+        <form action="/signin" method="post">
+          <label>Username: </label>
+          <input type="text" name="signin_username" placeholder="username">
+          <label>Password: </label>
+          <input type="password" name="signin_password" placeholder="password">
+          <input type="submit" value="Log In">
+        </form>
+
+      </div>
       <header>
           <h1>Chitter</h1>
       </header>
       <p>The Twitter clone network</p>
+
       <div class="form_area">
         <form action="/signup" method="post">
+          <label>Name: </label>
+          <div>
+            <input type="text" name="signup_name" placeholder="name">
+          </div>
+          <br>
           <label>Username: </label>
-          <div id="username">
-            <input type="text" name="username" placeholder="username">
+          <div>
+            <input type="text" name="signup_username" placeholder="username" required>
           </div>
           <br>
           <label>Email: </label>
-          <div class="home_input">
-            <input type="email" name="email" placeholder="email address"> <br>
+          <div>
+            <input type="email" name="signup_email" placeholder="email address" required> <br>
           </div>
           <br>
           <label>Password: </label>
-          <div class="home_input">
-            <input type="password" name="password" placeholder="password">
+          <div>
+            <input type="password" name="signup_password" placeholder="password" required>
           </div>
           <br>
           <input type="submit" name="Sign Up" value="Sign Up">
         </form>
+      </div>
+
+      <div class="message_area">
+        <% @messages.reverse.each do |message| %>
+        <div class="message_content">
+          <div class="message">
+            <%=message.content%>
+          </div>
+          <br>
+          <div id="time">
+            <%= message.display_time%>
+          </div>
+          <br>
+        </div>
+        <% end %>
       </div>
     </div>
   </body>
