@@ -27,6 +27,14 @@ end
 
  feature 'All peeps' do
 
+  scenario 'can be seen without logging in' do
+    sign_up
+    fill_in :content, with: 'A peep here'
+    click_button 'Post'
+    click_button 'Log out'
+    expect(page).to have_content 'A peep here'
+   end
+
    scenario 'are displayed in reverse chronological order' do
     sign_up
     fill_in :content, with: 'Oldest!'
