@@ -1,0 +1,29 @@
+.button {
+  background-color: grey;
+  color: hsla(white);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  float: inherit;
+}
+ul {
+  list-style-type: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: center;
+  display: inline-block;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}

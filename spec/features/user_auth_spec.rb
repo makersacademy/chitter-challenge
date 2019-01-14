@@ -23,4 +23,12 @@ feature 'User Authentication' do
     end
   end
 
+  context "Sign out" do
+    scenario "A user can log out" do
+      signuptest
+      logintest
+      click_button "Log out"
+      expect(current_path).to eq("/")
+    end
+  end
 end

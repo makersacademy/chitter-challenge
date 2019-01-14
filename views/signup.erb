@@ -5,14 +5,15 @@
   <meta charset="utf-8">
   <title>Chitter: Sign Up</title>
 </head>
+    <center>
   <nav>
     <%= erb(:navbar)%>
   </nav>
   <body>
-    <center>
     <%= erb(:title) %>
     <%= erb(:signforms, :locals => { :action => "/signup", :name => "Submit" }) %>
+    <br>
     <%= erb(:footer)%>
-</center>
 </body>
+</center>
 </html>

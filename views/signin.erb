@@ -6,12 +6,13 @@
   <title>Chitter: Sign In</title>
 </head>
 <body>
+    <center>
   <nav>
     <%= erb(:navbar)%>
   </nav>
-  <center>
     <%= erb(:title) %>
     <%= erb(:signinforms, :locals => { :action => "/signin", :name => "Submit" }) %>
+    <br>
     <%= erb(:footer)%>
   </center>
 </body>

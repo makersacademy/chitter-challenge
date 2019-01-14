@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<ul style="list-style-type:none", padding-left: 0;>
-  <li><%= erb(:button, :locals => { :action => "/", :name => "Homepage", :method => nil, :value => nil }) %></li>
-  <li><%= erb(:button, :locals => { :action => "/delete", :name => "logout", :method => nil, :value => nil}) %></li>
-</ul>
 <center>
  <html lang="en" dir="ltr">
    <head>
+     <link rel="stylesheet" type="text/css" href="<%= url("/style/style.css") %>">
      <meta charset="utf-8">
      <title>Chitter: Profile</title>
    </head>
+   <nav>
+     <%= erb(:profilenavbar) %>
+    </nav>
+   <header>
+     <%= erb(:title) %>
+   </header>
    <body>
      Hello, <%=@current_user.actualname %>
    </body>
@@ -36,5 +39,6 @@
              <% end %>
          </section>
         </body>
+        <br>
           <%= erb(:footer)%>
      </center>

@@ -67,9 +67,9 @@ class Chitter < Sinatra::Base
     erb :error
   end
 
-  delete '/sessions' do
+  delete '/log-out' do
     session.delete(:user_id)
-    redirect '/'
+  redirect '/'
   end
 
 private
