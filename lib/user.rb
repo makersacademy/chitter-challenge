@@ -8,6 +8,8 @@ class User
   property :username, String, :unique => true
   property :password, BCryptHash
 
+  has n, :peeps
+
   def self.authenticate(email, password)
     user = first(email: email)
     return nil unless user

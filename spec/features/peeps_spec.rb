@@ -29,4 +29,11 @@ feature 'Peeps' do
     expect(page.current_path).to eq '/peep/4'
     expect(page).to have_content 'My first test peep!'
   end
+
+  scenario 'clicking on a peep displays peeps author' do
+    visit('/')
+    submit_peep
+    click_on 'My first test peep!'
+    expect(page).to have_content 'Test'
+  end
 end
