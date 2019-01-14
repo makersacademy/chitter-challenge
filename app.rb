@@ -28,7 +28,11 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create(username: params[:username], mail: params[:mail], password: params[:password])
+    user = User.create(
+      username: params[:username],
+      mail: params[:mail],
+      password: params[:password]
+    )
     if user
       session[:userid] = user.id
       redirect '/logged_in'
@@ -44,17 +48,13 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/login' do
-    erb:login
+    erb :login
   end
 
   post '/login' do
     user = User.auth(params[:username], params[:password])
-    if user
-      session[:userid] = user.id
-      redirect '/'
-    else
-      redirect '/'
-    end
+    session[:userid] = user.id if user
+    redirect '/'
   end
 
   get '/logout' do
@@ -64,16 +64,19 @@ class ChitterApp < Sinatra::Base
   end
 
   run! if app_file == $0
+
   def current_username
-    current_user == nil ? 'unknown' : current_user.username
+    current_user.nil? ? 'unknown' : current_user.username
   end
+
   private
+
   def current_user
     @current_user ||= User.get(session[:userid])
   end
+
   def logged_in?
     !current_user.nil?
   end
-
 
 end

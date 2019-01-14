@@ -1,5 +1,5 @@
 feature 'user logs in' do
-  let!(:user) { User.create(username: 'test', mail: 'test@test.com', password: '123')}
+  let!(:user) { User.create(username: 'test', mail: 'test@test.com', password: '123') }
   scenario 'to see greeting with username' do
     visit '/'
     click_on 'Log In'
