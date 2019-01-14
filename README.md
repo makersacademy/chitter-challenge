@@ -1,3 +1,58 @@
+# Chitter Challenge
+My arremp at Makers Academys Chitter Challenge. For a full description of the challenge, see 'APPENDIX' below.
+
+![screenshot](https://github.com/jaywayawyaj/chitter-challenge/blob/master/public/Screen%20Shot%202019-01-13%20at%2023.39.39.png)
+
+## Instructions for users
+
+Note that you will need postgreSQL installed.
+
+$ git clone github.com:jaywayawyaj/chitter-challenge.git
+Navigate to chitter-challenge
+$ bundle
+$ createdb chitter_development - creates a database
+$ createdb chitter_test- creates a database specifically for testing
+$ rake db:auto_migrate - creates tables in your development
+$ rake db:auto_migrate RACK_ENV=test - creates tables in your test database
+$ rackup
+Visit 'http://localhost:9292/' in a web browser
+
+### Usage
+
+Technologies used
+Ruby
+Sinatra
+Web Framework
+PostgreSQL
+Database
+DataMapper
+ORM
+BCrypt
+Encryption gem for passwords
+
+##### For Testing
+RSpec
+Capybara
+###### Running tests
+Run rspec
+
+100% test coverage.
+
+### Notes
+I really struggled to get into this project, despite being quite excited about it prior to starting. I didn't put enough time or thought into it and I think that the is reflected in the app. The basic functionality is there but there are various areas which I would like to improve. These include:
+- edit and delete buttons for peeps
+- tags attached to peeps
+- author attached to peeps
+- ability to respond to peeps
+- viewing all peeps with the same tag
+- email alerts
+- replying to peeps
+- better css styling
+- (I could keep adding to this for a long time)
+
+
+# APPENDIX
+
 Chitter Challenge
 =================
 
