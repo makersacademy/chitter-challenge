@@ -90,7 +90,10 @@ Once your system has the above requirements installed, from your command line mo
  rackup -p 9292
 ```
 
- 4. Visit Chitter at localhost:9292
+ 4. Visit Chitter in browser at: 
+ ``` 
+ localhost:9292
+ ```
 
 
 Technical Approach:
