@@ -248,7 +248,7 @@ You'll be able to see that the localhost port used is *9292*
 
 1. Open your browser and type the url of your *localhost:9292*  <br/>
 
-
+![blank-welcome-page] (https://user-images.githubusercontent.com/screenshots/blank-index-page.png)
 
 2. click on sign up, enter your email address and password and click on `Sign up`.<br/>
 
