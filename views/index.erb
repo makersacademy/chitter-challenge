@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body bgcolor="#8ffado">
-    <center>
-    <h1>  C H I T T E R </h1>
 
-    <form action="/peep" method="post">
-      Peep: <input type="text" name="peep">
-      <input type="submit" value="Send peep!">
-    </form>
 
-    <h3> P E E P S: </h3> <% @peeps.reverse.each do |peep| %>
-      <div>
-     <%= peep.content %>, <%= peep.created_at.asctime %>
-      </div>
-    <% end %>
-   </center>
-  </body>
-</html>
+    <a href="/signin">Sign in</a>
+    <a href="/signup">Sign up</a>

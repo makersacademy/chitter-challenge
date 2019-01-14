@@ -9,10 +9,14 @@ require 'data_mapper'
 class Chitter < Sinatra::Base
   set :sessions, true
 
+  get '/' do
+    erb :index
+  end
+
 
   get "/profile" do
     @peeps = Peep.all
-    erb :index
+    erb :profile
   end
 
   post "/peep" do

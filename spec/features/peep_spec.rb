@@ -1,6 +1,6 @@
 feature "Peeps" do
   scenario "User can post a messages to chitter" do
-    visit ("/")
+    visit ("/profile")
     expect(page).to have_content "C H I T T E R"
     fill_in "peep", with: "This is my first peep"
     click_button "Send peep!"
@@ -8,7 +8,7 @@ feature "Peeps" do
   end
 
   scenario "User can post multiple messaeges to chitter" do
-    visit ("/")
+    visit ("/profile")
     fill_in "peep", with: "First message"
     click_button "Send peep!"
     fill_in "peep", with: "Second message"
