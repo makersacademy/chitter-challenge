@@ -11,13 +11,6 @@
     <header>
       <%= erb(:title) %>
     </header>
-    <form action="/peep" method="post">
-      <textarea name="peep" placeholder="What's on your mind, maker?">
-      </textarea><br>
-      <input type="submit" value="Submit">
-    </form>
-    </center
-<hr>
 <center>
   <body>
     <h2> Previously on Chitter... </h2>
@@ -27,10 +20,12 @@
             <div class="">
             <li>
             <%= erb(:singlepeep, :locals => { :peep => peep }) %> -- <%= peep.posted_at %>
+             <%= peep.user.actualname %> -- <%= peep.user.username %>
             </ul>
             <% end %>
         </section>
        </body>
+         <%= erb(:footer)%>
     </center>
 </head>
 </html>

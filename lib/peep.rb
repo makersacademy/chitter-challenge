@@ -8,4 +8,6 @@ class Peep
   property :text, String
   property :posted_at, DateTime
 
+  belongs_to :user
+  
 end

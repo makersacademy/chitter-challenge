@@ -1,10 +1,40 @@
 <!DOCTYPE html>
+<ul style="list-style-type:none", padding-left: 0;>
+  <li><%= erb(:button, :locals => { :action => "/", :name => "Homepage", :method => nil, :value => nil }) %></li>
+  <li><%= erb(:button, :locals => { :action => "/delete", :name => "logout", :method => nil, :value => nil}) %></li>
+</ul>
+<center>
  <html lang="en" dir="ltr">
    <head>
      <meta charset="utf-8">
      <title>Chitter: Profile</title>
    </head>
    <body>
-     Hello <%= current_user.fullname %>
+     Hello, <%=@current_user.actualname %>
    </body>
+
+<h3>What's on your mind, maker?</h3>
+
+   <form action="/peep" method="post">
+     <textarea name="peep" id="peep" placeholder="What's on your mind, maker?">
+     </textarea><br>
+     <input type="submit" value="Submit">
+   </form>
+
  </html>
+
+   <body>
+     <h2> Previously on Chitter... </h2>
+     <section>
+           <% @peeps.reverse.each do |peep| %>
+           <ul style="list-style-type:none", padding-left: 0;>
+             <div class="">
+             <li>
+             <%= erb(:singlepeep, :locals => { :peep => peep }) %> -- <%= peep.posted_at %>
+              <%= peep.user.actualname %> -- <%= peep.user.username %>
+             </ul>
+             <% end %>
+         </section>
+        </body>
+          <%= erb(:footer)%>
+     </center>
