@@ -1,7 +1,6 @@
 rvm: '2.5.1'
 
 script:
-  - mkdir -p spec && bundle exec rspec spec
   - bundle exec rake db:test:prepare
 
 before_install:
