@@ -134,7 +134,7 @@ Technologies used
 
 
 
-## How to use Chitter ##
+### How to use Chitter ###
 
 System requirements
 -------
