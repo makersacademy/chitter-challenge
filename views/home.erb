@@ -7,9 +7,10 @@
     <% counter = 1 %>
     <% @messages.reverse.each do |message| %>
     <div class = 'message'>
-        <%= message.created_at %>:<p><%= message.twenty_chars %></p>
+        <p class='time'><%= message.created_at %></p>
+        <p class ='message' ><%= message.content %></p>
         <%message.users.each do |user| %>
-            <%= user.name %>
+            <p class= 'username'<%= user.name %></p>
         <% end %>
         <% if session[:user_id] %>
            <button class='comment' id='#{counter}' onClick='show_form(this.id)'>comment</button>
@@ -20,10 +21,13 @@
             </form>
             <% counter += 1%>
         <% end %>
-        <% message.comments.each do|comment| %>
-            <div class ='comment'>
+        <% if message.comments %>
+            <div class ='comment_container'>
+            <% message.comments.each do|comment| %>
                 <p><%=comment.content%></p>
-            </div>
+        
+            <% end %>
+             </div>
         <% end %>
     </div>
     <% end %>

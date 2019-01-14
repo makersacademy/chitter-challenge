@@ -58,3 +58,120 @@ table {
 	height: auto;
 	display:block
 }
+
+
+header{
+	background: white;
+    height:auto;
+    text-align:right;
+	padding:10px;
+	margin-bottom:5px;
+}
+
+header h1{
+	text-align:center;
+}
+
+h1{
+	font-size:24px;
+	margin-bottom:10px;
+}
+
+/* ========= welcomes forms */
+
+#wrapper {
+	text-align: center;
+	margin:0 auto;
+	padding: 10px 10px;
+	border-radius: 10px;
+	width: 60%;
+	background: white;
+}
+
+#welcome_forms form{
+	text-align:center;
+}
+
+#welcome_forms form input, #welcome_forms form label{
+   display:block;
+   clear:both;
+   margin: 0 auto;
+}
+#welcome_forms form label{
+	padding: 10px 20px;
+	line-height:16px;
+}
+
+#welcome_forms form input{
+	margin: 0 auto;
+	border: none;
+	border-bottom: 1pt solid goldenrod;
+
+}
+
+footer{
+   text-align:center;
+}
+
+.submit{
+	margin:10px;
+	background: green;
+	color: white;
+	border-radius:5px;
+	padding:5px 10px;
+}
+
+.comment_container{
+	background:#ececec;
+	padding:10px;
+	border-radius: 5px;
+
+}
+
+.comment_container p{
+	background: white;
+	margin-top: 20px;
+	display:inline-block;
+	width: 50%;
+}
+
+.message p{
+	display:block;
+	padding: 5px;
+	margin: 0px 5px;
+}
+
+/*===== body ==== */
+/*=== registration background====*/
+
+body {
+	font-size:12px;
+	/*=== Color changing background ==*/
+	background: linear-gradient(303deg, #da5881, #fadae0, #1e5ae5);
+	background-size: 600% 600%;
+	-webkit-animation: gradientChange 18s ease infinite;
+	-moz-animation: gradientChange 18s ease infinite;
+	-o-animation: gradientChange 18s ease infinite;
+	animation: gradientChange 18s ease infinite;
+  }
+	@-webkit-keyframes gradientChange {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+	@-moz-keyframes gradientChange {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+	@-o-keyframes gradientChange {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+	@keyframes gradientChange {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+  

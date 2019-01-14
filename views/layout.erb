@@ -10,7 +10,9 @@
 </head>
 <body>
     <%=  erb :"_primary_nav" %>
-    <%= yield %>
+    <div id ='wrapper'>
+        <%= yield %>
+    </div>
     <%= erb :'_footer' %>
 </body>
 </html>

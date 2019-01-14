@@ -48,16 +48,16 @@ send email to notify if user has been mentioned
 my app is unable to send emails - 'connect 25 error'. Its is however able to search texts for usernames and validate them against the user table.
 
 #commenting
-commenting does not yet work
+commenting works
 -----
-commenting only works for one comment then theres a duplicate and it breaks..... 
-this is down to the way datamappers has mapped the tables together, im unsure of how to change datamapper to mimic the relationship i want.
+commenting works and allows for a conversation to take place, however it still doesnt have a username...
+im unsure of how to change datamapper to mimic the relationship i want.
 
 # not yet achieved
 
 fancy CSS
 ------
-i ran out of time
+i started css however ran out of time could do with another hour.
 
 
 ## Personal LO 

@@ -12,8 +12,9 @@ module Email
         <h1>hi #{user.name} You have been mentioned in chitter! </h1>
         MESSAGE_END
 
-        Net::SMTP.start('localhost') do |smtp|
-            smtp.send_message message, 'me@fromdomain.com', 'test@todomain.com'
-        end
+        return user.username
+        # Net::SMTP.start('smtp.gmail.com', "25", 'localhost', "#{ENV['EMAIL_USER']}", "#{ENV['EMAIL_PASSWORD']}") do |smtp|
+        #     smtp.send_message message, 'smtp.gmail.com', 'test@todomain.com'
+        # end
     end
 end

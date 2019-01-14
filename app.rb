@@ -73,7 +73,8 @@ class ChitterApp < Sinatra::Base
         names.each do|name|
             user = User.first(:username => name)
             if user
-                # error right now Email.send_message(user)
+                # error right now p'ing out so cant see has name 
+                p Email.send_message(user)
             end
         end
         # -------- shouldnt be here

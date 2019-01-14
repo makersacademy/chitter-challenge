@@ -1,7 +1,9 @@
+<header>
 <% if session[:user_id] %>
-  <h5> <%= "welcome #{@user.username}"%> </h5>
+  <h1> <%= "welcome #{@user.username}"%> </h1>
   <a href="/logout">logout</a> 
 <% else %>
-    <a href="/signin">Sign in</a>
-    <a href="/signup">Sign up</a> 
+  <a href="/signin">Sign in</a>
+  <a href="/signup">Sign up</a> 
 <% end %>
+</header>
