@@ -1,24 +1,29 @@
-<h2> Welcome <%= current_user.username %> </h2>
+<div class="profilewelcome">
+  <h2> Welcome <%= current_user.username %> </h2>
+</div>
 
-<form action="/peep" method="post">
-  <p> What is happening? </p>
-  <textarea name="peep" rows="3" cols="40"></textarea>
+<div class="peep">
+  <form action="/peep" method="post">
+    <p> What is happening? </p>
+    <textarea name="peep" rows="3" cols="40"></textarea>
+    <br>
+    <br>
+    <input type="text" name="tag_someone" placeholder="Tag someone">
+   <p> <input type="submit" value="Post"> </p>
+  </form>
   <br>
+</div>
+
+<div class="showpeep">
+  <% @peep.reverse.each do |peep| %>
+  <p> <%=peep.id%> <%= peep.content %> at: <%= peep.created_at.strftime('%a, %d %b %Y, %H:%M:%S') %> by <%= peep.user.username %> </p>
+  <% end %>
+</div>
+
+<div class="logout">
   <br>
-  <input type="text" name="tag_someone" placeholder="Tag someone">
- <p> <input type="submit" value="Post"> </p>
-</form>
-<br>
-
-<% @peep.reverse.each do |peep| %>
-<p> <%=peep.id%> <%= peep.content %> at: <%= peep.created_at.strftime('%a, %d %b %Y, %H:%M:%S') %> by <%= peep.user.username %> </p>
-<% end %>
-
-<form action="/" method="get">
-  <input type="submit" value="Homepage">
-</form>
-<br>
-<form action="/sessions" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Log out">
-</form>
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log out">
+  </form>
+</div>  

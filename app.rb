@@ -78,7 +78,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/profile'
     else
-      redirect '/'
+      redirect '/error_page'
     end
   end
 
