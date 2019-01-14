@@ -5,7 +5,8 @@ feature 'Authentication:' do
       username: 'awesome',
       email: 'socks@socks.com',
       password: 'Secret'
-    ) }
+    )
+    }
     scenario 'user can signup' do
       visit '/'
       expect(page).to have_content('Name:')
@@ -38,7 +39,8 @@ feature 'Authentication:' do
       username: 'awesome',
       email: 'socks@socks.com',
       password: 'Secret'
-    ) }
+    )
+    }
     scenario 'User can signin' do
       visit '/'
       fill_in :signin_username, with: 'awesome'
@@ -46,6 +48,27 @@ feature 'Authentication:' do
       click_button 'Log In'
 
       expect(page).to have_content('Welcome Socks')
+    end
+  end
+
+  context 'Log out' do
+    let!(:user) { User.create(
+      name: 'Socks',
+      username: 'awesome',
+      email: 'socks@socks.com',
+      password: 'Secret'
+    )
+    }
+    scenario 'can log out of account' do
+      visit '/'
+      fill_in :signin_username, with: 'awesome'
+      fill_in :signin_password, with: 'Secret'
+      click_button 'Log In'
+      visit '/chitter_profile/1'
+      click_button 'Log Out'
+
+      expect(page).to have_content('Username:')
+      expect(page).to have_content('Password:')
     end
   end
 end

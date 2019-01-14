@@ -7,6 +7,12 @@
   </head>
   <body>
     <div class="container">
+      <div>
+        <form action="/logout" method="post">
+          <input type="submit" value="Log Out">
+        </form>
+      </div>
+
       <header>
         <h1>Chitter</h1>
         <h2>Welcome <%=@user.name%></h2>

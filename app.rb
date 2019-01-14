@@ -60,13 +60,19 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/logout' do
+    session.delete(:id)
+    redirect '/'
+  end
+
   private
 
-    def signed_in?
-      !current_user.nil?
-    end
+  def signed_in?
+    !current_user.nil?
+  end
 
-    def current_user
-      @current_user ||= User.find(session[:id])
-    end
+  def current_user
+    @current_user ||= User.find(session[:id])
+  end
+
 end
