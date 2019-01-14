@@ -1,7 +1,8 @@
 Chitter Challenge
 =================
 
-#Approach
+Approach
+-----------------
 
 I considered the user stories provided below to make a bare-bones diagram of the product MVP.
 
@@ -11,6 +12,69 @@ Utilising my learnings from my work undertaken previously in these two repos
 
 * [MakersBnB Group challenge](https://github.com/Sindex42/MakersBnB)
 * [Messenger App challenge](https://github.com/scass91/MessageApp)
+
+I began the weekend work. I really enjoyed this challenge as I am an avid fan of Twitter, so making a simple working version of my most used social media platform was very appealing to me.
+
+## Getting started
+
+1. Clone this repo `git clone git@github.com:scass91/chitter-challenge.git`
+2. Change directory `cd chitter-challenge`
+3. Run bundle to install dependencies `bundle`
+4. Install postgresql `brew install postgres`
+
+### Running tests
+
+1. Create the test database `createdb chitter_test;`
+2. Set up the test environment tables `rake db:auto_migrate RACK_ENV=test`
+3. Run the tests with `rspec` in the project root folder
+
+## Usage
+
+1. Create the development database `createdb chitter_development;`
+2. Set up the development environment tables `rake db:auto_migrate`
+3. Run rackup to start the server `rackup`
+4. Open up a browser and navigate to the following page [http://localhost:9292](http://localhost:9292)
+
+### Signing up
+
+1. Navigate to the index page
+2. Click on the 'Sign Up' link
+3. Fill in your details and hit 'Submit'
+4. Using these details previously entered - then submit these on the sign in page
+
+### Submitting a Peep
+
+1. Navigate to your profile page once logged in
+2. Enter your message in the prompted field and click 'Submit'
+3. Repeat as neccessary
+
+Test Coverage
+-----------------
+
+I utilised a rigorous TDD approach to this challenge, my commit history shows a methodical approach which involved failing tests, passing tests & then refactoring afterwards. The below screenshot shows the current coverage achieved at time of MVP:
+
+![Imgur](https://i.imgur.com/KF4H2rW.png)
+
+Lessons learned
+-----------------
+1. Stick to TDD, even if it's frustrating being blocked it's better than flailing around looking for bugs.
+2. Simple CSS/HTML can look good too!
+3. It's okay to reference my older work when working on a new project - As mentioned earlier in this README, I relied fairly heavily on my learnings from older projects.
+
+Future direction
+-----------------
+1. Implement the advanced user stories
+2. Implement the ability to reply to Peeps
+3. Add in Re-peeping/favouriting of Peeps
+2. Make the app fully cat based (I was planning on calling it 'Kitter'!)
+
+Screenshots
+----------------
+
+![Imgur](https://i.imgur.com/LGiax0J.png)
+* The functionality of users logging in/out here can be seen as users old peeps aren't deleted when a new user posts a peep
+![Imgur](https://i.imgur.com/EFUQ6p7.png)
+* A user will be prompted to try again if they enter incorrect information at the sign in stage
 
 Chitter Challenge
 =================

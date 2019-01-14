@@ -21,9 +21,12 @@
             <li>
             <%= erb(:singlepeep, :locals => { :peep => peep }) %> -- <%= peep.posted_at %>
              <%= peep.user.actualname %> -- <%= peep.user.username %>
+             <br>
             </ul>
+            <br>
             <% end %>
         </section>
+        <br>
        </body>
          <%= erb(:footer)%>
     </center>
