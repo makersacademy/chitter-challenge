@@ -45,7 +45,7 @@ It displays the name of the user who poste it.
 #three
 send email to notify if user has been mentioned
 -----------
-my app is unable to send emails - 'connect 25 error'. Its is however able to search texts for usernames and validate them against the user table.
+my app is unable to send emails - 'connect 25 error'. Its is however able to search texts for usernames and validate them against the user table. Use an @ then username to referenc a user.
 
 #commenting
 commenting works
@@ -58,6 +58,8 @@ im unsure of how to change datamapper to mimic the relationship i want.
 fancy CSS
 ------
 i started css however ran out of time could do with another hour.
+
+
 
 
 ## Personal LO 
