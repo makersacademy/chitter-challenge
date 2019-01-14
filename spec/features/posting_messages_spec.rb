@@ -13,7 +13,7 @@ RSpec.feature 'posting messages' do
             expect(page).to have_selector("input[name=message]")
         end
         
-        it 'allows user to post a message to the page' do
+        it 'allows user to post a message to the page of twenty characters' do
             post_message(dummy_message)
             expect(page).to have_content(dummy_message[0...20])
         end
