@@ -1,5 +1,5 @@
 # Chitter Challenge
-My arremp at Makers Academys Chitter Challenge. For a full description of the challenge, see 'APPENDIX' below.
+My attemp at Makers Academys Chitter Challenge. For a full description of the challenge, see 'APPENDIX' below.
 
 ![screenshot](https://github.com/jaywayawyaj/chitter-challenge/blob/master/public/Screen%20Shot%202019-01-13%20at%2023.39.39.png)
 
