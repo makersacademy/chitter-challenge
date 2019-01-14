@@ -2,7 +2,7 @@
 
 ## Screen shot ##
 
-![welcome](https://user-images.githubusercontent.com/43742795/51091856-5d4f9b00-1788-11e9-81dd-e76cf129fa44.png)
+![welcome](https://user-images.githubusercontent.com/43742795/51105332-9582c800-17e0-11e9-8445-955b199f5d8d.png)
 
 ![profile](https://user-images.githubusercontent.com/43742795/51091888-d51dc580-1788-11e9-991d-1e17c8fa8ba9.png)
 
