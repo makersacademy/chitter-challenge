@@ -30,12 +30,12 @@ class Chitter < Sinatra::Base
 
   post '/signup' do 
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    # if user.valid?
-    #   session[:id] = user.id
+    if user
+      session[:user_id] = user.id
       redirect('/signin')
-    # else 
-    #   redirect '/error'
-    # end
+    else 
+      redirect '/error'
+    end
   end
   
   get '/error' do
