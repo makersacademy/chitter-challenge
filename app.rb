@@ -60,6 +60,7 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     peep = Peep.create(:content => params[:peep], user: current_user)
+    binding.pry
     peep.save
     redirect '/profile'
   end
