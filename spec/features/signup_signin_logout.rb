@@ -26,7 +26,8 @@ feature 'homepage' do
   feature 'signin' do
     let!(:user) { User.create(email: 'test@test.com',
                               password: 'secret123',
-                              username: 'Test') }
+                              username: 'Test')
+    }
 
     scenario 'A user can signin' do
       signin

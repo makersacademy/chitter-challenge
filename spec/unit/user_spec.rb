@@ -2,12 +2,15 @@ require 'user'
 
 describe User do
   let!(:user) { User.create(email: 'test@test.com',
-                            username: 'Test',
-                            password: 'secret123') }
+                username: 'Test',
+                password: 'secret123')
+  }
 
-  let!(:user2) { User.create(email: 'test@test.com',
-                            username: 'Test2',
-                            password: 'secret123') }
+  let!(:user2) { User.create(
+                 email: 'test@test.com',
+                 username: 'Test2',
+                 password: 'secret123')
+  }
 
   context '#self.authenticate' do
     it 'rejects non-existent user' do

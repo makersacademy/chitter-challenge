@@ -1,10 +1,14 @@
 <html>
   <head>
       <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="<%= url("/style/myStyle.css") %>">
   </head>
-  <body bgcolor="#e0aada">
+  <body>
     <center>
       <h1>Chitter</h1>
+
+      <img src="https://www.angelibc.co.uk/wp-content/uploads/2018/07/a-flying-pigeon-delivering-a-message-hi.png"
+      alt="MessageApp" style="width:250px;height:300px;">
       <br>
       <% flash.keys.each do |type| %>
         <div data-alert class="flash <%= type %> alert-box radius">

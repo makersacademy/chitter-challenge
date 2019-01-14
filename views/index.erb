@@ -3,12 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
   </head>
   <body>
     <a href="/signup">Sign up</a>
     <a href="/signin">Sign in</a>
-
-    <div class="peeps">
+    <br>
+    <br>
+    <h3>Peeps</h3>
+    <br>
+    <div class="peeps" style="border-style: ridge; width:500px;">
+      <br>
       <% @peeps.reverse.each do |peep| %>
         <br>
         <div>
@@ -18,6 +23,7 @@
           <%= peep.time %>
           <br>
       <% end %>
+      <br>
     </div>
   </body>
 </html>
