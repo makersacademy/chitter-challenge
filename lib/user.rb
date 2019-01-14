@@ -9,6 +9,8 @@ class User
   property :email, String, :unique => true
   property :password, String
 
+  has n, :peeps
+
   def self.authenticate(email, password)
     user = first(email: email)
     return nil unless user

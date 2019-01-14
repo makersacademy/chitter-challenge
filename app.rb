@@ -59,6 +59,7 @@ class Chitter < Sinatra::Base
 
   get '/profile/' do
     @user = User.get(params[:id])
+    @peeps = Peep.all
     erb :profile
   end
 
