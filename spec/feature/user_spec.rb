@@ -65,8 +65,22 @@ feature 'Sign in' do
   scenario "signing in directs you to profile page" do 
     signup_steps
     signin_steps
-    expect(page).to have_current_path '/profile/1'
+    expect(page).to have_current_path '/profile/'
   end
+end
 
+feature "Sign out" do 
+  scenario "User can sign out" do 
+    signup_steps
+    signin_steps
+    click_button "Log out"
+  end 
+
+  scenario "User can sign out and redirects to different homepage" do 
+    signup_steps
+    signin_steps
+    click_button "Log out"
+    expect(page).to have_current_path '/'
+  end 
 
 end

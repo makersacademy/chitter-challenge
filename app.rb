@@ -38,24 +38,33 @@ class Chitter < Sinatra::Base
     # end
   end
   
+  get '/error' do
+    erb :error
+  end
 
   get '/signin' do 
     erb :signin
   end
 
+
   post '/signin' do 
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:id] = user.id
-      redirect("/profile/#{session[:id]}")
+      redirect"/profile/"
     else
       redirect'/error'
     end
   end
 
-  get '/profile/:id' do
+  get '/profile/' do
     @user = User.get(params[:id])
     erb :profile
+  end
+
+  delete '/logout' do 
+    session.delete(:user_id)
+    redirect '/'
   end
 
 end
