@@ -9,14 +9,15 @@ require 'data_mapper'
 class Chitter < Sinatra::Base
   set :sessions, true
 
-  get "/" do
+
+  get "/profile" do
     @peeps = Peep.all
     erb :index
   end
 
   post "/peep" do
     peep = Peep.create(:content => params[:peep], :created_at => Time.now)
-    redirect ("/")
+    redirect ("/profile")
   end
 
 
