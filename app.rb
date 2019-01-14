@@ -57,6 +57,12 @@ class ChitterApp < Sinatra::Base
     end
   end
 
+  get '/logout' do
+    @username = current_user.username
+    session.delete(:userid)
+    erb :logout
+  end
+
   run! if app_file == $0
   def current_username
     current_user == nil ? 'unknown' : current_user.username
