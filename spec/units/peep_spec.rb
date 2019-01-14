@@ -6,7 +6,7 @@ describe 'Peep' do
   let(:content) {double(content)}
 
   it 'Allows new peep instances to accept content' do
-    expect(message.conent).to eq(:content)
+    expect(peep.conent).to eq(:content)
   end
 
 end
