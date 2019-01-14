@@ -1,6 +1,6 @@
 require 'pry'
-feature 'post message' do
-  scenario 'user post new message' do
+feature 'post a message' do
+  scenario 'to see the message with timestamp' do
     visit '/'
     fill_in :msg, with: '1st test message'
     click_on 'send'

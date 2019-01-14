@@ -1,7 +1,7 @@
 <div align='right'>
     <a href='/logout'>Log Out</a>
 </div>
-<h4>post a peep <%=@username%></h4>
+<h4>post a peep <%=current_username%></h4>
 <form action='/post_msg' method='post'>
   <textarea rows='8' cols='50' name='msg'></textarea><br>
   <input type='submit', value='send'>
