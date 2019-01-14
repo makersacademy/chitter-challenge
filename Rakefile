@@ -8,7 +8,7 @@ if ENV['RACK_ENV'] != 'production'
   task default: [:spec]
 end
 
-#Taken from the makersBNB rakefile used this week
+# Taken from the makersBNB rakefile used this week
 
 namespace "db" do
   desc "Truncates tables"

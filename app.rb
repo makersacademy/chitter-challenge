@@ -39,19 +39,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-     user = User.new(
-       email: params[:email],
-       password: params[:password],
-       actualname: params[:actualname],
-       username: params[:username]
-     )
-
-  if user.save
-    session[:id] = user.id
-    redirect '/profile'
-  else
-    redirect '/error'
-   end
+    user = User.new(
+      email: params[:email],
+      password: params[:password],
+      actualname: params[:actualname],
+      username: params[:username]
+    )
+    if user.save
+      session[:id] = user.id
+      redirect '/profile'
+    else
+      redirect '/error'
+    end
   end
 
   get '/profile' do
@@ -69,16 +68,16 @@ class Chitter < Sinatra::Base
 
   delete '/log-out' do
     session.delete(:user_id)
-  redirect '/'
+    redirect '/'
   end
 
 private
 
-def signed_in?
-  !current_user.nil?
-end
+  def signed_in?
+    !current_user.nil?
+  end
 
-def current_user
-  @current_user ||= User.get(session[:user_id])
-end
+  def current_user
+    @current_user ||= User.get(session[:user_id])
+  end
 end
