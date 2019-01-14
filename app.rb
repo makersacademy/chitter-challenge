@@ -3,7 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require './config/data_mapper'
 require 'pry'
-require './lib/user'
+
 
 class ChitterApp < Sinatra::Base
   enable :sessions
@@ -19,7 +19,10 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/post_msg' do
-    Message.create(peep: params[:msg], username: current_username)
+    Message.create(
+      peep: params[:msg],
+      username: current_username
+    )
     redirect '/'
   end
 
@@ -33,18 +36,8 @@ class ChitterApp < Sinatra::Base
       mail: params[:mail],
       password: params[:password]
     )
-    if user
-      session[:userid] = user.id
-      redirect '/logged_in'
-    else
-      redirect '/'
-    end
-  end
-
-  get '/logged_in' do
-    @messages = Message.all
-    @username = session[:username]
-    erb :logged_in
+    session[:userid] = user.id if user
+    redirect '/'
   end
 
   get '/login' do
