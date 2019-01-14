@@ -19,16 +19,12 @@ Visit 'http://localhost:9292/' in a web browser
 
 ### Usage
 
-Technologies used
-Ruby
-Sinatra
-Web Framework
-PostgreSQL
-Database
-DataMapper
-ORM
-BCrypt
-Encryption gem for passwords
+##### Technologies used
+- Ruby
+- Sinatra
+- PostgreSQL
+- DataMapper
+- BCrypt
 
 ##### For Testing
 RSpec
