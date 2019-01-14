@@ -62,7 +62,7 @@ Approach:
 
 * Create UML sequence and class responsibility collaborator (CRC) diagrams based on the user stories
 
-* Decide on order user stories will be met
+* Decide on order user stories will be met ( I wanted to meet the HARDER section first as I wanted users to have to sign in or be signed up to post a peep)
 
 * Create branch for new feature, checkout to that branch
 
@@ -82,9 +82,11 @@ Approach:
 
 * Repeat this until the MVP is met
 
-* Apply CSS styling, Sinatra layout and possibly partials(if applicable)
+* Continue with whatever time remains to meet a BONUS requirement (CSS)
 
-* Continue with whatever time remains to meet the BONUS user stories from the brief
+* Apply CSS styling, Sinatra layout and possibly partials(if applicable) to make the app look good
+
+
 
 
 Outcome:
@@ -111,7 +113,7 @@ Improvements:
 
 * Add ability to reply to peeps
 
-* Add authentication for uniqueness of username. This should be relatively simple to implement from what is there already
+* Add authentication for uniqueness of username (currently only have this in place for email address). This should be relatively simple to implement from what is there already
 
 * User can upload an image
 
@@ -181,8 +183,7 @@ Make one called *chitter_development* and one called *chitter_testing*.<br/>
 ```shell
 $ psql
 admin= CREATE DATABASE chitter_development;
-admin= CREATE DATABASE 
-chitter_testing;
+admin= CREATE DATABASE chitter_testing;
 ```
 
 6. Exit from psql and from the command line run the `rake` command followed by the `db:auto_migrate` command. This will create your tables in your development DB.<br/>
@@ -247,11 +248,15 @@ You'll be able to see that the localhost port used is *9292*
 
 1. Open your browser and type the url of your *localhost:9292*  <br/>
 
+
+
 2. click on sign up, enter your email address and password and click on `Sign up`.<br/>
 
 3. Now fill in the 'Peep' field with your text and click the 'Post my peep!' button.<br/>
 
 4. Log out, and do the first three steps with a new user. You can repeat these steps as many as you want.<br/>
+
+5. Then, you can sign in to whichever account you want and post peeps attributed to these users
 
 5. Enjoy playing around with this app as much as you want :) 
 
