@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/scass91/chitter-challenge.svg?branch=master)](https://travis-ci.com/scass91/chitter-challenge)
+
 Chitter Challenge
 =================
 
