@@ -53,10 +53,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/profile' do
-    new_peep = current_user.peeps.create(content: params[:content], created_at: Time.now)    # binding.pry
+    current_user.peeps.create(content: params[:content], created_at: Time.now)
     redirect '/profile'
   end
-
 
   private
 

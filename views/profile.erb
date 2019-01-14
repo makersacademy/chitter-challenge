@@ -25,12 +25,12 @@
   <h2> Chitter feed </h2> 
   <% @peeps.reverse.each do | peep | %>
   
-  <div id="bold-username"> @<%= peep.user.username %></div>
+  <div id="bold-username"> <%= peep.user.name %> (@<%= peep.user.username %>) </div>
   <div> <%= peep.display %> </div>
   <div id="peep-time"> <%= peep.time_created %> </div>
   <br>
   <%end%>
-  </div> 
+  </div>
  </div>
 
 

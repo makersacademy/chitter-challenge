@@ -84,13 +84,37 @@ Approach:
 
 * Apply CSS styling, Sinatra layout and possibly partials(if applicable)
 
-* Continue with whatever time remains to meet the HARDER and ADVANCED user stories from the brief
+* Continue with whatever time remains to meet the BONUS user stories from the brief
 
 
-Potential improvements:
+Outcome:
 -----
 
-FILL IN AT END OF PROJECT
+* MVP was achieved (all STRAIGHT UP and HARDER user stories met)
+
+* One BONUS option achieved (applying CSS) 
+
+* Everything created using strict TDD (all tests passing, 100% test coverage)
+
+* Practised Git workflow, working on specific branches for each feature before merging back into master (committing with each significant piece of work finished) 
+
+* Used methodological approach to debugging / database set up
+
+
+
+Improvements:
+-----
+
+* CSS moved from layout.erb to more appropriate place
+
+* Add tagging functionality to peeps
+
+* Add ability to reply to peeps
+
+* Add authentication for uniqueness of username. This should be relatively simple to implement from what is there already
+
+* User can upload an image
+
 
 
 Technologies used
@@ -107,20 +131,6 @@ Technologies used
 * Sinatra
 
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-
 
 ## How to use Chitter##
 
@@ -130,6 +140,7 @@ System requirements
 * Ruby 2.5.0
 * Mac OS X
 * Chrome browser
+
 
 
 ### Set up ###
@@ -144,10 +155,10 @@ Use the `git clone` command and paste the clone URL then press enter :
 $ git clone https://github.com/your-username/your-repositary.git
 ```
 
-2. On your local machine go inside of the *madcoders_makersbnb* directory :
+2. On your local machine go inside of the *chitter-challenge* directory :
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd chitter-challenge
 ```
 3. To install all the *gems* contained in the *Gemfile*, install and run *Bundle* :
 Install :
@@ -165,12 +176,13 @@ $ bundle
 ### Database ###
 
 5. If you do not have it already, install *psql* on your local machine. Connect to your database and create two of them to be able to run the test and the app, using the `CREATE DATABASE databasename;` command.<br/>
-Make one called *makers_bnb_development* and one called *makers_bnb_test*.<br/>
+Make one called *chitter_development* and one called *chitter_testing*.<br/>
 
 ```shell
 $ psql
-admin= CREATE DATABASE makers_bnb_development;
-admin= CREATE DATABASE makers_bnb_test;
+admin= CREATE DATABASE chitter_development;
+admin= CREATE DATABASE 
+chitter_testing;
 ```
 
 6. Exit from psql and from the command line run the `rake` command followed by the `db:auto_migrate` command. This will create your tables in your development DB.<br/>
@@ -179,7 +191,7 @@ admin= CREATE DATABASE makers_bnb_test;
 $ rake db:auto_migrate
 ```
 
-7. From the command line run the `rake` command followed by the `db:auto_migrate RACK_ENV=test` command. This will create your tables in your test DB.<br/>
+7. From the command line run the `rake` command followed by the `db:auto_migrate RACK_ENV=testing` command. This will create your tables in your test DB.<br/>
 
 ```shell
 $ rake db:auto_migrate RACK_ENV=testing
@@ -190,44 +202,44 @@ Once you are connected to the database you've chosen, you can list the tables us
 
 ```shell
 $ psql
-admin= \c makers_bnb_development;
-makers_bnb_development= \dt
+admin= \c chitter_development;
+chitter_development= \dt
 ```
 9. You can connect to a specific table by using the `SELECT * FROM tablename;` command.<br/>
 
 ```shell
-makers_bnb_development= SELECT * FROM tablename;
+chitter_development= SELECT * FROM tablename;
 ```
 
 ### Run the tests ###
 
-1. Check that the codes are passing the test. From the root *madcoders_makersbnb* directory, run the *spec*.<br/>
+1. Check that the codes are passing the test. From the root *chitter-challenge* directory, run the *spec*.<br/>
 You can check all the files in one go:
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd chitter-challenge
 $ rspec
 ```
 To check only one file at a time :
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd chitter-challenge
 $ rspec spec/file_name_spec.rb
 ```
 
 2. Check that the code respects the quality of the *Rubocop* guideline, by running `rubocop` from the *madcoders_makersbnb* directory :
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd chitter-challenge
 $ rubocop
 ```
 
 ## Run the app ##
 
-1. On the command line, from the root directory *madcoders_makersbnb*, use the `rackup` command :
+1. On the command line, from the root directory *chitter-challenge*, use the `rackup` command :
 
 ```shell
-$ cd madcoders_makersbnb
+$ cd cd chitter-challenge
 $ rackup
 ```
 
@@ -235,16 +247,13 @@ You'll be able to see that the localhost port used is *9292*
 
 1. Open your browser and type the url of your *localhost:9292*  <br/>
 
-2. click on sign_in, enter your email address and password and click on `Sign in`.<br/>
+2. click on sign up, enter your email address and password and click on `Sign up`.<br/>
 
-3. Now click on list and create some properties.<br/>
+3. Now fill in the 'Peep' field with your text and click the 'Post my peep!' button.<br/>
 
 4. Log out, and do the first three steps with a new user. You can repeat these steps as many as you want.<br/>
 
-5. Log out, and sign in or sign up. Go on the book section and search for available properties for the dates that you would like to.<br/>
-Click on the `request` button in front of the property you would like to book.
-
-6. Enjoy playing around with our app as much as you want :) 
+5. Enjoy playing around with this app as much as you want :) 
 
 
 ## Authors ##
