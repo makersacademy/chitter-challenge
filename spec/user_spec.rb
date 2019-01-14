@@ -4,14 +4,14 @@ describe 'User' do
   user = User.create(
     username: 'christos',
     email: 'christos@makers.com',
-    password: 'classicWoW')
+    password: 'Makers123')
 
   context '#create' do
     it 'can be created' do
       user = User.create(
         username: 'christos',
         email: 'christos@makers.com',
-        password: 'classicWoW')
+        password: 'Makers123')
     end
   end
 
@@ -25,10 +25,10 @@ describe 'User' do
     let!(:user) { User.create(
       username: 'christos',
       email: 'christos@makers.com',
-      password: 'classicWoW')
+      password: 'Makers123')
     }
     it "Sign in if username and password are correct" do
-      expect(User.authenticate('christos', 'classicWoW')).to eq(user)
+      expect(User.authenticate('christos', 'Makers123')).to eq(user)
     end
   end
 
@@ -38,8 +38,8 @@ describe 'User' do
     end
 
     it 'Returns false if email of existing user used on signup' do
-      user_one = User.create(username: 'Christos', email: 'christos@maker.com', password: 'ClassicWoW')
-      user_two = User.create(username: 'Christos', email: 'christos@maker.com', password: 'ClassicWoW')
+      user_one = User.create(username: 'Christos', email: 'christos@maker.com', password: 'Makers123')
+      user_two = User.create(username: 'Christos', email: 'christos@maker.com', password: 'Makers123')
       expect(user_two.valid?).to eq false
     end
   end

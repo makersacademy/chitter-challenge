@@ -11,7 +11,7 @@
 <p>Chirrups!</p>
 <% @chirrups.reverse.each do |chirrup| %>
   <div>
-    <%= chirrup.content %> -- <%= chirrup.created_at %>
+    Chirrup:<%= chirrup.content %>, posted at:<%= chirrup.created_at %>
   </div>
 <% end %>
 

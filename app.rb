@@ -62,10 +62,7 @@ class Warble < Sinatra::Base
   end
 
   post '/chirrup' do
-    user = User.find(session[:id])
-    chirrup = Chirrup.new(content: params[:chirrup])
-    chirrup.user_id = user.id
-    chirrup.save
+    Chirrup.create(content: params[:chirrup])
     redirect '/chirrup-board'
   end
 

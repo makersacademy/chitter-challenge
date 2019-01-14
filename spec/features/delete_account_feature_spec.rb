@@ -3,7 +3,7 @@ require_relative 'web_helpers'
 RSpec.feature 'Delete account' do
   context 'Chosing whether to delete account or not' do
     scenario 'A user choses not to delete account' do
-      user = create_user('christos', 'christos@makers.com', 'ClassicWoW')
+      user = create_user('christos', 'christos@makers.com', 'Makers123')
       sign_in
       click_link 'Delete Warble Account'
       click_button "I'm not done Warbeling, don't delete me!"
@@ -11,7 +11,7 @@ RSpec.feature 'Delete account' do
     end
 
     scenario 'A user confirms choice to delete account' do
-      user = create_user('christos', 'christos@makers.com', 'ClassicWoW')
+      user = create_user('christos', 'christos@makers.com', 'Makers123')
       sign_in
       click_link 'Delete Warble Account'
       click_button "I'm done Warbeling, delete me!"

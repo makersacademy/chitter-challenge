@@ -11,7 +11,7 @@ RSpec.feature 'Signin' do
     end
 
     scenario 'Warbler signs in and lands on their profile' do
-      user = create_user('christos', 'christos@makers.com', 'ClassicWoW')
+      user = create_user('christos', 'christos@makers.com', 'Makers123')
       sign_in
       expect(page.current_path).to eq("/private_profile/#{user.id}")
       expect(page).to have_content('christos')

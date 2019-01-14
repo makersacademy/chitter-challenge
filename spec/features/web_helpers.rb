@@ -9,14 +9,14 @@ end
 def sign_in
   visit '/'
   fill_in :sign_in_username, with: 'christos'
-  fill_in :sign_in_password, with: 'ClassicWoW'
+  fill_in :sign_in_password, with: 'Makers123'
   click_button 'Sign In'
 end
 
 def input_signup_details
   fill_in :sign_up_username, with: 'christos'
   fill_in :sign_up_email, with: 'christos@makers.com'
-  fill_in :sign_up_password, with: 'ClassicWoW'
+  fill_in :sign_up_password, with: 'Makers123'
 end
 
 def post_chirrup
@@ -26,4 +26,10 @@ end
 
 def create_message(message)
   Chirrup.create(content: message)
+end
+
+def create_preexisting_user_and_messages
+  create_user('christos', 'christos@makers.com', 'Makers123')
+  create_message('Sqwark_1!')
+  create_message('Sqwark_2!')
 end
