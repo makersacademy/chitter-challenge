@@ -1,124 +1,105 @@
-Chitter Challenge
-=================
+## Warbler Challenge
+---------------------
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Makers Academy week 5 weekend challenge: build a twitter clone
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+## User Stories
+---------------
 
 ```
-STRAIGHT UP
 
 As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+So that I can let people know what I am doing
+I want to post a message (chirrup) to Warbler
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying if I'm interested
+I don't need to have an account
+
+As a maker
+So that I can see when others posted a chirrup
 I want to see all peeps in reverse chronological order
 
 As a Maker
-So that I can better appreciate the context of a peep
+So that I can better appreciate the context of a chirrup
 I want to see the time at which it was made
 
 As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+So that I can post messages on Warbler as me
+I want to sign up for Warbler
 
-HARDER
+As an Admin
+So I know an account can't be linked to the same email
+Users can only create an account with an email once
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
+As an Admin
+To keep the identities of users seperate
+Usernames can only be assigned to one account
 
 As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
+So that only I can post messages on Warbler as me
+I want to log in to Warbler
+
+As a Maker
+So that I can avoid others posting messages on Warbler as me
+I want to log out of Warbler
+
+As a Maker
+So when I don't want to use Warbler anymore
+I want to delete my Warbler account
 ```
 
-Technical Approach:
------
+## Requirements and Setup
+--------
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+- Requirements:
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+ 1. Ruby and RVM, please see https://rvm.io/rvm/install for installation instructions
+ 2. PostgreSQL, please see http://www.postgresqltutorial.com/install-postgresql/ for installation instructions
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+- Setup:
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+Once your system has the above requirements installed, from your command line move to your project directory and run the following commands.
 
+1. To clone the repo:
 
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+```
+ git clone git@github.com:CKKH/chitter-challenge.git
+ cd chitter-challenge
+ bundle
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+2. To set up the databases and database tables:
+
+```
+ rake db:create:all
+ rake db:auto_migrate RACK_ENV=test
+ rake db:auto_upgrade
+```
+
+3. Run locally:
+
+```
+ rackup
+```
+
+4. Visit Warbler on your browser!
+
+## Technologies Used
+--------------------
+- Ruby
+- Active Record
+- Sinatra
+- Postgresql
+- RSpec
+- Capybara
+
+## Test Coverage
+-------------
+
+17/18 tests passing, the final one passes when ran in isolation. 100% test coverage. 
+To run run the tests and see the test coverage input 
+```
+rspec
+```
+from the root of the directory in your terminal.

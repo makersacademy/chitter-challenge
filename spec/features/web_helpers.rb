@@ -27,9 +27,3 @@ end
 def create_message(message)
   Chirrup.create(content: message)
 end
-
-def create_preexisting_user_and_messages
-  create_user('christos', 'christos@makers.com', 'Makers123')
-  create_message('Sqwark_1!')
-  create_message('Sqwark_2!')
-end
