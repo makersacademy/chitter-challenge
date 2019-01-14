@@ -3,14 +3,15 @@ context User do
   describe "#self.authenticate" do
 
     let(:user) { User.create(
-                 :email => "bea@bea.com",
-                 :password => "hello123",
+                 :id => 1,
                  :name => "Beatrice",
-                 :username => "beacourage"
+                 :username => "beacourage",
+                 :email => "bea@bea.com",
+                 :password => "hello12345"
                   )}
 
     it 'user can only login with correct email and password' do
-      expect(User.authenticate("bea@bea.com", "hello123")).to eq user
+      expect(User.authenticate("Beatrice", "beacourage", "bea@bea.com", "hello12345")).to eq user
     end
   end
 end
