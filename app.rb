@@ -64,6 +64,11 @@ class Chitter < Sinatra::Base
     redirect '/profile'
   end
 
+  get '/peep/:id' do |id|
+    @peep = Peep.get!(id)
+    erb :display_peep
+  end
+
   get '/error' do
     erb :error
   end

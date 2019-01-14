@@ -15,16 +15,21 @@
     }) %>
     <br>
 
-    <div class="peeps" style="border-style: ridge; width:500px;">
+    <div class="peeps" style="border-style: ridge;
+                              color: navy;
+                              width:500px;">
       <br>
       <% @peeps.reverse.each do |peep| %>
         <br>
-        <div>
-          <%= peep.content %>
-        </div>
-
-          <%= peep.time %>
-          <br>
+        <a href="/peep/<%= peep.id %>"">
+          <div style="border-style: ridge;
+                      color: navy;
+                      width: 490px;">
+            <%= peep.content %>
+          </div>
+        </a>
+        <%= peep.time %>
+        <br>
       <% end %>
       <br>
     </div>
