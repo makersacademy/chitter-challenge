@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome, <%= @user.email%>!</h1>
+    <h2>Please input your message below</h2>
+
+    <p>
+      <form action="/logout" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Log out">
+      </form>
+    </p>
+  </body>
+</html>
