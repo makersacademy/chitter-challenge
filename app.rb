@@ -8,13 +8,6 @@ class Chitter < Sinatra::Base
   enable :sessions
   enable :method_override
 
-  def initialize(app = nil, mailer)
-    super(app)
-    @mailer = mailer
-  end
-
-  attr_accessor :mailer
-
   ENV['RACK_ENV'] ||= 'development'
 
   get '/' do
@@ -55,8 +48,6 @@ class Chitter < Sinatra::Base
       username: params[:username]
     )
     if user.save
-      mailer.send_welcome_email(user.email, user.actualname)
-
       mail = ::Mail.new do
         from "scass@hotmail.co.uk"
         to user.email
