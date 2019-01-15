@@ -7,7 +7,7 @@ class Comment
   property :content, Text
   property :created_at, DateTime
 
-  has n, :commentMessages
-  has n, :messages, :through => :commentMessages
+  belongs_to :messages
+  belongs_to :users
 
 end

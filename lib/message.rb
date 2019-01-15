@@ -8,15 +8,9 @@ class Message
   property :created_at, DateTime
   property :updated_at, DateTime
 
-  ## handles commenting
-  has n, :commentMessages
-  has n, :comments, :through => :commentMessages
+  belongs_to :users
 
-  	
-  ## handles on message 
-  has n, :messagings
-  has n, :users, :through => :messagings
-
+  has n, :comments
 
  
   def twenty_chars 

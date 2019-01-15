@@ -11,8 +11,8 @@ class User
   property :password, String
 
   ## handles on message 
-  has n, :messagings
-  has n, :messages, :through => :messagings
+  has n, :messages
+  has n, :comments
 
   def self.authenticate(email, password)
     user = first(email: email)
