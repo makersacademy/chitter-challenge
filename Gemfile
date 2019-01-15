@@ -4,7 +4,9 @@ ruby '2.5.1'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem "dotenv"
 gem 'json', '~> 1.8'
+gem "mail"
 gem 'pry'
 gem 'rake'
 gem "sinatra"
