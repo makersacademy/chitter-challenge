@@ -64,17 +64,6 @@ class ChitterApp < Sinatra::Base
         message_content = params[:message]
         message = Message.create(content:message_content, user_id:session[:user_id])
         names = message.mentions(message_content, User)
-        p names
-
-        # # #----------this should be in amodule but error at the mo.
-        # # names.each do|name|
-        # #     user = User.first(:username => name)
-        # #     if user
-        #         # error right now p'ing out so cant see has name 
-        #         p Email.send_message(user)
-        #     end
-        # end
-        # -------- shouldnt be here
        redirect '/'
     end
 
