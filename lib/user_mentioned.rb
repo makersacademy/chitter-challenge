@@ -1,6 +1,6 @@
 module UsersMentioned
 
-    def self.find_names(content_str)
+    def find_names(content_str)
         user = content_str.scan /@(?<name>(\w+))/
 
         if user 
@@ -10,7 +10,7 @@ module UsersMentioned
         end
     end
 
-    def self.validate_names(names_arr, table)
+    def validate_names(names_arr, table)
         validated_users = []
 
         names_arr.each do |name|
@@ -25,7 +25,7 @@ module UsersMentioned
         return validated_users
     end
 
-    def self.mentions(content,table)
+    def mentions(content,table)
         names = find_names(content)
         if names
             names = validate_names(names, table)

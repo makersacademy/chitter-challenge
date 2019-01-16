@@ -63,7 +63,8 @@ class ChitterApp < Sinatra::Base
     post '/add_message' do
         message_content = params[:message]
         message = Message.create(content:message_content, user_id:session[:user_id])
-        names =  UsersMentioned.find_names(message_content)
+        names =  message.find_names(message_content)
+        p names
         # # #----------this should be in amodule but error at the mo.
         # # names.each do|name|
         # #     user = User.first(:username => name)

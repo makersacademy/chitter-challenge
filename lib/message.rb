@@ -1,8 +1,10 @@
 require 'data_mapper'
+require_relative './user_mentioned'
 
 
 class Message
   include DataMapper::Resource
+  include UsersMentioned
   property :id, Serial
   property :content, Text
   property :created_at, DateTime
