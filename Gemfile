@@ -10,6 +10,8 @@ gem 'pry'
 gem 'pg'
 gem 'dm-postgres-adapter'
 gem 'pony'
+gem 'mail'
+gem "dotenv"
 
 group :test do
   gem 'capybara'

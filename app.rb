@@ -3,7 +3,9 @@ require './lib/user'
 require './lib/peep'
 require './config/data_mapper'
 require 'pry'
-require 'pony'
+require 'mail'
+require 'dotenv/load'
+
 
 class Chitter < Sinatra::Base
   ENV['RACK_ENV'] ||= 'development'
@@ -21,18 +23,26 @@ class Chitter < Sinatra::Base
     @peep = Peep.create(content: params[:peep], user: current_user)
     if User.first(username: session[:tag_someone])
       tagged = User.first(username: session[:tag_someone])
-      Pony.mail({
-        :to => 'you@example.com',
-        :via => :smtp,
-        :via_options => {
-          :address        => 'smtp.yourserver.com',
-          :port           => '25',
-          :user_name      => 'user',
-          :password       => 'password',
-          :authentication => :plain, # :plain, :login, :cram_md5, no auth by default
-          :domain         => "localhost.localdomain" # the HELO domain provided by the client to the server
-        }
-      })
+      mail = ::Mail.new do
+       from "emanuelegorga2019@gmail.com"
+       to tagged.email
+       subject "Welcome! Testing an email tool."
+       body <<-EMAIL
+        Hey #{tagged.name}
+        I am testing an email tool.
+       EMAIL
+     end
+     
+     mail.delivery_method :smtp, {
+       address: "smtp.gmail.com",
+       port: 587,
+       user_name: "emanuelegorga2019@gmail.com",
+       password: ENV["PASSWORD"],
+       authentication: :login,
+       enable_starttls_auto: true
+     }
+
+     mail.deliver!
     end
     redirect '/profile'
   end
