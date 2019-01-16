@@ -78,10 +78,10 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/add_comment' do 
-        comment = Comment.new
-        comment.attributes = {:content => params[:comment], :message_id => (session[:message_id].to_i), :user_id => (session[:user_id].to_i) }
-        comment.save
-        comment
+        comment_content = params[:comment]
+        message = Message.get(session[:message_id].to_i)
+        user = User.get(session[:user_id].to_i)
+        comment = Comment.create(content:comment_content, user_id:user.id, message_id:message.id)
         redirect '/'
     end
 end  

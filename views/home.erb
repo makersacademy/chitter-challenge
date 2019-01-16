@@ -4,21 +4,27 @@
 <% end %>
 
 <div id = 'messages-container'>
-    <% @messages.each do |message| %>
+    <% @messages.reverse.each do |message| %>
         <div class = 'message'>
             <p><%= message.content%></p>
             <div class='details'>
                 <p><%=message.created_at%></p>
                 <p><%=message.user.username%></p>
             </div>
+            </hr>
             <div id='comments'>
-                <% @comments.message.each do |comment| %>
-                    <%= comment.content %>
+                <% @comments.each do |comment| %>
+                    <% if comment.message == message %>
+                       <%= comment.content %>
+                    <% end %>
                 <% end %>
             </div>
-            <a href="/comment_on/<%= message.id %>"> comment </a>
-            <% if session[:message_id].to_i == message.id.to_i %>
-               <%= erb :"_add_comment" %>
+            <% if session[:user_id] %>
+            </hr>
+                <a href="/comment_on/<%= message.id %>"> comment </a>
+                <% if session[:message_id].to_i == message.id.to_i %>
+                     <%= erb :"_add_comment" %>
+                <% end %>
             <% end %>
         </div>
     <% end %>
