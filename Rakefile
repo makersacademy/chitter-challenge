@@ -2,8 +2,6 @@ require 'data_mapper'
 require './lib/user'
 require './lib/message'
 require './lib/comment'
-require './lib/comment_message'
-require './lib/messaging'
 
 task default: %w[setup]
 

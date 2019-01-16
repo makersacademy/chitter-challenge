@@ -4,30 +4,23 @@
 <% end %>
 
 <div id = 'messages-container'>
-    <% counter = 1 %>
-    <% @messages.reverse.each do |message| %>
-    <div class = 'message'>
-        <p class='time'><%= message.created_at %></p>
-        <p class ='message' ><%= message.content %></p>
-        <%message.users.each do |user| %>
-            <p class= 'username'><%= user.name %></p>
-        <% end %>
-        <% if session[:user_id] %>
-           <button class='comment' id='#{counter}' onClick='show_form(this.id)'>comment</button>
-           <form class='hide' id="form-#{counter}" action='/comment' method='post'>
-             <input type='text' name='comment'>
-             <input type="hidden" value='<%= message.id %>' name="message_id" />
-             <input type='submit' value='comment!'>
-            </form>
-            <% counter += 1%>
-        <% end %>
-        <% if message.comments %>
-            <div class ='comment_container'>
-            <% message.comments.each do|comment| %>
-                <p><%=comment.content%></p>   
+    <% @messages.each do |message| %>
+        <div class = 'message'>
+            <p><%= message.content%></p>
+            <div class='details'>
+                <p><%=message.created_at%></p>
+                <p><%=message.user.username%></p>
+            </div>
+            <div id='comments'>
+                <% @comments.message.each do |comment| %>
+                    <%= comment.content %>
+                <% end %>
+            </div>
+            <a href="/comment_on/<%= message.id %>"> comment </a>
+            <% if session[:message_id].to_i == message.id.to_i %>
+               <%= erb :"_add_comment" %>
             <% end %>
-             </div>
-        <% end %>
-    </div>
+        </div>
     <% end %>
+  
 </div>

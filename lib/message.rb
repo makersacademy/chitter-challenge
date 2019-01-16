@@ -8,9 +8,8 @@ class Message
   property :created_at, DateTime
   property :updated_at, DateTime
 
-  belongs_to :users
-
   has n, :comments
+  belongs_to :user
 
  
   def twenty_chars 

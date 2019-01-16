@@ -5,9 +5,6 @@ require 'pry'
 require './lib/user'
 require './lib/message'
 require './lib/comment'
-require './lib/comment_message'
-require './lib/messaging'
-
 
 ## modules 
 require './lib/email'
@@ -22,6 +19,8 @@ class ChitterApp < Sinatra::Base
     get '/' do 
         @user = User.get(session[:user_id])
         @messages = Message.all
+        @comments = Comment.all
+        p @comments
     
         if @user && @messages
             @script = 'comment_form'
@@ -63,20 +62,16 @@ class ChitterApp < Sinatra::Base
 
     post '/add_message' do
         message_content = params[:message]
-        message = Message.create(content:  message_content)
-        user = User.get(session[:user_id])
-        message.users << user
-        message.save
-
+        message = Message.create(content:message_content, user_id:session[:user_id])
         names =  UsersMentioned.find_names(message_content)
-        #----------this should be in amodule but error at the mo.
-        names.each do|name|
-            user = User.first(:username => name)
-            if user
-                # error right now p'ing out so cant see has name 
-                p Email.send_message(user)
-            end
-        end
+        # # #----------this should be in amodule but error at the mo.
+        # # names.each do|name|
+        # #     user = User.first(:username => name)
+        # #     if user
+        #         # error right now p'ing out so cant see has name 
+        #         p Email.send_message(user)
+        #     end
+        # end
         # -------- shouldnt be here
        redirect '/'
     end
@@ -86,12 +81,16 @@ class ChitterApp < Sinatra::Base
         redirect '/'
     end
 
-    post '/comment' do 
-        messageId = params[:message_id].to_i
-        comment = Comment.create(content: params[:comment])
-        message = Message.get(messageId)
-        message.comments << comment
-        message.save
+    get '/comment_on/:id' do 
+        session[:message_id] = params[:id] 
+        redirect '/'
+    end
+
+    post '/add_comment' do 
+        comment = Comment.new
+        comment.attributes = {:content => params[:comment], :message_id => (session[:message_id].to_i), :user_id => (session[:user_id].to_i) }
+        comment.save
+        p comment
         redirect '/'
     end
 end  

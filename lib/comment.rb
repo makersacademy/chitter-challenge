@@ -7,7 +7,7 @@ class Comment
   property :content, Text
   property :created_at, DateTime
 
-  belongs_to :messages
-  belongs_to :users
+  belongs_to :message
+  belongs_to :user
 
 end

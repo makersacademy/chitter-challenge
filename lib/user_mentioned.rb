@@ -14,6 +14,7 @@ module UsersMentioned
         validated_users = []
 
         names_arr.each do |name|
+        p table
            user = table.first(:username => name)
            if user
             p validated_users.push(user)
