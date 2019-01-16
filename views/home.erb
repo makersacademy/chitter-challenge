@@ -16,6 +16,7 @@
                 <% @comments.each do |comment| %>
                     <% if comment.message == message %>
                        <%= comment.content %>
+                       <p>from:<%=comment.user.username%></p> 
                     <% end %>
                 <% end %>
             </div>
