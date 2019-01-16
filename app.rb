@@ -63,8 +63,9 @@ class ChitterApp < Sinatra::Base
     post '/add_message' do
         message_content = params[:message]
         message = Message.create(content:message_content, user_id:session[:user_id])
-        names =  message.find_names(message_content)
+        names = message.mentions(message_content, User)
         p names
+
         # # #----------this should be in amodule but error at the mo.
         # # names.each do|name|
         # #     user = User.first(:username => name)
@@ -91,7 +92,7 @@ class ChitterApp < Sinatra::Base
         comment = Comment.new
         comment.attributes = {:content => params[:comment], :message_id => (session[:message_id].to_i), :user_id => (session[:user_id].to_i) }
         comment.save
-        p comment
+        comment
         redirect '/'
     end
 end  

@@ -14,12 +14,9 @@ module UsersMentioned
         validated_users = []
 
         names_arr.each do |name|
-        p table
            user = table.first(:username => name)
            if user
-            p validated_users.push(user)
-           else
-            p user
+            validated_users.push(user)
            end
         end
         return validated_users
@@ -30,7 +27,7 @@ module UsersMentioned
         if names
             names = validate_names(names, table)
         else
-            'nothing'
+            nil
         end
     end
     
