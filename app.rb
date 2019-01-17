@@ -60,14 +60,14 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/cheets/:id/comments' do
-    @cheet = Cheet.find_by_id(params[:id])
-    erb :cheet_comments
-  end
+  # get '/cheets/:id/comments' do
+  #   @cheet = Cheet.find_by_id(params[:id])
+  #   erb :cheet_comments
+  # end
 
   post '/new-cheet' do
     current_user = session[:current_user]
-    current_user.nil? ? user = "Anonymous" : user = current_user.user
+    user = current_user.user
     Cheet.create(params[:cheet], user)
     if current_user.nil?
       redirect '/'
