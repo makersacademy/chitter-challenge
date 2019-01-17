@@ -21,5 +21,7 @@ gem "pry"
 
 gem "rake"
 
+gem "database_cleaner"
+
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false

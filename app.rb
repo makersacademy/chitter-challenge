@@ -15,8 +15,12 @@ class Chitter < Sinatra::Base
   end
 
   get "/profile" do
-    @peeps = Peep.all
-    erb :profile
+    if signed_in?
+      @peeps = Peep.all
+      erb :profile
+    else
+      redirect '/signin'
+    end
   end
 
   post "/peep" do
@@ -38,7 +42,6 @@ class Chitter < Sinatra::Base
     end
   end
 
-
   get "/error" do
     erb :error
   end
@@ -48,7 +51,7 @@ class Chitter < Sinatra::Base
   end
 
   post "/signin" do
-    user = User.create(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
+    user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
       redirect '/profile'
@@ -57,6 +60,15 @@ class Chitter < Sinatra::Base
     end
   end
 
+private
+
+  def signed_in?
+    !current_user.nil?
+  end
+
+  def current_user
+      @current_user ||= User.get(session[:user_id])
+  end
 
 
   run! if app_file == $0
