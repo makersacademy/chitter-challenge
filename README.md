@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/runticle/chitter-challenge.svg?branch=master)](https://travis-ci.com/runticle/chitter-challenge)
+
 # Chitter #
 
 This is a Ruby twitter app using Sinatra and a Postgres database. Users can 'cheet' anonymously, or register and sign in/out. Cheets are stored in a postgres database, as are users.
@@ -7,11 +9,20 @@ This is a Ruby twitter app using Sinatra and a Postgres database. Users can 'che
 ## Setup ##
 
 - Clone this repo
-- Run ``` bundle ``` in the root folder
-- Setup Postgres database using queries in db/migrations folder or download Table Plus to simplify your life.
-- Setup test database using the same queries; name it chitter_database_test
+- Run the following commands in the root folder to install dependancies and setup Postgres databases
+```
+  bundle
+  psql -c 'create database chitter_database;' -U postgres
+  psql -d chitter_database -a -f db/migrations/02_create_cheets_table.sql
+  psql -d chitter_database -a -f db/migrations/03_create_users_table.sql
+  
+  psql -c 'create database chitter_database_test;' -U postgres
+  psql -d chitter_database_test -a -f db/migrations/02_create_cheets_table.sql
+  psql -d chitter_database_test -a -f db/migrations/03_create_users_table.sql
+```
+
 - Run the server ``` rackup ```
-- Open ``` localhost:9292 ```
+- Open ``` localhost:9292 ``` in your browser
 
 ### User Stories ###
 
@@ -40,6 +51,8 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
+# Issues 
+- One test failing on travis, commented out in code. Testing for having too many characters in a cheet, Travis fails with the error that is expected to happen. Need a guard clause.
 
 # Screenshots #
 
