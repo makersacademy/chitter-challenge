@@ -1,5 +1,7 @@
 language: ruby
 rvm: '2.5.0'
+services:
+  -postgresql
 
 script:
   - mkdir -p spec && bundle exec rspec spec
@@ -10,3 +12,4 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_database_test;' -U postgres
+  - rake db:migrate
