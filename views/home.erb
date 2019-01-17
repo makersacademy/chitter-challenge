@@ -13,11 +13,9 @@
             </div>
             </hr>
             <div id='comments'>
-                <% @comments.each do |comment| %>
-                    <% if comment.message == message %>
-                       <%= comment.content %>
-                       <p>from:<%=comment.user.username%></p> 
-                    <% end %>
+                <% message.comments.each do |comment| %>
+                    <%= comment.content %>
+                    <p>from:<%=comment.user.username%></p>
                 <% end %>
             </div>
             <% if session[:user_id] %>
