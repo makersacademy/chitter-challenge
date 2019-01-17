@@ -67,7 +67,7 @@ class Chitter < Sinatra::Base
 
   post '/new-cheet' do
     current_user = session[:current_user]
-    user = current_user.user
+    current_user.nil? ? user = "Anonymous" : user = current_user.user
     Cheet.create(params[:cheet], user)
     if current_user.nil?
       redirect '/'
