@@ -60,11 +60,6 @@ class Chitter < Sinatra::Base
     end
   end
 
-  # get '/cheets/:id/comments' do
-  #   @cheet = Cheet.find_by_id(params[:id])
-  #   erb :cheet_comments
-  # end
-
   post '/new-cheet' do
     current_user = session[:current_user]
     current_user.nil? ? user = "Anonymous" : user = current_user.user
