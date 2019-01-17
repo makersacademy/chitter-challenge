@@ -12,4 +12,5 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_database_test;' -U postgres
-  - rake db:migrate
+  - psql -d chitter_database_test -a -f db/migrations/02_create_cheets_table.sql
+  - psql -d chitter_database_test -a -f db/migrations/03_create_users_table.sql
