@@ -20,7 +20,6 @@ class ChitterApp < Sinatra::Base
         @user = User.get(session[:user_id])
         @messages = Message.all
         @comments = Comment.all
-        p @comments
     
         if @user && @messages
             @script = 'comment_form'

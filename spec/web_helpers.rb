@@ -58,8 +58,9 @@ end
  ## ------- commenting on post 
 
  def make_comment(comment = 'default comment')
-   click_button 'comment'
+   click_link 'comment'
    fill_in :comment, with: comment
-   click_button 'comment!'
+   click_button 'add comment'
+  
  end
 
