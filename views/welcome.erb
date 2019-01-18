@@ -21,11 +21,13 @@
     <input type="submit" value="SIGN UP">
   </form>
 </div>
+<% if @current_user == nil %>
 <div class="fieldBlock">
   <form action="/log_in" method="get">
     <input type="submit" value="LOG IN">
   </form>
 </div>
+<% end %>
 <% if @current_user != nil %>
 <div class="fieldBlock">
   <form action="/log_out" method="get">
