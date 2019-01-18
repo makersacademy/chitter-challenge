@@ -92,7 +92,15 @@ Ruby 2.5.0 is needed to run this current version of the chitter challenge.
 
 
 ### Database setup
-PostgreSQL is used for the database setup. A database named `chitter` and a `chitter_test` are used with `peeps` and `users` tables. Currently the `pg` gem is used to connect to the local database.
+PostgreSQL is used for the database setup. A database named `chitter` and a `chitter_test` are used with `peeps` and `users` tables. Currently the `pg` gem is used to connect to the local database. These will need to be setup on your local machine currently. In `psql` enter the following commands:
+
+database creation:
+
+`CREATE DATABASE "chitter"`
+
+`CREATE DATABASE "chitter_test"`
+
+enter the database by entering `\c chitter` and enter the commands below to create the tables. Once done enter `\c chitter_test` and repeat.
 
 peeps table setup:
 
