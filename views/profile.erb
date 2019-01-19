@@ -1,12 +1,25 @@
 
 
+
+
     <form action="/peep" method="post">
       Peep: <input type="text" name="peep">
       <input type="submit" value="Send peep!">
     </form>
 
+     <h3> Welcome, <%= @user.name%>! </h3>
+
+
+
+
     <h3> P E E P S: </h3> <% @peeps.reverse.each do |peep| %>
       <div>
-     <%= peep.content %>, <%= peep.created_at.asctime %>
+   <%= peep.content %>, <%= peep.created_at.asctime %>
       </div>
     <% end %>
+
+
+    <form action="/logout" method="post">
+         <input type="hidden" name="_method" value="delete">
+         <input type="submit" value="Logout">
+     </form>

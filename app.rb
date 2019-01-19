@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
 
   get "/profile" do
     if signed_in?
+      @user = User.get(session[:user_id])
       @peeps = Peep.all
       erb :profile
     else
@@ -58,6 +59,11 @@ class Chitter < Sinatra::Base
     else
       redirect '/error'
     end
+  end
+
+  post "/logout" do
+    session.clear
+    redirect '/'
   end
 
 private
