@@ -5,7 +5,7 @@ describe Peeps do
     it 'returns all peeps' do
       peeps = Peeps.all
       
-      expect(peeps).to include("Hello")
+      expect(peeps).to include("HELLO")
       expect(peeps).to include("This is my second peep")
     end
   end
