@@ -1,4 +1,4 @@
-class Peep
+class Peeps
   
   def self.all
     ['Hello', 'This is my second peep']    
