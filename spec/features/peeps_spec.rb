@@ -10,4 +10,5 @@ feature 'Viewing peeps' do
     expect(page).to have_content "Hello"
     expect(page).to have_content "This is my second peep"
   end
+
 end
