@@ -21,8 +21,8 @@ RSpec.describe 'feature tests' do
 
     scenario 'peeps are seen on the homepage' do
       visit('/')
-      expect(page).to have_content "The first peep in the database"
-      expect(page).to have_content "The sixth peep in the database"
+      expect(page).to have_content "The first peep in the test database"
+      expect(page).to have_content "The sixth peep in the test database"
     end
 
   end
