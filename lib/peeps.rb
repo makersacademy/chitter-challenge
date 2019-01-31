@@ -2,24 +2,25 @@ require 'pg'
 
 class Peep
   
-  attr_reader :id, :peep
-  def initialize(id:, peep:)
+  attr_reader :id, :peep, :date
+  def initialize(id:, peep:, date:)
     @id = id
     @peep = peep
+    @date = date
   end
 
   def self.all
     connect_db
     result = @connection.exec('SELECT * FROM peeps;')
     result.map do |peep| 
-      Peep.new(id: peep['id'], peep: peep['peep'])
+      Peep.new(id: peep['id'], peep: peep['peep'], date: peep['date'])
     end
   end
 
   def self.add(peep:)
     connect_db
-    result = @connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep;")
-    Peep.new(id: result.first['id'], peep: result.first['peep'])
+    result = @connection.exec("INSERT INTO peeps (peep, date) VALUES('#{peep}', '#{DateTime.now.strftime("%c")}') RETURNING id, peep, date;")
+    Peep.new(id: result.first['id'], peep: result.first['peep'], date: result.first['date'])
   end
 
   private
