@@ -7,6 +7,15 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
+Installation
+----
+
+install postgresql locally
+bundle install
+create database - bundle exec rake db:create
+add tables - bunbdkle exec rake db:new_migration[peeps]
+
+
 Challenge:
 -------
 
