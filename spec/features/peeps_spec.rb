@@ -21,4 +21,12 @@ feature 'Adding new peeps' do
     click_button 'add'
     expect(page).to have_content 'Third peep'
   end
+
+  scenario 'Peeps should be in reverse chronological order' do
+    visit('/')
+    click_button('see peeps')
+    click_button('add new peep')
+    fill_in "new_peep", :with => 'Third peep'
+    click_button 'add'
+  end    
 end

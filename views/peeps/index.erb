@@ -1,8 +1,11 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li class="peep" id="peep-<%= peep.id %>">
+      <%= peep.peep %>
+    </li>
   <% end %>
 </ul>
+<br>
 <form action='/peeps/new', method='get'>
   <input type='submit' value='add new peep'>
 </form>

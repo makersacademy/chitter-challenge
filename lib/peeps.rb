@@ -1,11 +1,19 @@
 require 'pg'
 
-class Peeps
+class Peep
   
+  attr_reader :id, :peep
+  def initialize(id:, peep:)
+    @id = id
+    @peep = peep
+  end
+
   def self.all
     connect_db
-    result = @connection.exec('SELECT * FROM peeps')
-    result.map { |peep| peep['peep'] }
+    result = @connection.exec('SELECT * FROM peeps;')
+    result.map do |peep| 
+      Peep.new(id: peep['id'], peep: peep['peep'])
+    end
   end
 
   def self.add(peep:)

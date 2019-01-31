@@ -1,12 +1,12 @@
 require 'peeps'
 
-describe Peeps do
+describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      peeps = Peeps.all
-      
-      expect(peeps).to include("HELLO")
-      expect(peeps).to include("This is my second peep")
+      peeps = Peep.all
+      expect(peeps.length).to eq 2
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.peep).to eq "HELLO"
     end
   end
 end
