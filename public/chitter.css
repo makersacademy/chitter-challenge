@@ -1,0 +1,22 @@
+div {
+  margin: 5px;
+}
+
+#peep_wrapper {
+  border: 3px solid #1CA1F2;
+  margin: 10px;
+  width: 25%;
+}
+
+#message {
+  font-size: 20px;
+}
+
+#created {
+  font-size: 10px;
+}
+/* peep_wrapper
+mesage
+created
+h2
+div */
