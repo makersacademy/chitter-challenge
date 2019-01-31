@@ -10,5 +10,15 @@ feature 'Viewing peeps' do
     expect(page).to have_content "HELLO"
     expect(page).to have_content "This is my second peep"
   end
+end
 
+feature 'Adding new peeps' do
+  scenario 'A user can add a new peep to Chitter' do
+    visit ('/')
+    click_button('see peeps')
+    click_button('add new peep')
+    fill_in "new_peep", :with => 'Third peep'
+    click_button 'add'
+    expect(page).to have_content 'Third peep'
+  end
 end
