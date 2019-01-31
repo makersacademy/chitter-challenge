@@ -16,6 +16,15 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/login' do
+    erb :login
+  end
+
+  post '/loginresult' do
+    p params
+    User.check_password(params[:username], params[:password])
+  end
+
  DatabaseConnection.setup
 
 end
