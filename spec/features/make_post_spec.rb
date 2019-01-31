@@ -8,6 +8,5 @@ feature 'posting message' do
     fill_in('chit', with:'My first Chit!')
     click_on 'Submit'
     expect(page).to have_content("My first Chit!")
-    save_and_open_page
   end
 end

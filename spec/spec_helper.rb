@@ -5,7 +5,8 @@ require 'sinatra'
 require 'rspec'
 require_relative './../app.rb'
 Capybara.app = Chitter
-ENV['RACK_ENV'] = 'test'
+
+ENV['APP_ENV'] = 'test'
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -16,6 +17,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
+
+  config.include Rack::Test::Methods
+  DataMapper::setup(:default, "postgres://localhost/chitter_test")
+  DataMapper.finalize
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
