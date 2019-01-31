@@ -13,7 +13,7 @@ Installation
 install postgresql locally
 bundle install
 create database - bundle exec rake db:create
-add tables - bunbdkle exec rake db:new_migration[peeps]
+add tables - bundle exec rake db:new_migration[peeps]
 
 
 Challenge:
