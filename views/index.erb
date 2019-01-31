@@ -1,5 +1,8 @@
 <html>
 <h1>Chitter: look at these peeps</h1>
-
-
+<% @peeps.each do |peep| %>
+<li class="peep" id="peep-<%= peep.id %>">
+  <%= peep.message %>
+</li>
+<% end %>
 </html>
