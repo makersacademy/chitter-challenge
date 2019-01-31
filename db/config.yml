@@ -4,12 +4,19 @@ default: &default
   pool: 5
   host: localhost
 
-development:
-  <<: *default
+development: &development
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
   database: chitter_development
 
 test: &test
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
   database: chitter_test
 
 production:
+    adapter: postgresql
