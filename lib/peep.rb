@@ -4,11 +4,8 @@ require 'date'
 class Peep
 
   def self.connect_to_database
-   if ENV['ENVIRONMENT'] == 'test'
-     @conn = PG.connect(dbname: 'chitter_db_test')
-   else
-     @conn = PG.connect(dbname: 'chitter_db')
-   end
+    ENV['ENVIRONMENT'] == 'test' ? db = 'chitter_db_test' : db = 'chitter_db'
+    @conn = PG.connect(dbname: db)
  end
 
  def self.all
@@ -32,9 +29,9 @@ attr_reader :message, :created
    @created = created
  end
 
- def time_created
-   time = Time.now
-   time = time.strftime("%H:%M:%S - %d/%m/%Y")
- end
+ # def time_created
+ #   time = Time.now
+ #   time = time.strftime("%H:%M:%S - %d/%m/%Y")
+ # end
 
 end
