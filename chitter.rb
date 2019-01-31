@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
 
-  get'/' do
+  get '/' do
     erb :index
   end
 
