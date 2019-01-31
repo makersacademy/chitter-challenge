@@ -6,6 +6,7 @@ gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'capybara'
 gem 'sinatra'
+gem 'launchy'
 
 group :test do
   gem 'rspec'

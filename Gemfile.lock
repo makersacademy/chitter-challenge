@@ -17,6 +17,8 @@ GEM
     docile (1.1.5)
     hirb (0.7.3)
     json (2.1.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     mustermann (1.0.1)
@@ -80,6 +82,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  launchy
   rake
   rspec
   rubocop (= 0.56.0)
