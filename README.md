@@ -135,3 +135,17 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+Notes on test coverage
+----------------------
+
+Create Real & Test Databases:
+```
+createdb chitter_db
+createdb chitter_db_test
+```
+Set up peeps tables:
+```
+CREATE table peeps(id SERIAL PRIMARY KEY, message VARCHAR(280));
+```
+Real life twitter has a max character limit of 280.
