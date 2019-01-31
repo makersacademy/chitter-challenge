@@ -11,6 +11,11 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/' do
+    Peep.create(message: params[:message], user: 1)
+    redirect '/'
+  end
+
  DatabaseConnection.setup
 
 end
