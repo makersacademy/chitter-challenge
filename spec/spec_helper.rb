@@ -4,7 +4,7 @@ require 'simplecov-console'
 require 'web-helpers'
 require './chitter'
 
-ENV['ENVIRONMENT'] = 'test'
+ENV['RAILS_ENV'] = 'test'
 
 Capybara.app = Chitter
 
