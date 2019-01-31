@@ -31,6 +31,22 @@ RSpec.describe 'feature tests' do
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
 #
+
+feature 'multiple peeps in reverse chronological order' do
+
+
+  RSpec::Matchers.define :appear_before do |later_content|
+   match do |earlier_content|
+     page.body.index(earlier_content) < page.body.index(later_content)
+   end
+ end
+  scenario 'user sees peeps in reverse chronological order' do
+    visit('/')
+    expect("first peep").to appear_before("second peep")
+  end
+
+end
+
 # As a Maker
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made
