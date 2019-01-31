@@ -6,7 +6,8 @@ def setup_test_database
   conn = PG.connect(dbname: 'chitter_db_test')
 
   # Empties the database and resets ID
-  conn.exec ("TRUNCATE peeps RESTART IDENTITY")
-  conn.exec ("INSERT INTO peeps (message) VALUES('Test Peep!')")
+  conn.exec ("TRUNCATE peeps, users RESTART IDENTITY")
+  conn.exec ("INSERT INTO peeps (message, created) VALUES('Test Peep!', 'Right Now!')")
+  conn.exec ("INSERT INTO users (email, password) VALUES('testemail@gmail.com', 'password')")
 
 end
