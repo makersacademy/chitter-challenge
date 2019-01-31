@@ -1,6 +1,9 @@
 require './chitter'
 
 RSpec.describe 'feature tests' do
+  before(:each) do
+    test_db_initialise
+  end
 
 # STRAIGHT UP
 #
