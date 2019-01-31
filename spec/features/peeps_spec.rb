@@ -28,5 +28,8 @@ feature 'Adding new peeps' do
     click_button('add new peep')
     fill_in "new_peep", :with => 'Third peep'
     click_button 'add'
+    within(first('.peep')) do
+      expect(page).to have_content 'Third peep'
+    end
   end    
 end
