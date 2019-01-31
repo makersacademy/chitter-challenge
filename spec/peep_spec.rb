@@ -2,14 +2,16 @@ require 'peep'
 
 describe Peep do
   describe '#all' do
-    it 'Returns an array of hashes for each peep in the database' do
-      expect(Peep.all).to include({"id" => "1", "message" => "Test Peep!"})
+    it 'Returns an array of Peep objects for each peep in the database' do
+      peeps = Peep.all
+      expect(peeps[0].message).to eq("Test Peep!")
     end
   end
   describe '#add' do
     it 'Adds a peep to the database' do
       Peep.add("Hello World!")
-      expect(Peep.all).to include({"id" => "2", "message" => "Hello World!"})
+      peeps = Peep.all
+      expect(peeps[1].message).to eq("Hello World!")
     end
   end
 

@@ -13,15 +13,20 @@ class Peep
  def self.all
    connect_to_database
    # Returns all peeps as a PG object
-   peepspg = @conn.exec ("SELECT * FROM peeps")
-   # Iterates over PG and returns readable Hashs
-   @peeps = []
-   peepspg.each {|eachpeep| @peeps << eachpeep }
-   @peeps
+   query = @conn.exec ("SELECT * FROM peeps")
+   # Iterates over PG and returns readable Peep object
+   @peeps = query.map { |eachquery| Peep.new(eachquery['message'])}
  end
 
  def self.add(peep)
    connect_to_database
    @conn.exec ("INSERT INTO peeps (message) VALUES('#{peep}')")
  end
+
+attr_reader :message
+
+ def initialize(message)
+   @message = message
+ end
+
 end
