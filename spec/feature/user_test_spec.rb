@@ -13,10 +13,16 @@ RSpec.describe 'feature tests' do
 #
 
   feature 'index' do
+
     scenario 'user sees the homepage' do
       visit('/')
       expect(page).to have_content "Chitter: look at these peeps"
     end
+
+    scenario 'peeps are seen on the homepage'
+      visit('/')
+      expect(page).to have_content "The first peep in the database"
+      expect(page).to have_content "The sixth peep in the database"      
   end
 
 # As a maker
