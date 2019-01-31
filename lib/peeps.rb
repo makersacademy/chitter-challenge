@@ -18,7 +18,8 @@ class Peep
 
   def self.add(peep:)
     connect_db
-    @connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
+    result = @connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep;")
+    Peep.new(id: result.first['id'], peep: result.first['peep'])
   end
 
   private
