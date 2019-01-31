@@ -1,9 +1,16 @@
 <html>
-  <h1>Chitter: look at these peeps</h1>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/chitter_style.css">
+  </head>
+  <h3>Chitter: look at these peeps</h3>
+  <form action="/login" method="get">
+    <input type="submit" value="Login">
+  </form>
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
-      <%= peep.message %> - <%= peep.created_at %>
-    </li>
+      <%= peep.message %><br><br>
+      <small><%= peep.created_at %></small>
+      </li>
   <% end %>
   <br>
   <form action="/" method="post">
