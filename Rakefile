@@ -1,7 +1,10 @@
+require 'standalone_migrations'
+StandaloneMigrations::Tasks.load_tasks
+
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
-  
+
   RSpec::Core::RakeTask.new :spec
-  
+
   task default: [:spec]
 end
