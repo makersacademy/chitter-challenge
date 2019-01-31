@@ -8,6 +8,6 @@
 <h2>Peeps!</h2>
 <ul>
 <% @peeps.each do |peep| %>
- <li><%= peep.message %></li>
+ <li><%= peep.message %> at <%= peep.created %></li>
 <% end  %>
 </ul>
