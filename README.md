@@ -3,7 +3,7 @@ Chitter Challenge
 
 <a href= #task>TASK</a>  |  <a href= #edge>EDGE CASES</a>  |  <a href= #approach>APPROACH </a> | <a href= #tests>TESTS</a>
 
-[Task] (#task)
+[Task](#task)
 -------
 
 As usual please start by forking this repo.
