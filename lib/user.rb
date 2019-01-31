@@ -8,17 +8,30 @@ class User
   end
 
   def self.all_users
-    connect_to_database
-    # Returns all peeps as a PG object
-    query = @conn.exec ("SELECT * FROM users")
-    # Iterates over PG and returns readable Peep object
+
+    query = DatabaseConnection.query("SELECT * FROM users")
     @users = query.map { |eachquery| User.new(eachquery['email'], eachquery['password'])}
   end
 
-
   def self.add(u_email, u_password)
-    connect_to_database
-    @conn.exec ("INSERT INTO users (email, password) VALUES('#{u_email}', '#{u_password}')")
+    DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{u_email}', '#{u_password}')")
+  end
+
+  def self.sign_in(u_email, u_password)
+    @query = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{u_email}' AND password ='#{u_password}")
+  end
+
+  def self.email_check(u_email)
+    u_email == @query['email']? true : false
+  end
+
+  def self.password_check(u_password)
+    u_password == @query['password']? true : false
+  end
+
+  def self.sign_in_check
+    email_check
+    password_check
   end
 
   attr_reader :email, :password
@@ -28,3 +41,11 @@ class User
   end
 
 end
+
+# def self.sign_in_check(email, password)
+#     result = DatabaseConnection.query("SELECT COUNT(user_id) FROM users WHERE email = '#{email}' AND password = '#{password}';")
+#     result[0]['count'].to_i == 1 ? true : false
+#   end
+
+# Gem Devise
+# Industry standard Users. Look into this.
