@@ -7,7 +7,12 @@ class Peep
 
  def self.all
    query = DatabaseConnection.query("SELECT * FROM peeps ORDER BY created DESC")
-   @peeps = query.map { |eachquery| Peep.new(eachquery['message'], eachquery['created'])}
+   @peeps = query.map { |eachquery| Peep.new(eachquery['message'], eachquery['created'], eachquery['userid'])}
+ end
+
+ def self.username(id)
+   query = DatabaseConnection.query("SELECT username FROM users WHERE id = '#{id}'")
+   query[0]['username']
  end
 
  def self.add(peep, id)
@@ -15,11 +20,12 @@ class Peep
    DatabaseConnection.query("INSERT INTO peeps (message, created, userID) VALUES('#{peep}', 'posted on #{time}', '#{id}')")
  end
 
-attr_reader :message, :created
+attr_reader :message, :created, :userID
 
- def initialize(message, created)
+ def initialize(message, created, userID)
    @message = message
    @created = created
+   @userID = userID
  end
 
 end
