@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peeps.list
+    @peeps = Peeps.list.reverse
     erb(:peeps)
   end
 
