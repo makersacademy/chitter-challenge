@@ -6,7 +6,7 @@
   <body>
     <div align='center'>
       <h1>Welcome to Chitter</h1>
-      <% @peeps.each do |peep| %>
+      <% @peeps.reverse.each do |peep| %>
         <p><%= peep.body %></p>
       <% end %>
     </div>
