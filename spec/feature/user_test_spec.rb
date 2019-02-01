@@ -83,7 +83,7 @@ RSpec.describe 'feature tests' do
       fill_in "username", with: "baduser"
       fill_in "password", with: "wrongpassword"
       click_on "Submit"
-      expect(page).to have_content "Unknown username or password"
+      expect(page).to have_content "Invalid username or password. Try again"
     end
 
   end
