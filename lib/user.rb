@@ -9,4 +9,6 @@ class User
   property :password, String
   property :name, String
 
+  has n, :peeps
+
 end

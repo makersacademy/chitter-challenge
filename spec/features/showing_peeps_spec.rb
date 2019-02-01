@@ -7,9 +7,9 @@ feature 'shows peeps' do
   end
   let(:formatted_time) { Time.now.strftime("%m/%d/%Y %H:%M") }
   scenario 'user makes two peeps' do
-    visit('/peeps')
+    sign_up
     make_a_peep("My first Peep!")
     make_a_peep('My second Peep!')
-    expect(page).to have_content("My second Peep!, #{formatted_time} My first Peep!, #{formatted_time}")
+    expect(page).to have_content("My second Peep! - tomd, #{formatted_time} My first Peep! - tomd, #{formatted_time}")
   end
 end
