@@ -1,8 +1,18 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<h1>Welcome to Chitter!</h1>
+
 <form action="/peep_feed/new_peep" method="get">
   <input type="submit" value="New Peep">
 </form>
 
-<%@peeps.reverse.each do |peep|%>
-  <%=peep.text%>
-  <%=peep.time%><br>
-<%end%>
+<p>
+  <%@peeps.reverse.each do |peep|%>
+    <font size="6"><%=peep.text%></font><br>
+    <font size="1"><%=peep.time%></font><br><br>
+  <%end%>
+</p>

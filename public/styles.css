@@ -1,0 +1,15 @@
+h1 {
+ font-family: 'Lobster', Georgia, Times, serif;
+ font-size: 70px;
+ font-weight:500;
+ line-height: 75px;
+ color: black
+}
+
+p {
+ font-family: 'Cabin', Helvetica, Arial, sans-serif;
+ font-size: 30px;
+ font-weight:200;
+ line-height: 40px;
+ color: black
+}
