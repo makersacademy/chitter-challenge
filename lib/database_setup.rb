@@ -1,5 +1,7 @@
+require_relative './database_connection'
+
 if ENV['ENVIRONMENT'] == 'test'
-  PG.connect( dbname: 'peep_manager_test' )
+  Database.setup('peep_manager_test')
 else
-  PG.connect( dbname: 'peep_manager' )
+  Database.setup('peep_manager')
 end

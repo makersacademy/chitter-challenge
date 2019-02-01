@@ -1,4 +1,5 @@
 require 'PG'
+require_relative './database_connection'
 
 class Peeps
   attr_reader :id, :peep
@@ -9,23 +10,13 @@ class Peeps
   end
 
   def self.list
-    if ENV['ENVIRONMENT'] == 'test'
-      conn =  PG.connect( dbname: 'peep_manager_test' )
-    else
-      conn = PG.connect( dbname: 'peep_manager' )
+    Database.query( "SELECT * FROM peeps" ).map do | row |
+      Peeps.new(id: row['id'], peep: row['peep'])
     end
-    conn.exec( "SELECT * FROM peeps" ).map do | row |
-    Peeps.new(id: row['id'], peep: row['peep'])
   end
-end
 
   def self.add(peep:)
-    if ENV['ENVIRONMENT'] == 'test'
-      conn =  PG.connect( dbname: 'peep_manager_test' )
-    else
-      conn = PG.connect( dbname: 'peep_manager' )
-    end
-    result = conn.exec( "INSERT INTO peeps(peep) VALUES('#{peep}' ) RETURNING id, peep;")
+    result = Database.query( "INSERT INTO peeps(peep) VALUES('#{peep}' ) RETURNING id, peep;")
     Peeps.new(id: result[0]['id'], peep: result[0]['peep'])
   end
 
