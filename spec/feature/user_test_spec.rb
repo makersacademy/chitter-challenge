@@ -73,6 +73,7 @@ RSpec.describe 'feature tests' do
       click_on "Login"
       fill_in "username", with: "al123"
       fill_in "password", with: "password123"
+      click_on "Submit"
       expect(page).to have_content "Alice Smith"
     end
 
@@ -81,6 +82,7 @@ RSpec.describe 'feature tests' do
       click_on "Login"
       fill_in "username", with: "baduser"
       fill_in "password", with: "wrongpassword"
+      click_on "Submit"
       expect(page).to have_content "Unknown username or password"
     end
 
