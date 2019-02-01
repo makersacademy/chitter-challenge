@@ -2,11 +2,15 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rake'
+gem 'bcrypt'
+gem 'capybara'
+gem 'chromedriver-helper'
+gem 'pg'
+gem 'rspec'
 gem 'rubocop', '0.56.0'
-
-group :test do
-  gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
+gem 'selenium-webdriver'
+gem 'simplecov'
+gem 'simplecov-console'
+gem 'sinatra'
+gem "sinatra-flash"
+gem 'rake'
