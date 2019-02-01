@@ -23,8 +23,8 @@ I want to sign up for Chitter
 
 |Client|Controller|Model|Views|Databse|
 |------|----------|-----|-----|-------|
-|request --> | app | ask for name | '/' | user db |
-|   |    | allow to post peeps | '/peeps' | peeps db |
+|request --> | app | ask for name | '/' | user table |
+|   |    | allow to post peeps | '/peeps' | peeps table |
 |   |   |  adds time.now |   |   |
 
 ### Set up the Database:
