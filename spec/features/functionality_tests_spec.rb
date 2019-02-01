@@ -39,7 +39,7 @@ feature '#Login' do
     fill_in_login
     click_button('Login')
     expect(page).to have_current_path('/feed')
-    expect(page).to have_content "Welcome to Chitter!"
+    expect(page).to have_content "Welcome to Chitter, TestyMcTestFace"
     expect(page).to have_content "Peeps!"
     expect(page).to_not have_content "User Login"
   end

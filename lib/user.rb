@@ -2,6 +2,14 @@ require 'pg'
 
 class User
 
+  def self.id
+    @id
+  end
+
+  def self.username
+    @username
+  end
+
   def self.connect_to_database
     ENV['ENVIRONMENT'] == 'test' ? db = 'chitter_db_test' : db = 'chitter_db'
     @conn = PG.connect(dbname: db)
@@ -16,16 +24,22 @@ class User
     DatabaseConnection.query("INSERT INTO users (username, email, password) VALUES('#{u_username}', '#{u_email}', '#{u_password}')")
   end
 
-  # def self.sign_in(u_email, u_password)
-  #   @query = DatabaseConnection.query("SELECT COUNT (id) FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
-  # end
-
   def self.sign_in_check(u_email, u_password)
     query = DatabaseConnection.query("SELECT COUNT (id) FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
     query[0]['count'].to_i == 1 ? true : false
   end
 
+  def self.sign_in(u_email, u_password)
+    query = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
+    user(query[0]['id'], query[0]['username'])
+  end
+
   attr_reader :username, :email
+
+  def self.user(id, username)
+    @id = id
+    @username = username
+  end
 
   def initialize(username, email)
     @username = username
