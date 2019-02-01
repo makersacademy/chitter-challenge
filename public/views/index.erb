@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Public/style_sheets/style.css">
+  </head>
+  <body>
+    Welcome!
+    <% if @all_messages %>
+      <table>
+        <tr>
+        <th> Message </th>
+        <th> Options </th>
+        </tr>
+          <% @all_messages.each do |message| %>
+          <tr>
+            <td>
+            <%=message[1]%>
+            </td>
+            <td>
+<!--
+
+-->
+            </td>
+          </tr>
+          <% end %>
+      </table>
+    <% end %>
+    <form action="/submit-message" method="post">
+      <input type="text" name="Messages">
+      <button type="submit name="Submit Message">
+    </form>
+  <body>
+</html>
