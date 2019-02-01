@@ -31,3 +31,11 @@ describe '.find' do
     expect(result).to be nil
   end
 end
+
+describe '.authenticate' do
+  it 'finds user by username' do
+    user = User.create(name: 'Test', username: 'TestUN', email: 'test@email.com', password: 'test234')
+    result = User.authenticate(username: user.username, password: user.password)
+    expect(result.id).to eq user.id
+  end
+end
