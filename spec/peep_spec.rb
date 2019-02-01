@@ -10,4 +10,11 @@ describe Peep do
       expect(peeps[0].body).to include "Test peep"
     end
   end
+
+  describe '#add' do
+    it 'should add a given peep to the database' do
+      Peep.add("Added peep")
+      expect(Peep.all.last.body).to eq "Added peep"
+    end
+  end
 end

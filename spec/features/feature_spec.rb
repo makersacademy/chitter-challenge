@@ -16,4 +16,19 @@ feature 'Chitter App:' do
       expect(page).to have_content "Test peep"
     end
   end
+
+  feature 'Post peep' do
+    scenario 'it should allow new post' do
+      visit '/feed'
+      click_on 'New Peep'
+      expect(page).to have_content "Peep away"
+    end
+
+    scenario 'it should show new post in main feed' do
+      visit '/feed/new_peep'
+      fill_in 'new_peep', with:'I love peeping'
+      click_on 'Peep'
+      expect(page).to have_content "I love peeping"
+    end
+  end
 end

@@ -52,8 +52,9 @@ I want to receive an email if I am tagged in a Peep
 Technical Approach:
 -----
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+Integrate the database using the `PG` gem and `SQL` queries.
 
+Possible extension: 
 If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
 
 Some useful resources:
@@ -86,38 +87,6 @@ And/Or:
 
 * Work on the CSS to make it look good.
 
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
 
 Usage
 -----
@@ -130,7 +99,7 @@ Usage
 
 4. Confirm it appears as expected:
 ```
-Isabel=# \dt
+=# \dt
         List of relations
  Schema | Name  | Type  | Owner
 --------+-------+-------+--------
@@ -139,5 +108,5 @@ Isabel=# \dt
 ```
 
 And test database:
-5. CREATE DATABASE chitter_test;
-6. Run file: 02.Create_peeps_test_table_.sql
+5. CREATE DATABASE chitter_testing;
+6. Run file: 02.Create_peeps_testing_table_.sql
