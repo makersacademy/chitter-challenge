@@ -15,7 +15,6 @@ describe Peep do
       Peep.add("Added peep")
       peeps = Peep.all
       expect(peeps[0].body).to eq "Added peep"
-      # expect("Peeping about snow").to appear_before('Test peep')
     end
   end
 
@@ -26,5 +25,13 @@ describe Peep do
       expect(Peep.all.last.body).to eq "Added peep"
       expect(Peep.all.last.time).to eq time
     end
+
+    # it 'should assume default user if none is given' do
+    #   populate_test_data
+    #   expect(Peep.all[0].user).to eq user
+    # end
+
   end
+
+
 end

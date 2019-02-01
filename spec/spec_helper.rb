@@ -1,4 +1,5 @@
-ENV['ENV_TEST'] = 'test'
+ENV['ENV'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'

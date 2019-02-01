@@ -5,10 +5,10 @@
     <title></title>
   </head>
   <body>
-    <h1>Your Chitter Feed</h1>
+    <h1>Your Chitter Feed </h1>
     <ul>
       <% @peeps.each do |peep| %>
-      <li><%=peep.body%> --- <%= peep.time%> </li>
+      <li><%=peep.user%>: <%=peep.body%> --- <%= peep.time%> </li>
       <% end %>
       </ul>
 

@@ -2,29 +2,28 @@ require 'pg'
 
 class Peep
   def self.all
-    connection = Peep.connect
-    peeps = connection.exec("SELECT * FROM peeps;")
-    peeps.map{ |peep| Peep.new(peep['body'], peep['time']) }.reverse
+    peeps = DatabaseConnection.query("SELECT * FROM peeps;")
+    peeps.map{ |peep| Peep.new(peep['body'], peep['time'], peep['user_id']) }.reverse
   end
 
-  def self.add(new_peep)
-    connection = Peep.connect
+  def self.add(new_peep, user = User.add_new("Anonymous", "Anon", "Anon"))
     time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
-    connection.exec("INSERT INTO peeps(body, time) VALUES('#{new_peep}', '#{time}');")
+  #  DatabaseConnection.query("INSERT INTO peeps(body, time, user_id) VALUES('#{new_peep}', '#{time}', '#{user}');")
+    DatabaseConnection.query("INSERT INTO peeps(body, time) VALUES('#{new_peep}', '#{time}');")
   end
 
-  attr_reader :body, :time
+  attr_reader :body, :time, :user
 
-  def initialize(body, time)
+  def initialize(body, time, user)
     @body = body
     @time = time
+    @user = user
   end
 
-  private
-
-  def self.connect
-    databasename = ENV['ENV_TEST'] == 'test' ? 'chitter_testing' : 'chitter'
-    PG.connect(dbname: databasename)
-  end    
+  # def return_name
+  #   new = User.find(user)
+  #   p new
+  #   new.name
+  # end
 
 end

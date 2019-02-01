@@ -11,4 +11,5 @@ class DatabaseConnection
   def self.query(sql)
     @database.exec(sql)
   end
+
 end
