@@ -3,7 +3,7 @@ require_relative 'peeps'
 
 class Chitter < Sinatra::Base
 
-enable :sessions
+  enable :sessions
 
   get '/' do
     erb :index
@@ -13,6 +13,6 @@ enable :sessions
     erb :peeps
   end
 
-run! if app_file == $0
+  run! if app_file == $0
 
 end
