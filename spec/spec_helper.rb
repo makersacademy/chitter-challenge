@@ -3,11 +3,9 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require 'sinatra'
 require 'rspec'
+require 'timecop'
 require_relative './../app.rb'
 Capybara.app = Chitter
-
-ENV['APP_ENV'] = 'test'
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -17,7 +15,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-
 
   config.include Rack::Test::Methods
   config.before(:each) do

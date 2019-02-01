@@ -2,6 +2,7 @@ require 'sinatra'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require './lib/peep'
+require './lib/printer'
 
 class Chitter < Sinatra::Base
 
@@ -12,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all(:order => [ :id.desc ])
+    @peeps = Peep.print_peeps
     erb :peeps
   end
 
