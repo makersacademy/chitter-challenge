@@ -21,6 +21,10 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/new' do
+    erb :new
+  end
+
   get '/login' do
     flash[:failure] = "Invalid username or password. Try again"
     erb :login

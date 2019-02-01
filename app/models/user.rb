@@ -1,4 +1,5 @@
 require 'active_record'
+require 'bcrypt'
 
 class User < ActiveRecord::Base
 

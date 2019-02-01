@@ -3,6 +3,7 @@ require './chitter'
 RSpec.describe 'feature tests' do
   before(:each) do
     test_db_initialise
+    User.logged_in_user(nil)
   end
 
 # STRAIGHT UP
@@ -25,8 +26,13 @@ RSpec.describe 'feature tests' do
       expect(page).to have_content "The sixth peep in the test database"
     end
 
-    scenario 'user can post peeps' do
+    scenario 'user can post peeps when logged in' do
       visit('/')
+      click_link "Login"
+      fill_in "username", with: "al123"
+      fill_in "password", with: "password123"
+      click_on "Submit"
+      click_link "New Peep!"
       fill_in "message", with: "This is a new peep"
       click_on "Peep!"
       expect(page).to have_content "This is a new peep"
@@ -70,14 +76,14 @@ RSpec.describe 'feature tests' do
 
     scenario 'user can signup a new account' do
       visit('/')
-      click_on "Signup"
+      click_link "Signup"
       fill_in "username", with: "newuser"
       fill_in "password", with: "newpassword"
       fill_in "forename", with: "Mike"
       fill_in "surname", with: "Smith"
       fill_in "email", with: "mike.smith@google.com"
       click_on "Submit"
-      expect(page).to have_content "newuser logged in"
+      expect(page).to have_content "newuser"
     end
 
 end
@@ -91,16 +97,16 @@ feature 'log in to chitter' do
 
   scenario 'user can login if they exist' do
     visit('/')
-    click_on "Login"
+    click_link "Login"
     fill_in "username", with: "al123"
     fill_in "password", with: "password123"
     click_on "Submit"
-    expect(page).to have_content "al123 logged in"
+    expect(page).to have_content "al123"
   end
 
   scenario 'user cant login if they dont exist' do
     visit('/')
-    click_on "Login"
+    click_link "Login"
     fill_in "username", with: "baduser"
     fill_in "password", with: "wrongpassword"
     click_on "Submit"
@@ -117,13 +123,13 @@ feature 'log out of chitter' do
 
   scenario 'user can logout' do
     visit('/')
-    click_on "Login"
+    click_link "Login"
     fill_in "username", with: "al123"
     fill_in "password", with: "password123"
     click_on "Submit"
-    expect(page).to have_content "al123 logged in"
-    click_on "Logout"
-    expect(page).not_to have_content "al123 logged in"
+    expect(page).to have_content "al123"
+    click_link "Logout"
+    expect(page).not_to have_content "al123"
   end
 
 end
