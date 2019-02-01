@@ -13,7 +13,7 @@ get '/feed' do
   erb :index
 end
 
-post '/add' do
+post '/feed' do
   Peep.add(params[:add_peep])
   redirect '/feed'
 end

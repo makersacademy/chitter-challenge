@@ -18,20 +18,20 @@ class User
   end
 
   def self.sign_in(u_email, u_password)
-    @query = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{u_email}' AND password ='#{u_password}")
+    @query = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
   end
 
   def self.email_check(u_email)
-    u_email == @query['email']? true : false
+    u_email == @query[0]['email']? true : false
   end
 
   def self.password_check(u_password)
-    u_password == @query['password']? true : false
+    u_password == @query[0]['password']? true : false
   end
 
-  def self.sign_in_check
-    email_check
-    password_check
+  def self.sign_in_check(u_email, u_password)
+    email_check(u_email)
+    password_check(u_password)
   end
 
   attr_reader :email, :password

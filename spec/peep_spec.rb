@@ -15,8 +15,8 @@ describe Peep do
       Peep.add("Hello World!")
       peeps = Peep.all
       expect(peeps[0]).to be_a Peep
-      expect(peeps[1].message).to eq("Hello World!")
-      expect(peeps[1].created).to eq("After Right Now!")
+      expect(peeps[0].message).to eq("Hello World!")
+      expect(peeps[0].created).to eq("After Right Now!")
     end
   end
 

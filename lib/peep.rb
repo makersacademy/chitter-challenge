@@ -11,8 +11,8 @@ class Peep
  end
 
  def self.add(peep)
-   time = Time.now.strftime("%H:%M:%S - %d/%m/%Y")
-   DatabaseConnection.query("INSERT INTO peeps (message, created) VALUES('#{peep}', '#{time}')")
+   time = Time.now.strftime("%d/%m/%Y at %H:%M:%S ")
+   DatabaseConnection.query("INSERT INTO peeps (message, created) VALUES('#{peep}', 'posted on #{time}')")
  end
 
 attr_reader :message, :created
