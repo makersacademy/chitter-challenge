@@ -17,12 +17,13 @@ class User
     DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{u_email}', '#{u_password}')")
   end
 
-  def self.sign_in(u_email, u_password)
-    @query = DatabaseConnection.query("SELECT COUNT (id) FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
-  end
+  # def self.sign_in(u_email, u_password)
+  #   @query = DatabaseConnection.query("SELECT COUNT (id) FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
+  # end
 
   def self.sign_in_check(u_email, u_password)
-    @query[0]['count'].to_i == 1 ? true : false
+    query = DatabaseConnection.query("SELECT COUNT (id) FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
+    query[0]['count'].to_i == 1 ? true : false
   end
 
   attr_reader :email, :password

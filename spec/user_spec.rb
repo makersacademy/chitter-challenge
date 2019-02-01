@@ -24,20 +24,16 @@ describe User do
   describe '#Login' do
     describe '#sign_in_check' do
       it 'Returns true if email and password exists in database' do
-        User.sign_in('testemail@gmail.com', 'password')
         expect(User.sign_in_check('testemail@gmail.com', 'password')).to eq true
       end
       it 'Returns false if email exists in database but password doesnt' do
-        User.sign_in('testemail@gmail.com', 'password1')
         expect(User.sign_in_check('testemail@gmail.com', 'password1')).to eq false
       end
       it 'Returns false if email doesnt exist in database but password does' do
-        User.sign_in('testemail123@gmail.com', 'password')
         expect(User.sign_in_check('testemail123@gmail.com', 'password')).to eq false
       end
       it 'Returns if new user signs up and then signs in with correct details' do
         User.add("test2.gmail.com", "password2")
-        User.sign_in("test2.gmail.com", "password2")
         expect(User.sign_in_check("test2.gmail.com", "password2")).to eq true
       end
     end

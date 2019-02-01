@@ -1,7 +1,55 @@
+require_relative 'web_helpers'
+
 feature '#Homepage' do
   scenario 'Loads the default homepage when taken to /' do
-    visit '/feed'
+    visit '/'
     expect(page).to have_content "Welcome to Chitter!"
+    expect(page).to have_content "User Login"
+    expect(page).to_not have_content "Peep"
+  end
+end
+
+feature '#New User' do
+  scenario 'Registers a new user' do
+    visit '/'
+    fill_in_registration
+    click_button('Register')
+    expect(page).to have_current_path('/')
+    expect(page).to have_content "Welcome to Chitter!"
+    expect(page).to have_content "User Login"
+    expect(page).to_not have_content "Peep"
+  end
+
+  scenario 'Takes user back to homepage if cancel is clicked' do
+    visit '/'
+    fill_in_registration
+    click_button('Cancel')
+    expect(page).to have_current_path('/')
+    expect(page).to have_content "Welcome to Chitter!"
+    expect(page).to have_content "User Login"
+    expect(page).to_not have_content "Peep"
+  end
+end
+
+feature '#Login' do
+  scenario 'Users successfully logs in' do
+    visit '/'
+    fill_in_registration
+    click_button('Register')
+    fill_in_login
+    click_button('Login')
+    expect(page).to have_current_path('/feed')
+    expect(page).to have_content "Welcome to Chitter!"
+    expect(page).to have_content "Peeps!"
+    expect(page).to_not have_content "User Login"
+  end
+
+  scenario 'Wipes login info if cancel is clicked' do
+    visit '/'
+    fill_in_login
+    click_button('Cancel')
+    expect(page).to_not have_content "test@email.com"
+    expect(page).to_not have_content "password"
   end
 end
 
@@ -13,35 +61,3 @@ feature '#Add Peep' do
     expect(page).to have_content "Hello World!"
   end
 end
-
-# feature '#Add_User' do
-#   scenario 'Adds a user' do
-#     visit '/feed'
-#     click_button('Register!')
-#     fill_in('add_email', with: 'testingemail@hotmail.com')
-#     fill_in('add_password', with: 'testingpassword')
-#     click_button('Register')
-#     # Change this when I add "Welcome User" message
-#     expect(page).to have_content "Welcome to Chitter!"
-#   end
-#
-#   scenario 'Cancel adding user' do
-#       visit '/feed'
-#       click_button('Register!')
-#       click_button('Cancel')
-#       expect(page).to have_current_path('/login')
-#       expect(page).to have_content "Welcome to Chitter!"
-#   end
-# end
-
-# # feature '#Login' do
-# #   scenario 'Feed on successful login' do
-# #     visit '/'
-# #     fill_in('add_email', with: 'admin@hotmail.com')
-# #     fill_in('add_password', with: 'password')
-# #     click_button('Login')
-# #     expect(page).to have_current_path('/feed')
-# #     # Implement this feature
-# #     # expect(page).to have_contents "Welcome back to Chitter, Admin!"
-# #   end
-# end

@@ -8,6 +8,11 @@ get '/' do
   erb :login
 end
 
+post '/' do
+  redirect '/feed' if User.sign_in_check(params[:user_email], params[:user_password])
+  redirect '/'
+end
+
 get '/feed' do
   @peeps = Peep.all
   erb :index
@@ -23,8 +28,10 @@ get '/add_user' do
 end
 
 post '/add_user' do
-  User.add(params[:email], params[:add_peep])
-  redirect '/feed'
+  User.add(params[:add_email], params[:add_password])
+  redirect '/'
 end
+
+
 
 end
