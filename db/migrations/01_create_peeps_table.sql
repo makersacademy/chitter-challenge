@@ -1,2 +1,9 @@
-# Sets up peeps table
-CREATE table peeps(id SERIAL PRIMARY KEY, message VARCHAR(280), created VARCHAR(60));
+# Sets up peeps tabld
+CREATE TABLE peeps (
+    id int,
+    message VARCHAR(280),
+    created VARCHAR(60),
+    userID int,
+    PRIMARY KEY (id),
+    FOREIGN KEY (userID) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+);

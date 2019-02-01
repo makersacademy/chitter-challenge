@@ -23,7 +23,7 @@ get '/feed' do
 end
 
 post '/feed' do
-  Peep.add(params[:add_peep])
+  Peep.add(params[:add_peep], User.id)
   redirect '/feed'
 end
 

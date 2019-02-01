@@ -6,6 +6,10 @@
 <body>
 <h1>Welcome to Chitter, <%= User.username %></h1>
 
+<form action="/" method="get">
+  <input type="submit" value="Log Out!">
+</form>
+
 <form action="/feed" method="post">
   <input type="text" name="add_peep">
   <input type="submit" value="Peep!">

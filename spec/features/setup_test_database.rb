@@ -9,7 +9,7 @@ def setup_test_database
   conn.exec ("TRUNCATE peeps, users RESTART IDENTITY")
 
   # Adds 1 row to peeps and users for testing
-  conn.exec ("INSERT INTO peeps (message, created) VALUES('Test Peep!', 'Right Now!')")
-  conn.exec ("INSERT INTO users (username, email, password) VALUES('defaultuser', 'testemail@gmail.com', 'password')")
 
+  conn.exec ("INSERT INTO users (username, email, password) VALUES('defaultuser', 'testemail@gmail.com', 'password')")
+  conn.exec ("INSERT INTO peeps (message, created, userID) VALUES('Test Peep!', 'Right Now!', 1)")
 end
