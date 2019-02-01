@@ -23,9 +23,9 @@ I want to sign up for Chitter
 
 |Client|Controller|Model|Views|Databse|
 |------|----------|-----|-----|-------|
-|request --> | app | ask for name | '/' | user table |
-|   |    | allow to post peeps | '/peeps' | peeps table |
-|   |   |  adds time.now |   |   |
+|request --> | app | ask for name | '/' sign up form | user table |
+|   |    | allow to post peeps | '/peeps' post peeps form | peeps table |
+|   |   |  adds time.now | show peeps |   |
 
 ### Set up the Database:
  - Connect to psql
