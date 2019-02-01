@@ -42,6 +42,25 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+Instructions to get started:
+-----
+Clone this repo and run bundle install.
+
+Instructions to set up database:
+-----
+1. Connect to `psql` in your terminal.
+2. Create the database using the `psql` command: `CREATE DATABASE chitter;`
+3. Connect to the database using the `pqsl` command: `\c chitter;`
+4. To set up the appropriate tables, connect to the database in `psql` and run the queries in the `db/migrations` folder in the given order.
+
+Instructions to run the app:
+-----
+```
+rackup -p 3000
+```
+To view bookmarks, navigate to `localhost:3000/bookmarks`.
+
+
 Technical Approach:
 -----
 
