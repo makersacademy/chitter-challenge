@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.0'
 
 gem 'activerecord'
+gem 'bcrypt'
 gem 'capybara'
 gem 'orderly'
 gem 'pg'
