@@ -1,3 +1,7 @@
+
+Chitter Challenge
+=================
+
 ## Model Diagram
 
 ![One Maker has many Peeps](img/model_diagram.png)
@@ -7,20 +11,18 @@ I used [CRC cards](http://agilemodeling.com/artifacts/crcModel.htm) to diagram t
 ## Database Structure
 
 Table: Makers
-
+```
 |  id  |  displayname  |    username   |
 |--------------------------------------|
 |  1   |     "Jim"     | "jamespotter" |
-
+```
 Table: Peeps
-
+```
 |  id  |   peeptext     |      timestamp      |  maker_id  |
 |----------------------------------------------------------|
 |  1   | "Nice weather" | 2019-02-01 22:08:45 |      1     |
+```
 
-
-Chitter Challenge
-=================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
