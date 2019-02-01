@@ -17,8 +17,10 @@ class Peeps
 
   def self.post(text)
     database_connection
-    new_peep  = sanitize(text)
-    @connection.exec("INSERT INTO peeps (peep, time) VALUES ('#{new_peep}', 'NOW');")
+    if text.length > 0
+      new_peep  = sanitize(text)
+      @connection.exec("INSERT INTO peeps (peep, time) VALUES ('#{new_peep}', 'NOW');")
+    end
   end
 
   private
