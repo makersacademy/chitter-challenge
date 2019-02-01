@@ -1,6 +1,6 @@
 ## Model Diagram
 
-![One Maker has many Peeps][model_diagram.png]
+![One Maker has many Peeps](model_diagram.png)
 
 I used [CRC cards](http://agilemodeling.com/artifacts/crcModel.htm) to diagram the model.
 
