@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
     true if password == stored_password
   end
 
+  def self.logged_in_user(username)
+    @@logged_in_name = username
+  end
+
+  def self.logged_in_name
+    @@logged_in_name
+  end
+
 end
