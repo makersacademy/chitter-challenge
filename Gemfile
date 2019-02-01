@@ -8,6 +8,7 @@ gem 'pg'
 gem 'sinatra'
 gem 'shotgun'
 gem 'launchy'
+gem 'orderly'
 
 
 group :test do

@@ -16,12 +16,17 @@ feature 'Chitter App:' do
       expect(page).to have_content "Test peep"
     end
 
-    scenario 'list should show date' do
+    scenario 'list should show date/time' do
       time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
       populate_test_data
       visit '/feed'
       expect(page).to have_content time
+    end
 
+    scenario 'list should be reverse chronological' do
+      populate_test_data
+      visit '/feed'
+      expect('Peeping about snow').to appear_before('Test peep')
     end
   end
 

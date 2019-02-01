@@ -7,7 +7,15 @@ describe Peep do
       populate_test_data
       peeps = Peep.all
       expect(peeps[0]).to be_a Peep
-      expect(peeps[0].body).to include "Test peep"
+      expect(peeps[-1].body).to include "Test peep"
+    end
+
+    it 'should return in reverse chronological order' do
+      populate_test_data
+      Peep.add("Added peep")
+      peeps = Peep.all
+      expect(peeps[0].body).to eq "Added peep"
+      # expect("Peeping about snow").to appear_before('Test peep')
     end
   end
 

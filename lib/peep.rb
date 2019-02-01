@@ -4,7 +4,7 @@ class Peep
   def self.all
     connection = Peep.connect
     peeps = connection.exec("SELECT * FROM peeps;")
-    peeps.map{ |peep| Peep.new(peep['body'], peep['time']) }
+    peeps.map{ |peep| Peep.new(peep['body'], peep['time']) }.reverse
   end
 
   def self.add(new_peep)
@@ -25,6 +25,6 @@ class Peep
   def self.connect
     databasename = ENV['ENV_TEST'] == 'test' ? 'chitter_testing' : 'chitter'
     PG.connect(dbname: databasename)
-  end
+  end    
 
 end
