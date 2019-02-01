@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <div align='center'>
+      <h1>Welcome to Chitter</h1>
+      <% @peeps.each do |peep| %>
+        <p><%= peep.body %></p>
+      <% end %>
+    </div>
+  </body>
+</html>
