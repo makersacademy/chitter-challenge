@@ -18,34 +18,21 @@ class User
   end
 
   def self.sign_in(u_email, u_password)
-    @query = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
-  end
-
-  def self.email_check(u_email)
-    u_email == @query[0]['email']? true : false
-  end
-
-  def self.password_check(u_password)
-    u_password == @query[0]['password']? true : false
+    @query = DatabaseConnection.query("SELECT COUNT (id) FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
   end
 
   def self.sign_in_check(u_email, u_password)
-    email_check(u_email)
-    password_check(u_password)
+    @query[0]['count'].to_i == 1 ? true : false
   end
 
   attr_reader :email, :password
+
   def initialize(email, password)
     @email = email
     @password = password
   end
 
 end
-
-# def self.sign_in_check(email, password)
-#     result = DatabaseConnection.query("SELECT COUNT(user_id) FROM users WHERE email = '#{email}' AND password = '#{password}';")
-#     result[0]['count'].to_i == 1 ? true : false
-#   end
 
 # Gem Devise
 # Industry standard Users. Look into this.

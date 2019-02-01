@@ -22,25 +22,24 @@ describe User do
   end
 
   describe '#Login' do
-    describe '#email_check' do
-        it 'Returns true if email exits in database' do
-          User.sign_in('testemail@gmail.com', 'password')
-          expect(User.email_check('testemail@gmail.com')).to eq true
-        end
-      end
-
-    describe '#password_check' do
-        it 'Returns true if password exits in database' do
-          User.sign_in('testemail@gmail.com', 'password')
-          expect(User.password_check('password')).to eq true
-        end
-      end
-
-    describe '#sign_in_checks' do
-      it 'Returns true if password and username exists in database' do
+    describe '#sign_in_check' do
+      it 'Returns true if email and password exists in database' do
         User.sign_in('testemail@gmail.com', 'password')
         expect(User.sign_in_check('testemail@gmail.com', 'password')).to eq true
       end
-    end
+      it 'Returns false if email exists in database but password doesnt' do
+        User.sign_in('testemail@gmail.com', 'password1')
+        expect(User.sign_in_check('testemail@gmail.com', 'password1')).to eq false
+      end
+      it 'Returns false if email doesnt exist in database but password does' do
+        User.sign_in('testemail123@gmail.com', 'password')
+        expect(User.sign_in_check('testemail123@gmail.com', 'password')).to eq false
+      end
+      it 'Returns if new user signs up and then signs in with correct details' do
+        User.add("test2.gmail.com", "password2")
+        User.sign_in("test2.gmail.com", "password2")
+        expect(User.sign_in_check("test2.gmail.com", "password2")).to eq true
+      end
     end
   end
+end
