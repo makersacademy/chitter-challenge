@@ -2,10 +2,17 @@ require 'pg'
 
 class Peeps
 
+  attr_reader :text, :time
+
+  def initialize(text, time)
+    @text = text
+    @time = time
+  end
+
   def self.all
     database_connection
     all_peeps = @connection.exec("SELECT * FROM peeps ORDER BY time DESC;")
-    all_peeps.map { |text| text["peep"] }
+    all_peeps.map { |text| Peeps.new(text["peep"], text["time"]) }
   end
 
   def self.post(text)

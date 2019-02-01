@@ -1,12 +1,54 @@
+<style>
+  h1 {
+    font-family: Fantasy;
+    font-size: 300%;
+  }
+
+  h2 {
+    font-family: Fantasy;
+  }
+
+  input[type=submit] {
+    background-color: #0876F2;
+    border: solid black;
+    color: white;
+    font-size: 10px;
+    padding: 5px 20px;
+    cursor: pointer;
+  }
+
+  input[type='text'] {
+    border: solid black;
+    color: black;
+    font-size: 100%;
+    font-family: Fantasy;
+    width: 400px;
+    padding: 2px 10px;
+    margin: 1px 20px;
+    cursor: text;
+  }
+
+  .container {
+    width: 900px;
+    margin-bottom: 30px;
+  }
+</style>
+
 <html>
 <center>
-<head>
-  <link rel='stylesheet' type='text/css' href='style.css'>
-</head>
-<container>
 
   <h1> Welcome to Chitter</h1>
 
-</container>
+  <h2> Please Sign Up: </h2>
 </center>
+
+  <form action="/peeps" method='post' align='right'>
+    <div class='container'>
+    Username: <input type="text" name="username"><br>
+    Email address: <input type="text" name="email"><br>
+    Password: <input type="text" name="password"><br>
+    </div>
+    <center><input type="submit" value="Sign Up"></center>
+  </form>
+
 </html>

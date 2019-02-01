@@ -1,10 +1,50 @@
+<style>
+
+  input[type=submit] {
+    background-color: #0876F2;
+    border: solid black;
+    color: white;
+    font-size: 14px;
+    padding: 12px 32px;
+    cursor: pointer;
+  }
+
+  input[type='text'] {
+    border: solid black;
+    color: black;
+    font-size: 100%;
+    font-family: Fantasy;
+    width: 400px;
+    padding: 2px 10px;
+    margin: 1px 20px;
+    cursor: text;
+  }
+
+  .container {
+    margin-top: 10%;
+    background-color: lightblue;
+    font-family: Fantasy;
+    font-size: 100%;
+    color: black;
+    padding: 16px;
+    width: 500px;
+    margin: 10px;
+  }
+
+  h1 {
+    font-family: Fantasy;
+    font-size: 300%;
+  }
+
+</style>
+
 <html>
 <center>
   <head>
     <link rel='stylesheet' type='text/css' href='style.css' />
   </head>
 
-<container>
+
   <h1> Peeps</h1>
 
 <form action="/peeps" method='post'>
@@ -13,9 +53,11 @@
 </form>
 
 <% @peeps.each do |peep| %>
-<li> <%= peep %> </li>
+<div class='container'>
+  <%= peep.text %><br>
+  <font size="0.5">[ posted on <%= peep.time.to_s.split(".")[0] %>]</font>
+</div>
  <% end %>
 
-</container>
 </center>
 </html>
