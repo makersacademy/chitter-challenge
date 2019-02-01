@@ -17,10 +17,10 @@ feature 'Chitter App:' do
     end
 
     scenario 'list should show date' do
-      date = Date.today.to_s
+      time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
       populate_test_data
       visit '/feed'
-      expect(page).to have_content date
+      expect(page).to have_content time
 
     end
   end

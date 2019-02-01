@@ -8,7 +8,7 @@
     <h1>Your Chitter Feed</h1>
     <ul>
       <% @peeps.each do |peep| %>
-      <li><%=peep.body%> --- <%= peep.date%> </li>
+      <li><%=peep.body%> --- <%= peep.time%> </li>
       <% end %>
       </ul>
 

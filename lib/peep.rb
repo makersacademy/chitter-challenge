@@ -4,19 +4,20 @@ class Peep
   def self.all
     connection = Peep.connect
     peeps = connection.exec("SELECT * FROM peeps;")
-    peeps.map{ |peep| Peep.new(peep['body'], peep['date']) }
+    peeps.map{ |peep| Peep.new(peep['body'], peep['time']) }
   end
 
   def self.add(new_peep)
     connection = Peep.connect
-    connection.exec("INSERT INTO peeps(body, date) VALUES('#{new_peep}', '#{Date.today}');")
+    time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
+    connection.exec("INSERT INTO peeps(body, time) VALUES('#{new_peep}', '#{time}');")
   end
 
-  attr_reader :body, :date
+  attr_reader :body, :time
 
-  def initialize(body, date)
+  def initialize(body, time)
     @body = body
-    @date = date
+    @time = time
   end
 
   private

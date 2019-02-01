@@ -13,9 +13,10 @@ describe Peep do
 
   describe '#add' do
     it 'should add a given peep to the database with date' do
+      time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
       Peep.add("Added peep")
       expect(Peep.all.last.body).to eq "Added peep"
-      expect(Peep.all.last.date).to eq Date.today.to_s
+      expect(Peep.all.last.time).to eq time
     end
   end
 end
