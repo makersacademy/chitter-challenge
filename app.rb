@@ -13,11 +13,12 @@ class Chitter < Sinatra::Base
   configure :development do
     DataMapper.setup(:default, 'postgres://localhost/chitter')
     DataMapper.finalize
-    DataMapper.auto_migrate!
+    DataMapper.auto_upgrade!
   end
 
   get '/peeps' do
     @peeps = Peep.print_peeps
+    @not_user = User.get(session[:user_id]).nil?
     erb :peeps
   end
 
