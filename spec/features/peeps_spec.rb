@@ -36,7 +36,7 @@ feature 'Adding new peeps' do
       fill_in "new_peep", :with => 'Third peep'
       click_button 'add'
       within(first('.peep')) do
-        expect(page).to have_content "Third peep #{DateTime.now.strftime("%c")}"
+        expect(page).to have_content "Third peep, peeped on #{DateTime.now.strftime('%d/%m/%Y')} at #{DateTime.now.strftime('%I:%M%p')}"
       end
     end
   end

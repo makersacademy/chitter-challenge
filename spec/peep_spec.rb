@@ -19,7 +19,8 @@ describe Peep do
         expect(peep).to be_a Peep
         expect(peep.id).to eq persisted_data['id']
         expect(peep.peep).to eq "Third peep"
-        expect(peep.date).to eq DateTime.now.strftime("%c")
+        expect(peep.date).to eq DateTime.now.strftime("%d/%m/%Y")
+        expect(peep.time).to eq DateTime.now.strftime("%I:%M%p")
       end
     end
   end

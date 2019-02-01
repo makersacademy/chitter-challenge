@@ -5,7 +5,7 @@
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
-      <%= peep.peep %> <%=peep.date %>
+      <%= peep.peep %>, peeped on <%=peep.date %> at <%=peep.time %>
     </li> 
   <% end %>
 </ul>
