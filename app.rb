@@ -26,15 +26,22 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-  get '/users/new' do
-    erb :'users/new'
-  end
-
-  post '/users' do
+  post '/registrations' do
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     session[:user_id] = user.id.to_i
-    p session[:user_id]
     redirect '/peeps'
+  end
+
+
+  get '/registrations/signup' do
+    erb :'registration/signup'
+  end
+
+  get '/sessions/signin' do
+    erb :'sessions/signin'
+  end
+
+  post '/signin' do
   end
 
   run! if app_file ==$0
