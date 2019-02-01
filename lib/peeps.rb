@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative 'database_connection'
 
 class Peep
   
@@ -21,7 +21,7 @@ class Peep
   end
 
   def self.add(peep:)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep, date) VALUES('#{peep}', '#{DateTime.now.strftime("%c")}') RETURNING id, peep, date;")
+    result = DatabaseConnection.query("INSERT INTO peeps (peep, date) VALUES('#{peep}', '#{DateTime.now.strftime("peeped on %d/%m/%Y at %I:%M%p")}') RETURNING id, peep, date;")
     Peep.new(id: result.first['id'], peep: result.first['peep'], date: result.first['date'])
   end
 end
