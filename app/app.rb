@@ -9,6 +9,16 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
+  get '/register/new' do
+     erb(:register)
+  end
+
+  post '/register' do
+    user = User.add(username: params[:username], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/peeps'
+  end
+
   get '/peeps' do
     @peeps = Peeps.list.reverse
     erb(:peeps)

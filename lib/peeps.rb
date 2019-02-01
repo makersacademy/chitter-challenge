@@ -1,5 +1,6 @@
 require 'PG'
 require_relative './database_connection'
+require_relative './user'
 
 class Peeps
   attr_reader :id, :peep, :time
