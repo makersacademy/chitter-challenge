@@ -1,11 +1,23 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+ruby '2.6.0'
 
 gem 'rake'
-gem 'rubocop', '0.56.0'
+gem 'launchy'
+gem 'shotgun'
+gem 'data_mapper', '1.2.0'
+gem 'dm-postgres-adapter'
+gem 'rb-readline'
+gem 'dm-migrations'
+gem 'dm-validations'
+gem 'dm-timestamps'
 
 group :test do
+  gem 'capybara'
+  gem 'timecop'
+  gem 'cucumber'
+  gem 'spreewald'
+  gem 'sinatra'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
