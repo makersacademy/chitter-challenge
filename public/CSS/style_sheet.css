@@ -1,0 +1,252 @@
+.login{
+  position: absolute;
+  top: 10px;
+  left: 800px;
+}
+
+.logo{
+  position: relative;
+  margin-left: 330px;
+  top: 120px;
+}
+
+body, .bgImage {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bgImage {
+  position: absolute;
+  background-image: url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-0.3.5&s=e20bc3d490c974d9ea190e05c47962f5&auto=format&fit=crop&w=634&q=80);
+  background-size: cover;
+  background-position: top;
+  -webkit-filter: grayscale(70%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(70%);
+  z-index: -1;
+}
+
+.blobCont {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.blob:nth-child(1) {
+  animation: move1 20s infinite linear;
+}
+
+@keyframes move1 {
+  from {
+    transform: rotate(90deg) translate(200px, 0.1px) rotate(-90deg);
+  }
+  to {
+    transform: rotate(450deg) translate(200px, 0.1px) rotate(-450deg);
+  }
+}
+.blob:nth-child(2) {
+  animation: move2 20s infinite linear;
+}
+
+@keyframes move2 {
+  from {
+    transform: rotate(180deg) translate(200px, 0.1px) rotate(-180deg);
+  }
+  to {
+    transform: rotate(540deg) translate(200px, 0.1px) rotate(-540deg);
+  }
+}
+.blob:nth-child(3) {
+  animation: move3 20s infinite linear;
+}
+
+@keyframes move3 {
+  from {
+    transform: rotate(270deg) translate(200px, 0.1px) rotate(-270deg);
+  }
+  to {
+    transform: rotate(630deg) translate(200px, 0.1px) rotate(-630deg);
+  }
+}
+.blob:nth-child(4) {
+  animation: move4 20s infinite linear;
+}
+
+@keyframes move4 {
+  from {
+    transform: rotate(360deg) translate(200px, 0.1px) rotate(-360deg);
+  }
+  to {
+    transform: rotate(720deg) translate(200px, 0.1px) rotate(-720deg);
+  }
+}
+.blob:nth-child(5) {
+  animation: move5 20s infinite linear;
+}
+
+@keyframes move5 {
+  from {
+    transform: rotate(450deg) translate(200px, 0.1px) rotate(-450deg);
+  }
+  to {
+    transform: rotate(810deg) translate(200px, 0.1px) rotate(-810deg);
+  }
+}
+.blob:nth-child(6) {
+  animation: move6 20s infinite linear;
+}
+
+@keyframes move6 {
+  from {
+    transform: rotate(540deg) translate(200px, 0.1px) rotate(-540deg);
+  }
+  to {
+    transform: rotate(900deg) translate(200px, 0.1px) rotate(-900deg);
+  }
+}
+.blob:nth-child(7) {
+  animation: move7 20s infinite linear;
+}
+
+@keyframes move7 {
+  from {
+    transform: rotate(630deg) translate(200px, 0.1px) rotate(-630deg);
+  }
+  to {
+    transform: rotate(990deg) translate(200px, 0.1px) rotate(-990deg);
+  }
+}
+.blob:nth-child(8) {
+  animation: move8 20s infinite linear;
+}
+
+@keyframes move8 {
+  from {
+    transform: rotate(720deg) translate(200px, 0.1px) rotate(-720deg);
+  }
+  to {
+    transform: rotate(1080deg) translate(200px, 0.1px) rotate(-1080deg);
+  }
+}
+.blob:nth-child(9) {
+  animation: move9 20s infinite linear;
+}
+
+@keyframes move9 {
+  from {
+    transform: rotate(810deg) translate(200px, 0.1px) rotate(-810deg);
+  }
+  to {
+    transform: rotate(1170deg) translate(200px, 0.1px) rotate(-1170deg);
+  }
+}
+.blob:nth-child(10) {
+  animation: move10 20s infinite linear;
+}
+
+@keyframes move10 {
+  from {
+    transform: rotate(900deg) translate(200px, 0.1px) rotate(-900deg);
+  }
+  to {
+    transform: rotate(1260deg) translate(200px, 0.1px) rotate(-1260deg);
+  }
+}
+.blob:nth-child(11) {
+  animation: move11 20s infinite linear;
+}
+
+@keyframes move11 {
+  from {
+    transform: rotate(990deg) translate(200px, 0.1px) rotate(-990deg);
+  }
+  to {
+    transform: rotate(1350deg) translate(200px, 0.1px) rotate(-1350deg);
+  }
+}
+.blob:nth-child(12) {
+  animation: move12 20s infinite linear;
+}
+
+@keyframes move12 {
+  from {
+    transform: rotate(1080deg) translate(200px, 0.1px) rotate(-1080deg);
+  }
+  to {
+    transform: rotate(1440deg) translate(200px, 0.1px) rotate(-1440deg);
+  }
+}
+.blob:nth-child(13) {
+  animation: move13 20s infinite linear;
+}
+
+@keyframes move13 {
+  from {
+    transform: rotate(1170deg) translate(200px, 0.1px) rotate(-1170deg);
+  }
+  to {
+    transform: rotate(1530deg) translate(200px, 0.1px) rotate(-1530deg);
+  }
+}
+.blob:nth-child(14) {
+  animation: move14 20s infinite linear;
+}
+
+@keyframes move14 {
+  from {
+    transform: rotate(1260deg) translate(200px, 0.1px) rotate(-1260deg);
+  }
+  to {
+    transform: rotate(1620deg) translate(200px, 0.1px) rotate(-1620deg);
+  }
+}
+.blob:nth-child(15) {
+  animation: move15 20s infinite linear;
+}
+
+@keyframes move15 {
+  from {
+    transform: rotate(1350deg) translate(200px, 0.1px) rotate(-1350deg);
+  }
+  to {
+    transform: rotate(1710deg) translate(200px, 0.1px) rotate(-1710deg);
+  }
+}
+.blob:nth-child(16) {
+  animation: move16 20s infinite linear;
+}
+
+@keyframes move16 {
+  from {
+    transform: rotate(1440deg) translate(200px, 0.1px) rotate(-1440deg);
+  }
+  to {
+    transform: rotate(1800deg) translate(200px, 0.1px) rotate(-1800deg);
+  }
+}
+.blob:nth-child(17) {
+  animation: move17 20s infinite linear;
+}
+
+@keyframes move17 {
+  from {
+    transform: rotate(1530deg) translate(200px, 0.1px) rotate(-1530deg);
+  }
+  to {
+    transform: rotate(1890deg) translate(200px, 0.1px) rotate(-1890deg);
+  }
+}
+.blob:nth-child(18) {
+  animation: move18 20s infinite linear;
+}
+
+@keyframes move18 {
+  from {
+    transform: rotate(1620deg) translate(200px, 0.1px) rotate(-1620deg);
+  }
+  to {
+    transform: rotate(1980deg) translate(200px, 0.1px) rotate(-1980deg);
+  }
+}
