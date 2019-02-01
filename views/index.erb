@@ -2,9 +2,13 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/css/chitter_style.css">
   </head>
+  <body>
   <h3>Chitter: look at these peeps</h3>
   <form action="/login" method="get">
     <input type="submit" value="Login">
+  </form>
+  <form action="/new" method="get">
+    <input type="submit" value="New Peep!">
   </form>
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
@@ -17,4 +21,5 @@
     <input type="text" name="message">
     <input type="submit" value="Peep!">
   </form>
+  </body>
 </html>
