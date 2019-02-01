@@ -9,12 +9,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @new_peep = session['peep']
+    @new_peep = session['peep'].text if session['peep']
     erb :'peeps/index'
   end
 
   post '/peeps' do
-    session['peep'] = params['peep']
+    session['peep'] = Peep.create(text: params['peep'])
     redirect '/peeps'
   end
 
