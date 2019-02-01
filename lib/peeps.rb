@@ -16,8 +16,9 @@ class Peeps
 end
 
   def self.add(peep:)
-    result = conn.exec( "INSERT INTO peeps(peep) VALUES(#{peep}' ) RETURNING id, peep;")
-    Bookmark.new(id: result[0]['id'], peep: result[0]['peep'])
+    conn = PG.connect( dbname: 'peep_manager' )
+    result = conn.exec( "INSERT INTO peeps(peep) VALUES('#{peep}' ) RETURNING id, peep;")
+    Peeps.new(id: result[0]['id'], peep: result[0]['peep'])
   end
 
 end
