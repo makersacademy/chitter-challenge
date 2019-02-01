@@ -1,8 +1,11 @@
 require './app/models/user'
 require './app/models/peep'
 
-User.create(username: 'al123', forename: 'Alice', surname: 'Smith', email: 'alice.smith@gmail.com', password: 'password123')
-User.create(username: 'bo123', forename: 'Bob', surname: 'Smith', email: 'bob.smith@gmail.com', password: 'password321')
+encrypted_alice = BCrypt::Password.create('password123')
+encrypted_bob = BCrypt::Password.create('password321')
+
+User.create(username: 'al123', forename: 'Alice', surname: 'Smith', email: 'alice.smith@gmail.com', password: encrypted_alice)
+User.create(username: 'bo123', forename: 'Bob', surname: 'Smith', email: 'bob.smith@gmail.com', password: encrypted_bob)
 Peep.create(message: 'The first peep in the test database', user: 1)
 Peep.create(message: 'The second peep in the test database', user: 1)
 Peep.create(message: 'The third peep in the test database', user: 1)

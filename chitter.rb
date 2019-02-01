@@ -43,7 +43,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/signupresult' do
-    User.create(username: params[:username], forename: params[:forename] ,surname: params[:surname], email: params[:email], password: params[:password])
+    encrypted = BCrypt::Password.create(params[:password])
+    User.create(username: params[:username], forename: params[:forename] ,surname: params[:surname], email: params[:email], password: encrypted)
     User.logged_in_user(params[:username])
     redirect '/'
   end
