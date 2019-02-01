@@ -4,6 +4,17 @@
 
   </head>
   <body>
-    "Welcome to Shitter!"
+
+
+    <form action="/peeps" method="post">
+      <input type="text" name="peep_entry_field" value="Enter peep here." >
+      <input type="submit" value="Post" >
+    </form>
+
+    <h2> Feed: </h2>
+    <li>
+      <%= "#{Peep.all}" %>
+    </li>
+
   </body>
 </html>

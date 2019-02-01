@@ -7,8 +7,8 @@ Set up:
 
 Create the database:
 * username$ psql -d postgres -U <your username>
-* postgres=# CREATE DATABASE chitter_development;
-* postgres=# CREATE DATABASE chitter_test;
+* postgres=# CREATE DATABASE shitter;
+* postgres=# CREATE DATABASE shitter_test;
 *
 *
 *

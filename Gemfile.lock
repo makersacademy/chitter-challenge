@@ -121,8 +121,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    shotgun (0.9.2)
-      rack (>= 1.0)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -154,15 +152,11 @@ DEPENDENCIES
   capybara
   cucumber
   data_mapper (= 1.2.0)
-  dm-migrations
   dm-postgres-adapter
-  dm-timestamps
-  dm-validations
   launchy
   rake
   rb-readline
   rspec
-  shotgun
   simplecov
   simplecov-console
   sinatra

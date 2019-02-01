@@ -1,6 +1,13 @@
-require 'dm-core'
-require 'dm-timestamps'
-require 'dm-validations'
-require 'dm-migrations'
+require 'data_mapper'
 
-# DataMapper.setup :default
+class Peep
+
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :body, Varchar(130), required: true
+  property :created_at, DateTime
+
+  DataMapper.auto_upgrade!
+
+end
