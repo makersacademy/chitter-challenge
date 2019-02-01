@@ -50,8 +50,13 @@ Instructions to set up database:
 -----
 1. Connect to `psql` in your terminal.
 2. Create the database using the `psql` command: `CREATE DATABASE chitter;`
-3. Connect to the database using the `pqsl` command: `\c chitter;`
-4. To set up the appropriate tables, connect to the database in `psql` and run the queries in the `db/migrations` folder in the given order.
+3. To set up the appropriate tables, connect to the database in `psql` (`\c chitter;`) and run the queries in the `db/migrations` folder in the given order.
+
+Instructions to set up test database:
+-----
+1. Connect to `psql` in your terminal.
+2. Create the database using the `psql` command: `CREATE DATABASE chitter_test;`
+3. To set up the appropriate tables, connect to the database in `psql` (`\c chitter_test;`) and run the queries in the `db/migrations` folder in the given order.
 
 Instructions to run the app:
 -----
