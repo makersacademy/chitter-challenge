@@ -38,4 +38,8 @@ describe '.authenticate' do
     result = User.authenticate(username: user.username, password: user.password)
     expect(result.id).to eq user.id
   end
+  it 'gives nil if username is not found' do
+    expect(User.authenticate(username: 'test', password: 'test')).to be_nil
+  end
+
 end

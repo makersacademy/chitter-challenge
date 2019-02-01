@@ -9,4 +9,14 @@ feature 'sign_in' do
 
     expect(page).to have_content "Welcome to Chitter Erin"
   end
+
+  scenario "user can't sign in if they don't exist" do
+    visit '/sessions/signin'
+    fill_in 'username', with: 'Test'
+    fill_in 'password', with: 'test'
+    click_button 'log in'
+
+    expect(page).to_not have_content "Welcome to Chitter Test"
+    expect(page).to have_content "Wrong username/password - please check"
+  end
 end

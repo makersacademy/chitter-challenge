@@ -42,10 +42,20 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(username: params[:username], password: params[:passord])
-   session[:user_id] = user.id
-   redirect '/peeps'
+   user = User.authenticate(username: params[:username], password: params[:passord])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else 
+      redirect '/sessions/tryagain'
+    end
   end
+
+  get '/sessions/tryagain' do
+    erb :'/sessions/tryagain'
+  end
+        
+
 
   run! if app_file ==$0
 
