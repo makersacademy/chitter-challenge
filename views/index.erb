@@ -12,6 +12,8 @@
   <a>
     <% @DB_peeps.reverse.each do |text| %>
     <%= text.message %><br>
+    <%= text.created_at %><br>
+    <br>
     <% end %>
   </a>
   </ul>

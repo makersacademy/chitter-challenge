@@ -24,4 +24,5 @@ feature 'Posting messages' do
   #   click_button('chitter!')
   #   Peeps.body.should contain("my first chitter!")
   # end
+  
 end
