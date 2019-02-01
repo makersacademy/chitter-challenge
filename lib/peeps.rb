@@ -10,7 +10,7 @@ class Peeps
 
   def self.post(text)
     database_connection
-    @connection.exec("INSERT INTO peeps (peep) VALUES ('#{text}')")
+    @connection.exec("INSERT INTO peeps (peep) VALUES ('#{text}');")
   end
 
 private
