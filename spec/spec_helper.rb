@@ -5,6 +5,8 @@ require_relative 'web-helper'
 
 require File.join(File.dirname(__FILE__), '..', 'lib/app.rb')
 
+ENV["ENVIRONMENT"] = 'test'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
