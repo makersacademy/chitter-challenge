@@ -2,16 +2,16 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
 gem 'rake'
 gem 'rubocop', '0.56.0'
-gem 'sinatra'
 gem 'shotgun'
-gem 'dm-postgres-adapter'
-gem 'data_mapper'
+gem 'sinatra'
 
 group :test do
-  gem 'rspec'
   gem 'capybara'
+  gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end

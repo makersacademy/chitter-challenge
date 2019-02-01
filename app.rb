@@ -8,5 +8,4 @@ class ChitterApp < Sinatra::Base
     erb(:index)
   end
 
-
 end
