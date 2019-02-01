@@ -5,6 +5,7 @@ class Peeps
   property :id, Serial
   property :message, String
 
+
 end
 
 DataMapper.finalize

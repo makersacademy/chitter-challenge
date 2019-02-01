@@ -5,7 +5,7 @@ def database_setup
   if ENV['ENVIRONMENT'] == 'test'
     DataMapper.setup(:default, 'postgres://sauleguzyte@/chitter_challenge_test')
   else
-    DataMapper.setup(:default, 'postgres://sauleguzyte@/chitter_challenge')
+    DataMapper.setup(:default, 'postgres://sauleguzyte@/chitter_chalenge')
   end
 end
 

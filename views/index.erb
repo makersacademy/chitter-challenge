@@ -1,3 +1,18 @@
 <h1 align="center">
   Welcome to Chitter!
 </h1><br>
+<form align="center" action="/peeps" method="post">
+  <input type="text" name="message" placeholder="get chittering!">
+  <input type="submit" value="chitter!">
+</form>
+
+<div align="center">
+  <h2 align="center">All the chittering below:</h2>
+  <ul>
+  <a>
+    <% @peeps.each do |text| %>
+    <%= text.message %><br>
+    <% end %>
+  </a>
+  </ul>
+</div>
