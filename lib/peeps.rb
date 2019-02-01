@@ -17,10 +17,15 @@ class Peeps
 
   def self.post(text)
     database_connection
-    @connection.exec("INSERT INTO peeps (peep, time) VALUES ('#{text}', 'NOW');")
+    new_peep  = sanitize(text)
+    @connection.exec("INSERT INTO peeps (peep, time) VALUES ('#{new_peep}', 'NOW');")
   end
 
-private
+  private
+
+  def self.sanitize(string)
+    string.gsub(/'/, "&#39;")
+  end
 
   def self.database_connection
     if ENV['ENVIRONMENT'] == 'test'
