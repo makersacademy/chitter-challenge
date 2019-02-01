@@ -12,9 +12,10 @@ describe Peep do
   end
 
   describe '#add' do
-    it 'should add a given peep to the database' do
+    it 'should add a given peep to the database with date' do
       Peep.add("Added peep")
       expect(Peep.all.last.body).to eq "Added peep"
+      expect(Peep.all.last.date).to eq Date.today.to_s
     end
   end
 end

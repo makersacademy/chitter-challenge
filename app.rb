@@ -3,7 +3,7 @@ require './lib/peep'
 
 class Chitter < Sinatra::Base
 
-  disable :show_exceptions
+#  disable :show_exceptions
 
    get '/' do
      erb :home
