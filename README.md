@@ -27,8 +27,15 @@ I want to sign up for Chitter
 |   |    | allow to post peeps | '/peeps' post peeps form | peeps table |
 |   |   |  adds time.now | show peeps |   |
 
-### Set up the Database:
+## Set up the Database:
  - Connect to psql
  - Create the database using the psql command `CREATE DATABASE chitter`;
  - Connect to the database using the pqsl command `\c chitter`;
+ - Run the query we have saved in the file 01_create_table.sql
+
+
+## Set up Test Database:
+ - Connect to psql
+ - Create the database using the psql command `CREATE DATABASE chitter_test`;
+ - Connect to the database using the pqsl command `\c chitter_test`;
  - Run the query we have saved in the file 01_create_table.sql
