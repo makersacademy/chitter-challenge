@@ -7,7 +7,7 @@ database_setup
 class Chitter < Sinatra::Base
 
 get '/' do
-  @peeps=Peeps.all
+  @DB_peeps=Peeps.all
   erb :index
 end
 

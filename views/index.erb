@@ -10,7 +10,7 @@
   <h2 align="center">All the chittering below:</h2>
   <ul>
   <a>
-    <% @peeps.each do |text| %>
+    <% @DB_peeps.reverse.each do |text| %>
     <%= text.message %><br>
     <% end %>
   </a>
