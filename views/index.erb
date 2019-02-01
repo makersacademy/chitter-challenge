@@ -3,9 +3,15 @@
     <link rel="stylesheet" type="text/css" href="/css/chitter_style.css">
   </head>
   <body>
-  <h3>Chitter: look at these peeps</h3>
+  <h3>Chitter <%="- #{User.logged_in_name} logged in" if User.logged_in_name%></h3>
   <form action="/login" method="get">
     <input type="submit" value="Login">
+  </form>
+  <form action="/logout" method="get">
+    <input type="submit" value="Logout">
+  </form>
+  <form action="/signup" method="get">
+    <input type="submit" value="Signup">
   </form>
   <form action="/new" method="get">
     <input type="submit" value="New Peep!">

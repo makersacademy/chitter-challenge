@@ -26,12 +26,29 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
+  get '/logout' do
+    User.logged_in_user(nil)
+    redirect '/'
+  end
+
   post '/loginresult' do
     @result = User.check_password(params[:username], params[:password])
     redirect '/login' if @result == nil
+    User.logged_in_user(params[:username])
+    redirect '/'
+  end
+
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signupresult' do
+    User.create(username: params[:username], forename: params[:forename] ,surname: params[:surname], email: params[:email], password: params[:password])
+    User.logged_in_user(params[:username])
     redirect '/'
   end
 
  DatabaseConnection.setup
+ User.logged_in_user(nil)
 
 end

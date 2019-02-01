@@ -16,7 +16,7 @@ RSpec.describe 'feature tests' do
 
     scenario 'user sees the homepage' do
       visit('/')
-      expect(page).to have_content "Chitter: look at these peeps"
+      expect(page).to have_content "Chitter"
     end
 
     scenario 'peeps are seen on the homepage' do
@@ -66,38 +66,68 @@ RSpec.describe 'feature tests' do
 # I want to sign up for Chitter
 #
 
-  feature 'log in to chitter' do
+  feature 'sign up for chitter' do
 
-    scenario 'user can login if they exist' do
+    scenario 'user can signup a new account' do
       visit('/')
-      click_on "Login"
-      fill_in "username", with: "al123"
-      fill_in "password", with: "password123"
+      click_on "Signup"
+      fill_in "username", with: "newuser"
+      fill_in "password", with: "newpassword"
+      fill_in "forename", with: "Mike"
+      fill_in "surname", with: "Smith"
+      fill_in "email", with: "mike.smith@google.com"
       click_on "Submit"
-      expect(page).to have_content "Alice Smith"
+      expect(page).to have_content "newuser logged in"
     end
 
-    scenario 'user cant login if they dont exist' do
-      visit('/')
-      click_on "Login"
-      fill_in "username", with: "baduser"
-      fill_in "password", with: "wrongpassword"
-      click_on "Submit"
-      expect(page).to have_content "Invalid username or password. Try again"
-    end
-
-  end
-
+end
 # HARDER
 #
 # As a Maker
 # So that only I can post messages on Chitter as me
 # I want to log in to Chitter
 #
+feature 'log in to chitter' do
+
+  scenario 'user can login if they exist' do
+    visit('/')
+    click_on "Login"
+    fill_in "username", with: "al123"
+    fill_in "password", with: "password123"
+    click_on "Submit"
+    expect(page).to have_content "al123 logged in"
+  end
+
+  scenario 'user cant login if they dont exist' do
+    visit('/')
+    click_on "Login"
+    fill_in "username", with: "baduser"
+    fill_in "password", with: "wrongpassword"
+    click_on "Submit"
+    expect(page).to have_content "Invalid username or password. Try again"
+  end
+
+end
+
 # As a Maker
 # So that I can avoid others posting messages on Chitter as me
 # I want to log out of Chitter
-#
+
+feature 'log out of chitter' do
+
+  scenario 'user can logout' do
+    visit('/')
+    click_on "Login"
+    fill_in "username", with: "al123"
+    fill_in "password", with: "password123"
+    click_on "Submit"
+    expect(page).to have_content "al123 logged in"
+    click_on "Logout"
+    expect(page).not_to have_content "al123 logged in"
+  end
+
+end
+
 # ADVANCED
 #
 # As a Maker

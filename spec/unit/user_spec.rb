@@ -12,4 +12,8 @@ RSpec.describe User do
     expect(User.check_password('wrong', 'wrong')).to eq nil
   end
 
+  it 'should return nil when given an incorrect user' do
+    expect{User.logged_in_user('testuser')}.to change{User.logged_in_name}.to('testuser')
+  end
+
 end
