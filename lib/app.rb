@@ -9,6 +9,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/' do
+    @username = params[:username]
+    @email = params[:email]
+    @password = params[:password]
+    redirect '/peeps'
+  end
+
   get '/peeps' do
     @peeps = Peeps.all
     erb :peeps
