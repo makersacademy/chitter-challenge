@@ -1,0 +1,8 @@
+<form action="/peep_feed/new_peep" method="get">
+  <input type="submit" value="New Peep">
+</form>
+
+<%@peeps.reverse.each do |peep|%>
+  <%=peep.text%>
+  <%=peep.time%><br>
+<%end%>
