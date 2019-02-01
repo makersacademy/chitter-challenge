@@ -8,22 +8,22 @@ describe Peep do
     end
   end
 
-  describe '#all_peeps' do
+  describe '#all' do
     it 'returns array of Peep instances' do
       new_peep
-      expect(Peep.all_peeps[0]).to be_a(Peep)
+      expect(Peep.all[0]).to be_a(Peep)
     end
 
     it "returns peeps with content paramaters" do
       new_peep
-      expect(Peep.all_peeps[0].content).to eq "Hello world"
+      expect(Peep.all[0].content).to eq "Hello world"
     end
   end
 
   describe '#print_peeps' do
     it 'sends list of peeps to printer class' do
       new_peep
-      all_peeps = Peep.all_peeps
+      all_peeps = Peep.all
       expect(printer).to receive(:print_out_peeps).with(all_peeps)
       Peep.print_peeps(printer_class)
     end
