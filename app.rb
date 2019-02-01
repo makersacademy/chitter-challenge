@@ -5,5 +5,10 @@ class Chitter < Sinatra::Base
     'Chitter away'
   end
 
+  get '/peeps' do
+    @peeps = Peeps.all
+    erb :peeps
+  end
+
   run! if app_file == $0
 end
