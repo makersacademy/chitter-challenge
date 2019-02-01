@@ -1,5 +1,11 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara/rspec'
+require_relative 'web-helper'
+
+require File.join(File.dirname(__FILE__), '..', 'lib/app.rb')
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
