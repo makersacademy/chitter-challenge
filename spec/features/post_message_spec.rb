@@ -10,7 +10,6 @@ feature 'a message can be posted to chitter' do
     fill_in 'peep', with: message
     click_button 'Submit'
     expect(page).to have_content message
-
   end
 
 end
