@@ -11,14 +11,14 @@
       <%=peep%><br>
       <%end%>
     </div><br><br>
-    <%if @not_user %>
-      <a href="/users/new">Sign up!</a>
+    <%if @is_user %>
+      Make a peep!
+      <form action="/peeps" method="post">
+        <input type="text" name="peep" placeholder="enter peep here">
+        <input type="submit" value="Submit">
+      </form>
     <%else%>
-    Make a peep!
-    <form action="/peeps" method="post">
-      <input type="text" name="peep" placeholder="enter peep here">
-      <input type="submit" value="Submit">
-    </form>
+      <a href="/users/new">Sign up!</a>
     <%end%>
   </body>
 </html>

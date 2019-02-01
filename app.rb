@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.print_peeps
-    @not_user = User.get(session[:user_id]).nil?
+    @is_user = !User.get(session[:user_id]).nil?
     erb :peeps
   end
 

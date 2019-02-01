@@ -1,11 +1,12 @@
 feature 'sign up' do
+  scenario "user hasn't signed up or logged in" do
+    visit("/peeps")
+    expect(page).not_to have_content("Make a peep!")
+    expect(page).to have_content("Sign up!")
+  end
   scenario 'user signs up' do
-    visit('/users/new')
-    fill_in('email', with: ENV['MY_EMAIL'])
-    fill_in('password', with: 'supersecretpassowrd')
-    fill_in('name', with: 'Tom')
-    fill_in('username', with: 'tomd')
-    click_on 'Submit'
-    expect(User.all[0].email).to eq ENV['MY_EMAIL']
+    sign_up
+    expect(page).to have_content("Make a peep!")
+    expect(page).not_to have_content("Sign up")
   end
 end
