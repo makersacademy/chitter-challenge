@@ -118,3 +118,26 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+Usage
+-----
+
+#Set up local database & table
+
+1. Open psql postgres
+2. CREATE DATABASE chitter;
+3. Run file: 01.Create_peeps_table_.sql
+
+4. Confirm it appears as expected:
+```
+Isabel=# \dt
+        List of relations
+ Schema | Name  | Type  | Owner
+--------+-------+-------+--------
+ public | peeps | table | Isabel
+(1 row)
+```
+
+And test database:
+5. CREATE DATABASE chitter_test;
+6. Run file: 02.Create_peeps_test_table_.sql

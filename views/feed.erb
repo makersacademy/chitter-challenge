@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Your Chitter Feed</h1>
+    <ul>
+      <% @peeps.each do |peep| %>
+      <li><%=peep.body%></li>
+      <% end %>
+      </ul>
+
+  </body>
+</html>
