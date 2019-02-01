@@ -1,11 +1,12 @@
-Chitter Challenge
+Database Setup
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+- Connect to psql
+- Create the database using the psql command `CREATE DATABASE chitter;`
+- Connect to the database using the pqsl command `\c chitter;`
+- Run the query saved in db/migrations/create_chitter_table.sql
+
+
 
 Challenge:
 -------
