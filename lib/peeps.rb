@@ -4,13 +4,13 @@ class Peeps
 
   def self.all
     database_connection
-    all_peeps = @connection.exec("SELECT * FROM peeps;")
+    all_peeps = @connection.exec("SELECT * FROM peeps ORDER BY time ASC;")
     all_peeps.map { |text| text["peep"] }
   end
 
   def self.post(text)
     database_connection
-    @connection.exec("INSERT INTO peeps (peep) VALUES ('#{text}');")
+    @connection.exec("INSERT INTO peeps (peep, time) VALUES ('#{text}', 'NOW');")
   end
 
 private
