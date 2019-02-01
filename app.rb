@@ -8,4 +8,13 @@ class ChitterApp < Sinatra::Base
     erb(:index)
   end
 
+  get '/add_peep' do
+    erb(:add_peep)
+  end
+
+  post '/' do
+    Peep.create(body: params[:Peep])
+    redirect '/'
+  end
+
 end
