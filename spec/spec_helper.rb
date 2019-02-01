@@ -20,8 +20,11 @@ RSpec.configure do |config|
 
 
   config.include Rack::Test::Methods
-  DataMapper::setup(:default, "postgres://localhost/chitter_test")
-  DataMapper.finalize
+  config.before(:each) do
+    DataMapper.setup(:default, 'postgres://localhost/chitter_test')
+    DataMapper.finalize
+    DataMapper.auto_migrate!
+  end
 
   config.after(:suite) do
     puts

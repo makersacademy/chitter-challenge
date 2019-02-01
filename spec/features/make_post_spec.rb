@@ -4,9 +4,9 @@
 
 feature 'posting message' do
   scenario 'user can post a message' do
-    visit('/chits')
-    fill_in('chit', with:'My first Chit!')
+    visit('/peeps')
+    fill_in('peep', with:'My first Peep!')
     click_on 'Submit'
-    expect(page).to have_content("My first Chit!")
+    expect(page).not_to have_content("Tom")
   end
 end

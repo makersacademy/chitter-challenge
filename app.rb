@@ -1,21 +1,24 @@
 require 'sinatra'
 require 'data_mapper'
+require 'dm-postgres-adapter'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
-
   configure :development do
-    DataMapper.setup(:default, "postgres://localhost/chitter")
+    DataMapper.setup(:default, 'postgres://localhost/chitter')
+    DataMapper.finalize
+    DataMapper.auto_upgrade!
   end
 
   enable :sessions
 
-  get '/chits' do
-    @chit = session[:chit]
-    erb :chits
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :peeps
   end
 
-  post '/chits' do
-    session[:chit] = params[:chit]
-    redirect '/chits'
+  post '/peeps' do
+    Peep.create(content: params[:peep])
+    redirect '/peeps'
   end
 end

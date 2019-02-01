@@ -6,11 +6,13 @@
   </head>
   <body>
     <div class="">
-      <%=@chit%>
+      <%@peeps.each do | peep | %>
+      <%=peep[:content]%>
+      <%end%>
     </div><br><br>
-    Make a chit!
-    <form action="/chits" method="post">
-      <input type="text" name="chit" placeholder="enter chit here">
+    Make a peep!
+    <form action="/peeps" method="post">
+      <input type="text" name="peep" placeholder="enter peep here">
       <input type="submit" value="Submit">
     </form>
   </body>
