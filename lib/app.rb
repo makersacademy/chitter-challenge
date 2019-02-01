@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'peeps'
+require_relative 'users'
 
 class Chitter < Sinatra::Base
 
@@ -10,9 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    @username = params[:username]
-    @email = params[:email]
-    @password = params[:password]
+    Users.create_user(params[:username], params[:email], params[:password])
     redirect '/peeps'
   end
 

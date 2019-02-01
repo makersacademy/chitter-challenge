@@ -23,7 +23,7 @@ class Peeps
   private
 
   def self.sanitize(string)
-    string.gsub(/'/, "&#39;")
+    string.gsub(/'/, "&#39;").gsub(/"/, '&#34;')
   end
 
   def self.database_connection

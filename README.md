@@ -32,6 +32,7 @@ I want to sign up for Chitter
  - Create the database using the psql command `CREATE DATABASE chitter`;
  - Connect to the database using the pqsl command `\c chitter`;
  - Run the query we have saved in the file 01_create_table_peeps.sql
+ - Run the query we have saved in the file 02_create_users_table.sql
 
 
 ## Set up Test Database:
@@ -39,3 +40,4 @@ I want to sign up for Chitter
  - Create the database using the psql command `CREATE DATABASE chitter_test`;
  - Connect to the database using the pqsl command `\c chitter_test`;
  - Run the query we have saved in the file 01_create_table_peeps.sql
+ - Run the query we have saved in the file 02_create_users_table.sql
