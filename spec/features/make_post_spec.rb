@@ -1,12 +1,10 @@
-# As a Maker
-# So that I can let people know what I am doing
-# I want to post a message (peep) to chitter
+require_relative 'web_helpers'
 
 feature 'posting message' do
   scenario 'user can post a message' do
     visit('/peeps')
-    fill_in('peep', with:'My first Peep!')
-    click_on 'Submit'
-    expect(page).not_to have_content("Tom")
+    make_a_peep("My first Peep!")
+    make_a_peep('My second Peep!')
+    expect(page).to have_content("My second Peep! My first Peep!")
   end
 end

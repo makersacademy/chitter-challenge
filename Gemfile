@@ -10,6 +10,8 @@ gem 'rb-readline'
 
 group :test do
   gem 'capybara'
+  gem 'cucumber'
+  gem 'spreewald'
   gem 'rubocop', '0.56.0'
   gem 'sinatra'
   gem 'rspec'
