@@ -6,5 +6,11 @@ RSpec.describe Peeps do
     test_configure
   end
 
-  
+  context '#post' do
+    it "should post a peep" do
+      Peeps.post('This is the test peep from RSpec')
+      expect(Peeps.all.last["peep"]).to eq 'This is the test peep from RSpec'
+    end
+  end
+
 end
