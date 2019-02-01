@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peeps.all
     erb :peeps
   end
 

@@ -12,6 +12,10 @@
   <input type="submit" value="Post">
 </form>
 
+<% @peeps.each do |peep| %>
+<li> <%= peep %> </li>
+ <% end %>
+
 </container>
 </center>
 </html>

@@ -11,6 +11,12 @@ feature 'post' do
     visit '/peeps'
     fill_in "peep", with: "feature test peep"
     click_on "Post"
-    expect(page).to have_content "Peep"
+    expect(page).to have_content "feature test peep"
+  end
+end
+
+feature 'date and time' do
+  scenario 'it stores date and time for each post' do
+    visit '/peeps'
   end
 end

@@ -5,7 +5,7 @@ class Peeps
   def self.all
     database_connection
     all_peeps = @connection.exec("SELECT * FROM peeps;")
-    all_peeps.map { |peep| peep }
+    all_peeps.map { |text| text["peep"] }
   end
 
   def self.post(text)
