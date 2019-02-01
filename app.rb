@@ -28,7 +28,7 @@ get '/add_user' do
 end
 
 post '/add_user' do
-  User.add(params[:add_email], params[:add_password])
+  User.add(params[:add_username], params[:add_email], params[:add_password])
   redirect '/'
 end
 
