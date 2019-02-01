@@ -4,7 +4,7 @@ class Peeps
 
   def self.all
     database_connection
-    all_peeps = @connection.exec("SELECT * FROM peeps ORDER BY time ASC;")
+    all_peeps = @connection.exec("SELECT * FROM peeps ORDER BY time DESC;")
     all_peeps.map { |text| text["peep"] }
   end
 
