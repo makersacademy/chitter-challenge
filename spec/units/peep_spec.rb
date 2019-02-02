@@ -7,7 +7,7 @@ describe Peep do
     it 'should contain a message body' do
       message = "I'm a peep message body"
       peep = Peep.create(text: message)
-      expect(peep.text).to eq message
+      expect(peep).to eq message
     end
   end
 

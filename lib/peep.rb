@@ -1,13 +1,16 @@
-class Peep
+require 'active_record'
+require 'pg'
 
-  attr_reader :text
+ActiveRecord::Base.establish_connection(
+    adapter:  'postgresql',
+    database: 'chitter',
+    username: 'postgres',
+    password: 'password',
+    host:     'localhost'
+)
 
-  def initialize(text:)
-    @text = text
-  end
+class Peep < ActiveRecord::Base
 
-  def self.create(text:)
-    Peep.new(text: text)
-  end
+
 
 end
