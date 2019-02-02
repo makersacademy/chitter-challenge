@@ -1,6 +1,28 @@
 Chitter Challenge
 =================
+```
+    ______ __
+   {-_-_= '. `'.
+    {=_=_-  \   \
+     {_-_   |   /
+      '-.   |  /    .===,
+   .--.__\  |_(_,==`  ( o)'-.
+  `---.=_ `     ;      `/    \
+      `,-_       ;    .'--') /
+        {=_       ;=~`    `"`
+         `//__,-=~`
+         <<__ \\__
+         /`)))/`)))
+```
+The challenge is to create a twitter clone called Chitter.
 
+Model
+-----
+Walkthrough
+
+
+Original README content
+-----------------------
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
