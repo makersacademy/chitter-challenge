@@ -35,11 +35,14 @@ end
 describe '.authenticate' do
   it 'finds user by username' do
     user = User.create(name: 'Test', username: 'TestUN', email: 'test@email.com', password: 'test234')
-    result = User.authenticate(username: user.username, password: user.password)
+    result = User.authenticate(username: 'TestUN', password: 'test234')
     expect(result.id).to eq user.id
   end
   it 'gives nil if username is not found' do
-    expect(User.authenticate(username: 'test', password: 'test')).to be_nil
+    expect(User.authenticate(username: 'wrongusername', password: 'test')).to be_nil
   end
-
+  it 'gives nil if password is not correct' do
+    user = User.create(name: 'Test', username: 'TestUN', email: 'test@email.com', password: 'test234')
+    expect(User.authenticate(username: 'TestUN', password: 'wrongpassword')).to be_nil
+  end   
 end

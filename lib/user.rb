@@ -29,7 +29,7 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';")
     if result.first.nil?
       nil
-    else
+    elsif BCrypt::Password.new(result.first['password']) == password
     User.new(id: result.first['id'], name: result.first['name'], username: result.first['username'], email: result.first['email'], password: result.first['password'])
     end
   end
