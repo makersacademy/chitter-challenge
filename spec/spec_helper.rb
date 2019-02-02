@@ -1,5 +1,6 @@
 ENV['database_hash'] = 'chipchune-test'
 
+require 'orderly'
 require 'simplecov'
 require 'simplecov-console'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
