@@ -1,9 +1,11 @@
 require 'sinatra/base'
 require 'shotgun'
 require 'pg'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
-enable :sessions
+
+enable :sessions, :method_override
 
   get '/' do
     'Welcome to CHITTER!'
@@ -11,9 +13,6 @@ enable :sessions
 
   get '/users' do
     @users = User.all
-    # connection = PG.connect(dbname: 'chitter_test')
-    # data = connection.exec("SELECT * FROM users")
-    # @result = data.map {|user| user }
     erb :'users/index'
   end
 
@@ -26,5 +25,7 @@ enable :sessions
 
     redirect '/users'
   end
+
+run! if app_file == $0
 
 end

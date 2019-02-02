@@ -1,8 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
 
-<ul>
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>User ID</th>
+    <th>User Name</th>
+  </tr>
   <% @users.each do |user| %>
-  <li class="user" id="user-<%= user.id %>">
-    Username: <%= user.name %>; e-mail: <%= user.email %>
-  </li>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.name %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
+</body>
+</html>

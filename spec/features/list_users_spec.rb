@@ -6,6 +6,7 @@ feature 'List all users' do
     visit('/users')
 
     expect(page).to have_content "jess"
+    expect(page.status_code).to eq 200
 
   end
 end

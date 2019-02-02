@@ -1,5 +1,5 @@
 require 'pg'
-require 'database_connection'
+#require 'database_connection'
 
 class User
 
@@ -14,9 +14,13 @@ def initialize(id:, name:, email:, username:, password:)
 end
 
 def self.all
-  connection = PG.connect(dbname: 'chitter_test')
+  if ENV['ENVIRONMENT'] == 'test'
+    connection = PG.connect(dbname: 'chitter_test')
+    else
+    connection = PG.connect(dbname: 'chitter')
+  end
   result = connection.exec("SELECT * FROM users")
-  result.map do |user|
+  user = result.map do |user|
     User.new(
       id: user['id'],
       name: user['name'],
@@ -29,7 +33,11 @@ end
 
 def self.create(name:, email:, username:, password:)
   #result = DatabaseConnection.query("INSERT INTO users (name, email, username, password) VALUES ('#{name}', '#{email}', '#{username}', '#{password}') RETURNING id, name, email, username, password;")
-  connection = PG.connect(dbname: 'chitter_test')
+  if ENV['ENVIRONMENT'] == 'test'
+    connection = PG.connect(dbname: 'chitter_test')
+    else
+    connection = PG.connect(dbname: 'chitter')
+  end
   result = connection.exec("INSERT INTO users (name, email, username, password) VALUES ('#{name}', '#{email}', '#{username}', '#{password}') RETURNING id, name, email, username, password;")
   User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], username: result[0]['username'], password: result[0]['password'])
 end
