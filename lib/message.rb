@@ -34,5 +34,4 @@ class Message
   end
 
 
-
 end

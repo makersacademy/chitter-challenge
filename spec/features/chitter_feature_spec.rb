@@ -4,7 +4,7 @@ require 'time'
 
 feature 'posting a message' do
   scenario 'user can post a message to chitter' do
-    visit('/')
+    visit('/create')
     fill_in 'message', with: "I love Sinatra"
     click_button 'Submit'
     visit('/messages')
@@ -15,10 +15,10 @@ end
 
 feature 'messages are arranged' do
   scenario 'user can see all messages in reverse chronological order' do
-    visit('/')
+    visit('/create')
     fill_in 'message', with: "I love Sinatra"
     click_button 'Submit'
-    visit('/')
+    visit('/create')
     fill_in 'message', with: "I love beer"
     click_button 'Submit'
     visit('/messages')
@@ -29,7 +29,7 @@ end
 
 feature 'messages get a time stamp' do
   scenario 'User can see the time at which message was posted' do
-    visit('/')
+    visit('/create')
     fill_in 'message', with: "I love Sinatra"
     click_button 'Submit'
     visit('/messages')

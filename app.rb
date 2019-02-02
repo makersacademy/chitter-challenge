@@ -4,7 +4,11 @@ require './lib/message'
 class Chitter < Sinatra::Base
 
   get '/' do
-    erb(:index)
+    erb(:sign_up)
+  end
+
+  get '/create' do
+    erb(:create_message)
   end
 
   post '/storage' do
