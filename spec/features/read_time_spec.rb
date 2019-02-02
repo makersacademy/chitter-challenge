@@ -6,7 +6,7 @@ feature 'users should see the time peeps were posted' do
 
   scenario 'peeps display created timestamp' do
     post_one_message
-    time = "#{Time.now.hour}" + ":" + "#{Time.now.min}"
+    time = "#{Time.now.hour}" + ":" + "%02d" % Time.now.min.to_s
     expect(page).to have_content(time)
   end
 

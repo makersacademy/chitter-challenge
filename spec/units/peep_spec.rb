@@ -12,7 +12,7 @@ describe Peep do
 
     it 'knows when it was created' do
       message = "I'm a peep message body"
-      time = "#{Time.now.hour}" + ":" + "#{Time.now.min}"
+      time = "#{Time.now.hour}" + ":" + "%02d" % Time.now.min.to_s
       peep = Peep.create(message: message)
       expect(peep.created_at.to_s).to include(time)
     end
