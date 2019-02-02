@@ -14,5 +14,6 @@ feature 'users can logout' do
     expect(page).to_not have_content 'Welcome, Ivan the Terrible'
     expect(page).to have_button('Login')
     expect(page).to have_button('Sign Up')
+    expect(page).to have_content 'You have logged out.'
   end
 end
