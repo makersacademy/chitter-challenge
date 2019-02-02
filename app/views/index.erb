@@ -1,5 +1,5 @@
 <h1>Welcome to Chitter!</h1>
-<% unless @signed_in %>
+<% if !signed_in %>
 <form>
   Sign up:<br />
   Username:<input type="text" />
@@ -7,8 +7,12 @@
 </form>
 <% end %>
 
+
 <p>
-<a href="postapeep">Post a peep</a>
+<textarea rows="4" cols="50" name="new_peep" form="usrform" placeholder="Post a peep:"></textarea>
+<form action='/index' method='post' id="usrform">
+  <input type='submit' value="Post" />
+</form>
 </p>
 
 -->! Perhaps I should look up the rest of the weekly
@@ -19,7 +23,15 @@ to do popups etc
 Peepstream:
 </p>
 <div>
-<% @peeps.each do |peep| %>
-<%= peep %>
+<% peeps.all.reverse.each do |peep| %>
+<p>
+  <%= peep.maker_id %>:
+</p>
+<p style="em">
+  <%= peep.peeptext %>
+</p>
+<p>
+  Posted at <%= peep.timestamp.to_time.strftime('at %H:%M(:%S) on %b %e') %>
+</p><br />
 <% end %>
 </div>

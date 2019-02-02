@@ -10,9 +10,22 @@ require_relative '../lib/ORM.rb'
 class Chitter < Sinatra::Base
 
   get '/' do
-    @signed_in = false
-    @peeps = ['Just a test peep']
-    erb :index
+    peeps = Peep.all
+    erb :index, { locals: { signed_in: true, peeps: peeps } }
+  end
+
+  post '/index' do
+    peep = params['new_peep']
+    Maker.current_user = Maker.current_user || Maker.create(
+      :displayname => 'Default Account',
+      :username => 'default username'
+    )
+    Maker.current_user.peeps.create(
+      :peeptext => peep,
+      :timestamp => Time.new
+    )
+    p Maker.current_user
+    redirect '/'
   end
 
 end

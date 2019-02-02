@@ -13,4 +13,12 @@ class Maker
   property :displayname,  String
   property :username,     String
 
+  def self.current_user=(maker)
+    @current_user = maker
+  end
+
+  def self.current_user
+    @current_user
+  end 
+
 end
