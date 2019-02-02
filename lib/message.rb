@@ -14,7 +14,7 @@ class Message
     else
       connection = PG.connect(dbname: 'chitter_challenge')
     end
-    result = connection.exec("SELECT * FROM chitter")
+    result = connection.exec("SELECT * FROM chitter ORDER BY id DESC")
     result.map { |tweet| tweet['message'] }
   end
 
