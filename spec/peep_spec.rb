@@ -6,9 +6,15 @@ RSpec.describe Peep do
     it 'returns all peeps' do
       # connection = PG.connect(dbname: 'chitter_test')
       Peep.create(peep: 'I ate some cake')
-      p Peep.all
       expect(Peep.all.first.peep).to eq('I ate some cake')
       expect(Peep.all.length).to eq(1)
+    end
+
+    it 'returns peeps in reverse chronological order' do
+      Peep.create(peep: 'I had some cake')
+      Peep.create(peep: 'I had some coffee')
+      Peep.create(peep: 'I had some bread')
+      expect(Peep.all.first.peep).to eq('I had some bread')
     end
   end
 
@@ -20,4 +26,6 @@ RSpec.describe Peep do
       expect(first_peep.id).to eq('1')
     end
   end
+
+  
 end

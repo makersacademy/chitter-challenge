@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   get '/' do
     @peeps = Peep.all
     p @peeps
-    p @peeps[0]
+    # p @peeps[0]
     # p @peeps[0]['peep']
     erb :index
   end
