@@ -7,6 +7,11 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
+  post '/storage' do
+    Message.create(message: params[:message])
+    redirect '/messages'
+  end
+
   get '/messages' do
     @tweets = Message.display
     erb(:list_of_messages)
