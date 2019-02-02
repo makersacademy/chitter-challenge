@@ -12,12 +12,12 @@ class Chitter < Sinatra::Base
 
   get '/' do
     ENV['RAILS_ENV'] = 'development' if ENV['RAILS_ENV'] != 'test'
-    @peeps = Peep.all
+    @peeps = Peep.joins(:user).select("peeps.*, users.username")
     erb :index
   end
 
   post '/' do
-    Peep.create(message: params[:message], user: 1)
+    Peep.create(message: params[:message], user_id: 1)
     redirect '/'
   end
 

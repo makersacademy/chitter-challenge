@@ -2,8 +2,8 @@ require 'active_record'
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-
-  validates_presence_of :username, :forename, :surname, :email, :password, { message: "Please ensure all fields are filled" }
+  has_many :peeps
+  validates_presence_of :username, :forename, :surname, :email, :password
   validates_uniqueness_of :username, :email
 
   def self.check_password(username, password)

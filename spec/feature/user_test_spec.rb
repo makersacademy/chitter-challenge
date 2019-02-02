@@ -18,6 +18,7 @@ RSpec.describe 'feature tests' do
     scenario 'user sees the homepage' do
       visit('/')
       expect(page).to have_content "Chitter"
+      expect(page.status_code).to be(200)
     end
 
 # You don't have to be logged in to see the peeps.
@@ -26,6 +27,7 @@ RSpec.describe 'feature tests' do
       visit('/')
       expect(page).to have_content "The first peep in the test database"
       expect(page).to have_content "The sixth peep in the test database"
+      expect(page.status_code).to be(200)
     end
 
     scenario 'user can post peeps when logged in' do
@@ -38,6 +40,20 @@ RSpec.describe 'feature tests' do
       fill_in "message", with: "This is a new peep"
       click_on "Peep!"
       expect(page).to have_content "This is a new peep"
+      expect(page.status_code).to be(200)
+    end
+
+    scenario 'user can see their name in peeps when posting' do
+      visit('/')
+      click_link "Login"
+      fill_in "username", with: "al123"
+      fill_in "password", with: "password123"
+      click_on "Submit"
+      click_link "New Peep!"
+      fill_in "message", with: "This is a new peep"
+      click_on "Peep!"
+      expect(page.text).to match(/This is a new peep .* al123/)
+      expect(page.status_code).to be(200)
     end
 
   end
@@ -52,6 +68,7 @@ RSpec.describe 'feature tests' do
     scenario 'user sees peeps in reverse chronological order' do
       visit('/')
       expect("first peep").to appear_before("second peep")
+      expect(page.status_code).to be(200)
     end
 
   end
@@ -65,6 +82,7 @@ RSpec.describe 'feature tests' do
     scenario 'user sees peep timestamps' do
       visit('/')
       expect(page.body).to match(/#{TIMESTAMP_REGEX}/)
+      expect(page.status_code).to be(200)
     end
 
   end
@@ -88,6 +106,7 @@ RSpec.describe 'feature tests' do
       fill_in "email", with: "mike.smith@google.com"
       click_on "Submit"
       expect(page).to have_content "newuser"
+      expect(page.status_code).to be(200)
     end
 
 # The username and email are unique.
@@ -102,6 +121,7 @@ RSpec.describe 'feature tests' do
     fill_in "email", with: "existing@username.com"
     click_on "Submit"
     expect(page).to have_content "Username has already been taken"
+    expect(page.status_code).to be(200)
   end
 
   scenario 'user cannot signup a new account with duplicate email' do
@@ -114,6 +134,7 @@ RSpec.describe 'feature tests' do
     fill_in "email", with: "alice.smith@gmail.com"
     click_on "Submit"
     expect(page).to have_content "Email has already been taken"
+    expect(page.status_code).to be(200)
   end
 
 end
@@ -132,6 +153,7 @@ feature 'log in to chitter' do
     fill_in "password", with: "password123"
     click_on "Submit"
     expect(page).to have_content "al123"
+    expect(page.status_code).to be(200)
   end
 
   scenario 'user cant login if they dont exist' do
@@ -141,6 +163,7 @@ feature 'log in to chitter' do
     fill_in "password", with: "wrongpassword"
     click_on "Submit"
     expect(page).to have_content "Invalid username or password. Try again"
+    expect(page.status_code).to be(200)
   end
 
 end
@@ -154,12 +177,13 @@ feature 'log out of chitter' do
   scenario 'user can logout' do
     visit('/')
     click_link "Login"
-    fill_in "username", with: "al123"
-    fill_in "password", with: "password123"
+    fill_in "username", with: "nopeeps"
+    fill_in "password", with: "password999"
     click_on "Submit"
-    expect(page).to have_content "al123"
+    expect(page).to have_content "nopeeps"
     click_link "Logout"
-    expect(page).not_to have_content "al123"
+    expect(page).not_to have_content "nopeeps"
+    expect(page.status_code).to be(200)
   end
 
 end
