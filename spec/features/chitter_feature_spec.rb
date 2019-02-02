@@ -5,6 +5,7 @@ feature 'posting a message' do
     visit('/')
     fill_in 'message', with: "I love Sinatra"
     click_button 'Submit'
+    visit('/messages')
     expect(page).to have_content("I love Sinatra")
 
   end
