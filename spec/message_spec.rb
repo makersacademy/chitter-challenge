@@ -16,6 +16,6 @@ describe '.create' do
   it 'creates a new message' do
     tweet = Message.create(message:'My new message')
     expect(tweet).to be_a Message
-    expect(tweet.message).to eq('My new message')
+    expect(tweet.message).to include('My new message')
   end
 end
