@@ -7,6 +7,5 @@ feature 'Add posts' do
     click_button('Add Chit!')
 
     expect(page).to have_content 'Test chit 04'
-
   end
 end
