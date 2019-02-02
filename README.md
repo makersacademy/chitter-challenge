@@ -6,8 +6,14 @@ Connect to `psql` and create the `chitter_peeps` database:
 CREATE DATABASE chitter_peeps;
 
 ```
+and a test database:
 
-To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+```
+CREATE DATABASE chitter_peeps_test;
+
+```
+
+To set up the appropriate tables, connect to the two databases in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
 ### To run the Bookmark Manager app:
 

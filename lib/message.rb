@@ -3,8 +3,8 @@ require 'pg'
 class Message
 
   def self.all
-    @result = self.connection.exec("SELECT * FROM peeps;")
-    @result.map { |peep| peep['peep']}
+    result = self.connection.exec("SELECT * FROM peeps;")
+    result.map { |peep| peep['peep']}
   end
 
   private

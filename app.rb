@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/message'
 
 class Chitter < Sinatra::Base
 
@@ -11,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    $peeps = params[:peep]
+    $peeps = params['peep']
     redirect '/peeps'
   end
 
