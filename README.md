@@ -4,9 +4,19 @@ Installation
 -----
 1. Fork this repository
 2. Run ```bundle install``` to acquire all needed gems.
-3. [DATABASE SETUP]
+3. Database Setup: <br/>
+     - connect to ```psql```
+     - in psql, create a database bookmark-manager as follows: ```CREATE DATABASE chitter;```
+     - ensure you are in the correct database by running ```\c chitter;```
+     - run the query saved in db/migrations - ```01_create_chitter_tables.sql``` - this will create the required tables. **NOTE: The two lines must be run separately, as the second table is dependent on the existence of the first.**
+     - if you want to run tests (RSpec/Capybara), you will need to create a test database ```chitter-test``` as per the instructions above. Also run the ```01_create_chitter_tables``` queries for ```chitter-test``` to create the required tables.
 4. Start the Chitter server by running ```rackup config.ru```
 5. Navigate your browser to http://localhost:9292
+
+
+Notes:
+----
+- Passwords are currently not encrypted as there is no SSL. The other consideration is that the passwords are not hashed. I know this is a no-no, but this is more of a proof of concept anyway.
 
 
 
