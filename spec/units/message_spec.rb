@@ -17,12 +17,13 @@ RSpec.describe Message do
     end
   end
 
-  # describe '#add' do
-  #   it 'adds a peep to the list of peeps' do
-  #     peep = Message.add('Brooke says HELLO')
-  #     connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
-  #
-  #   end
-  # end
+  describe '#add' do
+    it 'adds a peep to the list of peeps' do
+      new_peep = Message.add(peep: 'Brooke says HELLO')
+      connection = PG.connect(dbname: 'chitter_peeps_test')
+      connection.exec("INSERT INTO peeps (peep) VALUES ('Brooke says HELLO');")
+      expect(new_peep.peep).to eq('Brooke says HELLO')
+    end
+  end
 
 end

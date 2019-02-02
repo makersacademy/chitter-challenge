@@ -1,8 +1,13 @@
 <html>
 <head>
-
   </head>
   <body>
-<%= @peeps %>
+
+<ul>
+<% @peeps.each do |peep| %>
+<li><%= p peep %></li>
+<% end %>
+</ul>
+
     </body>
     </html>

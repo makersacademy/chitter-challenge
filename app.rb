@@ -1,3 +1,4 @@
+require 'pg'
 require 'sinatra/base'
 require './lib/message'
 
@@ -12,12 +13,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    $peeps = params['peep']
+    Message.add(peep: params[:peep])
     redirect '/peeps'
   end
 
   get '/peeps' do
-    @peeps = $peeps
+    @peeps = Message.all
     erb :'peeps/index'
   end
 
