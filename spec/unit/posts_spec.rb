@@ -1,6 +1,15 @@
 require 'post'
 
 describe 'Post' do
+
+  describe '.create' do
+    it 'creates post' do
+      Post.create(chit: 'Test chit 04')
+
+      expect(Post.all).to include 'Test chit 04'
+    end
+  end
+
   describe '.all' do
     it 'shows all posts' do
       con = PG.connect :dbname => 'chitter_test'

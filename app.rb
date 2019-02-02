@@ -18,9 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    chit = params['chit']
-    con = PG.connect(dbname: 'chitter_test')
-    con.exec("INSERT INTO posts (chit) VALUES('#{chit}')")
+    Post.create(chit: params[:chit])
     redirect '/posts'
   end
 
