@@ -7,14 +7,17 @@
 
 
     <form action="/peeps" method="post">
-      <input type="text" name="peep_entry_field" value="Enter peep here." >
+      <input type="text" name="peep_entry" placeholder="Enter peep here." >
       <input type="submit" value="Post" >
     </form>
 
     <h2> Feed: </h2>
-    <li>
-      <%= "#{Peep.all}" %>
-    </li>
+
+    <p>
+      <%  @peeps.each do |peep| %>
+      <%= peep                  %> <br> <br>
+      <%  end                   %>
+    </p>
 
   </body>
 </html>

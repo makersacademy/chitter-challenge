@@ -12,8 +12,8 @@ feature 'Testing Infrastructure.' do
 
   scenario 'User can post a peep' do
     visit '/peeps'
-    fill_in 'peep_entry_field', with: "My first peep!"
-    click_on 'Post'
+    fill_in 'peep_entry', with: "My first peep!"
+    click_on('Post')
     expect(page).to have_content("My first peep!")
   end
 
