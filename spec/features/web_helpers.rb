@@ -30,3 +30,32 @@ def fill_in_signup_form
   fill_in 'password', with: 'password'
   click_button 'Submit'
 end
+
+def create_user
+  User.create(name: 'Ivan', username: 'ivan', email: 'fake@fake.com', password: 'pass')
+end
+
+def valid_login
+  visit '/'
+  click_button 'Login'
+  fill_in(:username, with: 'ivan')
+  fill_in(:password, with: 'pass')
+  click_button('Submit')
+end
+
+def login_wrong_password
+  visit '/'
+  click_button 'Login'
+  fill_in(:username, with: 'ivan')
+  fill_in(:password, with: 'fake')
+  click_button('Submit')
+end
+
+def login_wrong_username
+  visit '/'
+  click_button 'Login'
+  fill_in(:username, with: 'fake')
+  fill_in(:password, with: 'pass')
+  click_button('Submit')
+end
+

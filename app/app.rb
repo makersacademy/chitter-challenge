@@ -39,7 +39,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.find_by(username: params['username'], password: params['password'])
-    session[:user_id] = user.id
+    session[:user_id] = user.id if user
     redirect '/peeps'
   end
 
