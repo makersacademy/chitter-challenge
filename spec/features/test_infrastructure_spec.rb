@@ -21,7 +21,7 @@ feature 'Peeps display page' do
   scenario 'Page shows the time each peep was created' do
     post_a_peep
     peep = Peep.all[0]
-    expect(page).to have_content(peep.date_and_time)
+    expect(page).to have_css('#print-peeps')
   end
 
 end

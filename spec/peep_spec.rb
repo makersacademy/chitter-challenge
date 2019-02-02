@@ -18,20 +18,20 @@ describe Peep do
 
   end
 
-  describe "#body" do
-
-    it 'Returns a list of the contents of each peep, in descending order' do
-      Peep.create body: "Test peep!"
-      Peep.create body: "Test peep number two!"
-      first_peep = Peep.body[0]
-      expect(first_peep).to eq "Test peep number two!"
-    end
-
-  end
+  # describe "#body" do
+  #
+  #   it 'Returns a list of the contents of each peep, in descending order' do
+  #     Peep.create body: "Test peep!"
+  #     Peep.create body: "Test peep number two!"
+  #     first_peep = Peep.body[0]
+  #     expect(first_peep).to eq "Test peep number two!"
+  #   end
+  #
+  # end
 
   describe "#date_and_time" do
 
-    it 'Returns a formatted string' do
+    it 'Returns a correctly formatted string' do
       new_peep = Peep.create body: "Time test peep"
       expect(new_peep.date_and_time).to match /\d{1,2}\/\d{1,2}\/\d{4}\s\s\s\d{1,2}\:\d{1,2}\.\d{1,2}/
     end

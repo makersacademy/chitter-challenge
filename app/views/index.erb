@@ -13,11 +13,18 @@
 
     <h2> Feed: </h2>
 
-    <p>
+    <div id="print-peeps" >
       <%  @peeps.each do |peep| %>
-      <%= peep                  %>  <br>
+      <div id="body">
+      <%= peep.body             %>
+      </div>
+      <div id="date-and-time">
+      <%= peep.date_and_time    %>
+      <br><br>
+      </div>
       <%  end                   %>
-    </p>
+    </div>
+
 
   </body>
 </html>

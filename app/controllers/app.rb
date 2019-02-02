@@ -24,7 +24,7 @@ class Shitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.body
+    @peeps = Peep.all.reverse
     erb :index
   end
 
