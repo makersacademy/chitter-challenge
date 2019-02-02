@@ -25,6 +25,18 @@ class ChipChune < Sinatra::Base
     redirect '/'
   end
 
+  post '/session' do
+    username = params['username']
+    password = 'saltysalty'+params['password']
+    @phasher = PassHashHandler.new
+    access = @phasher.check_against_hash(
+      password,
+      User.find_by(username: params['username']).passhash
+    )
+    session['user'] = params['username'] if access
+    redirect '/'
+  end
+
   delete '/session' do
     session['user'] = nil
     redirect('/')

@@ -6,6 +6,8 @@
 <div id="userdisplay">
   <% if @user == nil %>
   <form action='/session' method='post'>
+    <input type="text" name="username" value="username">
+    <input type="password" name="password" value="password">
     <input type="submit" name='sign in' value='sign in'>
   </form>
   <% end %>
