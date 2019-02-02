@@ -197,7 +197,6 @@ end
 # I want to receive an email if I am tagged in a Peep
 
 
-# Peeps (posts to chitter) have the name of the maker and their user handle.
 # Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 end
