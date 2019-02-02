@@ -1,8 +1,5 @@
-## Chitter Challenge
+## User Stories
 
-### Project Requirements:
-
-The following user stories serve as product specifications:
 
 #### User Story One:
 ```
@@ -46,11 +43,3 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
-### Running the Chitter app
-
-```
-rackup -p 3000
-```
-
-View Chitter feed by navigating to `localhost:3000/`.
