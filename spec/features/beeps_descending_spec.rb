@@ -1,7 +1,7 @@
-
 feature 'Descending Beeps' do
   before(:each) do
     database_wiper
+    autoregister
     visit('/')
     fill_in 'beep', with: 'Here is the REAL body of my beeep'
     click_on('beep-boop')

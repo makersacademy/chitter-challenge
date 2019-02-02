@@ -10,3 +10,10 @@ CREATE TABLE users (
    passhash TEXT NOT NULL,
    email TEXT UNIQUE
 );
+
+ALTER TABLE beeps ADD COLUMN authorid INTEGER;
+
+ALTER TABLE beeps
+ADD CONSTRAINT id
+FOREIGN KEY (authorid)
+REFERENCES users(id);

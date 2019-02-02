@@ -4,7 +4,6 @@ feature 'Add a beep' do
     database_wiper
   end
 
-
   scenario 'user can post a beep and see it in the pixelstream' do
     autoregister
     visit('/')

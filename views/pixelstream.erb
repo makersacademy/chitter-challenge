@@ -10,7 +10,9 @@
 </div>
 <% @beeps.each do |beep| %>
 <div class="a_beep">
-<%= beep.body %><br><small><%= beep.time %></small><br>
+<%= beep.body %><br><br>
+  <small>✧ʕ̢̣·͡˔·ོɁ̡̣✧ :<%= @users.find_by(id: beep.authorid).username %>
+  <br><small><%= beep.time %></small></small><br>
 </div>
 <% end %>
 <% if @user != nil %>

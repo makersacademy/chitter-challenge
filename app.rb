@@ -12,11 +12,15 @@ class ChipChune < Sinatra::Base
   get '/' do
     @user = session['user'] if session['user']
     @beeps = Beep.order(time: :desc)
+    @users = User
     erb(:pixelstream)
   end
 
   post '/' do
-    Beep.create(body: params['beep']) if session['user']
+    Beep.create(
+      body: params['beep'],
+      authorid: User.find_by(username: session['user']).id
+      ) if session['user']
     redirect '/'
   end
 
@@ -28,7 +32,7 @@ class ChipChune < Sinatra::Base
     @phasher = PassHashHandler.new
     User.create(
       username: params['username'],
-      passhash: @phasher.generate_hash(params['password']),
+      passhash: @phasher.generate_hash('saltysalty' + params['password']),
       email: params['email']
     )
     session['user'] = params['username']
