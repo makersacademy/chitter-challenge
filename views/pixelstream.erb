@@ -4,8 +4,17 @@
 </form>
 </div>
 <div id="userdisplay">
+  <% if @user == nil %>
+  <form action='/session' method='post'>
+    <input type="submit" name='sign in' value='sign in'>
+  </form>
+  <% end %>
   <% if @user != nil %>
    signed in as <%= @user %>
+   <form action='/session' method='post'>
+     <input type='hidden' name='_method' value='DELETE'>
+     <input type="submit" name='sign out' value='sign out'>
+   </form>
    <% end %>
 </div>
 <% @beeps.each do |beep| %>

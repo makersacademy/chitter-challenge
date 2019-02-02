@@ -8,6 +8,7 @@ require_relative 'lib/passhash_handler.rb'
 
 class ChipChune < Sinatra::Base
   enable :sessions
+  enable :method_override
 
   get '/' do
     @user = session['user'] if session['user']
@@ -22,6 +23,11 @@ class ChipChune < Sinatra::Base
       authorid: User.find_by(username: session['user']).id
       ) if session['user']
     redirect '/'
+  end
+
+  delete '/session' do
+    session['user'] = nil
+    redirect('/')
   end
 
   get '/signup' do
