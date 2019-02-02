@@ -1,6 +1,10 @@
 <h1>Welcome to Chitter!</h1>
-<form action="/signup" method="post"><input type="submit" value="Log In"><input type="submit" value="Sign Up"></form>
 
+<% unless @name %>
+<form action="/users/new" method="get"><input type="submit" value="Sign Up"></form>
+<% end %>
+
+<% if @name %>Welcome, <%= @name %>. You are logged in. <% end %>
 
 <br>
 <form action="/peeps" method="post">

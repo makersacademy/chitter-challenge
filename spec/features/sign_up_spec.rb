@@ -7,7 +7,6 @@ feature 'users can sign up to Chitter' do
   scenario 'the signup button works' do
     visit_site_and_click_sign_up
     fill_in_signup_form
-    expect(current_path).to eq('/peeps')
     expect(page).to have_content 'Welcome, Ivan the Terrible. You are logged in.'
   end
 
