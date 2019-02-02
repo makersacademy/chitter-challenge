@@ -13,15 +13,15 @@ describe PasswordManager do
   describe '.match_hash' do
 
     before(:each) do
-      @my_password = BCrypt::Password.create('my password')
+      @hash = PasswordManager.hash('password')
     end
 
     it 'matches a valid password' do
-      expect(PasswordManager.match_hash('my password', @my_password)).to be true
+      expect(PasswordManager.match_hash('password', @hash)).to be true
     end
 
     it 'rejects a fake password' do
-      expect(PasswordManager.match_hash('fake', @my_password)).to_not be true
+      expect(PasswordManager.match_hash('fake', @hash)).to_not be true
     end
   end
 end
