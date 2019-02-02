@@ -5,11 +5,8 @@
 feature 'a message can be posted to chitter' do
 
   scenario 'a user can add a peep' do
-    message = 'I am a new peep!'
-    visit '/'
-    fill_in 'peep', with: message
-    click_button 'Submit'
-    expect(page).to have_content message
+    post_one_message
+    expect(page).to have_content 'I am a new peep!'
   end
 
 end

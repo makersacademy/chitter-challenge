@@ -6,6 +6,7 @@ require 'simplecov-console'
 require File.join(File.dirname(__FILE__), '../app/', 'app.rb')
 
 require 'database_helper'
+require 'features/web_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

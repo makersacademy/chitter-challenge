@@ -5,27 +5,20 @@
 feature 'all peeps can be seen in reverse chronological order' do
 
   scenario 'all peeps can be seen' do
-    message = 'I am a first peep!'
-    message_2 = 'I am a second peep!'
-    visit '/'
-    fill_in 'peep', with: message
-    click_button 'Submit'
-    fill_in 'peep', with: message_2
-    click_button 'Submit'
-    expect(page).to have_content message
-    expect(page).to have_content message_2
+    post_three_messages
+    expect(page).to have_content 'I am a first peep!'
+    expect(page).to have_content 'I am a second peep!'
+    expect(page).to have_content 'I am a third peep!'
   end
 
   scenario 'all peeps are in reverse chronological order' do
+    post_three_messages
     message = 'I am a first peep!'
     message_2 = 'I am a second peep!'
-    visit '/'
-    fill_in 'peep', with: message
-    click_button 'Submit'
-    fill_in 'peep', with: message_2
-    click_button 'Submit'
-    expect(page).to have_selector("ul#peeps li:nth-child(1)", text: message_2)
-    expect(page).to have_selector("ul#peeps li:nth-child(2)", text: message)
+    message_3 = 'I am a third peep!'
+    expect(page).to have_selector("ul#peeps li:nth-child(1)", text: message_3)
+    expect(page).to have_selector("ul#peeps li:nth-child(2)", text: message_2)
+    expect(page).to have_selector("ul#peeps li:nth-child(3)", text: message)
   end
 
 
