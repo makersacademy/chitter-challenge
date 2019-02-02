@@ -1,4 +1,5 @@
 require 'pg'
+require_relative 'time'
 
 class Message
 
@@ -18,13 +19,17 @@ class Message
     result.map { |tweet| tweet['message'] }
   end
 
+
   def self.create(message:)
+
+
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_challenge_test')
     else
       connection = PG.connect(dbname: 'chitter_challenge')
     end
-    result = connection.exec("INSERT INTO chitter (message) VALUES('#{message}') RETURNING message;")
+    store_time = Time_Calculation.calculation
+    result = connection.exec("INSERT INTO chitter (message) VALUES('#{message} #{store_time}') RETURNING message;")
     Message.new(message: result[0]['message'])
   end
 
