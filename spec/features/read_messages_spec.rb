@@ -24,8 +24,8 @@ feature 'all peeps can be seen in reverse chronological order' do
     click_button 'Submit'
     fill_in 'peep', with: message_2
     click_button 'Submit'
-    expect(page).to have_selector("li#peeps li:nth-child(1)", text: message_2)
-    expect(page).to have_selector("li#peeps li:nth-child(2)", text: message)
+    expect(page).to have_selector("ul#peeps li:nth-child(1)", text: message_2)
+    expect(page).to have_selector("ul#peeps li:nth-child(2)", text: message)
   end
 
 
