@@ -1,4 +1,5 @@
 require 'peep'
+require 'user'
 
 describe Peep do
 
@@ -18,9 +19,10 @@ describe Peep do
     end
 
     it 'has a user who created it' do
+      user = User.create(name: 'test', username: 'test', password: 'test', email: 'test@test.com')
       message = "I'm a peep message body"
-      peep = Peep.create(message: message, user_id: 1)
-      expect(peep.user_id).to eq(1)
+      peep = Peep.create(message: message, user_id: user.id)
+      expect(peep.user_id).to eq(user.id)
     end
 
   end
