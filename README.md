@@ -43,7 +43,7 @@ Use PostgreSQL to integrate database into Chitter and make `SQL` queries with `P
 |----------------------------------------|
 | Responsibilities    |  Collaborators   |
 |----------------------------------------|
-| show peeps          | user             |
+| show peeps          | User             |
 | show time of peep   |                  |
 | show user's name    |                  |
 | register users      |                  |
@@ -55,10 +55,19 @@ Use PostgreSQL to integrate database into Chitter and make `SQL` queries with `P
 | Responsibilities    | Collaborators    |
 |----------------------------------------|
 | write a peep        |                  |
+| sign up with email, |                  |
+| password, name, and |                  |
+| a username          |                  |
 |----------------------------------------|
 
 ```
 
+## Setup Database
+- Create database `chitter` using syntax `createdb chitter`;
+- Create `user` table to store user information with `CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR(60), email VARCHAR(60), password VARCHAR(60));`;
+- Create `peeps` table to store peeps with ` CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(60), name VARCHAR(60), time TIMESTAMP);`
+
+- Create database `chitter_test` following the same steps as documented above.
 
 Notes on functionality:
 ------
