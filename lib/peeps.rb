@@ -18,7 +18,7 @@ class Peeps
 
   def self.post(text, username)
     database_connection
-    @connection.exec("INSERT INTO peeps (peep, time, username) VALUES ('#{sanitize(text)}', 'NOW', '#{sanitize(username)}');") if text.length > 0
+    @connection.exec("INSERT INTO peeps (peep, time, username) VALUES ('#{sanitize(text)}', 'NOW', '#{sanitize(username) if !username.nil?}');") if text.length > 0
   end
 
   private
