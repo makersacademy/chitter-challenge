@@ -4,16 +4,19 @@ require 'dm-postgres-adapter'
 require './lib/peep'
 require './lib/printer'
 require './lib/user'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   # disable :show_exceptions
   enable :sessions
+  register Sinatra::Flash
+
 
   configure :development do
     DataMapper.setup(:default, 'postgres://localhost/chitter')
     DataMapper.finalize
-    DataMapper.auto_migrate!
+    DataMapper.auto_upgrade!
   end
 
   get '/peeps' do
@@ -24,7 +27,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     user_id = session[:user_id]
-    peep = Peep.create(content: params[:peep], user_id: user_id)
+    Peep.create(content: params[:peep], user_id: user_id)
     redirect '/peeps'
   end
 
@@ -44,6 +47,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
+    flash[:notice] = "You have successfully logged out"
     redirect '/peeps'
   end
 
@@ -53,6 +57,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
+      flash[:notice] = 'Incorrect log in details'
       redirect '/sessions/new'
     end
   end

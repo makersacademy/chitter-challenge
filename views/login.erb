@@ -5,6 +5,9 @@
     <title></title>
   </head>
   <h1>Login</h1>
+  <h2>
+  <%= flash[:notice] %>
+  </h2>
   <body>
     <form action="/sessions" method="post">
       <input type="text" name="email" placeholder="email">

@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'launchy'
 gem 'rake'
 gem 'rb-readline'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
