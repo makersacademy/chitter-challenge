@@ -10,7 +10,7 @@ require_relative '../lib/ORM.rb'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'hello world'
+    erb :index
   end
 
 end
