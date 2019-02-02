@@ -25,7 +25,6 @@ class Shitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.body
-    p "FIND ME #{@peeps}"
     erb :index
   end
 

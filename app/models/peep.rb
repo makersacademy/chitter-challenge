@@ -8,7 +8,7 @@ class Peep
 
 
   property :id, Serial
-  property :body, String, required: true
+  property :body, String, required: true, length: 0..130
   property :created_at, DateTime
 
   DataMapper.auto_upgrade!
