@@ -1,3 +1,16 @@
+Neighborhood Cat Chitter Chatter
+=================
+Installation
+-----
+1. Fork this repository
+2. Run ```bundle install``` to acquire all needed gems.
+3. [DATABASE SETUP]
+4. Start the Chitter server by running ```rackup config.ru```
+5. Navigate your browser to http://localhost:9292
+
+
+
+
 Chitter Challenge
 =================
 
