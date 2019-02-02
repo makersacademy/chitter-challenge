@@ -54,6 +54,7 @@
 
 <% @peeps.each do |peep| %>
 <div class='container'>
+  <div align='left'><%= peep.user %><br></div>
   <%= peep.text %><br>
   <font size="0.5">[ posted on <%= peep.time.to_s.split(".")[0] %>]</font>
 </div>

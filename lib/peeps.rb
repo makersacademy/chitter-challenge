@@ -2,22 +2,23 @@ require 'pg'
 
 class Peeps
 
-  attr_reader :text, :time
+  attr_reader :text, :time, :user
 
-  def initialize(text, time)
+  def initialize(text, time, user)
     @text = text
     @time = time
+    @user = user
   end
 
   def self.all
     database_connection
     all_peeps = @connection.exec("SELECT * FROM peeps ORDER BY time DESC;")
-    all_peeps.map { |text| Peeps.new(text["peep"], text["time"]) }
+    all_peeps.map { |text| Peeps.new(text["peep"], text["time"], text["username"]) }
   end
 
-  def self.post(text)
+  def self.post(text, username)
     database_connection
-    @connection.exec("INSERT INTO peeps (peep, time) VALUES ('#{sanitize(text)}', 'NOW');") if text.length > 0
+    @connection.exec("INSERT INTO peeps (peep, time, username) VALUES ('#{sanitize(text)}', 'NOW', '#{sanitize(username)}');") if text.length > 0
   end
 
   private
