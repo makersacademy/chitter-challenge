@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/flash'
 require_relative '../lib/peep'
 require_relative '../lib/user'
+require_relative '../lib/password_manager'
 require_relative 'database_connection_setup'
 
 class Chitter < Sinatra::Base
@@ -30,7 +31,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     new_user = User.create(name: params['name'], username: params['username'], email: params['email'],
-                password: params['password'])
+                password: params['password'], password_hash: PasswordManager.hash(params['password']))
     session[:user_id] = new_user.id
     redirect '/peeps'
   end
@@ -40,7 +41,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.find_by(username: params['username'], password: params['password'])
+    user = User.find_by(username: params['username'])
+    valid_password = PasswordManager.match_hash(params['password'], user.password_hash)
     session[:user_id] = user.id if user
     flash[:notice] = 'Incorrect username or password' unless user
     redirect '/peeps'

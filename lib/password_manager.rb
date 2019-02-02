@@ -7,9 +7,7 @@ class PasswordManager
   end
 
   def self.match_hash(password, hash)
-    remade_hash = BCrypt::Password.new(hash)
-    remade_hash == password
+    BCrypt::Password.new(hash) == password
   end
-
 
 end

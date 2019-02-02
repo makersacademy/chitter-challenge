@@ -32,7 +32,7 @@ def fill_in_signup_form
 end
 
 def create_user
-  User.create(name: 'Ivan', username: 'ivan', email: 'fake@fake.com', password: 'pass')
+  User.create(name: 'Ivan', username: 'ivan', email: 'fake@fake.com', password: 'pass', password_hash: PasswordManager.hash('pass'))
 end
 
 def valid_login
