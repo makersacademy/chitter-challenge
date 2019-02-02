@@ -14,7 +14,7 @@ class Peep
   DataMapper.auto_upgrade!
 
   def self.body
-    peeps = Peep.all
+    peeps = Peep.all.reverse!
     peeps.map { |peep| peep.body }
   end
 
