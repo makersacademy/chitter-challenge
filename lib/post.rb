@@ -2,7 +2,12 @@ require 'pg'
 
 class Post
   def self.all
-    con = PG.connect(dbname: 'chitter')
+    if ENV['RACK_ENV'] == 'test'
+      con = PG.connect :dbname => 'chitter_test'
+    else
+      con = PG.connect :dbname => 'chitter'
+    end
+    
     result = con.exec("SELECT * FROM posts;")
     result.map { |post| post['chit'] }
   end
