@@ -7,6 +7,6 @@ con = PG.connect(dbname: 'chitter_test')
 
 # Clear bookmarks table
 con.exec("TRUNCATE users;")
-con.exec("TRUNCATE peeps")
+con.exec("TRUNCATE peeps;")
 
 end
