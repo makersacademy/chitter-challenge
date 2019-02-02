@@ -13,7 +13,7 @@ RSpec.describe User do
   end
 
   it 'should allow the user to be set' do
-    expect{User.set_user('testuser')}.to change{User.logged_in_name}.to('testuser')
+    expect { User.assign_user('testuser') }.to change { User.logged_in_name }.to('testuser')
   end
 
 end

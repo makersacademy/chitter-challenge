@@ -17,7 +17,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    p User.logged_in_name
     user_id = User.find_by(username: User.logged_in_name).id
     Peep.create(message: params[:message], user_id: user_id)
     redirect '/'
@@ -33,14 +32,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/logout' do
-    User.set_user(nil)
+    User.assign_user(nil)
     redirect '/'
   end
 
   post '/login' do
     @result = User.check_password(params[:username], params[:password])
     redirect '/login' if @result == false
-    User.set_user(params[:username])
+    User.assign_user(params[:username])
     redirect '/'
   end
 
@@ -59,11 +58,11 @@ class Chitter < Sinatra::Base
       flash[:error] = newuser.errors.full_messages.first
       redirect '/signup'
     end
-    User.set_user(params[:username])
+    User.assign_user(params[:username])
     redirect '/'
   end
 
- DatabaseConnection.setup
- User.set_user(nil)
+  DatabaseConnection.setup
+  User.assign_user(nil)
 
 end

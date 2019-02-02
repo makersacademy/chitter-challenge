@@ -3,7 +3,7 @@ require './chitter'
 RSpec.describe 'feature tests' do
   before(:each) do
     test_db_initialise
-    User.set_user(nil)
+    User.assign_user(nil)
   end
 
 # STRAIGHT UP
@@ -113,89 +113,89 @@ RSpec.describe 'feature tests' do
 
 # The username and email are unique.
 
-  scenario 'user cannot signup a new account with duplicate username' do
-    visit('/')
-    click_link "Signup"
-    fill_in "username", with: "al123"
-    fill_in "password", with: "this"
-    fill_in "forename", with: "user"
-    fill_in "surname", with: "has"
-    fill_in "email", with: "existing@username.com"
-    click_on "Submit"
-    expect(page).to have_content "Username has already been taken"
-    expect(page.status_code).to be(200)
-  end
+    scenario 'user cannot signup a new account with duplicate username' do
+      visit('/')
+      click_link "Signup"
+      fill_in "username", with: "al123"
+      fill_in "password", with: "this"
+      fill_in "forename", with: "user"
+      fill_in "surname", with: "has"
+      fill_in "email", with: "existing@username.com"
+      click_on "Submit"
+      expect(page).to have_content "Username has already been taken"
+      expect(page.status_code).to be(200)
+    end
 
-  scenario 'user cannot signup a new account with duplicate email' do
-    visit('/')
-    click_link "Signup"
-    fill_in "username", with: "This"
-    fill_in "password", with: "User"
-    fill_in "forename", with: "Has"
-    fill_in "surname", with: "existingemail"
-    fill_in "email", with: "alice.smith@gmail.com"
-    click_on "Submit"
-    expect(page).to have_content "Email has already been taken"
-    expect(page.status_code).to be(200)
-  end
+    scenario 'user cannot signup a new account with duplicate email' do
+      visit('/')
+      click_link "Signup"
+      fill_in "username", with: "This"
+      fill_in "password", with: "User"
+      fill_in "forename", with: "Has"
+      fill_in "surname", with: "existingemail"
+      fill_in "email", with: "alice.smith@gmail.com"
+      click_on "Submit"
+      expect(page).to have_content "Email has already been taken"
+      expect(page.status_code).to be(200)
+    end
 
-end
+  end
 # HARDER
 #
 # As a Maker
 # So that only I can post messages on Chitter as me
 # I want to log in to Chitter
 #
-feature 'log in to chitter' do
 
-  scenario 'user can login if they exist' do
-    visit('/')
-    click_link "Login"
-    fill_in "username", with: "al123"
-    fill_in "password", with: "password123"
-    click_on "Submit"
-    expect(page).to have_content "al123"
-    expect(page.status_code).to be(200)
+  feature 'log in to chitter' do
+
+    scenario 'user can login if they exist' do
+      visit('/')
+      click_link "Login"
+      fill_in "username", with: "al123"
+      fill_in "password", with: "password123"
+      click_on "Submit"
+      expect(page).to have_content "al123"
+      expect(page.status_code).to be(200)
+    end
+
+    scenario 'user cant login if they dont exist' do
+      visit('/')
+      click_link "Login"
+      fill_in "username", with: "baduser"
+      fill_in "password", with: "wrongpassword"
+      click_on "Submit"
+      expect(page).to have_content "Invalid username or password. Try again"
+      expect(page.status_code).to be(200)
+    end
+
   end
-
-  scenario 'user cant login if they dont exist' do
-    visit('/')
-    click_link "Login"
-    fill_in "username", with: "baduser"
-    fill_in "password", with: "wrongpassword"
-    click_on "Submit"
-    expect(page).to have_content "Invalid username or password. Try again"
-    expect(page.status_code).to be(200)
-  end
-
-end
 
 # As a Maker
 # So that I can avoid others posting messages on Chitter as me
 # I want to log out of Chitter
 
-feature 'log out of chitter' do
+  feature 'log out of chitter' do
 
-  scenario 'user can logout' do
-    visit('/')
-    click_link "Login"
-    fill_in "username", with: "nopeeps"
-    fill_in "password", with: "password999"
-    click_on "Submit"
-    expect(page).to have_content "nopeeps"
-    click_link "Logout"
-    expect(page).not_to have_content "nopeeps"
-    expect(page.status_code).to be(200)
+    scenario 'user can logout' do
+      visit('/')
+      click_link "Login"
+      fill_in "username", with: "nopeeps"
+      fill_in "password", with: "password999"
+      click_on "Submit"
+      expect(page).to have_content "nopeeps"
+      click_link "Logout"
+      expect(page).not_to have_content "nopeeps"
+      expect(page.status_code).to be(200)
+    end
+
   end
-
-end
 
 # ADVANCED
 #
 # As a Maker
 # So that I can stay constantly tapped in to the shouty box of Chitter
 # I want to receive an email if I am tagged in a Peep
-
 
 # Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 

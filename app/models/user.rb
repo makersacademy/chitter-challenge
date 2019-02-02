@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     true
   end
 
-  def self.set_user(username)
+  def self.assign_user(username)
     @@logged_in_name = username
   end
 
