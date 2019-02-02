@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <style>
 table {
@@ -11,13 +11,15 @@ table {
 td, th {
   border: 1px solid black;
   text-align: left;
-  padding: 8px;
+  font-size: 12px;
+  padding: 4px;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
+<!-- <link rel="stylesheet" type="text/css" href="/styles.css"/> -->
 </head>
 <body>
 
@@ -29,7 +31,7 @@ tr:nth-child(even) {
   <% @users.each do |user| %>
   <tr>
     <td><%= user.id %></td>
-    <td><%= user.name %></td>
+    <td><%= user.username %></td>
     </tr>
   <% end %>
 </table>

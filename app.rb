@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'shotgun'
 require 'pg'
 require './lib/user.rb'
+# require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
 
@@ -26,6 +27,24 @@ enable :sessions, :method_override
     redirect '/users'
   end
 
-run! if app_file == $0
+  get '/peeps' do
+    @username = $username
+    @peep = $peep
+    p @peep
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    $username = params[:username]
+    $peep = params[:peep]
+
+    redirect '/peeps'
+  end
+
+  run! if app_file == $0
 
 end
