@@ -5,9 +5,27 @@
 }
 
 .logo{
-  position: relative;
-  margin-left: 330px;
+  position: absolute;
   top: 120px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.login_bg{
+  position: relative;
+  text-align: center;
+  top: 50px;
+}
+
+.loginform{
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.textbox{
+  opacity:0.5;
 }
 
 body, .bgImage {
