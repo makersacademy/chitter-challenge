@@ -1,3 +1,13 @@
+<div id="createaccount">
+<form action="/signup" method="get">
+  New to ChipChune? <input type=submit name = beep-boop value= "sign-up">
+</form>
+</div>
+<div id="userdisplay">
+  <% if @user != nil %>
+   signed in as <%= @user %>
+   <% end %>
+</div>
 <% @beeps.each do |beep| %>
 <div class="a_beep">
 <%= beep.body %><br><small><%= beep.time %></small><br>
