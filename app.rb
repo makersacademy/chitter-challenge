@@ -1,9 +1,11 @@
 require 'sinatra'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
 
   get('/') do
+    @peep = Peep.list
     erb :index
   end
 
