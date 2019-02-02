@@ -1,4 +1,4 @@
-require 'database_wiper'
+
 feature 'Add a beep' do
   before(:each) do
     database_wiper

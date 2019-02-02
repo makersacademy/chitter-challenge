@@ -1,4 +1,4 @@
-require 'database_wiper'
+
 feature 'Descending Beeps' do
   before(:each) do
     database_wiper

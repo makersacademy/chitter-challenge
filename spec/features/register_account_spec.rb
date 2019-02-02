@@ -1,4 +1,4 @@
-require 'database_wiper'
+
 feature 'Sign-up' do
   before(:each) do
     database_wiper

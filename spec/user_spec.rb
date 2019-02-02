@@ -1,5 +1,4 @@
 require 'user'
-require 'database_wiper'
 
 describe User do
   before (:each) do

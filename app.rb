@@ -16,7 +16,7 @@ class ChipChune < Sinatra::Base
   end
 
   post '/' do
-    Beep.create(body: params['beep'])
+    Beep.create(body: params['beep']) if session['user']
     redirect '/'
   end
 

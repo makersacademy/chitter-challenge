@@ -13,7 +13,9 @@
 <%= beep.body %><br><small><%= beep.time %></small><br>
 </div>
 <% end %>
-<form action="/" method="post">
-  <input type=text name="beep" value="beep">
-  <input type=submit name = beep-boop value= beep-boop>
-</form>
+<% if @user != nil %>
+  <form action="/" method="post">
+    <input type=text name="beep" value="beep">
+    <input type=submit name = beep-boop value= beep-boop>
+  </form>
+<% end %>
