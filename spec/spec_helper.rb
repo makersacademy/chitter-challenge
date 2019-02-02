@@ -17,10 +17,9 @@ RSpec.configure do |config|
   require 'rspec'
   require 'simplecov'
   require 'simplecov-console'
-  require 'setup_test_database'
   config.default_formatter = "doc"
 
-  Capybara.app = BookmarkManager
+  Capybara.app = Chitter
 
   ENV['ENVIRONMENT'] = 'test'
 
