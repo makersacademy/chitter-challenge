@@ -1,5 +1,5 @@
-ENV['RACK_ENV'] = 'test'
-require 'sinatra'
+ENV['RACK_ENV'] = 'test' # Need to put this before requiring app.rb!!
+
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
@@ -15,9 +15,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 Capybara.app = Chitter
-
-
-
 
 RSpec.configure do |config|
 
