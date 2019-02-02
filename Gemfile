@@ -9,6 +9,10 @@ gem 'pg'
 gem 'activerecord'
 gem 'sinatra-flash'
 
+group :crypto do
+  gem 'bcrypt'
+end
+
 group :test do
   gem 'capybara'
   gem 'rspec'
