@@ -19,7 +19,7 @@ describe Peep do
     end
 
     it 'has a user who created it' do
-      user = User.create(name: 'test', username: 'test', password: 'test', email: 'test@test.com')
+      user = User.create(name: 'test', username: 'test', email: 'test@test.com', password_hash: PasswordManager.hash('pass'))
       message = "I'm a peep message body"
       peep = Peep.create(message: message, user_id: user.id)
       expect(peep.user_id).to eq(user.id)
