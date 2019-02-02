@@ -1,9 +1,9 @@
+require 'pg'
+
 class Post
   def self.all
-    [
-      "Test chit 01",
-      "Test chit 02",
-      "Test chit 03"
-    ]
+    con = PG.connect(dbname: 'chitter')
+    result = con.exec("SELECT * FROM posts;")
+    result.map { |post| post['chit'] }
   end
 end
