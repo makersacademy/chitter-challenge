@@ -1,4 +1,4 @@
-/* Style the sidebar - fixed full height */
+
 .sidebar {
   height: 100%;
   width: 160px;
@@ -11,7 +11,6 @@
   padding-top: 16px;
 }
 
-/* Style sidebar links */
 .sidebar a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -20,34 +19,31 @@
   display: block;
 }
 
-/* Style links on mouse-over */
 .sidebar a:hover {
   color: #f1f1f1;
 }
 
-/* Style the main content */
 .peeps {
-  margin-left: 160px; /* Same as the width of the sidenav */
+  margin-left: 160px;
   padding: 0px 10px;
 }
 
-/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
 }
 
 .header {
-  margin-left: 160px;
-  text-align: left;
+  text-align: center;
   background: #3CC47C;
   color: #1E392A;
   font-size: 30px;
+  padding: 20px;
 }
 
 body {
-  background-color: white;
-  font-family: Verdana, Geneva, sans-serif;
+  background-color: #1E392A;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
 }
 
 li {
@@ -56,4 +52,19 @@ li {
   border: 4px solid #3CC47C;
   width: 50%;
   list-style-type: none;
+}
+
+.peep {
+  display: inline-block;
+  background: white;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  line-height: 16px;
+  border-color: #eee #ddd #bbb;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin-left: 160px;
+  margin: 10px 5px;
+  padding: 10px 10px 10px 10px;
 }

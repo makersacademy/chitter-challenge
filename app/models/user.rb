@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     true if BCrypt::Password.new(stored_password) == password
   end
 
-  def self.logged_in_user(username)
+  def self.set_user(username)
     @@logged_in_name = username
   end
 

@@ -31,14 +31,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/logout' do
-    User.logged_in_user(nil)
+    User.set_user(nil)
     redirect '/'
   end
 
   post '/loginresult' do
     @result = User.check_password(params[:username], params[:password])
     redirect '/login' if @result == nil
-    User.logged_in_user(params[:username])
+    User.set_user(params[:username])
     redirect '/'
   end
 
@@ -49,11 +49,11 @@ class Chitter < Sinatra::Base
   post '/signupresult' do
     encrypted = BCrypt::Password.create(params[:password])
     User.create(username: params[:username], forename: params[:forename] ,surname: params[:surname], email: params[:email], password: encrypted)
-    User.logged_in_user(params[:username])
+    User.set_user(params[:username])
     redirect '/'
   end
 
  DatabaseConnection.setup
- User.logged_in_user(nil)
+ User.set_user(nil)
 
 end
