@@ -16,7 +16,14 @@ describe Peep do
       peep = Peep.create(message: message)
       expect(peep.created_at.to_s).to include(time)
     end
+
+    xit 'has some text in its message body' do
+
+    end
+
   end
+
+
 
 
 
