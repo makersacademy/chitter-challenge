@@ -1,15 +1,17 @@
-<div id="createaccount">
-<form action="/signup" method="get">
-  New to ChipChune? <input type=submit name = beep-boop value= "sign-up">
-</form>
-</div>
-<div id="userdisplay">
+<div id="main_body" align="center" style="background-image: linear-gradient(#900C3F, orange);">
+
+<div id="userdisplay" align="right">
   <% if @user == nil %>
+  <div id="signupin">
   <form action='/session' method='post'>
     <input type="text" name="username" value="username">
     <input type="password" name="password" value="password">
     <input type="submit" name='sign in' value='sign in'>
   </form>
+  <form action="/signup" method="get">
+    New to ChipChune? <input type=submit name = beep-boop value= "sign-up">
+  </form>
+  </div>
   <% end %>
   <% if @user != nil %>
    signed in as <%= @user %>
@@ -19,6 +21,13 @@
    </form>
    <% end %>
 </div>
+<% if @user != nil %>
+  <form action="/" method="post">
+    <input type=text name="beep" value="beep">
+    <input type=submit name = beep-boop value= beep-boop>
+  </form>
+<% end %>
+<div id="beepstream" align=left style="max-width: 700px; margin: auto;"">
 <% @beeps.each do |beep| %>
 <div class="a_beep">
 <%= beep.body %><br><br>
@@ -26,9 +35,6 @@
   <br><small><%= beep.time %></small></small><br>
 </div>
 <% end %>
-<% if @user != nil %>
-  <form action="/" method="post">
-    <input type=text name="beep" value="beep">
-    <input type=submit name = beep-boop value= beep-boop>
-  </form>
-<% end %>
+</div
+
+</div>
