@@ -11,6 +11,7 @@
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
       <%= peep.message %>
+      <br> <%= peep.created_at %>
     </li>
   <% end %>
 </ul>
