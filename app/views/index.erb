@@ -11,11 +11,20 @@
   <div class="main__container">
     <h1>Chitter</h1>
 
-    <form id="myForm" action="/bookmarks-process" method="post">
-      <textarea class="peep__textarea" name="peep" >
-      At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
-      </textarea>
+    <form id="myForm" action="/process-peep" method="post">
+      <textarea class="peep__textarea" name="peep" placeholder="What's happening?" ></textarea>
+      <input type="submit" value="Post">
     </form>
+
+    <div class="main__container_peeps">
+      <ul>
+        <% @peeps.each { |peep|  %>
+        <li class="peep" id="peep-<%= peep.id %>">
+          <%= peep.peep %>
+        </li>
+        <% } %>
+      </ul>
+    </div>
     
   </div>
   
