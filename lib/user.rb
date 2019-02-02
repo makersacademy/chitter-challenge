@@ -13,6 +13,20 @@ def initialize(id:, name:, email:, username:, password:)
   @password = password
 end
 
+def self.all
+  connection = PG.connect(dbname: 'chitter_test')
+  result = connection.exec("SELECT * FROM users")
+  result.map do |user|
+    User.new(
+      id: user['id'],
+      name: user['name'],
+      username: user['username'],
+      email: user['email'],
+      password: user['password']
+    )
+  end
+end
+
 def self.create(name:, email:, username:, password:)
   #result = DatabaseConnection.query("INSERT INTO users (name, email, username, password) VALUES ('#{name}', '#{email}', '#{username}', '#{password}') RETURNING id, name, email, username, password;")
   connection = PG.connect(dbname: 'chitter_test')

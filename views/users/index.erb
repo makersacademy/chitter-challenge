@@ -1,2 +1,8 @@
 
-<%=@result%>
+<ul>
+  <% @users.each do |user| %>
+  <li class="user" id="user-<%= user.id %>">
+    Username: <%= user.name %>; e-mail: <%= user.email %>
+  </li>
+  <% end %>
+</ul>

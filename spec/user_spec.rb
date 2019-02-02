@@ -18,4 +18,19 @@ describe User do
     end
   end
 
+  describe ' .all' do
+    it "lists all chitters" do
+      User.create(name: 'Ngai Sui', email: 'jess@chitter.com', username: 'jess', password: 'born2chit')
+
+      users = User.all
+
+      expect(users.length).to eq 1
+      expect(users.first).to be_a User
+      expect(users.first.name).to eq 'Ngai Sui'
+      expect(users.first.email).to eq 'jess@chitter.com'
+      expect(users.first.username).to eq 'jess'
+      expect(users.first.password).to eq 'born2chit'
+    end
+  end
+
 end

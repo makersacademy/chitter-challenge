@@ -10,10 +10,10 @@ enable :sessions
   end
 
   get '/users' do
-
-    connection = PG.connect(dbname: 'chitter_test')
-    data = connection.exec("SELECT * FROM users")
-    @result = data.map {|user| user }
+    @users = User.all
+    # connection = PG.connect(dbname: 'chitter_test')
+    # data = connection.exec("SELECT * FROM users")
+    # @result = data.map {|user| user }
     erb :'users/index'
   end
 
@@ -22,10 +22,7 @@ enable :sessions
   end
 
   post '/users' do
-    @name = params[:name]
-    @email = params[:email]
-    @username = params[:username]
-    @password = params[:password]
+    User.create(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
 
     redirect '/users'
   end
