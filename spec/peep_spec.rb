@@ -29,6 +29,15 @@ describe Peep do
 
   end
 
+  describe "#date_and_time" do
+
+    it 'Returns a formatted string' do
+      new_peep = Peep.create body: "Time test peep"
+      expect(new_peep.date_and_time).to match /\d{1,2}\/\d{1,2}\/\d{4}\s\s\s\d{1,2}\:\d{1,2}\.\d{1,2}/
+    end
+
+  end
+
 
 
 

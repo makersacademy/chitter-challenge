@@ -1,8 +1,7 @@
 require 'spec_helper'
-# require_relative '../controllers/app'
 # require_relative 'web_helpers.rb'
 
-feature 'Testing Infrastructure.' do
+feature 'Homepage' do
 
   scenario 'User is welcomed on homepage' do
     visit '/'
@@ -10,11 +9,19 @@ feature 'Testing Infrastructure.' do
     expect(page).to have_content(welcome)
   end
 
+end
+
+feature 'Peeps display page' do
+
   scenario 'User can post a peep' do
-    visit '/peeps'
-    fill_in 'peep_entry', with: "My first peep!"
-    click_on('Post')
-    expect(page).to have_content("My first peep!")
+    post_a_peep
+    expect(page).to have_content("This is a test peep!")
+  end
+
+  scenario 'Page shows the time each peep was created' do
+    post_a_peep
+    peep = Peep.all[0]
+    expect(page).to have_content(peep.date_and_time)
   end
 
 end

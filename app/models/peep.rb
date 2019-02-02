@@ -18,6 +18,11 @@ class Peep
     peeps.map { |peep| peep.body }
   end
 
+  def date_and_time
+    x = self.created_at
+    "#{x.day}/#{x.month}/#{x.year}   #{x.hour}:#{x.minute}.#{x.second}"
+  end
+
 
 end
 
