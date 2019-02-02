@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+  <title>List of messages</title>
+  </head>
+  <body>
+    <br>
+    <section class="col-md-10 mx-auto card">
+      <div>
+        <ul>
+          <% @tweets.each do |tweet| %>
+            <li> <%= tweet %> </li>
+          <% end %>
+        </ul>
+      </div>
+    </section>
+  </body>
+</html>
