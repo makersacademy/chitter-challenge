@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/css/chitter_style.css">
   </head>
-  <form action="/signupresult" method="post">
+  <form action="/signup" method="post">
     Username: <input type="text" name="username"><br>
     Password: <input type="password" name="password"><br>
     Forename: <input type="text" name="forename"><br>
@@ -10,4 +10,5 @@
     Email: <input type="text" name="email"><br>
     <input type="submit" value="Submit">
   </form>
+  <%= flash[:error] %>
 </html>

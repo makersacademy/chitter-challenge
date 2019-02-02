@@ -35,9 +35,9 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  post '/loginresult' do
+  post '/login' do
     @result = User.check_password(params[:username], params[:password])
-    redirect '/login' if @result == nil
+    redirect '/login' if @result == false
     User.set_user(params[:username])
     redirect '/'
   end
@@ -46,9 +46,17 @@ class Chitter < Sinatra::Base
     erb :signup
   end
 
-  post '/signupresult' do
+  post '/signup' do
     encrypted = BCrypt::Password.create(params[:password])
-    User.create(username: params[:username], forename: params[:forename] ,surname: params[:surname], email: params[:email], password: encrypted)
+    newuser = User.create(username: params[:username],
+                          forename: params[:forename],
+                          surname: params[:surname],
+                          email: params[:email],
+                          password: encrypted)
+    if newuser.errors.any?
+      flash[:error] = newuser.errors.full_messages.first
+      redirect '/signup'
+    end
     User.set_user(params[:username])
     redirect '/'
   end

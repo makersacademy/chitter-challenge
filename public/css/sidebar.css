@@ -68,3 +68,10 @@ li {
   margin: 10px 5px;
   padding: 10px 10px 10px 10px;
 }
+
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}

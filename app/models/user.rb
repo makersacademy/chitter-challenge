@@ -3,10 +3,13 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
+  validates_presence_of :username, :forename, :surname, :email, :password, { message: "Please ensure all fields are filled" }
+  validates_uniqueness_of :username, :email
+
   def self.check_password(username, password)
     stored_password = User.where(username: username).pluck(:password).first
-    return if stored_password.nil?
-    true if BCrypt::Password.new(stored_password) == password
+    return false if stored_password.nil? || BCrypt::Password.new(stored_password) != password
+    true
   end
 
   def self.set_user(username)

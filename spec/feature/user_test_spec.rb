@@ -3,7 +3,7 @@ require './chitter'
 RSpec.describe 'feature tests' do
   before(:each) do
     test_db_initialise
-    User.logged_in_user(nil)
+    User.set_user(nil)
   end
 
 # STRAIGHT UP
@@ -19,6 +19,8 @@ RSpec.describe 'feature tests' do
       visit('/')
       expect(page).to have_content "Chitter"
     end
+
+# You don't have to be logged in to see the peeps.
 
     scenario 'peeps are seen on the homepage' do
       visit('/')
@@ -72,6 +74,8 @@ RSpec.describe 'feature tests' do
 # I want to sign up for Chitter
 #
 
+# Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+
   feature 'sign up for chitter' do
 
     scenario 'user can signup a new account' do
@@ -85,6 +89,32 @@ RSpec.describe 'feature tests' do
       click_on "Submit"
       expect(page).to have_content "newuser"
     end
+
+# The username and email are unique.
+
+  scenario 'user cannot signup a new account with duplicate username' do
+    visit('/')
+    click_link "Signup"
+    fill_in "username", with: "al123"
+    fill_in "password", with: "this"
+    fill_in "forename", with: "user"
+    fill_in "surname", with: "has"
+    fill_in "email", with: "existing@username.com"
+    click_on "Submit"
+    expect(page).to have_content "Username has already been taken"
+  end
+
+  scenario 'user cannot signup a new account with duplicate email' do
+    visit('/')
+    click_link "Signup"
+    fill_in "username", with: "This"
+    fill_in "password", with: "User"
+    fill_in "forename", with: "Has"
+    fill_in "surname", with: "existingemail"
+    fill_in "email", with: "alice.smith@gmail.com"
+    click_on "Submit"
+    expect(page).to have_content "Email has already been taken"
+  end
 
 end
 # HARDER
@@ -139,5 +169,9 @@ end
 # As a Maker
 # So that I can stay constantly tapped in to the shouty box of Chitter
 # I want to receive an email if I am tagged in a Peep
+
+
+# Peeps (posts to chitter) have the name of the maker and their user handle.
+# Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 end
