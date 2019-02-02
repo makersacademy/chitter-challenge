@@ -1,3 +1,14 @@
+# Setting the environment to 'test'
+ENV['ENVIRONMENT'] = 'test'
+# Bringing the content of the 'app.rb' file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+# Requiring all the testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+# Telling Capybara to talk to Chitter
+Capybara.app = Chitter
+
 require 'simplecov'
 require 'simplecov-console'
 
