@@ -11,9 +11,11 @@ class Chitter < Sinatra::Base
   @@user_chitters
   @@user_name
   @@user_password
-  @@sign_up_status
+  @@incorrect_log_in_details = false
+  @@sign_up_status = true
 
   get ('/') do
+    @incorrect_log_in_status = @@incorrect_log_in_details
     erb(:index)
   end
 
@@ -24,6 +26,7 @@ class Chitter < Sinatra::Base
       new_chitter_wrapper("chitter", "chitter_messages")
       redirect ('/chitters')
     else
+      @@incorrect_log_in_details = true
       redirect ('/')
     end
   end

@@ -5,11 +5,13 @@
   </head>
   <body>
     Welcome!
+    <br></br>
+    <a href="/">Home</a>
     <% if @chitters %>
       <table>
         <tr>
         <th> Message </th>
-        <th> Options </th>
+        <th> Date/Time </th>
         </tr>
           <% @chitters.each do |chitter| %>
           <tr>
@@ -17,9 +19,7 @@
             <%=chitter[1]%>
             </td>
             <td>
-<!--
-
--->
+            <%=chitter[2]%>
             </td>
           </tr>
           <% end %>

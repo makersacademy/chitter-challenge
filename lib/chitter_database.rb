@@ -38,15 +38,17 @@ class ChitterDatabase
     user_id = self.get_user_id(database_name, "users", user, user_password)
     # @@database_connection.close
     self.connect_to_database(database_name)
-    record = @@database_connection.exec( "SELECT chitter FROM #{database_table} WHERE user_id = '#{user_id.to_a[0]["user_id"]}';")
+    record = @@database_connection.exec( "SELECT chitter_id, chitter, posted_at FROM #{database_table} " +
+    "WHERE user_id = '#{user_id.to_a[0]["user_id"]}' " +
+    "ORDER BY posted_at DESC;")
     record_content = record.map do |messages|
-      [messages['chitter_id'], messages['chitter']]
+      [messages['chitter_id'], messages['chitter'], messages['posted_at']]
     end
   end
 
   def self.add_message(database_name, database_table, chitter_message, user, user_password)
-    self.connect_to_database(database_name)
     user_id = self.get_user_id(database_name, "users", user, user_password)
+    self.connect_to_database(database_name)
     @@database_connection.exec( "INSERT INTO #{database_table} (user_id, chitter) VALUES" +
     " ('#{user_id.to_a[0]["user_id"]}', '#{chitter_message}');")
     self.close_database_connection

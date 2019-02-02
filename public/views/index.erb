@@ -5,10 +5,33 @@
   </head>
   <body>
     <h1>Chitter!</h1>
+    <% if @incorrect_log_in_status == true %>
+    User does not exist or incorrect password!
+    <% end %>
     <form action="/log-in" method="post">
-      <input type="text" name="user_name">
-      <input type="text" name="password">
-      <button type="submit name="Log-in">Log-in</button>
+      <table>
+        <tr>
+        <th> User Name </th>
+        </tr>
+        <tr>
+          <td>
+          User Name:<input type="text" name="user_name">
+          </td>
+        </tr>
+        <tr>
+        <th> Password </th>
+        </tr>
+        <tr>
+        <td>
+        Password: <input type="text" name="password">
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <button type="submit name="Log-in">Log-in</button>
+        </td>
+        </tr>
+      </table>
     </form>
     <form action="/sign-up" method="get">
       <button type="submit" name="Sign-up Page">Sign-up</button>
