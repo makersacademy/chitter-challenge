@@ -4,30 +4,14 @@
     <link rel="stylesheet" href="Public/style_sheets/style.css">
   </head>
   <body>
-    Welcome!
-    <% if @all_messages %>
-      <table>
-        <tr>
-        <th> Message </th>
-        <th> Options </th>
-        </tr>
-          <% @all_messages.each do |message| %>
-          <tr>
-            <td>
-            <%=message[1]%>
-            </td>
-            <td>
-<!--
-
--->
-            </td>
-          </tr>
-          <% end %>
-      </table>
-    <% end %>
-    <form action="/submit-message" method="post">
-      <input type="text" name="Messages">
-      <button type="submit name="Submit Message">
+    <h1>Chitter!</h1>
+    <form action="/log-in" method="post">
+      <input type="text" name="user_name">
+      <input type="text" name="password">
+      <button type="submit name="Log-in">Log-in</button>
+    </form>
+    <form action="/sign-up" method="get">
+      <button type="submit" name="Sign-up Page">Sign-up</button>
     </form>
   <body>
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Public/style_sheets/style.css">
+  </head>
+  <body>
+    Welcome!
+    <% if @chitters %>
+      <table>
+        <tr>
+        <th> Message </th>
+        <th> Options </th>
+        </tr>
+          <% @chitters.each do |chitter| %>
+          <tr>
+            <td>
+            <%=chitter[1]%>
+            </td>
+            <td>
+<!--
+
+-->
+            </td>
+          </tr>
+          <% end %>
+      </table>
+    <% end %>
+    <form action="/submit-chitter" method="post">
+      <input type="text" name="Chitter">
+      <button type="submit" name="Submit Chitter">Post Chitter</button>
+    </form>
+    <form action="/log-out" method="get">
+      <button type="submit" name="Log-out">Log-out</button>
+    </form>
+  <body>
+</html>
