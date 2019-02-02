@@ -15,6 +15,7 @@ feature 'users can log into Chitter' do
     login_wrong_password
     expect(page).to_not have_content 'Welcome, Ivan. You are logged in.'
     expect(page).to have_button 'Login'
+    expect(page).to have_content 'Incorrect username or password'
   end
 
   scenario 'a user with incorrect username is not logged in' do
@@ -22,6 +23,7 @@ feature 'users can log into Chitter' do
     login_wrong_username
     expect(page).to_not have_content 'Welcome, Ivan. You are logged in.'
     expect(page).to have_button 'Login'
+    expect(page).to have_content 'Incorrect username or password'
   end
 
   scenario 'the posts should show their owner' do
