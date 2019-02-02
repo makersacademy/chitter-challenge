@@ -4,7 +4,7 @@ require './lib/post'
 class Chitter < Sinatra::Base
 
   get '/' do
-    "Hello World"
+    "Welcome to Chitter"
   end
 
   get '/posts' do
