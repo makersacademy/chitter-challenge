@@ -1,30 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Chitter!</h1>
-    <h2> <%=flash[:notice]%></h2>
-    <div class="">
-      Peeps:<br>
-      <%@peeps.each do | peep | %>
-      <%=peep%><br>
-      <%end%>
-    </div><br><br>
-    <%if @logged_in %>
-      Make a peep!
-      <form action="/peeps" method="post">
-        <input type="text" name="peep" placeholder="enter peep here">
-        <input type="submit" value="Submit">
-      </form>
-      <form action="/sessions/destroy" method="post">
-        <input type="submit" value="Log out">
-      </form>
-    <%else%>
-      <a href="/users/new">Sign up!</a>
-      <a href="/sessions/new">Log in!</a>
-    <%end%>
-  </body>
-</html>
+<h1>Chitter!</h1>
+<h2> <%=flash[:notice]%></h2>
+<div>
+  Peeps:<br>
+  <%@peeps.each do | peep | %>
+  <%=peep%><br>
+  <%end%>
+</div><br><br>
+<%if @logged_in %>
+  Make a peep!
+  <form action="/peeps" method="post">
+    <input type="text" name="peep" placeholder="enter peep here">
+    <input type="submit" value="Submit">
+  </form>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Log out">
+  </form>
+<%else%>
+  <a href="/users/new">Sign up!</a>
+  <a href="/sessions/new">Log in!</a>
+<%end%>

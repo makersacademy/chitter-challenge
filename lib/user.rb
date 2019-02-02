@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'bcrypt'
 
 class User
   include DataMapper::Resource
@@ -6,7 +7,7 @@ class User
   property :id, Serial
   property :username, String, :unique => true
   property :email, String, :unique => true
-  property :password, String
+  property :password, BCryptHash
   property :name, String
 
   has n, :peeps
@@ -17,4 +18,7 @@ class User
     user.password == password ? user : nil
   end
 
+  def self.add(username:, email:, password:, name:)
+    create(username: username, email: email, password: password, name: name)
+  end
 end

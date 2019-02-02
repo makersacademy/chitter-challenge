@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
   configure :development do
     DataMapper.setup(:default, 'postgres://localhost/chitter')
     DataMapper.finalize
-    DataMapper.auto_upgrade!
+    DataMapper.auto_migrate!
   end
 
   get '/peeps' do
@@ -26,8 +26,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    user_id = session[:user_id]
-    Peep.create(content: params[:peep], user_id: user_id)
+    Peep.create(content: params[:peep], user_id: session[:user_id])
     redirect '/peeps'
   end
 
@@ -36,7 +35,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(username: params[:username], email: params[:email], password: params[:password], name: params[:name])
+    user = User.create(username: params[:username], email: params[:email],
+    password: params[:password], name: params[:name] )
     session[:user_id] = user.id
     redirect '/peeps'
   end
