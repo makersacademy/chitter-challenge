@@ -4,3 +4,10 @@
 - Investigate 'persisted data' here: https://github.com/makersacademy/course/blob/master/bookmark_manager/walkthroughs/18.md
 - How to stub database calls using Active Record? E.g. in unit testing the Peep class, need a user ID, but manually feeding one 
 violates the foreign key constraint, as no user ID exists. Had to require 'user' in the end...
+- Really weird stuff going on with bcrypt - why didn't the before each block work?
+    e.g. 
+    ```
+       before(:each) do
+          @hash = PasswordManager.hash('password')
+        end 
+     ```
