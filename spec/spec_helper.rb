@@ -1,3 +1,4 @@
+require_relative './setup_test_database'
 
 # Set the environment to "test"
 ENV['RACK_ENV'] = 'test'

@@ -26,7 +26,9 @@ I want to sign up for Chitter
 
 Technical Approach:
 -----
-Use PostgreSQL to integrate database into Chitter and make `SQL` queries with `PG` gem.
+Use PostgreSQL to integrate database into Chitter and make `SQL` queries with `PG` gem.<br>
+Develop the web-based app using `Ruby` language and `sinatra` framework.<br>
+Test the app with `Rspec` and `Capybara` frameworks.
 
 ### Domain Model
 
