@@ -11,14 +11,18 @@
       <%=peep%><br>
       <%end%>
     </div><br><br>
-    <%if @is_user %>
+    <%if @logged_in %>
       Make a peep!
       <form action="/peeps" method="post">
         <input type="text" name="peep" placeholder="enter peep here">
         <input type="submit" value="Submit">
       </form>
+      <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Log out">
+      </form>
     <%else%>
       <a href="/users/new">Sign up!</a>
+      <a href="/sessions/new">Log in!</a>
     <%end%>
   </body>
 </html>

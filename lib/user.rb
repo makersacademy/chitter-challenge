@@ -11,4 +11,10 @@ class User
 
   has n, :peeps
 
+  def self.authenticate(email:, password:)
+    return nil unless User.first(:email => email)
+    user = User.first(:email => email)
+    user.password == password ? user : nil
+  end
+
 end

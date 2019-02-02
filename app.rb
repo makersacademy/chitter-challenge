@@ -7,18 +7,18 @@ require './lib/user'
 
 class Chitter < Sinatra::Base
 
-  disable :show_exceptions
+  # disable :show_exceptions
   enable :sessions
 
   configure :development do
     DataMapper.setup(:default, 'postgres://localhost/chitter')
     DataMapper.finalize
-    DataMapper.auto_upgrade!
+    DataMapper.auto_migrate!
   end
 
   get '/peeps' do
     @peeps = Peep.print_peeps
-    @is_user = !User.get(session[:user_id]).nil?
+    @logged_in = !session[:user_id].nil?
     erb :peeps
   end
 
@@ -36,5 +36,24 @@ class Chitter < Sinatra::Base
     user = User.create(username: params[:username], email: params[:email], password: params[:password], name: params[:name])
     session[:user_id] = user.id
     redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :login
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    redirect '/peeps'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      redirect '/sessions/new'
+    end
   end
 end
