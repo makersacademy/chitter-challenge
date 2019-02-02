@@ -24,8 +24,11 @@ feature 'users can log into Chitter' do
     expect(page).to have_button 'Login'
   end
 
-  xscenario 'the posts should show their owner' do
-
+  scenario 'the posts should show their owner' do
+    create_user
+    valid_login
+    post_one_message
+    expect(page).to have_content 'by Ivan the Terrible'
   end
 
 end
