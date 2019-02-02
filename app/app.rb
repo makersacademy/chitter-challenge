@@ -10,6 +10,8 @@ require_relative '../lib/ORM.rb'
 class Chitter < Sinatra::Base
 
   get '/' do
+    @signed_in = false
+    @peeps = ['Just a test peep']
     erb :index
   end
 

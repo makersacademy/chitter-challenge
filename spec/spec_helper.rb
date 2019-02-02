@@ -11,7 +11,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 require File.join(File.dirname(__FILE__), '..', './app/app.rb')
-require 'capybara/rspec'
 require 'capybara'
 require 'rspec'
 ENV['RACK_ENV'] = 'test'

@@ -1,4 +1,11 @@
 <h1>Welcome to Chitter!</h1>
+<% unless @signed_in %>
+<form>
+  Sign up:<br />
+  Username:<input type="text" />
+  Display name:<input type="text" />
+</form>
+<% end %>
 
 <p>
 <a href="postapeep">Post a peep</a>
@@ -11,9 +18,8 @@ to do popups etc
 <p>
 Peepstream:
 </p>
-<form>
-  Sign up:<br />
-  Username:<input type="text" />
-  Display name:<input type="text" />
-
-</form>
+<div>
+<% @peeps.each do |peep| %>
+<%= peep %>
+<% end %>
+</div>
