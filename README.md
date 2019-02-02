@@ -1,3 +1,24 @@
+### To set up the database
+
+Connect to `psql` and create the `chitter_peeps` database:
+
+```
+CREATE DATABASE chitter_peeps;
+
+```
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+### To run the Bookmark Manager app:
+
+```
+rackup
+
+```
+
+To view, navigate to `localhost:9292`
+
+
 Chitter Challenge
 =================
 
