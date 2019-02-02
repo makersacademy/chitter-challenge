@@ -3,7 +3,7 @@ require './lib/peeps'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Chitter away'
+    erb :index
   end
 
   get '/peeps' do
