@@ -17,8 +17,10 @@ describe Peep do
       expect(peep.created_at.to_s).to include(time)
     end
 
-    xit 'has some text in its message body' do
-
+    it 'has a user who created it' do
+      message = "I'm a peep message body"
+      peep = Peep.create(message: message, user_id: 1)
+      expect(peep.user_id).to eq(1)
     end
 
   end

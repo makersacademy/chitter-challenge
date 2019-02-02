@@ -28,7 +28,7 @@ feature 'users can log into Chitter' do
     create_user
     valid_login
     post_one_message
-    expect(page).to have_content 'by Ivan the Terrible'
+    expect(page).to have_content 'by Ivan'
   end
 
 end

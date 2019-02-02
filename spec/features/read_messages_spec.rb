@@ -5,6 +5,8 @@
 feature 'all peeps can be seen in reverse chronological order' do
 
   scenario 'all peeps can be seen' do
+    create_user
+    valid_login
     post_three_messages
     expect(page).to have_content 'I am a first peep!'
     expect(page).to have_content 'I am a second peep!'
@@ -12,6 +14,8 @@ feature 'all peeps can be seen in reverse chronological order' do
   end
 
   scenario 'all peeps are in reverse chronological order' do
+    create_user
+    valid_login
     post_three_messages
     message = 'I am a first peep!'
     message_2 = 'I am a second peep!'

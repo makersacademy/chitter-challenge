@@ -5,6 +5,8 @@
 feature 'a message can be posted to chitter' do
 
   scenario 'a user can add a peep' do
+    create_user
+    valid_login
     post_one_message
     expect(page).to have_content 'I am a new peep!'
   end
