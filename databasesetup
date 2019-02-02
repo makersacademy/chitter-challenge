@@ -1,0 +1,11 @@
+CREATE TABLE beeps (
+   id INTEGER PRIMARY KEY,
+   body TEXT UNIQUE,
+   time TIME DEFAULT NOW()
+);
+
+CREATE TABLE users (
+   id INTEGER PRIMARY KEY,
+   user_name TEXT UNIQUE,
+   pass_hash TEXT NOT NULL
+);
