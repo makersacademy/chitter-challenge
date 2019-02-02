@@ -1,11 +1,12 @@
 CREATE TABLE beeps (
-   id INTEGER PRIMARY KEY,
+   id SERIAL PRIMARY KEY,
    body TEXT UNIQUE,
    time TIME DEFAULT NOW()
 );
 
 CREATE TABLE users (
-   id INTEGER PRIMARY KEY,
-   user_name TEXT UNIQUE,
-   pass_hash TEXT NOT NULL
+   id SERIAL PRIMARY KEY,
+   username TEXT UNIQUE,
+   passhash TEXT NOT NULL,
+   email TEXT UNIQUE
 );
