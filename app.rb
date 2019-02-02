@@ -1,11 +1,21 @@
 require 'sinatra/base'
+require_relative '/Users/jakeatkin/projects/weekend_challenges/Chitter/chitter-challenge/lib/peeps.rb'
 
 
-class App < Sinatra::Base
+class Chitter < Sinatra::Base
+
+
+enable :sessions
 
   get ('/') do
     'Chitter'
   end
+
+  get ('/peeps') do
+    @peeps = Peeps.all
+  end
+
+
 
 
 
