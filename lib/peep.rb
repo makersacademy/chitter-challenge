@@ -1,13 +1,6 @@
 require 'active_record'
 require 'pg'
-
-ActiveRecord::Base.establish_connection(
-    adapter:  'postgresql',
-    database: 'chitter',
-    username: 'postgres',
-    password: 'password',
-    host:     'localhost'
-)
+require_relative '../app/database_connection_setup'
 
 class Peep < ActiveRecord::Base
 
