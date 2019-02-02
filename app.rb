@@ -32,7 +32,8 @@ class Chitter < Sinatra::Base
   end
 
   get ('/chitters') do
-    @@user_chitters = @@chitter_wrapper.all(@@user_name, @@user_password)
+    @user_name = @@user_name
+    @@user_chitters = @@chitter_wrapper.user_chitters(@@user_name, @@user_password)
     @chitters = @@user_chitters
     erb(:chitters)
   end
@@ -40,7 +41,7 @@ class Chitter < Sinatra::Base
   post ('/submit-chitter') do
     @message = params[:"Chitter"]
     @@chitter_wrapper.add_chitter_message(@message, @@user_name, @@user_password)
-    redirect('/chitters')
+    redirect back
   end
 
   get ('/sign-up') do
@@ -64,6 +65,11 @@ class Chitter < Sinatra::Base
     @@chitter_wrapper.add_new_user("chitter", "users", @new_user, @new_user_password)
     @@sign_up_status = true
     redirect ('/sign-up-status')
+  end
+
+  get ('/all-chitters') do
+    @all_chitters = @@chitter_wrapper.all_chitters
+    erb(:all_chitters)
   end
 
   private

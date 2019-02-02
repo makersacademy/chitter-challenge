@@ -7,8 +7,12 @@ class ChitterMessages
     @database_table = database_table
   end
 
-  def all(user, user_password)
+  def user_chitters(user, user_password)
     ChitterDatabase.view_table(@database, @database_table, user, user_password)
+  end
+
+  def all_chitters
+    ChitterDatabase.all_chitters
   end
 
   def add_chitter_message(chitter_message, user, user_password)

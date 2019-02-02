@@ -33,10 +33,19 @@ class ChitterDatabase
     self.close_database_connection
   end
 
+  def self.all_chitters
+    self.connect_to_database("chitter")
+    record = @@database_connection.exec("SELECT user_name, chitter, posted_at " +
+    "FROM users INNER JOIN chitter_messages ON users.user_id = chitter_messages.user_id " +
+    "ORDER BY posted_at DESC;")
+    record_content = record.map do |messages|
+      [messages['user_name'], messages['chitter'], messages['posted_at']]
+    end
+  end
+
   def self.view_table(database_name, database_table, user, user_password)
     #database_table == "chitter_messages_test" if database_name == "chitter_test"
     user_id = self.get_user_id(database_name, "users", user, user_password)
-    # @@database_connection.close
     self.connect_to_database(database_name)
     record = @@database_connection.exec( "SELECT chitter_id, chitter, posted_at FROM #{database_table} " +
     "WHERE user_id = '#{user_id.to_a[0]["user_id"]}' " +

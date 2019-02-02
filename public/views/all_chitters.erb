@@ -4,18 +4,22 @@
     <link rel="stylesheet" href="Public/style_sheets/style.css">
   </head>
   <body>
-    <h1>Welcome! <%=@user_name%></h1>
+    <h1>All da chittering!</h1>
     <br></br>
     <a href="/log-out">Home</a>
-    <a href="/all-chitters">Who else is chittering?</a>
-    <% if @chitters %>
+    <a href="/chitters">Your chitter page</a>
+    <% if @all_chitters %>
       <table>
         <tr>
+        <th> User </th>
         <th> Message </th>
         <th> Date/Time </th>
         </tr>
-          <% @chitters.each do |chitter| %>
+          <% @all_chitters.each do |chitter| %>
           <tr>
+            <td>
+            <%=chitter[0]%>
+            </td>
             <td>
             <%=chitter[1]%>
             </td>
