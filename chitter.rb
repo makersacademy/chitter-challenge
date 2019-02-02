@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     ENV['RAILS_ENV'] = 'development' if ENV['RAILS_ENV'] != 'test'
-    @peeps = Peep.joins(:user).select("peeps.*, users.username")
+    @peeps = Peep.joins(:user).select("peeps.*, users.*")
     erb :index
   end
 

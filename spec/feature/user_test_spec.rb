@@ -43,7 +43,9 @@ RSpec.describe 'feature tests' do
       expect(page.status_code).to be(200)
     end
 
-    scenario 'user can see their name in peeps when posting' do
+# Peeps (posts to chitter) have the name of the maker and their user handle.
+
+    scenario 'user can see their name and username in peeps when posting' do
       visit('/')
       click_link "Login"
       fill_in "username", with: "al123"
@@ -52,7 +54,7 @@ RSpec.describe 'feature tests' do
       click_link "New Peep!"
       fill_in "message", with: "This is a new peep"
       click_on "Peep!"
-      expect(page.text).to match(/This is a new peep .* al123/)
+      expect(page.text).to match(/This is a new peep .*Alice Smith @al123/)
       expect(page.status_code).to be(200)
     end
 
