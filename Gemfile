@@ -6,6 +6,7 @@ gem 'capybara'
 gem 'chromedriver-helper'
 gem 'json'
 gem 'pg'
+gem 'shotgun'
 gem 'sinatra'
 
 gem 'rake'
