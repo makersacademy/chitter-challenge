@@ -19,4 +19,8 @@ class ChitterMessages
     ChitterDatabase.add_new_user(database_name, database_table, new_user, new_user_password)
   end
 
+  def log_out
+    ChitterDatabase.close_database_connection
+  end
+
 end

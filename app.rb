@@ -45,6 +45,7 @@ class Chitter < Sinatra::Base
   end
 
   get ('/log-out') do
+    @@chitter_wrapper.log_out
     redirect('/')
   end
 
