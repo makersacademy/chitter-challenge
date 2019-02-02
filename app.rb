@@ -11,21 +11,21 @@ enable :sessions
   end
 
   get ('/peeps') do
-    @peeps = Peeps.all
+    @peeps = Peep.all(:order => [ :id.desc ])
   end
 
-  get ('/peeps/new')
-  Peeps.create(peep params[:peep])
+  get ('/peeps/new') do
+  erb :new
+  end
+
+  post ('/peeps') do
+  Peep.create(peep params[:peep])
   redirect '/peeps'
-end
+  end
 
   # post('/peeps') do
   #   @peeps.create(text: params[:peep])
   # end
-
-
-
-
 
 
   run! if app_file == $0

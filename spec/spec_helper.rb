@@ -7,7 +7,6 @@ require_relative '/Users/jakeatkin/projects/weekend_challenges/Chitter/chitter-c
 
 ENV['ENVIRONMENT'] = 'test'
 
-
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Chitter
