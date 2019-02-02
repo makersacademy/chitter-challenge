@@ -11,7 +11,7 @@ class Message
 
   def self.all
     self.connection
-    result = connection.exec("SELECT * FROM peeps;")
+    result = connection.exec("SELECT * FROM peeps ORDER BY peep DESC;")
     result.map { |peep| peep['peep']}
 
   end
