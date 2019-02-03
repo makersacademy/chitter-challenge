@@ -1,3 +1,4 @@
+require 'pg'
 require 'sinatra/base'
 require './lib/post'
 
@@ -8,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
-    @posts = Post.all
+    @post = Post.all
 
     erb(:"posts/index")
   end

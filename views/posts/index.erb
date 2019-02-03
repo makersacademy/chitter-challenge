@@ -1,5 +1,5 @@
 <ul>
-  <% @posts.reverse.each do |post| %>
-    <li><%= post %></li>
+  <% @post.reverse.each do |post| %>
+    <li>Peep: <%= post.chit %> <br> Posted On: <%= post.time %></li>
   <% end %>
 </ul>
