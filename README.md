@@ -4,16 +4,13 @@ Database Setup
 - Connect to psql
 - Create the database using the psql command `CREATE DATABASE chitter;`
 - Connect to the database using the pqsl command `\c chitter;`
-- Run the query saved in db/migrations/create_chitter_table.sql
+- Run the query saved in './db/migrations/create_chitter_table.sql'
 
 
 
 Challenge:
 -------
 
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
