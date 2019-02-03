@@ -1,6 +1,7 @@
 require 'pg'
 require 'sinatra/base'
 require './lib/message'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
@@ -10,6 +11,11 @@ class Chitter < Sinatra::Base
 
   get '/signup' do
     erb :'signup/index'
+  end
+
+  post '/signup' do
+    User.signup(username: params[:username], password: params[:password])
+    redirect '/peeps'
   end
 
   get '/create' do
