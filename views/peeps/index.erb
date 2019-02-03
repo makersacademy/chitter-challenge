@@ -5,7 +5,8 @@
 
 <ul>
 <% @peeps.each do |peep| %>
-<li><%= p peep %></li>
+<li><%= peep.peep %></li>
+  <ul><li>Posted at: <%= peep.timestamp %></li></ul>
 <% end %>
 </ul>
 
