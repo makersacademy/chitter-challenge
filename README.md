@@ -1,14 +1,13 @@
 Chitter Challenge
 =================
 
-A small Twitter clone that will allow the users to post messages to a public stream.
+A small Twitter clone that allows the users to post messages to a public stream.
 
 User stories:
 -------
 
+Satisfied:
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -18,14 +17,15 @@ So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
+```
+Missing:
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
 
 As a Maker
 So that only I can post messages on Chitter as me
@@ -69,38 +69,28 @@ To view bookmarks, navigate to `localhost:3000/bookmarks`.
 Technical Approach:
 -----
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+Chitter was built using the `PG` gem and `SQL` queries to integrate a database of posts and users into the web application.
+The user's posts - "peeps" - and the user details that are collected during registration are stored in SQL databases.
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+### Home ###
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+On the home page, the user can navigate to see previous posts, register a new account, or post a new peep. There is a button for login, however this feature has not been implemented yet.
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+![home_page](./images/home.png)
 
+When creating a new account, the user provides their details which are stored in the SQL database. The password is encrypted with the `bcrypt` gem.
 
-Notes on functionality:
+![new_account](./images/new_account.png)
+
+On posting a new message, the text box holds space for 240 characters. Once the input is saved, it is stored in the database.
+
+![peep](./images/peep.png)
+
+Notes on known issues and missing features:
 ------
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+* Timestamp on peeps not implemented
+* Poster's name isn't showing on peeps
+* Functionality for logging in and logging out has not been implemented
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
+I believe that if I had more time, I could have completed the above and I hope to come back to this challenge at some point.

@@ -1,7 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style media="screen">
+  body {
+    background-image: url("/images/chitter-04.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'DKLemonYellowSun', Helvetica;
+    font-size: 48px;
+    text-align: center;
+    vertical_align: center;
+    }
+    input[type=submit] {
+      background-color: #FCBCB8;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      font-family: 'DKLemonYellowSun', Helvetica;
+      font-size: 30px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  @font-face {
+    font-family: 'DKLemonYellowSun';
+    src: url('/fonts/DK_Lemon_Yellow_Sun.otf');
+    }
+  @font-face {
+    font_family: 'Matchinger-regular';
+    src: url('/fonts/Matchinger.otf')
+    }
+</style>
+</head>
+<body>
+  <p><img src="/images/chitter-02.png" alt="chitter logo" style="width:200px;height:200px;"></p>
 <h1>Welcome to Chitter!</h1>
 
 <form action=/peeps method="get">
-<input type="submit" name="peeps" value="See Peeps"><br>
-<input type="submit" name="login" value="Login to Post New Peep" formaction="/login"><br>
-<input type="submit" name="register" value="Create New Account" formaction="/new_account">
+  <input type="submit" name="peeps" value="See Peeps"><br>
+  <input type="submit" name="login" value="Login to Post New Peep" formaction="/login"><br>
+  <input type="submit" name="register" value="Create New Account" formaction="/new_account">
+  <input type="submit" name="new_peep" value="Make a Peep" formaction="/new">
 </form>
+</body>
+</html>

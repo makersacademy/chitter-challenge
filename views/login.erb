@@ -10,11 +10,6 @@
     font-size: 48px;
     text-align: center;
     vertical_align: center;
-    padding: 50px;
-    }
-    textarea {
-      font-family: 'DKLemonYellowSun', Helvetica;
-      font-size: 20px;
     }
     input[type=submit] {
       background-color: #FCBCB8;
@@ -29,14 +24,23 @@
     }
   @font-face {
     font-family: 'DKLemonYellowSun';
-    src: url('/fonts/lovely_font.eot');
+    src: url('/fonts/DK_Lemon_Yellow_Sun.otf');
+    }
+  @font-face {
+    font_family: 'Matchinger-regular';
+    src: url('/fonts/Matchinger.otf')
     }
 </style>
 </head>
 <body>
-<form action="/peeps" method="post">
-  <textarea name="peep" rows="8" cols="80">What's happening?</textarea>
-  <input type="submit" value="Peep">
+  <p><img src="/images/chitter-02.png" alt="chitter logo" style="width:200px;height:200px;"></p>
+
+<h1>Wanna login?</h1>
+<h2>Soon you can...</h2>
+<p style="font-size:30px">...here</p>
+
+<form action=/ method="get">
+  <input type="submit" name="home" value="Back"><br>
 </form>
 </body>
 </html>

@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peeps'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -9,7 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = User.find(session:[:user_id])
+    # @user = User.find(session:[:user_id])
     @peeps = Peeps.all
     erb :peeps
   end
@@ -33,7 +34,16 @@ class Chitter < Sinatra::Base
       name: params[:name],
       username: params[:username])
     session[:user_id] = user.id
-    redirect '/peeps'
+    redirect '/sign_up_complete'
+  end
+
+  get '/sign_up_complete' do
+    erb :welcome
+  end
+
+  get '/login' do
+    erb :login
+    # not functioning yet
   end
 
   run! if app_file == $0

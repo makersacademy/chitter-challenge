@@ -7,6 +7,6 @@ feature 'register new account' do
     fill_in('username', with: 'testguy01')
     click_button('Sign up')
 
-    expect(page).to have_content "You are all set, Test Guy!"
+    expect(page).to have_content "You're all set to peep!"
   end
 end

@@ -1,9 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style media="screen">
+  body {
+    background-image: url("/images/chitter-04.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Courier, Helvetica;
+    font-size: 35px;
+    text-align: left;
+    vertical_align: center;
+    }
+  h2 {
+    font-family: 'DKLemonYellowSun', Helvetica;
+  }
+  ul {
+    background: #EFA7A7;
+    padding: 40px;
+  }
+  ul li {
+    background: #FCBCB8;
+    margin: 5px;
+  }
+  @font-face {
+    font-family: 'DKLemonYellowSun';
+    src: url('/fonts/DK_Lemon_Yellow_Sun.otf');
+    }
+  @font-face {
+    font_family: 'Matchinger-regular';
+    src: url('/fonts/Matchinger.otf')
+    }
+</style>
+</head>
+<body>
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
+  <h1>Welcome, <%= @user.name %>!</h1>
 <% end %>
+<h2> . P E E P S . <img src="/images/chitter-03.png" alt="chitter bird" width="120" height="120" align="bottom"></h2>
 
 <ul>
   <% @peeps.each do |peep| %>
     <li><%= peep %></li>
   <% end %>
 </ul>
+</body>
+</html>
