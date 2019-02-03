@@ -22,7 +22,7 @@ class Peep
     end
   end
 
-  def self.post_new_peep(poster_id = 1, peep_content)
+  def self.post_new_peep(peep_content)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter-test')
     else

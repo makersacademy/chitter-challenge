@@ -39,3 +39,13 @@ end
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter
+feature 'Registration' do
+  scenario 'A user can sign up for Chitter' do
+    visit('/register')
+    fill_in :username, with: "ChitterUser"
+    fill_in :email, with: "chitteruser@chitter.com"
+    fill_in :password, with: "Password123"
+    click_button "Register"
+    expect(page).to have_content("Welcome to Chitter, ChitterUser!")
+  end
+end
