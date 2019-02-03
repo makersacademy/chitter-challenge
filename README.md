@@ -2,6 +2,20 @@
 Chitter Challenge
 =================
 
+## Current issues - can you help?
+
+Database is wiped when the server is closed and rebooted.
+
+## Setup
+
+All you need to do is create a database 'chitter' (and 'chitter_test' if you want to run the tests). DataMapper will take care of the rest (creating tables etc).
+
+In psql, run the following:
+
+```
+CREATE DATABASE [database name]
+```
+
 ## Model Diagram
 
 ![One Maker has many Peeps](img/model_diagram.png)

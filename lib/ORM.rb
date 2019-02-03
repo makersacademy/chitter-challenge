@@ -2,7 +2,7 @@ require_relative '../lib/maker.rb'
 require_relative '../lib/peep.rb'
 
 DataMapper.finalize
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
 
 example_maker = Maker.create(
   :displayname => "Makers5ever",

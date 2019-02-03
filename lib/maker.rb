@@ -3,9 +3,9 @@ require_relative 'peep'
 
 DataMapper::Logger.new($stdout, :debug)
 if ENV['ENVIRONMENT'] == 'test'
-  DataMapper.setup(:default, 'postgres://david@localhost/chitter')
-else
   DataMapper.setup(:default, 'postgres://david@localhost/chitter_test')
+else
+  DataMapper.setup(:default, 'postgres://david@localhost/chitter')
 end
 
 class Maker
