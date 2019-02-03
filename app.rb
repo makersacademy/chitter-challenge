@@ -42,8 +42,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    session[:user] = User.authenticate(params[:username], params[:password])
-    if session[:user]
+    if User.authenticate(params[:username], params[:password])
+      session[:user] = User.authenticate(params[:username], params[:password])
       redirect '/peep_feed'
     else
       flash[:alert] = "Invalid username or password entered. Please try again."
