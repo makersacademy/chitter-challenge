@@ -28,7 +28,7 @@ feature 'messages are arranged' do
 end
 
 feature 'messages get a time stamp' do
-  scenario 'User can see the time at which message was posted' do
+  scenario 'user can see the time at which message was posted' do
     visit('/create')
     fill_in 'message', with: "I love Sinatra"
     click_button 'Submit'
@@ -36,4 +36,21 @@ feature 'messages get a time stamp' do
     expect(page).to have_content("I love Sinatra #{Time_Calculation.calculation}")
 
   end
+end
+
+
+feature 'messages get a user name' do
+  scenario 'usec can see his name displayed by the message' do
+    visit('/')
+    fill_in 'user_name', with: 'Kasia'
+    fill_in 'your_email', with: 'Kasia@o2.pl'
+    fill_in 'your_password', with: 'password1'
+    click_button 'Sign up'
+    visit('/create')
+    fill_in 'message', with: "I love databases"
+    click_button 'Submit'
+    visit('/messages')
+    expect(page).to have_content("Kasia")
+  end
+
 end
