@@ -40,4 +40,12 @@ describe Maker do
     end
   end
 
+  describe '#get' do
+    it 'returns a specific maker record' do
+      expect(
+        Maker.get(maker.id)
+      ).to eq maker
+    end
+  end
+
 end
