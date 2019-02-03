@@ -3,7 +3,7 @@
 <ul>
     <% @peeps.each do |peep| %>
     <li>
-      <%= peep.peep %>
+      <%= peep.peep %> posted at <%=peep.time%>
       </li>
     <% end %>
   </ul>
@@ -13,5 +13,5 @@
     <h4>New peep:</h4>
   </label>
   <input type="text" name="peep">
-  <input type="submit" value="Post">
+  <input type="submit" value="Post"
 </form>
