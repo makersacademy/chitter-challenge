@@ -8,7 +8,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
     peeps = connection.exec("SELECT * FROM peeps;")
-    peeps.map { |row| row['peep'] }
+    peeps.map { |row| row['peep'] }.reverse
   end
 
   def self.post(peep:)
