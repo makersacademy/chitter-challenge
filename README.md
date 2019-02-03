@@ -1,32 +1,8 @@
 Chitter Challenge
 =================
 
-Set Up:
-------
-```
-1. Connect to psql
-2. Create the database using the psql command CREATE DATABASE Chitter_Manager;
-3. Create the test database using the psql command CREATE DATABASE Chitter_Manager_Test;
-3. Connect to each database using psql command \c Chitter_Manager or \c Chitter_Manager_Test;
-4. Run the query saved in '01_create_peeps_table.sql' for both;
+The aim of this challenge was to build a twitter clone which follows the user stories found below:
 
-
-
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
 
 ```
 STRAIGHT UP
@@ -62,74 +38,44 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+
 ```
 
-Technical Approach:
------
+This solution is completed not including the Advanced user story
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+Follow these instructions to run this program:
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+1. Fork this repo
+2. Run 'bundle install'
+3. Set up database (see next section)
+4. run 'rackup' and go to your local host (9292 by default)
 
 
-Notes on functionality:
+Database Set Up:
 ------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
 ```
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE Chitter_Manager;
+3. Create the test database using the psql command CREATE DATABASE Chitter_Manager_Test;
+3. Connect to each database using psql command \c Chitter_Manager or \c Chitter_Manager_Test;
+4. Run the query saved in '01_create_peeps_table.sql' for both;
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+```
+Once you have set up the project and databases, the program works as folows:
+
+You are initially greeted by the Chitter homepage where you can chose to 'view peeps':
+
+Once you enter Chitter, you will need to either Log in or Sign Up depending on whether you have an account or not. In this step, when signing up, the information will be stored into the 'users' table where all usernames and emails entered must be unique and the passwords are  encrypted using the ruby gem BCrpyt.
+
+If you already have an account, when logging in, the system will search the 'users' table in the Chitter Managers database, to see if the user exists and the password entered is correct. If neither of these are correct, you will be told so and asked to try again.
+
+
+If username and password are correct you will be taken to the peeps page where you can see all peeps made, at what time they were made and who created that peep.
+
+You can create a new peep, by selecting the 'add new peep' button. Peeps added are stored into the 'peeps' table in the data base.
+
+Once you are done viewing, you can log out and will be given confirmations.
+
+ 
+
+Once logged in, you will be able to see all peeps
