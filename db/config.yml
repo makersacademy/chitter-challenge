@@ -13,3 +13,5 @@ test: &test
   database: chitter_test
 
 production:
+  <<: *default
+  database: ENV['DATABASE_URL']
