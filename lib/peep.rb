@@ -3,6 +3,7 @@ require 'date'
 require_relative 'db_connection'
 require_relative 'db_setup'
 
+# Models a Peep, a message posted on Chitter
 class Peep
 
  def self.all

@@ -1,9 +1,8 @@
 # Sets up peeps tabld
 CREATE TABLE peeps (
-    id int,
+    id SERIAL,
     message VARCHAR(280),
     created VARCHAR(60),
     userID int,
     PRIMARY KEY (id),
-    FOREIGN KEY (userID) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
-);
+    FOREIGN KEY (userID) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE);

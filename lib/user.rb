@@ -1,5 +1,6 @@
 require 'pg'
 
+# Models a User of Chitter
 class User
 
   def self.id
@@ -8,11 +9,6 @@ class User
 
   def self.username
     @username
-  end
-
-  def self.connect_to_database
-    ENV['ENVIRONMENT'] == 'test' ? db = 'chitter_db_test' : db = 'chitter_db'
-    @conn = PG.connect(dbname: db)
   end
 
   def self.all_users
@@ -34,12 +30,12 @@ class User
     user(query[0]['id'], query[0]['username'])
   end
 
-  attr_reader :username, :email
-
   def self.user(id, username)
     @id = id
     @username = username
   end
+
+  attr_reader :username, :email
 
   def initialize(username, email)
     @username = username

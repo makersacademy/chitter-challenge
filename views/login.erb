@@ -3,20 +3,27 @@
 <head>
   <link rel="stylesheet" type="text/css" href="chitter.css">
 </head>
+
 <body>
+<header>
+  <h1>Welcome to Chitter!</h1>
+</header>
 
-<h1>Welcome to Chitter!</h1>
-
-<h1>User Login</h1>
+<div align="center" id="wrapper">
+<h2>User Login:</h2>
 <form action="/" method="post">
   <input type="text" name="user_email" placeholder="Enter Email"> <br>
   <input type="text" name="user_password" placeholder="Enter Password"> <br>
-  <input type="submit" value="Login"> <br>
+  <input class="login" type="submit" value="Login">
+  <form action ="/">
+      <input class="cancel" type="submit" value="Cancel">
   </form>
-  
-<form action ="/">
-    <input type="submit" value="Cancel">
 </form>
+
 <form action ="/add_user" method="get">
-    <input type="submit" value="Register!">
+    <input class="register" type="submit" value="Register!">
 </form>
+</div>
+
+</body>
+</html>

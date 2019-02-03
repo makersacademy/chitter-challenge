@@ -1,22 +1,68 @@
-div {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #E6ECF0;
+  color: #005292;
+}
+
+input[type="text"] {
+  color: white;
+  height: 50px;
+  text-align: center;
+  background: #2b2b2b;
+  border: solid black;
+  border-bottom: 3px solid #1CA1F2;
+  font-size: 15px;
+  -webkit-border-radius: 10px;
+}
+
+input:focus {
+  outline: 3px solid #1CA1F2;
+}
+
+header {
+  background: #1CA1F2;
+  padding: 25px;
+}
+
+header > h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 10px;
+}
+
+.login, .cancel, .register, .logout, .peep {
+  font-size: 25px;
   margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+  background: #1CA1F2;
+  border: 5px solid #005292;
+  -webkit-border-radius: 10px;
+}
+
+.login:hover, .cancel:hover, .register:hover, .logout:hover, .peep:hover {
+  background: #CDA112;
+  border: 5px solid gold;
+  transition: background-color 1s;
 }
 
 #peep_wrapper {
-  border: 3px solid #1CA1F2;
-  margin: 10px;
-  width: 25%;
+  margin: 5px;
+  padding: 5px;
+  width: 33%;
+  border: 5px solid #005292;
+  -webkit-border-radius: 10px;
 }
 
-#message {
-  font-size: 20px;
+.registration {
+  margin: 50px;
 }
-
-#created {
-  font-size: 10px;
-}
-/* peep_wrapper
-mesage
-created
-h2
-div */

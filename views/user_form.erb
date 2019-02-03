@@ -4,15 +4,17 @@
   <link rel="stylesheet" type="text/css" href="chitter.css">
 </head>
 <body>
-
+<header>
 <h1>User Registration</h1>
-
-<form action="/add_user" method="post">
+</header>
+<div class="registration">
+<form align=center action="/add_user" method="post">
   <input type="text" name="add_username" placeholder="Enter Username"> <br>
   <input type="text" name="add_email" placeholder="Enter Email"> <br>
   <input type="text" name="add_password" placeholder="Enter Password"> <br>
-  <input type="submit" value="Register"> <br>
+  <input class="register" type="submit" value="Register">
+  <form action ="/">
+      <input class="cancel" type="submit" value="Cancel">
   </form>
-<form action ="/">
-    <input type="submit" value="Cancel">
-</form>
+  </form>
+  </div>

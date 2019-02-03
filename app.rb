@@ -9,12 +9,9 @@ get '/' do
 end
 
 post '/' do
-  if User.sign_in_check(params[:user_email], params[:user_password])
-    @user = User.sign_in(params[:user_email], params[:user_password])
-    redirect '/feed'
-  else
-  redirect '/'
-  end
+  redirect '/' if !User.sign_in_check(params[:user_email], params[:user_password])
+  @user = User.sign_in(params[:user_email], params[:user_password])
+  redirect '/feed'
 end
 
 get '/feed' do
