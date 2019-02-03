@@ -1,4 +1,4 @@
-https://travis-ci.org/thielsen/chitter-challenge.svg?branch=master
+[![Build Status](https://travis-ci.org/thielsen/chitter-challenge.svg?branch=master)](https://travis-ci.org/thielsen/chitter-challenge)
 
 Chitter Challenge
 =================
