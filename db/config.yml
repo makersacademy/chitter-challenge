@@ -17,5 +17,5 @@ production:
   database: <%= ENV['DATABASE'] %>
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
+  host: ec2-54-75-245-94.eu-west-1.compute.amazonaws.com
   port: 5432
