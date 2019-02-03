@@ -12,6 +12,6 @@ test: &test
   <<: *default
   database: chitter_test
 
-production:
+production: &production
   <<: *default
   database: ENV['DATABASE_URL']
