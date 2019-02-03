@@ -5,4 +5,7 @@ describe Peep do
     expect(Peep.first.body).to eq 'Hello world!'
     expect(Peep.last.body).to eq 'Mario!'
   end
+
+  it { should have_property :posted_at }
+
 end

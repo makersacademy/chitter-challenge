@@ -13,7 +13,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/' do
-    Peep.create(body: params[:Peep])
+    Peep.create(body: params[:Peep], posted_at: Time.now.strftime('%d-%m-%Y %H:%M:%S'))
     redirect '/'
   end
 

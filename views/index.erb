@@ -8,6 +8,7 @@
       <h1>Welcome to Chitter</h1>
       <% @peeps.reverse.each do |peep| %>
         <p><%= peep.body %></p>
+        <p>Posted at: <%= peep.posted_at %></p>
       <% end %>
     </div>
     <div align='center'>

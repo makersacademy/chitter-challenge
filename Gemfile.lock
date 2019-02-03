@@ -43,6 +43,9 @@ GEM
     dm-postgres-adapter (1.2.0)
       dm-do-adapter (~> 1.2.0)
       do_postgres (~> 0.10.6)
+    dm-rspec (0.3.0)
+      dm-core
+      dm-validations
     dm-serializer (1.2.2)
       dm-core (~> 1.2.0)
       fastercsv (~> 1.5)
@@ -140,6 +143,7 @@ DEPENDENCIES
   capybara
   data_mapper
   dm-postgres-adapter
+  dm-rspec
   rake
   rspec
   rubocop (= 0.56.0)

@@ -6,6 +6,7 @@ class Peep
 
   property :id, Serial
   property :body, Text
+  property :posted_at, String
 
 end
 
