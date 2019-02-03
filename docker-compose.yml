@@ -10,6 +10,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: rake db:migrate
     command: bundle exec puma -C puma.rb
     volumes:
       - .:/user/app
