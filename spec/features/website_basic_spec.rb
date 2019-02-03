@@ -26,22 +26,13 @@ feature 'Website tests:' do
     expect(current_path).to eq('/')
     expect(first('.peep')).to have_content('I had some bread')
   end
-  
-  scenario 'a user can see the time a peep was made' do
-    visit('/')
-    fill_in('peep', with: 'I had some coffee')
-    click_button('Post')
-    expect(current_path).to eq('/')
-    expect(first('.peep__time')).to have_text(/\d{2}:\d{2}:\d{2}/)
-
-  end
 
   scenario 'a user can see the time a peep was made 2' do
     visit('/')
     fill_in('peep', with: 'I had some coffee')
     click_button('Post')
     expect(current_path).to eq('/')
-    page.find('#peep-1', :visible => true)
+    page.find('.peep__time', :visible => true)
   end
 
   scenario 'a user can sign up to Chitter' do

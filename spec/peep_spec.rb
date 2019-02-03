@@ -1,11 +1,11 @@
 require './app/lib/peep'
 require 'pg'
+require 'time'
 require 'timecop'
 
 RSpec.describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      # connection = PG.connect(dbname: 'chitter_test')
       Peep.create(peep: 'I ate some cake')
       expect(Peep.all.first.peep).to eq('I ate some cake')
       expect(Peep.all.length).to eq(1)
@@ -30,7 +30,7 @@ RSpec.describe Peep do
     it 'creates a new peep with a timestamp' do
       Timecop.freeze
       Peep.create(peep: 'I ate some cake')
-      expect(Peep.all.first.time.to_s).to eq(Time.now.to_s)
+      expect(Time.parse(Peep.all.first.timestamp).to_s).to eq(Time.now.to_s)
     end
   end
 
@@ -41,6 +41,4 @@ RSpec.describe Peep do
       expect(authenticated_user.id).to eq(user.id)
     end
   end
-
-  
 end

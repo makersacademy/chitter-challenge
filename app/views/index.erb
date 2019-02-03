@@ -40,7 +40,9 @@
         <% @peeps.each { |peep|  %>
           <li class="peep" id="peep-<%= peep.id %>">
             <%= peep.peep %>
-            <div class="peep__time">Posted at: <%= peep.time %></div>
+            <div class="peep__time">
+              Posted at: <%= peep.formatted_date %> at <%= peep.formatted_time %>
+            </div>
           </li>
         <% } %>
       </ul>

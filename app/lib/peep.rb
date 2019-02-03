@@ -2,13 +2,12 @@ require 'time'
 require_relative './database_connection'
 
 class Peep
-  attr_reader :peep, :id, :timestamp, :time
+  attr_reader :peep, :id, :timestamp
 
   def initialize(peep:, id:, timestamp:)
     @peep = peep
     @id = id
     @timestamp = timestamp
-    @time = Time.parse(timestamp)
   end
 
   def self.all
@@ -36,5 +35,15 @@ class Peep
       id: result[0]['id'], 
       timestamp: result[0]['timestamp']
       )
+  end
+
+  def formatted_date
+    time = Time.parse(@timestamp)
+    time.strftime("%d %B, %Y")
+  end
+
+  def formatted_time
+    time = Time.parse(@timestamp)
+    time.strftime("%k%M")
   end
 end
