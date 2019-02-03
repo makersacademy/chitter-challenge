@@ -6,7 +6,6 @@ html, body, h1, h2, h3, p {
 }
 
 body {
-  /* font-family: 'Roboto', sans-serif; */
   font-family: 'Overpass Mono', monospace;
 }
 
@@ -21,13 +20,10 @@ body {
   padding: 20px;
   border: 3px solid black;
   box-shadow: 10px 15px;
-  /* border-left: 3px solid black; */
-  /* border-bottom: 3px solid black; */
 }
 
 #myForm {
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   padding: 20px;
   margin: 20px;
@@ -38,9 +34,7 @@ body {
 }
 
 #myForm input[type=submit], .peep_button {
-  /* /* display: flex; */
   justify-content: flex-end;
-  /* align-items: flex-end; */
   background-color: #000;
   border: none;
   color: white;
@@ -52,27 +46,19 @@ body {
   font-size: 1rem;
   box-shadow: 3px 3px PaleGreen;
   font-family: 'Overpass Mono', monospace;
-
 }
 
 
 .peep__textarea {
-  /* min-width: 100%; */
-  /* margin: 10px; */
   font-size: 1.1rem;
-  /* padding: 10px 5px; */
   font-family: 'Overpass Mono', monospace;
-`
 }
 
 .main__login {
   display: flex;
-  /* flex-direction: column; */
-  /* padding-right: 5px; */
   position: absolute;
   right: 10px;
   top: 10px;
-  /* background-color: pink; */
   padding: 10px;
 }
 
@@ -82,7 +68,6 @@ body {
 
 .main__login a::after {
   content: ' / ';
-
 }
 
 .peep {
@@ -109,6 +94,5 @@ body {
 
 h1 {
   padding: 20px;
-  /* color: white; */
 }
 
