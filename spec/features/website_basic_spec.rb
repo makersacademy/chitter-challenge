@@ -43,4 +43,15 @@ feature 'Website tests:' do
     expect(current_path).to eq('/')
     page.find('#peep-1', :visible => true)
   end
+
+  scenario 'a user can sign up to Chitter' do
+    visit('/')
+    expect(page).to have_link('sign up', href: '/users/new')
+    click_on('sign up')
+    expect(current_path).to eq('/users/new')
+    fill_in('email', with: 'test@test.com')
+    fill_in('password', with: 'password123')
+    click_button('Submit')
+    expect(page).to have_content('Welcome, test@test.com')
+  end
 end
