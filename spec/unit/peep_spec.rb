@@ -15,4 +15,9 @@ RSpec.describe Peep do
     expect(Peep.find_username(TEST_MESSAGE)).to eq 'al123'
   end
 
+  it 'should create a peep given a valid input' do
+    expect(described_class.create_peep('Test', 'al123')).to have_attributes(message: 'Test')
+    expect(described_class.create_peep('Test', 'al123')).to have_attributes(user_id: 1)
+  end
+
 end

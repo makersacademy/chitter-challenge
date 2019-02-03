@@ -21,8 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    user_id = User.find_by(username: session[:username]).id
-    Peep.create(message: params[:message], user_id: user_id)
+    Peep.create_peep(params[:message], session[:username])
     redirect '/'
   end
 
