@@ -6,11 +6,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/cheets' do
-    @cheets = [
-      "Being methodical and sensible",
-      "I stick to the pomodoro technique",
-      "To get much done in little time"
-    ]
+    @cheets = Cheet.all
     erb :cheets
   end
 
