@@ -4,7 +4,7 @@ feature 'As a Maker' do
     click_button 'Sign up'
     expect(page).to have_content "Sign up to use Chitter"
   end
-  scenario 'You can register then see the newsfeed' do
+  scenario 'You can sign up and see the newsfeed' do
     visit '/'
     click_button 'Sign up'
     fill_in 'username', with: 'Username'
