@@ -1,0 +1,22 @@
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<h2>Here are the things:</h2>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="border" id="peep<%= peep.id %>" >
+        <%= peep.comment %><br><%= peep.date_posted %>
+      <form action="/peeps/<%= peep.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+      </form>
+      <form action="/peeps/<%= peep.id %>" method="get"
+        <input type='hidden' name='_method' value='PATCH'/>
+        <input type="submit" value="Update" />
+      </form>
+    </li>
+  <% end %>
+</ul>
+<form action="/home" method="get">
+<input type="submit" value="Return Home" />
+</form>

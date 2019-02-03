@@ -1,0 +1,6 @@
+
+.border {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: orange;
+}

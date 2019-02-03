@@ -14,9 +14,10 @@ feature 'Adding peeps' do
   scenario 'A user can add a peep' do
     visit('/')
     click_link('Add a peep')
-    fill_in('comment', with: 'This is a test comment.')
+    fill_in('peepbox', with: 'This is a test peep.')
     click_button('Post it!')
-    expect(page).to have_content "This is a test comment."
+    click_link('View peeps')
+    expect(page).to have_content "This is a test peep."
   end
 end
 
@@ -28,15 +29,31 @@ end
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps already written' do
-    visit('/peeps')
+    visit('/')
+    click_link('View peeps')
     expect(page).to have_content "Here are the things"
   end
-end
 
 # As a Maker
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made
 #
+  scenario 'can see timestamp of peep' do
+    visit('/')
+    p 1
+    click_link('Add a peep')
+    p 2
+    fill_in('peepbox', with: 'This is a test peep.')
+    p 3
+    click_button('Post it!')
+    p 4
+    click_link('View peeps')
+    p 5
+    expect(page).to have_content "Posted #{date}."
+    p 6
+  end
+
+end
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter

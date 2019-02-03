@@ -1,3 +1,3 @@
 require './chitter.rb'
 
-run ChitterApp
+run Peeps
