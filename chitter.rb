@@ -13,38 +13,42 @@ class Chitter < Sinatra::Base
 
   get '/' do
     ENV['RAILS_ENV'] ||= 'development'
+    @username = session[:username]
     @peeps = Peep.joins(:user).select("peeps.*, users.username, users.forename, users.surname")
     erb :index
   end
 
   post '/' do
-    user_id = User.find_by(username: User.logged_in_name).id
+    user_id = User.find_by(username: session[:username]).id
     Peep.create(message: params[:message], user_id: user_id)
     redirect '/'
   end
 
   get '/new' do
+    @username = session[:username]
     erb :new
   end
 
   get '/login' do
+    @username = session[:username]
     flash[:failure] = "Invalid username or password. Try again"
     erb :login
   end
 
   get '/logout' do
-    User.assign_user(nil)
+    session[:username] = nil
     redirect '/'
   end
 
   post '/login' do
     @result = Password.check_password(params[:username], params[:password])
     redirect '/login' if @result == false
-    User.assign_user(params[:username])
+    session[:username] = params[:username]
     redirect '/'
   end
 
   get '/signup' do
+    @username = session[:username]
     erb :signup
   end
 
@@ -59,11 +63,10 @@ class Chitter < Sinatra::Base
       flash[:error] = newuser.errors.full_messages.first
       redirect '/signup'
     end
-    User.assign_user(params[:username])
+    session[:username] = params[:username]
     redirect '/'
   end
 
   DatabaseConnection.setup
-  User.assign_user(nil)
 
 end

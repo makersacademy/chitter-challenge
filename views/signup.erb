@@ -7,8 +7,8 @@
   <h3>Chitter: Signup</h3>
   </div>
   <div class="icon-bar">
-    <% if User.logged_in_name %>
-    <a href="/login"><i class="fa fa-user"></i> <%= User.logged_in_name%></a>
+    <% if @username %>
+    <a href="/login"><i class="fa fa-user"></i> <%= @username%></a>
     <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
       <a href="/new"><i class="fa fa-commenting"></i> New Peep!</a>
     <% else %>

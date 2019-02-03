@@ -3,7 +3,7 @@ require './chitter'
 RSpec.describe 'feature tests' do
   before(:each) do
     test_db_initialise
-    User.assign_user(nil)
+    # User.assign_user(nil)
   end
 
 # STRAIGHT UP
