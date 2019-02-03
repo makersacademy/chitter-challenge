@@ -16,4 +16,18 @@ describe Peep do
       expect(peep.time).to eq time
     end
   end
+
+  describe ' .all' do
+    it " shows all peeps" do
+      peep = Peep.create(username: 'jess', peep: 'Wow! My first peep!')
+      time = Time.new.strftime('%F  %I:%M%p')
+
+      peeps = Peep.all
+
+      expect(peeps.length).to eq 1
+      expect(peeps.first.username).to eq 'jess'
+      expect(peeps.first.peep).to eq 'Wow! My first peep!'
+      expect(peeps.first.time).to eq time
+    end
+  end
 end

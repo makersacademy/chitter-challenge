@@ -28,8 +28,7 @@ enable :sessions, :method_override
   end
 
   get '/peeps' do
-    @username = $username
-    @peep = $peep
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
@@ -38,9 +37,7 @@ enable :sessions, :method_override
   end
 
   post '/peeps' do
-    $username = params[:username]
-    $peep = params[:peep]
-
+    Peep.create(username: params[:name], peep: params[:peep])
     redirect '/peeps'
   end
 

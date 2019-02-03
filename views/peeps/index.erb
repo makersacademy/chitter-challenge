@@ -1,2 +1,14 @@
-<%= @peep %>
-by <%= @username %>
+<table>
+  <tr>
+    <th>Peep</th>
+    <th>Username</th>
+    <th>Time</th>
+  </tr>
+  <% @peeps.each do |peep| %>
+  <tr>
+    <td><%= peep.peep %></td>
+    <td><%= peep.username %></td>
+    <td><%= peep.time %></td>
+    </tr>
+  <% end %>
+</table>
