@@ -15,4 +15,13 @@ feature 'Viewing peeps' do
     click_on('Submit')
     expect(page).to have_content "A new peep added by the user"
   end
+
+  scenario 'Peeps are shown in reverse chronological order' do
+    Peep.post(peep: 'To get much done in little time')
+    Peep.post(peep: 'I stick to the pomodoro technique')
+    Peep.post(peep: 'Being methodical and sensible')
+    visit('/peeps')
+    page.body.index('Being methodical and sensible').should < page.body.index('I stick to the pomodoro technique')
+    page.body.index('I stick to the pomodoro technique').should < page.body.index('To get much done in little time')
+  end
 end
