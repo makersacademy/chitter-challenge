@@ -76,15 +76,15 @@ The user's posts - "peeps" - and the user details that are collected during regi
 
 On the home page, the user can navigate to see previous posts, register a new account, or post a new peep. There is a button for login, however this feature has not been implemented yet.
 
-![home_page](./images/home.png)
+![home_page](./public/images/home.png)
 
 When creating a new account, the user provides their details which are stored in the SQL database. The password is encrypted with the `bcrypt` gem.
 
-![new_account](./images/new_account.png)
+![new_account](./public/images/new_account.png)
 
 On posting a new message, the text box holds space for 240 characters. Once the input is saved, it is stored in the database.
 
-![peep](./images/peep.png)
+![peep](./public/images/peep.png)
 
 Notes on known issues and missing features:
 ------
