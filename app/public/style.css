@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
 
 html, body, h1, h2, h3, p {
   margin: 0;
@@ -6,24 +6,109 @@ html, body, h1, h2, h3, p {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Overpass Mono', monospace;
 }
 
 .main__container {
+  position: relative;
   max-width: 700px;
   margin: auto;
-  background-color: pink;
+  /* background-color: DodgerBlue; */
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  border: 3px solid black;
+  box-shadow: 10px 15px;
+  /* border-left: 3px solid black; */
+  /* border-bottom: 3px solid black; */
 }
 
+#myForm {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  padding: 20px;
+  margin: 20px;
+}
+
+#myForm textarea {
+  width: 100%;
+}
+
+#myForm input[type=submit], .peep_button {
+  /* /* display: flex; */
+  justify-content: flex-end;
+  /* align-items: flex-end; */
+  background-color: #000;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 4px 0px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 3px 3px PaleGreen;
+  font-family: 'Overpass Mono', monospace;
+
+}
+
+
 .peep__textarea {
-  min-width: 90%;
-  margin: 10px;
+  /* min-width: 100%; */
+  /* margin: 10px; */
   font-size: 1.1rem;
+  /* padding: 10px 5px; */
+  font-family: 'Overpass Mono', monospace;
+`
+}
+
+.main__login {
+  display: flex;
+  /* flex-direction: column; */
+  /* padding-right: 5px; */
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  /* background-color: pink; */
+  padding: 10px;
+}
+
+.main__login p{
+  margin-right: 15px;
+}
+
+.main__login a::after {
+  content: ' / ';
+
+}
+
+.peep {
+  padding: 20px;
+  margin: 20px;
+  list-style-type: none;
+  background-color: PaleGreen;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+
+.peep li, ul {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.peep__time {
+  color: rgb(107, 148, 138);
+  padding: 30px 0 0 0;
+  font-size: 0.9rem;
 }
 
 h1 {
   padding: 20px;
+  /* color: white; */
 }
 
