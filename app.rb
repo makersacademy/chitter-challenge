@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    @peeps = Peep.all
+    @peeps = Peep.view_in_date_order
     erb :'/peeps/index'
   end
 

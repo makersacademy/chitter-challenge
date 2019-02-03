@@ -28,8 +28,20 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-
-    result = connection.exec("INSERT INTO peeps (name, message) VALUES('#{name}', '#{message}') RETURNING name, message")
+    query = "INSERT INTO peeps (name, message) VALUES('#{name}', '#{message}') RETURNING id, name, message;"
+    result = connection.exec(query)
     Peep.new(id: result[0]['id'], name: result[0]['name'], message: result[0]['message'])
+  end
+
+  def self.view_in_date_order
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    result = connection.exec("SELECT * FROM peeps ORDER BY time DESC")
+    result.map do |peep|
+      Peep.new(id: peep['id'], name: peep['name'], message: peep['message'])
+    end
   end
 end
