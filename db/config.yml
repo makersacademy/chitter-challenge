@@ -14,4 +14,8 @@ test: &test
 
 production: &production
   <<: *default
+<<<<<<< HEAD
   url: <%= ENV['DATABASE_URL'] %>
+=======
+  url: ENV['DATABASE_URL']
+>>>>>>> 85857dab1bbfaef445dbe50dbeb0498ee989d6ee
