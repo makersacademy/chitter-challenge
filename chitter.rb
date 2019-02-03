@@ -10,11 +10,12 @@ require './app/models/user'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions, :method_override
+  ENV['RAILS_ENV'] ||= 'development'
   register Sinatra::Flash
+  DatabaseConnection.setup
+  enable :sessions, :method_override
 
   get '/' do
-    ENV['RAILS_ENV'] ||= 'development'
     @username = session[:username]
     @peeps = Peep.joins(:user).select("peeps.*, users.username, users.forename, users.surname")
     erb :index
@@ -42,8 +43,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    @result = Password.check_password(params[:username], params[:password])
-    redirect '/login' if @result == false
+    redirect '/login' unless Password.check_password(params[:username], params[:password])
     session[:username] = params[:username]
     redirect '/'
   end
@@ -54,12 +54,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    encrypted = Password.hash(params[:password])
     newuser = User.create(username: params[:username],
                           forename: params[:forename],
                           surname: params[:surname],
                           email: params[:email],
-                          password: encrypted)
+                          password: Password.hash(params[:password]))
     if newuser.errors.any?
       flash[:error] = newuser.errors.full_messages.first
       redirect '/signup'
@@ -67,7 +66,5 @@ class Chitter < Sinatra::Base
     session[:username] = params[:username]
     redirect '/'
   end
-
-  DatabaseConnection.setup
 
 end

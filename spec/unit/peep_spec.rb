@@ -12,7 +12,7 @@ RSpec.describe Peep do
   end
 
   it 'should identify a username in a peep' do
-    expect(Peep.find_username(TEST_MESSAGE)).to eq 'al123'
+    expect(described_class.find_username(TEST_MESSAGE)).to eq 'al123'
   end
 
   it 'should create a peep given a valid input' do
