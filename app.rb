@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
 enable :sessions, :method_override
 
   get '/' do
-    'Welcome to CHITTER!'
+    erb :'home/index'
   end
 
   get '/users' do
