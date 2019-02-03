@@ -40,7 +40,7 @@ end
 
 
 feature 'messages get a user name' do
-  scenario 'usec can see his name displayed by the message' do
+  scenario 'user can see his name displayed by the message' do
     visit('/')
     fill_in 'user_name', with: 'Kasia'
     fill_in 'your_email', with: 'Kasia@o2.pl'
