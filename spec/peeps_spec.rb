@@ -2,7 +2,7 @@ require 'peeps'
 
 describe Peeps do
   describe '.all' do
-    it 'returns all peeps' do
+    it 'returns all peeps in reverse choronological order' do
       connection = PG.connect(dbname: 'chitter_test')
 
       connection.exec("INSERT INTO peeps (peep) VALUES ('First peep');")
