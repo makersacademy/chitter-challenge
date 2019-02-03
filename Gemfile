@@ -40,6 +40,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rake'
 gem 'rubocop', '0.56.0'
 
+# WPDUNK additions
+# Use ActiveModel has_secure_password
+gem 'bcrypt'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
