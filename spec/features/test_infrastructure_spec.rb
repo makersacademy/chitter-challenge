@@ -17,13 +17,16 @@ feature 'Homepage' do
   scenario 'User can sign up on the homepage' do
     visit '/'
     fill_in_sign_up_form
-    expect(page).to have_content 'What would you like to share'
-    #make this a more robust test?
+    expect {page.find('body', text: "What would you like to share, username")}.to_not raise_error
   end
 
 end
 
 feature 'Peeps display page' do
+
+  # scenario 'User can only post a peep if signed in' do
+  #
+  # end
 
   scenario 'User can post a peep' do
     visit '/'
@@ -38,6 +41,14 @@ feature 'Peeps display page' do
     post_a_peep
     peep = Peep.all[0]
     expect(page).to have_css('#print-peeps')
+  end
+
+  scenario 'Page shows the user who created the peep' do
+    visit '/'
+    fill_in_sign_up_form
+    post_a_peep
+    peep = Peep.all[0]
+    expect {page.find('div', text: "This is a test peep!\n-- username")}.to_not raise_error
   end
 
 end

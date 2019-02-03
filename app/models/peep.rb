@@ -18,10 +18,10 @@ class Peep
   end
 
   def username
-    "#{User[self.user_id - 1].username}" 
+    "#{User[self.user_id - 1].username}"
   end
 
-  belongs_to :user, required: true
+  belongs_to :user, required: false
 
 
 end

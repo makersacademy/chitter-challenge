@@ -16,7 +16,6 @@ class User
   validates_format_of   :email, :as => :email_address
   validates_is_unique   :email
   validates_is_unique   :username
-  # a call to valid? will return false unless valid
 
   has n, :peeps
 

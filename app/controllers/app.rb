@@ -11,7 +11,7 @@ class Shitter < Sinatra::Base
   configure :development do
     DataMapper.setup :default, "postgres://localhost/shitter"
     DataMapper.finalize
-    DataMapper.auto_migrate!
+    DataMapper.auto_upgrade!
     set :views, "app/views"
     set :public_dir, "public"
   end
