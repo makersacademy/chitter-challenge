@@ -59,11 +59,13 @@ Database Set Up:
 3. Create the test database using the psql command CREATE DATABASE Chitter_Manager_Test;
 3. Connect to each database using psql command \c Chitter_Manager or \c Chitter_Manager_Test;
 4. Run the query saved in '01_create_peeps_table.sql' for both;
-
+5. Run the query saved in '02_create_user_table.sql' for both;
 ```
-Once you have set up the project and databases, the program works as folows:
+Once you have set up the project and databases, the program works as follows:
 
-You are initially greeted by the Chitter homepage where you can chose to 'view peeps':
+1. You are initially greeted by the Chitter homepage where you can chose to 'view peeps':
+
+![Screenshot](https://imgur.com/IQjofUA)
 
 Once you enter Chitter, you will need to either Log in or Sign Up depending on whether you have an account or not. In this step, when signing up, the information will be stored into the 'users' table where all usernames and emails entered must be unique and the passwords are  encrypted using the ruby gem BCrpyt.
 
