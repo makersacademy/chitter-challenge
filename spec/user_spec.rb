@@ -10,18 +10,18 @@ describe User do
       expect(User.all[-2]).to eq nil
     end
   end
-  
+
   describe 'users' do
     it 'has a username' do
       expect(User.all[0].username).to eq 'tomd'
     end
-    it 'has a username' do
+    it 'has a email' do
       expect(User.all[0].email).to eq 'testemail@email.com'
     end
-    it 'has a username' do
+    it 'has a password' do
       expect(User.all[0].password).to eq 'password'
     end
-    it 'has a username' do
+    it 'has a name' do
       expect(User.all[0].name).to eq 'Tom'
     end
   end

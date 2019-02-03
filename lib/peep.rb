@@ -15,4 +15,10 @@ class Peep
     printer.new.print_out_peeps(all)
   end
 
+  def self.check_tags(peep, user = User)
+    content = peep.content
+    tags = content.split(" ").select{|word| word[0] == '@'}
+    user.check_user(tags: tags, content: content) if tags.length > 0
+  end
+
 end

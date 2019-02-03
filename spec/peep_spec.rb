@@ -1,22 +1,11 @@
 describe Peep do
   let(:printer) { double(:printer, print_out_peeps: nil) }
   let(:printer_class) { double(:printer_class, new: printer) }
+  let(:user) { double(:user, check_user: nil) }
   let(:new_peep) { Peep.create(content: 'Hello world') }
   describe '#create' do
     it 'can be created with a content paramater' do
       expect(new_peep.content).to eq "Hello world"
-    end
-  end
-
-  describe '#all' do
-    it 'returns array of Peep instances' do
-      new_peep
-      expect(Peep.all[0]).to be_a(Peep)
-    end
-
-    it "returns peeps with content paramaters" do
-      new_peep
-      expect(Peep.all[0].content).to eq "Hello world"
     end
   end
 
@@ -36,6 +25,28 @@ describe Peep do
     end
     it "returns time the peep was created" do
       expect(new_peep.created_at).to eq DateTime.now
+    end
+  end
+  describe '#self.check_tags' do
+    context 'peep with one potential tag' do
+      it 'sends tag and content to user class to validate' do
+        tagged_peep = Peep.create(content: 'hello @tomd')
+        expect(user).to receive(:check_user).with(tags: ['@tomd'], content: 'hello @tomd')
+        Peep.check_tags(tagged_peep, user)
+      end
+    end
+    context 'peep with more than one potential tag' do
+      it 'sends all tags to user class' do
+        multi_tagged_peep = Peep.create(content: 'hello @tomd and @james')
+        expect(user).to receive(:check_user).with(tags: ['@tomd', '@james'], content: 'hello @tomd and @james')
+        Peep.check_tags(multi_tagged_peep, user)
+      end
+    end
+    context 'peep with no tags' do
+      it 'returns nil' do
+        no_tags = Peep.create(content: 'hello world')
+        expect(Peep.check_tags(no_tags)).to eq nil
+      end
     end
   end
 end
