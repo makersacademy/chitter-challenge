@@ -1,12 +1,16 @@
-<h2>Newsfeed</h2>
-
+<h2>Welcome <%= @user.username %> </h2>
+<h3>Newsfeed</h3>
 <ul>
-    <% @peeps.each do |peep| %>
+  <% @peeps.each do |peep| %>
     <li>
-      <%= peep.peep %> (<%=peep.time%>)
-      </li>
+    <% @users.each do |user| %>
+    <% if user.id == peep.user_id %>
+     <%= user.name %> says: <%= peep.peep %> (<%=peep.time%>)
+    </li>
     <% end %>
-  </ul>
+    <% end %>
+  <% end %>
+</ul>
 
 <form action="/add_peep" method="post">
   <label for="peep">
@@ -14,4 +18,8 @@
   </label>
   <input type="text" name="peep">
   <input type="submit" value="Post">
+</form>
+
+<form action="/logout" method="post">
+<input type="submit" value="Logout">
 </form>

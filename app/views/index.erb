@@ -1,4 +1,19 @@
+<%= flash[:notice] %>
+
 <h2>chitter</h2>
+<form action="/session" method="post">
+  <h3>Sign in to Chitter</h3>
+  <label for="username">
+    <h4>Username:</h4>
+  </label>
+  <input type="text" name="username">
+  <label for="password">
+    <h4>Password:</h4>
+  </label>
+  <input type="text" name="password">
+  <input type="submit" value="Sign in">
+</form>
+
 <form action="/register/new" method="get">
   <input type="submit" value="Register">
 </form>

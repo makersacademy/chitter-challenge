@@ -9,6 +9,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'rubocop'
 require_relative './test_database'
+require_relative './features/web_helper'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -22,7 +23,7 @@ require File.expand_path '../app/app.rb', __dir__
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-  
+
   config.before(:each) do
     test_database
   end

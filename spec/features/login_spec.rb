@@ -8,11 +8,7 @@ end
 
 feature 'You can register then see the newsfeed' do
     scenario do
-      visit '/'
-      click_button 'Register'
-      fill_in 'username', with: 'User1'
-      fill_in 'password', with: 'password123'
-      click_button 'Register'
+      register
       expect(page).to have_content "Newsfeed"
     end
 end
