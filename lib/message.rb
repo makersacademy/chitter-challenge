@@ -17,8 +17,7 @@ class Message
       Message.new(
         id: peep['id'],
         peep: peep['peep'],
-        timestamp: peep['timestamp']
-      )}
+        timestamp: peep['timestamp'])}
   end
 
   def self.add(peep:)
