@@ -40,6 +40,12 @@ Instructions
 1. Install postgres and set the password for the `postgres` user to `password`
 1. Create two databases, `chitter` and `chitter_test`
 1. Run `1_create_users_table.sql` and `2_create_peeps_table.sql`; both found in the `migrations` folder (in that order).
+1. Create a `.env` file in the project root and populate the following items to allow email sending to work (only tested with a gmail account):
+``` 
+GMAIL_USER=
+GMAIL_PASS=
+ADDRESS=smtp.gmail.com
+```
 1. Install `ruby 2.5.0`.
 1. Execute `bundle install` to install all the required gems. 
 1. Run the server with `rackup` and browse to `localhost:9292` by default.
