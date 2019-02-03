@@ -1,9 +1,6 @@
 require 'data_mapper'
 require_relative 'maker'
 
-DataMapper::Logger.new($stdout, :debug)
-DataMapper.setup(:default, 'postgres://david@localhost/chitter')
-
 class Peep
   include DataMapper::Resource
 

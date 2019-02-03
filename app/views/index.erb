@@ -4,6 +4,7 @@
   Sign up:<br />
   Username:<input type="text" />
   Display name:<input type="text" />
+
 </form>
 <% end %>
 
@@ -14,18 +15,14 @@
   <input type='submit' value="Post" />
 </form>
 </p>
-
--->! Perhaps I should look up the rest of the weekly
-challenge before going further - it might show how
-to do popups etc
-
+<br />
 <p>
 Peepstream:
 </p>
 <div>
 <% peeps.all.reverse.each do |peep| %>
 <p>
-  <%= Maker.get(peep.maker_id).displayname %>:
+  <%= Maker.get(peep.maker_id).displayname %> (<%= Maker.get(peep.maker_id).username %>):
 </p>
 <p style="em">
   <%= peep.peeptext %>

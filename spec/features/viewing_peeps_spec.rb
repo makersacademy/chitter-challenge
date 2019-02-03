@@ -16,8 +16,9 @@ feature 'display of peeps' do
       .or (have_content "#{(now - 1).strftime('at %H:%M(:%S) on %b%e')}")
   end
 
-  scenario 'peeps display the displayname of the maker who posted them' do
+  scenario 'peeps display the displayname and username of the maker who posted them' do
     submit_a_peep first
     expect(page).to have_content 'Default Account'
+    expect(page).to have_content 'default username'
   end
 end
