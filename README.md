@@ -67,17 +67,23 @@ Once you have set up the project and databases, the program works as follows:
 
 ![Screenshot](https://i.imgur.com/IQjofUA.png)
 
-Once you enter Chitter, you will need to either Log in or Sign Up depending on whether you have an account or not. In this step, when signing up, the information will be stored into the 'users' table where all usernames and emails entered must be unique and the passwords are  encrypted using the ruby gem BCrpyt.
+2. Once you enter Chitter, you will need to either Log in or Sign Up depending on whether you have an account or not. In this step, when signing up, the information will be stored into the 'users' table where all usernames and emails entered must be unique and the passwords are  encrypted using the ruby gem BCrpyt.
+
+![Screenshot](https://i.imgur.com/orlAH5G.png)
 
 If you already have an account, when logging in, the system will search the 'users' table in the Chitter Managers database, to see if the user exists and the password entered is correct. If neither of these are correct, you will be told so and asked to try again.
 
+![Screenshot](https://i.imgur.com/PANtfYb.png)
 
-If username and password are correct you will be taken to the peeps page where you can see all peeps made, at what time they were made and who created that peep.
+3. If username and password are correct you will be taken to the peeps page where you can see all peeps made, at what time they were made and who created that peep.
 
-You can create a new peep, by selecting the 'add new peep' button. Peeps added are stored into the 'peeps' table in the data base.
+![Screenshot](https://i.imgur.com/FB6lF0l.png)
 
-Once you are done viewing, you can log out and will be given confirmations.
+4. You can create a new peep, by selecting the 'add new peep' button. Peeps added are stored into the 'peeps' table in the data base.
 
- 
+![Screenshot](https://i.imgur.com/VWFKv8U.png)
 
-Once logged in, you will be able to see all peeps
+5. Once you are done viewing, you can log out and will be given confirmations.
+
+![Screenshot](https://i.imgur.com/H4AlN1y.png) 
+
