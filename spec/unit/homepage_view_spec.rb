@@ -31,4 +31,12 @@ feature 'Posting mechanics' do
     visit('/post')
     expect(page).to have_field(:peep)
   end
+  scenario 'User gets redirected to main page' do
+    visit('/post')
+    fill_in :peep, with: "Redirect test!"
+    click_button('Peep!')
+    expect(page).to have_content "Latest peeps:"
+    expect(page).to have_content "Redirect test!"
+    expect(page).to have_current_path "/"
+  end
 end

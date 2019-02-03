@@ -28,8 +28,8 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec( "INSERT INTO peeps(peep_content, posted_at)
-    VALUES('#{peep_content}', NOW()) RETURNING poster_id, peep_content, posted_at;" )
+    result = connection.exec( "INSERT INTO peeps(id, peep_content, posted_at)
+    VALUES(DEFAULT, '#{peep_content}', NOW()) RETURNING poster_id, peep_content, posted_at;" )
     Peep.new(poster_id: result[0]['poster_id'], peep_content: result[0]['peep_content'], posted_at: result[0]['posted_at'])
   end
 
