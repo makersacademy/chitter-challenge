@@ -9,4 +9,11 @@ feature 'Viewing peeps' do
     expect(page).to have_content "I stick to the pomodoro technique"
     expect(page).to have_content "To get much done in little time"
   end
+
+  scenario 'A user can add a new peep' do
+    visit('/peeps')
+    fill_in('peep', with: 'A new peep added by the user')
+    click_on('Submit')
+    expect(page).to have_content "A new peep added by the user"
+  end
 end

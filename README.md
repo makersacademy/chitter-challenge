@@ -4,6 +4,11 @@
 As a user
 So that I can see cheets
 I would like to see a list of cheets
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
 ```
 
 ## Domain Model
