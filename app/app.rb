@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require_relative '../lib/peeps'
 require_relative '../spec/test_database'
 require_relative '../lib/database_setup'
+require_relative '../lib/comment'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -15,6 +16,18 @@ class Chitter < Sinatra::Base
 
   get '/register/new' do
      erb(:register)
+  end
+
+  get '/guest' do
+    @user = User.list.find{ | user | user.id == session[:user_id] }
+    @peeps = Peeps.list.reverse
+    @users = User.list
+    @comment_list = Comment.list
+    erb(:guest_view)
+  end
+
+  post '/create/account' do
+    redirect '/register/new'
   end
 
   post '/register' do
@@ -43,12 +56,24 @@ class Chitter < Sinatra::Base
     @user = User.list.find{ | user | user.id == session[:user_id] }
     @peeps = Peeps.list.reverse
     @users = User.list
+    @comment_list = Comment.list
     erb(:peeps)
   end
 
   post '/add_peep' do
     @user = User.list.find{ | user | user.id == session[:user_id] }
     Peeps.add(peep: params[:peep], user_id: @user.id)
+    redirect '/peeps'
+  end
+
+  get '/add_comment' do
+    @peep = Peeps.list.find { | peep | peep.id == params[:id] }
+    @user = User.list.find{ | user | user.id == session[:user_id] }
+    erb(:add_comment)
+  end
+
+  post '/add_comment' do
+    Comment.add(text: params[:comment], peep_id: params[:peep_id], user_id: params[:user_id])
     redirect '/peeps'
   end
 

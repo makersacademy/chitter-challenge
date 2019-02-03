@@ -1,13 +1,4 @@
-<h2>Welcome <%= @user.username %> </h2>
-
-<form action="/add_peep" method="post">
-  <label for="peep">
-    <h4>Write a new peep:</h4>
-  </label>
-  <input type="text" name="peep">
-  <input type="submit" value="Post">
-</form>
-
+<h2>Welcome guest</h2>
 <h3>Newsfeed</h3>
 <ul>
   <% @peeps.each do |peep| %>
@@ -34,6 +25,8 @@
   <% end %>
 </ul>
 
-<form action="/logout" method="post">
-<input type="submit" value="Logout">
+<h4>Create a Chitter account to peep</h4>
+
+<form action="/create/account" method="post">
+<input type="submit" value="Create an account">
 </form>
