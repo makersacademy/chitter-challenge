@@ -31,11 +31,7 @@ RSpec.describe 'feature tests' do
     end
 
     scenario 'user can post peeps when logged in' do
-      visit('/')
-      click_link "Login"
-      fill_in "username", with: "al123"
-      fill_in "password", with: "password123"
-      click_on "Submit"
+      perform_valid_login
       click_link "New Peep!"
       fill_in "message", with: "This is a new peep"
       click_on "Peep!"
@@ -46,11 +42,7 @@ RSpec.describe 'feature tests' do
 # Peeps (posts to chitter) have the name of the maker and their user handle.
 
     scenario 'user can see their name and username in peeps when posting' do
-      visit('/')
-      click_link "Login"
-      fill_in "username", with: "al123"
-      fill_in "password", with: "password123"
-      click_on "Submit"
+      perform_valid_login
       click_link "New Peep!"
       fill_in "message", with: "This is a new peep"
       click_on "Peep!"
@@ -99,8 +91,7 @@ RSpec.describe 'feature tests' do
   feature 'sign up for chitter' do
 
     scenario 'user can signup a new account' do
-      visit('/')
-      click_link "Signup"
+      visit_signup_page
       fill_in "username", with: "newuser"
       fill_in "password", with: "newpassword"
       fill_in "forename", with: "Mike"
@@ -114,8 +105,7 @@ RSpec.describe 'feature tests' do
 # The username and email are unique.
 
     scenario 'user cannot signup a new account with duplicate username' do
-      visit('/')
-      click_link "Signup"
+      visit_signup_page
       fill_in "username", with: "al123"
       fill_in "password", with: "this"
       fill_in "forename", with: "user"
@@ -127,8 +117,7 @@ RSpec.describe 'feature tests' do
     end
 
     scenario 'user cannot signup a new account with duplicate email' do
-      visit('/')
-      click_link "Signup"
+      visit_signup_page
       fill_in "username", with: "This"
       fill_in "password", with: "User"
       fill_in "forename", with: "Has"
@@ -150,18 +139,13 @@ RSpec.describe 'feature tests' do
   feature 'log in to chitter' do
 
     scenario 'user can login if they exist' do
-      visit('/')
-      click_link "Login"
-      fill_in "username", with: "al123"
-      fill_in "password", with: "password123"
-      click_on "Submit"
+      perform_valid_login
       expect(page).to have_content "al123"
       expect(page.status_code).to be(200)
     end
 
     scenario 'user cant login if they dont exist' do
-      visit('/')
-      click_link "Login"
+      visit_login_page
       fill_in "username", with: "baduser"
       fill_in "password", with: "wrongpassword"
       click_on "Submit"
@@ -178,8 +162,7 @@ RSpec.describe 'feature tests' do
   feature 'log out of chitter' do
 
     scenario 'user can logout' do
-      visit('/')
-      click_link "Login"
+      visit_login_page
       fill_in "username", with: "nopeeps"
       fill_in "password", with: "password999"
       click_on "Submit"
