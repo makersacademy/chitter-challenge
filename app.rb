@@ -17,6 +17,12 @@ class Chitter < Sinatra::Base
     erb :post
   end
 
+  post('/post') do
+    content = params['peep']
+    Peep.new(id: 1, peep_content: content, posted_at: Time.now)
+    redirect '/'
+  end
+
   run! if app_file == $PROGRAM_NAME
 
 end
