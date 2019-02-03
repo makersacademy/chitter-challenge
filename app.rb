@@ -32,7 +32,6 @@ class Chitter < Sinatra::Base
   post '/user' do
     user = User.create(params[:name], params[:username], params[:email], params[:password])
     session[:user] = User.all.find { |user_list| user_list.id == user.id }
-    # session[:user_id] = user.id
     redirect '/peep_feed'
   end
 
@@ -41,7 +40,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    # authenticate method to assign the session
+    session[:user] = User.authenticate(params[:username], params[:password])
     redirect '/peep_feed'
   end
 end
