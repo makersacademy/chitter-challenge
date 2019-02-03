@@ -24,7 +24,7 @@ class Peep
 end
 
 def self.add(peep:)
- result = DatabaseConnection.query("INSERT INTO peeps (peep, date, time) VALUES('#{peep}', '#{DateTime.now.strftime("%d/%m/%Y")}', '#{DateTime.now.strftime("%I:%M%p")}') RETURNING id, peep, date, time;")
+ result = DatabaseConnection.query("INSERT INTO peeps (peep, date time) VALUES('#{peep}', '#{DateTime.now.strftime("%d/%m/%Y")}', '#{DateTime.now.strftime("%I:%M%p")}') RETURNING id, peep, date, time;")
  Peep.new(id: result.first['id'], peep: result.first['peep'], date: result.first['date'], time: result.first['time'])
 end
 end

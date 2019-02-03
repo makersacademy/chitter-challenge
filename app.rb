@@ -27,10 +27,6 @@ enable :sessions
   erb :register
   end
 
-  # post('/peeps') do
-  #   @peeps.create(text: params[:peep])
-  # end
-
 
   run! if app_file == $0
 end
