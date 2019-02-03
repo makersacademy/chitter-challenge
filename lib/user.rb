@@ -27,9 +27,10 @@ class User
       connection = PG.connect(dbname: 'chitter_challenge')
     end
 
-    result = connection.exec("SELECT email FROM users")
+    result = connection.exec("SELECT email FROM users ORDER BY id DESC LIMIT 1")
     result.map { |item| item['email'] }
 
   end
+
 
 end
