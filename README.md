@@ -87,3 +87,8 @@ If you already have an account, when logging in, the system will search the 'use
 
 ![Screenshot](https://i.imgur.com/H4AlN1y.png) 
 
+
+Things I would have liked to have done if I had he time:
+
+1. I would have styled the UI using html and css to make the pages more attractive.
+2. I would have used an Object Relational Mapper such as Datamapper to make my code look more eligant.
