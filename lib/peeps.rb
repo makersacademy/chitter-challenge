@@ -8,10 +8,13 @@ class Peeps
     query = 'SELECT * FROM peeps;'
     results = connection.exec(query)
     results.map do |chitter|
-      chitter['peeps']
+      chitter['message']
     end
   end
 
-  def self.create
+  def self.create(peep:)
+    connection = PG.connect(dbname: ENV['DATABASE'])
+    query = "INSERT INTO peeps(message) VALUES('#{peep}');"
+    connection.exec(query)
   end
 end

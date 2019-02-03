@@ -1,6 +1,16 @@
-Welcom To Chitter 
+Welcome To Chitter
+<br />
+<ul>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep %>
+  </li>
+  <% end %>
+</ul>
+<br />
 
-<% @peeps.each do |peep| %>
-<%= peep %>
-<% end %>
-
+<div>Add a new Peep</div>
+<form action="/add_peep" method="post">
+  <input type="text" name="message" placeholder="Please enter a peep" />
+  <input type="submit" value="Post Peep" />
+</form>

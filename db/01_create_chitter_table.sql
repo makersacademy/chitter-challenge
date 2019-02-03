@@ -4,3 +4,5 @@ CREATE TABLE peeps
   id SERIAL PRIMARY KEY,
   peeps VARCHAR(60)
 );
+
+ALTER TABLE peeps ADD COLUMN time;
