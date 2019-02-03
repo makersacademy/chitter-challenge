@@ -5,6 +5,8 @@ and focus on developing the core functionality from an extremely basic view poin
 to the interaction between the MVC have been developed from using very simple configurations and syntax. I also only created feature  
 tests this weekend due to my limited time availability.
 
+I did not add name or email information.
+
 ## Database Set-up
 
 Created two tables:
@@ -60,6 +62,7 @@ in and will be able to see their personal chitter posts.
 
 ## Future Design Plans/Features
 
+Allow user to add their name and email.
 Place unique value constraints on user_names in my users table.
 Use an email sending API for sign-up confirmation and chitter notification emails to users.
 Allow chitters to reply to each other's chitters.
