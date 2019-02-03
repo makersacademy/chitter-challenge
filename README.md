@@ -1,3 +1,72 @@
+Welcome to Chitter!
+-------------
+
+Hope you enjoy my dodgy twitter knockoff!
+
+Original instructions are below; this was completed over a weekend.
+
+Technologies used
+-----------
+
+- Sinatra (routing)
+- ActiveRecord (database ORM)
+- BCrypt (password hashing)
+- RSpec (unit testing)
+- Capybara (feature testing)
+- Pony (email)
+
+Approach
+-----
+
+- Strict TDD with red, green refactor approach
+    - With the exception of implementing the emailing spec, which I was running out of steam for.
+- Approached very methodically with the user stories, refactoring where needed to tidy up the implementation.
+- User story 5 is there, I just forgot to change the number in the commit messages :)
+
+
+Challenges
+-----
+
+- Lost a couple of hours struggling with password hashing; for some reason, I could not get hash comparisons to work correctly. Suddenly started working for reasons I couldn't discern from the changelog. 
+- Difficulty in isolating unit tests now a database is being used. E.g. testing peeps requires a User ID, yet manually passing one triggers the foreign key constraint in the database. I was unable to workaround this.
+- Difficulty in deploying database/environment variables to Heroku. Unable to deploy the app.
+- Struggled to get the Mail gem to connect to something other than localhost:25, despite configuring it using various online sources. Ended up settling with Pony, which just worked.
+- Keeping code DRY and neat with a comparatively complex app...
+- Knowing if I'm using ActiveRecord correctly...should I be manually closing the database all the time, or does it take care of that? 
+
+Instructions
+----
+
+1. Install postgres and set the password for the `postgres` user to `password`
+1. Create two databases, `chitter` and `chitter_test`
+1. Run `1_create_users_table.sql` and `2_create_peeps_table.sql`; both found in the `migrations` folder (in that order).
+1. Run the server with `rackup` and browse to `localhost:9292` by default.
+
+You should be greeted by the welcome screen. Peeps are visible, but you are not allowed to post any anonymously:
+![](readme/welcome.png)
+
+Users can signup
+![](readme/signup.png)
+
+Or login:
+
+![](readme/login.png)
+
+Logged in users are greeted, able to peep and tag other users:
+![](readme/logged_in.png)
+
+Tagged users receive an email to inform them:
+![](readme/emailed.png)
+
+
+
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
