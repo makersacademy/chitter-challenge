@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/message'
 require './lib/user'
+require './lib/controller_helper'
 
 class Chitter < Sinatra::Base
 
@@ -10,6 +11,7 @@ class Chitter < Sinatra::Base
 
   post '/storage_users' do
     User.create(email: params[:your_email], password: params[:your_password], name: params[:user_name])
+    condition(params[:your_email], params[:your_password], params[:user_name])
     redirect '/create'
   end
 
