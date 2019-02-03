@@ -11,3 +11,14 @@ feature 'Viewing peep page' do
     end
   end
 end
+
+feature 'Viewing peep page' do
+  feature 'viewing peep page' do
+    scenario 'should have peeps' do
+      connection = PG.connect(dbname: 'chitter_test')
+      connection.exec("INSERT INTO peep VALUES(1, 'testing')")
+      visit ('/peeps')
+      expect(page).to have_content 'testing'
+    end
+  end
+end
