@@ -65,7 +65,7 @@ Once you have set up the project and databases, the program works as follows:
 
 1. You are initially greeted by the Chitter homepage where you can chose to 'view peeps':
 
-![Screenshot](https://imgur.com/IQjofUA)
+![Screenshot](https://i.imgur.com/IQjofUA.png)
 
 Once you enter Chitter, you will need to either Log in or Sign Up depending on whether you have an account or not. In this step, when signing up, the information will be stored into the 'users' table where all usernames and emails entered must be unique and the passwords are  encrypted using the ruby gem BCrpyt.
 
