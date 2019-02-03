@@ -10,6 +10,9 @@ feature 'display of peeps' do
   end
 
   scenario 'peeps display their time of posting' do
-
+    now = Time.new
+    submit_a_peep first
+    expect(page.body).to (have_content "#{now.strftime('at %H:%M(:%S) on %b%e')}")
+      .or (have_content "#{(now - 1).strftime('at %H:%M(:%S) on %b%e')}")
   end
 end

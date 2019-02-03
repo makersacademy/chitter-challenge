@@ -31,7 +31,7 @@ Peepstream:
   <%= peep.peeptext %>
 </p>
 <p>
-  Posted at <%= peep.timestamp.to_time.strftime('at %H:%M(:%S) on %b %e') %>
+  Posted at <%= peep.timestamp.to_time.strftime('%H:%M(:%S) on %b%e') %>
 </p><br />
 <% end %>
 </div>
