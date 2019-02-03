@@ -24,17 +24,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(message: params['peep'], user_id: session[:user_id]) if session[:user_id]
-    tagged_user = User.find_by(username: Peep.tag?(peep)) if session[:user_id]
-    if tagged_user
-      body = SendMail.compose_body(tagger: User.name_from_peep(peep))
-      SendMail.send(subject: SendMail.compose_subject, body: body, email: tagged_user.email)
-      flash[:notice] = "@#{tagged_user.name} has been tagged and emailed by
-                        #{User.username_from_peep(peep)}"
-    end
+    redirect '/peeps' unless session[:user_id]
 
-
-
+    peep = Peep.create(message: params['peep'], user_id: session[:user_id])
+    tagged_user = User.find_by(username: Peep.tag?(peep))
+    send_mail_and_notify(peep, tagged_user) if tagged_user
 
     redirect '/peeps'
   end
@@ -66,6 +60,14 @@ class Chitter < Sinatra::Base
     session.clear
     flash[:notice] = 'You have logged out.'
     redirect '/peeps'
+  end
+
+  def send_mail_and_notify(peep, tagged_user)
+    body = SendMail.compose_body(tagger: User.name_from_peep(peep))
+    SendMail.send(subject: SendMail.compose_subject, body: body,
+                  email: tagged_user.email)
+    flash[:notice] = "@#{tagged_user.username} has been tagged and emailed by
+                        #{User.username_from_peep(peep)}"
   end
 
 
