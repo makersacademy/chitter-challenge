@@ -1,26 +1,26 @@
-require 'cheet'
+require 'peep'
 
-describe Cheet do
+describe Peep do
   describe '#all' do
-    it 'returns all cheets' do
+    it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      connection.exec("INSERT INTO cheets (cheet) VALUES('To get much done in little time');")
-      connection.exec("INSERT INTO cheets (cheet) VALUES('I stick to the pomodoro technique');")
-      connection.exec("INSERT INTO cheets (cheet) VALUES('Being methodical and sensible');")
+      connection.exec("INSERT INTO peeps (peep) VALUES('To get much done in little time');")
+      connection.exec("INSERT INTO peeps (peep) VALUES('I stick to the pomodoro technique');")
+      connection.exec("INSERT INTO peeps (peep) VALUES('Being methodical and sensible');")
 
-      cheets = Cheet.all
-      expect(cheets).to include("Being methodical and sensible")
-      expect(cheets).to include("I stick to the pomodoro technique")
-      expect(cheets).to include("To get much done in little time")
+      peeps = Peep.all
+      expect(peeps).to include("Being methodical and sensible")
+      expect(peeps).to include("I stick to the pomodoro technique")
+      expect(peeps).to include("To get much done in little time")
     end
 
-    it 'gets the cheets from a database' do
+    it 'gets the peeps from a database' do
       connection = PG.connect(dbname: 'chitter_test')
-      connection.exec("INSERT INTO cheets (cheet) VALUES('To get much done in little time');")
-      connection.exec("INSERT INTO cheets (cheet) VALUES('I stick to the pomodoro technique');")
-      connection.exec("INSERT INTO cheets (cheet) VALUES('Being methodical and sensible');")
-      expect(Cheet.all).to include("Being methodical and sensible")
+      connection.exec("INSERT INTO peeps (peep) VALUES('To get much done in little time');")
+      connection.exec("INSERT INTO peeps (peep) VALUES('I stick to the pomodoro technique');")
+      connection.exec("INSERT INTO peeps (peep) VALUES('Being methodical and sensible');")
+      expect(Peep.all).to include("Being methodical and sensible")
     end
   end
 end

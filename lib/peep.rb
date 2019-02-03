@@ -1,6 +1,6 @@
 require 'pg'
 
-class Cheet
+class Peep
   def self.all
     if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -8,7 +8,7 @@ class Cheet
       connection = PG.connect(dbname: 'chitter')
     end
 
-    cheets = connection.exec("SELECT * FROM cheets;")
-    cheets.map { |row| row['cheet'] }
+    peeps = connection.exec("SELECT * FROM peeps;")
+    peeps.map { |row| row['peep'] }
   end
 end
