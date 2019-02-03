@@ -38,8 +38,16 @@ feature 'Adding new peeps' do
       fill_in "new_peep", :with => 'Third peep'
       click_button 'add'
       within(first('.peep')) do
-        expect(page).to have_content "Third peep, peeped on #{DateTime.now.strftime('%d/%m/%Y')} at #{DateTime.now.strftime('%I:%M%p')}"
+        expect(page).to have_content "on #{DateTime.now.strftime('%d/%m/%Y')} at #{DateTime.now.strftime('%I:%M%p')}"
       end
     end
   end
+
+  scenario 'Can see the user who posted the peep' do
+    fill_in "new_peep", with: 'Third peep'
+    click_button 'add'
+    within(first('.peep')) do
+      expect(page).to have_content 'peeped by ES94'
+    end
+  end 
 end
