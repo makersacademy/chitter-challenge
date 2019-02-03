@@ -10,6 +10,22 @@
   <% end %>
 </ul>
 <br>
-<form action='/peeps/new', method='get'>
-  <input type='submit' value='add new peep'>
-</form>
+
+<% if @user %>
+  <form action='/peeps/new', method='get'>
+    <input type='submit' value='add new peep'>
+  </form>
+  <br>
+  <br>
+  <form action='/sessions/destroy', method='post'>
+    <input type='submit' value='log out'>
+  </form>
+<% else %>
+  <form action='/sessions/signin', method='get'>
+    <input type='submit' value='sign in'>
+  </form>
+  <form action='/registrations/signup', method='get'>
+    <input type='submit' value='sign up'>
+  </form>
+
+<% end %>  

@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
 
   post '/registrations' do
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    session[:user_id] = user.id.to_i
+    session[:user_id] = user.id
     redirect '/peeps'
   end
 
@@ -54,7 +54,15 @@ class Chitter < Sinatra::Base
   get '/sessions/tryagain' do
     erb :'/sessions/tryagain'
   end
-        
+
+  post '/sessions/destroy' do
+    session.clear
+    redirect '/sessions/signedout'
+  end
+
+  get '/sessions/signedout' do
+    erb :'sessions/signedout'
+  end        
 
 
   run! if app_file ==$0
