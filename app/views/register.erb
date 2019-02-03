@@ -1,4 +1,12 @@
-<%= flash[:warning] %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Register</title>
+  </head>
+  <body>
+<div class="hero-bkg-animated text">
+  <%= flash[:warning] %>
 
 <form action="/register" method="post">
   <h3>Register to create a Chitter account</h3>
@@ -20,3 +28,4 @@
   <input type="text" name="password">
   <input type="submit" value="Register">
 </form>
+</div>

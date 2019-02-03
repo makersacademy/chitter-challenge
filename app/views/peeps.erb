@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Newsfeed</title>
+  </head>
+  <body>
+<div class="hero-bkg-animated text">
+
 <h2>Welcome <%= @user.username %> </h2>
 
 <form action="/add_peep" method="post">
@@ -9,30 +18,26 @@
 </form>
 
 <h3>Newsfeed</h3>
-<ul>
   <% @peeps.each do |peep| %>
-    <li>
     <% @users.each do |user| %>
     <% if user.id == peep.user_id %>
-     <%= user.name %> says: <%= peep.peep %> (<%=peep.time%>)
+    ☻ <%= user.name %> says: <%= peep.peep %> (<%=peep.time%>)
     <% end %>
     <form action="/add_comment" method="get">
       <input type="hidden" name="id" value="<%=peep.id%>">
         <% if user.id == peep.user_id %>
-      <input type="submit" value="Comment on <%=user.name%>'s peep">
+      <input type="submit" value="Comment on <%=user.name%>'s peep"><p>
         <% end %>
     </form>
     <% @comment_list.each do |comment| %>
       <% if peep.id == comment.peep_id %>
       <% if user.id == comment.user_id %>
-       <%= user.name %> commented: <%= comment.text %>
+      <%= user.name %> commented: <%= comment.text %><br><p>
       <% end %>
       <% end %>
       <% end %>
       <% end %>
-        </li>
   <% end %>
-</ul>
 
 <form action="/logout" method="post">
 <input type="submit" value="Logout">

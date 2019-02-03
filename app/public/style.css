@@ -1,0 +1,23 @@
+html, body {
+  margin: 0; padding: 0;
+}
+.hero-bkg-animated {
+  background: gray url(https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Free-Download-Funky-Background-PIC-WPD008058.jpg) repeat 0 0;
+  width: 100vw;
+  margin: 0;
+  text-align: center;
+  height: 100vh;
+  padding-top: 120px;
+  box-sizing: border-box;
+  -webkit-animation: slide 20s linear infinite;
+}
+
+@-webkit-keyframes slide {
+    from { background-position: 0 0; }
+    to { background-position: -400px 0; }
+}
+  .text {
+    font-family: sans-serif;
+    color: white;
+  }
+}

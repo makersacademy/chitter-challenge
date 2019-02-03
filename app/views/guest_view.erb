@@ -1,29 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Newsfeed</title>
+  </head>
+  <body>
+<div class="hero-bkg-animated text">
+
 <h2>Welcome guest</h2>
 <h3>Newsfeed</h3>
-<ul>
-  <% @peeps.each do |peep| %>
-    <li>
-    <% @users.each do |user| %>
-    <% if user.id == peep.user_id %>
-     <%= user.name %> says: <%= peep.peep %> (<%=peep.time%>)
+<% @peeps.each do |peep| %>
+  <% @users.each do |user| %>
+  <% if user.id == peep.user_id %>
+  ☻ <%= user.name %> says: <%= peep.peep %> (<%=peep.time%>) <br><p>
+  <% @comment_list.each do |comment| %>
+    <% if peep.id == comment.peep_id %>
+    <% if user.id == comment.user_id %>
+    <%= user.name %> commented: <%= comment.text %><br><p>
     <% end %>
-    <form action="/add_comment" method="get">
-      <input type="hidden" name="id" value="<%=peep.id%>">
-        <% if user.id == peep.user_id %>
-      <input type="submit" value="Comment on <%=user.name%>'s peep">
-        <% end %>
-    </form>
-    <% @comment_list.each do |comment| %>
-      <% if peep.id == comment.peep_id %>
-      <% if user.id == comment.user_id %>
-       <%= user.name %> commented: <%= comment.text %>
-      <% end %>
-      <% end %>
-      <% end %>
-      <% end %>
-        </li>
-  <% end %>
-</ul>
+    <% end %>
+    <% end %>
+    <% end %>
+<% end %>
+<% end %>
 
 <h4>Create a Chitter account to peep</h4>
 

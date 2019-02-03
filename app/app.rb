@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  get '/register/new' do
+  get '/register_new' do
      erb(:register)
   end
 
@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/create/account' do
-    redirect '/register/new'
+    redirect '/register_new'
   end
 
   post '/register' do
@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash[:warning] = "Email or name already in use - try again."
-      redirect '/register/new'
+      redirect '/register_new'
     end
   end
 
