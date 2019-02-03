@@ -30,7 +30,7 @@ describe Peep do
       user_2 = User.create(name: 'prince', username: 'pj', email: 'prince@fake.com', password_hash: PasswordManager.hash('pass'))
       message = "I'm tagging @pj in this peep"
       peep = Peep.create(message: message, user_id: user.id)
-      expect(Peep.tag?).to eq(user_2)
+      expect(Peep.tag?(peep)).to eq(user_2)
     end
 
   end
