@@ -6,10 +6,12 @@ class Peep
     peeps.map{ |peep| Peep.new(peep['body'], peep['time'], peep['user_id']) }.reverse
   end
 
-  def self.add(new_peep, user = User.add_new(name: "Anonymous", email: "Anon", password: "Anon"))
+  def self.add(new_peep, user = nil)
     time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
-  #  DatabaseConnection.query("INSERT INTO peeps(body, time, user_id) VALUES('#{new_peep}', '#{time}', '#{user}');")
-    DatabaseConnection.query("INSERT INTO peeps(body, time) VALUES('#{new_peep}', '#{time}');")
+    anon_user = User.find_or_create_anon_user
+#    p anon_user
+    user = (anon_user).id if  user == nil
+    DatabaseConnection.query("INSERT INTO peeps(body, time, user_id) VALUES('#{new_peep}', '#{time}', '#{user}');")
   end
 
   attr_reader :body, :time, :user
@@ -19,11 +21,5 @@ class Peep
     @time = time
     @user = user
   end
-
-  # def return_name
-  #   new = User.find(user)
-  #   p new
-  #   new.name
-  # end
 
 end

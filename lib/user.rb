@@ -1,5 +1,4 @@
 require 'pg'
-require 'database_connection'
 
 class User
 
@@ -24,11 +23,15 @@ class User
       id: created['id'])
   end
 
-  # def self.find_user(email)
-  #   connection = User.connect
-  #   users = connection.exec("SELECT * FROM users WHERE email = #{'email'};")
-  #   users.map { |user| User.new(user['name'], user['email'], user['password'], user['id']) }
-  # end
+  def self.find_by_name(name)
+    users = DatabaseConnection.query("SELECT * FROM users WHERE name = #{'name'};")
+    users.map{ |user| User.new(
+      name: user['name'],
+      email: user['email'],
+      password: user['password'],
+      id: user['id'])
+    }
+  end
 
     def self.find(id)
       return nil unless id
@@ -41,6 +44,13 @@ class User
           id: result['id'])
     end
 
+    def self.find_or_create_anon_user
+      anon = User.find_by_name("Anonymous")
+      anon == [] ? anon << User.add_new(name: 'Anonymous', email: 'anon', password: 'anon'): anon.first
+      return anon.first
+    end
+
+
   attr_reader :name, :email, :password, :id
 
   def initialize(name:, email:, password:, id:)
@@ -49,4 +59,10 @@ class User
     @password = password
     @id = id
   end
+
+  private
+
+  def create_user
+  end
+
 end

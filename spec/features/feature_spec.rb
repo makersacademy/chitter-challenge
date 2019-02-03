@@ -53,7 +53,6 @@ feature 'Chitter App:' do
       fill_in 'email', with: "belinda@test.com"
       fill_in 'password', with: "temppassword"
       click_on 'Login'
-      save_and_open_page
       expect(page).to have_content "Belinda"
     end
 

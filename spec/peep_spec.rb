@@ -19,6 +19,7 @@ describe Peep do
   end
 
   describe '#add' do
+    let(:user) { double(:user) }
     it 'should add a given peep to the database with date' do
       time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
       Peep.add("Added peep")
@@ -26,12 +27,10 @@ describe Peep do
       expect(Peep.all.last.time).to eq time
     end
 
-    # it 'should assume default user if none is given' do
-    #   populate_test_data
-    #   expect(Peep.all[0].user).to eq user
+    # it 'should create peep with user id ' do
+    #   Peep.add("Added peep", user)
+    #   expect(Peep.all.last.user).to eq user
     # end
 
   end
-
-
 end

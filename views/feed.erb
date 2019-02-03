@@ -6,12 +6,15 @@
   </head>
   <body>
     <h1>Your Chitter Feed </h1>
-    <% if @user %>
-      <h1>Welcome, <%= @user.name %></h1>
-    <% end %>
+    <h2>Welcome, <%= @user.name %></h2>
     <ul>
       <% @peeps.each do |peep| %>
-      <li><%=peep.user%>: <%=peep.body%> --- <%= peep.time%> </li>
+        <li>
+        <% peep_user = User.find(peep.user) %>
+        <% if peep_user %>
+        <%=peep_user.name%>: 
+        <% end %>
+        <%=peep.body%> --- <%= peep.time%> </li>
       <% end %>
       </ul>
 
