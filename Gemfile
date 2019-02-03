@@ -6,6 +6,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'pg'
 gem 'timecop'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'

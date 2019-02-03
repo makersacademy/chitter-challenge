@@ -1,5 +1,6 @@
 require './app/lib/user'
 require './spec/database_helpers'
+require 'bcrypt'
 
 describe User do
   describe '.all' do
@@ -15,7 +16,6 @@ describe User do
     it 'can create a new user' do
       user = User.create(email: 'hi@hello.com', password: 'password')
       expect(user.email).to eq('hi@hello.com')
-      expect(user.password).to eq('password')      
     end
     
     it 'creates a new user test 2' do
@@ -26,7 +26,11 @@ describe User do
       expect(user).to be_a(User)
       expect(user.id).to eq(database_data.first['id'])
       expect(user.email).to eq('hi@hello.com')
-      
+    end
+
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+      User.create(email: 'test@example.com', password: 'password123')
     end
   end
 
