@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/user'
 
 class ChitterApp < Sinatra::Base
 
@@ -22,7 +23,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/store_sign_up' do
-    # do some stuff
+    User.create(firstname: params[:firstname], surname: params[:surname], email: params[:email], password: params[:password])
     redirect '/sign_up_success'
   end
 
