@@ -1,0 +1,23 @@
+
+<h1>Listing Peeps</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Message</th>
+    <th>Time</th>
+    <th></th>
+  </tr>
+
+  <% @peeps.each do |peep| %>
+    <tr>
+      <td><%= peep.id %></td>
+      <td><%= peep.msg %></td>
+      <td>Time Sent</td>
+      <td><%= link_to 'Show', peep_path(peep) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= link_to 'New peep', new_peep_path %>
