@@ -17,6 +17,11 @@ class Peep
     "#{x.day}/#{x.month}/#{x.year}   #{x.hour}:#{x.minute}.#{x.second}"
   end
 
-  belongs_to :user, required: false
+  def username
+    "#{User[self.user_id - 1].username}" 
+  end
+
+  belongs_to :user, required: true
+
 
 end

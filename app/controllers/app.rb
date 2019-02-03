@@ -11,7 +11,7 @@ class Shitter < Sinatra::Base
   configure :development do
     DataMapper.setup :default, "postgres://localhost/shitter"
     DataMapper.finalize
-    DataMapper.auto_upgrade!
+    DataMapper.auto_migrate!
     set :views, "app/views"
     set :public_dir, "public"
   end
@@ -22,7 +22,9 @@ class Shitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all.reverse
-    @current_username =  User[(session[:user_id]-1)].username
+    if session[:user_id] != nil
+      @current_username =  User[(session[:user_id]-1)].username
+    end
     erb :index
   end
 

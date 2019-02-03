@@ -20,4 +20,5 @@ class User
 
   has n, :peeps
 
+
 end

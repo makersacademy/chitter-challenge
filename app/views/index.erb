@@ -7,7 +7,7 @@
 
     <!-- <h2 Welcome User.firstname %> -->
     <% if @current_username != nil %>
-    
+
       <p> <%= "What would you like to share, #{@current_username}?" %></p>
 
       <form action="/peeps" method="post">
@@ -26,7 +26,8 @@
       <%= peep.body             %>
         </div>
         <div id="username">
-      <%=         %>
+        --
+      <%= peep.username         %>                            
         </div>
         <div id="date-and-time">
       <%= peep.date_and_time    %>
