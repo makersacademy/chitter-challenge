@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'shotgun'
 require 'pg'
 require './lib/user.rb'
-# require './lib/peep.rb'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
 
@@ -30,7 +30,6 @@ enable :sessions, :method_override
   get '/peeps' do
     @username = $username
     @peep = $peep
-    p @peep
     erb :'peeps/index'
   end
 
