@@ -1,9 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require './app/models/db_connection'
+require './app/models/email'
+require './app/models/password'
 require './app/models/peep'
 require './app/models/user'
-require './app/models/db_connection'
-require './app/models/password'
 
 class Chitter < Sinatra::Base
 
