@@ -1,6 +1,6 @@
 feature 'Peep feed' do
   scenario 'Peeps display in reverse cronological order' do
-    visit '/peep_feed'
+    register_user
     click_button 'New Peep'
     fill_in 'new_peep', with: 'Test peep'
     click_button 'Peep'

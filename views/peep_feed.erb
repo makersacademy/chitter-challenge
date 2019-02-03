@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<h1>Welcome to Chitter!</h1>
+<h1>Welcome to Chitter, <%=session[:user].name%>!</h1>
 
 <form action="/peep_feed/new_peep" method="get">
   <input type="submit" value="New Peep">
