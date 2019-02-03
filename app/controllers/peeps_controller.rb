@@ -22,6 +22,6 @@ class PeepsController < ApplicationController
   private
 
   def peep_params
-    params.require(:peep).permit(:msg)
+    params.require(:peep).permit(:name, :handle, :msg)
   end
 end

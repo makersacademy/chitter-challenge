@@ -4,16 +4,20 @@
 <table>
   <tr>
     <th>ID</th>
+    <th>Name</th>
+    <th>Handle</th>
     <th>Message</th>
     <th>Time</th>
     <th></th>
   </tr>
 
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <tr>
       <td><%= peep.id %></td>
+      <td><%= peep.name %></td>
+      <td><%= peep.handle %></td>
       <td><%= peep.msg %></td>
-      <td>Time Sent</td>
+      <td><%= peep.created_at.strftime('%R %v') %></td>
       <td><%= link_to 'Show', peep_path(peep) %></td>
     </tr>
   <% end %>

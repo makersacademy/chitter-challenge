@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_03_114110) do
+ActiveRecord::Schema.define(version: 2019_02_03_121600) do
 
   create_table "peeps", force: :cascade do |t|
     t.string "msg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "handle"
   end
 
 end

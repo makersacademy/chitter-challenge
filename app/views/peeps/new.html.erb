@@ -2,8 +2,16 @@
 
 <%= form_with scope: :peep, url: peeps_path, local: true do |form| %>
   <p>
-    <%= form.label :msg %><br>
-    <%= form.text_field :msg %>
+    <%= form.label :Name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :Handle %><br>
+    <%= form.text_field :handle %>
+  </p>
+  <p>
+    <%= form.label :Message %><br>
+    <%= form.text_area :msg %>
   </p>
 
   <p>
