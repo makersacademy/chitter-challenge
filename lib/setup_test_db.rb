@@ -7,7 +7,9 @@ def setup_test_database
 
   @connection.exec('DROP TABLE peeps;')
 
-  @connection.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY,user_name VARCHAR(60), peep  VARCHAR(140));')
+  @connection.exec('CREATE TABLE peeps(id SERIAL PRIMARY KEY, 
+  user_name VARCHAR(60), peep VARCHAR(140), time TIMESTAMP default current_timestamp);')
+  
   @connection.exec("INSERT INTO peeps (peep) VALUES('Test peep 1');")
   @connection.exec("INSERT INTO peeps (peep) VALUES('Test peep 2');")
   @connection.exec("INSERT INTO peeps (peep) VALUES('Test peep 3');")
