@@ -1,4 +1,4 @@
-<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=B612+Mono" rel="stylesheet">
 
 html, body {
   margin: 0; padding: 0;
@@ -25,9 +25,10 @@ html, body {
 }
 
   .text {
-    font-family: 'Bree Serif', serif;
-    color: white;
+    font-family: 'B612 Mono', monospace;
+    color: black;
     font-size: 25px;
+    font-weight: 600;
   }
 
  .button  {
@@ -37,6 +38,7 @@ html, body {
      transition: all 150ms ease-in-out;
      font-size: 15px;
      border-radius: 25px;
+     font-family: 'B612 Mono', monospace;
    }
 
  .button:hover {
