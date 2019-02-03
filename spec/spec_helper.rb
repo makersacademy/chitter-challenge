@@ -1,13 +1,16 @@
 require 'pg'
+ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
+require 'rack/test'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative './web_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -16,11 +19,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
-
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+  config.before(:each) do
+    clear_test_db
+  end
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
