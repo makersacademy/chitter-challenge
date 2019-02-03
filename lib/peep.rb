@@ -17,8 +17,15 @@ class Peep
 
   def self.check_tags(peep, user = User)
     content = peep.content
-    tags = content.split(" ").select{|word| word[0] == '@'}
-    user.check_user(tags: tags, content: content) if tags.length > 0
+    tags = has_tags?(content)
+    user.check_user(tags: tags, content: content) if tags
   end
+
+  def self.has_tags?(content)
+    tags = content.split(" ").select{ |word| word[0] == '@' }
+    tags.length > 0 ? tags : nil
+  end
+
+  private_class_method :has_tags?
 
 end
