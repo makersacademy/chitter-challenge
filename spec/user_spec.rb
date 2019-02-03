@@ -42,4 +42,16 @@ describe User do
       expect(found_user.email).to eq('hi@hello.com')
     end
   end
+
+  describe '.authenticate' do
+    it 'returns nill when the wrong email is entered' do
+      User.create(email: 'hi@hello.com', password: 'password')
+      expect(User.authenticate(email: 'h@hello.com', password: 'password')).to be_nil
+    end
+
+    it 'returns nil when the wrong password is entered' do
+      User.create(email: 'hi@hello.com', password: 'password')
+      expect(User.authenticate(email: 'hi@hello.com', password: 'passwor')).to be_nil
+    end
+  end
 end

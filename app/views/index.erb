@@ -11,14 +11,25 @@
   <div class="main__container">
     <h1>Chitter</h1>
     
-      <% if @user %>
-        <h3>
-          Welcome, <%= @user.email %>
-        </h3>
-      <% end %>
+      
     <div class="main__login">
-      <a href="/users/new">sign up</a>
-      <a href="/sessions/new">Login</a>
+      <% if @user %>
+        <p>
+          Welcome, <%= @user.email %>
+        </p>
+        <form action="/sessions/destroy" method="post">
+          <input type="submit" value="Logout" class="peep_button"/>
+        </form>
+      <% else %>
+        <form action="/users/new" method="get">
+          <input type="submit" value="sign up" class="peep_button" />
+        </form>
+        <form action="/sessions/new" method="get">
+          <input type="submit" value="Login" class="peep_button" />
+        </form>
+        <%# <a href="/users/new">sign up</a> %>
+        <%# <a href="/sessions/new">Login</a> %>
+      <% end %>
     </div>
     
     <form id="myForm" action="/process-peep" method="post">

@@ -2,10 +2,12 @@ require 'pg'
 require 'sinatra/base'
 require_relative './lib/peep'
 require_relative './lib/user'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     @peeps = Peep.all
@@ -34,12 +36,20 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    # connection = PG.connect(dbname: 'chitter')
-    # result = connection.exec("SELECT * FROM users WHERE email = '#{params[:email]}'")
-    # user = User.new(result[0]['id'], result[0]['email'], result[0]['password'])
-    # session[:user_id] = user.id
-    redirect ('/')
+
+    if user
+      session[:user_id] = user.id
+      redirect ('/')
+    else
+      flash[:notice] = 'Incorrect email or password'
+      redirect ('/sessions/new')
+    end   
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out'
+    redirect('/')
   end
 
   run! if app_file == $0
