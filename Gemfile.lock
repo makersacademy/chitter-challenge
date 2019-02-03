@@ -68,6 +68,7 @@ GEM
     pg (1.1.4)
     powerpack (0.1.1)
     public_suffix (3.0.3)
+    puma (3.12.0)
     rack (2.0.6)
     rack-protection (2.0.5)
       rack
@@ -146,6 +147,7 @@ DEPENDENCIES
   capybara
   orderly
   pg
+  puma
   rake
   rspec
   rubocop (= 0.56.0)
@@ -154,9 +156,6 @@ DEPENDENCIES
   sinatra
   sinatra-flash
   standalone_migrations
-
-RUBY VERSION
-   ruby 2.5.0p0
 
 BUNDLED WITH
    1.16.6
