@@ -1,3 +1,5 @@
+<% require 'uri' %>
+
 default: &default
   adapter: postgresql
   encoding: unicode
