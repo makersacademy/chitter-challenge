@@ -36,10 +36,11 @@ Technologies used
 
 Application - Ruby, ActiveRecord, Bcrypt, Mail, Sinatra, Rack, Rake
 Testing - RSpec, Capybara, Orderly, Simplecov, Rubocop
+CI - Travis
 Database - Postgresql
 Hosting - AWS, Docker
 
-Features:
+User stories
 -------
 
 ```
