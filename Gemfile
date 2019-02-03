@@ -42,7 +42,7 @@ gem 'rubocop', '0.56.0'
 
 # WPDUNK additions
 # Use ActiveModel has_secure_password
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
 
 
 group :development, :test do

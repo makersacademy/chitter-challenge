@@ -1,5 +1,5 @@
 
-<h1>Listing Peeps</h1>
+<h1>Peeps in Reverse-Chronological Order</h1>
 
 <table>
   <tr>
@@ -23,5 +23,12 @@
   <% end %>
 </table>
 
-
-<%= link_to 'New peep', new_peep_path %>
+<% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to 'New peep', new_peep_path %>
+  <%= link_to 'Log Out', logout_path %>
+<% else %>
+  <%= link_to 'Sign Up', signup_path %> or
+  <%= link_to 'Log In', login_path %>
+<% end %>
+<p id='notice'><%= notice %></p>

@@ -1,15 +1,5 @@
-<h1>Hello, Chitter!</h1>
+<h1>Welcome to Chitter!</h1>
 
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to 'Log Out', logout_path %>
-<% else %>
-  <%= link_to 'Sign Up', signup_path %> or
-  <%= link_to 'Log In', login_path %>
-<% end %>
-<p id='notice'><%= notice %></p>
+<h2>You don't have to be logged in to see inside the chitter-verse, so click on through below!</h2>
 
-<h2>Chitter#index</h2>
-<p>Find me in app/views/chitter/index.html.erb</p>
-
-<%= link_to 'Peeps Feed', controller: 'peeps' %>
+<%= link_to 'Show me the peeps!', controller: 'peeps' %>

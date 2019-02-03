@@ -1,22 +1,34 @@
-<h1>New Peep</h1>
+<% if current_user %>
+  <h1>New Peep</h1>
 
-<%= form_with scope: :peep, url: peeps_path, local: true do |form| %>
-  <p>
-    <%= form.label :Name %><br>
-    <%= form.text_field :name %>
-  </p>
-  <p>
-    <%= form.label :Handle %><br>
-    <%= form.text_field :handle %>
-  </p>
-  <p>
-    <%= form.label :Message %><br>
-    <%= form.text_area :msg %>
-  </p>
+  <%= form_with scope: :peep, url: peeps_path, local: true do |form| %>
+    <p>
+      <%= form.label :Name %><br>
+      <%= form.text_field :name %>
+    </p>
+    <p>
+      <%= form.label :Handle %><br>
+      <%= form.text_field :handle %>
+    </p>
+    <p>
+      <%= form.label :Message %><br>
+      <%= form.text_area :msg %>
+    </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+
+  Logged in as <%= current_user.email %>.
+  <%= link_to 'New peep', new_peep_path %>
+  <%= link_to 'Log Out', logout_path %>
+<% else %>
+  <%= link_to 'Sign Up', signup_path %> or
+  <%= link_to 'Log In', login_path %>
 <% end %>
+<p id='notice'><%= notice %></p>
+
+
 
 <%= link_to 'Back', peeps_path %>
