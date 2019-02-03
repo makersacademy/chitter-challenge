@@ -8,6 +8,6 @@
   </form>
   <h2>Peeps</h2>
   <% @peeps.each do |peep| %>
-    <ul><%= peep.peep %><%= peep.time %></ul>
+    <ul><%= peep.peep %> - posted at: (<%= peep.time %>)</ul>
   <% end %>
 </center>
