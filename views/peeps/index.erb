@@ -14,7 +14,7 @@
     <div>
       <% @peeps.each do |peep| %>
       <blockquote class="peep" id="peep-<% peep.id %>">
-        <a><%= peep.message %></a><p>- <%= peep.name %></p></blockquote>
+        <a><%= peep.message %></a><p>- <%= peep.name %></p><b><%= peep.time[0..15] %></b></blockquote>
       <% end %>
     </div>
   </body>

@@ -32,7 +32,7 @@ blockquote {
 blockquote p {
   position: absolute;
   right: 10px;
-  bottom: 0;
+  bottom: 15px;
   font-size: 12px;
   font-weight: bold;
 }
@@ -44,4 +44,12 @@ blockquote a {
   font-size: 16px;
   font-weight: normal;
   line-height: 20px;
+}
+
+blockquote b {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  font-size: 12px;
+  font-weight: bold;
 }

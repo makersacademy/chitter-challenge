@@ -15,7 +15,7 @@ RSpec.describe 'Peep' do
     it '-should show the timestamp of the peep' do
       Timecop.freeze
       Peep.create(name: 'Jane', message: 'This is a test peep!')
-      expect(Peep.time.to_s).to eq(Time.now.to_s)
+      expect(Peep.all.first.time[0..15]).to eq(Time.now.to_s[0..15])
     end
   end
 
