@@ -1,9 +1,14 @@
 FROM alpine
 
-RUN apk update && apk upgrade
-RUN apk add curl wget bash curl-dev ruby-dev build-base postgresql-dev
-RUN apk add ruby ruby-io-console ruby-bundler
-RUN rm -rf /var/cache/apk/*
+ENV BUILD_PACKAGES curl wget bash curl-dev build-base postgresql-dev
+ENV RUBY_PACKAGES ruby ruby-bigdecimal ruby-dev ruby-io-console ruby-bundler
+ENV RAILS_ENV docker
+
+RUN apk update && \
+    apk upgrade && \
+    apk add $BUILD_PACKAGES && \
+    apk add $RUBY_PACKAGES && \
+    rm -rf /var/cache/apk/*
 
 RUN bundle config --global frozen 1
 
@@ -12,4 +17,5 @@ WORKDIR /usr/app
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
+
 COPY . .

@@ -1,0 +1,19 @@
+version: '3.2'
+volumes:
+  postgres-data:
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec puma -C puma.rb
+    volumes:
+      - .:/user/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
