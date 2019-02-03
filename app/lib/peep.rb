@@ -1,11 +1,14 @@
 require 'pg'
+require 'time'
 
 class Peep
-  attr_reader :peep, :id
+  attr_reader :peep, :id, :timestamp, :time
 
-  def initialize(peep:, id:)
+  def initialize(peep:, id:, timestamp:)
     @peep = peep
     @id = id
+    @timestamp = timestamp
+    @time = Time.parse(timestamp)
   end
 
   def self.all
@@ -15,9 +18,9 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.query("SELECT * FROM peeps")
+    result = connection.query("SELECT * FROM peeps ORDER BY id DESC;")
     result.map { |peep| 
-      Peep.new(peep: peep['peep'], id: peep['id'])
+      Peep.new(peep: peep['peep'], id: peep['id'], timestamp: peep['timestamp'])
     }
   end
 
@@ -28,8 +31,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.query("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep")
-    Peep.new(peep: result[0]['peep'], id: result[0]['id'])
-
+    result = connection.query("INSERT INTO peeps (peep, timestamp) VALUES('#{peep}', NOW()) RETURNING id, peep, timestamp;")
+    Peep.new(peep: result[0]['peep'], id: result[0]['id'], timestamp: result[0]['timestamp'])
   end
 end
