@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+  <title>List of messages</title>
+  </head>
+  <body style="background-color: white;">
+    <br>
+    <div style="margin: 0 auto; max-width: 400px;">
+        <br>
+        <ul style="list-style-type: none;">
+          <% @tweets.each do |tweet| %>
+          <li>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+              <div class="card-body">
+                <p class="card-text">
+                  <%= tweet %>
+                </p>
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <br>
+      <div style="margin: 0 auto; max-width: 300px;">
+      <div>
+        <form action="/">
+          <input type="submit" value="Exit Chitter" name="Exit" class="btn btn-outline-danger btn-block">
+        </form>
+      </div>
+      <br>
+    </div>
+  </body>
+</html>
