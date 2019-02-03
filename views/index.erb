@@ -1,13 +1,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
   <div class="header"
   <h3>Chitter: Latest peeps</h3>
   </div>
-  <div class="sidebar">
+  <div class="icon-bar">
     <% if User.logged_in_name %>
     <a href="/login"><i class="fa fa-user"></i> <%= User.logged_in_name%></a>
     <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
@@ -20,8 +20,12 @@
   <div class="peeps">
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
-      <%= peep.message %><br><br>
-      <small><%= "#{peep.created_at} #{peep.forename} #{peep.surname} @#{peep.username}"%></small>
+      <p><%= peep.message %><br><br></p>
+      <small>
+        <span class="name"><%="#{peep.forename} #{peep.surname}"%></span>
+        <%="@#{peep.username}"%>
+        <span class="time"><%="#{peep.created_at}"%></span>
+      </small>
       </li>
   <% end %>
   <br>

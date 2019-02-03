@@ -1,11 +1,32 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
+  <div class="header"
+  <h3>Chitter: Login</h3>
+  </div>
+  <div class="icon-bar">
+    <% if User.logged_in_name %>
+    <a href="/login"><i class="fa fa-user"></i> <%= User.logged_in_name%></a>
+    <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+      <a href="/new"><i class="fa fa-commenting"></i> New Peep!</a>
+    <% else %>
+    <a href="/login"><i class="fa fa-sign-in"></i> Login</a>
+    <a href="/signup"><i class="fa fa-user-plus"></i> Signup</a>
+    <% end %>
+  </div>
+  <br>
   <form action="/login" method="post">
-    Username: <input type="text" name="username"><br>
-    Password: <input type="password" name="password"><br>
-    <input type="submit" value="Submit">
-  </form>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Username" name="username">
+  </div>
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" placeholder="Password" name="password">
+  </div>
+  <button type="submit" class="btn">Submit</button>
+</form>
   <%= flash[:failure] %>
 </html>

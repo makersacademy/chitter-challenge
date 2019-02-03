@@ -1,0 +1,107 @@
+body {
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+}
+
+.icon-bar {
+  width: 100%; /* Full-width */
+  background-color: dodgerblue; /* Dark-grey background */
+  overflow: auto; /* Overflow due to float */
+}
+
+.icon-bar a {
+  float: left; /* Float links side by side */
+  text-align: center; /* Center-align text */
+  width: 33%; /* Equal width (5 icons with 20% width each = 100%) */
+  padding: 12px 0; /* Some top and bottom padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 36px; /* Increased font size */
+}
+
+.icon-bar a:hover {
+     background-color: #1e7dff;
+}
+
+.active {
+  background-color: #1e7dff; /* Add an active/current color */
+}
+
+.header {
+   width: 100%; /* Full-width */
+   background-color: dodgerblue; /* Dark-grey background */
+   text-align: center;
+   color: white;
+   font-size: 36px;
+   padding: 20px;
+ }
+
+ .peeps {
+   text-align: center;
+   padding: 0px 10px;
+ }
+
+ .peep {
+   display: inline-block;
+   background: white;
+   line-height: 16px;
+   border-color: #eee #ddd #bbb;
+   border-radius: 5px;
+   border-style: solid;
+   border-width: 1px;
+   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+   margin-left: 160px;
+   margin: 10px 5px;
+   padding: 10px 10px 10px 10px;
+ }
+
+ li {
+   padding: 5px;
+   margin-left: 20px;
+   border: 4px solid #3CC47C;
+   width: 50%;
+   list-style-type: none;
+ }
+
+ * {box-sizing: border-box;}
+
+ /* Style the input container */
+ .input-container {
+   display: flex;
+   width: 100%;
+   margin-bottom: 15px;
+ }
+
+ /* Style the form icons */
+ .icon {
+   padding: 10px;
+   background: dodgerblue;
+   color: white;
+   min-width: 50px;
+   text-align: center;
+ }
+
+ /* Style the input fields */
+ .input-field {
+   width: 100%;
+   padding: 10px;
+   outline: none;
+ }
+
+ .input-field:focus {
+   border: 2px solid dodgerblue;
+ }
+
+ /* Set a style for the submit button */
+ .btn {
+   background-color: dodgerblue;
+   color: white;
+   padding: 15px 20px;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+   opacity: 0.9;
+ }
+
+ .btn:hover {
+   opacity: 1;
+ }

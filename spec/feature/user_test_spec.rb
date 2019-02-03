@@ -54,7 +54,7 @@ RSpec.describe 'feature tests' do
       click_link "New Peep!"
       fill_in "message", with: "This is a new peep"
       click_on "Peep!"
-      expect(page.text).to match(/This is a new peep .*Alice Smith @al123/)
+      expect(page.text).to match(/Alice Smith @al123/)
       expect(page.status_code).to be(200)
     end
 

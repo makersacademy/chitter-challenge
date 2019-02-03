@@ -1,14 +1,44 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
+  <div class="header"
+  <h3>Chitter: Signup</h3>
+  </div>
+  <div class="icon-bar">
+    <% if User.logged_in_name %>
+    <a href="/login"><i class="fa fa-user"></i> <%= User.logged_in_name%></a>
+    <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+      <a href="/new"><i class="fa fa-commenting"></i> New Peep!</a>
+    <% else %>
+    <a href="/login"><i class="fa fa-sign-in"></i> Login</a>
+    <a href="/signup"><i class="fa fa-user-plus"></i> Signup</a>
+    <% end %>
+  </div>
+  <br>
   <form action="/signup" method="post">
-    Username: <input type="text" name="username"><br>
-    Password: <input type="password" name="password"><br>
-    Forename: <input type="text" name="forename"><br>
-    Surname:  <input type="text" name="surname"><br>
-    Email:    <input type="text" name="email"><br>
-    <input type="submit" value="Submit">
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Username" name="username">
+  </div>
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" placeholder="Password" name="password">
+  </div>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Forename" name="forename">
+  </div>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Surname" name="surname">
+  </div>
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="text" placeholder="Email" name="email">
+  </div>
+  <button type="submit" class="btn">Submit</button>
   </form>
   <%= flash[:error] %>
 </html>
