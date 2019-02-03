@@ -1,0 +1,41 @@
+body {
+  background-color: cyan;
+}
+
+#background {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  height: 100%;
+  background-color: #00aced;
+  z-index: 1;
+}
+
+#content {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+  text-align: right;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+#section {
+  margin-top: 140px;
+}
+
+#text {
+text-align: left;
+}
+
+#logo {
+  color: #00aced;
+}
+
+#bckg_logo {
+  font-size: 750px;
+  margin-top: -180px;
+  margin-left: 50px;
+  color: white;
+}
