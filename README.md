@@ -10,9 +10,9 @@ Test and Development Installation
 
 Install Postgresql locally (http://www.postgresqltutorial.com/install-postgresql/)
 In the app directory
-- bundle install
-- create database - bundle exec rake db:create
-- add tables - bundle exec rake db:migrate
+- ```bundle install```
+- create database - ```bundle exec rake db:create```
+- add tables - ```bundle exec rake db:migrate```
 - rackup to start app
 - connect to http://localhost:9292
 
@@ -21,9 +21,9 @@ Production Installation
 
 Install Docker (https://docker-curriculum.com/#setting-up-your-computer)
 Point your docker-machine at the production instance
-- docker-compose up --build
-- docker exec -it chitter-challenge_app_1 /bin/sh
-- on remote command line - rake db:migrate
+- ```docker-compose up --build```
+- ```docker exec -it chitter-challenge_app_1 /bin/sh```
+- on remote command line - ```rake db:migrate```
 - connect to http://your_deployed_url
 
 Test coverage
@@ -34,10 +34,10 @@ Test coverage
 Technologies used
 -------
 
-Application - Ruby, ActiveRecord, Bcrypt, Mail, Sinatra, Rack, Rake
-Testing - RSpec, Capybara, Orderly, Simplecov, Rubocop
-Database - Postgresql
-Hosting - AWS, Docker
+- Application - Ruby, ActiveRecord, Bcrypt, Mail, Sinatra, Rack, Rake
+- Testing - RSpec, Capybara, Orderly, Simplecov, Rubocop
+- Database - Postgresql
+- Hosting - AWS, Docker
 
 Features:
 -------
