@@ -34,9 +34,6 @@ ul{
     list-style-type: none;
     padding: 20px;
     width: 50%;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-
 }
 
 body::after {
@@ -52,12 +49,9 @@ body::after {
 }
 
 li.peep {
-    /*padding-top: 30px;*/
-    /*padding-bottom: 30px;*/
     padding: 10px;
     margin: 30px;
     background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(43,9,121,0.9359944661458334) 0%, rgba(251,15,190,0.10406169303658963) 0%, rgba(179,23,193,0.37296925606179976) 100%, rgba(179,23,193,0.37296925606179976) 100%);
-
 }
 
 label {
