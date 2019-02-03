@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+  <head>
+
+  </head>
+
+  <h1>Welcome to Shitter!</h1>
+
+<!-- button to head straight to view peeps. (can't post) -->
+
+  <body>
+    <h2> Sign up: </h2>
+
+    <form action="/user" method="post" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions'); return false; }">
+      <!-- hidden thing to post to new route with an id param -->
+      <label for="Email">Email address: </label>
+      <input type="text" autocomplete="off" name="email"      > <br>
+
+      <label for="Username">Username: </label>
+      <input type="text" autocomplete="off" name="username"   > <br>
+
+      <label for="First Name">First Name: </label>
+      <input type="text" autocomplete="off" name="first_name" > <br>
+
+      <label for="Last Name">Last Name: </label>
+      <input type="text" autocomplete="off" name="last_name"  > <br>
+
+      <label for="Password">Password: </label>
+      <input type="text" autocomplete="off" name="password"   > <br>
+
+      <input type="checkbox" id="agree" /> I have read and agree to the <a href="#" onclick="alert('Terms and Conditions-- I agree that Chloe is the most majestic and beautiful human in the whole world, and I commit to telling everyone I meet the truth about her brilliance.');">Terms and Conditions</a> <br>
+
+      <input type="submit" value="Submit" label="mdw">
+    </form>
+
+  </body>
+</html>

@@ -5,24 +5,35 @@
   </head>
   <body>
 
+    <!-- <h2 Welcome User.firstname %> -->
+    <% if @current_username != nil %>
+    
+      <p> <%= "What would you like to share, #{@current_username}?" %></p>
 
-    <form action="/peeps" method="post">
-      <input type="text" name="peep_entry" placeholder="Enter peep here." autocomplete="off" >
-      <input type="submit" value="Post" >
-    </form>
+      <form action="/peeps" method="post">
+        <input type="text" name="peep_entry" placeholder="Enter peep here." autocomplete="off" >
+        <input type="submit" value="Post" >
+      </form>
+
+    <% end %>
 
     <h2> Feed: </h2>
 
     <div id="print-peeps" >
+
       <%  @peeps.each do |peep| %>
-      <div id="body">
+        <div id="body">
       <%= peep.body             %>
-      </div>
-      <div id="date-and-time">
+        </div>
+        <div id="username">
+      <%=         %>
+        </div>
+        <div id="date-and-time">
       <%= peep.date_and_time    %>
-      <br><br>
-      </div>
+        <br><br>
+        </div>
       <%  end                   %>
+
     </div>
 
 

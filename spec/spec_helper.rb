@@ -25,6 +25,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DataMapper.setup(:default, 'postgres://localhost/shitter_test')
     DataMapper.finalize
+    # DROP TABLE [IF EXISTS] user [CASCADE];
     DataMapper.auto_migrate!
   end
 

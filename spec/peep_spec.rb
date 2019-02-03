@@ -18,17 +18,6 @@ describe Peep do
 
   end
 
-  # describe "#body" do
-  #
-  #   it 'Returns a list of the contents of each peep, in descending order' do
-  #     Peep.create body: "Test peep!"
-  #     Peep.create body: "Test peep number two!"
-  #     first_peep = Peep.body[0]
-  #     expect(first_peep).to eq "Test peep number two!"
-  #   end
-  #
-  # end
-
   describe "#date_and_time" do
 
     it 'Returns a correctly formatted string' do
