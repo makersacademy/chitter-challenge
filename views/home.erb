@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/css/style_sheet.css" type="text/css" />
+<html>
+<head>
+  <style>
+    body {
+      background-color: #202e3e;
+    }
+    </style>
+    </head>
+    <body>
+      <div class="newchitcontainer">
+        <form action="/home/add_chit" method="post">
+            <div class="newchittitle">
+            Whats Happening?
+            </div>
+            <div class="textbox">
+          <textarea name="message" cols="30" rows="5" maxlength="240"></textarea>
+          <br>
+          <input type="text" name="image" maxlength="240">
+          </div>
+          <br>
+          <div class="button">
+          <button type="submit" value="Submit">Post</button>
+          </div>
+        </form>
+        </div>
+<div class="chitcontainer">
+        <% @chits.each do |chit| %>
+        <div class="chits">
+          <div class="chit_username">
+        @<%= chit.user_name %>:
+        </div>
+        <br>
+        <div class="chit_message">
+            <%= chit.message %>
+            </div>
+            <br>
+            <br>
+            <div class="chit_image">
+         <img src="<%= chit.image %>"
+            </div>
+            <div class="chit_date">
+            <%= chit.date %>
+            </div>
+            <% end %>
+              </div>
+              </div>
+    </body>
+    </html>

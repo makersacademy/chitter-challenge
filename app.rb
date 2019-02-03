@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/user'
+require './lib/chits'
 require_relative './database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
@@ -25,6 +26,15 @@ class Chitter < Sinatra::Base
     erb :signupsuccess
   end
 
+ get '/home' do
+   @chits = Chits.all
+    erb :home
+end
+
+post '/home/add_chit' do
+  Chits.create(message: params[:message], date: Time.new, user_id: '6', image: params[:image])
+   redirect '/home'
+end
 
 run! if app_file == $0
 end

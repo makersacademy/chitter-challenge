@@ -4,6 +4,115 @@
   left: 800px;
 }
 
+.button {
+  position: absolute;
+  bottom: 5px;
+  right: 12px;
+}
+
+.newchitcontainer{
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  height: 220px;
+  transform: translate(-50%);
+  border: 2px solid rgb(53,78,105);
+  border-radius: 5px;
+  background-color: rgb(53,78,105);
+  width: 500px;
+}
+
+input[type=text], select {
+  position: absolute;
+  width: 95%;
+  left: 50%;
+  top: 150px;
+  transform: translate(-50%);
+  vertical-align: text-top;
+  padding: 10px 10px;
+  margin: 1px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  position: absolute;
+  width: 95%;
+  left: 50%;
+  top: 70px;
+  transform: translate(-50%);
+  vertical-align: text-top;
+  height: 75px;
+  padding: 10px 10px;
+  margin: 1px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.newchittitle{
+  position: absolute;
+  top: 30px;
+    font-family: "Arial";
+    color: white;
+    font-size: 28px;
+    left: 10px;
+}
+
+.chitcontainer{
+  position: absolute;
+  top: 260px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.chits{
+  font-family: "Arial";
+  word-wrap: break-word;
+  color: white;
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%);
+  margin: auto;
+ border: 2px solid rgb(53,78,105);
+ border-radius: 5px;
+ background-color: rgb(53,78,105);
+ width: 500px;
+ height: auto;
+}
+
+.chit_username {
+    font-size: 18px;
+}
+
+.chit_message {
+  font-size: 12px;
+}
+
+.chit_image {
+
+}
+
+.chit_date {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  font-size: 10px;
+}
+
+.minilogo {
+  left: 50%;
+  transform: translate(+50%);
+background-image: url(/images/minilogo.png);
+background-size: 80px 60px;
+width: 80px;
+height: 60px;
+}
+
 .logo{
   position: absolute;
   top: 120px;
@@ -32,7 +141,6 @@ body, .bgImage {
   margin: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 .bgImage {

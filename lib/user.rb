@@ -12,12 +12,12 @@ class User
       @email = email
     end
 
-  def self.all
-    result = DatabaseConnection.query("SELECT * FROM users;")
-    result.map do |bookmark|
-  User.new(id: result[0]['id'], firstname: result[0]['firstname'], username: result[0]['username'], password: result[0]['password'], display_pic: result[0]['display_pic'], email: result[0]['email'])
+    def self.all
+      result = DatabaseConnection.query("SELECT * FROM users;")
+      result.map do |users|
+        User.new(id: users['id'], firstname: users['firstname'], username: users['username'], password: users['password'], display_pic: users['display_pic'], email: users['email'])
+      end
     end
-  end
 
 def self.signup(firstname:, username:, password:, display_pic:, email:)
       result = DatabaseConnection.query("INSERT INTO users (firstname, username, password, display_pic, email)
