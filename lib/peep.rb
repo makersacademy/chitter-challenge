@@ -23,11 +23,18 @@ class Peep
     query[0]['username']
   end
 
-  def self.add(peep, id)
+  def self.add(peep, user_id)
     time = Time.now.strftime("%d/%m/%Y at %H:%M:%S ")
     DatabaseConnection.query("INSERT INTO peeps (message, created, userID)
-    VALUES('#{peep}', 'posted on #{time}', '#{id}')")
+    VALUES('#{peep}', 'posted on #{time}', '#{user_id}')")
   end
+
+  def self.follow(username)
+    query = DatabaseConnection.query("
+    INSERT INTO users (followers) VALUES username")
+  end
+
+
 
   attr_reader :message, :created, :user_id
 

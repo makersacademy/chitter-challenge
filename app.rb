@@ -16,7 +16,6 @@ class Chitter < Sinatra::Base
 
   get '/feed' do
     @peeps = Peep.all
-    @users = User.all_users
     erb :index
   end
 
@@ -32,6 +31,12 @@ class Chitter < Sinatra::Base
   post '/register' do
     User.add(params[:add_username], params[:add_email], params[:add_password])
     redirect '/'
+  end
+
+  post '/follow' do
+    Peep.follow(params[:user_id])
+    p params
+    redirect '/feed'
   end
 
 end

@@ -15,7 +15,8 @@ class User
     query = DatabaseConnection.query("SELECT * FROM users")
     @users = query.map { |eachquery| User.new(
       eachquery['username'],
-      eachquery['email'])
+      eachquery['email'],
+      eachquery['followers'])
     }
   end
 
@@ -39,16 +40,18 @@ class User
     user(query[0]['id'], query[0]['username'])
   end
 
+
+  attr_reader :u_name, :email, :followers
+
   def self.user(id, username)
     @id = id
     @username = username
   end
 
-  attr_reader :username, :email
-
-  def initialize(username, email)
-    @username = username
+  def initialize(u_name, email, followers)
+    @u_name = u_name
     @email = email
+    @followers = followers
   end
 
 end

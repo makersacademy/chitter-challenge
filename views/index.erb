@@ -29,7 +29,7 @@
   <div align="right" id="created"><%= peep.created %></div>
   <div align="right" id="created"><%= Peep.username(peep.user_id) %></div>
   <form align="right" action="/follow" method="post">
-    <input class="follow" type="submit" value="Follow">
+    <input class="follow" name="<%= peep.user_id %>" type="submit" value="Follow">
   </form>
 </div>
 <% end  %>

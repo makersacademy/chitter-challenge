@@ -6,7 +6,7 @@ describe User do
     it 'Returns all users from the database' do
       users = User.all_users
       expect(users[0]).to be_a User
-      expect(users[0].username).to eq "defaultuser"
+      expect(users[0].u_name).to eq "defaultuser"
       expect(users[0].email).to eq "testemail@gmail.com"
     end
   end
@@ -16,7 +16,7 @@ describe User do
       User.add("testingusername", "test2.gmail.com", "password2")
       users = User.all_users
       expect(users[1]).to be_a User
-      expect(users[1].username).to eq "testingusername"
+      expect(users[1].u_name).to eq "testingusername"
       expect(users[1].email).to eq "test2.gmail.com"
     end
   end
