@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 ruby '2.5.0'
-
 gem 'rake'
-gem 'rubocop', '0.56.0'
 gem 'sinatra'
+gem 'pg'
+gem 'dotenv'
 
 
 group :test, :development do
@@ -13,4 +13,5 @@ group :test, :development do
   gem 'simplecov-console', require: false
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'rubocop', '0.56.0'
 end
