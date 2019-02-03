@@ -34,6 +34,7 @@ class Chitter < Sinatra::Base
   end
 
   get('/confirm-registration') do
+    @greetername = @@greetername
     erb :confirm_registration
   end
 
