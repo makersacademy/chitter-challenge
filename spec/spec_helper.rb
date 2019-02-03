@@ -14,6 +14,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'orderly'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Chitter

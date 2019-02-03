@@ -2,11 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rake'
 gem 'pg'
 gem 'pry'
 gem 'rack'
+gem 'rake'
 gem 'sinatra'
+gem 'orderly'
 
 group :test do
   gem 'capybara'
