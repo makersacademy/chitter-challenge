@@ -4,6 +4,7 @@ require 'uri'
 require './app/models/peep'
 require './app/models/user'
 require './app/models/db_connection'
+require './app/models/password'
 
 class Chitter < Sinatra::Base
 
@@ -37,7 +38,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    @result = User.check_password(params[:username], params[:password])
+    @result = Password.check_password(params[:username], params[:password])
     redirect '/login' if @result == false
     User.assign_user(params[:username])
     redirect '/'
@@ -48,7 +49,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    encrypted = BCrypt::Password.create(params[:password])
+    encrypted = Password.hash((params[:password]))
     newuser = User.create(username: params[:username],
                           forename: params[:forename],
                           surname: params[:surname],
