@@ -1,18 +1,42 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+My weekend challenge was to build a small Twitter clone that will allow the users to post messages to a public stream.
 
-Challenge:
--------
+I have used following tools and technologies to complete this project:
 
-As usual please start by forking this repo.
+* Ruby / Sinatra
+* PostgreSQL
+* RSpec / Capybara
+* Rubocop
+* HTML / CSS
+* Bootswatch
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+**I was aiming for:**
+
+* Complete TDD process ✔
+* 100% test coverage ✔
+* Cool user interface which resembles original Twitter ✔
+
+-----
+** App screenshots: **
+
+1. Main page
+
+![Main](images/p1.png)
+
+2. Registration
+
+![Registration](images/p2.png)
+
+3. Messages
+
+![Messages](images/p3.png)
+
+4. Chitts
+
+![Chitts](images/p4.png)
+
 
 Features:
 -------
@@ -35,90 +59,17 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
-
-Technical Approach:
 -----
+**To test the application please clone the repository using below: **
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+`git clone https://github.com/KrzysztofBalejko/chitter-challenge.git`
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+**Anyone needing to setup the database from scratch will need to do the following things:**
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+`Connect to psql
+Create the database using the psql command CREATE DATABASE chitter_challenge;
+Connect to the database using the pqsl command \c chitter_challenge;
+Run the query CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60),
+password VARCHAR(60), nameVARCHAR(60));
+Run the query CREATE TABLE users(id SERIAL PRIMARY KEY, message VARCHAR(140));`
