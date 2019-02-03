@@ -1,11 +1,17 @@
 require 'pg'
 require 'sinatra/base'
 require './lib/post'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
   get '/' do
-    "Welcome to Chitter"
+    erb(:"posts/signup")
+  end
+
+  post '/' do
+    User.create(username: params[:username], email: params[:email], password: params[:password])
+    redirect '/posts'
   end
 
   get '/posts' do
