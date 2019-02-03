@@ -1,5 +1,3 @@
-ENV['ENVIRONMENT'] = 'test'
-
 require 'simplecov'
 require 'simplecov-console'
 
@@ -18,6 +16,7 @@ ENV['RACK_ENV'] = 'test'
 require 'capybara/rspec'
 require 'pg'
 
+ENV['ENVIRONMENT'] = 'test'
 require 'web_helper'
 
 Capybara.app = Chitter
@@ -29,6 +28,11 @@ RSpec::Matchers.define :appear_before do |later_content|
 end
 
 RSpec.configure do |config|
+  config.before(:each) do
+    Maker.destroy
+    Peep.destroy
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
