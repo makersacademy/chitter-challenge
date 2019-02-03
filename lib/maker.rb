@@ -7,8 +7,10 @@ class Maker
   has n, :peeps
 
   property :id,           Serial, :key => true
-  property :displayname,  String
-  property :username,     String
+  property :displayname,  String, :default => 'Default Account'
+  property :username,     String, :default => 'default username'
+  property :email,        String, :default => 'makers@makers.com'
+  property :password,     String, :default => 'secret'
 
   def self.current_user=(maker)
     @current_user = maker

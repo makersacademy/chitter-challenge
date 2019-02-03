@@ -1,14 +1,4 @@
 <h1>Welcome to Chitter!</h1>
-<% if !signed_in %>
-<form>
-  Sign up:<br />
-  Username:<input type="text" />
-  Display name:<input type="text" />
-
-</form>
-<% end %>
-
-
 <p>
 <textarea rows="4" cols="50" name="new_peep" form="usrform" placeholder="Post a peep:"></textarea>
 <form action='/index' method='post' id="usrform">

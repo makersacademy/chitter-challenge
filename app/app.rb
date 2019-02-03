@@ -11,57 +11,17 @@ class Chitter < Sinatra::Base
 
   get '/' do
     peeps = Peep.all
-    erb :index, { locals: { signed_in: true, peeps: peeps } }
+    erb :index, { locals: { peeps: peeps } }
   end
 
   post '/index' do
     peep = params['new_peep']
-    Maker.current_user = Maker.current_user || Maker.create(
-      :displayname => 'Default Account',
-      :username => 'default username'
-    )
+    Maker.current_user = Maker.create()
     Maker.current_user.peeps.create(
       :peeptext => peep,
       :timestamp => Time.new
     )
-    p Maker.current_user
     redirect '/'
   end
 
 end
-
-# # routes.rb
-# current_dir = Dir.pwd
-# Dir["#{current_dir}/models/*.rb"].each { |file| require file }
-#
-# get '/articles' do
-#   ...
-#   @articles = Article.all
-#   ...
-# end
-#
-#
-# get '/articles/:id' do
-#   ...
-#   @article = Article.get(params[:id])
-#   ...
-# end
-#
-# post '/articles' do
-#   ...
-#   @article = Article.create(params[:article])
-#   ...
-# end
-#
-# put '/articles/:id/publish' do
-#   ...
-#   @article = Article.get(params[:id])
-#   @article.publish!
-#   ...
-# end
-#
-# delete '/articles/:id' do
-#   ...
-#   Article.get(params[:id]).destroy
-#   ...
-# end

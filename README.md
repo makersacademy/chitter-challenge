@@ -4,7 +4,7 @@ Chitter Challenge
 
 ## Setup
 
-All you need to do is create a database 'chitter' (and 'chitter_test' if you want to run the tests). DataMapper will take care of the rest (creating tables etc).
+All you need to do is create a database 'chitter' (and 'chitter_test' if you want to run the tests), and put your psql (postgres) username in the provided place in lib/ORM.rb. DataMapper will take care of the rest (creating tables etc).
 
 In psql, run the following:
 
@@ -17,6 +17,11 @@ Then install dependencies (gems) by running `bundle` in the root directory from 
 To start the server run `rackup` in the root.
 
 To run the tests, run `rspec` in the root.
+
+To stop SQL commands being printed to the server/Rspec report, comment out this line in lib/ORM.rb:
+```
+DataMapper::Logger.new($stdout, :debug)
+```
 
 ## Technologies
 
