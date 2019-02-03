@@ -3,6 +3,7 @@ require 'simplecov'
 require 'simplecov-console'
 require './app'
 
+ENV['DATABASE'] = 'chitter_db_test'
 
 Capybara.app = Chitter
 
