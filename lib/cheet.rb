@@ -2,7 +2,12 @@ require 'pg'
 
 class Cheet
   def self.all
-    connection = PG.connect(dbname: 'chitter')
+    if ENV['RACK_ENV'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
     cheets = connection.exec("SELECT * FROM cheets;")
     cheets.map { |row| row['cheet'] }
   end
