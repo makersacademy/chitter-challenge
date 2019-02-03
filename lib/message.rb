@@ -28,8 +28,12 @@ class Message
     else
       connection = PG.connect(dbname: 'chitter_challenge')
     end
+    n = connection.exec("SELECT name FROM users ORDER BY id DESC LIMIT 1")
+    n = n.map { |item| item['name'] }
+    name = n.join("")
+
     store_time = Time_Calculation.calculation
-    result = connection.exec("INSERT INTO chitter (message) VALUES('#{message} #{store_time}') RETURNING message;")
+    result = connection.exec("INSERT INTO chitter (message) VALUES('#{name} #{message} #{store_time}') RETURNING message;")
     Message.new(message: result[0]['message'])
   end
 
