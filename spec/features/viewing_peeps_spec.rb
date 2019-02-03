@@ -15,4 +15,9 @@ feature 'display of peeps' do
     expect(page.body).to (have_content "#{now.strftime('at %H:%M(:%S) on %b%e')}")
       .or (have_content "#{(now - 1).strftime('at %H:%M(:%S) on %b%e')}")
   end
+
+  scenario 'peeps display the displayname of the maker who posted them' do
+    submit_a_peep first
+    expect(page).to have_content 'Default Account'
+  end
 end

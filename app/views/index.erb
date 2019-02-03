@@ -25,7 +25,7 @@ Peepstream:
 <div>
 <% peeps.all.reverse.each do |peep| %>
 <p>
-  <%= peep.maker_id %>:
+  <%= Maker.get(peep.maker_id).displayname %>:
 </p>
 <p style="em">
   <%= peep.peeptext %>
