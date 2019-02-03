@@ -21,7 +21,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params['peep'], user_id: session[:user_id])
+    peep = Peep.create(message: params['peep'], user_id: session[:user_id])
+    tagged_user = User.find_by(username: Peep.tag?(peep))
+    flash[:notice] = "@#{tagged_user.username} has been tagged." if tagged_user
     redirect '/peeps'
   end
 
