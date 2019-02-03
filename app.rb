@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
 
    get '/feed' do
      @peeps = Peep.all
-  #   @user = User.find(session[:user_id]).name || "Anonymous"
+     @user = User.find(session[:user_id])
      erb :feed
    end
 
@@ -31,11 +31,17 @@ class Chitter < Sinatra::Base
 #     Peep.add(params[:new_peep], User.find(session[:user_id]))
      redirect '/feed'
    end
-#
-#    get '/login' do
-#      erb :login
-#    end
-#
+
+   get '/users/new' do
+     erb :"users/new"
+   end
+
+   post '/users' do
+     user = User.add_new(name: params[:name], email: params[:email], password: params[:password])
+     session[:user_id] = user.id
+     redirect '/feed'
+   end
+
 #    post '/register' do
 # #     redirect '/feed' if User.find_user(params[:email])
 #      user = User.add_new(params[:name], params[:email], params[:password])
