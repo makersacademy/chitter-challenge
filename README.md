@@ -16,9 +16,15 @@ Run `psql` and create `chitter` database
 
 ```CREATE DATABASE chitter;```
 
-To set up tables connect to database and run scripts in `db/migrations`
+To set up tables connect to database and run script 01 in `db/migrations`
 
+### Set up test database
 
+Run `psql` and create `chitter_test` database
+
+```CREATE DATABASE chitter_test;```
+
+To set up tables connect to database and run script 02 in `db/migrations`
 
 Chitter Challenge
 =================
