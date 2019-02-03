@@ -2,16 +2,18 @@
 <html>
   <head>
     <title>Peeps</title>
+    <link rel="stylesheet" href="app.css">
   </head>
   <body>
     <center>
       <form action='/peeps' method='post'>
         <input type='text' name='peep' placeholder="Type your peep here" maxlength='140'></input>
+        <br>
         <button type='submit'>Submit</button>
       </form>
       <table>
         <tr>
-          <th>Peep</th>
+          <th>Peeps</th>
         </tr>
         <% @peeps.each do |peep| %>
         <tr><td><%= peep %></td></tr>
