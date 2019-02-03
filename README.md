@@ -43,9 +43,11 @@ Instructions
 1. Run the server with `rackup` and browse to `localhost:9292` by default.
 
 You should be greeted by the welcome screen. Peeps are visible, but you are not allowed to post any anonymously:
+
 ![](readme/welcome.png)
 
 Users can signup
+
 ![](readme/signup.png)
 
 Or login:
@@ -53,9 +55,11 @@ Or login:
 ![](readme/login.png)
 
 Logged in users are greeted, able to peep and tag other users:
+
 ![](readme/logged_in.png)
 
 Tagged users receive an email to inform them:
+
 ![](readme/emailed.png)
 
 
