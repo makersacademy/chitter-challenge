@@ -2,9 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
+gem 'actionmailer'
 gem 'activerecord'
 gem 'bcrypt'
+gem 'dotenv'
 gem 'pg'
+gem 'pony'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'

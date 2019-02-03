@@ -24,7 +24,7 @@
     <li class="peep" id="peep-<%= peep.id %>">
       <%= peep.message %>
       <br> <%= peep.created_at %>
-      <br> by <%= User.find_by(id: peep.user_id).name %>
+      <br> by <%= User.name_from_peep(peep) %> (<%= User.username_from_peep(peep) %>)
     </li>
   <% end %>
 </ul>

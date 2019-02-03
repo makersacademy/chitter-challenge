@@ -1,5 +1,8 @@
+require 'dotenv/load'
 require 'sinatra'
 require 'sinatra/flash'
+require 'pony'
+require_relative '../lib/send_mail'
 require_relative '../lib/peep'
 require_relative '../lib/user'
 require_relative '../lib/password_manager'
@@ -21,9 +24,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(message: params['peep'], user_id: session[:user_id])
-    tagged_user = User.find_by(username: Peep.tag?(peep))
-    flash[:notice] = "@#{tagged_user.username} has been tagged." if tagged_user
+    peep = Peep.create(message: params['peep'], user_id: session[:user_id]) if session[:user_id]
+    tagged_user = User.find_by(username: Peep.tag?(peep)) if session[:user_id]
+    if tagged_user
+      body = SendMail.compose_body(tagger: User.name_from_peep(peep))
+      SendMail.send(subject: SendMail.compose_subject, body: body, email: tagged_user.email)
+      flash[:notice] = "@#{tagged_user.name} has been tagged and emailed by
+                        #{User.username_from_peep(peep)}"
+    end
+
+
+
+
     redirect '/peeps'
   end
 

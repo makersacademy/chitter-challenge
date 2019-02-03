@@ -21,6 +21,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     wipe_database
+    allow(SendMail).to receive(:send)
   end
 
   config.after(:suite) do
