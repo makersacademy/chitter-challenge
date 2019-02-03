@@ -8,12 +8,23 @@
     <br>
     <section class="col-md-10 mx-auto card">
       <div>
+        <br>
         <ul>
           <% @tweets.each do |tweet| %>
             <li> <%= tweet %> </li>
           <% end %>
         </ul>
       </div>
+      <div>
+        <form action="/create">
+          <input type="submit" value="Back to messages" name="Back" class="btn btn-outline-primary btn-lg btn-block">
+        </form>
+        <br>
+        <form action="/">
+          <input type="submit" value="Exit Chitter" name="Exit" class="btn btn-outline-danger btn-lg btn-block">
+        </form>
+      </div>
+      <br>
     </section>
   </body>
 </html>
