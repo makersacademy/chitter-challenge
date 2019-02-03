@@ -1,28 +1,46 @@
 <link rel="stylesheet" href="/css/style_sheet.css" type="text/css" />
 <html>
 <head>
-   <meta http-equiv="refresh" content="30" />
+   <!-- <meta http-equiv="refresh" content="30" /> -->
   <style>
-    body {
-      background-color: #202e3e;
-    }
-    img {
-  max-width: 500px;
-  height: auto;
-}
+
     </style>
     </head>
     <body>
+      <div class="header">
+        <% @user.each do |user| %>
+        <div class="profile_image">
+          <img src="<%= user.display_pic %>">
+          </div>
+        <center><div class="pagetitle">
+        </div></center>
+        <img src="/images/logosmall.png" class="floatRight">
+
+
+        <% end %>
+      </div>
+
+      <div id="navbar">
+        <a class="active" href="">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/messages">Messages</a>
+        <a href="/logout">Logout</a>
+      </div>
       <div class="newchitcontainer">
         <form action="/home/add_chit" method="post">
+          <% @user.each do |user| %>
+          <input type="hidden" name="user_id" value="<%= user.id %>">
+
             <div class="newchittitle">
-            Whats Happening?
+            Hey <%= user.firstname %>, whats Happening?
+              <% end %>
             </div>
-            <div class="textbox">
           <textarea name="message" cols="30" rows="5" maxlength="240"></textarea>
           <br>
           <input type="text" name="image" maxlength="240">
-          </div>
+          <div class="newchitsubtitle">
+        Image url:
+        </div>
           <br>
           <div class="button">
           <button type="submit" value="Submit">Post</button>
@@ -56,5 +74,19 @@
             <% end %>
               </div>
               </div>
+              <script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
     </body>
     </html>

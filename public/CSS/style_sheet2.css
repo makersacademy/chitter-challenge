@@ -1,0 +1,49 @@
+.login{
+  position: absolute;
+  top: 10px;
+  left: 800px;
+}
+
+.login_bg{
+  position: relative;
+  text-align: center;
+  top: 50px;
+}
+
+.loginform{
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.textbox{
+  opacity:0.5;
+}
+
+input[type=text], select {
+  position: absolute;
+  width: 300px;
+  left: 50%;
+  transform: translate(-50%);
+  vertical-align: text-top;
+  padding: 10px 10px;
+  margin: 1px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  position: absolute;
+  width: 300px;
+  left: 50%;
+  transform: translate(-50%);
+  vertical-align: text-top;
+  padding: 10px 10px;
+  margin: 1px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

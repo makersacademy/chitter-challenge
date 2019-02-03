@@ -3,13 +3,16 @@ require_relative 'database_connection'
 
 class User
 
-  def initialize(id:, firstname:, username:, password:, display_pic:, email:)
+  attr_reader :id, :firstname, :username, :password, :display_pic, :email, :loggedin
+
+  def initialize(id:, firstname:, username:, password:, display_pic:, email:, loggedin: [false])
       @id = id
       @firstname = firstname
       @username = username
       @password = password
       @display_pic = display_pic
       @email = email
+      @loggedin = loggedin
     end
 
     def self.all
@@ -17,6 +20,17 @@ class User
       result.map do |users|
         User.new(id: users['id'], firstname: users['firstname'], username: users['username'], password: users['password'], display_pic: users['display_pic'], email: users['email'])
       end
+    end
+
+    def self.login(username)
+      result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}';")
+      result.map do |users|
+        User.new(id: users['id'], firstname: users['firstname'], username: users['username'], password: users['password'], display_pic: users['display_pic'], email: users['email'],loggedin: [true])
+      end
+    end
+
+    def self.logout
+      @loggedin = nil
     end
 
 def self.signup(firstname:, username:, password:, display_pic:, email:)

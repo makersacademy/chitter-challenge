@@ -1,9 +1,11 @@
-<link rel="stylesheet" href="/css/style_sheet.css" type="text/css" />
+<link rel="stylesheet" href="/css/style_sheet2.css" type="text/css" />
 <html>
 <head>
   <style>
     body {
       background-color: #202e3e;
+      font-family: "Arial";
+      color: white;
     }
     </style>
     </head>
@@ -11,7 +13,7 @@
     <div class="login_bg">
       <img src="/images/login_bg.png">
     <div class="loginform">
-      <form action="/home" method="get">
+      <form action="/loginuser" method="post">
         <label for ="username">
           Username
           <div class="textbox">
@@ -21,9 +23,9 @@
         <label for ="password">
           Password
           <div class="textbox">
-        <input type="text" name="password">
+        <input type="password" name="password">
         </div>
-        </label><br><br>
+        </label><br><br><br>
         <input type="submit" value="Submit">
       </form>
       </div>

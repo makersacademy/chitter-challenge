@@ -10,11 +10,13 @@
   right: 12px;
 }
 
+
+
 .newchitcontainer{
   position: absolute;
-  top: 10px;
+  top: 220px;
   left: 50%;
-  height: 220px;
+  height: 240px;
   transform: translate(-50%);
   border: 2px solid rgb(53,78,105);
   border-radius: 5px;
@@ -26,7 +28,7 @@ input[type=text], select {
   position: absolute;
   width: 95%;
   left: 50%;
-  top: 150px;
+  top: 170px;
   transform: translate(-50%);
   vertical-align: text-top;
   padding: 10px 10px;
@@ -58,13 +60,22 @@ textarea {
   top: 30px;
     font-family: "Arial";
     color: white;
-    font-size: 28px;
+    font-size: 25px;
+    left: 10px;
+}
+
+.newchitsubtitle{
+  position: absolute;
+  top: 150px;
+    font-family: "Arial";
+    color: white;
+    font-size: 15px;
     left: 10px;
 }
 
 .chitcontainer{
   position: absolute;
-  top: 260px;
+  top: 480px;
   left: 50%;
   transform: translate(-50%);
 }
@@ -164,6 +175,81 @@ body, .bgImage {
   width: 100vw;
   height: 100vh;
 }
+
+.floatRight{float:right;margin-left:20px}
+
+.header {
+  background-image: url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-0.3.5&s=e20bc3d490c974d9ea190e05c47962f5&auto=format&fit=crop&w=634&q=80);
+  background-size: cover;
+  background-position: bottom;
+  -webkit-filter: grayscale(70%);
+  font-family: "Arial";
+  background-color: rgb(54,79,104);
+  color: white;
+padding: 30px;
+height: 90px;
+}
+
+.pagetitle {
+font-size: 30px;
+}
+
+#navbar {
+overflow: hidden;
+background-color: #333;
+}
+
+#navbar a {
+font-family: "Arial";
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+#navbar a:hover {
+font-family: "Arial";
+background-color: #ddd;
+color: black;
+}
+
+#navbar a.active {
+font-family: "Arial";
+background-color: rgb(54,79,104);
+color: white;
+}
+
+.content {
+padding: 16px;
+}
+
+.sticky {
+position: fixed;
+top: 0;
+width: 100%;
+}
+
+.sticky + .content {
+padding-top: 60px;
+}
+body {
+  background-color: #202e3e;
+}
+img {
+max-width: 500px;
+ border-radius: 5px;
+height: auto;
+}
+.profile_image{
+  position: absolute;
+   border-radius: 5px;
+  max-width: 100px;
+  height: auto;
+}
+
 
 .blob:nth-child(1) {
   animation: move1 20s infinite linear;
