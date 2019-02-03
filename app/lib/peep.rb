@@ -18,7 +18,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.query("SELECT * FROM peeps ORDER BY id DESC;")
+    result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
     result.map { |peep| 
       Peep.new(peep: peep['peep'], id: peep['id'], timestamp: peep['timestamp'])
     }
@@ -31,7 +31,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.query("INSERT INTO peeps (peep, timestamp) VALUES('#{peep}', NOW()) RETURNING id, peep, timestamp;")
+    result = connection.exec("INSERT INTO peeps (peep, timestamp) VALUES('#{peep}', NOW()) RETURNING id, peep, timestamp;")
     Peep.new(peep: result[0]['peep'], id: result[0]['id'], timestamp: result[0]['timestamp'])
   end
 end
