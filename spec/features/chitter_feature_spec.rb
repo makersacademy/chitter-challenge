@@ -24,13 +24,13 @@ end
 feature 'messages get a time stamp' do
   scenario 'user can see the time at which message was posted' do
     messages_log
-    expect(page).to have_content("@ #{Time_Calculation.calculation} ~ I love Sinatra")
+    expect(page).to have_content("@ #{TimeCalculation.calculation} ~ I love Sinatra")
   end
 end
 
 feature 'messages get a user name' do
   scenario 'user can see his name displayed by the message' do
-    visit('/')
+    visit('/start')
     fill_in 'user_name', with: 'Kasia'
     fill_in 'your_email', with: 'Kasia@o2.pl'
     fill_in 'your_password', with: 'password1'

@@ -1,6 +1,6 @@
 feature 'sign up' do
   scenario 'user can sign up' do
-    visit '/'
+    visit '/start'
     fill_in('your_email', with: 'test@test.com')
     fill_in('your_password', with: 'password')
     fill_in('user_name', with: 'name')
