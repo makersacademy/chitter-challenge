@@ -1,9 +1,8 @@
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (peep) VALUES('To get much done in little time');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('I stick to the pomodoro technique');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('Being methodical and sensible');")
+    Peep.post(peep: 'To get much done in little time')
+    Peep.post(peep: 'I stick to the pomodoro technique')
+    Peep.post(peep: 'Being methodical and sensible')
     visit('/peeps')
     expect(page).to have_content "Being methodical and sensible"
     expect(page).to have_content "I stick to the pomodoro technique"
