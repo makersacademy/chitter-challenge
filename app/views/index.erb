@@ -1,7 +1,3 @@
-<style>
-
-     </style>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,9 +6,11 @@
   </head>
   <body>
 <div class="hero-bkg-animated text">
+
 <%= flash[:notice] %>
 
 <h1>Chitter</h1>
+
 <form action="/session" method="post">
   <h3>Sign in to Chitter</h3>
   <label for="username">
@@ -26,11 +24,13 @@
 <p>
   <input type="submit" value="Sign in" class="button">
 </form>
+
 <p>
 <form action="/register_new" method="get">
   <input type="submit" value="Register" class="button">
 </form>
 <p>
+
 <form action="/guest" method="get">
   <input type="submit" value="Continue as guest" class="button">
 </form>
