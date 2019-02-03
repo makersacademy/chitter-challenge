@@ -18,8 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post('/post') do
-    content = params['peep']
-    Peep.new(id: 1, peep_content: content, posted_at: Time.now)
+    Peep.post_new_peep(peep_content = params['peep'])
     redirect '/'
   end
 

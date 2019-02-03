@@ -31,10 +31,4 @@ feature 'Posting mechanics' do
     visit('/post')
     expect(page).to have_field(:peep)
   end
-  scenario 'Upon pressing the button the user is redirected' do
-    visit('/post')
-    fill_in :peep, with: "Redirection test!"
-    click_button :Peep!
-    expect(current_path).to eq('/')
-  end
 end

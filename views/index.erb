@@ -2,5 +2,5 @@
 <div><h2>You can post a peep <a href="/post">here</a></h2></div>
 <div><h2>Latest peeps:</h2></div>
 <% @peep.each do |peep| %>
-<div><%= peep.id %>: <%= peep.peep_content %> Posted at: <%= peep.posted_at %> </div>
+<div><%= peep.poster_id %>: <%= peep.peep_content %> Posted at: <%= peep.posted_at %> </div>
 <% end %>

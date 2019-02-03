@@ -1,10 +1,10 @@
 require 'pg'
 class Peep
 
-  attr_reader :id, :peep_content, :posted_at
+  attr_reader :poster_id, :peep_content, :posted_at
 
-  def initialize(id:, peep_content:, posted_at:)
-    @id = id
+  def initialize(poster_id:, peep_content:, posted_at:)
+    @poster_id = poster_id
     @peep_content = peep_content
     @posted_at = posted_at
   end
@@ -16,10 +16,21 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec( "SELECT id, peep_content, to_char(posted_at, 'HH24:MI:SS, DD/MM/YYYY') FROM peeps ORDER BY id DESC" )
+    result = connection.exec( "SELECT poster_id, peep_content, to_char(posted_at, 'HH24:MI:SS, DD/MM/YYYY') FROM peeps ORDER BY id DESC" )
     result.map do |peep|
-      Peep.new(id: peep['id'], peep_content: peep['peep_content'], posted_at: peep['to_char'])
+      Peep.new(poster_id: peep['poster_id'], peep_content: peep['peep_content'], posted_at: peep['to_char'])
     end
+  end
+
+  def self.post_new_peep(poster_id = 1, peep_content)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter-test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    result = connection.exec( "INSERT INTO peeps(peep_content, posted_at)
+    VALUES('#{peep_content}', NOW()) RETURNING poster_id, peep_content, posted_at;" )
+    Peep.new(poster_id: result[0]['poster_id'], peep_content: result[0]['peep_content'], posted_at: result[0]['posted_at'])
   end
 
 end
