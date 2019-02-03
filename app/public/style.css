@@ -1,23 +1,44 @@
+<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+
 html, body {
   margin: 0; padding: 0;
 }
 .hero-bkg-animated {
-  background: gray url(https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Free-Download-Funky-Background-PIC-WPD008058.jpg) repeat 0 0;
-  width: 100vw;
+  background: url(https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Free-Download-Funky-Background-PIC-WPD008058.jpg) repeat-x;
+  /* width: 100vw;
+  height: 100vh; */
+  min-height: 100vh;
+  min-width: 100vw;
+  background-size: cover;
   margin: 0;
   text-align: center;
-  height: 100vh;
-  padding-top: 120px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   box-sizing: border-box;
-  -webkit-animation: slide 20s linear infinite;
+  animation: slide 20s infinite;
+  background-position: center;
 }
 
 @-webkit-keyframes slide {
     from { background-position: 0 0; }
     to { background-position: -400px 0; }
 }
+
   .text {
-    font-family: sans-serif;
+    font-family: 'Bree Serif', serif;
     color: white;
+    font-size: 25px;
   }
-}
+
+ .button  {
+     border-color: lightgreen;
+     color: black;
+     box-shadow: 0 0 40px 40px lightgreen inset, 0 0 0 0 lightgreen;
+     transition: all 150ms ease-in-out;
+     font-size: 15px;
+     border-radius: 25px;
+   }
+
+ .button:hover {
+    box-shadow: 0 0 10px 0 lightgreen inset, 0 0 10px 4px lightgreen;
+      }

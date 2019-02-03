@@ -14,7 +14,7 @@
     <h4>Write a new peep:</h4>
   </label>
   <input type="text" name="peep">
-  <input type="submit" value="Post">
+  <input type="submit" value="Peep" class="button">
 </form>
 
 <h3>Newsfeed</h3>
@@ -26,9 +26,10 @@
     <form action="/add_comment" method="get">
       <input type="hidden" name="id" value="<%=peep.id%>">
         <% if user.id == peep.user_id %>
-      <input type="submit" value="Comment on <%=user.name%>'s peep"><p>
+      <input type="submit" value="Comment on <%=user.name%>'s peep" class="button"><p>
         <% end %>
     </form>
+    <% if user.id == peep.user_id %>
     <% @comment_list.each do |comment| %>
       <% if peep.id == comment.peep_id %>
       <% if user.id == comment.user_id %>
@@ -38,7 +39,8 @@
       <% end %>
       <% end %>
   <% end %>
+  <% end %>
 
 <form action="/logout" method="post">
-<input type="submit" value="Logout">
+<input type="submit" value="Logout" class="button">
 </form>

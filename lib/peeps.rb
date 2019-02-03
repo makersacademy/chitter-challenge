@@ -22,5 +22,4 @@ class Peeps
     result = Database.query( "INSERT INTO peeps(peep, time, user_id) VALUES('#{peep}', '#{DateTime.now}', '#{user_id}' ) RETURNING id, peep, time, user_id;")
     Peeps.new(id: result[0]['id'], peep: result[0]['peep'], time: result[0]['time'], user_id: result[0]['user_id'])
   end
-
 end
