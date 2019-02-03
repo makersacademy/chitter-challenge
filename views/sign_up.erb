@@ -1,7 +1,105 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+  <style>
+  body {
+    background:$color;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);margin:0;
+    background-color: #F1F1F2;}
+
+  h1 {
+    font-family: 'Lobster', Georgia, Times, serif;
+    font-size: 40px
+  }
+
+p {
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  max-width: 560px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #222;
+}
+/* $duration: .20;
+$easing: ease-in-out; */
+
+/* * {
+  box-sizing: border-box;
+} */
+
+[data-wipe] {
+  display: inline-block;
+  padding: 12px 18px;
+  text-decoration: none;
+  position: relative;
+  border: 2px solid #445561;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left;
+  color: #445561;
+  overflow: hidden;
+
+  &:before, &:after {
+    content: attr(data-wipe);
+    padding-top: inherit;
+    padding-bottom: inherit;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    color: #F1F1F2;
+    background: #445561;
+  }
+
+  &:before {
+    left: 0;
+    text-indent: 18px;
+    width: 0;
+  }
+
+  &:after {
+    padding-left: inherit;
+    padding-right: inherit;
+    left: 100%;
+    text-indent: calc(-100% - 36px);
+    transition: $duration + s $easing;
+  }
+
+  &:hover {
+    &:before {
+      width: 100%;
+      transition: width $duration + s $easing;
+    }
+
+    &:after {
+      left: 0;
+      text-indent: 0;
+      transition: 0s $duration + s $easing;
+    }
+  }
+}
+  </style>
+  </head>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<center>
+
+<h1>Please enter your details below</h1>
+
 <form action="/user" method="post">
   <input type="text" name="name" placeholder="Name"><br>
   <input type="text" name="username" placeholder="Username"><br>
   <input type="text" name="email" placeholder="Email"><br>
-  <input type="text" name="password" placeholder="Password"><br>
-  <input type="submit" value="Sign up">
+  <input type="text" name="password" placeholder="Password"><br><br>
+  <input type="submit" value="Sign up" class="btn" data-wipe="Wipe Hover Effect">
 </form>
+</center>

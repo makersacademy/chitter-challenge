@@ -1,6 +1,6 @@
-h1 {
+/* h1 {
  font-family: 'Lobster', Georgia, Times, serif;
- font-size: 70px;
+ font-size: 100px;
  font-weight:500;
  line-height: 75px;
  color: black
@@ -12,4 +12,82 @@ p {
  font-weight:200;
  line-height: 40px;
  color: black
+} */
+
+body {
+  margin: 0;
+	padding: 0;
+	background-color: #FFE000;
+	overflow: hidden;
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    h1 {
+      position: relative;
+      font-family: 'Lobster', Georgia, Times, serif;
+      font-size: 75px;
+
+      a {
+        text-decoration: none;
+        color: #000;
+
+        &:hover {
+          color: #9036D4;
+        }
+      }
+    }
+
+  }
+}
+
+/* AFTER / BEFORE */
+h1:after,
+h1:before {
+	content: " ";
+	position: absolute;
+	z-index: -1;
+	height: 100px;
+	width: 100px;
+	transition-duration: .7s;
+	border: 0 solid #fff;
+	opacity: 0.7;
+}
+h1:before {
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-right-color: #000;
+    border-top-color: #000;
+    right: -35px;
+    top: -25px;
+}
+h1:after {
+	border-bottom-width: 10px;
+	border-left-width: 10px;
+	bottom: -25px;
+	left: -35px;
+}
+h1:hover:before,
+h1:hover:after {
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+}
+
+/* ADD FOCUS - Thanks to Adrian Roselli @aardrian */
+
+.wrapper h1 a:focus {
+  color: #9036D4;
+  outline: none;
+}
+
+h1:focus-within:before,
+h1:focus-within:after {
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
 }

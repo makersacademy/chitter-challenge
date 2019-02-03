@@ -20,7 +20,7 @@ class Peep
     Peep.new(id: result[0]['id'], text: result[0]['text'], time: result[0]['time'], user_id: result[0]['user_id'])
   end
 
-  def self.select(user_id)
-    self.all.find { |user_list| user_list.id == user.id }
-  end
+  # def self.select(user_id)
+  #   self.all.find { |user_list| user_list.id == user.id }
+  # end
 end

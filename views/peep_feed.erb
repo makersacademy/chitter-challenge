@@ -1,18 +1,104 @@
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+  <style>
+  body {
+    background:$color;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);margin:0;
+    background-color: #F1F1F2;}
 
+  h1 {
+    font-family: 'Lobster', Georgia, Times, serif;
+    font-size: 60px;
+    line-height: 0.5;
+  }
+
+p {
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  max-width: 360px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #222;
+  background-color: #d3dbe8;
+}
+/* $duration: .20;
+$easing: ease-in-out; */
+
+/* * {
+  box-sizing: border-box;
+} */
+
+[data-wipe] {
+  display: inline-block;
+  padding: 12px 18px;
+  text-decoration: none;
+  position: relative;
+  border: 2px solid #445561;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left;
+  color: #445561;
+  overflow: hidden;
+
+  &:before, &:after {
+    content: attr(data-wipe);
+    padding-top: inherit;
+    padding-bottom: inherit;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    color: #F1F1F2;
+    background: #445561;
+  }
+
+  &:before {
+    left: 0;
+    text-indent: 18px;
+    width: 0;
+  }
+
+  &:after {
+    padding-left: inherit;
+    padding-right: inherit;
+    left: 100%;
+    text-indent: calc(-100% - 36px);
+    transition: $duration + s $easing;
+  }
+
+  &:hover {
+    &:before {
+      width: 100%;
+      transition: width $duration + s $easing;
+    }
+
+    &:after {
+      left: 0;
+      text-indent: 0;
+      transition: 0s $duration + s $easing;
+    }
+  }
+}
+  </style>
+  </head>
+
+<center>
 <h1>Welcome to Chitter, <%=session[:user].name%>!</h1>
 
 <form action="/peep_feed/new_peep" method="get">
-  <input type="submit" value="New Peep">
+  <input type="submit" value="New Peep" class="btn" data-wipe="Wipe Hover Effect">
 </form>
 
-<p>
+
   <%@peeps.reverse.each do |peep|%>
+  <p>
     <font size="6"><%=peep.text%></font><br>
-    <font size="1"><%= (User.all.find { |user_list| user_list.id == peep.user_id }).name %> at <%=peep.time%></font><br><br>
+    <font size="1"><%= (User.all.find { |user_list| user_list.id == peep.user_id }).name %> at <%=peep.time%></font><br>
+  </p>
   <%end%>
-</p>
+</center>

@@ -1,9 +1,116 @@
-<body>
-  <h1>Welcome to Chitter</h1>
+<html>
+  <head>
+      <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
+      <link rel="stylesheet" href="styles.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+    $color:rgb(random(150)
+              ,random(150)
+              ,random(150));
+
+    figure{width:200px;height:60px;cursor:pointer;perspective:500px;-webkit-perspective:500px;}
+    figure div{height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:0.25s;-webkit-transition:0.25s;}
+    figure:hover div{transform:rotateX(-90deg);}
+    span{width:100%;height:100%;position:absolute;box-sizing:border-box;border:5px solid #fff;font-family:'Source Sans Pro',sans-serif;line-height:50px;font-size:17pt;text-align:center;text-transform:uppercase;}
+    span:nth-child(1){color:#fff;transform: translate3d(0, 0, 30px);-webkit-transform: translate3d(0, 0, 30px);}
+    span:nth-child(2){color:$color;background:#fff;transform: rotateX(90deg) translate3d(0, 0, 30px);-webkit-transform: rotateX(90deg) translate3d(0, 0, 30px);}
+
+    body{background:$color;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);margin:0;}
+
+    body {
+  font-family: 'Lobster', Georgia, Times, serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+p {
+  max-width: 560px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 2;
+  color: #222;
+}
+$duration: .20;
+$easing: ease-in-out;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 100px;
+  text-align: center;
+  background: #F1F1F2;
+}
+
+[data-wipe] {
+  display: inline-block;
+  padding: 12px 18px;
+  text-decoration: none;
+  position: relative;
+  border: 2px solid #445561;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left;
+  color: #445561;
+  overflow: hidden;
+
+  &:before, &:after {
+    content: attr(data-wipe);
+    padding-top: inherit;
+    padding-bottom: inherit;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    color: #F1F1F2;
+    background: #445561;
+  }
+
+  &:before {
+    left: 0;
+    text-indent: 18px;
+    width: 0;
+  }
+
+  &:after {
+    padding-left: inherit;
+    padding-right: inherit;
+    left: 100%;
+    text-indent: calc(-100% - 36px);
+    transition: $duration + s $easing;
+  }
+
+  &:hover {
+    &:before {
+      width: 100%;
+      transition: width $duration + s $easing;
+    }
+
+    &:after {
+      left: 0;
+      text-indent: 0;
+      transition: 0s $duration + s $easing;
+    }
+  }
+}
+  </style>
+  </head>
+
+<center><body>
+  <font size="10"><h1>Chitter</h1></font>
   <form action="user/new" method="get">
-    <input type="submit" name="" value="Sign up">
+    <input type="submit" name="" value="Sign up" class="btn" data-wipe="Wipe Hover Effect">
   </form>
   <form action="sessions/new" method="get">
-    <input type="submit" name="" value="Sign in">
+    <input type="submit" name="" value="Sign in" class="btn" data-wipe="Wipe Hover Effect">
   </form>
-</body>
+</body></center>
