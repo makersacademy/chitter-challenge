@@ -18,10 +18,14 @@ class User
   end
 
   def self.add(username:, password:, email:, name:)
+   if (Database.query( "SELECT * FROM users WHERE email = '#{email}'") || Database.query( "SELECT * FROM users WHERE name = '#{name}'")).any?
+    return
+  else
     encrypted_password = BCrypt::Password.create(password)
     result = Database.query( "INSERT INTO users(username, password, email, name) VALUES('#{username}', '#{encrypted_password}', '#{email}', '#{name}' ) RETURNING id, username, password, email, name;")
     User.new(id: result[0]['id'], username: result[0]['username'], password: result[0]['password'], email: result[0]['email'], name: result[0]['name'])
   end
+end
 
   def self.login(username:, password:)
     result = Database.query( "SELECT * FROM users WHERE username = '#{username}'")

@@ -19,8 +19,13 @@ class Chitter < Sinatra::Base
 
   post '/register' do
     user = User.add(username: params[:username], password: params[:password], email: params[:email], name: params[:name])
-    session[:user_id] = user.id
-    redirect '/peeps'
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:warning] = "Email or name already in use - try again."
+      redirect '/register/new'
+    end
   end
 
   post '/session' do
