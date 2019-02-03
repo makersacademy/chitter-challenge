@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cheets</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Cheet</th>
+      </tr>
+      <% @cheets.each do |cheet| %>
+      <tr><td><%= cheet %></td></tr>
+      <% end %>
+    </table>
+  </body>
+</html>
