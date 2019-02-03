@@ -13,6 +13,8 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  set :public_folder, 'public'
+
   get '/' do
     redirect '/peeps'
   end

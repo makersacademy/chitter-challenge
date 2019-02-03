@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Crafty+Girls');
+
+h1 {
+    font-family: "Crafty Girls", sans-serif;
+    font-size: 4em;
+}
+
+html {
+    padding: 20px;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(43,9,121,0.9359944661458334) 0%, rgba(251,15,190,0.10406169303658963) 0%, rgba(179,23,193,0.37296925606179976) 100%, rgba(179,23,193,0.37296925606179976) 100%);
+}
+
+body {
+    font-family: 'Crafty Girls', cursive;
+    padding-bottom: 50px;
+
+
+;
+}
+
+div#buttons {
+    display: flex;
+}
+
+div#peep {
+
+    font-weight: bold;
+
+}
+
+ul{
+    background: rgba(179,23,193,0.37296925606179976);
+    list-style-type: none;
+    padding: 20px;
+    width: 50%;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+
+}
+
+body::after {
+    content: "";
+    background-image: url('unicorn.png');
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+li.peep {
+    /*padding-top: 30px;*/
+    /*padding-bottom: 30px;*/
+    padding: 10px;
+    margin: 30px;
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(43,9,121,0.9359944661458334) 0%, rgba(251,15,190,0.10406169303658963) 0%, rgba(179,23,193,0.37296925606179976) 100%, rgba(179,23,193,0.37296925606179976) 100%);
+
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+input {
+    font-family: 'Crafty Girls', cursive;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+}
+
+.child {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.left-heading {
+    display: flex;
+    flex-direction: column;
+}
+

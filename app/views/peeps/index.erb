@@ -1,12 +1,24 @@
-<h1>Welcome to Chitter!</h1>
-<h2> <%= flash[:notice] %></h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
 
+<h1>Welcome to Chitter!</h1>
+
+<h2> <%= flash[:notice] %></h2>
+<body>
 <% unless @name %>
+  <div id="buttons">
   <form action="/users/new" method="get"><input type="submit" value="Sign Up"></form>
   <form action="sessions/new" method="get"><input type="submit" value="Login"></form>
+  </div>
+<h2>Log in or sign up to peep!</h2>
 <% end %>
 
-<% if @name %>Welcome, <%= @name %>. You are logged in.
+<% if @name %><h2>Welcome, <%= @name %>. You are logged in.</h2>
+  <br>
+  <h3>If you see a peep you like, feel free to @ the user to notify them!</h3>
   <form action="/sessions/destroy" method="post">
     <input type="submit" value="Logout">
   </form>
@@ -22,9 +34,15 @@
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
+      <div id="peep">
       <%= peep.message %>
+      </div>
+      <div id="meta">
       <br> <%= peep.created_at %>
-      <br> by <%= User.name_from_peep(peep) %> (<%= User.username_from_peep(peep) %>)
+      <br> by <%= User.name_from_peep(peep) %> (@<%= User.username_from_peep(peep) %>)
+      </div>
     </li>
   <% end %>
 </ul>
+</body>
+</html>

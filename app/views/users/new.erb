@@ -1,7 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../style.css"/>
+</head>
+
+<h1>Please enter your details below to get started!</h1>
+
 <form action="/users" method="post">
   <ul>
     <label for="name">Name:</label>
     <input type="text" name="name"/>
+  </ul>
+  <ul>
+    <label for="username">Username:</label>
+    <input type="text" name="username"/>
   </ul>
   <ul>
     <label for="email">Email:</label>
@@ -11,9 +23,6 @@
     <label for="password">Password:</label>
     <input type="password" name="password"/>
   </ul>
-  <ul>
-    <label for="username">Username:</label>
-    <input type="text" name="username"/>
-  </ul>
   <input type="submit" value="Submit">
 </form>
+</html>
