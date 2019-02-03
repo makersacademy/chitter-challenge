@@ -6,7 +6,6 @@ class Peeps
   property :message, String
   property :created_at, DateTime
 
-
 end
 
 DataMapper.finalize

@@ -1,13 +1,20 @@
 <h1 align="center">
   Welcome to Chitter!
 </h1><br>
+
+<h3 align ="center">
+  Why don't you join the chitter?!
+</h3><form align="center" action="/user" method="get">
+  <input type="submit" value="sign up!">
+</form>
+
 <form align="center" action="/peeps" method="post">
   <input type="text" name="message" placeholder="get chittering!">
   <input type="submit" value="chitter!">
 </form>
 
 <div align="center">
-  <h2 align="center">All the chittering below:</h2>
+  <h3 align="center">All the chittering below:</h3>
   <ul>
   <a>
     <% @DB_peeps.reverse.each do |text| %>
