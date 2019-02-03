@@ -37,7 +37,7 @@ enable :sessions, :method_override
   end
 
   post '/peeps' do
-    Peep.create(username: params[:name], peep: params[:peep])
+    Peep.create(username: params[:username], peep: params[:peep])
     redirect '/peeps'
   end
 

@@ -7,6 +7,7 @@ feature 'post a peep' do
     fill_in('peep', with: 'Wow! My first peep!')
     click_button('Submit')
 
+# not sure how to test for error, maybe need to redirect error to a page and test for that page.
     expect(current_path).to eq '/peeps'
     expect(page.status_code).to eq 200
     expect(page).to have_content('Wow! My first peep!')

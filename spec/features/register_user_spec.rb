@@ -12,5 +12,13 @@ feature 'register a user' do
     expect(current_path).to eq '/users'
     expect(page.status_code).to eq 200
 
+    # visit('/users/new')
+    # fill_in('name', with: 'Jess')
+    # fill_in('e-mail', with: 'jesslns@gmail.com')
+    # fill_in('username', with: 'Jess')
+    # fill_in('password', with: 'password')
+    # click_button('Submit')
+    # expect(current_path).to eq '/users'
+    # expect(page.status_code).to eq 404
   end
 end
