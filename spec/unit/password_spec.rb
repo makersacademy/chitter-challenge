@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 RSpec.describe Password do
 
   it 'should return true when given a correct user/pass' do

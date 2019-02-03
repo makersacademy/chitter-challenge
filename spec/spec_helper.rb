@@ -1,4 +1,3 @@
-require 'bcrypt'
 require 'capybara/rspec'
 require 'orderly'
 require 'simplecov'

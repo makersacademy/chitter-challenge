@@ -6,5 +6,5 @@ RSpec.describe DatabaseConnection do
     DatabaseConnection.setup
     expect(ActiveRecord::Base.connection.current_database).to eq 'chitter_test'
   end
-  
+
 end

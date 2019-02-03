@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'uri'
 require './app/models/peep'
 require './app/models/user'
 require './app/models/db_connection'
@@ -53,7 +52,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    encrypted = Password.hash((params[:password]))
+    encrypted = Password.hash(params[:password])
     newuser = User.create(username: params[:username],
                           forename: params[:forename],
                           surname: params[:surname],
