@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    ENV['RAILS_ENV'] = 'development' if ENV['RAILS_ENV'] != 'test'
+    ENV['RAILS_ENV'] ||= 'development'
     @peeps = Peep.joins(:user).select("peeps.*, users.username, users.forename, users.surname")
     erb :index
   end
