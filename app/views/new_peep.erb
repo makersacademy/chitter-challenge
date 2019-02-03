@@ -1,6 +1,13 @@
-<h1>Chitter</h1>
+<center>
 
-<form action="/peep" method="post">
-  <input type="text" placeholder="What's good?" name="peep"/>
-  <input type="submit" value="Submit"/>
-</form>
+  <h1>Chitter</h1>
+  
+  <form action="/peep" method="post">
+    <input type="text" placeholder="What's good?" name="new_peep"/>
+    <input type="submit" value="Submit"/>
+  </form>
+  <h2>Peeps</h2>
+  <% @peeps.each do |peep| %>
+    <ul><%= peep.peep %></ul>
+  <% end %>
+</center>
