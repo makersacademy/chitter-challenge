@@ -43,11 +43,11 @@ Technologies used
 Outstanding tasks
 -------
 
-Unfortunately I ran out of time for the final goal of emailing when a user is mentioned. The sturcture is in place with a method that takes a peep as and input and outputs the username if it finds a @user reference. In addition the logic to send an email is in place based on this but I did not have enough time to adequately BDD/TDD the implementation.
+Unfortunately I ran out of time for the final goal of emailing when a user is mentioned. The structure is in place with a method that takes a peep as and input and outputs the username if it finds a @user reference. In addition the logic to send an email is in place based on this but I did not have enough time to adequately BDD/TDD the implementation.
 
-As part of this deploying a third docker container configured with sendmail would be good to handle the mnail delivery.
+As part of this deploying a third docker container configured with sendmail would be good to handle the mail delivery.
 
-It would also be good to rework so the app is fully RESTful. The spec did not go far enough to require this but functionality above and beyone what was requested could be achieved if this was the case.
+It would also be good to rework so the app is fully RESTful. The spec did not go far enough to require this but functionality above and beyond what was requested could be achieved if this was the case.
 
 User stories
 -------
