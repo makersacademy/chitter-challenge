@@ -1,4 +1,3 @@
-
 class Peeps < ActiveRecord::Migration[5.2]
   def change
     create_table :peeps do |t|
