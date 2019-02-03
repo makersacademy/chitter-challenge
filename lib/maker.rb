@@ -17,7 +17,7 @@ class Maker
   end
 
   def self.current_user
-    @current_user
+    @current_user || Maker.create()
   end
 
 end

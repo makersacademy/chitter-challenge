@@ -14,13 +14,28 @@ class Chitter < Sinatra::Base
     erb :index, { locals: { peeps: peeps } }
   end
 
-  post '/index' do
+  post '/peep/new' do
     peep = params['new_peep']
     Maker.current_user = Maker.create()
     Maker.current_user.peeps.create(
       :peeptext => peep,
       :timestamp => Time.new
     )
+    redirect '/'
+  end
+
+  post '/maker/new' do
+    new_maker = Maker.create(
+      :displayname => params[:displayname],
+      :username => params[:username],
+      :email => params[:email],
+      :password => params[:password]
+    )
+    p 'new_maker'
+    p new_maker
+    Maker.current_user = new_maker
+    p 'Maker.current_user'
+    p Maker.current_user
     redirect '/'
   end
 

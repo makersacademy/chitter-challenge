@@ -6,6 +6,6 @@ feature do
     fill_in 'email', with: 'test@email.com'
     fill_in 'password', with: 'secret'
     click_button 'Sign up'
-    expect(Maker.current_user.displayname).to eq 'Test Name'
+    expect(page).to have_content 'User: Test Name'
   end
 end

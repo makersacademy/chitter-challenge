@@ -1,10 +1,20 @@
 <h1>Welcome to Chitter!</h1>
 <p>
+User: <%= Maker.current_user.displayname %>
+</p>
+<form action="/maker/new" method="post">
+  Sign up:
+  <input type="text" name="displayname" placeholder="Display Name - how others see you"/>
+  <input type="text" name="username" placeholder="Username"/>
+  <input type="email" name="email" placeholder="Valid email address"/>
+  <input type="password" name="password" placeholder="password"/>
+  <input type="submit" value="Sign up" />
+</form>
+<br />
 <textarea rows="4" cols="50" name="new_peep" form="usrform" placeholder="Post a peep:"></textarea>
-<form action='/index' method='post' id="usrform">
+<form action='/peep/new' method='post' id="usrform">
   <input type='submit' value="Post" />
 </form>
-</p>
 <br />
 <p>
 Peepstream:
