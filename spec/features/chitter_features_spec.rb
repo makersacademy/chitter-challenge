@@ -23,6 +23,8 @@ feature "Viewing peeps" do
     expect(page).to have_content("Chitter")
     expect(page).to have_content("Latest peeps:")
     expect(page).to have_content("Hello, Chitter!")
+    expect(page).to have_content("MEOW!")
+    expect(page.body.index('MEOW') < page.body.index('Hello'))
   end
 
 # As a Maker

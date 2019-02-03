@@ -13,6 +13,10 @@ class Chitter < Sinatra::Base
     erb :register
   end
 
+  get('/post') do
+    "Post your peep here"
+  end
+
   run! if app_file == $PROGRAM_NAME
 
 end

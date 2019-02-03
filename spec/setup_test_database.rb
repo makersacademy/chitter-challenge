@@ -10,4 +10,6 @@ def setup_test_database
   connection.exec("CREATE TABLE peeps(id SERIAL PRIMARY KEY, poster_id INTEGER references users(id), peep_content VARCHAR(160), posted_at TIMESTAMP)")
   connection.exec("INSERT INTO users VALUES(1, 'burrito', 'burrito@catbowl.com', 'fish123')")
   connection.exec("INSERT INTO peeps VALUES(1, 1, 'Hello, Chitter!', current_timestamp)")
+  connection.exec("INSERT INTO users VALUES(2, 'Larry', 'larry@catbowl.com', 'mouse123')")
+  connection.exec("INSERT INTO peeps VALUES(2, 2, 'MEOW!!!', current_timestamp)")
 end

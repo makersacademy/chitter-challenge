@@ -9,7 +9,6 @@ class Peep
     @posted_at = posted_at
   end
 
-
   def self.list
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter-test')
