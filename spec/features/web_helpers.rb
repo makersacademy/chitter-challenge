@@ -6,6 +6,6 @@ def fill_in_registration
 end
 
 def fill_in_login
-  fill_in('user_email', with: 'test@email.com')
-  fill_in('user_password', with: 'password')
+  fill_in('user_em', with: 'test@email.com')
+  fill_in('user_pw', with: 'password')
 end

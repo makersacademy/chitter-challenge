@@ -13,20 +13,29 @@ class User
 
   def self.all_users
     query = DatabaseConnection.query("SELECT * FROM users")
-    @users = query.map { |eachquery| User.new(eachquery['username'], eachquery['email'])}
+    @users = query.map { |eachquery| User.new(
+      eachquery['username'],
+      eachquery['email'])
+    }
   end
 
   def self.add(u_username, u_email, u_password)
-    DatabaseConnection.query("INSERT INTO users (username, email, password) VALUES('#{u_username}', '#{u_email}', '#{u_password}')")
+    DatabaseConnection.query("
+      INSERT INTO users (username, email, password)
+      VALUES('#{u_username}', '#{u_email}', '#{u_password}')")
   end
 
   def self.sign_in_check(u_email, u_password)
-    query = DatabaseConnection.query("SELECT COUNT (id) FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
-    query[0]['count'].to_i == 1 ? true : false
+    query = DatabaseConnection.query("
+      SELECT COUNT (id) FROM users
+      WHERE email = '#{u_email}' AND password = '#{u_password}'")
+    query[0]['count'].to_i == 1
   end
 
   def self.sign_in(u_email, u_password)
-    query = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{u_email}' AND password = '#{u_password}'")
+    query = DatabaseConnection.query("
+      SELECT * FROM users
+      WHERE email = '#{u_email}' AND password = '#{u_password}'")
     user(query[0]['id'], query[0]['username'])
   end
 

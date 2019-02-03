@@ -27,7 +27,7 @@
 <div align="left" class="peep_wrapper">
   <div align="left" id="message"><%= peep.message %></div>
   <div align="right" id="created"><%= peep.created %></div>
-  <div align="right" id="created"><%= Peep.username(peep.userID) %></div>
+  <div align="right" id="created"><%= Peep.username(peep.user_id) %></div>
   <form align="right" action="/follow" method="post">
     <input class="follow" type="submit" value="Follow">
   </form>

@@ -9,7 +9,7 @@ body {
   color: #005292;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
   color: white;
   height: 50px;
   text-align: center;

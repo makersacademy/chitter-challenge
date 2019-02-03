@@ -6,9 +6,7 @@ require 'features/web_helpers'
 ENV['ENVIRONMENT'] = 'test'
 require_relative './features/setup_test_database'
 
-
-
-require File.join(File.dirname(__FILE__),'..','app.rb')
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Chitter
 

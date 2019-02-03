@@ -9,12 +9,12 @@
 </header>
 <div class="registration">
 <form align=center action="/register" method="post">
-  <input type="text" name="add_username" placeholder="Enter Username"> <br>
-  <input type="text" name="add_email" placeholder="Enter Email"> <br>
-  <input type="text" name="add_password" placeholder="Enter Password"> <br>
+  <input type="text" name="add_username" placeholder="Enter Username" required> <br>
+  <input type="text" name="add_email" placeholder="Enter Email" required> <br>
+  <input type="password" name="add_password" placeholder="Enter Password" required> <br>
   <input class="register" type="submit" value="Register">
   <form action ="/">
-      <input class="cancel" type="submit" value="Cancel">
+      <input class="cancel" type="submit" value="Cancel" formnovalidate>
   </form>
   </form>
   </div>
