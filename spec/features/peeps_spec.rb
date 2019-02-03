@@ -2,6 +2,7 @@ require_relative '../web_helper.rb'
 require 'timecop'
 
 feature 'Viewing peeps' do 
+  include Helpers
   scenario 'visiting the index page' do
     visit('/')
     expect(page).to have_content 'Welcome to Chitter'
@@ -14,6 +15,7 @@ feature 'Viewing peeps' do
 end
 
 feature 'Adding new peeps' do
+  include Helpers
   before(:each) do
     go_to_add_peep_page
   end
