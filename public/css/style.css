@@ -3,19 +3,19 @@ body {
 }
 
 .icon-bar {
-  width: 100%; /* Full-width */
-  background-color: dodgerblue; /* Dark-grey background */
-  overflow: auto; /* Overflow due to float */
+  width: 100%;
+  background-color: dodgerblue;
+  overflow: auto;
 }
 
 .icon-bar a {
-  float: left; /* Float links side by side */
-  text-align: center; /* Center-align text */
-  width: 33%; /* Equal width (5 icons with 20% width each = 100%) */
-  padding: 12px 0; /* Some top and bottom padding */
-  transition: all 0.3s ease; /* Add transition for hover effects */
-  color: white; /* White text color */
-  font-size: 36px; /* Increased font size */
+  float: left;
+  text-align: center;
+  width: 33%;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
 }
 
 .icon-bar a:hover {
@@ -23,12 +23,12 @@ body {
 }
 
 .active {
-  background-color: #1e7dff; /* Add an active/current color */
+  background-color: #1e7dff;
 }
 
 .header {
-   width: 100%; /* Full-width */
-   background-color: dodgerblue; /* Dark-grey background */
+   width: 100%;
+   background-color: dodgerblue;
    text-align: center;
    color: white;
    font-size: 36px;
@@ -64,14 +64,12 @@ body {
 
  * {box-sizing: border-box;}
 
- /* Style the input container */
  .input-container {
    display: flex;
    width: 100%;
    margin-bottom: 15px;
  }
 
- /* Style the form icons */
  .icon {
    padding: 10px;
    background: dodgerblue;
@@ -80,7 +78,6 @@ body {
    text-align: center;
  }
 
- /* Style the input fields */
  .input-field {
    width: 100%;
    padding: 10px;
@@ -91,7 +88,6 @@ body {
    border: 2px solid dodgerblue;
  }
 
- /* Set a style for the submit button */
  .btn {
    background-color: dodgerblue;
    color: white;
