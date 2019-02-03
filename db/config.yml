@@ -14,4 +14,3 @@ test: &test
 
 production: &production
   <<: *default
-  url: <%= URI.encode(ENV['DATABASE_URL']) %>
