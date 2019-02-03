@@ -1,14 +1,24 @@
 ## User Stories
 
-'''
+```
 As a user
 So that I can see cheets
 I would like to see a list of cheets
-'''
+```
 
 ## Domain Model
 
 ![Chitter domain model](./public/images/dom_mod_1.jpg)
+
+### Set up database
+
+Run `psql` and create `chitter` database
+
+```CREATE DATABASE chitter;```
+
+To set up tables connect to database and run scripts in `db/migrations`
+
+
 
 Chitter Challenge
 =================
