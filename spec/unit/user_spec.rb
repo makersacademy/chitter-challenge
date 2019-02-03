@@ -4,7 +4,7 @@ require_relative '../helpers/database_helpers'
 describe 'User' do
   describe '.create' do
     it 'creates new user at signup' do
-      user = User.create(username: 'JPRudrum', password: 'AFC4LYF', email: 'jr@gmail.com'  )
+      user = User.create(username: 'JPRudrum', password: 'AFC4LYF', email: 'jr@gmail.com')
       persisted_data = persisted_data_2(id: user.id)
 
       expect(user).to be_a User

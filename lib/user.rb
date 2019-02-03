@@ -4,13 +4,13 @@ class User
 
   attr_reader :id, :username, :password, :email
 
-  def initialize (id:, username:, password:, email:)
+  def initialize(id:, username:, password:, email:)
     @id = id
     @username = username
     @email = email
     @password = password
   end
-  
+
   def self.create(username:, password:, email:)
     if ENV['RACK_ENV'] == 'test'
       con = PG.connect :dbname => 'chitter_test'
