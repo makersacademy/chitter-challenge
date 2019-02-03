@@ -1,6 +1,9 @@
 Database Setup
 =================
+[![Screen-Shot-2019-02-03-at-22-14-23.png](https://i.postimg.cc/XJxFfxvC/Screen-Shot-2019-02-03-at-22-14-23.png)](https://postimg.cc/hzzfgLTD)
 
+Database setup:
+-------
 - Connect to psql
 - Create the database using the psql command `CREATE DATABASE chitter;`
 - Connect to the database using the pqsl command `\c chitter;`
@@ -8,8 +11,7 @@ Database Setup
 
 
 
-Challenge:
--------
+
 
 
 Features:
