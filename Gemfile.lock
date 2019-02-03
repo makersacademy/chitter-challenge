@@ -25,6 +25,7 @@ GEM
     parallel (1.13.0)
     parser (2.6.0.0)
       ast (~> 2.4.0)
+    pg (1.1.4)
     powerpack (0.1.2)
     public_suffix (3.0.3)
     rack (2.0.6)
@@ -82,6 +83,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  pg
   rake
   rspec
   rubocop (= 0.56.0)

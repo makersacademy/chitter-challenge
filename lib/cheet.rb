@@ -1,11 +1,9 @@
+require 'pg'
+
 class Cheet
-  @all = [
-    "Being methodical and sensible",
-    "I stick to the pomodoro technique",
-    "To get much done in little time"
-  ]
-  
   def self.all
-    @all
+    connection = PG.connect(dbname: 'chitter')
+    cheets = connection.exec("SELECT * FROM cheets;")
+    cheets.map { |row| row['cheet'] }
   end
 end
