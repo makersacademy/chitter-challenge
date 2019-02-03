@@ -2,10 +2,6 @@
 Chitter Challenge
 =================
 
-## Current issues - can you help?
-
-Database is wiped when the server is closed and rebooted.
-
 ## Setup
 
 All you need to do is create a database 'chitter' (and 'chitter_test' if you want to run the tests). DataMapper will take care of the rest (creating tables etc).
@@ -13,8 +9,23 @@ All you need to do is create a database 'chitter' (and 'chitter_test' if you wan
 In psql, run the following:
 
 ```
-CREATE DATABASE [database name]
+CREATE DATABASE [database name];
 ```
+
+Then install dependencies (gems) by running `bundle` in the root directory from the command line.
+
+To start the server run `rackup` in the root.
+
+To run the tests, run `rspec` in the root.
+
+## Technologies
+
+SQL (wrapped by DataMapper as an Object Relational Mapper)
+Rspec (tests) and Capybara (feature tests)
+Sinatra (in the controller)
+Rubocop (linter)
+SimpleCov (test coverage)
+Rackup (launch server)
 
 ## Model Diagram
 
