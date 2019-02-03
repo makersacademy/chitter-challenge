@@ -9,7 +9,7 @@ describe User do
   end
 
   it 'Returns a list of all users' do
-    test_user = User.create('Test user', 'testuser', 'testuser@email.com', 'Password123')
+    User.create('Test user', 'testuser', 'testuser@email.com', 'Password123')
     expect(User.all[0]).to be_an_instance_of(User)
     expect(User.all[0].name).to eq 'Test user'
     expect(User.all[0].username).to eq 'testuser'
@@ -29,7 +29,7 @@ describe User do
     end
 
     it 'Returns nil if an incorrect username is entered' do
-      test_user = User.create('Test user', 'testuser', 'testuser@email.com', 'Password123')
+      User.create('Test user', 'testuser', 'testuser@email.com', 'Password123')
       expect(User.authenticate('fakeuser', 'Password123')).to eq nil
     end
   end
