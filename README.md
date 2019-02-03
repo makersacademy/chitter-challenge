@@ -1,3 +1,5 @@
+SEE DEVELOPMENT_STORY.MD FOR PROJECT DIARY
+
 Chitter Challenge
 =================
 

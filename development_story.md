@@ -1,8 +1,9 @@
 # Features Design/Thought Process
 
-I just wanted to keep it simple for this project and focus on developing the core functionality from an extremely basic view  
-point. So everything from the database set-up to the interaction between the MVC have been developed from using very simple  
-configurations and syntax.
+Based on my personal learning objectives and limited time this weekend. I just wanted to keep it simple for this project  
+and focus on developing the core functionality from an extremely basic view point. So everything from the database set-up  
+to the interaction between the MVC have been developed from using very simple configurations and syntax. I also only created feature  
+tests this weekend due to my limited time availability.
 
 ## Database Set-up
 
@@ -56,3 +57,9 @@ One-time or scenario specific method calls within the ChitterDatabase class clos
 automatically executed when a user goes back to the homepage or clicks the log-out button. The user will find that when they go to the all  
 user chitters page and then decides to go back to their personal chitters page that the page recognises the fact that they are still logged  
 in and will be able to see their personal chitter posts.
+
+## Future Design Plans/Features
+
+Place unique value constraints on user_names in my users table.
+Use an email sending API for sign-up confirmation and chitter notification emails to users.
+Allow chitters to reply to each other's chitters.
