@@ -22,6 +22,15 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  post('/register') do
+    name = params['name']
+    username = params['username']
+    email = params['email']
+    password = params['password']
+    User.register(name, username, email, password)
+    rediret '/confirm-registration'
+  end
+
   run! if app_file == $PROGRAM_NAME
 
 end

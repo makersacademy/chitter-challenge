@@ -42,10 +42,15 @@ end
 feature 'Registration' do
   scenario 'A user can sign up for Chitter' do
     visit('/register')
+    fill_in :name, with: "Chitter User"
     fill_in :username, with: "ChitterUser"
     fill_in :email, with: "chitteruser@chitter.com"
     fill_in :password, with: "Password123"
     click_button "Register"
-    expect(page).to have_content("Welcome to Chitter, ChitterUser!")
+    expect(page).to have_content("Welcome to Chitter, Chitter User!")
+  end
+  scenario 'Users have their usernames shown next to peeps' do
+    visit('/')
+    expect(page).to have_content("Larry")
   end
 end
