@@ -10,7 +10,13 @@
 <body>
   <div class="main__container">
     <h1>Chitter</h1>
-
+    
+      <% if @user %>
+        <h3>
+          Welcome, <%= @user.email %>
+        </h3>
+      <% end %>
+    <a href="/users/new">sign up</a>
     <form id="myForm" action="/process-peep" method="post">
       <textarea class="peep__textarea" name="peep" placeholder="What's happening?" ></textarea>
       <input type="submit" value="Post">
@@ -19,9 +25,10 @@
     <div class="main__container_peeps">
       <ul>
         <% @peeps.each { |peep|  %>
-        <li class="peep" id="peep-<%= peep.id %>">
-          <%= peep.peep %>
-        </li>
+          <li class="peep" id="peep-<%= peep.id %>">
+            <%= peep.peep %>
+            <div class="peep__time">Posted at: <%= peep.time %></div>
+          </li>
         <% } %>
       </ul>
     </div>
