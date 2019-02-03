@@ -50,4 +50,15 @@ class User
 
     User.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'])
   end
+
+  def self.authenticate(email:, password:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    result = connection.exec("SELECT * FROM users WHERE email = '#{email}'")
+    User.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'])
+  end
 end

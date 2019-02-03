@@ -1,4 +1,4 @@
-
+require './app/lib/user'
 
 feature 'Website tests:' do
 
@@ -53,5 +53,14 @@ feature 'Website tests:' do
     fill_in('password', with: 'password123')
     click_button('Submit')
     expect(page).to have_content('Welcome, test@test.com')
+  end
+
+  scenario 'a user can sign in' do
+    User.create(email: 'test@test.com', password: 'password')
+    visit('/sessions/new')
+    fill_in(:email, with: 'test@test.com')
+    fill_in(:password, with: 'password')
+    click_button('Sign in')
+    expect(page).to have_content 'Welcome, test@test.com'
   end
 end

@@ -34,5 +34,13 @@ RSpec.describe Peep do
     end
   end
 
+  describe '.authenticate' do
+    it 'returns a user given a correct username and password, if it exists' do
+      user = User.create(email: 'hi@hello.com', password: 'password')
+      authenticated_user = User.authenticate(email: 'hi@hello.com', password: 'password')
+      expect(authenticated_user.id).to eq(user.id)
+    end
+  end
+
   
 end

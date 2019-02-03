@@ -16,7 +16,11 @@
           Welcome, <%= @user.email %>
         </h3>
       <% end %>
-    <a href="/users/new">sign up</a>
+    <div class="main__login">
+      <a href="/users/new">sign up</a>
+      <a href="/sessions/new">Login</a>
+    </div>
+    
     <form id="myForm" action="/process-peep" method="post">
       <textarea class="peep__textarea" name="peep" placeholder="What's happening?" ></textarea>
       <input type="submit" value="Post">
