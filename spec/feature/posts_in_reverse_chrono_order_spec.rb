@@ -4,7 +4,7 @@ feature 'Test post order' do
     Post.create(chit: "Test chit 02")
     Post.create(chit: "Test chit 03")
 
-    visit ('/posts')
+    visit '/posts'
 
     expect(page.find('li:nth-child(1)')).to have_content 'Test chit 03'
     expect(page.find('li:nth-child(2)')).to have_content 'Test chit 02'
