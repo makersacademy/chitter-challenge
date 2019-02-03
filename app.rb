@@ -5,7 +5,11 @@ require './lib/message'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Welcome to Chitter'
+    erb :index
+  end
+
+  get '/signup' do
+    erb :'signup/index'
   end
 
   get '/create' do
