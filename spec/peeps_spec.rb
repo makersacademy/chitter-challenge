@@ -12,4 +12,11 @@ describe Peep do
       expect(peep).to include('First peep woo')
     end
   end
+
+  describe '.create' do
+    it 'adds a peep' do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("INSERT INTO peep VALUES(2, 'second peep')")
+    end
+  end 
 end
