@@ -3,8 +3,9 @@ feature 'Registration-unit tests' do
     visit('/register')
     expect(page).to have_no_content("ditty")
   end
-  scenario 'User can see the three required fields' do
+  scenario 'User can see the four required fields' do
     visit('/register')
+    expect(page).to have_field("name")
     expect(page).to have_field("username")
     expect(page).to have_field("email")
     expect(page).to have_field("password")
