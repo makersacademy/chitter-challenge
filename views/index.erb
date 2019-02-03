@@ -6,7 +6,6 @@
 </head>
 <body>
 
-
 <header>
 <h1>Welcome to Chitter, <%= User.username %></h1>
 </header>
@@ -16,23 +15,22 @@
   <input class="logout" type="submit" value="Log Out!">
 </form>
 
-<h2>Come and join the Chit!</h2>
+<h2>Enter your message below to share your Chit with the world!</h2>
 
-
-
-<form action="/feed" method="post">
-  <input type="text" name="add_peep">
+<form id="peep_form" action="/feed" method="post">
+  <textarea class ="peep_form" form="peep_form" name="add_peep" cols="50" rows="10"></textarea><br>
   <input class="peep" type="submit" value="Peep!">
 </form>
 
 <h2>Latest Peeps!</h2>
 <% @peeps.each do |peep| %>
-<div align="center" id="peep_wrapper">
+<div align="left" class="peep_wrapper">
   <div align="left" id="message"><%= peep.message %></div>
   <div align="right" id="created"><%= peep.created %></div>
   <div align="right" id="created"><%= Peep.username(peep.userID) %></div>
+  <form align="right" action="/follow" method="post">
+    <input class="follow" type="submit" value="Follow">
+  </form>
 </div>
 <% end  %>
 </div>
-</body>
-</html>

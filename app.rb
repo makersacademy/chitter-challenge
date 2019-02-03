@@ -16,6 +16,7 @@ end
 
 get '/feed' do
   @peeps = Peep.all
+  @users = User.all_users
   erb :index
 end
 
@@ -24,11 +25,11 @@ post '/feed' do
   redirect '/feed'
 end
 
-get '/add_user' do
+get '/register' do
   erb :user_form
 end
 
-post '/add_user' do
+post '/register' do
   User.add(params[:add_username], params[:add_email], params[:add_password])
   redirect '/'
 end

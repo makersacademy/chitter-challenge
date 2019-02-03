@@ -55,10 +55,11 @@ h2 {
   transition: background-color 1s;
 }
 
-#peep_wrapper {
+.peep_wrapper, .peep_form {
+  width: 33%;
+  overflow: hidden;
   margin: 5px;
   padding: 5px;
-  width: 33%;
   border: 5px solid #005292;
   -webkit-border-radius: 10px;
 }
