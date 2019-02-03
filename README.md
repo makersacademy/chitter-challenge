@@ -1,4 +1,4 @@
-* Project not yet completed
+* Project not yet completed.  First four user stories completed but author names are not attributed to peeps.
 
 To set up the database
 ======================
