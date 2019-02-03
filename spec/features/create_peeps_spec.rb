@@ -10,5 +10,6 @@ feature 'post a peep' do
     expect(current_path).to eq '/peeps'
     expect(page.status_code).to eq 200
     expect(page).to have_content('Wow! My first peep!')
+    expect(page).to have_content('Jess')
   end
 end
