@@ -74,7 +74,7 @@ textarea {
   word-wrap: break-word;
   color: white;
   position: absolute;
-  top: 110%;
+  top: 105%;
   left: 50%;
   transform: translate(-50%);
   margin: auto;
@@ -94,7 +94,12 @@ textarea {
 }
 
 .chit_image {
+}
 
+.delete_button {
+position: absolute;
+top: 5px;
+right: 5px;
 }
 
 .chit_date {

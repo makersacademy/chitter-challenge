@@ -5,6 +5,10 @@
     body {
       background-color: #202e3e;
     }
+    img {
+  width: 256px;
+  height: auto;
+}
     </style>
     </head>
     <body>
@@ -39,6 +43,12 @@
             <div class="chit_image">
          <img src="<%= chit.image %>"
             </div>
+            <form action=/home/delete_chit method='post'>
+  <input type="hidden" name="delete_chit" value="<%= chit.id %>">
+  <div class="delete_button">
+  <button type="submit" value="Submit">X</button>
+  </div>
+</form>
             <div class="chit_date">
             <%= chit.date %>
             </div>

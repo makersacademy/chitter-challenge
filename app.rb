@@ -36,5 +36,10 @@ post '/home/add_chit' do
    redirect '/home'
 end
 
+post '/home/delete_chit' do
+  Chits.delete(id: params[:delete_chit])
+   redirect '/home'
+end
+
 run! if app_file == $0
 end
