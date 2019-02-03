@@ -1,6 +1,7 @@
 * Project not yet completed
 
-### To set up the database
+To set up the database
+======================
 
 Connect to `psql` and create the `chitter_peeps` database:
 
@@ -15,7 +16,8 @@ CREATE DATABASE chitter_peeps_test;
 
 To set up the appropriate tables, connect to the two databases in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
-### To run the Bookmark Manager app
+To run the Bookmark Manager app
+===============================
 
 In the command line run the following commands:
 
@@ -23,16 +25,16 @@ In the command line run the following commands:
 bundle install
 rackup
 ```
-Then to view, navigate to `localhost:9292`
+Then to view, navigate to `localhost:9292` in your browser.
 
 ### Technologies used
 
-Sinatra
-Ruby
-Rspec
-Capybara
-PostgreSQL
-TablePlus
+* Sinatra
+* Ruby
+* Rspec
+* Capybara
+* PostgreSQL
+* TablePlus
 
 
 Chitter Challenge
