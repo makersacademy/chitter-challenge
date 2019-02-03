@@ -2,7 +2,11 @@ require 'data_mapper'
 require_relative 'peep'
 
 DataMapper::Logger.new($stdout, :debug)
-DataMapper.setup(:default, 'postgres://david@localhost/chitter')
+if ENV['ENVIRONMENT'] == 'test'
+  DataMapper.setup(:default, 'postgres://david@localhost/chitter')
+else
+  DataMapper.setup(:default, 'postgres://david@localhost/chitter_test')
+end
 
 class Maker
   include DataMapper::Resource
@@ -19,6 +23,6 @@ class Maker
 
   def self.current_user
     @current_user
-  end 
+  end
 
 end
