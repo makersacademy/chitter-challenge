@@ -4,11 +4,11 @@
   <%= form_with scope: :peep, url: peeps_path, local: true do |form| %>
     <p>
       <%= form.label :Name %><br>
-      <%= form.text_field :name %>
+      <%= form.text_field( :name, :value => session[:user_name])%>
     </p>
     <p>
       <%= form.label :Handle %><br>
-      <%= form.text_field :handle %>
+      <%= form.text_field( :handle, :value => session[:user_handle])%>
     </p>
     <p>
       <%= form.label :Message %><br>
