@@ -24,11 +24,16 @@ feature "Viewing peeps" do
     expect(page).to have_content("Latest peeps:")
     expect(page).to have_content("Hello, Chitter!")
   end
-end
+
 # As a Maker
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made
-#
+  scenario 'A user visiting the homepage can see the timestamp of peeps' do
+    visit('/')
+    expect(page).to have_content("Posted at:")
+    expect(page).to have_content(Time.now.hour)
+  end
+end
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter
