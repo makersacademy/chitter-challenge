@@ -9,4 +9,5 @@ class Peep < ActiveRecord::Base
     return false if output == nil
     output[1]
   end
+  
 end

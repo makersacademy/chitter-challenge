@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class Password
 
   def self.hash(password)

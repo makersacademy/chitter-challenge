@@ -6,6 +6,8 @@ require './app/models/password'
 require './app/models/peep'
 require './app/models/user'
 
+
+
 class Chitter < Sinatra::Base
 
   enable :sessions, :method_override

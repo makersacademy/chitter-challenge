@@ -7,6 +7,7 @@ require './chitter'
 
 ENV['RAILS_ENV'] = 'test'
 TIMESTAMP_REGEX = '\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} UTC'
+TEST_MESSAGE = "Hey @al123, how are you?"
 
 Capybara.app = Chitter
 

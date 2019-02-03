@@ -1,6 +1,7 @@
 require './chitter'
 
 RSpec.describe 'feature tests' do
+  include Mail::Matchers
   before(:each) do
     test_db_initialise
     # User.assign_user(nil)
@@ -13,7 +14,7 @@ RSpec.describe 'feature tests' do
 # I want to post a message (peep) to chitter
 #
 
-  feature 'index' do
+  feature 'feature tests' do
 
     scenario 'user sees the homepage' do
       visit('/')
@@ -30,34 +31,22 @@ RSpec.describe 'feature tests' do
       expect(page.status_code).to be(200)
     end
 
+# Peeps (posts to chitter) have the name of the maker and their user handle.
+
     scenario 'user can post peeps when logged in' do
       perform_valid_login
       click_link "New Peep!"
       fill_in "message", with: "This is a new peep"
       click_on "Peep!"
       expect(page).to have_content "This is a new peep"
-      expect(page.status_code).to be(200)
-    end
-
-# Peeps (posts to chitter) have the name of the maker and their user handle.
-
-    scenario 'user can see their name and username in peeps when posting' do
-      perform_valid_login
-      click_link "New Peep!"
-      fill_in "message", with: "This is a new peep"
-      click_on "Peep!"
       expect(page.text).to match(/Alice Smith @al123/)
       expect(page.status_code).to be(200)
     end
-
-  end
 
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
 #
-
-  feature 'multiple peeps in reverse chronological order' do
 
     scenario 'user sees peeps in reverse chronological order' do
       visit('/')
@@ -65,13 +54,9 @@ RSpec.describe 'feature tests' do
       expect(page.status_code).to be(200)
     end
 
-  end
-
 # As a Maker
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made
-
-  feature 'show timestamp of peeps' do
 
     scenario 'user sees peep timestamps' do
       visit('/')
@@ -79,16 +64,12 @@ RSpec.describe 'feature tests' do
       expect(page.status_code).to be(200)
     end
 
-  end
-
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter
 #
 
 # Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-
-  feature 'sign up for chitter' do
 
     scenario 'user can signup a new account' do
       visit_signup_page
@@ -128,15 +109,12 @@ RSpec.describe 'feature tests' do
       expect(page.status_code).to be(200)
     end
 
-  end
 # HARDER
 #
 # As a Maker
 # So that only I can post messages on Chitter as me
 # I want to log in to Chitter
 #
-
-  feature 'log in to chitter' do
 
     scenario 'user can login if they exist' do
       perform_valid_login
@@ -153,13 +131,9 @@ RSpec.describe 'feature tests' do
       expect(page.status_code).to be(200)
     end
 
-  end
-
 # As a Maker
 # So that I can avoid others posting messages on Chitter as me
 # I want to log out of Chitter
-
-  feature 'log out of chitter' do
 
     scenario 'user can logout' do
       visit_login_page
@@ -172,14 +146,23 @@ RSpec.describe 'feature tests' do
       expect(page.status_code).to be(200)
     end
 
-  end
-
 # ADVANCED
 #
 # As a Maker
 # So that I can stay constantly tapped in to the shouty box of Chitter
 # I want to receive an email if I am tagged in a Peep
 
-# Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+  # feature 'receive email when tagged' do
+  #
+  #     scenario 'receive email' do
+  #       Mail::TestMailer.deliveries.clear
+  #       perform_valid_login
+  #       fill_in "message", with: "Hi there @bo123"
+  #       click_on "Peep!"
+  #       it { is_expected.to have_sent_email.to('bob.smith@gmail.com') }
+  #     end
+  # end
 
+# Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+  end
 end

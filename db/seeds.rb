@@ -1,9 +1,6 @@
-require './app/models/user'
-require './app/models/peep'
-
-encrypted_alice = BCrypt::Password.create('password123')
-encrypted_bob = BCrypt::Password.create('password321')
-encrypted_nopeeps = BCrypt::Password.create('password999')
+encrypted_alice = Password.hash('password123')
+encrypted_bob = Password.hash('password321')
+encrypted_nopeeps = Password.hash('password999')
 
 User.create(username: 'al123', forename: 'Alice', surname: 'Smith', email: 'alice.smith@gmail.com', password: encrypted_alice)
 User.create(username: 'bo123', forename: 'Bob', surname: 'Smith', email: 'bob.smith@gmail.com', password: encrypted_bob)

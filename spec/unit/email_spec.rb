@@ -3,10 +3,6 @@ require './app/models/email'
 RSpec.describe Email do
   include Mail::Matchers
 
-  it 'should identify a username in a peep' do
-    expect(Peep.find_username(Test_message)).to eq 'al123'
-  end
-
   context "should send an email" do
     Mail::TestMailer.deliveries.clear
     subject { Email.send_email(to: 'alice.smith@gmail.com') }
