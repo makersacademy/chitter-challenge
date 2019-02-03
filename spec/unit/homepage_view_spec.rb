@@ -27,4 +27,8 @@ feature 'Posting mechanics' do
     visit('/post')
     expect(page).to have_no_content("ditty")
   end
+  scenario 'User is able to input a peep into a field' do
+    visit('/post')
+    expect(page).to have_field(:peep)
+  end
 end
