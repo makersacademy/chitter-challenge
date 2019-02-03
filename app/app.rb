@@ -3,14 +3,18 @@ require './lib/peep'
 
 class Chitter < Sinatra::Base
   get '/' do
-    erb(:peep)
+    'Welcome to Chitter'
   end
-
-  post '/peep' do
+  
+  get '/peep' do
     @peeps = Peeps.all
-    erb :list_peeps
+    erb :new_peep
   end
-
+  
+  post '/peep' do
+    Peeps.create(params[:new_peep])
+    redirect '/peep'
+  end
 
   run! if app_file == $0
 end

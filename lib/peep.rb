@@ -1,4 +1,5 @@
 require 'pg'
+require_relative 'env_helper'
 
 class Peeps
 
@@ -11,13 +12,15 @@ class Peeps
   end
 
   def self.all
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'Chitter_test')
-    else
-      connection = PG.connect(dbname: 'Chitter')
-    end
+    env_setup
+    result = @connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
+    result.map { |peep| Peeps.new(id: peep['id'], user_name: peep['user_name'], peep: peep['peep']) }
+  end
 
-    result = connection.exec("SELECT * FROM peeps ORDER BY id ASC;")
-    result.map { |peep| Peeps.new(id: peep['id'], user_name: peep['user_name'], peep: peep['peep'])}
+  def self.create(peep)
+    env_setup
+    result = @connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
+    p result
+
   end
 end
