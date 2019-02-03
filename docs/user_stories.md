@@ -1,13 +1,13 @@
 ## User Stories
 
 
-#### User Story One:
+#### User Story One: ✅
 ```
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 ```
-#### User Story Two:
+#### User Story Two: ✅
 ```
 As a maker
 So that I can see what others are saying  
