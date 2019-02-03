@@ -19,8 +19,12 @@ enable :sessions
   end
 
   post ('/peeps') do
-  Peep.create(peep params[:peep])
+  Peep.create(peeps params[:peep])
   redirect '/peeps'
+  end
+
+  get ('/register') do
+  erb :register
   end
 
   # post('/peeps') do
