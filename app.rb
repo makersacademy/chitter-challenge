@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/storage_users' do
-    User.create(email: params[:your_email], password: params[:your_password])
+    User.create(email: params[:your_email], password: params[:your_password], name: params[:user_name])
     redirect '/create'
   end
 
