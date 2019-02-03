@@ -1,17 +1,24 @@
 require 'peep'
+require 'setup_test_db'
 
 describe '.all' do
   it 'returns a list of peeps' do
-    connection = PG.connect(dbname: 'Chitter_test')
+    
+    setup_test_database
+    peeps = Peeps.all
 
-    connection.exec("INSERT INTO peeps (peep) VALUES('Test peep 1');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('Test peep 2');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('Test peep 3');")
+    expect(peeps[0].peep).to include "Test peep 3"
+    expect(peeps[1].peep).to include "Test peep 2"
+    expect(peeps[2].peep).to include "Test peep 1"
+  end
+end
+
+describe '.create' do
+  it 'creates a new peep' do
+    Peeps.create('Release the Mega-Peep!')
 
     peeps = Peeps.all
 
-    expect(peeps[0].peep).to include "Test peep 1"
-    expect(peeps[1].peep).to include "Test peep 2"
-    expect(peeps[2].peep).to include "Test peep 3"
+    expect(peeps[0].peep).to include 'Release the Mega-Peep!'
   end
 end
