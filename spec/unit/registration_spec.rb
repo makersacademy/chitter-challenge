@@ -16,4 +16,14 @@ feature 'Registration-unit tests' do
   scenario '#register method responds' do
     expect(User).to respond_to(:register)
   end
+
+  scenario 'Registering details redirects the user to a confirmation page' do
+    visit('/register')
+    fill_in :name, with: "Test User"
+    fill_in :username, with: "TestUser"
+    fill_in :email, with: "testuser@chitter.com"
+    fill_in :password, with: "Password123"
+    click_button "Register"
+    expect(current_path).to eq('/confirm-registration')
+  end
 end
