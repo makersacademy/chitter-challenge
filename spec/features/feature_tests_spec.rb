@@ -24,5 +24,15 @@ feature 'Posting messages' do
   #   click_button('chitter!')
   #   Peeps.body.should contain("my first chitter!")
   # end
-  
+
+  feature 'Signing up' do
+    scenario 'Should allow user get to the sign up sheet' do
+      visit ('/')
+      fill_in('message', with: 'my first chitter!')
+      click_button('sign up!')
+      expect(page).to have_content "Please complete the form below, to join chitter!"
+    end
+  end
+
+
 end
