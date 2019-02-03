@@ -8,7 +8,7 @@ feature 'users receive emails if tagged in a peep' do
     create_user
     create_second_user
     valid_login
-    post_one_message_tag_second_user
+    post_message_tag_second_user
     expect(page).to have_content '@pj has been tagged and emailed'
   end
 

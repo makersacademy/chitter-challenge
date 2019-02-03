@@ -25,4 +25,3 @@ describe PasswordManager do
     end
   end
 end
-

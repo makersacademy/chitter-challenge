@@ -35,8 +35,4 @@ describe Peep do
 
   end
 
-
-
-
-
 end

@@ -25,5 +25,4 @@ feature 'all peeps can be seen in reverse chronological order' do
     expect(page).to have_selector("ul#peeps li:nth-child(3)", text: message)
   end
 
-
 end

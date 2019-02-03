@@ -21,6 +21,4 @@ class User < ActiveRecord::Base
     User.find_by(id: user_id)&.name
   end
 
-
-
 end

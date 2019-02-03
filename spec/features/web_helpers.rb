@@ -39,7 +39,7 @@ def create_second_user
   User.create(name: 'Prince John', username: 'pj', email: 'prince@fake.com', password_hash: PasswordManager.hash('princepass'))
 end
 
-def post_one_message_tag_second_user
+def post_message_tag_second_user
   message = 'I am tagging @pj in this message.'
   visit '/'
   fill_in 'peep', with: message
@@ -69,4 +69,3 @@ def login_wrong_username
   fill_in(:password, with: 'pass')
   click_button('Submit')
 end
-

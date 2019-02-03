@@ -38,8 +38,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    new_user = User.create(name: params['name'], username: params['username'], email: params['email'],
-                password_hash: PasswordManager.hash(params['password']))
+    new_user = User.create(name: params['name'], username: params['username'],
+                           email: params['email'], password_hash:
+                               PasswordManager.hash(params['password']))
     session[:user_id] = new_user.id
     redirect '/peeps'
   end
@@ -50,8 +51,9 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.find_by(username: params['username'])
-    valid_password = PasswordManager.match_hash(params['password'], user.password_hash) if user
-    session[:user_id] = user.id if valid_password
+    valid_password = PasswordManager.match_hash(params['password'],
+                                                user.password_hash) if user
+    session[:user_id] = user&.id if valid_password
     flash[:notice] = 'Incorrect username or password' unless valid_password
     redirect '/peeps'
   end
@@ -66,10 +68,8 @@ class Chitter < Sinatra::Base
     body = SendMail.compose_body(tagger: User.name_from_peep(peep))
     SendMail.send(subject: SendMail.compose_subject, body: body,
                   email: tagged_user.email)
-    flash[:notice] = "@#{tagged_user.username} has been tagged and emailed by
-                        #{User.username_from_peep(peep)}"
+    flash[:notice] = "@#{tagged_user.username} has been tagged and emailed by" +
+                      "#{User.username_from_peep(peep)}"
   end
-
-
 
 end

@@ -11,3 +11,4 @@ violates the foreign key constraint, as no user ID exists. Had to require 'user'
           @hash = PasswordManager.hash('password')
         end 
      ```
+- 
