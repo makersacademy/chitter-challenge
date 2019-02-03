@@ -1,19 +1,14 @@
-
 <h1>Peeps in Reverse-Chronological Order</h1>
 
-<p>peeing____________</p>
-<%= session[:user_handle] %>
-<p>____________peeing</p>
-
-<table>
-  <tr>
+<table class="table table-striped">
+  <thead class="table-primary">
     <th>ID</th>
     <th>Name</th>
     <th>Handle</th>
     <th>Message</th>
     <th>Time</th>
     <th></th>
-  </tr>
+  </thead>
 
   <% @peeps.reverse.each do |peep| %>
     <tr>
