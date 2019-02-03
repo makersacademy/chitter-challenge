@@ -8,6 +8,7 @@ gem 'rack'
 gem 'rake'
 gem 'sinatra'
 gem 'orderly'
+gem 'timecop'
 
 group :test do
   gem 'capybara'
