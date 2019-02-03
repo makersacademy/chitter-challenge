@@ -13,6 +13,6 @@
 <p>
   <%@peeps.reverse.each do |peep|%>
     <font size="6"><%=peep.text%></font><br>
-    <font size="1"><%=peep.time%></font><br><br>
+    <font size="1"><%= (User.all.find { |user_list| user_list.id == peep.user_id }).name %> at <%=peep.time%></font><br><br>
   <%end%>
 </p>
