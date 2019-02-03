@@ -41,4 +41,15 @@ describe User do
       expect(user).to eq nil
     end
   end
+
+  describe '#self.check_tags' do
+    let(:emailer) { double(:emailer, send_notification: nil)}
+    let(:emailer_class) { double(:email_class, new: emailer)}
+    context 'passed one valid tag' do
+      it 'passes content, user_id(of peeper) and email to email sender' do
+        expect(emailer).to receive(:send_notification).with(email: email, peeper: peeper, content: content)
+        User.check_tags(tags: '@tomd', peep: peep, emailer: emailer_class)
+      end
+    end
+  end
 end

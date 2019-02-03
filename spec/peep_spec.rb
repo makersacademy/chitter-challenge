@@ -31,14 +31,14 @@ describe Peep do
     context 'peep with one potential tag' do
       it 'sends tag and content to user class to validate' do
         tagged_peep = Peep.create(content: 'hello @tomd')
-        expect(user).to receive(:check_user).with(tags: ['@tomd'], content: 'hello @tomd')
+        expect(user).to receive(:check_user).with(tags: ['@tomd'], peep: tagged_peep)
         Peep.check_tags(tagged_peep, user)
       end
     end
     context 'peep with more than one potential tag' do
       it 'sends all tags to user class' do
         multi_tagged_peep = Peep.create(content: 'hello @tomd and @james')
-        expect(user).to receive(:check_user).with(tags: ['@tomd', '@james'], content: 'hello @tomd and @james')
+        expect(user).to receive(:check_user).with(tags: ['@tomd', '@james'], peep: multi_tagged_peep)
         Peep.check_tags(multi_tagged_peep, user)
       end
     end
