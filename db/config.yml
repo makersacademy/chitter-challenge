@@ -4,16 +4,17 @@ default: &default
   pool: 5
   host: localhost
 
-development: &development
+development:
   <<: *default
   database: chitter_development
 
-test: &test
+test:
   <<: *default
   database: chitter_test
 
-production: &production
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  url: <%= ENV['DATABASE_URL'] %>
+production:
+  <<: *default
+  database: <%= ENV['DATABASE'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
