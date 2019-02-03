@@ -1,3 +1,43 @@
+## Week-4 challenge (Chitter)
+This is week 4 weekend challenge in Makers academy. It mimics twitter allowing users to post messages to be viewed by public.
+
+## Tech/framework used
+
+<b>Built with</b>
+- Ruby
+- RSpec
+- PostgreSQL
+- PG
+- SQL
+- Sinatra
+- Capybara
+- Rubocop
+-
+
+## Code Example
+
+
+## Tests
+
+
+## How to use?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
