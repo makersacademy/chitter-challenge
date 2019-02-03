@@ -7,6 +7,7 @@ require 'capybara/rspec'
 require './app.rb'
 require 'helper.rb'
 require 'dm-rspec'
+require 'orderly'
 
 Capybara.app = ChitterApp
 
@@ -19,7 +20,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.include(DataMapper::Matchers)
-  config.before(:each) do
+  config.before(:suite) do
     truncate_and_add_3_peeps
   end
   config.after(:suite) do

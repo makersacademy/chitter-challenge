@@ -4,7 +4,7 @@ require './lib/peep'
 class ChitterApp < Sinatra::Base
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: :posted_at.desc)
     erb(:index)
   end
 

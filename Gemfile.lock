@@ -79,6 +79,9 @@ GEM
     mustermann (1.0.3)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
+    orderly (0.0.3)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     parallel (1.13.0)
     parser (2.6.0.0)
       ast (~> 2.4.0)
@@ -144,6 +147,7 @@ DEPENDENCIES
   data_mapper
   dm-postgres-adapter
   dm-rspec
+  orderly
   rake
   rspec
   rubocop (= 0.56.0)
