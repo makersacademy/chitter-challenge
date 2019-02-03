@@ -13,9 +13,10 @@ feature 'Signing in' do
     register_user
     visit '/'
     click_button 'Sign in'
-    fill_in 'username', with: 'testuser'
+    fill_in 'username', with: 'fakeuser'
     fill_in 'password', with: 'Password123'
     click_button 'Sign in'
-    expect(page).to have_content 'Welcome to Chitter, Test User'
+    expect(page).to_not have_content 'Welcome to Chitter, Test User'
+    expect(page).to have_content 'Invalid username or password entered. Please try again.'
   end
 end

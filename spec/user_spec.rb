@@ -21,9 +21,16 @@ describe User do
     User.create('Test user', 'testuser', 'testuser@email.com', 'Password123')
   end
 
-  it 'Authenticates a user upon sign in' do
-    test_user = User.create('Test user', 'testuser', 'testuser@email.com', 'Password123')
-    authenticated_user = User.authenticate('testuser', 'Password123')
-    expect(authenticated_user.id).to eq test_user.id
+  describe '#authenticate' do
+    it 'Authenticates a user upon sign in' do
+      test_user = User.create('Test user', 'testuser', 'testuser@email.com', 'Password123')
+      authenticated_user = User.authenticate('testuser', 'Password123')
+      expect(authenticated_user.id).to eq test_user.id
+    end
+
+    it 'Returns nil if an incorrect username is entered' do
+      test_user = User.create('Test user', 'testuser', 'testuser@email.com', 'Password123')
+      expect(User.authenticate('fakeuser', 'Password123')).to eq nil
+    end
   end
 end
