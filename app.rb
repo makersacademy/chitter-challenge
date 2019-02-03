@@ -28,6 +28,7 @@ enable :sessions, :method_override
   end
 
   get '/peeps' do
+    @username = $username
     @peeps = Peep.all
     erb :'peeps/index'
   end
@@ -38,6 +39,16 @@ enable :sessions, :method_override
 
   post '/peeps' do
     Peep.create(username: params[:username], peep: params[:peep])
+    redirect '/peeps'
+  end
+
+  get '/users/login' do
+    erb :'users/login'
+  end
+
+  post '/users/login' do
+    $username = params[:username]
+    $password = params[:password]
     redirect '/peeps'
   end
 

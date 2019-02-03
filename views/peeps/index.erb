@@ -23,6 +23,10 @@ tr:nth-child(even) {
 </head>
 <body>
 
+  <% if @username %>
+  <h1>Welcome back, <%= @username %>!</h1>
+  <% end %>
+
 <table>
   <tr>
     <th>Peep</th>
