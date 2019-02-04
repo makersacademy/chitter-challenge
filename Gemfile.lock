@@ -72,6 +72,8 @@ GEM
     json_pure (1.8.6)
     launchy (2.4.3)
       addressable (~> 2.3)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     multi_json (1.13.1)
@@ -81,6 +83,8 @@ GEM
     parallel (1.13.0)
     parser (2.6.0.0)
       ast (~> 2.4.0)
+    pony (1.12)
+      mail (>= 2.0)
     powerpack (0.1.2)
     public_suffix (3.0.3)
     rack (2.0.6)
@@ -146,6 +150,7 @@ DEPENDENCIES
   data_mapper (= 1.2.0)
   dm-postgres-adapter
   launchy
+  pony
   rake
   rb-readline
   rspec

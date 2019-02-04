@@ -21,6 +21,7 @@ RSpec.configure do |config|
     DataMapper.setup(:default, 'postgres://localhost/chitter_test')
     DataMapper.finalize
     DataMapper.auto_migrate!
+    Pony.override_options = { :via => :test }
   end
 
   config.after(:suite) do

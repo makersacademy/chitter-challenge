@@ -9,6 +9,7 @@ gem 'launchy'
 gem 'rake'
 gem 'rb-readline'
 gem 'sinatra-flash'
+gem 'pony'
 
 group :test do
   gem 'capybara'

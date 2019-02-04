@@ -3,7 +3,6 @@ describe User do
     User.create(username: 'tomd', email: 'testemail@email.com', password: 'password', name: 'Tom')
   end
   let(:duplicate_user) { User.create(username: 'tomd', email: 'testemail@email.com', password: 'diffpassword', name: 'Different name')}
-
   describe '#create' do
     it "doesn't allow duplicate usernames / emails to be entered" do
       duplicate_user
@@ -43,12 +42,27 @@ describe User do
   end
 
   describe '#self.check_tags' do
-    let(:emailer) { double(:emailer, send_notification: nil)}
-    let(:emailer_class) { double(:email_class, new: emailer)}
+    let(:new_user) {User.create(username: 'user2', email: 'testemail2@email.com', password: 'password', name: 'Tom')}
+    let(:new_user3) {User.create(username: 'user3', email: 'testemail3@email.com', password: 'password', name: 'Tom')}
+    let(:emailer) { double(:emailer, send_email: nil)}
+    let(:peep) { double(:peep, content: 'Hello @tomd', user_id: new_user.id)}
     context 'passed one valid tag' do
       it 'passes content, user_id(of peeper) and email to email sender' do
-        expect(emailer).to receive(:send_notification).with(email: email, peeper: peeper, content: content)
-        User.check_tags(tags: '@tomd', peep: peep, emailer: emailer_class)
+        expect(emailer).to receive(:send_email).with(to: 'testemail@email.com', peeper: 'user2', content: peep.content)
+        User.check_tags(tags: ['tomd'], peep: peep, emailer: emailer)
+      end
+    end
+    context 'passed two valid tags' do
+      it 'asks emailer sender to send to both emails' do
+        new_user3
+        expect(emailer).to receive(:send_email).twice
+        User.check_tags(tags: ['tomd', 'user3'], peep: peep, emailer: emailer)
+      end
+    end
+    context 'not passed a valid tag' do
+      it "deosn't send message to emailer class" do
+        expect(emailer).not_to receive(:send_email)
+        User.check_tags(tags: ['xxxxx'], peep: peep, emailer: emailer)
       end
     end
   end

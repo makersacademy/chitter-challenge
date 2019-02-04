@@ -21,7 +21,7 @@ class Peep
   end
 
   def self.has_tags?(content)
-    tags = content.split(" ").select{ |word| word[0] == '@' }
+    tags = content.split(" ").select{ |word| word[0] == '@' }.map{|tag| tag[1..-1]}
     tags.length > 0 ? tags : nil
   end
 

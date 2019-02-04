@@ -5,6 +5,7 @@ require './lib/peep'
 require './lib/printer'
 require './lib/user'
 require 'sinatra/flash'
+require 'emailer'
 
 class Chitter < Sinatra::Base
 
@@ -16,7 +17,7 @@ class Chitter < Sinatra::Base
   configure :development do
     DataMapper.setup(:default, 'postgres://localhost/chitter')
     DataMapper.finalize
-    DataMapper.auto_migrate!
+    DataMapper.auto_upgrade!
   end
 
   get '/peeps' do
