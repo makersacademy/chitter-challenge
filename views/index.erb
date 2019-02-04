@@ -1,8 +1,32 @@
 <html>
   <head>
+    <style type="text/css">
+      .button-container form,
+      .button-container form div {
+          display: inline;
+      }
+
+      .button-container button {
+          display: inline;
+          vertical-align: middle;
+      }
+    </style>
   </head>
   <body>
     <h1>Welcome to Chitter</h1>
+    <div class="button-container">
+      <form>
+        <div>
+          <button type="submit">Signup</button>
+        </div>
+      </form>
+      <form>
+        <div>
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+    </br>
     <form action = '/add_peep' method = 'post'>
       <label>Add a peep: </label>
       <input type = 'text' name = 'new_peep' />
@@ -12,7 +36,7 @@
     </br?
     <ol type = "1">
       <% @peeps.each do |peep| %>
-        <li> <%= peep['date'] %>: <%= peep['peep'] %>
+        <li> <%= peep['date'] %>:</br><div style = 'margin-left:45px;'><%= peep['peep'] %></div></br>
         </li>
       <% end %>
     </ol>
