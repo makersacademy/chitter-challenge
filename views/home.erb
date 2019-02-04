@@ -24,7 +24,9 @@
         <a class="active" href="">Home</a>
         <a href="/profile">Profile</a>
         <a href="/messages">Messages</a>
+        <div class ="logout">
         <a href="/logout">Logout</a>
+        </div>
       </div>
       <div class="newchitcontainer">
         <form action="/home/add_chit" method="post">
@@ -50,6 +52,9 @@
 <div class="chitcontainer">
         <% @chits.each do |chit| %>
         <div class="chits">
+          <% @user.each do |user| %>
+          <img src="<%= user.display_pic_s %>">
+          <% end %>
           <div class="chit_username">
         @<%= chit.user_name %>:
         </div>

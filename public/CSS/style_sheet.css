@@ -97,7 +97,8 @@ textarea {
 }
 
 .chit_username {
-    font-size: 18px;
+    font-size: 15px;
+
 }
 
 .chit_message {
@@ -217,6 +218,29 @@ color: black;
 }
 
 #navbar a.active {
+font-family: "Arial";
+background-color: rgb(54,79,104);
+color: white;
+}
+
+#navbar .logout {
+font-family: "Arial";
+float: right;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 0px 0px;
+text-decoration: none;
+font-size: 17px;
+}
+
+#navbar .logout:hover {
+font-family: "Arial";
+background-color: #ddd;
+color: black;
+}
+
+#navbar .logout.active {
 font-family: "Arial";
 background-color: rgb(54,79,104);
 color: white;
