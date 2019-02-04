@@ -9,3 +9,12 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_Manager_test;' -U postgres
+  - psql -c 'create table Peeps(id SERIAL PRIMARY KEY, peep VARCHAR(150), username VARCHAR(60));' -U postgres
+  - psql -c 'CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(60),
+  username VARCHAR(60) CONSTRAINT must_be_unique UNIQUE,
+  email VARCHAR(60) CONSTRAINT must_be_unique UNIQUE,
+  password VARCHAR(140)
+  );'-U postgres
+  
