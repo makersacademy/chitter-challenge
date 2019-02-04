@@ -2,6 +2,10 @@
 Chitter Challenge
 =================
 
+## Questions:
+
+- Is it ok to store the current_user in Maker.current_user, or should I be using sessions like session[:maker_id]?
+
 ## Setup
 
 All you need to do is create a database 'chitter' (and 'chitter_test' if you want to run the tests), and put your psql (postgres) username in the provided place in lib/ORM.rb. DataMapper will take care of the rest (creating tables etc).

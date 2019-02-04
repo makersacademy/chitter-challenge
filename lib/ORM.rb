@@ -4,6 +4,7 @@ require_relative '../lib/peep.rb'
 DataMapper::Logger.new($stdout, :debug)
 
 postgres_user = "david"
+
 if ENV['ENVIRONMENT'] == 'test'
   DataMapper.setup(:default, "postgres://#{postgres_user}@localhost/chitter_test")
 else
