@@ -1,0 +1,20 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Welcome to Chitter</h1>
+    <form action = '/add_peep' method = 'post'>
+      <label>Add a peep: </label>
+      <input type = 'text' name = 'new_peep' />
+      <input type = 'submit' value = 'Submit' />
+    </form>
+    </br>
+    </br?
+    <ol type = "1">
+      <% @peeps.each do |peep| %>
+        <li> <%= peep['date'] %>: <%= peep['peep'] %>
+        </li>
+      <% end %>
+    </ol>
+  </body>
+</html>
