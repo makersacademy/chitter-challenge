@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
    get '/feed' do
      @peeps = Peep.all
      existing_user = User.find(session[:user_id])
-     @user = existing_user ? existing_user : User.find_or_create_anon_user
+     @user = existing_user ? existing_user :  User.find_or_create_anon_user
      erb :feed
    end
 

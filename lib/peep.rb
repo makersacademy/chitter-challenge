@@ -9,7 +9,6 @@ class Peep
   def self.add(new_peep, user = nil)
     time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
     anon_user = User.find_or_create_anon_user
-#    p anon_user
     user = (anon_user).id if  user == nil
     DatabaseConnection.query("INSERT INTO peeps(body, time, user_id) VALUES('#{new_peep}', '#{time}', '#{user}');")
   end
