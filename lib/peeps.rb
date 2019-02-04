@@ -15,7 +15,8 @@ class Peep
 
   def self.create(comment:, date_posted:)
     select_connection
-    result = DBConn.query("INSERT INTO peeps (comment, date_posted) VALUES ('#{comment}', CURRENT_TIMESTAMP) RETURNING id, comment, date_posted;")
+    post_time = Time.now.strftime('%d-%m-%Y %H:%M:%S')
+    result = DBConn.query("INSERT INTO peeps (comment, date_posted) VALUES ('#{comment}', '#{post_time}') RETURNING id, comment, date_posted;")
     Peep.new(id: result[0]['id'], comment: result[0]['comment'], date_posted: result[0]['date_posted'])
   end
 

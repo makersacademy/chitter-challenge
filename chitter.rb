@@ -19,6 +19,14 @@ class Peeps < Sinatra::Base
     redirect '/'
   end
 
+  get '/register' do
+    erb :register
+  end
+
+  post '/register_new' do
+    redirect '/'
+  end
+
   get '/view_peeps' do
     @peeps = Peep.all
     erb :view_peeps
