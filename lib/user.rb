@@ -1,9 +1,5 @@
 class User
 
-  def initialize
-
-  end
-
   def self.register(name, username, email, password)
 
     if ENV['ENVIRONMENT'] == 'test'
