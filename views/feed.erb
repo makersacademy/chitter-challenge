@@ -11,9 +11,7 @@
       <% @peeps.each do |peep| %>
         <li>
         <% peep_user = User.find(peep.user) %>
-        <% if peep_user %>
-        <%=peep_user.name%>: 
-        <% end %>
+        <%=peep_user.name%>:
         <%=peep.body%> --- <%= peep.time%> </li>
       <% end %>
       </ul>
