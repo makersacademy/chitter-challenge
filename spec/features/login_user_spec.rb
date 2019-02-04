@@ -5,9 +5,9 @@ feature 'need to log in to peep' do
     visit('/users/login')
     fill_in('username', with: 'jess')
     fill_in('password', with: 'password')
-    click_button('Submit')
+    click_button('Login')
 
-    expect(current_path).to eq '/peeps'
+    expect(current_path).to eq '/peeps/new'
     expect(page).to have_content 'Welcome back, jess!'
     expect(page.status_code).to eq 200
 

@@ -28,12 +28,12 @@ enable :sessions, :method_override
   end
 
   get '/peeps' do
-    @username = $username
     @peeps = Peep.all
     erb :'peeps/index'
   end
 
   get '/peeps/new' do
+    #@user = User.find(session[:user_id])
     erb :'peeps/new'
   end
 
@@ -47,9 +47,11 @@ enable :sessions, :method_override
   end
 
   post '/users/login' do
-    $username = params[:username]
-    $password = params[:password]
-    redirect '/peeps'
+    user = User.authenticate(username: params[:username], password: params[:password])
+    session[:user_id] = user.id
+    # $username = params[:username]
+    # $password = params[:password]
+    redirect '/peeps/new'
   end
 
   run! if app_file == $0

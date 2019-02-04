@@ -2,8 +2,11 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<h1> Let's peep! </h1>
+  <h1>
+  <% if @username %>
+  <h1>Welcome back, <%= @username %>!</h1>
+  <% end %>
+ Let's peep! </h1>
 
 <form action="/peeps" method="post">
 <input type="text" name="username" placeholder="username"/>

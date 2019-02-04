@@ -33,4 +33,31 @@ describe User do
     end
   end
 
+  describe '.find' do
+    it 'finds a user by ID' do
+      user = User.create(name: 'Ngai Sui', email: 'jess@chitter.com', username: 'jess', password: 'born2chit')
+      result = User.find(id: user)
+
+      expect(result.id).to eq user.id
+      expect(result.username).to eq user.username
+    end
+  end
+
+  describe '.authenticate' do
+    it 'returns a user given a correct username and password, if one exists' do
+      user = User.create(name: 'Ngai Sui', email: 'jess@chitter.com', username: 'jess', password: 'born2chit')
+
+      authenticated_user = User.authenticate(username: 'jess', password: 'born2chit')
+
+      expect(authenticated_user.id).to eq user.id
+    end
+
+    it 'returns nil given an incorrect username' do
+      user = User.create(name: 'Ngai Sui', email: 'jess@chitter.com', username: 'jess', password: 'born2chit')
+
+      users = User.all
+
+      expect(User.authenticate(username: 'jesslns', password: 'born2chit')).to be_nil
+    end
+  end
 end
