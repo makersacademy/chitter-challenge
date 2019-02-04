@@ -29,5 +29,12 @@ describe Peep do
       Peep.post(peep: "A peep posted by the user")
       expect(Peep.all).to include "A peep posted by the user"
     end
+
+    it "inserts a time and date vaue into the database's table" do
+      Peep.post(peep: "A peep posted by the user")
+      time = Time.now.strftime("%D at %H:%M:%S")
+      expect(Peep.all).to include time
+
+    end
   end
 end
