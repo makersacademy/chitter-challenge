@@ -48,19 +48,29 @@ feature 'Chitter App:' do
   feature 'Login' do
 
     scenario 'should allow new login from home page' do
-      visit '/users/new'
-      fill_in 'name', with: "Belinda"
-      fill_in 'email', with: "belinda@test.com"
-      fill_in 'password', with: "temppassword"
-      click_on 'Login'
+      login
       expect(page).to have_content "Belinda"
     end
 
-    # scenario 'should default to Anon user' do
-    #   populate_test_data
-    #   visit '/feed'
-    #   expect(page).to have_content "Anonymous"
+    scenario 'should default to Anon user' do
+      populate_test_data
+      visit '/feed'
+      expect(page).to have_content "Anonymous"
+    end
+  end
+
+  feature 'Logout' do
+    scenario 'should allow user to log out' do
+      populate_test_data
+      login
+      click_on 'Log out'
+      expect(page).to have_content 'Anonymous'
+    end
+    # 
+    # scenario 'should allow user to log out when no peeps exist' do
+    #   login
+    #   click_on 'Log out'
+    #   expect(page).to have_content 'Anonymous'
     # end
-    #
   end
 end

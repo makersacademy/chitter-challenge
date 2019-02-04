@@ -10,3 +10,11 @@ def persisted_data(id)
   connection = PG.connect(dbname: 'chitter_testing')
   connection.query("SELECT * FROM users WHERE id = #{'id'};")
 end
+
+def login
+  visit '/users/new'
+  fill_in 'name', with: "Belinda"
+  fill_in 'email', with: "belinda@test.com"
+  fill_in 'password', with: "temppassword"
+  click_on 'Login'
+end

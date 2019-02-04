@@ -29,21 +29,16 @@ describe User do
     end
   end
 
-  # it 'should return all stored users in an array' do
-  #   user = User.add_new("Jane", "jane@jane.com", "janepass")
-  #   expect(User.all).to be_a Array
-  #   expect(User.all.first).to be_a User
-  # end
-  #
-  # it 'should add a user' do
-  #   user = User.add_new("Jane", "jane@jane.com", "janepass")
-  #   expect(User.all.last.name).to eq "Jane"
-  # end
-  #
-  # it 'should retrive user data given the session id' do
-  #   user = User.add_new("Jane", "jane@jane.com", "janepass")
-  #   search = User.find(1)
-  #   expect(search.last.name).to eq "Jane"
-  # end
+  describe '.find_or_create_anon_user' do
+
+    it 'should find user by name' do
+      expect(User.find_or_create_anon_user.name).to eq "Anonymous"
+    end
+
+    it 'should create anon user if none exists' do
+      user = User.add_new(name: 'Anonymous', email: 'anon', password: 'anon')
+      expect(User.find_or_create_anon_user.name).to eq "Anonymous"
+    end
+  end
 
 end

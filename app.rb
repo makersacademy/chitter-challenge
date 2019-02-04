@@ -42,4 +42,9 @@ class Chitter < Sinatra::Base
      redirect '/feed'
    end
 
+   get '/users/logout' do
+     session[:user_id] = nil
+     redirect '/feed'
+   end
+
 end
