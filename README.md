@@ -72,4 +72,4 @@ Create the database using the psql command CREATE DATABASE chitter_challenge;
 Connect to the database using the pqsl command \c chitter_challenge;
 Run the query CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60),
 password VARCHAR(60), nameVARCHAR(60));
-Run the query CREATE TABLE users(id SERIAL PRIMARY KEY, message VARCHAR(140));`
+Run the query CREATE TABLE chitter(id SERIAL PRIMARY KEY, message VARCHAR(140));`
