@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @username = session[:username]
-    @peeps = Peep.joins(:user).select("peeps.*, users.username, users.forename, users.surname")
+    @peeps = Peep.joins(:user).select("peeps.*, users.username, users.forename, users.surname").reverse
     erb :index
   end
 

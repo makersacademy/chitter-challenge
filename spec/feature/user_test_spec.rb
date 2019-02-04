@@ -50,7 +50,7 @@ RSpec.describe 'feature tests' do
 
     scenario 'user sees peeps in reverse chronological order' do
       visit('/')
-      expect("first peep").to appear_before("second peep")
+      expect("second peep").to appear_before("first peep")
       expect(page.status_code).to be(200)
     end
 
