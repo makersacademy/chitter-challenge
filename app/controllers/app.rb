@@ -28,9 +28,18 @@ class Shitter < Sinatra::Base
     erb :index
   end
 
-  post '/user' do
+  post '/user/signup' do
     @user = User.create(email: params[:email], username: params[:username], first_name: params[:first_name], last_name: params[:last_name], password: params[:password])
     session[:user_id] = @user.id
+    redirect '/peeps'
+  end
+
+  post '/user/login' do
+    p User.all(username: 'allison')
+    p User.all(username: params[:username])
+    @user = User.all(username: params[:username])
+    puts @user[0].id
+    session[:user_id] = @user[0].id
     redirect '/peeps'
   end
 

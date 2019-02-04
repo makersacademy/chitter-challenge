@@ -19,5 +19,8 @@ class User
 
   has n, :peeps
 
+  # def id
+  #   self.id
+  # end
 
 end

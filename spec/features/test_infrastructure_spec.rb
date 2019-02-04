@@ -20,13 +20,23 @@ feature 'Homepage' do
     expect {page.find('body', text: "What would you like to share, username")}.to_not raise_error
   end
 
+  scenario 'User can log in on the homepage' do
+    visit '/'
+    within '.login' do
+      fill_in 'username', with: 'testuser'
+      fill_in 'password', with: 'password123'
+      click_on 'Submit'
+    end
+    expect(page).to have_content 'What would you like to share, testuser?'
+  end
+
+  # scenario 'User can only log in if the user exists in the database' do
+  #
+  # end
+
 end
 
 feature 'Peeps display page' do
-
-  # scenario 'User can only post a peep if signed in' do
-  #
-  # end
 
   scenario 'User can post a peep' do
     visit '/'
