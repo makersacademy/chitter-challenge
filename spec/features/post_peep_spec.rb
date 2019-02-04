@@ -11,6 +11,6 @@ feature 'As a Maker' do
       visit '/peeps'
       fill_in 'peep', with: 'New peep'
       click_button 'Post'
-      expect(page).to have_content "New peep -- posted at #{DateTime.now}"
+      expect(page).to have_content "New peep -- posted at #{Time.now}"
     end
   end

@@ -13,7 +13,7 @@ describe Peep do
   end
   it 'Can see time peep was posted' do
     peep = Peep.post(peep: 'New peep')
-    expect(peep.time).to eq DateTime.now.to_s
+    expect(peep.time).to eq Time.now.to_s
   end
 
 end
