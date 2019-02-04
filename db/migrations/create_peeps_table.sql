@@ -1,1 +1,1 @@
-CREATE TABLE peeps(user_id SERIAL PRIMARY KEY, user_name VARCHAR(60), peep VARCHAR(140));
+CREATE TABLE peeps(user_id SERIAL PRIMARY KEY, user_name VARCHAR(60), peep VARCHAR(140), time TIMESTAMP default current_timestamp);
