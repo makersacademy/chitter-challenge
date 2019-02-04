@@ -1,8 +1,6 @@
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    Peep.post(peep: 'To get much done in little time')
-    Peep.post(peep: 'I stick to the pomodoro technique')
-    Peep.post(peep: 'Being methodical and sensible')
+    post_dummy_content
     visit('/peeps')
     expect(page).to have_content "Being methodical and sensible"
     expect(page).to have_content "I stick to the pomodoro technique"
@@ -17,11 +15,16 @@ feature 'Viewing peeps' do
   end
 
   scenario 'Peeps are shown in reverse chronological order' do
-    Peep.post(peep: 'To get much done in little time')
-    Peep.post(peep: 'I stick to the pomodoro technique')
-    Peep.post(peep: 'Being methodical and sensible')
+    post_dummy_content
     visit('/peeps')
     page.body.index('Being methodical and sensible').should < page.body.index('I stick to the pomodoro technique')
     page.body.index('I stick to the pomodoro technique').should < page.body.index('To get much done in little time')
+  end
+
+  scenario 'The time at which a peep was posted is shown' do
+    post_dummy_content
+    visit('/peeps')
+    time = Time.now.strftime("%D at %H:%M:%S")
+    expect(page).to have_content(time)
   end
 end
