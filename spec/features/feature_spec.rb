@@ -40,24 +40,24 @@ feature 'Viewing peeps' do
 #
   scenario 'can see timestamp of peep' do
     visit('/')
-    p 1
     click_link('Add a peep')
-    p 2
     fill_in('peepbox', with: 'This is a test peep.')
-    p 3
     click_button('Post it!')
-    p 4
     click_link('View peeps')
-    p 5
-    expect(page).to have_content "Posted #{date}."
-    p 6
+    expect(page).to have_content "Posted"
   end
-
 end
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter
 #
+feature "Sign in feature" do
+  scenario 'can log in' do
+    visit('/')
+    click_button('Sign in')
+    expect(page).to have_content "Please enter your username and password"
+  end
+end
 # HARDER
 #
 # As a Maker
