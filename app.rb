@@ -5,11 +5,11 @@ require './lib/peep'
 require './lib/printer'
 require './lib/user'
 require 'sinatra/flash'
-require 'emailer'
+require './lib/emailer'
 
 class Chitter < Sinatra::Base
 
-  # disable :show_exceptions
+  disable :show_exceptions
   enable :sessions
   register Sinatra::Flash
 
@@ -27,7 +27,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params[:peep], user_id: session[:user_id])
+    peep = Peep.create(content: params[:peep], user_id: session[:user_id])
+    Peep.check_tags(peep)
     redirect '/peeps'
   end
 

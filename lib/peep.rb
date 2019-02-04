@@ -17,7 +17,7 @@ class Peep
 
   def self.check_tags(peep, user = User)
     tags = has_tags?(peep.content)
-    user.check_user(tags: tags, peep: peep) if tags
+    user.check_users(tags: tags, peep: peep) if tags
   end
 
   def self.has_tags?(content)

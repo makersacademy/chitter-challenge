@@ -41,7 +41,7 @@ describe User do
     end
   end
 
-  describe '#self.check_tags' do
+  describe '#self.check_users' do
     let(:new_user) {User.create(username: 'user2', email: 'testemail2@email.com', password: 'password', name: 'Tom')}
     let(:new_user3) {User.create(username: 'user3', email: 'testemail3@email.com', password: 'password', name: 'Tom')}
     let(:emailer) { double(:emailer, send_email: nil)}
@@ -49,20 +49,20 @@ describe User do
     context 'passed one valid tag' do
       it 'passes content, user_id(of peeper) and email to email sender' do
         expect(emailer).to receive(:send_email).with(to: 'testemail@email.com', peeper: 'user2', content: peep.content)
-        User.check_tags(tags: ['tomd'], peep: peep, emailer: emailer)
+        User.check_users(tags: ['tomd'], peep: peep, emailer: emailer)
       end
     end
     context 'passed two valid tags' do
       it 'asks emailer sender to send to both emails' do
         new_user3
         expect(emailer).to receive(:send_email).twice
-        User.check_tags(tags: ['tomd', 'user3'], peep: peep, emailer: emailer)
+        User.check_users(tags: ['tomd', 'user3'], peep: peep, emailer: emailer)
       end
     end
     context 'not passed a valid tag' do
       it "deosn't send message to emailer class" do
         expect(emailer).not_to receive(:send_email)
-        User.check_tags(tags: ['xxxxx'], peep: peep, emailer: emailer)
+        User.check_users(tags: ['xxxxx'], peep: peep, emailer: emailer)
       end
     end
   end

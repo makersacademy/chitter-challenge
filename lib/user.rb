@@ -22,7 +22,7 @@ class User
     create(username: username, email: email, password: password, name: name)
   end
 
-  def self.check_tags(tags:, peep:, emailer: Emailer)
+  def self.check_users(tags:, peep:, emailer: Emailer)
     valid_users = tags.map{ |tag| User.first(:username => tag) }.select{|user| !user.nil?}
     valid_users.each{ |user| emailer.send_email(to: user.email, peeper: User.first(:id => peep.user_id).username, :content => peep.content) }
   end
