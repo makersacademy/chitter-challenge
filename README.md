@@ -7,7 +7,7 @@ Chitter Challenge
      {_-_   |   /
       '-.   |  /    .===,
    .--.__\  |_(_,==`  ( o)'-.
-  `---.=_ `     ;      `/    \
+  `---.=_ `     ;      `/    \   peep peep
       `,-_       ;    .'--') /
         {=_       ;=~`    `"`
          `//__,-=~`
@@ -16,13 +16,27 @@ Chitter Challenge
 ```
 The challenge is to create a twitter clone called Chitter.
 
-Model
+Technical Model
 -----
-Walkthrough
+Chitter will display messages or peeps. The peeps will be stored in a database. When you make a get request to view them a SQL query will return all the messages in reverse chronological order i.e the latest message i.e. database entry will be shown first.
 
+For the first 4 user stories: One route will allow me to post a new peep. A second route will allow me to view all the peeps, and the time the peep was made will be shown. Lastly I will be able to sign up with email, password, name and username in a form in another route.
+
+User Story 1
+----------
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+
+
+Walkthrough
+-----------
 
 Original README content
------------------------
+===================
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
