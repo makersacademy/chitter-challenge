@@ -1,2 +1,6 @@
 <h2>Here are all the peeps</h2>
-<%= @new_peep %>
+<ul>
+  <% @all_peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
