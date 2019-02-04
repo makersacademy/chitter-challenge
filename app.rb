@@ -21,8 +21,6 @@ class Chitter < Sinatra::Base
 
   post '/feed' do
     Peep.add(params[:add_peep], User.id)
-    p User.id
-    p params
     redirect '/feed'
   end
 

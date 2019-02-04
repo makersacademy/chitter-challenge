@@ -43,12 +43,11 @@ class User
   # def self.follow(id)
   #   query = DatabaseConnection.query("
   #     SELECT username FROM users
-  #     WHERE id = 1")
+  #     WHERE id = '#{User.id}'")
   #   query2 = DatabaseConnection.query("
   #     UPDATE users
-  #     SET followers = followers +
-  #     '#{query[0]['username']}'
-  #     WHERE id = 1")
+  #     SET followers = '#{query[0]['username']}'
+  #     WHERE id = '#{id}'")
   # end
   #
   # def self.check_followers(username)
