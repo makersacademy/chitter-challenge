@@ -11,7 +11,8 @@ enable :sessions
   end
 
   get ('/peeps') do
-    @peeps = Peep.all(:order => [ :id.desc ])
+    @peeps = Peep.all
+    # (:order => [ :id.desc ])
   end
 
   get ('/peeps/new') do
@@ -19,7 +20,7 @@ enable :sessions
   end
 
   post ('/peeps') do
-  Peep.create(peeps params[:peep])
+  Peep.add(params[:peep])
   redirect '/peeps'
   end
 

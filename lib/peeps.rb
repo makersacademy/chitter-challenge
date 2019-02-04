@@ -31,7 +31,7 @@ class Peep
     @time = time
   end
 
-def self.add(peep:)
+def self.add(peep)
  if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
  else
