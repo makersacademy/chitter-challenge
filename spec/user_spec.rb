@@ -2,7 +2,7 @@ describe User do
   before(:each) do
     User.create(username: 'tomd', email: 'testemail@email.com', password: 'password', name: 'Tom')
   end
-  let(:duplicate_user) { User.create(username: 'tomd', email: 'testemail@email.com', password: 'diffpassword', name: 'Different name')}
+  let(:duplicate_user) { User.create(username: 'tomd', email: 'testemail@email.com', password: 'diffpassword', name: 'Different name') }
   describe '#create' do
     it "doesn't allow duplicate usernames / emails to be entered" do
       duplicate_user
@@ -42,10 +42,10 @@ describe User do
   end
 
   describe '#self.check_users' do
-    let(:new_user) {User.create(username: 'user2', email: 'testemail2@email.com', password: 'password', name: 'Tom')}
-    let(:new_user3) {User.create(username: 'user3', email: 'testemail3@email.com', password: 'password', name: 'Tom')}
-    let(:emailer) { double(:emailer, send_email: nil)}
-    let(:peep) { double(:peep, content: 'Hello @tomd', user_id: new_user.id)}
+    let(:new_user) { User.create(username: 'user2', email: 'testemail2@email.com', password: 'password', name: 'Tom') }
+    let(:new_user3) { User.create(username: 'user3', email: 'testemail3@email.com', password: 'password', name: 'Tom') }
+    let(:emailer) { double(:emailer, send_email: nil) }
+    let(:peep) { double(:peep, content: 'Hello @tomd', user_id: new_user.id) }
     context 'passed one valid tag' do
       it 'passes content, user_id(of peeper) and email to email sender' do
         expect(emailer).to receive(:send_email).with(to: 'testemail@email.com', peeper: 'user2', content: peep.content)

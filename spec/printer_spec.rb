@@ -4,8 +4,8 @@ describe Printer do
     Timecop.freeze(time_now)
   end
   let(:formatted_time) { Time.now.strftime("%m/%d/%Y %H:%M") }
-  let(:user) {double(:user, username: "tomd")}
-  let(:user_class) {double(:user_class, get: user)}
+  let(:user) { double(:user, username: "tomd") }
+  let(:user_class) { double(:user_class, get: user) }
   let(:peep1) { double(:peep1, content: "First content", created_at: Time.now, user_id: 1) }
   let(:peep2) { double(:peep2, content: "Second content", created_at: Time.now, user_id: 2) }
   let(:peeps) { [peep1, peep2] }

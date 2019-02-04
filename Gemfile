@@ -6,10 +6,10 @@ gem 'bcrypt'
 gem 'data_mapper', '1.2.0'
 gem 'dm-postgres-adapter'
 gem 'launchy'
+gem 'pony'
 gem 'rake'
 gem 'rb-readline'
 gem 'sinatra-flash'
-gem 'pony'
 
 group :test do
   gem 'capybara'

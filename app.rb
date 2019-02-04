@@ -13,7 +13,6 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
-
   configure :development do
     DataMapper.setup(:default, 'postgres://localhost/chitter')
     DataMapper.finalize
@@ -38,7 +37,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(username: params[:username], email: params[:email],
-    password: params[:password], name: params[:name] )
+    password: params[:password], name: params[:name])
     session[:user_id] = user.id
     redirect '/peeps'
   end
