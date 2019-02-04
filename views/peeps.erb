@@ -13,10 +13,14 @@
       </form>
       <table>
         <tr>
-          <th>Peeps</th>
+          <th>Peep</th>
+          <th>Time</th>
         </tr>
         <% @peeps.each do |peep| %>
-        <tr><td><%= peep %></td></tr>
+        <tr>
+          <td><%= peep[:peep] %></td>
+          <td><%= peep[:post_time] %></td>
+        </tr>
         <% end %>
       </table>
     </center>

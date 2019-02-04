@@ -5,12 +5,13 @@ class Peep
   def self.all
     connect_db
     peeps = DatabaseConnection.query("SELECT * FROM peeps;")
-    peeps.map { |row| row['peep'] }.reverse
+    peeps.map { |row| { peep: row['peep'], post_time: row['post_time'] } }.reverse
   end
 
   def self.post(peep:)
     connect_db
-    DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}');")
+    time = Time.now.strftime("%D at %H:%M:%S")
+    DatabaseConnection.query("INSERT INTO peeps (peep, post_time) VALUES('#{peep}', '#{time}');")
   end
 
   private
