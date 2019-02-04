@@ -29,13 +29,6 @@ class Peep
     VALUES('#{peep}', 'posted on #{time}', '#{user_id}')")
   end
 
-  def self.follow(username)
-    query = DatabaseConnection.query("
-    INSERT INTO users (followers) VALUES username")
-  end
-
-
-
   attr_reader :message, :created, :user_id
 
   def initialize(message, created, user_id)

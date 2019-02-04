@@ -40,6 +40,23 @@ class User
     user(query[0]['id'], query[0]['username'])
   end
 
+  # def self.follow(id)
+  #   query = DatabaseConnection.query("
+  #     SELECT username FROM users
+  #     WHERE id = 1")
+  #   query2 = DatabaseConnection.query("
+  #     UPDATE users
+  #     SET followers = followers +
+  #     '#{query[0]['username']}'
+  #     WHERE id = 1")
+  # end
+  #
+  # def self.check_followers(username)
+  #   query = DatabaseConnection.query("
+  #     SELECT COUNT (followers) FROM users
+  #     WHERE username = '#{username}'")
+  #     query[0]['count'].to_i == 1
+  #   end
 
   attr_reader :u_name, :email, :followers
 

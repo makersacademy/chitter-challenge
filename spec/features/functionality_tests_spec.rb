@@ -61,3 +61,16 @@ feature '#Add Peep' do
     expect(page).to have_content "Hello World!"
   end
 end
+# 
+# feature '#Follow' do
+#   scenario 'Follows a user' do
+#     visit '/'
+#     fill_in_registration
+#     click_button('Register')
+#     fill_in_registration_two
+#     click_button('Register')
+#     log_in_and_post
+#     click_button('Follow')
+#     expect(page).to have_content "ERROR: invalid input syntax for integer:"
+#   end
+# end

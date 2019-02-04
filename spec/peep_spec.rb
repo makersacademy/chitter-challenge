@@ -20,5 +20,4 @@ describe Peep do
       expect(peeps[0].created).to eq("After Right Now!")
     end
   end
-
 end

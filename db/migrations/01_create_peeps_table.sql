@@ -3,6 +3,6 @@ CREATE TABLE peeps (
     id SERIAL,
     message VARCHAR(280),
     created VARCHAR(60),
-    userID int,
+    userID SERIAL,
     PRIMARY KEY (id),
     FOREIGN KEY (userID) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE);
