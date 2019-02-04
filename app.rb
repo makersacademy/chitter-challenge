@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'shotgun'
 require 'pg'
+require './database_connection_setup'
 require './lib/user.rb'
 require './lib/peep.rb'
 
