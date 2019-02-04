@@ -8,23 +8,40 @@ class Peep
     connection = PG.connect(dbname: 'chitter_test')
     else
     connection = PG.connect(dbname: 'chitter')
-    result = connection.exec('SELECT * FROM chitter;')
-    peep.map { |chitter| chitter['peep'] }
     end
+    result = connection.exec('SELECT * FROM peeps;')
+    result.map { |chitter| chitter['peeps'] }
   end
 
-  def self.create(peep:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
+  # def self.create(peep:)
+  #   if ENV['ENVIRONMENT'] == 'test'
+  #     connection = PG.connect(dbname: 'chitter_test')
+  #   else
+  #     connection = PG.connect(dbname: 'chitter')
+  #   end
+  #     connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
+  # end
 
-      connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
-    end
-end
+  attr_reader :id, :peep, :time, :date
+
+  def initialize(id:, peep:, date:, time:)
+    @id = id
+    @peeps = peep
+    @date = date
+    @time = time
+  end
 
 def self.add(peep:)
- result = DatabaseConnection.query("INSERT INTO peeps (peep, date time) VALUES('#{peep}', '#{DateTime.now.strftime("%d/%m/%Y")}', '#{DateTime.now.strftime("%I:%M%p")}') RETURNING id, peep, date, time;")
- Peep.new(id: result.first['id'], peep: result.first['peep'], date: result.first['date'], time: result.first['time'])
+ if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+ else
+      connection = PG.connect(dbname: 'chitter')
+ end
+
+ result = connection.exec("INSERT INTO peeps (peeps, date, time) VALUES('#{peep}', '#{DateTime.now.strftime("%d/%m/%Y")}', '#{DateTime.now.strftime("%I:%M%p")}') RETURNING id, peeps, date, time;")
+ Peep.new(id: result.first['id'], peep: result.first['peeps'], date: result.first['date'], time: result.first['time'])
 end
+
+
+
 end
