@@ -1,7 +1,7 @@
 require_relative './lib/database_connection'
 
 if ENV['ENVIRONMENT'] == 'test'
-  DatabaseConnection.setup('Chitter_Manager_Test')
+  DatabaseConnection.setup('chitter_manager_test')
 else
-  DatabaseConnection.setup('Chitter_Manager')
+  DatabaseConnection.setup('chitter_Manager')
 end
