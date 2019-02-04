@@ -6,7 +6,7 @@ feature 'authentication' do
     visit '/users/login'
     fill_in(:username, with: 'jess')
     fill_in(:password, with: 'born2chit')
-    click_button('Login')
+    click_button('LOGIN')
 
     expect(page).to have_content 'Welcome back, jess!'
   end

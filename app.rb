@@ -30,12 +30,12 @@ enable :sessions, :method_override
 
   get '/peeps' do
     @peeps = Peep.all
+    @username = session[:username]
     erb :'peeps/index'
   end
 
   get '/peeps/new' do
     @username = session[:username]
-    p @username
     erb :'peeps/new'
   end
 

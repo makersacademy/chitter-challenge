@@ -1,7 +1,8 @@
 
 <!DOCTYPE html>
 <html>
-
+<head>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
 
 <body>
 
@@ -9,6 +10,10 @@
 <% if @username %>
 Welcome back, <%= @username %>!
 <% end %>
+<br>
+<form action="/" >
+  <button type="submit">HOME</button>
+</form>
 <br>
  Let's peep!
 </h1>
@@ -19,7 +24,7 @@ Welcome back, <%= @username %>!
 <br><br>
 <input type="text" name="username" placeholder="username"/>
 <br><br>
-<input type="submit" value="Submit"/>
+  <button type="submit">Submit</button>
 </form>
 
 

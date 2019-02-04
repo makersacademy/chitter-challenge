@@ -1,40 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 60%;
-}
-
-td, th {
-  border: 1px solid black;
-  text-align: left;
-  font-size: 12px;
-  padding: 4px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-<!-- <link rel="stylesheet" type="text/css" href="/styles.css"/> -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
 </head>
 <body>
 
   <form action="/" >
-    <input type="submit" value="Home"/>
+      <button type="submit">HOME</button>
   </form>
 
   <form action="/peeps" >
-    <input type="submit" value="See Peeps"/>
+      <button type="submit">PEEPS</button>
   </form>
 
   <form action="/peeps/new" >
-    <input type="submit" value="New Peep"/>
+      <button type="submit">NEW PEEP</button>
   </form>
 
+  <form action="/users/new" >
+    <button type="submit">SIGN UP</button>
+  </form>
+<br>
 <br>
 <table>
   <tr>

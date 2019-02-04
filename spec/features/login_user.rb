@@ -5,7 +5,7 @@ feature 'need to log in to peep' do
     visit('/users/login')
     fill_in('username', with: 'jess')
     fill_in('password', with: 'password')
-    click_button('Login')
+    click_button('LOGIN')
 
     expect(current_path).to eq '/peeps/new'
     expect(page).to have_content 'Welcome back, jess!'
