@@ -1,8 +1,8 @@
-body{
-  backgroun-color: Alice Blue;
+body {
+  background-color: red;
 }
 
-table {
+/* table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 60%;
@@ -16,4 +16,4 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
-}
+} */

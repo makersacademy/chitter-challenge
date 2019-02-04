@@ -34,7 +34,8 @@ enable :sessions, :method_override
   end
 
   get '/peeps/new' do
-    #@user = User.find(session[:user_id])
+    @username = session[:username]
+    p @username
     erb :'peeps/new'
   end
 
@@ -49,7 +50,7 @@ enable :sessions, :method_override
 
   post '/users/login' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    session[:user_id] = user.id
+    session[:username] = user.username
     # $username = params[:username]
     # $password = params[:password]
     redirect '/peeps/new'
