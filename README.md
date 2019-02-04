@@ -1,6 +1,18 @@
 Chitter Challenge
 =================
 
+Set up the Database:
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter;
+Connect to the database using the pqsl command \c Chitter;
+Run the query we have saved in the file 01_create_peeps_table.sql
+
+Set up Test Database:
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter_test;
+Connect to the database using the pqsl command \c Chitter_test;
+Run the query we have saved in the file 01_create_peeps_table.sql
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
