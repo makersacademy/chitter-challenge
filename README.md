@@ -68,3 +68,15 @@ And their peep will be shown in the feed, displayed with most recent at the top:
 ![f-posted](images/f-posted.png)
 
 If a peep mentions another user using their chitter username (e.g. @alittlecross) they will be sent an email.
+
+## Running tests
+
+In that same location, in Terminal:
+
+`rspec`
+
+## Linting
+
+In that same location, in Terminal:
+
+`rubocop`
