@@ -25,9 +25,10 @@ class Peep
   end
 
   def self.create(peep:)
+    clean_peep = sanitize_peep(peep)
     result = DatabaseConnection.query(
       "INSERT INTO peeps (peep, timestamp) 
-      VALUES('#{peep}', NOW()) 
+      VALUES('#{clean_peep}', NOW()) 
       RETURNING id, peep, timestamp;"
       )
     Peep.new(
