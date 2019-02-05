@@ -1,23 +1,16 @@
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-<div id='feed_border'>
+  <div id='form'>
 
-<div id='feed'>
-<form id='sign_in_form' action='/sign_in' method='post'></form>
-<div id='break'></div>
-<input class='form' id='sign_in' form='sign_in_form' type='text' name='email' placeholder='email'>
-<div id='break'></div>
-<input class='form' id='sign_in' form='sign_in_form' type='password' name='password' placeholder='password'>
-<div id='break'></div>
-<button class='form' form='sign_in_form' type='submit' value='submit'>sign in</button>
-<div id='break'></div>
-<div class='form' >go <a href='/'>back</a></div>
-<div id='break'></div>
-<div class='form' ><%= flash[:sign_in] %></div>
-</div>
+    <form id='sign-in-form' action='/sign_in' method='post'></form>
+    <input class='form pad-me' id='sign-in' form='sign-in-form' type='text' name='email' placeholder='email'>
+    <input class='form' id='sign-in' form='sign-in-form' type='password' name='password' placeholder='password'>
+    <button class='form' form='sign-in-form' type='submit' value='submit'>sign in</button>
+    <div class='form' >go <a href='/'>back</a></div>
+    <div class='form' ><%= flash[:sign_in] %></div>
 
-</div>
+  </div>
 </body>

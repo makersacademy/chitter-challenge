@@ -1,70 +1,83 @@
-body, button, textarea, #sign_in, #sign_up {
-  font-family: Helvetica Neue;
+* {
+  box-sizing: border-box;
+}
+
+body, button, input, textarea, #sign_in, #sign_up {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 20px;
   font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a, button, #username {
-  color: #0077ff;
   font-weight: 400;
+  color: #0077ff;
 }
+
 a {
   text-decoration: none;
 }
+
 button {
   border: none;
   outline: none;
-  background: none;
   padding: 0px;
+  background: none;
   cursor: pointer;
 }
+
+form {
+  margin: 0;
+}
+
 textarea {
+  display: inline-block;
   resize: none;
+  margin: 0 4px 0 0;
   border: none;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 0;
 }
 
-#content, #since, #username {
-  padding-left: 5px;
+#feed-border {
+  margin: auto;
+  width: 696px;
 }
 
-#break {
-  height: 15px;
+#left-column, #right-column {
+  display: inline-block;
+  vertical-align: top;
 }
-#feed {
-  width: 400px;
-  margin: 0 auto;
+
+#left-column {
+  width: 340px;
 }
-.form {
-  width: 400px;
-  text-align: center;
+
+#right-column {
+  width: 350px;
 }
-#feed_border {
-  width: 1200px;
-  margin: 0 auto;
+
+#peep-form {
+  margin-block-end: 5px;
 }
-#links-i {
-  float: left;
-  padding-top: 12px;
-}
-#links-s {
-  float: left;
-}
-#peep_div {
-  width: 0px;
-  height: 0px;
-}
+
 #since {
+  padding-bottom: 20px;
   font-size: 15px;
   color: #777777;
 }
-#space_div {
-  width: 0px;
-  height: 12px;
+
+#form {
+  margin: auto;
+  width: 400px;
 }
-/* div {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #ff0066
-} */
+
+.form {
+  width: 400px;
+  height: 40px;
+  text-align: center;
+}
+
+.pad-me {
+  margin-bottom: 10px;
+}

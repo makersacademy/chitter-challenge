@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 feature 'Signing in to Chitter' do
   scenario 'users should be able to sign in to their account' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO users (username, name, email, password) VALUES('@a','B','c@d.com','1234');")
+    make_a_user
+
     visit('/')
     click_link('in')
     fill_in('email', with: 'c@d.com')
