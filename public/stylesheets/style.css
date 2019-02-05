@@ -1,5 +1,12 @@
 body {
-  background-color: rgb(102, 153, 255);
+
+  background: url(https://images.freecreatives.com/wp-content/uploads/2016/01/Amazing-Blue-Pattern-Background-Free.jpg)
+  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
   font-family: arial;
   margin: 5%;
 }
@@ -10,21 +17,23 @@ h1{
 }
 
 table {
+  align: center;
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 60%;
-  background-color: #fff;
+  width: 100%;
+  color: #fff;
+  /* background-color: #fff; */
 }
 
 td, th {
-  border: 1px solid #99ccff;
+  border: 1px solid #fff;
   text-align: left;
   padding: 8px;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
   background-color: #99ccff;
-}
+} */
 
 button {
   outline:none;
@@ -32,7 +41,7 @@ button {
   text-align: center;
   width: 100px;
   border-radius:30px;
-  background: #0066ff;
+  background: #4169E1;
   border: 2px solid #fff;
   color: #fff;
   letter-spacing:1px;
@@ -51,6 +60,7 @@ form {
     display: inline;
 }
 .message-box {
+align: center;
 padding: 10px;
 line-height: 30px;
 background-color: #fff;
@@ -63,72 +73,6 @@ margin-left: 10px;
 width: 70%;
 }
 
-/* body,html {
-  position: relative;
-  height: 100%;
+.user-handle {
+  font-size: 10px;
 }
-.container {
-  background: #222;
-  height: 100%;
- /* max-width: 800px;*/
-  /* margin: 0 auto;
-  overflow: hidden;
-  perspective: 1200px;
-}
-.container:after {
-  box-shadow: inset 5px 5px 80px rgba(0,0,0,.8);
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-}
-.wrap {
-  position: absolute;
-  top: -60%;
-  left: -10%;
-  height: 300%;
-  width: 200%;
-  transform: rotateX(20deg) rotateY(40deg) rotateZ(-20deg);
-  z-index: 5;
-}
-.pattern {
-  background-size: 500px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 400%;
-
-  animation: scroll linear 20s infinite;
-}
-
-
-.pattern {
-  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/27530/r7Z09Ht.png');
-}
-
-@keyframes scroll {
-  from   {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-4000px, 0, 0);
-  }
-}
-
-.credit {
-  color: #fff;
-  font: 12px/12px sans-serif;
-  position: absolute;
-  text-align: center;
-  bottom: 10px;
-  width: 100%;
-  text-shadow: 1px 1px 2px rgba(0,0,0,.3);
-
-  a {
-    color: #eee;
-    text-decoration: none;
-  }
-} */ 
