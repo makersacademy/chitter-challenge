@@ -1,5 +1,6 @@
 require 'time'
 require_relative './database_connection'
+require_relative './time_prettier'
 
 class Peep
   attr_reader :peep, :id, :timestamp
@@ -38,13 +39,15 @@ class Peep
       )
   end
 
-  def formatted_date
-    time = Time.parse(@timestamp)
-    time.strftime("%d %B, %Y")
+  def self.sanitize_peep(peep)
+    peep.gsub(/'/, "&#39;").gsub(/"/, '&#34;')
   end
 
+  def formatted_date
+    TimePrettier.formatted_date(@timestamp)
+  end
+  
   def formatted_time
-    time = Time.parse(@timestamp)
-    time.strftime("%k%M")
+    TimePrettier.formatted_time(@timestamp)
   end
 end
