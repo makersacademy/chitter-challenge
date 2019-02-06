@@ -134,7 +134,11 @@ Technologies used
 
 
 
+<<<<<<< HEAD
 ### How to use Chitter ###
+=======
+## How to use Chitter ##
+>>>>>>> db61efaf1e8b5c648fb022ee3915f9f8c2a5250e
 
 System requirements
 -------
