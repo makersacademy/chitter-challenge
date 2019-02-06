@@ -13,6 +13,7 @@ gem 'timecop'
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'orderly'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
