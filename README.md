@@ -133,12 +133,9 @@ Technologies used
 * Sinatra
 
 
-
-<<<<<<< HEAD
 ### How to use Chitter ###
 =======
-## How to use Chitter ##
->>>>>>> db61efaf1e8b5c648fb022ee3915f9f8c2a5250e
+
 
 System requirements
 -------
@@ -146,7 +143,6 @@ System requirements
 * Ruby 2.5.0
 * Mac OS X
 * Chrome browser
-
 
 
 ### Set up ###
@@ -158,7 +154,7 @@ In the terminal go on the working directory where you want to clone the project<
 Use the `git clone` command and paste the clone URL then press enter :
 
 ```shell
-$ git clone https://github.com/your-username/your-repositary.git
+$ git clone https://pasted-address/from-github.com/.git
 ```
 
 2. On your local machine go inside of the *chitter-challenge* directory :
@@ -170,7 +166,7 @@ $ cd chitter-challenge
 Install :
 
 ```shell
-$ install bundle
+$ bundle install
 ```
 Run:
 
@@ -178,6 +174,7 @@ Run:
 $ bundle
 ```
 4. You can see the different directories, with the `ls` command.
+
 
 ### Database ###
 
@@ -218,7 +215,7 @@ chitter_development= SELECT * FROM tablename;
 
 ### Run the tests ###
 
-1. Check that the codes are passing the test. From the root *chitter-challenge* directory, run the *spec*.<br/>
+1. From the root *chitter-challenge* directory, run the *spec*.<br/>
 You can check all the files in one go:
 
 ```shell
@@ -232,7 +229,7 @@ $ cd chitter-challenge
 $ rspec spec/file_name_spec.rb
 ```
 
-2. Check that the code respects the quality of the *Rubocop* guideline, by running `rubocop` from the *madcoders_makersbnb* directory :
+2. Check that the code respects the quality of the *Rubocop* guideline, by running `rubocop` from the *chitter-challenge* directory :
 
 ```shell
 $ cd chitter-challenge
@@ -250,17 +247,44 @@ $ rackup
 
 You'll be able to see that the localhost port used is *9292*
 
-1. Open your browser and type the url of your *localhost:9292*  <br/>
+2. Open your browser and type the url of your *localhost:9292*  <br/>
 
-2. click on sign up, enter your email address and password and click on `Sign up`.<br/>
+<img src="screenshots/blank-index-page.png" >
 
-3. Now fill in the 'Peep' field with your text and click the 'Post my peep!' button.<br/>
 
-4. Log out, and do the first three steps with a new user. You can repeat these steps as many as you want.<br/>
+3. Click on sign up, enter your email address, username and password then click on `Sign up`.<br/>
 
-5. Then, you can sign in to whichever account you want and post peeps attributed to these users
+<img src="screenshots/sign-up.png" >
 
-5. Enjoy playing around with this app as much as you want :) 
+
+4. You'll be taken to your user profile page. Which gives you a field in which you can enter your peeps
+
+<img src="screenshots/profile-page.png">
+
+
+5. Once you've filled in the 'Peep' field with your text and clicked the 'Post my peep!' button, you'll see it appear in the feed below.<br/>
+
+<img src="screenshots/writing-and-posting-a-peep.png">
+
+6. You can see all the posted peeps on the Chitter feed without logging in<br/>
+
+<img src="screenshots/peeps-displayed-wo-logging-in.png">
+
+
+7. Log out, and do the first three steps with a new user. You can repeat these steps as many as you want.<br/>
+
+<img src="screenshots/another-user.png" >
+
+
+8. Then, you can sign in to whichever account you want and post peeps attributed to these users. These will be posted to the Chitter feed which is shared by all users.
+
+<img src="screenshots/feed-displays-all-peeps" >
+
+
+9. Enjoy playing around with this app as much as you want :) 
+
+
+
 
 
 ## Authors ##
@@ -272,6 +296,6 @@ You'll be able to see that the localhost port used is *9292*
 
 Code from sign_in_sign up web app from @dearshrewdwit (Edward Withers)
 
-All the Makers who I paired with on the Messenger app, I relied a lot on the code we wrote for this challenge.
+All the Makers who I paired with on the Messenger app, I referred to a lot on the code we wrote for this challenge.
 
 Code from the *MakersBnB* project that I worked on with @AlinaGoaga and @CelineKaslin - huge thanks to you both.
