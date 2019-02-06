@@ -69,7 +69,6 @@ Some useful resources:
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
 - [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
-
 Notes on functionality:
 ------
 
@@ -102,6 +101,16 @@ In code review we'll be hoping to see:
 * The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+
+Automated Tests:
+-----
+
+Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
+
+If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
+
+- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
+- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
 Notes on test coverage
 ----------------------
