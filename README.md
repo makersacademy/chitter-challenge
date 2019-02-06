@@ -133,8 +133,8 @@ Technologies used
 * Sinatra
 
 
-### How to use Chitter ###
-=======
+How to use Chitter
+=================
 
 
 System requirements
@@ -166,7 +166,7 @@ $ cd chitter-challenge
 Install :
 
 ```shell
-$ bundle install
+$ install bundle
 ```
 Run:
 
@@ -247,38 +247,46 @@ $ rackup
 
 You'll be able to see that the localhost port used is *9292*
 
-2. Open your browser and type the url of your *localhost:9292*  <br/>
-
+2. Open your browser and type the url of your *localhost:9292* into the address bar  <br/>
+You'll then be taken to the Chitter homepage
+::
+<br/>
 <img src="screenshots/blank-index-page.png" >
 
 
 3. Click on sign up, enter your email address, username and password then click on `Sign up`.<br/>
-
-<img src="screenshots/sign-up.png" >
+::
+<br/>
+<img src="screenshots/sign-up.png" > <br>
 
 
 4. You'll be taken to your user profile page. Which gives you a field in which you can enter your peeps
-
-<img src="screenshots/profile-page.png">
+::
+<br/>
+<img src="screenshots/profile-page.png"> <br>
 
 
 5. Once you've filled in the 'Peep' field with your text and clicked the 'Post my peep!' button, you'll see it appear in the feed below.<br/>
-
-<img src="screenshots/writing-and-posting-a-peep.png">
+::
+<br/>
+<img src="screenshots/writing-and-posting-a-peep.png"> <br>
 
 6. You can see all the posted peeps on the Chitter feed without logging in<br/>
-
-<img src="screenshots/peeps-displayed-wo-logging-in.png">
+::
+<br/>
+<img src="screenshots/peeps-displayed-wo-logging-in.png"> <br>
 
 
 7. Log out, and do the first three steps with a new user. You can repeat these steps as many as you want.<br/>
-
-<img src="screenshots/another-user.png" >
+::
+<br/>
+<img src="screenshots/another-user.png" ><br>
 
 
 8. Then, you can sign in to whichever account you want and post peeps attributed to these users. These will be posted to the Chitter feed which is shared by all users.
-
-<img src="screenshots/feed-displays-all-peeps" >
+::
+<br/>
+<img src="screenshots/feed-displays-all-peeps.png" ><br>
 
 
 9. Enjoy playing around with this app as much as you want :) 
