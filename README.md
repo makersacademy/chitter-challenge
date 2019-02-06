@@ -4,7 +4,7 @@ This project is a web app that replicates some of the functionality of Twitter.
 
 ## Getting started
 
-In the location of your choice:
+In the location of your choice, in Terminal:
 
 `git clone git@github.com:alittlecross/chitter-challenge.git`
 
