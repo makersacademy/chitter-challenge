@@ -28,8 +28,8 @@ class Email
   end
 
   def self.send_email(to, peeper)
-    our_email = 'makers_bnb@outlook.com'
-    our_password = 'nakers_bmb'
+    our_email = 'ENTER EMAIL'
+    our_password = 'ENTER PASSWORD'
     our_message = "From: <#{our_email}>\nTo: <#{to}>\n" \
                   "Subject: You were mentioned in a peep...\n\n" \
                   "#{peeper} mentioned you in a peep"
