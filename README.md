@@ -1,6 +1,6 @@
 # Chitter Challenge
 
-This project is a web app that replicates some of the functionality of Twitter.
+Makers Week 4 (Friday) - This project is a web app that replicates some of the functionality of Twitter.
 
 ## Getting started
 
