@@ -1,19 +1,14 @@
 body {
-
-  background: url(https://images.freecreatives.com/wp-content/uploads/2016/01/Amazing-Blue-Pattern-Background-Free.jpg)
-  no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  color: #4169E1;
   text-align: center;
   font-family: arial;
   margin: 5%;
+  background-image: url("http://www.publicdomainpictures.net/pictures/30000/velka/cork-board.jpg")
 }
 
 h1{
-  color: #fff;
-  font-size: 30px;
+  color: #4169E1;
+  font-size: 40px;
 }
 
 table {
@@ -21,19 +16,20 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  color: #fff;
-  /* background-color: #fff; */
+  color: black;
+  background-color: #fff;
 }
 
 td, th {
-  border: 1px solid #fff;
+  border: 1px solid black;
   text-align: left;
   padding: 8px;
 }
 
-/* tr:nth-child(even) {
-  background-color: #99ccff;
-} */
+tr:nth-child(even) {
+  background-color: #4169E1;
+  color: white;
+}
 
 button {
   outline:none;
