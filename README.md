@@ -59,13 +59,11 @@ To run this app:
 
 1. clone the repository and cd into the project
 2. create the databases in psql:
-CREATE DATABASE chitter_development
-CREATE DATABASE chitter_test
+* CREATE DATABASE chitter_development
+* CREATE DATABASE chitter_test
 3. run rake db:migrate to create the tables
 4. run rails s to start the server
 5. visit http://localhost:3000 to view the application in the browser
-
-***About the app***
 
 Technical approach
 -----
