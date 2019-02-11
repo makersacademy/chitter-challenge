@@ -5,9 +5,9 @@ This is a messaging web app that you can use to post messages (peeps) which are 
 ## Planning
 
 Before starting on the challenge I put together an entity relationship diagram to help plan the structure of the Chitter database.
-
+<p align = "center">
 ![Entity Relationship Diagram](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/entity_relationship_diagram.png?raw=true)
-
+</p>
 I drafted a rough mock up of the pages I thought would be needed to meet the requirements of the user stories.
 
 ![Mock up of Chitter pages](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/mockup_of_chitter_pages.png?raw=true)
@@ -92,14 +92,48 @@ To stop the app from running hit ```Ctrl + C``` in the command line and you shou
 
 ### The welcome page
 
-### Initial menu
+![Welcom Page](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen1.png?raw=true)
+
+![Initial menu](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen2.png?raw=true)
 
 ### Peeps page (where all the posts live)
 
+![Peeps page](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen3.png?raw=true)
+
+![Post a message](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen4.png?raw=true)
+
 ### Attempting to posting a message while not logged in
+
+![You have to sign in to post](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen5.png?raw=true)
 
 ### Sign up
 
+![Sign up page]()
+
+![Username taken](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen7.png?raw=true)
+
+![Email in use](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen8.png?raw=true)
+
+![Successful sign up](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen9.png?raw=true)
+
 ### login
 
+![Login page](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen10.png?raw=true)
+
+![Details incorrect](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen11.png?raw=true)
+
+![Successful login](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen12.png?raw=true)
+
+### After sign up or login
+
+![Updated Nav bar and Menu](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen13.png?raw=true)
+
+### Posting a peep
+
+![Posting a Peep](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen14.png?raw=true)
+
+![Peep added](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen15.png?raw=true)
+
 ### Log out
+
+![Logged out message](https://github.com/Ajay233/chitter-challenge/blob/master/image_files/Screen16.png?raw=true)
