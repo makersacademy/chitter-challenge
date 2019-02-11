@@ -48,3 +48,11 @@ Notes on functionality:
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
+## Screenshots
+
+![Sign_in page](https://github.com/becc-mu/chitter-challenge/blob/master/public/Screen%20Shot%20signin.png)
+
+![Sign_up page](https://github.com/becc-mu/chitter-challenge/blob/master/public/Screen%20Shot%20sign%20uppng.png)
+
+![Home page](https://github.com/becc-mu/chitter-challenge/blob/master/public/Screen%20Shot%20home.png)
