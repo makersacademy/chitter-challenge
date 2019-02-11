@@ -9,7 +9,7 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  pool: 5
+  pool: 2
   host: <%= ENV['DATABASE_URI'] %>
   database: <%= ENV['DATABASE_URI'] %>
   username: <%= ENV['DATABASE_URI'] %>

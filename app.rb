@@ -1,4 +1,4 @@
-require 'sinatra/activerecord'
+# require 'sinatra/activerecord'
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peeps'
