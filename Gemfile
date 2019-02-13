@@ -14,10 +14,11 @@ gem 'rubocop', '0.56.0'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'standalone_migrations'
+gem 'codecov'
 
 group :test do
-  gem 'codecov', :require => false
+  gem 'codecov'
   gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
+  gem 'simplecov'
+  gem 'simplecov-console'
 end
