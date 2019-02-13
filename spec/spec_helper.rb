@@ -12,8 +12,9 @@ TEST_MESSAGE = "Hey @al123, how are you?"
 
 Capybara.app = Chitter
 
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
 SimpleCov.start
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
 Mail.defaults do
   delivery_method :test
