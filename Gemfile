@@ -16,6 +16,7 @@ gem 'sinatra-flash'
 gem 'standalone_migrations'
 
 group :test do
+  gem 'codecov', :require => false
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

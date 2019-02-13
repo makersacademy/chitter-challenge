@@ -1,4 +1,5 @@
 FROM alpine
+MAINTAINER 'Simon Green'
 
 ENV BUILD_PACKAGES curl wget bash curl-dev build-base postgresql-dev
 ENV RUBY_PACKAGES ruby ruby-bigdecimal ruby-dev ruby-io-console ruby-bundler

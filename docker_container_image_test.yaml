@@ -1,0 +1,40 @@
+schemaVersion: "2.0.0"
+
+globalEnvVars:
+  - key: "VIRTUAL_ENV"
+    value: "/env"
+  - key: "PATH"
+    value: "/env/bin:$PATH"
+
+fileExistenceTests:
+  - name: 'Gemfile'
+    path: 'usr/app/Gemfile'
+    shouldExist: true
+  - name: 'Gemfile lock'
+    path: 'usr/app/Gemfile.lock'
+    shouldExist: true
+
+# fileContentTests:
+#   - name: 'Gemfile'
+#     path: 'usr/app/Gemfile'
+#     expectedContents: [''https://rubygems.org'']
+
+commandTests:
+  - name: "ruby package installation"
+    command: "which"
+    args: ["ruby"]
+    expectedOutput: ["/usr/bin/ruby"]
+
+  - name: "bundler package installation"
+    command: "which"
+    args: ["bundler"]
+    expectedOutput: ["/usr/bin/bundler"]
+
+metadataTest:
+  env:
+    - key: 'RAILS_ENV'
+      value: 'docker'
+  labels:
+    - key: 'MAINTAINER'
+      value: 'Simon Green'
+  # workdir: ['/usr/app']

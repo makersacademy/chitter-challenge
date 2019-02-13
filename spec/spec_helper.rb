@@ -1,5 +1,6 @@
 require 'capybara/rspec'
 require 'orderly'
+require 'codecov'
 require 'simplecov'
 require 'simplecov-console'
 require 'web-helpers'
@@ -11,9 +12,7 @@ TEST_MESSAGE = "Hey @al123, how are you?"
 
 Capybara.app = Chitter
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-])
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
 SimpleCov.start
 
 Mail.defaults do
