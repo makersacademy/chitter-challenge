@@ -15,6 +15,7 @@ gem 'sinatra'
 gem 'sinatra-flash'
 gem 'standalone_migrations'
 gem 'codecov'
+gem 'codeclimate-test-reporter'
 
 group :test do
   gem 'codecov'

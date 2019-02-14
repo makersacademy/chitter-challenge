@@ -40,6 +40,8 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    codeclimate-test-reporter (1.0.7)
+      simplecov
     codecov (0.1.14)
       json
       simplecov
@@ -152,6 +154,7 @@ DEPENDENCIES
   activerecord
   bcrypt
   capybara
+  codeclimate-test-reporter
   codecov
   mail
   orderly
