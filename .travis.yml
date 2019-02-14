@@ -1,5 +1,12 @@
 rvm: '2.5.3'
 cache: bundler
+addons:
+    code_climate:
+      repo_token: dcce999d190c8f00b6d779342e6e58b2fdb7b4318535f8f65c0ea23ad3fdea29
+
+after_success:
+  - bundle exec codeclimate-test-reporter
+  
 script:
   - mkdir -p spec && bundle exec rspec spec
 
