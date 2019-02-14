@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/thielsen/chitter-challenge.svg?branch=master)](https://travis-ci.org/thielsen/chitter-challenge)
+[![Build Status](https://travis-ci.org/thielsen/chitter-challenge.svg?branch=master)](https://travis-ci.org/thielsen/chitter-challenge) [![Maintainability](https://api.codeclimate.com/v1/badges/4870dc39f301b703c99f/maintainability)](https://codeclimate.com/github/thielsen/chitter-challenge/maintainability) <a href="https://codeclimate.com/github/thielsen/chitter-challenge/test_coverage"><img src="https://api.codeclimate.com/v1/badges/4870dc39f301b703c99f/test_coverage" /></a>
 
 Chitter Challenge
 =================
