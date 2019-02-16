@@ -1,4 +1,4 @@
-Chitter Challenge [![Build Status](https://travis-ci.org/AlinaGoaga/Chitter_TwitterClone.svg?branch=master)](https://travis-ci.org/AlinaGoaga/chitter-challenge)
+Chitter Challenge [![Build Status](https://travis-ci.com/AlinaGoaga/Chitter.svg?branch=master)](https://travis-ci.com/AlinaGoaga/Chitter) <a href="https://codeclimate.com/github/AlinaGoaga/Chitter/maintainability"><img src="https://api.codeclimate.com/v1/badges/3bd08f4c8415fdc3c978/maintainability" /></a>
 =================
 
 A few snapshots of how the app looks like:
