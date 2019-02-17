@@ -1,6 +1,7 @@
-Chitter Challenge
+**Chitter Challenge**
 
-Setup
+
+***Setup***
 
 - Fork this repo 
 - git clone onto your machine
@@ -11,7 +12,7 @@ Setup
 - run rackup to use the app or rspec to test
 
 
-Challenge
+***Challenge***
 
 to write a small Twitter clone that will allow the users to post messages to a public stream. Tests passing coverage 92% (email feature not working unsure of how to test).
 
@@ -55,7 +56,7 @@ fancy CSS
 i started css however ran out of time could do with another hour.
 
 
-Personal LO 
+***Personal LO***
 
 - I wanted to connect js, css to views. 
 - I wanted to make better use of partials by having a partial navigation bar.
@@ -70,13 +71,13 @@ Whilst i have made better use of js, css and partials i am still struggling to u
 I think my test are quite clean and my code is readable. I tried to keep the code to single responsibility however there was a problem with one of my method in UsersMentioned module - in order for this to work i have temporarily placed it inside the app route. 
 
 
-unforseen challenges
+***unforseen challenges***
 
 - my machine was unable to work with Bycrypt. To go around this i changed the data type into a string after first trying to reinstall gems etc. 
 
 - I made an error in my database cleaner configuration file which led to a whole file of tests constantly failing. This took a while to fix. 
 
-reflection
+***reflection***
 
 I enjoyed this challenge and was able to do other tasks i had wanted to do such as using modules making better use of partials. However i still havent fully understood how to link tables desirably in datamapper. 
 
