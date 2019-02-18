@@ -10,6 +10,8 @@ class Peep
   belongs_to :user
 
   def time
+    p " iegfuewohfo"
+    p created_at
     created_at.strftime("%H:%M:%S - %d/%m/%y")
   end
 

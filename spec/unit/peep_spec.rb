@@ -10,7 +10,9 @@ describe Peep do
     Timecop.return
   end
 
-  let!(:peep) { described_class.create(:content => 'Test peep') }
+  let!(:peep) { described_class.create(
+                :content => 'Test peep',
+                :created_at => Time.now) }
 
   describe '#content' do
     it 'returns the peep content' do
@@ -19,7 +21,7 @@ describe Peep do
   end
 
   describe '#time' do
-    xit 'returns the timestamp' do
+    it 'returns the timestamp' do
       expect(peep.time).to eq Time.now.strftime("%H:%M:%S - %d/%m/%y")
     end
   end
