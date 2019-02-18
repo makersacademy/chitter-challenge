@@ -7,6 +7,7 @@ My attemp at Makers Academys Chitter Challenge. For a full description of the ch
 
 Note that you will need postgreSQL installed.
 
+```
 $ git clone github.com:jaywayawyaj/chitter-challenge.git
 Navigate to chitter-challenge
 $ bundle
@@ -16,6 +17,7 @@ $ rake db:auto_migrate - creates tables in your development
 $ rake db:auto_migrate RACK_ENV=test - creates tables in your test database
 $ rackup
 Visit 'http://localhost:9292/' in a web browser
+```
 
 ### Usage
 
