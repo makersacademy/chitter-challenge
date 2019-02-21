@@ -6,7 +6,7 @@ Makers Week 4 (Friday) - This project is a web app that replicates some of the f
 
 ## Getting started
 
-Assuming you have 'git' installed, in the location of your choice, in Terminal:
+Assuming you have `git` installed, in the location of your choice, in Terminal:
 
 `git clone git@github.com:alittlecross/chitter-challenge.git`
 
