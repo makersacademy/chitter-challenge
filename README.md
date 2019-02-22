@@ -2,7 +2,7 @@
 
 Makers Week 4 (Friday) - This project is a web app that replicates some of the functionality of Twitter.
 
-**(Note. you will need to enter an outlook email address and password in `email.rb` to test the `mentions` functionality)**
+**(Note: you will need to enter an outlook email address and password in `email.rb` to test the `mentions` functionality)**
 
 ## Getting started
 
