@@ -21,7 +21,7 @@ I want to sign up for Chitter
 
 ### Model
 
-|Client|Controller|Model|Views|Databse|
+|Client|Controller|Model|Views|Database|
 |------|----------|-----|-----|-------|
 |request --> | app | ask for name | '/' sign up form | user table |
 |   |    | allow to post peeps | '/peeps' post peeps form | peeps table |
