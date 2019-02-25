@@ -177,10 +177,15 @@ If you sign up and create new peeps from new users account, all the peeps will b
 
 ## Technology used ##
 
+* Ruby
+* Rspec
 * Sinatra
-* postgresql
-* datamapper
 * Capybara
+* Postgresql
+* Datamapper
+* Rubocop
+* Html
+* Css
 
 ## Acknowledgements ##
 
