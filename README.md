@@ -173,7 +173,7 @@ You can see your peep displayed with the time and your username.
 4. Log out, and you will be bale to see your peeps displayed on the home page.<br/>
 If you sign up and create new peeps from new users account, all the peeps will be displayed on the user profile page but also on the home page without being logged in.
 
-5. Enjoy playing around with my app as much as you want :)
+5. Enjoy playing around with my app as much as you want :smile:
 
 ## Technology used ##
 
@@ -184,4 +184,4 @@ If you sign up and create new peeps from new users account, all the peeps will b
 
 ## Acknowledgements ##
 
-Code from a group project I have work on : *madcoders_makersbnb* app
+Inspired by some code from a group project I have work on : *madcoders_makersbnb* app
