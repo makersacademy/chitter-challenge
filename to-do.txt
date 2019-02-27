@@ -1,10 +1,15 @@
 to do:
-- add to-do to .gitignore
-- simple 'hello world app'
 - CRC cards
+- review user stories
 - map user journey
+- "adding the necessary steps for creating your database to the .travis.yml file" (original readme)
 - use ORM for database interaction (see original readme)
+- css styling
 - make own readme
     - add diagrams for system made in hackmd
+- bonus user stories
+
 
 done:
+- add to-do to .gitignore
+- simple 'hello world app'
