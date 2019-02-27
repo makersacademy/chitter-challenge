@@ -1,0 +1,10 @@
+to do:
+- add to-do to .gitignore
+- simple 'hello world app'
+- CRC cards
+- map user journey
+- use ORM for database interaction (see original readme)
+- make own readme
+    - add diagrams for system made in hackmd
+
+done:
