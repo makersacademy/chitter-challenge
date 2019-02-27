@@ -2,6 +2,10 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Hello world!'
+    erb :index
+  end
+
+  get '/add-chitter' do
+    erb :add_chitter
   end
 end

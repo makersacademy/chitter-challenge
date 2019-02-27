@@ -1,7 +1,6 @@
 to do:
-- CRC cards
-- review user stories
 - map user journey
+- address user stories
 - "adding the necessary steps for creating your database to the .travis.yml file" (original readme)
 - use ORM for database interaction (see original readme)
 - css styling
@@ -13,3 +12,5 @@ to do:
 done:
 - add to-do to .gitignore
 - simple 'hello world app'
+- CRC cards
+- review user stories
