@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/add-chitter' do
-    erb :add_chitter
+  get '/add-peep' do
+    erb :add_peep
   end
 end
