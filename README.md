@@ -41,3 +41,11 @@ I want to sign up for Chitter
  - Connect to the database using the pqsl command `\c chitter_test`;
  - Run the query we have saved in the file 01_create_table_peeps.sql
  - Run the query we have saved in the file 02_create_users_table.sql
+
+## Sign-up page
+
+<img src="https://github.com/Debora38/chitter-challenge/blob/master/docs/Chitter-Debora-signup.png?raw=true" alt="Sign-up-page">
+
+## Post peeps page
+
+<img src="https://github.com/Debora38/chitter-challenge/blob/master/docs/Chitter-Debora-peeps.png?raw=true" alt="Peeps-page">
