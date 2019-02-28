@@ -106,6 +106,7 @@ DEPENDENCIES
   activerecord
   capybara
   pg
+  rack
   rake
   rspec
   rubocop (= 0.56.0)

@@ -21,8 +21,7 @@ end
 
 ENV['RACK_ENV'] = 'test'
 
-config = read_config
-app_config = config[ENV['RACK_ENV']]
+app_config = Config.read_config(ENV['RACK_ENV'])
 ActiveRecord::Base.establish_connection(app_config[:db_url])
 
 Capybara.app = Chitter
