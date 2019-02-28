@@ -20,3 +20,6 @@ end
 # as I understand, this allows testing to locate app and run in tests
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 Capybara.app = Chitter
+
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
