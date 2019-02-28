@@ -1,5 +1,8 @@
 rvm: '2.5.0'
 
+services:
+  - postgresql
+
 script:
   - mkdir -p spec && bundle exec rspec spec
 
