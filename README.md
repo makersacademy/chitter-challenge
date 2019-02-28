@@ -1,22 +1,8 @@
-Chitter Challenge
+# Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+# User Stories
 ```
 STRAIGHT UP
 
@@ -53,6 +39,19 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+# Setup
+
+ - Run 'bundle install' in the project root to get all of the required gems to run this project
+ - Run 'rspec' to run the unit and feature tests
+ - Run 'rubocop' to check code quality
+ - Run 'ruby app.rb' and visit the localhost address of the server on your internet browser to see the application running
+
+# Stack
+
+ - The PG gem is used to interact with PostgreSQL
+ - The Sinatra gem hosts the server
+
+
 Technical Approach:
 -----
 
@@ -88,8 +87,6 @@ If you have time you can implement the following:
 And/Or:
 
 * Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
 
 Code Review
 -----------
@@ -129,5 +126,3 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 ```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
