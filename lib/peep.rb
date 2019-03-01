@@ -6,7 +6,4 @@ class Peep < ActiveRecord::Base
       '%e %b %Y %H:%M:%S%p'
     )
   end
-
-  def self.all_reverse_chrono
-  end
 end

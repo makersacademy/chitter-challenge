@@ -1,7 +1,9 @@
 require './lib/peep.rb'
+require './lib/user.rb'
 
 def empty_database
   Peep.delete_all
+  User.delete_all
 end
 
 def create_peeps
