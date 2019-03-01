@@ -15,8 +15,8 @@ No Peeps Yet
 <% else %>
 <ul>
   <% @peeps.each do |peep| %>
-    <div><h1><%= peep.name %> <%= peep.handle %> <%= peep.time %></h1>
-    <h2><%=peep.peep_text%></h2>
+    <div><h1><%= peep.name %> <%= peep.handle %> <%= peep.peep_time %></h1>
+    <h2><%= peep.peep_text %></h2>
     </div>
     <% end %>
 </ul>

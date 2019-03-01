@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.6.0'
 
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'pg'
 gem 'rake'
 gem 'selenium-webdriver', '~> 2.53', '>= 2.53.4'
 gem 'sinatra', '~> 2.0', '>=2.0.5'
