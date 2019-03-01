@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new-peep' do
-    Peep.add(params[:new_chitter_user], params[:new_chitter_message])
+    Peep.add(params[:chitter_user], params[:new_chitter_message])
     redirect('/')
   end
 end
