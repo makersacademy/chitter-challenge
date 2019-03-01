@@ -1,5 +1,6 @@
 require './spec/db_helper'
 require 'date'
+require_relative 'web_helper'
 
 feature 'feed' do
   before(:each) do 
@@ -36,6 +37,20 @@ feature 'feed' do
       )
 
       expect(displayed_peep).to have_content(expected_post_time)
+    end
+
+    scenario 'should display username that posted peep' do
+      username = 'simon'
+      password = 'strong'
+      create_user(username: username, password: password)
+      login(username: username, password: password)
+
+      content = 'THEY TOOK OUR JORRRRRBBBSSSS!'
+      fill_in('content_input', with: content)
+      click_button 'Submit'
+
+      displayed_peep = page.find("##{@peeps[0].id}")
+      expect(displayed_peep).to have_content(username)
     end
   end
 end

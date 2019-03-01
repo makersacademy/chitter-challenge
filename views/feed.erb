@@ -6,7 +6,10 @@
   <% @peeps.each do |peep| %>
     <div class='peep' id='<%= peep.id %>'>
       <span><%= peep.content %></span>
-      <span><%= peep.formatted_created_at %></span>   
+      <span><%= peep.formatted_created_at %></span>
+      <% if @user %>
+        <span>Posted by<%= @user.username %></span>
+      <% end %>
     </div>
   <% end %>
 </div>

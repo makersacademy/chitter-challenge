@@ -17,6 +17,8 @@ RSpec.configure do |config|
     empty_database
   end
 
+  config.filter_run_when_matching :focus
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
