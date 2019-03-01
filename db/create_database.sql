@@ -1,2 +1,3 @@
 CREATE DATABASE chitter;
 CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep_content VARCHAR(280), username VARCHAR(20));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(100), password VARCHAR(200));

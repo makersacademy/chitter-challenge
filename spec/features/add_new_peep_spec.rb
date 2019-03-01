@@ -32,12 +32,3 @@ feature 'adding new peeps' do
     expect(page).to have_content('Time testing peep Gary at 2008-09-01 10:05:00')
   end
 end
-
-
-# Timecop.freeze(specific_datetime) do
-#   # fill out form
-#   ...
-#   # submit form
-#   ...
-#   expect(page).to have_content("created_at: #{specific_datetime.tos}") # format the specific_datetime as expected
-# end
