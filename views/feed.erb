@@ -2,11 +2,11 @@
   Post a peep sailor: <input type='text' name='content' id='content_input'>
   <input type='submit' value='Submit'>
 </form>
-<ul>
+<div>
   <% @peeps.each do |peep| %>
-    <li class='peep' id='<%= peep.id %>'>
-      <span><%= peep.content %>></span>
-      <span><%= peep.formatted_created_at %>></span>   
-    </li>
+    <div class='peep' id='<%= peep.id %>'>
+      <span><%= peep.content %></span>
+      <span><%= peep.formatted_created_at %></span>   
+    </div>
   <% end %>
-</ul>
+</div>
