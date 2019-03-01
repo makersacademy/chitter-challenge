@@ -1,9 +1,19 @@
 require 'sinatra/base'
 require './lib/peep.rb'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
   get '/register' do
     erb :register
+  end
+
+  post '/register' do
+    User.create(
+      username: params[:username], 
+      password: params[:password]
+    )
+    
+    redirect('/feed')
   end
   
   get '/feed' do
