@@ -5,7 +5,14 @@ Chitter Challenge
 
 # Approach
 
-Inorder to complete this challenge I have focussed on completing the user stories 1 at a time which increasing complexity.
+Inorder to complete this challenge I have focussed on completing the user stories 1 at a time which increasing complexity. I have used the Data Mapper ORM instead of creating my own class method sql interactions with the database.
+
+In order to run my tests please run the following commands to ensure the database is created successfully on your local machine
+
+```
+psql -c 'create database chitter_test;' -U postgres
+psql -d chitter_test -c 'CREATE TABLE "peeps" ("id" SERIAL PRIMARY KEY, "name" VARCHAR(60), "handle" VARCHAR(60), "peep_text" VARCHAR(120), "peep_time" VARCHAR(10));'
+```
 
 
 Features:
@@ -17,6 +24,9 @@ STRAIGHT UP
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+
+Nouns: Chitter, Peep
+Verbs: post
 
 As a maker
 So that I can see what others are saying  
