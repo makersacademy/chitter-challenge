@@ -7,12 +7,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    peeps = [
-      '1. Peep #3',
-      '2. Peep #2',
-      '3. Peep #1'
-    ]
-    peeps.join
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
   
   # start the server if ruby file executed directly
