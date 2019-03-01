@@ -9,7 +9,7 @@ class Peep
     else
       con = PG.connect(dbname: 'chitter')
     end
-    results = con.exec("SELECT * FROM peeps;")
+    results = con.exec("SELECT * FROM peeps ORDER BY createstamp DESC;")
     results.map { |row| Peep.new(row['id'], row['message'], row['makerid']) }
   end
 
