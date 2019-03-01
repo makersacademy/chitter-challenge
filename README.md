@@ -3,8 +3,6 @@ Chitter Challenge
 
 Creating a twitter-clone that will allow the users to post messages to a public stream, based on the following description: https://github.com/makersacademy/chitter-challenge
 
-Features:
--------
 
 # User story
 ```
