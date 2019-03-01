@@ -8,8 +8,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   
   before do
-    if session[:user_id] 
-      @user = User.find(session[:user_id])
+    if session[:username] 
+      @user = User.find_by(username: session[:username])
     end
   end
 
@@ -31,9 +31,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    user = User.find_by(username: params[:username])
-    if user.password == params[:password]
-      session[:user_id] = user.id
+    if User.authenticated?(
+      username: params[:username], 
+      password: params[:password]
+    )
+      session[:username] = params[:username]
       redirect('/feed')
     else
       flash[:notice] = 'Incorrect email or password'

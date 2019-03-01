@@ -16,16 +16,16 @@ describe 'user' do
 
   describe 'when authenticating a user' do
     it 'should return true if username and password are valid' do
-      expect(User.authenticate(user)).to eq(true)
+      expect(User.authenticated?(user)).to eq(true)
     end
 
     it 'should return false if username not found' do
-      auth_result = User.authenticate(username: 'stuff', password: user[:password])
+      auth_result = User.authenticated?(username: 'stuff', password: user[:password])
       expect(auth_result).to eq(false)
     end
 
     it 'should return false if password is invalid' do
-      auth_result = User.authenticate(username: user[:username], password: 'stuff')
+      auth_result = User.authenticated?(username: user[:username], password: 'stuff')
       expect(auth_result).to eq(false)
     end
   end
