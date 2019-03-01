@@ -2,6 +2,8 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'helper_methods.rb'
+require 'orderly'
+require 'timecop'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

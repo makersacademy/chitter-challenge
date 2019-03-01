@@ -6,13 +6,18 @@ feature 'adding new peeps' do
   end
 
   scenario 'items appear in reverse chronological order' do
+    Timecop.freeze(Time.now - 30)
     clean_test_database
     create_first_peep
+    visit('/')
+    Timecop.return
     click_button('Add Peep')
     fill_in 'chitter_user', with: 'Mark'
     fill_in 'new_chitter_message', with: 'writing another peep'
     click_button('Create Peep')
-    expect(page.body.index('writing another peep') < page.body.index('just writing some peeps...')).to eq(true)
+    p page.body.index('writing another peep')
+    p page.body.index('just writing some peeps...')
+    expect('writing another peep').to appear_before('just writing some peeps...')
   end
 end
 

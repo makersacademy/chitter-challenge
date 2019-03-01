@@ -5,4 +5,8 @@ chitters post here...
   <input type="submit" name="add-peep" value="Add Peep">
 </form>
 
-<%= Peep.all %>
+<ul>
+  <% Peep.all.each do |peep| %>
+    <li><%= peep.content %> - <%= peep.username %> - <%= peep.timestamp %></li>
+  <% end%>
+</ul>
