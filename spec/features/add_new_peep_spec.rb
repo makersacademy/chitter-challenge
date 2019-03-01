@@ -1,6 +1,7 @@
 feature 'adding new peeps' do
   scenario 'users can add a new peep and see it on the homepage' do
     clean_test_database
+    create_test_account
     create_first_peep
     expect(page).to have_content('just writing some peeps...')
   end
@@ -12,7 +13,6 @@ feature 'adding new peeps' do
     visit('/')
     Timecop.return
     click_button('Add Peep')
-    fill_in 'chitter_user', with: 'Mark'
     fill_in 'new_chitter_message', with: 'writing another peep'
     click_button('Create Peep')
     p page.body.index('writing another peep')
@@ -26,7 +26,6 @@ feature 'adding new peeps' do
     Timecop.freeze(test_time)
     visit('/')
     click_button('Add Peep')
-    fill_in 'chitter_user', with: 'Gary'
     fill_in 'new_chitter_message', with: 'Time testing peep'
     click_button('Create Peep')
     expect(page).to have_content('Time testing peep Gary at 2008-09-01 10:05:00')
