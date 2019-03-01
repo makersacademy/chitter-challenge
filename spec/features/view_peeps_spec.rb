@@ -3,8 +3,8 @@ feature 'viewing peeps feed' do
     
     visit '/peeps'
 
-    expect(page).to have_content '1. Peep #3'
-    expect(page).to have_content '2. Peep #2'
-    expect(page).to have_content '3. Peep #1'
+    expect(page).to have_content 'Peep #3'
+    expect(page).to have_content 'Peep #2'
+    expect(page).to have_content 'Peep #1'
   end
 end
