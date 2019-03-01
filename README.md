@@ -1,3 +1,41 @@
+This is the Makers week 4 weekend challenge (details below) to build a web app
+that uses a database.
+
+User Stories
+------------
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+Domain Model
+------------
+
+Built up with each user story - TO DO: put pics in google drive
+
+Class and Database Model
+------------------------
+TO DO: put pic in google drive
+
+Set-up instructions
+-------------------
+TO DO: put link to DDL to create tables
+
+
+
+
+________________________________________________________________________________
 Chitter Challenge
 =================
 
