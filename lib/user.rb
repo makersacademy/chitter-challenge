@@ -1,3 +1,4 @@
+require 'bcrypt'
 require 'pg'
 
 class User
@@ -13,8 +14,9 @@ class User
   end
 
   def self.create(username:, password:)
+    encrypted_password = BCrypt::Password.create(password)
     connection
-    result = @conn.exec("INSERT INTO users (id, username, password) VALUES(DEFAULT, '#{username}', '#{password}') RETURNING id, username, password;")
+    result = @conn.exec("INSERT INTO users (id, username, password) VALUES(DEFAULT, '#{username}', '#{encrypted_password}') RETURNING id, username, password;")
     User.new(id: result[0]["id"], username: result[0]["username"], password: result[0]["password"])
   end
 
