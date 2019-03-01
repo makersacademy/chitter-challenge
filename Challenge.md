@@ -1,12 +1,18 @@
 Chitter Challenge
 =================
 
-[![Build Status](https://travis-ci.org/tso402/chitter-challenge.svg?branch=master)](https://travis-ci.org/tso402/chitter-challenge)
+* Challenge time: rest of the day and weekend, until Monday 9am
+* Feel free to use Google, your notes, books, etc. but work on your own
+* If you refer to the solution of another coach or student, please put a link to that in your README
+* If you have a partial solution, **still check in a partial solution**
+* You must submit a pull request to this repo with your code by 9am Monday morning
 
-# Approach
+Challenge:
+-------
 
-Inorder to complete this challenge I have focussed on completing the user stories 1 at a time which increasing complexity.
+As usual please start by forking this repo.
 
+We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
