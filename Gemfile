@@ -8,6 +8,7 @@ gem 'activerecord'
 gem 'pg'
 gem 'rack'
 gem 'bcrypt'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'

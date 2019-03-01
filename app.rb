@@ -1,9 +1,12 @@
 require 'sinatra/base'
 require './lib/peep.rb'
 require './lib/user.rb'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
+  
   before do
     if session[:user_id] 
       @user = User.find(session[:user_id])
@@ -33,6 +36,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect('/feed')
     else
+      flash[:notice] = 'Incorrect email or password'
       redirect('/login')
     end
   end

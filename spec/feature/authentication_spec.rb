@@ -1,19 +1,13 @@
 require './lib/user.rb'
+require_relative 'web_helper.rb'
 
 feature 'authentication' do
   let(:username) { 'simon88' }
   let(:password) { 'penmousekeys' }
 
-  def submit_username_password
-    fill_in('username', with: username)
-    fill_in('password', with: password)
-    click_button 'Submit'
-  end
-
   feature 'when new user registers' do
     scenario 'should save new username' do
-      visit('/register')
-      submit_username_password
+      register(username: username, password: password)
 
       expect(User.all[0].username).to eq(username)
     end
@@ -23,10 +17,25 @@ feature 'authentication' do
     scenario 'should load feed if valid login details submitted' do
       User.create(username: username, password: password)
       
-      visit('/login')
-      submit_username_password
+      login(username: username, password: password)
 
       expect(page.current_path).to eq '/feed'
+    end
+
+    scenario 'should not login if details invalid' do
+      User.create(username: username, password: password)
+      
+      login(username: 'otheruser', password: password)
+
+      expect(page.current_path).to eq '/login'
+    end
+
+    scenario 'should inform user when details are invalid' do
+      User.create(username: username, password: password)
+      
+      login(username: 'otheruser', password: password)
+
+      expect(page.find('.login_error')).to have_content('Incorrect email or password')
     end
   end
 end

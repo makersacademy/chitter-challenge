@@ -7,6 +7,11 @@ def login(username:, password:)
   submit_username_password(username: username, password: password)
 end
 
+def register(username:, password:)
+  visit('/register')
+  submit_username_password(username: username, password: password)
+end
+
 def submit_username_password(username:, password:)
   fill_in('username', with: username)
   fill_in('password', with: password)
