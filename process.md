@@ -40,3 +40,8 @@ I want to receive an email if I am tagged in a Peep
 # Process
 
 Having cloned the project template, I've also added an app file, updated the gemfile, created an index in the new views folder, and made a lib folder for future classes.
+
+
+ FEATURE 1 - 'I want to post a message (peep) to chitter'
+  - To post text to my page, I can either store posts in sessions, or in a database. For the sake of data persistence, I'm choosing a database.
+  -
