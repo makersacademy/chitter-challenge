@@ -1,13 +1,17 @@
 require './lib/peep.rb'
 
 describe 'peep feed' do
-  it 'should return all posted peeps' do
-    peep1 = { content: 'Trump sucks' }
-    Peep.create(peep1)
+  context 'given some peeps have been created in db' do
+    before(:each) { @peeps = create_peeps }
 
-    peep2 = { content: 'Right???!!!' }
-    Peep.create(peep2)
+    it 'should return all posted peeps' do
+      expect(Peep.all.count).to eq(@peeps.count)
+    end
 
-    expect(Peep.all.count).to eq(2)
+    describe 'when returning a peep' do
+      it 'should include content' do
+        expect(Peep.all[0].content).to eq(@peeps[0][:content])
+      end
+    end
   end
 end
