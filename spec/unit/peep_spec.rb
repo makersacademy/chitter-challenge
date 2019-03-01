@@ -4,9 +4,13 @@ describe Peep do
 
   it 'returns all peeps' do
     
+    Peep.create(text: 'Peep #1')
+    Peep.create(text: 'Peep #2')
+    Peep.create(text: 'Peep #3')
+
     peeps = Peep.all
 
-    expect(peeps).to include 'Peep #1'
+    expect(peeps.count).to eq 3
   end
 
   it 'creates a new peep' do
