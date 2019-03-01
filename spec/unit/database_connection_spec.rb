@@ -1,4 +1,5 @@
 require './lib/database_connection'
+require 'pg'
 
 describe DatabaseConnection do
 

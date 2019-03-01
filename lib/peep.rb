@@ -1,26 +1,21 @@
 require 'pg'
 
 class Peep
+  attr_reader :text
+
+  def initialize(text:)
+    @text = text
+  end
 
   def self.all
-    [
-      'Peep #3',
-      'Peep #2',
-      'Peep #1',
-      'Peep dis, yo!',
-      'Peep dis!'
-    ]
+    result = DatabaseConnection.query('select * from peeps')
+    result.map { |peep| Peep.new(text: peep['text']) }
   end
 
   def self.create(text:)
     
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
-    connection.exec("insert into peeps (text) values ('#{text}');")
+    result = DatabaseConnection.query("insert into peeps (text) values ('#{text}') returning id, text, created_at;")
+    Peep.new(text: result[0]['text'])
   end
   
 end
