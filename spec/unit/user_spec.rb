@@ -9,8 +9,8 @@ describe 'user' do
       expect(User.all[0].username).to eq(user[:username])
     end
 
-    it 'should save the password' do
-      expect(User.all[0].password).to eq(user[:password])
+    it 'should save the password as a hash' do
+      expect(User.all[0].password.length).to be > user[:password].length
     end
   end
 end
