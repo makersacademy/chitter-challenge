@@ -19,38 +19,41 @@ feature 'feed' do
   end
 
   feature 'posting new peep' do
-    before(:each) do 
-      content = 'THEY TOOK OUR JORRRRRBBBSSSS!'
-      fill_in('content_input', with: content)
-      click_button 'Submit'
+    context 'regardless of whether user is logged in or not' do
+      before(:each) do 
+        post_peep('THEY TOOK OUR JORRRRRBBBSSSS!')
+      end
+
+      scenario 'should post peep to feed' do
+        expect(page.all('.peep').count).to eq(@peeps.count + 1)
+      end
+
+      scenario 'should display time when peep was posted' do
+        displayed_peep = page.find("##{@peeps[0].id}")
+
+        expected_post_time = @peeps[0].created_at.strftime(
+          '%e %b %Y %H:%M:%S%p'
+        )
+
+        expect(displayed_peep).to have_content(expected_post_time)
+      end
     end
 
-    scenario 'should post peep to feed' do
-      expect(page.all('.peep').count).to eq(@peeps.count + 1)
-    end
+    context 'given user is logged in' do
+      let(:username) { 'simon88' }
+      let(:password) { 'penmousekeys' }
 
-    scenario 'should display time when peep was posted' do
-      displayed_peep = page.find("##{@peeps[0].id}")
+      before(:each) do 
+        create_user(username: username, password: password)
+        login(username: username, password: password)
+      end
 
-      expected_post_time = @peeps[0].created_at.strftime(
-        '%e %b %Y %H:%M:%S%p'
-      )
+      scenario 'should display username that posted peep' do
+        post_peep('THEY TOOK OUR JORRRRRBBBSSSS!')
 
-      expect(displayed_peep).to have_content(expected_post_time)
-    end
-
-    scenario 'should display username that posted peep' do
-      username = 'simon'
-      password = 'strong'
-      create_user(username: username, password: password)
-      login(username: username, password: password)
-
-      content = 'THEY TOOK OUR JORRRRRBBBSSSS!'
-      fill_in('content_input', with: content)
-      click_button 'Submit'
-
-      displayed_peep = page.find("##{@peeps[0].id}")
-      expect(displayed_peep).to have_content(username)
+        displayed_peep = page.find("##{@peeps[0].id}")
+        expect(displayed_peep).to have_content(username)
+      end
     end
   end
 end

@@ -4,6 +4,11 @@ require './lib/user.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  before do
+    if session[:user_id] 
+      @user = User.find(session[:user_id])
+    end
+  end
 
   get '/register' do
     erb :register
@@ -34,7 +39,6 @@ class Chitter < Sinatra::Base
   
   get '/feed' do
     @peeps = Peep.order("created_at DESC").all
-    if session[:user_id] then @user = User.find(session[:user_id]) end
     erb :feed
   end
 
