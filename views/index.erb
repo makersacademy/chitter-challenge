@@ -7,6 +7,11 @@ chitters post here...
 
 <ul>
   <% Peep.all.each do |peep| %>
-    <li><%= peep.content %> - <%= peep.username %> - <%= peep.timestamp %></li>
+    <li><%= peep.content %>
+      <br>
+      <i><%= peep.username %> at <%= peep.timestamp %></i>
+      <br>
+      <br>
+    </li>
   <% end%>
 </ul>
