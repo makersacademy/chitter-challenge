@@ -4,8 +4,9 @@
 </form>
 <ul>
   <% @peeps.each do |peep| %>
-    <li class='peep'> 
-      <span><%= peep.content %>></span>  
+    <li class='peep' id='<%= peep.id %>'>
+      <span><%= peep.content %>></span>
+      <span><%= peep.formatted_created_at %>></span>   
     </li>
   <% end %>
 </ul>

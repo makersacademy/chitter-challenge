@@ -6,10 +6,11 @@ end
 
 def create_peeps
   peeps = [{ content: 'Right???!!!' }, { content: 'Trump sucks' }]
+  saved_peeps = []
 
   peeps.each do |peep|
-    Peep.create(peep)
+    saved_peeps << Peep.create(peep)
   end
-
-  return peeps
+  
+  return saved_peeps
 end
