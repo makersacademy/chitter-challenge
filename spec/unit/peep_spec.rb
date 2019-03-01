@@ -1,8 +1,6 @@
-describe 'peep feed' do
-  before(:each) do
-    Peep.delete_all
-  end
+require './lib/peep.rb'
 
+describe 'peep feed' do
   it 'should return all posted peeps' do
     peep1 = { content: 'Trump sucks' }
     Peep.create(peep1)

@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './lib/feed.rb'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
   get '/feed' do
