@@ -3,7 +3,7 @@ require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
   get '/feed' do
-    @peeps = Peep.all
+    @peeps = Peep.order("created_at DESC").all
     erb :feed
   end
 

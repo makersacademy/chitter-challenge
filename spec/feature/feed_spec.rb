@@ -11,6 +11,12 @@ feature 'feed' do
     expect(page.all('.peep').count).to eq(@peeps.count)
   end
 
+  scenario 'should display peeps in reverse chronological order' do
+    page.first('.peep')
+    
+    expect(page.first('.peep')).to have_content(@peeps.last.content)
+  end
+
   feature 'posting new peep' do
     before(:each) do 
       content = 'THEY TOOK OUR JORRRRRBBBSSSS!'
