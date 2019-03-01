@@ -1,4 +1,8 @@
-<ul id='bookmark_list'>
+<form action='/peep' method='post'>
+  Post a peep sailor: <input type='text' name='content' id='content_input'>
+  <input type='submit' value='Submit'>
+</form>
+<ul>
   <% @peeps.each do |peep| %>
     <li class='peep'> 
       <span><%= peep.content %>></span>  

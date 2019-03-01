@@ -1,6 +1,6 @@
 require './lib/peep.rb'
 
-describe 'peep feed' do
+describe 'peep' do
   context 'given some peeps have been created in db' do
     before(:each) { @peeps = create_peeps }
 

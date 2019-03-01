@@ -7,5 +7,10 @@ class Chitter < Sinatra::Base
     erb :feed
   end
 
+  post '/peep' do
+    Peep.create({ content: params[:content] })
+    redirect('/feed')
+  end
+
   run! if app_file == $0
 end
