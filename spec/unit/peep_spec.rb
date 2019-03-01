@@ -13,7 +13,7 @@ describe Peep do
 
     Peep.create(text: 'Peep dis, yo!')
 
-    expect(Peep.all).to include 'Peep dis, yo!'
+    expect(Peep.all.first.text).to eq 'Peep dis, yo!'
   end
 
 end
