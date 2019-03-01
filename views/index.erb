@@ -1,0 +1,23 @@
+"Welcome to Chitter!!!"
+
+<form action='/peep' method='post'>
+  Post a Peep!!!!!
+  Name: <input type='text' name='user_name'>
+  Handle: <input type='text' name='handle'>
+  Peep Text: <input type='text' name='peep_text'>
+  <input type='submit' value='PEEP'>
+</form>
+
+See the Peeps!!!!!
+
+<% if @peeps.empty?%>
+No Peeps Yet
+<% else %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <div><h1><%= peep.name %> <%= peep.handle %> <%= peep.time %></h1>
+    <h2><%=peep.peep_text%></h2>
+    </div>
+    <% end %>
+</ul>
+<% end %>
