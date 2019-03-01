@@ -1,5 +1,4 @@
 to do:
-- add helper file to clear database each time
 - address user stories
 - "adding the necessary steps for creating your database to the .travis.yml file" (original readme)
 - use ORM for database interaction (see original readme)
@@ -15,3 +14,4 @@ done:
 - CRC cards
 - review user stories
 - map user journey
+- add helper file to clear database each time
