@@ -4,6 +4,6 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.text %></li>
+    <li class="peep"><%= peep.text %> <p></p>(<%= DateTime.parse(peep.created_at).strftime("%e/%_m/%Y @ %H:%M:%S") %>)</p></li>
   <% end %>
 </ul>
