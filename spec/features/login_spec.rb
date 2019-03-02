@@ -6,4 +6,14 @@ feature 'user login' do
     click_button('Sign up')
     expect(page).to have_content('Welcome to Chitter, chitter_tester!')
   end
+
+  scenario 'user logs into existing account' do
+    create_test_account
+    visit('/')
+    click_button('Log In')
+    fill_in('username', with: 'test_user')
+    fill_in('password', with: 'password1234')
+    click_button('Log In')
+    expect(page).to have_content('Welcome to Chitter, test_user!')
+  end
 end
