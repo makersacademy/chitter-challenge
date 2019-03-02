@@ -1,15 +1,9 @@
-require 'pg'
-
 class Peep
   attr_reader :message
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      con = PG.connect(dbname: 'chitter_test')
-    else
-      con = PG.connect(dbname: 'chitter')
-    end
-    results = con.exec("SELECT * FROM peeps ORDER BY createstamp DESC;")
+    sql = "SELECT * FROM peeps ORDER BY createstamp DESC;"
+    results = DatabaseConnection.query(sql)
     results.map { |row| Peep.new(row['id'], row['message'], row['makerid']) }
   end
 
