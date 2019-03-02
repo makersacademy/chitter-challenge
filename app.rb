@@ -25,6 +25,10 @@ class Chitter < Sinatra::Base
   get '/accounts/new' do
     erb :'accounts/new'
   end
+
+  post '/accounts/create' do
+    'Hello, user@example.com'
+  end
   
   # start the server if ruby file executed directly
   run! if app_file == $0
