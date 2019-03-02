@@ -53,7 +53,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  post '/accounts/:id/logout' do
+  post '/accounts/logout' do
     session.clear
     redirect '/peeps'
   end
