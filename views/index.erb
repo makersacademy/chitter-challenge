@@ -1,3 +1,7 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
 <% if @user %>
   <h1>Welcome to Chitter, <%= @user.username %>!</h1>
   <br>
@@ -28,4 +32,10 @@ chitters post here...
 <br>
 <form class="" action="/add-peep" method="get">
   <input type="submit" name="add-peep" value="Add Peep">
+</form>
+
+<br>
+<br>
+<form class="" action="/user/logout" method="post">
+  <input type="submit" name="Log Out" value="Log Out">
 </form>
