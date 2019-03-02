@@ -1,5 +1,9 @@
 <% if session[:user] %>
-  <p>Hello, <%= session[:user].username %></p>
+  <p>Hello, <%= session[:user].username %>
+  <form action="/accounts/<%= session[:user].id %>/logout" method="post">
+    <input type="submit" value="Log out!">
+  </form>
+  </p>
 
   <form action="/peeps/new" method="get">
     <input type="submit" value="Make a Peep">
