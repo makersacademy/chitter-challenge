@@ -8,4 +8,11 @@ describe 'Peep' do
       expect(peep.message).to eq('The second ever peep')
     end
   end
+  describe '.add' do
+    it 'adds a new message to the peeps table' do
+      peep = "feature testing posting a peep"
+      Peep.add(peep)
+      expect(Peep.all.first.message).to eq(peep)
+    end
+  end
 end

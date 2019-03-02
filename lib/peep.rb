@@ -11,6 +11,12 @@ class Peep
     }
   end
 
+  def self.add(message)
+    sql = "INSERT INTO peeps (message, makerid, createstamp)
+      VALUES ('#{message}', null, current_timestamp);"
+    DatabaseConnection.query(sql)
+  end
+
   def initialize(id, message, makerid, createstamp)
     @id = id
     @message = message

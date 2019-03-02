@@ -7,7 +7,7 @@ describe DatabaseConnection do
 
       DatabaseConnection.setup('chitter_test')
     end
-  end 
+  end
 
   describe '.query' do
     it 'executes a query via PG' do

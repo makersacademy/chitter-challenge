@@ -1,3 +1,11 @@
-<% @peeps.each do |peep| %>
-  <%= peep.time.strftime("%d/%m/%Y %H:%M") %> <%= peep.message %> <br/>
-<% end %>
+<div>
+  <% @peeps.each do |peep| %>
+    <%= peep.time.strftime("%d/%m/%Y %H:%M") %> <%= peep.message %> <br/>
+  <% end %>
+</div>
+<div>
+  <form action="/peeps" method="post" >
+    Post a new peep: <input type="text" name="new_peep" />
+    <input type="submit" value="Peep" />
+  </form>
+</div>
