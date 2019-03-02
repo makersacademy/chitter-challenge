@@ -7,7 +7,7 @@ def setup_test_database
 
   # connection.exec('TRUNCATE chat;')
 
-  con = PG.connect( dbname: 'chitter_test')
+  con = PG.connect(dbname: 'chitter_test')
   con.exec("DROP TABLE IF EXISTS chat;")
   con.exec("CREATE TABLE chat (id SERIAL PRIMARY KEY, time TIMESTAMP, nickname VARCHAR(60), msg VARCHAR(60));")
   con.exec("INSERT INTO chat (nickname, msg) VALUES ('Esmeralda', 'Envio un mensaje')")

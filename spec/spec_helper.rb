@@ -8,7 +8,6 @@ require 'simplecov'
 require 'simplecov-console'
 require 'pg'
 Capybara.app = Chitter
-
 require './spec/setup_test_database.rb'
 
 ENV['ENVIRONMENT'] = 'test'
@@ -18,7 +17,6 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

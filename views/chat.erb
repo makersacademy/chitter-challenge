@@ -1,0 +1,11 @@
+<form action="/chat" method="post">
+  <input type="text" name="nickname" placeholder="Nickname" >
+  <input type="text" name="msg" placeholder="Your message" />
+  <input type="submit" value="Post">
+</form>
+
+<% @chat.each do |chats| %>
+    <li class="chitter" id="chats-<%= chats.id %>">
+      <%= chats.nickname %>: <%= chats.msg %>
+      </li>
+      <% end %>
