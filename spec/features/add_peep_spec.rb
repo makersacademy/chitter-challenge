@@ -9,6 +9,20 @@ feature 'adding a peep' do
   end
 
   scenario 'the new peep appears on the page' do
+
+    # sign-up first
+    visit '/accounts/new'
+    fill_in :email, with: 'user@example.com'
+    fill_in :name, with: 'Test User'
+    fill_in :username, with: 'testuser'
+    fill_in :password, with: '123456'
+    click_button 'Sign-up!'
+    
+    # log in
+    visit '/accounts/login'
+    fill_in :email, with: 'user@example.com'
+    fill_in :password, with: '123456'
+    click_button 'Log-in!'
     
     visit '/peeps'
     click_button 'Make a Peep'
