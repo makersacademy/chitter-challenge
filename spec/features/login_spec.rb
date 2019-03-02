@@ -39,4 +39,19 @@ feature 'user login' do
     expect(page).not_to have_content('Welcome to Chitter, tester!')
     expect(page).to have_content('Invalid username or password - please try again.')
   end
+
+  scenario 'user can log out at the end of their session' do
+    Capybara.reset_sessions!
+    clean_test_database
+    create_dummy_user
+    # log in
+    visit('/user/login')
+    fill_in('username', with: 'tester')
+    fill_in('password', with: 'password1234')
+    click_button('Log In')
+    # sign out from homepage
+    click_button('Log Out')
+    expect(page).not_to have_content 'Welcome to Chitter, tester!'
+    expect(page).to have_content 'You have successfully logged out.'
+  end
 end
