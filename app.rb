@@ -1,8 +1,13 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './connect_to_database'
 require './lib/peep'
+require './lib/user'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     '<a href="/peeps">See the peeps</a>'
@@ -27,7 +32,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/accounts/create' do
-    'Hello, user@example.com'
+    if User.create(email: params['email'], name: params['name'], username: params['username'], password: params['password']).nil?
+      flash[:error] = 'Unable to create account'
+    else
+      # sign user in
+      redirect '/peeps'
+    end
   end
   
   # start the server if ruby file executed directly
