@@ -3,12 +3,8 @@ feature 'viewing peeps feed' do
 
     sign_up_for_chitter
     
-    # log in
-    visit '/accounts/login'
-    fill_in :email, with: 'user@example.com'
-    fill_in :password, with: '123456'
-    click_button 'Log-in!'
-       
+    log_in_to_chitter
+    
     visit '/peeps'
     click_button 'Make a Peep'
 

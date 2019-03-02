@@ -3,11 +3,7 @@ feature 'Logging out' do
 
     sign_up_for_chitter
     
-    # log in
-    visit '/accounts/login'
-    fill_in :email, with: 'user@example.com'
-    fill_in :password, with: '123456'
-    click_button 'Log-in!'
+    log_in_to_chitter
 
     expect(page).to have_content 'testuser'
     click_button 'Log out!'
