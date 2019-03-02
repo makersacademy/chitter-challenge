@@ -1,8 +1,10 @@
 require 'sinatra/base'
 require './lib/peep.rb'
 require './lib/user.rb'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
 
   enable :sessions
 
@@ -34,10 +36,19 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
+  # get '/user/login/retry' do
+  #   erb :login_retry
+  # end
+
   post '/user/existing' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/')
+    if user
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash[:notice] = 'Invalid username or password - please try again.'
+      redirect('/user/login')
+    end
   end
 
 

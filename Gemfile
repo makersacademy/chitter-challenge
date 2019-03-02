@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bcrypt'
 gem 'capybara'
+gem 'sinatra-flash'
 gem 'orderly'
 gem 'pg'
 gem 'rake'

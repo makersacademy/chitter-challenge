@@ -30,6 +30,7 @@ class User
   def self.authenticate(username:, password:)
     connection
     result = @conn.exec("SELECT * FROM users WHERE username = '#{username}';")
+    return unless result.any?
     user = User.new(id: result[0]['id'],username: result[0]['username'], password: result[0]['password'])
   end
 end
