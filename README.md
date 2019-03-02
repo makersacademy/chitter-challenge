@@ -27,3 +27,4 @@ I didn't have time to finish _everything_ I wanted to do on this project - here'
 * Add some css styling
 * Add some diagrams to show the system set up
 * Incorporate Active Record as an ORM
+* Bonus user stories
