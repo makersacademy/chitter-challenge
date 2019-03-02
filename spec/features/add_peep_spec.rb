@@ -5,7 +5,6 @@ feature 'adding a peep' do
     click_button 'Make a Peep'
 
     fill_in :text, with: 'Peep dis!'
-
     click_button 'Peep!'
 
     expect(page).to have_content 'Peep dis!'
