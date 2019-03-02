@@ -14,7 +14,7 @@ before_install:
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
+  - psql -c 'create database chitter;' -U postgres
   - psql -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, body VARCHAR(255), created_at TIMESTAMP);'
   - psql -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(30) UNIQUE, name VARCHAR(30), username VARCHAR(15) UNIQUE, password VARCHAR(8));'
   - psql -c 'alter table peeps add column user_id integer REFERENCES users (id) not null'
