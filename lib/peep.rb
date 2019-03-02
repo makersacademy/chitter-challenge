@@ -15,7 +15,6 @@ class Peep
   end
 
   def self.create(text:, user_id:)
-    
     result = DatabaseConnection.query("insert into peeps (text, user_id) values ('#{text}', '#{user_id}') returning id, text, user_id, created_at;")
     Peep.new(text: result[0]['text'], user_id: result[0]['user_id'], created_at: DateTime.parse(result[0]['created_at']))
   end
