@@ -4,7 +4,8 @@ require 'pg'
 describe 'Peep' do
 
   it 'allows user to create a peep' do
-    new_peep = Peep.create(body: "test peep", time: Time.now)
+    Peep.create(body: "test for creating peep", time: Time.now)
+    expect(Peep.all).to include 'test for creating peep'
 
     # expect(new_peep).to eq "test peep"
   end

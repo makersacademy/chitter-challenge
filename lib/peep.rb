@@ -17,12 +17,18 @@ attr_reader :body, :time
   end
 
   def self.create(body:,time: Time.now)
-    @peeps = [["First test peep", Time.new(2000)], ["Second test peep", Time.new(2003)], ["Third test peep", Time.new(2004)]]
-     @body = body
-     @time = time
-     peep = [@body, @time]
-     @peeps << peep
-     @peeps.reverse!
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    connection.exec("INSERT INTO peeps1 (url) VALUES('#{body}');")
+    # @peeps = [["First test peep", Time.new(2000)], ["Second test peep", Time.new(2003)], ["Third test peep", Time.new(2004)]]
+    #  @body = body
+    #  @time = time
+    #  peep = [@body, @time]
+    #  @peeps << peep
+    #  @peeps.reverse!
   end
 
 end

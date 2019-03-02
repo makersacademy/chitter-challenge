@@ -12,9 +12,10 @@ class Chitter < Sinatra::Base
     erb :'peeps/all_peeps'
   end
   post '/peeps' do
-    peep = params[:body]
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps1 (url) VALUES('#{peep}');")
+    Peep.create(body: params[:body], time: Time.now)
+    # peep = params[:body]
+    # connection = PG.connect(dbname: 'chitter_test')
+    # connection.exec("INSERT INTO peeps1 (url) VALUES('#{peep}');")
     redirect'/peeps'
     # session[:new_peep] = params[:body]
     # @peeps = Peep.all
