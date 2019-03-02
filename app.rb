@@ -6,7 +6,7 @@ require './lib/user'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions, :method_override
+  enable :sessions
   register Sinatra::Flash
 
   get '/' do
