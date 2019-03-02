@@ -21,7 +21,7 @@ feature 'adding a peep' do
     click_button 'Peep!'
 
     expect(page).to have_content 'Peep dis!'
-    expect(page).to have_content 'Chitted by: testuser'
+    expect(page).to have_content 'Peeped by: testuser'
   end
 
 end
