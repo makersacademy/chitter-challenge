@@ -1,14 +1,24 @@
 feature 'viewing peeps feed' do
   scenario 'shows a list of peeps in reverse date order' do
-    
-    @peep3 = Peep.create(text: 'Peep #3')
-    @peep2 = Peep.create(text: 'Peep #2')
-    @peep1 = Peep.create(text: 'Peep #1')
+       
+    visit '/peeps'
+    click_button 'Make a Peep'
+
+    fill_in :text, with: 'First Peep...'
+    click_button 'Peep!'
 
     visit '/peeps'
+    click_button 'Make a Peep'
 
-    expect(page).to have_content "Peep #3 (#{@peep3.created_at})"
-    expect(page).to have_content "Peep #2 (#{@peep2.created_at})"
-    expect(page).to have_content "Peep #1 (#{@peep1.created_at})"
+    fill_in :text, with: 'Second Peep...'
+    click_button 'Peep!'
+
+    visit '/peeps'
+    click_button 'Make a Peep'
+
+    fill_in :text, with: 'Third Peep...'
+    click_button 'Peep!'
+
+    expect(first('.peep')).to have_content 'Third Peep...'
   end
 end
