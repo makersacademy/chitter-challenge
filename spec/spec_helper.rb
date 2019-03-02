@@ -3,9 +3,10 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'pg'
+require_relative 'test_database_helpers'
 require File.join(File.dirname(__FILE__), '..', 'chitter_web.rb')
 Capybara.app = ChitterWeb
-ENV['CHITTER_ENVIRON'] = 'test'
+#ENV['CHITTER_ENVIRON'] = 'test'
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -16,9 +17,15 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.before(:each) do
+    clean_database
+
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
+
 end
