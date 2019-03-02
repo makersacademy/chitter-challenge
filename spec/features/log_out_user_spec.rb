@@ -20,6 +20,6 @@ feature 'Logging out' do
 
     # log out
     visit '/peeps'
-    expect(page).to_not have_content 'testuser'
+    expect(page).to_not have_content 'Hello, testuser'
   end
 end
