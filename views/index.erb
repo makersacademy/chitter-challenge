@@ -2,13 +2,18 @@
   <h1>Welcome to Chitter, <%= @user.username %>!</h1>
   <br>
   <br>
+<% else %>
+  <form class="" action="/user/signup" method="get">
+    <input type="submit" name="signup" value="Sign Up">
+  </form>
+  <form class="" action="/user/login" method="get">
+    <input type="submit" name="login" value="Log In">
+  </form>
 <% end %>
 chitters post here...
 <br>
 <br>
-<form class="" action="/add-peep" method="get">
-  <input type="submit" name="add-peep" value="Add Peep">
-</form>
+
 
 <ul>
   <% Peep.all.each do |peep| %>
@@ -20,3 +25,7 @@ chitters post here...
     </li>
   <% end%>
 </ul>
+<br>
+<form class="" action="/add-peep" method="get">
+  <input type="submit" name="add-peep" value="Add Peep">
+</form>

@@ -1,6 +1,10 @@
 to do:
+- authentication user story
+- log out user story
 - functionality notes
-- address user stories
+    - Makers sign up to chitter with their email, password, name and a username
+    - username and email are unique
+    - Peeps have the name of the maker and their user handle
 - css styling
 - make own readme
     - add diagrams for system made in hackmd
