@@ -7,6 +7,10 @@ class Chitter < Sinatra::Base
   get '/' do
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/all_peeps' 
+  end
   post '/peeps' do
     session[:new_peep] = params[:body]
     @peeps = Peep.all
