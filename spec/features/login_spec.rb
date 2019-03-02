@@ -17,9 +17,6 @@ feature 'user login' do
     expect(page).to have_content('Welcome to Chitter, tester!')
   end
 
-  before { Capybara.reset_sessions! }
-  after { Capybara.reset_sessions! }
-
   scenario 'user logs in with wrong username (does not exist)' do
     Capybara.reset_sessions!
     clean_test_database
@@ -28,6 +25,18 @@ feature 'user login' do
     fill_in('password', with: 'password1234')
     click_button('Log In')
     expect(page).not_to have_content('Welcome to Chitter, test_user!')
+    expect(page).to have_content('Invalid username or password - please try again.')
+  end
+
+  scenario 'user sees an error if logging in with wrong password' do
+    Capybara.reset_sessions!
+    clean_test_database
+    create_dummy_user
+    visit('/user/login')
+    fill_in('username', with: 'tester')
+    fill_in('password', with: 'wrongpassword')
+    click_button('Log In')
+    expect(page).not_to have_content('Welcome to Chitter, tester!')
     expect(page).to have_content('Invalid username or password - please try again.')
   end
 end

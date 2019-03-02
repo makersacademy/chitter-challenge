@@ -36,10 +36,6 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
-  # get '/user/login/retry' do
-  #   erb :login_retry
-  # end
-
   post '/user/existing' do
     user = User.authenticate(username: params[:username], password: params[:password])
     if user

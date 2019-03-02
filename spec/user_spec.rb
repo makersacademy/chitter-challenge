@@ -15,4 +15,9 @@ describe 'create method' do
     user = User.create(username: 'spec_tester', password: 'specpassword123')
     expect(User.authenticate(username: 'nottherightusername', password: 'specpassword123')).to be_nil
   end
+
+  it 'returns error message if logging in with wrong password' do
+    user = User.create(username: 'spec_tester', password: 'specpassword123')
+    expect(User.authenticate(username: 'spec_tester', password: 'wrongpassword')).to be_nil
+  end
 end

@@ -5,6 +5,8 @@ Solving makers chitter challenge. This is a twitter-style application where user
 
 This application is written in Ruby with html, using Rspec and Capybara for testing. The underlying postgresql databases are accessed using the 'pg' gem.
 
+In the application users can sign up or log into an existing account, with passwords stored in encryption using `bcrypt`.
+
 ## Running the application
 
 First you'll need to set up the postgresql databases - one for production and one for testing.
