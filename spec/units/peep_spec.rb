@@ -22,10 +22,10 @@ describe Peep do
       expect(result.length).to eq 2
       expect(result.first).to be_a Peep
       expect(result.last).to be_a Peep
-      expect(result.first.id.to_i).to eq peep.id
-      expect(result.last.id.to_i).to eq another_peep.id
-      expect(result.first.message).to eq peep.message
-      expect(result.last.message).to eq another_peep.message
+      expect(result.first.id.to_i).to eq another_peep.id
+      expect(result.last.id.to_i).to eq peep.id
+      expect(result.first.message).to eq another_peep.message
+      expect(result.last.message).to eq peep.message
     end
   end
 end

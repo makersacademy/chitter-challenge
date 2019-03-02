@@ -23,7 +23,7 @@ class Peep
 
   def self.all
     connection_helper
-    result = @conn.exec("SELECT * FROM peep;")
+    result = @conn.exec("SELECT * FROM peep order by time_posted desc;")
     result.map do |result_row|
       Peep.new(id: (result_row['id']).to_i, message: result_row['message'],
                 time_posted: result_row['time_posted'],
