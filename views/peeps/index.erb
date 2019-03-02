@@ -1,3 +1,4 @@
+<h1>Chitter</h1>
 <% if session[:user] %>
   <p>Hello, <%= session[:user].username %>
   <form action="/accounts/<%= session[:user].id %>/logout" method="post">
