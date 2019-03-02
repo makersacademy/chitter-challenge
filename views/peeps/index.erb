@@ -1,9 +1,10 @@
 <% if session[:user] %>
   <p>Hello, <%= session[:user].username %></p>
+
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="Make a Peep">
+  </form>
 <% end %>
-<form action="/peeps/new" method="get">
-  <input type="submit" value="Make a Peep">
-</form>
 
 <ul>
   <% @peeps.each do |peep| %>
