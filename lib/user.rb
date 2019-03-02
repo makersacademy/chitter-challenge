@@ -24,4 +24,9 @@ class User
     result = DatabaseConnection.query("select * from users where email = '#{email}' and password = '#{password}';")
     User.new(id: result[0]['id'], email: result[0]['email'], name: result[0]['name'], username: result[0]['username']) if result.count == 1
   end
+
+  def self.find(user_id:)
+    result = DatabaseConnection.query("select * from users where id = #{user_id};")
+    User.new(id: result[0]['id'], email: result[0]['email'], name: result[0]['name'], username: result[0]['username']) if result.count == 1
+  end
 end
