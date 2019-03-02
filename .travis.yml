@@ -4,7 +4,6 @@ services:
   - postgresql
 
 env:
-  - RACK_ENV = 'test'
   - ENVIRONMENT = 'test'
 
 script:
