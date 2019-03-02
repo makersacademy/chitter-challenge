@@ -1,5 +1,6 @@
 CREATE TABLE peeps (
 	id SERIAL PRIMARY KEY, 
-	body VARCHAR(255),
-	created_at TIMESTAMP
+	text VARCHAR(255),
+	created_at TIMESTAMP default now(),
+	user_id integer REFERENCES users (id) not null
 );
