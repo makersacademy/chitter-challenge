@@ -1,6 +1,6 @@
 feature 'First page' do
-  scenario 'shows text' do
+  scenario 'shows peeps!' do
     visit '/'
-    expect(page).to have_content 'Post your peep ;)'
+    expect(page).to have_content 'Bobs first day'
   end
 end
