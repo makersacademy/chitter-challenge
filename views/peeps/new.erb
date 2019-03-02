@@ -1,4 +1,4 @@
-<h1>Submit a Chit</h1>
+<h1>Submit a Peep</h1>
 <% if session[:user] %>
 
 <form action="/peeps" method="post">
@@ -8,6 +8,6 @@
 
 <% else %>
 
-<h2>You must log-in before you can post a Chit!</h2>
+<h2>You must log-in before you can post a Peep!</h2>
 <a href="/accounts/login">Log-in now?</a>
 <% end %>
