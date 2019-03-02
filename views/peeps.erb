@@ -9,3 +9,17 @@
     <input type="submit" value="Peep" />
   </form>
 </div>
+<div>
+  <% if @current_user != nil %>
+  Welcome <%= @current_user %>
+  <% end %>
+  </br>
+  Not already registered?  Enter your details to sign up: </br>
+  <form action='/makers' method='post' >
+    Name: <input type="text" name="name" />
+    Username: <input type="text" name="username" />
+    Email: <input type="text" name="email" />
+    Password: <input type="text" name="password" />
+    <input type="submit" value="Sign up" />
+  </form>
+</div>

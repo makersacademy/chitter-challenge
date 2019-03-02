@@ -23,6 +23,7 @@ RSpec.configure do |config|
     con.exec("TRUNCATE TABLE peeps;")
     con.exec("INSERT INTO peeps (message, makerid, createstamp) VALUES ('The first ever peep', NULL, '2019-03-02 12:10:40.790703');")
     con.exec("INSERT INTO peeps (message, makerid, createstamp) VALUES ('The second ever peep', NULL, '2019-03-02 12:12:40.790703');")
+    con.exec("TRUNCATE TABLE makers;")
   end
   config.after(:suite) do
     puts
