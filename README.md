@@ -22,15 +22,20 @@ I want to sign up for Chitter
 Domain Model
 ------------
 
-Built up with each user story - TO DO: put pics in google drive
+I built up the model as I worked through each user story:
+https://drive.google.com/open?id=1sPc_E53sJ1D0eL45r5hs5RXFz-0KcBYD
 
 Class and Database Model
 ------------------------
-TO DO: put pic in google drive
+https://drive.google.com/open?id=16LiJfdAghK8tEEJFUaQ5CHIW8-8tBCfu
 
 Set-up instructions
 -------------------
-TO DO: put link to DDL to create tables
+`rvm use 2.5.0`  
+Use `bundle` to install gems.
+Create a 'chitter' database and use the DDL in migrations/create_tables.SQL
+Use 'rackup' or 'ruby app.rb' to run the app and visit the relevant localhost port.
+
 
 
 
