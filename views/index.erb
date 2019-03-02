@@ -1,6 +1,10 @@
 
-<ul>
+<center>
+  <h1 style='font-size: 50px'>Your Peeps ʕ•ᴥ•ʔ : </h1>
+<ol>
   <% @peepmessage.each do |message| %>
-  <%= message.peep %>
+  <li><%= message.peep %>
+    </li>
   <% end %>
-</ul>
+</ol>
+</center>
