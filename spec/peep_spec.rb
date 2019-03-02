@@ -1,4 +1,4 @@
-require 'peep' 
+require 'peep'
 
 describe 'Peep' do
 
@@ -6,5 +6,5 @@ describe 'Peep' do
     new_peep = Peep.create(body: "test peep")
     expect(new_peep).to eq "test peep"
   end
-
+  
 end
