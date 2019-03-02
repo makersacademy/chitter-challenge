@@ -15,7 +15,7 @@ feature 'signing in' do
     fill_in :password, with: '123456'
     click_button 'Log-in!'
 
-    expect(page).to have_content 'Hello, Test User'
+    expect(page).to have_content 'Hello, testuser'
 
   end
 end

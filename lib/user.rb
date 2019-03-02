@@ -1,7 +1,7 @@
 require './connect_to_database'
 
 class User
-  attr_reader :email
+  attr_reader :email, :username
 
   def initialize(id:, email:, name:, username:)
     @id = id

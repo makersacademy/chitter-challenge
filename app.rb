@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    # user = session[:user]
     erb :'peeps/index'
   end
 
@@ -45,9 +46,8 @@ class Chitter < Sinatra::Base
   end
   
   post '/accounts/login' do
-    # process login
-    # find/auth user
-    # redirect '/peeps'
+    session[:user] = User.login(email: params['email'], password: params['password'])
+    redirect '/peeps'
   end
 
   # start the server if ruby file executed directly
