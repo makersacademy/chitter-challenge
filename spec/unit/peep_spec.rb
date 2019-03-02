@@ -2,7 +2,7 @@ require './lib/peep'
 
 describe Peep do
 
-  it 'returns all peeps' do
+  it 'returns all peeps, with times' do
     
     Peep.create(text: 'Peep #1')
     Peep.create(text: 'Peep #2')
@@ -11,6 +11,7 @@ describe Peep do
     peeps = Peep.all
 
     expect(peeps.count).to eq 3
+    expect(peeps.first.created_at).to be_a String
   end
 
   it 'creates a new peep' do
