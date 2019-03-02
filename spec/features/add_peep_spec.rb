@@ -8,7 +8,7 @@ feature 'adding a peep' do
     
   end
 
-  scenario 'the new peep appears on the page' do
+  scenario 'the new peep appears on the page and is attrubuted to the user who posted it' do
 
     # sign-up first
     visit '/accounts/new'
@@ -31,5 +31,7 @@ feature 'adding a peep' do
     click_button 'Peep!'
 
     expect(page).to have_content 'Peep dis!'
+    expect(page).to have_content 'Chitted by: testuser'
   end
+
 end
