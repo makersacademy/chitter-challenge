@@ -21,6 +21,10 @@ class Chitter < Sinatra::Base
   get '/peeps/new' do
     erb :'peeps/new'
   end
+
+  get '/accounts/new' do
+    erb :'accounts/new'
+  end
   
   # start the server if ruby file executed directly
   run! if app_file == $0
