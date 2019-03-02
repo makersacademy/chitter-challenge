@@ -12,6 +12,6 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li class="peep"><%= peep.text %> <p> Chitted by: <%= peep.user.username %> (<%= DateTime.parse(peep.created_at).strftime("%e/%_m/%Y @ %H:%M:%S") %>)</p></li> %>
+    <li class="peep"><%= peep.text %> <p> Chitted by: <%= peep.user.username %> (<%= DateTime.parse(peep.created_at).strftime("%e/%_m/%Y @ %H:%M:%S") %>)</p></li>
   <% end %>
 </ul>
