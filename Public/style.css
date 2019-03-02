@@ -1,0 +1,95 @@
+
+/*style.css*/
+
+  body {
+    background-color: #B07C9E
+  }
+
+  .button {
+    background-color: #A1C6EA;
+    border: none;
+    color: white;
+    padding: 64px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+
+  .button1 {width: 250px;}
+
+  .button1 {border-radius: 8px;}
+
+  .button1 {
+    background-color: #BDD5EA;
+    color: #495867;
+    border: 2px solid #495867;
+  }
+
+  .button1:hover {
+    background-color: #507DBC;
+    color: #BBD1EA;
+  }
+
+  h1 {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #A755C2;
+  }
+
+  h2 {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #A755C2;
+  }
+
+  h3 {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #A755C2;
+    font-style: oblique;
+  }
+
+  .button {
+    background-color: #BBD1EA;
+    border: none;
+    color: white;
+    padding: 16px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+
+  .button1 {width: 250px;}
+
+  .button1 {border-radius: 8px;}
+
+  .button1 {
+    background-color: #BDD5EA;
+    color: #495867;
+    border: 2px solid #495867;
+  }
+
+  .button1:hover {
+    background-color: #507DBC;
+    color: #BBD1EA;
+  }
+
+
+.button {
+  background-color: #BBD1EA;
+  border: none;
+  color: white;
+  padding: 16px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}

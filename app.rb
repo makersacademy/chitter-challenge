@@ -3,7 +3,11 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Welcome to Chitter'
+    erb :home
+  end
+
+  post '/peeps' do
+    erb :peeps
   end
 
   run! if app_file == $0

@@ -1,7 +1,8 @@
 feature 'Initializing app' do
+
   scenario 'visits landing page' do
     visit '/'
-    expect().to have_contest("Welcome to Chitter")
+    expect(page).to have_content("Welcome to Chitter")
   end
 
 end
