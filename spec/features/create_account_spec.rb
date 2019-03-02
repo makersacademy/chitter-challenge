@@ -10,6 +10,6 @@ feature 'creating accounts' do
 
     log_in_to_chitter
 
-    expect(page).to have_content 'Hello, user@example.com'
+    expect(page).to have_content 'Hello, testuser'
   end
 end
