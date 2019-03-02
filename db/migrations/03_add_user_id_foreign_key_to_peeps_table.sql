@@ -1,2 +1,2 @@
 alter table peeps
-add column user_id integer REFERENCES peeps (id)
+add column user_id integer REFERENCES users (id) not null
