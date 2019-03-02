@@ -4,13 +4,13 @@ require_relative './lib/peep.rb'
 class Chitter < Sinatra::Base
   enable :sessions
 
-  get '/peeps' do
-    peeps = ["First test peep", "Second test peep", "Third test peep"]
+  get '/' do
   end
 
   post '/peeps' do
     session[:new_peep] = params[:body]
-    @new_peep = Peep.create(body: session[:new_peep])
+    @peeps = Peep.all
+    @new_peep = Peep.create(body: session[:new_peep], time: Time.now)
     erb :'peeps/view_peeps'
   end
 
