@@ -8,6 +8,8 @@ feature 'creating accounts' do
     fill_in :password, with: '123456'
     click_button 'Sign-up!'
 
+    log_in_to_chitter
+
     expect(page).to have_content 'Hello, user@example.com'
   end
 end

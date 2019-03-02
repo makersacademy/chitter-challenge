@@ -1,10 +1,15 @@
 require 'simplecov'
 require 'simplecov-console'
-require 'rspec'
 require 'capybara/rspec'
 require './spec/db_helpers'
 require './spec/features/web_helpers'
+
+ENV['ENVIRONMENT'] = 'test'
+ENV['RACK_ENV'] = 'test'
+
 require './app.rb'
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -24,7 +29,3 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
-
-Capybara.app = Chitter
-
-ENV['ENVIRONMENT'] = 'test'
