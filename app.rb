@@ -4,6 +4,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @peepmessage = Peep.all
     erb :index
   end
 
