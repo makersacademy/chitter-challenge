@@ -7,12 +7,18 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
+Scope of the program:
 -------
 
-As usual please start by forking this repo.
+This program is a small Twitter clone that allows the users to post messages to a public stream.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+How to run the program:
+-------
+$ git clone https://github.com/Brendao1/chitter_challenge
+$ cd chitter-challenge
+$ bundle
+$ rackup
+$ Type localhost:9292 into the browser to start
 
 Features:
 -------
