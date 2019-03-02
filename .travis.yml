@@ -14,3 +14,8 @@ before_script:
   - psql -c 'create database chitter_test;' -U postgres
   - psql -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(100), password VARCHAR(200));' -U postgres
   - psql -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep_content VARCHAR(280), timestamp TIMESTAMP, user_id INTEGER, constraint fk_test foreign key (user_id) REFERENCES users (id));' -U postgres
+
+  env:
+  - RACK_ENV = 'test'
+  - ENVIRONMENT = 'test'
+  
