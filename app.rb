@@ -39,7 +39,17 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     end
   end
+
+  get '/accounts/login' do
+    erb :'accounts/login'
+  end
   
+  post '/accounts/login' do
+    # process login
+    # find/auth user
+    # redirect '/peeps'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 
