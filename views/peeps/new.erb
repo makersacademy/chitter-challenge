@@ -1,4 +1,12 @@
+<% if session[:user] %>
+
 <form action="/peeps" method="post">
   <input type="text" name="text" required>
   <input type="submit" value="Peep!">
 </form>
+
+<% else %>
+
+<h2>You must log-in before you can post a Chit!</h2>
+<a href="/accounts/login">Log-in now?</a>
+<% end %>
