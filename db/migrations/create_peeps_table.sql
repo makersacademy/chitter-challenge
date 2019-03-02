@@ -1,5 +1,0 @@
-CREATE TABLE peeps (
-	id SERIAL PRIMARY KEY, 
-	body VARCHAR(255),
-	created_at TIMESTAMP
-);
