@@ -1,5 +1,22 @@
+require 'bootstrap', '~> 4.3.1'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+
+
+ENV['RACK_ENV'] = 'test'
+
+# Bring in the contents of the `app.rb` file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+
+
+
+# Tell Capybara to talk to BookmarkManager
+Capybara.app = BookmarkManager
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
