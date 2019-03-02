@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    '<a href="/peeps">See the peeps</a>'
+    '<h1>Chitter</h1><a href="/peeps">See the peeps</a>'
   end
 
   get '/peeps' do
