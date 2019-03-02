@@ -21,8 +21,8 @@ RSpec.configure do |config|
   config.before(:each) do
     con = PG.connect(dbname: 'chitter_test')
     con.exec("TRUNCATE TABLE peeps;")
-    con.exec("INSERT INTO peeps (message, makerid, createstamp) VALUES ('The first ever peep', NULL, current_timestamp);")
-    con.exec("INSERT INTO peeps (message, makerid, createstamp) VALUES ('The second ever peep', NULL, current_timestamp);")
+    con.exec("INSERT INTO peeps (message, makerid, createstamp) VALUES ('The first ever peep', NULL, '2019-03-02 12:10:40.790703');")
+    con.exec("INSERT INTO peeps (message, makerid, createstamp) VALUES ('The second ever peep', NULL, '2019-03-02 12:12:40.790703');")
   end
   config.after(:suite) do
     puts
