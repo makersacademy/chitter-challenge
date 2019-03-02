@@ -9,6 +9,13 @@
   <form action="/peeps/new" method="get">
     <input type="submit" value="Make a Peep">
   </form>
+
+<% else %>
+
+  <form action="/accounts/login" method="get">
+    <input type="submit" value="Login">
+  </form>
+
 <% end %>
 
 <ul>
