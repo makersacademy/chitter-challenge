@@ -1,3 +1,8 @@
+<% if flash[:error] %>
+  <div style="width:100%;background-color:red;color:white;">
+    <%= flash[:error] %>
+  </div>
+<% end %>
 <form action="/accounts/login" method="post">
   
   <label for="email">E-mail:</label>

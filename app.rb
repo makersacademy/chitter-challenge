@@ -46,8 +46,12 @@ class Chitter < Sinatra::Base
   end
   
   post '/accounts/login' do
-    session[:user] = User.login(email: params['email'], password: params['password'])
-    redirect '/peeps'
+    if session[:user] = User.login(email: params['email'], password: params['password'])
+      redirect '/peeps'
+    else
+      flash[:error] = 'Bad username and password. Please try again.'
+      redirect '/accounts/login'
+    end
   end
 
   # start the server if ruby file executed directly
