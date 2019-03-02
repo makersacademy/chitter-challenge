@@ -3,6 +3,10 @@ require './connect_to_database'
 class User
 
   def initialize(id:, email:, name:, username:)
+    @id = id
+    @email = email
+    @name = name
+    @username = username
   end
 
   def self.create(email:, name:, username:, password:)
