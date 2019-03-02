@@ -6,10 +6,6 @@ require './spec/db_helpers'
 require './spec/features/web_helpers'
 require './app.rb'
 
-Capybara.app = Chitter
-
-ENV['ENVIRONMENT'] = 'test'
-
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -28,3 +24,7 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+Capybara.app = Chitter
+
+ENV['ENVIRONMENT'] = 'test'
