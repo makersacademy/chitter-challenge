@@ -5,6 +5,7 @@ to do:
     - Makers sign up to chitter with their email, password, name and a username
     - username and email are unique
     - Peeps have the name of the maker and their user handle
+- move database connection into DatabaseConnection class
 - css styling
 - make own readme
     - add diagrams for system made in hackmd

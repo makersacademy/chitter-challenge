@@ -8,9 +8,9 @@ feature 'user login' do
   end
 
   scenario 'user logs into existing account' do
-    create_test_account
-    visit('/')
-    click_button('Log In')
+    create_dummy_user
+    Capybara.reset_sessions!
+    visit('/user/login')
     fill_in('username', with: 'test_user')
     fill_in('password', with: 'password1234')
     click_button('Log In')
