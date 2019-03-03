@@ -6,5 +6,10 @@ First User Requirement
 *As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter *
+
+# MVC file failed to upload
 ![MVC User Story 1](/images/mvc_user_story_1.png)
 <!-- Format: ![Alt Text](url) -->
+
+**Unit test**
+This checks that the database us updated correctly when a user enters a peep

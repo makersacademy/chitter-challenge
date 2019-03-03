@@ -8,18 +8,19 @@ touch app.rb
 
 # In the database directory there should be a migations file
 mkdir db
-touch db/migrations
+mkdir db/migrations
+touch db/migrations/01_create_peeps_table.sql
 
 # In the lib directory there should be a ruby file containing the
 # main class code, this takes its name from the challenge
 mkdir lib
-touch lib/name.rb
+touch lib/$1.rb
 
 # The spec directory has already been created with the spec_helper.rb
 # file in it but we also need a spec file for the challenge
 # and some database spec files
 touch spec/databse_helpers.rb
-touch spec/setup_databse.rb
+touch spec/setup_database.rb
 touch spec/$1_spec.rb
 mkdir spec/features
 
