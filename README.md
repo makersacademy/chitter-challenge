@@ -21,7 +21,7 @@ Feature tests use Capybara, and unit tests use Rspec (with >98% coverage). To ru
 ## Things still to do
 I didn't have time to finish _everything_ I wanted to do on this project - here's what I wanted to do if I'd had time:
 
-* Move database connections into DatabaseConnection class
+* remove 'add peep' button when user not logged in - it breaks!
 * Add some css styling
 * Allow users to give their email and name on sign up (as well as username)
 * Ensure username and email are unique on signup
