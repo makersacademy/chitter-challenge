@@ -47,7 +47,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <% @chat.each do |chats| %>
         <span class="chitter" id="chats-<%= chats.id %>">
-        <!-- <span class="w3-right w3-opacity">1 min</span> -->
+        <span class="w3-right w3-opacity"><%=chats.time %></span>
         <h4><%= chats.nickname %></h4><br>
         <hr class="w3-clear">
         <p><%= chats.msg %></p>
