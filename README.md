@@ -42,3 +42,9 @@ I want to receive an email if I am tagged in a Peep
 ## How to set up database
 - commands in db/migrations
 - set up test database uing same steps
+
+
+## How to test in irb
+- require './lib/peep.rb'
+- require './db_connection_setup.rb'
+-
