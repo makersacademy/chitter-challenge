@@ -14,8 +14,16 @@ class Peep
   def self.create(message:, posted_by: 1)
     connection_helper
     result = @conn.exec("INSERT INTO peep (message, posted_by)
-                        values('#{message}', 1) RETURNING id,
-                        message, time_posted, #{posted_by};").first
+                        values('#{message}', #{posted_by}) RETURNING id,
+                        message, time_posted, posted_by;").first
+    Peep.new(id: (result['id']).to_i, message: result['message'],
+                  time_posted: result['time_posted'],
+                  posted_by: (result['posted_by']).to_i)
+  end
+
+  def self.read(id:)
+    connection_helper
+    result = @conn.exec("SELECT * FROM peep where id = #{id};").first
     Peep.new(id: (result['id']).to_i, message: result['message'],
                   time_posted: result['time_posted'],
                   posted_by: (result['posted_by']).to_i)

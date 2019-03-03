@@ -18,5 +18,11 @@ class ChitterWeb < Sinatra::Base
     erb(:all_peeps)
   end
 
+  get '/chitter/peep/:id' do
+    p params
+    @peep = Peep.read(id: params[:id])
+    erb(:peep_detail)
+  end
+
   run! if app_file == $0
 end

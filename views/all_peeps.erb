@@ -1,6 +1,7 @@
 <h2> All peeps!</h2>
 <% @all_peeps.each do |peep| %>
-<ul>
-  <li><%= peep.message %> </li>
-</ul>
+<p>
+  <form action = '/chitter/peep/<%=peep.id%>' method = "get">
+  <%= peep.message %> <button type='submit' >Detail</button>
+</p>
 <% end%>

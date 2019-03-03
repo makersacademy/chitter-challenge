@@ -28,4 +28,15 @@ describe Peep do
       expect(result.last.message).to eq peep.message
     end
   end
+
+  describe '#read' do
+    it 'returns all details of a particular peep from the database' do
+      peep = Peep.create(message: "This is a test peep", posted_by: maker.id)
+      read_peep = Peep.read(id: peep.id)
+      expect(read_peep).to be_a Peep
+      expect(read_peep.message).to eq peep.message
+      expect(read_peep.time_posted).to eq peep.time_posted
+      expect(read_peep.posted_by).to eq peep.posted_by
+    end
+  end
 end
