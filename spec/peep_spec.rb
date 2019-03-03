@@ -38,4 +38,23 @@ describe 'Peep' do
 
     end
 
+    it 'updates a peep with the given peep' do
+      peep = Peep.create(peep: 'test peep for updating peep', time: Time.new(2000))
+      updated_peep = Peep.update(id: peep.id, peep: 'edit test peep for updating peep', time: Time.now)
+
+      expect(updated_peep).to be_a Peep
+      expect(updated_peep.id).to eq peep.id
+      expect(updated_peep.peep).to eq 'edit test peep for updating peep'
+    end
+
+    it 'returns the requested peep object' do
+      peep = Peep.create(peep: 'test peep for updating peep', time: Time.new(2000))
+
+      result = Peep.find(id: peep.id)
+
+      expect(result).to be_a Peep
+      expect(result.id).to eq peep.id
+      expect(result.peep).to eq 'test peep for updating peep' 
+    end
+
 end
