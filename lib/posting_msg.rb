@@ -28,7 +28,7 @@ class Chat
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec('SELECT * FROM chat;')
+    result = connection.exec('SELECT * FROM chat ORDER BY time DESC;')
     result.map do |chat|
       Chat.new(id: chat['id'], nickname: chat['nickname'], msg: chat['msg'])
     end
