@@ -1,6 +1,7 @@
 <ul>
   <% @peeps.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
+      <%= peep.posted_time %>
       <%= peep.text %>
   </li>
   <% end %>
