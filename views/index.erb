@@ -29,13 +29,14 @@ chitters post here...
     </li>
   <% end%>
 </ul>
+<% if @user %>
 <br>
 <form class="" action="/add-peep" method="get">
   <input type="submit" name="add-peep" value="Add Peep">
 </form>
-
+<% end %>
 <br>
 <br>
-<form class="" action="/user/logout" method="post">
-  <input type="submit" name="Log Out" value="Log Out">
-</form>
+  <form class="" action="/user/logout" method="post">
+    <input type="submit" name="Log Out" value="Log Out">
+  </form>
