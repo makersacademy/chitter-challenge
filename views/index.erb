@@ -1,3 +1,18 @@
-  <% @peeps.each do |peep| %>
-    <p><%= peep %></p>
-  <% end %>
+<head>
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<h1>Welcome to Chitter</h1>
+
+<h2>Make a peep!</h2>
+<form action="/" method="POST">
+  <input id="peep-date" name="peep-date" type="date" value="2019-03-03" />
+  <input id="peep-time" name="peep-time" type="time" value="10:00" />
+  <input id="peep-msg" name="message" type="text" placeholder="Go on, peep something!" />
+  <input id="peep-submit" name="" value="Peep!" type="submit" />
+</form>
+
+<h2>Previous peeps </h2>
+<% @peeps.each do |peep| %>
+  <p><%= peep %></p>
+<% end %>

@@ -1,0 +1,8 @@
+#peep-date, #peep-time {
+  visibility: hidden;
+}
+
+#peep-msg {
+  width: 50%;
+  height: 10%;
+}

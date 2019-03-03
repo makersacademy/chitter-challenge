@@ -18,6 +18,15 @@ ruby app.rb
 
 My approach is to tackle the "_seeing peeps_" features first since they do not require signing up or posting (which requires signing up).
 
+### Design choices: The Single-Page Application
+Having personally experienced the inadequacies of a web app ([Bookmark Manager](https://github.com/dafuloth/bookmark_manager)) that must transition between multiple views/pages, I am aiming for a [single-page app](https://en.wikipedia.org/wiki/Single-page_application) with this project.
+
+Benefits of a Single-Page App:
+
+- Better user experience, no jarring transitions between pages/views. Simpler navigation. 
+- Without having to follow program flow from controller to view, or view to view, the app is easier to debug
+
+
 ### **See all peeps**
 
 ```

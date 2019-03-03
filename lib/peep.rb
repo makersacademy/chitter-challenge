@@ -6,4 +6,8 @@ class Peep
       '2019-03-02; 10:34; On Chitter, we post messages called "Peeps"'
      ]
   end
+
+  def self.post()
+    
+  end
 end
