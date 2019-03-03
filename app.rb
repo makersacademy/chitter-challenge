@@ -7,7 +7,6 @@ class Chitter < Sinatra::Base
     "Welcome to Chitter!"
   end
 
-
   get '/peeps' do
     @peeps = Peeps.all
     erb :'peeps/index'
@@ -20,9 +19,10 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     p "Form data submitted here!"
     p params
-    message = params['message']
-    connection = PG.connect(dbname: 'makers_peeps')
-    connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
+    # message = params['message']
+    # connection = PG.connect(dbname: 'makers_peeps')
+    # connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
+    Peeps.post(message: params['message'])
     redirect '/peeps'
   end
 

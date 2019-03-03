@@ -8,8 +8,13 @@ end
 
 feature 'View peeps' do
   scenario 'allows Maker to see peeps' do
+    connection = PG.connect(dbname: 'makers_peeps_test')
+
+    connection.exec("INSERT INTO peeps (message) VALUES('Sunday brunch');")
+    connection.exec("INSERT INTO peeps (message) VALUES('Tea and toast');")
+
     visit '/peeps'
-    expect(page).to have_content "Hello!"
-    expect(page).to have_content "Second peep"
+    expect(page).to have_content 'Sunday brunch'
+    expect(page).to have_content 'Tea and toast'
   end
 end
