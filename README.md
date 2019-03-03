@@ -8,11 +8,11 @@ This program is a small Twitter clone that allows the users to post messages to 
 
 How to run the program:
 -------
-$ git clone https://github.com/Brendao1/chitter_challenge
-$ cd chitter-challenge
-$ bundle
-$ rackup
-$ Type localhost:9292 into the browser to start
+<br>$ git clone https://github.com/Brendao1/chitter_challenge
+<br>$ cd chitter-challenge
+<br>$ bundle
+<br>$ rackup
+<br>$ Type localhost:9292 into the browser to start
 
 Features:
 -------
@@ -58,6 +58,6 @@ I want to log out of Chitter
 ## How to set up the TEST database
 <br>$ psql postgres
 <br>$ CREATE DATABASE makers_peeps_test;
-<br>$ \c makers_peeps;
+<br>$ \c makers_peeps_test;
 <br>run the query saved in 01_create_bookmarks_table.sql
 <br>$ ALTER TABLE peeps ADD COLUMN maker VARCHAR(60);
