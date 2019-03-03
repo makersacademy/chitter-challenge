@@ -43,8 +43,10 @@ I want to receive an email if I am tagged in a Peep
 - commands in db/migrations
 - set up test database uing same steps
 
-
 ## How to test in irb
-- require './lib/peep.rb'
-- require './db_connection_setup.rb'
--
+require './lib/peep.rb'
+require './db_connection_setup.rb'
+
+## To clear the peeps database in irb
+connection = PG.connect(dbname: 'chitter')
+connection.exec("TRUNCATE peeps;")
