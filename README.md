@@ -6,3 +6,5 @@ First User Requirement
 *As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter *
+![MVC User Story 1](/images/'MVC User Story 1.xml')
+Format: ![Alt Text](url)
