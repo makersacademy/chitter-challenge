@@ -1,8 +1,17 @@
 require "sinatra"
+require "./lib/chitter.rb"
 
-class Chitter < Sinatra::Base
+class Chits < Sinatra::Base
+
   get '/' do
+    @peeps = Chitter.list
+    # "@peeps in get / route #{@peeps}"
     erb :index
+  end
+
+  post '/' do
+    Chitter.post(params[:peep])
+    redirect '/'
   end
 
   run! if app_file == $0
