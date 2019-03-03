@@ -5,7 +5,6 @@ class DatabaseConnection
   end
 
   def run_query(string)
-    result = @conn.exec(string)
-    return result
+    return @conn.exec(string)
   end
 end
