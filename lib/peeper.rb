@@ -10,9 +10,9 @@ class Peeper
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter')
+      connection = PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'bookmark_manager')
+      connection = PG.connect(dbname: 'chitter')
     end
 
     peeps = connection.exec("SELECT * FROM peeps")

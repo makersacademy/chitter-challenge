@@ -2,9 +2,8 @@ require 'pg'
 
 feature 'Initializing app' do
 
-    prime_database
-
   scenario 'visits landing page' do
+    prime_database
     visit '/'
     expect(page).to have_content("Welcome to Chitter")
     expect(page).to have_content("Holy moly, what is this site meant to be??")

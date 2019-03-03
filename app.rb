@@ -1,8 +1,10 @@
 require 'sinatra/base'
+require './lib/peeper'
 
 class Chitter < Sinatra::Base
 
   get '/' do
+    @peeps = Peeper.all
     erb :home
   end
 

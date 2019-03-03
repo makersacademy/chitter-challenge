@@ -1,6 +1,7 @@
 feature 'Posting to Chitter' do
 
   scenario 'visits landing page and posts a peep' do
+    prime_database
     visit '/'
     fill_in 'postbox', with: "First peep"
     click_button 'Post my peep'

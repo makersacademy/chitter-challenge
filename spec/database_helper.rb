@@ -2,7 +2,7 @@ require 'pg'
 
 def prime_database
 
-  connection = PG.connect(dbname: 'chitter')
+  connection = PG.connect(dbname: 'chitter_test')
 
   connection.exec("INSERT INTO peeps (peep_text) VALUES('Holy moly, what is this site meant to be??');")
   connection.exec("INSERT INTO peeps (peep_text) VALUES('Just got out of bed, what year is this?');")

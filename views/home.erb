@@ -7,18 +7,25 @@
  </head>
 <body>
   <center>
-  <br>
-  <br>
-  <h1>Welcome to Chitter</h1>
-  <br>
-  <br>
-    <form action="/peeps" method="post">
-    <input type="text" name="postbox">
-    <input type="submit" value="Post my peep" name="peep">
-  </form>
-  <br>
-  <br>
-  <br>
-  <h2>Your timeline</h2>
+    <br>
+    <br>
+    <h1>Welcome to Chitter</h1>
+    <br>
+    <br>
+      <form action="/peeps" method="post">
+      <input type="text" name="postbox">
+      <input type="submit" value="Post my peep" name="peep">
+    </form>
+    <br>
+    <br>
+    <br>
+    <h2>Your timeline</h2>
+    <h3 align="left">
+      <ul style="list-style-type:none">
+        <% @peeps.each do |your_peeps| %>
+        <li><%=your_peeps.text%></li>
+        <% end %>
+      </ul>
+    </h3>
   </center>
 </body>
