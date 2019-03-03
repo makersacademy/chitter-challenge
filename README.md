@@ -131,3 +131,35 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+
+# In this project, we will try to make an app like twitter.
+
+The user is allowed to make several posts. The posts will be printed in chronological order in the main page of the app.
+
+We will use PostgreSQL for creating databases. We will have a database named "chiter_test" which is used for our tests. The main database for our app will be named "chiter".
+
+In order to set up PostgreSQL and install it in our mac computer we follow the following steps:
+
+in the command line :
+
+$> brew install postgresql
+
+In order to postgresql to start automatically when we turn out laptop on, we should execute the following command in our terminal:
+
+$> ln -sfv /usr/local/opt/postgresql/* .plist ~/Library/LaunchAgents launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+At first, we need two databases. One for our tests and one for our development.
+
+1. Making the test database
+
+$> psql
+
+$> CREATE DATABASE "chitter_test"
+
+Then, we should make a database for our development environment:
+
+2. Making the development database
+
+$> CREATE DATABASE "chitter"
