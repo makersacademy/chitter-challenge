@@ -1,5 +1,12 @@
 A small Twitter clone that will allow the users to post messages to a public stream.
 
+This program completes user story 1 below. User story 4 - registration is not completed. Other user stories have not been attempted.
+- It uses a Model View Controller Database structure
+- Tests are performed in a separate database
+- Peep class allows create new and view all
+- Creating a peep is wrapped in a method
+- DatabaseConnection is extracted to a separate class
+
 Features:
 -------
 
@@ -40,12 +47,13 @@ I want to receive an email if I am tagged in a Peep
 ```
 
 ## How to set up database
-- commands in db/migrations
-- set up test database uing same steps
+- follow commands in db/migrations
+- set up 'test' database using the same steps
 
 ## How to test in irb
 require './lib/peep.rb'
 require './db_connection_setup.rb'
+require './lib/user.rb'
 
 ## To clear the peeps database in irb
 connection = PG.connect(dbname: 'chitter')
