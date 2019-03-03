@@ -25,6 +25,7 @@ Domain Model
 ------------
 
 I built up the model as I worked through each user story:
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
 https://drive.google.com/open?id=1sPc_E53sJ1D0eL45r5hs5RXFz-0KcBYD
 
 Class and Database Model
