@@ -28,4 +28,14 @@ describe 'Peep' do
     expect(peeps.first.peep).to eq "test peep for all method"
 
     end
+
+    it 'deletes the created peep' do
+      peep = Peep.create(peep: 'test for deleting the created peep', time: Time.new(2000))
+
+      Peep.delete(id: peep.id)
+
+      expect(Peep.all.length).to eq 0
+
+    end
+
 end
