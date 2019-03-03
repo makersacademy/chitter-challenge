@@ -4,10 +4,8 @@ require_relative "./lib/post.rb"
 class Chiter < Sinatra::Base
   enable :sessions
   get "/posts" do
-    @connection = PG.connect(dbname: 'chitter_test')
-    @result = @connection.exec("SELECT * FROM Post ORDER BY date DESC;")
+    @result = Post.all
     erb :index
-
   end
 
   get "/posts/new" do

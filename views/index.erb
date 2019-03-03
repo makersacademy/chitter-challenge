@@ -1,9 +1,23 @@
-<form method = "get" action="/posts/new">
-  <input type="submit" value="New post" />
-</form>
-
-<ul>
-<% @result.each do |result| %>
-<li><%= result["text"] %></li>
-<%end%>
-</ul>
+<!DOCTYPE html>
+<html>
+<style>
+  div { text-align :center;}
+  li {text-align :center;}
+</style>
+<body>
+  <div>
+  <form method = "get" action="/posts/new">
+     <input type="submit" value="New post" />
+  </form>
+  <ul>
+    <% @result.each do |result| %>
+    <li><%= result.text %>
+    <br>
+    <%= result.date %>
+    <hr>
+    </li>
+    <%end%>
+  </ul>
+  </div>
+</body>
+</html>
