@@ -1,10 +1,10 @@
 ENV['RACK_ENV'] = 'test'
-ENV['TEST_DB'] = 'test'
 
 require 'bootstrap'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'rubocop'
 require 'sinatra'
 require 'simplecov'
 require 'simplecov-console'
@@ -18,7 +18,7 @@ Capybara.app = Chitter
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 

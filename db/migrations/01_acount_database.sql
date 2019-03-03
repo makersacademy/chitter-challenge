@@ -1,0 +1,1 @@
+CREATE TABLE logins(id SERIAL PRIMARY KEY, full_name VARCHAR(30,) email VARCHAR(20), password VARCHAR(10), time TIMESTAMP NOW());
