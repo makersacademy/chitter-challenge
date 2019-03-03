@@ -10,7 +10,9 @@ CREATE PEEPS TABLE:
 
 CREATE TABLE all_peeps (id SERIAL PRIMARY KEY, user_name VARCHAR(30), text VARCHAR(250), time TIMESTAMP NOW());
 
+INDEX Page screenshot: https://drive.google.com/open?id=1Y8uMMr0XXSd4wWlwA5ir3K2Sowo5pZWS
 
+DB Tables : https://drive.google.com/open?id=1q917u2wkl52gYFa2ulMqAaIuroIcc8XV
 
 
 
