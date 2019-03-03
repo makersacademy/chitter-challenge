@@ -25,6 +25,13 @@ class Maker
               user_name: result['user_name'], email: result['email'], password: result['password'])
   end
 
+  def self.find(email:, password:)
+    connection_helper
+    result = @conn.exec("SELECT * FROM maker where email = '#{email}' and password = '#{password}';").first
+    Maker.new(id: (result['id']).to_i, name: result['name'],
+              user_name: result['user_name'], email: result['email'], password: result['password'])
+  end
+
   def initialize(id:, name:, user_name:, email:, password:)
     @id = id
     @name = name

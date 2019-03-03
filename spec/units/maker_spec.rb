@@ -23,4 +23,14 @@ describe Maker do
 
     end
   end
+
+  describe '#find' do
+    it 'finds the maker with the given email and password' do
+      maker = Maker.create(name: "Joe Bloggs", user_name: "joebloggs", email: "joebloggs@gmail.com", password: "password")
+      read_maker = Maker.find(email: maker.email, password: maker.password)
+      expect(read_maker.name).to eq maker.name
+      expect(read_maker.user_name).to eq maker.user_name
+
+    end
+  end
 end
