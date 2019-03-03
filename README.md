@@ -24,7 +24,7 @@ User can sign in and share posts. User can see posts in reverse chronological or
 - Improve CSS and look of website
 - Unit test now failing :( I'll have to fix it to pass the timestamp part
 
-
+## Peek:
 Type the name you want to display and the message you want to share with the world, and see the peeps from newest to oldest:
 <img width="407" alt="screenshot 2019-03-03 at 13 40 29" src="https://user-images.githubusercontent.com/45072719/53695977-1e1ded80-3dba-11e9-88a8-1a374857301a.png">
 
