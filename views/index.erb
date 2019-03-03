@@ -1,3 +1,9 @@
 <form method = "get" action="/posts/new">
   <input type="submit" value="New post" />
 </form>
+
+<ul>
+<% @result.each do |result| %>
+<li><%= result["text"] %></li>
+<%end%>
+</ul>

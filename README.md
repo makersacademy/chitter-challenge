@@ -180,4 +180,17 @@ a column id which is a serial key and a column text which is varchar(1000).
 
 chitter=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000));
 
+2. As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As it comes to the reverse chronological order, so we should be aware of the
+time of each post. so we add the column time to the Post tables in the both chitter_test
+and chitter databases.
+
+$> chitter=# SELECT * FROM Post;
+$> chitter=# \c chitter_test
+
+
+
 chitter_test=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000));

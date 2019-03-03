@@ -1,9 +1,13 @@
 require "sinatra/base"
 require "pg"
+require_relative "./lib/post.rb"
 class Chiter < Sinatra::Base
-
+  enable :sessions
   get "/posts" do
+    @connection = PG.connect(dbname: 'chitter_test')
+    @result = @connection.exec("SELECT * FROM Post ORDER BY date DESC;")
     erb :index
+
   end
 
   get "/posts/new" do
@@ -11,19 +15,10 @@ class Chiter < Sinatra::Base
   end
 
   post "/posts/new" do
-    connection = PG.connect( dbname: 'chitter_test')
     @text = params[:text]
-    connection.exec("INSERT INTO Post (text) VALUES ('#{@text}');")
+    Post.create(@text)
+    redirect "/posts"
   end
-
-
-
-
-
-
-
-
-
 
   run! if app_file == $0
 end
