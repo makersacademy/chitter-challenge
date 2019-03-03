@@ -1,12 +1,18 @@
 "Welcome to Chitter!!!"
 
+<% if !@user.nil? %>
+"You are currently logged in as <%=@user.name%> and your handle is <%=@user.handle%>!!!"
+
 <form action='/peep' method='post'>
   Post a Peep!!!!!
-  Name: <input type='text' name='user_name'>
-  Handle: <input type='text' name='handle'>
   Peep Text: <input type='text' name='peep_text'>
   <input type='submit' value='PEEP'>
 </form>
+
+<% else %>
+<a class='sign_up' href='/sign_up'>SIGN UP</a>
+
+<% end %>
 
 See the Peeps!!!!!
 
@@ -15,7 +21,7 @@ No Peeps Yet
 <% else %>
 <ul>
   <% @peeps.each do |peep| %>
-    <div><h1><%= peep.name %> <%= peep.handle %> <%= peep.created_at.strftime("%T") %></h1>
+    <div><h1><%= peep.user.name %> <%= peep.user.handle %> <%= peep.created_at.strftime("%T") %></h1>
     <h2><%= peep.peep_text %></h2>
     </div>
     <% end %>
