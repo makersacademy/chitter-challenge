@@ -13,7 +13,6 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-
   get '/peeps/post' do
     erb :'peeps/post'
   end
@@ -26,9 +25,6 @@ class Chitter < Sinatra::Base
     connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
     redirect '/peeps'
   end
-
-
-
 
   run! if app_file == $0
 end

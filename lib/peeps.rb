@@ -7,10 +7,6 @@ class Peeps
     result = connection.exec('SELECT * FROM peeps')
     result.map { |peep| peep['message'] }
     
-    # [
-    #     "Hey, it's the weekend! ",
-    #      "Hey, we're students at Makers! "
-    #    ]
   end
 
 end
