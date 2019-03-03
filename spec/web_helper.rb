@@ -2,7 +2,7 @@ def create_user
   user = User.create(name: 'Simona', email: 'simona.gioe88@gmail.com', username: 'Airies', password: 'Password123')
 end
 
-def sign_in
+def sign_up
   visit '/users/new'
   fill_in('name', with: 'Simona')
   fill_in('username', with: 'Airies')

@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    'Chitter'
+    erb :index
   end
 
   get '/peeps' do
@@ -36,10 +36,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-      existing_user = User.find_by_email(email: params['email'])
-    if existing_user
+    existing_email = User.find_by_email(email: params[:email])
+    existing_username = User.find_by_username(username: params[:username])
+
+    if !existing_email.num_tuples.zero?
       flash[:notice] = 'Email already existing. Please log in'
       redirect '/sessions/new'
+    elsif !existing_username.num_tuples.zero?
+      flash[:notice] = 'Username already in use.'
+      redirect '/users/new'
     else
       user = User.create(name: params['name'], email: params['email'], username: params['username'], password: params['password'])
       session[:user_id] = user.id

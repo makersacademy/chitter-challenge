@@ -40,7 +40,15 @@ describe User do
     it 'returns nil if the email does not exist in the database' do
       result = User.find_by_email(email: 'peppino@gmail.com')
 
-      expect(result).to be nil
+      expect(result.num_tuples.zero?).to be true
+    end
+  end
+
+  describe '.find_by_username' do
+    it 'returns nil if the username does not exist in the database' do
+      result = User.find_by_username(username: 'blablabla')
+
+      expect(result.num_tuples.zero?).to be true
     end
   end
 

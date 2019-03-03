@@ -28,7 +28,11 @@ class User
   def self.find_by_email(email:)
     return nil unless email
     result = DatabaseConnection.query("SELECT * FROM users WHERE email='#{email}';")
-    return nil if result.num_tuples.zero?
+  end
+
+  def self.find_by_username(username:)
+    return nil unless username
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}';")
   end
 
   def self.authenticate(email:, password:)

@@ -1,5 +1,5 @@
 <% if @user %>
-  <h1>Welcome, <%= @user.name %></h1>
+  <h1>Welcome, <%= @user.name.capitalize %></h1>
   <form action="/sessions/destroy" method="post">
     <input type="submit" value="Log Out ">
   </form>
@@ -21,7 +21,7 @@
   <% @peeps.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
       <% user = User.find(id: peep.user_id)%>
-      <%= user.name %>
+      <%= user.name.capitalize %>
       <%= peep.posted_time %>
       <%= peep.text %>
   </li>
