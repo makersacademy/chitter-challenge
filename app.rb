@@ -5,8 +5,6 @@ require './db_connection_setup'
 class Chitter < Sinatra::Base
   enable :sessions
 
-  $peeps = ['Trump is a nob', 'Code is cool', 'Save the turtles']
-
   get '/chitter' do
     'Welcome to Chitter!'
     @peeps = Peep.all
