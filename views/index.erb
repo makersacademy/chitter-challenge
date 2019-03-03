@@ -1,27 +1,29 @@
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+
 <h2>
   <%= flash[:notice] %>
 </h2>
 
 <% if @user %>
-  <h1>Welcome to Chitter, <%= @user.username %>!</h1>
-  <br>
-  <br>
+<form class="homepage" action="/user/logout" method="post" style="position: absolute; right: 10;">
+  <input type="submit" name="Log Out" value="Log Out">
+</form>
+  <h2>Welcome to Chitter, <%= @user.username %>!</h2>
 <% else %>
-  <form class="" action="/user/signup" method="get">
+  <form class="homepage" action="/user/signup" method="get" style="position: absolute; right: 10;">
     <input type="submit" name="signup" value="Sign Up">
   </form>
-  <form class="" action="/user/login" method="get">
+  <form class="homepage" action="/user/login" method="get" style="position: absolute; right: 80;">
     <input type="submit" name="Log In" value="Log In">
   </form>
 <% end %>
-chitters post here...
-<br>
-<br>
-
-
+<h1>chitters post here...</h1>
 <ul>
   <% Peep.all.each do |peep| %>
-    <li><%= peep.content %>
+    <li><b><%= peep.content %></b>
       <br>
       <i><%= peep.username %> at <%= peep.timestamp %></i>
       <br>
@@ -29,14 +31,10 @@ chitters post here...
     </li>
   <% end%>
 </ul>
+
 <% if @user %>
 <br>
 <form class="" action="/add-peep" method="get">
   <input type="submit" name="add-peep" value="Add Peep">
 </form>
 <% end %>
-<br>
-<br>
-  <form class="" action="/user/logout" method="post">
-    <input type="submit" name="Log Out" value="Log Out">
-  </form>

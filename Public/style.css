@@ -1,0 +1,51 @@
+body {background-color: #ABC8C7;}
+
+p {
+  color: black;
+  text-align: center;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 1em;
+}
+
+form {
+  text-align:center;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 1em;
+}
+
+form[ class="homepage" ] {
+  align: right;
+  text-align: right;
+  width : 200px;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 1em;
+}
+
+input {
+  text-align: center;
+  width: 30%;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 1em;
+}
+
+h2 {
+  text-align: center;
+  width: 100%;
+  font-family: "Gill Sans", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  font-family: "Gill Sans", sans-serif;
+}
+
+li {
+  text-align: center;
+  width: 650px;
+  padding: 10px;
+  margin: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
