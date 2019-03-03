@@ -1,10 +1,11 @@
 require 'spec_helper'
+require 'web_helper'
 
-feature 'adding a peep' do
-  scenario 'A user can add a peep' do
+feature 'view all the chitter peeps' do
+  scenario 'a user can see all the posted peeps' do
     sign_in
     post_a_peep
-    
+
     expect(page).to have_content "First peep text test"
   end
 end

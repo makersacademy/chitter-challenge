@@ -5,7 +5,6 @@ describe User do
   describe '.create' do
     it 'creates a new user' do
       user = User.create(name: 'Simona', email: 'simona.gioe88@gmail.com', username: 'Airies', password: 'Password123')
-
       persisted_data = persisted_data(table: 'users',id: user.id)
 
       expect(user).to be_a User
@@ -18,14 +17,13 @@ describe User do
     it 'hashes the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('Password123')
 
-      User.create(name: 'Simona', email: 'simona.gioe88@gmail.com', username: 'Airies', password: 'Password123')
+      create_user
     end
   end
 
   describe '.find' do
     it 'returns the user' do
       user = User.create(name: 'Simona', email: 'simona.gioe88@gmail.com', username: 'Airies', password: 'Password123')
-
       result = User.find(id: user.id)
 
       expect(result.id).to eq user.id
@@ -35,6 +33,14 @@ describe User do
 
     it 'returns nil if no ID given' do
       expect(User.find(id: nil)).to eq nil
+    end
+  end
+
+  describe '.find_by_email' do
+    it 'returns nil if the email does not exist in the database' do
+      result = User.find_by_email(email: 'peppino@gmail.com')
+
+      expect(result).to be nil
     end
   end
 

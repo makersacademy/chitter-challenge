@@ -1,4 +1,16 @@
-<form action="/peeps" method="post">
-  <input type="text" name="text">
-  <input type="submit" value="Submit">
-</form>
+<% if @user %>
+  <form action="/peeps" method="post">
+    <input type="text" name="text">
+    <input type="submit" value="Submit">
+  </form>
+<% else %>
+  <h2>Please Sign up or Log in to post a peep to Chitter</h2>
+
+  <form action="/users/new" method="get">
+    <input type="submit" value="Sign in">
+  </form>
+
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Log in">
+  </form>
+<% end %>

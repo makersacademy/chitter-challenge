@@ -1,10 +1,27 @@
-
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Log Out ">
+  </form>
+<% else %>
+  <form action="/users/new" method="get">
+    <input type="submit" value="Sign in">
+  </form>
+
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Log in">
+  </form>
 <% end %>
+
+<p>
+  <%= flash[:notice] %>
+</p>
+
 <ul>
   <% @peeps.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
+      <% user = User.find(id: peep.user_id)%>
+      <%= user.name %>
       <%= peep.posted_time %>
       <%= peep.text %>
   </li>
