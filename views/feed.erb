@@ -1,0 +1,13 @@
+<div >
+  <ul>
+    <% @peeps.each do |peep| %>
+    <li><%= peep['peep'] %></li>
+    <% end %>
+  </ul>
+
+</div>
+
+
+<form class="" action="new_peep" method="get">
+  <input type="submit" name="New Peep" value="New Peep">
+</form>
