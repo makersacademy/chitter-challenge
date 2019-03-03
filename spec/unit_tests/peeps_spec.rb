@@ -9,7 +9,7 @@ end
 
 describe ".create" do
   it "adds a peep to the database" do
-    peep = Peep.create(peep: 'Bobs second day.')
-    expect(peep.peep).to eq "Bobs second day."
+    peep = Peep.create(peep: 'Bobs first day.')
+    expect(peep.peep).to include "Bobs first day."
   end
 end

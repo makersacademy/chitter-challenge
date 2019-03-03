@@ -1,9 +1,14 @@
 
 <center>
+  <h2>hello</h2>
   <h1 style='font-size: 50px'>Your Peeps ʕ•ᴥ•ʔ : </h1>
+  <form method="get" action="/yourpeep">
+    <input type='submit' value='Create Peep'>
+  </form>
 <ol>
-  <% @peepmessage.each do |message| %>
-  <li><%= message.peep %>
+  <% @peepmessage.each do |message|%>
+  <li>
+    <%= "#{message.peep}"%>
     </li>
   <% end %>
 </ol>
