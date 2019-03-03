@@ -1,22 +1,19 @@
-require 'bootstrap', '~> 4.3.1'
+ENV['RACK_ENV'] = 'test'
+ENV['TEST_DB'] = 'test'
+
+require 'bootstrap'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'sinatra'
 require 'simplecov'
 require 'simplecov-console'
-
-
-ENV['RACK_ENV'] = 'test'
 
 # Bring in the contents of the `app.rb` file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-
-
-
 # Tell Capybara to talk to BookmarkManager
-Capybara.app = BookmarkManager
-
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
