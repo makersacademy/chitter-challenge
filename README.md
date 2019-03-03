@@ -1,5 +1,5 @@
 # Chitter Challenge
-Solving makers chitter challenge. This is a twitter-style application where users can see messages posted from other users, with some functionality to sign up and log in to post their own messages.
+Solving makers chitter challenge. This is a application where users can see messages posted from other users, with some functionality to sign up and log in to post their own messages.
 
 (More information in original readme - https://github.com/makersacademy/chitter-challenge)
 
