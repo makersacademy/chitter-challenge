@@ -1,8 +1,11 @@
-describe Db_connection do
+require './lib/db_connection.rb'
+
+describe DatabaseConnection do
   it 'returns results from database' do
     clean_test_database
     create_dummy_user
-    result = Db_connection.query("select * from users")
-    expect(result).to contain('tester')
+    result = DatabaseConnection.new.run_query("select * from users")
+    p result
+    expect(result[0]["username"]).to eq('tester')
   end
 end
