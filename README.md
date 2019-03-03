@@ -169,6 +169,7 @@ Now, everything is ready and we should do the coding
 
 features:
 
+
 1. As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter.
@@ -179,4 +180,4 @@ a column id which is a serial key and a column text which is varchar(1000).
 
 chitter=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000));
 
-chitter_test=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000)); 
+chitter_test=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000));
