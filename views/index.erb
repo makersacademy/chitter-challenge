@@ -15,7 +15,7 @@ No Peeps Yet
 <% else %>
 <ul>
   <% @peeps.each do |peep| %>
-    <div><h1><%= peep.name %> <%= peep.handle %> <%= peep.peep_time %></h1>
+    <div><h1><%= peep.name %> <%= peep.handle %> <%= peep.created_at.strftime("%T") %></h1>
     <h2><%= peep.peep_text %></h2>
     </div>
     <% end %>

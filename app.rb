@@ -2,6 +2,7 @@ require 'sinatra/base'
 require_relative './lib/peep'
 require 'pg'
 require 'data_mapper'
+require 'time'
 
 class Chitter < Sinatra::Base
 
@@ -12,12 +13,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Peep.all(:order => [ :peep_time.desc ])
+    @peeps = Peep.all(:order => [ :created_at.desc ])
     erb :index
   end
 
   post '/peep' do
-    Peep.create(:name=>params[:user_name],:handle=>params[:handle],:peep_text=>params[:peep_text],:peep_time=>Time.now.strftime("%R").to_s)
+    @time = 
+    Peep.create(:name=>params[:user_name],:handle=>params[:handle],:peep_text=>params[:peep_text],:created_at=>Time.now)
     #Peep.create_peep(params[:user_name],params[:handle],params[:peep_text])
     redirect '/'
   end
