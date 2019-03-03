@@ -1,7 +1,7 @@
 require 'pg'
 
 class Peep
-attr_reader :body, :time
+attr_reader :peep, :time
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
@@ -10,19 +10,19 @@ attr_reader :body, :time
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("SELECT * FROM peeps1;")
-    result.map {|peep| peep['url']}
+    result.map {|peep| peep['peep']}
 
     # @peeps = [["First test peep", Time.new(2000)], ["Second test peep", Time.new(2003)], ["Third test peep", Time.new(2004)]]
     # @peeps.reverse!
   end
 
-  def self.create(body:,time: Time.now)
+  def self.create(peep:,time: Time.now)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peeps1 (url) VALUES('#{body}');")
+    connection.exec("INSERT INTO peeps1 (peep) VALUES('#{peep}');")
     # @peeps = [["First test peep", Time.new(2000)], ["Second test peep", Time.new(2003)], ["Third test peep", Time.new(2004)]]
     #  @body = body
     #  @time = time

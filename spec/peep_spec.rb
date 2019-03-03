@@ -4,7 +4,7 @@ require 'pg'
 describe 'Peep' do
 
   it 'allows user to create a peep' do
-    Peep.create(body: "test for creating peep", time: Time.now)
+    Peep.create(peep: "test for creating peep", time: Time.now)
     expect(Peep.all).to include 'test for creating peep'
 
     # expect(new_peep).to eq "test peep"
@@ -13,8 +13,8 @@ describe 'Peep' do
   it 'returns all peeps' do
     connection = PG.connect(dbname: 'chitter_test')
     # peeps = Peep.all
-    connection.exec("INSERT INTO peeps1 (url) VALUES('Test peep from database');")
-    connection.exec("INSERT INTO peeps1 (url) VALUES('Second test peep from database');")
+    connection.exec("INSERT INTO peeps1 (peep) VALUES('Test peep from database');")
+    connection.exec("INSERT INTO peeps1 (peep) VALUES('Second test peep from database');")
 
     peeps = Peep.all
 

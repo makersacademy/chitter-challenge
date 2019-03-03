@@ -2,8 +2,8 @@ feature 'displays peeps' do
   scenario 'user can view peeps in reverse chronological order' do
     connection = PG.connect(dbname: 'chitter_test')
 
-    Peep.create(body: 'Test peep from database')
-    Peep.create(body: 'Second test peep from database')
+    Peep.create(peep: 'Test peep from database')
+    Peep.create(peep: 'Second test peep from database')
     # connection.exec("INSERT INTO peeps1 VALUES(1, 'Test peep from database');")
     # connection.exec("INSERT INTO peeps1 VALUES(2, 'Second test peep from database');")
 
