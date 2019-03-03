@@ -1,15 +1,19 @@
 <form action = "/chitter/signup" method="POST">
   <p>
     <label for="name">Name:</label>
-    <input type = "text" name = "name"/>
+    <input type = "text" name = "name" required />
   </p>
   <p>
     <label for="user_name">User Name:</label>
-    <input type = "text" name = "user_name"/>
+    <input type = "text" name = "user_name" required/>
+  </p>
+  <p>
+    <label for="password">Password: (min length 8)</label>
+    <input type = "password" name = "password" minlength="8" required />
   </p>
   <p>
     <label for="email">EmailId:</label>
-    <input type = "text" name = "email"/>
+    <input type = "email" name = "email" required/>
   </p>
   <p>
     <button type = "submit">Submit</button>

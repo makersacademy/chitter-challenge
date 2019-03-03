@@ -17,8 +17,9 @@ class ChitterWeb < Sinatra::Base
 
   post '/chitter/signup' do
 
-    @maker = Maker.create(name: params[:name], user_name: params[:user_name], email: params[:email])
+    @maker = Maker.create(name: params[:name], user_name: params[:user_name], email: params[:email], password: params[:password])
     session[:maker_id] = @maker.id
+
     redirect '/chitter/maker/homepage'
 
   end
