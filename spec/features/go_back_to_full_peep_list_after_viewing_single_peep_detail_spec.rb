@@ -9,5 +9,8 @@ feature 'View details of peep' do
     click_button "Detail"
     expect(page).to have_content "#{peep_message}"
     expect(page).to have_content "created at: #{peep_time_posted}"
+    click_button 'Back to all peeps'
+    expect(page).to have_content 'This is a peep created by the test database helper' and 'This is a second peep created by the test database helper'
+    expect(current_path).to eq '/chitter/peep/all'
   end
 end

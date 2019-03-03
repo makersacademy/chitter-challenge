@@ -19,7 +19,6 @@ class ChitterWeb < Sinatra::Base
   end
 
   get '/chitter/peep/:id' do
-    p params
     @peep = Peep.read(id: params[:id])
     erb(:peep_detail)
   end
