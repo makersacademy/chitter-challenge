@@ -28,7 +28,14 @@
    <button class="btn btn-primary" style='margin-top: 10px'>Submit</button>
 </center>
 </form>
-</div>
+            # See a peep
+  <div>
+  <ul>
+    <% @all_peeps.each do |peep| %>
+      <div><h2><% peep.user_name %> <% peep.text %> <% peep.time %></h2>
+      </div><% end %>
+    </ul>
+  </div>
 </body>
 
 

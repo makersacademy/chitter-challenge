@@ -1,3 +1,19 @@
+All required gems are listed in Gemfile. Run 'bundle install' in terminal to install it. 
+
+To create database: 
+
+CREATE ACCOUNTS TABLE: 
+
+CREATE TABLE logins(id SERIAL PRIMARY KEY, full_name VARCHAR(30,) email VARCHAR(20), password VARCHAR(10), time TIMESTAMP NOW());
+
+CREATE PEEPS TABLE:
+
+CREATE TABLE all_peeps (id SERIAL PRIMARY KEY, user_name VARCHAR(30), text VARCHAR(250), time TIMESTAMP NOW());
+
+
+
+
+
 Chitter Challenge
 =================
 

@@ -1,1 +1,1 @@
-CREATE TABLE all_peeps (id SERIAL PRIMARY KEY, user_name VARCHAR(30), text VARCHAR(250), time TIMESTAMP);
+CREATE TABLE all_peeps (id SERIAL PRIMARY KEY, user_name VARCHAR(30), text VARCHAR(250), time TIMESTAMP NOW());
