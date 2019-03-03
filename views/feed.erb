@@ -1,7 +1,7 @@
 <div >
   <ul>
     <% @peeps.each do |peep| %>
-    <li><%= peep['peep'] %></li>
+    <li><%= "#{peep['time']} #{peep['peep']}" %></li>
     <% end %>
   </ul>
 
