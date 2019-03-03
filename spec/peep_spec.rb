@@ -15,12 +15,14 @@ describe Peeps do
     end
   end
 
-  # describe '.post' do
-  #   it 'posts a new peep to the feed' do
-  #     Peeps.post(message: 'Sunday brunch')
-  #     expect(Peeps.all). to include 'Sunday brunch'
-  #   end
-  # end
+  describe '.post' do
+    it 'posts a new peep to the feed' do
+      Peeps.post(message: 'Sunday brunch')
+      Peeps.post(message: 'Tea and toast')
+      expect(Peeps.all).to include 'Sunday brunch'
+      expect(Peeps.all).to include 'Tea and toast'
+    end
+  end
 
 
 end

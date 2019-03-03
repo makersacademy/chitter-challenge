@@ -1,5 +1,6 @@
 Use this form to post your peep!
 </p><form action='/peeps' method='post'>
   <input type="text" name="message" placeholder="enter message"/>
+  <input type="hidden" id="localTime" name="time" value="<% Time.now %>"/>
   <input type="submit" value="Submit"/>
 </form>
