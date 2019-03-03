@@ -1,0 +1,9 @@
+<% $peeps.each do |peep|%>
+  <li>
+    <%=peep%>
+  </li>
+<%end%>
+
+<form action='/chitter/new' method='get'>
+  <button type='submit'>New peep</button>
+</form>
