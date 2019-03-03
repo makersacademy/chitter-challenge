@@ -36,13 +36,17 @@ Class and Database Model
 
 Set-up instructions
 -------------------
-* `rvm use 2.5.0`  
+* This is a ruby app with sinatra web framework.  `rvm use 2.5.0`  
 * Use `bundle` to install gems.
 * Create a 'chitter' database and use the DDL in migrations/create_tables.SQL
 * Use 'rackup' or 'ruby app.rb' to run the app and visit the relevant localhost port.
 * To test: create a 'chitter_test' database, create the tables and use rspec.
 
-
+With more time I would...
+-------------------------
+* Implement the HARDER and ADVANCED user stories (log in/out and email if tagged)
+* Hide the Sign Up section of the page when user logs in
+* Add some styling to improve page colours and layout
 
 
 
