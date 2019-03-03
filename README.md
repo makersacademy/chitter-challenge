@@ -13,7 +13,7 @@ So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 ```
-![See all peeps in reverse chronological order](./chitter-1.svg)
+![See all peeps in reverse chronological order](./chitter1.svg)
 
 
 
