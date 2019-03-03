@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep.rb'
+require './lib/db_connection.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions

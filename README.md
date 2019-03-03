@@ -41,4 +41,8 @@ I want to receive an email if I am tagged in a Peep
 
 ## How to set up database
 - commands in db/migrations
-- set up test database uing same steps
+- set up test database using same steps
+
+## How Model-View-Controller-Database
+- explain test db
+- explain db class
