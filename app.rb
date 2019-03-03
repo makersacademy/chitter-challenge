@@ -21,6 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    p "Form data submitted here!"
+    p params
     redirect '/peeps'
   end
 
