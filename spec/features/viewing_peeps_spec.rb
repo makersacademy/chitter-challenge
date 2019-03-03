@@ -4,8 +4,6 @@ feature 'displays peeps' do
 
     Peep.create(peep: 'Test peep from database', time: Time.new(2000))
     Peep.create(peep: 'Second test peep from database', time: Time.new(2003))
-    # connection.exec("INSERT INTO peeps1 VALUES(1, 'Test peep from database');")
-    # connection.exec("INSERT INTO peeps1 VALUES(2, 'Second test peep from database');")
 
     visit('/peeps')
 
