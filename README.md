@@ -3,6 +3,7 @@ that uses a database.
 
 User Stories
 ------------
+```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
@@ -18,6 +19,7 @@ I want to post a message (peep) to chitter
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+```
 
 Domain Model
 ------------
@@ -31,10 +33,11 @@ https://drive.google.com/open?id=16LiJfdAghK8tEEJFUaQ5CHIW8-8tBCfu
 
 Set-up instructions
 -------------------
-`rvm use 2.5.0`  
-Use `bundle` to install gems.
-Create a 'chitter' database and use the DDL in migrations/create_tables.SQL
-Use 'rackup' or 'ruby app.rb' to run the app and visit the relevant localhost port.
+* `rvm use 2.5.0`  
+* Use `bundle` to install gems.
+* Create a 'chitter' database and use the DDL in migrations/create_tables.SQL
+* Use 'rackup' or 'ruby app.rb' to run the app and visit the relevant localhost port.
+* To test: create a 'chitter_test' database, create the tables and use rspec.
 
 
 

@@ -1,6 +1,11 @@
 <div>
   <% @peeps.each do |peep| %>
-    <%= peep.time.strftime("%d/%m/%Y %H:%M") %> <%= peep.message %> <br/>
+    <% if peep.maker != nil %>
+      <%= peep.maker.name %> 
+      <%= peep.maker.username %>
+    <% end %>
+    <%= peep.time.strftime("%d/%m/%Y %H:%M") %>
+    <%= peep.message %> </br>
   <% end %>
 </div>
 <div>

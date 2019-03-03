@@ -1,4 +1,6 @@
 class Maker
+  attr_reader :name, :username
+
   def self.add(name, username, email, password)
     sql = "INSERT INTO makers
       (name, username, email, password)
@@ -10,5 +12,21 @@ class Maker
 
   def self.current
     @current_maker
+  end
+
+  def self.get(id:)
+    sql = "SELECT * FROM makers WHERE id = #{id};"
+    results = DatabaseConnection.query(sql)
+    Maker.new(
+        id: results.first['id'],
+        name: results.first['name'],
+        username: results.first['username'],
+      )
+  end
+
+  def initialize(id:, name:, username:)
+    @id = id
+    @name = name
+    @username = username 
   end
 end

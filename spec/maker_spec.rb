@@ -10,4 +10,8 @@ describe Maker do
   # it 'sets a new user to the current user' do
   #
   # end
+  # describe '.get' do
+  # it 'gets the maker with the specified id from the databse' do
+  #
+  # end
 end

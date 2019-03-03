@@ -8,4 +8,9 @@ feature 'Display peeps:' do
     visit '/peeps'
     expect(page).to have_content("12:10")
   end
+  scenario 'shows the details of the maker who peeped each peep' do
+    visit '/peeps'
+    expect(page).to have_content("freddie")
+    expect(page).to have_content("Fred Flintstone")
+  end
 end

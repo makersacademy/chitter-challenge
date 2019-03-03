@@ -15,4 +15,7 @@ describe 'Peep' do
       expect(Peep.all.first.message).to eq(peep)
     end
   end
+  # it 'gets the Maker details for the makerid' do
+  #
+  # end
 end

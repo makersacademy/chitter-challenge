@@ -2,9 +2,9 @@ ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
 require 'capybara/rspec'
-require 'pg'
 require 'simplecov'
 require 'simplecov-console'
+require './spec/database_reload'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -19,11 +19,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    con = PG.connect(dbname: 'chitter_test')
-    con.exec("TRUNCATE TABLE peeps;")
-    con.exec("INSERT INTO peeps (message, makerid, createstamp) VALUES ('The first ever peep', NULL, '2019-03-02 12:10:40.790703');")
-    con.exec("INSERT INTO peeps (message, makerid, createstamp) VALUES ('The second ever peep', NULL, '2019-03-02 12:12:40.790703');")
-    con.exec("TRUNCATE TABLE makers;")
+    reload_test_database
   end
   config.after(:suite) do
     puts
