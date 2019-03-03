@@ -42,7 +42,8 @@ class ChitterWeb < Sinatra::Base
   end
 
   get '/chitter/peep/new' do
-    erb(:new_peep)
+    
+    session[:maker_id] == nil ? erb(:login_error) : erb(:new_peep)
   end
 
   post '/chitter/peep/new' do
