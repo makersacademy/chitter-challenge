@@ -20,9 +20,6 @@ My approach is to tackle the "_seeing peeps_" features first since they do not r
 
 ### **See all peeps**
 
-See all peeps in reverse chronological order, and they should show the time they were made. 
-I consider these two features to be related as it would make sense that listing peeps in reverse chronological order would also take into account the time they were posted.
-
 ```
 As a maker
 So that I can see what others are saying  
@@ -36,7 +33,8 @@ I want to see the time at which it was made
 
 ![See all peeps in reverse chronological order](./chitter1.svg)
 
-<br>
+See all peeps in reverse chronological order, and they should show the time they were made. I consider these two features to be related as it would make sense that listing peeps in reverse chronological order would also take into account the time they were posted.
+<br><br>
 
 ### **Sign up for Chitter**
 
@@ -47,19 +45,19 @@ I want to sign up for Chitter
 
 ```
 
+### **Post a peep**
 
 ```
-STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
+```
 
 
 
-
-
+```
 HARDER
 
 As a Maker
