@@ -1,3 +1,69 @@
+# In this project, we will try to make an app like twitter.
+
+The user is allowed to make several posts. The posts will be printed in chronological order in the main page of the app.
+
+We will use PostgreSQL for creating databases. We will have a database named "chiter_test" which is used for our tests. The main database for our app will be named "chiter".
+
+In order to set up PostgreSQL and install it in our mac computer we follow the following steps:
+
+in the command line :
+
+$> brew install postgresql
+
+In order to postgresql to start automatically when we turn out laptop on, we should execute the following command in our terminal:
+
+$> ln -sfv /usr/local/opt/postgresql/* .plist ~/Library/LaunchAgents launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+At first, we need two databases. One for our tests and one for our development.
+
+1. Making the test database
+
+$> psql
+
+$> CREATE DATABASE "chitter_test"
+
+Then, we should make a database for our development environment:
+
+2. Making the development database
+
+$> CREATE DATABASE "chitter"
+
+
+Now, everything is ready and we should do the coding
+
+features:
+
+
+1. As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter.
+
+from, the user story, we understand that every post has an "id" and a "text". so
+we add a table called "post" to both our test and development databases that has
+a column id which is a serial key and a column text which is varchar(1000).
+
+chitter=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000));
+
+2. As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As it comes to the reverse chronological order, so we should be aware of the
+time of each post. so we add the column time to the Post tables in the both chitter_test
+and chitter databases.
+
+$> chitter=# SELECT * FROM Post;
+$> chitter=# \c chitter_test
+
+
+
+chitter_test=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000));
+
+
+
+
+
+
 Chitter Challenge
 =================
 
@@ -131,66 +197,3 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
-
-
-
-# In this project, we will try to make an app like twitter.
-
-The user is allowed to make several posts. The posts will be printed in chronological order in the main page of the app.
-
-We will use PostgreSQL for creating databases. We will have a database named "chiter_test" which is used for our tests. The main database for our app will be named "chiter".
-
-In order to set up PostgreSQL and install it in our mac computer we follow the following steps:
-
-in the command line :
-
-$> brew install postgresql
-
-In order to postgresql to start automatically when we turn out laptop on, we should execute the following command in our terminal:
-
-$> ln -sfv /usr/local/opt/postgresql/* .plist ~/Library/LaunchAgents launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-
-At first, we need two databases. One for our tests and one for our development.
-
-1. Making the test database
-
-$> psql
-
-$> CREATE DATABASE "chitter_test"
-
-Then, we should make a database for our development environment:
-
-2. Making the development database
-
-$> CREATE DATABASE "chitter"
-
-
-Now, everything is ready and we should do the coding
-
-features:
-
-
-1. As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter.
-
-from, the user story, we understand that every post has an "id" and a "text". so
-we add a table called "post" to both our test and development databases that has
-a column id which is a serial key and a column text which is varchar(1000).
-
-chitter=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000));
-
-2. As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As it comes to the reverse chronological order, so we should be aware of the
-time of each post. so we add the column time to the Post tables in the both chitter_test
-and chitter databases.
-
-$> chitter=# SELECT * FROM Post;
-$> chitter=# \c chitter_test
-
-
-
-chitter_test=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000));
