@@ -1,15 +1,13 @@
-###Build is a full-stack Twitter clone called "Chitter", attempting to build a web interface
-###driving some database stuff behind the scenes.
+## Build is a full-stack Twitter clone called "Chitter", attempting to build a web interface driving some database stuff behind the scenes.
 
-##Build uses HTML/CSS on front end (I think), Ruby on Sinatra back end (if I've understood this
-##correctly), with PostgresQL.
+## Build uses HTML/CSS on front end (I think), Ruby on Sinatra back end (if I've understood this correctly), with PostgresQL.
 
-##To run this project:
+## To run this project:
 
-#1.) Clone from this repository.
-#2.) Run 'bundle' on the command line to install dependencies.
-#3.) If you don't already have it, run 'brew install postgresql' on the command line.
-#4.) After the brew install, c+p the following two lines one after the other into the command line:
+# 1.) Clone from this repository.
+# 2.) Run 'bundle' on the command line to install dependencies.
+# 3.) If you don't already have it, run 'brew install postgresql' on the command line.
+# 4.) After the brew install, c+p the following two lines one after the other into the command line:
 
 ```
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
@@ -17,7 +15,9 @@ ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 ```
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
-#5.) Set up a database called "Chitter", with a table called "peeps" with the psql shell.
+# 5.) Set up a database called "Chitter", with a table called "peeps" with the psql shell.
+
+
 
 User stories:
 =============
