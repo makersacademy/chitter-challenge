@@ -13,7 +13,7 @@ class Peeps
     result.map { |peep| peep['message'] }
   end
 
-  def self.post(message: )
+  def self.post(message:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_peeps_test')
     else

@@ -1,5 +1,8 @@
-<p>Makers' peeps: 
-  <ul><% @peeps.each do |peep| %>
-    <li> <%= peep %></li>
-  <% end %>
-</ul>
+<h1>"Welcome to Chitter!"</h1>
+<form action='/sign_up' method='get'>
+  <button name='Sign up' type='submit'>Sign up</button>
+</form>
+
+<form action='/peeps' method='get'>
+  <button name='showpeeps' type='submit'>See peeps</button>
+</form>

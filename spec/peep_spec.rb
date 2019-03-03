@@ -2,6 +2,8 @@ require 'peeps'
 
 describe Peeps do
 
+  # let(:formatted_time) { Time.now.strftime('%d %b %Y, %H:%M') }
+
   describe '.all' do
     it 'returns the list of peeps' do
       connection = PG.connect(dbname: 'makers_peeps_test')
@@ -16,13 +18,12 @@ describe Peeps do
   end
 
   describe '.post' do
-    it 'posts a new peep to the feed' do
+    it 'posts a new peep to the database' do
       Peeps.post(message: 'Sunday brunch')
       Peeps.post(message: 'Tea and toast')
       expect(Peeps.all).to include 'Sunday brunch'
       expect(Peeps.all).to include 'Tea and toast'
     end
   end
-
 
 end

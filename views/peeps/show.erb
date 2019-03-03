@@ -1,0 +1,10 @@
+<p>Makers' peeps:
+  <ul><% @peeps.each do |peep| %>
+    <li> <%= peep %></li>
+  <% end %>
+</ul>
+
+<p>Click here to post a peep!</<p>
+  <form action='/peeps/post' method='get'>
+    <button name='postpeep' type='submit'>Post peep</button>
+  </form>
