@@ -1,11 +1,14 @@
+require 'bcrypt'
+
 class Maker
   attr_reader :name, :username
 
   def self.add(name, username, email, password)
+    encrypted_password = BCrypt::Password.create(password)
     sql = "INSERT INTO makers
       (name, username, email, password)
       VALUES
-      ('#{name}', '#{username}', '#{email}', '#{password}');"
+      ('#{name}', '#{username}', '#{email}', '#{encrypted_password}');"
     DatabaseConnection.query(sql)
     @current_maker = username
   end
@@ -27,6 +30,6 @@ class Maker
   def initialize(id:, name:, username:)
     @id = id
     @name = name
-    @username = username 
+    @username = username
   end
 end
