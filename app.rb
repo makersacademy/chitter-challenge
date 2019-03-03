@@ -1,7 +1,6 @@
 require "sinatra/base"
-
 class Chiter < Sinatra::Base
-  
+
 
 
 

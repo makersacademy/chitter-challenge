@@ -163,3 +163,20 @@ Then, we should make a database for our development environment:
 2. Making the development database
 
 $> CREATE DATABASE "chitter"
+
+
+Now, everything is ready and we should do the coding
+
+features:
+
+1. As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter.
+
+from, the user story, we understand that every post has an "id" and a "text". so
+we add a table called "post" to both our test and development databases that has
+a column id which is a serial key and a column text which is varchar(1000).
+
+chitter=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000));
+
+chitter_test=# CREATE TABLE Post (id SERIAL PRIMARY KEY , text varchar(1000)); 
