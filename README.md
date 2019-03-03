@@ -52,12 +52,22 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
+
+## How to set up the DEV database
+$ psql postgres
+$ CREATE DATABASE makers_peeps;
+$ \c makers_peeps;
+run the query saved in 01_create_bookmarks_table.sql
+$ ALTER TABLE peeps ADD COLUMN maker VARCHAR(60);
+
+## How to set up the TEST database
+$ psql postgres
+$ CREATE DATABASE makers_peeps_test;
+$ \c makers_peeps;
+run the query saved in 01_create_bookmarks_table.sql
+$ ALTER TABLE peeps ADD COLUMN maker VARCHAR(60);
+
 
 Technical Approach:
 -----

@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require './lib/class'
+require './lib/peeps'
 
 class Chitter < Sinatra::Base
 
@@ -9,9 +9,7 @@ class Chitter < Sinatra::Base
 
 
   get '/peeps' do
-    @peeps = [
-      "Hey, it's the weekend! ",
-       "Hey, we're students at Makers! "]
+    @peeps = Peeps.all
     erb :'peeps/index'
   end
 
@@ -23,6 +21,9 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     p "Form data submitted here!"
     p params
+    message = params['message']
+    connection = PG.connect(dbname: 'makers_peeps')
+    connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
     redirect '/peeps'
   end
 

@@ -9,7 +9,7 @@ end
 feature 'View peeps' do
   scenario 'allows Maker to see peeps' do
     visit '/peeps'
-    expect(page).to have_content "Hey, it's the weekend!"
-    expect(page).to have_content "Hey, we're students at Makers!"
+    expect(page).to have_content "Hello!"
+    expect(page).to have_content "Second peep"
   end
 end

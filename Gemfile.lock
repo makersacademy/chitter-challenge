@@ -89,6 +89,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  pg
   rspec
   rubocop (= 0.56.0)
   selenium-webdriver (~> 2.53, >= 2.53.4)
