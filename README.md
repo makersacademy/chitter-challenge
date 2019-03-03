@@ -17,7 +17,12 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
 #### 5.) Set up a database called "Chitter", with a table called "peeps" with the psql shell.
 
+## Known issues:
 
+- Partial solution, does not feature registration/sign up.
+- You cannot use an apostrophe in the peep post box. No contractions, plz, or you'll see a Sinatra error.
+- Timeline doesn't properly organise peeps chronologically. It only extracts the order of the peeps from the database with their automatically-generated timestamp and reverses the array they're mapped to.
+- This readme is incomplete.
 
 User stories:
 =============
@@ -30,9 +35,7 @@ I want to post a message (peep) to chitter
 ```
 *Action required:*
 
-- Needs a box with a submit button, just like Twitter. Peep should then appear on the screen.
-
-Database will need a set up so the landing page isn't blank initially for form's sake.
+- Needs a box with a submit button, just like Twitter. Peep should then appear on the screen. Database will need a set up so the landing page isn't blank initially for form's sake.
 
 ```
 As a maker
@@ -60,6 +63,7 @@ I want to sign up for Chitter
 *Action required:*
 
 - Needs a sign up screen that can take an email, password and user name.
+
 
 HARDER
 
