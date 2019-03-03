@@ -4,11 +4,12 @@ require './lib/peeper'
 class Chitter < Sinatra::Base
 
   get '/' do
-    @peeps = Peeper.all
+    p @peeps = Peeper.all
     erb :home
   end
 
   post '/peeps' do
+    Peeper.post(new_peep: params[:postbox])
     redirect('/')
   end
 

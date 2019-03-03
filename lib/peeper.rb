@@ -19,4 +19,14 @@ class Peeper
     peeps.map { |item| Peeper.new(text: item['peep_text']) }
   end
 
+  def self.post(new_peep:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    connection.exec("INSERT INTO peeps (peep_text) VALUES ('#{new_peep}');")
+  end
+
 end
