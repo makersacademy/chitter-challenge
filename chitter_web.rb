@@ -1,7 +1,32 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/maker'
+
 
 class ChitterWeb < Sinatra::Base
+
+  enable :sessions
+
+  get '/' do
+    erb(:index)
+  end
+
+  get '/chitter/signup' do
+    erb(:signup)
+  end
+
+  post '/chitter/signup' do
+
+    @maker = Maker.create(name: params[:name], user_name: params[:user_name], email: params[:email])
+    session[:maker_id] = @maker.id
+    redirect '/chitter/maker/homepage'
+
+  end
+
+  get '/chitter/maker/homepage' do
+    @maker = Maker.read(id: session[:maker_id])
+    erb(:homepage)
+  end
 
   get '/chitter/peep/new' do
     erb(:new_peep)

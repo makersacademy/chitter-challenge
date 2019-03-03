@@ -1,0 +1,10 @@
+<h2>Welcome to Chitter <%= @maker.name%> </h2>
+<h3>What would you like to do?</h3>
+<p>
+  <form action = '/chitter/peep/all' method="GET">
+    <button type = "submit">view all peeps</button>
+  </form>
+  <form action = '/chitter/peep/new' method="GET">
+    <button type = "submit">create a peep</button>
+  </form>
+</p>

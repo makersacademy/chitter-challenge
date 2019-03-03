@@ -17,7 +17,8 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    clean_database
+    clean_peep
+    clean_maker
 
   end
 
