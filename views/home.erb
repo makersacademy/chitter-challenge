@@ -23,7 +23,7 @@
     <h3 align="left">
       <ul style="list-style-type:none">
         <% @peeps.each do |your_peeps| %>
-        <li><%=your_peeps.text%></li>
+        <li><%=your_peeps.text%> - <%=your_peeps.time%></li>
         <% end %>
       </ul>
     </h3>

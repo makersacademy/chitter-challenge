@@ -1,8 +1,26 @@
-Build is a full-stack Twitter clone called "Chitter", attempting to build a web interface driving some database
-stuff behind the scenes.
+###Build is a full-stack Twitter clone called "Chitter", attempting to build a web interface
+###driving some database stuff behind the scenes.
+
+##Build uses HTML/CSS on front end (I think), Ruby on Sinatra back end (if I've understood this
+##correctly), with PostgresQL.
+
+##To run this project:
+
+#1.) Clone from this repository.
+#2.) Run 'bundle' on the command line to install dependencies.
+#3.) If you don't already have it, run 'brew install postgresql' on the command line.
+#4.) After the brew install, c+p the following two lines one after the other into the command line:
+
+```
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+```
+```
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
+#5.) Set up a database called "Chitter", with a table called "peeps" with the psql shell.
 
 User stories:
-------------
+=============
 
 STRAIGHT UP
 ```
@@ -11,7 +29,7 @@ So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
 *Action required:*
-----------------
+
 - Needs a box with a submit button, just like Twitter. Peep should then appear on the screen.
 
 Database will need a set up so the landing page isn't blank initially for form's sake.
@@ -22,7 +40,7 @@ So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 ```
 *Action required:*
----------------
+
 - All peeps will need a time stamp, and the arrangement of peeps on the screen in list format will
 be ordered by time.
 
@@ -32,7 +50,7 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 *Action required:*
-----------------
+
 - Hand in hand with the story above, time stamps will need to be featured on the page.
 ```
 As a Maker
@@ -40,8 +58,8 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 *Action required:*
----------------
-- Needs a sign up screen that can take
+
+- Needs a sign up screen that can take an email, password and user name.
 
 HARDER
 
