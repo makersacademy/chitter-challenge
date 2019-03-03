@@ -24,13 +24,15 @@ I want to sign up for Chitter
 Domain Model
 ------------
 
-I built up the model as I worked through each user story:
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-https://drive.google.com/open?id=1sPc_E53sJ1D0eL45r5hs5RXFz-0KcBYD
+I built up the model as I worked through each user story: <br>
+[Domain model 1](https://drive.google.com/open?id=1sPc_E53sJ1D0eL45r5hs5RXFz-0KcBYD) <br>
+[Domain model 2](https://drive.google.com/open?id=1CtNCysZWqdDcNO-r3Lp1nn2jA31CUCIR) <br>
+[Domain model 3](https://drive.google.com/open?id=1IyGJz9aT-CQXzXjOpHBo4KucufmjPT9m) <br>
 
 Class and Database Model
 ------------------------
-https://drive.google.com/open?id=16LiJfdAghK8tEEJFUaQ5CHIW8-8tBCfu
+[Class and Database model 1](https://drive.google.com/open?id=16LiJfdAghK8tEEJFUaQ5CHIW8-8tBCfu) <br>
+[Class and Database model 2](https://drive.google.com/open?id=1e3jV9TlLk1emVc2Qu7YqaaRQPN8-Ps49) <br>
 
 Set-up instructions
 -------------------
