@@ -22,6 +22,7 @@ User can sign in and share posts. User can see posts in reverse chronological or
 - Allow user to sign up/sign in
 - Showing shoerter time format
 - Improve CSS and look of website
+- Unit test now failing :( I'll have to fix it to pass the timestamp part
 
 
 Type the name you want to display and the message you want to share with the world, and see the peeps from newest to oldest:
