@@ -117,3 +117,12 @@ WORKING
   Now that I can see and make posts, I need to view them in reverse chronological order. I can do this by amending my SELECT query to include ORDER BY.
 
 WORKING
+
+  Ruby has the DateTime class, which I can use to store information about when a peep was posted.
+
+Added a datetime column to the database, and modified the method to accept the current date and time.
+
+
+STYLING
+
+  Twitter released their own styling called Bootstrap, which I'm going to use to give users a clean, modern UI.

@@ -7,3 +7,6 @@ CREATE TABLE peeps (
 
 INSERT INTO peeps(text)
 VALUES('Hello and welcome to Chitter, made by Jules');
+
+ALTER TABLE peeps
+ADD datetime varchar(30);

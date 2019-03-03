@@ -1,20 +1,37 @@
+<!doctype html>
 <head>
-  <link rel="stylesheet" type="text/css" href="/main.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+
 </head>
 
 <body>
-  <h1> Jules-y Chitt-y </h1>
 
-  <h1>Post a Peep</h1>
+  <div id="header">
+    <h1> Jules-y Chitt-y </h1>
+  </div>
+
+  <div>
+    <h1>Post a Peep</h1>
+  </div>
+
   <form action="/" method="post">
     <input type="text" name="peep" placeholder="Type your peep here">
-    <input type="submit" value="Post">
+    <input type="submit" class="btn btn-info" value="Post">
   </form>
 
+  <div class="flex-container">
   <% @peeps.each do | peep | %>
-    <p> <%= peep.text %> </p>
-    <br/>
+    <div id="peeps" class="panel panel-primary">
+      <h6> <%= peep.text %></h6> <p><%= peep.datetime %></p>
+      <br/>
+    </div>
   <% end %>
-
+  </div>
 
 </body>
+</html>

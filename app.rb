@@ -10,7 +10,7 @@ class Chits < Sinatra::Base
   end
 
   post '/' do
-    Chitter.post(params[:peep])
+    Chitter.post(params[:peep], DateTime.now)
     redirect '/'
   end
 
