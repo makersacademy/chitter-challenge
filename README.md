@@ -20,8 +20,6 @@ Feature tests use Capybara, and unit tests use Rspec (with >98% coverage). To ru
 
 ## Things still to do
 I didn't have time to finish _everything_ I wanted to do on this project - here's what I wanted to do if I'd had time:
-
-* Fix error when users give incorrect name and password
 * Allow users to give their email and name on sign up (as well as username)
 * Ensure username and email are unique on signup
 * Add some diagrams to show the system set up
