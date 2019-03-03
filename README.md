@@ -3,19 +3,49 @@ Chitter Challenge
 
 ## Getting started
 
+_PostgreSQL should be installed_
+
+```sh
+git clone git@github.com:dafuloth/chitter-challenge.git
+cd chitter-challenge
+bundle
+
+ruby app.rb
+
+```
+
 ## Features
 
-### **See all peeps in reverse chronological order**
+My approach is to tackle the "_seeing peeps_" features first since they do not require signing up or posting (which requires signing up).
+
+### **See all peeps**
+
+See all peeps in reverse chronological order, and they should show the time they were made. 
+I consider these two features to be related as it would make sense that listing peeps in reverse chronological order would also take into account the time they were posted.
 
 ```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
+As a Maker  
+So that I can better appreciate the context of a peep  
+I want to see the time at which it was made  
+
 ```
+
 ![See all peeps in reverse chronological order](./chitter1.svg)
 
+<br>
 
+### **Sign up for Chitter**
+
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+```
 
 
 ```
@@ -26,13 +56,9 @@ So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+
+
 
 HARDER
 
