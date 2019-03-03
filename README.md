@@ -21,7 +21,7 @@ User can sign in and share posts. User can see posts in reverse chronological or
 ## The following things are need to be done:
 - Allow user to sign up/sign in
 - Showing shorter time format
-- Improve CSS and look of website
+- Should separate a .css from html
 - I want to separate a log in page, then chats are being shown on a separate page using nickname provided on previous page
 
 ## Peek:
