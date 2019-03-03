@@ -20,15 +20,15 @@ User can sign in and share posts. User can see posts in reverse chronological or
 
 ## The following things are need to be done:
 - Allow user to sign up/sign in
-- Showing shoerter time format
+- Showing shorter time format
 - Improve CSS and look of website
-- I want to separate a log in page, then chats being shown on a separate page using nickname provided on previous page
+- I want to separate a log in page, then chats are being shown on a separate page using nickname provided on previous page
 
 ## Peek:
 Type the name you want to display and the message you want to share with the world:
 <img width="761" alt="screenshot 2019-03-03 at 18 05 19" src="https://user-images.githubusercontent.com/45072719/53699332-20df0980-3ddf-11e9-996d-23d7118153b8.png">
 <br>
-You can see the peeps from newest to oldest:
+You can see the peeps from newest to oldest: <br>
 <img width="450" alt="screenshot 2019-03-03 at 18 06 23" src="https://user-images.githubusercontent.com/45072719/53699340-3c4a1480-3ddf-11e9-961d-114359ed0c44.png">
 
 ### <i> Comments </i>
