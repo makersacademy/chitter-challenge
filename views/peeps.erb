@@ -1,0 +1,17 @@
+
+<h1>Chitter Page</h1>
+
+<h3>Peeps</h3>
+
+<% @peeps.each do |peep| %>
+   <%= peep.peep_text %>
+  <br/>
+<% end %>
+
+<h3>Adding a Peep</h3>
+<div>Please enter tyour peep in the box below<br /></div>
+<form action="/add" method="post">
+  <input type="text" placeholder="Peep" name="peep_text" />
+
+  <input type="submit" value="Add Peep" />
+</form>
