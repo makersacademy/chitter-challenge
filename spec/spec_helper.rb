@@ -1,5 +1,4 @@
 #Chitter
-ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
@@ -12,7 +11,8 @@ require './app.rb'
 require 'pg'
 require_relative './setup_test_database.rb'
 
-# ENV['RACK_ENV'] = 'test'
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 Capybara.app = Chitter
 
