@@ -26,5 +26,5 @@ User can sign in and share posts. User can see posts in reverse chronological or
 Here you can type the name you want to display and the message you want to share with the world
 <img width="710" alt="screenshot 2019-03-03 at 11 27 09" src="https://user-images.githubusercontent.com/45072719/53694547-574d6200-3da8-11e9-9f23-990f54e7a5f5.png">
 
-And here you can see other people's (and your) peeps
+And here you can see other people's (and your) peeps <br>
 <img width="410" alt="screenshot 2019-03-03 at 13 06 02" src="https://user-images.githubusercontent.com/45072719/53695573-258ec800-3db5-11e9-87e6-f822e3d2c00d.png">
