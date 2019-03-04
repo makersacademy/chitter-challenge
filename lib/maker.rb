@@ -28,8 +28,12 @@ class Maker
   def self.find(email:, password:)
     connection_helper
     result = @conn.exec("SELECT * FROM maker where email = '#{email}' and password = '#{password}';").first
-    Maker.new(id: (result['id']).to_i, name: result['name'],
+    if result != nil
+      Maker.new(id: (result['id']).to_i, name: result['name'],
               user_name: result['user_name'], email: result['email'], password: result['password'])
+    else
+      nil
+    end
   end
 
   def initialize(id:, name:, user_name:, email:, password:)

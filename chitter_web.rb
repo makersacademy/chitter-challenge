@@ -30,11 +30,19 @@ class ChitterWeb < Sinatra::Base
 
   post '/chitter/login' do
     @maker = Maker.find(email: params[:email], password: params[:password])
-    session[:maker_id] = @maker.id
-
-    redirect '/chitter/maker/homepage'
+    
+    if @maker != nil
+      session[:maker_id] = @maker.id
+      redirect '/chitter/maker/homepage'
+    end
+    redirect '/chitter/login/error'
 
   end
+
+  get '/chitter/login/error' do
+    erb(:unsuccessful_login)
+  end
+
 
   get '/chitter/maker/homepage' do
     @maker = Maker.read(id: session[:maker_id])
@@ -57,7 +65,7 @@ class ChitterWeb < Sinatra::Base
   get '/chitter/peep/all' do
     @all_peeps = Peep.all
     session[:maker_id] == nil ? erb(:all_peeps) : erb(:all_peeps_logged_in)
-    
+
   end
 
   get '/chitter/peep/:id' do
