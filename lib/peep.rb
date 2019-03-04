@@ -1,7 +1,18 @@
+require 'pg'
+require 'database_connection'
+
 class Peep
 
   
   def self.all
+
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+
     [
       '2019-03-03; 08:52; The peep at the top of the page is the most recent',
       '2019-03-02; 10:45; Homepage shows peeps in reverse chronological order',

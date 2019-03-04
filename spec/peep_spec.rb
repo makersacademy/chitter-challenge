@@ -1,3 +1,4 @@
+require 'pg'
 require 'peep'
 
 describe Peep do
