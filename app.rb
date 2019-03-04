@@ -11,6 +11,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @user = User.find(id: session[:user_id])
     erb :index
   end
 
@@ -72,5 +73,16 @@ class Chitter < Sinatra::Base
     flash[:notice] = "You have signed out."
     redirect '/peeps'
   end
+
+  get '/peep/:id/comments/new' do
+    @peep_id = params[:id]
+    erb :'comments/new'
+  end
+
+  post '/peep/:id/comments' do
+    Comment.create(text: params[:comment], peep_id: params[:id], user_id: session[:user_id])
+    redirect '/peeps'
+  end
+
  run! if app_file == $0
 end

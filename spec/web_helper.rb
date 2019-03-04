@@ -37,3 +37,12 @@ def post_a_peep
   fill_in('text', with: "First peep text test")
   click_button('Submit')
 end
+
+def logout
+  visit '/sessions/new'
+   fill_in(:email, with: 'simona.gioe88@gmail.com')
+   fill_in(:password, with: 'password123')
+   click_button('Sign in')
+
+   click_button('Sign out')
+end

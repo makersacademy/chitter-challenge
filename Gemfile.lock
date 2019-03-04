@@ -72,8 +72,13 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.5)
       tilt (~> 2.0)
+    sinatra-bootstrap (0.6.1)
+      sinatra (>= 1.0)
+      sinatra-outputbuffer
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
+    sinatra-outputbuffer (0.1.0)
+      sinatra (>= 1.0.a)
     tilt (2.0.9)
     unicode-display_width (1.3.2)
     xpath (3.2.0)
@@ -92,6 +97,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
+  sinatra-bootstrap
   sinatra-flash
 
 RUBY VERSION

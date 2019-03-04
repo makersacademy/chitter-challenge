@@ -1,5 +1,6 @@
 require 'pg'
 require_relative 'database_connection'
+require_relative 'comment'
 
 class Peep
 
@@ -32,6 +33,10 @@ class Peep
     @text = text
     @posted_time = posted_time
     @user_id = user_id
+  end
+
+  def comments(comment_class = Comment)
+    comment_class.where(peep_id: id)
   end
 
 end

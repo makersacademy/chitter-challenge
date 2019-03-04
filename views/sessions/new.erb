@@ -1,9 +1,41 @@
-<h2>
-  <%= flash[:notice] %>
-</h2>
-<h1>Login to Chitter</h1>
-<form action="/sessions" method="post">
-  <input type="email" name="email" placeholder="email">
-  <input type="password" name="password" placeholder="password">
-  <input type="submit" value="Login">
-</form>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+
+    <div class="container-fluid">
+      <div class="text-center">
+        <img src="https://nbbumnd0bj-flywheel.netdna-ssl.com/wp-content/uploads/2014/10/chitter.png" class="img-fluid" alt="Responsive image">
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <% if flash[:notice] != nil %>
+          <p class="font-weight-bolder"><%= flash[:notice] %></p>
+        <% else %>
+          <p class="font-weight-bolder">Login to Chitter</p>
+        <% end %>
+      </nav>
+
+      <form action="/sessions" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

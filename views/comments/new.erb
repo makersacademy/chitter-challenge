@@ -19,7 +19,7 @@
             <% if @user %>
               <li class="nav-item">
                 <span class="navbar-text">
-                  Welcome, <%= @user.name.capitalize %>
+                  <%= @user.name.capitalize %> post your comment
                 </span>
               </li>
               <li role="separator" class="divider"></li>
@@ -47,41 +47,12 @@
           </div>
         </nav>
 
-        <span class="navbar-text">
-          <%= flash[:notice] %>
-        </span>
-
         <ul>
           <div class="container-fluid">
-            <% @peeps.each do |peep| %>
-            <li>
-              <p class="lead">
-                <img style="width: 25px; height: 25px" src="http://wiki.tripwireinteractive.com/images/4/47/Placeholder.png" alt="Sample Image">
-                <% user = User.find(id: peep.user_id)%>
-                <%= user.name.capitalize %>
-                <%= peep.posted_time %>
-                <%= peep.text %>
-              </p>
-              <form action="/peep/<%= peep.id %>/comments/new" method="get">
-                <input type="submit" value="Add Comment">
-              </form>
-              <% if peep.comments.length > 0 %>
-               <div>
-                 <p>Comments</p>
-                 <ul>
-                   <% peep.comments.each do |comment| %>
-                      <% user = User.find(id: comment.user_id) %>
-                      <li><%= user.name %> commented:
-                        <p>
-                          <%= comment.text.capitalize %>
-                        </p>
-                      </li>
-                   <% end %>
-                 </ul>
-               </div>
-              <% end %>
-            </li>
-            <% end %>
+            <form action="/peep/<%= @peep_id %>/comments" method="post">
+              <input type="text" name="comment" >
+              <input type="submit" value="Submit">
+            </form>
           </div>
       </ul>
     </div>

@@ -22,7 +22,7 @@ RSpec.configure do |config|
     p 'Setting up test database...'
     connection = PG.connect(dbname: 'chitter_test')
     #clear the bookmarks table
-    connection.exec("TRUNCATE peeps, users;")
+    connection.exec("TRUNCATE peeps, users, comments;")
   end
 end
 
