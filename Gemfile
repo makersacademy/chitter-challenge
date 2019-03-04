@@ -12,6 +12,7 @@ gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'timecop'
+gem 'travis'
 
 group :test do
   gem 'rspec'
