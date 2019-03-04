@@ -1,6 +1,10 @@
 feature 'peeps' do
   scenario 'form to enter peeps' do
-    visit '/peeps'
+    visit '/'
+    fill_in "username", with: "Debora"
+    fill_in "email", with: "debora@email.com"
+    fill_in "password", with: "secretpassword"
+    find_button("Submit").click
     expect(page).to have_content "Peep"
     click_on "Post"
   end
@@ -8,7 +12,11 @@ end
 
 feature 'post' do
   scenario 'post a peep' do
-    visit '/peeps'
+    visit '/'
+    fill_in "username", with: "Debora"
+    fill_in "email", with: "debora@email.com"
+    fill_in "password", with: "secretpassword"
+    find_button("Submit").click
     fill_in "peep", with: "feature test peep"
     click_on "Post"
     expect(page).to have_content "feature test peep"
@@ -17,7 +25,11 @@ end
 
 feature 'date and time' do
   scenario 'it stores date and time for each post' do
-    visit '/peeps'
+    visit '/'
+    fill_in "username", with: "Debora"
+    fill_in "email", with: "debora@email.com"
+    fill_in "password", with: "secretpassword"
+    find_button("Submit").click
     fill_in "peep", with: "another feature test peep"
     click_on "Post"
     expect(page).to have_content "another feature test peep [ posted on 2019-"
