@@ -1,8 +1,35 @@
-#peep-date, #peep-time {
-  visibility: hidden;
+body {
+  padding: 1em;
 }
 
+#peep-date, #peep-time {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+#peep-form {
+  display: flex;
+  width: 100%;
+  justify-content: stretch;
+}
+
+
 #peep-msg {
-  width: 50%;
-  height: 10%;
+  flex: 1;
+  font-size: 1em;
+  height: 3em;
+  padding: 1em;
+  margin-right: 0.25em;
+
+}
+
+#peep-form button[type=submit] {
+  font-size: 1em;
+  background-color:deepskyblue;
+  border: none;
+  color: white;
+  padding: 0.9em 1.8em;
+  text-decoration: none;
+  cursor: pointer;
 }
