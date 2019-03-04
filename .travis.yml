@@ -11,8 +11,7 @@ before_install:
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
-  - cp database.yml.travis database.yml
+  - psql -c 'CREATE DATABASE chitter_test;' -U postgres
   - psql -c '\c chitter_test;' -U postgres
   - psql -c "CREATE TABLE peeps(peep VARCHAR(200) NOT NULL CHECK(peep <> ''), time TIMESTAMP, username VARCHAR(20) NOT NULL CHECK(username <> ''));" -U postgres
   - psql -c "CREATE TABLE users (username VARCHAR(20) NOT NULL CHECK(username <> ''), email VARCHAR(60) NOT NULL CHECK(email <> ''), password VARCHAR(20) NOT NULL CHECK(LENGTH(password) >4));" -U postgres
