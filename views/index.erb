@@ -13,6 +13,10 @@
 
 </form>
 
+<% if @zero_length_msg %>
+<div id="notice">To peep, you have to say something!</div>
+<% end %>
+
 <h2>Previous peeps </h2>
 
 <% @peeps.each do |peep| %>

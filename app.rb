@@ -2,6 +2,7 @@ require 'sinatra/base'
 require_relative 'lib/peep'
 
 class Chitter < Sinatra::Base
+
   get '/' do
     @peeps = Peep.all
 
@@ -10,12 +11,21 @@ class Chitter < Sinatra::Base
 
   post '/' do
     @peeps = Peep.all
-    @peeps.unshift("#{params['peep-date']}; #{params['peep-time']}; #{params['message']}")
-    erb :index
-  end
 
-  get 'post_peep' do
-    erb :post_peep
+    date = params['peep-date']
+    time = params['peep-time']
+    message = params['message']
+
+    @zero_length_msg = false
+
+    if message != ""
+      @peeps.unshift("#{date}; #{time}; #{message}") 
+    else
+      @zero_length_msg = true
+    end
+
+    erb :index
+
   end
 
   run! if app_file == $0
