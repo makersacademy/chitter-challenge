@@ -15,7 +15,7 @@ class Peep
     raw_peeps = DatabaseConnection.query('SELECT * FROM peeps')
 
     peeps = raw_peeps.map do |item|
-      {timestamp: item['timestamp'][0, 19], message: item['peep']}
+      { timestamp: item['timestamp'][0, 19], message: item['peep'] }
     end
 
     peeps.reverse
