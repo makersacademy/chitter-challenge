@@ -53,6 +53,21 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+
+## Set Up databases
+###Testing
+1. psql
+2. CREATE DATABASE chitter_database_test
+3. Copy and paste 01_create_peeps_table.slq into pslq
+4. Copy and paste 02_create_users_table.slq into pslq
+
+###Production
+1. psql
+2. CREATE DATABASE chitter_database_test
+3. Copy and paste 01_create_peeps_table.slq into pslq
+4. Copy and paste 02_create_users_table.slq into pslq
+
+
 Technical Approach:
 -----
 
