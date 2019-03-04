@@ -37,4 +37,6 @@ body {
 #notice {
   color: red;
   font-style: italic;
+  margin: 0 auto;
+  max-width: 300px;
 }
