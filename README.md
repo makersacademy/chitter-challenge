@@ -10,8 +10,10 @@ Inorder to complete this challenge I have focussed on completing the user storie
 In order to run my tests please run the following commands to ensure the database is created successfully on your local machine
 
 ```
-psql -c 'create database chitter_test;' -U postgres
-psql -d chitter_test -c 'CREATE TABLE "peeps" ("id" SERIAL PRIMARY KEY, "name" VARCHAR(60), "handle" VARCHAR(60), "peep_text" VARCHAR(120), "peep_time" VARCHAR(10));'
+psql -c 'create database chitter_test;'
+psql -d chitter_test -c 'CREATE USER postgres WITH SUPERUSER;'
+psql -c 'create database chitter_prod;'
+psql -d chitter_prod -c 'CREATE USER postgres WITH SUPERUSER;'
 ```
 
 

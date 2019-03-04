@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
     DataMapper.finalize
     DataMapper.auto_upgrade!
   else
-    DataMapper.setup(:default, 'postgres://student@127.0.0.1:5432/chitter_prod')
+    DataMapper.setup(:default, 'postgres://postgres@127.0.0.1:5432/chitter_prod')
     DataMapper.finalize
     DataMapper.auto_upgrade!
   end
