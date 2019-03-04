@@ -1,0 +1,1 @@
+ CREATE TABLE peeps(pid SERIAL PRIMARY KEY, pmessage VARCHAR(60), ptime TIMESTAMP);

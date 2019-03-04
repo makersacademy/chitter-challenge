@@ -9,7 +9,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'selenium-webdriver'
 gem 'sinatra'
-
+gem 'bcrypt'
 group :test do
   gem 'capybara'
   gem 'rspec'
