@@ -10,7 +10,9 @@ before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
-# before_script:
-#   - psql -c 'create database chitter_test;' -U postgres
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database chitter_test;' -U postgres
+  - psql -c "CREATE TABLE peeps (id SERIAL PRIMARY KEY, timestamp timestamptz NOT NULL DEFAULT now(), peep VARCHAR(140) NOT NULL)" -U postgres
+  - psql -c "INSERT INTO peeps VALUES (DEFAULT, '2019-03-02 10:34:30', 'On Chitter, we post messages called \"Peeps\"')" -U postgres
+  - psql -c "INSERT INTO peeps VALUES (DEFAULT, '2019-03-02 10:45:55', 'Homepage shows peeps in reverse chronological order')" -U postgres
+  - psql -c "INSERT INTO peeps VALUES (DEFAULT, '2019-03-03 08:52:30', 'The peep at the top of the page is the most recent')" -U postgres
