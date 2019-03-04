@@ -1,5 +1,5 @@
 require 'pg'
-require 'database_connection'
+require_relative 'database_connection'
 
 class Peep
 
@@ -7,20 +7,21 @@ class Peep
   def self.all
 
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
+      DatabaseConnection.setup('chitter_test')
     else
-      connection = PG.connect(dbname: 'chitter')
+      DatabaseConnection.setup('chitter')
     end
 
+    raw_peeps = DatabaseConnection.query('SELECT * FROM peeps')
 
-    [
-      '2019-03-03; 08:52; The peep at the top of the page is the most recent',
-      '2019-03-02; 10:45; Homepage shows peeps in reverse chronological order',
-      '2019-03-02; 10:34; On Chitter, we post messages called "Peeps"'
-     ]
+    peeps = raw_peeps.map do |item|
+      {timestamp: item['timestamp'][0, 19], message: item['peep']}
+    end
+
+    peeps.reverse
   end
 
-  def self.post()
-    
+  def self.post(new_peep)
+    DatabaseConnection.query("INSERT INTO peeps VALUES (DEFAULT, DEFAULT, #{new_peep})")
   end
 end

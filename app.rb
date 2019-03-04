@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
     @zero_length_msg = false
 
     if message != ""
-      @peeps.unshift("#{date}; #{time}; #{message}") 
+      @peeps.unshift({ timestamp: "#{date} #{time}", message: "#{message}" })
     else
       @zero_length_msg = true
     end

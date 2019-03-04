@@ -1,5 +1,8 @@
 body {
   padding: 1em;
+  background-color: rgb(156, 240, 208);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(18, 94, 129);
 }
 
 #peep-date, #peep-time {
@@ -21,6 +24,7 @@ body {
   height: 3em;
   padding: 1em;
   margin-right: 0.25em;
+  border-color: rgb(119, 212, 177);
 
 }
 
@@ -39,4 +43,10 @@ body {
   font-style: italic;
   margin: 0 auto;
   max-width: 300px;
+}
+
+.timestamps {
+  display: inline-block;
+  font-family: 'Courier New', Courier, monospace;
+  margin-right: 0.5em;
 }

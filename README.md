@@ -44,6 +44,8 @@ psql chitter_test < ./db/migrations/02_peeps_test_data.sql
 
 ```
 
+## Challenges
+- I want the `timestamp` to be set automatically, based on when the peep is made. Determined that an easy way to achieve this is with default value `DEFAULT now()`.
 
 ## Features
 

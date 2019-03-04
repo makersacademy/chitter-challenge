@@ -7,7 +7,7 @@
 
 <form id="peep-form" action="/" method="POST">
   <input id="peep-date" name="peep-date" type="date" value="2019-03-03" />
-  <input id="peep-time" name="peep-time" type="time" value="10:00" />
+  <input id="peep-time" name="peep-time" type="time" value="10:00:42" />
   <input id="peep-msg" name="message" type="text" placeholder="Go on, peep something!" />
   <button id="peep-submit" name="submit" type="submit">Peep!</button>
 
@@ -20,5 +20,5 @@
 <h2>Previous peeps </h2>
 
 <% @peeps.each do |peep| %>
-  <p><%= peep %></p>
+  <p><span class="timestamps"><%= peep[:timestamp] %></span> <%= peep[:message] %></p>
 <% end %>
