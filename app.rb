@@ -27,13 +27,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/sign_up' do
-      erb :sign_up
-    end
+    erb :sign_up
+  end
 
-    post '/sign_up' do
-      session[:username] = params[:username]
-      redirect '/peeps'
-    end
+  post '/sign_up' do
+    session[:username] = params[:username]
+    redirect '/peeps'
+  end
 
   run! if app_file == $0
 end

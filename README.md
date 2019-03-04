@@ -8,7 +8,7 @@ This program is a small Twitter clone that allows the users to post messages to 
 
 How to run the program:
 -------
-<br>$ git clone https://github.com/Brendao1/chitter_challenge
+<br>$ git clone https://github.com/Brendao1/chitter-challenge
 <br>$ cd chitter-challenge
 <br>$ bundle
 <br>$ rackup
@@ -36,9 +36,12 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+PARTIAL
 
 
 ```
+## Project Status:
+This is a partial solution. I inherited the format private_class_method and, later, some general ideas about layout from a former cohort: https://github.com/makersacademy/chitter-challenge/pull/1013/commits/9c73d68ba3f39531e4ee440c9792ce6ed768e561 Sign_up feature is not complete.
 
 ## How to set up the DEV database
 <br>$ psql postgres
