@@ -18,14 +18,13 @@ class User
 
   def self.find(id:)
     result = DatabaseConnection.new.run_query("SELECT * FROM users WHERE id = #{id};")
-    user = User.new(id: result[0]["id"], username: result[0]["username"], password: result[0]["password"])
-    return user
+    return User.new(id: result[0]["id"], username: result[0]["username"], password: result[0]["password"])
   end
 
   def self.authenticate(username:, password:)
     result = DatabaseConnection.new.run_query("SELECT * FROM users WHERE username = '#{username}';")
     return unless result.any?
     return unless BCrypt::Password.new(result[0]['password']) == password
-    user = User.new(id: result[0]['id'],username: result[0]['username'], password: result[0]['password'])
+    return User.new(id: result[0]['id'],username: result[0]['username'], password: result[0]['password'])
   end
 end

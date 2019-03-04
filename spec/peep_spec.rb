@@ -9,7 +9,6 @@ describe Peep do
     allow(user).to receive(:id).and_return(real_id)
     Peep.add(user_id: real_id, content: "just writing some peeps...")
     @peeps = Peep.all
-    p @peeps
     expect(@peeps.first.content).to eq("just writing some peeps...")
   end
 end
