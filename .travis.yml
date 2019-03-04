@@ -12,5 +12,5 @@ before_install:
 
 before_script:
   - psql -c 'CREATE DATABASE chitter_test;' -U postgres
-  - psql -d chitter -f db/migrations/01_create_table_peeps.sql
-  - psql -d chitter -f db/migrations/02_create_users_table.sql
+  - psql -d chitter_test -f db/migrations/01_create_table_peeps.sql
+  - psql -d chitter_test -f db/migrations/02_create_users_table.sql
