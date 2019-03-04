@@ -2,7 +2,6 @@ require 'pg'
 
 class Database_Connection
   def self.setup
-    p ENV['Environent']
     if ENV['Environent'] == 'test'
       name = 'chitter_database_test'
     else
