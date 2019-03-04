@@ -15,11 +15,8 @@ class User < ActiveRecord::Base
 
   def self.authenticated?(username:, password:)
     user = find_by(username: username)
-    if user
-      result = user.password == password
-      return result
-    else
-      return false
-    end
+    
+    return false unless user
+    return user.password == password
   end
 end

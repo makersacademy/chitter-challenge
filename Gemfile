@@ -2,13 +2,14 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rake'
-gem 'sinatra'
 gem 'activerecord'
+gem 'bcrypt'
 gem 'pg'
 gem 'rack'
-gem 'bcrypt'
+gem 'rake'
+gem 'sinatra'
 gem 'sinatra-flash'
+gem 'standalone_migrations'
 
 group :test do
   gem 'capybara'

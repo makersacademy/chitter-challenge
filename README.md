@@ -1,25 +1,16 @@
-Chitter Challenge
-=================
+# Chitter
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This is the weekend challenge from week 4 of the Maker's academy. It is a Twitter clone, where users can post messages ('peeps') to a common newsfeed, and also register and login should they wish to post under a specific name (otherwise the peeps are anonymous). 
 
-Challenge:
--------
+### Approach
 
-As usual please start by forking this repo.
+I followed an incremental approach, fully implementing a user story using TDD before moving onto the next one. 
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+The app is written in Ruby, using Sinatra for the server and postgressql for the database, and Capybara / Rspec for testing. 
 
-Features:
--------
+### Current features
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -36,21 +27,9 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
 ### How to set up 
@@ -59,3 +38,11 @@ CREATE TABLE peeps (
  id serial PRIMARY KEY,
  content VARCHAR (300) NOT NULL
 )
+
+Run `bundle install` to install dependencies (gems).
+
+Run `rackup config.ru` to run app. 
+
+### How to run tests
+
+Run `rspec` to run all tests. 

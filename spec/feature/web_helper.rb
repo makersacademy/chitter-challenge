@@ -1,4 +1,4 @@
-def create_user(username:'simon', password:'strong')
+def create_user(username: 'simon', password: 'strong')
   User.create(username: username, password: password)
 end
 
