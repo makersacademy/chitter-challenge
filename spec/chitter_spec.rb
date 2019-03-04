@@ -6,6 +6,6 @@ describe Chitter do
   end
 
   it "Posts a new peep" do
-    Chitter.post("My gift is my peep, and this one's for you")
+    Chitter.post("My gift is my peep, and this one is for you")
   end
 end

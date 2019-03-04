@@ -82,6 +82,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   pg
+  rack
   rake
   rspec
   rubocop

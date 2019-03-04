@@ -122,6 +122,11 @@ WORKING
 
 Added a datetime column to the database, and modified the method to accept the current date and time.
 
+(Columm datetime of rel peeps does not exist)
+
+RED - Added datetime column to test database
+
+Passed.
 
 STYLING
 
