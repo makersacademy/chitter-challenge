@@ -13,8 +13,6 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-  - psql chitter_test -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(240));'
-  # - psql chitter_test -U postgres -c 'ALTER TABLE peeps ADD COLUMN posted_time VARCHAR(60);'
-  # - psql chitter_test -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), email VARCHAR(60), username VARCHAR(60), password VARCHAR(140));'
-  # - psql chitter_test -U postgres -c 'ALTER TABLE peeps ADD COLUMN user_id INTEGER REFERENCES users (id);'
-  # - psql chitter_test -U postgres -c 'CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), peep_id INTEGER REFERENCES peeps (id), user_id INTEGER REFERENCES users (id)); '
+  - psql chitter_test -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(240), posted_time VARCHAR(60), user_id INTEGER REFERENCES users (id));'
+  - psql chitter_test -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), email VARCHAR(60), username VARCHAR(60), password VARCHAR(140));'
+  - psql chitter_test -U postgres -c 'CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), peep_id INTEGER REFERENCES peeps (id), user_id INTEGER REFERENCES users (id));'
