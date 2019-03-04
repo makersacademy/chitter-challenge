@@ -12,17 +12,13 @@ class Chitter < Sinatra::Base
 
   post '/' do
     @peeps = Peep.all
-
-    date = params['peep-date']
-    time = params['peep-time']
     message = params['message']
 
-    @zero_length_msg = false
+    @zero_length_msg = message.length.zero?
 
-    if message != ""
-      @peeps.unshift({ timestamp: "#{date} #{time}", message: "#{message}" })
-    else
-      @zero_length_msg = true
+    unless @zero_length_msg
+      DatabaseConnection.query("INSERT INTO peeps VALUES (DEFAULT, DEFAULT, '#{message}')")
+      redirect '/'
     end
 
     erb :index

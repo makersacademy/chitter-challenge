@@ -1,10 +1,10 @@
 feature 'Peeping' do
   scenario 'a new peep is posted' do
     visit('/')
-    fill_in('message', with: 'it\'s a good time to try Chitter!')
+    fill_in('message', with: "a good time to try Chitter!")
     click_button('Peep!')
 
-    expect(page).to have_content 'it\'s a good time to try Chitter!'
+    expect(page).to have_content("a good time to try Chitter!")
   end
 
   scenario 'a zero-length peep is not posted' do
