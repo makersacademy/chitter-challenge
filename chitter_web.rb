@@ -56,7 +56,8 @@ class ChitterWeb < Sinatra::Base
 
   get '/chitter/peep/all' do
     @all_peeps = Peep.all
-    erb(:all_peeps)
+    session[:maker_id] == nil ? erb(:all_peeps) : erb(:all_peeps_logged_in)
+    
   end
 
   get '/chitter/peep/:id' do
