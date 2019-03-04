@@ -1,5 +1,6 @@
 require 'data_mapper'
 require_relative 'user'
+require 'pg'
 
 class Peep
   include DataMapper::Resource

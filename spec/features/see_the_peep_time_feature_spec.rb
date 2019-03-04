@@ -1,5 +1,4 @@
 feature 'See the time of the Peep' do
-
   scenario "Visit the home page and post a peep and see it's peep time" do
     User.instance_variable_set(:@current_user, nil)
     visit '/'

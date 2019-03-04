@@ -1,11 +1,10 @@
+ENV["RACK_ENV"] = 'test'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 # require 'features/web_helper'
 require './app.rb'
 require 'features/db_helper'
-
-ENV["RAILS_ENV"] = 'test'
 
 Capybara.app = Chitter
 
@@ -21,9 +20,11 @@ RSpec.configure do |config|
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
-    ENV["RAILS_ENV"] = 'production'
   end
   config.before(:each) do
+    clear_test
+  end
+  config.after(:each) do
     clear_test
   end
 end

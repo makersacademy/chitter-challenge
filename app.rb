@@ -7,7 +7,7 @@ require 'time'
 
 class Chitter < Sinatra::Base
 
-   if ENV["RAILS_ENV"] = 'test'
+   if ENV['RACK_ENV'] == 'test'
     DataMapper.setup(:default, 'postgres://postgres@127.0.0.1:5432/chitter_test')
     DataMapper.finalize
     DataMapper.auto_upgrade!

@@ -1,5 +1,4 @@
 feature 'See a list of peeps in reverse order Peep' do
-
   scenario 'Visit the home page and post two peeps and see them in reverse chrono order' do
     User.instance_variable_set(:@current_user, nil)
     visit '/'
