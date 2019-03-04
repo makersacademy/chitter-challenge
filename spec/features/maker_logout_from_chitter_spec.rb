@@ -1,5 +1,5 @@
-feature 'create new peep' do
-  scenario 'create a new peep when maker is logged in' do
+feature 'logout from chitter' do
+  scenario 'maker can logout from chitter' do
     build_maker
     visit '/'
     expect(page).to have_content 'Welcome to Chitter!' and 'OR'
@@ -26,15 +26,14 @@ feature 'create new peep' do
     click_button 'back to homepage'
     expect(page).to have_content 'Welcome to Chitter Joe Bloggs' and 'What would you like to do?'
     expect(current_path).to eq '/chitter/maker/homepage'
+    expect(page).to have_button('Logout')
+    click_button 'Logout'
+    expect(page).to have_content 'Welcome to Chitter!' and 'OR'
+    expect(page).to have_button('View all Peeps')
+    expect(page).to have_button('Signup')
+    expect(page).to have_button('Login')
+    expect(page).to have_content "to post a peep!"
+    expect(current_path).to eq '/'
 
-  end
-end
-
-feature 'create new peep' do
-  scenario 'redirect to error page asking to signup or login when maker is not logged in' do
-    visit '/chitter/peep/new'
-    expect(page).to have_content 'You must login or signup to create a peep'
-    expect(page).to have_button('Return to Mainpage')
-    expect(current_path).to eq '/chitter/peep/new'
   end
 end

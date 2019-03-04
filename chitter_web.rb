@@ -41,14 +41,16 @@ class ChitterWeb < Sinatra::Base
     erb(:homepage)
   end
 
+
+
   get '/chitter/peep/new' do
-    
+
     session[:maker_id] == nil ? erb(:login_error) : erb(:new_peep)
   end
 
   post '/chitter/peep/new' do
     message = params[:message]
-    Peep.create(message: message, posted_by: 1)
+    Peep.create(message: message, posted_by: session[:maker_id])
     redirect '/chitter/peep/all'
   end
 
@@ -60,6 +62,12 @@ class ChitterWeb < Sinatra::Base
   get '/chitter/peep/:id' do
     @peep = Peep.read(id: params[:id])
     erb(:peep_detail)
+  end
+
+  get '/chitter/logout' do
+    session.clear
+
+    redirect '/'
   end
 
   run! if app_file == $0
