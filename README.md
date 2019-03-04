@@ -1,5 +1,7 @@
 ## Chitter Challenge - week 4
 
+[![Build Status](https://travis-ci.com/Debora38/chitter-challenge.svg?branch=master)](https://travis-ci.com/Debora38/chitter-challenge)
+
 #### User stories
 ```
 As a Maker
