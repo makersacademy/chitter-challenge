@@ -1,3 +1,6 @@
+services:
+  - postgresql
+
 rvm: '2.5.0'
 
 script:
