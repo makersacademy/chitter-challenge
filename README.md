@@ -25,14 +25,14 @@ CREATE DATABASE chitter;
 
 \c chitter
 CREATE TABLE peeps (id SERIAL PRIMARY KEY,
-                    timestamp timestamptz NOT NULL,
+                    timestamp timestamptz NOT NULL DEFAULT now(),
                     peep VARCHAR(140) NOT NULL);
 
 CREATE DATABASE chitter_test;
 
 \c chitter_test
 CREATE TABLE peeps (id SERIAL PRIMARY KEY,
-                    timestamp timestamptz NOT NULL,
+                    timestamp timestamptz NOT NULL DEFAULT now(),
                     peep VARCHAR(140) NOT NULL);
 
 ```
