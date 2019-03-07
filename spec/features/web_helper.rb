@@ -41,3 +41,11 @@ def login
   fill_in('Password', with: 'ilovemagic')
   click_on 'Log In'
 end
+
+def login_with_wrong_details
+  visit '/'
+  click_on 'Log In'
+  fill_in('Username', with: 'The Crimson King')
+  fill_in('Password', with: 'idontlovemagic')
+  click_on 'Log In'
+end

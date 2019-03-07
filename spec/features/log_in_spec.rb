@@ -11,11 +11,7 @@ feature 'Users can login' do
 
   scenario 'A user is informed if their details are incorrect' do
     sign_up
-    visit '/'
-    click_on 'Log In'
-    fill_in('Username', with: 'The Crimson King')
-    fill_in('Password', with: 'idontlovemagic')
-    click_on 'Log In'
+    login_with_wrong_details
     expect(page).to have_content("Incorrect details")
   end
 end
