@@ -17,7 +17,8 @@ class App < Sinatra::Base
   end
 
   post '/message' do
-    Message.create({ :content => params[:message] })
+    message = Message.create({ :content => params[:message] })
+    message.tag(message.content)
     redirect '/'
   end
 
