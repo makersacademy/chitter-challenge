@@ -1,10 +1,9 @@
 def post_a_message
   visit '/'
   fill_in('message', with: 'first test')
-  click_on 'Post'
+  click_on 'Submit'
 
 end
-
 
 def sign_up
   visit '/'
@@ -15,7 +14,6 @@ def sign_up
   fill_in('Password', with: 'ilovemagic')
   click_on 'Sign Up'
 end
-
 
 def sign_up_twice
   visit '/'
@@ -37,9 +35,9 @@ end
 def post_two_messages
   visit '/'
   fill_in('message', with: 'second test')
-  click_on 'Post'
+  click_on 'Submit'
   fill_in('message', with: 'third test')
-  click_on 'Post'
+  click_on 'Submit'
 end
 
 def login
