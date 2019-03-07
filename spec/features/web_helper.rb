@@ -1,3 +1,11 @@
+def post_a_message
+  visit '/'
+  fill_in('message', with: 'first test')
+  click_on 'Post'
+
+end
+
+
 def sign_up
   visit '/'
   click_on 'Sign Up'
