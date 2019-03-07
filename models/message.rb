@@ -6,5 +6,4 @@ class Message < ActiveRecord::Base
     content.include? "@"
   end
 
-
 end
