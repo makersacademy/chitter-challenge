@@ -72,18 +72,23 @@ I worked through to the ability for users to post to each others walls and see t
     - partial for the text box used to create messages.
 
 ### User Journey
+
 ** Home Page **
 
 ![picture](/images/pic1.png)
+
 ** Signing up **
 
 ![picture](/images/pic2.png)
+
 ** Your profile **
 
 ![picture](/images/pic3.png)
+
 ** logging in **
 
 ![picture](/images/pic4.png)
 
 ** with incorrect details... **
+
 ![picture](/images/pic5.png)
