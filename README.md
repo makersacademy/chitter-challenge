@@ -1,6 +1,8 @@
 [![BCH compliance](
   https://bettercodehub.com/edge/badge/jaywayawyaj/chitter-challenge?branch=master
   )](https://bettercodehub.com/)
+  
+  [![Maintainability](https://api.codeclimate.com/v1/badges/f5f7686d071d8ffa6f9d/maintainability)](https://codeclimate.com/github/jaywayawyaj/chitter-challenge/maintainability)
 
 # Chitter Challenge
 My attemp at Makers Academys Chitter Challenge. For a full description of the challenge, see 'APPENDIX' below.
