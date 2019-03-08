@@ -70,6 +70,14 @@ I worked through to the ability for users to post to each others walls and see t
     - renders the sign up page with full form
 6. text-box.erb
     - partial for the text box used to create messages.
+    
+### Work to be done
+
+  - A general further refactor could be good, but need to some refresher learning on Sinatra/Ruby to identify any further places.
+  - Fully implementing a Tag system, it is currenlty a base functionality where the program can tell if a message contains a tag but the databse associations need setting up further and further functionality to turn the tags into more than parts of a string.
+  - Further associating a message board with the user, so a user can only see posts on their wall and if they go to someone elses profile they can post messages to that board.
+  - A profiles list of who is available to message would be needed to enact the above.
+  - Refactor to use in built sinatra flash messages to get out of the cheap work around of assigning an error message to a session. Would aim to get the validation messages showing as they currently exist in the DB.
 
 ### User Journey
 
