@@ -20,7 +20,7 @@ describe User do
     end
 
     it "User exists, rejects incorrect password" do
-      expect(User.authenticate('bea@bea.com', 'lame')).to eq nil
+      expect(User.authenticate('bea@bea.com', 'hello')).to eq nil
     end
   end
 

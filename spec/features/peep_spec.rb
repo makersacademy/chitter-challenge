@@ -7,24 +7,18 @@ feature "Peeps" do
                :password => "hello12345"
                 )}
 
+  let(:email) {'bea@bea.com'}
+  let(:password){'hello12345'}
 
   scenario "User can post a messages to chitter" do
-    visit '/'
-    click_on 'Sign in'
-    fill_in :email, with: "bea@bea.com"
-    fill_in :password, with: "hello12345"
-    click_button 'Sign in'
+    sign_in(email, password)
     fill_in "peep", with: "This is my first peep"
     click_button "Send peep!"
     expect(page).to have_content "This is my first peep"
   end
 
   scenario "User can post multiple messaeges to chitter" do
-    visit '/'
-    click_on 'Sign in'
-    fill_in :email, with: "bea@bea.com"
-    fill_in :password, with: "hello12345"
-    click_button 'Sign in'
+    sign_in(email, password)
     expect(page.current_path).to eql '/profile'
     fill_in "peep", with: "First message"
     click_button "Send peep!"

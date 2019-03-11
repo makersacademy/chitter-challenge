@@ -1,14 +1,14 @@
 RSpec.feature 'User Authentication' do
 
+    let(:name){'Eloise'}
+    let(:username){'eloiseks'}
+    let(:email){'elo@elo.com'}
+    let(:password) { 'london123' }
+
+
   context 'Sign Up' do
     scenario 'A user can signup' do
-      visit '/'
-      click_on 'Sign up'
-      fill_in :name, with: 'Ed'
-      fill_in :username, with: 'edcourage'
-      fill_in :email, with: 'ed@ed.com'
-      fill_in :password, with: 'mynameised'
-      click_button 'Sign up'
+      sign_up(name, username, email, password)
       expect(page.current_path).to eql '/profile'
     end
   end
