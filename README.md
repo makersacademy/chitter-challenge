@@ -1,13 +1,66 @@
-## Warbler Challenge
+# Warbler Challenge
 ---------------------
 
-Makers Academy week 5 weekend challenge: build a twitter clone
+[![Maintainability](https://api.codeclimate.com/v1/badges/a006a0a831cefacf9f40/maintainability)](https://codeclimate.com/github/CKKH/chitter-challenge/maintainability)
+
+Building a Twitter clone webapp with TDD and Sinatra.
+
+
+## Requirements
+----------------
+
+### Essentials
+--------------
+
+ 1. Ruby and RVM, please see https://rvm.io/rvm/install for installation instructions
+ 2. PostgreSQL, please see http://www.postgresqltutorial.com/install-postgresql/ for installation instructions
+
+### Clone & build dependancies
+------------------------------
+
+Once your system has the above requirements installed, from your command line move to your project directory and run the following commands.
+
+From your termainal, navigate to a suitable installation location (e.g. A project directory) and input the following commands:
+
+1. Clone the repository `git@github.com:CKKH/chitter-challenge.git`
+2. Change directory `cd chitter-challenge`
+4. Bundle dependencies `bundle`
+5. Set up the databases:
+   `rake db:create:all`
+   `rake db:auto_migrate RACK_ENV=test`
+   `rake db:auto_upgrade`
+6. Run locally `rackup`
+
+### Using Warbler
+-----------------
+
+Navigate to warbler via `local host:9292` in your browser.
+
+## Technologies used
+--------------------
+
+Tech | Description
+------------- | -------------
+[Ruby](https://www.ruby-lang.org/en/) | Main language
+[Sinatra](http://sinatrarb.com/) | DSL for quickly creating web apps in Ruby
+[Active Record](https://guides.rubyonrails.org/active_record_basics.html) | A tool for facilitating
+the creation and use of business objects whose data requires persistent storage
+to a database
+[RSpec](https://github.com/rspec/rspec) | Behaviour Driven Development for Ruby
+[Capybara](https://github.com/teamcapybara/capybara#using-capybara-with-rspec) | Acceptance test framework for web applications
+[Code Climate](https://codeclimate.com/) | Automated code review for code quality and complexity
+
+## Test Coverage
+-------------
+
+17/18 tests passing, the final one passes when ran in isolation. 100% test coverage. 
+To run run the tests and see the test coverage input `rspec` in the root of the
+project's directory.
 
 ## User Stories
 ---------------
 
 ```
-
 As a Maker
 So that I can let people know what I am doing
 I want to post a message (chirrup) to Warbler
@@ -48,58 +101,3 @@ As a Maker
 So when I don't want to use Warbler anymore
 I want to delete my Warbler account
 ```
-
-## Requirements and Setup
---------
-
-- Requirements:
-
- 1. Ruby and RVM, please see https://rvm.io/rvm/install for installation instructions
- 2. PostgreSQL, please see http://www.postgresqltutorial.com/install-postgresql/ for installation instructions
-
-- Setup:
-
-Once your system has the above requirements installed, from your command line move to your project directory and run the following commands.
-
-1. To clone the repo:
-
-```
- git clone git@github.com:CKKH/chitter-challenge.git
- cd chitter-challenge
- bundle
-```
-
-2. To set up the databases and database tables:
-
-```
- rake db:create:all
- rake db:auto_migrate RACK_ENV=test
- rake db:auto_upgrade
-```
-
-3. Run locally:
-
-```
- rackup
-```
-
-4. Visit Warbler on your browser!
-
-## Technologies Used
---------------------
-- Ruby
-- Active Record
-- Sinatra
-- Postgresql
-- RSpec
-- Capybara
-
-## Test Coverage
--------------
-
-17/18 tests passing, the final one passes when ran in isolation. 100% test coverage. 
-To run run the tests and see the test coverage input 
-```
-rspec
-```
-from the root of the directory in your terminal.
