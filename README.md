@@ -32,12 +32,30 @@ So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ```
 
-### How to set up 
+### How to set up database
 
+Dev db: `psql -c '\c chitter;`
+
+Test db: `psql -c '\c chitter_test;`
+
+To generate tables, connect to the database and run below SQL:
+
+```
 CREATE TABLE peeps (
  id serial PRIMARY KEY,
- content VARCHAR (300) NOT NULL
-)
+ content VARCHAR (300) NOT NULL,
+ created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE users (
+ username VARCHAR (100) PRIMARY KEY,
+ password_hash VARCHAR (100) NOT NULL
+);
+```
+
+For app to connect to database, create the following environment variables:
+`CHITTER_DB_URL=putdevdbconnectionstringinhere
+export CHITTER_TEST_DB_URL=puttestdbconnectionstringinhere`
 
 Run `bundle install` to install dependencies (gems).
 
