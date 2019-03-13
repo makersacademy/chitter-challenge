@@ -1,16 +1,15 @@
-# Warbler Challenge
+# Chitter Challenge
 ---------------------
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/a006a0a831cefacf9f40/maintainability)](https://codeclimate.com/github/CKKH/chitter-challenge/maintainability)
 
-Building a Twitter clone webapp with TDD and Sinatra.
-
+TDDing a Twitter clone webapp with Sinatra, RSpec, and Capybara.
 
 ## Requirements
 ----------------
 
-### Essentials
---------------
+### System requirements
+-----------------------
 
  1. Ruby and RVM, please see https://rvm.io/rvm/install for installation instructions
  2. PostgreSQL, please see http://www.postgresqltutorial.com/install-postgresql/ for installation instructions
@@ -18,23 +17,28 @@ Building a Twitter clone webapp with TDD and Sinatra.
 ### Clone & build dependancies
 ------------------------------
 
-Once your system has the above requirements installed, from your command line move to your project directory and run the following commands.
-
-From your termainal, navigate to a suitable installation location (e.g. A project directory) and input the following commands:
+Once your system has the above requirements installed, from your command line move to your project directory and run the following commands:
 
 1. Clone the repository `git@github.com:CKKH/chitter-challenge.git`
 2. Change directory `cd chitter-challenge`
 4. Bundle dependencies `bundle`
-5. Set up the databases:
-   `rake db:create:all`
-   `rake db:auto_migrate RACK_ENV=test`
-   `rake db:auto_upgrade`
+5. Set up the test/development databases:
+   - `rake db:create:all`
+   - `rake db:auto_migrate RACK_ENV=test`
+   - `rake db:auto_upgrade`
 6. Run locally `rackup`
 
-### Using Warbler
------------------
+### Running Chitter
+-------------------
 
 Navigate to warbler via `local host:9292` in your browser.
+
+## Test results
+---------------
+
+17/18 tests passing, the final one passes when ran in isolation. 100% test coverage. 
+To run run the tests and see the test coverage input `rspec` in the root of the
+project's directory.
 
 ## Technologies used
 --------------------
@@ -43,19 +47,11 @@ Tech | Description
 ------------- | -------------
 [Ruby](https://www.ruby-lang.org/en/) | Main language
 [Sinatra](http://sinatrarb.com/) | DSL for quickly creating web apps in Ruby
-[Active Record](https://guides.rubyonrails.org/active_record_basics.html) | A tool for facilitating
-the creation and use of business objects whose data requires persistent storage
-to a database
-[RSpec](https://github.com/rspec/rspec) | Behaviour Driven Development for Ruby
+[RSpec](https://github.com/rspec/rspec) | Test Driven Development library for Ruby
 [Capybara](https://github.com/teamcapybara/capybara#using-capybara-with-rspec) | Acceptance test framework for web applications
+[Active Record](https://guides.rubyonrails.org/active_record_basics.html) | A tool for facilitating the creation and use of business objects whose data requires persistent storage to a database
 [Code Climate](https://codeclimate.com/) | Automated code review for code quality and complexity
 
-## Test Coverage
--------------
-
-17/18 tests passing, the final one passes when ran in isolation. 100% test coverage. 
-To run run the tests and see the test coverage input `rspec` in the root of the
-project's directory.
 
 ## User Stories
 ---------------
