@@ -31,4 +31,8 @@ class Peep
     @tstz = tstz
   end
 
+  def user(user_class = User)
+    user_class.where(id: @user_id)
+  end
+
 end

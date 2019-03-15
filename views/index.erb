@@ -16,7 +16,7 @@
       </form>
       <h3>Peepline:</h3>
       <% @peeps.each do |peep| %>
-        <li class="peep"> <%= peep.text %> posted by <%= @user_class.find(id: peep.user_id).username %> at <%= peep.tstz %></li>
+        <li class="peep"> <%= peep.text %> posted by <%= peep.user.username %> at <%= peep.tstz %></li>
       <% end %>
       <form action="/sessions/destroy" method="post">
         <input type="submit" value="Sign Out" />
