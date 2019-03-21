@@ -55,7 +55,6 @@ I really struggled to get into this project, despite being quite excited about i
 - email alerts
 - replying to peeps
 - better css styling
-- (I could keep adding to this for a long time)
 
 
 # APPENDIX
