@@ -1,8 +1,8 @@
 ENV['RACK_ENV'] ||= 'testing'
-	
+
+require './app.rb'
 require 'capybara/rspec'
 require 'database_cleaner'
-require './app'
 require './spec/support/database_cleaner'
 require './spec/features/web_helpers.rb'
 require 'simplecov'

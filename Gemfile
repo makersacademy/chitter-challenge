@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+ruby '2.5.3'
 
 gem 'datamapper'
 gem 'dm-postgres-adapter'
 gem 'pry'
 gem 'rake'
 gem 'rubocop', '0.56.0'
-gem 'sinatra'
+gem 'sinatra', require: false
 gem 'timecop'
 
 group :test do
