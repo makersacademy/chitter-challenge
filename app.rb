@@ -1,8 +1,8 @@
 require 'sinatra/base'
-class App < Sinatra::Base
+class Chitter < Sinatra::Base
   # enable :sessions
   # configure(:development) { set :session_secret, "something" }
-  get '/' do
+  get '/chitter' do
     erb(:index)
   end
 
