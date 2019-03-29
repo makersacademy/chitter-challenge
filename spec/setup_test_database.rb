@@ -1,5 +1,6 @@
 require 'pg'
 
-connection = PG.connect(dbname: 'chitter_app_test')
-
-connection.exec('TRUNCATE chitter;')
+def setup_test_database
+  connection = PG.connect(dbname: 'chitter_app_test')
+  connection.exec('TRUNCATE chitter;')
+end
