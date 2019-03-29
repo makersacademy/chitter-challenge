@@ -7,5 +7,10 @@
   </head>
   <body>
   <h1>Welcome to Chitter</h1>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li><%= bookmark %></li>
+    <% end %>
+  </ul>
   </body>
 </html>
