@@ -1,0 +1,8 @@
+<form action="/chitter/create" method="post">
+  Enter your peep here: <input type="text" name="peep"><br/>
+  <input type="submit" value="Post Peep!">
+</form>
+
+<% @messages.each do |message| %>
+Message: <%=message.text%> <br/><br/>
+<% end %>
