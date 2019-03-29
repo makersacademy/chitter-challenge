@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require './lib/message.rb'
-# require 'pg'
+
 
 class Chitter < Sinatra::Base
   get '/chitter_feed' do
