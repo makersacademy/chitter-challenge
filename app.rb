@@ -12,18 +12,18 @@ class App < Sinatra::Base
   enable :method_override
 
   get '/' do
+    session[:error] ||= nil
+    @error = session[:error]
     @messages = Message.all
     erb :index
   end
 
   post '/message' do
-    message = Message.create({ :content => params[:message] })
-    message.tag(message.content)
+    session[:error] = "Sign up to post messages! "
     redirect '/'
   end
 
   get '/signup' do
-    session[:error] ||= nil
     @error = session[:error]
     erb :signup
   end
