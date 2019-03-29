@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base 
     get '/' do 
@@ -6,12 +7,8 @@ class Chitter < Sinatra::Base
     end 
 
     get '/peepfeed' do
-        peeps = [
-        "peep1",
-       "peep2",
-       "peep3"
-        ]
-        peeps.join(" ")
+        @peeps = Peep.all
+        erb :index 
     end
 
     run! if app_file == $0
