@@ -18,10 +18,9 @@ class ChitterApp < Sinatra::Base
 
   post '/chitter' do
     content = params['content']
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("INSERT INTO chitter (name, handle, time, content) VALUES ('someone', 'no username', CURRENT_TIMESTA
-MP, '#{content}');")
-    redirect '/bookmarks'
+    connection = PG.connect(dbname: 'chitter_app_test')
+    connection.exec("INSERT INTO chitter (name, handle, time, content) VALUES ('someone', 'no username', CURRENT_TIMESTAMP, '#{content}');")
+    redirect '/chitter'
   end
 
   run! if app_file == $PROGRAM_NAME
