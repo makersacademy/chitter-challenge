@@ -13,7 +13,7 @@ SimpleCov.start
 #Capybara set up:
 
 ENV['RACK_ENV'] = 'test'
-ENV['ENVIRONMENT'] = 'test'
+# ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -24,7 +24,7 @@ require 'rspec'
 Capybara.app = Chitter
 
 # clears chitter_manager_test before each test
-require_relative './setup_test_database.rb'
+require './spec/setup_test_database.rb'
 
 ENV['ENVIRONMENT'] = 'test'
 
@@ -33,8 +33,6 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
-
-
 
 RSpec.configure do |config|
   config.after(:suite) do

@@ -8,9 +8,8 @@ class Message
       connection = PG.connect(dbname: 'chitter_manager')
     end
 
-    connection = PG.connect(dbname: 'chitter_manager')
     result = connection.exec("SELECT * FROM messages;")
-    result.map { |messages| messages['message'] }
+    result.map { |messages| messages['message'] }.reverse
   end
 
   def self.post(message:)
@@ -20,6 +19,6 @@ class Message
       connection = PG.connect(dbname: 'chitter_manager')
     end
 
-    connection.exec("INSERT INTO messages (message) VALUES ('#{:message}');")
+    connection.exec("INSERT INTO messages (message) VALUES ('#{message}');")
   end
 end
