@@ -1,12 +1,23 @@
+<br/>
+<h1>Welcome to Chitter!</h1>
+
 <form action="/chitter/create" method="post">
-  Enter your peep here: <input type="text" name="text"><br/>
+  <h2>Enter your peep here:</h2>
+  <input type="text" name="text"><br/>
+  <br/>
   <input type="submit" value="Post Peep!">
 </form>
 
 <div>
 <% @messages.each do |message| %>
 <div class=message>
-  <%=DateTime.parse(message.date).strftime("%A %d/%m/%Y %R")%> Message: <%=message.text%> <br/><br/>
+      <br/>
+      <%=DateTime.parse(message.date).strftime("%A %d/%m/%Y %R")%> PEEP: <%=message.text%>
 </div>
 <% end %>
 </div>
+
+<form action="/chitter/sign_up" method="get">
+  <br/>
+  <input type="submit" value="Sign Up to Chitter">
+</form>

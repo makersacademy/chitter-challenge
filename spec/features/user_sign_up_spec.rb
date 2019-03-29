@@ -1,4 +1,15 @@
 feature 'User can sign up' do
+  scenario 'When user visits the home page they can see the sign-up button' do
+    visit '/chitter'
+    expect(page).to have_button "Sign Up to Chitter"
+  end
+
+  scenario 'When user selects the sign-up button from the home page' do
+    visit '/chitter'
+    click_button "Sign Up to Chitter"
+    expect(page).to have_content "Welcome to Chitter Sign-Up!"
+  end
+
   scenario 'When user visits the sign-up page they see the correct fields' do
     visit '/chitter/sign_up'
     expect(page).to have_content "Welcome to Chitter Sign-Up!"
