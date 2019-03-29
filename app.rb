@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 require './models/message'
 require './models/user'
+require 'sinatra/flash'
 
 set :database_file, 'config/database.yml'
 
@@ -10,22 +11,20 @@ class App < Sinatra::Base
 
   enable :sessions
   enable :method_override
+  register Sinatra::Flash
 
   get '/' do
-    session[:error] ||= nil
-    @error = session[:error]
     @users = User.all
     @messages = Message.all
     erb :index
   end
 
   post '/message' do
-    session[:error] = "Sign up to post messages! "
+    flash[:sign_up_error] = "Sign up to post messages! "
     redirect '/'
   end
 
   get '/signup' do
-    @error = session[:error]
     erb :signup
   end
 
@@ -39,13 +38,12 @@ class App < Sinatra::Base
     if session[:id] != nil
       redirect '/profile/:id/home'
     else
-      session[:error] = "Email already in use!! Try logging in..."
+      flash[:email_error] = "Email already in use!! Try logging in..."
       redirect '/signup'
     end
   end
 
   get '/login' do
-    @error = session[:error]
     erb :login
   end
 
@@ -55,7 +53,7 @@ class App < Sinatra::Base
       session[:id] = @user.id
       redirect '/profile/:id/home'
     else
-      session[:error] = 'Incorrect details'
+      flash[:details_error] = 'Incorrect details'
       redirect '/login'
     end
   end
@@ -63,6 +61,7 @@ class App < Sinatra::Base
   get '/profile/:id/home' do
     if signed_in?
       @id = session[:id]
+      @users = User.all
       @user = User.find(@id)
       @messages = Message.all
       erb :profile

@@ -6,7 +6,7 @@ require 'sinatra/flash'
 require 'rack'
 require 'rake'
 require 'database_cleaner'
-
+require 'sinatra/flash'
 require './app'
 
 Capybara.app = App

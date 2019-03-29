@@ -15,10 +15,16 @@ feature 'A user can post a message' do
     expect(page).to have_content('third test')
   end
 
-  scenario 'A User can see who posted a message' do
+  scenario 'A User can see who posted a message on the home page' do
     post_a_message
     visit('/')
     expect(page).to have_content('The Crimson King')
   end
+
+  scenario 'A User can see who posted a message on their profile page' do
+    post_a_message
+    expect(page).to have_content(': | The Crimson King')
+  end
+
 
 end
