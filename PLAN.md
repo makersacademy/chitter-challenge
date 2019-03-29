@@ -12,8 +12,10 @@
   [] implementing CRUD
     [] C [] R [] U [] D
     [] Read (Chitter.all)
-      [] feature tests
-      [] insert few peeps
+      [x] feature tests
+      [x] insert few peeps
+      [x] pass feature test
+      [x] refactor
       [] TDD to implement PG and retrieve peeps from database - unit test for chitter.rb
     [] Create
       [] feature test
