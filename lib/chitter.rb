@@ -1,5 +1,9 @@
+require 'pg'
+
 class Chitter
   def self.all
-    ["peep_1", "peep_2", "peep_3"]
+    connection = PG.connect(dbname: 'chitter_app')
+    result = connection.exec("SELECT * FROM chitter;")
+    result.map { |peep| peep['content']}
   end
 end
