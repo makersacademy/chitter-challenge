@@ -41,4 +41,16 @@ feature 'viewing messages on chitter' do
       expect(page).to have_content "Today is Friday"
     end
   end
+
+  scenario 'viewing the timestamp' do
+    message = Message.create(text: "Today is Friday")
+    display_time = DateTime.parse(message.date).strftime("%A %d/%m/%Y %R")
+
+    visit '/chitter'
+
+    within "div.message:nth-child(1)" do
+      expect(page).to have_content "#{display_time}"
+      expect(page).to have_content "Today is Friday"
+    end
+  end
 end

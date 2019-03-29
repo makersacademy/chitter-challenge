@@ -6,7 +6,7 @@
 <div>
 <% @messages.each do |message| %>
 <div class=message>
-  Date of Peep: <%=message.date%> Message: <%=message.text%> <br/><br/>
+  <%=DateTime.parse(message.date).strftime("%A %d/%m/%Y %R")%> Message: <%=message.text%> <br/><br/>
 </div>
 <% end %>
 </div>
