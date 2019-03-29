@@ -16,9 +16,7 @@ describe DatabaseConnection do
   describe '.query' do
     it 'executes a query via PG' do
       connection = DatabaseConnection.setup('chitter')
-
       expect(connection).to receive(:exec).with("SELECT * FROM peeps;")
-
       DatabaseConnection.query("SELECT * FROM peeps;")
     end
   end
