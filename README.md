@@ -1,3 +1,10 @@
+## Database setup
+
+- `CREATE DATABASE chitter;`
+- `CREATE DATABASE chitter_test;`
+
+
+
 Chitter Challenge
 =================
 
