@@ -1,0 +1,2 @@
+CREATE TABLE chitter(id SERIAL PRIMARY KEY, name VARCHAR(60), handle VARCHAR(15), time TIMESTAMP, content VARCHAR(140))
+;

@@ -3,9 +3,9 @@
   [x] Domain model
   [x] Set up the project
   [] Set up databases
-    [] migrations folder
-    [] "chitter" (id, name, handle, time, content [max length=140])
-      [] 01 migration route
+    [x] migrations folder
+    [x] "chitter" (id, name, handle, time, content [max length=140])
+      [x] 01 migration file
     [] "chitter_test" (id, name, handle, time, content [max length=140])
       [] 02 migration route
     [] database_helper
