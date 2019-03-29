@@ -1,0 +1,41 @@
+body {
+  font-family: tahoma;
+  width: 75%;
+  margin: auto;
+  background-color: lightgrey;
+  text-align: center;
+  vertical-align: middle;
+}
+h1 {
+  color: #ffbb99;
+  text-align: center;
+}
+h2 {
+  color: silver;
+  text-align: center;
+}
+p {
+  color: red;
+}
+input[type=text] {
+  border-radius: 25px;
+  text-align: center;
+  background-color: #ffeecc;
+  font-size: 25px;
+}
+input[type=submit] {
+  border-radius: 25px;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  color: #ffbb99;
+  background-color: #ffffe6;
+}
+input[type=select]{
+  font-size: 30px;
+}
+
+#details{
+  color: silver;
+  text-align: center;
+}

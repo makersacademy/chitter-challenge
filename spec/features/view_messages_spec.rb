@@ -7,7 +7,7 @@ feature 'viewing messages on chitter' do
   end
 
   scenario 'viewing messages in chronological order' do
-    message = Message.create(text: "Tomorrow is Saturday")
+    Message.create(text: "Tomorrow is Saturday")
     Message.create(text: "Yesterday was Thursday but this peep was second")
 
     visit '/chitter'
