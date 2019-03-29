@@ -6,10 +6,9 @@ feature 'Viewing peeps' do
   end
 
   scenario 'a user can see peeps' do
-    connection = PG.connect(dbname: 'chitter_app_test')
-    connection.exec("INSERT INTO chitter (name, handle, time, content) VALUES ('masha', 'user_masha', CURRENT_TIMESTAMP, 'peep1');")
-    connection.exec("INSERT INTO chitter (name, handle, time, content) VALUES ('masha', 'user_masha', CURRENT_TIMESTAMP, 'peep2');")
-    connection.exec("INSERT INTO chitter (name, handle, time, content) VALUES ('masha', 'user_masha', CURRENT_TIMESTAMP, 'peep3');")
+    Chitter.create(content: 'peep1')
+    Chitter.create(content: 'peep2')
+    Chitter.create(content: 'peep3')
 
     visit('/')
 
