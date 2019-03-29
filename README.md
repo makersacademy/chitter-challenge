@@ -78,8 +78,7 @@ I worked through to the ability for users to post to each others walls and see t
   - Further associating a message board with the user, so a user can only see posts on their wall and if they go to someone elses profile they can post messages to that board.
   - A profiles list of who is available to message would be needed to enact the above.
   - Refactor to use in built sinatra flash messages to get out of the cheap work around of assigning an error message to a session. Would aim to get the validation messages showing as they currently exist in the DB.
-  
-  - Make it so you have to be logged in to post a message, removing.
+
   - Password encryption
   - Validations and error messages
 
