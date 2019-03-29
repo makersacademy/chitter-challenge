@@ -10,13 +10,13 @@
       [] 02 migration route
     [] database_helper
   [] implementing CRUD
-    [] C [] R [] U [] D
-    [] Read (Chitter.all)
+    [] C [x] R [] U [] D
+    [x] Read (Chitter.all)
       [x] feature tests
       [x] insert few peeps
       [x] pass feature test
       [x] refactor
-      [] TDD to implement PG and retrieve peeps from database - unit test for chitter.rb
+      [x] TDD to implement PG and retrieve peeps from database - unit test for chitter.rb
     [] Create
       [] feature test
       [] pass the feature test
