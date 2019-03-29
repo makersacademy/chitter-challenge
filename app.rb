@@ -27,7 +27,14 @@ class Chitter < Sinatra::Base
     surname = params[:surname]
     username = params[:username]
 
-    User.create(email: email, password: password, first_name: first_name, surname: surname, username: username)
+    begin # error handling for uniqueness
+      User.create(email: email, password: password, first_name: first_name, surname: surname, username: username)
+    rescue
+      @message = "The username or email address you entered is already in use"
+    else
+      @message = "Thank you, you have successfully signed up"
+    ensure
+    end
     erb :'chitter/thank_you'
   end
 end
