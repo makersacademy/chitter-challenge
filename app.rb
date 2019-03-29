@@ -14,6 +14,7 @@ class App < Sinatra::Base
   get '/' do
     session[:error] ||= nil
     @error = session[:error]
+    @users = User.all
     @messages = Message.all
     erb :index
   end

@@ -3,7 +3,7 @@ require_relative 'web_helper'
 feature 'A user can post a message' do
   scenario 'A user posts and then sees the message' do
     post_a_message
-    
+
     expect(page).to have_content('first test')
 
   end
@@ -13,6 +13,12 @@ feature 'A user can post a message' do
 
     expect(page).to have_content('second test')
     expect(page).to have_content('third test')
+  end
+
+  scenario 'A User can see who posted a message' do
+    post_a_message
+    visit('/')
+    expect(page).to have_content('The Crimson King')
   end
 
 end

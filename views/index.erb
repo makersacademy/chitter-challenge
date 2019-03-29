@@ -19,7 +19,13 @@
 </div>
 <div>
 <% @messages.reverse.each do |message| %>
-<%= message.created_at %> | : : : | <%= message.content %><br><br>
+<%= message.created_at %> | : : : | <%= message.content %> | : : : |
+ <% @users.each do |user| %>
+   <% if user.id == message.user_id %>
+     <%= user.username %>
+      <% end %>
+  <% end %>
+     <br><br>
 
 <% end %>
 
