@@ -6,21 +6,20 @@
     [x] migrations folder
     [x] "chitter" (id, name, handle, time, content [max length=140])
       [x] 01 migration file
-    [] "chitter_test" (id, name, handle, time, content [max length=140])
-      [] 02 migration route
+    [x] "chitter_test" (id, name, handle, time, content [max length=140])
     [] database_helper
   [] implementing CRUD
-    [] C [x] R [] U [] D
+    [x] C [x] R [] U [] D
     [x] Read (Chitter.all)
       [x] feature tests
       [x] insert few peeps
       [x] pass feature test
       [x] refactor
       [x] TDD to implement PG and retrieve peeps from database - unit test for chitter.rb
-    [] Create
-      [] feature test
-      [] pass the feature test
-      [] refactor dummy data insertion
+    [x] Create
+      [x] feature test
+      [x] pass the feature test
+      [x] refactor dummy data insertion
     [] Delete
       [] feature test
       [] pass the feature test
