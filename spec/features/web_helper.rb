@@ -1,5 +1,11 @@
 def post_a_message
   visit '/'
+  click_on 'Sign Up'
+  fill_in('Name', with: 'Magnus')
+  fill_in('Username', with: 'The Crimson King')
+  fill_in('Email', with: 'Magnus@1000sons.co.pr')
+  fill_in('Password', with: 'ilovemagic')
+  click_on 'Sign Up'
   fill_in('message', with: 'first test')
   click_on 'Submit'
 end
@@ -29,6 +35,12 @@ end
 
 def post_two_messages
   visit '/'
+  click_on 'Sign Up'
+  fill_in('Name', with: 'Magnus')
+  fill_in('Username', with: 'The Crimson King')
+  fill_in('Email', with: 'Magnus@1000sons.co.pr')
+  fill_in('Password', with: 'ilovemagic')
+  click_on 'Sign Up'
   fill_in('message', with: 'second test')
   click_on 'Submit'
   fill_in('message', with: 'third test')
