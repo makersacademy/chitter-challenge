@@ -10,4 +10,11 @@ describe Message do
       expect(messages).to include("Hi, my name is Riya")
     end
   end
+
+  describe '.post' do
+    it 'should post a message on the feed' do
+      Message.post(message: "Hi, my name is Riya")
+      expect(Message.all). to include "Hi, my name is Riya"
+    end
+  end
 end
