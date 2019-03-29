@@ -13,13 +13,13 @@ describe DatabaseConnection do
     end
   end
 
-  # describe '.query' do
-  #   it 'executes a query via PG' do
-  #     connection = DatabaseConnection.setup('bookmark_manager_test')
+  describe '.query' do
+    it 'executes a query via PG' do
+      connection = DatabaseConnection.setup('chitter')
 
-  #     expect(connection).to receive(:exec).with("SELECT * FROM bookmarks;")
+      expect(connection).to receive(:exec).with("SELECT * FROM peeps;")
 
-  #     DatabaseConnection.query("SELECT * FROM bookmarks;")
-  #   end
-  # end
+      DatabaseConnection.query("SELECT * FROM peeps;")
+    end
+  end
 end
