@@ -2,7 +2,7 @@ require 'message'
 
 describe Message do
   it 'creates a message in the database' do
-    expect(Message.create(text: "This is my first tweet")).to have_attributes(:text => "This is my first tweet")
+    expect(Message.create(text: "This is my first peep")).to have_attributes(:text => "This is my first peep")
   end
 
   it 'returns current messages' do
