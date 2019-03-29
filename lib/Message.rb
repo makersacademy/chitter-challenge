@@ -1,5 +1,5 @@
 class Message
-  attr_reader :text
+  attr_reader :text, :id, :date, :user_id
   def initialize(id:, text:, date:, user_id:)
     @id = id
     @text = text
@@ -13,7 +13,11 @@ class Message
   end
 
   def self.all
-    results = DatabaseConnection.query("SELECT * FROM messages;")
+    results = DatabaseConnection.query("SELECT * FROM messages ORDER BY date DESC;")
     results.map { |message| Message.new(id: message['id'], text: message['text'], date: message['date'], user_id: message['user_id']) }
+  end
+
+  def self.update(text:, id:)
+    DatabaseConnection.query("UPDATE messages SET text = '#{text}' WHERE id = #{id};")
   end
 end

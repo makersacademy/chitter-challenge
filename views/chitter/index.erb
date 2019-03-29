@@ -3,6 +3,10 @@
   <input type="submit" value="Post Peep!">
 </form>
 
+<div>
 <% @messages.each do |message| %>
-Message: <%=message.text%> <br/><br/>
+<div class=message>
+  Date of Peep: <%=message.date%> Message: <%=message.text%> <br/><br/>
+</div>
 <% end %>
+</div>
