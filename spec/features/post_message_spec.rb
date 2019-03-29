@@ -5,7 +5,6 @@ feature 'A user can post a message' do
     post_a_message
 
     expect(page).to have_content('first test')
-
   end
 
   scenario 'A user can see all previous messages' do
@@ -25,6 +24,5 @@ feature 'A user can post a message' do
     post_a_message
     expect(page).to have_content(': | The Crimson King')
   end
-
 
 end
