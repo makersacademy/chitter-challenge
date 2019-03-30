@@ -55,16 +55,32 @@ Peep | .all
 
 ------
 
-
+### User story 3 - See time of peep
 
 ```
-User story 3: See time of peep
-------------------------------
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+```
 
 
+#### Object model
+
+Object | Messages
+--------------- | --------------------
+Maker | 
+Peep | .create
+Peep | .all
+
+
+#### Feature breakdown
+
+1. Can view time of peep
+
+
+------
+
+```
 User story 4: Sign-up
 ---------------------
 As a Maker
