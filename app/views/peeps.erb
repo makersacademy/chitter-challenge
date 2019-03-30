@@ -1,9 +1,45 @@
 <h1>Chitter app - Peeps</h1>
 
+<% if !@user %>
+<form action="/sessions/new" method = 'post'>
+<input type="submit" name="type" value="login">
+<input type="submit" name="type" value="signup">
+</form>
+<%end%>
+
+<% if @user %>
+
+<form action = "/sessions/destroy", method = 'post'>
+  <input type="submit" value = "Log out">
+</form>
+
+<form action = "/peeps/new">
+  <input type = "submit" name = "send" value = "New peep">
+</form>
+
+<h2>Welcome <%= @user.username%> </h2>
+<%end%>
+
+<form action='/' method = 'post'>
+
+</form>
+
+<%# must see user and handel %>
+
 <% @peeps.each do |peep| %>
-  <%= @user.name %>
-  <%= peep.timestamp %>
+
+  <%= peep['name'] %>
+  <%= peep['username'] %>
+  <%= peep['peep_time'] %>
   <br>
-  <%= peep.peep %>
+  <%= peep['peep'] %>
+  <br>
   <br>
 <%end%>
+
+
+<form action="/peeps/new" method = 'post'>
+
+
+</form>
+

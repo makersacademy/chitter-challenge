@@ -10,15 +10,13 @@ class Peep
 
   def self.create(user_id:, peep:)
     sql = "INSERT INTO peeps (user_id, peep) VALUES ('#{user_id}', '#{peep}') RETURNING id, user_id, peep, peep_time"
-    
     result = DatabaseConnection.query(sql).first
-    
     Peep.new(user_id: result['user_id'], peep: result['peep'], timestamp: result['peep_time'])
   end
 
   def self.all
-    result = DatabaseConnection.query("Select * FROM peeps")
-    result.map { |peep| Peep.new(user_id: peep['user_id'], peep: peep['peep'], timestamp: peep['timestamp'])}
+    sql = "SELECT users.name, users.username, peeps.peep, peeps.peep_time FROM peeps JOIN users ON peeps.user_id = users.id ORDER BY peeps.peep_time DESC "
+    result = DatabaseConnection.query(sql)
   end
 
 end

@@ -17,9 +17,7 @@ describe Peep do
         peep = Peep.create(user_id: user.id , peep: 'Some peep 0')
         peep = Peep.create(user_id: user.id , peep: 'Some peep 1')
         peep = Peep.create(user_id: user.id , peep: 'Some peep 2')
-
-        expect(Peep.all.length).to eq 3
-        expect(Peep.all.first.peep).to eq 'Some peep 0'
+        expect(Peep.all[0]['peep']).to eq 'Some peep 2'
       end
 
     end

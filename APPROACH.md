@@ -160,6 +160,14 @@ Step 7 - connect sinatra to external app
 Step 8
 
 - Feature test creating a user
-- Implement creationg of a user - log in
-- Feature test adding and seeing a record
+- Implement creation of a user - log in
 - Add BYcript for saving password
+- Feature test log in with correct password
+- Feature test log in with incorrect password
+
+Step 9
+
+- Feature test adding and seeing a record
+- Create the views and the routes to pass the test
+
+Step 10

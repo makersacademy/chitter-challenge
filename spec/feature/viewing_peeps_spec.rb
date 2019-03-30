@@ -1,8 +1,12 @@
+# As a Maker
+# So that I can let people know what I am doing  
+# I want to post a message (peep) to chitter
+
 # Testing the viewing of pees when user hits '/' route
 
 feature 'Viewing peeps' do
 
-  scenario 'user sees name, handle, peep, timestamp ot peeps when visiting the peeps page' do
+  scenario 'user sees name, username, peep, timestamp' do
     
     user = User.create(name: 'My_name', username: 'My_username', email: 'someemail@gmail.com', password: 'fefwefwe')
     Peep.create(user_id: user.id , peep: "Hello world")
@@ -12,7 +16,6 @@ feature 'Viewing peeps' do
 
     expect(page).to have_content 'Hello world'
     expect(page).to have_content 'Hello world again'
-    expect(page).to have_content 'My_name'
-
+  
   end
 end
