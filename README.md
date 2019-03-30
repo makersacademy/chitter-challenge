@@ -4,7 +4,7 @@ Chitter Challenge
 Challenge:
 -------
 
-I am going to write a small Twitter clone that will allow the users to post messages to a public stream.
+I am going to build a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
