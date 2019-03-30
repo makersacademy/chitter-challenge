@@ -7,7 +7,13 @@ development_db = ENV['DEVELOPMENT_DATABASE']
 test_db = ENV['TEST_DATABASE']
 host = ENV['HOST']
 
-DataMapper.setup(:default,
-                 "postgres://#{user}:#{password}@#{host}/#{test_db}")
+if ENV['RACK_ENV'] == 'test'
+  DataMapper.setup(:default,
+                   "postgres://#{user}:#{password}@#{host}/#{test_db}")
+else
+  DataMapper.setup(:default,
+                   "postgres://#{user}:#{password}@#{host}/#{development_db}")
+end
+
 DataMapper.finalize
 DataMapper.auto_upgrade!
