@@ -157,3 +157,26 @@ Tests can be run from the root directory using:
 2. Add initial peeps to `peep_messages` table by running the sql script `02_add_peeps.sql`
 3. Run in pSQL by doing `\i db/migrations/02_add_peeps.sql` from the root directory of the repository
 
+### Creating a test database for chitter app
+
+1. Enter `psql` to connect to the database server
+2. `CREATE DATABASE "chitter_app_test";` will create a test database
+3. Run the SQL script `\i db/migrations/01_peep_messages_table.sql;` to create an empty peep_messages table in the test database
+4. Ensure you include `ENV['ENVIRONMENT'] = 'test'` in your `spec_helper.rb` file and check that the peep class is pointing to the correct database
+5. 
+
+```ruby
+
+# Set to test environment
+ENV['ENVIRONMENT'] = 'test'
+
+# Configuration of test db
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
+
+```
+
