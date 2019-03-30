@@ -1,17 +1,17 @@
-require_relative 'database_connection'
+require_relative './database_connection'
 
 class Peep
-  attr_reader :id, :peep, :timestamp
+  attr_reader :id, :message, :timestamp
 
-  def initialize(id: id,peep: peep, timestamp: timestamp)
+  def initialize(id: id, message: message, timestamp: timestamp)
     @id = id
-    @peep = peep
+    @message = message
     @timestamp = timestamp
   end
 
-  def self.create(peep:)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep, timestamp;")
-    Peep.new(id: result[0]['id'], peep: result[0]['peep'], timestamp: Time.parse(result[0]['timestamp']))
+  def self.create(message:)
+    result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{message}') RETURNING id, message, timestamp;")
+    Peep.new(id: result[0]['id'], message: result[0]['message'], timestamp: Time.parse(result[0]['timestamp']))
 
   end
 end

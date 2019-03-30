@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require './lib/peep.rb'
+require './spec/database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -10,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    @peep = params[:peep]
+    @peep = Peep.create(peep: params[:peep]).peep
     erb :'chitter/index'
   end
 
