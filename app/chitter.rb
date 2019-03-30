@@ -22,6 +22,7 @@ class Chitter < Sinatra::Base
     Peep.create(user_id: @user.id, peep: "Hello world - This is Mike")
     @peeps = Peep.all
     erb :peeps
+    
   end
 
   #run! if app_file = $0
