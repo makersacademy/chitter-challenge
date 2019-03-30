@@ -1,6 +1,6 @@
 <% @peeps.each do |peep| %>
   <div>
-    <%= peep['content'] %>
+    <%= peep.content %>
   </div>
 <% end %>
 <form action="/peep" method="post">

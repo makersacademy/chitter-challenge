@@ -13,4 +13,20 @@ describe Peep do
       expect(peep.content).to eq 'This is a new peep'
     end
   end
+
+  describe '.all' do
+    it 'Returns all peeps in reverse order' do
+      connection = PG.connect(dbname: 'chitter_test')
+      Peep.create('First peep')
+      Peep.create('Second peep')
+      peep = Peep.create('Third peep')
+
+      peeps = Peep.all
+
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.content).to eq "Third peep"
+    end
+  end
 end

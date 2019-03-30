@@ -3,10 +3,19 @@ require 'pg'
 class Peep
   def self.create(content)
     connection = PG.connect(dbname: 'chitter_test')
-    result = connection.exec("INSERT INTO peeps (content)
+    results = connection.exec("INSERT INTO peeps (content)
                               VALUES ('#{content}')
                               RETURNING id, content;")
-    new(id: result[0]['id'], content: result[0]['content'])
+    new(id: results[0]['id'], content: results[0]['content'])
+  end
+
+  def self.all
+    connection = PG.connect(dbname: 'chitter_test')
+    results = connection.exec("SELECT * FROM peeps
+                              ORDER BY id;")
+    results.map do |result|
+      new(id: result['id'], content: result['content'])
+    end.reverse
   end
 
   attr_reader :id, :content
