@@ -10,14 +10,18 @@
 
       <h1>Welcome to Chitter</h1>
 
-      <div1>
+      <div>
         <h2>Peepdeck</h2>
         <center>
+
+          <div align="right">
+            <a href="/message/new">Compose Peep</a>
+          </div>
         <% @peepdeck.each do |peep| %>
             <li><%= peep %></li>
           <% end %>
           <center>
-      </div1>
+      </div>
 
   </body>
 </html>

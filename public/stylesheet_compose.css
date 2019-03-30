@@ -3,16 +3,12 @@ body {
 }
 
 h1 {
-  text-align: left;
+  text-align: center;
   color: green;
   text-transform: uppercase;
 }
 
 h2 {
-  text-align: center;
-  color: green;
-}
-
-div {
+  text-align: cleft;
   color: red;
 }
