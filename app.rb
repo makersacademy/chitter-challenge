@@ -6,8 +6,11 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/chitter' do
     @messages = Message.all
+    @user = session[:user]
     erb :'chitter/index'
   end
 
@@ -27,14 +30,32 @@ class Chitter < Sinatra::Base
     surname = params[:surname]
     username = params[:username]
 
-    begin # error handling for uniqueness
-      User.create(email: email, password: password, first_name: first_name, surname: surname, username: username)
-    rescue
-      @message = "The username or email address you entered is already in use"
-    else
+    user = User.create(email: email, password: password, first_name: first_name, surname: surname, username: username)
+    if user
       @message = "Thank you, you have successfully signed up"
-    ensure
+    else
+      @message = "The username or email address you entered is already in use"
     end
     erb :'chitter/thank_you'
+  end
+
+  get '/chitter/sessions/new' do
+    erb :'chitter/sessions'
+  end
+
+  post '/chitter/sessions/new' do
+    user = User.authenticate(username: params[:username], password: params[:password])
+    if user
+      session[:user] = user
+      redirect '/chitter'
+    else
+      redirect 'chitter/sessions/new'
+      # Needs an error message to be displayed
+    end
+  end
+
+  get '/chitter/sessions/destroy' do
+    session.clear
+    redirect 'chitter'
   end
 end
