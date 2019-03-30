@@ -1,6 +1,11 @@
 <% @peeps.each do |peep| %>
-  <div>
-    <%= peep.content %>
+  <div class="peep">
+    <div class="peep_content">
+      <%= peep.content %>
+    </div>
+    <div class="datestamp">
+      <%= peep.created_at.strftime('%F %H:%M%P') %>
+    </div>
   </div>
 <% end %>
 <form action="/peep" method="post">
