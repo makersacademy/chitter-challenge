@@ -2,8 +2,6 @@
 # So that I can let people know what I am doing  
 # I want to post a message (peep) to chitter
 
-require_relative "../../app.rb"
-
 feature "Posting peeps" do
   scenario "a user can add message to form" do
     visit "/peeps/new"

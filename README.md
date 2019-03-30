@@ -32,6 +32,14 @@ This Sinatra web app allows users post to and read from a feed of posted message
 2. `git clone git@github.com:<userName>/chitter-challenge.git` onto your local machine
 
 
+## Database setup instructions
+
+1. Connect to psql in terminal `psql postgres`
+2. Run `CREATE DATABASE chitter;`
+3. Run `psql \c chitter;` (to connect to new db)
+4. Create `peeps` table using the query saved in the file `01_create_peeps_table.sql`
+
+
 ## Steps to run
 
 1. Run `ruby app.rb` or `rackup -p 4567` in root project directory
@@ -69,6 +77,10 @@ Run `rspec` directly in root of your local project
 9. Refactors infra test and message to homepage welcome message
 
 10. Test drive first user story (posting a peep) using Capybara feature tests and Rspec unit tests
+    - `peeps/new` GET route
+    - postgres db and peeps table setup
+    - extract `peep` class, requiring `pg` gem
+    - `peeps/new` POST route
 
 <!-- Update the following -->
 

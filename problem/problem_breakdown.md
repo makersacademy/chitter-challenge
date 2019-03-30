@@ -50,7 +50,7 @@ Peep | .all
 
 1. Can view all peeps
 
-2. POST peep
+2. Can view all peeps in correct order
 
 
 ------
