@@ -45,6 +45,24 @@ Step 5
   - user table
   - one to many relationship
 
+User table:
+
+- id
+- name
+- username - UNIQ
+- email - UNIQ
+- pass
+
+Peeps table:
+
+- id serial PRIMARY KEY
+- user_id int
+- peep - varchar(240)
+- timestamp (i need the time) - timestamp NOT NULL DEFAULT NOW();
+- FOREIGN KEY user_id REFERENCES user(id)
+
+Credentials table: LATER
+
 2. User can see all messages in reverse chronological order - older at the top
 
 - add a user to the db - create user command
@@ -121,10 +139,24 @@ Step 7 - connect sinatra to external app
 
 - Start with 2 databases: peeps and user - in the chitter database
 - Replicate this database in a test database format
+- TDD the creation of a user class
+- Create user class with attributes from unit test
+- TDD the creation of a Object Relational mapping - Object to interact with the database: database_connection.rb
+
+  - class method setup
+  - class method query - adds user and peep test and implementation
+
+- TDD the move of logic of adding to the database in the class method
+
+  - User.create
+  - Peep.create
+  - Peep.query - get all peeps out
+
+- Create helper method to get 1 record out of the table - for testing purposes
 - Set up testing environment to switch between test database and development database based on running a test or running the app
 - Set up script to switch between env when app loads
 - Set up script to clean testing database when running tests
 
 Step 8
 
-- TDD adding and retrieving a record
+- Feature test adding and seeing a record

@@ -7,18 +7,16 @@ feature 'Viewing peeps' do
   end
 
   scenario 'user sees name, handle, peep, timestamp ot peeps when visiting the peeps page' do
-    visit '/peeps'
     
-    expect(page).to have_content 'Chitter app - Peeps'
-    expect(page).to have_content 'Cosmin'
-    expect(page).to have_content 'John'
-    expect(page).to have_content 'Mike'
-    expect(page).to have_content '@micosmin'
-    expect(page).to have_content '@mike'
-    expect(page).to have_content '@john'
+    user = User.create(name: 'My_name', username: 'My_username', email: 'someemail@gmail.com', password: 'fefwefwe')
+    Peep.create(user_id: user.id , peep: "Hello world")
+    Peep.create(user_id: user.id , peep: "Hello world again")
+    
+    visit '/peeps'
+
     expect(page).to have_content 'Hello world'
-    expect(page).to have_content 'Hello world - This is John'
-    expect(page).to have_content 'Hello world - This is Mike'
-    expect(page).to have_content '10m'
+    expect(page).to have_content 'Hello world again'
+    expect(page).to have_content 'My_name'
+
   end
 end

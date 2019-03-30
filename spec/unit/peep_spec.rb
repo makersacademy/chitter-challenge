@@ -1,14 +1,13 @@
 require 'peep'
+require 'user' 
 
 describe Peep do
 
-    describe 'create a Peep instance' do
+    describe 'create a Peep' do
       it 'when sending the create message to Peep class' do
-        peep = Peep.create(name: 'Cosmin', handle: '@micosmin', peep:'Hello world', timestamp:'10m')
-        expect(peep.name).to eq 'Cosmin'
-        expect(peep.handle).to eq '@micosmin'
-        expect(peep.peep).to eq 'Hello world'
-        expect(peep.timestamp).to eq '10m'
+        user = User.create(name: 'My_name', username: 'My_username', email: 'someemail@gmail.com', password: 'fefwefwe')
+        peep = Peep.create(user_id: user.id , peep: 'Some peep')
+        expect(peep.peep).to eq 'Some peep'
 
       end
     end

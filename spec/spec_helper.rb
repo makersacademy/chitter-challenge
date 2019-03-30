@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require './scripts/setup_test_database.rb'
 
 require File.join(File.dirname(__FILE__), '../app', 'chitter.rb') # requires sinatra app file
 
@@ -19,7 +20,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    
+    setup_test_database
   end
 
 end
