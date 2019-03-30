@@ -12,6 +12,7 @@ describe Peep do
       expect(peeps.length).to eq 2
       expect(peeps.first).to be_a Peep
       expect(peeps.first.message).to eq "Second test peep"
+      expect(peeps.first.created_at).to be_a String
     end
 
     it "returns peeps in reverse chronological order (newest first)" do

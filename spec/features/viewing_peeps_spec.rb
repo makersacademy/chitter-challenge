@@ -30,4 +30,17 @@ feature "Viewing peeps" do
     expect(first_child).to have_content "Newest peep"
     expect(last_child).to have_content "Oldest peep"
   end
+
+  # As a Maker
+  # So that I can better appreciate the context of a peep
+  # I want to see the time at which it was made
+
+  scenario "user can see when peeps were posted" do
+    # Add test data
+    Peep.create(message: "Peep with timestamp")
+
+    created_at = Peep.all[0].created_at
+    visit "/peeps"
+    expect(page).to have_content(created_at)
+  end
 end
