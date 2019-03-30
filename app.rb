@@ -5,9 +5,18 @@ class Chitter < Sinatra::Base
     erb :"peeps/index"
   end
 
+  # get "/peeps" do
+  #   "Peeps"
+  # end
+
+  get "/peeps/new" do
+    erb :"peeps/new"
+  end
+
+  # post "peeps/new" do
+
+  #   redirect "/peeps"
+  # end
+
   run! if app_file ==$0
 end
-
-# To run (one or the other...)
-# ruby app.rb
-# rackup -p 4567

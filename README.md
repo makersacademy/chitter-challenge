@@ -66,6 +66,12 @@ Run `rspec` directly in root of your local project
 
 8. Initial commit and push to github
 
+9. Refactors infra test and message to homepage welcome message
+
+10. Test drive first user story (posting a peep) using Capybara feature tests and Rspec unit tests
+
+<!-- Update the following -->
+
 7. Continue with second feature test - testing enter name form
 
 8. Follow red, green, refactor cycle for each feature test
@@ -80,6 +86,7 @@ Run `rspec` directly in root of your local project
 - Controller: `app.rb`
 - Views: `views/<name>.erb`
 - Models: `lib/<name>.rb`
+- Migrations: `db/<name>.sql`
 
 
 #### User stories
