@@ -1,0 +1,10 @@
+<h1>Chitter app - Peeps</h1>
+
+<% @peeps.each do |peep| %>
+  <%= peep.name %>
+  <%= peep.handle %>
+  <%= peep.timestamp %>
+  <br>
+  <%= peep.peep %>
+  <br>
+<%end%>
