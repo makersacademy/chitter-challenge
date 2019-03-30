@@ -1,8 +1,10 @@
 require 'sinatra/base'
+require_relative 'lib/peep'
 
 # controller
 class Chitter < Sinatra::Base
   get '/' do
+    @peepdeck = Peep.all
     erb :index
   end
 
