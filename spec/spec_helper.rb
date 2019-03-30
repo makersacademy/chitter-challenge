@@ -9,6 +9,21 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 # DONT CHANGE ANYTHING ABOVE THIS LINE - needed to generate tests when pulled into travis for auto test. 
 
+# this sets the environment up as test when RSpec is run. 
+ENV['RACK_ENV'] = 'test'
+
+# this brings in the contents of the app.rb file so it can be tested.
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+#requiring the gems that we need to use to run the tests. 
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+# this tells the Capybara tool to talk to the Chitter programme. 
+Capybara.app = Chitter
+
+# configuring the tests. 
 RSpec.configure do |config|
   config.after(:suite) do
     puts
