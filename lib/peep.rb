@@ -9,8 +9,6 @@ class Peep
   end
 
   def self.all
-    # ["My very first peep, people!", "My second peep :)"]
-
     if ENV['RACK_ENV'] == "test"
       connection = PG.connect(dbname: 'chitter_test')
     else
@@ -18,8 +16,10 @@ class Peep
     end
 
     result = connection.exec("SELECT * FROM peeps;")
+    p result
     list = result.map do |peep|
       Peep.new(id: peep['id'], message: peep['message'])
     end
+    list.reverse
   end
 end
