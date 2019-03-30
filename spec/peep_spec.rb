@@ -4,24 +4,21 @@ require "peep"
 describe Peep do
   describe ".all" do
     it "returns all peeps from the database" do
-      connection = PG.connect(dbname: 'chitter_test')
-
       # Add test data
-      connection.exec("INSERT INTO peeps (message) VALUES ('Test peep');")
+      Peep.create(message: "Test peep")
+      Peep.create(message: "Second test peep")
 
       peeps = Peep.all
-      expect(peeps.length).to eq 1
+      expect(peeps.length).to eq 2
       expect(peeps.first).to be_a Peep
-      expect(peeps.first.message).to eq "Test peep"
+      expect(peeps.first.message).to eq "Second test peep"
     end
 
     it "returns peeps in reverse chronological order (newest first)" do
-      connection = PG.connect(dbname: 'chitter_test')
-
       # Add test data
-      connection.exec("INSERT INTO peeps (message) VALUES ('Oldest peep');")
-      connection.exec("INSERT INTO peeps (message) VALUES ('Middle peep');")
-      connection.exec("INSERT INTO peeps (message) VALUES ('Newest peep');")
+      Peep.create(message: "Oldest peep")
+      Peep.create(message: "Middle peep")
+      Peep.create(message: "Newest peep")
 
       peeps = Peep.all
       expect(peeps.length).to eq 3

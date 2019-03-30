@@ -11,25 +11,23 @@ feature "Viewing peeps" do
   end
 
   scenario "user can see list of peeps" do
-    connection = PG.connect(dbname: 'chitter_test')
-
     # Add test data
-    connection.exec("INSERT INTO peeps (message) VALUES ('Test peep');")
+    Peep.create(message: "Test peep")
     
     visit "/peeps"
     expect(page).to have_content "Test peep"
   end
 
   scenario "user can see list of peeps with most recent first" do
-    connection = PG.connect(dbname: 'chitter_test')
-
     # Add test data
-    connection.exec("INSERT INTO peeps (message) VALUES ('Oldest peep');")
-    connection.exec("INSERT INTO peeps (message) VALUES ('Middle peep');")
-    connection.exec("INSERT INTO peeps (message) VALUES ('Newest peep');")
+    Peep.create(message: "Oldest peep")
+    Peep.create(message: "Middle peep")
+    Peep.create(message: "Newest peep")
 
     visit "/peeps"
     first_child = find("ul li:first-child")
+    last_child = find("ul li:last-child")
     expect(first_child).to have_content "Newest peep"
+    expect(last_child).to have_content "Oldest peep"
   end
 end
