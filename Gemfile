@@ -8,7 +8,6 @@ gem 'launchy'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'pg'
-gem 'orderly'
 
 group :test do
   gem 'rspec'

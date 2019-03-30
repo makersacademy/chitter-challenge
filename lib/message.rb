@@ -9,16 +9,16 @@ class Message
     end
 
     result = connection.exec("SELECT * FROM messages;")
-    result.map { |messages| messages['message'] }.reverse
+    result.map { |messages| "@#{messages['username']}: #{messages['message']}" }.reverse
   end
 
-  def self.post(message:)
+  def self.post(username:, message:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_manager_test')
     else
       connection = PG.connect(dbname: 'chitter_manager')
     end
 
-    connection.exec("INSERT INTO messages (message) VALUES ('#{message}');")
+    connection.exec("INSERT INTO messages (username, message) VALUES ('#{username}', '#{message}');")
   end
 end
