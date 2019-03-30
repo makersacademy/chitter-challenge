@@ -5,7 +5,7 @@ describe Peep do
     it 'returns the peepdeck' do
       peepdeck = Peep.all
 
-      expect(peepdeck).to include('peep 1')
+      expect(peepdeck).to include('My first peep!')
     end
   end
 end

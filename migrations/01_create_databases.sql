@@ -1,0 +1,2 @@
+-- CREATE DATABASE chitter_app
+-- CREATE TABLE chitter (id SERIAL PRIMARY KEY, peep VARCHAR(60));
