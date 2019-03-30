@@ -5,6 +5,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
+require_relative './setup_test_database'
+
 # Set the environment to "test"
 ENV['ENVIRONMENT'] = 'test'
 
@@ -20,6 +22,13 @@ SimpleCov.start
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 RSpec.configure do |config|
   config.after(:suite) do
