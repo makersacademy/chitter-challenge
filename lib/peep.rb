@@ -16,9 +16,9 @@ class Peep
     Peep.new(user_id: result['user_id'], peep: result['peep'], timestamp: result['peep_time'])
   end
 
-  # def self.all
-  #   result = DatabaseConnection.query(sql)
-   
-  # end
+  def self.all
+    result = DatabaseConnection.query("Select * FROM peeps")
+    result.map { |peep| Peep.new(user_id: peep['user_id'], peep: peep['peep'], timestamp: peep['timestamp'])}
+  end
 
 end

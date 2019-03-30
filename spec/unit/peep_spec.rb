@@ -3,13 +3,25 @@ require 'user'
 
 describe Peep do
 
-    describe 'create a Peep' do
-      it 'when sending the create message to Peep class' do
+    describe '.create' do
+      it 'create a Peep class when sending the create message to Peep class' do
         user = User.create(name: 'My_name', username: 'My_username', email: 'someemail@gmail.com', password: 'fefwefwe')
         peep = Peep.create(user_id: user.id , peep: 'Some peep')
         expect(peep.peep).to eq 'Some peep'
-
       end
+    end
+
+    describe '.all' do 
+      it 'retrieves all peeps from the db' do
+        user = User.create(name: 'My_name', username: 'My_username', email: 'someemail@gmail.com', password: 'fefwefwe')
+        peep = Peep.create(user_id: user.id , peep: 'Some peep 0')
+        peep = Peep.create(user_id: user.id , peep: 'Some peep 1')
+        peep = Peep.create(user_id: user.id , peep: 'Some peep 2')
+
+        expect(Peep.all.length).to eq 3
+        expect(Peep.all.first.peep).to eq 'Some peep 0'
+      end
+
     end
 
 end

@@ -15,12 +15,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    
     @user = User.create(name: 'My_name', username: 'My_username', email: 'someemail@gmail.com', password: 'fefwefwe')
-    @peeps = [
-      Peep.create(user_id: @user.id , peep: "Hello world"),
-      Peep.create(user_id: @user.id,  peep: "Hello world - This is John"),
-      Peep.create(user_id: @user.id, peep: "Hello world - This is Mike"),
-    ]
+    Peep.create(user_id: @user.id , peep: "Hello world")
+    Peep.create(user_id: @user.id,  peep: "Hello world - This is John")
+    Peep.create(user_id: @user.id, peep: "Hello world - This is Mike")
+    @peeps = Peep.all
     erb :peeps
   end
 
