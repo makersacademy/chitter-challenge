@@ -2,13 +2,9 @@ require 'pg'
 
 class Chitter
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_app_test')
-    else
-      connection = PG.connect(dbname: 'chitter_app')
-    end
+    ENV['ENVIRONMENT'] == 'test'? connection = PG.connect(dbname: 'chitter_app_test'): connection = PG.connect(dbname: 'chitter_app')
     result = connection.exec("SELECT * FROM chitter;")
-    result.map { |peep| peep['content']}
+    result.map { |peep| peep['content'] }
   end
 
   def self.create(content:)

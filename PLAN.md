@@ -24,10 +24,11 @@
                 [] pass the feature test
                 [] refactor
             [] only appearing when user = admin
-    [x] Create
+    [] Create
       [x] feature test
       [x] pass the feature test
       [x] refactor dummy data insertion
+      [] button on the main page to add new peep
   [] README
     [] full instructions
     [] Screenshots

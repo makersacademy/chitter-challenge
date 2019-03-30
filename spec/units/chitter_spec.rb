@@ -2,12 +2,9 @@ require 'chitter'
 describe Chitter do
   describe '.all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_app_test')
-
-      connection.exec("INSERT INTO chitter (name, handle, time, content) VALUES ('masha', 'user_masha', CURRENT_TIMESTAMP, 'peep1');")
-      connection.exec("INSERT INTO chitter (name, handle, time, content) VALUES ('masha', 'user_masha', CURRENT_TIMESTAMP, 'peep2');")
-      connection.exec("INSERT INTO chitter (name, handle, time, content) VALUES ('masha', 'user_masha', CURRENT_TIMESTAMP, 'peep3');")
-
+      Chitter.create(content: "peep1")
+      Chitter.create(content: "peep2")
+      Chitter.create(content: "peep3")
       peeps = Chitter.all
 
       expect(peeps).to include("peep1")
