@@ -1,15 +1,18 @@
-development:
+test:
   adapter: postgresql
   encoding: unicode
   database: chitter_development
   pool: 2
-  username: 
+  username: alexanderchen
   password: 
 
-production:
+
+
+
+development:
   adapter: postgresql
   encoding: unicode
-  database: chitter
+  database: chitter_development2
   pool: 2
-  username: 
+  username: alexanderchen
   password: 
