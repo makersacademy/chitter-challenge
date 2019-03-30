@@ -39,5 +39,11 @@ DataMapper is throwing loads of warnings in my RSpec output, like this:
 
 If you don't set up your database like it says in the instructions then DataMapper will just use your default database. Probably not desirable.
 
-Would it be better to use Rake to set up the database(s)?
+Would it be better to use Rake to set up the database(s)? Does that even make sense?
 
+Now that all the model stuff is handled by DataMapper, it's not covered by unit tests. Is that right??
+
+Couldn't get DataMapper's BCryptHash type to work. It gave me this error when I tried to use it:
+```
+/Users/student/.rvm/gems/ruby-2.5.0/gems/dm-types-1.0.2/lib/dm-types/bcrypt_hash.rb:2:in `require': cannot load such file -- bcrypt (LoadError)
+```
