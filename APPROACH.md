@@ -159,4 +159,6 @@ Step 7 - connect sinatra to external app
 
 Step 8
 
+- Feature test creating a user
 - Feature test adding and seeing a record
+- Add BYcript for saving password

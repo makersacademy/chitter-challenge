@@ -1,5 +1,7 @@
 ## Challenge:
 
+[![Build Status](https://travis-ci.org/micosmin/chitter-challenge.svg?branch=master)](https://travis-ci.org/micosmin/chitter-challenge)
+
 Week 4 Makers Weekend challenge:
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
