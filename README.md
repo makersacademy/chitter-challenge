@@ -32,10 +32,18 @@ This Sinatra web app allows users post to and read from a feed of posted message
 2. `git clone git@github.com:<userName>/chitter-challenge.git` onto your local machine
 
 
-## Database setup instructions
+## Dev database setup instructions
 
 1. Connect to psql in terminal `psql postgres`
 2. Run `CREATE DATABASE chitter;`
+3. Run `psql \c chitter;` (to connect to new db)
+4. Create `peeps` table using the query saved in the file `01_create_peeps_table.sql`
+
+
+## Test database setup instructions
+
+1. Connect to psql in terminal `psql postgres`
+2. Run `CREATE DATABASE chitter_test;`
 3. Run `psql \c chitter;` (to connect to new db)
 4. Create `peeps` table using the query saved in the file `01_create_peeps_table.sql`
 

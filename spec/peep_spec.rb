@@ -2,20 +2,17 @@ require 'pg'
 require "peep"
 
 describe Peep do
-  # describe ".all" do
-  #   connection = PG.connect(dbname: 'chitter')
+  describe ".all" do
+    it "returns all peeps from the database" do
+      connection = PG.connect(dbname: 'chitter_test')
 
-  #   # Add test data
-  #   connection.exec("INSERT INTO peeps (message) VALUES ('Test peep');")
+      # Add test data
+      connection.exec("INSERT INTO peeps (message) VALUES ('Test peep');")
 
-  #   peeps = Peep.all
-  #   expect(peeps).to include "Test peep"
-  # end
-  
-  # describe ".create" do
-  #   it "creates a new peep post" do
-  #     Peep.create(message: "My very first peep, people!")
-  #     expect(Peep.all).to include "My very first peep, people!"
-  #   end
-  # end
+      peeps = Peep.all
+      expect(peeps.length).to eq 1
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.message).to eq "Test peep"
+    end
+  end
 end
