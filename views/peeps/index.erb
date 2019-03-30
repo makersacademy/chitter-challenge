@@ -1,10 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
 <h1>Welcome to Chitter</h1>
 
 <ul>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.message %>
-      <%= peep.created_at %>
+      <div><%= peep.message %></div>
+      Posted... <div><%= peep.created_at %></div>
     </li>
   <% end %>
 </ul>
@@ -12,3 +18,5 @@
 <form action="/peeps/new">
   <input type="submit" value="Post a Peep">
 </form>
+
+</html>

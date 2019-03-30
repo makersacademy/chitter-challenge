@@ -80,14 +80,33 @@ Peep | .all
 
 ------
 
+### User story 4 - Sign-up
+
 ```
-User story 4: Sign-up
----------------------
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+```
 
 
+#### Object model
+
+Object | Messages
+--------------- | --------------------
+Maker | sign_up
+Peep | .create
+Peep | .all
+
+
+#### Feature breakdown
+
+1. 
+
+
+------
+
+
+```
 HARDER
 
 User story 5: Log-in
