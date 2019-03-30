@@ -20,7 +20,7 @@ This Sinatra web app allows users post to and read from a feed of posted message
 #### Personal motivation
 
 - Building a web app with a database
-- Improved debugging debugging process for web and database applications
+- Improved debugging process for web and database applications
 - Use of and better understanding of the Object Relational Model (ORM) design pattern
 - Set up and use of test and dev database environments
 
@@ -57,6 +57,20 @@ This Sinatra web app allows users post to and read from a feed of posted message
 3. Repeat for `chitter_test` db by first running `psql \c chitter_test;` to connect
 
 
+### Create users table (in both dev and test dbs)
+
+1. Run `psql \c chitter;` (to connect to dev db)
+2. Create `users` table using the query saved in `04_create_users_table.sql`
+3. Repeat for `chitter_test` db
+
+
+## Add user_id column to peeps table (both dev and test dbs)
+
+1. Run `psql \c chitter;` (to connect to dev db)
+2. Add `user_id` column to `peeps` table using the query saved in `05_add_user_id_to_peeps_table.sql`
+3. Repeat for `chitter_test` db
+
+
 ## Steps to run
 
 1. Run `ruby app.rb` or `rackup -p 4567` in root project directory
@@ -70,6 +84,8 @@ Run `rspec` directly in root of your local project
 
 
 ## My approach
+
+_Further details, including feature breakdowns, object models and db design can be found [here](https://github.com/mattTea/rps-challenge/blob/master/problem/problem_breakdown.md)_
 
 1. Break down first user stories into an [object model](https://github.com/mattTea/rps-challenge/blob/master/problem/problem_breakdown.md) and simple feature steps
 

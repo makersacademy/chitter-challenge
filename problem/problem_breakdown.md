@@ -15,7 +15,7 @@ I want to post a message (peep) to chitter
 
 Object | Messages
 --------------- | --------------------
-Maker | 
+Maker (user) | 
 Peep | .create
 
 
@@ -41,7 +41,7 @@ I want to see all peeps in reverse chronological order
 
 Object | Messages
 --------------- | --------------------
-Maker | 
+Maker (user) | 
 Peep | .create
 Peep | .all
 
@@ -68,7 +68,7 @@ I want to see the time at which it was made
 
 Object | Messages
 --------------- | --------------------
-Maker | 
+Maker (user) | 
 Peep | .create
 Peep | .all
 
@@ -93,14 +93,65 @@ I want to sign up for Chitter
 
 Object | Messages
 --------------- | --------------------
-Maker | sign_up
+Maker (user) | sign_up
 Peep | .create
 Peep | .all
 
 
 #### Feature breakdown
 
-1. 
+1. New table -> `user` in chitter db
+
+2. A user `has a` (many) peeps, so user_id should be included in the `peeps` table as a foreign key
+
+```
+CRCs
+----
+
+                          Peep
+----------------------------------------------------------
+      Responsibilities      |        Collaborator
+                            |
+        knows message       |            user
+     knows when created     |
+         knows user         |
+     
+
+
+                          User
+----------------------------------------------------------
+      Responsibilities      |        Collaborator
+                            |
+          knows name        |
+
+
+TABLES
+------
+
+Peeps
+
+|  id   |     message      |   created_at   |    user_id   |
+|-------|------------------|----------------|--------------|
+|  001  |  My first peep!  |   #timestamp   |      001     |
+
+
+
+Users
+
+|  id   |     name     |
+|-------|--------------|
+|  001  |   Matt Tea   |
+
+```
+
+
+3. User still sees full list of peeps (as per requirement somewhere)
+
+4. User may sign-up (`users/new`?)
+
+5. (Add user's name to the session, so it can be used for all newly created peeps)
+
+6. Any new peeps should display the user's name
 
 
 ------
