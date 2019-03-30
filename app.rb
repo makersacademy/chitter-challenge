@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    @peep = Peep.create(peep: params[:peep]).peep
+    @message = Peep.create(message: params[:message]).message
     erb :'chitter/index'
   end
 
