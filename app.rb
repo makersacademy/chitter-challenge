@@ -1,8 +1,23 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
+
+  before do
+    @peep = Peep.get
+  end
+
   get '/' do
-    'Hello World'
+    erb :index
+  end
+
+  post '/feed' do
+    Peep.create(params[:peep])
+    redirect '/feed'
+  end
+
+  get '/feed' do
+    erb :feed
   end
 
   run! if app_file == $0
