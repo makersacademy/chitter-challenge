@@ -8,8 +8,19 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter_app')
     end
-    
+
     result = connection.exec("SELECT * FROM chitter;")
     result.map { |peepdeck| peepdeck['peep'] }
+  end
+
+  def self.create(peep:)
+
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_app_test')
+    else
+      connection = PG.connect(dbname: 'chitter_app')
+    end
+
+    connection.exec("INSERT INTO chitter (peep) VALUES('#{peep}')")
   end
 end
