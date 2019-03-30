@@ -15,6 +15,7 @@ require 'rspec'
 require 'capybara/rspec'
 
 require './app.rb'
+require File.join(File.dirname(__FILE__), 'features', 'web_helpers.rb')
 require_relative './setup_test_database.rb'
 
 Capybara.app = Chitter
@@ -30,5 +31,3 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
-
-# require File.join(File.dirname(__FILE__), 'features', 'web_helpers.rb')

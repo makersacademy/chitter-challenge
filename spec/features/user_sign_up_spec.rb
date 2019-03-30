@@ -18,15 +18,20 @@ feature 'User can sign up' do
 
   scenario 'When user visits the sign-up page they can register' do
     visit '/chitter/sign_up'
-
-    fill_in "email", with: "samantha.ixer@here.com"
-    fill_in "password", with: "passwordtest"
-    fill_in "first_name", with: "Sam"
-    fill_in "surname", with: "Ixer"
-    fill_in "username", with: "sami"
-    click_button "Sign Up"
+    sign_up
 
     expect(page).to have_content "Thank you, you have successfully signed up"
+    expect(page).to have_button "See peeps"
+  end
+
+  scenario 'When user tries to sign-up with an existing email address they see an error' do
+    visit '/chitter/sign_up'
+    sign_up
+
+    visit '/chitter/sign_up'
+    sign_up
+
+    expect(page).to have_content "The username or email address you entered is already in use"
     expect(page).to have_button "See peeps"
   end
 

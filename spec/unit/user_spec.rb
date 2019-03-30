@@ -11,4 +11,9 @@ describe User do
   it 'creates a new user for sign up' do
     expect(User.create(email: "samantha.ixer@here.com", password: "passwordtest", first_name: "Sam", surname: "Ixer", username: 'sami')).to be_a(User)
   end
+
+  it 'throws an error if the username or email already exists' do
+    User.create(email: "samantha.ixer@here.com", password: "passwordtest", first_name: "Sam", surname: "Ixer", username: 'sami')
+    expect{User.create(email: "samantha.ixer@here.com", password: "passwordtest", first_name: "Sam", surname: "Ixer", username: 'sami')}.to raise_error "That username or email address already exists"
+  end
 end
