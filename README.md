@@ -6,13 +6,14 @@
 
 1. Clone the repo
 2. `bundle install`
-3. Create a PostgreSQL database 'chitter_test'
-    1. e.g. start `psql` from the command line
-    2. then run `CREATE DATABASE chitter_test;`
-    3. refer to `psql` documentation if you're having trouble with that
-4. Set up the database by connecting to 'chitter_test' and running the migration file in db/migrations
-    1. e.g. in `psql`, connect with `\c chitter_test`
-    2. then run `\include db/migrations/01_create_peeps_table.sql`
+3. Set up your databases and user. E.g. run `psql`, and enter these commands:
+    1. `CREATE USER chitter WITH ENCRYPTED PASSWORD 'your_password';`
+    2. `CREATE DATABASE chitter;`
+    3. `CREATE DATABASE chitter_test;`
+    4. `GRANT ALL PRIVILEGES ON DATABASE chitter TO chitter;`
+    5. `GRANT ALL PRIVILEGES ON DATABASE chitter_test TO chitter;`
+4. Copy `.env-example` to `.env` and enter the details of the databases and user you just created.
+    - `.env` is included in `.gitignore` in case you want to keep your database credentials secret
 5. Start the server with `rackup`
 6. Go to `localhost:9292` in your browser
 7. Peep away to your heart's content
@@ -24,3 +25,17 @@
 ## Some notes as I'm going along...
 
 [A nice blogpost](http://launchware.com/articles/acceptance-testing-asserting-sort-order) on testing that content appears in a particular order with Capybara/RSpec
+
+I turned off lazy loading for `Peep.content` because it wasn't loading at all in `view_peeps.erb`... surely this shouldn't be necessary though. Why wasn't it loading?
+
+DataMapper is throwing loads of warnings in my RSpec output, like this:
+```
+> /Users/student/.rvm/gems/ruby-2.5.0/gems/dm-validations-1.0.2/lib/dm-validations.rb:33: warning: already initialized constant ActiveSupport::OrderedHash
+> /Users/student/.rvm/gems/ruby-2.5.0/gems/dm-serializer-1.0.2/lib/dm-serializer/common.rb:6: warning: previous definition of OrderedHash was here
+> DataObjects::URI.new with arguments is deprecated, use a Hash of URI components (/Users/student/.rvm/gems/ruby-2.5.0/gems/dm-do-adapter-1.0.2/lib/dm-do-adapter/adapter.rb:215:in `new')
+> /Users/student/.rvm/gems/ruby-2.5.0/gems/data_objects-0.10.17/lib/data_objects/pooling.rb:149: warning: constant ::Fixnum is deprecated
+```
+... Annoying :-/
+
+If you don't set up your database like it says in the instructions then DataMapper will just use your default database. Probably not desirable.
+
