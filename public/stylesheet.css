@@ -1,0 +1,18 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  text-align: left;
+  color: green;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-align: center;
+  color: green;
+}
+
+div1 {
+  color: red;
+}

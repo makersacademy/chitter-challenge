@@ -1,11 +1,23 @@
-<ul>
+<!DOCTYPE html>
+<html>
+ <center>
+  <head>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <title>Chitter</title>
+  </head>
+  <center>
+  <body>
 
-  <h1>Welcome to Chitter</h1>
+      <h1>Welcome to Chitter</h1>
 
-  <h2>Peeps</h2>
+      <div1>
+        <h2>Peepdeck</h2>
+        <center>
+        <% @peepdeck.each do |peep| %>
+            <li><%= peep %></li>
+          <% end %>
+          <center>
+      </div1>
 
-  <% @peepdeck.each do |peep| %>
-      <li><%= peep %></li>
-    <% end %>
-
-</ul>
+  </body>
+</html>
