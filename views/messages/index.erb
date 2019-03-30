@@ -1,3 +1,5 @@
 <h1> ALL MESSAGES </h1>
 
-this is first message
+<% @messages.each do |x| %>
+  <%= x.content %>
+<% end %>

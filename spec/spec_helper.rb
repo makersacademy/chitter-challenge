@@ -9,17 +9,28 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+require 'database_cleaner'
 require 'capybara/rspec'
 require 'capybara'
 require 'rspec'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 Capybara.app = Chitter
+require 'capybara/dsl'
 # include Capybara::DSL
 # Capybara.default_driver = :selenium
+DatabaseCleaner.strategy = :truncation
 
-
-
+#should include capybara DSL in Rspec.configure
 RSpec.configure do |config|
+
+  config.include Capybara::DSL
+  config.before(:all) do
+    DatabaseCleaner.clean
+  end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

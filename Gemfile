@@ -15,5 +15,5 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'capybara'
   gem 'selenium-webdriver'
-
+  gem 'database_cleaner'
 end

@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do 
-    
+    @messages = Message.all
     erb(:'messages/index')
   end 
 
@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
 
 
   post '/messages/new' do 
-    # @message = Message.create(content: params[:content])
+    @message = Message.create(content: params[:content])
     redirect '/messages'
   end 
 
