@@ -52,7 +52,7 @@ This Sinatra web app allows users post to and read from a feed of posted message
 
 1. Run `ruby app.rb` or `rackup -p 4567` in root project directory
 
-2. Visit `http://localhost:4567`
+2. Visit `http://localhost:4567/peeps`
 
 
 ## To run tests

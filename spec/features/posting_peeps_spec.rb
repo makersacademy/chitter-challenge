@@ -8,10 +8,10 @@ feature "Posting peeps" do
     expect(page).to have_selector "form"
   end
 
-  # scenario "a user can post a peep to Chitter" do
-  #   visit "/peeps/new"
-  #   fill_in "message", :with => "Writing a Chitter app!"
-  #   click_button "Post"
-  #   expect(page).to have_content "Writing a Chitter app!"
-  # end
+  scenario "a user can post a peep to Chitter" do
+    visit "/peeps/new"
+    fill_in "message", :with => "Writing a Chitter app!"
+    click_button "Post"
+    expect(page).to have_content "Writing a Chitter app!"
+  end
 end

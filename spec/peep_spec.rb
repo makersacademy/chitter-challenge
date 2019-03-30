@@ -28,4 +28,11 @@ describe Peep do
       expect(peeps.first.message).to eq "Newest peep"
     end
   end
+
+  describe ".create" do
+    it "creates a new peep post" do
+      Peep.create(message: "My very first peep, people!")
+      expect(Peep.all[0].message).to include "My very first peep, people!"
+    end
+  end
 end
