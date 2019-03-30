@@ -1,6 +1,5 @@
-CREATE DATABASE chitter_test_2;
-
-\c chitter_test_2
+\c
+chitter_test
 
 CREATE TABLE users
 (
