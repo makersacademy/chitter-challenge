@@ -89,7 +89,7 @@ DEPENDENCIES
   rack
   rake
   rspec
-  rubocop (= 0.56.0)
+  rubocop
   shotgun
   simplecov
   simplecov-console
