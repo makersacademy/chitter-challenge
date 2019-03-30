@@ -1,5 +1,152 @@
-Chitter Challenge
-=================
+Chitter - Matt Thompson
+=======================
+
+## Description
+
+This Sinatra web app allows users post to and read from a feed of posted messages (peeps). It also allows users to sign-up and login to control their own posts.
+
+![demo gif]()
+
+
+#### Technologies used
+
+- Ruby
+- PostgreSQL (database manager)
+- Rspec (test framework)
+- Sinatra (Ruby web framework)
+- Capybara (web feature test library)
+
+
+#### Personal motivation
+
+- Building a web app with a database
+- Improved debugging debugging process for web and database applications
+- Use of and better understanding of the Object Relational Model (ORM) design pattern
+- Set up and use of test and dev database environments
+
+
+## Steps to download
+
+1. Fork this [repo](https://github.com/mattTea/chitter-challenge)
+
+2. `git clone git@github.com:<userName>/chitter-challenge.git` onto your local machine
+
+
+## Steps to run
+
+1. Run `ruby app.rb` or `rackup -p 4567` in root project directory
+
+2. Visit `http://localhost:4567`
+
+
+## To run tests
+
+Run `rspec` directly in root of your local project
+
+
+## My approach
+
+1. Break down first user stories into an [object model](https://github.com/mattTea/rps-challenge/blob/master/problem/problem_breakdown.md) and simple feature steps
+
+2. Add capybara config requirements into `spec_helper.rb`
+    - `config.include Capybara::DSL`
+    - `require File.join(File.dirname(__FILE__), '..', 'app.rb')`
+
+3. Add necessary gems to Gemfile (`sinatra` as a minimum at this stage)
+
+4. Write first feature test - testing infrastructure on `home (/)` route
+
+5. Make it pass by following command line error messages
+    - `LoadError` requiring `app.rb` controller
+    -  Index `"/"` route required
+
+6. Check in client by running `ruby app.rb` and visiting `localhost:4567`
+
+7. Extract `view` by creating `index.erb` view file for `"/"` route
+
+8. Initial commit and push to github
+
+7. Continue with second feature test - testing enter name form
+
+8. Follow red, green, refactor cycle for each feature test
+
+9. Repeat until basic user story functionality is covered
+
+10. Test-drive extracting `Score` class from the controller code into the model, using units tests, ensuring features tests don't break
+
+
+#### Structure
+
+- Controller: `app.rb`
+- Views: `views/<name>.erb`
+- Models: `lib/<name>.rb`
+
+
+#### User stories
+
+```
+STRAIGHT UP
+
+User story 1: Post a peep
+-------------------------
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+
+User story 2: See all peeps
+---------------------------
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+
+User story 3: See time of peep
+------------------------------
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+
+User story 4: Sign-up
+---------------------
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+
+HARDER
+
+User story 5: Log-in
+--------------------
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+
+User story 6: Log-out
+---------------------
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+
+ADVANCED
+
+User story 7: Receive email notification
+----------------------------------------
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+```
+
+
+------
+
+------
+
+Original README - Chitter Challenge
+===================================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
