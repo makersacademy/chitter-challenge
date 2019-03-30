@@ -1,4 +1,3 @@
-require 'rubygems'
-require File.join(File.dirname(__FILE__), 'app/app.rb')
+require_relative "./app"
 
 run Chitter
