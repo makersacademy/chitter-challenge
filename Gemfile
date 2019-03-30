@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 ruby '2.5.1'
-
+gem "sinatra-activerecord"
+gem "activerecord"
 gem 'sinatra'
 gem 'pg'
 gem 'rake'
@@ -14,4 +15,5 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'capybara'
   gem 'selenium-webdriver'
+
 end
