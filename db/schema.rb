@@ -1,6 +1,3 @@
-\c
-chitter_test
-
 CREATE TABLE users
 (
   id serial PRIMARY KEY,
@@ -18,4 +15,3 @@ CREATE TABLE peeps
   peep_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
-
