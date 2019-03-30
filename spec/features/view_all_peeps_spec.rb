@@ -6,7 +6,6 @@ require 'pg'
 
 feature 'View peeps' do
   scenario 'The user can view all peeps in reverse chronological order' do
-    connection = PG.connect(dbname: 'chitter_test')
     visit '/'
     peeps = [
       "First peep w00t!!",
