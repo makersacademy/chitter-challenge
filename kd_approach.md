@@ -197,6 +197,9 @@ On the Main page (Peeps page), the user will see a list of peeps from latest to 
 
 ##### DATABASE MODEL
 
+See: chitter-challenge/db_table_model.png
+- Automatically update the date / time stamp when a new row is inserted into peeps table in db?
+
 Notes: 
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.

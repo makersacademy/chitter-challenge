@@ -124,8 +124,6 @@ The app is available here:
 
 I decided to host the app using .... The app was deployed using  ......
 
-
-
 ## Images/Screenshots
 
 ## Getting started
@@ -139,4 +137,23 @@ Tests can be run from the root directory using:
 `rspec`
 
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+
+## Database Setup
+
+### Creating a Chitter app database
+
+1. Connect to psql in terminal `psql postgres`
+2. Enter `CREATE DATABASE "chitter_app";` command to create a new database called chitter_app
+
+### Adding peep_messages table on the Chitter app database
+
+1. Enter `\c chitter_app;` to connect to the database
+2. Create `peep_messages` table by running the sql script `01_peep_messages_table.sql`
+3. Run in pSQL by doing `\i db/migrations/01_peep_messages_table.sql` from the root directory of the repository
+
+### Adding initial peeps to peep_messages table
+
+1. Enter `\c chitter_app;` to connect to the database
+2. Add initial peeps to `peep_messages` table by running the sql script `02_add_peeps.sql`
+3. Run in pSQL by doing `\i db/migrations/02_add_peeps.sql` from the root directory of the repository
 
