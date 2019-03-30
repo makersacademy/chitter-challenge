@@ -1,5 +1,7 @@
+require 'pg'
+
 feature 'Posting peeps' do
-  scenario 'from the feed page' do
+  scenario 'from the homepage' do
 
     visit('/')
     fill_in 'peep', with: "Hello, World!"

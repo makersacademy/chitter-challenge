@@ -3,10 +3,6 @@ require './lib/peep'
 
 class Chitter < Sinatra::Base
 
-  before do
-    @peep = Peep.get
-  end
-
   get '/' do
     erb :index
   end
@@ -17,6 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
+    @peeps = Peep.all
     erb :feed
   end
 
