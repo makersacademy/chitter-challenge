@@ -15,7 +15,7 @@ class Peep
     result.map do |peepdeck|
       Peep.new(peep: peepdeck['peep'])
     end
-end
+  end
 
   def self.create(peep:)
 
@@ -25,7 +25,8 @@ end
       connection = PG.connect(dbname: 'chitter_app')
     end
 
-    result = connection.exec("INSERT INTO chitter (peep) VALUES('#{peep}') RETURNING peep;")
+    result = connection.exec("INSERT INTO chitter (peep)
+    VALUES('#{peep}') RETURNING peep;")
     Peep.new(peep: result[0]['peep'])
   end
 

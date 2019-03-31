@@ -3,10 +3,10 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'returns Peepdeck' do
-      connection = PG.connect(dbname: 'chitter_app_test')
+      PG.connect(dbname: 'chitter_app_test')
       # add test data
       # connection.exec("INSERT INTO chitter VALUES(1, 'My first peep');")
-      peep = Peep.create(peep: "My first peep")
+      Peep.create(peep: "My first peep")
 
       peepdeck = Peep.all
 
