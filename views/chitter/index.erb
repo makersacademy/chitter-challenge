@@ -10,7 +10,10 @@
   <h1>Welcome to Chitter</h1>
   <ul>
     <% @peeps.each do |peep| %>
-      <li><%= peep %></li>
+      <li><%= peep.content %></li>
+      <li>Created: <%= peep.time %></li>
+      <li>name: <%= peep.name %></li>
+      <li>user: <%= peep.handle %></li>
     <% end %>
   </ul>
   <form action="/chitter/new">

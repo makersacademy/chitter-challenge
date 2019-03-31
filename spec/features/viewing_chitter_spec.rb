@@ -1,3 +1,4 @@
+require 'date'
 feature 'Viewing peeps' do
   scenario 'visiting the index page' do
     visit('/')
@@ -15,5 +16,22 @@ feature 'Viewing peeps' do
     expect(page).to have_content "peep1"
     expect(page).to have_content "peep2"
     expect(page).to have_content "peep3"
+  end
+
+  scenario 'peeps have info about date and time created' do
+    Chitter.create(content: 'peep1')
+    visit('/')
+
+    expect(page).to have_content "peep1"
+    expect(page).to have_content "Created:"
+  end
+
+  scenario 'peeps have info about user and name' do
+    Chitter.create(content: 'peep1')
+    visit('/')
+
+    expect(page).to have_content "peep1"
+    expect(page).to have_content "user:"
+    expect(page).to have_content "name:"
   end
 end

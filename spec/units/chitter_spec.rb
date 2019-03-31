@@ -7,9 +7,9 @@ describe Chitter do
       Chitter.create(content: "peep3")
       peeps = Chitter.all
 
-      expect(peeps).to include("peep1")
-      expect(peeps).to include("peep2")
-      expect(peeps).to include("peep3")
+      expect(peeps[0].content).to eq("peep1")
+      expect(peeps[1].content).to eq("peep2")
+      expect(peeps[2].content).to eq("peep3")
     end
   end
 
@@ -17,7 +17,7 @@ describe Chitter do
     it 'creates a new peep' do
       Chitter.create(content: 'test peep')
 
-      expect(Chitter.all).to include 'test peep'
+      expect(Chitter.all.last.content).to include 'test peep'
     end
   end
 end
