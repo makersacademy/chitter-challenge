@@ -1,4 +1,5 @@
 require 'data_mapper'
+require_relative './user'
 
 class Peep
   include DataMapper::Resource
@@ -6,4 +7,6 @@ class Peep
   property :id,         Serial
   property :content,    Text, :lazy => false
   property :created_at, DateTime
+
+  belongs_to :user
 end

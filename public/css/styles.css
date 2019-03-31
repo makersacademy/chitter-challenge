@@ -96,6 +96,11 @@ li.log-out .btn {
     border-color: magenta;
 }
 
+.date-time {
+    font-style: italic;
+    color: lightgrey;
+}
+
 .site-footer {
     font-size: 80%;
     text-align: right;

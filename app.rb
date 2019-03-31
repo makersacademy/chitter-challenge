@@ -13,7 +13,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(content: params[:peep_content])
+    @user = User.get session[:user_id]
+    Peep.create content: params[:peep_content],
+                user: @user
     redirect '/'
   end
 
@@ -22,10 +24,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params['name'],
+    user = User.create name: params['name'],
                        username: params[:username],
                        email: params[:email],
-                       password: params[:password])
+                       password: params[:password]
     session[:user_id] = user.id
     redirect '/'
   end
@@ -35,8 +37,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(username: params[:username],
-                             password: params[:password])
+    user = User.authenticate username: params[:username],
+                             password: params[:password]
     redirect '/sessions/login_failed' if user.nil?
     session[:user_id] = user.id
     redirect '/'

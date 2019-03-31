@@ -20,7 +20,11 @@
     <blockquote class="blockquote peep_content">
       <%= peep.content %>
       <footer class="datestamp blockquote-footer">
-        <%= peep.created_at.strftime('%F %H:%M%P') %>
+        <%= peep.user.name %> a.k.a.
+        &ldquo;<%= peep.user.username %>&rdquo;
+        <span class="date-time">
+          <%= peep.created_at.strftime('%-d %b, %H:%M%P') %>
+        </span>
       </footer>
     </blockquote>
   </div>
