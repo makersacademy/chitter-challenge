@@ -1,10 +1,10 @@
 require 'sinatra/activerecord'
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require './lib/peep'
 require './scripts/setup_db'
 require './lib/user'
-require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 

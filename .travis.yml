@@ -6,7 +6,8 @@ services:
 
 script:
   - RACK_ENV=test bundle exec rake db:migrate --trace
-  - mkdir -p spec && bundle exec rspec spec
+  - bundle exec rspec spec/
+  #- mkdir -p spec && bundle exec rspec spec
 
 before_install:
   - sudo apt-get update -qq
