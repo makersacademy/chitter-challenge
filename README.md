@@ -115,15 +115,8 @@ _Further details, including feature breakdowns, object models and db design can 
     - extract `peep` class, requiring `pg` gem
     - `peeps/new` POST route
 
-<!-- Update the following -->
-
-7. Continue with second feature test - testing enter name form
-
-8. Follow red, green, refactor cycle for each feature test
-
-9. Repeat until basic user story functionality is covered
-
-10. Test-drive extracting `Score` class from the controller code into the model, using units tests, ensuring features tests don't break
+11. Repeat red/green/refactor process using feature and unit tests
+    - See [commit history](https://github.com/mattTea/chitter-challenge/commits/master) for progression
 
 
 #### Structure
