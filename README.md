@@ -1,8 +1,10 @@
 # Chitter Challenge
 
+[![Build Status](https://travis-ci.org/amyj0rdan/chitter-challenge.svg?branch=master)](https://travis-ci.org/amyj0rdan/chitter-challenge)
+
 [Getting started](#getting-started) | [Usage](#Usage) | [Running tests](#running-tests)
 
-[User stories](#user-stories) | [Approach](#Approach) | [Areas for development](#Areas-for-development)
+[User stories](#user-stories) | [Areas for development](#Areas-for-development)
 
 This is the Week 4 weekend challenge from Makers Academy.
 
@@ -20,7 +22,7 @@ gem install bundle
 bundle install
 ```
 
-### To create the database
+### To create the databases
 
 Connect to `psql` and create the `chitter` and `chitter_test` databases:
 
@@ -90,3 +92,13 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+## Areas for development
+- Username and email address are not unique
+  * Currently there can be two users with the same email address and same handle
+  * Need to spend some time researching how is best to do this in PSQL/Sinatra - could possibly adapt/use the `User.find` method that is already implemented
+- Peeps have the name of the maker and their user handle
+  * Many-to-many relationship so would need to create a join table for peeps that combines Peep IDs and User IDs
+- Advanced user story: tagging and sending emails to users
+- Better testing of edge cases (eg, someone tries to add a peep with an apostrophe)
+- I ran out of time a bit on this task so my application is very ugly - I would have liked to add some CSS.
