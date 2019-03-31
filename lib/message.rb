@@ -1,4 +1,4 @@
-require 'pg'
+require_relative 'database_connection'
 
 class Message
 
@@ -12,13 +12,7 @@ class Message
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_manager_test')
-    else
-      connection = PG.connect(dbname: 'chitter_manager')
-    end
-
-    result = connection.exec("SELECT * FROM messages;")
+    result = DatabaseConnection.query("SELECT * FROM messages;")
     result.map { |message|
       Message.new(
         id: message['id'],
@@ -31,14 +25,7 @@ class Message
 
   def self.post(username:, message:)
     time = Time.new.strftime('%F  %k:%M:00')
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_manager_test')
-    else
-      connection = PG.connect(dbname: 'chitter_manager')
-    end
-
-    result = connection.exec(
-      "INSERT INTO messages (username, message, time) VALUES ('#{username}', '#{message}', '#{time}') RETURNING id, username, message, time;")
+    result = DatabaseConnection.query("INSERT INTO messages (username, message, time) VALUES ('#{username}', '#{message}', '#{time}') RETURNING id, username, message, time;")
     Message.new(
       id: result[0]['id'],
       username: result[0]['username'],
