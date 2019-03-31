@@ -2,6 +2,9 @@
 <form action="/user/new">
   <input type="submit" value="Sign up to Chitter"/>
 </form>
+<form action="/user/sign-in">
+  <input type="submit" value="Sign in">
+</form>
 <ul><% @peeps.each do |peep| %>
   <li><%= peep.content %><br>
     <%= peep.time.strftime("%H:%M, %d %B") %></li>

@@ -17,6 +17,11 @@ class Chitter < Sinatra::Base
     erb :'peep/new'
   end
 
+  post '/chitter' do
+    Peep.create(content: params[:peep_content])
+    redirect '/chitter'
+  end
+
   get '/user/new' do
     erb :'user/new'
   end
@@ -32,9 +37,14 @@ class Chitter < Sinatra::Base
     redirect '/chitter'
   end
 
-  post '/chitter' do
-    Peep.create(content: params[:peep_content])
-    redirect '/chitter'
+  get '/user/sign-in' do
+    erb :'user/sign_in'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(username: params[:username], password: params[:password])
+    session[:user_id] = user.id
+    redirect('/chitter')
   end
 
   run! if app_file == $0
