@@ -50,6 +50,6 @@ I want to receive an email if I am tagged in a Peep
 Technical Approach:
 -----
 
-CRC Diagram
+CRC Diagram to help map the routes and database
 
-[CRC Diagram]()
+![CRC Diagram](https://github.com/hybridbad/chitter-challenge/blob/master/images/crc.png?raw=true "CRC")
