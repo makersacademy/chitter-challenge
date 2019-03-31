@@ -1,6 +1,6 @@
-<h2>  <%= flash[:notice] %></h2>
+<h2><%= flash[:notice] %></h2>
 
-<form action='/sessions' method='post'>
+<form action='/users/login' method='post'>
   <input type="email" name="email" placeholder="Email" /> <br>
   <input type="password" name="password" placeholder="Password" /> <br>
   <input type="submit" value="Sign in" />

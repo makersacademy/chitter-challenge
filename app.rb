@@ -12,19 +12,19 @@ class Chitter < Sinatra::Base
     erb :welcome_page
   end
 
-  get '/sign_up' do
-    erb :sign_up
+  get '/users/sign_up' do
+    erb :'users/sign_up'
   end
 
-  post '/sign_up' do
+  post '/users/sign_up' do
     user = User.create(fullname: params[:fullname], email: params[:email], username: params[:username], password: params[:password])
     session[:user_id] = user.id
     redirect '/chitter/new'
   end
 
-  get '/chitter_feed' do
+  get '/chitter/chitter_feed' do
     @peeps = Message.all
-    erb :chitter_feed
+    erb :'/chitter/chitter_feed'
   end
 
   get '/chitter/new' do
@@ -34,25 +34,25 @@ class Chitter < Sinatra::Base
 
   post '/chitter/new' do
     @peep = Message.post(message: params[:message])
-    redirect '/chitter_feed'
+    redirect '/chitter/chitter_feed'
   end
 
-  get '/sessions/new' do
-    erb :"sessions/new"
+  get '/users/login' do
+    erb :'/users/login'
   end
 
-  post '/sessions' do
+  post '/users/login' do
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect('/chitter/new')
+      redirect '/chitter/new'
     else
       flash[:notice] = 'Please check your email or password.'
-      redirect('/sessions/new')
+      redirect '/users/login'
     end
   end
 
-  post '/sessions/destroy' do
+  post '/users/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect('/')

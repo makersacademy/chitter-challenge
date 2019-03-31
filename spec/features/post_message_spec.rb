@@ -4,7 +4,7 @@ feature 'User posts a message' do
     fill_in('message', with: 'Happy Easter')
     click_button('Peep')
 
-    expect(page).to have_current_path('/chitter_feed')
+    expect(page).to have_current_path('/chitter/chitter_feed')
     expect(page).to have_content('Happy Easter')
   end
 end

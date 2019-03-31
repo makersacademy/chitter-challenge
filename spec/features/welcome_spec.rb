@@ -3,6 +3,7 @@ feature 'Welcome page' do
     visit('/')
     expect(page).to have_content "Welcome to Chitter!"
     click_button('Sign up')
-    expect(page).to have_current_path('/sign_up')
+    expect(page).to have_current_path('/users/sign_up')
+    expect(page).to have_content "Please fill in your details:"
   end
 end

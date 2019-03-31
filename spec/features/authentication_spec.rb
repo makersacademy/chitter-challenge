@@ -2,7 +2,7 @@ feature 'authentication' do
   scenario 'a user can sign in' do
     User.create(fullname: 'Riya Dattani', email: 'test@example.com', username: 'riya', password: 'password123')
 
-    visit '/sessions/new'
+    visit '/users/login'
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'password123')
     click_button('Sign in')
@@ -13,7 +13,7 @@ feature 'authentication' do
   scenario 'a user sees an error if they get their email wrong' do
     User.create(fullname: 'Riya Dattani', email: 'test@example.com', username: 'riya', password: 'password123')
 
-    visit '/sessions/new'
+    visit '/users/login'
     fill_in(:email, with: 'nottherightemail@me.com')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
@@ -25,7 +25,7 @@ feature 'authentication' do
   scenario 'a user sees an error if they get their password wrong' do
     User.create(fullname: 'Riya Dattani', email: 'test@example.com', username: 'riya', password: 'password123')
 
-    visit '/sessions/new'
+    visit '/users/login'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'wrongpassword')
     click_button('Sign in')
@@ -37,11 +37,12 @@ feature 'authentication' do
   scenario 'a user can sign out' do
     User.create(fullname: 'Riya Dattani', email: 'test@example.com', username: 'riya', password: 'password123')
 
-    visit '/sessions/new'
+    visit '/users/login'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
 
+    visit '/chitter/new'
     click_button('Sign out')
 
     expect(page).not_to have_content 'Welcome Riya Dattani'
