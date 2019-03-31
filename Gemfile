@@ -11,6 +11,7 @@ gem 'orderly'
 group :test do
   gem 'capybara'
   gem 'rspec'
+  gem 'launchy'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'rubocop', '0.56.0'

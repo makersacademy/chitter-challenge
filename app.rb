@@ -1,9 +1,11 @@
 require 'sinatra/base'
 require './lib/peep.rb'
+require './lib/user.rb'
 require './spec/database_connection_setup.rb'
 require 'uri'
 
 class Chitter < Sinatra::Base
+  enable :sessions
   get '/' do
     redirect '/chitter'
   end
