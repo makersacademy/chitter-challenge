@@ -7,9 +7,3 @@ feature 'Post a peep' do
     expect(page).to have_content 'My first peep'
   end
 end 
-
-feature 'Display peeps' do
-  scenario 'User sees the posted peeps reverse chronological order' do
-
-  end
-end

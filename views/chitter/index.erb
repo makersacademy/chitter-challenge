@@ -3,4 +3,8 @@
   <input type="submit" value="Submit">
 </form>
 
-<%=@peeps %>
+<ul>
+<% @peeps.each do |peep| %>
+<li><%= peep %></li>
+<% end %>
+</ul> 
