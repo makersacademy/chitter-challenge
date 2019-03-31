@@ -1,1 +1,8 @@
-<%= @messages %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <h5> @<%= peep.username %> </h5>
+    <p><%= peep.message %></p>
+    <pre><%= peep.time %></pre>
+    <br>
+  <% end %>
+</ul>

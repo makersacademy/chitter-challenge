@@ -1,34 +1,33 @@
 require 'message'
-
-# RSpec::Matchers.define :appear_before do |later_content|
-#   match do |earlier_content|
-#     page.body.index(earlier_content) < page.body.index(later_content)
-#   end
-# end
+require 'database_helpers'
 
 describe Message do
   describe '.all' do
-    it 'returns all the messages' do
-      Message.post(username: 'riya', message:'Happy Easter')
-      Message.post(username: 'riya', message: 'Merry Christmas')
-      messages = Message.all
-      expect(messages).to include('@riya: Happy Easter')
-      expect(messages).to include('@riya: Merry Christmas')
-    end
-
-    it 'returns the messages in reverse chronological order' do
+    it 'returns all the messages in reverse chronological order' do
       Message.post(username: 'riya', message:'Happy Easter')
       Message.post(username: 'riya', message: 'Summer Vibes')
-      Message.post(username: 'riya', message: 'Merry Christmas')
+      time = Time.new.strftime('%F %k:%M:00')
+      peep = Message.post(username: 'riya', message: 'Merry Christmas')
       messages = Message.all
-      expect(messages).to eq(['@riya: Merry Christmas', '@riya: Summer Vibes', '@riya: Happy Easter'])
+
+      expect(messages.length).to eq 3
+      expect(messages.first).to be_a Message
+      expect(messages.first.id).to eq peep.id
+      expect(messages.first.username).to eq 'riya'
+      expect(messages.first.message).to eq 'Merry Christmas'
+      expect(messages.first.time).to eq time
     end
   end
 
   describe '.post' do
     it 'should post a message on the feed' do
-      Message.post(username: 'riya', message: "Happy Easter")
-      expect(Message.all).to include "@riya: Happy Easter"
+      peep = Message.post(username: 'riya', message: "Happy Easter")
+      persisted_data = persisted_data(id: peep.id)
+
+      expect(peep).to be_a Message
+      expect(peep.id).to eq persisted_data['id']
+      expect(peep.username).to eq 'riya'
+      expect(peep.message).to eq 'Happy Easter'
     end
   end
 end

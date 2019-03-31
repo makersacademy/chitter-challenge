@@ -8,9 +8,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-#add below
+# add below
 
-#Capybara set up:
+# Capybara set up:
 
 ENV['RACK_ENV'] = 'test'
 # ENV['ENVIRONMENT'] = 'test'
