@@ -15,4 +15,15 @@ class Peep
     Peep.new(id: result[0]['id'], content: result[0]['peep'], time: result[0]['time'])
   end
 
+  def self.all
+    peeps = DatabaseConnection.query("SELECT * FROM peeps;")
+    peeps.map do |peep|
+      Peep.new(
+        id: peep['id'],
+        content: peep['peep'],
+        time: Time.now        
+      )
+    end
+  end
+
 end

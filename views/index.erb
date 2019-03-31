@@ -1,5 +1,8 @@
 <h1>Welcome to Chitter</h1>
-<ul><%= @peep %></ul>
+<ul><% @peeps.each do |peep| %>
+  <li><%= peep.content %></li>
+  <% end %>
+</ul>
 <form action="chitter/new">
   <input type="submit" value="New peep">
 </form>
