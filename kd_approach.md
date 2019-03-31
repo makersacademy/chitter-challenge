@@ -133,7 +133,7 @@ Notes:
 ---
 
 ### USER STORY 2
-> As a maker
+[X] > As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
@@ -242,6 +242,12 @@ The sign-up page will have:
   Check it is unique
 - Password
   For security, need to hash passwords
+
+- Create the users table.
+- Feature test for registration.
+- User form and route structure.
+- Create a User model for registration, and saving the user ID to the session.
+- Make the password secure.
 
 ##### CLASSES/OBJECTS (MODEL)
 

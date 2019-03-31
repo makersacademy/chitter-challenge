@@ -3,4 +3,9 @@
     <li><%= peep.timestamp %> <%= peep.message %></li>
   <% end %>
   <a href="/peeps/new">New Peep!</a>
+  <a href="/registration/signup">Sign Up</a>
 </ul>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+<% end %>

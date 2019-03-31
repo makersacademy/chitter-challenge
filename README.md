@@ -180,3 +180,10 @@ end
 
 ```
 
+### Adding users table on the Chitter app database
+
+1. Enter `\c chitter_app;` to connect to the database
+2. Create `users` table by running the sql script `03_users_table.sql`
+3. Run in pSQL by doing `\i db/migrations/03_users_table.sql` from the root directory of the repository
+4. Now you have a users table to manage users
+
