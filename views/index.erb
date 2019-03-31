@@ -1,6 +1,7 @@
 <h1>Welcome to Chitter</h1>
 <ul><% @peeps.each do |peep| %>
-  <li><%= peep.content %></li>
+  <li><%= peep.content %><br>
+    <%= peep.time.strftime("%H:%M, %d %B") %></li>  
   <% end %>
 </ul>
 <form action="chitter/new">
