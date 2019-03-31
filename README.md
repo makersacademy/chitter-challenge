@@ -49,10 +49,12 @@ I want to receive an email if I am tagged in a Peep
 2. `psql postgres`
 3. `CREATE DATABASE "chitter";`
 4. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280), timestamp TIMESTAMPTZ default current_timestamp);`
+5. `CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(20), email VARCHAR(50), password VARCHAR(25));`
 
 ## Setting up a test database
 1. `psql postgres`
 3. `CREATE DATABASE "chitter_test";`
-4. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280), timestamp TIMESTAMPTZ default current_timestamp);`
+3. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280), timestamp TIMESTAMPTZ default current_timestamp);`
+4. `CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(20), email VARCHAR(50), password VARCHAR(25));`
 
 ## How to run

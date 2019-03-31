@@ -1,9 +1,11 @@
-<form action='/post' method='POST'>
-  Input your cheep below...
-  <div>
-    <input type='text' name='content'/>
-    <input type='submit' value='Post'/>
-  </div>
+Log in or <a href='/user/sign_up' id='sign_up'>Sign Up</a>
+
+<form action='/user/sign_in' method='POST'>
+  Username:
+  <input type='text' name='username'/>
+  Password:
+  <input type='password' name='password'/>
+  <input type='submit' value='Submit'/>
 </form>
 
 <div>

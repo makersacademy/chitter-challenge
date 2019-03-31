@@ -5,5 +5,3 @@ if ENV["ENVIRONMENT"] == 'test'
 else
   DBManager.setup('chitter')
 end
-
-p ENV
