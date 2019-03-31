@@ -1,8 +1,9 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
-require_relative 'database_helpers'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require_relative 'database_helpers'
+require_relative 'web_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -13,7 +14,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) { test_db_setup }
-  
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

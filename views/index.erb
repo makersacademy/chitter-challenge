@@ -10,7 +10,11 @@
   Live Feed:
   <ul>
     <% @posts.each do |cheep| %>
-      <li> <%= cheep.post %> </li>
+      <li>
+        <%= cheep.post %>
+        <br>
+        <sub> Timestamp: <%= cheep.timestamp %> </sub>
+      </li>
     <% end %>
   </ul>
 </div>

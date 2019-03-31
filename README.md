@@ -48,11 +48,11 @@ I want to receive an email if I am tagged in a Peep
 1. `brew install postgresql`
 2. `psql postgres`
 3. `CREATE DATABASE "chitter";`
-4. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280));`
+4. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280), timestamp TIMESTAMPTZ default current_timestamp);`
 
 ## Setting up a test database
 1. `psql postgres`
 3. `CREATE DATABASE "chitter_test";`
-4. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280));`
+4. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280), timestamp TIMESTAMPTZ default current_timestamp);`
 
 ## How to run
