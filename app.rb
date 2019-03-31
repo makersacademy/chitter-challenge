@@ -3,8 +3,6 @@ require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
-
   get '/chitter' do
     @peeps = Peep.all
     erb :index
