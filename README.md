@@ -44,5 +44,8 @@ My feature test for signing up is not very detailed - all it checks is that the 
 
 I'd like to get rid of the `get '/users/account_created'` route and replace it by logging the user in automatically and displaying .flash message on the homepage.
 
+Likewise - if your login fails you should go back to the login page with an error message
+
 Is it really necessary to create my own `Self.authenticate` method? Can't DataMapper do that for me?
+
 The feature tests for logging in are not that strong. They only check for a welcome or error message. We should check whether the user is actually logged in.
