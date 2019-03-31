@@ -2,54 +2,60 @@
 
 [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
 
-*[Exercise instructions](INSTRUCTIONS.md)*  
+*[Exercise instructions](INSTRUCTIONS.md)*
+
+<img src='img/animation.gif'>
+
+## Chitter
+
+Like Twitter but way better
+
+Using:
+- Ruby
+- Sinatra
+- PostgreSQL database
+- DataMapper ORM
+- RSpec/Capybara for testing
+- Bootstrap CSS
+- Heroku + Heroku Postgres
+
+Check it out here: <https://hivemind-chitter.herokuapp.com/>
 
 ## Installation
 
 1. Clone the repo
 2. `bundle install`
-3. Set up your databases and user. E.g. run `psql`, and enter these commands:
-    1. `CREATE USER chitter WITH ENCRYPTED PASSWORD 'your_password';`
-    2. `CREATE DATABASE chitter;`
-    3. `CREATE DATABASE chitter_test;`
-    4. `GRANT ALL PRIVILEGES ON DATABASE chitter TO chitter;`
-    5. `GRANT ALL PRIVILEGES ON DATABASE chitter_test TO chitter;`
-4. Copy `.env-example` to `.env` and enter the details of the databases and user you just created.
-    - `.env` is included in `.gitignore` in case you want to keep your database credentials secret
+3. Set up your databases and user e.g. by running:  
+   `psql -f db/migrations/set_up_databases.sql`
+4. Copy `.env-example` to `.env`.(`.env` is included in `.gitignore` in case you want to keep your database credentials secret)
 5. Start the server with `rackup`
 6. Go to `localhost:9292` in your browser
-7. Peep away to your heart's content
+7. That should work 🤞
 
 ## Tests
 
 1. Run the tests with `rspec` in the project root
 
-## Some notes as I'm going along...
+## What I did
 
-[A nice blogpost](http://launchware.com/articles/acceptance-testing-asserting-sort-order) on testing that content appears in a particular order with Capybara/RSpec
+I implemented all the user stories except the last one. I didn't look at the bonus task about replying to peeps. I did a little bit of styling with Bootstrap.
 
-I turned off lazy loading for `Peep.content` because it wasn't loading at all in `view_peeps.erb`... Surely this shouldn't be necessary though. Why wasn't it loading?
+I used DataMapper for an ORM (seems *much* easier than dealing with the database directly!)
 
-DataMapper is throwing a warning in my RSpec output, like this:
-```
-> /Users/student/.rvm/gems/ruby-2.5.0/gems/data_objects-0.10.17/lib/data_objects/pooling.rb:149: warning: constant ::Fixnum is deprecated
-```
-... slightly annoying :-/
+It took me a couple of goes to set the database up correctly, but the Travis build is passing.
 
-If you don't set up your database like it says in the instructions then DataMapper will just use your default database. Probably not desirable.
+I deployed to Heroku using the Heroku CLI. Heroku Postgres was pretty easy to configure via DataMapper.
 
-Would it be better to use Rake to set up the database(s)? Does that even make sense?
+TDD-ed everything, but almost all the model logic was handled by DataMapper, so there wasn't much in the way of unit tests, which felt... weird... Test coverage is ~98%: everything except the lines setting up the database in the development and 'production' environment.
 
-Now that all the model stuff is handled by DataMapper, it's not covered by unit tests. Is that right?? Should I write some anyway, even though it's all being handled by a dependency?
+### Things I could have done differently
 
-My feature test for signing up is not very detailed - all it checks is that the user's name is displayed on screen. Would it be appropriate to check that the right details have been set up in the database, or is that too unit-testy?
+No doubt this list will increase dramatically when I properly go over the rubric, but for now...
 
-Is it really necessary to create my own `Self.authenticate` method? Can't DataMapper do that for me?
+- Would have been good to do the bonus round
+- I didn't feel like I was on top of the database set-up and deployment. Need to look into Rake more. Or whatever is the equivalent for Javascript now I guess...
+- Could have more detailed validation messages on sign-up page. Currently all errors give the same generic message.
+- Should do some validation on the length of a peep
+- My gif was a bit low-quality :(
 
-The feature tests for logging in are not that strong. They only check for a welcome or error message. We should check whether the user is actually logged in.
-
-Would be better to have more details validation messages when a user enters invalid details on the sign-up form. At the moment you get the same message if you don't enter any of the fields or if the user details already exist.
-
-Should do some validation on the length of a peep.
-
-Might be good to get them to enter their password twice when signing up.
+[Here are some other notes I made along the way](notes.md)
