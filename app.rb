@@ -1,8 +1,10 @@
 require 'sinatra/base'
 require './lib/message.rb'
+require './lib/user.rb'
 require './database_connection_setup'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
     erb :welcome_page
@@ -13,7 +15,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    # User.sign_up(fullname: params[:fullname], email: params[:email], username: params[:username], password: params[:password])
+    user = User.create(fullname: params[:fullname], email: params[:email], username: params[:username], password: params[:password])
+    session[:user_id] = user.id
     redirect '/chitter/new'
   end
 
@@ -23,6 +26,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/new' do
+    @user = User.find(id: session[:user_id])
     erb :'/chitter/new'
   end
 

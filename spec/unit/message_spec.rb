@@ -22,7 +22,7 @@ describe Message do
   describe '.post' do
     it 'should post a message on the feed' do
       peep = Message.post(username: 'riya', message: "Happy Easter")
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(table: :messages, id: peep.id)
 
       expect(peep).to be_a Message
       expect(peep.id).to eq persisted_data['id']
