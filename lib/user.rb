@@ -12,6 +12,15 @@ class User
     @password = password
   end
 
+  # def self.all
+  #   def self.all
+  #     result = DatabaseConnection.query("SELECT * FROM users")
+  #     result.map do |user|
+  #       User.new(id: result['id'], name: result['name'], username: result['username'], email: result['email'], password: result['password'])
+  #     end
+  #   end
+  # end
+
   def self.signup(name:, username:, email:, password:)
     connection = PG.connect(dbname: 'user_management')
     result = connection.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}') RETURNING id, name, username, email, password;")

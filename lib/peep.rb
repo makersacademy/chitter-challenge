@@ -16,9 +16,8 @@ class Peep
 
   def self.display
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map do |peep|
-      Peep.new(id: peep['id'], peep: peep['peep'], timestamp: peep['timestamp'])
-    end
+    result.map { |peep|
+      Peep.new(id: peep['id'], peep: peep['peep'], timestamp: peep['timestamp']) }.reverse!
   end
 
 end
