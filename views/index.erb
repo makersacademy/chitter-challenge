@@ -1,4 +1,11 @@
-<h1>Welcome to Chitter<% if @user %>, <%= @user.username %> <% end %></h1>
+<h1>Welcome to Chitter<% if @user %>, <%= @user.username %>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out">
+  </form>
+  <% end %></h1>
+  
+  <%= flash[:notice] %>
+
 <form action="/user/new">
   <input type="submit" value="Sign up to Chitter"/>
 </form>
