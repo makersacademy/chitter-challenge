@@ -3,7 +3,7 @@
     <input type="submit" value="Sign out">
   </form>
   <% end %></h1>
-  
+
   <%= flash[:notice] %>
 
 <form action="/user/new">
@@ -14,7 +14,7 @@
 </form>
 <ul><% @peeps.each do |peep| %>
   <li><%= peep.content %><br>
-    <%= peep.time.strftime("%H:%M, %d %B") %></li>
+    <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %></li>
   <% end %>
 </ul>
 <form action="chitter/new">

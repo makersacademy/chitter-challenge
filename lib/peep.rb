@@ -21,7 +21,7 @@ class Peep
       Peep.new(
         id: peep['id'],
         content: peep['peep'],
-        time: Time.now
+        time: peep['time']
       )
     end
   end
@@ -30,5 +30,5 @@ class Peep
     peeps = Peep.all
     peeps.reverse { |peep| peep.time }
   end
-  
+
 end
