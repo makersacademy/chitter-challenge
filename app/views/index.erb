@@ -17,11 +17,20 @@
     <![endif]-->
     <h1>Chitter</h1>
 
-    <form action="/peeps/new" method="post">
+    <form action="/create-peep" method="post">
       <textarea name="peep" cols="30" rows="5">
         Write a peep here!
       </textarea>
+      <input type="submit" value="Submit">
     </form>
+
+    <ul>
+      <% @peeps.each do |peep| %>
+      <li class="peep" id="peep-<%= peep.id %>">
+        <%= peep.peep %>
+      </li>
+      <% end %>
+    </ul>
     
     <script src="" async defer></script>
   </body>
