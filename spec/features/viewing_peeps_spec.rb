@@ -8,12 +8,9 @@ feature 'Viewing Peeps' do
   end
 
   scenario 'A user can see bookmarks' do
-    connection = PG.connect(dbname: 'chitter_test')
-
-    # Add the test data
-    connection.exec("INSERT INTO peeps VALUES(1, 'Peep 1');")
-    connection.exec("INSERT INTO peeps VALUES(2, 'Peep 2');")
-    connection.exec("INSERT INTO peeps VALUES(3, 'Peep 3');")
+    Peep.create(content: "Peep 1")
+    Peep.create(content: "Peep 2")
+    Peep.create(content: "Peep 3")
 
     visit('/feed')
 

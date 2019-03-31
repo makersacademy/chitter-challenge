@@ -17,11 +17,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/feed' do
-    content = params['content']
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (content) VALUES('#{content}')")
-    redirect '/feed'
-  end
+  Peep.create(content: params[:content])
+  redirect '/feed'
+end
 
   run! if app_file == $0
 end
