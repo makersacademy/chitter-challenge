@@ -1,12 +1,14 @@
+require 'pg'
+
 feature 'Viewing peeps' do
   scenario 'User goes to Chitter main page to view peeps' do
 
     connection = PG.connect(dbname: 'chitter_app_test')
 
     # Add the test data
-    Peep.create(peep: "Peep 1 by Pusheen")
-    Peep.create(peep: "Peep 2 by Gudetama")
-    Peep.create(peep: "Peep 3 by Yoda")
+    Peep.create(message: "Peep 1 by Pusheen")
+    Peep.create(message: "Peep 2 by Gudetama")
+    Peep.create(message: "Peep 3 by Yoda")
 
     visit('/peeps')
 

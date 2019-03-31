@@ -64,18 +64,18 @@ For each user story, I sketched out the features and then wrote some feature tes
 
 
 ### USER STORY 1
-> As a Maker
+[X] > As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
 
 ##### VIEWS
-- Main page (Peeps page)
-- New peep
+[X] - Main page (Peeps page)
+[X] - New peep
 
 ##### CONTROLLER ROUTING / ACTION
 
-- Display a list of peeps
+[X] - Display a list of peeps
 
 ```
 GET
@@ -84,7 +84,8 @@ Controller: peeps
 Action: index
 ```
 
-- Return message box/form for adding a new peep
+[X] - Return message box/form for adding a new peep
+On Main page (Peeps Page) - clickable link to go to /peeps/new
 
 ```
 GET
@@ -93,7 +94,7 @@ Controller: peeps
 Action: new
 ```
 
-- Create a new peep
+[X] - Create a new peep
 
 ```
 POST
@@ -117,7 +118,7 @@ The user will first go to the Main page (Peeps page), they will see a list of pe
 ##### CLASSES/OBJECTS (MODEL)
 
 - New peep (message)
-  nvarchar limit?
+  nvarchar limit? 60?
 
 ##### DATABASE MODEL
 
@@ -170,7 +171,7 @@ Notes:
 
 
 ### USER STORY 3
-> As a Maker
+[X] > As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
@@ -190,7 +191,7 @@ Action: index
 ```
 
 ##### USER JOURNEY
-On the Main page (Peeps page), the user will see a list of peeps from latest to oldest, each peep will have a date/time stamp.
+[X] On the Main page (Peeps page), the user will see a list of peeps from latest to oldest, each peep will have a date/time stamp.
 
 ##### CLASSES/OBJECTS (MODEL)
 
@@ -198,11 +199,8 @@ On the Main page (Peeps page), the user will see a list of peeps from latest to 
 ##### DATABASE MODEL
 
 See: chitter-challenge/db_table_model.png
-- Automatically update the date / time stamp when a new row is inserted into peeps table in db?
+[X] - Automatically update the date / time stamp when a new row is inserted into peeps table in db?
 
-Notes: 
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
 
 
 ## Test Cases
@@ -249,6 +247,10 @@ The sign-up page will have:
 
 
 ##### DATABASE MODEL
+
+Notes: 
+* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* The username and email are unique.
 
 ## Test Cases
 

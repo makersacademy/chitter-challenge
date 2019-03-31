@@ -1,6 +1,6 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.timestamp %> <%= peep.message %></li>
   <% end %>
   <a href="/peeps/new">New Peep!</a>
 </ul>
