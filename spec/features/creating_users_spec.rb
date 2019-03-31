@@ -20,4 +20,23 @@ feature "Adding users" do
     click_button "Sign-up"
     expect(page).to have_content "LizzieQ"
   end
+
+  scenario "a user tries to use non-unique username" do
+    # Add test data
+    User.create(
+      name: "Matt Three",
+      email: "matt@makers.matt",
+      password: "password3",
+      username: "matt3tea"
+    )
+
+    visit "/users/new"
+    fill_in "name", :with => "Matt Four"
+    fill_in "email", :with => "matt@makers.matt"
+    fill_in "password", :with => "password3"
+    fill_in "username", :with => "matt3tea"
+    click_button "Sign-up"
+    
+    expect(page).not_to have_content "Matt Four"
+  end
 end

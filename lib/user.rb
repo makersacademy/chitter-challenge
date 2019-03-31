@@ -20,7 +20,12 @@ class User
     result = connection.exec(
       "INSERT INTO users (name, email, password, username)
       VALUES ('#{name}', '#{email}', '#{password}', '#{username}')
-      RETURNING id, name, email, password, username;")
+      ON CONFLICT DO NOTHING
+      RETURNING id, name, email, password, username;"
+    )
+
+    return "Sorry" if result.ntuples < 1
+    
     User.new(
       id: result[0]["id"],
       name: result[0]["name"],

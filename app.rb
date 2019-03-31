@@ -3,6 +3,8 @@ require "./lib/peep"
 require "./lib/user"
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  
   get "/" do
     "Welcome to Chitter"
   end

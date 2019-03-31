@@ -30,5 +30,25 @@ describe User do
       
       expect(User.all[0].username).to eq "matt3tea"
     end
+
+    it "handles error when duplicate username or email is entered" do
+      # Add test data
+      User.create(
+        name: "Matt Three",
+        email: "matt@makers.matt",
+        password: "password3",
+        username: "matt3tea"
+      )
+      # Add test data
+      duplicate = User.create(
+        name: "Matt Four",
+        email: "matt@makers.matt",
+        password: "password4",
+        username: "matt3tea"
+      )
+
+      error = "Username and email must be unique."
+      expect(User.all.length).to eq 1
+    end
   end
 end

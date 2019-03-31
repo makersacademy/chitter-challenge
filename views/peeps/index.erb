@@ -10,7 +10,7 @@
   <% @peeps.each do |peep| %>
     <li>
       <div><%= peep.message %></div>
-      Posted... <div><%= peep.created_at %></div>
+      <div>Posted... <%= peep.created_at %></div>
     </li>
   <% end %>
 </ul>
