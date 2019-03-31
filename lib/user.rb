@@ -5,8 +5,8 @@ class User
 
   property :id,       Serial
   property :name,     String
-  property :username, String
-  property :email,    String
+  property :username, String, :unique => true
+  property :email,    String, :unique => true
   property :password, BCryptHash
 
   def self.authenticate(username:, password:)

@@ -25,9 +25,5 @@ describe User do
                                password: 'my_password')
       expect(user).to be_nil
     end
-
-    xit 'returns nil if passed a username associated with multiple accounts' do
-      # edge case, to be returned to...
-    end
   end
 end

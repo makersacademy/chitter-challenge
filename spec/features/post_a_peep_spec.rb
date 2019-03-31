@@ -12,8 +12,7 @@ feature 'Post a peep' do
   end
 
   scenario 'Users can peep if they are logged in' do
-    sign_up 'Paul Martin', 'Hivemind'
-
+    sign_up 'Paul Martin', 'Hivemind', 'me@hotmail.com'
     visit '/'
     fill_in 'peep_content', with: "First peep w00t!!"
     click_button 'Peep'

@@ -1,3 +1,8 @@
+<% if @login_failed %>
+  <div class="floating-box error">
+    Sorry, we didn't recognise those details
+  </div>
+<% end %>
 <h2>Enter your details to sign in</h2>
 <form class="floating-box clearfix" action="/sessions" method="post">
   <div class="form-group">

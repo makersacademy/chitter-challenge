@@ -75,6 +75,12 @@ li.log-out .btn {
     color: magenta;
 }
 
+.error {
+    color: white;
+    background-color: magenta;
+    border-color: magenta;
+}
+
 #welcome {
     font-family: 'Titan One', cursive;
     font-size: 30pt;
@@ -105,4 +111,21 @@ li.log-out .btn {
     font-size: 80%;
     text-align: right;
     margin-bottom: 20px;
+}
+
+/* sticky footer */
+/* from here: https://css-tricks.com/couple-takes-sticky-footer/ */
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+.site-footer {
+  flex-shrink: 0;
 }

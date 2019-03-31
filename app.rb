@@ -28,18 +28,32 @@ class Chitter < Sinatra::Base
                        username: params[:username],
                        email: params[:email],
                        password: params[:password]
+    redirect '/users/already_exists' if user.id.nil?
     session[:user_id] = user.id
     redirect '/'
   end
 
+  get '/users/already_exists' do
+    erb :user_already_exists
+  end
+
   get '/sessions/new' do
+    if session[:login_failed]
+      @login_failed = true
+      session[:login_failed] = nil
+    end
     erb :sign_in
   end
 
   post '/sessions' do
     user = User.authenticate username: params[:username],
                              password: params[:password]
-    redirect '/sessions/login_failed' if user.nil?
+
+    if user.nil?
+      session[:login_failed] = true
+      redirect '/sessions/new'
+    end
+
     session[:user_id] = user.id
     redirect '/'
   end
@@ -47,9 +61,5 @@ class Chitter < Sinatra::Base
   delete '/sessions/delete' do
     session[:user_id] = nil
     redirect '/'
-  end
-
-  get '/sessions/login_failed' do
-    erb :login_failed
   end
 end

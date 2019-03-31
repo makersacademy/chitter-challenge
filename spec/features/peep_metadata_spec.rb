@@ -6,7 +6,7 @@ require 'sign_up_helper'
 
 feature 'View time of peep' do
   scenario 'The time and date of peeps are displayed' do
-    sign_up 'Paul Martin', 'Hivemind'
+    sign_up 'Paul Martin', 'Hivemind', 'me@hotmail.com'
     visit '/'
     fill_in 'peep_content', with: "This is my peep"
     click_button 'Peep'
@@ -20,7 +20,7 @@ end
 
 feature 'View author of peep' do
   scenario "The name and username of peeps' authors are displayed" do
-    sign_up 'Paul Martin', 'Hivemind'
+    sign_up 'Paul Martin', 'Hivemind', 'me@hotmail.com'
     visit '/'
     fill_in 'peep_content', with: "This is my peep"
     click_button 'Peep'
