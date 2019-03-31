@@ -1,3 +1,4 @@
+require 'time'
 feature 'Chitter website functions' do
   scenario 'web site test' do
     visit('/')
@@ -22,5 +23,15 @@ feature 'Chitter website functions' do
     click_button('Submit')
     expect(current_path).to eq('/')
     expect(first('.peep')).to have_content('I hoovered my car')
+  end
+
+  scenario 'timestamp is shown' do
+    time = Time.now
+    day = time.strftime("%d")
+    visit('/')
+    fill_in('peep', with: 'I washed my car')
+    click_button('Submit')
+    expect(current_path).to eq('/')
+    expect(first('.peep')).to have_content("#{day}")
   end
 end
