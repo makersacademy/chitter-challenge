@@ -2,11 +2,12 @@
 
 ## How to set up
 - git clone 'https://github.com/WardahTarar/chitter-challenge'
-- cd chitter-challenge
 - bundle
+- rake setup
+- rake migrate
+- rspec
 - rackup
-- Enter this into your web URL 'localhost:9292'
-- Start by signing up or reading other peeps
+
 
 ## Basics
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
