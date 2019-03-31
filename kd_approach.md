@@ -211,7 +211,7 @@ See: chitter-challenge/db_table_model.png
 
 
 ### USER STORY 4
-> As a Maker
+[X] > As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
@@ -231,7 +231,7 @@ Action: signup
 ```
 
 ##### USER JOURNEY
-On the Main page (Peeps page), the user will click a sign-up button, taking them to the sign-up route/view. They will see a sign-up form.
+[X] On the Main page (Peeps page), the user will click a sign-up button, taking them to the sign-up route/view. They will see a sign-up form.
 
 The sign-up page will have:
 
@@ -243,11 +243,11 @@ The sign-up page will have:
 - Password
   For security, need to hash passwords
 
-- Create the users table.
-- Feature test for registration.
-- User form and route structure.
-- Create a User model for registration, and saving the user ID to the session.
-- Make the password secure.
+- [X]Create the users table.
+- [X]Feature test for registration.
+- [X]User form and route structure.
+- [X]Create a User model for registration, and saving the user ID to the session.
+- [X]Make the password secure.
 
 ##### CLASSES/OBJECTS (MODEL)
 
@@ -267,13 +267,13 @@ Notes:
 
 
 ### USER STORY 4
-> As a Maker
+[X]> As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
 
 ##### VIEWS
-- Log in
+[X]- Log in
 
 ##### CONTROLLER ROUTING / ACTION
 
@@ -287,12 +287,12 @@ Action: login
 ```
 
 ##### USER JOURNEY
-On the Main page (Peeps page), the user will click a sign-up button, taking them to the sign-up route/view. They will see a sign-up form. After login, redirect user to main page (peeps page).
+[X]On the Main page (Peeps page), the user will click a sign-up button, taking them to the sign-up route/view. They will see a sign-up form. After login, redirect user to main page (peeps page).
 
 
 ##### CLASSES/OBJECTS (MODEL)
 
-- Possibly set `session[:user_id]` to the `user_id`
+[X]- Possibly set `session[:user_id]` to the `user_id`
 
 ##### DATABASE MODEL
 
@@ -303,7 +303,7 @@ On the Main page (Peeps page), the user will click a sign-up button, taking them
 -----
 
 ### USER STORY 4
-> As a Maker
+[X]> As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
@@ -323,12 +323,12 @@ Action: logout
 ```
 
 ##### USER JOURNEY
-On the Main page (Peeps page), the user can click a log-out button to log out of their session. After logout, redirect user to main page (peeps page). 
+[X] On the Main page (Peeps page), the user can click a log-out button to log out of their session. After logout, redirect user to main page (peeps page). 
 
 
 ##### CLASSES/OBJECTS (MODEL)
 
-- `session[:user_id]` to the `user_id`, so have to clear session data for the user which has logged out. 
+[X]- `session[:user_id]` to the `user_id`, so have to clear session data for the user which has logged out. 
 
 ##### DATABASE MODEL
 

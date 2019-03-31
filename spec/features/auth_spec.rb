@@ -1,5 +1,5 @@
 feature 'authentication' do
-  it 'a user can sign into the Chitter app' do
+  it 'User logs into Chitter app' do
     User.create(fullname: 'Pusheen Cat', username: '@pusheen', email: 'pusheen@test.com', password: 'pusheen-password')
 
     visit '/sessions/login'
