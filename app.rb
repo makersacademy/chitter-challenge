@@ -23,5 +23,9 @@ class ChitterApp < Sinatra::Base
     redirect '/chitter'
   end
 
+  get '/chitter/signup' do
+    erb(:'chitter/signup')
+  end
+
   run! if app_file == $PROGRAM_NAME
 end

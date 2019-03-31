@@ -13,7 +13,7 @@ class Chitter
 
   def self.all
     ENV['ENVIRONMENT'] == 'test'? connection = PG.connect(dbname: 'chitter_app_test'): connection = PG.connect(dbname: 'chitter_app')
-    result = connection.exec("SELECT * FROM chitter;")
+    result = connection.exec("SELECT * FROM chitter ORDER BY time DESC;")
 
     result.map do |peep|
       Chitter.new(id: peep['id'], name: peep['name'], handle: peep['handle'], time: peep['time'], content: peep['content'])
