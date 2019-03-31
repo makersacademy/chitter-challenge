@@ -61,6 +61,8 @@ I want to receive an email if I am tagged in a Peep
 \i path_to_02_create_peeps_table
 \i path_to_03_create_users_table
 \i path_to_04_create_chitter_test_db
+\i path_to_06_create_tag_table_db
+\i path_to_07_create_usertags_table_db
 \c chitter_test
 -- connect to chitter_test_db
 -- repeate the creation of peeps and users inside the chitter_test database

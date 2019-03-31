@@ -1,4 +1,5 @@
 require './lib/database_connection'
+require './lib/tag'
 require 'bcrypt'
 
 class User
@@ -19,9 +20,14 @@ class User
 
   def self.create(name:, username:, email:, password:)
     encrypted_password = BCrypt::Password.create(password)
+
     sql = "INSERT INTO users (name, username, email, password) VALUES
     ('#{name}','#{username}','#{email}', '#{encrypted_password}') RETURNING id, name, username, email"
+
     result = DatabaseConnection.query(sql).first
+
+    Tag.create(tag_id: result['id'] , content: result['username'])
+
     User.new(id: result['id'], name: result['name'], username: result['username'], email: result['email'])
   end
 

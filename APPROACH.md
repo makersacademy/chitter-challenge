@@ -171,3 +171,11 @@ Step 9
 - Create the views and the routes to pass the test
 
 Step 10
+
+- Feature test adding a tag via a peep
+- Unit test adding a tag to the tag table - unit test tag class
+- Unit test adding finding a tag in the tag table - unit test tag class
+- When user registers, a tag is createrd based on his username (atm)
+- When a user submits a peep, if there is a word starting with @, a service is called to check the word against the tags databse: Tags.find(that_tag). If there is a match, first I will flash a message on screen
+
+- If there is a match, a email service is called to send an email to the tagged user - based on the tag i can retrieve the user id and his information

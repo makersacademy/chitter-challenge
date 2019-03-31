@@ -15,6 +15,12 @@ describe User do
       expect(user.username).to eq 'My_username'
       expect(user.email).to eq 'myname@gmail.com'
     end
+
+    it 'adds his username as a handle to the tags table' do
+      user = User.create(name: 'My_name', username: 'My_username', email:'myname@gmail.com', password:'some_password')
+      result = Tag.find_id(tag_id: user.id)
+      expect(result.content).to eq user.username
+    end
   end
 
   describe '.authenticate' do

@@ -1,3 +1,5 @@
+require './lib/tag_verification_service'
+
 class Peep 
 
   attr_reader :user_id, :peep, :timestamp
@@ -9,8 +11,12 @@ class Peep
   end
 
   def self.create(user_id:, peep:)
+
     sql = "INSERT INTO peeps (user_id, peep) VALUES ('#{user_id}', '#{peep}') RETURNING id, user_id, peep, peep_time"
     result = DatabaseConnection.query(sql).first
+
+    #MessageService.send if TagService.check(peep: message.peep)
+
     Peep.new(user_id: result['user_id'], peep: result['peep'], timestamp: result['peep_time'])
   end
 

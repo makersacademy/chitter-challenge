@@ -19,7 +19,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    # encrypt pass
     user = User.create(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
     session[:user_id] = user.id
     redirect '/peeps'
@@ -68,12 +67,10 @@ class Chitter < Sinatra::Base
   post '/peeps/new' do
     peep = params[:peep]
     id = session[:user_id]
-    Peep.create(user_id: id, peep: peep)
-
+    message = Peep.create(user_id: id, peep: peep)
+    flash[:tag_match] = "We have a match" if TagService.check(peep: message.peep)
     redirect '/peeps'
   end
-
-  
 
   #run! if app_file = $0
 end
