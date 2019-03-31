@@ -12,25 +12,25 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <h1>Chitter</h1>
+    <div class="container">
+      <h1 class="jumbotron text-center">Chitter</h1>
+    </div>
 
-    <form action="/create-peep" method="post">
-      <textarea name="peep" cols="30" rows="5">
-        Write a peep here!
-      </textarea>
-      <input type="submit" value="Submit">
-    </form>
+    <div class="container">
+      <form action="/create-peep" method="post">
+        <textarea name="peep" cols="30" rows="5">
+        </textarea>
+        <input type="submit" value="Submit">
+      </form>
 
-    <ul>
-      <% @peeps.each do |peep| %>
-      <li class="peep" id="peep-<%= peep.id %>">
-        <%= peep.peep %>
-      </li>
-      <% end %>
-    </ul>
+      <ul>
+        <% @peeps.each do |peep| %>
+        <li class="peep" id="peep-<%= peep.id %>">
+          <%= peep.peep %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
     
     <script src="" async defer></script>
   </body>
