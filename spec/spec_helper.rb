@@ -19,6 +19,8 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 Capybara.app = Chitter
 require 'capybara/dsl'
 require 'timecop'
+require_relative './features/web_helpers.rb'
+
 
 # Capybara.default_driver = :selenium
 DatabaseCleaner.strategy = :truncation

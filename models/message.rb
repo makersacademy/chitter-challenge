@@ -6,13 +6,7 @@ class Message < ActiveRecord::Base
   #   message = Message.new(content:content)
   #   message.save
   # end 
-
-
-
-
-
-
-
+  belongs_to :user
 
 
 

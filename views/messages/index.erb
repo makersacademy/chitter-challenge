@@ -3,7 +3,12 @@
 <ul>
 <% @messages.each do |x| %>
   <li class ="messages" id = "messages-<%= x.id %>">
+  
   <%= x.content %>
+  </br>
+  <%= x.user.name %>
+  </br>
+  <%= x.user.username %>
   </br>
   <%= "Posted on #{x.created_at}" %>
   </li>

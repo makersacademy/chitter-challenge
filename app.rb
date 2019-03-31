@@ -36,9 +36,11 @@ class Chitter < Sinatra::Base
   end 
 
 
-
   post '/messages/new' do 
-    @message = Message.create(content: params[:content])
+    @message = Message.create(content: params[:content], user_id: session[:user_id])
+    @user = User.find(@message.user_id)
+    p @user
+
     redirect '/messages'
   end 
 
@@ -46,6 +48,8 @@ class Chitter < Sinatra::Base
   post '/users/new' do  
     #username is another word for handle
     @user = User.create(name:params[:name],username: params[:username], email: params[:email], password:params[:password])
+    #signs in user too
+    session[:user_id]= @user.id
     # p @user
     # @user.save
     # p "#{@user.id}"
