@@ -5,12 +5,12 @@
 feature 'Sign up' do
   scenario 'Users can sign up' do
     visit '/users/new'
-    fill_in 'username', with: 'bloggs420'
+    fill_in 'username', with: 'jblogg'
     fill_in 'name', with: 'Joe Bloggs'
     fill_in 'email', with: 'joe@bloggs.com'
     fill_in 'password', with: 'password123'
     click_button 'Create account'
 
-    expect(page).to have_content("Welcome to Chitter, bloggs420")
+    expect(page).to have_content("Welcome, jblogg")
   end
 end
