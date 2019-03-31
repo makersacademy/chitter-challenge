@@ -25,6 +25,7 @@ GEM
     parallel (1.16.2)
     parser (2.6.2.0)
       ast (~> 2.4.0)
+    pg (1.1.4)
     psych (3.1.0)
     public_suffix (3.0.3)
     rack (2.0.6)
@@ -75,6 +76,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  pg
   rack
   rake
   rspec

@@ -43,3 +43,16 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+## Setting up Database for storing Bookmarks
+1. `brew install postgresql`
+2. `psql postgres`
+3. `CREATE DATABASE "chitter";`
+4. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280));`
+
+## Setting up a test database
+1. `psql postgres`
+3. `CREATE DATABASE "chitter_test";`
+4. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280));`
+
+## How to run

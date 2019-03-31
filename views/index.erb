@@ -1,4 +1,16 @@
 <form action='/post' method='POST'>
-  <input type='text' name='content'/>
-  <input type='submit' value='Post'/>
+  Input your cheep below...
+  <div>
+    <input type='text' name='content'/>
+    <input type='submit' value='Post'/>
+  </div>
 </form>
+
+<div>
+  Live Feed:
+  <ul>
+    <% @posts.each do |post| %>
+      <li> <%= post %> </li>
+    <% end %>
+  </ul>
+</div>
