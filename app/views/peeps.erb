@@ -1,4 +1,5 @@
-<%= flash[:notice] unless flash[:notice].nil? %>
+<h4> <%= session[:notice_log_out] %> </h4>
+<h4> <% session[:notice_log_out] = nil %> </h4>
 
 <h1>Chitter app - Peeps</h1>
 
