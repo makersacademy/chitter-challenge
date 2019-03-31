@@ -5,10 +5,13 @@ feature "Viewing users" do
   end
 
   scenario "user can see list of users" do
-    connection = PG.connect(dbname: "chitter_test")
-
     # Add test data
-    connection.exec("INSERT INTO users (name, email, password, username) VALUES ('Matt Tea', 'matt@makers.io', 'password1', 'matttea');")
+    User.create(
+      name: "Matt Tea",
+      email: "matt@makers.io",
+      password: "password1",
+      username: "matttea"
+    )
     
     visit "/users"
     expect(page).to have_content "Matt Tea"

@@ -17,8 +17,16 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("INSERT INTO peeps (message) VALUES ('#{message}') RETURNING id, message, created_at;")
-    Peep.new(id: result[0]['id'], message: result[0]['message'], created_at: result[0]['created_at'])
+    result = connection.exec(
+      "INSERT INTO peeps (message)
+      VALUES ('#{message}')
+      RETURNING id, message, created_at;"
+    )
+    Peep.new(
+      id: result[0]['id'],
+      message: result[0]['message'],
+      created_at: result[0]['created_at']
+    )
   end
 
   def self.all
@@ -32,7 +40,11 @@ class Peep
     list = result.map do |peep|
       epoch = Time.parse(peep["created_at"]).to_i
       date = Time.at(epoch).strftime("%e %b %Y at %H:%M")
-      Peep.new(id: peep["id"], message: peep["message"], created_at: date)
+      Peep.new(
+        id: peep["id"],
+        message: peep["message"],
+        created_at: date
+      )
     end
     list.reverse
   end

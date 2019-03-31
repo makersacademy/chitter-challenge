@@ -17,8 +17,17 @@ class User
     else
       connection = PG.connect(dbname: "chitter")
     end
-    result = connection.exec("INSERT INTO users (name, email, password, username) VALUES ('#{name}', '#{email}', '#{password}', '#{username}') RETURNING id, name, email, password, username;")
-    User.new(id: result[0]["id"], name: result[0]["name"], email: result[0]["email"], password: result[0]["password"], username: result[0]["username"])
+    result = connection.exec(
+      "INSERT INTO users (name, email, password, username)
+      VALUES ('#{name}', '#{email}', '#{password}', '#{username}')
+      RETURNING id, name, email, password, username;")
+    User.new(
+      id: result[0]["id"],
+      name: result[0]["name"],
+      email: result[0]["email"],
+      password: result[0]["password"],
+      username: result[0]["username"]
+    )
   end
 
   def self.all
@@ -30,7 +39,13 @@ class User
 
     result = connection.exec("SELECT * FROM users")
     result.map do |user|
-      User.new(id: user["id"], name: user["name"], email: user["email"], password: user["password"], username: user["username"])
+      User.new(
+        id: user["id"],
+        name: user["name"],
+        email: user["email"],
+        password: user["password"],
+        username: user["username"]
+      )
     end
   end
 end
