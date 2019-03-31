@@ -6,6 +6,18 @@ h1, h2, h3 {
     font-family: 'Titan One', cursive;
 }
 
+a {
+    color: limegreen;
+}
+
+a:hover {
+  color: magenta;
+}
+
+a:active {
+  color: limegreen;
+}
+
 h1 {
   font-size: 100pt;
 
@@ -49,12 +61,19 @@ menu {
     margin-bottom: 15px;
 }
 
-#welcome {
-    font-family: 'Titan One', cursive;
-    font-size: 30pt;
+.message {
     color: white;
     background-color: limegreen;
     border-color: limegreen;
+}
+
+.message a {
+    color: white;
+}
+
+#welcome {
+    font-family: 'Titan One', cursive;
+    font-size: 30pt;
 }
 
 .btn-primary {

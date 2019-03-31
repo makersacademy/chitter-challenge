@@ -21,7 +21,7 @@
   <menu>
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="/">Peeps</a>
+        <a class="nav-link" href="/">All my peeps</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/users/new">Sign up</a>
@@ -32,11 +32,6 @@
     </ul>
   </menu>
   <main>
-    <% if @user %>
-      <div id="welcome" class="floating-box">
-        Hello, <%= @user.username %>!
-      </div>
-    <% end %>
     <%= yield %>
   </main>
   <footer class="site-footer">

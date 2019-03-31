@@ -1,9 +1,13 @@
+require 'sign_up_helper'
+
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
 
 feature 'View peeps' do
   scenario 'The user can view all peeps in reverse chronological order' do
+    sign_up('hivemind')
+
     visit '/'
     peeps = [
       "First peep w00t!!",
