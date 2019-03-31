@@ -8,6 +8,10 @@ class Peeps < Sinatra::Base
     erb(:index)
   end
   
+  get '/register' do
+    erb(:register_get)
+  end
+
   get '/login' do
     erb(:login_get)
   end
