@@ -11,6 +11,16 @@ class User
     @username = username
   end
 
+  def self.create(name:, email:, password:, username:)
+    if ENV['RACK_ENV'] == "test"
+      connection = PG.connect(dbname: "chitter_test")
+    else
+      connection = PG.connect(dbname: "chitter")
+    end
+    result = connection.exec("INSERT INTO users (name, email, password, username) VALUES ('#{name}', '#{email}', '#{password}', '#{username}') RETURNING id, name, email, password, username;")
+    User.new(id: result[0]["id"], name: result[0]["name"], email: result[0]["email"], password: result[0]["password"], username: result[0]["username"])
+  end
+
   def self.all
     if ENV['RACK_ENV'] == "test"
       connection = PG.connect(dbname: "chitter_test")

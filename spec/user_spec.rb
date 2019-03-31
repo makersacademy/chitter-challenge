@@ -15,4 +15,18 @@ describe User do
       expect(users.first.username).to eq "matt2tea"
     end
   end
+
+  describe ".create" do
+    it "creates a new user" do
+      # Add test data
+      User.create(
+        name: "Matt Three",
+        email: "matt@makers.co",
+        password: "password3",
+        username: "matt3tea"
+      )
+      
+      expect(User.all[0].username).to eq "matt3tea"
+    end
+  end
 end
