@@ -6,7 +6,7 @@ feature 'Post a peep' do
   scenario "Users cannot peep if they aren't logged in" do
     visit '/'
     expect(page).not_to have_content "Peep your guts out!"
-    expect(page).to have_content "Sign up or sign in to start peeping"
+    expect(page).to have_content "Sign up or log in to start peeping"
   end
 
   scenario 'Users can peep if they are logged in' do

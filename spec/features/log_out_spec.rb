@@ -9,6 +9,6 @@ feature 'Logging out' do
     sign_up('hivemind')
     visit '/'
     click_button 'Log out'
-    expect(page).to have_content 'Sign up or sign in to start peeping'
+    expect(page).to have_content 'Sign up or log in to start peeping'
   end
 end
