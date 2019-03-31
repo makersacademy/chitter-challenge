@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'pg'
 require_relative 'lib/cheep'
-require_relative 'lib/User'
+require_relative 'lib/user'
 
 class ChitterApp < Sinatra::Base
 
