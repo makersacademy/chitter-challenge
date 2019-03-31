@@ -13,10 +13,8 @@ if ENV['RACK_ENV'] != 'production'
   task default: [:spec]
 end
 
-
 # if ENV['ENVIRONMENT'] == 'test'
 #   ('chitter_development')
 # else
 #   ('bookmark_manager')
 # end
-

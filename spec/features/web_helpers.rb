@@ -8,4 +8,4 @@ def signup
   # save_and_open_page
   click_on('Submit')
 
-end 
+end

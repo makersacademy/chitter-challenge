@@ -6,7 +6,7 @@ feature 'email and username unique' do
     click_on('Submit')
     expect(page).to have_content "Username/email has been taken"
   
-#flash
+# flash
   end 
 
   scenario 'raises an error if same username entered' do
@@ -16,7 +16,5 @@ feature 'email and username unique' do
     click_on('Submit')
     expect(page).to have_content "Username/email has been taken"
   end 
-
-
 
 end 

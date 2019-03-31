@@ -14,5 +14,4 @@ feature 'user signs up at sign up page' do
     expect(page).to have_content('alex@hotmail.com')
 
   end 
-end 
-
+end

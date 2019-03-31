@@ -15,5 +15,4 @@ feature 'messages index with reverse order' do
     # reverse chronological order test
   end
 
-end 
-
+end

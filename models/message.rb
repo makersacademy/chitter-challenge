@@ -8,6 +8,4 @@ class Message < ActiveRecord::Base
   # end 
   belongs_to :user
 
-
-
-end 
+end

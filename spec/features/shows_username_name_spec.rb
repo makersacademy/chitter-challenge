@@ -9,8 +9,5 @@ feature 'shows username and name next to messages' do
     expect(page).to have_content('alexchen')
     expect(page).to have_content('alex')
 
-
   end 
-end 
-
-
+end
