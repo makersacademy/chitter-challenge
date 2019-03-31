@@ -1,6 +1,6 @@
-
-<h4> <%= session[:notice_wrong_pass] %> </h4>
-
+<% if flash[:notice]%>
+<%= flash[:notice] %>
+<%end%>
 
 <h1>Log in section</h1>
 

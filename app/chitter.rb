@@ -45,14 +45,14 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      session[:notice_wrong_pass] = 'Please check your email or password'
+      flash[:notice] = 'Please check your email or password'
       redirect '/sessions/new/login'
     end
   end
 
   post '/sessions/destroy' do
     session.clear
-    session[:notice_log_out] = "You have logged out."
+    flash[:notice] = "You have logged out."
     redirect '/peeps'
   end
 

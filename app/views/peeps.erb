@@ -1,5 +1,6 @@
-<h4> <%= session[:notice_log_out] %> </h4>
-<h4> <% session[:notice_log_out] = nil %> </h4>
+<% if flash[:notice]%>
+<%= flash[:notice] %>
+<%end%>
 
 <h1>Chitter app - Peeps</h1>
 
