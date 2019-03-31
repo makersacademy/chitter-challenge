@@ -23,8 +23,11 @@ class Chitter < Sinatra::Base
   end 
 
   get '/messages/new' do 
-    
-    erb(:'messages/new')
+    if session[:user_id] != nil
+      erb(:'messages/new')
+    else 
+      flash[:notice] = 'Please sign in'
+    end 
   end 
 
 
