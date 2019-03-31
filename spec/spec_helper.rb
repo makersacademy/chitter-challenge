@@ -19,7 +19,6 @@ RSpec::Matchers.define :appear_before do |later_content|
   end
 end
 
-
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 require 'capybara'
