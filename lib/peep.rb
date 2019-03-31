@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative 'database_connection'
 
 class Peep
 
@@ -21,9 +21,14 @@ class Peep
       Peep.new(
         id: peep['id'],
         content: peep['peep'],
-        time: Time.now        
+        time: Time.now
       )
     end
   end
 
+  def self.reverse_order
+    peeps = Peep.all
+    peeps.reverse { |peep| peep.time }
+  end
+  
 end

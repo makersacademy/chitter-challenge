@@ -1,10 +1,11 @@
 require 'sinatra/base'
 require_relative './database_connection_setup'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
 
   get '/chitter' do
-    @peeps = Peep.all
+    @peeps = Peep.reverse_order
     erb :index
   end
 

@@ -25,4 +25,16 @@ describe Peep do
       expect(peeps.first.content).to eq 'A new peep from me!'
     end
   end
+
+  describe '.reverse_order' do
+    it 'returns all peeps in reverse chronological order' do
+      allow(Time).to receive(:now).and_return(Time.parse("2019-03-31 13:27:12 +0100"))
+      Peep.create(content: 'This is the first tweet')
+      allow(Time).to receive(:now).and_return(Time.parse("2019-03-31 13:27:54 +0100"))
+      Peep.create(content: 'This is the second tweet')
+
+      peeps = Peep.reverse_order
+      expect(peeps.first.content).to eq 'This is the second tweet'
+    end
+  end
 end
