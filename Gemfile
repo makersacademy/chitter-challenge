@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.0'
 
 gem 'rake'
-
+gem 'pg'
 gem 'sinatra'
 
 group :test do
