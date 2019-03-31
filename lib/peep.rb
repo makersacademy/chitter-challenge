@@ -1,6 +1,7 @@
 require 'pg'
 
 class Peep
+
   def self.all
 
     if ENV['ENVIRONMENT'] == 'test'
@@ -10,8 +11,11 @@ class Peep
     end
 
     result = connection.exec("SELECT * FROM chitter;")
-    result.map { |peepdeck| peepdeck['peep'] }
-  end
+
+    result.map do |peepdeck|
+      Peep.new(peep: peepdeck['peep'])
+    end
+end
 
   def self.create(peep:)
 
@@ -21,6 +25,13 @@ class Peep
       connection = PG.connect(dbname: 'chitter_app')
     end
 
-    connection.exec("INSERT INTO chitter (peep) VALUES('#{peep}')")
+    result = connection.exec("INSERT INTO chitter (peep) VALUES('#{peep}') RETURNING peep;")
+    Peep.new(peep: result[0]['peep'])
+  end
+
+  attr_reader :peep
+
+  def initialize(peep:)
+    @peep = peep
   end
 end

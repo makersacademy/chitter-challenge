@@ -5,6 +5,7 @@ require_relative 'lib/peep'
 class Chitter < Sinatra::Base
   get '/' do
     @peepdeck = Peep.all
+    puts @peepdeck
     erb :index
   end
 

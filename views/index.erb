@@ -14,14 +14,19 @@
         <h2>Peepdeck</h2>
         <center>
 
-          <div align="right">
-            <a href="/message/new">Compose Peep</a>
-          </div>
-        <% @peepdeck.each do |peep| %>
-            <li><%= peep %></li>
-          <% end %>
-          <center>
-      </div>
+          <div >
+            <ul>
+    <% @peepdeck.each do |peeps| %>
+      <li>
+      <%= peeps.peep %>
+      </li>
+      <% end %>
+  </ul>
+  <center>
+
+      <div1>
+      <a href="/message/new">Compose Peep</a>
+    </div1>
 
   </body>
 </html>
