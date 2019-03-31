@@ -9,7 +9,7 @@
     [x] "chitter_test" (id, name, handle, time, content [max length=140])
     [] database_helper
   [] implementing CRUD
-    [x] C [x] R (U) [] D
+    [] C [x] R (U) [] D
     /The functionality of U is not implemented on purpose/
     [] Read (Chitter.all)
       [x] feature tests
@@ -17,45 +17,31 @@
       [x] pass feature test
       [x] refactor
       [x] TDD to implement PG and retrieve peeps from database - unit test for chitter.rb
-      [] View peep
-            [] have a functionality for deleting
-              [] Delete
-                [] feature test
-                [] pass the feature test
-                [] refactor
-            [] only appearing when user = admin
+      [] show username
+      [] show name
+      [] show time
     [] Create
       [x] feature test
       [x] pass the feature test
       [x] refactor dummy data insertion
-      [] button on the main page to add new peep
+      [x] button on the main page to add new peep
+      [] save user if logged in
   [] README
     [] full instructions
     [] Screenshots
 ## Handling userbase [] [] [] []
-[] Set up databases
-  [] "userbase" (id, name, handle, email, password)
-    [] 01 migration route
-  [] "userbase_test" (id, name, handle, email, password)
-    [] 02 migration route
+[x] Set up databases
+  [x] "userbase" in chitter_app (id, name, handle, email, password)
+  [x] "userbase" in chitter_app_test (id, name, handle, email, password)
+  [x] 02 migration route
   [] database_helper
 [] implementing CRUD
   [] C [] R [] U [] D
-  [] Read (Chitter.all)
-    [] feature tests
-    [] insert few peeps
-    [] TDD to implement PG and retrieve peeps from database - unit test for chitter.rb
+  [] Read
   [] Create
     [] feature test
     [] pass the feature test
     [] refactor dummy data insertion
-  [] Delete
-    [] feature test
-    [] pass the feature test
-    [] refactor
-[] README
-  [] full instructions
-  [] Screenshots
 [] Style
   [] HTML labels for everything
   [] CSS classes added to elements

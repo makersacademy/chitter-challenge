@@ -1,0 +1,1 @@
+CREATE TABLE userbase(id SERIAL PRIMARY KEY, name VARCHAR(20), username VARCHAR(20), email VARCHAR(320), password VARCHAR(320));

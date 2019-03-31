@@ -71,4 +71,41 @@ Use Ctrl-C to stop
 === puma shutdown: 2019-03-30 17:51:24 +0000 ===
 - Goodbye!
 == Sinatra has ended his set (crowd applauds)
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
+]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mommit -m [33m"[39m[33m"[33mB[39m[33mB[33mu[39m[33mu[33mt[39m[33mt[33mt[39m[33mt[33mo[39m[33mt[39m[39m [33mt[39m[39m [33mu[39m[39m [33mB[39m[39m [33m"[39m[39m [33m"[33mn[39m[33mn[33ma[39m[33ma[33mv[39m[33mv[33mi[39m[33mi[33mg[39m[33mg[33ma[39m[33ma[33mt[39m[33mt[33mi[39m[33mi[33mo[39m[33mo[33mn[39m[33mn[33m [39m[33m [33mb[39m[33mb[33me[39m[33me[33mt[39m[33mt[33mw[39m[33mw[33me[39m[33me[33me[39m[33me[33mn[39m[33mn[33m [39m[33m [33mi[39m[33mi[33m [39m[33mi[39m[39m [33mi[33mn[39m[33mn[33md[39m[33md[33me[39m[33me[33mx[39m[33mx[33m [39m[33m [33ma[39m[33ma[33mn[39m[33mn[33md[39m[33md[33m [39m[33m [33mn[39m[33mn[33me[39m[33me[33mw[39m[33mw[33m [39m[33m [33ma[39m[33ma[33md[39m[33md[33md[39m[33md[33me[39m[33me[33md[39m[33md[33m"[39m[33md[39m[39m [33md[33m"[39m[?1l>[?2004l
+]2;git commit -m "navigation between index and new added"]1;git[master 6a46d5c] navigation between index and new added
+ 7 files changed, 71 insertions(+), 14 deletions(-)
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m oush[?1l>[?2004l
+]2;git oush]1;gitgit: 'oush' is not a git command. See 'git --help'.
+
+The most similar command is
+	push
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
+]2;git push]1;gitCounting objects: 15, done.
+Delta compression using up to 4 threads.
+Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
+Writing objects:   6% (1/15)   Writing objects:  13% (2/15)   Writing objects:  20% (3/15)   Writing objects:  26% (4/15)   Writing objects:  33% (5/15)   Writing objects:  40% (6/15)   Writing objects:  46% (7/15)   Writing objects:  53% (8/15)   Writing objects:  60% (9/15)   Writing objects:  66% (10/15)   Writing objects:  73% (11/15)   Writing objects:  80% (12/15)   Writing objects:  86% (13/15)   Writing objects:  93% (14/15)   Writing objects: 100% (15/15)   Writing objects: 100% (15/15), 2.58 KiB | 1.29 MiB/s, done.
+Total 15 (delta 8), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/8)   [Kremote: Resolving deltas:  12% (1/8)   [Kremote: Resolving deltas:  25% (2/8)   [Kremote: Resolving deltas:  37% (3/8)   [Kremote: Resolving deltas:  50% (4/8)   [Kremote: Resolving deltas:  62% (5/8)   [Kremote: Resolving deltas:  75% (6/8)   [Kremote: Resolving deltas:  87% (7/8)   [Kremote: Resolving deltas: 100% (8/8)   [Kremote: Resolving deltas: 100% (8/8), completed with 8 local objects.[K
+To github.com:m-budryte/chitter-challenge.git
+   54cf48e..6a46d5c  master -> master
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004hggem install activerecord[24D[32mg[32me[32mm[39m[21C[?1l>[?2004l
+]2;gem install activerecord]1;gem
+Fetching activesupport-5.2.3.gem
+Fetching activerecord-5.2.3.gem
+Fetching activemodel-5.2.3.gem
+Successfully installed activesupport-5.2.3
+Successfully installed activemodel-5.2.3
+Successfully installed activerecord-5.2.3
+Parsing documentation for activesupport-5.2.3
+Installing ri documentation for activesupport-5.2.3
+Parsing documentation for activemodel-5.2.3
+Installing ri documentation for activemodel-5.2.3
+Parsing documentation for activerecord-5.2.3
+Installing ri documentation for activerecord-5.2.3
+Done installing documentation for activesupport, activemodel, activerecord after 6 seconds
+3 gems installed
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[?1l>[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[1m[31mb[0m[39m[1m[31mb[1m[31mu[0m[39m[1m[31mb[1m[31mu[1m[31mn[0m[39m[1m[31mn[1m[31md[0m[39m[1m[31md[1m[31ml[0m[39m[0m[32mb[0m[32mu[0m[32mn[0m[32md[0m[32ml[32me[39m[?1l>[?2004l
+]2;bundle]1;bundle[31mYour Ruby version is 2.6.0, but your Gemfile specified 2.5.0[0m
 [1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h
