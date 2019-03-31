@@ -57,4 +57,6 @@ I want to receive an email if I am tagged in a Peep
 3. `CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR(280), timestamp TIMESTAMPTZ default current_timestamp);`
 4. `CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(20), email VARCHAR(50), password VARCHAR(25));`
 
-## How to run
+## Notes
+
+Bit pressed for time so didn't get to finish this. I decided to leave the readme in a bad state so I could focus on doing more of the coding. If I had more time i'd extract a UserManagement class to look after logging in and out and keeping track of who was logged in. I'd add a status column to my users table to keep track of who was signed in or out there. I also wanted to add some error catching for when someone tries to sign in with the wrong username or password (at the moment it just crashes the site!). I also still needed to add the username and name to the peeps.
