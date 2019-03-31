@@ -3,6 +3,9 @@ require './helpers/database_helpers'
 
 describe DatabaseConnection do
 
+  # let(:user) { double(:user)  } 
+  # let(:peep) { double(:peep)  } 
+  
   describe '.setup' do
     it 'connects to a database and retruns a connection object'do
       expect(DatabaseConnection.setup('chitter_test')).to be_a PG::Connection
