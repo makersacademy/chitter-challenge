@@ -2,8 +2,20 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
 
-  get '/' do
-    'Welcome to Chitter'
+  enable :sessions
+
+  get '/chitter' do
+    @peep = session[:peep_content]
+    erb :index
+  end
+
+  get '/chitter/new' do
+    erb :new
+  end
+
+  post '/chitter' do
+    session[:peep_content] = params[:peep_content]
+    redirect '/chitter'
   end
 
   run! if app_file == $0

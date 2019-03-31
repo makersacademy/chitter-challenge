@@ -18,7 +18,6 @@ require 'rspec'
 
 Capybara.app = Chitter
 
-
 RSpec.configure do |config|
   config.after(:suite) do
     puts
