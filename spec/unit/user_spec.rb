@@ -1,9 +1,10 @@
+require 'user_signin_create_helper'
 require 'user'
 
 describe User do
   describe '.create' do
     it 'creates a new user' do
-      user = User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+      user = create_user
 
       expect(user).to be_a User
       expect(user.email).to eq 'amy@testemail.com'
@@ -14,13 +15,13 @@ describe User do
     it 'hashes the password with BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('password')
 
-      User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+      create_user
     end
   end
 
   describe '.find' do
     it 'find a user by ID' do
-      user = User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+      user = create_user
       result = User.find(id: user.id)
 
       expect(result.id).to eq user.id
@@ -34,20 +35,20 @@ describe User do
 
   describe '.authenticate' do
     it 'returns a user given a correct name and password, if one exists' do
-      user = User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+      user = create_user
       authenticated_user = User.authenticate(username: 'amy123', password: 'password')
 
       expect(authenticated_user.id).to eq user.id
     end
 
     it 'returns nil if an incorrect password is given' do
-      user = User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+      create_user
 
       expect(User.authenticate(username: 'amy123', password: 'p4ssword')).to be_nil
     end
 
     it 'returns nil if an incorrect username is given' do
-      user = User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+      create_user
 
       expect(User.authenticate(username: 'amy111', password: 'password')).to be_nil
     end

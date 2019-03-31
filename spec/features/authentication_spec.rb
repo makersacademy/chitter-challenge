@@ -1,17 +1,14 @@
+require 'user_signin_create_helper'
+
 feature 'authentication' do
   scenario 'a user can sign in' do
-    User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
-
-    visit('/chitter')
-    click_button('Sign in')
-    fill_in('username', with: 'amy123')
-    fill_in('password', with: 'password')
-    click_button('Sign in')
+    create_user
+    sign_in
     expect(page).to have_content('Welcome to Chitter, amy123')
   end
 
   scenario 'user sees an error if they enter an incorrect password' do
-    User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+    create_user
 
     visit('/chitter')
     click_button('Sign in')
@@ -22,7 +19,7 @@ feature 'authentication' do
   end
 
   scenario 'user sees an error if they enter an incorrect username' do
-    User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+    create_user
 
     visit('/chitter')
     click_button('Sign in')
@@ -33,13 +30,9 @@ feature 'authentication' do
   end
 
   scenario 'user can sign out' do
-    User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+    create_user
 
-    visit('/chitter')
-    click_button('Sign in')
-    fill_in('username', with: 'amy123')
-    fill_in('password', with: 'password')
-    click_button('Sign in')
+    sign_in
 
     click_button('Sign out')
 
