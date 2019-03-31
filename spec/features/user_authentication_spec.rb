@@ -23,12 +23,7 @@ feature 'User sign in' do
   end
 
   scenario 'User can log in' do
-    go_to_sign_up
-    sign_up
-    go_to_login
-    fill_in "username", with: "sami"
-    fill_in "password", with: "passwordtest"
-    click_button 'Log In'
+    sign_up_and_login
     expect(page).to have_content "You are logged in as sami"
   end
 
@@ -36,20 +31,12 @@ feature 'User sign in' do
     go_to_sign_up
     sign_up
     go_to_login
-    fill_in "username", with: "sami"
-    fill_in "password", with: "wrongpassword"
-    click_button 'Log In'
+    login("wrongpassword")
     expect(page).to have_content "Welcome back! Log in below" # Update once using flash
   end
 
   scenario 'User can log out' do
-    go_to_sign_up
-    sign_up
-    go_to_login
-    fill_in "username", with: "sami"
-    fill_in "password", with: "passwordtest"
-    click_button 'Log In'
-
+    sign_up_and_login
     click_button 'Log Out'
     expect(page).to have_content "You are not currently logged in"
   end

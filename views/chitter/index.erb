@@ -27,6 +27,7 @@ You are not currently logged in
 <div class=message>
       <br/>
       <%=DateTime.parse(message.date).strftime("%A %d/%m/%Y %R")%> PEEP: <%=message.text%>
+      Posted by <% if @user %> <%= message.user_id %> <% else %> unknown <%end %>
 </div>
 <% end %>
 </div>

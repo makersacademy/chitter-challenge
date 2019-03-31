@@ -16,3 +16,16 @@ def go_to_login
   click_button 'See peeps'
   click_button 'Log In'
 end
+
+def login(password)
+  fill_in "username", with: "sami"
+  fill_in "password", with: password
+  click_button 'Log In'
+end
+
+def sign_up_and_login
+  go_to_sign_up
+  sign_up
+  go_to_login
+  login("passwordtest")
+end

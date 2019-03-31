@@ -14,7 +14,7 @@ class User
     unique_check = DatabaseConnection.query("SELECT 1 FROM users where username = '#{username}' OR email = '#{email}'")
 
     return if unique_check.any?
-    
+
     encrypted_password = BCrypt::Password.create(password)
     results = DatabaseConnection.query("INSERT INTO users (email, password, first_name, surname, username) VALUES ('#{email}', '#{encrypted_password}', '#{first_name}', '#{surname}', '#{username}') RETURNING id, email, first_name, surname, username;")
     User.new(id: results[0]['id'], email: results[0]['email'], first_name: results[0]['first_name'], surname: results[0]['surname'], username: results[0]['username'])
@@ -26,6 +26,6 @@ class User
     return if results.ntuples.zero?
     return if BCrypt::Password.new(results[0]['password']) != password
 
-    user = User.new(id: results[0]['id'], email: results[0]['email'], first_name: results[0]['first_name'], surname: results[0]['surname'], username: results[0]['username'])
+    User.new(id: results[0]['id'], email: results[0]['email'], first_name: results[0]['first_name'], surname: results[0]['surname'], username: results[0]['username'])
   end
 end
