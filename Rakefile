@@ -3,6 +3,7 @@ if ENV['ENVIRONMENT'] != 'production'
   require 'sinatra/activerecord'
   require 'sinatra/activerecord/rake'
   require './app/chitter'
+  require './config/environment'
   
   RSpec::Core::RakeTask.new :spec
   
