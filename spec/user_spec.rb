@@ -8,6 +8,7 @@ describe User do
       expect(user.email).to eq 'alex@hotmail.com'
       expect(user.password).to eq '12345678'
     end 
+
   end 
   
   describe '#find' do 
