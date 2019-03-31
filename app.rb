@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 current_dir = Dir.pwd
 
 Dir["#{current_dir}/models/*.rb"].each { |file| require file }
@@ -8,6 +9,8 @@ class Chitter < Sinatra::Base
 
   enable :sessions, :method_override
   # register Sinatra::ActiveRecordExtension
+  register Sinatra::Flash
+
   get '/' do 
   'testing'
   
@@ -35,27 +38,24 @@ class Chitter < Sinatra::Base
     erb(:'users/show')
   end 
 
-
   post '/messages/new' do 
     @message = Message.create(content: params[:content], user_id: session[:user_id])
     @user = User.find(@message.user_id)
-    p @user
-
+    # p @user
     redirect '/messages'
   end 
 
-
   post '/users/new' do  
     #username is another word for handle
-    @user = User.create(name:params[:name],username: params[:username], email: params[:email], password:params[:password])
+    @user = User.new(name:params[:name],username: params[:username], email: params[:email], password:params[:password])
+    if @user.save
     #signs in user too
-    session[:user_id]= @user.id
-    # p @user
-    # @user.save
-    # p "#{@user.id}"
-    redirect "/users/#{@user.id}"
+      session[:user_id]= @user.id
+      redirect "/users/#{@user.id}"
+    else 
+      flash[:notice]= "Username/email has been taken"
+    end
   end 
-
 
   run! if app_file == $0
 end 
