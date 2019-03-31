@@ -40,14 +40,13 @@ describe User do
         username: "matt3tea"
       )
       # Add test data
-      duplicate = User.create(
+      User.create(
         name: "Matt Four",
         email: "matt@makers.matt",
         password: "password4",
         username: "matt3tea"
       )
 
-      error = "Username and email must be unique."
       expect(User.all.length).to eq 1
     end
   end
