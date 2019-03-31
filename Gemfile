@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+ruby '2.6.0'
 
 gem 'date'
 gem 'pg'
 gem 'rack'
 gem 'rake'
+gem 'rerun'
 gem 'rubocop'
-gem 'sinatra-base'
+gem 'sinatra'
+# gem 'sinatra-base', '1.4.0'
 
 group :test do
   gem 'capybara'

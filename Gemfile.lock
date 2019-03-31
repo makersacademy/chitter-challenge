@@ -16,11 +16,17 @@ GEM
     date (2.0.0)
     diff-lcs (1.3)
     docile (1.3.1)
+    ffi (1.10.0)
     hirb (0.7.3)
     jaro_winkler (1.5.2)
     json (2.2.0)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
+    mustermann (1.0.3)
     nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
     parallel (1.16.2)
@@ -30,11 +36,18 @@ GEM
     psych (3.1.0)
     public_suffix (3.0.3)
     rack (2.0.6)
+    rack-protection (2.0.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
     rake (12.3.2)
+    rb-fsevent (0.10.3)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
     regexp_parser (1.3.0)
+    rerun (0.13.0)
+      listen (~> 3.0)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -57,6 +70,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.6)
     ruby-progressbar (1.10.0)
+    ruby_dep (1.5.0)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -66,8 +80,12 @@ GEM
       hirb
       simplecov
     simplecov-html (0.10.2)
-    sinatra-base (1.0)
-      rack (>= 1.0)
+    sinatra (2.0.5)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.5)
+      tilt (~> 2.0)
+    tilt (2.0.9)
     unicode-display_width (1.5.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -81,11 +99,12 @@ DEPENDENCIES
   pg
   rack
   rake
+  rerun
   rspec
   rubocop
   simplecov
   simplecov-console
-  sinatra-base
+  sinatra
 
 RUBY VERSION
    ruby 2.6.0p0

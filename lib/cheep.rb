@@ -1,4 +1,6 @@
+require_relative 'setup_db_connection'
 require_relative 'timestamp'
+require_relative 'db_manager'
 
 class Cheep
   include Timestamp
@@ -12,17 +14,15 @@ class Cheep
   end
 
   def self.post(string)
-    conn = PG.connect(dbname: 'chitter_test')
-    result = conn.exec("INSERT INTO posts (post)
-                        VALUES ('#{string}')
-                        RETURNING id, post, timestamp"
-                      )
+    result = DBManager.query("INSERT INTO posts (post)
+                            VALUES ('#{string}')
+                            RETURNING id, post, timestamp"
+                            )
     cheep_from_db_query(q_result: result[0])
   end
 
   def self.all
-    conn = PG.connect(dbname: 'chitter_test')
-    result = conn.exec('SELECT * FROM posts')
+    result = DBManager.query('SELECT * FROM posts')
     result.map { |rec| cheep_from_db_query(q_result:rec) }.reverse
   end
 
