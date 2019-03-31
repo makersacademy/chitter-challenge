@@ -1,4 +1,4 @@
-if ENV['ENVIRONMENT'] != 'production'
+if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
   require 'sinatra/activerecord'
   require 'sinatra/activerecord/rake'

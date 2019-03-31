@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: chitter
   pool: 2
-  username: test
+  username: travis
   password: 1234
 
 test:
@@ -11,5 +11,5 @@ test:
   encoding: unicode
   database: chitter_test
   pool: 2
-  username: test
+  username: travis
   password: 1234
