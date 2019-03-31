@@ -2,11 +2,10 @@ require_relative 'database_connection'
 
 class Message
 
-  attr_reader :id, :username, :message, :time
+  attr_reader :id, :message, :time
 
-  def initialize(id:, username:, message:, time:)
+  def initialize(id:, message:, time:)
     @id = id
-    @username = username
     @message = message
     @time = time
   end
@@ -16,19 +15,17 @@ class Message
     result.map { |message|
       Message.new(
         id: message['id'],
-        username: message['username'],
         message: message['message'],
         time: message['time']
       )
     }.reverse
   end
 
-  def self.post(username:, message:)
+  def self.post(message:)
     time = Time.new.strftime('%F  %k:%M:00')
-    result = DatabaseConnection.query("INSERT INTO messages (username, message, time) VALUES ('#{username}', '#{message}', '#{time}') RETURNING id, username, message, time;")
+    result = DatabaseConnection.query("INSERT INTO messages (message, time) VALUES ('#{message}', '#{time}') RETURNING id, message, time;")
     Message.new(
       id: result[0]['id'],
-      username: result[0]['username'],
       message: result[0]['message'],
       time: result[0]['time']
     )

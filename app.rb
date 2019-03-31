@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/new' do
-    @peep = Message.post(username: params[:username], message: params[:message])
+    @peep = Message.post(message: params[:message])
     redirect '/chitter_feed'
   end
 

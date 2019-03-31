@@ -1,11 +1,10 @@
-<% if @user %> %>
+<% if @user %>
   <h1>Welcome <%= @user.fullname %> </h1>
 <% end %>
 
 <p> Peep something... </p>
 
 <form action='/chitter/new' method='post'>
-  <input type="text" name="username" placeholder="Username" />
   <input type="text" name="message" placeholder="Enter peep here..." />
   <input type="submit" value="Peep" />
 </form>
