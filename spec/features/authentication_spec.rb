@@ -20,4 +20,15 @@ feature 'authentication' do
     click_button('Sign in')
     expect(page).to have_content('Please check your username or password')
   end
+
+  scenario 'user sees an error if they enter an incorrect username' do
+    User.create(name: 'Amy Jordan', username: 'amy123', email: 'amy@testemail.com', password: 'password')
+
+    visit('/chitter')
+    click_button('Sign in')
+    fill_in('username', with: 'amy111')
+    fill_in('password', with: 'password')
+    click_button('Sign in')
+    expect(page).to have_content('Please check your username or password')
+  end
 end
