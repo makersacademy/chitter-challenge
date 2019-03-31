@@ -17,6 +17,7 @@ require 'rspec'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 Capybara.app = Chitter
 require 'capybara/dsl'
+require 'timecop'
 # include Capybara::DSL
 # Capybara.default_driver = :selenium
 DatabaseCleaner.strategy = :truncation

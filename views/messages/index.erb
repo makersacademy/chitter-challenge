@@ -1,5 +1,16 @@
 <h1> ALL MESSAGES </h1>
 
+<ul>
 <% @messages.each do |x| %>
+  <li class ="messages" id = "messages-<%= x.id %>">
   <%= x.content %>
+  </br>
+  <%= "Posted on #{x.created_at}" %>
+  </li>
 <% end %>
+
+
+</ul>
+
+
+<a href = "/messages/new">New message</a>
