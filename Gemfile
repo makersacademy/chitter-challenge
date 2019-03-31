@@ -10,7 +10,7 @@ gem 'rubocop', '0.56.0'
 gem 'shotgun'
 gem 'timecop'
 gem 'sinatra-flash'
-gem 
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'

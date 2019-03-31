@@ -1,6 +1,7 @@
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
 require './app'
+# require 'bcrypt'
 # require 'zlib'
 # need pg here?
 

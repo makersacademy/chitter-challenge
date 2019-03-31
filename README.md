@@ -1,16 +1,7 @@
 Chitter Challenge
 =================
-
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+TASK SUMMARY:
 -------
-
-As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
@@ -36,21 +27,7 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
 Technical Approach:
@@ -78,6 +55,7 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
+
 Bonus:
 -----
 
@@ -91,43 +69,173 @@ And/Or:
 
 Good luck and let the chitter begin!
 
-Code Review
------------
 
-In code review we'll be hoping to see:
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
+Approach:
 -----
 
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
+#  The approach is TDD driven and database driven. 
+It is TDD driven as I started with testing user stories. It is database driven because I have created database tables(e.g. users, messages) along the way to pass the tests. 
 
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
 
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
+# Technologies used
+- ActiveRecord: 
+-- Used this OR mapping to create databases for testing and development, rake migrating to create tables (Users, Messages), adding columns to existing tables (e.g. password_digest to users, timestamp to messages )
 
-Notes on test coverage
-----------------------
+-- Also used this for creating User and Message objects, (using the .create method)
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+- timecop : used to freeze time for testing
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+- sinatra-flash : used to display error or notice messages (for example: when user did not sign up due to validation of sign up details)
+
+- Bcrpyt : used this gem to store passwords in a secured hash
+
+
+# Database
+- Testing
+- Production 
+
+- Tables: Users, Messages
+- Relationship: one user- many messages
+
+
+
+## TDD
+
+First I made feature tests for each of the user stories. 
+
+-----
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+-----
+test: 
+- i made feature test so that one sees a new message page, and can post it
+- wrote unit test for adding content to message object
+
+code:  
+- created routes for posting 
+- created form
+- initiated message model 
+- used ActiveRecord create method to post message
+
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+test: 
+- created feature test for index page
+
+code:  
+- defined all messages in message index, displayed in index erb
+- used .sort.reverse in controller to sort in reverse order
+
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+test: 
+- wrote a feature test for time posted, where it should display the time posted in index
+- wrote unit test for creating message, and check the creation time
+
+code:  
+- Using ActiveRecord timestamp to record created_at, updated_at
+
+
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+test: 
+- wrote feature test to sign up and check if details displayed on show page
+- wrote unit test for user class, for the create new user with dummy details
+- tested the .find method to see if user can be found using id
+
+code:  
+- used ActiveRecord create method to create users
+- modified controller so that its redirected to show page, using user.id, if user is created, and displays details there
+
+
+
+
+* You don't have to be logged in to see the peeps.
+Tests: 
+- created feature test where user and message objects where created and user not signedup/logged in, and expected to still see messages.
+
+Code:
+messages are displayed as messages variable at index is Message.all
+
+
+* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+- done at user sign up user story above
+
+
+* The username and email are unique.
+Tests:
+- feature test: created 2 signups of identical username, expects to raise an error/flash 
+- feature test: created 2 signups of identical email, expects to raise an error/flash
+
+
+Code: 
+- used ActiveRecord validation uniquness criteria. 
+- in controller, if statement where if user is not saved, a flash is displayed.
+
+
+
+* Peeps (posts to chitter) have the name of the maker and their user handle.
+Tests:
+- wrote feature test to expect that name and username appears beside message on index page
+
+
+Code:
+- Created association between user and message (one to many), where one user has many messages. Added foreign key column to message table. 
+- A message can only be posted if there is a corresponding user_id
+- modifed controller 'post /messages/new' so that message is created with an user_id
+- modified index erb so that username and name are displayed alongside 
+
+
+## Others
+
+###Bcrypt: 
+- Used Bcrypt gem to store secure passwords in a hash
+Test:
+- wrote unit that it responds to create method
+
+Code: 
+- added password_digest column to users
+- put has_secure_password in User model
+
+
+
+
+## what I didn't do 
+```
+HARDER
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+```
+
+
+
+## Others to do
+### Bcrypt
+- test that it stores in a hash

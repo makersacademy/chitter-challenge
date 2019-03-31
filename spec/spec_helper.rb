@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -10,6 +11,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+require 'bcrypt'
 require 'database_cleaner'
 require 'capybara/rspec'
 # require 'capybara-screenshot/rspec'
