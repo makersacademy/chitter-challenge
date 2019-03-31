@@ -20,8 +20,14 @@ describe User do
       expect(user).to be_nil
     end
 
-    # what if invalid password?
-    # what if multiple users with username?
-    # what if no users with username?
+    it "returns nil if passed a username that doesn't exist" do
+      user = User.authenticate(username: 'not_a_username',
+                               password: 'my_password')
+      expect(user).to be_nil
+    end
+
+    xit 'returns nil if passed a username associated with multiple accounts' do
+      # edge case, to be returned to...
+    end
   end
 end

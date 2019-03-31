@@ -11,6 +11,7 @@ class User
 
   def self.authenticate(username:, password:)
     user = all(username: username)
+    return nil if user.length != 1
     return nil unless user.first.password == password
     user.first
   end

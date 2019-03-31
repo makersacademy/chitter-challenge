@@ -25,4 +25,12 @@ feature 'Authentication' do
     click_button 'Sign in'
     expect(page).to have_content "Sorry, we didn't recognise those details"
   end
+
+  it 'It shows an error if you put in an invalid username' do
+    visit '/sessions/new'
+    fill_in :username, with: 'some_random_username'
+    fill_in :password, with: 'jamesbond007'
+    click_button 'Sign in'
+    expect(page).to have_content "Sorry, we didn't recognise those details"
+  end
 end

@@ -26,9 +26,9 @@
 
 [A nice blogpost](http://launchware.com/articles/acceptance-testing-asserting-sort-order) on testing that content appears in a particular order with Capybara/RSpec
 
-I turned off lazy loading for `Peep.content` because it wasn't loading at all in `view_peeps.erb`... surely this shouldn't be necessary though. Why wasn't it loading?
+I turned off lazy loading for `Peep.content` because it wasn't loading at all in `view_peeps.erb`... Surely this shouldn't be necessary though. Why wasn't it loading?
 
-DataMapper is throwing a warnings in my RSpec output, like this:
+DataMapper is throwing a warning in my RSpec output, like this:
 ```
 > /Users/student/.rvm/gems/ruby-2.5.0/gems/data_objects-0.10.17/lib/data_objects/pooling.rb:149: warning: constant ::Fixnum is deprecated
 ```
@@ -44,4 +44,5 @@ My feature test for signing up is not very detailed - all it checks is that the 
 
 I'd like to get rid of the `get '/users/account_created'` route and replace it by logging the user in automatically and displaying .flash message on the homepage.
 
+Is it really necessary to create my own `Self.authenticate` method? Can't DataMapper do that for me?
 The feature tests for logging in are not that strong. They only check for a welcome or error message. We should check whether the user is actually logged in.
