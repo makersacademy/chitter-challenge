@@ -1,3 +1,4 @@
+require 'bcrypt'
 require 'pg'
 
 class User
@@ -10,13 +11,16 @@ class User
   end
 
   def self.create(fullname:, username:, email:, password:)
+
+    encrypted_password = BCrypt::Password.create(password)
+
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_app_test')
     else
       connection = PG.connect(dbname: 'chitter_app')
     end
 
-    result = connection.exec("INSERT INTO users (fullname, username, email, password) VALUES('#{fullname}', '#{username}', '#{email}', '#{password}') RETURNING id, username;")
+    result = connection.exec("INSERT INTO users (fullname, username, email, password) VALUES('#{fullname}', '#{username}', '#{email}', '#{encrypted_password}') RETURNING id, username;")
     User.new(id: result[0]['id'], username: result[0]['username'])
   end
 
@@ -31,6 +35,18 @@ class User
     return nil unless id
     result = connection.exec("SELECT * FROM users WHERE id = #{id}")
     User.new(id: result[0]['id'], username: result[0]['username'])
+  end
+
+  def self.authenticate(username:, password:)
+
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_app_test')
+    else
+      connection = PG.connect(dbname: 'chitter_app')
+    end
+    
+    result = connection.exec("SELECT * FROM users WHERE username = '#{username}'")
+    User.new(id: result[0]['id'], username: result[0]['email'])
   end
 
 end
