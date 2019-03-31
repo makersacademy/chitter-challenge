@@ -1,0 +1,22 @@
+Log in or <a href='/user/sign_up' id='sign_up'>Sign Up</a>
+
+<form action='/user/sign_in' method='POST'>
+  Username:
+  <input type='text' name='username'/>
+  Password:
+  <input type='password' name='password'/>
+  <input type='submit' value='Submit'/>
+</form>
+
+<div>
+  Live Feed:
+  <ul>
+    <% @posts.each do |cheep| %>
+      <li>
+        <%= cheep.post %>
+        <br>
+        <sub> Timestamp: <%= cheep.timestamp %> </sub>
+      </li>
+    <% end %>
+  </ul>
+</div>

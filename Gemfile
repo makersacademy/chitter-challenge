@@ -2,10 +2,17 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
+gem 'date'
+gem 'pg'
+gem 'rack'
 gem 'rake'
-gem 'rubocop', '0.56.0'
+gem 'rerun'
+gem 'rubocop'
+gem 'sinatra'
+# gem 'sinatra-base', '1.4.0'
 
 group :test do
+  gem 'capybara'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

@@ -1,0 +1,23 @@
+<a href='/user/sign_out' id='sign_up'>Sign Out</a>
+<h2>User: <%= @user.username %></h2>
+
+<form action='/post' method='POST'>
+  Input your cheep below...
+  <div>
+    <input type='text' name='content'/>
+    <input type='submit' value='Post'/>
+  </div>
+</form>
+
+<div>
+  Live Feed:
+  <ul>
+    <% @posts.each do |cheep| %>
+      <li>
+        <%= cheep.post %>
+        <br>
+        <sub> Timestamp: <%= cheep.timestamp %> </sub>
+      </li>
+    <% end %>
+  </ul>
+</div>
