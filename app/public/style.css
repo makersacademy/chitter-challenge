@@ -1,0 +1,30 @@
+.main-container{
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+}
+
+.chitter-post{
+  position: relative;
+  background-color: DodgerBlue;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  border: 3px solid black;
+}
+
+.peep{
+  padding: 20px;
+  margin: 20px;
+  list-style-type: none;
+  background-color: green;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+
+.text-peep{
+  margin: auto;
+  width: 50%;
+
+}

@@ -10,26 +10,32 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
   <body>
-    <div class="container">
+    <div class="container main-container">
       <h1 class="jumbotron text-center">Chitter</h1>
-    </div>
 
-    <div class="container">
-      <form action="/create-peep" method="post">
-        <textarea name="peep" cols="30" rows="5">
-        </textarea>
-        <input type="submit" value="Submit">
-      </form>
+      <div class="text-peep">
+        <form action="/create-peep" method="post">
+          <textarea name="peep" cols="50" rows="5">
+          </textarea>
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
 
-      <ul>
-        <% @peeps.each do |peep| %>
-        <li class="peep" id="peep-<%= peep.id %>">
-          <%= peep.peep %>
-        </li>
-        <% end %>
-      </ul>
+      <div class="chitter-post">
+        <ul>
+          <% @peeps.each do |peep| %>
+          <li class="peep" id="peep-<%= peep.id %>">
+            <%= peep.peep %>
+            <br>
+            <%= peep.time.strftime("Posted on %d %B %Y at %I:%M%p") %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
     
     <script src="" async defer></script>

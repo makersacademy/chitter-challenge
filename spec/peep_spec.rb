@@ -25,20 +25,21 @@ describe Peep do
 
   end
 
+  describe 'reverse chrono and timestamp' do
+    it '#reverse chrono order for peeps' do
+      Peep.create(peep: 'I washed my car')
+      Peep.create(peep: 'I polished my car')
+      Peep.create(peep: 'I hoovered my car')
 
-  it '#reverse chrono order for peeps' do
-    Peep.create(peep: 'I washed my car')
-    Peep.create(peep: 'I polished my car')
-    Peep.create(peep: 'I hoovered my car')
+      expect(Peep.all.first.peep).to eq('I hoovered my car')
+    end
 
-    expect(Peep.all.first.peep).to eq('I hoovered my car')
-  end
+    it 'peep has a timestamp' do
+      Timecop.freeze
+      Peep.create(peep: 'I washed my car')
 
-  it 'peep has a timestamp' do
-    Timecop.freeze
-    Peep.create(peep: 'I washed my car')
-
-    expect(Peep.all.first.time.to_s).to eq(Time.now.to_s)
+      expect(Peep.all.first.time.to_s).to eq(Time.now.to_s)
+    end
   end
 
 end
