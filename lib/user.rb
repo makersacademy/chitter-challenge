@@ -24,7 +24,7 @@ class User
       RETURNING id, name, email, password, username;"
     )
 
-    return "Sorry" if result.ntuples < 1
+    return "Unique user error" if result.ntuples < 1
     
     User.new(
       id: result[0]["id"],

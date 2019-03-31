@@ -11,7 +11,7 @@ feature "Adding users" do
     expect(page).to have_selector "form"
   end
 
-  scenario "a user sign-up to Chitter" do
+  scenario "a user signs-up to Chitter" do
     visit "/users/new"
     fill_in "name", :with => "Elizabeth Windsor"
     fill_in "email", :with => "hrh@buckpal.queen"

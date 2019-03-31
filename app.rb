@@ -33,13 +33,22 @@ class Chitter < Sinatra::Base
   end
 
   post "/users/new" do
-    User.create(
+    user = User.create(
       name: params[:name],
       email: params[:email],
       password: params[:password],
       username: params[:username]
     )
-    redirect "/users"
+    if user == "Unique user error"
+      redirect "/users/new/error"
+    else
+      user
+      redirect "/users"
+    end
+  end
+
+  get "/users/new/error" do
+    erb :"users/error"
   end
 
   run! if app_file ==$0
