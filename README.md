@@ -1,6 +1,6 @@
 # Chitter Challenge
 
-Chitter web app
+### Chitter web app
 
 ```
 As a Maker
