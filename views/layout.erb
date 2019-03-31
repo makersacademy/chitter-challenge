@@ -32,6 +32,11 @@
     </ul>
   </menu>
   <main>
+    <% if @user %>
+      <div id="welcome" class="floating-box">
+        Hello, <%= @user.username %>!
+      </div>
+    <% end %>
     <%= yield %>
   </main>
   <footer class="site-footer">

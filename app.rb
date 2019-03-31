@@ -27,16 +27,11 @@ class Chitter < Sinatra::Base
                        email: params[:email],
                        password: params[:password])
     session[:user_id] = user.id
-    redirect '/users/account_created'
-  end
-
-  get '/users/account_created' do
-    @user = User.get(session[:user_id])
-    erb :account_created
+    redirect '/'
   end
 
   get '/sessions/new' do
-    erb :login
+    erb :sign_in
   end
 
   post '/sessions' do

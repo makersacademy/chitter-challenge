@@ -15,7 +15,7 @@ feature 'Authentication' do
     fill_in :username, with: 'jblogg'
     fill_in :password, with: 'jamesbond007'
     click_button 'Sign in'
-    expect(page).to have_content 'Welcome, jblogg'
+    expect(page).to have_content 'Hello, jblogg'
   end
 
   it 'It shows an error if you put in the wrong password' do

@@ -11,6 +11,6 @@ feature 'Sign up' do
     fill_in 'password', with: 'password123'
     click_button 'Create account'
 
-    expect(page).to have_content("Welcome, jblogg")
+    expect(page).to have_content("Hello, jblogg")
   end
 end

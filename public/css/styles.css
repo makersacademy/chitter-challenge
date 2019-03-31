@@ -49,6 +49,14 @@ menu {
     margin-bottom: 15px;
 }
 
+#welcome {
+    font-family: 'Titan One', cursive;
+    font-size: 30pt;
+    color: white;
+    background-color: limegreen;
+    border-color: limegreen;
+}
+
 .btn-primary {
     float: right;
     background-color: magenta;
