@@ -86,6 +86,11 @@ Peep | .all
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+
+Notes
+- Makers sign up to chitter with their email, password, name and a username
+- The username and email are unique
+- Peeps (posts to chitter) have the name of the maker and their user handle
 ```
 
 
@@ -123,7 +128,9 @@ CRCs
       Responsibilities      |        Collaborator
                             |
           knows name        |
-
+          knows email       |
+        knows password      |
+        knows username      |
 
 TABLES
 ------
@@ -138,20 +145,19 @@ Peeps
 
 Users
 
-|  id   |     name     |
-|-------|--------------|
-|  001  |   Matt Tea   |
+|  id   |     name     |       email      |   password   |   username   |
+|-------|--------------|------------------|--------------|--------------|
+|  001  |   Matt Tea   |  matt@makers.io  |   p@ssword1  |    matttea   |
 
 ```
 
-
-3. User still sees full list of peeps (as per requirement somewhere)
+3. User still sees full list of peeps (as per requirement)
 
 4. User may sign-up (`users/new`?)
 
 5. (Add user's name to the session, so it can be used for all newly created peeps)
 
-6. Any new peeps should display the user's name
+6. Any new peeps should display the user's name and username
 
 
 ------

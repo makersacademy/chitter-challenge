@@ -1,5 +1,6 @@
-require 'sinatra/base'
-require './lib/peep'
+require "sinatra/base"
+require "./lib/peep"
+require "./lib/user"
 
 class Chitter < Sinatra::Base
   get "/" do
@@ -18,6 +19,11 @@ class Chitter < Sinatra::Base
   post "/peeps/new" do
     Peep.create(message: params[:message])
     redirect "/peeps"
+  end
+
+  get "/users" do
+    @users = User.all
+    erb :"users/index"
   end
 
   run! if app_file ==$0
