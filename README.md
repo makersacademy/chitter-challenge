@@ -4,16 +4,17 @@
 
 ### Motivation
 
-This project was a stretch challenge to develop on my software development skills. It implements pretty much all the skills intensively taught so far, including the construction of a web app, with attached database via TDD methodology. It will be a significant challenge to complete, and will hopefully provide a signifcant learning experience.
+This project was a stretch challenge to develop on my software development skills. It implements pretty much all the skills intensively taught so far on the Makers course, including the construction of a web app, with attached database via TDD methodology. It will be a significant challenge to complete. I would like to get better at TDD'ing HTTP routes, in a RESTful way, I am currently not very confident in TDD'ing capybara, this is practice to get me better at it.
 
 ### Build status
 
-The project is currently under construction, it may not be completed as this is a practice exercise to build on my skills. 
+The project is currently under construction, it may not be completed as this is a practice exercise to build on my skills.
 
+Currently i need to get the peeps into the main SQL database and out again into the view to show them on the '/peeps' route. I think i need to use params to do this. Have not really flogged myself hard this weekend as have burnt myself out on prior mondays after a weekend challenge.
 
 ### Screenshots
 
-XXXXXXXXXXXXXXXXX I maybe want to include photos of the class diagrams and system diagrams here? Or a screenshot of the landing page?
+Although I drew routes on paper they are not included here. 
 
 ### User Stories
 
@@ -63,31 +64,30 @@ An apple macbook was used to write code using VSCode as an editor and;
 * Ruby was used as the main language. =
 * RSpec used for testing.
 * PG gem was used to integrate SQL database with Ruby.
-* Capybara was used for testing. 
-* HTML and CSS. 
+* Capybara was used for testing.
+* HTML and CSS.
 
-An [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) will be used as the database interface if I get time to implement. 
-
+An [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) will be used as the database interface if I get time to implement.
 
 ### Code style
 
-Rubocop 0.65.0 was used for linting and stylying the Ruby code. 
+Rubocop 0.65.0 was used for linting and stylying the Ruby code.
 
 ### Tests
 
-A TDD process was used in the development of this project, please see the attached RSpec files for details of the testing that was carried out. 
+A TDD process was used in the development of this project, please see the attached RSpec files for details of the testing that was carried out.
 
 ## Installation
 
-Ruby v 2.5.0 was used in the construction of the project, if gems were used, please find attached a gem file listing those gems for installation. 
+Ruby v 2.5.0 was used in the construction of the project, if gems were used, please find attached a gem file listing those gems for installation.
 
 ## API Reference
 
-No API used in this project. 
+No API used in this project.
 
-## How to use?
+## How to use
 
-You should be able to run the code via irb. 
+You should be able to run the code via irb.
 
 ## Notes
 

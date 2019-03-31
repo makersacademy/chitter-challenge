@@ -16,6 +16,8 @@ describe Peep do
 
       # create an object of the Peep class, with method all called on it. 
       peeps = Peep.all
+      p peeps.methods
+      p peeps.class
 
       # there is an issue here with the testing, 
       expect(peeps.first.peep).to eq("Whooooop")

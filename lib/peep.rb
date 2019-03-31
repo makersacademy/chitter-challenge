@@ -20,13 +20,13 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter_manager')
     end
-      # then execute/start connection and select everything - going to need a 
-      # join table prob.
+    # then execute/start connection and select everything - going to need a 
+    # join table prob.
     result = connection.exec("SELECT * FROM peeps;")
-      # map out every peep in that table by its date - will need to reverse it 
-      # somehow in the view.
+    # map out every peep in that table by its date - will need to reverse it 
+    # somehow in the view.
     result.map do |peep| peep['date'] 
-      # creating a new peep object with the attributes it needs. 
+    # creating a new peep object with the attributes it needs. 
     Peep.new(id: peep['id'], peep: peep['peep'], date: peep['date'])
     end
   end

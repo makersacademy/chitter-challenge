@@ -1,6 +1,5 @@
 require 'peep'
 
-
 # UNIT TEST for peep... 
 describe Peep do
   describe '.all' do
@@ -8,7 +7,7 @@ describe Peep do
       # connect to the test database as this is a test... 
       connection = PG.connect(dbname: 'chitter_manager_test')
 
-      #in the test connection add peep and date details with three set of values. 
+      # in the test connection add peep and date details with three set of values. 
       connection.exec("INSERT INTO peeps (peep, date) VALUES
           ('Whooooop', TO_DATE('10/03/2019', 'DD/MM/YYYY')),
           ('This is another peep!!', TO_DATE('11/03/2019', 'DD/MM/YYYY')),

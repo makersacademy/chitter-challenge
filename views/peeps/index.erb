@@ -1,4 +1,14 @@
 <!-- this displays each element of the peeps array rather than whole array -->
+
+<!-- create a text box for entry and submit button --> 
+<form action='/peeps' method='post'>
+  Peep away here: 
+  <input type="text" name="message">
+  <input type="submit" value="Peep it!">
+</form>
+
+<!-- prints out all the peeps.... will need some prettyfying and made reverse date as per
+the customer story --> 
 <ul>
   <% @peeps.each do |peep| %>
   <li> <%= peep %></li>
