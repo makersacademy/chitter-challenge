@@ -6,6 +6,7 @@ gem 'rake'
 gem 'pg'
 gem 'sinatra-flash'
 gem 'rerun'
+gem 'timecop'
 
 group :test do
   gem 'capybara'
