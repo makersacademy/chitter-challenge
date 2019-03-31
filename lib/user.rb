@@ -4,10 +4,10 @@ class User
   include DataMapper::Resource
 
   property :id,       Serial
-  property :name,     String
-  property :username, String, :unique => true
-  property :email,    String, :unique => true
-  property :password, BCryptHash
+  property :name,     String,     :required => true
+  property :username, String,     :required => true, :unique => true
+  property :email,    String,     :required => true, :unique => true
+  property :password, BCryptHash, :required => true
 
   def self.authenticate(username:, password:)
     user = all(username: username)

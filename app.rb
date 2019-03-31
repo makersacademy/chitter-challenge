@@ -31,7 +31,8 @@ class Chitter < Sinatra::Base
                        email: params[:email],
                        password: params[:password]
     if user.id.nil?
-      flash[:user_already_exists] = 'Those details are already in use.'
+      flash[:user_already_exists] = 'Those details were no good. '\
+                                    'Try a bit harder.'
       redirect '/users/new'
     end
     session[:user_id] = user.id
