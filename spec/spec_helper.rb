@@ -1,3 +1,6 @@
+ENV['ENVIRONMENT'] = 'test'
+
+require_relative './setup_test_database'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -17,6 +20,12 @@ require 'capybara/rspec'
 require 'rspec'
 
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 RSpec.configure do |config|
   config.after(:suite) do
