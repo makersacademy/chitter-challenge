@@ -1,4 +1,4 @@
-Enter Peep:
+Enter your peep:
 <form action='/chitter' method="post">
   <input type="text" name="peep">
   <input type="submit" value="Submit">
@@ -7,6 +7,7 @@ Enter Peep:
 <ul>
 <% @peeps.each do |peep| %>
 <li><%= peep.peep %></li>
+<%= peep.timestamp%>
 <% end %>
 </ul> 
 
