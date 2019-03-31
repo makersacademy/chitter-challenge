@@ -1,5 +1,7 @@
 # Paul's Chitter Challenge
 
+[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+
 *[Exercise instructions](INSTRUCTIONS.md)*  
 
 ## Installation
