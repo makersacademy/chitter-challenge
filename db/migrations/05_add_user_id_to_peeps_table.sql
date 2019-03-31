@@ -1,1 +1,1 @@
-ALTER TABLE peeps ADD COLUMN user_id INTEGER REFERENCES users (id)
+ALTER TABLE peeps ADD COLUMN user_id INTEGER REFERENCES users (id);

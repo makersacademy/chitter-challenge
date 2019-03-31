@@ -9,3 +9,7 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  - psql -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, message VARCHAR(128));' -U postgres
+  - psql -c 'ALTER TABLE peeps ADD COLUMN created_at TIMESTAMP DEFAULT current_timestamp;' -U postgres
+  - psql -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(60), email VARCHAR(60) UNIQUE, password VARCHAR(28), username VARCHAR(28) UNIQUE);' -U postgres
+  - psql -c 'ALTER TABLE peeps ADD COLUMN user_id INTEGER REFERENCES users (id);' -U postgres
