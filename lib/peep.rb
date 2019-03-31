@@ -3,7 +3,7 @@ require_relative './database_connection'
 class Peep
   attr_reader :id, :peep, :timestamp
 
-  def initialize(id: id, peep: peep, timestamp: timestamp)
+  def initialize(id:, peep:, timestamp:)
     @id = id
     @peep = peep
     @timestamp = timestamp
@@ -17,7 +17,7 @@ class Peep
   def self.display
     result = DatabaseConnection.query("SELECT * FROM peeps")
     result.map do |peep|
-    Peep.new(id: peep['id'], peep: peep['peep'])
+      Peep.new(id: peep['id'], peep: peep['peep'], timestamp: peep['timestamp'])
     end
   end
 
