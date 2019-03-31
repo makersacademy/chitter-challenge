@@ -20,14 +20,20 @@
   </header>
   <menu>
     <ul class="nav">
-      <li class="nav-item">
+      <li class="home nav-item">
         <a class="nav-link" href="/">All my peeps</a>
       </li>
-      <li class="nav-item">
+      <li class="sign-up nav-item">
         <a class="nav-link" href="/users/new">Sign up</a>
       </li>
-      <li class="nav-item">
+      <li class="log-in nav-item">
         <a class="nav-link" href="/sessions/new">Sign in</a>
+      </li>
+      <li class="log-out nav-item">
+        <form action="sessions/delete" method="post">
+          <input type='hidden' name='_method' value='DELETE'/>
+          <input type="submit" class="nav-link btn btn-link" value="Log out" />
+        </form>
       </li>
     </ul>
   </menu>

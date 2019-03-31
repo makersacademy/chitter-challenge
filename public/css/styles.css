@@ -6,15 +6,15 @@ h1, h2, h3 {
     font-family: 'Titan One', cursive;
 }
 
-a {
+a, input.btn-link {
     color: limegreen;
 }
 
-a:hover {
+a:hover, input.btn-link:hover {
   color: magenta;
 }
 
-a:active {
+a:active, input.btn-link:active {
   color: limegreen;
 }
 
@@ -51,6 +51,10 @@ header {
 menu {
     border: 0;
     padding: 0;
+}
+
+li.log-out .btn {
+  border-width: 0;
 }
 
 .floating-box {

@@ -4,7 +4,7 @@ require_relative 'lib/user'
 require_relative 'lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
 
   get '/' do
     @user = User.get session[:user_id]
@@ -39,6 +39,11 @@ class Chitter < Sinatra::Base
                              password: params[:password])
     redirect '/sessions/login_failed' if user.nil?
     session[:user_id] = user.id
+    redirect '/'
+  end
+
+  delete '/sessions/delete' do
+    session[:user_id] = nil
     redirect '/'
   end
 
