@@ -5,7 +5,7 @@ class Users < ActiveRecord::Migration[5.2]
       t.column :name, :string
       t.column :username, :string, :uniqueness => true, :null => false
       t.column :email, :string, :uniqueness => true, :null => false
-      t.column :peep, :string, :null => false
+      t.column :password, :string, :null => false
     end
   end
 end
