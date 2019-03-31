@@ -18,28 +18,27 @@
 </form>
 
 <h2>Welcome <%= @user.username%> </h2>
+
 <%end%>
 
 <form action='/' method = 'post'>
 
 </form>
 
-<%# must see user and handel %>
-
 <% @peeps.each do |peep| %>
 
-  <%= peep['name'] %>
-  <%= peep['username'] %>
-  <%= peep['peep_time'] %>
+<div class = 'peep'>
+
+  <p class = 'name'> <%= peep['name'] %></p>
+  <p class = 'handle'> <%= peep['username'] %></p>
+  <p class = 'time'>  <%= peep['peep_time'] %></p>
   <br>
-  <%= peep['peep'] %>
+  <p class = 'text'><%= peep['peep'] %></p>
   <br>
   <br>
+  
+</div>
+
+<br>
 <%end%>
-
-
-<form action="/peeps/new" method = 'post'>
-
-
-</form>
 

@@ -1,4 +1,5 @@
 require './lib/tag'
+require './lib/message_service'
 
 class TagService 
 

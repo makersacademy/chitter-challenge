@@ -1,10 +1,12 @@
+language: ruby
 rvm: "2.6.0"
 
 services:
   - postgresql
 
 script:
-  - bundle exec rake db:migrate
+  - ENVIRONMENT = test bundle exec rake db:migrate --trace
+  - bundle exec rspec spec/
   - mkdir -p spec && bundle exec rspec spec
 
 before_install:

@@ -1,3 +1,4 @@
+require 'sinatra/activerecord'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peep'
@@ -65,10 +66,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    peep = params[:peep]
-    id = session[:user_id]
-    message = Peep.create(user_id: id, peep: peep)
+    message = Peep.create(user_id: session[:user_id], peep: params[:peep])
+
+    MessageService.send if TagService.check(peep: message.peep)
+
     flash[:tag_match] = "We have a match" if TagService.check(peep: message.peep)
+
     redirect '/peeps'
   end
 

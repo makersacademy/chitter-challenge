@@ -178,4 +178,8 @@ Step 10
 - When user registers, a tag is createrd based on his username (atm)
 - When a user submits a peep, if there is a word starting with @, a service is called to check the word against the tags databse: Tags.find(that_tag). If there is a match, first I will flash a message on screen
 
+- Install pony gem to act as email service
 - If there is a match, a email service is called to send an email to the tagged user - based on the tag i can retrieve the user id and his information
+
+Step 11:
+Travis CI:

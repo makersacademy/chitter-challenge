@@ -8,6 +8,10 @@ gem 'sinatra'
 gem 'sinatra-flash'
 gem 'rubocop', '0.56.0'
 gem 'bcrypt'
+gem 'pony'
+gem 'sinatra-activerecord'
+gem 'activerecord'
+gem 'travis'
 
 group :test do
   gem 'capybara'

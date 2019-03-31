@@ -1,4 +1,5 @@
 require './lib/tag_verification_service'
+require './lib/message_service'
 
 class Peep 
 
@@ -15,7 +16,7 @@ class Peep
     sql = "INSERT INTO peeps (user_id, peep) VALUES ('#{user_id}', '#{peep}') RETURNING id, user_id, peep, peep_time"
     result = DatabaseConnection.query(sql).first
 
-    #MessageService.send if TagService.check(peep: message.peep)
+    MessageService.send if TagService.check(peep: result['peep']) == "We have a match"
 
     Peep.new(user_id: result['user_id'], peep: result['peep'], timestamp: result['peep_time'])
   end
