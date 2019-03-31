@@ -39,3 +39,7 @@ If you don't set up your database like it says in the instructions then DataMapp
 Would it be better to use Rake to set up the database(s)? Does that even make sense?
 
 Now that all the model stuff is handled by DataMapper, it's not covered by unit tests. Is that right?? Should I write some anyway, even though it's all being handled by a dependency?
+
+My feature test for signing up is not very detailed - all it checks is that the user's name is displayed on screen. Would it be appropriate to check that the right details have been set up in the database, or is that too unit-testy?
+
+I'd like to get rid of the `get '/users/account_created'` route and replace it by logging the user in automatically and displaying .flash message on the homepage.

@@ -7,7 +7,8 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @peeps = Peep.all(:order => [:id.desc])
+    @user = User.get session[:user_id]
+    @peeps = Peep.all order: [:id.desc]
     erb :view_peeps
   end
 
@@ -25,12 +26,22 @@ class Chitter < Sinatra::Base
                        username: params[:username],
                        email: params[:email],
                        password: params[:password])
-    session[:user] = user.id
+    session[:user_id] = user.id
     redirect '/users/account_created'
   end
 
   get '/users/account_created' do
-    @user = User.get(session[:user])
+    @user = User.get(session[:user_id])
     erb :account_created
+  end
+
+  get '/sessions/new' do
+    erb :login
+  end
+
+  post '/sessions' do
+    session[:user_id] = User.authenticate(username: params[:username],
+                                          password: params[:password]).id
+    redirect '/'
   end
 end

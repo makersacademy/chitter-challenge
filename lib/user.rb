@@ -8,4 +8,9 @@ class User
   property :username, String
   property :email,    String
   property :password, BCryptHash
+
+  def self.authenticate(username:, password:)
+    user = all(username: username)
+    user.first
+  end
 end
