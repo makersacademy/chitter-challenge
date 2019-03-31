@@ -6,7 +6,7 @@ require 'sign_up_helper'
 
 feature 'View peeps' do
   scenario 'The user can view all peeps in reverse chronological order' do
-    sign_up('hivemind')
+    sign_up 'Paul Martin', 'Hivemind'
 
     visit '/'
     peeps = [

@@ -6,7 +6,7 @@ require 'sign_up_helper'
 
 feature 'Sign up' do
   scenario 'Users can sign up' do
-    sign_up 'jblogg'
-    expect(page).to have_content("Hello, jblogg")
+    sign_up 'Paul Martin', 'Hivemind'
+    expect(page).to have_content("Hello, Hivemind")
   end
 end
