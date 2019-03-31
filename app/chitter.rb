@@ -6,6 +6,7 @@ require './lib/peep'
 require './scripts/setup_db'
 require './lib/user'
 
+
 class Chitter < Sinatra::Base
 
   configure :development do
@@ -66,11 +67,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
+
     message = Peep.create(user_id: session[:user_id], peep: params[:peep])
-
-    MessageService.send if TagService.check(peep: message.peep)
-
-    flash[:tag_match] = "We have a match" if TagService.check(peep: message.peep)
 
     redirect '/peeps'
   end

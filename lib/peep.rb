@@ -11,12 +11,12 @@ class Peep
     @timestamp = timestamp
   end
 
-  def self.create(user_id:, peep:)
+  def self.create(user_id:, peep:, email: Email, tag_service: TagService)
 
     sql = "INSERT INTO peeps (user_id, peep) VALUES ('#{user_id}', '#{peep}') RETURNING id, user_id, peep, peep_time"
     result = DatabaseConnection.query(sql).first
 
-    MessageService.send if TagService.check(peep: result['peep']) == "We have a match"
+    email.send if tag_service.check(peep: result['peep'])
 
     Peep.new(user_id: result['user_id'], peep: result['peep'], timestamp: result['peep_time'])
   end

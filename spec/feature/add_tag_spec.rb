@@ -19,8 +19,8 @@ feature 'Add tag' do
     
     click_button 'send peep'
 
-    expect(page).to have_content 'We have a match'
-
+    expect(current_path).to eq '/peeps'
+    
   end
 
 end

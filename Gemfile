@@ -12,6 +12,7 @@ gem 'pony'
 gem 'sinatra-activerecord'
 gem 'activerecord'
 gem 'travis'
+gem 'dotenv'
 
 group :test do
   gem 'capybara'
