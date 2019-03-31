@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/peep.rb'
 require './spec/database_connection_setup.rb'
+require 'uri'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -21,8 +22,12 @@ class Chitter < Sinatra::Base
     erb :'/chitter/signup'
   end
 
-  post '/welcome' do
+  get '/chitter/welcome' do
     erb :'/chitter/welcome'
+  end
+
+  get '/chitter/login' do
+    erb :'/chitter/login'
   end
 
 
