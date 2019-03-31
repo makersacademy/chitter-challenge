@@ -18,8 +18,8 @@ I want to see all peeps in reverse chronological order
 
 I built a feed that displays the database in the desired format.
 
+#### Added features
 ```
-### Added features
 - home page is linked to compose page through a hyperlink.
 - After a user posts a new 'Peep', the app returns to the homepage and displays
 the feed
