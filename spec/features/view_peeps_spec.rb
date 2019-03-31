@@ -16,6 +16,6 @@ feature 'View all peeps in reverse chronological order' do
     click_button('Submit')
 
     page.body.index('My first peep!').should > page.body.index('My second peep!')
-
+    # how do i replace should syntax?
   end
 end
