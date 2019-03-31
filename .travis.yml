@@ -5,7 +5,7 @@ services:
   - postgresql
 
 script:
-  - SINATRA_ENV=test bundle exec rake db:migrate --trace
+  - RACK_ENV=test bundle exec rake db:migrate --trace
   - mkdir -p spec && bundle exec rspec spec
 
 before_install:
