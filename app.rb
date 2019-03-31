@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/message'
 
 class MessageList < Sinatra::Base
   get '/' do
@@ -6,11 +7,13 @@ class MessageList < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = [
-      "This is my first peep!",
-      "This is my second peep!"
-    ]
+    @peeps = Message.all
     erb :'index'
+  end
+
+  post "/peeps/post" do
+    Message.create(:message => params[:write])
+    redirect("/peeps")
   end
 
   run! if app_file == $0

@@ -1,9 +1,10 @@
-<%= @peeps.join("\n") %>
+<form action="peeps/post" method="post">
+  <input type="text" name="write">
+  <input type="submit" value="post">
+</form>
 
-<form>
-<form action="peeps/post">
-  Your Peep: <input type="text" name="Write">
-  Your username: <input type="text" name="Author"><br>
-  <input type="submit" value="Post">
 
-  </form>
+<% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      <%=peep.message%>
+      <% end %>
