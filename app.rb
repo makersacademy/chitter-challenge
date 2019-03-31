@@ -8,7 +8,6 @@ class Chitter < Sinatra::Base
 
   enable :sessions, :method_override
   # register Sinatra::ActiveRecordExtension
-
   get '/' do 
   'testing'
   
@@ -28,12 +27,13 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do 
     #sign up page
-    
-
-
+    erb(:'users/new')
   end 
 
-
+  get '/users/:id' do 
+    @user = User.find(params[:id])
+    erb(:'users/show')
+  end 
 
 
 
@@ -43,6 +43,14 @@ class Chitter < Sinatra::Base
   end 
 
 
+  post '/users/new' do  
+    #username is another word for handle
+    @user = User.create(name:params[:name],username: params[:username], email: params[:email], password:params[:password])
+    # p @user
+    # @user.save
+    # p "#{@user.id}"
+    redirect "/users/#{@user.id}"
+  end 
 
 
   run! if app_file == $0

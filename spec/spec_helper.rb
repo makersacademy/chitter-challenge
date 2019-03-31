@@ -12,13 +12,14 @@ SimpleCov.start
 
 require 'database_cleaner'
 require 'capybara/rspec'
+# require 'capybara-screenshot/rspec'
 require 'capybara'
 require 'rspec'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 Capybara.app = Chitter
 require 'capybara/dsl'
 require 'timecop'
-# include Capybara::DSL
+
 # Capybara.default_driver = :selenium
 DatabaseCleaner.strategy = :truncation
 

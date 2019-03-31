@@ -10,6 +10,7 @@ gem 'rubocop', '0.56.0'
 gem 'shotgun'
 gem 'timecop'
 
+
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false
@@ -17,4 +18,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'capybara-screenshot'
 end

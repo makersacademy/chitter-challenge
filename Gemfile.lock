@@ -25,6 +25,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    capybara-screenshot (1.0.22)
+      capybara (>= 1.0, < 4)
+      launchy
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     concurrent-ruby (1.1.5)
@@ -36,6 +39,8 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     json (2.1.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -115,6 +120,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   capybara
+  capybara-screenshot
   database_cleaner
   pg
   rake
