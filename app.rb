@@ -4,8 +4,7 @@ require './lib/peep'
 
 class Chitter < Sinatra::Base
   get '/' do
-
-    "Chitter"
+    erb :homepage
   end
 
   get '/feed' do

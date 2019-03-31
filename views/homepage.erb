@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
   <center>
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Feed</title>
+    <title>Chitter</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
@@ -11,20 +12,12 @@
   <body>
     <div class="container">
       <div class="alert alert-info" role="alert">
-        <h1>What's Everyone saying?</h1><br>
+        <h1>Welcome to Chitter</h1><br>
       </div>
-      <div>
-        <p class="text-left">
-          <ul>
-            <% @peeps.each do |peep| %>
-              <li><%= peep %></li>
-            <% end %>
-          </ul>
-        </p>
-      </div>
+
       <div class="card">
         <div class="card-body">
-
+          <a class="btn btn-primary" href="/feed" role="button">Peeps!</a>
         </div>
       </div>
     </div>
