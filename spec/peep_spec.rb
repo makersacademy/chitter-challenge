@@ -17,4 +17,13 @@ describe Peep do
       expect(peeps).to include("Peep 3 by Yoda")
     end
   end
+
+  describe '#create' do
+    it 'creates a new peep' do
+      Peep.create(peep: 'New Peep by Cinnamon')
+  
+      expect(Peep.all_peeps).to include 'New Peep by Cinnamon'
+    end
+  end
+
 end
