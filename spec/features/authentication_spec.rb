@@ -3,17 +3,26 @@
 # I want to log in to Chitter
 
 feature 'Authentication' do
-  it 'A user can sign in' do
+  before do
     User.create(name: 'Joe Bloggs',
                 username: 'jblogg',
                 email: 'joe@bloggs.com',
                 password: 'jamesbond007')
+  end
 
+  it 'A user can sign in' do
     visit '/sessions/new'
     fill_in :username, with: 'jblogg'
     fill_in :password, with: 'jamesbond007'
     click_button 'Sign in'
-
     expect(page).to have_content 'Welcome, jblogg'
+  end
+
+  it 'It shows an error if you put in the wrong password' do
+    visit '/sessions/new'
+    fill_in :username, with: 'jblogg'
+    fill_in :password, with: 'a_wrong_password'
+    click_button 'Sign in'
+    expect(page).to have_content "Sorry, we didn't recognise those details"
   end
 end

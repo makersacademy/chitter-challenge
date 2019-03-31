@@ -14,6 +14,12 @@ describe User do
       expect(user.id).to eq @user.id
     end
 
+    it 'returns nil if passed an invalid password' do
+      user = User.authenticate(username: 'fredders99',
+                               password: 'not_my_password')
+      expect(user).to be_nil
+    end
+
     # what if invalid password?
     # what if multiple users with username?
     # what if no users with username?

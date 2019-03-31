@@ -40,8 +40,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    session[:user_id] = User.authenticate(username: params[:username],
-                                          password: params[:password]).id
+    user = User.authenticate(username: params[:username],
+                             password: params[:password])
+    redirect '/sessions/login_failed' if user.nil?
+    session[:user_id] = user.id
     redirect '/'
+  end
+
+  get '/sessions/login_failed' do
+    erb :login_failed
   end
 end

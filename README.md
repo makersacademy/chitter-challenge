@@ -43,3 +43,5 @@ Now that all the model stuff is handled by DataMapper, it's not covered by unit 
 My feature test for signing up is not very detailed - all it checks is that the user's name is displayed on screen. Would it be appropriate to check that the right details have been set up in the database, or is that too unit-testy?
 
 I'd like to get rid of the `get '/users/account_created'` route and replace it by logging the user in automatically and displaying .flash message on the homepage.
+
+The feature tests for logging in are not that strong. They only check for a welcome or error message. We should check whether the user is actually logged in.
