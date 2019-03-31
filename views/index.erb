@@ -1,7 +1,10 @@
-<h1>Welcome to Chitter</h1>
+<h1>Welcome to Chitter<% if @user %>, <%= @user.username %> <% end %></h1>
+<form action="/user/new">
+  <input type="submit" value="Sign up to Chitter"/>
+</form>
 <ul><% @peeps.each do |peep| %>
   <li><%= peep.content %><br>
-    <%= peep.time.strftime("%H:%M, %d %B") %></li>  
+    <%= peep.time.strftime("%H:%M, %d %B") %></li>
   <% end %>
 </ul>
 <form action="chitter/new">
