@@ -1,6 +1,6 @@
-<% if @login_failed %>
+<% if flash[:login_failed] %>
   <div class="floating-box error">
-    Sorry, we didn't recognise those details
+    <%= flash[:login_failed] %>
   </div>
 <% end %>
 <h2>Enter your details to sign in</h2>

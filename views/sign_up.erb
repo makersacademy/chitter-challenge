@@ -1,3 +1,8 @@
+<% if flash[:user_already_exists] %>
+  <div class="floating-box error">
+    <%= flash[:user_already_exists] %>
+  </div>
+<% end %>
 <h2>Enter your details to create an account</h2>
 <form action="/users" class="floating-box clearfix" method="post">
   <div class="form-group">

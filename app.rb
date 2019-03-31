@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'lib/peep'
 require_relative 'lib/user'
 require_relative 'lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     @user = User.get session[:user_id]
@@ -28,32 +30,25 @@ class Chitter < Sinatra::Base
                        username: params[:username],
                        email: params[:email],
                        password: params[:password]
-    redirect '/users/already_exists' if user.id.nil?
+    if user.id.nil?
+      flash[:user_already_exists] = 'Those details are already in use.'
+      redirect '/users/new'
+    end
     session[:user_id] = user.id
     redirect '/'
   end
 
-  get '/users/already_exists' do
-    erb :user_already_exists
-  end
-
   get '/sessions/new' do
-    if session[:login_failed]
-      @login_failed = true
-      session[:login_failed] = nil
-    end
-    erb :sign_in
+    erb :log_in
   end
 
   post '/sessions' do
     user = User.authenticate username: params[:username],
                              password: params[:password]
-
     if user.nil?
-      session[:login_failed] = true
+      flash[:login_failed] = "Sorry, we didn't recognise those details"
       redirect '/sessions/new'
     end
-
     session[:user_id] = user.id
     redirect '/'
   end
