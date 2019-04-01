@@ -29,6 +29,8 @@ This Sinatra web app allows users post to and read from a feed of posted message
 
 2. `git clone git@github.com:<userName>/chitter-challenge.git` onto your local machine
 
+3. Run `bundle` in the root of the project
+
 
 ## Database setup instructions
 
