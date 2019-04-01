@@ -1,5 +1,14 @@
 Chitter Challenge
 =================
+INSTRUCTIONS FOR SETUP:
+-------
+
+- clone the repo
+- bundle 
+- run rake db:create (creates databases), you should have chitter_development and chitter_development_2 databaes setup
+- run rake db:migrate (migrates database)
+
+
 TASK SUMMARY:
 -------
 
@@ -236,6 +245,32 @@ I want to receive an email if I am tagged in a Peep
 
 
 
-## Others to do
+## Others (that was in the task) to do
+
 ### Bcrypt
 - test that it stores in a hash
+
+### feature test reverse chronological order for message index
+e.g. 
+    first_child = find("ul li:first-child")
+    last_child = find("ul li:last-child")
+    expect(first_child).to have_content "Newest message"
+    expect(last_child).to have_content "Oldest message"
+
+
+
+-structure where files are located
+
+
+
+
+## Personal goals
+- build a web app with a database
+
+
+
+
+
+## skills developed
+- I can TDD anything
+- I can debug anything
