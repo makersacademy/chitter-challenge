@@ -1,1 +1,1 @@
--- INSERT INTO chitter (peep) VALUES ('My first peep!');
+INSERT INTO chitter (peep) VALUES ('My first peep!');
