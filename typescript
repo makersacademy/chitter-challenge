@@ -1,889 +1,1 @@
-Script started on Mon Apr  1 08:09:31 2019
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24mafd [4ma[24m [24madd [4m.[24m[?1l>[?2004l
-]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mommit - m [33m"[39m[33m"[33mt[39m[33mt[33mr[39m[33mr[33ma[39m[33ma[33mv[39m[33mv[33mi[39m[33mi[33ms[39m[33ms[33m [39m[33m [33mf[39m[33mf[33mi[39m[33mi[33mx[39m[33mx[33ms[39m[33mx[39m[39m [33mx[33me[39m[33me[33ms[39m[33ms[33m"[39m[?1l>[?2004l
-]2;git commit -m "travis fixes"]1;git[master 18a7f7a] travis fixes
- 2 files changed, 11 insertions(+), 38 deletions(-)
- rewrite typescript (100%)
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
-]2;git push]1;gitCounting objects: 4, done.
-Delta compression using up to 4 threads.
-Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
-Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 567 bytes | 567.00 KiB/s, done.
-Total 4 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/1)   [Kremote: Resolving deltas: 100% (1/1)   [Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
-To github.com:m-budryte/chitter-challenge.git
-   6503d58..18a7f7a  master -> master
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
-]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mommit -m [33m"[39m[33m"[33mt[39m[33mt[33mr[39m[33mr[33ma[39m[33ma[33mb[39m[33ma[39m[39m [33ma[33mv[39m[33mv[33mi[39m[33mi[33ms[39m[33ms[33m [39m[33m [33mf[39m[33mf[33mi[39m[33mi[33mx[39m[33mx[33me[39m[33me[33ms[39m[33ms[33m [39m[33m [33md[39m[33md[33mb[39m[33mb[33m"[39m[?1l>[?2004l
-]2;git commit -m "travis fixes db"]1;git[master 7c4c134] travis fixes db
- 2 files changed, 13 insertions(+), 1 deletion(-)
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
-]2;git push]1;gitCounting objects: 5, done.
-Delta compression using up to 4 threads.
-Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
-Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 1.40 KiB | 1.40 MiB/s, done.
-Total 5 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/1)   [Kremote: Resolving deltas: 100% (1/1)   [Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
-To github.com:m-budryte/chitter-challenge.git
-   18a7f7a..7c4c134  master -> master
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
-]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mommit -m [33m"[39m[33m"[33mm[39m[33mm[33mo[39m[33mo[33mr[39m[33mr[33me[39m[33me[33m [39m[33m [33mt[39m[33mt[33mr[39m[33mr[33ma[39m[33ma[33mv[39m[33mv[33mi[39m[33mi[33ms[39m[33ms[33m [39m[33m [33md[39m[33m [39m[39m [33m [33mf[39m[33mf[33mi[39m[33mi[33mx[39m[33mx[33me[39m[33me[33ms[39m[33ms[33m"[39m[?1l>[?2004l
-]2;git commit -m "more travis fixes"]1;git[master 51422ff] more travis fixes
- 2 files changed, 17 insertions(+), 7 deletions(-)
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24muish  [4mp[4mu[24m [24mp[24mush[?1l>[?2004l
-]2;git push]1;gitCounting objects: 4, done.
-Delta compression using up to 4 threads.
-Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
-Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 873 bytes | 873.00 KiB/s, done.
-Total 4 (delta 2), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/2)   [Kremote: Resolving deltas:  50% (1/2)   [Kremote: Resolving deltas: 100% (2/2)   [Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
-To github.com:m-budryte/chitter-challenge.git
-   7c4c134..51422ff  master -> master
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[1m[31mb[0m[39m[1m[31mb[1m[31mu[0m[39m[1m[31mb[1m[31mu[1m[31mn[0m[39m[1m[31mn[1m[31md[0m[39m[1m[31md[1m[31ml[0m[39m[0m[32mb[0m[32mu[0m[32mn[0m[32md[0m[32ml[32me[39m install[?1l>[?2004l
-]2;bundle install]1;bundle[31mYour Ruby version is 2.5.0, but your Gemfile specified 2.6.0[0m
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[1m[31mr[1m[31mv[0m[39m[0m[32mr[0m[32mv[32mm[39m use 2.6.-0  0[?1l>[?2004l
-]2;rvm use 2.6.0]1;rvm
-[31m[32mRVM is not a function, selecting rubies with '[31mrvm use ...[32m' will not work.[0m
-[0m[33m
-You need to change your terminal emulator preferences to allow login shell.
-Sometimes it is required to use `/bin/bash --login` as the command.
-Please visit https://rvm.io/integration/gnome-terminal/ for an example.
-[0m
-[0m[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[1m[31mr[1m[31mu[0m[39m[1m[31mr[1m[31mu[1m[31mb[0m[39m[0m[32mr[0m[32mu[0m[32mb[32my[39m use 2.6.0[?1l>[?2004l
-]2;ruby use 2.6.0]1;ruby[1mTraceback [m(most recent call last):
-ruby: [1mNo such file or directory -- use ([4;1mLoadError[m[1m)
-[m[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[39m [32mr[39m[1m[31mr[1m[31mv[0m[39m[0m[32mr[39m[0m[39m [39m [32mr[39m[1m[31mr[1m[31mv[0m[39m[1m[31mr[1m[31mv[1m[31mc[0m[39m [1m[31mr[1m[31mv[0m[39m[0m[39m [0m[32mr[0m[32mv[32mm[39m[1m[31mr[1m[31mv[1m[31mm[1m[31mg[0m[39m[0m[32mr[0m[32mv[0m[32mm[39m[0m[39m  0 -v[?1l>[?2004l
-]2;rvm -v]1;rvmrvm 1.29.7 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[1m[31mb[0m[39m[1m[31mb[1m[31mu[0m[39m[1m[31mb[0m[39m[0m[39m [0m[39m [32mr[39m[1m[31mr[1m[31mv[0m[39m[0m[32mr[0m[32mv[32mm[39m use 2.6.0[?1l>[?2004l
-]2;rvm use 2.6.0]1;rvm
-[31m[32mRVM is not a function, selecting rubies with '[31mrvm use ...[32m' will not work.[0m
-[0m[33m
-You need to change your terminal emulator preferences to allow login shell.
-Sometimes it is required to use `/bin/bash --login` as the command.
-Please visit https://rvm.io/integration/gnome-terminal/ for an example.
-[0m
-[0m[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004hrrvm get stable --auto-dotfiles[30D[32mr[32mv[32mm[39m[27C[?1l>[?2004l
-]2;rvm get stable --auto-dotfiles]1;rvm
-Downloading https://get.rvm.io
-[32mDownloading https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc[0m
-[0m[32mVerifying /Users/budros/.rvm/archives/rvm-installer.asc[0m
-[0mgpg: Signature made Sun Dec 30 10:44:46 2018 GMT
-gpg:                using RSA key 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-gpg: key 105BD0E739499BDB: 5 signatures not checked due to missing keys
-gpg: key 105BD0E739499BDB: public key "Piotr Kuczynski <piotr.kuczynski@gmail.com>" imported
-gpg: marginals needed: 3  completes needed: 1  trust model: pgp
-gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
-gpg: next trustdb check due at 2023-02-24
-gpg: Total number processed: 1
-gpg:               imported: 1
-gpg: Good signature from "Piotr Kuczynski <piotr.kuczynski@gmail.com>" [unknown]
-gpg: WARNING: This key is not certified with a trusted signature!
-gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: 7D2B AF1C F37B 13E2 069D  6956 105B D0E7 3949 9BDB
-[32mGPG verified '/Users/budros/.rvm/archives/rvm-installer'[0m
-[0mTurning on auto dotfiles mode.
-Downloading https://github.com/rvm/rvm/archive/1.29.7.tar.gz
-Downloading https://github.com/rvm/rvm/releases/download/1.29.7/1.29.7.tar.gz.asc
-gpg: Signature made Thu Jan  3 22:01:48 2019 GMT
-gpg:                using RSA key 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-gpg: Good signature from "Piotr Kuczynski <piotr.kuczynski@gmail.com>" [unknown]
-gpg: WARNING: This key is not certified with a trusted signature!
-gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: 7D2B AF1C F37B 13E2 069D  6956 105B D0E7 3949 9BDB
-GPG verified '/Users/budros/.rvm/archives/rvm-1.29.7.tgz'
-[32mUpgrading the RVM installation in /Users/budros/.rvm/[0m
-[0m    Removing rvm PATH line from /Users/budros/.mkshrc /Users/budros/.profile /Users/budros/.bashrc.
-    Adding rvm PATH line to /Users/budros/.profile /Users/budros/.mkshrc /Users/budros/.bashrc /Users/budros/.zshrc.
-    Removing rvm loading line from /Users/budros/.profile /Users/budros/.zlogin.
-    Adding rvm loading line to /Users/budros/.profile /Users/budros/.bash_profile /Users/budros/.zlogin.
-[32mUpgrade of RVM in /Users/budros/.rvm/ is complete.[0m
-[0m  * No new notes to display.
-
-[32mRVM reloaded![0m
-[0m[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[?1l>[?2004l
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mo[0m[39m[1m[31mo[1m[31me[0m[39m[1m[31me[1m[31mc[0m[39m[1m[31me[0m[39m[0m[39m [1m[31mo[0m[39m[0m[39m [0m[32mr[0m[32ms[39m[0m[39m [1m[31mr[1m[31ms[1m[31mo[0m[39m[1m[31mo[1m[31me[0m[39m[1m[31me[1m[31mc[0m[39m[1m[31me[0m[39m[0m[39m [1m[31mo[0m[39m[0m[39m [0m[32mr[0m[32ms[39m[0m[39m [1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-
-DatabaseConnection
-  .setup
-[32m    sets up a connection to a database through PG[0m
-[32m    this connection is persistent[0m
-  .query
-[32m    executes a query via PG[0m
-
-Adding a new peep
-[32m  A user can add a peep to the Chitter[0m
-[32m  adding new peeps accessible from the main page[0m
-[32m  if the user changes their mind they can go back to the main page[0m
-
-The user can sign up to Chitter
-[32m  the user can sign up through the button on the index page[0m
-[32m  the user can sign up with name, handle, email and password[0m
-
-Viewing peeps
-[32m  visiting the index page[0m
-[32m  a user can see peeps[0m
-[32m  peeps have info about date and time created[0m
-[32m  peeps have info about user and name[0m
-
-Chitter
-  .all
-[32m    returns all peeps[0m
-  .create
-[32m    creates a new peep[0m
-
-Finished in 0.32059 seconds (files took 0.97348 seconds to load)
-[32m14 examples, 0 failures[0m
-
-
-COVERAGE: [32m 99.25%[0m -- 133/134 lines in 9 files
-
-+----------+----------------------------------+-------+--------+---------+
-| coverage | file                             | lines | missed | missing |
-+----------+----------------------------------+-------+--------+---------+
-|  [31m75.00%[0m  | lib/database_connection_setup.rb | 4     | 1      | 5       |
-+----------+----------------------------------+-------+--------+---------+
-8 file(s) with 100% coverage not shown
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[?1l>[?2004l
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[4mt[24m[24m[1m[31mt[1m[31ms[0m[39m[1m[31mt[1m[31ms[1m[31mp[0m[39m[1m[31mt[1m[31ms[0m[39m[0m[39m [0m[39m[4mt[24m[0m[39m [24m [32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-An error occurred while loading spec_helper.
-[31mFailure/Error: [0mrequire [1;34;4mFile[0m.join([1;34;4mFile[0m.dirname([1;36m__FILE__[0m), [31m[1;31m'[0m[31m../app[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31mchitter.rb[1;31m'[0m[31m[0m) [1;30m# requires sinatra app file[0m[0m
-[31m[0m
-[31mLoadError:[0m
-[31m  cannot load such file -- /Users/budros/Projects/MAKERS/weekend_challenges/chitter-challenge/spec/../app/chitter.rb[0m
-[36m# ./spec/spec_helper.rb:10:in `<top (required)>'[0m
-
-
-Finished in 0.00024 seconds (files took 0.80988 seconds to load)
-[31m0 examples, 0 failures, 1 error occurred outside of examples[0m
-
-Finished in 0.00024 seconds (files took 0.80988 seconds to load)
-[31m0 examples, 0 failures, 1 error occurred outside of examples[0m
-
-
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[4mt[24m[24m [32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-An error occurred while loading spec_helper.
-[31mFailure/Error: [0mrequire [31m[1;31m'[0m[31m./scripts/setup_test_database.rb[1;31m'[0m[31m[0m[0m
-[31m[0m
-[31mLoadError:[0m
-[31m  cannot load such file -- ./scripts/setup_test_database.rb[0m
-[36m# ./spec/spec_helper.rb:8:in `<top (required)>'[0m
-
-
-Finished in 0.00018 seconds (files took 0.64088 seconds to load)
-[31m0 examples, 0 failures, 1 error occurred outside of examples[0m
-
-Finished in 0.00018 seconds (files took 0.64088 seconds to load)
-[31m0 examples, 0 failures, 1 error occurred outside of examples[0m
-
-
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[4mt[24m[24m[1m[31mt[1m[31ms[0m[39m[1m[31mt[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[1m[31mp[0m[39m[0m[39m [1m[31mt[1m[31ms[0m[39m[0m[39m [0m[39m[4mt[24m[0m[39m [24m [32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-An error occurred while loading spec_helper.
-[31mFailure/Error: [0mrequire [31m[1;31m'[0m[31m./scripts/setup_test_database.rb[1;31m'[0m[31m[0m[0m
-[31m[0m
-[31mLoadError:[0m
-[31m  cannot load such file -- ./scripts/setup_test_database.rb[0m
-[36m# ./spec/spec_helper.rb:8:in `<top (required)>'[0m
-
-
-Finished in 0.00018 seconds (files took 0.63575 seconds to load)
-[31m0 examples, 0 failures, 1 error occurred outside of examples[0m
-
-Finished in 0.00018 seconds (files took 0.63575 seconds to load)
-[31m0 examples, 0 failures, 1 error occurred outside of examples[0m
-
-
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-An error occurred while loading spec_helper.
-[31mFailure/Error: [0mrequire [1;34;4mFile[0m.join([1;34;4mFile[0m.dirname([1;36m__FILE__[0m), [31m[1;31m'[0m[31m..[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31mchitter.rb[1;31m'[0m[31m[0m) [1;30m# requires sinatra app file[0m[0m
-[31m[0m
-[31mLoadError:[0m
-[31m  cannot load such file -- /Users/budros/Projects/MAKERS/weekend_challenges/chitter-challenge/spec/../chitter.rb[0m
-[36m# ./spec/spec_helper.rb:10:in `<top (required)>'[0m
-
-
-Finished in 0.00019 seconds (files took 0.78432 seconds to load)
-[31m0 examples, 0 failures, 1 error occurred outside of examples[0m
-
-Finished in 0.00019 seconds (files took 0.78432 seconds to load)
-[31m0 examples, 0 failures, 1 error occurred outside of examples[0m
-
-
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-DatabaseConnection
-  .setup
-[32m    sets up a connection to a database through PG[0m
-[32m    this connection is persistent[0m
-  .query
-[32m    executes a query via PG[0m
-
-Adding a new peep
-[31m  A user can add a peep to the Chitter (FAILED - 1)[0m
-[31m  adding new peeps accessible from the main page (FAILED - 2)[0m
-[31m  if the user changes their mind they can go back to the main page (FAILED - 3)[0m
-
-The user can sign up to Chitter
-[31m  the user can sign up through the button on the index page (FAILED - 4)[0m
-[31m  the user can sign up with name, handle, email and password (FAILED - 5)[0m
-
-Viewing peeps
-[31m  visiting the index page (FAILED - 6)[0m
-[31m  a user can see peeps (FAILED - 7)[0m
-[31m  peeps have info about date and time created (FAILED - 8)[0m
-[31m  peeps have info about user and name (FAILED - 9)[0m
-
-Chitter
-  .all
-[32m    returns all peeps[0m
-  .create
-[32m    creates a new peep[0m
-
-Failures:
-
-  1) Adding a new peep A user can add a peep to the Chitter
-     [31mFailure/Error: [0mvisit([31m[1;31m'[0m[31m/chitter/new[1;31m'[0m[31m[0m)[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/creating_peeps_spec.rb:3:in `block (2 levels) in <top (required)>'[0m
-
-  2) Adding a new peep adding new peeps accessible from the main page
-     [31mFailure/Error: [0mvisit([31m[1;31m'[0m[31m/[1;31m'[0m[31m[0m)[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/creating_peeps_spec.rb:12:in `block (2 levels) in <top (required)>'[0m
-
-  3) Adding a new peep if the user changes their mind they can go back to the main page
-     [31mFailure/Error: [0mvisit([31m[1;31m'[0m[31m/chitter/new[1;31m'[0m[31m[0m)[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/creating_peeps_spec.rb:18:in `block (2 levels) in <top (required)>'[0m
-
-  4) The user can sign up to Chitter the user can sign up through the button on the index page
-     [31mFailure/Error: [0mvisit([31m[1;31m'[0m[31m/[1;31m'[0m[31m[0m)[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/signing_up_spec.rb:3:in `block (2 levels) in <top (required)>'[0m
-
-  5) The user can sign up to Chitter the user can sign up with name, handle, email and password
-     [31mFailure/Error: [0mvisit([31m[1;31m'[0m[31m/[1;31m'[0m[31m[0m)[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/signing_up_spec.rb:9:in `block (2 levels) in <top (required)>'[0m
-
-  6) Viewing peeps visiting the index page
-     [31mFailure/Error: [0mvisit([31m[1;31m'[0m[31m/[1;31m'[0m[31m[0m)[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:4:in `block (2 levels) in <top (required)>'[0m
-
-  7) Viewing peeps a user can see peeps
-     [31mFailure/Error: [0mvisit([31m[1;31m'[0m[31m/[1;31m'[0m[31m[0m)[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:14:in `block (2 levels) in <top (required)>'[0m
-
-  8) Viewing peeps peeps have info about date and time created
-     [31mFailure/Error: [0mvisit([31m[1;31m'[0m[31m/[1;31m'[0m[31m[0m)[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:23:in `block (2 levels) in <top (required)>'[0m
-
-  9) Viewing peeps peeps have info about user and name
-     [31mFailure/Error: [0mvisit([31m[1;31m'[0m[31m/[1;31m'[0m[31m[0m)[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.5.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:31:in `block (2 levels) in <top (required)>'[0m
-
-Finished in 0.27719 seconds (files took 0.91235 seconds to load)
-[31m14 examples, 9 failures[0m
-
-Failed examples:
-
-[31mrspec ./spec/features/creating_peeps_spec.rb:2[0m [36m# Adding a new peep A user can add a peep to the Chitter[0m
-[31mrspec ./spec/features/creating_peeps_spec.rb:11[0m [36m# Adding a new peep adding new peeps accessible from the main page[0m
-[31mrspec ./spec/features/creating_peeps_spec.rb:17[0m [36m# Adding a new peep if the user changes their mind they can go back to the main page[0m
-[31mrspec ./spec/features/signing_up_spec.rb:2[0m [36m# The user can sign up to Chitter the user can sign up through the button on the index page[0m
-[31mrspec ./spec/features/signing_up_spec.rb:8[0m [36m# The user can sign up to Chitter the user can sign up with name, handle, email and password[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:3[0m [36m# Viewing peeps visiting the index page[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:9[0m [36m# Viewing peeps a user can see peeps[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:21[0m [36m# Viewing peeps peeps have info about date and time created[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:29[0m [36m# Viewing peeps peeps have info about user and name[0m
-
-
-COVERAGE: [31m 66.67%[0m -- 56/84 lines in 5 files
-
-+----------+---------------------------------------+-------+--------+--------------------------+
-| coverage | file                                  | lines | missed | missing                  |
-+----------+---------------------------------------+-------+--------+--------------------------+
-|  [31m33.33%[0m  | spec/features/signing_up_spec.rb      | 15    | 10     | 4-5, 10-17               |
-|  [31m46.67%[0m  | spec/features/creating_peeps_spec.rb  | 15    | 8      | 4-5, 7-8, 13-14, 19-20   |
-|  [31m60.00%[0m  | spec/features/viewing_chitter_spec.rb | 25    | 10     | 5-6, 16-18, 25-26, 33-35 |
-+----------+---------------------------------------+-------+--------+--------------------------+
-2 file(s) with 100% coverage not shown
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[1m[31mb[0m[39m[1m[31mb[1m[31mu[0m[39m[1m[31mb[1m[31mu[1m[31mn[0m[39m[1m[31mn[1m[31md[0m[39m[1m[31md[1m[31mk[0m[39m[1m[31mk[1m[31me[0m[39m[?1l>[?2004l
-]2;bundke]1;bundkezsh: command not found: bundke
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[1m[31mb[0m[39m[1m[31mb[1m[31mu[0m[39m[1m[31mb[1m[31mu[1m[31mn[0m[39m[1m[31mn[1m[31md[0m[39m[1m[31md[1m[31ml[0m[39m[0m[32mb[0m[32mu[0m[32mn[0m[32md[0m[32ml[32me[39m[?1l>[?2004l
-]2;bundle]1;bundle[33mWarning: the running version of Bundler (1.16.6) is older than the version that created the lockfile (1.17.2). We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
-[0m[31mYour Ruby version is 2.5.0, but your Gemfile specified 2.6.0[0m
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[1m[31mr[1m[31mv[0m[39m[0m[32mr[0m[32mv[32mm[39m [4ms[24m[24msu[4ms[24m [24m use 2.7-  6.0[?1l>[?2004l
-]2;rvm use 2.6.0]1;rvm
-[31m[32mRVM is not a function, selecting rubies with '[31mrvm use ...[32m' will not work.[0m
-[0m[33m
-You need to change your terminal emulator preferences to allow login shell.
-Sometimes it is required to use `/bin/bash --login` as the command.
-Please visit https://rvm.io/integration/gnome-terminal/ for an example.
-[0m
-[0m[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004hm      [4mc[4mo[24m [4mc[24m[24m [24m [1m[31mg[1m[31mi[0m[39m[39m [0m[32mg[39m[0m[39m [39m [32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-DatabaseConnection
-  .setup
-[32m    sets up a connection to a database through PG[0m
-[32m    this connection is persistent[0m
-  .query
-[32m    executes a query via PG[0m
-
-Adding a new peep
-[31m  A user can add a peep to the Chitter (FAILED - 1)[0m
-[31m  adding new peeps accessible from the main page (FAILED - 2)[0m
-[31m  if the user changes their mind they can go back to the main page (FAILED - 3)[0m
-
-The user can sign up to Chitter
-[31m  the user can sign up through the button on the index page (FAILED - 4)[0m
-[31m  the user can sign up with name, handle, email and password (FAILED - 5)[0m
-
-Viewing peeps
-[31m  visiting the index page (FAILED - 6)[0m
-[31m  a user can see peeps (FAILED - 7)[0m
-[31m  peeps have info about date and time created (FAILED - 8)[0m
-[31m  peeps have info about user and name (FAILED - 9)[0m
-
-Chitter
-  .all
-[32m    returns all peeps[0m
-  .create
-[32m    creates a new peep[0m
-
-Failures:
-
-  1) Adding a new peep A user can add a peep to the Chitter
-     [31mFailure/Error: visit('/chitter/new')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/creating_peeps_spec.rb:3:in `block (2 levels) in <top (required)>'[0m
-
-  2) Adding a new peep adding new peeps accessible from the main page
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/creating_peeps_spec.rb:12:in `block (2 levels) in <top (required)>'[0m
-
-  3) Adding a new peep if the user changes their mind they can go back to the main page
-     [31mFailure/Error: visit('/chitter/new')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/creating_peeps_spec.rb:18:in `block (2 levels) in <top (required)>'[0m
-
-  4) The user can sign up to Chitter the user can sign up through the button on the index page
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/signing_up_spec.rb:3:in `block (2 levels) in <top (required)>'[0m
-
-  5) The user can sign up to Chitter the user can sign up with name, handle, email and password
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/signing_up_spec.rb:9:in `block (2 levels) in <top (required)>'[0m
-
-  6) Viewing peeps visiting the index page
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/ses  6.0[?1l>[?2004l
-]2;rvm use 2.6.0]1;rvm
-[31m[32mRVM is not a function, selecting rubies with '[31mrvm use ...[32m' will not work.[0m
-[0m[33m
-You need to change your terminal emulator preferences to allow login shell.
-Sometimes it is required to use `/bin/bash --login` as the command.
-Please visit https://rvm.io/integration/gnome-terminal/ for an example.
-[0m
-[0m[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:14:in `block (2 levels) in <top (required)>'[0m
-
-  8) Viewing peeps peeps have info about date and time created
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:23:in `block (2 levels) in <top (required)>'[0m
-
-  9) Viewing peeps peeps have info about user and name
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:31:in `block (2 levels) in <top (required)>'[0m
-
-Finished in 0.33791 seconds (files took 0.89172 seconds to load)
-[31m14 examples, 9 failures[0m
-
-Failed examples:
-
-[31mrspec ./spec/features/creating_peeps_spec.rb:2[0m [36m# Adding a new peep A user can add a peep to the Chitter[0m
-[31mrspec ./spec/features/creating_peeps_spec.rb:11[0m [36m# Adding a new peep adding new peeps accessible from the main page[0m
-[31mrspec ./spec/features/creating_peeps_spec.rb:17[0m [36m# Adding a new peep if the user changes their mind they can go back to the main page[0m
-[31mrspec ./spec/features/signing_up_spec.rb:2[0m [36m# The user can sign up to Chitter the user can sign up through the button on the index page[0m
-[31mrspec ./spec/features/signing_up_spec.rb:8[0m [36m# The user can sign up to Chitter the user can sign up with name, handle, email and password[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:3[0m [36m# Viewing peeps visiting the index page[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:9[0m [36m# Viewing peeps a user can see peeps[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:21[0m [36m# Viewing peeps peeps have info about date and time created[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:29[0m [36m# Viewing peeps peeps have info about user and name[0m
-
-
-COVERAGE: [31m 66.67%[0m -- 56/84 lines in 5 files
-
-+----------+---------------------------------------+-------+--------+--------------------------+
-| coverage | file                                  | lines | missed | missing                  |
-+----------+---------------------------------------+-------+--------+--------------------------+
-|  [31m33.33%[0m  | spec/features/signing_up_spec.rb      | 15    | 10     | 4-5, 10-17               |
-|  [31m46.67%[0m  | spec/features/creating_peeps_spec.rb  | 15    | 8      | 4-5, 7-8, 13-14, 19-20   |
-|  [31m60.00%[0m  | spec/features/viewing_chitter_spec.rb | 25    | 10     | 5-6, 16-18, 25-26, 33-35 |
-+----------+---------------------------------------+-------+--------+--------------------------+
-2 file(s) with 100% coverage not shown
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-DatabaseConnection
-  .setup
-[32m    sets up a connection to a database through PG[0m
-[32m    this connection is persistent[0m
-  .query
-[32m    executes a query via PG[0m
-
-Adding a new peep
-[31m  A user can add a peep to the Chitter (FAILED - 1)[0m
-[31m  adding new peeps accessible from the main page (FAILED - 2)[0m
-[31m  if the user changes their mind they can go back to the main page (FAILED - 3)[0m
-
-The user can sign up to Chitter
-[31m  the user can sign up through the button on the index page (FAILED - 4)[0m
-[31m  the user can sign up with name, handle, email and password (FAILED - 5)[0m
-
-Viewing peeps
-[31m  visiting the index page (FAILED - 6)[0m
-[31m  a user can see peeps (FAILED - 7)[0m
-[31m  peeps have info about date and time created (FAILED - 8)[0m
-[31m  peeps have info about user and name (FAILED - 9)[0m
-
-Chitter
-  .all
-[32m    returns all peeps[0m
-  .create
-[32m    creates a new peep[0m
-
-Failures:
-
-  1) Adding a new peep A user can add a peep to the Chitter
-     [31mFailure/Error: visit('/chitter/new')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/creating_peeps_spec.rb:3:in `block (2 levels) in <top (required)>'[0m
-
-  2) Adding a new peep adding new peeps accessible from the main page
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/creating_peeps_spec.rb:12:in `block (2 levels) in <top (required)>'[0m
-
-  3) Adding a new peep if the user changes their mind they can go back to the main page
-     [31mFailure/Error: visit('/chitter/new')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/creating_peeps_spec.rb:18:in `block (2 levels) in <top (required)>'[0m
-
-  4) The user can sign up to Chitter the user can sign up through the button on the index page
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/signing_up_spec.rb:3:in `block (2 levels) in <top (required)>'[0m
-
-  5) The user can sign up to Chitter the user can sign up with name, handle, email and password
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/signing_up_spec.rb:9:in `block (2 levels) in <top (required)>'[0m
-
-  6) Viewing peeps visiting the index page
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:4:in `block (2 levels) in <top (required)>'[0m
-
-  7) Viewing peeps a user can see peeps
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:14:in `block (2 levels) in <top (required)>'[0m
-
-  8) Viewing peeps peeps have info about date and time created
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:23:in `block (2 levels) in <top (required)>'[0m
-
-  9) Viewing peeps peeps have info about user and name
-     [31mFailure/Error: visit('/')[0m
-     [31m[0m
-     [31mTypeError:[0m
-     [31m  The second parameter to Session::new should be a rack app if passed.[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/session.rb:78:in `initialize'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `new'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:400:in `block in session_pool'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara.rb:305:in `current_session'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:46:in `page'[0m
-     [36m# /Users/budros/.rvm/gems/ruby-2.6.0/gems/capybara-3.15.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'[0m
-     [36m# ./spec/features/viewing_chitter_spec.rb:31:in `block (2 levels) in <top (required)>'[0m
-
-Finished in 0.2117 seconds (files took 0.71914 seconds to load)
-[31m14 examples, 9 failures[0m
-
-Failed examples:
-
-[31mrspec ./spec/features/creating_peeps_spec.rb:2[0m [36m# Adding a new peep A user can add a peep to the Chitter[0m
-[31mrspec ./spec/features/creating_peeps_spec.rb:11[0m [36m# Adding a new peep adding new peeps accessible from the main page[0m
-[31mrspec ./spec/features/creating_peeps_spec.rb:17[0m [36m# Adding a new peep if the user changes their mind they can go back to the main page[0m
-[31mrspec ./spec/features/signing_up_spec.rb:2[0m [36m# The user can sign up to Chitter the user can sign up through the button on the index page[0m
-[31mrspec ./spec/features/signing_up_spec.rb:8[0m [36m# The user can sign up to Chitter the user can sign up with name, handle, email and password[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:3[0m [36m# Viewing peeps visiting the index page[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:9[0m [36m# Viewing peeps a user can see peeps[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:21[0m [36m# Viewing peeps peeps have info about date and time created[0m
-[31mrspec ./spec/features/viewing_chitter_spec.rb:29[0m [36m# Viewing peeps peeps have info about user and name[0m
-
-
-COVERAGE: [31m 66.67%[0m -- 56/84 lines in 5 files
-
-+----------+---------------------------------------+-------+--------+--------------------------+
-| coverage | file                                  | lines | missed | missing                  |
-+----------+---------------------------------------+-------+--------+--------------------------+
-|  [31m33.33%[0m  | spec/features/signing_up_spec.rb      | 15    | 10     | 4-5, 10-17               |
-|  [31m46.67%[0m  | spec/features/creating_peeps_spec.rb  | 15    | 8      | 4-5, 7-8, 13-14, 19-20   |
-|  [31m60.00%[0m  | spec/features/viewing_chitter_spec.rb | 25    | 10     | 5-6, 16-18, 25-26, 33-35 |
-+----------+---------------------------------------+-------+--------+--------------------------+
-2 file(s) with 100% coverage not shown
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-DatabaseConnection
-  .setup
-[32m    sets up a connection to a database through PG[0m
-[32m    this connection is persistent[0m
-  .query
-[32m    executes a query via PG[0m
-
-Adding a new peep
-[32m  A user can add a peep to the Chitter[0m
-[32m  adding new peeps accessible from the main page[0m
-[32m  if the user changes their mind they can go back to the main page[0m
-
-The user can sign up to Chitter
-[32m  the user can sign up through the button on the index page[0m
-[32m  the user can sign up with name, handle, email and password[0m
-
-Viewing peeps
-[32m  visiting the index page[0m
-[32m  a user can see peeps[0m
-[32m  peeps have info about date and time created[0m
-[32m  peeps have info about user and name[0m
-
-Chitter
-  .all
-[32m    returns all peeps[0m
-  .create
-[32m    creates a new peep[0m
-
-Finished in 0.33311 seconds (files took 0.72369 seconds to load)
-[32m14 examples, 0 failures[0m
-
-
-COVERAGE: [32m100.00%[0m -- 84/84 lines in 5 files
-
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
-]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mommit -m [33m"[39m[33m"[33mT[39m[33m"[39m[39m [33m"[33mf[39m[33mf[33mu[39m[33mu[33mr[39m[33mr[33mt[39m[33mt[33mh[39m[33mh[33me[39m[33me[33mr[39m[33mr[33m [39m[33m [33mt[39m[33mt[33mr[39m[33mr[33ma[39m[33ma[33mv[39m[33mv[33mi[39m[33mi[33ms[39m[33ms[33m [39m[33m [33ma[39m[33m [39m[39m [33m [33mc[39m[33mc[33mi[39m[33mi[33m [39m[33m [33mf[39m[33mf[33mi[39m[33mi[33mx[39m[33mx[33me[39m[33me[33ms[39m[33ms[33m.[39m[33m.[33m.[39m[33m.[33m.[39m[33m.[33m"[39m[?1l>[?2004l
-]2;git commit -m "further travis ci fixes..."]1;git[master 1414527] further travis ci fixes...
- 5 files changed, 672 insertions(+), 146 deletions(-)
- create mode 100644 examples.txt
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[1m[31mf[0m[39m[1m[31mf[1m[31mi[0m[39m[1m[31mf[0m[39m[0m[39m [0m[39m [32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
-]2;git push]1;gitCounting objects: 8, done.
-Delta compression using up to 4 threads.
-Compressing objects:  12% (1/8)   Compressing objects:  25% (2/8)   Compressing objects:  37% (3/8)   Compressing objects:  50% (4/8)   Compressing objects:  62% (5/8)   Compressing objects:  75% (6/8)   Compressing objects:  87% (7/8)   Compressing objects: 100% (8/8)   Compressing objects: 100% (8/8), done.
-Writing objects:  12% (1/8)   Writing objects:  25% (2/8)   Writing objects:  37% (3/8)   Writing objects:  50% (4/8)   Writing objects:  62% (5/8)   Writing objects:  75% (6/8)   Writing objects:  87% (7/8)   Writing objects: 100% (8/8)   Writing objects: 100% (8/8), 6.13 KiB | 2.04 MiB/s, done.
-Total 8 (delta 5), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/5)   [Kremote: Resolving deltas:  20% (1/5)   [Kremote: Resolving deltas:  40% (2/5)   [Kremote: Resolving deltas:  60% (3/5)   [Kremote: Resolving deltas:  80% (4/5)   [Kremote: Resolving deltas: 100% (5/5)   [Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
-To github.com:m-budryte/chitter-challenge.git
-   1d9e99a..1414527  master -> master
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mo[0m[39m[1m[31mo[1m[31me[0m[39m[1m[31me[1m[31mc[0m[39m[1m[31me[0m[39m[0m[39m [1m[31mo[0m[39m[0m[39m [0m[32mr[0m[32ms[39m[0m[39m [1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[1m[31mr[1m[31ms[1m[31mp[1m[31me[1m[31mc[1m[31mt[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[0m[32mc[39m[0m[39m [?1l>[?2004l
-]2;rspec]1;rspec
-DatabaseConnection
-  .setup
-[32m    sets up a connection to a database through PG[0m
-[32m    this connection is persistent[0m
-  .query
-[32m    executes a query via PG[0m
-
-Adding a new peep
-[32m  A user can add a peep to the Chitter[0m
-[32m  adding new peeps accessible from the main page[0m
-[32m  if the user changes their mind they can go back to the main page[0m
-
-The user can sign up to Chitter
-[32m  the user can sign up through the button on the index page[0m
-[32m  the user can sign up with name, handle, email and password[0m
-
-Viewing peeps
-[32m  visiting the index page[0m
-[32m  a user can see peeps[0m
-[32m  peeps have info about date and time created[0m
-[32m  peeps have info about user and name[0m
-
-Chitter
-  .all
-[32m    returns all peeps[0m
-  .create
-[32m    creates a new peep[0m
-
-Finished in 0.40064 seconds (files took 0.81325 seconds to load)
-[32m14 examples, 0 failures[0m
-
-
-COVERAGE: [32m100.00%[0m -- 84/84 lines in 5 files
-
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec
-DatabaseConnection
-  .setup
-[32m    sets up a connection to a database through PG[0m
-[32m    this connection is persistent[0m
-  .query
-[32m    executes a query via PG[0m
-
-Adding a new peep
-[32m  A user can add a peep to the Chitter[0m
-[32m  adding new peeps accessible from the main page[0m
-[32m  if the user changes their mind they can go back to the main page[0m
-
-The user can sign up to Chitter
-[32m  the user can sign up through the button on the index page[0m
-[32m  the user can sign up with name, handle, email and password[0m
-
-Viewing peeps
-[32m  visiting the index page[0m
-[32m  a user can see peeps[0m
-[32m  peeps have info about date and time created[0m
-[32m  peeps have info about user and name[0m
-
-Chitter
-  .all
-[32m    returns all peeps[0m
-  .create
-[32m    creates a new peep[0m
-
-Finished in 0.25606 seconds (files took 0.73305 seconds to load)
-[32m14 examples, 0 failures[0m
-
-
-COVERAGE: [32m100.00%[0m -- 84/84 lines in 5 files
-
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
-]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mop[4mc[4mo[24m [24mc[24mommit -m [33m"[39m[33m"[33mm[39m[33mm[33mo[39m[33mo[33mr[39m[33mr[33me[39m[33me[33m"[39m[?1l>[?2004l
-]2;git commit -m "more"]1;git[master 7e17474] more
- 4 files changed, 144 insertions(+), 19 deletions(-)
- rewrite examples.txt (75%)
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
-]2;git push]1;gitCounting objects: 6, done.
-Delta compression using up to 4 threads.
-Compressing objects:  16% (1/6)   Compressing objects:  33% (2/6)   Compressing objects:  50% (3/6)   Compressing objects:  66% (4/6)   Compressing objects:  83% (5/6)   Compressing objects: 100% (6/6)   Compressing objects: 100% (6/6), done.
-Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 1.46 KiB | 1.46 MiB/s, done.
-Total 6 (delta 5), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/5)   [Kremote: Resolving deltas:  20% (1/5)   [Kremote: Resolving deltas:  40% (2/5)   [Kremote: Resolving deltas:  60% (3/5)   [Kremote: Resolving deltas:  80% (4/5)   [Kremote: Resolving deltas: 100% (5/5)   [Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
-To github.com:m-budryte/chitter-challenge.git
-   1414527..7e17474  master -> master
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
-]2;git push]1;gitEverything up-to-date
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h
+Script started on Mon Apr  1 08:54:23 2019
