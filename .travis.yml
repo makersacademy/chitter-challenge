@@ -30,3 +30,4 @@ ADD FOREIGN KEY (user_id) REFERENCES Users(id);'
 - psql -d chitter_test -c 'ALTER TABLE peep_messages
 ADD COLUMN username VARCHAR(60);'
 
+
