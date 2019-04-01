@@ -4,6 +4,7 @@ INSTRUCTIONS FOR SETUP:
 -------
 
 - clone the repo
+- run ruby 2.5.1
 - bundle 
 - run rake db:create (creates databases), you should have chitter_development and chitter_development_2 databaes setup
 - run rake db:migrate (migrates database) 
@@ -237,21 +238,20 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+## Other tasks added in later(after 1st draft)
 
-## Others (that was in the task) to do
-
-Bcrypt
-- test that it stores in a hash
-
-- feature testreverse chronological order for message index
-
+- feature test- reverse chronological order for message index
 e.g. 
     first_child = find("ul li:first-child")
     last_child = find("ul li:last-child")
     expect(first_child).to have_content "Newest message"
     expect(last_child).to have_content "Oldest message"
 
-- structure where files are located
+
+## Others (that was in the task) to do
+
+Bcrypt
+- test that it stores in a hash
 
 
 # Code review
@@ -274,4 +274,28 @@ e.g.
 
 # skills developed
 - I can TDD anything
+evidence
+- peer review, good TDD process
+
+
 - I can debug anything
+
+
+- RESTFUL architecture
+
+
+## where the files are located:
+- ERBs - views/messages, views/users
+- migration - db/migrate
+- models - models/message, models/user
+- tests - spec
+
+
+# improvement
+- link commit messages to user stories and how they were met
+
+- Error messages don't give a way back to let the user add correct data
+
+* added some href so navigation is easier (instead of typing in url)
+
+** need to find out why no flash is shown 

@@ -26,7 +26,8 @@ class Chitter < Sinatra::Base
     if session[:user_id] != nil
       erb(:'messages/new')
     else 
-      flash[:notice] = 'Please sign in'
+      flash[:notice] = 'Please sign up/sign in'
+      redirect '/users/new'
     end 
   end 
 
@@ -41,8 +42,7 @@ class Chitter < Sinatra::Base
   end 
 
   post '/messages/new' do 
-    @message = Message.create(content: params[:content], 
-    user_id: session[:user_id])
+    @message = Message.create(content: params[:content], user_id: session[:user_id])
     @user = User.find(@message.user_id)
     # p @user
     redirect '/messages'
@@ -50,14 +50,15 @@ class Chitter < Sinatra::Base
 
   post '/users/new' do  
     # username is another word for handle
-    @user = User.new(name: params[:name], username: params[:username],
-    email: params[:email], password: params[:password])
+    @user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+
     if @user.save
     # signs in user too
       session[:user_id] = @user.id
       redirect "/users/#{@user.id}"
     else 
       flash[:notice] = "Username/email has been taken"
+      # redirect '/users/new'
     end
   end 
 
