@@ -55,6 +55,7 @@ No doubt this list will increase dramatically when I properly go over the rubric
 
 - Would have been good to do the bonus round:
     - Create many-to-many join table between peeps and users to represent tags?
+- Remember to install Travis locally and check the build before pushing. Do this at the beginning as part of the set-up process!
 - I didn't feel like I was on top of the database set-up and deployment. Need to look into Rake more. Or whatever is the equivalent for Javascript now I guess...
 - Could have more detailed validation messages on sign-up page. Currently all errors give the same generic message.
 - Should do some validation on the length of a peep
