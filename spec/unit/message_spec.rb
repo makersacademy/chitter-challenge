@@ -1,12 +1,21 @@
 require 'message'
+# require 'user'
 require 'database_helpers'
 
 describe Message do
+  # subject(:message) { described_class.new(id:, username: username, message:, time:) }
+  # let(:username) { double(:username) }
+  #
+  #
+  # it 'shows the username of the user posting the message' do
+  #   expect(subject.username).to eq 'riya'
+  # end
+
   describe '.all' do
     it 'returns all the messages in reverse chronological order' do
       Message.post(message:'Happy Easter')
       Message.post(message: 'Summer Vibes')
-      time = Time.new.strftime('%F %k:%M:00')
+      time = Time.new.strftime('%F %H:%M:00')
       peep = Message.post(message: 'Merry Christmas')
       messages = Message.all
 

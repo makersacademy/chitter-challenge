@@ -1,4 +1,5 @@
 require_relative 'database_connection'
+# require_relative 'user'
 
 class Message
 
@@ -22,7 +23,7 @@ class Message
   end
 
   def self.post(message:)
-    time = Time.new.strftime('%F  %k:%M:00')
+    time = Time.new.strftime('%F  %H:%M:00')
     result = DatabaseConnection.query("INSERT INTO messages (message, time) VALUES ('#{message}', '#{time}') RETURNING id, message, time;")
     Message.new(
       id: result[0]['id'],

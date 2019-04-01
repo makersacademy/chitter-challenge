@@ -18,21 +18,23 @@ class Chitter < Sinatra::Base
 
   post '/users/sign_up' do
     user = User.create(fullname: params[:fullname], email: params[:email], username: params[:username], password: params[:password])
-    session[:user_id] = user.id
+    session[:username] = user.username
     redirect '/chitter/new'
   end
 
   get '/chitter/chitter_feed' do
     @peeps = Message.all
+    @username = session[:username]
     erb :'/chitter/chitter_feed'
   end
 
   get '/chitter/new' do
-    @user = User.find(id: session[:user_id])
+    @user = User.find(username: session[:username])
     erb :'/chitter/new'
   end
 
   post '/chitter/new' do
+    @username = session[:username]
     @peep = Message.post(message: params[:message])
     redirect '/chitter/chitter_feed'
   end
@@ -44,9 +46,10 @@ class Chitter < Sinatra::Base
   post '/users/login' do
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
-      session[:user_id] = user.id
+      session[:username] = user.username
       redirect '/chitter/new'
     else
+      # created table with UNIQUE data types so this clashes
       flash[:notice] = 'Please check your email or password.'
       redirect '/users/login'
     end
