@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chitter</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
+  <body>
+    <div class="container main-container">
+      <h1 class="jumbotron text-center">Chitter</h1>
+      
+      <a href="/users/new">Sign up</a>
+      <div class="text-peep">
+        <form action="/create-peep" method="post">
+          <textarea name="peep" cols="50" rows="5">
+          </textarea>
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+      <div class="chitter-post">
+        <ul>
+          <% @peeps.each do |peep| %>
+          <li class="peep" id="peep-<%= peep.id %>">
+            <%= peep.peep %>
+            <br>
+            <%= peep.time.strftime("Posted on %d %B %Y at %I:%M%p") %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    
+    <script src="" async defer></script>
+  </body>
+</html>

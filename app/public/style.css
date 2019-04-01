@@ -1,0 +1,36 @@
+.main-container{
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+}
+
+.jumbotron{
+  font-size: 4em;
+}
+
+.chitter-post{
+  position: relative;
+  background-color: orange;
+  display: flex;
+  min-height: 100vh;
+  padding: 20px;
+  border: 3px solid black;
+}
+
+.peep{
+  padding: 20px;
+  margin: 20px;
+  width: 100%;
+  list-style-type: none;
+  background-color: black;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.text-peep{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin: 20px;
+}
