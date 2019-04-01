@@ -85,7 +85,7 @@ Run `rspec` directly in root of your local project
 
 _Further details, including feature breakdowns, object models and db design can be found [here](https://github.com/mattTea/rps-challenge/blob/master/problem/problem_breakdown.md)_
 
-1. Break down first user stories into an [object model](https://github.com/mattTea/rps-challenge/blob/master/problem/problem_breakdown.md) and simple feature steps
+1. Break down first user stories into an [object model](https://github.com/mattTea/chitter-challenge/blob/master/problem/problem_breakdown.md) and simple feature steps
 
 2. Add capybara config requirements into `spec_helper.rb`
     - `config.include Capybara::DSL`
