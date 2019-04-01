@@ -7,7 +7,6 @@ feature 'Viewing home page' do
     expect(page).to have_content 'Welcome to Chitter'
     expect(page).to have_content 'Peepdeck'
   end
-end
 
 # feature 'Viewing home page' do
 #   scenario 'Shows peepdeck' do
@@ -16,7 +15,6 @@ end
 #   end
 # end
 
-feature 'Viewing home page' do
   scenario 'Shows peepdeck' do
     connection = PG.connect(dbname: 'chitter_app_test')
 
