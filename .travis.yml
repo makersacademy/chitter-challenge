@@ -12,6 +12,7 @@ services:
 
 before_script:
 - psql -d '\i test/travis.sql'
+
 #   - psql -c 'create database chitter_test;' -U postgres
 #   - psql -d chitter_test -c 'CREATE TABLE peep_messages (
 #   id SERIAL PRIMARY KEY,
