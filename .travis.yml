@@ -11,7 +11,7 @@ before_install:
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
-  - cp config/database.yml.travis config/database.yml
+  - cp config/database.yml
   - psql -c 'create database chitter_development;' -U postgres
 
 env:
