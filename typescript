@@ -1,111 +1,34 @@
-Script started on Fri Mar 29 16:17:24 2019
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[1m[31mf[0m[39m[0m[39m [32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
-]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mommit -m[33m"[39m[39m  [33m"[39m[33m"[33mt[39m[33mt[33me[39m[33mt[39m[39m [33m"[39m[39m [33m"[33ms[39m[33ms[33me[39m[33me[33mt[39m[33mt[33mt[39m[33mt[33mi[39m[33mi[33mn[39m[33mn[33mg[39m[33mg[33m [39m[33m [33mt[39m[33mt[33me[39m[33me[33ms[39m[33ms[33mt[39m[33mt[33m [39m[33m [33md[39m[33md[33ma[39m[33ma[33mt[39m[33mt[33ma[39m[33ma[33mb[39m[33mb[33ma[39m[33ma[33ms[39m[33ms[33me[39m[33me[33m [39m[33m [33ma[39m[33ma[33mn[39m[33mn[33md[39m[33md[33m [39m[33m [33mc[39m[33mc[33mr[39m[33mr[33me[39m[33me[33ma[39m[33ma[33mt[39m[33mt[33mi[39m[33mi[33mn[39m[33mn[33mg[39m[33mg[33m [39m[33m [33mp[39m[33mp[33me[39m[33me[33me[39m[33me[33mp[39m[33mp[33m"[39m[?1l>[?2004l
-]2;git commit -m "setting test database and creating peep"]1;git[master 943fe25] setting test database and creating peep
- 12 files changed, 86 insertions(+), 34 deletions(-)
- rename {migrations => db/migrations}/01_create_chitter_table.sql (100%)
- create mode 100644 spec/features/creating_peeps_spec.rb
- create mode 100644 spec/setup_test_database.rb
- rewrite typescript (98%)
- create mode 100644 views/chitter/new.erb
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
-]2;git push]1;gitCounting objects: 20, done.
-Delta compression using up to 4 threads.
-Compressing objects:   6% (1/16)   Compressing objects:  12% (2/16)   Compressing objects:  18% (3/16)   Compressing objects:  25% (4/16)   Compressing objects:  31% (5/16)   Compressing objects:  37% (6/16)   Compressing objects:  43% (7/16)   Compressing objects:  50% (8/16)   Compressing objects:  56% (9/16)   Compressing objects:  62% (10/16)   Compressing objects:  68% (11/16)   Compressing objects:  75% (12/16)   Compressing objects:  81% (13/16)   Compressing objects:  87% (14/16)   Compressing objects:  93% (15/16)   Compressing objects: 100% (16/16)   Compressing objects: 100% (16/16), done.
-Writing objects:   5% (1/20)   Writing objects:  10% (2/20)   Writing objects:  15% (3/20)   Writing objects:  20% (4/20)   Writing objects:  25% (5/20)   Writing objects:  30% (6/20)   Writing objects:  35% (7/20)   Writing objects:  40% (8/20)   Writing objects:  45% (9/20)   Writing objects:  50% (10/20)   Writing objects:  55% (11/20)   Writing objects:  60% (12/20)   Writing objects:  65% (13/20)   Writing objects:  70% (14/20)   Writing objects:  75% (15/20)   Writing objects:  80% (16/20)   Writing objects:  85% (17/20)   Writing objects:  90% (18/20)   Writing objects:  95% (19/20)   Writing objects: 100% (20/20)   Writing objects: 100% (20/20), 3.00 KiB | 1.50 MiB/s, done.
-Total 20 (delta 5), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/5)   [Kremote: Resolving deltas:  20% (1/5)   [Kremote: Resolving deltas:  40% (2/5)   [Kremote: Resolving deltas:  60% (3/5)   [Kremote: Resolving deltas:  80% (4/5)   [Kremote: Resolving deltas: 100% (5/5)   [Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
-To github.com:m-budryte/chitter-challenge.git
-   da5b264..943fe25  master -> master
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec[31mCould not find proper version of rspec-core (3.7.1) in any of the sources[0m
-[33mRun `bundle install` to install missing gems.[0m
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
-]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mommit -m [33m"[39m[33m"[33me[39m[33me[33mr[39m[33mr[33mb[39m[33mb[33ms[39m[33ms[33m [39m[33m [33me[39m[33me[33md[39m[33md[33mi[39m[33mi[33mt[39m[33mt[33ms[39m[33ms[33m [39m[33ms[39m[39m [33ms[33m"[39m[?1l>[?2004l
-]2;git commit -m "erbs edits"]1;git[master 4acaa18] erbs edits
- 1 file changed, 3 insertions(+), 4 deletions(-)
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[0m[32mr[0m[32ms[0m[32mp[0m[32me[32mc[39m[?1l>[?2004l
-]2;rspec]1;rspec[31mCould not find proper version of rspec-core (3.7.1) in any of the sources[0m
-[33mRun `bundle install` to install missing gems.[0m
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[32mr[32ms[39m[1m[31mr[1m[31ms[1m[31mp[0m[39m[1m[31mp[1m[31me[0m[39m[1m[31mp[0m[39m[0m[39m [0m[32mr[0m[32ms[39m[0m[39m [32mr[39m[39m [39m [32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ms[24m[24mstatus[?1l>[?2004l
+Script started on Mon Apr  1 08:06:59 2019
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ms[24m[24mstatus[?1l>[?2004l
 ]2;git status]1;gitOn branch master
 Your branch is up to date with 'origin/master'.
 
 Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
+  (use "git add/rm <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	[31mmodified:   spec/units/chitter_spec.rb[m
+	[31mmodified:   .travis.yml[m
+	[31mmodified:   Gemfile[m
+	[31mmodified:   README.md[m
+	[31mmodified:   app.rb[m
+	[31mmodified:   db/migrations/02_create_userbase_table.sql[m
+	[31mmodified:   lib/chitter.rb[m
+	[31mdeleted:    spec/database_helper.rb[m
+	[31mmodified:   spec/features/signing_up_spec.rb[m
+	[31mmodified:   spec/spec_helper.rb[m
+	[31mmodified:   typescript[m
+	[31mmodified:   views/chitter/index.erb[m
+	[31mdeleted:    views/chitter/signup.erb[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mconfig/[m
+	[31mdatabase.yml.travis[m
+	[31mlib/database_connection.rb[m
+	[31mlib/database_connection_setup.rb[m
+	[31mspec/database_connection_spec.rb[m
+	[31mviews/users/[m
 
 no changes added to commit (use "git add" and/or "git commit -a")
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mr[39m[1m[31mr[1m[31mu[0m[39m[1m[31mr[1m[31mu[1m[31mb[0m[39m[0m[32mr[0m[32mu[0m[32mb[32my[39m 
-[J[0mapp.rb     [J[1;31mcoverage[0m/  [J[1;31mdb[0m/        [J[1;31mdocs[0m/      [J[1;31mlib[0m/       [J[1;31mpublic[0m/    [J[1;31mspec[0m/      [J[1;31mviews[0m/   [J[A[0m[27m[24m[0m[41C[32mruby[39m[K[77C([22;33m[1mmaster[01;31m✱[0m)[00m [0m[86Dapp.rb
-[J[7mapp.rb   [0m  [J[1;31mcoverage[0m/  [J[1;31mdb[0m/        [J[1;31mdocs[0m/      [J[1;31mlib[0m/       [J[1;31mpublic[0m/    [J[1;31mspec[0m/      [J[1;31mviews[0m/   [J[A[0m[27m[24m[0m[41C[32mruby[39m app.rb[K[70C([22;33m[1mmaster[01;31m✱[0m)[00m [0m[80D
-[7mapp.rb   [0m  [7mapp.rb   [0m  [A[0m[27m[24m[0m[41C[32mruby[39m app.rb[K[70C([22;33m[1mmaster[01;31m✱[0m)[00m [0m[80D
-[J[A[52C[1m [0m[4ma[4mp[4mp[4m.[4mr[4mb[24m[1C[0m [?1l>[?2004l
-[J]2;ruby app.rb]1;ruby== Sinatra (v2.0.5) has taken the stage on 4567 for development with backup from Puma
-Puma starting in single mode...
-* Version 3.12.0 (ruby 2.6.0-p0), codename: Llamas in Pajamas
-* Min threads: 0, max threads: 16
-* Environment: development
-* Listening on tcp://localhost:4567
-Use Ctrl-C to stop
-^C- Gracefully stopping, waiting for requests to finish
-=== puma shutdown: 2019-03-30 11:00:12 +0000 ===
-- Goodbye!
-== Sinatra has ended his set (crowd applauds)
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mruby[39m [4mapp.rb[24m[?1l>[?2004l
-]2;ruby app.rb]1;ruby[1mTraceback[m (most recent call last):
-	2: from app.rb:2:in `<main>'
-	1: from /Users/budros/.rvm/rubies/ruby-2.6.0/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
-/Users/budros/.rvm/rubies/ruby-2.6.0/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': [1m/Users/budros/Projects/MAKERS/weekend_challenges/chitter-challenge/lib/chitter.rb:19: syntax error, unexpected end-of-input, expecting end ([1;4mSyntaxError[m[1m)[m
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mruby[39m [4mapp.rb[24m[?1l>[?2004l
-]2;ruby app.rb]1;ruby== Sinatra (v2.0.5) has taken the stage on 4567 for development with backup from Puma
-Puma starting in single mode...
-* Version 3.12.0 (ruby 2.6.0-p0), codename: Llamas in Pajamas
-* Min threads: 0, max threads: 16
-* Environment: development
-* Listening on tcp://localhost:4567
-Use Ctrl-C to stop
-^C- Gracefully stopping, waiting for requests to finish
-=== puma shutdown: 2019-03-30 17:51:24 +0000 ===
-- Goodbye!
-== Sinatra has ended his set (crowd applauds)
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
-]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mommit -m [33m"[39m[33m"[33mB[39m[33mB[33mu[39m[33mu[33mt[39m[33mt[33mt[39m[33mt[33mo[39m[33mt[39m[39m [33mt[39m[39m [33mu[39m[39m [33mB[39m[39m [33m"[39m[39m [33m"[33mn[39m[33mn[33ma[39m[33ma[33mv[39m[33mv[33mi[39m[33mi[33mg[39m[33mg[33ma[39m[33ma[33mt[39m[33mt[33mi[39m[33mi[33mo[39m[33mo[33mn[39m[33mn[33m [39m[33m [33mb[39m[33mb[33me[39m[33me[33mt[39m[33mt[33mw[39m[33mw[33me[39m[33me[33me[39m[33me[33mn[39m[33mn[33m [39m[33m [33mi[39m[33mi[33m [39m[33mi[39m[39m [33mi[33mn[39m[33mn[33md[39m[33md[33me[39m[33me[33mx[39m[33mx[33m [39m[33m [33ma[39m[33ma[33mn[39m[33mn[33md[39m[33md[33m [39m[33m [33mn[39m[33mn[33me[39m[33me[33mw[39m[33mw[33m [39m[33m [33ma[39m[33ma[33md[39m[33md[33md[39m[33md[33me[39m[33me[33md[39m[33md[33m"[39m[33md[39m[39m [33md[33m"[39m[?1l>[?2004l
-]2;git commit -m "navigation between index and new added"]1;git[master 6a46d5c] navigation between index and new added
- 7 files changed, 71 insertions(+), 14 deletions(-)
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m oush[?1l>[?2004l
-]2;git oush]1;gitgit: 'oush' is not a git command. See 'git --help'.
-
-The most similar command is
-	push
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
-]2;git push]1;gitCounting objects: 15, done.
-Delta compression using up to 4 threads.
-Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
-Writing objects:   6% (1/15)   Writing objects:  13% (2/15)   Writing objects:  20% (3/15)   Writing objects:  26% (4/15)   Writing objects:  33% (5/15)   Writing objects:  40% (6/15)   Writing objects:  46% (7/15)   Writing objects:  53% (8/15)   Writing objects:  60% (9/15)   Writing objects:  66% (10/15)   Writing objects:  73% (11/15)   Writing objects:  80% (12/15)   Writing objects:  86% (13/15)   Writing objects:  93% (14/15)   Writing objects: 100% (15/15)   Writing objects: 100% (15/15), 2.58 KiB | 1.29 MiB/s, done.
-Total 15 (delta 8), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/8)   [Kremote: Resolving deltas:  12% (1/8)   [Kremote: Resolving deltas:  25% (2/8)   [Kremote: Resolving deltas:  37% (3/8)   [Kremote: Resolving deltas:  50% (4/8)   [Kremote: Resolving deltas:  62% (5/8)   [Kremote: Resolving deltas:  75% (6/8)   [Kremote: Resolving deltas:  87% (7/8)   [Kremote: Resolving deltas: 100% (8/8)   [Kremote: Resolving deltas: 100% (8/8), completed with 8 local objects.[K
-To github.com:m-budryte/chitter-challenge.git
-   54cf48e..6a46d5c  master -> master
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004hggem install activerecord[24D[32mg[32me[32mm[39m[21C[?1l>[?2004l
-]2;gem install activerecord]1;gem
-Fetching activesupport-5.2.3.gem
-Fetching activerecord-5.2.3.gem
-Fetching activemodel-5.2.3.gem
-Successfully installed activesupport-5.2.3
-Successfully installed activemodel-5.2.3
-Successfully installed activerecord-5.2.3
-Parsing documentation for activesupport-5.2.3
-Installing ri documentation for activesupport-5.2.3
-Parsing documentation for activemodel-5.2.3
-Installing ri documentation for activemodel-5.2.3
-Parsing documentation for activerecord-5.2.3
-Installing ri documentation for activerecord-5.2.3
-Done installing documentation for activesupport, activemodel, activerecord after 6 seconds
-3 gems installed
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[?1l>[?2004l
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[1m[31mb[0m[39m[1m[31mb[1m[31mu[0m[39m[1m[31mb[1m[31mu[1m[31mn[0m[39m[1m[31mn[1m[31md[0m[39m[1m[31md[1m[31ml[0m[39m[0m[32mb[0m[32mu[0m[32mn[0m[32md[0m[32ml[32me[39m[?1l>[?2004l
-]2;bundle]1;bundle[31mYour Ruby version is 2.6.0, but your Gemfile specified 2.5.0[0m
 [1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h

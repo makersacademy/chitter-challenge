@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require './lib/chitter.rb'
+require './lib/database_connection_setup.rb'
+
 class ChitterApp < Sinatra::Base
   # enable :sessions
   # configure(:development) { set :session_secret, "something" }
@@ -23,8 +25,12 @@ class ChitterApp < Sinatra::Base
     redirect '/chitter'
   end
 
-  get '/chitter/signup' do
-    erb(:'chitter/signup')
+  get '/users/new' do
+    erb(:'users/new')
+  end
+
+  post '/users' do
+    redirect '/chitter'
   end
 
   run! if app_file == $PROGRAM_NAME

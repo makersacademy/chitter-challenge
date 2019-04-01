@@ -16,7 +16,6 @@ RSpec.configure do |config|
     setup_test_database
   end
 
-
   require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
   Capybara.app = ChitterApp
