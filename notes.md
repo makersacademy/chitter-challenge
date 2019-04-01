@@ -1,6 +1,8 @@
 # Notes
 *Just some stuff I noted down along the way that I didn't have time to look into*
 
+- When I was referring to class methods from within the class, I started off by writing e.g. `self.new`, but Rubocop gave me an offence for this, saying the `self` was unnecessary. But I feel like it's more readable than just doing `new`. Is there a convention on this?
+
 - I turned off lazy loading for `Peep.content` because it wasn't loading at all in `view_peeps.erb`. Surely this shouldn't be necessary though. Why wasn't it loading?
 
 - DataMapper is throwing a warning in my RSpec output, like this:
