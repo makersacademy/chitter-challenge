@@ -131,3 +131,94 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+
+
+
+
+
+
+
+
+# Chitter Challenge
+
+[Getting started](#getting-started) | [To Use](#To-Use) | [Task](#Task) | [Approach](#Approach) |
+[Code Status](#Code-Status)
+
+This weekend challenge is for submission to Makers Academy. The code creates a web app that mocks the basic functionality of Twitter.
+
+### Getting Started
+1. Clone to your local machine using
+  `git@github.com:LaurenQurashi/chitter-challenge.git
+2. Run `gem install bundle`
+3. Run `bundle`
+
+### To Use
+Run rackup, shotgun, or ruby app.rb in the terminal, then visit the local host page. 
+
+### Task
+-----
+We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+
+Features:
+-------
+
+```
+STRAIGHT UP
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+HARDER
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+```
+
+### Approach
+
+To tackle this challenge, I used the standard practice of TDD. This involved
+writing a very simple failing test in Capybara, checking the error code, and doing the least
+I could to pass my simple test. Repetition of this process allowed me to evolve
+my programme into the current product.
+
+To start this process, I reduced the user stories down, one by one, to understand what
+the user needed to do, and that the user wanted to see. I also mapped out the MVC 
+approach so that I could clearly think about what I wanted my app to do. Once
+completed, I would formulate my logic in my app.rb file and check constantly
+to see if I am visually getting the results I want, as well as passing tests.
+
+The next step would be to create the most simple test I could using Capybara, to
+ensure that this method or result wasn't possible, and thus work on a solution to resolve
+this. By repeating this step, I soon built up the code to complete the
+requirements for the first user story. after sucessfully completing these requirements, I would
+refactor out to include my MVC model. 
+
+### Code Status
+
+As it stands, the web app isn't completely finished. It is able to show a list of peeps and create a peep, however it currently displays my test database's peeps.  
