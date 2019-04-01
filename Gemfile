@@ -7,6 +7,7 @@ gem 'pg'
 gem 'rake'
 gem 'rubocop', '0.66.0'
 gem 'sinatra'
+gem 'travis'
 
 group :test do
   gem 'rspec'
