@@ -1,0 +1,23 @@
+body {
+    background-color: #B4FECA;
+}
+
+h1 {
+    font-family: Snell Roundhand, cursive;
+    font-size: 150px;
+    font-style: oblique;
+    font-weight: 50;
+    text-align: center;
+    text-decoration: wavy;
+    color: #000000
+}
+
+h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    font-style: oblique;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: wavy;
+    color: #000000
+}
