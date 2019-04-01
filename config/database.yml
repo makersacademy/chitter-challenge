@@ -2,7 +2,7 @@ test:
   adapter: postgresql
   encoding: unicode
   database: chitter_development
-  pool: 2
+  pool: 10
   username: 
   password: 
 
@@ -13,6 +13,6 @@ development:
   adapter: postgresql
   encoding: unicode
   database: chitter_development2
-  pool: 2
+  pool: 10
   username: 
   password: 
