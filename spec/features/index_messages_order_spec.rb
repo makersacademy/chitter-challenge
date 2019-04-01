@@ -11,7 +11,10 @@ feature 'messages index with reverse order' do
     fill_in('content', with: 'this is 3rd message')
     click_button('Submit')
 
-    # expect(page).to have_content 'this is 3rd message'+'this is 2nd message'+'this is first message'
+    first_child = find("ul li:first-child")
+    last_child = find("ul li:last-child")
+    expect(first_child).to have_content "this is 3rd message"
+    expect(last_child).to have_content "this is first message"
     # reverse chronological order test
   end
 
