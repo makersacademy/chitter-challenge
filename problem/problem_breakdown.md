@@ -1,6 +1,6 @@
 # Problem breakdown
 
-## Straight up
+## Straight up
 
 ### User story 1 - Post a peep
 

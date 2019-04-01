@@ -5,8 +5,6 @@ Chitter - Matt Thompson
 
 This Sinatra web app allows users post to and read from a feed of posted messages (peeps). It also allows users to sign-up and login to control their own posts.
 
-![demo gif]()
-
 
 #### Technologies used
 
