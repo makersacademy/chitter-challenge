@@ -67,3 +67,10 @@ $ bundle install
 
 $ ruby app.rb
 ```
+
+# Current challenges
+
+[] Fix testing with Travis CI ()
+[] Save users into the userbase (currently have a page for registration but does not save it anywhere)
+[] Log in/Log out
+[] CSS

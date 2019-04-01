@@ -11,15 +11,15 @@
   [] implementing CRUD
     [] C [x] R (U) [] D
     /The functionality of U is not implemented on purpose/
-    [] Read (Chitter.all)
+    [x] Read
       [x] feature tests
       [x] insert few peeps
       [x] pass feature test
       [x] refactor
       [x] TDD to implement PG and retrieve peeps from database - unit test for chitter.rb
-      [] show username
-      [] show name
-      [] show time
+      [x] show username
+      [x] show name
+      [x] show time
     [] Create
       [x] feature test
       [x] pass the feature test
@@ -29,12 +29,11 @@
   [] README
     [] full instructions
     [] Screenshots
-## Handling userbase [] [] [] []
+## Handling userbase
 [x] Set up databases
   [x] "userbase" in chitter_app (id, name, handle, email, password)
   [x] "userbase" in chitter_app_test (id, name, handle, email, password)
   [x] 02 migration route
-  [] database_helper
 [] implementing CRUD
   [] C [] R [] U [] D
   [] Read
