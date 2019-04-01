@@ -8,10 +8,11 @@ require './lib/user'
 
 
 class Chitter < Sinatra::Base
+  
+  register Sinatra::Flash
 
   configure :development do
     register Sinatra::Reloader
-    register Sinatra::Flash
   end
 
   enable :sessions
