@@ -3,6 +3,7 @@ require './helpers/database_helpers'
 
 describe DatabaseConnection do
 
+  # pending mocking
   # let(:user) { double(:user)  } 
   # let(:peep) { double(:peep)  } 
   

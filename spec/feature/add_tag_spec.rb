@@ -15,10 +15,9 @@ feature 'Add tag' do
 
     click_button 'New peep'
 
-    #fill_in "peep",	with: "This is my peep @coco said @momo"
+    fill_in "peep",	with: "This is my peep @coco said @momo"
     
     #click_button 'send peep'
-
     #expect(current_path).to eq '/peeps'
     
   end

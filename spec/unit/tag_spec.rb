@@ -2,7 +2,9 @@ require 'tag'
 require 'database_connection'
 
 describe Tag do
- 
+  
+  #mock tag
+
   describe '.create' do 
     
     it 'adds an entry to the tag table' do

@@ -1,7 +1,9 @@
 require 'peep'
 require 'user' 
 
-describe Peep do
+describe Peep do 
+
+    # mock user
 
     describe '.create' do
       it 'create a Peep class when sending the create message to Peep class' do

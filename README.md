@@ -54,26 +54,33 @@ I want to receive an email if I am tagged in a Peep
 ```sql
 -- log in the psql cli
 
-\i path_to_01_create_chitter_db
+psql$: CREATE TABLE chitter
+psql$: CREATE TABLE chitter_test
 
 -- connect to chitter db
-\c chitter
-\i path_to_02_create_peeps_table
-\i path_to_03_create_users_table
-\i path_to_04_create_chitter_test_db
-\i path_to_06_create_tag_table_db
-\i path_to_07_create_usertags_table_db
-\c chitter_test
+psql$: \c chitter
+psql$: \i path_to_02_create_peeps_table
+psql$: \i path_to_03_create_users_table
+psql$: \i path_to_04_create_chitter_test_db
+psql$: \i path_to_06_create_tag_table_db
+psql$: \i path_to_07_create_usertags_table_db
+psql$: \c chitter_test
 -- connect to chitter_test_db
 -- repeate the creation of peeps and users inside the chitter_test database
-
+--or run:
 ```
 
 # Run the app
 
+```
 - run app.rb
+
+or
+
 - rackup -p 4567
-- localhost:4567
+
+Visit page at: localhost:4567
+```
 
 # Technologies used
 
@@ -83,3 +90,21 @@ I want to receive an email if I am tagged in a Peep
 - sinatra
 - postgresql
 - html / css
+
+## More information about appoach and steps
+
+[Repa: Approach file](https://github.com/micosmin/chitter-challenge/blob/master/APPROACH.md)
+
+## Reflection
+
+- Commit more often. I usually commit very often, but on this task I neglected this step
+- Test travis ci on a different branch if every in this situations of having builds fail due to database settings and migration errors
+- :development was not registerting sinatra flash in travis tests - took me a while to uncover this, which means i need to spend a bit of time better understanding enviornments
+
+To improve:
+
+- more testing needed - 80% of the time I test before I write any code, however, towards the end of the project I start writting code before tests, to see how a feature woudl work, but end up not having time to go back and write my tests
+- spend some time playing with rake and db creation/migration
+- implement many to many relation and querying in an app. No time during the weekly challenge for this
+- css
+- work on finishing week challenges as the last items contain some very useful information

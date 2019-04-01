@@ -14,9 +14,16 @@ class Peep
   def self.create(user_id:, peep:, email: Email, tag_service: TagService)
 
     sql = "INSERT INTO peeps (user_id, peep) VALUES ('#{user_id}', '#{peep}') RETURNING id, user_id, peep, peep_time"
+    
     result = DatabaseConnection.query(sql).first
 
-    email.send if tag_service.check(peep: result['peep'])
+    # NOT TESTED
+    #send email functionality
+    receiver = tag_service.check(peep: result['peep'])
+    sender = DatabaseConnection.query("SELECT username FROM users WHERE id = #{user_id}").first
+    email_address = DatabaseConnection.query("SELECT email FROM users WHERE id = #{receiver.tag_id}").first
+    email.send(email_address['email'], sender['username']) if result
+    #send email functionality
 
     Peep.new(user_id: result['user_id'], peep: result['peep'], timestamp: result['peep_time'])
   end

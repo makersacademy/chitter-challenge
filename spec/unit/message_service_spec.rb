@@ -2,7 +2,10 @@ require './lib/message_service'
 
 describe Email do
   let(:email) { double(:email) }
+  # pending mocking user
+
   describe '.send' do
+    pending
     it 'send message if a user is tagged in a peep' do
      
       user = User.create(name: 'My_name', username: 'My_username', email:'myname@gmail.com', password:'some_password')
