@@ -21,6 +21,7 @@ Next time I come round to looking at this I want to:
 - Remove the duplicate functionality of passing in the user_id and username in the 'create' method for a new peep
 - Hosting solutions for the app
 - Tidy up the SQL scripts
+- I want to explore running travis locally :)
 
 ## Introduction to the project
 
