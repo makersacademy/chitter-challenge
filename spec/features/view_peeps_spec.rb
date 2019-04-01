@@ -5,10 +5,14 @@ feature 'Viewing peeps' do
 
     connection = PG.connect(dbname: 'chitter_app_test')
 
+    pusheen = User.create(fullname: 'Pusheen Cat', username: '@pusheen', email: 'pusheen@test.com', password: 'pusheen-password')
+    gudetama = User.create(fullname: 'Gudetama', username: '@gudetama', email: 'gudetama@test.com', password: 'gudetama-password')
+    yoda = User.create(fullname: 'Yoda', username: '@yoda', email: 'yoda@test.com', password: 'yoda-password')
+
     # Add the test data
-    Peep.create(message: "Peep 1 by Pusheen")
-    Peep.create(message: "Peep 2 by Gudetama")
-    Peep.create(message: "Peep 3 by Yoda")
+    Peep.create(message: "Peep 1 by Pusheen", user: pusheen.id, username: '@pusheen')
+    Peep.create(message: "Peep 2 by Gudetama", user: gudetama.id, username: '@gudetama')
+    Peep.create(message: "Peep 3 by Yoda", user: yoda.id, username: '@yoda')
 
     visit('/peeps')
 

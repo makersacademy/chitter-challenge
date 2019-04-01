@@ -46,7 +46,7 @@ class User
     end
     
     result = connection.exec("SELECT * FROM users WHERE username = '#{username}'")
-    User.new(id: result[0]['id'], username: result[0]['email'])
+    User.new(id: result[0]['id'], username: result[0]['username'])
   end
 
 end

@@ -11,7 +11,16 @@ The app is available here:
 
 **To improve my project, next time I would like to:**
 
-- 
+Next time I come round to looking at this I want to:
+
+- Apply some CSS to improve the look and feel of the Chitter app
+- There were requirements for uniqueness and validation of the user input:
+  I would like to apply messages to the user if the user input is invalid format or the username, email 
+  have already been taken (non-unique)
+- I would like to extract the database connection class and wrap the PG functionality within that
+- Remove the duplicate functionality of passing in the user_id and username in the 'create' method for a new peep
+- Hosting solutions for the app
+- Tidy up the SQL scripts
 
 ## Introduction to the project
 

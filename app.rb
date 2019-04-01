@@ -16,15 +16,6 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-  get '/peeps/new' do
-    erb :"peeps/new"
-  end
-
-  post '/peeps' do
-    Peep.create(message: params[:Message])
-    redirect '/peeps'
-  end
-
   get '/registration/signup' do
     erb :'/registration/signup'
   end
@@ -42,6 +33,16 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
     session[:user_id] = user.id
+    session[:user_name] = user.username
+    redirect '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :"peeps/new"
+  end
+
+  post '/peeps' do
+    Peep.create(message: params[:Message], user: session[:user_id], username: session[:user_name])
     redirect '/peeps'
   end
 

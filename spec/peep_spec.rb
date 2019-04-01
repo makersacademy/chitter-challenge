@@ -7,10 +7,14 @@ describe Peep do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_app_test')
       
+      pusheen = User.create(fullname: 'Pusheen Cat', username: '@pusheen', email: 'pusheen@test.com', password: 'pusheen-password')
+      gudetama = User.create(fullname: 'Gudetama', username: '@gudetama', email: 'gudetama@test.com', password: 'gudetama-password')
+      yoda = User.create(fullname: 'Yoda', username: '@yoda', email: 'yoda@test.com', password: 'yoda-password')
+  
       # Add the test data
-      Peep.create(message: "Peep 1 by Pusheen")
-      Peep.create(message: "Peep 2 by Gudetama")
-      Peep.create(message: "Peep 3 by Yoda")
+      Peep.create(message: "Peep 1 by Pusheen", user: pusheen.id, username: '@pusheen')
+      Peep.create(message: "Peep 2 by Gudetama", user: gudetama.id, username: '@gudetama')
+      Peep.create(message: "Peep 3 by Yoda", user: yoda.id, username: '@yoda')
 
       peeps = Peep.all_peeps
 
@@ -21,13 +25,16 @@ describe Peep do
 
   describe '#create' do
     it 'creates a new peep' do
+
+      pusheen = User.create(fullname: 'Pusheen Cat', username: '@pusheen', email: 'pusheen@test.com', password: 'pusheen-password')
+
+  
+      # Add the test data
+      peep = Peep.create(message: "New Peep by Pusheen", user: pusheen.id, username: '@pusheen')
       
-      peep = Peep.create(message: "New Peep by Cinnamon")
       persisted_data = PG.connect(dbname: 'chitter_app_test').query("SELECT * FROM peep_messages WHERE id = #{peep.id};")
       
-      expect(peep).to be_a Peep
-      expect(peep.id).to eq persisted_data.first['id']
-      expect(peep.message).to eq 'New Peep by Cinnamon'
+      expect(peep.message).to eq 'New Peep by Pusheen'
 
     end
   end
