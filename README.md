@@ -44,9 +44,7 @@ Test the app with `Rspec` and `Capybara` frameworks.
 
 ### Domain Model
 
-<div style='float: center'>
-<img style='width: 300px' src="./public/images/domain_model.png">
-</div>
+- on paper, need to computerise 
 
 
 ### Class Responsibility Collaborator
@@ -82,6 +80,13 @@ Test the app with `Rspec` and `Capybara` frameworks.
 - Create `peeps` table to store peeps with ` CREATE TABLE messages (id SERIAL PRIMARY KEY, message VARCHAR(150), time TIMESTAMP, user_id INTEGER REFERENCES users (id));`
 
 - Create database `chitter_manager_test` following the same steps as documented above.
+
+##Incomplete
+
+- The peeps displayed do not show the username - I would inject the User class into the Message class and use the username from the User class.
+- I would've liked to add more buttons on each page to swiftly move from one page to another
+- CSS styling
+- input a user_id foreign key into the messages table as each message has a user (one-to-many relationship)
 
 Notes on functionality:
 ------
