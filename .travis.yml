@@ -2,14 +2,20 @@ rvm: '2.5.1'
 
 script:
   - mkdir -p spec && bundle exec rspec spec
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
 
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
+  - cp config/database.yml.travis config/database.yml
   - psql -c 'create database chitter_development;' -U postgres
 
+env:
+  - DB=pgsql
   
-addons:
-  postgresql: "9.6"
+services:
+  - postgresql
