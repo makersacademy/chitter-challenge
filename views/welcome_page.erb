@@ -1,0 +1,19 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<body>
+  <h1> Welcome to Chitter! </h1>
+
+  <form action="/users/sign_up" >
+    <button type="submit">Sign up</button>
+  </form>
+
+  <form action="/users/login" >
+    <button type="submit">Login</button>
+  </form>
+
+  <form action="/chitter/chitter_page" >
+    <button type="submit">Peeps</button>
+  </form>
+</body>
