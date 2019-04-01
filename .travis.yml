@@ -11,5 +11,22 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database chitter_app_test;' -U postgres
-  - psql -d '\i travis.sql'
+  - psql -c 'create database chitter_test;' -U postgres
+  - psql -d chitter_test -c 'CREATE TABLE peep_messages (
+  id SERIAL PRIMARY KEY,
+  message VARCHAR(60),
+  timestamp TIMESTAMPTZ default CURRENT_TIMESTAMP
+  );'
+  - psql -d chitter_test -c 'CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  fullname VARCHAR(60),
+  username VARCHAR(60),
+  email VARCHAR(60),
+  password VARCHAR(128)
+  );'
+- psql -d chitter_test -c 'ALTER TABLE peep_messages
+ADD COLUMN user_id int,
+ADD FOREIGN KEY (user_id) REFERENCES Users(id);'
+- psql -d chitter_test -c 'ALTER TABLE peep_messages
+ADD COLUMN username VARCHAR(60);'
+
