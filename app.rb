@@ -13,12 +13,10 @@ class Chitter < Sinatra::Base
 
   get '/' do 
     'testing'
-  
   end
 
   get '/messages' do 
     @messages = Message.all.sort.reverse
-    p @messages
     erb(:'messages/index')
   end 
 
@@ -51,13 +49,13 @@ class Chitter < Sinatra::Base
   post '/users/new' do  
     # username is another word for handle
     @user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-
     if @user.save
     # signs in user too
       session[:user_id] = @user.id
       redirect "/users/#{@user.id}"
     else 
       flash[:notice] = "Username/email has been taken"
+      redirect '/users/new'
     end
   end 
 

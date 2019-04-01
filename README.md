@@ -211,8 +211,10 @@ Code:
 
 ### Bcrypt: 
 - Used Bcrypt gem to store secure passwords in a hash
+
 test:
 - feature test to see if it created a matching hash
+
 Code: 
 - added password_digest column to users
 - put has_secure_password in User model
@@ -261,7 +263,6 @@ Bcrypt
 - no needed to test Active Record methods for models
 
 
-
 -----
 # Personal goals (and whether reached /10)
 - build a web app with a database- 10
@@ -277,7 +278,7 @@ Bcrypt
 # skills developed
 - I can TDD anything
 evidence
-- peer review, good TDD process
+    - peer review, good TDD process
 
 
 - I can debug anything
@@ -296,9 +297,6 @@ evidence
 # improvement
 
 - link commit messages to user stories and how they were met
-
 - Error messages don't give a way back to let the user add correct data
-
-* added some href so navigation is easier (instead of typing in url)
-
-* need to find out why no flash is shown but a new page
+    - added some href so navigation is easier (instead of typing in url)
+    - need to find out why no flash is shown but a new page
