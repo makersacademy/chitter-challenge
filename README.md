@@ -18,6 +18,8 @@ Using:
 - RSpec/Capybara for testing
 - Bootstrap CSS
 - Heroku + Heroku Postgres
+and last but not least,
+- Vim. This was the first time I did the whole challenge in Vim, so that was nice.
 
 Check it out here: <https://hivemind-chitter.herokuapp.com/>
 
