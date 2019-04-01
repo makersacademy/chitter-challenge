@@ -20,9 +20,7 @@ class User
 
   def self.decrypt(pass)
     Password.new(pass)
-  end
-
-  
+  end  
 
   def self.create(name:, username:, email:, password:)
     encrypted_password = BCrypt::Password.create(password)
@@ -32,7 +30,7 @@ class User
 
     result = DatabaseConnection.query(sql).first
 
-    Tag.create(tag_id: result['id'] , content: result['username'])
+    Tag.create(tag_id: result['id'], content: result['username'])
 
     User.new(id: result['id'], name: result['name'], username: result['username'], email: result['email'])
 
@@ -42,12 +40,14 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{user}'").first
     return unless result
     return unless BCrypt::Password.new(result['password']) == password
+
     User.new(id: result['id'], name: result['name'], username: result['username'], email: result['email'])
   end
 
   def self.find_id(id)
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'").first
     return unless result
+
     User.new(id: result['id'], name: result['name'], username: result['username'], email: result['email'])
   end
 

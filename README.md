@@ -91,6 +91,15 @@ Visit page at: localhost:4567
 - postgresql
 - html / css
 
+# How did it go?
+
+Implemented all user stories, however more work is needed on:
+
+- validation
+- testing messaging class
+- inject dependency on other classes
+- css styling
+
 ## More information about appoach and steps
 
 [Repa: Approach file](https://github.com/micosmin/chitter-challenge/blob/master/APPROACH.md)

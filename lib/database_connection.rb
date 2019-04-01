@@ -7,7 +7,7 @@ class DatabaseConnection
   end
   
   def self.query(sql)
-   @connection.exec(sql)
+    @connection.exec(sql)
   end
 
 end

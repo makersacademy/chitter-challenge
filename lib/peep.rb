@@ -21,21 +21,21 @@ class Peep
     result = DatabaseConnection.query(sql).first
 
     # NOT TESTED
-    #send email functionality
+    # send email functionality
     sender = DatabaseConnection.query("SELECT username FROM users WHERE id = #{user_id}").first
     if tag_service.check(peep: result['peep']) 
       receiver = tag_service.check(peep: result['peep']) 
       email_address = DatabaseConnection.query("SELECT email FROM users WHERE id = #{receiver.tag_id}").first
       email.send(email_address['email'], sender['username']) if result
     end
-    #send email functionality
+    # send email functionality
 
     Peep.new(user_id: result['user_id'], peep: result['peep'], timestamp: result['peep_time'])
   end
 
   def self.all
     sql = "SELECT users.name, users.username, peeps.peep, peeps.peep_time FROM peeps JOIN users ON peeps.user_id = users.id ORDER BY peeps.peep_time DESC "
-    result = DatabaseConnection.query(sql)
+    DatabaseConnection.query(sql)
   end
 
 end

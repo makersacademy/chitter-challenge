@@ -182,6 +182,6 @@ Step 10
 - If there is a match, a email service is called to send an email to the tagged user - based on the tag i can retrieve the user id and his information
 
 Step 11:
-Work with travis CI - encoutered issues with sinatra flash and the email messaging service
-Sinatra flash was not being seen by Travis as teh registration in sinatra was put in a different environment
+Work with travis CI - encoutered issues with sinatra flash and the email messaging service  
+Sinatra flash was not being seen by Travis as teh registration in sinatra was put in a different environment  
 Messaging service was not working (it was called in tests) as the credentials for email account are stored locally .gitignore

@@ -28,7 +28,7 @@ class Tag
     match = regex.match(content)
 
     if match
-      result = content.scan(regex).map {|tag| tag.sub('@',"") }
+      result = content.scan(regex).map { |tag| tag.sub('@', "") }
 
       tag1 = result[0]
     

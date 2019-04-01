@@ -6,7 +6,6 @@ require './lib/peep'
 require './scripts/setup_db'
 require './lib/user'
 
-
 class Chitter < Sinatra::Base
   
   register Sinatra::Flash
@@ -32,7 +31,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions/new' do
-    params['type'] == 'login' ? erb(:'sessions/login'): erb(:'sessions/signup')
+    params['type'] == 'login' ? erb(:'sessions/login') : erb(:'sessions/signup')
   end
 
   get '/sessions/new/login' do
@@ -69,10 +68,10 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
 
-    message = Peep.create(user_id: session[:user_id], peep: params[:peep])
+    Peep.create(user_id: session[:user_id], peep: params[:peep])
 
     redirect '/peeps'
   end
 
-  #run! if app_file = $0
+  # run! if app_file = $0
 end

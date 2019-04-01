@@ -33,12 +33,12 @@ describe User do
     end
 
     it 'returns nil if incorrect username' do
-      user = User.create(name: 'My_name', username: 'My_username', email:'myname@gmail.com', password:'some_password')
+      User.create(name: 'My_name', username: 'My_username', email:'myname@gmail.com', password:'some_password')
       expect( User.authenticate(user: 'Mysername', password: 'some_password') ).to be_nil
     end
 
     it 'returns nil if incorrect password' do
-      user = User.create(name: 'My_name', username: 'My_username', email:'myname@gmail.com', password:'some_password')
+      User.create(name: 'My_name', username: 'My_username', email:'myname@gmail.com', password:'some_password')
       expect(User.authenticate(user: 'My_username', password: 'wrong_password')).to be_nil
     end
   end

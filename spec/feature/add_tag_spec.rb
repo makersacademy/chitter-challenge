@@ -3,8 +3,8 @@
 feature 'Add tag' do
 
   scenario 'User can tag another user in a peep' do 
-    user1 = User.create(name: 'Momo', username: 'momo', email: 'momo@gmail.com', password: 'fefwefwe')
-    usee2 = User.create(name: 'Coco', username: 'coco', email: 'coco@gmail.com', password: 'fefwefwe')
+    User.create(name: 'Momo', username: 'momo', email: 'momo@gmail.com', password: 'fefwefwe')
+    User.create(name: 'Coco', username: 'coco', email: 'coco@gmail.com', password: 'fefwefwe')
     
     visit '/'
     
@@ -19,8 +19,8 @@ feature 'Add tag' do
 
     fill_in "peep",	with: "This is my peep @coco said @momo"
     
-    #click_button 'send peep'
-    #expect(current_path).to eq '/peeps'
+    # click_button 'send peep'
+    # expect(current_path).to eq '/peeps'
     
   end
 

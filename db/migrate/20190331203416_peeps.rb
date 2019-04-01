@@ -12,6 +12,6 @@ class Peeps < ActiveRecord::Migration[5.2]
       ADD CONSTRAINT fk_user_id
       FOREIGN KEY (user_id)
       REFERENCES users(id)
-      SQL
+    SQL
   end
 end
