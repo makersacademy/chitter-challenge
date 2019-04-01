@@ -34,4 +34,15 @@ feature 'Chitter website functions' do
     expect(current_path).to eq('/')
     expect(first('.peep')).to have_content("#{day}")
   end
+
+  scenario 'user sign up to chitter' do
+    visit('/')
+    expect(page).to have_link('Sign up', href: '/users/new')
+    click_on('Sign up')
+    expect(current_path).to eq('/users/new')
+    fill_in('email', with: 'test@email.com')
+    fill_in('password', with: 'password123')
+    click_button('Submit')
+    expect(page).to have_content('Hi, test@email.com')
+  end
 end

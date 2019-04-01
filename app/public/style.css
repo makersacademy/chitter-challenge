@@ -10,7 +10,7 @@
 
 .chitter-post{
   position: relative;
-  background-color: DodgerBlue;
+  background-color: orange;
   display: flex;
   min-height: 100vh;
   padding: 20px;
@@ -22,9 +22,10 @@
   margin: 20px;
   width: 100%;
   list-style-type: none;
-  background-color: green;
+  background-color: black;
   border-radius: 10px;
   font-size: 1.5rem;
+  color: white;
 }
 
 .text-peep{
