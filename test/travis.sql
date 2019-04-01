@@ -1,6 +1,6 @@
 -- # Create DB
-CREATE DATABASE IF NOT EXISTS `demo` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `demo`;
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `test`;
 
 CREATE TABLE peep_messages (
   id SERIAL PRIMARY KEY,
