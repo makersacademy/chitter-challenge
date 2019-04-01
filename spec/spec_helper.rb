@@ -1,5 +1,5 @@
 ENV['ENVIRONMENT'] = 'test'
-
+require 'rack'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
