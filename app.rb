@@ -19,7 +19,6 @@ class Chitter < Sinatra::Base
   get '/messages' do 
     @messages = Message.all.sort.reverse
     erb(:'messages/index')
-
   end 
 
   get '/messages/new' do 
@@ -43,7 +42,7 @@ class Chitter < Sinatra::Base
 
   post '/messages/new' do 
     @message = Message.create(content: params[:content], user_id: session[:user_id])
-    @user = User.find(@message.user_id)
+    # @user = User.find(@message.user_id)
     # p @user
     redirect '/messages'
   end 
@@ -58,7 +57,6 @@ class Chitter < Sinatra::Base
       redirect "/users/#{@user.id}"
     else 
       flash[:notice] = "Username/email has been taken"
-      # redirect '/users/new'
     end
   end 
 

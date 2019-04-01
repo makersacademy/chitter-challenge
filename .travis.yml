@@ -9,3 +9,9 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+
+services:
+  - postgresql
+  
+addons:
+  postgresql: "9.6"

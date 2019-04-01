@@ -298,4 +298,4 @@ evidence
 
 * added some href so navigation is easier (instead of typing in url)
 
-** need to find out why no flash is shown 
+* need to find out why no flash is shown but a new page
