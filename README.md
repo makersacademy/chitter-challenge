@@ -39,10 +39,6 @@ See model.drawio file
 
 [![Build Status](https://travis-ci.com/m-budryte/chitter-challenge.svg?branch=master)](https://travis-ci.com/m-budryte/chitter-challenge)
 
-# Code style
-
-/pending/
-
 # Screenshots
 
 /pending/
@@ -56,30 +52,18 @@ Capybara
 Travis CI
 SQL
 
-# Features
-
-/pending/
-
-# Code example
-
-/pending/
-
-# API Reference
-
-/pending/
-
 # Tests
 
-/pending/
+RSpec
+Capybara
+Travis CI
 
 # How to use?
 
-/pending/
+```
+Fork this repo
 
-# Contribute
+$ bundle install
 
-/pending/
-
-# License
-
-/pending/
+$ ruby app.rb
+```

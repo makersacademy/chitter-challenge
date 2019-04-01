@@ -165,28 +165,87 @@ Using diff-lcs 1.3
 Using ffi 1.10.0
 [32mFetching ethon 0.12.0[0m
 [32mInstalling ethon 0.12.0[0m
- is not certified with a trusted signature!
-gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: 7D2B AF1C F37B 13E2 069D  6956 105B D0E7 3949 9BDB
-[32mGPG verified '/Users/budros/.rvm/archives/rvm-installer'[0m
-[0mTurning on auto dotfiles mode.
-Downloading https://github.com/rvm/rvm/archive/1.29.7.tar.gz
-Downloading https://github.com/rvm/rvm/releases/download/1.29.7/1.29.7.tar.gz.asc
-gpg: Signature made Thu Jan  3 22:01:48 2019 GMT
-gpg:                using RSA key 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-gpg: Good signature from "Piotr Kuczynski <piotr.kuczynski@gmail.com>" [unknown]
-gpg: WARNING: This key is not certified with a trusted signature!
-gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: 7D2B AF1C F37B 13E2 069D  6956 105B D0E7 3949 9BDB
-GPG verified '/Users/budros/.rvm/archives/rvm-1.29.7.tgz'
-[32mUpgrading the RVM installation in /Users/budros/.rvm/[0m
-[0m    Removing rvm PATH line from /Users/budros/.mkshrc /Users/budros/.profile /Users/budros/.bashrc.
-    Adding rvm PATH line to /Users/budros/.profile /Users/budros/.mkshrc /Users/budros/.bashrc /Users/budros/.zshrc.
-    Removing rvm loading line from /Users/budros/.profile /Users/budros/.zlogin.
-    Adding rvm loading line to /Users/budros/.profile /Users/budros/.bash_profile /Users/budros/.zlogin.
-[32mUpgrade of RVM in /Users/budros/.rvm/ is complete.[0m
-[0m  * No new notes to display.
-
-[32mRVM reloaded![0m
-[0m[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[?1l>[?2004l
+Using extlib 0.9.16
+Using multipart-post 2.0.0
+Using faraday 0.15.4
+[32mFetching faraday_middleware 0.13.1[0m
+[32mInstalling faraday_middleware 0.13.1[0m
+Using multi_json 1.13.1
+[32mFetching net-http-persistent 3.0.0[0m
+[32mInstalling net-http-persistent 3.0.0[0m
+[32mFetching net-http-pipeline 1.0.1[0m
+[32mInstalling net-http-pipeline 1.0.1[0m
+[32mFetching gh 0.14.0[0m
+[32mInstalling gh 0.14.0[0m
+[32mFetching highline 1.7.10[0m
+[32mInstalling highline 1.7.10[0m
+Using hirb 0.7.3
+Using json 2.1.0
+Using launchy 2.4.3
+Using mail 2.7.1
+Using mustermann 1.0.3
+Using parallel 1.12.1
+[32mFetching parser 2.5.1.0[0m
+[32mInstalling parser 2.5.1.0[0m
+Using pg 1.1.4
+[32mFetching pony 1.13[0m
+[32mInstalling pony 1.13[0m
+[32mFetching powerpack 0.1.1[0m
+[32mInstalling powerpack 0.1.1[0m
+[32mFetching websocket 1.2.8[0m
+[32mInstalling websocket 1.2.8[0m
+[32mFetching pusher-client 0.6.2[0m
+[32mInstalling pusher-client 0.6.2[0m
+Using rack-protection 2.0.5
+Using rainbow 3.0.0
+[32mFetching rspec-support 3.7.1[0m
+[32mInstalling rspec-support 3.7.1[0m
+[32mFetching rspec-core 3.7.1[0m
+[32mInstalling rspec-core 3.7.1[0m
+[32mFetching rspec-expectations 3.7.0[0m
+[32mInstalling rspec-expectations 3.7.0[0m
+[32mFetching rspec-mocks 3.7.0[0m
+[32mInstalling rspec-mocks 3.7.0[0m
+[32mFetching rspec 3.7.0[0m
+[32mInstalling rspec 3.7.0[0m
+Using templater 1.0.0
+Using rspec-sinatra 0.1.2
+[32mFetching ruby-progressbar 1.9.0[0m
+[32mInstalling ruby-progressbar 1.9.0[0m
+[32mFetching unicode-display_width 1.3.2[0m
+[32mInstalling unicode-display_width 1.3.2[0m
+Using rubocop 0.56.0
+Using simplecov-html 0.10.2
+[32mFetching simplecov 0.15.1[0m
+[32mInstalling simplecov 0.15.1[0m
+Using simplecov-console 0.4.2
+Using tilt 2.0.9
+Using sinatra 2.0.5
+[32mFetching sinatra-activerecord 2.0.13[0m
+[32mInstalling sinatra-activerecord 2.0.13[0m
+[32mFetching sinatra-contrib 2.0.5[0m
+[32mInstalling sinatra-contrib 2.0.5[0m
+[32mFetching sinatra-flash 0.3.0[0m
+[32mInstalling sinatra-flash 0.3.0[0m
+[32mFetching sinatra-reloader 1.0[0m
+[32mInstalling sinatra-reloader 1.0[0m
+[32mFetching typhoeus 0.8.0[0m
+[32mInstalling typhoeus 0.8.0[0m
+[32mFetching travis 1.8.9[0m
+[32mInstalling travis 1.8.9[0m
+[32mBundle complete! 17 Gemfile dependencies, 75 gems now installed.[0m
+[32mUse `bundle info [gemname]` to see where a bundled gem is installed.[0m
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
+]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mommit -m [33m"[39m[33m"[33mb[39m[33mb[33mu[39m[33mu[33mn[39m[33mn[33md[39m[33md[33ml[39m[33ml[33me[39m[33me[33m [39m[33m [33mu[39m[33mu[33mp[39m[33mp[33md[39m[33md[33ma[39m[33ma[33mt[39m[33mt[33me[39m[33me[33md[39m[33md[33m"[39m[?1l>[?2004l
+]2;git commit -m "bundle updated"]1;git[master b0b9fdc] bundle updated
+ 2 files changed, 72 insertions(+), 2 deletions(-)
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24muish  [4mp[4mu[24m [24mp[24mush[?1l>[?2004l
+]2;git push]1;gitCounting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 3.37 KiB | 1.68 MiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/3)   [Kremote: Resolving deltas:  33% (1/3)   [Kremote: Resolving deltas:  66% (2/3)   [Kremote: Resolving deltas: 100% (3/3)   [Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To github.com:m-budryte/chitter-challenge.git
+   51422ff..b0b9fdc  master -> master
 [1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h
