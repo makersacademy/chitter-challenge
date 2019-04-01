@@ -870,4 +870,20 @@ Finished in 0.25606 seconds (files took 0.73305 seconds to load)
 
 COVERAGE: [32m100.00%[0m -- 84/84 lines in 5 files
 
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4ma[24m[24madd [4m.[24m[?1l>[?2004l
+]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mc[24m[4mc[4mo[24m[24mc[24mop[4mc[4mo[24m [24mc[24mommit -m [33m"[39m[33m"[33mm[39m[33mm[33mo[39m[33mo[33mr[39m[33mr[33me[39m[33me[33m"[39m[?1l>[?2004l
+]2;git commit -m "more"]1;git[master 7e17474] more
+ 4 files changed, 144 insertions(+), 19 deletions(-)
+ rewrite examples.txt (75%)
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
+]2;git push]1;gitCounting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects:  16% (1/6)   Compressing objects:  33% (2/6)   Compressing objects:  50% (3/6)   Compressing objects:  66% (4/6)   Compressing objects:  83% (5/6)   Compressing objects: 100% (6/6)   Compressing objects: 100% (6/6), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 1.46 KiB | 1.46 MiB/s, done.
+Total 6 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/5)   [Kremote: Resolving deltas:  20% (1/5)   [Kremote: Resolving deltas:  40% (2/5)   [Kremote: Resolving deltas:  60% (3/5)   [Kremote: Resolving deltas:  80% (4/5)   [Kremote: Resolving deltas: 100% (5/5)   [Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
+To github.com:m-budryte/chitter-challenge.git
+   1414527..7e17474  master -> master
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[82C([22;33m[1mmaster[0m)[00m [91D[?1h=[?2004h[32mg[39m[1m[31mg[1m[31mi[0m[39m[0m[32mg[0m[32mi[32mt[39m [4mp[24m[4mp[4mu[24m[24mp[24mush[?1l>[?2004l
+]2;git push]1;gitEverything up-to-date
 [1m[7m%[27m[1m[0m                                                                                                                                     ]2;budros@Marijas-MacBook-Pro: ~/Projects/MAKERS/weekend_challenges/chitter-challenge]1;..ter-challenge[0m[27m[24m[J[[37m[1mbudros[0m[00m:[31m...hallenges/chitter-challenge[00m]$ [K[81C([22;33m[1mmaster[01;31m✱[0m)[00m [91D[?1h=[?2004h

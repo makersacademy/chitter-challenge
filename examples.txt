@@ -1,16 +1,16 @@
 example_id                                   | status | run_time        |
 -------------------------------------------- | ------ | --------------- |
-./spec/database_connection_spec.rb[1:1:1]    | passed | 0.02277 seconds |
-./spec/database_connection_spec.rb[1:1:2]    | passed | 0.01187 seconds |
-./spec/database_connection_spec.rb[1:2:1]    | passed | 0.01416 seconds |
-./spec/features/creating_peeps_spec.rb[1:1]  | passed | 0.0654 seconds  |
-./spec/features/creating_peeps_spec.rb[1:2]  | passed | 0.01299 seconds |
-./spec/features/creating_peeps_spec.rb[1:3]  | passed | 0.0125 seconds  |
-./spec/features/signing_up_spec.rb[1:1]      | passed | 0.01248 seconds |
-./spec/features/signing_up_spec.rb[1:2]      | passed | 0.02338 seconds |
-./spec/features/viewing_chitter_spec.rb[1:1] | passed | 0.01325 seconds |
-./spec/features/viewing_chitter_spec.rb[1:2] | passed | 0.01529 seconds |
-./spec/features/viewing_chitter_spec.rb[1:3] | passed | 0.01274 seconds |
-./spec/features/viewing_chitter_spec.rb[1:4] | passed | 0.01473 seconds |
-./spec/units/chitter_spec.rb[1:1:1]          | passed | 0.01176 seconds |
-./spec/units/chitter_spec.rb[1:2:1]          | passed | 0.00966 seconds |
+./spec/database_connection_spec.rb[1:1:1]    | passed | 0.02756 seconds |
+./spec/database_connection_spec.rb[1:1:2]    | passed | 0.01388 seconds |
+./spec/database_connection_spec.rb[1:2:1]    | passed | 0.01308 seconds |
+./spec/features/creating_peeps_spec.rb[1:1]  | passed | 0.0708 seconds  |
+./spec/features/creating_peeps_spec.rb[1:2]  | passed | 0.01184 seconds |
+./spec/features/creating_peeps_spec.rb[1:3]  | passed | 0.01242 seconds |
+./spec/features/signing_up_spec.rb[1:1]      | passed | 0.01174 seconds |
+./spec/features/signing_up_spec.rb[1:2]      | passed | 0.02008 seconds |
+./spec/features/viewing_chitter_spec.rb[1:1] | passed | 0.01359 seconds |
+./spec/features/viewing_chitter_spec.rb[1:2] | passed | 0.01892 seconds |
+./spec/features/viewing_chitter_spec.rb[1:3] | passed | 0.01717 seconds |
+./spec/features/viewing_chitter_spec.rb[1:4] | passed | 0.02523 seconds |
+./spec/units/chitter_spec.rb[1:1:1]          | passed | 0.01234 seconds |
+./spec/units/chitter_spec.rb[1:2:1]          | passed | 0.01645 seconds |
