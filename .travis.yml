@@ -1,4 +1,4 @@
-rvm: '2.5.0'
+rvm: '2.6.0'
 
 script:
   - mkdir -p spec && bundle exec rspec spec
@@ -7,5 +7,15 @@ before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
+services:
+  - postgresql
+
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
+- psql -c 'create database chitter_app_test;' -U postgres
+
+- psql chitter_app_test -U postgres -c 'CREATE TABLE peep_messages (id SERIAL PRIMARY KEY, message VARCHAR(60), timestamp TIMESTAMPTZ default CURRENT_TIMESTAMP);'
+- psql chitter_app_test -U postgres -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, fullname VARCHAR(60), username VARCHAR(60), email VARCHAR(60), password VARCHAR(128));'
+- psql chitter_app_test -U postgres -c 'ALTER TABLE peep_messages ADD COLUMN user_id int, ADD FOREIGN KEY (user_id) REFERENCES Users(id);'
+- psql chitter_app_test -U postgres -c 'ALTER TABLE peep_messages ADD COLUMN username VARCHAR(60);'
+
+

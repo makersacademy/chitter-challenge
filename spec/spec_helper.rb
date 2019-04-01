@@ -1,5 +1,9 @@
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require_relative './setup_test_database'
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'rubocop'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -15,3 +19,17 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
+
+Capybara.app = Chitter
+
+# Configuration of test db
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+

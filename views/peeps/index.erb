@@ -1,0 +1,15 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li> <%= peep.username %><%= peep.timestamp %> <%= peep.message %></li>
+  <% end %>
+  <% if !@user %>
+  <a href="/registration/signup">Sign Up</a>
+  <a href="/sessions/login">Log in!</a>
+  <% end %>
+</ul>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+  <a href="/peeps/new">New Peep!</a>
+  <a href="/sessions/logout">Log Out</a>
+<% end %>

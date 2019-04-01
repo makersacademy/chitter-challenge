@@ -1,21 +1,35 @@
 Chitter Challenge
-=================
+==================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+[Placeholder for Travis CI badge]
 
-Challenge:
--------
+## I documented my approach in 'kd_approach.md' <---- Please read me! :)
+- I documented and explained the processes and approaches I used for this challenge
 
-As usual please start by forking this repo.
+The app is available here:
+[INSERT LINK]
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+**To improve my project, next time I would like to:**
+
+Next time I come round to looking at this I want to:
+
+- Apply some CSS to improve the look and feel of the Chitter app
+- There were requirements for uniqueness and validation of the user input:
+  I would like to apply messages to the user if the user input is invalid format or the username, email 
+  have already been taken (non-unique)
+- I would like to extract the database connection class and wrap the PG functionality within that
+- Remove the duplicate functionality of passing in the user_id and username in the 'create' method for a new peep
+- Hosting solutions for the app
+- Tidy up the SQL scripts
+- I want to explore running travis locally :)
+
+## Introduction to the project
+
+This project is part of Week 4 of the Makers Academy 12-week software engineering programme. 
+
+The aim of this project is to build a small Twitter clone called Chitter that will allow the users to post messages to a public stream.
 
 Features:
--------
 
 ```
 STRAIGHT UP
@@ -53,81 +67,133 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+## Motivation: What are my goals for this project?
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+#### For this challenge, I am specifically targeting the following Makers Academy goals:
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+- I have a methodical approach to solving problems
+- I can debug anything
+- I can TDD anything
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+In order to test my understanding of integrating databases into a web app and verify that I can build a simple web app using an MVC framework, I will build a full-stack app, Chitter.
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+#### Relating to the above high-level goals, I would like to:
 
-Notes on functionality:
-------
+- Document and explain the processes and approaches I used
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
+> This is presented in: 'kd_approach.md'.
+
+Concrete things
+- Apply the MVC framework `Sinatra` to build a simple web app
+- Apply a wrapper class/adapter to wrap around an object as an interface to a database
+
+Concepts
+- Understand MVC frameworks and RESTful routing
+- Understand how to integrate a database into an MVC model
+- Explore how to host my web app, including the database
+
+Processes
+- Use test-driven development to test-drive the app. I would like to apply the use of Capybara for feature testing the user flow.
+
+Behaviours/mindset
+- Take a step back to understand how the user journey might work
+
+## Tech/Framework Used
+
+I will be using Capybara testing as it has extensions for RSpec. I will be particularly focusing on feature-testing the user flow for this project.
+
+You can find out more about Capybara here: http://teamcapybara.github.io/capybara/
+
+RSpec will be used as the testing framework.  
+
+>"RSpec is a Behaviour-Driven Development tool for Ruby programmers. BDD is an approach
+to software development that combines Test-Driven Development, Domain Driven Design,
+and Acceptance Test-Driven Planning. RSpec helps you do the TDD part of that equation,
+focusing on the documentation and design aspects of TDD." 
+
+See documentation:
+https://relishapp.com/rspec
+http://rspec.info/
+
+
+The MVC framework, `Sinatra` will be used to build a simple web app. Ruby will be used as the programming language and HTML in Sinatra views for the user interface.
+
+For the database, I will be using `PostgreSQL`, an open-source, object-relational database management system (ORDBMS).
+https://www.postgresql.org/
+
+As a final step, I will explore options for hosting my web app, including the database.
+
+## Code Style
+
+I used `rubocop` as a guide.
+
+## How to use the app
+
+The app is available here:
+
+
+I decided to host the app using .... The app was deployed using  ......
+
+## Images/Screenshots
+
+## Getting started
+
+`git clone https://github.com/kimdiep/chitter-challenge.git`
+
+## Running tests
+
+Tests can be run from the root directory using:
+
+`rspec`
+
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
------
+## Database Setup
 
-If you have time you can implement the following:
+### Creating a Chitter app database
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+1. Connect to psql in terminal `psql postgres`
+2. Enter `CREATE DATABASE "chitter_app";` command to create a new database called chitter_app
 
-And/Or:
+### Adding peep_messages table on the Chitter app database
 
-* Work on the CSS to make it look good.
+1. Enter `\c chitter_app;` to connect to the database
+2. Create `peep_messages` table by running the sql script `01_peep_messages_table.sql`
+3. Run in pSQL by doing `\i db/migrations/01_peep_messages_table.sql` from the root directory of the repository
 
-Good luck and let the chitter begin!
+### Adding initial peeps to peep_messages table
 
-Code Review
------------
+1. Enter `\c chitter_app;` to connect to the database
+2. Add initial peeps to `peep_messages` table by running the sql script `02_add_peeps.sql`
+3. Run in pSQL by doing `\i db/migrations/02_add_peeps.sql` from the root directory of the repository
 
-In code review we'll be hoping to see:
+### Creating a test database for chitter app
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+1. Enter `psql` to connect to the database server
+2. `CREATE DATABASE "chitter_app_test";` will create a test database
+3. Run the SQL script `\i db/migrations/01_peep_messages_table.sql;` to create an empty peep_messages table in the test database
+4. Ensure you include `ENV['ENVIRONMENT'] = 'test'` in your `spec_helper.rb` file and check that the peep class is pointing to the correct database
+5. 
 
 ```ruby
-require 'simplecov'
-require 'simplecov-console'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+# Set to test environment
+ENV['ENVIRONMENT'] = 'test'
+
+# Configuration of test db
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
+
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+### Adding users table on the Chitter app database
+
+1. Enter `\c chitter_app;` to connect to the database
+2. Create `users` table by running the sql script `03_users_table.sql`
+3. Run in pSQL by doing `\i db/migrations/03_users_table.sql` from the root directory of the repository
+4. Now you have a users table to manage users
+
