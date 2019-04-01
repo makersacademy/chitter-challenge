@@ -10,7 +10,7 @@ host = ENV['HOST']
 if ENV['RACK_ENV'] == 'test'
   DataMapper.setup(:default,
                    "postgres://#{user}:#{password}@#{host}/#{test_db}")
-elsif ENV['DEVELOPMENT'] == 'hellyes'
+elsif ENV['DEVELOPMENT'] == 'yes'
   DataMapper.setup(:default,
                    "postgres://#{user}:#{password}@#{host}/#{development_db}")
 else
