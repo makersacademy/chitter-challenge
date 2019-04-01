@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<h2>Chitter Users</h2>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <div><%= user.username %></div>
+      <div><%= user.name %></div>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/peeps/new">
+  <input type="submit" value="Post a Peep">
+</form>
+
+<form action="/users/new">
+  <input type="submit" value="Sign-up">
+</form>
+
+</html>

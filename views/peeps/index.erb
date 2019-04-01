@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<h1>Welcome to Chitter</h1>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <div><%= peep.message %></div>
+      <div>Posted... <%= peep.created_at %></div>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/peeps/new">
+  <input type="submit" value="Post a Peep">
+</form>
+
+<form action="/users/new">
+  <input type="submit" value="Sign-up">
+</form>
+
+</html>
