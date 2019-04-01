@@ -1,21 +1,24 @@
 <h1> ALL MESSAGES </h1>
-
-<ul>
-<% @messages.each do |x| %>
-  <li class ="messages" id = "messages-<%= x.id %>">
-  
-  <%= x.content %>
-  </br>
-  Posted by:
-  <%= x.user.name %>
-  </br>
-  <%= x.user.username %>
-  </br>
-  <%= "Posted on #{x.created_at}" %>
-  </li>
+<% if @messages != [] %>
+  <ul>
+  <% @messages.each do |x| %>
+    <li class ="messages" id = "messages-<%= x.id %>">
+    <%= x.content %>
+    </br>
+    Posted by:
+    <%= x.user.name %>
+    </br>
+    <%= x.user.username %>
+    </br>
+    <%= "Posted on #{x.created_at}" %>
+    </li>
+  <% end %>
+  </ul>
+<% else %>
+  <%= "There are no messages" %>
 <% end %>
-</ul>
 
+</br>
 <a href = "/users/new">Sign up to post message</a>
 </br>
 <a href = "/messages/new">New message (if signed in)</a>

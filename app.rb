@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
 
   get '/messages' do 
     @messages = Message.all.sort.reverse
+    p @messages
     erb(:'messages/index')
   end 
 

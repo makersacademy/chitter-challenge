@@ -247,6 +247,8 @@ e.g.
     expect(first_child).to have_content "Newest message"
     expect(last_child).to have_content "Oldest message"
 
+- modified travis.yml, (added in script: RAILS_ENV=test bundle exec rake db:migrate, and ), so that travis now working. I first created database before script, and also added (addons: postgresql: 9.6).
+
 
 ## Others (that was in the task) to do
 
@@ -254,7 +256,7 @@ Bcrypt
 - test that it stores in a hash
 
 
-# Code review
+# Self code review
 ## Testing coverage
 - no needed to test Active Record methods for models
 
@@ -269,7 +271,7 @@ Bcrypt
 - learn how to use Timecop in testing - 10 
 - learn how to model dataflow with a database app - 9
 - learn how to use rakefile - 8
-
+- learn how to use Travis - 8 
 
 
 # skills developed
@@ -292,6 +294,7 @@ evidence
 
 
 # improvement
+
 - link commit messages to user stories and how they were met
 
 - Error messages don't give a way back to let the user add correct data
