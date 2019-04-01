@@ -13,31 +13,15 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
   <body>
-    <div class="container main-container">
-      <h1 class="jumbotron text-center">Chitter</h1>
-      
-      <a href="/users/new">Sign up</a>
-      <div class="text-peep">
-        <form action="/create-peep" method="post">
-          <textarea name="peep" cols="50" rows="5">
-          </textarea>
-          <br>
-          <input type="submit" value="Submit">
+    <div class="container">
+      <h1 class="jumbotron text-center">Chitter User Sign up</h1>
+      <div class="sign-up text-center">
+         <form action="/users" method="post">
+          <input type="email" name="email" placeholder="email" />
+          <input type="password" name="password" placeholder="password" />
+          <input type="submit" value="Submit" />
         </form>
       </div>
-
-      <div class="chitter-post">
-        <ul>
-          <% @peeps.each do |peep| %>
-          <li class="peep" id="peep-<%= peep.id %>">
-            <%= peep.peep %>
-            <br>
-            <%= peep.time.strftime("Posted on %d %B %Y at %I:%M%p") %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
     
     <script src="" async defer></script>
   </body>
