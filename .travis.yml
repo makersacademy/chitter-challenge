@@ -8,7 +8,6 @@ script:
   - RACK_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rspec spec/
   - bin/rake db:migrate RACK_ENV=test
-  - bin/rake
 
 before_install:
   - sudo apt-get update -qq
