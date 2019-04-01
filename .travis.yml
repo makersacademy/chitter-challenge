@@ -12,12 +12,10 @@ services:
 
 before_script:
 - psql -c 'create database chitter_app_test;' -U postgres
-# - psql -d '\i test/travis.sql'
 
-#   - psql -c 'create database chitter_test;' -U postgres
-- psql -d chitter_app_test -c 'CREATE TABLE peep_messages (id SERIAL PRIMARY KEY, message VARCHAR(60), timestamp TIMESTAMPTZ default CURRENT_TIMESTAMP);' - U postgres
-- psql -d chitter_app_test -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, fullname VARCHAR(60), username VARCHAR(60), email VARCHAR(60), password VARCHAR(128));' - U postgres
-- psql -d chitter_app_test -c 'ALTER TABLE peep_messages ADD COLUMN user_id int, ADD FOREIGN KEY (user_id) REFERENCES Users(id);' - U postgres
-- psql -d chitter_app_test -c 'ALTER TABLE peep_messages ADD COLUMN username VARCHAR(60);' - U postgres
+- psql chitter_app_test - U postgres -c 'CREATE TABLE peep_messages (id SERIAL PRIMARY KEY, message VARCHAR(60), timestamp TIMESTAMPTZ default CURRENT_TIMESTAMP);'
+- psql chitter_app_test - U postgres -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, fullname VARCHAR(60), username VARCHAR(60), email VARCHAR(60), password VARCHAR(128));'
+- psql chitter_app_test - U postgres -c 'ALTER TABLE peep_messages ADD COLUMN user_id int, ADD FOREIGN KEY (user_id) REFERENCES Users(id);'
+- psql chitter_app_test - U postgres -c 'ALTER TABLE peep_messages ADD COLUMN username VARCHAR(60);'
 
 
