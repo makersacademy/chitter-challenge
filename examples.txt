@@ -1,0 +1,16 @@
+example_id                                   | status | run_time        |
+-------------------------------------------- | ------ | --------------- |
+./spec/database_connection_spec.rb[1:1:1]    | passed | 0.06722 seconds |
+./spec/database_connection_spec.rb[1:1:2]    | passed | 0.0202 seconds  |
+./spec/database_connection_spec.rb[1:2:1]    | passed | 0.02938 seconds |
+./spec/features/creating_peeps_spec.rb[1:1]  | passed | 0.11435 seconds |
+./spec/features/creating_peeps_spec.rb[1:2]  | passed | 0.02489 seconds |
+./spec/features/creating_peeps_spec.rb[1:3]  | passed | 0.01919 seconds |
+./spec/features/signing_up_spec.rb[1:1]      | passed | 0.02967 seconds |
+./spec/features/signing_up_spec.rb[1:2]      | passed | 0.02523 seconds |
+./spec/features/viewing_chitter_spec.rb[1:1] | passed | 0.01725 seconds |
+./spec/features/viewing_chitter_spec.rb[1:2] | passed | 0.03028 seconds |
+./spec/features/viewing_chitter_spec.rb[1:3] | passed | 0.01833 seconds |
+./spec/features/viewing_chitter_spec.rb[1:4] | passed | 0.01831 seconds |
+./spec/units/chitter_spec.rb[1:1:1]          | passed | 0.01228 seconds |
+./spec/units/chitter_spec.rb[1:2:1]          | passed | 0.03032 seconds |

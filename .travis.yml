@@ -1,11 +1,18 @@
-rvm: '2.5.0'
+language: ruby
+rvm: "2.6.0"
+
+services:
+  - postgresql
 
 script:
-  - mkdir -p spec && bundle exec rspec spec
+  - RACK_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rspec spec/
+  - bin/rake db:migrate RACK_ENV=test
 
 before_install:
-- sudo apt-get update -qq
-- sudo apt-get install -qq postgresql-server-dev-9.3
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  - psql chitter_test -c 'CREATE TABLE chitter(id SERIAL PRIMARY KEY, name VARCHAR(60), handle VARCHAR(15), time TIMESTAMP, content VARCHAR(140));'
