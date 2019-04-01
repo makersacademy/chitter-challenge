@@ -1,3 +1,6 @@
+# TODO:
+# Extract regex matching to a differnt class
+
 class Tag
   attr_reader :tag_id, :content
 
@@ -20,15 +23,20 @@ class Tag
 
   def self.find_content(content:)
     
+   
     regex = /@\w+/
     match = regex.match(content)
 
     if match
       result = content.scan(regex).map {|tag| tag.sub('@',"") }
+
       tag1 = result[0]
-      
+    
       sql = "SELECT * FROM tags WHERE content = '#{tag1}' "
+
       result = DatabaseConnection.query(sql).first
+
+      
       Tag.new(tag_id: result['tag_id'], content: result['content'])
     end
 

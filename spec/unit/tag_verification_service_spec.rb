@@ -1,6 +1,8 @@
+# TO DO pending mocking for user
 require './lib/tag_verification_service'
 
 describe TagService do
+
 
   describe '.check tag' do
 

@@ -103,8 +103,10 @@ Visit page at: localhost:4567
 
 To improve:
 
-- more testing needed - 80% of the time I test before I write any code, however, towards the end of the project I start writting code before tests, to see how a feature woudl work, but end up not having time to go back and write my tests
+- more testing needed - 80% of the time I test before I write any code, however, towards the end of the project I start writting code before tests, to see how a feature would work, but end up not having time to go back and write my tests
 - spend some time playing with rake and db creation/migration
 - implement many to many relation and querying in an app. No time during the weekly challenge for this
 - css
 - work on finishing week challenges as the last items contain some very useful information
+- give more time to refactor, as ran out of time to do dependency injection
+- add validation to user input

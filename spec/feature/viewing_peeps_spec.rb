@@ -2,8 +2,6 @@
 # So that I can let people know what I am doing  
 # I want to post a message (peep) to chitter
 
-# Testing the viewing of pees when user hits '/' route
-
 feature 'Viewing peeps' do
 
   scenario 'user sees name, username, peep, timestamp' do
@@ -18,4 +16,5 @@ feature 'Viewing peeps' do
     expect(page).to have_content 'Hello world again'
   
   end
+
 end

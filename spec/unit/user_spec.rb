@@ -1,7 +1,9 @@
+# TO DO pending mocking for TAG
 require 'user'
 require 'bcrypt'
 
 describe User do
+
 
   describe '.create' do
     it 'hashes the password' do

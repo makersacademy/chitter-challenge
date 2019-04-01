@@ -1,3 +1,5 @@
+# TO DO: hitting send won't work on Travis as credentails are hidden
+
 feature 'Add tag' do
 
   scenario 'User can tag another user in a peep' do 

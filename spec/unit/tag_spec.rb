@@ -1,9 +1,10 @@
+# TO DO pending mocking for USER
+
 require 'tag'
 require 'database_connection'
 
 describe Tag do
   
-  #mock tag
 
   describe '.create' do 
     

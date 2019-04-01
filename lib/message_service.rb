@@ -1,3 +1,5 @@
+# TO DO: Test
+
 require 'pony'
 require 'dotenv'
 
@@ -5,7 +7,6 @@ class Email
   
   Dotenv.load('emailer.env')
 
-  # NOT PROPERLY TESTED
   def self.send(email, sender)
     Pony.mail({
     :from => "Chitter",

@@ -1,3 +1,6 @@
+# TO DO
+# Extract email functionality to to the email class
+
 require './lib/tag_verification_service'
 require './lib/message_service'
 
@@ -19,10 +22,12 @@ class Peep
 
     # NOT TESTED
     #send email functionality
-    receiver = tag_service.check(peep: result['peep'])
     sender = DatabaseConnection.query("SELECT username FROM users WHERE id = #{user_id}").first
-    email_address = DatabaseConnection.query("SELECT email FROM users WHERE id = #{receiver.tag_id}").first
-    email.send(email_address['email'], sender['username']) if result
+    if tag_service.check(peep: result['peep']) 
+      receiver = tag_service.check(peep: result['peep']) 
+      email_address = DatabaseConnection.query("SELECT email FROM users WHERE id = #{receiver.tag_id}").first
+      email.send(email_address['email'], sender['username']) if result
+    end
     #send email functionality
 
     Peep.new(user_id: result['user_id'], peep: result['peep'], timestamp: result['peep_time'])
