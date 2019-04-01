@@ -251,6 +251,11 @@ e.g.
 
 - modified travis.yml, (added in script: RAILS_ENV=test bundle exec rake db:migrate, and ), so that travis now working. I first created database before script, and also added (addons: postgresql: 9.6).
 
+- fixed flash, so that it doesnt go to another page, but flash is displayed on the page (e.g. sign up). Did this by redirecting to '/users/new' after the flash.
+
+
+
+
 
 ## Others (that was in the task) to do
 
@@ -258,6 +263,7 @@ Bcrypt
 - test that it stores in a hash
 
 
+-----
 # Self code review
 ## Testing coverage
 - no needed to test Active Record methods for models
@@ -281,17 +287,17 @@ evidence
     - peer review, good TDD process
 
 
+
 - I can debug anything
 
 
 - RESTFUL architecture
 
 
-## where the files are located:
-- ERBs - views/messages, views/users
-- migration - db/migrate
-- models - models/message, models/user
-- tests - spec
+
+
+
+
 
 
 # improvement
