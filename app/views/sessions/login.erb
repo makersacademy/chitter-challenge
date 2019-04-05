@@ -2,14 +2,22 @@
 <%= flash.now[:notice] %>
 <%end%>
 
-<h1>Log in section</h1>
+<div class="container">
+      <div class="row">
+        <div style="width:30%; margin: 100px auto;">
+          <h1 style="text-align:center">Log in</h1>
+          <form action="/sessions" method="post">
+            <div class="form-group">
 
-<form action="/sessions" method = "post">
-
-  Username <input type="text" name="user">
-  Password <input type="password" name="pass" >
-
-  <input type="submit" value="Log in">
-</form>
-<br>
-<a href="/">Back</a>
+             <input class="form-control mr-sm-2" type="text" name = 'user'>
+             <input class="form-control mr-sm-2" type="password" name = 'pass'>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-lg btn-primary btn-block">Log in</button>
+            </div>
+          </form>
+          <a href="/"> Back</a>
+        </div>
+      </div>
+    </div>
+  </div>

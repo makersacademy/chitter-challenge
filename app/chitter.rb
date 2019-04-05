@@ -48,6 +48,7 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Please check your email or password'
       redirect '/sessions/new/login'
     end
+    
   end
 
   post '/sessions/destroy' do

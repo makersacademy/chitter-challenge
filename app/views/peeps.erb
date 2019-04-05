@@ -2,47 +2,46 @@
 <%= flash.now[:notice] %>
 <%end%>
 
-<h1>Chitter app - Peeps</h1>
 
-<% if !@user %>
-<form action="/sessions/new" method = 'post'>
-<input type="submit" name="type" value="login">
-<input type="submit" name="type" value="signup">
-</form>
-<%end%>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">Chitter app</a>
+    <% if @user %>
+    <p style="color:white" >Welcome <%= @user.username%></p>
+    <% end %>
+  </div>
+  
+  <div class="nav navbar-nav">
+    <% if !@user %>
+      <form class="form-inline" action="/sessions/new" method = 'post'>
+      <input class="form-control mr-sm-2"  type="submit" name="type" value="login">
+      <input class="form-control mr-sm-2" type="submit" name="type" value="signup">
+      </form>
+    <%else %>
+      <form class="form-inline" action="/sessions/destroy" method = 'post'>
+      <input class="form-control mr-sm-2" type="submit" value="Log out">
+      </form>
+      
+      <form  class="form-inline"action="/peeps/new">
+      <input class="form-control mr-sm-2" type="submit" name="send" value="New peep">
+      </form>
+    <%end%>
+  </div>
+</nav> 
 
-<% if @user %>
-
-<form action = "/sessions/destroy", method = 'post'>
-  <input type="submit" value = "Log out">
-</form>
-
-<form action = "/peeps/new">
-  <input type = "submit" name = "send" value = "New peep">
-</form>
-
-<h2>Welcome <%= @user.username%> </h2>
-
-<%end%>
-
-<form action='/' method = 'post'>
-
-</form>
 
 <% @peeps.each do |peep| %>
 
-<div class = 'peep'>
-
-  <p class = 'name'> <%= peep['name'] %></p>
-  <p class = 'handle'> <%= peep['username'] %></p>
-  <p class = 'time'>  <%= peep['peep_time'] %></p>
-  <br>
-  <p class = 'text'><%= peep['peep'] %></p>
-  <br>
-  <br>
-  
+<div class = 'container'>
+<div class="card " style="width:50%; margin: 10px auto;">
+  <div class="card-body">
+    <h5 class="card-title"> <%= peep['name'] %> </h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= peep['username'] %></h6>
+    <h6 class="card-subtitle mb-2 text-muted"> <%= peep['peep_time'] %></h6>
+    <p class="card-text"><%= peep['peep'] %></p>
+  </div>
+</div>
 </div>
 
-<br>
 <%end%>
 
