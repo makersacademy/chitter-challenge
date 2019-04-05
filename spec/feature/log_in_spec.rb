@@ -3,7 +3,7 @@ feature 'Log in' do
     User.create(name: 'Test', username: 'some_name', email: 'dsadsa@google.com', password: '123456789')
     visit '/'
     click_button 'login'
-    expect(page).to have_content "Log in section"
+    expect(page).to have_content "Log in"
   end
   
   scenario 'User can log in with correct pass' do

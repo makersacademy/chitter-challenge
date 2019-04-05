@@ -13,7 +13,7 @@ feature 'Add peeps' do
     click_button 'New peep'
     fill_in "peep",	with: "This is my peep"
     
-    click_button 'send peep'
+    click_button 'Send peep'
 
     expect(page).to have_content 'This is my peep'
 

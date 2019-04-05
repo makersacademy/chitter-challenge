@@ -4,7 +4,7 @@ feature 'Log out' do
 
     visit '/'
     click_button 'login'
-    expect(page).to have_content "Log in section"
+    expect(page).to have_content "Log in"
 
     fill_in "user",	with: "some_name" 
     fill_in "pass",	with: "123456789"
