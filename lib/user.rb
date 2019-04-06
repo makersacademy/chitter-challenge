@@ -10,9 +10,10 @@ class User
   property :password, BCryptHash, :required => true
 
   def self.authenticate(username:, password:)
-    user = all(username: username)
-    return nil if user.length != 1
-    return nil unless user.first.password == password
-    user.first
+    allUsersWithUsername = all(username: username)
+    return nil if allUsersWithUsername.length != 1
+    user = allUsersWithUsername.first
+    return nil unless user.password == password
+    user
   end
 end

@@ -10,7 +10,7 @@ feature 'Authentication' do
                 password: 'jamesbond007')
   end
 
-  it 'A user can sign in' do
+  scenario 'A user can sign in' do
     visit '/sessions/new'
     fill_in :username, with: 'jblogg'
     fill_in :password, with: 'jamesbond007'
@@ -18,7 +18,7 @@ feature 'Authentication' do
     expect(page).to have_content 'Hello, jblogg'
   end
 
-  it 'It shows an error if you put in the wrong password' do
+  scenario 'It shows an error if you put in the wrong password' do
     visit '/sessions/new'
     fill_in :username, with: 'jblogg'
     fill_in :password, with: 'a_wrong_password'
@@ -26,7 +26,7 @@ feature 'Authentication' do
     expect(page).to have_content "Sorry, we didn't recognise those details"
   end
 
-  it 'It shows an error if you put in an invalid username' do
+  scenario 'It shows an error if you put in an invalid username' do
     visit '/sessions/new'
     fill_in :username, with: 'some_random_username'
     fill_in :password, with: 'jamesbond007'
