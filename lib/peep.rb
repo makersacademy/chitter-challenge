@@ -9,4 +9,8 @@ class Peep
   property :created_at, DateTime
 
   belongs_to :user
+
+  def self.allPeepsInReverseOrder
+    all order: [:id.desc]
+  end
 end

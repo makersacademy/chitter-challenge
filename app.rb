@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.get session[:user_id]
-    @peeps = Peep.all order: [:id.desc]
+    @peeps = Peep.allPeepsInReverseOrder
     erb :view_peeps
   end
 
