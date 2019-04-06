@@ -6,11 +6,11 @@ class Peep
 
   property :id,         Serial
   property :content,    Text, :lazy => false
-  property :created_at, DateTime
+  property :created_at, Time
 
   belongs_to :user
 
   def self.allPeepsInReverseOrder
-    all order: [:id.desc]
+    all order: [:created_at.desc]
   end
 end
