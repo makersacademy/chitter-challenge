@@ -15,7 +15,7 @@ describe Peep do
 
       allPeeps = Peep.all
       reversePeeps = Peep.allPeepsInReverseOrder
-      expect(reversePeeps).to eq allPeeps.sort_by { |peep| peep.id }.reverse
+      expect(reversePeeps.first.content).to eq "3rd peep"
     end
   end
 end
