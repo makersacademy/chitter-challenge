@@ -13,4 +13,11 @@ describe Post do
       expect(posts).to include("this is also a test")
     end
   end
+
+  describe '.create' do
+    it 'creates a new post' do
+      Post.create(post: 'this is a test')
+      expect(Post.all).to include 'this is a test'
+    end
+  end
 end

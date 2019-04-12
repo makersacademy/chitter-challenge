@@ -1,8 +1,7 @@
 feature 'Viewing posts' do
   scenario 'User can see posts' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO posts VALUES (1, 'this is a test');")
-    connection.exec("INSERT INTO posts VALUES (2, 'this is also a test');")
+    Post.create(post: "this is a test")
+    Post.create(post: "this is also a test")
 
     visit('/posts')
 
