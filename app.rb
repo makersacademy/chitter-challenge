@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'time'
 
 require_relative './lib/peer'
 require_relative './database_connection_setup'
