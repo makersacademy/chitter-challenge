@@ -2,7 +2,7 @@ require_relative 'web_helper'
 
 feature 'can view messages posted to chitter' do
   scenario 'a user can view one peep' do
-    Peeps.create(message: 'Test')
+    Peeps.create(message: 'Test', user_id: 1)
 
     visit '/peeps'
 
@@ -10,9 +10,9 @@ feature 'can view messages posted to chitter' do
   end
 
   scenario 'a user can view multiple peep' do
-    Peeps.create(message: 'Test')
-    Peeps.create(message: 'Test2')
-    Peeps.create(message: 'Test3')
+    Peeps.create(message: 'Test', user_id: 1)
+    Peeps.create(message: 'Test2', user_id: 1)
+    Peeps.create(message: 'Test3', user_id: 1)
 
     visit '/peeps'
 

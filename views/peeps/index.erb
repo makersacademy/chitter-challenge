@@ -1,6 +1,6 @@
 <h1>
   <ul><% @peeps.each do |peep| %>
-    <li><%= peep.message %> - <%= peep.date_time %></li>
+    <li><%= peep.name %>(<%= peep.username %>): <%= peep.message %> - <%= peep.date_time %></li>
   <% end %>
   </ul>
 </h1>
