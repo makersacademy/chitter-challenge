@@ -1,0 +1,13 @@
+.peers-list {
+  border-left: 3px solid;
+  border-color: #2196F3;
+  box-sizing: inherit;
+  color: #000;
+  background-color: #ddffff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 10px;
+  box-sizing: inherit;
+  padding: 0.01em 16px;
+}

@@ -1,0 +1,6 @@
+CREATE TABLE peers(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users (id),
+  content VARCHAR(255),
+  date_published TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+);

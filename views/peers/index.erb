@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+    <h1>What are Makers saying:</h1>
+    <ul><% @peers.each do |peer| %>
+      <div class="peers-list">
+        <%= peer.content %>
+      </div>
+    <% end %></ul>
+  </body>
+</html>
