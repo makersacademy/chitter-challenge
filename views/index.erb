@@ -2,10 +2,19 @@
 
 <% if @user %>
 <h1>Welcome, <%= @user.email %></h1>
+<form action="/peeps">
+  <button type="submit" value="View Peeps" style="text-align:center; width:300px; font-size:30px;">View Peeps</button>
+</form>
 <form action="/peeps/new">
   <button type="submit" value="Post Peep" style="text-align:center; width:300px; font-size:30px;">Post Peep</button>
 </form>
+<form action="/sessions/destroy" method="post">
+  <button type="submit" value="Sign Out" style="text-align:center; width:300px; font-size:30px;">Sign Out</button>
+</form>
 <% else %>
+<form action="/peeps">
+  <button type="submit" value="View Peeps" style="text-align:center; width:300px; font-size:30px;">View Peeps</button>
+</form>
 <form action="/sessions/new">
   <button type="submit" value="Sign In" style="text-align:center; width:300px; font-size:30px;">Sign In</button>
 </form>

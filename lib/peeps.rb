@@ -12,7 +12,7 @@ class Peeps
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY id DESC")
     result.map do |peep|
       Peeps.new(
         id: peep['id'],

@@ -4,3 +4,9 @@
   <% end %>
   </ul>
 </h1>
+
+<% if @user %>
+<form action="/sessions/destroy" method="post">
+  <button type="submit" value="Sign Out" style="text-align:center; width:300px; font-size:30px;">Sign Out</button>
+</form>
+<% end %>
