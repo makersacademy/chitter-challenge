@@ -1,0 +1,18 @@
+<h1 style="font-size:80px;">
+Sign up for an account
+</h1>
+<h1>
+  <%= flash[:notice] %>
+</h1>
+
+
+<h2>
+<form action="/users" method="post">
+  <input type="email" name="email" required="required" placeholder="email" style="font-size:40px; width:500px; height:50px; text-align:center"/>
+  <input type="password" name="password" required="required" placeholder="password" style="font-size:40px; width:500px; height:50px; text-align:center"/>
+<h2>
+  <button name="signup" type="submit" value="Sign up" style="text-align:center; width:500px; font-size:50px;">Sign up</button>
+</h2>
+</form>
+</h2>
+</center></body></html>

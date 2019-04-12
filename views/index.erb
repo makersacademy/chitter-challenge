@@ -1,4 +1,18 @@
 <h1 style="font-size:100px;">Chitter</h1>
+
+<% if @user %>
+<h1>Welcome, <%= @user.email %></h1>
 <form action="/peeps/new">
   <button type="submit" value="Post Peep" style="text-align:center; width:300px; font-size:30px;">Post Peep</button>
 </form>
+<% else %>
+<form action="/sessions/new">
+  <button type="submit" value="Sign In" style="text-align:center; width:300px; font-size:30px;">Sign In</button>
+</form>
+<form action="/users/new">
+  <button type="submit" value="Sign Up" style="text-align:center; width:300px; font-size:30px;">Sign Up</button>
+</form>
+<% end %>
+<h2>
+  <%= flash[:notice] %>
+</h2>
