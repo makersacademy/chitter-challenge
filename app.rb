@@ -1,8 +1,11 @@
 require 'sinatra/base'
+require './lib/post'
+
 class Chitter < Sinatra::Base
 
-  get '/' do
-    'Test'
+  get '/posts' do
+    @posts = Post.all
+    erb :'posts/index'
   end
 
   # start the server if ruby file executed directly
