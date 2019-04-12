@@ -1,12 +1,28 @@
+
+<center>
+<h1 style="font-size:50px;">Chitter</h1>
+<h1 style="font-size:50px;">Peep Timeline</h1>
+
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
 <h1>
-  <ul><% @peeps.each do |peep| %>
-    <li><%= peep.name %>(<%= peep.username %>): <%= peep.message %> - <%= peep.date_time %></li>
-  <% end %>
+  <ul style="list-style-type:none">
+    <% @peeps.each do |peep| %>
+      <div style="border-style: inset"><li><div style="display:inline-block;"><b style="color:blue"><%= peep.name %></b><small style="color:gray">(<%= peep.username %>):</small></div> <p><%= peep.message %></p><div style="color:gray;font-size:20px"><%= peep.date_time %></div></li>
+      <li><label>Tagged:</label> <%= peep.tags %> </li></div>
+    <% end %>
   </ul>
 </h1>
 
 <% if @user %>
+<form action="/peeps/new">
+  <button type="submit" value="Post Peep" style="text-align:center; width:300px; font-size:30px;">Post Peep</button>
+</form>
 <form action="/sessions/destroy" method="post">
   <button type="submit" value="Sign Out" style="text-align:center; width:300px; font-size:30px;">Sign Out</button>
 </form>
 <% end %>
+</center>

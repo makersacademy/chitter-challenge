@@ -3,7 +3,7 @@ require_relative './database_connection_setup'
 require 'sinatra/flash'
 require_relative 'lib/peeps'
 require_relative 'lib/user'
-
+require_relative 'lib/tags'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
@@ -20,7 +20,20 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peeps.create(message: params[:peep], user_id: session[:user_id])
-    redirect '/peeps'
+    if params[:taggeduser] != ""
+      tagged = Tags.create(tag: params[:taggeduser], id: @peep.id)
+      if tagged == 'Username Not Found'
+          Peeps.delete(id: @peep.id)
+          flash[:notice] = 'Username Not Found'
+          redirect back
+      elsif tagged == 'Already Tagged'
+          Peeps.delete(id: @peep.id)
+          flash[:notice] = 'Already Tagged'
+          redirect back
+      else
+        redirect '/peeps'
+      end
+    end
   end
 
   get '/peeps' do

@@ -23,6 +23,10 @@ class Peeps
     end
   end
 
+  def self.delete(id:)
+    DatabaseConnection.query("DELETE FROM peeps WHERE id = #{id}")
+  end
+
   attr_reader :id, :message, :date_time, :user_id
 
   def initialize(id:, message:, date_time:, user_id:)
@@ -31,7 +35,7 @@ class Peeps
     @date_time = date_time
     @user_id = user_id
   end
-  
+
   def username(user_class = User)
     @user = user_class.find(id: user_id)
     return @user.username
@@ -40,6 +44,11 @@ class Peeps
   def name(user_class = User)
     @user = user_class.find(id: user_id)
     return @user.name
+  end
+
+  def tags(tag_class = Tags)
+    @tag = tag_class.find(peep_id: "#{id}")
+    return @tag.username unless @tag == false
   end
 
 end

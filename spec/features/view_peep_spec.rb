@@ -27,7 +27,8 @@ feature 'can view messages posted to chitter' do
     sign_up
     test_peep
 
-    expect(page).to have_content 'Test(Tester): Test Peep'
+    expect(page).to have_content 'Test(Tester):'
+    expect(page).to have_content 'Test Peep'
   end
 
 end

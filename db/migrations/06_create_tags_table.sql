@@ -1,0 +1,1 @@
+CREATE TABLE tags (id SERIAL PRIMARY KEY, user_id VARCHAR(60), peep_id VARCHAR(60));

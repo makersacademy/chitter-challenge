@@ -1,5 +1,9 @@
 <h1 style="font-size:100px;">Chitter</h1>
 
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
 <% if @user %>
 <h1>Welcome, <%= @user.name %></h1>
 <form action="/peeps">
@@ -22,6 +26,3 @@
   <button type="submit" value="Sign Up" style="text-align:center; width:300px; font-size:30px;">Sign Up</button>
 </form>
 <% end %>
-<h2>
-  <%= flash[:notice] %>
-</h2>
