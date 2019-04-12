@@ -2,23 +2,22 @@ require 'pg'
 require_relative 'database_connection'
 
 class Peep
-  attr_reader :id, :content, :username
+  attr_reader :id, :content
 
-  def initialize(id:, content:, username:)
+  def initialize(id:, content:)
     @id = id
     @content = content
-    @username = username
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
-      Peep.new(id: peep['id'], username: peep['username'], content: peep['content'])
+      Peep.new(id: peep['id'], content: peep['content'])
     end
   end
 
-  def self.create(content:, username:)
-    result = DatabaseConnection.query("INSERT INTO peeps (content, username) VALUES('#{content}', '#{username}') RETURNING id, content, username;")
-    Peep.new(id: result[0]['id'], username: result[0]['username'], content: result[0]['content'])
+  def self.create(content:)
+    result = DatabaseConnection.query("INSERT INTO peeps (content) VALUES('#{content}') RETURNING id, content;")
+    Peep.new(id: result[0]['id'], content: result[0]['content'])
   end
 end
