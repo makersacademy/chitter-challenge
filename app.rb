@@ -4,7 +4,7 @@ require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
-  
+
   get '/' do
     erb :index
   end
@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    Peep.create(content: params[:content])
+    Peep.create(content: params[:content], username: params[:username])
     redirect '/peeps'
   end
 

@@ -48,6 +48,7 @@ SETUP DATABASE
 2. Create the database for Chitter using this command - CREATE DATABASE chitter;
 3. Connect to the Chitter database - \c chitter;
 4. Run the query from the file 01_create_peeps_table.sql
+5. Run the query from the file 02_add_username_to_peeps.sql
 
 SETUP TEST DATABASE
 ===================
@@ -56,3 +57,4 @@ SETUP TEST DATABASE
 2. Create the database for Chitter using this command - CREATE DATABASE chitter_test;
 3. Connect to the Chitter database - \c chitter_test;
 4. Run the query from the file 01_create_peeps_table.sql
+5. Run the query from the file 02_add_username_to_peeps.sql
