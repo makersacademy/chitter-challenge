@@ -3,7 +3,14 @@
     <input type="submit" value="New Peep" />
   </form>
   <% @peeps.each do |peep| %>
-    <%= peep.content %><br>
+    <h2><%= peep.content %><br></h2>
     <%= peep.timestamp %><br>
+    <form action="/peeps/<%= peep.id %>/edit" method="get">
+      <input type="submit" value="Edit" />
+    </form>
+    <form action="/peeps/<%= peep.id %>" method="post">
+      <input type='hidden' name='_method' value='DELETE'/>
+      <input type="submit" value="Delete" />
+    </form>
   <% end %>
 </ul>
