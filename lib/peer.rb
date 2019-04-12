@@ -3,7 +3,7 @@ require_relative "./database_connection.rb"
 class Peer
   attr_reader :id, :user_id, :content, :date_published
   def self.all
-    peers = DatabaseConnection.query('SELECT * FROM peers;')
+    peers = DatabaseConnection.query('SELECT * FROM peers ORDER BY date_published DESC;')
     peers.map do |peer|
       Peer.new(
         id: peer['id'],
