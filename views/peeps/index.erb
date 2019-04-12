@@ -11,9 +11,9 @@
 <h1>
   <ul style="list-style-type:none">
     <% @peeps.each do |peep| %>
-      <div style="border-style: inset"><li><div style="display:inline-block;"><b style="color:blue"><%= peep.name %></b><small style="color:gray">(<%= peep.username %>):</small></div> <p><%= peep.message %></p><div style="color:gray;font-size:20px"><%= peep.date_time %></div></li>
+      <div style="border-style: inset"><li class="peep"><div style="display:inline-block;"><b style="color:blue"><%= peep.name %></b><small style="color:gray">(<%= peep.username %>):</small></div> <p><%= peep.message %></p><div style="color:gray;font-size:20px"><%= peep.date_time %></div></li>
       <% if peep.tags? %>
-      <li><label>Tagged:</label>
+      <li class="tag"><label>Tagged:</label>
       <a href="/tags/<%= peep.tags?.user_id %>"> <%= peep.tags?.username %></a>
       <% end %>
     <% end %>

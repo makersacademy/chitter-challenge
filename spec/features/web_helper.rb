@@ -8,11 +8,26 @@ def sign_up
   click_button 'Sign up'
 end
 
-
 def test_peep
   visit '/'
   click_button 'Post Peep'
   fill_in('peep', with: 'Test Peep')
+  click_button 'Post'
+end
+
+def test_peep_with_tag
+  visit '/'
+  click_button 'Post Peep'
+  fill_in('peep', with: 'Test Peep')
+  fill_in('taggeduser', with: 'TagTester')
+  click_button 'Post'
+end
+
+def test_peep_with_tag2
+  visit '/'
+  click_button 'Post Peep'
+  fill_in('peep', with: 'Test Peep2')
+  fill_in('taggeduser', with: 'TagTester')
   click_button 'Post'
 end
 
