@@ -1,7 +1,7 @@
 <h1 style="font-size:100px;">Chitter</h1>
 
 <% if @user %>
-<h1>Welcome, <%= @user.email %></h1>
+<h1>Welcome, <%= @user.name %></h1>
 <form action="/peeps">
   <button type="submit" value="View Peeps" style="text-align:center; width:300px; font-size:30px;">View Peeps</button>
 </form>

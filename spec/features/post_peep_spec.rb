@@ -1,6 +1,8 @@
+require_relative 'web_helper'
+
 feature 'can post a message (peep) to Chitter' do
   scenario 'a user can post a peep' do
-    visit '/'
+    sign_up
     click_button 'Post Peep'
     fill_in('peep', with: 'Test Peep')
     click_button 'Post'
@@ -9,7 +11,7 @@ feature 'can post a message (peep) to Chitter' do
   end
 
   scenario 'a user can post multiple peeps' do
-    visit '/'
+    sign_up
     click_button 'Post Peep'
     fill_in('peep', with: 'Test Peep')
     click_button 'Post'
@@ -20,5 +22,15 @@ feature 'can post a message (peep) to Chitter' do
 
     expect(page).to have_content 'Test Peep'
     expect(page).to have_content 'Test Peep 2'
+  end
+
+  scenario 'a user must be signed in to post peeps' do
+    visit '/'
+
+    expect(page).not_to have_button 'Post Peep'
+
+    sign_up
+
+    expect(page).to have_button 'Post Peep'
   end
 end
