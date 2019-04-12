@@ -1,1 +1,6 @@
-<h1><%= @peep %></h1>
+<h1>
+  <ul><% @peeps.each do |peep| %>
+    <li><%= peep.message %></li>
+  <% end %>
+  </ul>
+</h1>
