@@ -1,6 +1,7 @@
   <h1>Posts</h1>
   <ul style="list-style-type: none">
     <% @posts.reverse_each do |post| %>
+      <%= @time %>
       <li><%= post %></li>
     <% end %>
   </ul>
