@@ -49,6 +49,7 @@ SETUP DATABASE
 3. Connect to the Chitter database - \c chitter;
 4. Run the query from the file 01_create_peeps_table.sql
 5. Run the query from the file 02_add_username_to_peeps.sql
+6. Run query from teh file 03_add_time_date_to_table.sql
 
 SETUP TEST DATABASE
 ===================
@@ -58,3 +59,4 @@ SETUP TEST DATABASE
 3. Connect to the Chitter database - \c chitter_test;
 4. Run the query from the file 01_create_peeps_table.sql
 5. Run the query from the file 02_add_username_to_peeps.sql
+6. Run query from teh file 03_add_time_date_to_table.sql

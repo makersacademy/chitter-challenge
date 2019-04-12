@@ -1,10 +1,11 @@
+<h2>Welcome, <%= @user.email %></h2>
 <ul>
   <form action="/peeps/new">
     <input type="submit" value="New Peep" />
   </form>
   <% @peeps.each do |peep| %>
     <h2><%= peep.content %><br></h2>
-    <%= peep.timestamp %><br>
+    <%= peep.timestamp %></p>
     <form action="/peeps/<%= peep.id %>/edit" method="get">
       <input type="submit" value="Edit" />
     </form>

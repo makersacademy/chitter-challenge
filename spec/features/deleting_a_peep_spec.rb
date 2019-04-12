@@ -4,7 +4,7 @@ feature 'Deleting a peep' do
     visit('/peeps')
     expect(page).to have_content('This is a peep')
 
-    click_button 'Delete' 
+    first('.peep').click_button 'Delete'
 
     expect(current_path).to eq '/peeps'
     expect(page).not_to have_content('This is a peep')
