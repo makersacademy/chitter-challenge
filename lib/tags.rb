@@ -18,6 +18,17 @@ class Tags
     Tags.new(id: result[0]['id'], user_id: result[0]['user_id'], peep_id: result[0]['peep_id'])
   end
 
+  def self.find_by_user_id(user_id:)
+    result = DatabaseConnection.query("SELECT * FROM tags WHERE user_id = '#{user_id}';")
+    return false unless result.any?
+    result.map do |peep|
+      Tags.new(id: peep['id'],
+              user_id: peep['user_id'],
+              peep_id: peep['peep_id']
+            )
+     end
+   end
+
   attr_reader :id, :user_id, :peep_id
 
   def initialize(id:, user_id:, peep_id:)

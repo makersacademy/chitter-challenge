@@ -23,17 +23,18 @@ class Chitter < Sinatra::Base
     if params[:taggeduser] != ""
       tagged = Tags.create(tag: params[:taggeduser], id: @peep.id)
       if tagged == 'Username Not Found'
-          Peeps.delete(id: @peep.id)
-          flash[:notice] = 'Username Not Found'
-          redirect back
+        Peeps.delete(id: @peep.id)
+        flash[:notice] = 'Username Not Found'
+        redirect back
       elsif tagged == 'Already Tagged'
-          Peeps.delete(id: @peep.id)
-          flash[:notice] = 'Already Tagged'
-          redirect back
+        Peeps.delete(id: @peep.id)
+        flash[:notice] = 'Already Tagged'
+        redirect back
       else
         redirect '/peeps'
       end
     end
+    redirect '/peeps'
   end
 
   get '/peeps' do
@@ -81,6 +82,15 @@ class Chitter < Sinatra::Base
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect '/'
+  end
+
+  get '/tags/:id' do
+    @tags = Tags.find_by_user_id(user_id: params['id'])
+
+    @peeps = Peeps.tags(tags: @tags) unless @tags == false
+
+    @user = User.find(id: session[:user_id])
+    erb :'peeps/index'
   end
 
   run! if app_file == $0

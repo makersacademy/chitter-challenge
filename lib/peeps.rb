@@ -27,6 +27,24 @@ class Peeps
     DatabaseConnection.query("DELETE FROM peeps WHERE id = #{id}")
   end
 
+  def self.find(id:)
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = '#{id}' ORDER BY id DESC;")
+    return false unless result.any?
+    result.map do |peep|
+      Peeps.new(id: result[0]['id'], message: result[0]['message'], date_time: result[0]['date_time'], user_id: result[0]['user_id'])
+    end
+  end
+
+  def self.tags(tags:)
+    @result = []
+    tags.each do |tag|
+      @result << DatabaseConnection.query("SELECT * FROM peeps WHERE id = '#{tag.peep_id}' ORDER BY id DESC;")
+    end
+    @result.map do |peep|
+      Peeps.new(id: peep[0]['id'], message: peep[0]['message'], date_time: peep[0]['date_time'], user_id: peep[0]['user_id'])
+    end
+  end
+
   attr_reader :id, :message, :date_time, :user_id
 
   def initialize(id:, message:, date_time:, user_id:)
@@ -46,9 +64,9 @@ class Peeps
     return @user.name
   end
 
-  def tags(tag_class = Tags)
+  def tags?(tag_class = Tags)
     @tag = tag_class.find(peep_id: "#{id}")
-    return @tag.username unless @tag == false
+    return @tag unless @tag == false
   end
 
 end
