@@ -4,6 +4,7 @@ require 'sinatra/flash'
 require_relative 'lib/peeps'
 require_relative 'lib/user'
 require_relative 'lib/tags'
+require_relative 'lib/replies'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
@@ -91,6 +92,16 @@ class Chitter < Sinatra::Base
 
     @user = User.find(id: session[:user_id])
     erb :'peeps/index'
+  end
+
+  get '/peeps/:id/reply' do
+    @id = params['id']
+    erb :'reply/new'
+  end
+
+  post '/peeps/:id/reply' do
+    @reply = Replies.create(peep_id: params['id'], message: params[:reply], user_id: session[:user_id])
+    redirect '/peeps'
   end
 
   run! if app_file == $0

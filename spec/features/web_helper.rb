@@ -44,3 +44,11 @@ def test_peep3
   fill_in('peep', with: 'Test Peep 3')
   click_button 'Post'
 end
+
+def test_reply_with_tag
+  visit '/peeps'
+  click_button 'Reply'
+  fill_in('peep', with: 'TestReply')
+  fill_in('taggeduser', with: 'TagTester')
+  click_button 'Post'
+end

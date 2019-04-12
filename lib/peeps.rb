@@ -69,4 +69,8 @@ class Peeps
     return @tag unless @tag == false
   end
 
+  def replies(reply_class = Replies)
+    @reply = reply_class.find(peep_id: "#{id}")
+    return @reply unless @reply == false
+  end
 end

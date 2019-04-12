@@ -1,0 +1,12 @@
+<center>
+<h1>Write your peep!</h1>
+<h2>
+  <%= flash[:notice] %>
+</h2>
+<h2>
+  <div"><form action="/peeps/<%= @id %>/reply" method="post">
+    <input type="text" name="reply" placeholder="Reply" style="font-size:20px; width:300px; height:30px; text-align:center"/>
+    <button name="postreply" type="submit" value="postreply" style="text-align:center; width:200px; font-size:20px;">Reply!</button>
+  </form></div>
+</h2>
+</center>
