@@ -5,13 +5,16 @@
   </form>
   <% @peeps.each do |peep| %>
     <h2><%= peep.content %><br></h2>
-    <%= peep.timestamp %></p>
+    <%= peep.timestamp %>
     <form action="/peeps/<%= peep.id %>/edit" method="get">
       <input type="submit" value="Edit" />
     </form>
     <form action="/peeps/<%= peep.id %>" method="post">
       <input type='hidden' name='_method' value='DELETE'/>
-      <input type="submit" value="Delete" />
+      <input type="submit" class="Delete" value="Delete" />
     </form>
   <% end %>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
 </ul>

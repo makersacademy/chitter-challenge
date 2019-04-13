@@ -1,5 +1,6 @@
 feature 'Editing a peep' do
   scenario 'A user can edit a peep' do
+    sign_in
     peep = Peep.create(content: 'Peep peep')
     visit('/peeps')
     expect(page).to have_content('Peep peep')
