@@ -48,7 +48,6 @@ end
 def test_reply_with_tag
   visit '/peeps'
   click_button 'Reply'
-  fill_in('peep', with: 'TestReply')
-  fill_in('taggeduser', with: 'TagTester')
-  click_button 'Post'
+  fill_in('reply', with: 'TestReply')
+  click_button 'Reply!'
 end

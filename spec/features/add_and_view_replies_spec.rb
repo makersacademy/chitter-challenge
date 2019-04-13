@@ -1,15 +1,21 @@
 feature 'Adding and viewing replies' do
   scenario 'a reply can be added to a peep' do
 
-    sign_up
+    user = User.create(email: 'test@example.com', password: 'password123', name: 'Test', username: 'Tester')
+    peep = Peeps.create(message: 'Test', user_id: user.id)
+    user2 = User.create(email: 'newtest@example.com', password: 'password123', name: 'Test2', username: 'Tester2')
 
-    test_peep_with_tag
-
-    click_button 'Reply'
+    visit '/'
+    click_button 'Sign In'
+    fill_in(:email, with: 'newtest@example.com')
+    fill_in(:password, with: 'password123')
+    click_button 'Sign in'
 
     test_reply_with_tag
 
     expect(current_path).to eq '/peeps'
     expect(page).to have_content 'TestReply'
+    expect(page).to have_content 'Test2'
+    expect(page).to have_content 'Tester2'
   end
 end

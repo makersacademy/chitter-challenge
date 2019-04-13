@@ -17,16 +17,16 @@
       <a href="/tags/<%= peep.tags?.user_id %>"> <%= peep.tags?.username %></a>
       <% end %>
       <% if @user %>
-      <div"><form action="/peeps/<%= peep.id %>/reply" method="get">
-        <input type="submit" value="Reply" />
-      </form></div>
+        <div"><form action="/peeps/<%= peep.id %>/reply" method="get">
+          <button class="reply" type="submit" value="Reply" style="text-align:center; width:200px; font-size:20px;">Reply</button>
+        </form></div>
       <% end %>
-      <p style="border-style: dashed"><% if peep.replies %>
+      <% if peep.replies %>
       <li class="reply"><label>Replies:</label>
         <div style="display:inline-block;"><% peep.replies.each do |reply| %>
-          <li class="reply"><b style="color:blue"><%= reply.name %></b><small style="color:gray">(<%= reply.username %>):</small> <p><%= reply.message %></p><small style="color:gray;font-size:20px"><%= reply.date_time %></small></li>
-        <% end %></div>
-      <% end %></p>
+          <li class="reply"><b style="color:blue;font-size:30px"><%= reply.name %></b><small style="color:gray;font-size:20px">(<%= reply.username %>):</small> <p style="font-size:20px"><%= reply.message %></p><small style="color:gray;font-size:15px"><%= reply.date_time %></small></li></div>
+        <% end %>
+      <% end %>
     <% end %>
   </div></ul>
 </h1>
