@@ -1,20 +1,43 @@
-<h2>Welcome, <%= @user.email %></h2>
-<ul>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<nav class="navbar navbar-light bg-light" class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="http://image.flaticon.com/icons/png/512/23/23931.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Chitter
+  </a>
   <form action="/peeps/new">
-    <input type="submit" value="New Peep" />
+    <input type="submit" class="btn btn-dark" value="New Peep" />
   </form>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" class="btn btn-dark" value="Sign Out" />
+  </form>
+</nav><br>
+
+<h2>Welcome, <%= @user.email %></h2><br>
+<ul>
   <% @peeps.each do |peep| %>
     <h2><%= peep.content %><br></h2>
-    <%= peep.timestamp %>
-    <form action="/peeps/<%= peep.id %>/edit" method="get">
-      <input type="submit" value="Edit" />
-    </form>
-    <form action="/peeps/<%= peep.id %>" method="post">
-      <input type='hidden' name='_method' value='DELETE'/>
-      <input type="submit" class="Delete" value="Delete" />
-    </form>
+    <p>Peeped at: <%= peep.timestamp %></p>
+    <div class="panel-footer row">
+      &nbsp;&nbsp;
+      <div class="col-xs-6 text-left">
+        <div class="previous">
+          <form action="/peeps/<%= peep.id %>/edit" method="get">
+            <input type="submit" class="btn btn-dark" value="Edit" />
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </form>
+        </div>
+      </div>
+      &nbsp;&nbsp;
+      <div class="col-xs-6 text-right">
+        <div class="next">
+          <form action="/peeps/<%= peep.id %>" method="post">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <input type='hidden' name='_method' value='DELETE'/>
+            <input type="submit" class="btn btn-dark" class="Delete" value="Delete" />
+          </form>
+        </div>
+      </div>
+    </div><br>
   <% end %>
-  <form action="/sessions/destroy" method="post">
-    <input type="submit" value="Sign out" />
-  </form>
 </ul>

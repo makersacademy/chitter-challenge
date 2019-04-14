@@ -1,5 +1,20 @@
-<form action="/peeps/<%= @peep.id %>" method="post">
-  <input type="hidden" name="_method" value="PATCH" />
-  <input type="text" name="content" value="<%= @peep.content %>" />
-  <input type="submit" value="Update" />
-</form>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<nav class="navbar navbar-light bg-light" class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="http://image.flaticon.com/icons/png/512/23/23931.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Chitter
+  </a>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" class="btn btn-dark" value="Sign Out" />
+  </form>
+</nav>
+
+<div style="margin: 35px;">
+  <h2>Edit Peep</h2><br>
+  <form action="/peeps/<%= @peep.id %>" method="post">
+    <input type="hidden" name="_method" value="PATCH" />
+    <input style="height:200px;width:400px;font-size:14pt;" type="text" name="content" value="<%= @peep.content %>" /><br><br>
+    <input type="submit" class="btn btn-dark" value="Update" />
+  </form>
+</div>
