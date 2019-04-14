@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div align="center">
+  <div class="alert alert-dark" role="alert">
+    <%= flash[:notice] %>
+  </div>
+  <h1>Chitter</h1>
+  <img class="mb-4" src="http://image.flaticon.com/icons/png/512/23/23931.png" alt="" width="72" height="72">
+  <form action='/sessions/new'>
+    <button type="submit" class="btn btn-dark">Sign In</button>
+  </form>
+  <form action='/users/new'>
+    <button type="submit" class="btn btn-dark">Sign Up</button>
+  </form>
+</div>
