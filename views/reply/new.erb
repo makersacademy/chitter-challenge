@@ -1,12 +1,69 @@
-<center>
-<h1>Write your peep!</h1>
+<html>
+<head>
+<style>
+
+body {
+  background-color: #F3F1F1
+}
+
+.list {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  font-size: 20px;
+  width: 800px;
+}
+
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #38A1F3;
+}
+
+li a {
+  display: block;
+  color:white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  color: black;
+  background-color: #F3F1F1;
+}
+
+.active {
+  background-color: #0000FF;
+  color:white;
+}
+</style>
+</head>
+
+<body><center>
+
+<ol>
+  <li><a style="float: left;" href="/">Home</a></li>
+  <li><a style="float: left" href="/peeps">Timeline</a></li>
+  <% if @user %>
+  <li><form action="/sessions/destroy" method="post">
+    <button style="float:right; color:white; background-color: #0000FF" type="submit" value="Sign Out">Sign Out</button>
+  </form></li>
+  <% end %>
+</ol>
+
+<h1>Write your reply!</h1>
 <h2>
   <%= flash[:notice] %>
 </h2>
 <h2>
   <div"><form action="/peeps/<%= @id %>/reply" method="post">
     <input type="text" name="reply" placeholder="Reply" style="font-size:20px; width:300px; height:30px; text-align:center"/>
-    <button name="postreply" type="submit" value="postreply" style="text-align:center; width:200px; font-size:20px;">Reply!</button>
+    <button name="postreply" type="submit" value="postreply" style="text-align:center; width:200px; font-size:20px;color:white; background-color:#759DFF">Reply!</button>
   </form></div>
 </h2>
-</center>
+</center></body></html>

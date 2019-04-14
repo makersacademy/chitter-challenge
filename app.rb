@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
+    @user = User.find(id: session[:user_id])
     erb :'peeps/new'
   end
 
@@ -45,6 +46,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.find(id: session[:user_id])
     erb :'users/new'
   end
 
@@ -64,6 +66,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
+    @user = User.find(id: session[:user_id])
     erb :"sessions/new"
   end
 
