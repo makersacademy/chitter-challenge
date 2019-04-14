@@ -13,7 +13,7 @@ I drafted a rough mock up of the pages I thought would be needed to meet the req
 
 ![Mock up of Chitter pages](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/mockup_of_chitter_pages.png?raw=true)
 
-I also drafted an entity relationship diagram so that I could map out the processes that would be required to provide the functionality outlined in the user stories.
+I also drafted a domain model diagram so that I could map out the processes that would be required to provide the functionality outlined in the user stories.
 
 ![Domain model diagram](https://github.com/Ajay233/chitter-challenge/blob/master/diagrams/Domain%20Model%20Diagram.png?raw=true)
 
