@@ -20,7 +20,7 @@ class Peep
   end
 
   def self.create(content:)
-    result = DatabaseConnection.query("INSERT INTO peeps (content) VALUES('#{content}') RETURNING id, content, posted_at;")
+    result = DatabaseConnection.query("INSERT INTO peeps (content) VALUES('#{content}') RETURNING id, content, posted_at")
     Peep.new(id: result[0]['id'], content: result[0]['content'], timestamp: result[0]['posted_at'])
   end
 
@@ -29,7 +29,7 @@ class Peep
   end
 
   def self.update(id:, content:)
-    result = DatabaseConnection.query("UPDATE peeps SET content = '#{content}' WHERE id = #{id} RETURNING id, content, posted_at;")
+    result = DatabaseConnection.query("UPDATE peeps SET content = '#{content}' WHERE id = #{id} RETURNING id, content, posted_at")
     Peep.new(id: result[0]['id'], content: result[0]['content'], timestamp: result[0]['posted_at'])
   end
 
