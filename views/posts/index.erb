@@ -1,10 +1,16 @@
+
   <h1>Posts</h1>
   <ul style="list-style-type: none">
+
     <% @posts.reverse_each do |post| %>
-      <%= @time %>
-      <li><%= post %></li>
+      <li><%= post.time %>
+        <br>
+        <%= post.post %>
+      </li>
     <% end %>
+
   </ul>
+
 
   <form action="/posts/new">
     <input type="submit" value="make a post" >
