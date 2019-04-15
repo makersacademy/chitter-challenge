@@ -1,0 +1,33 @@
+<head>
+  <style>
+    div.relative {
+      position: relative;
+      left: 450px;
+    }
+  </style>
+</head>
+
+<center>
+  <h1>Posts</h1>
+</center>
+
+<div class="relative">
+  <ul style="list-style-type: none">
+
+    <% @posts.reverse_each do |post| %>
+      <li><%= post.time %>
+        <br>
+        <%= post.post %>
+        <br>
+        <br>
+      </li>
+    <% end %>
+
+  </ul>
+</div>
+
+<center>
+  <form action="/posts/new">
+    <input type="submit" value="make a post" >
+  </form>
+</center>
