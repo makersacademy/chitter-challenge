@@ -1,0 +1,101 @@
+<html>
+<head>
+<style>
+
+body {
+  background-color: #F3F1F1
+}
+
+.list {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  font-size: 20px;
+  width: 800px;
+}
+
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #38A1F3;
+}
+
+li a {
+  display: block;
+  color:white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  color: black;
+  background-color: #F3F1F1;
+}
+
+.active {
+  background-color: #0000FF;
+  color:white;
+}
+</style>
+</head>
+
+<body><center>
+
+<ol>
+  <li><a style="float: left;" href="/">Home</a></li>
+  <li><a style="float: left" class="active" href="/peeps">Timeline</a></li>
+  <% if @user %>
+  <li><form action="/sessions/destroy" method="post">
+    <button style="float:right; color:white; background-color: #0000FF" type="submit" value="Sign Out">Sign Out</button>
+  </form></li>
+  <% else %>
+  <li><a style="float: left" href="/users/new?">Sign Up</a></li>
+  <li><a style="float: left" href="/sessions/new?">Sign In</a></li>
+  <% end %>
+  <a href="/"><img src="https://www.bou.org.uk/wp-content/uploads/2012/08/twitter-white-on-black-cube.jpg" alt="Chitter Logo" style="height:46px; float: left"></a>
+</ol>
+
+<h1 style="font-size:50px;color:#0000FF;">Chitter</h1>
+<h2 style="font-size:40px;color:#759DFF">Peep Timeline</h2>
+
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<% if @user %>
+<form action="/peeps/new">
+  <button type="submit" value="Post Peep" style="text-align:center; width:300px; font-size:30px;color:white; background-color:#759DFF">Post Peep</button>
+</form>
+<% end %>
+
+<h1>
+  <ul style="list-style-type:none">
+    <% @peeps.each do |peep| %>
+      <div style="border-style: inset"><li class="peep"><div style="display:inline-block;"><b style="color:blue"><%= peep.name %></b><small style="color:gray">(<%= peep.username %>):</small></div> <p><%= peep.message %></p><div style="color:gray;font-size:20px"><%= peep.date_time %></div></li>
+      <% if peep.tags? %>
+      <li class="tag"><label>Tagged:</label>
+      <a class="tag" style="color:#38A1F3; background-color:#F3F1F1" href="/tags/<%= peep.tags?.user_id %>"> <%= peep.tags?.username %></a>
+      <% end %>
+      <% if @user %>
+        <div"><form action="/peeps/<%= peep.id %>/reply" method="get">
+          <button class="reply" type="submit" value="Reply" style="text-align:center; width:200px; font-size:20px; color:white; background-color:#759DFF;">Reply</button>
+        </form></div>
+      <% end %>
+      <% if peep.replies %>
+      <li class="reply"><label>Replies:</label>
+        <div style="display:inline-block;"><% peep.replies.each do |reply| %>
+          <li class="reply"><b style="color:blue;font-size:30px"><%= reply.name %></b><small style="color:gray;font-size:20px">(<%= reply.username %>):</small> <p style="font-size:20px"><%= reply.message %></p><small style="color:gray;font-size:15px"><%= reply.date_time %></small></li></div><p>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div></ul>
+</h1>
+
+</center></body>
+</html>

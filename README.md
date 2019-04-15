@@ -53,6 +53,21 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+
+### To set up the database
+
+Connect to `psql` and create the `chitter` and `chitter_test` databases:
+
+```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+
+
+
 Technical Approach:
 -----
 

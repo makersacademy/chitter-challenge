@@ -1,0 +1,75 @@
+<html>
+<head>
+<style>
+
+body {
+  background-color: #F3F1F1
+}
+
+.list {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  font-size: 20px;
+  width: 800px;
+}
+
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #38A1F3;
+}
+
+li a {
+  display: block;
+  color:white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  color: black;
+  background-color: #F3F1F1;
+}
+
+.active {
+  background-color: #0000FF;
+  color:white;
+}
+</style>
+</head>
+
+<body><center>
+
+<ol>
+  <li><a style="float: left;" href="/">Home</a></li>
+  <li><a style="float: left" href="/peeps">Timeline</a></li>
+  <% if @user %>
+  <li><form action="/sessions/destroy" method="post">
+    <button style="float:right; color:white; background-color: #0000FF" type="submit" value="Sign Out">Sign Out</button>
+  </form></li>
+  <% end %>
+  <a href="/"><img src="https://www.bou.org.uk/wp-content/uploads/2012/08/twitter-white-on-black-cube.jpg" alt="Chitter Logo" style="height:46px; float: left"></a>
+</ol>
+
+<h1>Write your peep!</h1>
+<h2>
+  <%= flash[:notice] %>
+</h2>
+<h2>
+<form action="/peeps" method="post">
+  <input type="text" name="peep" required="required" placeholder="Peep" style="font-size:20px; width:300px; height:30px; text-align:center"/>
+  <input name="taggeduser" type="text" placeholder="tag someone?" style="font-size:20px; width:300px; height:30px; text-align:center"/>
+<h2>
+  <button name="post" type="submit" value="Post" style="text-align:center; width:200px; font-size:20px;color:white; background-color:#759DFF">Post!</button>
+</h2>
+</form>
+</h2>
+</center>
+
+</body></html>
