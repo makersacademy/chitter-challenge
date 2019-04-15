@@ -5,7 +5,6 @@ require_relative 'lib/peeps'
 require_relative 'lib/user'
 require_relative 'lib/tags'
 require_relative 'lib/replies'
-require 'sinatra'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
