@@ -2,7 +2,7 @@ feature 'Adding and viewing tags' do
   feature 'a user can add and then view a tag' do
     scenario 'a tag is added to a peep' do
 
-      user = User.create(email: 'newtest@example.com', password: 'password123', name: 'Test', username: 'TagTester')
+      User.create(email: 'newtest@example.com', password: 'password123', name: 'Test', username: 'TagTester')
 
       sign_up
 
@@ -16,7 +16,7 @@ feature 'Adding and viewing tags' do
   feature 'a user can filter peeps by tagged user' do
     scenario 'adding the same tagged user to multiple peeps then filtering by tag' do
 
-      user = User.create(email: 'newtest@example.com', password: 'password123', name: 'Test', username: 'TagTester')
+      User.create(email: 'newtest@example.com', password: 'password123', name: 'Test', username: 'TagTester')
 
       sign_up
 

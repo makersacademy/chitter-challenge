@@ -2,8 +2,8 @@ feature 'Adding and viewing replies' do
   scenario 'a reply can be added to a peep' do
 
     user = User.create(email: 'test@example.com', password: 'password123', name: 'Test', username: 'Tester')
-    peep = Peeps.create(message: 'Test', user_id: user.id)
-    user2 = User.create(email: 'newtest@example.com', password: 'password123', name: 'Test2', username: 'Tester2')
+    Peeps.create(message: 'Test', user_id: user.id)
+    User.create(email: 'newtest@example.com', password: 'password123', name: 'Test2', username: 'Tester2')
 
     visit '/'
     click_button 'Sign In'

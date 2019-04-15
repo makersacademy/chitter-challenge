@@ -23,7 +23,7 @@ describe Tags do
       it "doesn't allow same peep to be tagged with same name" do
         user = User.create(email: 'test@example.com', password: 'password123', name: 'Test', username: 'Tester')
         peep = Peeps.create(message: 'Test', user_id: user.id)
-        tag1 = Tags.create(tag: user.username, id: peep.id)
+        Tags.create(tag: user.username, id: peep.id)
         tag2 = Tags.create(tag: user.username, id: peep.id)
 
         expect(tag2).to eq 'Already Tagged'
@@ -34,7 +34,7 @@ describe Tags do
       it 'does not let you create a tag for a username that does not exist' do
         user = User.create(email: 'test@example.com', password: 'password123', name: 'Test', username: 'Tester')
         peep = Peeps.create(message: 'Test', user_id: user.id)
-        tag1 = Tags.create(tag: user.username, id: peep.id)
+        Tags.create(tag: user.username, id: peep.id)
         tag2 = Tags.create(tag: 'test', id: peep.id)
 
         expect(tag2).to eq 'Username Not Found'

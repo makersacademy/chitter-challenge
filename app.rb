@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.find(id: session[:user_id])
-    erb :'index'
+    erb :index
   end
 
   get '/peeps/new' do
@@ -51,7 +51,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params[:name], username: params[:username],email: params[:email], password: params[:password])
+    user = User.create(name: params[:name], username: params[:username],
+      email: params[:email], password: params[:password])
 
     if user == 'Email Taken'
       flash[:notice] = 'This email address is already in use.'
@@ -67,7 +68,7 @@ class Chitter < Sinatra::Base
 
   get '/sessions/new' do
     @user = User.find(id: session[:user_id])
-    erb :"sessions/new"
+    erb :'sessions/new'
   end
 
   post '/sessions' do
@@ -103,7 +104,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/:id/reply' do
-    @reply = Replies.create(peep_id: params['id'], message: params[:reply], user_id: session[:user_id])
+    @reply = Replies.create(peep_id: params['id'], message: params[:reply],
+      user_id: session[:user_id])
     redirect '/peeps'
   end
 

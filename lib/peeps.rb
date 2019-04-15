@@ -1,25 +1,19 @@
 class Peeps
 
   def self.create(message:, user_id:)
-    result = DatabaseConnection.query("INSERT INTO peeps (message, date_time, user_id) VALUES('#{message}', '#{Time.now.strftime("%d/%m/%Y %H:%M")}', #{user_id}) RETURNING id, message, date_time, user_id;")
-    Peeps.new(id: result[0]['id'], message: result[0]['message'], date_time: result[0]['date_time'], user_id: result[0]['user_id'])
+    result = DatabaseConnection.query("INSERT INTO peeps
+      (message, date_time, user_id)
+      VALUES('#{message}', '#{Time.now.strftime("%d/%m/%Y %H:%M")}', #{user_id})
+      RETURNING id, message, date_time, user_id;")
+    Peeps.new(id: result[0]['id'], message: result[0]['message'],
+      date_time: result[0]['date_time'], user_id: result[0]['user_id'])
   end
 
   def self.all
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
     result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY id DESC")
     result.map do |peep|
-      Peeps.new(
-        id: peep['id'],
-        message: peep['message'],
-        date_time: peep['date_time'],
-        user_id: peep['user_id']
-      )
+      Peeps.new(id: peep['id'], message: peep['message'],
+        date_time: peep['date_time'], user_id: peep['user_id'])
     end
   end
 
@@ -28,20 +22,25 @@ class Peeps
   end
 
   def self.find(id:)
-    result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = '#{id}' ORDER BY id DESC;")
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = '#{id}'
+      ORDER BY id DESC;")
     return false unless result.any?
+
     result.map do |peep|
-      Peeps.new(id: result[0]['id'], message: result[0]['message'], date_time: result[0]['date_time'], user_id: result[0]['user_id'])
+      Peeps.new(id: peep['id'], message: peep['message'],
+        date_time: peep['date_time'], user_id: peep['user_id'])
     end
   end
 
   def self.tags(tags:)
     @result = []
     tags.each do |tag|
-      @result << DatabaseConnection.query("SELECT * FROM peeps WHERE id = '#{tag.peep_id}' ORDER BY id DESC;")
+      @result << DatabaseConnection.query("SELECT * FROM peeps
+        WHERE id = '#{tag.peep_id}' ORDER BY id DESC;")
     end
     @result.map do |peep|
-      Peeps.new(id: peep[0]['id'], message: peep[0]['message'], date_time: peep[0]['date_time'], user_id: peep[0]['user_id'])
+      Peeps.new(id: peep[0]['id'], message: peep[0]['message'],
+        date_time: peep[0]['date_time'], user_id: peep[0]['user_id'])
     end
   end
 
