@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+    <% if @user %>
+      <h1>Welcome, <%= @user.username %></h1>
+      <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out" />
+      </form>
+    <% end %>
+    <p><%= flash[:notice] %></p>
+    <h2>What are Makers saying:</h2>
+    <ul><% @peers.each do |peer| %>
+      <div class="peers-list">
+        <%= peer.content %>
+      </div>
+      <div class="peers-date">
+        Created on: <%= peer.date_published %>
+        by: <%= User.find(id: peer.user_id).username %>
+      </div>
+    <% end %></ul>
+  </body>
+</html>
