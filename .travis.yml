@@ -3,6 +3,7 @@ rvm: '2.6.0'
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq postgresql-server-dev-9.3
+- sudo install bundler
 - sudo bundle install
 
 services:
