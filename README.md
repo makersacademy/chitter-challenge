@@ -221,7 +221,7 @@ Code:
 
 
 
-# what I didn't do 
+## What I didn't do 
 ```
 HARDER
 
@@ -255,8 +255,6 @@ e.g.
 
 
 
-
-
 ## Others (that was in the task) to do
 
 Bcrypt
@@ -264,13 +262,13 @@ Bcrypt
 
 
 -----
-# Self code review
+## Self code review
 ## Testing coverage
 - no needed to test Active Record methods for models
 
 
 -----
-# Personal goals (and whether reached /10)
+## Personal goals (and whether reached /10)
 - build a web app with a database- 10
 - learn how to use Sinatra with Active record- 10
 - learn how to test an app with database- 8
@@ -281,26 +279,7 @@ Bcrypt
 - learn how to use Travis - 8 
 
 
-# skills developed
-- I can TDD anything
-evidence
-    - peer review, good TDD process
-
-
-
-- I can debug anything
-
-
-- RESTFUL architecture
-
-
-
-
-
-
-
-
-# improvement
+## Improvement
 
 - link commit messages to user stories and how they were met
 - Error messages don't give a way back to let the user add correct data
