@@ -263,7 +263,7 @@ Bcrypt
 
 -----
 ## Self code review
-## Testing coverage
+### Testing coverage
 - no needed to test Active Record methods for models
 
 
