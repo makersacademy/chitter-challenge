@@ -23,14 +23,6 @@ Approach
 - Approached very methodically with the user stories, refactoring where needed to tidy up the implementation.
 - User story 5 is there, I just forgot to change the number in the commit messages :)
 
-
-Challenges
------
-
-Lots of new technologies this week:
-- password hashing
-- keeping code DRY and neat with a comparatively complex app compared to what we've worked on before
-
 Instructions
 ----
 
