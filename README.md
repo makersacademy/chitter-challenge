@@ -27,12 +27,9 @@ Approach
 Challenges
 -----
 
-- Lost a couple of hours struggling with password hashing; for some reason, I could not get hash comparisons to work correctly. Suddenly started working for reasons I couldn't discern from the changelog. 
-- Difficulty in isolating unit tests now a database is being used. E.g. testing peeps requires a User ID, yet manually passing one triggers the foreign key constraint in the database. I was unable to workaround this.
-- Difficulty in deploying database/environment variables to Heroku. Unable to deploy the app.
-- Struggled to get the Mail gem to connect to something other than localhost:25, despite configuring it using various online sources. Ended up settling with Pony, which just worked.
-- Keeping code DRY and neat with a comparatively complex app...
-- Knowing if I'm using ActiveRecord correctly...should I be manually closing the database all the time, or does it take care of that? 
+Lots of new technologies this week:
+- password hashing
+- keeping code DRY and neat with a comparatively complex app compared to what we've worked on before
 
 Instructions
 ----
