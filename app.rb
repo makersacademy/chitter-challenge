@@ -16,10 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    newpeep = params['newpeep']
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (text) VALUES('#{newpeep}')")
-
+    Peep.create(newpeep: params['newpeep'])
     redirect '/peeps'
   end
 
