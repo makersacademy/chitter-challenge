@@ -1,7 +1,9 @@
-feature 'So that I can see what others are saying' do
-  scenario 'I want to see all peeps in reverse chronological order' do
-    visit('/all_peeps')
-    expect(page).to have_content 'My second peep'
-    expect(page).to have_content 'My first peep'
+describe Peep do
+  describe '.all' do
+    it 'returns all peeps' do
+      peeps = Peep.all
+      expect(peeps).to include("My second peep")
+      expect(peeps).to include("My first peep")
   end
+end
 end

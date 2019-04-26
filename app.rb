@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class ChitterChallenge < Sinatra::Base
   enable :sessions
