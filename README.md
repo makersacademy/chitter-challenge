@@ -131,3 +131,15 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+
+### To set up the database
+
+Connect to `psql` and create the `peeps` database:
+
+```
+CREATE DATABASE peeps;
+```
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
