@@ -19,4 +19,3 @@ RSpec.describe ChitterModel do
     end
   end
 end
-

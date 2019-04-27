@@ -25,6 +25,6 @@ RSpec.configure do |config|
   config.example_status_persistence_file_path = './spec/failing_test.txt'
 
   config.before(:each) do
-    DataBaseTespSetup.truncating
+    DataBaseTestSetup.truncating
   end
 end
