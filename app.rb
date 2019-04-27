@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative './lib/post'
 
 class Chitter < Sinatra::Base
 
@@ -10,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_post' do
-    session[:message] = params[:message]
+    Post.create(params[:message])
     redirect '/'
   end
 
