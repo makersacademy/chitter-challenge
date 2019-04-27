@@ -1,7 +1,6 @@
-<h1> Hello <%= @user_peeps %> </h1>
 
-<%@peeps.each do |each_peep|%>
+<%@peeps.reverse.each do |each_peep|%>
   <ul>
-    <li><%=each_peep%></li>
+    <li><%=each_peep['peep']%> <%=each_peep['created_at']%></li>
   </ul>
 <%end%>

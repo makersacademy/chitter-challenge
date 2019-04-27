@@ -3,9 +3,9 @@ require_relative '../spec/db_test_setup'
 
 class ChitterModel
   def self.all
-    results = DataBaseTestSetup.connection.exec('SELECT * FROM peep_table;')
+    results = DataBaseTestSetup.connection.exec('SELECT peep,created_at::time(0) FROM peep_table;')
     results.map do |peep_message|
-      peep_message['peep']
+      peep_message
     end
   end
 
@@ -13,4 +13,5 @@ class ChitterModel
     connection = DataBaseTestSetup.connection
     connection.exec("INSERT INTO peep_table (peep) VALUES('#{a_peep}') ")
   end
+
 end

@@ -6,4 +6,4 @@ CREATE TABLE peep_table (
 
 
 INSERT INTO peep_table (peep)
-VALUES ('It is cold today');
+VALUES ('');
