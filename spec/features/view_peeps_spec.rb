@@ -1,6 +1,13 @@
 feature 'Viewing Peeps' do
-  scenario 'visiting the index page' do
-    visit ('/')
-    expect(page).to have_content 'Welcome To Chitter'
+  scenario 'see all peeps in reverse chronological order' do
+
+    visit ('/peeps')
+
+    expect(page).to have_content 'peep 6/1'
+    expect(page).to have_content 'peep 5/1'
+    expect(page).to have_content 'peep 4/1'
+    expect(page).to have_content 'peep 3/1'
+    expect(page).to have_content 'peep 2/1'
+    expect(page).to have_content 'peep 1/1'
   end
 end
