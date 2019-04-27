@@ -1,5 +1,19 @@
+ENV['APP_ENV'] = 'test' # setting sinatra's default ENVIRONMENT
+ENV['ENVIRONMENT'] = 'test' # this is to separate databases
+
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative '../app'
+require_relative 'setup_test_database'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    truncate_test_table
+  end
+end
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

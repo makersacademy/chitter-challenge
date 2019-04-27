@@ -5,6 +5,10 @@ ruby '2.5.0'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 
+gem "capybara", "~> 3.18"
+gem "pg", "~> 1.1"
+gem "sinatra", "~> 2.0"
+
 group :test do
   gem 'rspec'
   gem 'simplecov', require: false

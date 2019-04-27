@@ -1,0 +1,11 @@
+Chitter feed:
+<ul style="list-style-type:circle;">
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
+
+<form action='/add_peep' method='post'>
+<input type='text' name='peep'>
+<input type='submit' value='Post'>
+</form>
