@@ -1,4 +1,4 @@
-  require 'pg'
+require 'pg'
 
 def clear_table
 

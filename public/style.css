@@ -15,7 +15,11 @@ li {
   margin: 0 auto;
   width: 600px;
   margin-top: 65px;
-  margin-bottom: 65px;
+  margin-bottom: 25px;
+}
+
+.content-title{
+  text-align: center;
 }
 
 .header-bar {
@@ -91,4 +95,24 @@ li {
   color: #657786;
   font-weight: 100;
   margin-bottom: 5px;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-field {
+  width: 200px;
+  margin-bottom: 12px;
+  line-height: 32px;
+  padding: 4px 5px 2px 2px;
+  color: #89d2ffeb;
+  border: none;
+  border-bottom: 1px #1da1f2 solid;
+}
+
+.form-field:focus {
+  outline: none;
 }
