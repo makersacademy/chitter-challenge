@@ -1,3 +1,5 @@
+<%require 'time'%>
+
 <head>
   <link rel="stylesheet" href="style.css">
   </head>
@@ -5,9 +7,13 @@
 <center>
   <h1>Latest Peeps</h1>
   <img src="https://image.flaticon.com/icons/svg/141/141737.svg" alt="chick" height="100" width="100">
+
 <ul>
   <% @peeps.each do |peep| %>
-    <p><br><%= peep %></br></p>
+    <p><br><%= peep.text %><br>
+      <%= Time.new %>
+      <%= Time.parse(peep.time).strftime ("%H:%M, %d %B") %>
+    </br></p>
   <% end %>
 </ul>
 
