@@ -1,7 +1,7 @@
 feature 'Viewing Peeps' do
   scenario 'see all peeps in reverse chronological order' do
 
-    visit ('/peeps')
+    visit '/peeps'
 
     expect(page).to have_content 'peep 6/1'
     expect(page).to have_content 'peep 5/1'
