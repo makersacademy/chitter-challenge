@@ -3,4 +3,12 @@
 </head>
 
 <center><br>
-<h1>Chitter!</h1><br>
+<h1>Chitter!</h1><br></center>
+
+<br><h3><ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep%></li>
+  <% end %>
+</ul></h3>
+
+<br><h6>&nbsp;&nbsp;<a href="/">Go back to main</a></h6>
