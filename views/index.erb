@@ -4,5 +4,7 @@
   <input type="submit" name="post_message" value="Submit">
 </form>
 <ul>
-<li><%= @posts %></li>  
+  <% @posts.each do |post| %>
+    <li><%= post %></li>
+    <% end %>
 </ul>
