@@ -1,5 +1,11 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'rspec'
+require 'capybara/rspec'
+require_relative '../app'
+
+ENV['RACK_ENV'] = 'test'
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -14,4 +20,5 @@ RSpec.configure do |config|
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
+  config.example_status_persistence_file_path  = './spec/failing_test.txt'
 end
