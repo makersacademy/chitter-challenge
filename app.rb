@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra'
 require 'data_mapper'
+require './lib/peeps'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -20,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/view' do
-    @peep = Peep.all.reverse
+    @peeps = Peep.all.reverse
     erb(:'chitter/view')
   end
 

@@ -7,6 +7,7 @@ gem 'rubocop', '0.56.0'
 gem 'sinatra'
 gem 'capybara'
 gem 'data_mapper'
+gem 'pg'
 
 group :test do
   gem 'rspec'

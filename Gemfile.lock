@@ -64,6 +64,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
+    pg (1.1.4)
     powerpack (0.1.1)
     public_suffix (3.0.3)
     rack (2.0.7)
@@ -122,6 +123,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   data_mapper
+  pg
   rack (~> 2.0)
   rake
   rspec
