@@ -136,10 +136,10 @@ You can see your test coverage when you run your tests. If you want this in a gr
 
 ### To set up the database
 
-Connect to `psql` and create the `peeps` database:
+Connect to `psql` and create the `peeps` and `peeps_test` databases:
 
 ```
 CREATE DATABASE peeps;
 ```
 
-To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
