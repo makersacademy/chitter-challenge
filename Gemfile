@@ -16,3 +16,5 @@ gem "capybara", "~> 3.18"
 gem "sinatra", "~> 2.0"
 
 gem "pg", "~> 1.1"
+
+gem "sass", "~> 3.7"

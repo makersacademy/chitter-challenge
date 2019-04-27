@@ -1,8 +1,12 @@
 require 'sinatra/base'
 require_relative './lib/chitter_model'
+require 'sass'
 
 class Chitter < Sinatra::Base
-  enable :sessions
+
+  get '/styles.css' do
+    scss :styles
+  end
 
   get '/' do
     erb :front_page
@@ -14,7 +18,7 @@ class Chitter < Sinatra::Base
 
   get '/chitter/new' do
 
-    erb :'chitter/new'
+    erb :'chitter/new', :layout => :layout
   end
 
   get '/chitter/username' do
