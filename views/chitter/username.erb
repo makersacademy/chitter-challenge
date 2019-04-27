@@ -1,1 +1,7 @@
 <h1> Hello <%= @user_peeps %> </h1>
+
+<%@peeps.each do |each_peep|%>
+  <ul>
+    <li><%=each_peep%></li>
+  </ul>
+<%end%>
