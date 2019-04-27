@@ -10,3 +10,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
+
+gem "capybara", "~> 3.18"
+
+gem "sinatra", "~> 2.0"
