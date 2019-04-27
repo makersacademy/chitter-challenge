@@ -26,6 +26,6 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
   config.before(:each) do
-   setup_test_database
- end
+    setup_test_database
+  end
 end
