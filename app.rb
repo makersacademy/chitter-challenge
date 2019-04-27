@@ -1,8 +1,17 @@
 require 'sinatra'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+
   get '/' do
-    'Hello world!'
+    @post = session[:message]
+    erb :index
+  end
+
+  post '/new_post' do
+    session[:message] = params[:message]
+    redirect '/'
   end
 
   # start the server if ruby file executed directly
