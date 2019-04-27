@@ -1,9 +1,7 @@
-require 'sinatra'
+require 'sinatra/base'
 require_relative './lib/post'
 
 class Chitter < Sinatra::Base
-
-  enable :sessions
 
   get '/' do
     @posts = Post.all
