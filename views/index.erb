@@ -5,6 +5,9 @@
 </form>
 <ul>
   <% @posts.each do |post| %>
-    <li><%= post %></li>
+    <li>
+      <h3>Posted: <%= post[:created_at] %></h3>
+      <p><%= post[:message] %></p>
+      </li>
     <% end %>
 </ul>
