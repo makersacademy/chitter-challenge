@@ -18,7 +18,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
 
-  background-image: linear-gradient(to bottom, #ffffff 0%, #FFF1EB 100%);
+  /* background-image: linear-gradient(to bottom, #ffffff 0%, #FFF1EB 100%); */
   color: var(--primary-blue);
 
 }
