@@ -1,0 +1,6 @@
+<h1> This is what you have told the ~world~ so far:</h1>
+<ul>
+<% @posts.each do |post| %>
+  <li><%= post.content %></li>
+  <% end %>
+</ul>

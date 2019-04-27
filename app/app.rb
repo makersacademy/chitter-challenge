@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
-require './models/post.rb'
 
 current_dir = Dir.pwd
 Dir["#{current_dir}/models/*.rb"].each { |file| require file }
@@ -13,8 +12,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/post' do
-    @post = Post.create(params[:content])
-    redirect '/'
+    @post = Post.create(content: params[:content])
+    redirect '/posts'
+  end
+
+  get '/posts' do
+    @posts = Post.all
+    erb :post
   end
 
   run! if app_file == $0

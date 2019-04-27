@@ -7,7 +7,7 @@ feature 'posting a message' do
     visit('/')
     fill_in 'content', with: 'Hello World'
     click_button 'Post'
+    visit('/posts')
     expect(page).to have_content 'Hello World'
-    
   end
 end
