@@ -14,12 +14,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/log' do
-    session[:peep] = params[:peep]
+    p params
+    Peep.create(peep: params[:peep], time: params[:time])
     redirect '/chitter/view'
   end
 
   get '/chitter/view' do
-    @peep = session[:peep]
+    @peep = Peep.all.reverse
     erb(:'chitter/view')
   end
 

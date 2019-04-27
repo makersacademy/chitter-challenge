@@ -5,6 +5,11 @@
     <title></title>
   </head>
   <body>
-    <h1><%= @peep %></h1>
+    <h1>Peeps</h1>
+    <ul>
+      <% @peeps.each do |peep| %>
+      <li><%= peep %></li>
+      <% end %>
+    </ul>
   </body>
 </html>
