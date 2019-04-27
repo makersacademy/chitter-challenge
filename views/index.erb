@@ -11,8 +11,7 @@
 <ul>
   <% @peeps.each do |peep| %>
     <p><br><%= peep.text %><br>
-      <%= Time.new %>
-      <%= Time.parse(peep.time).strftime ("%H:%M, %d %B") %>
+      <%= Time.parse(peep.time).strftime("%H:%M, %d %B") %>
     </br></p>
   <% end %>
 </ul>
