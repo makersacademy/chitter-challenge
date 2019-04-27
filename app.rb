@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './lib/chitter_model'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -12,16 +13,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/new' do
+
     erb :'chitter/new'
   end
 
   get '/chitter/username' do
-    @user_peeps = session[:peeps]
+    @peeps = ChitterModel.all
     erb :'chitter/username'
   end
 
   post '/chitter/username' do
-    session[:peeps] = params[:peep]
+    ChitterModel.create(params[:peep])
     redirect '/chitter/username'
   end
 
