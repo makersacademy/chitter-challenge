@@ -1,4 +1,8 @@
+language: ruby
 rvm: '2.5.0'
+
+install:
+  - bundle install
 
 script:
   - mkdir -p spec && bundle exec rspec spec
