@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     erb :post
   end
 

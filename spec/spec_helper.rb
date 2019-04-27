@@ -10,6 +10,7 @@ require 'simplecov-console'
 require 'active_record'
 require 'sinatra/activerecord'
 require_relative './setup_test_database'
+require_relative './web_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
