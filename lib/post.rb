@@ -20,7 +20,7 @@ class Post
       connection = PG.connect :dbname => 'chitter'
     end
 
-    result = connection.exec("SELECT * FROM posts")
+    result = connection.exec("SELECT * FROM posts ORDER BY created_at DESC")
 
     result.map { |post|
       create_date = post["created_at"]

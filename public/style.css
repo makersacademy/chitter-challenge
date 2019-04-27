@@ -20,6 +20,7 @@ li {
 
 .header-bar {
   background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   padding: 12px 0px;
   position: fixed;
   width: 100%;
@@ -39,7 +40,7 @@ li {
   margin-top: 18px;
 }
 .message-form {
-  margin: 0 auto;
+  margin: 7px auto;
   width: fit-content;
 }
 
@@ -47,7 +48,8 @@ li {
   background-color: #FFFFFF;
   border: 1px #89d2ff solid;
   border-radius: 18px;
-  height: 100px;
+  font-size: 14px;
+  height: 60px;
   width: 400px;
   padding: 10px;
 }
@@ -64,15 +66,25 @@ li {
   background-color: #89d2ffeb;
   border-radius: 8px;
   border: none;
-  padding: 5px 6px;
+  color: #ffffff;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 9px 15px;
 }
 
 .post {
   min-height: 150px;
   font-size: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  padding: 24px 14px;
+  padding: 36px 18px 0px 18px;
   color: #14171a;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  line-height: 18px;
+}
+
+.post:hover {
+  background-color: #edeff199;
 }
 
 .post-heading {
