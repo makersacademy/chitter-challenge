@@ -1,3 +1,5 @@
+require 'pg'
+
 class Peep
 
   def self.all
@@ -11,4 +13,12 @@ class Peep
     ]
   end
 
+  def self.create(content:)
+    if ENV['ENVIRONMENT'] == 'content'
+      connection = PG.connect(dbname: 'chitter_manager_test')
+    else
+      connection = PG.connect(dbname: 'chitter_manager')
+    end
+    connection.exec("INSERT INTO peeps (content) VALUES ('#{content}');")
+  end
 end

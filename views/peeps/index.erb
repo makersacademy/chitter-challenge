@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Chitter</title>
-</head>
-
-<header>
-  <h1>Chitter</h1>
-  <h4>Welcome to Chitter</h4>
-</header>
-<body>
   <ul>
     <% @peeps.each do |peep| %>
-    <%= peep %>
+    <li><%= peep %></li>
     <% end %>
   </ul>
-</body>
-</html>
+
+
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="Create a Peep">
+  </form>
