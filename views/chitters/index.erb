@@ -6,7 +6,7 @@
 <h1>Chitter!</h1><br></center>
 
 <br><h3><ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
     <li><%= peep%></li>
   <% end %>
 </ul></h3>
