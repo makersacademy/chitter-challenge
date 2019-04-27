@@ -1,8 +1,10 @@
 require 'sinatra/base'
 require 'sinatra'
+require 'data_mapper'
 
 class Chitter < Sinatra::Base
   enable :sessions
+
   get '/' do
     redirect '/chitter'
   end

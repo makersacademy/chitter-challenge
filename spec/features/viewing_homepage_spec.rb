@@ -1,4 +1,5 @@
 require 'capybara/rspec'
+require 'data_mapper'
 
 feature 'Viewing homepage' do
   scenario 'Shows the welcome page' do

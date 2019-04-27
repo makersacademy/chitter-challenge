@@ -7,6 +7,7 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'data_mapper'
 
 Capybara.app = Chitter
 
