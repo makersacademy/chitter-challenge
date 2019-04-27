@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+
+<body>
+  <ul>
+    <% @messages.each do |message| %>
+    <li class="messges">
+      <%= message %>
+    </li>
+    <% end %>
+  </ul>
+
+</body>
+
+</html>

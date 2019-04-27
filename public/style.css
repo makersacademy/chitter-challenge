@@ -1,0 +1,15 @@
+body {
+  background-color:beige;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: aquamarine;
+  text-align: center;
+  color:orange;
+}
+
+.field {
+  width: 50%;
+}
