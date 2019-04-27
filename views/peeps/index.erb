@@ -1,0 +1,6 @@
+<h1>Chitter Posts</h1>
+<% @peeps.each do |peep| %>
+  <ul id="peep" <a><%= peep.content %><br>
+  <%= peep.date %></a>
+  </ul>
+<% end %> 
