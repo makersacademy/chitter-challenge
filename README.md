@@ -29,9 +29,17 @@ I want to sign up for Chitter
 
 How to install the program:
 ------
+1. Clone this repo
+2. Run 'bundle install'
 
 How to run the program:
 ------
+
+1. `rackup -p 9292`
+2. Visit http://localhost/9292/peeps
+
+
+
 
 How to run the tests:
 ------
