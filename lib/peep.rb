@@ -32,4 +32,9 @@ class Peep
     result = connection.exec("INSERT INTO peeps (text, time) VALUES('#{text}', '#{Time.now}') RETURNING id, text, time")
     Peep.new(id: result[0]['id'], text: result[0]['text'], time: result[0]['time'])
   end
+
+  def self.reverse
+    peeps = Peep.all
+    peeps.reverse { |peep| peep.time }
+  end
 end

@@ -24,4 +24,17 @@ describe 'Peep' do
       expect(peep.text).to eq 'Peep3'
     end
   end
+
+  describe '#.reverse' do
+    it 'returns the peeps in reverse chronological order' do
+      allow(Time).to receive(:now).and_return(Time.parse("2019-04-27 14:41:22 +0100"))
+      Peep.create(text: 'First peep')
+      allow(Time).to receive(:now).and_return(Time.parse("2019-04-27 14:45:22 +0100"))
+      Peep.create(text: 'Second peep')
+
+      peeps = Peep.reverse
+      expect(peeps.first.text).to eq 'Second peep'
+
+    end
+  end
 end
