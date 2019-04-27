@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @post = session[:message]
+    @posts = Post.all
     erb :index
   end
 
