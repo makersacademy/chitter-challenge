@@ -4,7 +4,7 @@ describe DatabaseConnection do
   let(:database) { 'chitter_manager_test' }
   let(:sql) { "SELECT table_name FROM information_schema.tables WHERE table_schema='public'" }
 
-  describe '#setup' do
+  describe '.setup' do
     it 'creates a PG connection object' do
       connection = DatabaseConnection.setup(database)
 
@@ -13,7 +13,7 @@ describe DatabaseConnection do
     end
   end
 
-  describe '#connect' do
+  describe '.connect' do
     it 'returns connection instance' do
       connection = DatabaseConnection.setup(database)
 
@@ -21,7 +21,7 @@ describe DatabaseConnection do
     end
   end
 
-  describe '#execute' do
+  describe '.execute' do
     it 'can execute a SQL statement' do
       DatabaseConnection.setup(database)
 

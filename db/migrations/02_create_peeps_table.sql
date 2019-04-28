@@ -1,0 +1,1 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(255), time TIMESTAMPTZ, user_id INT);

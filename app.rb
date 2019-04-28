@@ -10,9 +10,23 @@ class ChitterManager < Sinatra::Base
     'Hello World'
   end
 
-  get '/chitters' do
+  get '/peeps' do
     @user = User.find(session[:id])
-    erb :'chitters/index'
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(
+      message: params[:message],
+      time: Time.now,
+      user_id: session[:id]
+    )
+    redirect '/peeps'
   end
 
   get '/users/new' do
@@ -27,7 +41,7 @@ class ChitterManager < Sinatra::Base
       password: params[:password]
     )
     session[:id] = @user.id
-    redirect '/chitters'
+    redirect '/peeps'
   end
 
   run! if app_file == $0

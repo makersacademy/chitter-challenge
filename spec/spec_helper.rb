@@ -18,7 +18,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    DatabaseConnection.execute("TRUNCATE users;")
+    DatabaseConnection.execute("TRUNCATE users, peeps;")
   end
 
   config.after(:suite) do
