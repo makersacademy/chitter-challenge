@@ -1,4 +1,4 @@
-# ENV['ENVIRONMENT'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 require 'rspec'
 require 'sinatra'
 require 'capybara/rspec'
