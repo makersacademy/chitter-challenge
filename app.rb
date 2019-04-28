@@ -28,8 +28,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
+    @user = nil
     @messages = Message.all
     erb :'messages/index'
   end
 
+  post '/users' do
+    @user = User.find(email: params[:email], password: params[:password])
+    @messages = Message.all
+    erb :'messages/index'
+  end
 end

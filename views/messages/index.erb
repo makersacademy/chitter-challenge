@@ -7,9 +7,12 @@
 </head>
 
 <body>
-  <form action="/messages/new" method="get" >
-    <input type="submit" value="post message"/>
-  </form>
+
+  <% if @user != nil %>
+    <form action="/messages/new" method="get" >
+      <input type="submit" value="post message"/>
+    </form>
+    <% end %>
 
   <ul>
     <% @messages.reverse.each do |message| %>
