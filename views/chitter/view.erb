@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Pacifico');
+      body {background-color: #FFF5EE;
+        padding-bottom: 500px;
+        background-image: linear-gradient(to bottom right, #85C1E9, #48C9B0);
+        background-position: center center;
+        background-size: cover;}
+      h1 {font-family: 'Pacifico', cursive; font-size: 50px; color: #F4511E; text-align: center;}
+    </style>
+  </head>
+  <body>
+    <h1>Peeps</h1>
+    <ul>
+      <% @peeps.each do |peep| %>
+      <li><%= peep %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Pacifico');
+      body {text-align: center;
+        background-color: #FFF5EE;
+        padding-top: 200px;
+        padding-bottom: 350px;
+        background-image: linear-gradient(to bottom right, #85C1E9, #48C9B0);
+        background-position: center center;
+        background-size: cover;}
+      h1 {font-family: 'Pacifico', cursive; font-size: 50px; color: #F4511E;}
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Chitter <%= @name %></h1>
+    <div>
+      <form action='/chitter/log', method='post'>
+        <input type="text" name="peep" placeholder="What's on your mind?"/>
+        <input type="submit" value="Peep!"/>
+      </form>
+    </div>
+  </body>
+</html>
