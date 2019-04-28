@@ -82,6 +82,32 @@ footer{
   }
 }
 
+/* User new */
+.user-registration{
+  form{
+    padding: 100px;
+    .legend{
+      padding-bottom: 10px;
+      h1{
+        font-family: $roboto;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+    div{
+      margin: 0 auto;
+      input::placeholder{
+        font-family: $roboto;
+        font-size: 14px;
+      }
+      span{
+        font-size: 12px;
+        font-family: $roboto;
+      }
+    }
+  }
+}
+
 /*Media query front page*/
 @media only screen and (max-width: 790px){
   #main{

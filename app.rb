@@ -31,5 +31,12 @@ class Chitter < Sinatra::Base
     redirect '/chitter/username'
   end
 
+  post '/user' do
+  end
+
+  get '/user/new' do
+    erb :'user/new'
+  end
+
   run! if __FILE__ == $0
 end

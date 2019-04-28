@@ -5,5 +5,11 @@ CREATE TABLE peep_table (
 );
 
 
-INSERT INTO peep_table (peep)
-VALUES ('');
+CREATE TABLE Users (
+  id SERIAL PRIMARY KEY,
+  firstname VARCHAR(60) NOT NULL,
+  lastname VARCHAR(60) NOT NULL,
+  email VARCHAR(240) NOT NULL UNIQUE,
+  password VARCHAR(180) NOT NULL UNIQUE,
+  signed_up_on TIMESTAMP NOT NULL DEFAULT NOW()
+);
