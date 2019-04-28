@@ -7,6 +7,8 @@ Let the ~world~ know what you are thinking!
 
 Clone this repository in your terminal and run ```bundle```
 
+Before testing, please change the file 'setup_test_database' to read 'chitter_test' instead of 'travis_ci_test'.
+
 Open ```psql``` and create two databases by typing ```CREATE DATABASE chitter;``` and then  ```CREATE DATABASE chitter_test;``` (Don't forget the semi-colon at the end!!!)
 
 If you wish to test it, just run ```rspec```. Otherwise, type ```rackup -p 9292```, jump to your browser and type 'localhost:9292'.

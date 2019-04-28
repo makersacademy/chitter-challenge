@@ -4,6 +4,7 @@
 
 feature 'posting a message' do
   scenario 'user posts a message on the page' do
+    sign_up
     peep
     expect(page).to have_content 'Hello World'
   end
@@ -15,6 +16,7 @@ end
 
 feature 'seeing all peeps in reverse chronological order' do
   scenario 'visit posts page and seeing the last one at the top' do
+    sign_up
     peep
     peep_2
     expect(page).to have_content 'World Hello'
@@ -28,6 +30,7 @@ end
 
 feature 'seeing all peeps in reverse chronological order' do
   scenario 'visit posts page and seeing the last one at the top' do
+    sign_up
     peep
     expect(page).to have_content 'Hello World created at'
   end
