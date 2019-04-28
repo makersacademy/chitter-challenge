@@ -7,11 +7,20 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    redirect '/chitter'
+    erb(:index)
   end
 
   get '/chitter' do
     erb(:'chitter/index')
+  end
+
+  get '/chitter/sign_up' do
+    erb(:'chitter/sign_up')
+  end
+
+  post '/chitter/user' do
+    p params
+    redirect '/chitter/sign_up'
   end
 
   post '/chitter/log' do
