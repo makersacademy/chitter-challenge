@@ -33,6 +33,16 @@ describe User do
       expect(user.username).to eq result['username']
       expect(user.email).to eq result['email']
     end
+
+    it 'hashes the password with BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with(password)
+      described_class.create(
+        name: name,
+        username: username,
+        email: email,
+        password: password
+      )
+    end
   end
 
   describe '#find' do

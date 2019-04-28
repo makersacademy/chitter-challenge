@@ -1,7 +1,9 @@
 require 'pg'
+require 'bcrypt'
 
 class User
   def self.create(name:, username:, email:, password:)
+    password = BCrypt::Password.create(password)
     columns = "(name, username, email, password)"
     values = "('#{name}','#{username}','#{email}','#{password}')"
     sql = "INSERT INTO users #{columns} VALUES #{values} RETURNING *;"
@@ -34,5 +36,9 @@ class User
     @name = name
     @username = username
     @email = email
+  end
+
+  def encrypt(password)
+    BCrypt::Password.create(password)
   end
 end
