@@ -73,3 +73,22 @@ postgres=# CREATE DATABASE chitter; # create a new chitter database
 postgres=# CREATE DATABASE chitter_test; # create a new test database
 postgres=# \c chitter      #connect to the live database
 ```
+Run the commands in the migrations folder in the prescribed order.
+
+
+Running tests
+-----------------
+
+```
+$ rspec --init
+$ rspec
+```
+
+Test coverage at 100%
+
+Future Development
+-----------------
+* User authentication
+* Password encryption
+* Update error handling for unique email and username
+* Add username and handle to each post
