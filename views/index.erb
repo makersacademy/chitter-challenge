@@ -12,7 +12,11 @@
       <h2>Peep these peeps!</h2>
     </div>
     <div>
-      <%= @peep_content %>
+      <ul>
+      <% @peeps.each do |peep| %>
+      <li><%= peep %></li>
+      </ul>
+      <% end %>
     </div>
     <div>
       <form action="/compose_peep">

@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
     enable :sessions
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -12,9 +14,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    @peep_content = params[:peep_content]
+
     erb :index
-  
+    redirect '/'
+
   end
 
 
