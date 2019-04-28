@@ -12,4 +12,12 @@ RSpec.describe Peep do
     end
   end
 
+  describe '.post' do
+    it 'posts a new peep' do
+      Peep.post(peep: 'A cab')
+
+      expect(Peep.all).to include 'A cab'
+    end
+  end
+
 end

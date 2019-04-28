@@ -3,16 +3,20 @@ require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/chitter' do
-    erb :'stream/index'
+    @peep = Peep.all
+    erb :'chitter/index'
+  end
+
+  get '/chitter/new' do
+    erb :'chitter/new'
   end
 
   post '/chitter/new' do
-    @peep = Peep.all
-  end
-
-  get 'chitter/new' do
-    erb :'stream/new'
+    Peep.post(peep: params[:peep])
+    redirect '/chitter'
   end
 
   run! if app_file == $0

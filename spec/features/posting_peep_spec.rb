@@ -1,6 +1,6 @@
 feature 'Posting Peep' do
   scenario 'user can post message to chitter stream' do
-    visit "/chitter"
+    visit "/chitter/new"
 
     fill_in("peep", with: "Hello")
     click_button("Post")

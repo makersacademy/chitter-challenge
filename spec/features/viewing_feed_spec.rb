@@ -7,7 +7,7 @@ feature 'Navigates to stream' do
     # Add the test data
     connection.exec("INSERT INTO peeps (peep) VALUES ('My second peep!')")
 
-    visit "/chitter"
+    visit "/chitter/new"
     click_button "Post"
 
     expect(page).to have_content "My second peep!"
