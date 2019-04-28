@@ -1,6 +1,11 @@
 require 'pg'
 
 class Peep
+  attr_reader :post
+
+  def initialize(post:)
+    @post = post
+  end
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
@@ -12,12 +17,13 @@ class Peep
     p all.map { |peep| peep['post'] }
   end
 
-  def self.add(peep)
+  def self.add(post:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peeps (post) VALUES ('#{peep}')")
+    result = connection.exec("INSERT INTO peeps (post) VALUES ('#{post}') RETURNING post")
+    Peep.new(post: result[0]['post'])
   end
 end
