@@ -7,7 +7,7 @@
 
 <body>
 
-  <form action="/messages/new" method="post">
+  <form action="/messages/<%= @user.username %>" method="post">
     <input type="hidden" value="<%= @user.id %>" name="userid"/>
     <input class='field' type="text" name="message">
     <input class="submit" type="submit" value="post message">

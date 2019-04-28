@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
     erb :'messages/new'
   end
 
-  post '/messages/new' do
+  post '/messages/:username' do
     Message.post(text: params[:message], userid: params[:userid])
     @user = User.find(id: params[:userid])
     @messages = Message.all
@@ -41,7 +41,7 @@ class Chitter < Sinatra::Base
     erb :'messages/index'
   end
 
-  post '/messages/user_:id/new' do
+  post '/messages/user_:username/new' do
     @user = User.find(id: params[:id])
     erb :'messages/new'
   end

@@ -9,7 +9,7 @@
 <body>
 
   <% if @user != nil %>
-    <form action="/messages/user_<%=@user.id%>/new" method="post" >
+    <form action="/messages/user_<%=@user.username%>/new" method="post" >
       <input type="hidden" value="<%= @user.id %>" name="id"/>
       <input type="submit" value="post message"/>
     </form>
