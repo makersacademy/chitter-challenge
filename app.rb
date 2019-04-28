@@ -1,13 +1,13 @@
 require 'sinatra/base'
 require_relative './lib/post'
+require_relative './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @first_name = session[:first_name]
-    @last_name = session[:last_name]
     @posts = Post.all
+    @user = User.find(session[:user_id])
     erb :index
   end
 
@@ -21,10 +21,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_user' do
-    session[:first_name] = params[:first_name]
-    session[:last_name] = params[:last_name]
-    session[:email] = params[:email]
-    session[:password] = params[:password]
+    user = User.create(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      password: params[:password],
+      user_name: params[:user_name]
+    )
+
+    session[:user_id] = user.id
     redirect '/'
   end
 

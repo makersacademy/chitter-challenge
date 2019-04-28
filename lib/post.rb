@@ -10,7 +10,10 @@ class Post
       connection = PG.connect :dbname => 'chitter'
     end
 
-    connection.exec("INSERT INTO posts (message, created_at) VALUES ('#{message}', '#{created_at}}') RETURNING id, message, created_at")
+    connection.exec(
+      "INSERT INTO posts (message, created_at)
+      VALUES ('#{message}', '#{created_at}}')
+      RETURNING id, message, created_at")
   end
 
   def self.all

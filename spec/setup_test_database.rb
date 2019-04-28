@@ -6,6 +6,6 @@ def clear_table
 
   connection = PG.connect :dbname => 'chitter_test'
 
-  connection.exec 'TRUNCATE TABLE posts'
+  connection.exec 'TRUNCATE TABLE posts, users'
 
 end

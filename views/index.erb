@@ -11,8 +11,8 @@
     <div class="content-wrapper">
       <div class="message-wrapper">
         <form class="message-form" action="/new_post" method="post">
-          <% if @first_name != nil %>
-            <h3><%= @first_name %> <%= @last_name %></h3>
+          <% if @user != nil %>
+            <h3><%= @user.user_name %></h3>
           <% end %>
           <textarea class="message-field" name="message" maxlength = "240" placeholder="What's happening?"></textarea><br/>
           <input class="submit-button" type="submit" name="post_message" value="Submit">
