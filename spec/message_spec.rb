@@ -1,17 +1,32 @@
 require 'message'
 
 describe Message do
-  describe '.all' do
-    it 'returns all messages' do
-      expect(Message.all).to eq ["Hello", "How are you"]
-    end
-  end
 
   describe '.post' do
-    it 'add message to messages' do
-      Message.post(text: "What's the plan?")
+    it 'post new message' do
+      message = Message.post(text: "What is the plan?")
+      expect(message.text).to eq "What is the plan?"
+    end
 
-      expect(Message.all).to eq ["Hello", "How are you", "What's the plan?"]
+    it 'post message with timestamp' do
+      message = Message.post(text: "What is the plan?")
+      time = DateTime.now.strftime('%Y-%m-%d %I:%M:%S')
+      expect(message.post_time).to eq time
+    end
+
+  end
+
+  describe '.all' do
+    it 'list all messages' do
+
+      Message.post(text: "What is the plan?")
+      Message.post(text: "How are you doing")
+      Message.post(text: "Lets play pingpong")
+
+      texts = Message.all.map { |message| message.text }
+
+      expect(texts).to eq ["What is the plan?", "How are you doing",
+                            "Lets play pingpong"]
     end
   end
 

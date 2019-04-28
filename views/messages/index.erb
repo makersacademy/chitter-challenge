@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -6,10 +7,15 @@
 </head>
 
 <body>
+  <form action="/messages/new" method="get" >
+    <input type="submit" value="post message"/>
+  </form>
+
   <ul>
-    <% @messages.each do |message| %>
+    <% @messages.reverse.each do |message| %>
     <li class="messges">
-      <%= message %>
+      <%= message.text %>
+       <p class="timestamp">posted at <%= message.post_time %> </p>
     </li>
     <% end %>
   </ul>

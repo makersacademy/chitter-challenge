@@ -1,7 +1,9 @@
 require 'sinatra/base'
 require './lib/message'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
     'Hello'
