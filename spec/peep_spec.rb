@@ -1,5 +1,6 @@
 require 'peep'
 
+
 describe Peep do
   describe '.create' do
     it 'creates a new peep' do
@@ -14,30 +15,31 @@ describe Peep do
   describe '.all' do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_test')
-
       peep = Peep.create(content: 'hello')
+      sleep 1
       Peep.create(content: 'world')
+      sleep 1
       Peep.create(content: 'again')
 
       peeps = Peep.all
 
       expect(peeps.length).to eq 3
-      expect(peeps.first).to be_a Peep
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.content).to eq 'hello'
+      expect(peeps.last).to be_a Peep
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.content).to eq 'hello'
     end
   end
 
   describe '.sort_chronologically' do
-    it 'returns tweets in chronological order' do
+    it 'returns tweets in reverse chronological order' do
+      connection = PG.connect(dbname: 'chitter_test')
       Peep.create(content: 'hello')
-      sleep(5.seconds)
       Peep.create(content: 'world')
-      sleep(5.seconds)
       Peep.create(content: 'again')
+
 
       peeps = Peep.all
       p peeps
     end
-  end 
+  end
 end
