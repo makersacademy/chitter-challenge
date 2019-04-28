@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
 
   get '/home' do
+    @peeps = Peep.all
     erb :home
   end
 
@@ -12,8 +14,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/home' do
-    @peep = params[:peep]
-    erb :home
+    Peep.add(params[:peep])
+    redirect :home
   end
 
 end
