@@ -4,4 +4,10 @@
 <center><form action="/post">
   <input type="submit" value="New Peep">
 </form></center>
-<h4><%= @peeps %></h4>
+<ul>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= p peep %>
+  </li>
+  <% end %>
+</ul>
