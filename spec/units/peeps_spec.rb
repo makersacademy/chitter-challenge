@@ -8,7 +8,7 @@ RSpec.describe Peep do
       DatabaseConnection.setup('chitter_test')
 
       Peep.post(peep: "hello")
-      peeps = Post.all
+      peeps = Peep.all.map {|peep| peep.peep}
 
       expect(peeps).to include "hello"
     end

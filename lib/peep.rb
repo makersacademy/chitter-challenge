@@ -24,12 +24,17 @@ class Peep
     peeps = results.map do |chitter|
       Peep.new(id: chitter['id'], peep: chitter['peep'], time: '1')
     end
-
-    peeps.reverse
   end
 
   def self.post(peep:)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}');")
+
+    if ENV['ENVIRONMENT'] == 'test'
+      DatabaseConnection.setup('chitter_test')
+    else
+      DatabaseConnection.setup('chitter')
+    end
+
+    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep, time;")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], time: '1')
   end
 end
