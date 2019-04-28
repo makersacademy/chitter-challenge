@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body >
+    <header class="header-bar">
+      <h1 class="header">Chitter</h1>
+    </header>
+    <div class="content-wrapper">
+      <div class="message-wrapper">
+        <form class="message-form" action="/new_post" method="post">
+          <% if @user != nil %>
+            <h3><%= @user.user_name %></h3>
+          <% end %>
+          <textarea class="message-field" name="message" maxlength = "240" placeholder="What's happening?"></textarea><br/>
+          <input class="submit-button" type="submit" name="post_message" value="Submit">
+        </form>
+      </div>
+      <div class="message-feed">
+        <ul>
+          <% @posts.each do |post| %>
+            <li class="post">
+              <h3 class="post-heading">Posted: <%= post[:created_at] %></h3>
+              <p><%= post[:message] %></p>
+              </li>
+            <% end %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
