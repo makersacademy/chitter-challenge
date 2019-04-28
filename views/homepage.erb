@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+
+<body>
+  <form class="sign_up" action="/" method="post" >
+  <label>name:</label>
+  <input class='field' type="text" name="sign_up_name">
+  <br>
+  <label>username:</label>
+  <input class='field' type="text" name="sign_up_username">
+  <br>
+  <label>email:</label>
+  <input class='field' type="text" name="sign_up_email">
+  <br>
+  <label>password:</label>
+  <input class='field' type="text" name="sign_up_password">
+  <br>
+  <input type="submit" value="sign up"/>
+  </form>
+
+  <br>
+  <br>
+
+  <form class="login" action="/users" method="post" > 
+  <label>email:</label>
+  <input class='field' type="text" name="email"/>
+  <br>
+  <label>password:</label>
+  <input class='field' type="text" name="password"/>
+  <br>
+  <input type="submit" value="login"/>
+  </form>
+
+  <br>
+  <br>
+
+  <form class="gust_login" action="/messages" method="get" >
+  <input type="submit" value="gust_login"/>
+  </form>
+
+</body>
+
+</html>
