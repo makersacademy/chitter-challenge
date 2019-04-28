@@ -1,21 +1,21 @@
 require './lib/database_connection'
+require 'pg'
 
 class Peep
 
+  attr_reader :content
+
+  def initialize(content:)
+    @content = content
+  end
+
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map do |peep|
-      Peep.new(
-        content: peep['content'],
-        time: peep['title'],
-        id: peep['id'],
-      )
-    end
+    result = DatabaseConnection.query('select * from peeps')
+    result.map { |peep| Peep.new(content: peep['content']) }
   end
 
   def self.create(content:)
-    result = DatabaseConnection.query("INSERT INTO peeps (content, time) VALUES('#{content}', '#{time}') RETURNING id, time, content;")
-    Peep.new(id: result[0]['id'], time: result[0]['time'], content: result[0]['content'])
+    result = DatabaseConnection.query("insert into peeps (content) values ('#{content}') returning id, content, time;")
+    Peep.new(content: result[0]['content'])
   end
-
 end
