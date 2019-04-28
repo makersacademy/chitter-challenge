@@ -108,6 +108,45 @@ footer{
   }
 }
 
+
+/* Not found page*/
+#special{
+  background-color:#1CA1F2;
+}
+nav{
+  width:100%;
+  background-color: #FFFFFF;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  #icon-container{
+    line-height: 50px;
+  }
+  ul{
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    width: 90%;
+    li{
+      list-style-type: none;
+      align-self: center;
+      a{
+        font-family: $roboto;
+        font-size: 14px;
+      }
+    }
+  }
+}
+.erro-mgs-container{
+  text-align: center;
+  padding: 40px;
+  h1{
+    font-family: $monserrat;
+    color: #FFFFFF;
+    font-size: 30px;
+  }
+}
+
 /*Media query front page*/
 @media only screen and (max-width: 790px){
   #main{

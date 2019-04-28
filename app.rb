@@ -45,5 +45,9 @@ class Chitter < Sinatra::Base
     erb :'user/login'
   end
 
+  not_found do
+    erb  :'/error/oops', :layout => :special
+  end
+
   run! if __FILE__ == $0
 end

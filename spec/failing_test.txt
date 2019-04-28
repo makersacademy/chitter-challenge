@@ -1,6 +1,7 @@
-example_id                          | status | run_time        |
------------------------------------ | ------ | --------------- |
-./spec/chitter_model_spec.rb[1:1:1] | passed | 0.03178 seconds |
-./spec/chitter_model_spec.rb[1:2:1] | passed | 0.02798 seconds |
-./spec/feature/posting_spec.rb[1:1] | passed | 0.07419 seconds |
-./spec/feature/signup_spec.rb[1:1]  | passed | 0.01986 seconds |
+example_id                            | status | run_time        |
+------------------------------------- | ------ | --------------- |
+./spec/chitter_model_spec.rb[1:1:1]   | passed | 0.03159 seconds |
+./spec/chitter_model_spec.rb[1:2:1]   | passed | 0.02646 seconds |
+./spec/feature/not_found_spec.rb[1:1] | passed | 0.05082 seconds |
+./spec/feature/posting_spec.rb[1:1]   | passed | 0.03534 seconds |
+./spec/feature/signup_spec.rb[1:1]    | passed | 0.02212 seconds |
