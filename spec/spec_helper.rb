@@ -24,3 +24,13 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+ENV['ENVIRONMENT'] = 'test'
+
+require_relative "./setup_test_database"
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end

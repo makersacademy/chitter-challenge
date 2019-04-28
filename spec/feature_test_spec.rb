@@ -7,7 +7,14 @@ require 'spec_helper'
 feature 'using chitter' do
   scenario 'visiting the homepage' do
     visit '/'
-    expect(page).to have_content "Chitter"
-    expect(page).to have_content "Welcome to Chitter"
+    expect(page).to have_content "CHITTER"
+    expect(page).to have_content "welcome to chitter"
+  end
+end
+
+feature 'posting a peep' do
+  scenario 'homepage has post button' do
+    visit '/'
+    expect(page).to have_button "POST"
   end
 end
