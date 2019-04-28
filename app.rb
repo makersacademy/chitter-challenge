@@ -23,8 +23,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages/new' do
-    Message.post(text: params[:message])
-    redirect '/messages'
+    Message.post(text: params[:message], userid: params[:userid])
+    @user = User.find(id: params[:userid])
+    @messages = Message.all
+    erb :'messages/index'
   end
 
   get '/messages' do
@@ -34,8 +36,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.find(email: params[:email], password: params[:password])
+    @user = User.validate(email: params[:email], password: params[:password])
     @messages = Message.all
     erb :'messages/index'
   end
+
+  post '/messages/user_:id/new' do
+    @user = User.find(id: params[:id])
+    erb :'messages/new'
+  end
+
 end

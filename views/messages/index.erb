@@ -9,8 +9,13 @@
 <body>
 
   <% if @user != nil %>
-    <form action="/messages/new" method="get" >
+    <form action="/messages/user_<%=@user.id%>/new" method="post" >
+      <input type="hidden" value="<%= @user.id %>" name="id"/>
       <input type="submit" value="post message"/>
+    </form>
+
+    <form action="/" method="get" >
+      <input type="submit" value="log out"/>
     </form>
     <% end %>
 
@@ -18,7 +23,9 @@
     <% @messages.reverse.each do |message| %>
     <li class="messges">
       <%= message.text %>
-       <p class="timestamp">posted at <%= message.post_time %> </p>
+       <p class="timestamp">posted
+         by <%= User.find(id: message.userid).username %>
+         at <%= message.post_time %> </p>
     </li>
     <% end %>
   </ul>

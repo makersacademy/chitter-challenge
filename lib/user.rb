@@ -27,13 +27,21 @@ class User
 
   end
 
-  def self.find(email:, password:)
-      result = DatabaseConnection.query("SELECT * FROM users
+  def self.validate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users
                                       WHERE email = '#{email}'
                                       AND password = '#{password}';")
 
-    return nil if result.ntuples == 0
+    return nil if result.ntuples.zero?
 
+    User.new(id: result[0]['id'], name: result[0]['name'],
+             username: result[0]['username'], email: result[0]['email'],
+             password: result[0]['password'])
+  end
+
+  def self.find(id:)
+    result = DatabaseConnection.query("SELECT * FROM users
+                                     WHERE id = #{id};")
     User.new(id: result[0]['id'], name: result[0]['name'],
              username: result[0]['username'], email: result[0]['email'],
              password: result[0]['password'])
