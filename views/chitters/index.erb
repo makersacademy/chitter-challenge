@@ -5,9 +5,10 @@
 <center><br>
 <h1>Chitter!</h1><br></center>
 
-<br><h3><ul>
+<h3><ul>
   <% @peeps.reverse_each do |peep| %>
-    <li><%= peep%></li>
+    <li><%= peep.message %>
+      <h2>by <%= peep.user_id %> at <%= peep.posted_time %></h2></li>
   <% end %>
 </ul></h3>
 

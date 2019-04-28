@@ -1,7 +1,7 @@
-/* @import url('https://rsms.me/inter/inter.css');
+@import url('https://rsms.me/inter/inter.css');
 @supports (font-variation-settings: normal) {
   html { font-family: 'Inter var', sans-serif; }
-} */
+}
 
 :root {
   --background-main: #edf4f7;
@@ -14,11 +14,11 @@
 
 
 body {
-  /* font-family: Inter; */
+  font-family: Inter;
   font-size: 16px;
   line-height: 1.5;
 
-  /* background-image: linear-gradient(to bottom, #ffffff 0%, #FFF1EB 100%); */
+  background-image: linear-gradient(to bottom, #ffffff 0%, #FFF1EB 100%);
   color: var(--primary-blue);
 
 }
@@ -30,7 +30,7 @@ h1 {
 }
 
 h2 {
-  color: var(--secondary-blue);
+  color: #E0E0E0;
   font-size: 14px;
   font-weight: 700;
 }
