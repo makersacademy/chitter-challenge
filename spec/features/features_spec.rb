@@ -41,6 +41,6 @@ feature 'sign up to chitter with an unique email, password, name and a username'
   scenario 'signing up and peeping' do
     sign_up
     peep
-    expect(page).to have_content 'posted by Gui Heurich'
+    expect(page).to have_content 'posted by guiheurich'
   end
 end

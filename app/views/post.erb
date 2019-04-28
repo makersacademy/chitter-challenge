@@ -14,7 +14,7 @@
 <% @posts.each do |post| %>
   <li><%= post.content %></li><br>
     <li class="tab">created at <%= post.created_at %></li><br><br>
-    <li class="tab">posted by <%= User.all.first.username %></li><br><br>
+    <li class="tab">posted by <%= User.all.last.username %></li><br><br>
   <% end %>
 </ul>
 </center>

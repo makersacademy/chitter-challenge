@@ -18,6 +18,6 @@ def sign_up
   fill_in 'email', with: "heurich.gui@nomail.com"
   fill_in 'password', with: "pass12345"
   fill_in 'name', with: "Gui Heurich"
-  fill_in 'username', with: "heurich.gui"
+  fill_in 'username', with: "guiheurich"
   click_button 'Sign Up'
 end
