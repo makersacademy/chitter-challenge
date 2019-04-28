@@ -1,4 +1,4 @@
-Welcome to Chitter
+Welcome to Chitter [![Build Status](https://travis-ci.com/guilhe0756/chitter-challenge.svg?branch=master)](https://travis-ci.com/guilhe0756/chitter-challenge)
 =================
 
 Let the ~world~ know what you are thinking!
