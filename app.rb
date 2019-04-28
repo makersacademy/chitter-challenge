@@ -3,7 +3,7 @@ require_relative './lib/chitter_model'
 require 'sass'
 
 class Chitter < Sinatra::Base
-
+  enable :sessions
   get '/styles.css' do
     scss :styles
   end
@@ -32,10 +32,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
+    session[:username] = params[:username]
+    redirect '/user/login'
   end
 
   get '/user/new' do
     erb :'user/new'
+  end
+
+  get '/user/login' do
+    @name = session[:username]
+    erb :'user/login'
   end
 
   run! if __FILE__ == $0
