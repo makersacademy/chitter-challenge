@@ -80,7 +80,7 @@ Running tests
 -----------------
 
 ```
-$ rspec --init
+$ cd project_folder
 $ rspec
 ```
 
