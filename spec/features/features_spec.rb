@@ -32,3 +32,15 @@ feature 'seeing all peeps in reverse chronological order' do
     expect(page).to have_content 'Hello World created at'
   end
 end
+
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to sign up for Chitter
+
+feature 'sign up to chitter with an unique email, password, name and a username' do
+  scenario 'signing up and peeping' do
+    sign_up
+    peep
+    expect(page).to have_content 'posted by Gui Heurich'
+  end
+end

@@ -11,3 +11,13 @@ def peep_2
   click_button 'Post'
   visit('/posts')
 end
+
+def sign_up
+  visit('/')
+  click_link 'Sign Up'
+  fill_in 'email', with: "heurich.gui@nomail.com"
+  fill_in 'password', with: "pass12345"
+  fill_in 'name', with: "Gui Heurich"
+  fill_in 'username', with: "heurich.gui"
+  click_button 'Sign Up'
+end
