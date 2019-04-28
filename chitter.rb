@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
 
@@ -7,7 +8,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/new' do
-    @peep = params[:peep]
+    @peep = Peep.all
+  end
+
+  get 'chitter/new' do
+    erb :'stream/new'
   end
 
   run! if app_file == $0
