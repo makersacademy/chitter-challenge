@@ -16,7 +16,7 @@ class Peep
     end
     all = connection.exec('SELECT * FROM peeps');
     all.map do |peep|
-      p Peep.new(post: peep['post'], time: peep['time'])
+      Peep.new(post: peep['post'], time: peep['time'])
     end
   end
 
