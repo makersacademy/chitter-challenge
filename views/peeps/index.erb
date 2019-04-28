@@ -5,6 +5,6 @@
 
 <ul>
   <% @peeps.reverse_each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep %> <%= Time.now.strftime ("%H:%M:%S") %></li>
   <% end %>
 </ul>
