@@ -17,7 +17,7 @@ feature 'post message' do
     visit('/peeps/new')
     fill_in('message', with: msg)
     click_button('Submit')
-    p page.html
+
     expect(page).to have_content(msg)
   end
 end

@@ -1,15 +1,17 @@
+<% if @user != nil %>
 <%= @user.name %> (<%= @user.username %>)<br>
-<table style="width:100%">
+<% end %>
+<table style="text-align:left">
   <tr>
     <th>Peep</th>
-    <th>Name (Username)</th>
     <th>Time</th>
+    <th>Name (Username)</th>
   </tr>
 <% @peeps.each do |peep| %>
   <tr>
     <td><%= peep.message %></td>
-    <td><%= peep.user_id %></td> 
     <td><%= peep.time %></td>
+    <td><%= peep.user_id %></td>
   </tr>
-</table>
 <% end %>
+</table>

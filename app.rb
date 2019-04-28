@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/user'
+require './lib/peep'
 require './db/database_connection_setup'
 
 class ChitterManager < Sinatra::Base

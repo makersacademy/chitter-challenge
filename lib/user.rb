@@ -18,6 +18,7 @@ class User
   end
 
   def self.find(id)
+    return nil if id == nil
     sql = "SELECT * FROM users WHERE id = #{id};"
     result = DatabaseConnection.execute(sql).first
 
