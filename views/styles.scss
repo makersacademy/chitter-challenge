@@ -33,6 +33,11 @@ body{
      }
     }
    }
+   .regslink{
+     padding: 10px;
+     width: 80%;
+     margin-left: 30px;
+   }
   }
 }
 
@@ -72,12 +77,24 @@ footer{
 
 /*Style for peeps */
 .peeps-container{
+  .peep-col{
+    margin: 0 auto
+  }
   ul{
+    background-color: #F5F8FA;
+    padding: 10px;
+    border-radius: 2px;
+    -webkit-box-shadow: 10px 10px 8px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 8px -12px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 8px -12px rgba(0,0,0,0.75);
     #each_peep{
       list-style-type: none;
-      background-color: #F5F8FA;
-      padding: 20px;
       font-family: $open_sans;
+      padding-bottom: 20px;
+    }
+    span{
+      font-family: $open_sans;
+      font-size: 12px;
     }
   }
 }
