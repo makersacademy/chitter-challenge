@@ -1,10 +1,9 @@
 require 'capybara/rspec'
 
 feature 'Add new peep' do
-  scenario "adds new post to database" do
+  scenario "redirects to /view page" do
     visit('/chitter')
-    fill_in 'peep', with: 'first peep'
     click_button 'Peep!'
-    expect(page).to have_content 'first peep'
+    expect(page).to have_current_path '/chitter/view'
   end
 end

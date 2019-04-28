@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra'
 require 'data_mapper'
 require './lib/peeps'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -21,7 +22,7 @@ class Chitter < Sinatra::Base
   post '/chitter/user' do
     p params
     User.create(name: params[:name], username: params[:username])
-    redirect '/chitter/sign_up'
+    redirect '/chitter'
   end
 
   post '/chitter/log' do

@@ -6,7 +6,7 @@ describe User do
       users = User.create(name: 'Tara', username: 'Tara.s')
 
       expect(users.name).to eq 'Tara'
-      expect(peeps.username).to eq 'Tara.s'
+      expect(users.username).to eq 'Tara.s'
     end
   end
 end
