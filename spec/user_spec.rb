@@ -6,12 +6,12 @@ describe User do
   let(:email) { 'its.me@bobgeldof.com' }
   let(:password) { 'bob123' }
 
-  describe '#create' do
+  describe '.create' do
     it 'creates a user instance' do
       user = User.create(name: name, username: username, email: email, password: password)
 
       expect(user).to be_a User
-      expect(user.id.to_i).to be_a Integer
+      expect(user.id).to be_a Integer
       expect(user.name).to eq name
       expect(user.username).to eq username
       expect(user.email).to eq email
@@ -22,7 +22,7 @@ describe User do
       sql = "SELECT * FROM users WHERE id = #{user.id};"
       result = DatabaseConnection.execute(sql).first
 
-      expect(user.id).to eq result['id']
+      expect(user.id).to eq result['id'].to_i
       expect(user.name).to eq result['name']
       expect(user.username).to eq result['username']
       expect(user.email).to eq result['email']
@@ -34,7 +34,7 @@ describe User do
     end
   end
 
-  describe '#find' do
+  describe '.find' do
     it 'returns a user based on id' do
       user = User.create(name: name, username: username, email: email, password: password)
       result = User.find(user.id)

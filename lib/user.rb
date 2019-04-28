@@ -10,7 +10,7 @@ class User
     result = DatabaseConnection.execute(sql).first
 
     User.new(
-      id: result['id'],
+      id: result['id'].to_i,
       name: result['name'],
       username: result['username'],
       email: result['email']
@@ -22,7 +22,7 @@ class User
     result = DatabaseConnection.execute(sql).first
 
     User.new(
-      id: result['id'],
+      id: result['id'].to_i,
       name: result['name'],
       username: result['username'],
       email: result['email']
@@ -36,9 +36,5 @@ class User
     @name = name
     @username = username
     @email = email
-  end
-
-  def encrypt(password)
-    BCrypt::Password.create(password)
   end
 end
