@@ -10,7 +10,7 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/chitters' do
-    @user = session[:user]
+    @user = User.find(session[:id])
     erb :'chitters/index'
   end
 
@@ -20,7 +20,7 @@ class ChitterManager < Sinatra::Base
 
   post '/users' do
     @user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    session[:user] = @user
+    session[:id] = @user.id
     redirect '/chitters'
   end
 

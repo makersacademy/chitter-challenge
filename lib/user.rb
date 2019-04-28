@@ -8,9 +8,27 @@ class User
       connection = PG.connect dbname: 'chitter_manager'
     end
 
-    columns = '(name, username, email, password)'
+    columns = "(name, username, email, password)"
     values = "('#{name}','#{username}','#{email}','#{password}')"
-    result = connection.exec("INSERT INTO users #{columns} VALUES #{values} RETURNING *;").first
+    sql_statement = "INSERT INTO users #{columns} VALUES #{values} RETURNING *;"
+    result = connection.exec(sql_statement).first
+
+    User.new(
+      id: result['id'],
+      name: result['name'],
+      username: result['username'],
+      email: result['email']
+    )
+  end
+
+  def self.find(id)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect dbname: 'chitter_manager_test'
+    else
+      connection = PG.connect dbname: 'chitter_manager'
+    end
+    sql_statement = "SELECT * FROM users WHERE id = #{id};"
+    result = connection.exec(sql_statement).first
 
     User.new(
       id: result['id'],
