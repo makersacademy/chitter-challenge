@@ -16,18 +16,19 @@ Write a small Twitter clone that will allow the users to post messages to a publ
 * Controller : app.rb
 * Tests: ./spec/
 
-## Technologies Used - rubocop, simplecov
+## Technologies Used
 ### Development Environment
 * Languages: Ruby, SQL
 * Framework:  Sinatra  
 
 ### Test Environment
 * Feature testing: Rspec, Capybara
-* Unit testing:  Rspec  
+* Unit testing:  Rspec
+* Analytics: simplecov
 
 ### Database
 * RDBMS: PostgreSQL
-* Integration & setup: psql, PG gem
+* Integration & setup: PG gem, psql
 
 ## User stories - Features
 
@@ -47,7 +48,7 @@ I want to see the time at which it was made
 
 ## Domain Models
 
-![Domain model](https://github.com/kintaro.....)
+<img src="https://github.com/Kintaro-Oe/chitter-challenge/blob/master/pictures/chitter%20domain%20modelling.jpeg" width="40%">
 
 ## How to install
 ### Base install
