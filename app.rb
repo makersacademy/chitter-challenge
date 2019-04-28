@@ -14,7 +14,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/home' do
-    Peep.add(post: params[:post])
+    time = Time.new.strftime("%d/%m %H:%M")
+    Peep.add(post: params[:post], time: time)
     redirect :home
   end
 
