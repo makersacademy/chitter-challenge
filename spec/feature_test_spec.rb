@@ -15,6 +15,12 @@ end
 feature 'posting a peep' do
   scenario 'homepage has post button' do
     visit '/'
-    expect(page).to have_button "POST"
+    fill_in :peep, with: "my first peep"
+    click_button "POST"
+    expect(page).to have_content "my first peep"
   end
 end
+
+# As a maker
+# So that I can see what others are saying
+# I want to see all peeps in reverse chronological order
