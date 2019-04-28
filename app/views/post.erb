@@ -1,6 +1,19 @@
+<head>
+  <style type="text/css">
+  <!--
+  .tab { margin-left: 40px; }
+  -->
+  <li> </li>
+</style>
+</head>
+
+
+<center>
 <h1> This is what you have told the ~world~ so far:</h1>
 <ul>
 <% @posts.each do |post| %>
-  <li><%= post.content %></li>
+  <li><%= post.content %></li><br>
+    <li class="tab">created at <%= post.created_at %></li><br><br>
   <% end %>
 </ul>
+</center>

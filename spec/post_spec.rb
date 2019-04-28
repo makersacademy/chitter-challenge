@@ -21,4 +21,12 @@ describe Post do
       end
     end
 
+  describe '#order' do
+    it "orders post by creation date and time" do
+      post_1 = Post.create(content: 'jimmy jam')
+      post_2 = Post.create(content: 'jimmy joe')
+      posts = Post.all.order(created_at: :desc)
+      expect(posts.first.content).to eq post_2.content
+    end
+  end
 end

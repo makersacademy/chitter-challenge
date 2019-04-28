@@ -17,6 +17,18 @@ feature 'seeing all peeps in reverse chronological order' do
   scenario 'visit posts page and seeing the last one at the top' do
     peep
     peep_2
-    expect(page).to have_content 'World Hello Hello World'
+    expect(page).to have_content 'World Hello'
+    expect(page).to have_content 'Hello World'
+  end
+end
+
+# As a Maker
+# So that I can better appreciate the context of a peep
+# I want to see the time at which it was made
+
+feature 'seeing all peeps in reverse chronological order' do
+  scenario 'visit posts page and seeing the last one at the top' do
+    peep
+    expect(page).to have_content 'Hello World created at'
   end
 end
