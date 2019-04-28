@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-This is the Week 4 weekend challenge at Makers Academy to practice building web apps using databases. The challenge was to build a small Twitter clone that will allow users to post messages to a public stream.
+This is the Makers Academy Week 4 weekend challenge, which gave me the opportunity to practice building web apps using databases. The challenge was to build a small Twitter clone that will allow users to post messages to a public stream.
 
 User stories:
 -------
@@ -37,9 +37,21 @@ How to run the program:
 
 1. `rackup -p 9292`
 2. Visit http://localhost/9292/peeps
+3. To post a peep, click on the "Post a Peep" button
 
 
-
-
-How to run the tests:
+Learning objectives covered:
 ------
+1. Building a simple web app with a database
+2. Following an effective debugging process for database applications
+3. Better understanding of how databases work (e.g. tables, SQL, basic relationships)
+4. How to use tools such as TablePlus when using databases
+5. Further practice with Agile and TDD
+
+To improve:
+------
+I have successfully completed the first three user stories. If I had time I would like to implement the registration feature, and also work on some bonus features such as a user being able to delete a peep, amend a peep and tag a peep.
+
+Acknowledgments:
+------
+Jordan Roberts - Makers Academy Challenge
