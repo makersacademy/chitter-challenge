@@ -1,6 +1,6 @@
 test:
   adapter: postgresql
-  database: travis_ci_test
+  database: chitter_test
 
 development:
   adapter: postgresql
@@ -16,4 +16,4 @@ production :
   database: chitter
   pool: 2
   user: student
-  password: 
+  password:
