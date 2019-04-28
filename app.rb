@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/user'
+require './db/database_connection_setup'
 
 class ChitterManager < Sinatra::Base
 
@@ -19,7 +20,12 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    @user = User.create(
+      name: params[:name],
+      username: params[:username],
+      email: params[:email],
+      password: params[:password]
+    )
     session[:id] = @user.id
     redirect '/chitters'
   end

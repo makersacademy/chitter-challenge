@@ -3,7 +3,7 @@ feature 'sign-up' do
     name = 'Bob Geldof'
     username = 'begeldof'
     email = 'its.me@bobgeldof.com'
-    password = 'bob'
+    password = 'bob123'
 
     visit('/users/new')
     fill_in('name', with: name)

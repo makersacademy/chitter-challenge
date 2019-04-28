@@ -1,17 +1,11 @@
 require 'pg'
 
 class User
-  def self.create(name: , username: , email: , password: )
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect dbname: 'chitter_manager_test'
-    else
-      connection = PG.connect dbname: 'chitter_manager'
-    end
-
+  def self.create(name:, username:, email:, password:)
     columns = "(name, username, email, password)"
     values = "('#{name}','#{username}','#{email}','#{password}')"
     sql_statement = "INSERT INTO users #{columns} VALUES #{values} RETURNING *;"
-    result = connection.exec(sql_statement).first
+    result = DatabaseConnection.execute(sql_statement).first
 
     User.new(
       id: result['id'],
@@ -22,13 +16,8 @@ class User
   end
 
   def self.find(id)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect dbname: 'chitter_manager_test'
-    else
-      connection = PG.connect dbname: 'chitter_manager'
-    end
     sql_statement = "SELECT * FROM users WHERE id = #{id};"
-    result = connection.exec(sql_statement).first
+    result = DatabaseConnection.execute(sql_statement).first
 
     User.new(
       id: result['id'],

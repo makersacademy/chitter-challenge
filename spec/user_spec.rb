@@ -1,15 +1,21 @@
 require 'user'
 
 describe User do
+  let(:name) { 'Bob Geldof' }
+  let(:username) { 'begeldof' }
+  let(:email) { 'its.me@bobgeldof.com' }
+  let(:password) { 'bob123' }
+  let(:user) {
+    described_class.create(
+      name: name,
+      username: username,
+      email: email,
+      password: password
+    )
+  }
+
   describe '#create' do
     it 'creates a user instance' do
-      name = 'Bob Geldof'
-      username = 'begeldof'
-      email = 'its.me@bobgeldof.com'
-      password = 'bob'
-
-      user = described_class.create(name: name, username: username, email: email, password: password)
-
       expect(user).to be_a described_class
       expect(user.id.to_i).to be_a Integer
       expect(user.name).to eq name
@@ -18,13 +24,6 @@ describe User do
     end
 
     it 'adds a new user to the database' do
-      name = 'Bob Geldof'
-      username = 'begeldof'
-      email = 'its.me@bobgeldof.com'
-      password = 'bob'
-
-      user = described_class.create(name: name, username: username, email: email, password: password)
-
       connection = PG.connect dbname: 'chitter_manager_test'
       result = connection.exec("SELECT * FROM users WHERE id = #{user.id};").first
 
@@ -38,12 +37,6 @@ describe User do
 
   describe '#find' do
     it 'returns a user based on id' do
-      name = 'Bob Geldof'
-      username = 'begeldof'
-      email = 'its.me@bobgeldof.com'
-      password = 'bob'
-
-      user = described_class.create(name: name, username: username, email: email, password: password)
       result = described_class.find(user.id)
 
       expect(result.id).to eq user.id
