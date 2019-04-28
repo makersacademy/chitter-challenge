@@ -2,7 +2,7 @@ Chitter Challenge
 =================
 
 ## Context
-Makers Academy - week three weekend challenge:
+Makers Academy - Week three weekend challenge:
 
 Write a small Twitter clone that will allow the users to post messages to a public stream.
 
@@ -10,7 +10,7 @@ Write a small Twitter clone that will allow the users to post messages to a publ
 * Three of four base user stories test driven and working. More details on stories and features below.
 
 ## Document Organisation
-* The Original README.md file containing the requirements of this challenge is renamed to challenge_brief.md.
+* Details for this challenge can be found in challenge_brief.md
 * Models: ./lib/
 * Views: ./views/
 * Controller : app.rb
@@ -69,7 +69,7 @@ You will need to set up a local database in order for this app to function prope
 * Enter `rackup -p 3456` into command line to start the server. (4567 may be changed to any port number you like)
 * Enter `CTRL+C` to close the server
 
-### Viewing and using app
+### Using the app
 * Enter the url `http://localhost:3456/chitter` in your browser to view the app (or your chosen port number)
 * Enter a peep (message) and hit post
 
