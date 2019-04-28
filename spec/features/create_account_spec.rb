@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require_relative 'test_helper'
 
 feature 'accounts can be created' do
   scenario 'user creates a new account' do

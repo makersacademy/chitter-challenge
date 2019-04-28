@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require_relative 'test_helper'
 
 feature 'peep has a time of creation' do
   scenario 'peep is shown with time' do
