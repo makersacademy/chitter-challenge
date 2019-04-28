@@ -32,6 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/view' do
+    @name = params[:name]
     @peeps = Peep.all.reverse
     erb(:'chitter/view')
   end
