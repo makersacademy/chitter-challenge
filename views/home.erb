@@ -1,4 +1,8 @@
-<center><h4>________________________</h4>
+<% if @name.nil? %>
+<center><h1>You must sign in first.</h1></center>
+<% else %>
+<center><h4>Signed in as <%= @name %>.</h4>
+<h4>________________________</h4>
 <h1>Chitter</h1>
 <h4>________________________</h4></center>
 <center><form action="/post">
@@ -11,3 +15,4 @@
   </li>
   <% end %>
 </ul>
+<% end %>

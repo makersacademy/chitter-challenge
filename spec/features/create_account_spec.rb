@@ -7,4 +7,8 @@ feature 'accounts can be created' do
     click_button 'Create Account'
     expect(page).to have_content "Thank you for creating your new account, Hannah!"
   end
+  scenario 'raises issue if user is not signed in' do
+    visit '/home'
+    expect(page).to have_content "You must sign in first."
+  end
 end

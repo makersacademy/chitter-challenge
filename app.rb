@@ -10,11 +10,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/account_created' do
+    session[:name] = params[:name]
     User.add(name: params[:name], password: params[:password], email: params[:email])
     erb :account_created
   end
 
   get '/home' do
+    @name = session[:name]
     @peeps = Peep.all
     erb :home
   end

@@ -3,6 +3,7 @@ require 'pg'
 describe Peep do
   describe '#all' do
     it 'displays all posts' do
+      
       Peep.add(post: 'Hello, Chitter!', time: '04/04/2019 14:44')
 
       peep_list = Peep.all
