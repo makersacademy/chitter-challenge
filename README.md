@@ -64,6 +64,43 @@ Technologies used
 * Sinatra
 * Capybara
 
+Set up
+---
+Clone this repository and then run:
+```
+bundle
+```
+
+To set up the database
+-----
+Connect to `psql` and create the `chitter` and `chitter_test` databases:
+```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+
+To set up the appropriate tables, connect to each database in psql and run the SQL scripts in the db/migrations folder in the given order.
+
+To run the Chitter app:
+-----
+```
+rackup -p 3000
+```
+
+To view peeps, navigate to localhost:3000/chitter.
+
+To run tests:
+-----
+```
+rspec
+```
+
+To run linting:
+-----
+```
+rubocop
+```
+
 Technical Approach:
 -----
 
