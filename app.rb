@@ -14,8 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-
-    erb :index
+    Peep.compose(peep_content: params[:peep_content])
     redirect '/'
 
   end

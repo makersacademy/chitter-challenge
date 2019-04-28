@@ -16,4 +16,11 @@ describe Peep do
     end
 
   end
+
+  describe '.compose' do
+    it 'adds a new peep to the database' do
+      Peep.compose(peep_content: 'Test peep 3')
+      expect(Peep.all).to include('Test peep 3')
+    end
+  end
 end
