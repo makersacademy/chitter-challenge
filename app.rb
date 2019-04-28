@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/chitter_model'
+require_relative './lib/user_model'
 require 'sass'
 
 class Chitter < Sinatra::Base
@@ -32,7 +33,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-    session[:username] = params[:username]
+    user = User.create(fname: params[:username],lname: params[:lastname],email: params[:email], password: params[:pass])
     redirect '/user/login'
   end
 
@@ -41,7 +42,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/login' do
-    @name = session[:username]
     erb :'user/login'
   end
 
