@@ -3,11 +3,12 @@ require_relative 'database_connection'
 
 class Peep
 
-  attr_reader :id, :peep
+  attr_reader :id, :peep, :time
 
-  def initialize(id:, peep:)
-    @id  = id
+  def initialize(id:, peep:, time:)
+    @id = id
     @peep = peep
+    @time = time
   end
 
   def self.all
@@ -18,16 +19,17 @@ class Peep
       DatabaseConnection.setup('chitter')
     end
 
-    result = DatabaseConnection.query('SELECT * FROM peeps')
+    results = DatabaseConnection.query('SELECT * FROM peeps')
 
-    peeps = result.map do |peep|
-      { peep: peep['peep'] }
+    peeps = results.map do |chitter|
+      Peep.new(id: chitter['id'], peep: chitter['peep'], time: '1')
     end
 
     peeps.reverse
   end
 
   def self.post(peep:)
-    DatabaseConnection.query("INSERT INTO peeps VALUES (#{peep});")
+    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}');")
+    Peep.new(id: result[0]['id'], peep: result[0]['peep'], time: '1')
   end
 end
