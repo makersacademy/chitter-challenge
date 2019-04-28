@@ -1,0 +1,10 @@
+<h2>Welcome to Chitter Message board!</h2>
+<form action="/message" method="post">
+<input type="text" name="message">
+<input type="submit" name="Submit">
+</form>
+<% @messages.each do |message| %>
+<p>
+<%= message.message %>
+</p>
+<% end %>
