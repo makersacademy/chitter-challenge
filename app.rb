@@ -20,6 +20,7 @@ class Chitter < Sinatra::Base
 
   post '/chitter/user' do
     p params
+    User.create(name: params[:name], username: params[:username])
     redirect '/chitter/sign_up'
   end
 
