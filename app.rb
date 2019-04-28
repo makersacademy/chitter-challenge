@@ -2,7 +2,10 @@ require 'sinatra/base'
 require './lib/peep'
 
 class ChitterChallenge < Sinatra::Base
-  enable :sessions
+
+  get '/' do
+    redirect '/peeps/new'
+  end
 
   get '/peeps' do
     @peeps = Peep.all
