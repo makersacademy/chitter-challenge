@@ -5,6 +5,10 @@ require './lib/user'
 class Chitter < Sinatra::Base
   enable :sessions
 
+  get '/' do
+    erb :sign_in
+  end
+
   get '/create_account' do
     erb :create_account
   end
