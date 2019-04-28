@@ -9,6 +9,10 @@ class Chitter < Sinatra::Base
     erb :sign_in
   end
 
+  post '/check' do
+    redirect :home
+  end
+
   get '/create_account' do
     erb :create_account
   end
