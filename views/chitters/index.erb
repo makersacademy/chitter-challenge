@@ -1,0 +1,15 @@
+<head>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+</head>
+
+<center><br>
+<h1>Chitter!</h1><br></center>
+
+<h3><ul>
+  <% @peeps.reverse_each do |peep| %>
+    <li><%= peep.message %>
+      <h2>by <%= peep.user_id %> at <%= peep.posted_time %></h2></li>
+  <% end %>
+</ul></h3>
+
+<br><h6>&nbsp;&nbsp;<a href="/">Go back to main</a></h6>

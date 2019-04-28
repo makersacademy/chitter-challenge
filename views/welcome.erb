@@ -1,0 +1,14 @@
+<head>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+</head>
+
+<center><br>
+<h1>Welcome to Chitter!</h1><br>
+
+<form action = "/chitters" method = "get"><div>
+<input type = "submit" value = "What's on peeps?" class="button" style="border:none">
+</div></form>
+<form action = "/add" method = "post"><div>
+<input type = "submit" name = "add" value = "Add a new peep!" class="button" style="border:none">
+</div></form>
+</center>
