@@ -4,8 +4,8 @@ class User
   def self.create(name:, username:, email:, password:)
     columns = "(name, username, email, password)"
     values = "('#{name}','#{username}','#{email}','#{password}')"
-    sql_statement = "INSERT INTO users #{columns} VALUES #{values} RETURNING *;"
-    result = DatabaseConnection.execute(sql_statement).first
+    sql = "INSERT INTO users #{columns} VALUES #{values} RETURNING *;"
+    result = DatabaseConnection.execute(sql).first
 
     User.new(
       id: result['id'],
@@ -16,8 +16,8 @@ class User
   end
 
   def self.find(id)
-    sql_statement = "SELECT * FROM users WHERE id = #{id};"
-    result = DatabaseConnection.execute(sql_statement).first
+    sql = "SELECT * FROM users WHERE id = #{id};"
+    result = DatabaseConnection.execute(sql).first
 
     User.new(
       id: result['id'],

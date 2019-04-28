@@ -5,7 +5,7 @@ describe User do
   let(:username) { 'begeldof' }
   let(:email) { 'its.me@bobgeldof.com' }
   let(:password) { 'bob123' }
-  let(:user) {
+  let!(:user) {
     described_class.create(
       name: name,
       username: username,
@@ -24,8 +24,8 @@ describe User do
     end
 
     it 'adds a new user to the database' do
-      connection = PG.connect dbname: 'chitter_manager_test'
-      result = connection.exec("SELECT * FROM users WHERE id = #{user.id};").first
+      sql = "SELECT * FROM users WHERE id = #{user.id};"
+      result = DatabaseConnection.execute(sql).first
 
       expect(user).to be_a described_class
       expect(user.id).to eq result['id']
