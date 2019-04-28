@@ -1,11 +1,16 @@
+require 'pg'
+
 class Peep
 
+  def self.new(content)
+    conn = PG.connect( dbname: 'chitter' )
+    conn.exec( "INSERT INTO peeps (content) VALUES('#{content}');" )
+  end
+
   def self.all
-    return [
-      "My first peep!",
-      "Wow, this is my second peep!",
-      "THIS IS MY THIRD PEEP, I can't believe it!!!"
-    ]
+    conn = PG.connect( dbname: 'chitter' )
+    results = conn.exec( "SELECT * FROM peeps;" )
+    results.map { |result| result['content'] }
   end
 
 end

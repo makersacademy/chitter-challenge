@@ -11,5 +11,11 @@ describe Peep do
     end
   end
 
+  describe '.new' do
+    it 'adds a new peep to the list of peeps' do
+      peep = Peep.new("Chitter rocks!")
+      expect(Peep.all).to include "Chitter rocks!"
+    end
+  end
 
 end
