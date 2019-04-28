@@ -13,3 +13,15 @@ feature 'message board' do
     expect(page).to have_content('Message has been sent')
   end
 end
+
+feature 'message board with 2 messages' do
+  scenario 'user posts another message and both messages are shown on the screen' do
+    visit ('/message')
+    fill_in "message", :with => 'Message has been sent'
+    click_on('Submit')
+    fill_in "message", :with => 'Message 2 has been sent'
+    click_on('Submit')
+    expect(page).to have_content('Message has been sent')
+    expect(page).to have_content('Message 2 has been sent')
+  end
+end

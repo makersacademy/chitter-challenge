@@ -3,5 +3,8 @@
 <input type="text" name="message">
 <input type="submit" name="Submit">
 </form>
-
-<%= @message %>
+<% @messages.each do |message| %>
+<p>
+<%= message.message %>
+</p>
+<% end %>

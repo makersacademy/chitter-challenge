@@ -10,16 +10,12 @@ class Chitter < Sinatra::Application
   end
 
   post '/message' do
-    p $message = Peep.new(params[:message])
+    Peep.create(params[:message])
     redirect '/message'
   end
 
   get '/message' do
-    if $message == nil
-      Peep.new('')
-    else
-      @message = $message.message
-    end
+    @messages = Peep.all
     erb :index
   end
 
