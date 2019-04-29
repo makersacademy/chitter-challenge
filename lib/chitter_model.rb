@@ -9,9 +9,17 @@ class ChitterModel
     end
   end
 
-  def self.create(a_peep)
+  def self.create(peep:)
     connection = DataBaseTestSetup.connection
-    connection.exec("INSERT INTO peep_table (peep) VALUES('#{a_peep}') ")
+    result = connection.exec("INSERT INTO peep_table (peep) VALUES('#{peep}') RETURNING id, peep;")
+    ChitterModel.new(id: result[0]['id'], peep: result[0]['peep'])
+  end
+
+  attr_reader :id, :peep
+
+  def initialize(id:, peep:)
+    @id = id 
+    @peep = peep
   end
 
 end
