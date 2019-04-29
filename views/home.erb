@@ -15,7 +15,8 @@
 <ul>
   <% @peeps.each do |peep| %>
   <li>
-    <%= peep.time %>: <%= peep.post %>
+    <%= peep.name %> says: <%= peep.post %>
+    Posted at <%= peep.time %>
   </li>
   <% end %>
 </ul>

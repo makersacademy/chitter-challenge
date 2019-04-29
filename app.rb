@@ -19,6 +19,7 @@ class Chitter < Sinatra::Base
 
   post '/account_created' do
     session[:name] = params[:name]
+    @name = session[:name]
     User.add(name: params[:name], password: params[:password], email: params[:email])
     erb :account_created
   end
@@ -35,7 +36,7 @@ class Chitter < Sinatra::Base
 
   post '/home' do
     time = Time.new.strftime("%d/%m %H:%M")
-    Peep.add(post: params[:post], time: time)
+    Peep.add(post: params[:post], time: time, name: session[:name])
     redirect :home
   end
 
