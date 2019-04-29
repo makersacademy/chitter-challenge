@@ -1,6 +1,7 @@
 <h1>Chitter</h1>
-<% if @user != nil %>
+<% if @user.nil? %>
 Signed in as <%= @user.name %> (<%= @user.username %>)<br>
+<a href="/peeps/new" style="background-color:#f44336;color:white;padding:15px 25px;text-align:center;text-decoration:none;display:inline-block">New Peep</a>
 <% end %>
 <table class="peeps" style="text-align:left">
   <tr>

@@ -12,7 +12,7 @@ describe Peep do
       expect(peep).to be_a Peep
       expect(peep.id).to be_a Integer
       expect(peep.message).to eq msg
-      expect(peep.time).to eq time.strftime('%Y-%m-%d %H:%M:%S%z')[0,22]
+      expect(peep.time).to eq time.strftime('%Y-%m-%d %H:%M:%S%z')[0, 22]
       expect(peep.user_id).to eq user_id
     end
 

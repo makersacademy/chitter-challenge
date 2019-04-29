@@ -5,7 +5,7 @@ feature 'view message time' do
     visit('/peeps/new')
     msg_1 = 'msg_1'
     fill_in('message', with: msg_1)
-    time = Time.now.strftime('%Y-%m-%d %H:%M:%S%z')[0,22]
+    time = Time.now.strftime('%Y-%m-%d %H:%M:%S%z')[0, 22]
     click_button('Submit')
 
     table = page.find('table[class="peeps"]')
