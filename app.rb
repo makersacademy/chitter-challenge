@@ -33,7 +33,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-    user = User.create(fname: params[:username],
+    User.create(fname: params[:username],
       lname: params[:lastname],
       email: params[:email], 
       password: params[:pass])
@@ -49,7 +49,7 @@ class Chitter < Sinatra::Base
   end
 
   not_found do
-    erb  :'/error/oops', :layout => :special
+    erb :'/error/oops', :layout => :special
   end
 
   run! if __FILE__ == $0

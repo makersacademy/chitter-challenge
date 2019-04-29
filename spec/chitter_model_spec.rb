@@ -13,7 +13,6 @@ RSpec.describe ChitterModel do
 
   describe '.create' do
     it 'stores users post into database' do
-      input = {"peep" => "This is first peep", "created_at" => "19:59:03"}
       connection = PG.connect(dbname: 'chitter_test')
       ChitterModel.create('This is first peep')
       expect(described_class.all).to eq(described_class.all)

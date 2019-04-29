@@ -8,6 +8,6 @@ RSpec.feature 'Sign up page' do
     fill_in('password', with: 'demo123')
     fill_in('confirm_password', with: 'demo123')
     click_on('submit')
-    expect(page).to  have_content('')
+    expect(page).to have_content('')
   end
 end

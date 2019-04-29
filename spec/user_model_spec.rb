@@ -5,7 +5,7 @@ require 'pg'
 RSpec.describe User do
   describe '.create' do
     it 'stores users details in database' do
-      user = described_class.create(fname: 'Sarpong',lname: 'Abasimi', email: 'a@demo.com', password:'pass')
+      user = described_class.create(fname: 'Sarpong', lname: 'Abasimi', email: 'a@demo.com', password: 'pass')
       connection = DataBaseTestSetup.connection
       result = connection.query("SELECT * FROM USERS WHERE id = '#{user.id}'")
 
