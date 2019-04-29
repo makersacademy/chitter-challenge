@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
 require './app.rb'
+require './spec/signup_helper.rb'
 
 require 'capybara/rspec'
 require 'simplecov'

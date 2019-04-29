@@ -1,17 +1,8 @@
 feature 'post message' do
-  let(:name) { 'Bob Geldof' }
-  let(:username) { 'begeldof' }
-  let(:email) { 'its.me@bobgeldof.com' }
-  let(:password) { 'bob123' }
   let(:msg) { 'I love peeps!' }
 
   scenario 'user can post a new message' do
-    visit('/users/new')
-    fill_in('name', with: name)
-    fill_in('username', with: username)
-    fill_in('email', with: email)
-    fill_in('password', with: password)
-    click_button('Submit')
+    signup_helper
     expect(current_path).to eq '/peeps'
 
     visit('/peeps/new')
@@ -24,12 +15,7 @@ feature 'post message' do
   end
 
   scenario 'messages have name and user handle' do
-    visit('/users/new')
-    fill_in('name', with: name)
-    fill_in('username', with: username)
-    fill_in('email', with: email)
-    fill_in('password', with: password)
-    click_button('Submit')
+    signup_helper
     expect(current_path).to eq '/peeps'
 
     visit('/peeps/new')

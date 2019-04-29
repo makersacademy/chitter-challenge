@@ -1,16 +1,6 @@
 feature 'view message time' do
   scenario 'view the time messages were posted' do
-    name = 'Bob Geldof'
-    username = 'begeldof'
-    email = 'its.me@bobgeldof.com'
-    password = 'bob123'
-
-    visit('/users/new')
-    fill_in('name', with: name)
-    fill_in('username', with: username)
-    fill_in('email', with: email)
-    fill_in('password', with: password)
-    click_button('Submit')
+    signup_helper
 
     visit('/peeps/new')
     msg_1 = 'msg_1'
