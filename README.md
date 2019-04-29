@@ -266,22 +266,3 @@ Bcrypt
 ### Testing coverage
 - no needed to test Active Record methods for models
 
-
------
-## Personal goals (and whether reached /10)
-- build a web app with a database- 10
-- learn how to use Sinatra with Active record- 10
-- learn how to test an app with database- 8
-- learn how to test and implement secure password- 7 (not sure about testing)
-- learn how to use Timecop in testing - 10 
-- learn how to model dataflow with a database app - 9
-- learn how to use rakefile - 8
-- learn how to use Travis - 8 
-
-
-## Improvement
-
-- link commit messages to user stories and how they were met
-- Error messages don't give a way back to let the user add correct data
-    - added some href so navigation is easier (instead of typing in url)
-    - need to find out why no flash is shown but a new page
