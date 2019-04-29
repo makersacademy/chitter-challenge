@@ -1,5 +1,8 @@
 rvm: '2.5.0'
 
+services:
+  - postgresql
+
 script:
   - mkdir -p spec && bundle exec rspec spec
 
@@ -8,4 +11,6 @@ before_install:
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
+- psql -d peeps_test -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(60));' -U postgres
+
+  # - psql -c 'create database chitter_test;' -U postgres
