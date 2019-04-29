@@ -146,7 +146,7 @@ To set up the appropriate tables, connect to each database in `psql` and run the
 
 
 ### Approach
-I following similiar guidelines to a previous challenge Bookmark_Manager, by extracting the objects and methods from the user stories. This enabled me to move forward using a TDD approach, adding feature tests to picture the behaviour of the program. Following the Red-Green-Refactor cycle I have been able to move from User Stories to an end product which is a partially functioning, simple, web app.
+I followed similar guidelines to a previous challenge Bookmark_Manager, by extracting the objects and methods from the user stories. This enabled me to move forward using a TDD approach, adding feature tests to picture the behaviour of the program. Following the Red-Green-Refactor cycle I have been able to move from User Stories to an end product which is a partially functioning, simple, web app.
 
 ### Progress/Status of Project
 The functionality of the web app fulfils the requirements of the first 2 user stories with all tests passing at 100% coverage. The 3rd user story was almost there but I could not get the time aspect to function correctly (created_at). I was unable to finish styling each of the views due to lack of time, and will aim to work on some of the styling when I have completed the coding.
