@@ -1,5 +1,7 @@
 CREATE DATABASE chitter_peeps;
 
+\c chitter_peeps;
+
 CREATE TABLE peeps (
     id SERIAL,
     text VARCHAR(280)
