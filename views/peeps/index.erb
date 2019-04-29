@@ -1,3 +1,4 @@
+<h1>Chitter</h1>
 <% if @user != nil %>
 <%= @user.name %> (<%= @user.username %>)<br>
 <% end %>
@@ -7,11 +8,11 @@
     <th>Time</th>
     <th>Name (Username)</th>
   </tr>
-<% @peeps.each do |peep| %>
-  <tr>
-    <td><%= peep.message %></td>
-    <td><%= peep.time %></td>
-    <td><%= peep.user_id %></td>
+<% @peeps.reverse.each_with_index do |peep, index| %>
+  <tr peep="<%= index %>">
+    <td class="message"><%= peep.message %></td>
+    <td class="time"><%= peep.time %></td>
+    <td class="user_id"><%= peep.user_id %></td>
   </tr>
 <% end %>
 </table>
