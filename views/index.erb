@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <div>
+      <h1>CHITTER</h1>
+    </div>
+    <div>
+      <h2>Peep these peeps!</h2>
+    </div>
+    <div>
+      <ul>
+      <% @peeps.each do |peep| %>
+      <li><%= peep %></li>
+
+      <% end %>
+      </ul>
+    </div>
+    <div>
+      <form action="/compose_peep">
+        <input type="submit" value="Write a Peep!">
+      </form>
+    </div>
+  </body>
+</html>
