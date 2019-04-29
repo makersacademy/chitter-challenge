@@ -1,0 +1,9 @@
+<h1>Chitter Posts</h1>
+<% if @user %>
+<h1>Welcome, <%= @user.email %></h1>
+<% end %>
+<% @peeps.each do |peep| %>
+  <ul id="peep" <a><%= peep.content %><br>
+  <%= peep.date %></a>
+  </ul>
+<% end %>
