@@ -17,7 +17,8 @@ get '/chitter/new' do
 end
 
 post '/chitter/new' do
-  Chitter.create(peep: params[:peep])
+  time = time = Time.new.strftime("%d/%m %H:%M")
+  Chitter.create(peep: params[:peep], time:  time)
   redirect '/chitter'
 end
 

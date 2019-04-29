@@ -1,5 +1,5 @@
 <ul>
   <% @chitter.each do |peep| %>
-    <li><%= peep + '   ' + Time.now.to_s %></li>
+    <li> <%= peep.peep %> <%= peep.time %></li>
   <% end %>
 </ul>
