@@ -1,0 +1,15 @@
+<h1>CHITTER</h1>
+<h3>welcome to chitter!</h3>
+
+<form action="/peep" method="post">
+  <input type="text" name="peep" placeholder="compose peep">
+  <input type="submit" name="POST" value="POST">
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <p><%= peep.time %> <%= peep.date %>
+    <br><%= peep.peep %>
+    </p>
+  <% end %>
+</ul>
