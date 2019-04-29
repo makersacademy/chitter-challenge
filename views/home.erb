@@ -14,10 +14,8 @@
 </form></center>
 <ul>
   <% @peeps.each do |peep| %>
-  <li>
-    <%= peep.name %> says: <%= peep.post %>
-    Posted at <%= peep.time %>
-  </li>
+    <h4><%= peep.name %> says: <%= peep.post %></h4>
+    <h5>Posted at <%= peep.time %></h5>
   <% end %>
 </ul>
 <% end %>
