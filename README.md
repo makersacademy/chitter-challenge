@@ -4,7 +4,7 @@ A small Twitter clone that will allow the users to sign-up and post messages.
 
 ### Installing
 
-Clone this repository and then run. (If after changing into directory you see a prompt to `rvm` a particular version of ruby please follow)
+Clone this repository and then run (if after changing into directory you see a prompt to `rvm` a particular version of ruby please follow).
 
 ```
 gem install bundle
