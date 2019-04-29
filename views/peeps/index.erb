@@ -1,0 +1,10 @@
+<form method="post" action="/peeps">
+  <input type="text" name="peep" />
+  <input type="submit" value="Submit" />
+</form>
+
+<ul>
+  <% @peeps.reverse_each do |peep| %>
+    <li><%= peep %> <%= Time.now.strftime ("%H:%M:%S") %></li>
+  <% end %>
+</ul>

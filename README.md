@@ -131,3 +131,38 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+
+### To set up the database
+
+Connect to `psql` and create the `peeps` and `peeps_test` databases:
+
+```
+CREATE DATABASE peeps;
+```
+
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+
+### Approach
+I followed similar guidelines to a previous challenge Bookmark_Manager, by extracting the objects and methods from the user stories. This enabled me to move forward using a TDD approach, adding feature tests to picture the behaviour of the program. Following the Red-Green-Refactor cycle I have been able to move from User Stories to an end product which is a partially functioning, simple, web app.
+
+### Progress/Status of Project
+The functionality of the web app fulfils the requirements of the first 2 user stories with all tests passing at 100% coverage. The 3rd user story was almost there but I could not get the time aspect to function correctly (created_at). I was unable to finish styling each of the views due to lack of time, and will aim to work on some of the styling when I have completed the coding.
+
+### Technologies
+This project is built with Ruby, Sinatra, Cabybara, RSpec and Rubocop.
+
+### Code Quality/Problems
+I've used Rubocop to keep the code quality in-line with expected standards and no offenses are detected.
+
+### Improvements
+As stated above, the actual code needs to be completed correctly for story 3 and then written for story 4. In addition, I would have liked to spend more time on the styling diving deeper into CSS, this is something that I will attempt to build on during my free time.
+
+### Using this Code
+Clone this repo to your local machine. Run bundle install to install necessary gems. Enter the following into the terminal to run:
+
+ruby app.rb
+
+The db/migrations folder contains the database set up files.
