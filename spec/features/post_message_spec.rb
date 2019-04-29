@@ -19,8 +19,8 @@ feature 'post message' do
     click_button('Submit')
     expect(current_path).to eq '/peeps'
 
-    tr = page.find('tr[peep="0"]')
-    expect(tr).to have_css('td.message', text: msg)
+    table = page.find('table[class="peeps"]')
+    expect(table).to have_content(msg)
   end
 
   scenario 'messages have name and user handle' do
