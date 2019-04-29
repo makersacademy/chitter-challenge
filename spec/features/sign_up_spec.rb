@@ -11,6 +11,7 @@ feature 'sign-up' do
     fill_in('email', with: email)
     fill_in('password', with: password)
     click_button('Submit')
+    expect(current_path).to eq '/peeps'
 
     expect(page).to have_content(name)
     expect(page).to have_content(username)

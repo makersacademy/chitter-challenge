@@ -1,18 +1,19 @@
 <h1>Chitter</h1>
 <% if @user != nil %>
-<%= @user.name %> (<%= @user.username %>)<br>
+Signed in as <%= @user.name %> (<%= @user.username %>)<br>
 <% end %>
-<table style="text-align:left">
+<table class="peeps" style="text-align:left">
   <tr>
     <th>Peep</th>
     <th>Time</th>
     <th>Name (Username)</th>
   </tr>
 <% @peeps.reverse.each_with_index do |peep, index| %>
+  <% @peep_user = User.find(peep.user_id) %>
   <tr peep="<%= index %>">
     <td class="message"><%= peep.message %></td>
     <td class="time"><%= peep.time %></td>
-    <td class="user_id"><%= peep.user_id %></td>
+    <td class="name"><%= @peep_user.name %> (<%= @peep_user.username %>)</td>
   </tr>
 <% end %>
 </table>
