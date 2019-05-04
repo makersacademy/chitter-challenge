@@ -30,7 +30,6 @@ class Chitter < Sinatra::Base
   end 
 
   get '/users/new' do 
-    # sign up page
     erb(:'users/new')
   end 
 
@@ -41,8 +40,6 @@ class Chitter < Sinatra::Base
 
   post '/messages/new' do 
     @message = Message.create(content: params[:content], user_id: session[:user_id])
-    # @user = User.find(@message.user_id)
-    # p @user
     redirect '/messages'
   end 
 
@@ -50,7 +47,6 @@ class Chitter < Sinatra::Base
     # username is another word for handle
     @user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     if @user.save
-    # signs in user too
       session[:user_id] = @user.id
       redirect "/users/#{@user.id}"
     else 

@@ -43,8 +43,6 @@ I want to sign up for Chitter
 Technical Approach:
 -----
 
-An [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface was used.
-
 **ActiveRecord**
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
 - [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
