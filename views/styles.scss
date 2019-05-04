@@ -1,0 +1,186 @@
+$background-color:#E6ECF0;
+$font-left-colour:#2E2E2E;
+$monserrat: 'Montserrat', sans-serif;
+$open_sans: 'Open Sans', sans-serif;
+$roboto: 'Roboto', sans-serif;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color:$background-color;
+}
+
+#main{
+  display:flex;
+  #left{
+  background-color:#1CA1F2;
+  width: 50%;
+  height: 95vh;
+  }
+  #right{
+  background-color: #FFFFFF;
+  width: 50%;
+  height: 95vh;
+  border-bottom:1px solid #E6ECF0;
+  .form-container{
+   padding: 35px;
+   form{
+    padding: 5px;
+    input::placeholder{
+      font-family:$roboto;
+     }
+    }
+   }
+   .regslink{
+     padding: 10px;
+     width: 80%;
+     margin-left: 30px;
+   }
+  }
+}
+
+footer{
+  ul{
+  padding-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: #2E2E2E;
+    li{
+    list-style-type: none;
+    font-family: $roboto;
+    font-size: 12px;
+    padding: 5px;
+    }
+  }
+}
+
+/* style for new peep route */
+
+.container-wrapper{
+  padding: 10px;
+  #form-container{
+  margin: 0 auto;
+  }
+  form{
+  #peep::placeholder {
+   font-family: $roboto;
+   font-size: 14px;
+   }
+  #submit{
+   font-family:$roboto;
+   }
+  }
+}
+
+/*Style for peeps */
+.peeps-container{
+  .peep-col{
+    margin: 0 auto
+  }
+  ul{
+    background-color: #F5F8FA;
+    padding: 10px;
+    border-radius: 2px;
+    #each_peep{
+      list-style-type: none;
+      font-family: $open_sans;
+      padding-bottom: 20px;
+    }
+    span{
+      font-family: $open_sans;
+      font-size: 12px;
+    }
+  }
+}
+
+/* User new */
+.user-registration{
+  form{
+    padding: 100px;
+    .legend{
+      padding-bottom: 10px;
+      h1{
+        font-family: $roboto;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+    div{
+      margin: 0 auto;
+      input::placeholder{
+        font-family: $roboto;
+        font-size: 14px;
+      }
+      span{
+        font-size: 12px;
+        font-family: $roboto;
+      }
+    }
+  }
+}
+
+
+/* Not found page*/
+#special{
+  background-color:#1CA1F2;
+}
+nav{
+  width:100%;
+  background-color: #FFFFFF;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  #icon-container{
+    line-height: 50px;
+  }
+  ul{
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    width: 90%;
+    li{
+      list-style-type: none;
+      align-self: center;
+      a{
+        font-family: $roboto;
+        font-size: 14px;
+      }
+    }
+  }
+}
+.erro-mgs-container{
+  text-align: center;
+  padding: 40px;
+  h1{
+    font-family: $monserrat;
+    color: #FFFFFF;
+    font-size: 30px;
+  }
+}
+
+/*Media query front page*/
+@media only screen and (max-width: 790px){
+  #main{
+      flex-direction: column;
+    #left{
+      background-color: gold;
+      width: 100%;
+      height: 50vh;
+    }
+    #right{
+      width: 100%;
+      height: 40vh;
+    }
+  }
+
+  footer{
+    ul{
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 10px;
+    }
+  }
+}

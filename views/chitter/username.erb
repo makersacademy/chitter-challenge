@@ -1,0 +1,14 @@
+
+<div class='container peeps-container'>
+  <div class='col-8 peep-col'>
+    <%@peeps.reverse.each do |each_peep|%>
+     <div class='users-peeps'>
+        <ul>
+          <li id='each_peep'><%=each_peep['peep']%></li>
+          <hr>
+          <span class='text-muted'><%=each_peep['created_at']%></span>
+        </ul>
+      </div>
+   <%end%>
+  </div>
+</div>
