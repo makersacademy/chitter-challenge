@@ -1,7 +1,6 @@
 rvm: '2.5.1'
 
 before_script:
-  - sudo -u postgres createuser alexanderchen
   - psql -c 'create database chitter_development;' -U postgres
   - psql -c 'create database chitter_development2;' -U postgres
 
