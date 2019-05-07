@@ -45,4 +45,13 @@ describe User do
       expect(result.email).to eq email
     end
   end
+
+  describe '.authenticate' do
+    it 'returns a user if email and password match an existing' do
+      user = User.create(name: name, username: username, email: email, password: password)
+      result = User.authenticate(email: email, password: password)
+
+      expect(result.id).to eq user.id
+    end
+  end
 end

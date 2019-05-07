@@ -30,6 +30,20 @@ class User
     )
   end
 
+  def self.authenticate(email:, password:)
+    sql = "SELECT * FROM users WHERE email = '#{email}'"
+    result = DatabaseConnection.execute(sql).first
+    password_hash = BCrypt::Password.new(result['password'])
+    return false unless password_hash == password
+
+    User.new(
+      id: result['id'].to_i,
+      name: result['name'],
+      username: result['username'],
+      email: result['email']
+    )
+  end
+
   attr_reader :id, :name, :username, :email
 
   def initialize(id:, name:, username:, email:)

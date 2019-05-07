@@ -8,7 +8,7 @@ class ChitterManager < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'Hello World'
+    redirect '/users/new'
   end
 
   get '/peeps' do
@@ -42,6 +42,21 @@ class ChitterManager < Sinatra::Base
       password: params[:password]
     )
     session[:id] = @user.id
+    redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    # sql = "SELECT * FROM users WHERE email = '#{params[:email]}';"
+    # result = DatabaseConnection.execute(sql).first
+    user = User.authenticate(
+      email: params[:email], 
+      password: params[:password]
+    )
+    session[:id] = user.id
     redirect '/peeps'
   end
 
