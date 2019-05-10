@@ -46,18 +46,26 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/sessions/new' do
+    if session[:id] == false
+      @msg = 'Please check email or password'
+    else
+      @msg = ''
+    end
     erb :'sessions/new'
   end
 
   post '/sessions' do
-    # sql = "SELECT * FROM users WHERE email = '#{params[:email]}';"
-    # result = DatabaseConnection.execute(sql).first
     user = User.authenticate(
-      email: params[:email], 
-      password: params[:password]
-    )
-    session[:id] = user.id
-    redirect '/peeps'
+        email: params[:email],
+        password: params[:password]
+      )
+    if !!user
+      session[:id] = user.id
+      redirect '/peeps'
+    else
+      session[:id] = false
+      redirect '/sessions/new'
+    end
   end
 
   run! if app_file == $0

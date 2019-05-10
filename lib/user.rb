@@ -32,7 +32,9 @@ class User
 
   def self.authenticate(email:, password:)
     sql = "SELECT * FROM users WHERE email = '#{email}'"
-    result = DatabaseConnection.execute(sql).first
+    result = DatabaseConnection.execute(sql)
+    return false if result.ntuples == 0
+    result = result.first
     password_hash = BCrypt::Password.new(result['password'])
     return false unless password_hash == password
 
