@@ -1,5 +1,5 @@
 # Chitter Challenge
-=================
+-------
 
 This is the Makers Academy Week 4 weekend challenge, which gave me the opportunity to practice building web apps using databases. The challenge was to build a small Twitter clone that will allow users to post messages to a public stream.
 
