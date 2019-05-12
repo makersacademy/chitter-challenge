@@ -7,9 +7,7 @@ describe 'Peep' do
 
       peep = Peep.create(text: "Peep1")
       Peep.create(text: "Peep2")
-      # connection.exec("INSERT INTO peeps (text) VALUES ('Peep1');")
-      # connection.exec("INSERT INTO peeps (text) VALUES ('Peep2');")
-
+  
       peeps = Peep.all
 
       expect(peeps.first).to be_a Peep
