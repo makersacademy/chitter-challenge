@@ -13,6 +13,7 @@ feature 'authentication' do
     fill_in('email', with: email)
     fill_in('password', with: password)
     click_button('Submit')
+
     expect(current_path).to eq '/peeps'
 
     visit '/sessions/new'
@@ -49,6 +50,7 @@ feature 'authentication' do
     fill_in('email', with: email)
     fill_in('password', with: password)
     click_button('Submit')
+
     expect(current_path).to eq '/peeps'
 
     bad_password = 'bob124'
@@ -59,5 +61,27 @@ feature 'authentication' do
     click_button('Login')
     expect(current_path).to eq '/sessions/new'
     expect(page).to have_content('Please check email or password')
+  end
+
+  scenario 'user can sign out after signing in' do
+    name = 'Bob Geldof'
+    username = 'begeldof'
+    email = 'its.me@bobgeldof.com'
+    password = 'bob123'
+
+    visit('/users/new')
+    fill_in('name', with: name)
+    fill_in('username', with: username)
+    fill_in('email', with: email)
+    fill_in('password', with: password)
+    click_button('Submit')
+
+    expect(current_path).to eq '/peeps'
+
+    click_button('Logout')
+    expect(current_path).to eq '/peeps'
+    expect(page).not_to have_content(name)
+    expect(page).not_to have_content(username)
+    expect(page).to have_content('Login')
   end
 end
