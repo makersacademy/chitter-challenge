@@ -1,0 +1,25 @@
+<h1>Chitter</h1>
+<% if !@user.nil? %>
+Signed in as <%= @user.name %> (<%= @user.username %>)<br>
+<a href="/peeps/new" style="background-color:#f44336;color:white;padding:15px 25px;text-align:center;text-decoration:none;display:inline-block">New Peep</a>
+<form class="logout" action="/sessions/destroy" method="post">
+  <input type="submit" name="logout" value="Logout">
+</form>
+<% else %>
+<a href="/sessions/new">Login</a>
+<% end %>
+<table class="peeps" style="text-align:left">
+  <tr>
+    <th>Peep</th>
+    <th>Time</th>
+    <th>Name (Username)</th>
+  </tr>
+<% @peeps.reverse.each_with_index do |peep, index| %>
+  <% @peep_user = User.find(peep.user_id) %>
+  <tr peep="<%= index %>">
+    <td class="message"><%= peep.message %></td>
+    <td class="time"><%= peep.time %></td>
+    <td class="name"><%= @peep_user.name %> (<%= @peep_user.username %>)</td>
+  </tr>
+<% end %>
+</table>
