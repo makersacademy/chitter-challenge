@@ -1,4 +1,4 @@
-class Message
+œclass Message
   attr_reader :text, :id, :date, :user_id, :username
   def initialize(id:, text:, date:, user_id:)
     @id = id
