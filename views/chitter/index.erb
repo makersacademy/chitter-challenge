@@ -1,0 +1,38 @@
+<br/>
+<h1>Welcome to Chitter!</h1>
+
+<% if @user %>
+You are logged in as <%= @user.username %>
+<form action="/chitter/sessions/destroy" method="get">
+  <br/>
+  <input type="submit" value="Log Out">
+</form>
+<% else %>
+You are not currently logged in
+<form action="/chitter/sessions/new" method="get">
+  <br/>
+  <input type="submit" value="Log In">
+</form>
+<% end %>
+
+<form action="/chitter/create" method="post">
+  <h2>Enter your peep here:</h2>
+  <input type="text" name="text"><br/>
+  <br/>
+  <input type="submit" value="Post Peep!">
+</form>
+
+<div>
+<% @messages.each do |message| %>
+<div class=message>
+      <br/>
+      <%=DateTime.parse(message.date).strftime("%A %d/%m/%Y %R")%> PEEP: <%=message.text%>
+      Posted by <% if @user %> <%= message.user_id %> <% else %> unknown <%end %>
+</div>
+<% end %>
+</div>
+
+<form action="/chitter/sign_up" method="get">
+  <br/>
+  <input type="submit" value="Sign Up to Chitter">
+</form>

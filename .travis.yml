@@ -1,4 +1,6 @@
 rvm: '2.5.0'
+services:
+  - postgresql
 
 script:
   - mkdir -p spec && bundle exec rspec spec
@@ -9,3 +11,5 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  - psql -chitter_test -U postgres -c 'CREATE TABLE messages (id SERIAL PRIMARY KEY, text VARCHAR(200), date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, user_id INTEGER NOT NULL);'
+  - psql -chitter_test -U postgres -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(200) UNIQUE, password VARCHAR(200), first_name VARCHAR(100), surname VARCHAR(100), username VARCHAR(100) UNIQUE);'

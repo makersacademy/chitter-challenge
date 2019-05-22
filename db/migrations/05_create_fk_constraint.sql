@@ -1,0 +1,1 @@
+ALTER TABLE messages ADD CONSTRAINT FOREIGN KEY (user_id) REFERENCES users (id);

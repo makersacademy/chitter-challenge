@@ -1,3 +1,64 @@
+# The Challenge
+
+This week's challenge was to create an app similar to twitter, called Chitter.
+
+My project allows:
+- Anyone to see all peeps, in reverse chronological order and with the date/time the peep was made
+- A user to sign-up to chitter to get an account
+- A user to login and logout of their account
+- The assigning of the current logged-in user to a peep where someone is logged in
+- The restriction of only allowing sign-up if a username/email has not been previously used
+
+My project does not yet (but would like to):
+- Allow users to view who peeps were made by
+- Allow any kind of tagging of others in a peep
+- Implement the sending of an email when someone is tagged in a peep
+- Do any error checking for valid email addresses on user sign-up
+- Do any error handling if peeps include special characters (e.g. a `'` in a peep may break the database insert)
+
+## Some Key Notes
+- I attempted to display the user who created a peep so there is some code commented out where I started this but did not finish it
+- When I run rubocop it complains that lines are too long but I don't know how to make this better given the long queries that have to be created
+- The test coverage is 98.79%. The live database is not tested during running rspec. I also created an implementation of saving the user_id against the message but I do not have a fully working feature test for it being displayed
+
+## Technologies used
+
+- Capybara and rspec for testing
+- Sinatra for the webapp
+- PostgreSQL for the database and `PG` gem to connect to it
+- BCrypt for encrypting passwords
+
+## Installing the project
+
+- `git clone git@github.com:samanthaixer/chitter-challenge.git`
+- `bundle install`
+
+## Database setup
+
+- `CREATE DATABASE chitter;`
+- `CREATE DATABASE chitter_test;`
+
+In both databases:
+- run `01_create_message_table.sql`
+- run `02_create_user_table.sql`
+
+## Testing the code
+
+- Run `rspec` in the root folder
+- Run `rackup -p 4567` and visit `http://localhost:4567/chitter` to get started
+
+## Work still to do
+
+Given more time I would like to:
+
+- build in functionality to display the user for each peep
+- make the user interface nicer (images?)
+- use an ORM Adapter
+- fix any rubocop errors related to line length
+- look at rake?
+- check my feature tests to see if they are well written and have good coverage
+
+
 Chitter Challenge
 =================
 

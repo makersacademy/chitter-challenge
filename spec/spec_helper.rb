@@ -8,7 +8,23 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+ENV['RACK_ENV'] = 'test'
+
+require 'capybara'
+require 'rspec'
+require 'capybara/rspec'
+
+require './app.rb'
+require File.join(File.dirname(__FILE__), 'features', 'web_helpers.rb')
+require_relative './setup_test_database.rb'
+
+Capybara.app = Chitter
+
 RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

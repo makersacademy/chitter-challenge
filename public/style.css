@@ -1,0 +1,61 @@
+body {
+  font-family: tahoma;
+  width: 75%;
+  margin: auto;
+  background-color: lightgrey;
+  text-align: center;
+  vertical-align: middle;
+}
+h1 {
+  color: darkblue;
+  text-align: center;
+}
+h2 {
+  color: cornflowerblue;
+  text-align: center;
+}
+p {
+  color: red;
+}
+input[type=text] {
+  border-radius: 25px;
+  text-align: left;
+  background-color: #ffeecc;
+  font-size: 15px;
+}
+input[type=submit] {
+  border-radius: 25px;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  color: darkblue;
+  background-color: #ffffe6;
+}
+input[type=select]{
+  font-size: 30px;
+}
+
+input[type=password]{
+  border-radius: 25px;
+  text-align: left;
+  background-color: #ffeecc;
+  font-size: 15px;
+}
+
+#details{
+  color: silver;
+  text-align: center;
+}
+#peep{
+  colour: cornflowerblue;
+  text-align: center;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
