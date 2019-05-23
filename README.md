@@ -70,11 +70,11 @@ This project covered a lot of the same ground as the previous one ([rps-challeng
 
 ### TDD - refactoring
 
-With the RPS challenge I created problems for myself by neglecting the 'refactor' stage of the RED->GREEN->REFACTOR cycle. This meant that by the time I did come to refactor, the complexity of my program was such that [extracting a class was more difficult than it needed to be](https://github.com/Hives/chitter-challenge/commit/865a76ef4776e509491047cbfbe0cf560f3161a9). With this project I prioritised refactoring earlier, such as [this early commit](https://github.com/Hives/chitter-challenge/commit/865a76ef4776e509491047cbfbe0cf560f3161a9) where I extracted my `Peep` class, with the result that refactoring steps were smaller and I felt more in control as I progressed to the later stages.
+With the [previous weekend challenge](https://github.com/Hives/rps-challenge/) I created problems for myself by neglecting the 'refactor' stage of the RED->GREEN->REFACTOR cycle. This meant that by the time I did come to refactor, the complexity of my program was such that extracting a class was more difficult than it needed to be. With this project I prioritised refactoring as I went along, such as [this early commit](https://github.com/Hives/chitter-challenge/commit/865a76ef4776e509491047cbfbe0cf560f3161a9) where I extracted my `Peep` class, with the result that refactoring steps were smaller and I felt more in control as I progressed to the later stages.
 
 ### Database
 
-The database was the new feature of this challenge. I implemented the database functionality successfully, including configuring Travis and deploying to Heroku, but it felt like I was repeating work I had already done, configuring the local, test, Travis and Heroku databases. Next time I work on something like this I'd like to try and find a better way to manage that, like a single script to provision the database that could be use in each case.
+The database was the new feature of this challenge. I implemented the database functionality successfully, including configuring Travis and deploying to Heroku, but it felt like I was repeating work I had already done, manually configuring the local, test, Travis and Heroku databases. Next time I work on something like this I'd like to try and find a better way to manage that, like a single script to provision the database that could be use in each case.
 
 ### Restful routes
 
