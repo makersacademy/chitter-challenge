@@ -1,0 +1,31 @@
+<% if @user %>
+  <div id="welcome" class="floating-box message">
+    Hello, <%= @user.username %>!
+  </div>
+  <form id="new-peep" class="floating-box clearfix" action="/peep" method="post">
+    <div class="form-group">
+      <small class="form-text text-muted">Peep your guts out!</small>
+      <textarea type="text" class="form-control" name="peep_content" value="" placeholder="What's up?"></textarea>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Peep it">
+  </form>
+<% else %>
+  <div class="floating-box message">
+    <a href="/users/new">Sign up</a> or <a href="/sessions/new">log in</a> to start peeping!
+  </div>
+<% end %>
+
+<% @peeps.each do |peep| %>
+  <div class="peep floating-box">
+    <blockquote class="blockquote peep_content">
+      <%= peep.content %>
+      <footer class="datestamp blockquote-footer">
+        <%= peep.user.name %> a.k.a.
+        &ldquo;<%= peep.user.username %>&rdquo;
+        <span class="date-time">
+          <%= peep.created_at.strftime('%-d %b, %H:%M%P') %>
+        </span>
+      </footer>
+    </blockquote>
+  </div>
+<% end %>

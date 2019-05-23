@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Chitter</title>
+  <meta name="description" content="So much better than Twitter">
+  <meta name="author" content="Hivemind">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Titan+One" rel="stylesheet">
+  <link href="/css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="content">
+    <header>
+      <h1 data-text="Chitter">Chitter</h1>
+    </header>
+    <menu>
+      <ul class="nav">
+        <li class="home nav-item">
+          <a class="nav-link" href="/">All my peeps</a>
+        </li>
+        <li class="sign-up nav-item">
+          <a class="nav-link" href="/users/new">Sign up</a>
+        </li>
+        <li class="log-in nav-item">
+          <a class="nav-link" href="/sessions/new">Log in</a>
+        </li>
+        <li class="log-out nav-item">
+          <form action="/sessions/delete" method="post">
+            <input type='hidden' name='_method' value='DELETE'/>
+            <input type="submit" class="nav-link btn btn-link" value="Log out" />
+          </form>
+        </li>
+      </ul>
+    </menu>
+    <main>
+      <%= yield %>
+    </main>
+  </div>
+  <footer class="site-footer">
+    &copy; Hivemind 2019
+  </footer>
+</body>
+</html>

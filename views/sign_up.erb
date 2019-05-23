@@ -1,0 +1,25 @@
+<% if flash[:user_already_exists] %>
+  <div class="floating-box error">
+    <%= flash[:user_already_exists] %>
+  </div>
+<% end %>
+<h2>Enter your details to create an account</h2>
+<form action="/users" class="floating-box clearfix" method="post">
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input class="form-control" type="text" name="username" value="">
+  </div>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input class="form-control" type="text" name="name" value="">
+  </div>
+  <div class="form-group">
+      <label for="email">Email address:</label>
+      <input class="form-control" type="text" name="email" value="">
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input class="form-control" type="password" name="password" value="">
+  </div>
+  <input class="btn btn-primary" type="submit" value="Create account">
+</form>

@@ -9,3 +9,6 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+
+env:
+  - PSQL_USER=postgres PSQL_PASSWORD=password TEST_DATABASE=chitter_test HOST=localhost
