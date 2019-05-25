@@ -8,14 +8,10 @@
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps (message) VALUES ('hello');")
-    connection.exec("INSERT INTO peeps (message) VALUES('world');")
+    Peep.create(message: "hello")
 
-    visit('/chitter')
-    click_button('submit')
-
+    visit('/peeps')
     expect(page).to have_content 'hello'
   end
 end
