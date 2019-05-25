@@ -17,6 +17,5 @@ feature 'Viewing peeps' do
     click_button('submit')
 
     expect(page).to have_content 'hello'
-    expect(page).to have_content 'world'
   end
 end
