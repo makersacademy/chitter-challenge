@@ -8,9 +8,11 @@
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    visit('/chitter/peeps')
 
-    expect(page).to have_content "hello"
-    expect(page).to have_content "world"
+    visit('/chitter')
+    fill_in('peep', with: 'hello')
+    click_button('submit')
+
+    expect(page).to have_content 'hello'
   end
 end

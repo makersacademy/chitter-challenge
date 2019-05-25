@@ -11,6 +11,10 @@ class Chitter < Sinatra::Base
     erb :chitter
   end
 
+  get '/chitter/peeps' do
+    erb :peeps
+  end
+
   post '/peeps' do
     p "Peep submitted"
     p params
