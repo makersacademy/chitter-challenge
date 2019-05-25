@@ -39,7 +39,7 @@ I want to see all peeps in reverse chronological order
 ```
 ## Domain model
 
-![domain_model](/images/dm_user_story_1.jpg)
+![domain_model](/images/dm_user_story_2.jpg)
 
 User Story 3:
 -------
