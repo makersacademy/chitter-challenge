@@ -1,5 +1,15 @@
 CHITTER
+
 <br>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
+
+<br>
+
 <form action='/peeps/new'>
   <input type='submit' value='New'>
 </form>

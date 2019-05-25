@@ -5,6 +5,6 @@ feature 'Sending a peep' do
     fill_in 'message', with: "Hello there"
     click_button "Send"
 
-    #TODO chech if peep is on the main page
+    expect(page).to have_content("Hello there")
   end
 end
