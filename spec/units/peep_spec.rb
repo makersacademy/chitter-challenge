@@ -1,6 +1,7 @@
 require 'peep'
 
 describe Peep do
+
   describe '.all' do
     it 'returns all peeps' do
       peeps = Peep.all
@@ -9,4 +10,5 @@ describe Peep do
       expect(peeps).to include("world")
     end
   end
-end 
+
+end
