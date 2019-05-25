@@ -6,5 +6,15 @@ class Chitter < Sinatra::Base
     'Welcome to Chitter'
   end
 
+  get '/chitter' do
+    erb :chitter
+  end
+
+  post '/chitter' do
+    p "Peep submitted"
+    p params
+    #erb :chitter
+  end
+
   run! if app_file == $0
-end 
+end
