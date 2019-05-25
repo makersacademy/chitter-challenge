@@ -4,7 +4,6 @@ require './lib/peep'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Welcome to Chitter'
     redirect '/chitter'
   end
 
@@ -12,16 +11,17 @@ class Chitter < Sinatra::Base
     erb :chitter
   end
 
-  post '/chitter' do
+  post '/peeps' do
     p "Peep submitted"
     p params
-    erb :chitter
+      @peeps = Peep.all
+    erb :peeps
   end
 
-  get '/chitter/peeps' do
-    @peeps = Peep.all
-    erb :index
-  end
+  # post '/peeps' do
+  #   @peeps = Peep.all
+  #   erb :peeps
+  # end
 
   run! if app_file == $0
 end
