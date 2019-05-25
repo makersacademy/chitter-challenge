@@ -1,7 +1,18 @@
 Chitter Challenge
 =================
 
-Write a small Twitter clone that will allow the users to post messages to a public stream.
+Week 4 Makers Weekend Challenge to write a small Twitter clone that will allow the users to post messages to a public stream.
+
+### To set up the database
+
+Connect to `psql` and create the `bookmark_manager` database:
+
+```
+CREATE DATABASE bookmark_manager;
+```
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
 
 Features:
 -------
