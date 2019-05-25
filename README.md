@@ -16,7 +16,8 @@ I want to post a message (peep) to chitter
 ```
 
 ## Domain model
-![domain_model](./images/domain_model.jpg)
+
+![domain_model](/images/domain_model.jpg)
 
 ```
 
