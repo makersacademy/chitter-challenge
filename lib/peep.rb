@@ -3,7 +3,8 @@ require 'pg'
 class Peep
   attr_reader :text, :time
 
-  def initialize(text:, time:)
+  def initialize(id:, text:, time:)
+    @id = id
     @text = text
     @time = time
   end
@@ -16,10 +17,10 @@ class Peep
     end
 
     query = "INSERT INTO peeps (text) VALUES('#{text}')
-             RETURNING text, to_char(time, 'HH24:MI - DD Mon YYYY') AS time;"
+             RETURNING id, text, to_char(time,'HH24:MI - DD Mon YYYY') AS time;"
 
-    peep = connection.exec(query)
-    Peep.new(text: peep[0]['text'], time: peep[0]['time'])
+    peep = connection.exec(query).first
+    Peep.new(id: peep['id'], text: peep['text'], time: peep['time'])
   end
 
   def self.all
@@ -29,11 +30,13 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    query = "SELECT text, to_char(time, 'HH24:MI - DD Mon YYYY') AS time
-             FROM peeps
-             ORDER BY id DESC;"
-             
-    result = connection.exec(query)
-    result.map { |peep| Peep.new(text: peep['text'], time: peep['time']) }
+    result = connection.exec("SELECT text, to_char(time, 'HH24:MI - DD Mon YYYY')
+                              AS time
+                              FROM peeps
+                              ORDER BY id DESC;")
+
+    result.map do |peep|
+      Peep.new(id: peep['id'], text: peep['text'], time: peep['time'])
+    end
   end
 end
