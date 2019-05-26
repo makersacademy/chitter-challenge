@@ -1,6 +1,16 @@
-<h1> Sinatra Flash </h1>
+<% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+<% end %>
+
+
+
+
+<!-- <h1> Sinatra Flash </h1>
 
   <form action="/time" method="POST">
   <input type="submit" value="What Time Is It?" title="What time is it?"</>
   </form>
-  The time is #{flash[:time]} 
+
+  The time is #{flash[:time]}
+
+   -->
