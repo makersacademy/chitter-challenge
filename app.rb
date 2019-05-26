@@ -1,7 +1,21 @@
 require 'sinatra/base'
 require './lib/peep'
+require 'sinatra/flash'
+require './spec/database_helpers'
+require_relative './database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  register Sinatra::Flash
+
+  # get '/' do
+  #   erb :index
+  # end
+  #
+  # post '/time' do
+  #   flash[:time] = Time.now.strftime("%I:%M:%S")
+  #   redirect '/'
+  # end
 
   get '/chitter' do
     erb :chitter

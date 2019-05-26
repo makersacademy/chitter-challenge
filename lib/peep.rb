@@ -1,26 +1,26 @@
 require 'pg'
+require 'sinatra/flash'
+require_relative 'database_connection'
 
 class Peep
 
-  def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+  attr_reader :id, :message
 
-    peeps = connection.exec("SELECT * FROM peeps;")
-    peeps.map { |peep| peep['message'] }
+  def initialize(id:, message:)
+    @id  = id
+    @message = message
+  end
+
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result.map do |peep|
+      Peep.new(id: peep['id'], message: peep['message'])
+    end
   end
 
   def self.create(message:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
-    connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
+    result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{message}') RETURNING id, message;")
+    Peep.new(id: result[0]['id'], message: result[0]['message'])
   end
 
 end

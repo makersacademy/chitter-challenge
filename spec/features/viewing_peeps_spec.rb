@@ -9,7 +9,7 @@
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
 
-    Peep.create(message: "hello")
+    Peep.create(message: 'hello')
 
     visit('/peeps')
     expect(page).to have_content 'hello'
