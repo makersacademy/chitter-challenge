@@ -1,3 +1,9 @@
+body {
+  background-image: url('https://png2.kisspng.com/sh/bb1ad61a87af7b6e62ed85b7e6798d74/L0KzQYm3U8E4N6RsfZH0aYP2gLBuTfZzbZYyett7ZD3pgrbsTfNwdqVqhuY2Y3zsgH7okwQubqNqfZ98dneweb7ohBV0NWZmedY7M0O3RYG6g8gyNmg9SasCMUe3QYa5UcI6PmI9SKU7OEexgLBu/kisspng-free-bird-free-content-clip-art-free-svg-images-5aad2334503c81.7819717415212961803287.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+
 .center {
   text-align: center;
 }
@@ -5,25 +11,49 @@
 input[type=text] {
   width: 300px;
   margin: 50px auto;
-  background: #fff;
-  border: 4px solid #00bfb6;
-  padding: 20px;
-  text-align: center;
-  font-weight: 900;
-  color: #00bfb6;
-  font-family: arial;
-  position:relative;
+  background: transparent;
+  border: solid 2px #00bfb6;
+  text-decoration: none;
+  padding: 14px 21px;
+  font-size: 13px;
+  line-height: 25px;
+  font-family: 'Montserrat', sans-serif; font-weight:400;
+  letter-spacing: 3px;
 }
 
 input[type=submit] {
-  background: #0066A2;
-  color: white;
-  border-style: outset;
-  border-color: #0066A2;
-  height: 50px;
-  width: 100px;
-  font: bold 15px arial, sans-serif;
-  text-shadow:none;
+  border:solid 2px #1f1f1f;
+  background: transparent;
+  color: #1f1f1f;
+
+  cursor: pointer;
+  border-radius: 0px;
+  text-decoration: none;
+  padding: 12px 18px;
+  font-size: 12px;
+  line-height: 19px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif; font-weight:400;
+  letter-spacing: 3px;
+  -webkit-transition: all .4s ease-in-out;
+      -moz-transition: all .4s ease-in-out;
+      -ms-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+
+  border-radius: 0px;
+  text-decoration: none;
+  padding: 14px 21px;
+  font-size: 13px;
+  line-height: 25px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif; font-weight:400;
+  letter-spacing: 3px;
+  -webkit-transition: all .4s ease-in-out;
+      -moz-transition: all .4s ease-in-out;
+      -ms-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
   }
 
 .box {
@@ -35,8 +65,17 @@ input[type=submit] {
   text-align: center;
   font-weight: 900;
   color: #00bfb6;
-  font-family: arial;
+  font-family: 'Montserrat', sans-serif; font-weight:400;
   position:relative;
+}
+
+.timestamp {
+  font-size: 11px;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  text-transform: uppercase;
+  color: #999;
 }
 
 .sb1:before {
@@ -52,13 +91,11 @@ input[type=submit] {
   top: 6px;
 }
 
-h1 {
-	margin: 1em 0 0.5em 0;
-	color: #343434;
-	font-weight: normal;
-	font-family: 'Ultra', sans-serif;   
-	font-size: 36px;
-	line-height: 42px;
-	text-transform: uppercase;
-	text-shadow: 0 2px white, 0 3px #777;
+h1 { 
+  color: #111;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 275px; font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
 }

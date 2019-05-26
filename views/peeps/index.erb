@@ -3,8 +3,7 @@
 	<script type="text/javascript" src="scripts.js">
 	</script>
   <link rel="stylesheet" type="text/css" href="/style.css">
-
-  <h1 class="center">Chitter</h1>
+  <h1 class="center">Chitter.</h1>  
 </head>
 <body>
   <hr>
@@ -14,7 +13,11 @@
   </form>
   <hr>
   <% @peeps.each do |peep| %>
-    <div class="box sb1"><%= peep.peep %></div>
+    <div class="box sb1">
+    
+      <p><%= peep.peep %></p>
+      <span class="timestamp"><%= peep.timestamp %></span>
+    </div>
   <% end %>
 </body>
 </html>

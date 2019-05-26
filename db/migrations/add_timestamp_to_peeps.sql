@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD COLUMN timestamp VARCHAR(20);
