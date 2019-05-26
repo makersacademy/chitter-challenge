@@ -1,0 +1,17 @@
+<html>
+<head>
+  <h1 class="center">Chitter</h1>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <% @peeps.each do |peep| %>
+    <div class="box sb1"><%= peep.peep %></div>
+  <% end %>
+  <form class="center" action="/new" method="post">
+    <input class="box" type="text" name="peep" placeholder="Type your new peep here">
+    <br>
+    <br>
+    <input class="form-submit-button" type="submit" value="Post">
+  </form>
+</body>
+</html>
