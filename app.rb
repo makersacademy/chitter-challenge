@@ -6,12 +6,12 @@ class Chitter < Sinatra::Base
   # enable :method_override, :sessions
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :creation_time.desc ])
     erb :index
   end
 
   post '/peep' do
-    Peep.create(content: params[:peep])
+    Peep.create(content: params[:peep], creation_time: Time.now )
     redirect '/'
   end
 
