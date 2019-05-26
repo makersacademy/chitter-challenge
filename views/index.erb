@@ -14,9 +14,10 @@
     <h1>Peep wall</h1>
     <% @peeps.each do |peep| %>
       <div>
-        <blockquote style='border: 1px solid black,' bgcolor="white">
+        <blockquote>
         <%= peep.content %>
           </blockquote>
+        <%= peep.creation_time.strftime "%a %b %d, %H:%M" %>
         <% end %>
       </div>
   </body>
