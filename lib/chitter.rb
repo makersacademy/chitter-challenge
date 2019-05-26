@@ -2,11 +2,12 @@ require 'pg'
 
 class Chitter
 
-  attr_reader :id, :peep
+  attr_reader :id, :peep, :date_time
 
-  def initialize(id:, peep:) 
+  def initialize(id:, peep:, date_time:) 
     @id = id
     @peep = peep
+    @date_time = date_time
   end
 
   def self.all
@@ -15,10 +16,9 @@ class Chitter
     else 
       con = PG.connect :dbname => 'chitter'
     end
-    # con.exec "SELECT * FROM chitter;"
     chitter_feed = con.exec "SELECT * FROM chitter ORDER BY id DESC;"
     chitter_feed.map do |feed| 
-      Chitter.new(id: feed['id'], peep: feed['peep'])
+      Chitter.new(id: feed['id'], peep: feed['peep'], date_time: feed['date_time'])
     end
   end
 
@@ -28,9 +28,9 @@ class Chitter
     else 
       con = PG.connect :dbname => 'chitter'
     end
-    # con.exec("INSERT INTO chitter(peep) VALUES('#{message}');")
-    result = con.exec("INSERT INTO chitter(peep) VALUES('#{message}') RETURNING id, peep;")
-    Chitter.new(id: result[0]['id'], peep: result[0]['peep'])
+    date = Time.now.strftime("%d/%m/%Y %H:%M")
+    result = con.exec("INSERT INTO chitter(peep, date_time) VALUES('#{message}', '#{date}' ) RETURNING id, peep, date_time;")
+    Chitter.new(id: result[0]['id'], peep: result[0]['peep'], date_time: result[0]['date_time'])
   end
 
 #   def self.delete(id:)
