@@ -33,9 +33,9 @@ Getting Started
 1. Clone this repo to your local machine using `git@github.com:EdinaBMakers/chitter-challenge.git`
 2. Run `gem install bundle` (if it is not installed already)
 3. Run `bundle`
-4. Create a `PostreSQL` database called chitter for production purposes
-5. Create a `PostreSQL` database called chitter_test for testing purposes
-6. Execute the migration scripts from the `db/migrations` folder against both databases 
+4. Create a `PostgreSQL` database called chitter for production purposes
+5. Create a `PostgreSQL` database called chitter_test for testing purposes
+6. Execute the migration scripts from the `db/migrations` folder against both databases
 
 Usage
 -----
