@@ -5,7 +5,7 @@ feature 'Viewing peeps' do
     expect(page).to have_content("CHITTER")
   end
 
-  scenario 'user can view peeps' do
+  scenario 'user can view peeps' do    
     Peep.send(message: "First peep")
     Peep.send(message: "Second peep")
     Peep.send(message: "Third peep")
