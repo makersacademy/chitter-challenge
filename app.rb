@@ -3,13 +3,15 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
   enable :sessions
 
-  post '/homepage' do
-    session[:peep] = params[:peep]
-    redirect :homepage
+  get '/chitter' do
+    erb :chitter
   end
 
-  get '/homepage' do
-    @peep = session[:peep]
-    erb :homepage
+  post '/chitter' do
+    session[:email] = params[:email]
+    session[:password] = params[:password]
+    session[:name] = params[:name]
+    session[:username] = params[:username]
+    redirect :signin
   end
 end
