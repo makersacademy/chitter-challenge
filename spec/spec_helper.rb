@@ -9,7 +9,6 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
-require 'sinatra'
 
 Capybara.app = Chitter
 
@@ -21,6 +20,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  require 'web_helpers'
+
   config.before(:each) do
     setup_test_database
   end

@@ -14,7 +14,7 @@ describe Peep do
     it 'should produce an array of peep entries' do
       Peep.post(text: 'I feel grrrrrreat')
       peeps = Peep.all
-      expect(peeps.first['text']).to eq('I feel grrrrrreat')
+      expect(peeps.first.text).to eq('I feel grrrrrreat')
     end
   end
 end
