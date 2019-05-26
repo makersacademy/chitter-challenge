@@ -18,7 +18,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
+    result = connection.exec("SELECT * FROM peeps ORDER BY time DESC;")
     result.map { |entry| entry }
   end
 end
