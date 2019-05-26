@@ -1,3 +1,5 @@
+require 'database_connection'
+
 class User
   attr_reader :id, :email, :name, :username
 
@@ -10,18 +12,12 @@ class User
   end
 
   def self.sign_up(email:, password:, name:, username:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+    sql = "INSERT INTO users (email, password, name, username)
+           VALUES('#{email}', '#{password}', '#{name}', '#{username}')
+           RETURNING id, email, password, name, username;"
 
-    query = "INSERT INTO users (email, password, name, username)
-             VALUES('#{email}', '#{password}', '#{name}', '#{username}')
-             RETURNING id, email, password, name, username;"
+    user = DatabaseConnection.query(sql).first
 
-    user = connection.exec(query).first
-    
     User.new(id: user['id'], email: user['email'], password: user['password'],
              name: user['name'], username: user['username'])
   end

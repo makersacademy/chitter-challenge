@@ -1,4 +1,4 @@
-require 'pg'
+require 'database_connection'
 
 class Peep
   attr_reader :text, :time
@@ -10,30 +10,19 @@ class Peep
   end
 
   def self.post(text:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
-    query = "INSERT INTO peeps (text) VALUES('#{text}')
+    sql = "INSERT INTO peeps (text) VALUES('#{text}')
              RETURNING id, text, to_char(time,'HH24:MI - DD Mon YYYY') AS time;"
 
-    peep = connection.exec(query).first
+    peep = DatabaseConnection.query(sql).first
+
     Peep.new(id: peep['id'], text: peep['text'], time: peep['time'])
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+    sql = "SELECT text, to_char(time, 'HH24:MI - DD Mon YYYY') AS time
+             FROM peeps ORDER BY id DESC;"
 
-    result = connection.exec("SELECT text, to_char(time, 'HH24:MI - DD Mon YYYY')
-                              AS time
-                              FROM peeps
-                              ORDER BY id DESC;")
+    result = DatabaseConnection.query(sql)
 
     result.map do |peep|
       Peep.new(id: peep['id'], text: peep['text'], time: peep['time'])
