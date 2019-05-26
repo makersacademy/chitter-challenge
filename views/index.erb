@@ -1,0 +1,10 @@
+<h1>Chitter</h1>
+<% @peeps.each do |peep| %>
+  <br>
+  <%= peep['text']  %>
+  <br>
+<% end %>
+<br>
+<form action='/peeps/post' method='get'>
+  <input type='submit' value='Post'/>
+</form>
