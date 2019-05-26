@@ -1,7 +1,14 @@
-CHITTER
-
+<form action='/users/new'>
+  <input type='submit' value='Sign up'>
+</form>
 <br>
 
+CHITTER
+<% if !@user.nil? %>
+  <br>
+  Welcome, <%= @user.username %>!
+<% end %>
+<br>
 <ul>
   <% @peeps.each do |peep| %>
     <li>

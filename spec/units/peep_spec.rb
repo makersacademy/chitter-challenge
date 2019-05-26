@@ -35,7 +35,7 @@ describe Peep do
     it 'sends a new peep' do
       set_time(time_now)
       peep = Peep.send(message: "Hello there")
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(table: :peeps, id: peep.id)
 
       expect(peep).to be_a(Peep)
       expect(peep.id).to eq persisted_data.first['id']
