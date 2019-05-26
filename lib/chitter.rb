@@ -33,12 +33,13 @@ class Chitter
     Chitter.new(id: result[0]['id'], peep: result[0]['peep'], date_time: result[0]['date_time'])
   end
 
-#   def self.delete(id:)
-#     if ENV['ENVIRONMENT'] == 'test'
-#       con = PG.connect :dbname => 'bookmark_manager_test'
-#     else 
-#       con = PG.connect :dbname => 'bookmark_manager'
-#     end
-#     con.exec("DELETE FROM bookmarks WHERE id = '#{id}';")
-#   end
+  def self.sign_up(email:, password:, name:, username:)
+    if ENV['ENVIRONMENT'] == 'test'
+      con = PG.connect :dbname => 'chitter_test'
+    else 
+      con = PG.connect :dbname => 'chitter'
+    end
+    con.exec("INSERT INTO users(email, password, name, username) VALUES('#{email}', '#{password}', '#{name}', '#{username}' );")
+  end
+
 end

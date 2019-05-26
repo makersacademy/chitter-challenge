@@ -20,9 +20,14 @@ class ChitterFeed < Sinatra::Base
     redirect '/'
   end
 
-  # delete '/bookmarks/:id' do
-  #   Bookmark.delete(id: params[:id])
-  #   redirect '/bookmarks'
-  # end
+  get '/sign_up' do
+    erb :sign_up
+  end
+
+  post '/sign_up/welcome' do
+    Chitter.sign_up(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    p params
+    redirect '/'
+  end
 
 end
