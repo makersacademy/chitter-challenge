@@ -1,7 +1,7 @@
 require 'database_connection'
 
 class Peep
-  attr_reader :text, :time
+  attr_reader :id, :text, :time
 
   def initialize(id:, text:, time:)
     @id = id
@@ -11,7 +11,7 @@ class Peep
 
   def self.post(text:)
     sql = "INSERT INTO peeps (text) VALUES('#{text}')
-             RETURNING id, text, to_char(time,'HH24:MI - DD Mon YYYY') AS time;"
+           RETURNING id, text, to_char(time,'HH24:MI - DD Mon YYYY') AS time;"
 
     peep = DatabaseConnection.query(sql).first
 
@@ -20,7 +20,7 @@ class Peep
 
   def self.all
     sql = "SELECT text, to_char(time, 'HH24:MI - DD Mon YYYY') AS time
-             FROM peeps ORDER BY id DESC;"
+           FROM peeps ORDER BY id DESC;"
 
     result = DatabaseConnection.query(sql)
 
