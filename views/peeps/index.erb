@@ -1,17 +1,20 @@
 <html>
 <head>
-  <h1 class="center">Chitter</h1>
+	<script type="text/javascript" src="scripts.js">
+	</script>
   <link rel="stylesheet" type="text/css" href="/style.css">
+
+  <h1 class="center">Chitter</h1>
 </head>
 <body>
+  <hr>
+  <form class="center" action="/new" method="post">
+    <input type="text" name="peep" placeholder="What's on your mind?">
+    <input type="submit" value="Cheep">
+  </form>
+  <hr>
   <% @peeps.each do |peep| %>
     <div class="box sb1"><%= peep.peep %></div>
   <% end %>
-  <form class="center" action="/new" method="post">
-    <input class="box" type="text" name="peep" placeholder="Type your new peep here">
-    <br>
-    <br>
-    <input class="form-submit-button" type="submit" value="Post">
-  </form>
 </body>
 </html>
