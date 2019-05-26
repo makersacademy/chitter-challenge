@@ -8,13 +8,13 @@ GEM
     bcrypt (3.1.12)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-    capybara (3.20.2)
+    capybara (3.21.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
-      regexp_parser (~> 1.2)
+      regexp_parser (~> 1.5)
       xpath (~> 3.2)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
@@ -67,7 +67,6 @@ GEM
       data_objects (= 0.10.17)
     docile (1.3.1)
     fastercsv (1.5.5)
-    hirb (0.7.3)
     json (1.8.6)
     json_pure (1.8.6)
     mini_mime (1.0.1)
@@ -115,10 +114,10 @@ GEM
       docile (~> 1.1)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
-    simplecov-console (0.4.2)
+    simplecov-console (0.5.0)
       ansi
-      hirb
       simplecov
+      terminal-table
     simplecov-html (0.10.2)
     sinatra (2.0.5)
       mustermann (~> 1.0)
@@ -126,6 +125,8 @@ GEM
       rack-protection (= 2.0.5)
       tilt (~> 2.0)
     stringex (1.5.1)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     tilt (2.0.9)
     unicode-display_width (1.6.0)
     uuidtools (2.1.5)
@@ -137,7 +138,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  data_mapper (~> 1.2)
+  data_mapper (~> 1.2.0)
   dm-postgres-adapter (~> 1.2)
   pg
   rake

@@ -1,0 +1,23 @@
+<html>
+  <head>
+  </head>
+  <body bgcolor="lightblue" style="text-align:center">
+    <br/>
+    <h1>Chitter</h1>
+    <form action="/peep" method="post" >
+      <!-- <input type='text' name='peep' style="width:300px" /> -->
+      <textarea type='text' name='peep' rows="4" cols="40" placeholder="Peep here.."></textarea>
+      <br/>
+      <input type='submit' value='Submit Peep' />
+    </form>
+    <br/>
+    <h1>Peep wall</h1>
+    <% @peeps.each do |peep| %>
+      <div>
+        <blockquote style='border: 1px solid black,' bgcolor="white">
+        <%= peep.content %>
+          </blockquote>
+        <% end %>
+      </div>
+  </body>
+</html>
