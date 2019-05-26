@@ -1,0 +1,54 @@
+.topbar {
+  display: block;
+  background-color: #ffc266;
+  height: 50px;
+  align-items: center;
+}
+
+.pull-left {
+  float: left;
+  text-align: right;
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+}
+
+.pull-right {
+  float: right;
+  text-align: left;
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+}
+
+.welcome {
+  margin-right: 10px;
+}
+
+input {
+  margin-right: 10px;
+}
+
+h1 {
+  margin-left: 30px;
+}
+
+.feed {
+  display: block;
+}
+
+.peep-details td {
+  padding: 10px;
+}
+
+.peep-message td {
+  padding: 10px;
+  border-bottom: 1px solid #ffc266;
+}
+
+table {
+  margin: 30px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}

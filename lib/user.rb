@@ -13,10 +13,10 @@ class User
   end
 
   def self.find(id:)
-  user_records = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
-  user_records.ntuples == 0 \
-    ? nil \
-    : to_user(user_records.first)
+    user_records = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    user_records.ntuples == 0 \
+      ? nil \
+      : to_user(user_records.first)
   end
 
   def initialize(id:, email:, name:, username:)

@@ -1,25 +1,42 @@
-<form action='/users/new'>
-  <input type='submit' value='Sign up'>
-</form>
-<br>
+<head>
+  <link
+    rel = "stylesheet"
+    type = "text/css"
+    href = "chitter.css" />
+</head>
 
-CHITTER
-<% if !@user.nil? %>
-  <br>
-  Welcome, <%= @user.username %>!
-<% end %>
-<br>
-<ul>
-  <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.message %>
-      <%= peep.sent_time %>
-    </li>
-  <% end %>
-</ul>
+<body>
+  <div class='topbar'>
+    <div class='pull-left'>
+      <h1>Chitter<h1>
+    </div>
+    <div class='pull-right'>
+      <% if !@user.nil? %>
+        <label class='welcome'>Welcome, <%= @user.username %>!</label>
+      <% end %>
+      <form action='/users/new'>
+        <input type='submit' value='Sign up'>
+      </form>
+      <form action='/peeps/new'>
+        <input type='submit' value='New'>
+      </form>
+    </div>
+  </div>
 
-<br>
-
-<form action='/peeps/new'>
-  <input type='submit' value='New'>
-</form>
+  <div class='feed'>
+    <table>
+      <% @peeps.each do |peep| %>
+        <tr class='peep-details'>
+          <td>
+            <%= peep.sent_time %>
+          </td>
+        </tr>
+        <tr class='peep-message'>
+          <td>
+            <%= peep.message %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</body>
