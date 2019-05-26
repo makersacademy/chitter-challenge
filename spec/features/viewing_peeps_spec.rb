@@ -2,7 +2,7 @@ feature 'Viewing peeps' do
   scenario 'visiting the index page' do
     visit '/peeps'
 
-    expect(page).to have_content("CHITTER")
+    expect(page).to have_content("Chitter")
   end
 
   scenario 'user can view peeps' do

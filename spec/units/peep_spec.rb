@@ -33,7 +33,7 @@ describe Peep do
 
   describe '.send' do
     it 'sends a new peep' do
-      set_time(time_now)
+      stub_time(time_now)
       peep = Peep.send(message: "Hello there")
       persisted_data = persisted_data(table: :peeps, id: peep.id)
 
@@ -46,13 +46,13 @@ describe Peep do
 
   describe '.all' do
     it 'returns all peeps' do
-      set_time(time_now - 120)
+      stub_time(time_now - 120)
       first_peep = Peep.send(message: "First peep")
 
-      set_time(time_now - 60)
+      stub_time(time_now - 60)
       second_peep = Peep.send(message: "Second peep")
 
-      set_time(time_now)
+      stub_time(time_now)
       third_peep = Peep.send(message: "Third peep")
 
       expect(Peep.all).to eq([third_peep, second_peep, first_peep])

@@ -13,8 +13,9 @@ class User
   end
 
   def self.find(id:)
-    user_records = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
-    user_records.ntuples == 0 \
+    user_records = DatabaseConnection.query( \
+      "SELECT * FROM users WHERE id = #{id}")
+    user_records.ntuples.zero? \
       ? nil \
       : to_user(user_records.first)
   end
