@@ -21,7 +21,7 @@ class Peep
 
   def self.all
     peep_records = DatabaseConnection.query \
-      "SELECT * FROM peeps ORDER BY id DESC;"
+      "SELECT * FROM peeps ORDER BY sent_time DESC;"
     peep_records.map { |peep_record| to_peep(peep_record) }
   end
 
