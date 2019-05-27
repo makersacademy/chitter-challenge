@@ -114,6 +114,21 @@ Feature tests:
 `peep` unit tests:
 
 -[X] Creates a new peep.
+-[X] Returns a list of peeps.
+
+### USER STORY 2
+
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+
+**TEST CASES**
+
+Feature tests:
+
+-[X] A user sees the posts in reverse chronological order.
 
 Technical Approach:
 -----

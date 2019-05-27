@@ -16,8 +16,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    peep_string = "#{peep}"
-    result = connection.query("INSERT INTO peeps (peep) VALUES('#{peep_string}') RETURNING id, peep")
+    result = connection.query("INSERT INTO peeps (peep) VALUES('#{peep.gsub(/'/, "''")}') RETURNING id, peep")
     Peep.new(id: result[0]["id"], peep: result[0]["peep"])
   end
 
