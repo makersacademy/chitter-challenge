@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative './database_connection.rb'
 
 class User
   attr_reader :id, :email, :name, :username
@@ -24,9 +24,15 @@ class User
 
   def self.unique_email?(email)
     sql = "SELECT email FROM users WHERE email = '#{email}';"
-
     result = DatabaseConnection.query(sql)
 
-    result.count == 0
+    result.count.zero?
+  end
+
+  def self.unique_username?(username)
+    sql = "SELECT username FROM users WHERE username = '#{username}';"
+    result = DatabaseConnection.query(sql)
+
+    result.count.zero?
   end
 end

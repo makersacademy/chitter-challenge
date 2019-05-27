@@ -1,4 +1,4 @@
-require_relative './database_connection'
+require_relative './database_connection.rb'
 
 class Peep
   attr_reader :id, :text, :time

@@ -2,10 +2,12 @@ require 'user'
 require 'database_helpers'
 
 describe User do
-  let(:user_signup) { User.sign_up(email: 'test@test.com',
-                                   password: 'password123',
-                                   name: 'test user',
-                                   username: 'test_user') }
+  let(:user_signup) do
+    User.sign_up(email: 'test@test.com',
+                 password: 'password123',
+                 name: 'test user',
+                 username: 'test_user')
+  end
 
   describe '#sign_up' do
     it 'should add a user to the database' do
@@ -28,6 +30,18 @@ describe User do
     it 'should return false if email is not unique' do
       user_signup
       expect(User.unique_email?('test@test.com')).to eq(false)
+    end
+  end
+
+  describe '#unique_username?' do
+    it 'should return true if username is unique' do
+      user_signup
+      expect(User.unique_username?('unique_user')).to eq(true)
+    end
+
+    it 'should return false if username is not unique' do
+      user_signup
+      expect(User.unique_username?('test_user')).to eq(false)
     end
   end
 end

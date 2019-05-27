@@ -12,7 +12,15 @@ end
 feature "using a non-unique email" do
   scenario "should return you to the sign up page with a prompt" do
     sign_up_user
-    sign_up_another_user
-    expect(page).to have_content('Email already in use')
+    sign_up_same_email
+    expect(page).to have_content('Email in use')
+  end
+end
+
+feature "using a non-unique username" do
+  scenario "should return you to the sign up page with a prompt" do
+    sign_up_user
+    sign_up_same_username
+    expect(page).to have_content('Username in use')
   end
 end
