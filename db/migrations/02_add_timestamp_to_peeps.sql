@@ -1,2 +1,2 @@
-ALTER TABLE mytable ADD COLUMN created_at TIMESTAMP;
-ALTER TABLE mytable ALTER COLUMN created_at SET DEFAULT now();
+ALTER TABLE mytable ADD COLUMN timestamp TIMESTAMP;
+ALTER TABLE mytable ALTER COLUMN timestamp SET DEFAULT NOW();

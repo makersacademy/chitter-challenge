@@ -2,11 +2,21 @@ require_relative './database_connection'
 
 class User
   def self.create(email:, password:, name:, username:)
-    result = DatabaseConnection.query("INSERT INTO users(email, password, name, username) VALUES(
-                                                           '#{email}',
-                                                           '#{password}',
-                                                           '#{name}',
-                                                           '#{username}') RETURNING id, email, name, username;")
+    result = DatabaseConnection.query(
+      "INSERT INTO users(
+      email,
+      password,
+      name,
+      username
+      )
+      VALUES(
+      '#{email}',
+      '#{password}',
+      '#{name}',
+      '#{username}'
+      )
+      RETURNING id, email, name, username;"
+    )
     User.new(
       id: result[0]['id'],
       email: result[0]['email'],

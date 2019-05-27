@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <style>
     body {
@@ -16,22 +15,36 @@
 
 h1 {
   font-family: monospace;
-  font-size: 100px;
+  font-size: 50px;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
   line-height: 36.9px;
  }
   h2 {
+    text-decoration: overline;
     font-family: monospace;
-    font-size: 30px;
+    font-size: 10px;
     font-style: normal;
     font-variant: normal;
     font-weight: 700;
     line-height: 12.6px;
   }
+
+  h3 {
+    font-family: monospace;
+    text-align: left;
+    font-size: 10px;
+    font-color: #FFFFFF;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 12.6px;
+  }
+
   p {
     font-family: monospace;
+    font-color: #FFFFFF;
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
@@ -62,20 +75,23 @@ h1 {
     display: inline-block;
 }
 
-
-   </style>
+</style>
 </head>
+      <body>
+        <h1>Your Peep Feed</h1>
+          <ul style="list-style-type: none;">
+            <% @peeps.each { |peep| %>
+              <li class="peep" id="peep-<%= peep.id %>">
+                <span>
+               <%= peep.message %>
+                <br>
+                <br>
 
-<body>
-  <h1>Your Peeps</h1>
-    <ul style="list-style-type: none;">
-      <% @peeps.each do |peep| %>
-        <li>
-          <span>
-          <%= peep.message %>
-        </span>
-      </li>
-      <% end %>
-    </ul>
-</body>
-</html>
+                  <h2>Peeped at: <%= peep.formatted_time %> on <%= peep.formatted_date %></h2>
+                  <br>
+              </span>
+            </li>
+            <% }.reverse %>
+          </ul>
+          </body>
+      </html>
