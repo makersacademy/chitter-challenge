@@ -61,5 +61,10 @@ describe User do
     it 'should return nil if email is incorrect' do
       expect(User.authenticate(email: 'a@a.com', password: '123')).to be_nil
     end
+
+    it 'should return nil if password is incorrect' do
+      user_signup
+      expect(User.authenticate(email: 'test@test.com', password: '1')).to be_nil
+    end
   end
 end

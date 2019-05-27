@@ -1,5 +1,7 @@
 <h1>Sign up</h1>
 
+<h3><%= flash[:notice] %></h3>
+
 <form action='/users' method='post'>
   <label for='email'>
     <input type='text' name='email' placeholder='Email'/>
