@@ -8,6 +8,8 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
+    @name = session[:name]
+    @username = session[:username]
     erb(:index)
   end
 
@@ -31,8 +33,11 @@ class Chitter < Sinatra::Base
       redirect '/users/signup/fail'
     end
 
-    User.sign_up(email: params[:email], password: params[:password],
-                 name: params[:name], username: params[:username])
+    user = User.sign_up(email: params[:email], password: params[:password],
+                        name: params[:name], username: params[:username])
+
+    session[:name] = user.name
+    session[:username] = user.username
 
     redirect '/'
   end

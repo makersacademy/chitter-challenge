@@ -22,4 +22,10 @@ describe Peep do
       expect(peeps.map { |peep| peep.text }).to eq(array)
     end
   end
+
+  describe '#get_user' do
+    it 'should return the name and username of the peep poster' do
+      
+    end
+  end
 end
