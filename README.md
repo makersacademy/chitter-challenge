@@ -130,6 +130,18 @@ Feature tests:
 
 -[X] A user sees the posts in reverse chronological order.
 
+### USER STORY 3
+
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+Feature tests:
+
+-[X] A user can see the time a peep was made.
+
 Technical Approach:
 -----
 
