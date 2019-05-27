@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    h1 {
+  background-color: dodgerblue;
+  text-align: center;
+}
+body {
+  background-color: lightblue;
+}
+
+    </style>
+
+<h1>
+  <% if !@user %> Welcome to Chitter!
+  <form action='/sign_up' method='get'>
+    <input type='submit' value='Sign up'/>
+
+    <form action='/log_in' method='get'>
+      <input type='submit' value='Log in'/>
+      </form>
+  <% else %> Welcome <%= @user['name'] %>
+  <form action='/log_out' method='post'>
+    <input type='submit' value='Log out'/>
+    </form>
+    <form action='/add_peep' method='post'>
+      <input type='text' name='peep' placeholder='Enter your peep here....'/>
+      <input type='submit' value='Add peep'/>
+      </form>
+    <% end %>
+    </h1>
+<hr>
+
+  </head>
+<body>
+  <ul>
+<% @peeps.each do |peep| %>
+<li>
+  <%= peep.peep %> (posted at <%= peep.posted_at %>)
+  </li>
+<% end %>
+</ul>
+
+  </body>
+
+</html>
