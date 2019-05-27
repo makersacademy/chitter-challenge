@@ -4,6 +4,9 @@
 </form>
 <% @peeps.each do |peep| %>
   <br>
+  <% user = peep.get_user(peep.userid) %>
+  <%= user['name'] %> @<%= user['username'] %>
+  <br>
   <%= peep.text  %>
   <br>
   <%= peep.time %>

@@ -1,7 +1,7 @@
 require_relative './database_connection.rb'
 
 class Peep
-  attr_reader :id, :text, :time
+  attr_reader :id, :text, :time, :userid
 
   def initialize(id:, text:, time:, userid:)
     @id = id
@@ -11,7 +11,7 @@ class Peep
   end
 
   def self.post(text:, userid:)
-    sql = "INSERT INTO peeps (text, userid) VALUES('#{text}', '#{userid}')
+    sql = "INSERT INTO peeps (text, userid) VALUES('#{text}', #{userid})
            RETURNING id, text, to_char(time,'HH24:MI - DD Mon YYYY') AS time,
                      userid;"
 
@@ -22,7 +22,8 @@ class Peep
   end
 
   def self.all
-    sql = "SELECT text, to_char(time, 'HH24:MI - DD Mon YYYY') AS time
+    sql = "SELECT id, text, to_char(time, 'HH24:MI - DD Mon YYYY') AS time,
+                  userid
            FROM peeps ORDER BY id DESC;"
 
     result = DatabaseConnection.query(sql)
