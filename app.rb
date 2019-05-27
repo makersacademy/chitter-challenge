@@ -6,7 +6,7 @@ require_relative './lib/database_connection_setup.rb'
 class Chitter < Sinatra::Base
   enable :sessions
 
-  get '/' do
+  get '/peeps' do
     @peeps = Peep.all
     @signed_up = !session[:userid].nil?
     erb(:index)
@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps/post' do
     Peep.post(text: params[:text], userid: session[:userid])
-    redirect '/'
+    redirect '/peeps'
   end
 
   get '/users/signup' do
@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
 
     session[:userid] = user.id
 
-    redirect '/'
+    redirect '/peeps'
   end
 
   get '/users/signup/fail' do

@@ -1,5 +1,5 @@
-feature "clicking 'Peep' and entering text" do
-  scenario "should post your peep on the index page" do
+feature "posting" do
+  scenario "peeps are visible on the index page after posting" do
     sign_up_user
     post_a_peep
     expect(page).to have_content('I feel grrrrrreat')

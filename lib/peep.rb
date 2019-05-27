@@ -34,8 +34,8 @@ class Peep
     end
   end
 
-  def get_user(userid)
-    sql = "SELECT name, username FROM users WHERE id = #{userid}"
+  def user_info
+    sql = "SELECT name, username FROM users WHERE id = #{@userid}"
     DatabaseConnection.query(sql).first
   end
 end

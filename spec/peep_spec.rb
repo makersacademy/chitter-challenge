@@ -24,7 +24,7 @@ describe Peep do
     end
   end
 
-  describe '#get_user' do
+  describe '#user_info' do
     it 'should return the name and username of the peep poster' do
       peep = Peep.post(text: 'I feel grrrrrreat', userid: userid)
 
@@ -32,7 +32,7 @@ describe Peep do
              VALUES('#{userid}', 'a@a.com', '123', 'Laurence', 'L123');"
 
       DatabaseConnection.query(sql)
-      hash = peep.get_user(userid)
+      hash = peep.user_info
       expect(hash['name']).to eq('Laurence')
       expect(hash['username']).to eq('L123')
     end
