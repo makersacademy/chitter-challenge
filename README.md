@@ -1,21 +1,13 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## INTRODUCTION
 
-Challenge:
--------
+The aim of this project is to build a small Twitter clone that will allow the users to post messages to a public stream.
 
-As usual please start by forking this repo.
+The project is provided by Makers Academy. It is the fourth weekend challenge and is the culmination of a week spent on the fundamentals of web app development with a database.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+## USER STORIES
 
 ```
 STRAIGHT UP
@@ -51,6 +43,64 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+```
+
+## MOTIVATION
+
+For this challenge I will be focusing on specific goals within the Makers Academy high level goals:
+
+### I can TDD anything
+
+* Apply the MVC framework Sinatra to build a simple web app.
+* Apply a wrapper class/adapter to wrap around an object as an interface to a database.
+
+### I have a methodical approach to solving problems
+
+* Understand and utilise the MVC frameworks and RESTful routing.
+
+### I can debug anything
+
+* Being able to debug within an MVC model with an integrated database.
+
+## TECH/FRAMEWORK USED
+
+This project follows the RSpec testing framework using capybara. Find out more about Capybara [here](http://teamcapybara.github.io/capybara/).
+
+`"RSpec is a Behaviour-Driven Development tool for Ruby programmers. BDD is an approach to software development that combines Test-Driven Development, Domain Driven Design, and Acceptance Test-Driven Planning. RSpec helps you do the TDD part of that equation, focusing on the documentation and design aspects of TDD."` [Link](https://relishapp.com/rspec)
+
+`Sinatra` the ruby web framework will be used to develop this app. It will follow the MVC development pattern. Ruby will be used as the programming language and HTML in Sinatra views for the user interface.
+
+`PostgreSQL` has been used for the database. PostgreSQL is a free open-source relational database management system, designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users. [Link](https://www.postgresql.org/)
+
+While developing the app I used the Ruby web server interface, Rack. More info can be found at [Rack](https://rack.github.io/).
+
+## CODE STYLE
+
+[Rubocop](https://github.com/rubocop-hq/rubocop) has been used as a guide.
+
+## GETTING STARTED
+
+* Fork/clone this project
+* In the terminal, run bundle to install all the dev dependencies
+* In the terminal, type `rackup` to start the server (served on localhost:9292 by default)
+* Load up http://localhost:9292/ in your browser of choice
+
+## HOW TO USE THE APP
+
+## IMAGES/SCREENSHOTS
+
+## RUNNING TESTS
+
+# APPROACH
+
+Below is the approach I took to build the Chitter web app. First of all I took each of the user stories and turned them into a domain model. From there I began creating tests to systematically build the web app.
+
+## USER STORY 1
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
 ```
 
 Technical Approach:
