@@ -47,9 +47,30 @@ I want to receive an email if I am tagged in a Peep
 ```
 
 Technical Approach:
------
+------------------
 
-Tests passing, however on launching the app, it does not allow to post a peep, displaying an error. The error comes from the peeps.erb file.
+Tests passing with Rspec, however on launching the app, it does not allow to post a peep, displaying an error. The error comes from the peeps.erb file.
 
 Further, I had planned to setup up the registration process, bring the list of peeps on the main page, and further add CSS.
+
+To run the app:
+---------------
+```
+$ bundle install
+```
+
+Setup databases: chitter and chitter_app:
+```
+CREATE DATABASE chitter;
+
+CREATE DATABASE chitter_test;
+```
+ 
+```
+CREATE TABLE peeps (id, content, created_at) VALUES ('id' SERIAL PRIMARY KEY, 'content' TEXT, 'created_at' TIMESTAMP)
+``` 
+Do this for both the main database, as well as for the test one.
+
+
+
 
