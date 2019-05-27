@@ -21,5 +21,9 @@ class Chitter < Sinatra::Base
     erb(:signup)
   end
 
+  post '/users/signup' do
+    p params
+  end
+
   run! if app_file == $0
 end

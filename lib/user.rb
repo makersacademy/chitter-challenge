@@ -21,4 +21,12 @@ class User
     User.new(id: user['id'], email: user['email'], password: user['password'],
              name: user['name'], username: user['username'])
   end
+
+  def self.unique_email?(email)
+    sql = "SELECT email FROM users WHERE email = '#{email}';"
+
+    result = DatabaseConnection.query(sql)
+
+    result.count == 0
+  end
 end
