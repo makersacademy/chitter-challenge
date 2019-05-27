@@ -1,4 +1,6 @@
 # My Approach
+I have began this challenge by mapping out in an MVC diagram how the app will work, and how the app will flow for the user when logging in, signing up, posting messages and viewing their feed. I have also tried to map out how each method within the classes will work. 
+
 
 Chitter Challenge
 =================
