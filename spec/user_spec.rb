@@ -31,15 +31,14 @@ describe User do
 
   describe '#add_user' do
     it 'adds the user\'s details to the database' do
+      lisa = User.new("lisa@gmail.com", "password", "Lisa", "@lisa")
+      lisa.add
       con = PG.connect(dbname: 'chitter_test')
-      result = con.exec("INSERT INTO peeps (email, password, name, username) VALUES('lisa@gmail.com', 'password', 'Lisa', '@lisa') RETURNING email, password, name, username;")
-      result = con.query("SELECT DISTINCT email, password, name, username FROM peeps;")
+      result = con.query("SELECT DISTINCT email, password, name, username FROM users;")
       result.map do |user|
         User.new('email', 'password', 'name', 'username')
       end
-
-
-	    expect(result[0]).to eq "email"=>"lisa@gmail.com", "password"=>"password", "name"=>"Lisa", "username"=>"@lisa"
+      expect(result[0]).to eq "email" => "lisa@gmail.com", "password" => "password", "name" => "Lisa", "username" => "@lisa"
 	  end
   end
 end

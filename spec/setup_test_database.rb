@@ -1,12 +1,7 @@
 require 'pg'
 
-def setup_test_database
-
-  p "Setting up test database..............⏳"
-
-  con = PG.connect(dbname: 'chitter_test')
-
-# Clear the peeps table
-  con.exec('TRUNCATE peeps;')
-
+def setup_test_database # similar function to a before each in rspec
+  connection = PG.connect(dbname: 'chitter_test')
+  connection.exec("TRUNCATE TABLE users;")
+  connection.exec("TRUNCATE TABLE peeps;")
 end
