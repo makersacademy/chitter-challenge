@@ -2,5 +2,13 @@
 
 <form action='/create-peep' method='post'>
   <input type='text' name='peep' placeholder="What's happening?"/>
-  <input type='submit' value='Submit' />
+  <input type='submit' value='Post' />
 </form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      <%= peep.peep %>
+    </li>
+  <% end %>
+</ul>
