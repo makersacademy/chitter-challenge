@@ -1,21 +1,14 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
 Challenge:
--------
+----------
 
-As usual please start by forking this repo.
+This project is a small Twitter clone that will allow the users to post messages to a public stream.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+User stories/Features:
+----------------------
 
 ```
 STRAIGHT UP
@@ -24,7 +17,7 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a Maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
