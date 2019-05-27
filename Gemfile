@@ -5,6 +5,7 @@ ruby '2.5.0'
 gem 'bcrypt'
 gem 'pg'
 gem 'rake'
+gem 'selenium-webdriver'
 gem 'sinatra'
 gem 'sinatra-flash'
 

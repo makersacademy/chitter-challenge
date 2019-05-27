@@ -3,7 +3,17 @@
 </div>
 <div>
   <form action='/peeps' method='post'>
-    <input type='text' name='content' placeholder="What's happening today?"> 
-    <input type='submit' value='Peep'>
+    <label for="content">
+      <input type='text' name='peep' placeholder="What's happening today?">
+    </label> 
+    <button type='submit'> Post </button>
   </form>
 </div>
+<h2>Peeps</h2>
+<br>
+
+<ul> 
+  <% @peeps.each do |result| %>
+<li> <%= result.peep %></br> </li>
+<% end %> 
+</ul>
