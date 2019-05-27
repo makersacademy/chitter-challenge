@@ -3,19 +3,17 @@ require 'peep'
 
 describe Peep do
   describe '.all' do
-    it 'returns all peeps' do
+    it 'peeps show in reverse chronological order' do
       Peep.create(content:'My first peep!' )
       Peep.create(content:'Hello, World' )
       Peep.create(content:'Let me tell you something about Chitter..' )
 
       peeps = Peep.all
 
-      expect(peeps).to include("My first peep!")
-      expect(peeps).to include("Hello, World")
-      expect(peeps).to include("Let me tell you something about Chitter..")
+      expect(peeps).to eq (["Let me tell you something about Chitter..", "Hello, World", "My first peep!"])
     end
   end
-  
+
    describe '.create' do
     it 'creates a new peep' do
       Peep.create(content: 'I am a new peep')
