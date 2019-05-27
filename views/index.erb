@@ -1,24 +1,38 @@
-<html>
+<!doctype html>
+
+<html lang='en'>
   <head>
+     <link rel = "stylesheet" href = "/style.css" />
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300&display=swap" rel="stylesheet">
   </head>
-  <body bgcolor="lightblue" style="text-align:center">
+  <body>
     <br/>
     <h1>Chitter</h1>
     <form action="/peep" method="post" >
-      <!-- <input type='text' name='peep' style="width:300px" /> -->
-      <textarea type='text' name='peep' rows="4" cols="40" placeholder="Peep here.."></textarea>
+      <textarea type='text' name='peep' rows="4" cols="40" placeholder="Peep your heart out here.." class="peep-entry"></textarea>
       <br/>
-      <input type='submit' value='Submit Peep' />
+      <input type='submit' value='Submit Peep' class="peep-submit-btn" />
     </form>
     <br/>
     <h1>Peep wall</h1>
     <% @peeps.each do |peep| %>
-      <div>
+      <div class="peep-tile" >
         <blockquote>
-        <%= peep.content %>
-          </blockquote>
-        <%= peep.creation_time.strftime "%a %b %d, %H:%M" %>
-        <% end %>
+          <%= peep.content %>
+          <div class="peep-date" >
+            <%= peep.creation_time.strftime "%a %b %d, %H:%M" %>
+          </div>
+        </blockquote>
       </div>
+      <% end %>
+
+
+
+
+
+
+
+
+
   </body>
 </html>

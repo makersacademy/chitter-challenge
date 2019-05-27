@@ -1,0 +1,51 @@
+html {
+  width: 100%;
+}
+
+body {
+  padding-left: 27.5%;
+  padding-right: 27.5%;
+  background-color: orange;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+textarea {
+  font-family: 'Ubuntu', sans-serif;
+  border: 2px solid grey;
+  border-radius: .25rem;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+textarea {
+  resize: none;
+}
+
+.peep-tile {
+  font-family: 'Ubuntu', sans-serif;
+  border: 2px solid grey;
+  background: white;
+  border-radius: 0.5rem;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.peep-date {
+  font-size: 12px;
+  font-family: "Courier New";
+  color: darkgrey;
+  text-align: right;
+}
+
+.peep-submit-btn {
+  padding: 4px 16px;
+  margin-top: 10px;
+  font-family: "Courier New";
+  border: 1px solid grey;
+  border-radius: .25rem;
+  margin-left: 300px;
+}
