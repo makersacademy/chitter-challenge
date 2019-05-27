@@ -22,25 +22,29 @@ describe User do
   end
 
   describe '#unique_email?' do
-    it 'should return true if email is unique' do
+    before(:each) do
       user_signup
+    end
+
+    it 'should return true if email is unique' do
       expect(User.unique_email?('unique@unique.com')).to eq(true)
     end
 
     it 'should return false if email is not unique' do
-      user_signup
       expect(User.unique_email?('test@test.com')).to eq(false)
     end
   end
 
   describe '#unique_username?' do
-    it 'should return true if username is unique' do
+    before(:each) do
       user_signup
+    end
+
+    it 'should return true if username is unique' do
       expect(User.unique_username?('unique_user')).to eq(true)
     end
 
     it 'should return false if username is not unique' do
-      user_signup
       expect(User.unique_username?('test_user')).to eq(false)
     end
   end

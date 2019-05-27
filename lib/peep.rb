@@ -11,7 +11,7 @@ class Peep
   end
 
   def self.post(text:, userid:)
-    sql = "INSERT INTO peeps (text) VALUES('#{text}')
+    sql = "INSERT INTO peeps (text, userid) VALUES('#{text}', '#{userid}')
            RETURNING id, text, to_char(time,'HH24:MI - DD Mon YYYY') AS time,
                      userid;"
 
@@ -31,5 +31,10 @@ class Peep
       Peep.new(id: peep['id'], text: peep['text'], time: peep['time'],
                userid: peep['userid'])
     end
+  end
+
+  def get_user(userid)
+    sql = "SELECT name, username FROM users WHERE id = #{userid}"
+    DatabaseConnection.query(sql).first
   end
 end

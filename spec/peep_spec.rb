@@ -16,12 +16,25 @@ describe Peep do
   end
 
   describe '#all' do
-    it 'should produce an array of peep entries' do
+    it 'should produce an array of peep objects' do
       Peep.post(text: 'I feel grrrrrreat', userid: userid)
       Peep.post(text: 'I really do', userid: userid)
       peeps = Peep.all
-      array = ['I really do', 'I feel grrrrrreat']
-      expect(peeps.map { |peep| peep.text }).to eq(array)
+      expect(peeps.all? { |peep| peep.is_a?(Peep) }).to eq(true)
+    end
+  end
+
+  describe '#get_user' do
+    it 'should return the name and username of the peep poster' do
+      peep = Peep.post(text: 'I feel grrrrrreat', userid: userid)
+
+      sql = "INSERT INTO users (id, email, password, name, username)
+             VALUES('#{userid}', 'a@a.com', '123', 'Laurence', 'L123');"
+
+      DatabaseConnection.query(sql)
+      hash = peep.get_user(userid)
+      expect(hash['name']).to eq('Laurence')
+      expect(hash['username']).to eq('L123')
     end
   end
 end
