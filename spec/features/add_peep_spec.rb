@@ -13,7 +13,9 @@ feature "Adding and viewing peeps" do
     visit('/')
     fill_in('peep', with: "It's cloudy outside")
     click_button('Post')
+    time = Time.now.strftime("%Y-%m-%d %H:%M")
+
     expect(current_path).to eq('/')
-    expect(first('peep__time')).to have_text(/\d{2}:\d{2}:\d{2}/)
+    expect(page).to have_content(time)
   end
 end

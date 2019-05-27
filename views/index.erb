@@ -9,6 +9,9 @@
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
       <%= peep.peep %>
+      <div class="timestamp" id="peep-<%= peep.id %>">
+        Posted at: <%= peep.timestamp %>
+      </div>
     </li>
   <% end %>
 </ul>

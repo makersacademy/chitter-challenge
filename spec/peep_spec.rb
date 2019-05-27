@@ -16,16 +16,16 @@ describe Peep do
     end
 
     it 'creates a new peep with a timestamp' do
-      Timecop.freeze
-      Peep.create(peep: 'I ate some cake')
-      expect(Peep.all.first.time.to_s).to eq(Time.now.to_s)
+      time = Time.now.strftime("%Y-%m-%d %H:%M")
+      peep = Peep.create(peep: 'I ate some cake')
+      expect(peep.timestamp).to eq(time)
     end
   end
 
   describe '.all' do
     it 'returns all peeps' do
-      peep = Peep.create(peep: 'I walked the dog')
       Peep.create(peep: 'I went swimming')
+      peep = Peep.create(peep: 'I walked the dog')
 
       peeps = Peep.all
 
