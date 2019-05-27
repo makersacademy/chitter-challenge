@@ -4,12 +4,13 @@
   </head>
 
   <body>
-    <div>
+   <%# <p> "You can see me, right? Add a peep!"</p> %>
+    <article>
     <ul>
       <%@peeps.each do |peep|%>
       <li><%=peep%></li>
       <%end%>
     </ul>
-    </div>
+    </article>
   </body>
 </html>
