@@ -26,7 +26,10 @@ class Chitter < Sinatra::Base
 
   post '/users/signup' do
     session[:unique_email] = User.unique_email?(params[:email])
-    redirect '/users/signup-fail' unless session[:unique_email]
+
+    unless session[:unique_email] && User.unique_username?(params[:username])
+      redirect '/users/signup/fail'
+    end
 
     User.sign_up(email: params[:email], password: params[:password],
                  name: params[:name], username: params[:username])
@@ -34,7 +37,8 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  get '/users/signup-fail' do
+  get '/users/signup/fail' do
+    session[:unique_email] ? @fail = 'Username in use' : @fail = 'Email in use'
     erb(:signup_fail)
   end
 
