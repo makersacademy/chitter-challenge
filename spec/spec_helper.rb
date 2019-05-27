@@ -5,6 +5,10 @@ require './app.rb'
 require 'simplecov'
 require 'simplecov-console'
 
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
