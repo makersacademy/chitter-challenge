@@ -12,7 +12,7 @@ class User
   end
 
 
-  def self.create(id:, name:, username:, email:, password:)
+  def self.create(name:, username:, email:, password:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else

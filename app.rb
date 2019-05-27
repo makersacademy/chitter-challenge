@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/user'
+require './lib/peep'
 
 class ChitterChallenge < Sinatra::Base
   enable :sessions
@@ -9,12 +10,13 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/chitter' do
-    User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    @username = User.username
+    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    @user = user.username
     redirect '/chitter'
   end
 
   get '/chitter' do
+    @peeps = Peep.all
     erb :chitter
   end
 

@@ -1,3 +1,20 @@
 <h1> Welcome to Chitter! </h1>
 <br>
-<h2> You are now signed into Chitter as <%= @username %> </h2>
+<h2> You are now signed in to Chitter </h2>
+<br>
+<div class='feed'>
+    <table>
+      <% @peeps.each do |peep| %>
+        <tr class='peep-details'>
+          <td>
+            <%= peep.sent_time %>
+          </td>
+        </tr>
+        <tr class='peep-message'>
+          <td>
+            <%= peep.message %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
