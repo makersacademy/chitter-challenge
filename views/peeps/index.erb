@@ -1,7 +1,23 @@
-<h1>Chitter</h1>
+<style>
+  .default-text {
+    font-family: helvetica, sans-serif;
+  }
+
+  article {
+    border-style: solid;
+    border-color: powderblue;
+  }
+</style>
+
+<h1 class='default-text'>chitter</h1>
 
 <% if @logged_in %>
-<h3>Welcome, <%= @name %></h3>
+<h3 class='default-text'>Welcome, <%= @name %></h3>
+
+<form action='/peeps/post' method='get'>
+  <input type='submit' value='Post'/>
+</form>
+
 <form action='logout' method='post'>
   <input type='submit' value='Log out'/>
 </form>
@@ -17,24 +33,20 @@
 </form>
 <% end %>
 
-<h3><%= flash[:notice] %></h3>
+<h3 class='default-text'><%= flash[:notice] %></h3>
 
 <% @peeps.each do |peep| %>
-  <article>
+  <article class='default-text'>
   <br>
   <% user = peep.user_info %>
-  <%= user['name'] %> @<%= user['username'] %>
+  <b><%= user['name'] %></b> @<%= user['username'] %>
   <br>
   <%= peep.text  %>
   <br>
   <%= peep.time %>
   <br>
+  <br>
   </article>
+  <br>
 <% end %>
 <br>
-
-<% if @logged_in %>
-<form action='/peeps/post' method='get'>
-  <input type='submit' value='Post'/>
-</form>
-<% end %>
