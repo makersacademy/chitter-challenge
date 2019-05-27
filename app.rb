@@ -8,8 +8,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
-    @name = session[:name]
-    @username = session[:username]
+    @signed_up = !session[:userid].nil?
     erb(:index)
   end
 
@@ -18,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/post' do
-    Peep.post(text: params[:text])
+    Peep.post(text: params[:text], userid: session[:userid])
     redirect '/'
   end
 
@@ -36,8 +35,7 @@ class Chitter < Sinatra::Base
     user = User.sign_up(email: params[:email], password: params[:password],
                         name: params[:name], username: params[:username])
 
-    session[:name] = user.name
-    session[:username] = user.username
+    session[:userid] = user.id
 
     redirect '/'
   end
