@@ -1,5 +1,81 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep.message %></li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: #68EEF8;
+      text-align: center;
+      -webkit-font-smoothing: subpixel-antialiased;
+      font-family: monospace;
+      font-size: 14px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 700; line-height: 15px;
+    }
+
+h1 {
+  font-family: monospace;
+  font-size: 100px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 36.9px;
+ }
+  h2 {
+    font-family: monospace;
+    font-size: 30px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 12.6px;
+  }
+  p {
+    font-family: monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700; line-height: 12.6px;
+  }
+  blockquote {
+    font-family: monospace;
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  pre {
+    font-family: monospace;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 11.7px;
+  }
+
+  span {
+    padding: 5px;
+    border: 20px solid white;
+    width: 300px;
+    height: 50px;
+    display: inline-block;
+}
+
+
+   </style>
+</head>
+
+<body>
+  <h1>Your Peeps</h1>
+    <ul style="list-style-type: none;">
+      <% @peeps.each do |peep| %>
+        <li>
+          <span>
+          <%= peep.message %>
+        </span>
+      </li>
+      <% end %>
+    </ul>
+</body>
+</html>

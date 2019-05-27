@@ -1,6 +1,6 @@
 require 'pg'
 require 'sinatra/flash'
-require_relative 'database_connection'
+require_relative './database_connection'
 
 class Peep
 
