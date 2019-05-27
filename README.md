@@ -101,6 +101,6 @@ I want to receive an email if I am tagged in a Peep
 ```
 
 ## Status
-- I have managed to complete all the straight up user stories, my next step would be to move onto the harder user stories and to display the users username next to the peeps 
+- I have managed to complete all the user stories except the Advanced. My next step would be to display the users username next to the peeps 
 - All test are passing
 - 100% Test coverage
