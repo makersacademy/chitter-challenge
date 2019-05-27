@@ -4,11 +4,11 @@
   </head>
 
   <body>
-   <%# <p> "You can see me, right? Add a peep!"</p> %>
+   <p> "You can see me, right? Add a peep!"</p>
     <article>
     <ul>
       <%@peeps.each do |peep|%>
-      <li><%=peep%></li>
+      <li><%="#{peep.content} (#{peep.time})"%></li>
       <%end%>
     </ul>
     </article>

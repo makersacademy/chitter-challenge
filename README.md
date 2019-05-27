@@ -28,3 +28,4 @@ Setting up a database:
 * Create the database using the psql command CREATE DATABASE chit;
 * Connect to the database using the pqsl command \c chit;
 * Run the query saved in the file 01_create_peeps_table.sql
+* Run the query saved in the file 02_add_timestamp.sql
