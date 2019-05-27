@@ -107,9 +107,13 @@ I want to post a message (peep) to chitter
 
 **TEST CASES**
 
-Feature:
+Feature tests:
 
 -[X] A user can add multiple peeps and view them.
+
+`peep` unit tests:
+
+-[X] Creates a new peep.
 
 Technical Approach:
 -----
