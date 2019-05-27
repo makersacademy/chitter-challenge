@@ -1,13 +1,13 @@
 Chitter Challenge
 =================
 
-## INTRODUCTION
+### INTRODUCTION
 
 The aim of this project is to build a small Twitter clone that will allow the users to post messages to a public stream.
 
 The project is provided by Makers Academy. It is the fourth weekend challenge and is the culmination of a week spent on the fundamentals of web app development with a database.
 
-## USER STORIES
+### USER STORIES
 
 ```
 STRAIGHT UP
@@ -45,24 +45,24 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-## MOTIVATION
+### MOTIVATION
 
 For this challenge I will be focusing on specific goals within the Makers Academy high level goals:
 
-### I can TDD anything
+**I can TDD anything**
 
 * Apply the MVC framework Sinatra to build a simple web app.
 * Apply a wrapper class/adapter to wrap around an object as an interface to a database.
 
-### I have a methodical approach to solving problems
+**I have a methodical approach to solving problems**
 
 * Understand and utilise the MVC frameworks and RESTful routing.
 
-### I can debug anything
+**I can debug anything**
 
 * Being able to debug within an MVC model with an integrated database.
 
-## TECH/FRAMEWORK USED
+### TECH/FRAMEWORK USED
 
 This project follows the RSpec testing framework using capybara. Find out more about Capybara [here](http://teamcapybara.github.io/capybara/).
 
@@ -74,28 +74,28 @@ This project follows the RSpec testing framework using capybara. Find out more a
 
 While developing the app I used the Ruby web server interface, Rack. More info can be found at [Rack](https://rack.github.io/).
 
-## CODE STYLE
+### CODE STYLE
 
 [Rubocop](https://github.com/rubocop-hq/rubocop) has been used as a guide.
 
-## GETTING STARTED
+### GETTING STARTED
 
 * Fork/clone this project
 * In the terminal, run bundle to install all the dev dependencies
 * In the terminal, type `rackup` to start the server (served on localhost:9292 by default)
 * Load up http://localhost:9292/ in your browser of choice
 
-## HOW TO USE THE APP
+### HOW TO USE THE APP
 
-## IMAGES/SCREENSHOTS
+### IMAGES/SCREENSHOTS
 
-## RUNNING TESTS
+### RUNNING TESTS
 
-# APPROACH
+## APPROACH
 
 Below is the approach I took to build the Chitter web app. First of all I took each of the user stories and turned them into a domain model. From there I began creating tests to systematically build the web app.
 
-## USER STORY 1
+### USER STORY 1
 
 ```
 As a Maker
@@ -104,6 +104,12 @@ I want to post a message (peep) to chitter
 ```
 
 ![User Story 1: Domain Model](https://github.com/marbuthnott/chitter-challenge/blob/master/images/user_story_1.jpg?raw=true)
+
+**TEST CASES**
+
+Feature:
+
+-[X] A user can add multiple peeps and view them.
 
 Technical Approach:
 -----
