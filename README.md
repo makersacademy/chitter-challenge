@@ -142,6 +142,10 @@ Feature tests:
 
 -[X] A user can see the time a peep was made.
 
+`peep` unit tests:
+
+-[X] Creates a new peep with a timestamp.
+
 Technical Approach:
 -----
 
