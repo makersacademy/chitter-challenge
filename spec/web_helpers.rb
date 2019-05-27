@@ -41,3 +41,9 @@ def sign_up_same_username
   fill_in('username', with: 'test_user1')
   click_button('Submit')
 end
+
+def sign_in
+  fill_in('email', with: 'a@a.com')
+  fill_in('password', with: '123')
+  click_button('Sign in')
+end

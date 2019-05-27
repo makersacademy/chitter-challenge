@@ -1,17 +1,23 @@
 <h1>Chitter</h1>
+
 <% if @logged_in %>
 <h3>Welcome, <%= @name %></h3>
+<form action='logout' method='post'>
+  <input type='submit' value='Log out'/>
+</form>
 <% end %>
 
 <% if !@logged_in %>
 <form action='login/new' method='get'>
   <input type='submit' value='Log in'/>
 </form>
-<% end %>
 
 <form action='/users/signup' method='get'>
   <input type='submit' value='Sign up'/>
 </form>
+<% end %>
+
+<h3><%= flash[:notice] %></h3>
 
 <% @peeps.each do |peep| %>
   <article>
