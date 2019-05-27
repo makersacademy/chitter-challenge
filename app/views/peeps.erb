@@ -4,7 +4,9 @@
   </head>
 
   <body>
-   <p> "You can see me, right? Add a peep!"</p>
+    <% if @user %>
+    <h1>Welcome, <%= @user.email%></h1>
+    <% end %>
     <article>
     <ul>
       <%@peeps.each do |peep|%>

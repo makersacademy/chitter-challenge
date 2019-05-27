@@ -1,7 +1,7 @@
 require 'pg'
 
 def setup_test_database
-  p "Setting up test database..."
+  p "test database..."
   connection = PG.connect(dbname: 'chit_test')
-  connection.exec("TRUNCATE peeps RESTART IDENTITY;")
+  connection.exec("TRUNCATE peeps, users RESTART IDENTITY;")
 end
