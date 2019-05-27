@@ -14,7 +14,7 @@ class User
   def self.sign_up(email:, password:, name:, username:)
     sql = "INSERT INTO users (email, password, name, username)
            VALUES('#{email}', '#{password}', '#{name}', '#{username}')
-           RETURNING id, email, password, name, username;"
+           RETURNING *;"
 
     user = DatabaseConnection.query(sql).first
 
@@ -32,5 +32,15 @@ class User
     sql = "SELECT username FROM users WHERE username = '#{username}';"
     result = DatabaseConnection.query(sql)
     result.count.zero?
+  end
+
+  def self.authenticate(email:, password:)
+    sql = "SELECT * FROM users WHERE email = '#{email}';"
+    result = DatabaseConnection.query(sql).first
+    return if result.nil?
+
+    User.new(id: result['id'], email: result['email'],
+             password: result['password'], name: result['name'],
+             username: result['username'])
   end
 end

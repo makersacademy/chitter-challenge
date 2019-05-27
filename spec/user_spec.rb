@@ -48,4 +48,18 @@ describe User do
       expect(User.unique_username?('test_user')).to eq(false)
     end
   end
+
+  describe '#authenticate' do
+    it 'should return a user if passed correct login details' do
+      user = user_signup
+      authenticated_user = User.authenticate(email: 'test@test.com',
+                                             password: 'password123')
+
+      expect(user.id).to eq(authenticated_user.id)
+    end
+
+    it 'should return nil if email is incorrect' do
+      expect(User.authenticate(email: 'a@a.com', password: '123')).to be_nil
+    end
+  end
 end

@@ -1,32 +1,34 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './lib/peep.rb'
 require_relative './lib/user.rb'
 require_relative './lib/database_connection_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/peeps' do
     @peeps = Peep.all
-    @signed_up = !session[:userid].nil?
+    @logged_in = !session[:userid].nil?
     @name = session[:name]
-    erb(:index)
+    erb(:'peeps/index')
   end
 
   get '/peeps/post' do
-    erb(:post)
+    erb(:'peeps/post')
   end
 
-  post '/peeps/post' do
+  post '/peeps' do
     Peep.post(text: params[:text], userid: session[:userid])
     redirect '/peeps'
   end
 
   get '/users/signup' do
-    erb(:signup)
+    erb(:'users/signup')
   end
 
-  post '/users/signup' do
+  post '/users' do
     session[:unique_email] = User.unique_email?(params[:email])
 
     unless session[:unique_email] && User.unique_username?(params[:username])
@@ -44,7 +46,24 @@ class Chitter < Sinatra::Base
 
   get '/users/signup/fail' do
     session[:unique_email] ? @fail = 'Username in use' : @fail = 'Email in use'
-    erb(:signup_fail)
+    erb(:'users/signup_fail')
+  end
+
+  get '/login/new' do
+    erb(:'users/login')
+  end
+
+  post '/login' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+
+    if user
+      session[:userid] = user.id
+      session[:name] = user.name
+      redirect '/peeps'
+    else
+      flash[:notice] = 'Your email or password is incorrect'
+      redirect '/login/new'
+    end
   end
 
   run! if app_file == $0

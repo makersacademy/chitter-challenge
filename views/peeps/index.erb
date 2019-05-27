@@ -1,10 +1,18 @@
 <h1>Chitter</h1>
-<% if @signed_up %>
+<% if @logged_in %>
 <h3>Welcome, <%= @name %></h3>
 <% end %>
+
+<% if !@logged_in %>
+<form action='login/new' method='get'>
+  <input type='submit' value='Log in'/>
+</form>
+<% end %>
+
 <form action='/users/signup' method='get'>
   <input type='submit' value='Sign up'/>
 </form>
+
 <% @peeps.each do |peep| %>
   <article>
   <br>
@@ -18,7 +26,8 @@
   </article>
 <% end %>
 <br>
-<% if @signed_up %>
+
+<% if @logged_in %>
 <form action='/peeps/post' method='get'>
   <input type='submit' value='Post'/>
 </form>
