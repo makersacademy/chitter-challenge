@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @peeps = Peep.all
     @signed_up = !session[:userid].nil?
+    @name = session[:name]
     erb(:index)
   end
 
@@ -36,6 +37,7 @@ class Chitter < Sinatra::Base
                         name: params[:name], username: params[:username])
 
     session[:userid] = user.id
+    session[:name] = user.name
 
     redirect '/peeps'
   end

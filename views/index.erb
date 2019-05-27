@@ -1,4 +1,7 @@
 <h1>Chitter</h1>
+<% if @signed_up %>
+<h3>Welcome, <%= @name %></h3>
+<% end %>
 <form action='/users/signup' method='get'>
   <input type='submit' value='Sign up'/>
 </form>

@@ -10,4 +10,9 @@ feature "signing up" do
     sign_up_same_username
     expect(page).to have_content('Username in use')
   end
+
+  scenario "takes you to the homepage with your username present" do
+    sign_up_user
+    expect(page).to have_content('Welcome, test user')
+  end
 end
