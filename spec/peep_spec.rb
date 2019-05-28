@@ -2,7 +2,7 @@ require 'pg'
 require 'peep'
 
 describe Peep do
-  subject(:peep) { described_class.new("Lisa", "@lisa", "My first peep!", "2019-05-27 13:13:33 +0100") }
+  subject(:peep) { described_class.new(name: "Lisa", username: "@lisa", peep: "My first peep!", time: "2019-05-27 13:13:33 +0100") }
 
   describe '.name' do
     it 'returns the user\'s name' do
@@ -30,12 +30,12 @@ describe Peep do
 
   describe '#add' do
     it 'adds a peep to the database' do
-      peep = Peep.new("Lisa", "@lisa", "My first peep!", "2019-05-27 13:13:33 +0100")
+      peep = Peep.new(name: "Lisa", username: "@lisa", peep: "My first peep!", time: "2019-05-27 13:13:33 +0100")
       peep.add
       con = PG.connect(dbname: 'chitter_test')
       result = con.query("SELECT DISTINCT name, username, peep, time FROM peeps;")
       result.map do |peep|
-        Peep.new('name', 'username', 'peep', 'time')
+        Peep.new(name: result[0]['name'], username: result[0]['username'], peep: result[0]['peep'], time: result[0]['time'])
       end
       expect(result[0]).to eq "name"=>"Lisa", "username"=>"@lisa", "peep"=>"My first peep!", "time"=>"2019-05-27 13:13:33 +0100"
     end
@@ -45,8 +45,8 @@ describe Peep do
     it 'returns all peeps' do
       con = PG.connect(dbname: 'chitter_test')
 
-      peep1 = Peep.new("Lisa", "@lisa", "My first peep!", "2019-05-27 13:13:33 +0100")
-      peep2 = Peep.new("Lisa", "@lisa", "My second peep!", "2019-05-27 13:13:33 +0100")
+      peep1 = Peep.new(name: "Lisa", username: "@lisa", peep: "My first peep!", time: "2019-05-27 13:13:33 +0100")
+      peep2 = Peep.new(name: "Lisa", username: "@lisa", peep:"My second peep!", time:"2019-05-27 13:13:33 +0100")
       peep1.add
       peep2.add
 	    peeps = Peep.all

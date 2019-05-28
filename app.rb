@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signedin' do
-    @peep = Peep.new(session[:name], session[:username], params[:peep], Time.new)
+    @peep = Peep.new(session[:name], session[:username], params[:peep], Time.now.strftime("%Y-%m-%d %H:%M"))
     @peep.add
     redirect :signedin
   end
