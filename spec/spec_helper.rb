@@ -15,3 +15,18 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+require 'capybara/rspec'
+require './app'
+require './lib/peep'
+require './spec/database_helpers'
+
+ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    clear_database
+  end
+end
+
+Capybara.app = Chitter
