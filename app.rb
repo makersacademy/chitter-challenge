@@ -1,17 +1,30 @@
 require 'sinatra/base'
 require_relative './lib/peep'
+require_relative './lib/user'
 require_relative 'lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
-  # enable :method_override, :sessions
+  enable :sessions # :method_override,
 
   get '/' do
-    @peeps = Peep.all(:order => [ :creation_time.desc ])
+    @user = User.get(session[:user_id])
+    @peeps = Peep.all(:order => [:creation_time.desc])
     erb :index
   end
 
   post '/peep' do
-    Peep.create(content: params[:peep], creation_time: Time.now )
+    user = User.get(session[:user_id])
+    Peep.create(content: params[:peep], creation_time: Time.now, user: user)
+    redirect '/'
+  end
+
+  get '/users/new' do
+    erb :signup
+  end
+
+  post '/users' do
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    session[:user_id] = user.id
     redirect '/'
   end
 
