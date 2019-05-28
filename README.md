@@ -39,7 +39,7 @@ Features not yet implemented
 
 Only one user can currently use this version of Chitter at any one time. I will need to implement log in and log out functionality to allow multiple users to post their own peeps to Chitter and allow these peeps to belong only to those who posted them. To tackle this, I will need to set up some method of authentication that will allow the user to log in only if the username/email and password are correct.
 
-OVERAGE:  95.45%
+COVERAGE:  95.45%
 
 2 Unit Test failures due to underfined method, however the method appears to be functioning as expected by showing user handles on the web app. This could be because I have returned nil in line 28 of user.rb (if no ID is given). I have checked the database and the User ID is present following a new sign-up to Chitter. I will need to investigate this error further!
 
