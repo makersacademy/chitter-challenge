@@ -42,4 +42,4 @@ class Chitter
     con.exec("INSERT INTO users(email, password, name, username) VALUES('#{email}', '#{password}', '#{name}', '#{username}' );")
   end
 
-end
+end 
