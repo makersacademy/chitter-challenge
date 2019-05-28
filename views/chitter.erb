@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: #68EEF8;
+      text-align: center;
+      -webkit-font-smoothing: subpixel-antialiased;
+    }
+
+h1 {
+  font-family: monospace;
+  font-size: 50px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 45px;
+ }
+  h2 {
+    font-family: monospace;
+    font-size: 30px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 12.6px;
+  }
+  p {
+    font-family: monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700; line-height: 12.6px;
+  }
+
+   </style>
+</head>
+
+<body>
+
+  <h1>Welcome, <%= @user.username %>! </h1>
+
+  <form action="/peeps" method="POST">
+  <input type="text" name="message" placeholder="What's on your mind...?"> </input>
+      <style>
+      input[type="text"]
+
+      {
+          background-color: #FFFFFF;
+          color: #000000;
+          border-radius: 10px;
+          font-family: monospace;
+          font-size: 20px;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 700;
+          line-height: 20px;
+          width: 500px !important;
+          height: 200px !important;
+      }
+</style>
+  <br>
+  <br>
+
+  <input type="submit" name="submit" </input>
+  <style>
+  input[type="submit"]{
+      /* change these properties to whatever you want */
+      background-color: #FFFFFF;
+      color: #000000;
+      border-radius: 10px;
+      font-family: monospace;
+      font-size: 30px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 700;
+      line-height: 36.9px;
+      width: 175px !important;
+  }
+  </style>
+  </form>
+</body>
+</html>

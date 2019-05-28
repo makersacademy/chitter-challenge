@@ -1,0 +1,2 @@
+ALTER TABLE mytable ADD COLUMN timestamp TIMESTAMP;
+ALTER TABLE mytable ALTER COLUMN timestamp SET DEFAULT NOW();

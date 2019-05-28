@@ -1,0 +1,26 @@
+<style>
+ a { background-color: #68EEF8; }
+
+ a { background-color: rgb(104,238,248); }
+
+ div.DivClassName
+ {
+   background-color: #68EEF8;
+ }
+ .BgClassName
+ {
+   background-color: #68EEF8;
+ }
+
+ </style>
+
+
+h1 {
+text-decoration: underline;
+color: blue;
+font-size: 100px;
+}
+p {
+padding-left: 100px;
+font-size: 50px;
+}

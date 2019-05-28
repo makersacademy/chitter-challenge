@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #68EEF8;
+      text-align: center;
+      -webkit-font-smoothing: subpixel-antialiased;
+      font-family: monospace;
+      font-size: 14px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 700; line-height: 15px;
+    }
+
+h1 {
+  font-family: monospace;
+  font-size: 50px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 36.9px;
+ }
+  h2 {
+    text-decoration: overline;
+    font-family: monospace;
+    font-size: 10px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 12.6px;
+  }
+
+  h3 {
+    font-family: monospace;
+    text-align: left;
+    font-size: 10px;
+    font-color: #FFFFFF;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 12.6px;
+  }
+
+  p {
+    font-family: monospace;
+    font-color: #FFFFFF;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700; line-height: 12.6px;
+  }
+  blockquote {
+    font-family: monospace;
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  pre {
+    font-family: monospace;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 11.7px;
+  }
+
+  span {
+    padding: 5px;
+    border: 20px solid white;
+    width: 300px;
+    height: 50px;
+    display: inline-block;
+}
+
+</style>
+</head>
+      <body>
+        <h1>Your Peep Feed</h1>
+          <ul style="list-style-type: none;">
+            <% @peeps.each { |peep| %>
+              <li class="peep" id="peep-<%= peep.id %>">
+                <span>
+               <%= peep.message %>
+                <br>
+                <br>
+
+                  <h2>Peeped at: <%= peep.formatted_time %> on <%= peep.formatted_date %></h2>
+                  <br>
+              </span>
+            </li>
+            <% }.reverse %>
+          </ul>
+          </body>
+      </html>

@@ -1,47 +1,83 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Week 4 Makers Weekend Challenge to write a small Twitter clone that will allow the users to post messages to a public stream.
+This project integrates a database into Chitter using the `PG` gem and `SQL` queries. My tests are incomplete as I ran out of time so this is something I would like to come back to, particularly how to test a timestamp.
 
-Challenge:
--------
+I would like to come back and refactor this to include peeps from different users and show the user's handles on each peep.
 
-As usual please start by forking this repo.
+![Alt Text](https://media.giphy.com/media/d8dDe0OfRp7N5Bs05S/giphy.gif)
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+![Alt Text](https://media.giphy.com/media/WS6WqH6FOM8RbxwNcy/giphy.gif)
 
-Features:
+
+### To set up the database
+
+Connect to `psql` and create the `chitter` database:
+
+```
+CREATE DATABASE chitter;
+```
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+
+User Story 1:
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
+```
+
+## Domain model
+
+![domain_model](/images/dm_user_story_1.jpg)
+
+User Story 2:
+-------
+
+```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
+```
+## Domain model
+
+![domain_model](/images/dm_user_story_2.jpg)
+
+User Story 3:
+-------
+
+```
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
+
+User Story 4:
+-------
+
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+```
 
+```
 HARDER
 
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
+```
+
+These were user stories I did not get a chance to complete as I ran out of time.
+-----
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
@@ -56,7 +92,7 @@ I want to receive an email if I am tagged in a Peep
 Technical Approach:
 -----
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+This week you . You can continue to use this approach when building Chitter Challenge.
 
 If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
 
@@ -89,19 +125,6 @@ And/Or:
 
 * Work on the CSS to make it look good.
 
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
 Automated Tests:
 -----
 
@@ -111,23 +134,3 @@ If you want a green tick against your pull request you'll need to configure Trav
 
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
