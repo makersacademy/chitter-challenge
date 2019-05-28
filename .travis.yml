@@ -13,11 +13,4 @@ before_script:
   - psql chitter_test -c 'CREATE TABLE peep(id SERIAL PRIMARY KEY, message VARCHAR(140));' -U postgres
   - psql chitter_test -c 'ALTER TABLE peep ADD COLUMN timestamp TIMESTAMP;' -U postgres
   - psql chitter_test -c 'ALTER TABLE peep ALTER COLUMN timestamp SET DEFAULT NOW();' -U postgres
-
-  - psql chitter_test -c 'CREATE TABLE users(id SERIAL PRIMARY KEY,
-                     email VARCHAR(60),
-                     password VARCHAR(60),
-                     name VARCHAR(60),
-                     username VARCHAR(30)
-                   )
-                   ;' -U postgres
+  - psql chitter_test -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(60), name VARCHAR(60), username VARCHAR(30));' -U postgres
