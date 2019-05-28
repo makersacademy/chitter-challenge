@@ -153,6 +153,16 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
+Feature tests:
+
+-[X] A user can sign up to Chitter.
+
+`user` unit tests:
+
+-[X] It can create a new user.
+-[X] It creates a new user and stores the data in a users table.
+-[X] It can find a user by id.
+
 Technical Approach:
 -----
 
