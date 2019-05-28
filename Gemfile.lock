@@ -78,9 +78,8 @@ GEM
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
-    pg (1.1.4)
     powerpack (0.1.2)
-    public_suffix (3.0.3)
+    public_suffix (3.1.0)
     rack (2.0.7)
     rack-protection (2.0.5)
       rack
@@ -109,7 +108,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    ruby-progressbar (1.10.0)
+    ruby-progressbar (1.10.1)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -140,7 +139,6 @@ DEPENDENCIES
   capybara
   data_mapper (~> 1.2.0)
   dm-postgres-adapter (~> 1.2)
-  pg
   rake
   rspec
   rubocop (= 0.56.0)
