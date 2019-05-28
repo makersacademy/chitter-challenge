@@ -8,7 +8,7 @@ body {
   text-align: center;
 }
 
-input[type=text] {
+input[type='text'] {
   width: 300px;
   margin: 50px auto;
   background: transparent;
@@ -21,39 +21,33 @@ input[type=text] {
   letter-spacing: 3px;
 }
 
-input[type=submit] {
-  border:solid 2px #1f1f1f;
+input[type='password'] {
+  width: 300px;
+  margin: 50px auto;
   background: transparent;
-  color: #1f1f1f;
-
-  cursor: pointer;
-  border-radius: 0px;
-  text-decoration: none;
-  padding: 12px 18px;
-  font-size: 12px;
-  line-height: 19px;
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif; font-weight:400;
-  letter-spacing: 3px;
-  -webkit-transition: all .4s ease-in-out;
-      -moz-transition: all .4s ease-in-out;
-      -ms-transition: all .4s ease-in-out;
-        -o-transition: all .4s ease-in-out;
-          transition: all .4s ease-in-out;
-
-  border-radius: 0px;
+  border: solid 2px #00bfb6;
   text-decoration: none;
   padding: 14px 21px;
   font-size: 13px;
   line-height: 25px;
+  font-family: 'Montserrat', sans-serif; font-weight:400;
+  letter-spacing: 3px;
+}
+
+input[type='submit'] {
+  border:solid 2px #1f1f1f;
+  background: transparent;
+  color: #1f1f1f;
+  cursor: pointer;
+  border-radius: 0px;
+  text-decoration: none;
+  line-height: 19px;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif; font-weight:400;
   letter-spacing: 3px;
-  -webkit-transition: all .4s ease-in-out;
-      -moz-transition: all .4s ease-in-out;
-      -ms-transition: all .4s ease-in-out;
-        -o-transition: all .4s ease-in-out;
-          transition: all .4s ease-in-out;
+  padding: 14px 21px;
+  font-size: 13px;
+  line-height: 25px;
   }
 
 .box {
@@ -62,11 +56,25 @@ input[type=submit] {
   background: #fff;
   border: 4px solid #00bfb6;
   padding: 20px;
+  position:relative;
+}
+
+.peep {
   text-align: center;
   font-weight: 900;
   color: #00bfb6;
   font-family: 'Montserrat', sans-serif; font-weight:400;
-  position:relative;
+  
+}
+
+.name {
+  font-weight: 600;
+  position: absolute;
+  font-size: 14px;
+  top: 8px;
+  left: 10px;
+  margin: 0 0 4px;
+  color: #3498db;
 }
 
 .timestamp {
@@ -76,19 +84,6 @@ input[type=submit] {
   right: 10px;
   text-transform: uppercase;
   color: #999;
-}
-
-.sb1:before {
-  content: "";
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  border-left: 10px solid #00bfb6;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #00bfb6;
-  border-bottom: 10px solid transparent;
-  right: -20px;
-  top: 6px;
 }
 
 h1 { 

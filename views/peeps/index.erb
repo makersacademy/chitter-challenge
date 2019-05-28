@@ -1,5 +1,8 @@
 <html>
 <head>
+  <title>Chitter.</title>
+  <link rel="icon" href="https://png2.kisspng.com/sh/bb1ad61a87af7b6e62ed85b7e6798d74/L0KzQYm3U8E4N6RsfZH0aYP2gLBuTfZzbZYyett7ZD3pgrbsTfNwdqVqhuY2Y3zsgH7okwQubqNqfZ98dneweb7ohBV0NWZmedY7M0O3RYG6g8gyNmg9SasCMUe3QYa5UcI6PmI9SKU7OEexgLBu/kisspng-free-bird-free-content-clip-art-free-svg-images-5aad2334503c81.7819717415212961803287.png">
+
 	<script type="text/javascript" src="scripts.js">
 	</script>
   <link rel="stylesheet" type="text/css" href="/style.css">
@@ -7,15 +10,24 @@
 </head>
 <body>
   <hr>
+  <% if @username == nil %>
+    <a href='/sign_up' style="float: right;">Sign up</a>
+  <% else %>
+    <p style="float: right;">You are logged in as @<%= @username %></p>
+    <br>
+    <br>
+    <br>
+    <a href='/sign_up' style="float: right;">Sign out</a>
+  <% end %>
   <form class="center" action="/new" method="post">
     <input type="text" name="peep" placeholder="What's on your mind?">
     <input type="submit" value="Cheep">
   </form>
   <hr>
   <% @peeps.each do |peep| %>
-    <div class="box sb1">
-    
-      <p><%= peep.peep %></p>
+    <div class="box">
+      <p class="name"><%= @username %></p>
+      <p class="peep"><%= peep.peep %></p>
       <span class="timestamp"><%= peep.timestamp %></span>
     </div>
   <% end %>
