@@ -1,8 +1,12 @@
 Chitter Challenge
 =================
 
-Features:
+The challenge:
 -------
+
+* The goal was to create a twitter clone, which lets a user sign up, log in, post, and log out
+
+* User stories as follows:
 
 ```
 As a Maker
@@ -31,15 +35,21 @@ I want to log out of Chitter
 
 ```
 
+* Signing up with an in-use email or username should display a relevant prompt
+
+* Loggin in with incorrect details should display a prompt
+
+
 Technical Approach:
 -----
 
 * TDD approach, outside-in (i.e. feature tests first, then unit tests)
 
-* Stored user and peep information within tables of a database. Accessed these using sql
-and wrapped them in user and peep ruby objects respectively
+* Used the MVC pattern
 
-* Users can sign up, post 'peeps', log out, and log in
+* Stored user and peep information (timestamp, text, username and so on) within tables of a database. Accessed these using sql and wrapped them in user and peep ruby objects respectively
+
+* One-to-many relationship between users and peeps meant storing userid as a foreign keep within the peeps table
 
 
 Notes on functionality:
@@ -67,13 +77,14 @@ CREATE DATABASE database_name
 
 * For each database enter the commands in db/migrations (in order!)
 
-* Run bundle install
+* Run bundle install in the command line
 
-* Run rackup and visit localhost in a browser with the correct port number
-
-* Visit the /peeps route and interact!
+* Run rackup in the command line and visit localhost in a browser with the correct port number
 
 * To run tests enter rspec in the command line from the root directory
+
+* Visit the /peeps route and interact! Click 'Sign up' to register a username/ email,
+'Peep' to post a peep, 'Log out' to sign out and 'Log in' to sign in
 
 Thoughts
 -----
