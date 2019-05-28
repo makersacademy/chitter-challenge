@@ -1,0 +1,19 @@
+<h1>Welcome to Chitter!</h1>
+<h2>Click the button below if you wish to peep</h2>
+
+<ul>
+<% @peep_list.each do |peep| %>
+    <li>
+            <%= peep.name %>:
+             <%= peep.message %>
+              <p></p>
+        </a>
+    </li>
+    <% end %>
+</ul>
+
+<h3>Got something to say?</h3>
+
+<form action='/peep_new'>
+<input type='submit' value='New Peep'>
+</form>
