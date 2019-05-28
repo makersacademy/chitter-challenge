@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './spec/setup_databases'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -9,15 +10,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: [:created_at.desc])
     erb :peeps
   end
 
   post '/peeps' do
-    Peep.create(peep: params[:peep])
+    Peep.create(content: params[:peep], created_at: Time.now)
     redirect '/peeps'
   end
 
   run! if app_file == $0
 
 end
+ 
