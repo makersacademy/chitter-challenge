@@ -6,9 +6,9 @@ describe Peep do
   uktime = Time.now.strftime("%d %^b %Y, %H:%M")
   describe '.all' do
     it 'can view peeps in reverse chronological order' do
-      peep = Peep.create(content:'My first peep!', time: uktime)
-      Peep.create(content:'Hello, World', time: uktime )
-      Peep.create(content:'Let me tell you something about Chitter..', time: uktime )
+      peep = Peep.create(content: 'My first peep!', time: uktime)
+      Peep.create(content: 'Hello, World', time: uktime)
+      Peep.create(content: 'Let me tell you something about Chitter..', time: uktime)
 
       peeps = Peep.all.reverse
 
@@ -20,9 +20,9 @@ describe Peep do
     end
   end
 
-   describe '.create' do
+  describe '.create' do
     it 'creates a new peep' do
-      peep = Peep.create(content: 'I am a new peep', time: uktime )
+      peep = Peep.create(content: 'I am a new peep', time: uktime)
       persisted_data = persisted_data(id: peep.id, table: 'peeps')
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data.first['id']

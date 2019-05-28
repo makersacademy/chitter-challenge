@@ -7,7 +7,6 @@ require 'capybara/rspec'
 require 'rspec'
 require 'rake'
 
-
 RSpec.configure do |config|
   config.before(:each) do
     setup_test_database

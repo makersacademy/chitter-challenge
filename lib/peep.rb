@@ -24,8 +24,8 @@ class Peep
   def self.create(content:, time:)
     uktime = Time.now.strftime("%d %^b %Y, %H:%M")
     result = DatabaseConnection.query\
-    ("INSERT INTO peeps(content, time) VALUES('#{content}', '#{uktime}')
-     RETURNING id, content, time;")
+    "INSERT INTO peeps(content, time) VALUES('#{content}', '#{uktime}')
+     RETURNING id, content, time;"
     Peep.new(
       id: result[0]['id'],
       content: result[0]['content'],
