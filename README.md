@@ -71,6 +71,8 @@ CREATE DATABASE database_name
 
 * Run rackup and visit localhost in a browser with the correct port number
 
+* Visit the /peeps route and interact!
+
 * To run tests enter rspec in the command line from the root directory
 
 Thoughts
