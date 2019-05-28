@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title> What's on your mind?</title>
+  </head>
+
+  <body>
+    <% if @user %>
+    <h3>Welcome, <%= @user.name%>!</h3>
+    <%end%>
+    <article>
+      <%@peeps.each do |peep|%>
+      <%="#{peep.content} (#{peep.time})"%> <%if @user%>
+      <%="@#{@user.username}"%><br/><br/><%end%>
+      <%end%>
+    </article>
+    <article>
+     <form action='/peeps/new'>
+      <input type='submit' value='Create a peep!'/>
+     </form>
+   </article>
+  </body>
+</html>
