@@ -109,7 +109,7 @@ I want to see the time at which it was made
 For this I had to alter the table with a new column:
 
 ```
-ALTER TABLE peep ADD sent_at TIMESTAMP  DEFAULT CURRENT_TIMESTAMP
+ALTER TABLE peep ADD sent_at TIMESTAMP  DEFAULT CURRENT_TIMESTAMP;
 
 ```
 
