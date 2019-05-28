@@ -12,4 +12,5 @@ before_script:
   - psql chitter_test -c 'CREATE TABLE peep(id SERIAL PRIMARY KEY, message VARCHAR(140));' -U postgres
   - psql chitter_test -c 'ALTER TABLE peep ADD sent_at TIMESTAMP  DEFAULT CURRENT_TIMESTAMP;' -U postgres
   - psql chitter_test -c 'CREATE TABLE account (id SERIAL PRIMARY KEY, handle VARCHAR(20));' -U postgres
+  - psql chitter_test -c 'ALTER TABLE peep ADD account_id INT;' -U postgres
   - psql chitter_test -c 'ALTER TABLE peep ADD CONSTRAINT account_id FOREIGN KEY (account_id) REFERENCES account(id);' -U postgres

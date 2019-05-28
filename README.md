@@ -136,6 +136,11 @@ CREATE TABLE account (id SERIAL PRIMARY KEY, handle VARCHAR(20));
 ```
 
 ```
+ALTER TABLE peep ADD account_id INT;
+
+```
+
+```
 ALTER TABLE peep ADD CONSTRAINT account_id FOREIGN KEY (account_id) REFERENCES account(id);
 ```
 
