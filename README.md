@@ -146,6 +146,13 @@ Feature tests:
 
 -[X] Creates a new peep with a timestamp.
 
+### USER STORY 4
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+
 Technical Approach:
 -----
 
