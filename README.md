@@ -40,23 +40,11 @@ I want to log out of Chitter
 * Logging in with incorrect details should display a prompt
 
 
-Technical Approach:
------
-
-* TDD approach, outside-in (i.e. feature tests first, then unit tests)
-
-* Used the MVC pattern
-
-* Stored user and peep information (timestamp, text, username and so on) within tables of a database. Accessed these using sql and wrapped them in user and peep ruby objects respectively
-
-* One-to-many relationship between users and peeps meant storing userid as a foreign keep within the peeps table
-
-
 Notes on functionality:
 ------
 
 * You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* Users sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
@@ -85,6 +73,19 @@ CREATE DATABASE database_name
 
 * Visit the /peeps route and interact! Click 'Sign up' to register a username/ email,
 'Peep' to post a peep, 'Log out' to sign out and 'Log in' to sign in
+
+
+Technical Approach:
+-----
+
+* TDD approach, outside-in (i.e. feature tests first, then unit tests)
+
+* Used the MVC pattern
+
+* Stored user and peep information (timestamp, text, username and so on) within tables of a database. Accessed these using sql and wrapped them in user and peep ruby objects respectively
+
+* One-to-many relationship between users and peeps meant storing userid as a foreign key within the peeps table
+
 
 Thoughts
 -----
