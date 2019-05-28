@@ -4,7 +4,10 @@ Chitter Challenge
 Week 4 Makers Weekend Challenge to write a small Twitter clone that will allow the users to post messages to a public stream.
 This project integrates a database into Chitter using the `PG` gem and `SQL` queries. My tests are incomplete as I ran out of time so this is something I would like to come back to, particularly how to test a timestamp.
 
-I would like to come back and refactor this to include peeps from different users and show the user's handles on each peep. 
+I would like to come back and refactor this to include peeps from different users and show the user's handles on each peep.
+
+![Alt Text](https://gph.is/g/469GyWX)
+
 
 ### To set up the database
 
