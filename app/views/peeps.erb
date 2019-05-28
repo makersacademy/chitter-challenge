@@ -6,13 +6,12 @@
   <body>
     <% if @user %>
     <h3>Welcome, <%= @user.name%>!</h3>
-    <% end %>
+    <%end%>
     <article>
-    <ul>
       <%@peeps.each do |peep|%>
-      <li><%="@#{@user.username}: #{peep.content} (#{peep.time})"%></li>
+      <%="#{peep.content} (#{peep.time})"%> <%if @user%>
+      <%="@#{@user.username}"%><br/><br/><%end%>
       <%end%>
-    </ul>
     </article>
     <article>
      <form action='/peeps/new'>

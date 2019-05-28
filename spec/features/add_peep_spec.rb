@@ -1,3 +1,5 @@
+require './lib/user'
+
 feature 'add peep' do
   scenario 'create a new peep' do
     visit('/peeps/new')
