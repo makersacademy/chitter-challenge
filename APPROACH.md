@@ -123,8 +123,6 @@ Implementation:
 - Sketched on paper CRC card
 - Domain model
 
-# END_PLANING STAGE
-
 Step 6
 
 - TDD showing a peep on the /peeps routs and erb: peeps page - see it fail

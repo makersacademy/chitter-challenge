@@ -6,6 +6,10 @@ Week 4 Makers Weekend challenge:
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+## DB Diagram
+
+![DB](app/public/images/DBM2MrelationMapping.jpg)
+
 ## Features:
 
 ```
@@ -102,13 +106,13 @@ Implemented all user stories, however more work is needed on:
 
 ## More information about appoach and steps
 
-[Repa: Approach file](https://github.com/micosmin/chitter-challenge/blob/master/APPROACH.md)
+[Repo: Approach file](https://github.com/micosmin/chitter-challenge/blob/master/APPROACH.md)
 
 ## Reflection
 
 - Commit more often. I usually commit very often, but on this task I neglected this step
 - Test travis ci on a different branch if every in this situations of having builds fail due to database settings and migration errors
-- :development was not registerting sinatra flash in travis tests - took me a while to uncover this, which means i need to spend a bit of time better understanding enviornments
+- :development was not registerting sinatra flash in travis tests - took me a while to uncover this, which means i need to spend a bit of time better understanding environments
 
 To improve:
 
