@@ -37,7 +37,7 @@ I want to log out of Chitter
 
 * Signing up with an in-use email or username should display a relevant prompt
 
-* Loggin in with incorrect details should display a prompt
+* Logging in with incorrect details should display a prompt
 
 
 Technical Approach:
@@ -92,7 +92,7 @@ Thoughts
 * Storing passwords in plaintext, probably not a good idea! Could use a gem to encrypt these
 
 * Did not test the timestamping, could use Time.now in ruby rather than handling this on the database
-side. Would make testing easier (e.g. using the gem timecop)
+side. Would make testing easier (e.g. using the gem timecop or a mock)
 
 * Parts of the controller are a little long, will have to consider if it's possible to refactor
 
