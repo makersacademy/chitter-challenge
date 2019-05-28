@@ -1,0 +1,20 @@
+<h1>Welcome to Chitter</h1>
+<%# <h2>Provide Player Names</h2> %>
+
+<form action='/new_peep'>
+<input type='submit' value='Peep'>
+</form>
+
+<form action='/sign_up'>
+<input type='submit' value='Sign Up'>
+</form>
+
+<ul>
+  <% @chitter_feed.each do |feed| %>
+    <li>
+      <a><%= feed.date_time %> - <%= feed.peep %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
