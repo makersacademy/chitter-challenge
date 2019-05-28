@@ -1,0 +1,24 @@
+<h1> Welcome to Chitter! </h1>
+<br>
+<h2> You are now signed in to Chitter </h2>
+<br>
+<form action="chitter/new" method="post" >
+<input type="text" name="message" placeholder="peep" />
+<input type="submit" value="Peep!" />
+</form>
+<div class='feed'>
+    <table>
+      <% @peeps.each do |peep| %>
+        <tr class='peep-details'>
+          <td>
+            <%= peep.sent_time %>
+          </td>
+        </tr>
+        <tr class='peep-message'>
+          <td>
+            <%= peep.message %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>

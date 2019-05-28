@@ -1,3 +1,42 @@
+# My Approach
+
+I have began this challenge by mapping out in an MVC diagram how the app will work, and how the app will flow for the user when logging in, signing up, posting messages and viewing their feed. I have also tried to map out how each method within the classes will work. This diagram is below:
+
+INSERT DIAGRAM HERE
+
+Sadly I ran out of time and only managed to get through the first four user stories:
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+
+Following on from the diagram I did to map out how the app will work, I then wrote a feature test for the first user story above. I did the simplest thing to make this pass, then I worked on adding classes to make the functionality correct, implementing unit tests first and then writing the code to make these tests pass.
+
+If I had more time next I would have implemented a log in/log out feature on the homepage using the user class.
+
+## Instructions for Use
+* Clone this repo from github
+* Run 'bundle install' in the command line
+* Open 'psql postgres' in the command line
+* Run the two commands saved in 'db/migrations' to create the tables
+* Run 'rackup' in the command line
+* Go to 'localhost:9292' and follow the instructions to sign up and create peeps.
+
+
 Chitter Challenge
 =================
 
