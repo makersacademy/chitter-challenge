@@ -6,7 +6,7 @@ This project integrates a database into Chitter using the `PG` gem and `SQL` que
 
 I would like to come back and refactor this to include peeps from different users and show the user's handles on each peep.
 
-![Alt Text](https://gph.is/g/469GyWX)
+![Alt Text](https://media.giphy.com/media/d8dDe0OfRp7N5Bs05S/giphy.gif)
 
 
 ### To set up the database
