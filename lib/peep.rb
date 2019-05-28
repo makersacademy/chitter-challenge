@@ -13,8 +13,8 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-  peep_records = connection.exec("SELECT * FROM peeps ORDER BY sent_time DESC;")
-  peep_records.map { |peep_record| to_peep(peep_record) }
+  peeps = connection.exec("SELECT * FROM peeps ORDER BY sent_time DESC;")
+  peeps.map { |peep| to_peep(peep) }
   end
 
   def self.create(message:)
@@ -24,9 +24,9 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-  peep_record = connection.exec("INSERT INTO peeps (message, sent_time) VALUES('#{message}', '#{Time.now}') RETURNING id, message, sent_time;").first
+  peep = connection.exec("INSERT INTO peeps (message, sent_time) VALUES('#{message}', '#{Time.now}') RETURNING id, message, sent_time;").first
 
-  to_peep(peep_record)
+  to_peep(peep)
   end
 
   def self.to_peep(peep_record)
