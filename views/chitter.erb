@@ -1,0 +1,19 @@
+Let's peep, <%= @username %> :)
+
+<br>
+
+<form action='/chitter/add' method='post'>
+  <input type='text' name='message'>
+  <input type='submit' value='send'>
+</form>
+
+<br>
+
+<ul>
+  <% @peeps.reverse! %>
+  <% @peeps.each do |peep| %>
+      <li>
+          <%= "#{peep.message}, sent by #{peep.account_id} at #{peep.time_sent}" %>
+      </li>
+  <% end %>
+</ul>
