@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/chitter.rb'
 
+
 class Chitter < Sinatra::Base
     get '/' do 
         'Hi!'
@@ -17,7 +18,7 @@ class Chitter < Sinatra::Base
     end 
 
     post '/add_peep' do 
-        Peep.create(name: params[:name], message: params[:message])
+        Peep.create(name: params[:name], message: params[:message], posted_at: Time.now)
         redirect '/chitter'
     end 
 

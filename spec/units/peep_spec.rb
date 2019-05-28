@@ -6,7 +6,7 @@ describe Peep do
         it 'returns the message that has been posted to chitter' do 
         connection = PG.connect(dbname: 'chitter_test')
 
-        peep = Peep.create(name: "Gary", message: "I am at work")
+        peep = Peep.create(name: "Gary", message: "I am at work", posted_at: '2019-05-28 10:10:58')
 
         expect(peep).to be_a Peep 
         expect(peep.id).to eq peep.id
@@ -23,7 +23,7 @@ describe Peep do
     
     describe '.create' do
         it 'creates a new peep' do
-          peep = Peep.create(name: 'Gary', message: 'I am at work')
+          peep = Peep.create(name: 'Gary', message: 'I am at work', posted_at: '2019-05-28 10:10:58')
           persisted_data = persisted_data(id:peep.id)
 
           expect(peep).to be_a Peep

@@ -5,7 +5,8 @@
 <% @peep_list.each do |peep| %>
     <li>
             <%= peep.name %>:
-             <%= peep.message %>
+            <%= peep.message %>
+            <%= peep.posted_at %>
               <p></p>
         </a>
     </li>
