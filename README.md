@@ -1,31 +1,26 @@
-Chitter Challenge
-=================
+## Challenge:
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+[![Build Status](https://travis-ci.org/micosmin/chitter-challenge.svg?branch=master)](https://travis-ci.org/micosmin/chitter-challenge)
 
-Challenge:
--------
-
-As usual please start by forking this repo.
+Week 4 Makers Weekend challenge:
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
--------
+## DB Diagram
+
+![DB](app/public/images/DBM2MrelationMapping.jpg)
+
+## Features:
 
 ```
 STRAIGHT UP
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a Maker
@@ -53,81 +48,78 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+# Setting up
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+- fork repo
+- bundle
+- install postgresql
+- run these commands to create the databases
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+```sql
+-- log in the psql cli
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+psql$: CREATE TABLE chitter
+psql$: CREATE TABLE chitter_test
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+-- connect to chitter db
+psql$: \c chitter
+psql$: \i path_to_02_create_peeps_table
+psql$: \i path_to_03_create_users_table
+psql$: \i path_to_04_create_chitter_test_db
+psql$: \i path_to_06_create_tag_table_db
+psql$: \i path_to_07_create_usertags_table_db
+psql$: \c chitter_test
+-- connect to chitter_test_db
+-- repeate the creation of peeps and users inside the chitter_test database
+--or run:
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+# Run the app
+
+```
+- run app.rb
+
+or
+
+- rackup -p 4567
+
+Visit page at: localhost:4567
+```
+
+# Technologies used
+
+- ruby
+- rspec
+- capybara
+- sinatra
+- postgresql
+- html / css
+
+# How did it go?
+
+Implemented all user stories, however more work is needed on:
+
+- validation
+- testing messaging class
+- inject dependency on other classes
+- css styling
+
+## More information about appoach and steps
+
+[Repo: Approach file](https://github.com/micosmin/chitter-challenge/blob/master/APPROACH.md)
+
+## Reflection
+
+- Commit more often. I usually commit very often, but on this task I neglected this step
+- Test travis ci on a different branch if every in this situations of having builds fail due to database settings and migration errors
+- :development was not registerting sinatra flash in travis tests - took me a while to uncover this, which means i need to spend a bit of time better understanding environments
+
+To improve:
+
+- more testing needed - 80% of the time I test before I write any code, however, towards the end of the project I start writting code before tests, to see how a feature would work, but end up not having time to go back and write my tests
+- spend some time playing with rake and db creation/migration
+- implement many to many relation and querying in an app. No time during the weekly challenge for this
+- css
+- work on finishing week challenges as the last items contain some very useful information
+- give more time to refactor, as ran out of time to do dependency injection
+- add validation to user input

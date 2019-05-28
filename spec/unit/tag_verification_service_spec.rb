@@ -1,0 +1,15 @@
+# TO DO pending mocking for user
+require './lib/tag_verification_service'
+
+describe TagService do
+
+  describe '.check tag' do
+
+    it 'if a tag is provided in the peep, service will check the tags database' do
+      User.create(name: 'My_name', username: 'My_username', email: 'myname@gmail.com', password: 'some_password')
+      expect(TagService.check(peep: 'Hello @My_username')).to be_a Tag
+    end
+
+  end
+
+end
