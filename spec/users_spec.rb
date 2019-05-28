@@ -16,7 +16,7 @@ describe User do
 
   describe '.create' do
     it 'can create a new user' do
-      User.create(email: 'john@smith.com', password: 'password', username: 'jsmith91', name: 'John Smith')      expect(user.email).to eq('hi@hello.com')
+      User.create(email: 'john@smith.com', password: 'password', username: 'jsmith91', name: 'John Smith')
       expect(user.password).to eq('password')      
     end
 

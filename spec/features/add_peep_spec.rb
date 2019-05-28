@@ -26,11 +26,11 @@ feature "Adding and viewing peeps" do
     click_on('sign_up')
     expect(current_path).to eq('/users/create')
     fill_in('email', with: 'john@smith.com')
-    fill_in('name'), with: 'John Smith')
-    fill_in('username'), with: 'jsmith91')
+    fill_in('name', with: 'John Smith')
+    fill_in('username', with: 'jsmith91')
     fill_in('password', with: 'password123')
     click_button('Submit')
-    
+
     expect(page).to have_content('Welcome, jsmith91')
   end
 end
