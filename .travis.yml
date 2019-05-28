@@ -8,4 +8,7 @@ before_install:
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
+  - psql -c 'CREATE DATABASE chitter_test;' -U postgres
+  - psql chitter_test -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60));' -U postgres
+  - psql chitter_test -c 'ALTER TABLE peeps ADD COLUMN timestamp VARCHAR(20);' -U postgres
+  - psql chitter_test -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20) UNIQUE NOT NULL, password VARCHAR(20) NOT NULL);' -U postgres
