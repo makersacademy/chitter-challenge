@@ -23,10 +23,10 @@ class Peep
     end
   end
 
-  def self.create(message:, timestamp:)
+  def self.create(message:)
     result = DatabaseConnection.query(
-      "INSERT INTO peeps (message, timestamp)
-       VALUES('#{message}', NOW())
+      "INSERT INTO peeps (message)
+       VALUES('#{message}')
        RETURNING id, message, timestamp"
      )
     Peep.new(

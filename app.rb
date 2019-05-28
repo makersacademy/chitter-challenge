@@ -9,9 +9,9 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
-  # get '/' do
-  #   erb :index
-  # end
+  get '/' do
+    redirect '/chitter'
+  end
   #
   # post '/time' do
   #   flash[:time] = Time.now.strftime("%I:%M:%S")
