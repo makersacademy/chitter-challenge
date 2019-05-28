@@ -7,6 +7,12 @@ end
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
+    connection = PG.connect(dbname: 'peep_data_test')
+
+    connection.exec("INSERT INTO peeps (text) VALUES ('my first peep');")
+    connection.exec("INSERT INTO peeps (text) VALUES ('my second peep');")
+    connection.exec("INSERT INTO peeps (text) VALUES ('my third peep');")
+
     visit('/peeps')
 
     expect(page).to have_content "my first peep"
