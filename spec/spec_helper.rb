@@ -15,3 +15,17 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+RSpec.configure do |config|
+  config.before(:each) do
+    DataMapper.auto_migrate!
+  end
+end
+
+ENV['RACK_ENV'] = 'test'
+
+require './app'
+
+require 'capybara/rspec'
+
+Capybara.app = Chitter

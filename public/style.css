@@ -1,0 +1,107 @@
+html {
+  width: 100%;
+}
+
+body {
+  padding-left: 27.5%;
+  padding-right: 27.5%;
+  background-color: orange;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+label {
+  text-align: right;
+  display: inline-block;
+  width: 75px;
+}
+
+textarea {
+  border: none;
+  resize: none;
+
+  border-radius: 0.35rem;
+  font-family: 'Ubuntu', sans-serif;
+  border-bottom: 2px solid grey;
+  border-right: 1px solid grey;
+  padding-left: 10px;
+  padding-top: 8px;
+}
+
+input {
+  border: none;
+  border-radius: 0.35rem;
+  font-family: 'Ubuntu', sans-serif;
+  border-bottom: 2px solid grey;
+  border-right: 1px solid grey;
+  padding-left: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.sign-up-submit-btn {
+  border: none;
+
+  padding: 4px 16px;
+  margin-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  border-bottom: 2px solid grey;
+  border-right: 1px solid grey;
+  border-radius: .15rem;
+  margin-left: 500px;
+  background-color: white;
+}
+
+.join-submit-btn {
+  border: none;
+
+  padding: 4px 16px;
+  margin-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  border-bottom: 2px solid grey;
+  border-right: 1px solid grey;
+  border-radius: .15rem;
+  background-color: white;
+}
+
+.peep-submit-btn {
+  border: none;
+
+  padding: 4px 16px;
+  margin-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  border-bottom: 2px solid grey;
+  border-right: 1px solid grey;
+  border-radius: .15rem;
+  margin-left: 300px;
+  background-color: white;
+}
+
+.peep-tile {
+  font-family: 'Ubuntu', sans-serif;
+  padding-top: 8px;
+  border-bottom: 2px solid grey;
+  border-right: 1px solid grey;
+  background: white;
+  border-radius: 0.15rem;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.peep-date {
+  font-size: 12px;
+  font-family: "Courier New";
+  color: darkgrey;
+  text-align: right;
+}
+
+.user-info {
+  font-size: 12px;
+  font-family: "Courier New";
+  text-align: right;
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang='en'>
+  <head>
+     <link rel = "stylesheet" href = "/style.css" />
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <% if @user %>
+    <form action="/">
+      <input type="submit" value='Log Out' class='sign-up-submit-btn' />
+    </form>
+    <% else %>
+    <form action="/users/new">
+      <input type="submit" value='Sign Up' class='sign-up-submit-btn' />
+    </form>
+    <% end %>
+    <h1>Chitter</h1>
+    <% if @user %>
+      <h1>Welcome, <%= @user.name %></h1>
+    <% end %>
+    <form action="/peep" method="post" >
+      <textarea type='text' name='peep' rows="4" cols="40" placeholder="Peep your heart out here.." class="peep-entry"></textarea>
+      <br/>
+      <input type='submit' value='Wall it!' class="peep-submit-btn" />
+    </form>
+    <br/>
+    <h1>Peep wall</h1>
+    <% @peeps.each do |peep| %>
+      <div class="peep-tile" >
+        <blockquote>
+          <%= peep.content %>
+          <% if user = User.get(peep.user_id) %>
+          <div class="user-info" >
+            <%= user.username %>
+          </div>
+          <% end %>
+          <div class="peep-date" >
+            <%= peep.creation_time.strftime "%a %b %d, %H:%M" %>
+          </div>
+        </blockquote>
+      </div>
+      <% end %>
+
+  </body>
+</html>
