@@ -18,5 +18,12 @@
   <input type='submit' value='Sign in'>
     </form>
 
-
-  </center>
+    <ul>
+      <% @peeps.each do |peep| %>
+       <li>
+        <%= peep.name %>  <%= peep.username %>
+  	  	<%= peep.peep %>  Posted at:<%= peep.time %>
+  	  </li>
+    <% end %>
+  </ul>
+</center>
