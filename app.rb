@@ -1,5 +1,5 @@
 require 'sinatra/base'
-
+#require './lib/user.rb'
 
 class Chitter < Sinatra::Base
 
@@ -19,4 +19,7 @@ class Chitter < Sinatra::Base
     get '/success' do
       erb :success
     end
+
+    get '/peeps' do 
+      erb :peeps
 end
