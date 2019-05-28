@@ -8,6 +8,8 @@ I would like to come back and refactor this to include peeps from different user
 
 ![Alt Text](https://media.giphy.com/media/d8dDe0OfRp7N5Bs05S/giphy.gif)
 
+![Alt Text](https://media.giphy.com/media/WS6WqH6FOM8RbxwNcy/giphy.gif)
+
 
 ### To set up the database
 
