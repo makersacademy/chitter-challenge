@@ -1,27 +1,27 @@
-require 'simplecov'
-require 'simplecov-console'
+ENV['ENVIRONMENT'] = 'test'
+
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'simplecov'
+require 'simplecov-console'
 
-require_relative 'setup_test_database'
-require_relative 'database_helpers'
+require './scripts/setup_test_database'
+require './helpers/database_helpers'
 
+# Requires sinatra app file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
-ENV['ENVIRONMENT'] = 'test'
 RSpec.configure do |config|
   config.before(:each) do
-    set_up_test_database
+    setup_test_database
   end
 end
 

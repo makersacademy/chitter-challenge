@@ -1,6 +1,5 @@
 require 'peep'
-require 'pg'
-require 'timecop'
+require 'user'
 
 
 describe Peep do
@@ -8,7 +7,7 @@ describe Peep do
     it 'creates a new peep' do
       peep = Peep.create(peep: 'I went for a run')
 
-      persisted_data = persisted_data(id: peep.id, table: 'peeps')
+      persisted_data = persisted_data(id: peep.id, id_value: 'id', table: 'peeps')
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data.first['id']

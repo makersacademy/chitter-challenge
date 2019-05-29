@@ -11,6 +11,5 @@ feature "Create a user" do
     click_button 'Submit'
 
     expect(page).to have_content 'Welcome jsmith'
-
   end
 end

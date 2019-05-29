@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './scripts/setup_db.rb'
 
 class Chitter < Sinatra::Base
 
