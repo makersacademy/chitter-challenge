@@ -1,17 +1,33 @@
 <h1>Chitter</h1>
 
-<form action='/create-peep' method='post'>
-  <input type='text' name='peep' placeholder="What's happening?"/>
-  <input type='submit' value='Post' />
-</form>
+<% if !@user %>
+  <form action="/sessions/create" method="post">
+    <input type="submit" name="type" value="Log In">
+    <input type="submit" name="type" value="Sign Up">
+  </form>
 
-<ul>
+<% else @user %>
+  <h2>Welcome <%= @user.username %> </h2>
+
+  <form action="/sessions/delete" method="post">
+    <input type="submit" value="Log Out">
+  </form>
+
+  <form action="/peeps/create">
+    <input type="submit" name="send" value="Write a Peep">
+  </form>
+<%end%>
+
+<% if !@peeps == [] %>
   <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>">
-      <%= peep.peep %>
-      <div class="timestamp" id="peep-<%= peep.id %>">
-        Posted at: <%= peep.timestamp %>
+    <div class='container'>
+      <div class="card" style="width: 50%; margin: 10px auto;">
+        <div class="card-body">
+          <h6 class="card-subtitle"><%= peep.username %></h6>
+          <h6 class="card-subtitle"><%= peep.timestamp %></h6>
+          <p class="card-text"><%= peep.peep %></p>
+        </div>
       </div>
-    </li>
+    </div>
   <% end %>
-</ul>
+<% end %>
