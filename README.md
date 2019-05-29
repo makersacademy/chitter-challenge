@@ -49,14 +49,6 @@ Functionality:
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 
-
-# Approach:
-
-##  The approach is TDD driven and database driven (ORM used). 
-- It is TDD driven as I started with testing user stories. 
-- It is database driven because I have created database tables(e.g. users, messages) along the way to pass the tests. 
-
-
 ## Technologies used
 
 - ActiveRecord: Used this OR mapping to create databases for testing and development, rake migrating to create tables (Users, Messages), adding columns to existing tables (e.g. password_digest to users, timestamp to messages ). - Also used this for creating User and Message objects, (using the .create method)
@@ -67,6 +59,12 @@ Functionality:
 
 - Bcrpyt : used this gem to store passwords in a secured hash
 
+
+# Approach:
+
+##  The approach is TDD driven and database driven (ORM used). 
+- It is TDD driven as I started with testing user stories. 
+- It is database driven because I have created database tables(e.g. users, messages) along the way to pass the tests. 
 
 ## Database
 
@@ -214,8 +212,6 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
-### Bonus:
 
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
