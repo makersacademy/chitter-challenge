@@ -1,0 +1,29 @@
+<center>
+<h1>Chitter</h1>
+
+  <h2>Sign In</h2>
+  <form action='/chitter' method="post">
+    <label for='email'>Email
+      <input type='text' name='email'>
+    </label>
+    <label for='password'>Password
+      <input type='text' name='password'>
+    </label>
+    <label for='name'>Name
+      <input type='text' name='name'>
+    </label>
+    <label for='username'>Username
+      <input type='text' name="username"
+    </label>
+  <input type='submit' value='Sign in'>
+    </form>
+
+    <ul>
+      <% @peeps.each do |peep| %>
+       <li>
+        <%= peep.name %>  <%= peep.username %>
+  	  	<%= peep.peep %>  Posted at:<%= peep.time %>
+  	  </li>
+    <% end %>
+  </ul>
+</center>

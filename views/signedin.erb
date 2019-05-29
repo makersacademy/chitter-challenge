@@ -1,0 +1,19 @@
+<center>
+<h1>Welcome <%= @name %>!</h1>
+
+  <form action="/signedin" method="post">
+    <input type="text" name="peep"/>
+    <br>
+    <input type="submit" value="Post">
+    </form>
+
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+     <%= peep.name %>  <%= peep.username %>
+  	 <%= peep.peep %>  Posted at: <%= peep.time %>
+    </li>
+ <% end %>
+</ul>
+</center>
