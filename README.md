@@ -153,6 +153,8 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
+![User Story 4: Domain Model](https://github.com/marbuthnott/chitter-challenge/blob/master/images/user_story_4.jpg?raw=true)
+
 Feature tests:
 
 -[X] A user can sign up to Chitter.
