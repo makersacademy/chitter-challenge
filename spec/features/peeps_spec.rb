@@ -13,10 +13,16 @@ feature 'viewing and posting peeps' do
 
   scenario 'user can see peeps in a reverse chronological order' do
   	visit('/peeps')
-  	fill_in 'peep', with: "Second peep!"
+  	fill_in 'peep', with: "Hello, this is my first peep on Chitter!"
   	click_button('Post')
   	peeps = Peep.all(order: [:created_at.desc])
-  	expect(peeps[0].content).to eq('Second peep!')
+  	expect(peeps[0].content).to eq('Hello, this is my first peep on Chitter!')
   end
   
+  scenario 'user can see what time was each peep created' do
+    visit('/peeps')
+    fill_in 'peep', with: "Hello, this is my first peep on Chitter!"
+    click_button('Post')
+    expect(page).to have_content("created at #{Time.now}")
+  end
 end

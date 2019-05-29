@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'dm-timestamps'
 require 'dm-postgres-adapter'
 
 
@@ -6,7 +7,7 @@ class Peep
   include DataMapper::Resource
 
   property :id,         Serial
-  property :content,    Text,  :required => true
-  property :created_at, Time
+  property :content,    Text,   required: true
+  property :created_at, Time,  	required: true
 
-end
+end 
