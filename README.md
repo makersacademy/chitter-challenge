@@ -49,6 +49,7 @@ Functionality:
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 
+
 ## Technologies used
 
 - ActiveRecord: Used this OR mapping to create databases for testing and development, rake migrating to create tables (Users, Messages), adding columns to existing tables (e.g. password_digest to users, timestamp to messages ). - Also used this for creating User and Message objects, (using the .create method)
@@ -62,7 +63,8 @@ Functionality:
 
 # Approach:
 
-##  The approach is TDD driven and database driven (ORM used). 
+The approach is TDD driven and database driven (ORM used). 
+
 - It is TDD driven as I started with testing user stories. 
 - It is database driven because I have created database tables(e.g. users, messages) along the way to pass the tests. 
 
