@@ -9,17 +9,19 @@ INSTRUCTIONS FOR SETUP:
 - run rake db:create (creates databases), you should have chitter_development and chitter_development_2 databaes setup
 - run rake db:migrate (migrates database) 
 
+## To run tests:
+- run rspec in the root folder
 
 TASK SUMMARY:
 -------
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+This is a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
 
 ```
-STRAIGHT UP
+STRAIGHT UP (User stories)
 
 As a Maker
 So that I can let people know what I am doing  
@@ -37,52 +39,27 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-
 ```
 
-Technical Approach:
------
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-
-Notes on functionality:
+Functionality:
 ------
 
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
 
 
 # Approach:
 
-##  The approach is TDD driven and database driven. 
-It is TDD driven as I started with testing user stories. It is database driven because I have created database tables(e.g. users, messages) along the way to pass the tests. 
+##  The approach is TDD driven and database driven (ORM used). 
+- It is TDD driven as I started with testing user stories. 
+- It is database driven because I have created database tables(e.g. users, messages) along the way to pass the tests. 
 
 
 ## Technologies used
 
 - ActiveRecord: Used this OR mapping to create databases for testing and development, rake migrating to create tables (Users, Messages), adding columns to existing tables (e.g. password_digest to users, timestamp to messages ). - Also used this for creating User and Message objects, (using the .create method)
-
 
 - timecop : used to freeze time for testing
 
@@ -238,6 +215,15 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+### Bonus:
+
+* In order to start a conversation as a maker I want to reply to a peep from another maker.
+
+* Work on the CSS to make it look good.
+
+* Bcrypt - test that it stores in a hash
+
+
 ## Other tasks added in later(after 1st draft)
 
 - feature test- reverse chronological order for message index
@@ -250,14 +236,6 @@ e.g.
 - modified travis.yml, (added in script: RAILS_ENV=test bundle exec rake db:migrate, and ), so that travis now working. I first created database before script, and also added (addons: postgresql: 9.6).
 
 - fixed flash, so that it doesnt go to another page, but flash is displayed on the page (e.g. sign up). Did this by redirecting to '/users/new' after the flash.
-
-
-
-## Others (that was in the task) to do
-
-Bcrypt
-- test that it stores in a hash
-
 
 -----
 ## Self code review
