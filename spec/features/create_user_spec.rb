@@ -1,7 +1,7 @@
 feature "Create a user" do
   scenario "user can sign up to Chitter" do
     visit '/'
-    click_button "Create an account"
+    click_button "Sign Up"
 
     fill_in "name",     with: "John Smith"
     fill_in "username", with: "jsmith"

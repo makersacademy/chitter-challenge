@@ -28,6 +28,8 @@ class Chitter < Sinatra::Base
 
   post '/users/create' do
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/'
   end
 
   post '/sessions/create' do
@@ -38,6 +40,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/sessions/create/login' do
+    erb :'sessions/login'
+  end
+
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
     if user
@@ -45,7 +51,7 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash[:notice] = 'The username and password that you entered did not match our records. Please double-check and try again.'
-      erb :'sessions/login'
+      redirect '/sessions/create/login'
     end
   end
 
