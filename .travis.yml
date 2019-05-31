@@ -13,7 +13,7 @@ env:
   
 before_script:
   - psql -c 'create database chitter_development_test;' -U postgres
-
+# do not need database.yml connection here, could link to database.yml.travis if that file is created
 
 script:
   - bundle exec rake db:migrate RACK_ENV=test 
