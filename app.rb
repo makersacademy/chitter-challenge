@@ -2,6 +2,7 @@ require './lib/peep'
 require './lib/user'
 require './scripts/setup_db.rb'
 require 'sinatra/flash'
+require 'sinatra/activerecord'
 
 class Chitter < Sinatra::Base
 
@@ -17,7 +18,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @user = User.find(session[:user_id]) if session[:user_id]
-    @peeps = Peep.all
+    p @peeps = Peep.all
     erb :index
   end
 
@@ -53,6 +54,17 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'The username and password that you entered did not match our records. Please double-check and try again.'
       redirect '/sessions/create/login'
     end
+  end
+
+  get '/peeps/create' do
+    erb :'peeps/create'
+  end
+
+  post '/peeps/create' do
+    peep = params[:peep]
+    user_id = session[:user_id]
+    Peep.create(user_id: user_id, peep: peep)
+    redirect '/peeps'
   end
 
   run! if app_file == $0

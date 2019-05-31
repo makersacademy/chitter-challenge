@@ -9,19 +9,15 @@
 <% else @user %>
   <h2>Welcome <%= @user.username %> </h2>
 
-  <form action="/sessions/delete" method="post">
-    <input type="submit" value="Log Out">
-  </form>
-
   <form action="/peeps/create">
     <input type="submit" name="send" value="Write a Peep">
   </form>
-<%end%>
+<% end %>
 
-<% if !@peeps == [] %>
+<% if !@peeps.empty? %>
   <% @peeps.each do |peep| %>
     <div class='container'>
-      <div class="card" style="width: 50%; margin: 10px auto;">
+      <div class="card" style="width: 50%; margin: 2px auto;">
         <div class="card-body">
           <h6 class="card-subtitle"><%= peep.username %></h6>
           <h6 class="card-subtitle"><%= peep.timestamp %></h6>
@@ -31,3 +27,7 @@
     </div>
   <% end %>
 <% end %>
+
+<form action="/sessions/delete" method="post">
+  <input type="submit" value="Log Out">
+</form>

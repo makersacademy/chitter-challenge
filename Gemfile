@@ -9,6 +9,8 @@ gem 'timecop'
 gem 'bcrypt'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 gem 'travis'
+gem 'activerecord'
+gem 'sinatra-activerecord'
 
 group :test do
   gem 'capybara'
