@@ -6,6 +6,7 @@ gem 'data_mapper', '~> 1.2.0'
 gem 'dm-postgres-adapter', '~> 1.2'
 gem 'rake'
 gem 'rubocop', '0.56.0'
+gem 'sinatra-flash', '~> 0.3.0'
 
 group :test do
   gem 'capybara'

@@ -34,6 +34,7 @@ textarea {
 
 input {
   border: none;
+  display: inline-block;
   border-radius: 0.35rem;
   font-family: 'Ubuntu', sans-serif;
   border-bottom: 2px solid grey;
@@ -44,17 +45,21 @@ input {
   margin-bottom: 10px;
 }
 
+form {
+    display: inline-block;
+}
+
 .sign-up-submit-btn {
   border: none;
-
   padding: 4px 16px;
   margin-top: 10px;
+  margin-right: 10px;
   font-family: 'Ubuntu', sans-serif;
   border-bottom: 2px solid grey;
   border-right: 1px solid grey;
   border-radius: .15rem;
-  margin-left: 500px;
   background-color: white;
+  width: 100px
 }
 
 .join-submit-btn {
@@ -104,4 +109,9 @@ input {
   font-size: 12px;
   font-family: "Courier New";
   text-align: right;
+}
+
+#navigation {
+  position: absolute;
+  right: 300px;
 }

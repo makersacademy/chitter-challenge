@@ -10,34 +10,25 @@
       <form action="/">
         <input id="peepWall" type="submit" value='peep wall' class='sign-up-submit-btn' />
       </form>
-      <form action="/sessions/new">
-        <input id="logIn" type="submit" value='log in' class='sign-up-submit-btn' />
+      <form action="/users/new">
+        <input id="signUp" type="submit" value='sign up' class='sign-up-submit-btn' />
       </form>
     </div>
     <br>
     <br>
     <br>
-    <h1>chitter sign up</h1>
-    <%= flash[:empty_field] %>
-    <%= flash[:email_already_exists] %>
-    <%= flash[:username_not_unique] %>
+    <h1>chitter log in</h1>
+    <%= flash[:incorrect_details] %>
     <br>
     <br>
-    <form action="/users" method='post'>
-      <br>
+    <form action="/sessions" method='post'>
       <label for="email">email:</label>
       <input type='text' name='email' placeholder="peeper@chitter.com" />
       <br>
       <label for="password">password:</label>
       <input type='password' name='password' placeholder="password123" />
       <br>
-      <label for="name">name:</label>
-      <input type='text' name='name' placeholder="Chit Peeper" />
-      <br>
-      <label for="username">username:</label>
-      <input type='text' name='username' placeholder="ChitPeep4eva" />
-      <br>
-      <input type="submit" value='join' class='join-submit-btn' />
+      <input type="submit" value='log in' class='join-submit-btn' />
     </form>
   </body>
 </html>

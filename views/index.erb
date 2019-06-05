@@ -2,30 +2,38 @@
 
 <html lang='en'>
   <head>
-     <link rel = "stylesheet" href = "/style.css" />
+     <link rel="stylesheet" href="/style.css" />
      <link href="https://fonts.googleapis.com/css?family=Ubuntu:300&display=swap" rel="stylesheet">
   </head>
   <body>
     <% if @user %>
-    <form action="/">
-      <input type="submit" value='Log Out' class='sign-up-submit-btn' />
+    <form action="/session/delete">
+      <input type="submit" value='log out' class='sign-up-submit-btn' />
     </form>
     <% else %>
-    <form action="/users/new">
-      <input type="submit" value='Sign Up' class='sign-up-submit-btn' />
-    </form>
+    <div id="navigation">
+      <form action="/sessions/new">
+        <input id="logIn" type="submit" value='log in' class='sign-up-submit-btn' />
+      </form>
+      <form action="/users/new">
+        <input id="signUp" type="submit" value='sign up' class='sign-up-submit-btn' />
+      </form>
+    </div>
+    <br>
+    <br>
+    <br>
     <% end %>
-    <h1>Chitter</h1>
+    <h1>chitter</h1>
     <% if @user %>
-      <h1>Welcome, <%= @user.name %></h1>
+      <h1>welcome, <%= @user.name %></h1>
     <% end %>
     <form action="/peep" method="post" >
-      <textarea type='text' name='peep' rows="4" cols="40" placeholder="Peep your heart out here.." class="peep-entry"></textarea>
+      <textarea type='text' name='peep' rows="4" cols="40" placeholder="peep your heart out here.." class="peep-entry"></textarea>
       <br/>
-      <input type='submit' value='Wall it!' class="peep-submit-btn" />
+      <input type='submit' value='wall it!' class="peep-submit-btn" />
     </form>
     <br/>
-    <h1>Peep wall</h1>
+    <h1>peep wall</h1>
     <% @peeps.each do |peep| %>
       <div class="peep-tile" >
         <blockquote>
