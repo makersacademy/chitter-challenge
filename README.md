@@ -9,6 +9,8 @@ Dates: 07/06/19
 
 Link to challenge instructions: https://github.com/makersacademy/chitter-challenge/blob/master/README.md
 
+----------------------------
+
 #### Instructions for set-up
 
 * Run bundle
@@ -17,7 +19,9 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 * Connect to the database using the pqsl command \c db_name;
 * Run the query we have saved in the file 01_create_db_table.sql
 
-#### Challenge: user stories
+----------------------------
+
+#### Challenge
 
 Create a full-stack Twitter clone that allows users to post messages to a public stream.
 
