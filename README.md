@@ -50,7 +50,7 @@ I want to log out of Chitter
 
 ```
 
-**** Technical Approach
+#### Technical Approach
 
 Integrated a database into Web Application using the `PG` gem and `SQL` queries. 
 
@@ -65,14 +65,14 @@ Some useful resources:
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
 - [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
-**** Notes on functionality:
+#### Notes on functionality:
 
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 
-**** Roadmap
+#### Roadmap
 
 A future release may include the following added functionality and/or features:
 
@@ -80,4 +80,4 @@ A future release may include the following added functionality and/or features:
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 * As a Maker, so that I can stay constantly tapped in to the shouty box of Chitter, I want to receive an email if I am tagged in a Peep.
 
-**** Project status
+#### Project status
