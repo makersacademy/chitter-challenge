@@ -20,18 +20,9 @@ class Chitter < Sinatra::Base
 
   post '/login' do
     user = User.first({username: params[:username]})
-    if user
-      if user.password == params[:password]
-        session[:user_id] = user.id
-        redirect '/peeps'
-      else
-        flash[:login] = 'Error: invalid password'
-        redirect '/'
-      end
-    else
-      flash[:login] = 'Error: invalid username'
-      redirect '/'
-    end
+    invalid_username unless user
+    invalid_password unless user.password == params[:password]
+    login(user.id)
   end
 
   get '/post' do
@@ -52,7 +43,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/register' do
-    erb :register
+    erb :register 
   end
 
   post '/register' do
@@ -65,13 +56,29 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  def login(user_id)
+    session[:user_id] = user_id
+    redirect '/peeps'
+  end
+
   def check_login
-    unless session[:user_id]
-      flash[:login] = 'Error: not logged in'
-      redirect('/')
-    end
+    not_logged_in unless session[:user_id]
   end
     
+  def invalid_username
+    flash[:login] = 'Error: invalid username'
+    redirect '/'
+  end
+
+  def invalid_password
+    flash[:login] = 'Error: invalid password'
+    redirect '/'
+  end
+
+  def not_logged_in
+    flash[:login] = 'Error: not logged in'
+    redirect('/')
+  end
 
   run! if app_file == $0
 end

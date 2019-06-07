@@ -98,7 +98,7 @@ feature 'chitter' do
       scenario 'peep times are displayed' do
         now = Time.now
         Peep.create(text: "Hello", created_at: now, user_id: User.first({username: 'Peter'}).id)
-        date_time = now.strftime("#{now.day.ordinalize} of %B, %Y at%l:%M%P")
+        date_time = now.strftime("#{now.day.ordinalize} of %B, %Y at %l:%M%P")
         login
         within first('.peep') do
           expect(page).to have_css('.datetime', text:date_time)
