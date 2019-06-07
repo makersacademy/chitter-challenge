@@ -1,12 +1,13 @@
 describe Peep do
   before(:each) do
-    Peep.destroy
-    User.destroy
+    DataMapper.auto_migrate!
     create_users
     create_peeps
   end
   let(:time) { Time.now }
   let(:peep) { Peep.new(id: 1, text: 'Test peep', created_at: time, user_id: 1) }
+  let(:peter_id) { User.first({username: 'Peter'}).id }
+  let(:first_peep_id) { Peep.first({text: 'First ever peep!!!!'}) }
   describe '.all' do
     it 'returns an array of peeps' do
       expect(Peep.all).to satisfy { |array| array.all?(Peep) }
@@ -33,9 +34,15 @@ describe Peep do
 
   describe '#user' do
     it 'returns the user associated with the peep' do
-      expected_id = User.first({username: 'Peter'}).id
-      expect(Peep.first.user.id).to be expected_id
+      expect(Peep.first.user.id).to be peter_id
       expect(Peep.first.user.username).to eq('Peter')
+    end
+  end
+
+  describe '#peep_id' do
+    it 'returns the peep associated with the peep' do
+      new_peep = Peep.create(text: 'Replying to the first peep', user_id: peter_id, peep_id: first_peep_id)
+      expect(new_peep.peep_id.text).to eq('First ever peep!!!!')
     end
   end
 end

@@ -2,15 +2,28 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li class='peep'>
-      <p class='text'>
-        <%= peep.text %>
-      </p>
-      <p class='datetime'>
-        <%= peep.format_created_at %>
-      </p>
-      <p class='username'>
-        <%= peep.user.username %>
-      </p>
+      <p class='text'><%= peep.text %></p>
+      <p class='datetime'><%= peep.format_created_at %></p>
+      <p class='username'><%= peep.user.username %></p>
+      <form action='/post' method=GET>
+        <input type="hidden" name="peep_id" value="<%= peep.id %>">
+        <button type="submit">Peep this peep</button>
+      </form>
+      <% if peep.peep %>
+        <ul>
+          <li class='original-peep'>
+            <p class='text'>
+            <%= peep.peep.text %>
+            </p>
+            <p class='datetime'>
+              <%= peep.peep.format_created_at %>
+            </p>
+            <p class='username'>
+              <%= peep.peep.user.username %>
+            </p>
+          </li>
+        </ul>
+      <% end %>
     </li>
   <% end %>
 </ul>

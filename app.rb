@@ -27,6 +27,7 @@ class Chitter < Sinatra::Base
 
   get '/post' do
     check_login
+    @peep_id = params[:peep_id]
     erb :post
   end
 
@@ -38,7 +39,8 @@ class Chitter < Sinatra::Base
 
   post '/post' do
     check_login
-    Peep.create(text: params[:text], created_at: Time.now, user_id: session[:user_id])
+    params[:peep_id] = nil if params[:peep_id].empty?
+    Peep.create(text: params[:text], created_at: Time.now, user_id: session[:user_id], peep_id: params[:peep_id])
     redirect('/peeps')
   end
 

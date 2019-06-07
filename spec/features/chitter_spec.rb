@@ -141,5 +141,25 @@ feature 'chitter' do
         end
       end
     end
+
+    feature 'peep-peeping (replying to peeps)' do
+      scenario 'peep-peeping the oldest peep' do
+        login
+        within all('.peep').last do
+          click_button('Peep this peep')
+        end
+        fill_in('text', with: 'I remember when peeping was cool')
+        click_button('Submit')
+        within first('.peep') do
+          expect(page).to have_css('.text', text: 'I remember when peeping was cool')
+          expect(page).to have_css('.username', text: 'Peter')
+          within(:css, '.original-peep') do
+            expect(page).to have_css('.text', text: 'First ever peep!!!!')
+            expect(page).to have_css('.username', text: 'Peter')
+          end
+        end
+      end
+    end
+
   end
 end
