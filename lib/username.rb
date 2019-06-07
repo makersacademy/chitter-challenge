@@ -1,3 +1,5 @@
+require 'pg'
+
 class Username
   attr_reader :id, :name,
 
