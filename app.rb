@@ -1,7 +1,8 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
-attr_reader :messages
+
   get '/' do
   end
 
@@ -17,6 +18,12 @@ attr_reader :messages
   get '/welcome' do
     @messages = Peep.all
     erb :'welcome'
+  end
+
+  post '/message_posted' do
+     p "Form data submited"
+     Peep.post(message: params['message'])
+     redirect 'welcome'
   end
 
   run! if app_file == $PROGRAM_NAME
