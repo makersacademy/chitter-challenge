@@ -19,7 +19,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new/submit' do
+    puts "***********"
+    puts params
     Peep.create(params[:author],params[:handle],params[:content])
+    puts "***********"
     redirect '/peeps'
   end
 

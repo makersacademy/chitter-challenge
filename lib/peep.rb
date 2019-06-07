@@ -14,4 +14,10 @@ class Peep
     result = DatabaseConnection.query('SELECT * FROM peeps;')
     result.map{ |peep| Peep.new(peep['author'], peep['handle'], peep['content']) }
   end
+
+  def self.create(author, handle, content)
+    DatabaseConnection.query("INSERT INTO peeps(author, handle, content) 
+                              VALUES('#{author}', '#{handle}', '#{content}')")
+    end
+
 end

@@ -39,18 +39,18 @@
       <div class="jumbotron">
 		    <div class="container">
         <h2>Add a new Peep</h2>
-          <form>
+          <form action="/peeps/new/submit" method="post">
             <div class="form-group">
               <label for="InputAuthor">Name</label>
-              <input type="text" class="form-control" id="Author1" placeholder="Name">
+              <input type="text" class="form-control" id="author" name="author" placeholder="Name">
             </div>
             <div class="form-group">
               <label for="InputHandle">Chitter Handle</label>
-              <input type="text" class="form-control" id="Handle1" placeholder="What's your @chitterhandle?">
+              <input type="text" class="form-control" id="handle" name="handle" placeholder="What's your @chitterhandle?">
             </div>
             <div class="form-group">
               <label for="InputContent">Peep message</label>
-              <input type="text" class="form-control" id="Content1" placeholder="What's your chitter?">
+              <input type="text" class="form-control" id="content" name="content" placeholder="What's your chitter?">
               <small id="HelpContent" class="form-text text-muted">Max characters per Peep: 180 characters</small>
             </div>
             <button type="submit" class="btn btn-primary">Submit a new peep</button>
