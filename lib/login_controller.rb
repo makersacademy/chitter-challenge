@@ -20,7 +20,8 @@ class LoginController
   end
 
   def self.correct_password?(password, user)
-    password == user.password
+    correct_pass = BCrypt::Password.new(user.password)
+    correct_pass.is_password?(password)
   end
 
 end

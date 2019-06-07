@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class SetupHelper
   attr_reader :id
@@ -17,7 +18,8 @@ def clear_db
 end
 
 def fill_db
-  connection.exec "INSERT INTO users (name, username, password, email) VALUES ('Kelvin', 'kks110', 'test', 'test@test.com')"
+  encrypted_pass = BCrypt::Password.create('test')
+  connection.exec "INSERT INTO users (name, username, password, email) VALUES ('Kelvin', 'kks110', '#{encrypted_pass}', 'test@test.com')"
   @user = find_user
   connection.exec "INSERT INTO posts (body, user_id) VALUES ('First Post', '#{@user.id}'), ('Second Post', '#{@user.id}')"
 end

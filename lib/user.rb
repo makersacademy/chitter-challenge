@@ -1,3 +1,4 @@
+require 'bcrypt'
 require_relative 'db_connection'
 
 class User
@@ -24,7 +25,8 @@ class User
   end
 
   def self.add(name, username, email, password)
-    DatabaseConnection.query("INSERT INTO users (name, username, password, email) VALUES ('#{name}', '#{username}', '#{password}', '#{email}')")
+    encrypted_pass = BCrypt::Password.create(password)
+    DatabaseConnection.query("INSERT INTO users (name, username, password, email) VALUES ('#{name}', '#{username}', '#{encrypted_pass}', '#{email}')")
   end
 
   def self.find_by_id(id)
