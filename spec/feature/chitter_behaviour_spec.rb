@@ -18,7 +18,16 @@ feature "Chitter main page" do
     click_button("Add new Peep")
     fill_in "peep", with: "Tomorrow will be great too!"
     click_button("Peep")
-    expect(page).to have_content("Tomorrow will be great too! Today is the best day!")
+    # arrest that Tomorrow is before Today
+    expect(page).to have_text(/Tomorrow .+ Today/ )
+  end
+
+  scenario "show the time at which the peep was posted" do
+    visit("/")
+    click_button("Add new Peep")
+    fill_in "peep", with: "Today is the best day!"
+    click_button("Peep")
+    expect(page).to have_content("Posted @")
   end
 end
 

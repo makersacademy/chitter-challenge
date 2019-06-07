@@ -14,6 +14,7 @@ or if you want to use an icon for the title bar, you can use icon convertor to g
 <h1>Chitter away!</h1>
 <div>
 <%@all_peeps.reverse_each do |peep|%>
+  Posted @: <%=peep.date%>
   <%=peep.content%><br>
 <% end %>
 </div>

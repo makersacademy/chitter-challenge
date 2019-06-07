@@ -1,7 +1,7 @@
 require "pg"
 
 class Peep
-  attr_reader :content
+  attr_reader :content, :date
 
   def self.create(entry)
     begin
@@ -27,9 +27,9 @@ class Peep
       else
         connection = PG.connect :dbname => "chitter_chatter"
       end
-      peeps = connection.exec("SELECT * FROM peeps;")
+      peeps = connection.exec("SELECT content, date_trunc('minute', date_time_created) formated_time FROM peeps;")
       peeps.map { |peep|
-        Peep.new(content: peep["content"])
+        Peep.new(content: peep["content"], date: peep["formated_time"])
       }
       # Post.new(number: post_add[0["post_id"], name: post_add[0]["user_name"], content: post_add[0]["content"])
     rescue PG::Error => e
@@ -40,7 +40,8 @@ class Peep
     end
   end
 
-  def initialize(content:)
+  def initialize(content:, date:)
     @content = content
+    @date = date
   end
 end
