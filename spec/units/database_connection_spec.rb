@@ -1,8 +1,6 @@
 require 'database_connection'
 
 describe DatabaseConnection do
-  # before(:each) { truncates }
-  # before(:each) { add_bookmarks }
 
   it 'can return a PG instance' do
     expect(DatabaseConnection.setup).to be_a(PG::Connection)
@@ -17,5 +15,5 @@ describe DatabaseConnection do
     connection = DatabaseConnection.setup
     expect(connection).to receive(:exec).with("SELECT * FROM peeps")
     DatabaseConnection.query("SELECT * FROM peeps")
-  end 
+  end
 end
