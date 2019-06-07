@@ -4,6 +4,7 @@ require './lib/peep'
 class ChitterChatter < Sinatra::Base
   
   get '/' do
+    @all_peeps = Peep.all
     erb :main
    end
 

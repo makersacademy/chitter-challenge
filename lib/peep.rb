@@ -1,7 +1,6 @@
-require 'pg'
+require "pg"
 
 class Peep
-
   attr_reader :content
 
   def self.create(entry)
@@ -29,9 +28,9 @@ class Peep
         connection = PG.connect :dbname => "chitter_chatter"
       end
       peeps = connection.exec("SELECT * FROM peeps;")
-        peeps.map { |peep|
-          Peep.new(content: peep["content"])
-        }
+      peeps.map { |peep|
+        Peep.new(content: peep["content"])
+      }
       # Post.new(number: post_add[0["post_id"], name: post_add[0]["user_name"], content: post_add[0]["content"])
     rescue PG::Error => e
       puts e.message
@@ -44,5 +43,4 @@ class Peep
   def initialize(content:)
     @content = content
   end
-
 end
