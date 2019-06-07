@@ -13,6 +13,7 @@ class ChitterChatter < Sinatra::Base
     User.create("Anonymous", "me@email.com", "1112")
     (session[:id]).nil? ? @user_by_id = User.find("me@email.com") : @user_by_id = User.find_by_id(session[:id])
     @all_peeps = Peep.all
+    @all_users = User.all
     erb :main
   end
 
@@ -21,7 +22,8 @@ class ChitterChatter < Sinatra::Base
   end
 
   post "/add" do
-    Peep.create(params[:peep])
+    (session[:id]).nil? ? @user_by_id = User.find("me@email.com") : @user_by_id = User.find_by_id(session[:id])
+    Peep.create(params[:peep], @user_by_id.id)
     redirect "/"
   end
 
