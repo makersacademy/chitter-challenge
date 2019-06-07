@@ -1,7 +1,7 @@
 require "sinatra/base"
 require "./lib/peep"
 require "./lib/user"
-require "./setup_of_db"
+require_relative "./setup_of_db"
 
 class ChitterChatter < Sinatra::Base
 
