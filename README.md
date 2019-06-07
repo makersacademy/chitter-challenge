@@ -26,7 +26,20 @@ The Chitter challenge is a 'Friday Challenge' set to try and test your knowledge
 The program should post a message (peep) to chitter, display them in reverse chronological order, display the time it was posted and allow a user to sign up to Chitter.
 
 ## Installation
-You will need to install bundle, and run the Sql files included to create the required tables.
+You will need to install bundle.
+
+When bundle is installed, you need to run the sql file as shown below:
+
+```
+> psql
+> \i ./db/migrations/00_run_db_setup.sql
+```
+This will end you in the test database.
+
+Exit psql using:
+```
+> \q
+```
 
 ## Roadmap
 A future release may include the functionality of logging in and out Chitter in order to post a peep and receiving an email if the user is tagged in a peep.
