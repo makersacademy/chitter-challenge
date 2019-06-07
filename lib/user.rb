@@ -32,4 +32,9 @@ class User
       true 
     end
   end 
+
+  def self.id(username)
+    result =  DatabaseConnection.query("SELECT id FROM users WHERE username = '#{username}'").map { |row| row }
+    result.first['id']
+  end 
 end 

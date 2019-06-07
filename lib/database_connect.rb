@@ -1,6 +1,7 @@
 require 'pg'
 
 class DatabaseConnection
+  attr_reader :connection
 
   def self.current_connection
     @connection

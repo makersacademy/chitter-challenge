@@ -2,6 +2,10 @@ require 'database_connect'
 
 describe DatabaseConnection do
 
+  it 'returns the attr reader for' do 
+    expect(DatabaseConnection).to respond_to(:current_connection)
+  end
+
   it 'returns a pg instance' do
     expect(DatabaseConnection.setup).to be_a(PG::Connection)
   end

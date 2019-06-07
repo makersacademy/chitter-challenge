@@ -1,4 +1,10 @@
 feature Chitter do 
+
+  scenario 'redirects to peeps page visiting home page' do
+    visit '/'
+    expect(page).to have_content('Peeps') 
+  end 
+
   scenario 'it displays the peeps' do 
     visit '/peeps'
     expect(page).to have_content('Today is a great day! Ask me why...')
