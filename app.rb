@@ -13,6 +13,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    redirect '/peeps' if session[:user_id]
     @error = flash[:login]
     erb :index
   end
@@ -48,6 +49,20 @@ class Chitter < Sinatra::Base
     check_login
     Peep.create(text: params[:text], created_at: Time.now, user_id: session[:user_id])
     redirect('/peeps')
+  end
+
+  get '/register' do
+    erb :register
+  end
+
+  post '/register' do
+    User.create(username: params[:username], password: params[:password])
+    redirect '/'
+  end
+
+  post '/logout' do
+    session[:user_id] = nil
+    redirect '/'
   end
 
   def check_login

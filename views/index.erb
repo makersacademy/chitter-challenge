@@ -1,6 +1,7 @@
 <h2 class="error"><%= @error %></h2>
 <form action='/login' method='POST'>
-  <input type='text' name='username' value='username'>
-  <input type='password' name='password' value='password'>
+  <input type='text' name='username' value='username' onfocus="this.value=''">
+  <input type='password' name='password' value='password' onfocus="this.value=''">
   <button type='submit'>Login</button>
 </form>
+<a href='/register'>Register an account</a>
