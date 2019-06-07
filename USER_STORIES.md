@@ -56,12 +56,6 @@ So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ```
 
-| Objects  | Messages |
-| ------------- | ------------- |
-| Peep  | text, id, time |
-| User | id, username, password |
-
-
 ```
 As a Maker
 So that I can avoid others posting messages on Chitter as me

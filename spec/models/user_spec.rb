@@ -1,5 +1,6 @@
 describe User do
   let(:user) { User.new(id: 1, username: "Bird brains", password: "12345") }
+  
   it 'has a username' do
     expect(user.username).to eq("Bird brains")
   end
@@ -8,6 +9,14 @@ describe User do
   end
   it 'has an id' do
     expect(user.id).to be 1
+  end
+
+  describe '.create' do
+    it 'requires username to be unique' do
+      User.create(username: 'Crow', password: 'abcd')
+      User.create(username: 'Crow', password: 'defg')
+      expect(User.all({username: 'Crow'}).length).to be 1
+    end
   end
 end
   # describe '.check_login' do
