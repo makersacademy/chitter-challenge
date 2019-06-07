@@ -22,9 +22,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/register' do
-    user = User.new(params[:username], params[:password])
-    user.register
-    @auth_user = true
-    redirect '/'
+    # user = User.new(params[:username], params[:password])
+    # user.register
+    # @auth_user = true
+    # redirect '/'
   end
 end

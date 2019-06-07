@@ -31,4 +31,12 @@ feature 'display' do
     expect(page).to have_content("Test Name: This is some content for a peep. This is a test.")
   end
 
+  scenario 'can get to the sign up page' do
+    visit '/'
+    click_link 'Sign up'
+    expect(page).to have_css('h2', text: 'Join us!')
+    expect(page).to have_css('h3', text: 'Sign up')
+  end
+
+
 end
