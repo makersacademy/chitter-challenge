@@ -11,31 +11,23 @@ feature "Chitter main page" do
   end
 
   scenario "it displays messages in reverse chronological order" do
-    visit("/")
-    click_button("Add new Peep")
-    fill_in "peep", with: "Today is the best day!"
-    click_button("Peep")
+    post_a_peep
     click_button("Add new Peep")
     fill_in "peep", with: "Tomorrow will be great too!"
     click_button("Peep")
     # arrest that Tomorrow is before Today
-    expect(page).to have_text(/Tomorrow .+ Today/ )
+    expect(page).to have_text(/Tomorrow .+ Today/)
   end
 
   scenario "show the time at which the peep was posted" do
-    visit("/")
-    click_button("Add new Peep")
-    fill_in "peep", with: "Today is the best day!"
-    click_button("Peep")
+    post_a_peep
     expect(page).to have_content("Posted @")
   end
 end
 
 feature "Add new peep page" do
   scenario "it takes a content and posts it on ChitterChatter borad" do
-    visit("/new-peep")
-    fill_in "peep", with: "Today is the best day!"
-    click_button("Peep")
+    post_a_peep
     expect(page).to have_content("Today is the best day!")
   end
 end
@@ -43,10 +35,10 @@ end
 feature "Add users" do
   scenario "user registration" do
     visit("/user")
-    fill_in('user', with: 'user@me.com')
-    fill_in('pass', with: 'pass123')
-    fill_in('name', with: 'Rocky')
-    click_button('Sign Me Up')
+    fill_in("user", with: "user@me.com")
+    fill_in("pass", with: "pass123")
+    fill_in("name", with: "Rocky")
+    click_button("Sign Me Up")
     expect(page).to have_content "Hello, Rocky"
   end
 end
