@@ -1,4 +1,7 @@
 feature "Chitter main page" do
+  before(:each) do
+    User.create("Anonymous", "me@email.com", "1112") 
+  end
   scenario "it displays messages" do
     visit("/")
     expect(page).to have_content("Chitter away!")

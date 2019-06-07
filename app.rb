@@ -10,7 +10,9 @@ class ChitterChatter < Sinatra::Base
   set :session_secret, "My session secret"
 
   get "/" do
-    User.create("Anonymous", "me@email.com", "1112")
+    #session.clear
+    User.create("Anonymous", "me@email.com", "1112") if User.all.length == 0
+    p session[:id]
     (session[:id]).nil? ? @user_by_id = User.find("me@email.com") : @user_by_id = User.find_by_id(session[:id])
     @all_peeps = Peep.all
     @all_users = User.all
@@ -34,6 +36,7 @@ class ChitterChatter < Sinatra::Base
   post "/add-user" do
     User.create(params[:name], params[:user], params[:pass])
     new_user = User.find(params[:user])
+    p new_user
     session[:id] = new_user.id
     redirect "/"
   end
