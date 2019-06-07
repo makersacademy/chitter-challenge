@@ -43,7 +43,6 @@ feature Chitter do
     fill_in 'email', with: 'lauren.omara22"gmail.com'
     fill_in 'password', with: 'Password123'
     click_button 'Sign up'
-
-    expect(page).to have_content('Hello, Lauren')
+    expect(page).to have_content('Welcome, Lauren')
   end 
 end

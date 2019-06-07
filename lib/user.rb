@@ -1,9 +1,8 @@
 require 'database_connect'
 class User 
 
-  def self.add(name:,username:, text:, date_time:)
-    Peep.create_connection
-    @connection.exec("INSERT INTO peeps (name,username,text,date_time) 
-                      VALUES ('#{name}','#{username}','#{text}', '#{date_time}')")
+  def self.add(name:,username:, email:, password:)
+    DatabaseConnection.query("INSERT INTO users (name,username,email,password) 
+                      VALUES ('#{name}','#{username}','#{email}','#{password}')")
   end 
 end 
