@@ -1,6 +1,3 @@
-require 'peep'
-require_relative '../../data_mapper_setup.rb'
-
 describe Peep do
   before(:each) do
     Peep.destroy
