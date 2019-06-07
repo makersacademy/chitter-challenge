@@ -1,3 +1,11 @@
+<div class='login/signup'>
+  <form method='get' type='submit' action='/users/add'>
+    <button>Sign up</button>
+  </form>
+  <form method='get' type='submit' action='/users/login'>
+    <button>Login</button>
+  </form>
+</div>
 <h1>Peeps</h1>
 <div class="new-peep">
   <form action="/peeps/add" method="post">
@@ -12,6 +20,6 @@
   <% @peeps.each do |peep| %>
     <div class ="peep-name"><%= "#{peep.name}"%>
     <div class="peep-info"> <%="@#{peep.username} - #{peep.date_time}"%></div><br>
-    <div class="peep"> <%= peep.text%></div>
+    <div class="peep"> <%= peep.text%></div><br>
   <% end %>
 </div>
