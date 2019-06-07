@@ -2,6 +2,9 @@ require 'sinatra/base'
 require './lib/username'
 
 class ChitterManager < Sinatra::Base
+
+  enable :sessions
+
   get '/' do
     erb :index
   end
@@ -12,11 +15,12 @@ class ChitterManager < Sinatra::Base
 
   post '/sign_up/username' do
     Username.create(params[:username])
+    session[:user] = params[:username]
     redirect '/peeps'
   end
 
   get '/peeps' do
-    'Welcome'
-    # erb :peeps
+    @user = session[:user]
+    erb :peeps
   end
 end
