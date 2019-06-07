@@ -1,13 +1,18 @@
 require 'sinatra/base'
+require './lib/chitterfeed.rb'
 
 class Chitter < Sinatra::Base
 
   get '/' do
+    @feed = ChitterFeed.view
     erb :homepage
   end
 
   post '/post-message' do
-    params[:message]
+    ChitterFeed.add(params[:content])
     redirect '/'
   end
+
+  run! if app_file == $0
+
 end

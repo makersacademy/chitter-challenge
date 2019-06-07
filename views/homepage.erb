@@ -1,6 +1,12 @@
 <h1>Chitter</h1>
-Social media is to socializing what masturbating is to sex.
-<form action="/post-message" method="post">
-  <input type="text" name="message" placeholder="Message">
-  <input type="submit" value="post message">
+
+<form action='/post-message' method="post">
+  <input type="text" name="content" placeholder="message">
+  <input type="submit" value="post"/>
 </form>
+
+<ul>
+  <% @feed.each do |message| %>
+    <li><%=message.content%></li>
+  <% end %>
+</ul>

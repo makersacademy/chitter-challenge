@@ -1,2 +1,0 @@
-class Chitter_feed
-end

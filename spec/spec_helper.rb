@@ -8,6 +8,7 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 # Set the environment to "test"
 ENV['ENVIRONMENT'] = 'test'
+ENV['RACK-ENV'] = 'test'
 
 # tell capybara to talk to Chitter
 Capybara.app = Chitter

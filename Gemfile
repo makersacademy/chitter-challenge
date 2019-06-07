@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 group :test do
   gem 'bcrypt'
   gem 'capybara'
-  gem 'data_mapper'
+  gem 'data_mapper', '1.2.0'
   gem 'dm-postgres-adapter'
   gem 'pg'
   gem 'rake'
