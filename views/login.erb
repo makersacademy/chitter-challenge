@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
   <body>
     <%= erb :header_partial %>
-    <h1>Welcome to Chitter</h1>
 
     <% flash.keys.each do |type| %>
       <div class="w3-panel w3-pale-red w3-display-container">
@@ -11,15 +10,22 @@
       </div>
     <% end %>
 
-    <h4>Login</h4>
-    <form action="/login" method="post">
-      Username:
-      <input type="text" name="username">
-      Password:
-      <input type="password" name="password">
-      <input type="submit" value="Login!">
-    </form>
+    <div class="w3-row">
+      <div class="w3-col" style="width:35%"><br></div>
+        <div class="w3-col" style="width:30%">
+          <h1>Welcome to Chitter</h1>
+          <form class="w3-container" action="/login" method="post">
+            <br>
+            <label><b>Username</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="text" name="username">
 
-    <a href="/sign_up">Dont have an account? Click here</a>
+            <label><b>Password</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="password" name="password">
+            <br>
+            <button type="submit" class="w3-btn w3-round-large w3-2019-soybean">Login!</button> <a href="/sign_up">Dont have an account? Click here</a>
+          </form>
+
+        </div>
+      <div class="w3-col" style="width:35%"><br></div>
   </body>
 </html>
