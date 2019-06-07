@@ -12,7 +12,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = nil
     @peeps = Peep.all
     erb(:peeps)
   end 

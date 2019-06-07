@@ -10,11 +10,6 @@ feature Chitter do
     expect(page).to have_content('Today is a great day! Ask me why...')
   end 
 
-  scenario 'it displays the name' do 
-    visit '/peeps'
-    expect(page).to have_content('Lauren')
-  end 
-
   scenario 'displays option to add a new peep' do 
     visit '/users/login'
     fill_in 'username', with: "lozza_peeps"
@@ -23,7 +18,7 @@ feature Chitter do
     expect(page).to have_field('text')
   end 
 
-  scenario 'it displays new peep back as the first peep' do
+  scenario 'it displays new peep back as the first peep with the name' do
     visit '/users/login'
     fill_in 'username', with: "lozza_peeps"
     fill_in 'password', with: 'Password1'
@@ -31,6 +26,7 @@ feature Chitter do
     fill_in 'text', with: "cant wait to watch love island tonight"
     click_button 'Post Peep'
     expect(page).to have_content("cant wait to watch love island tonight")
+    expect(page).to have_content('Lauren')
   end
 
   scenario 'it displays buttons to login or sign up' do 
