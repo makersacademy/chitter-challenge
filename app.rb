@@ -11,7 +11,7 @@ class ChitterChatter < Sinatra::Base
 
   get "/" do
     @all_peeps = Peep.all
-    @user_mail = session[:email]
+    @user_by_id = User.find_by_id(session[:id])
     erb :main
   end
 
@@ -30,7 +30,8 @@ class ChitterChatter < Sinatra::Base
 
   post "/add-user" do
     User.create(params[:user], params[:pass])
-    session[:email] = params[:user]
+    new_user = User.find(params[:user])
+    session[:id] = new_user.id
     redirect "/"
   end
 

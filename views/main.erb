@@ -11,7 +11,11 @@ or if you want to use an icon for the title bar, you can use icon convertor to g
 <title>Hello Friend!</title>
 </head>
 <body>
-<h1>Hello, <%=@user_mail%></h1>
+<% if @user_by_id.nil? %>
+<h1>Hello, Friend</h1>
+<% else%>
+<h1>Hello, <%=@user_by_id.email%></h1>
+<% end %>
 <h2>Chitter away!</h2>
 <div>
 <%@all_peeps.reverse_each do |peep|%>
