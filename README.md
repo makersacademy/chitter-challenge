@@ -51,4 +51,4 @@ Thanks to Makers Academy for setting this challenge, and hjw for the ASCII art. 
 Please ask permission from the owner of this repo.
 
 ## Project status
-...
+This project has been completed up to the basic required functionality. I have started to use a User class and table for logging in and out of Chitter and eventually to use authentication for the username and password when logging in.

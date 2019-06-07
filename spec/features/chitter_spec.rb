@@ -38,7 +38,7 @@ feature 'display' do
     expect(page).to have_css('h3', text: 'Sign up')
   end
 
-  scenario 'can get to the sign up page' do
+  scenario 'can sign up' do
     visit '/'
     click_link 'Sign up'
     fill_in 'name', with: 'Name'
