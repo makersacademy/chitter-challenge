@@ -1,31 +1,31 @@
-require 'sinatra/base'
-require './lib/peep'
-require './lib/user'
+require "sinatra/base"
+require "./lib/peep"
+require "./lib/user"
+require "./setup_of_db"
 
 class ChitterChatter < Sinatra::Base
-  
-  get '/' do
+  get "/" do
     @all_peeps = Peep.all
     erb :main
-   end
+  end
 
-   get '/new-peep' do
+  get "/new-peep" do
     erb :adding_peeps
-   end
+  end
 
-   post '/add' do
+  post "/add" do
     Peep.create(params[:peep])
-    redirect '/'
-   end
+    redirect "/"
+  end
 
-   get '/user' do
+  get "/user" do
     erb :adding_users
-   end
+  end
 
-   post '/add-user' do
+  post "/add-user" do
     User.create(params[:user], params[:pass])
-    redirect '/'
-   end
-  
+    redirect "/"
+  end
+
   run! if app_file == $0
 end
