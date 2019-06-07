@@ -8,7 +8,7 @@ feature 'display' do
 
   scenario 'can display a peep on the board' do
     visit '/'
-    expect(page).to have_content("Name: Content")
+    expect(page).to have_content("Name: Some content")
   end
 
   scenario 'can view the create peep page' do
@@ -25,4 +25,5 @@ feature 'display' do
     click_button 'Post'
     expect(page).to have_content("Test Name: This is some content for a peep. This is a test.")
   end
+
 end

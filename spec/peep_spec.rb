@@ -1,20 +1,24 @@
 require './lib/peep.rb'
 
 describe Peep do
-  let(:peep) { Peep.new("Name", "Some content") }
+  let(:peep) { Peep.new("Name", "Some content", "01-01-2019") }
+
   context '.new' do
-      it 'creates a new message with a name' do
+      it 'creates a new peep with a name' do
         expect(peep.name).to eq("Name")
       end
 
-      it 'creates a new message with content' do
+      it 'creates a new peep with content' do
         expect(peep.content).to eq("Some content")
+      end
+
+      it 'creates a new peep with a timestamp' do
+        expect(peep.time_stamp).to eq("01-01-2019")
       end
     end
 
   context '.create' do
     it 'creates a new peep' do
-      peep = Peep.new("Name", "Some content")
       peep.create
       peeps = Peep.all
 
