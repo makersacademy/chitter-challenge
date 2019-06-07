@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/bootstrap.css" rel="stylesheet" />
-    <title>Chitter | Homepage </title>
+    <title>Chitter | Peeps </title>
 	
 	</head>
 
@@ -23,10 +23,10 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/peeps">All Peeps</a>
+							<a class="nav-link" href="#">Link 1</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Link 2</a>
@@ -38,19 +38,17 @@
 				</div>
 		</nav>
 
-		<div class="jumbotron">
-		<div class="container">
-			<h1>Ready. Set. Peep.</h1>
-			<p>
-				From breaking news and entertainment to sports and politics, from big events to everyday interests. If it's happening anywhere, it's happening on Chitter.
-			</p>
-			<br />
-			<p>
-				<a class="btn btn-primary btn-lg" href="/peeps" role="button">See all Peeps »</a>
-				<a class="btn btn-primary btn-lg" href="#" role="button">Sign up now »</a>
-			</p>
-			</div>
-		</div>
+     <ul>
+        <% @peeps.each do |peep| %>
+        <li class="card">
+          <div class="card-body">
+            <div class="card-title" style="font-size: 2em"><%= peep.title %></div>
+            <div class="card-text"><%= peep.content %></div>
+            <div class="card-footer"><%= peep.author %></div>
+          </div>
+        </li>
+        <% end %>
+      </ul>
 
 	</body>
 </html>

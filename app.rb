@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require './database_connection_setup'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -7,6 +9,9 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+  end
 
   run! if app_file == $0
 end

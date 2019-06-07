@@ -34,6 +34,8 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 * bundle install
 * rake setup
 * rake chitter_db
+* rake setup_test
+* rake chitter_db_test
 * rackup
 
 * Connect to psql
