@@ -2,7 +2,7 @@ require 'pg'
 require_relative 'database_connection'
 
 class Peep
-  attr_reader :author, :title, :content
+  attr_reader :author, :handle, :content
 
   def initialize(author, handle, content)
     @author = author
