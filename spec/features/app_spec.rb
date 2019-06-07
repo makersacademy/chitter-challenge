@@ -84,11 +84,20 @@ feature Chitter do
     expect(page).to have_content('Your username or password is incorrect')
   end
 
-  scenario 'home page recognises only shows add peep nox on homepage when user is logged in' do 
+  scenario 'home page recognises only shows add peep box on homepage when user is logged in' do 
     visit '/users/login'
     fill_in 'username', with: "lozza_peeps"
     fill_in 'password', with: 'Password1'
     click_button 'Log in'
     expect(page).to have_content('Say what you wanna say')
+  end 
+
+  scenario 'home page recognises only shows logout box on homepage when user is logged in' do 
+    visit '/users/login'
+    fill_in 'username', with: "lozza_peeps"
+    fill_in 'password', with: 'Password1'
+    click_button 'Log in'
+    expect(page).not_to have_button('Log in')
+    expect(page).to have_button('Log out')
   end 
 end

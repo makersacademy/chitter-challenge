@@ -1,10 +1,16 @@
 <div class='login/signup'>
-  <form method='get' type='submit' action='/users/add'>
-    <button>Sign up</button>
-  </form>
-  <form method='get' type='submit' action='/users/login'>
-    <button>Log in</button>
-  </form>
+  <% if session[:id] == nil %>
+    <form method='get' type='submit' action='/users/add'>
+      <button>Sign up</button>
+    </form>
+    <form method='get' type='submit' action='/users/login'>
+      <button>Log in</button>
+    </form>
+  <% else%>
+    <form method='get' type='submit' action='/users/logout'>
+      <button>Log out</button>
+    </form>
+  <% end %>
 </div>
 <h1>Peeps</h1>
 <% if session[:id] != nil %>
