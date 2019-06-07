@@ -38,5 +38,15 @@ feature 'display' do
     expect(page).to have_css('h3', text: 'Sign up')
   end
 
+  scenario 'can get to the sign up page' do
+    visit '/'
+    click_link 'Sign up'
+    fill_in 'name', with: 'Name'
+    fill_in 'username', with: 'username'
+    fill_in 'password', with: 'fakepass123'
+    click_button id='signUpSubmit'
+    expect(page).to have_content("Hi Name!")
+  end
+
 
 end
