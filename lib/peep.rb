@@ -10,7 +10,7 @@ class Peep
   end
 
   def self.all
-    connection = PG.connect(dbname: 'chitter')
+    connection = ENV["ENVIRONMENMT"] == "test" ? PG.connect(dbname: 'chitter_test') : PG.connect(dbname: 'chitter')
     result = connection.exec("select * from peeps order by id desc")
     result.map { |peep| Peep.new(peep['name'], peep['content']) }
   end
