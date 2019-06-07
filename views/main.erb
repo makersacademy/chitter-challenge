@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--the line below is to avoid favicon.ico 404
+favicon.ico is the icon of a website on the title bar of your website. Netbeans couldnt find the favicon.ico file in your website folder
+if you dont want it, you can remove the line that is similar to this in your head section
+ <link rel="shortcut icon" href="favicon.ico">
+or if you want to use an icon for the title bar, you can use icon convertor to generate a .ico image and keep it in your website folder and use the above line in the head section
+-->
+<link rel="icon" href="data:,">
+<title>Hello Friend!</title>
+</head>
+<body>
+<% if @user_by_id.nil? || @user_by_id.email == "me@email.com"%>
+<h1>Hello, Friend</h1>
+<% else%>
+<h1>Hello, <%=@user_by_id.name%></h1>
+<% end %>
+<h2>Chitter away!</h2>
+<div>
+<%@all_peeps.reverse_each do |peep|%>
+<%@who_amI = "eee"%>
+  <%@who_amI = @all_users.select do |user| %>
+      <%user.id == peep.user_id%>
+      <%end%>
+  <%=@who_amI.first.name%> Posted @: <%=peep.date%>
+  <%=peep.content%><br>
+<% end %>
+</div>
+<div>
+ <form action="/new-peep" method="get">
+ <input type="submit" value="Add new Peep">
+ </form>
+</div>
+
+<div>
+ <form action="/user" method="get">
+ <input type="submit" value="Register">
+ </form>
+</div>
+</body>
+</html>

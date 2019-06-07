@@ -1,18 +1,20 @@
 Chitter Challenge
 =================
+This is a small Twitter clone that will allow the users to post messages to a public stream.
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+The app currently displays the peeps in correct order and lets different users add peeps.
+The peeps are correctly saved in DB together with user_id. The displaying of the peep author is not working correctly.
+I still need to implement the functionality to validate if the user exists and let them log in and log out.
+Unfortunately there is no styling for the app at all :(
 
-Challenge:
--------
+Steps to run the app:
+1. Run bundle install
+2. Create db with pqsl and connect with PG - follow queries from db/migrations
 
-As usual please start by forking this repo.
+Used bcrypt to encrypt passwords
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Run: rackup -p 4567 and go to http://localhost:4567/
+
 
 Features:
 -------
