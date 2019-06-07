@@ -1,8 +1,12 @@
 require 'pg'
 
 class DatabaseConnection
-  def self.setup(db_name)
-    @connection = PG.connect :dbname => db_name
+  def self.setup
+    if ENV['ENVIRONMENT'] == 'test'
+      @connection = PG.connect(dbname: 'chitter_test')
+    else
+      @connection = PG.connect(dbname: 'chitter')
+    end
   end
 
   def self.current_connection
