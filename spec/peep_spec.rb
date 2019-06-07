@@ -13,7 +13,7 @@ describe Peep do
       end
 
       it 'creates a new peep with a timestamp' do
-        expect(peep.time_stamp).to eq("01-01-2019")
+        expect(peep.time_stamp).to eq("01-01-2019 at 12:00 AM")
       end
     end
 
@@ -30,6 +30,11 @@ describe Peep do
 
   context '.all' do
     it 'displays all peeps' do
+      connection = PG.connect(dbname: 'chitter_test')
+
+      connection.exec("insert into peeps (name, content, time_stamp) values
+      ('Name1', 'Content1', NOW());")
+
       expect(Peep.all).to satisfy{ |result| result.any? { |peep|
         peep.instance_of? Peep } }
     end

@@ -1,14 +1,19 @@
 require './app.rb'
+require 'pg'
 
 feature 'display' do
+  connection = PG.connect(dbname: 'chitter_test')
+
   scenario 'can display the main Chitter board' do
     visit '/'
     expect(page).to have_css('h2', text: "Peep Board")
   end
 
   scenario 'can display a peep on the board' do
+    connection.exec("insert into peeps (name, content, time_stamp) values
+    ('Name1', 'Content1', NOW());")
     visit '/'
-    expect(page).to have_content("Name: Some content")
+    expect(page).to have_content("Name1: Content1")
   end
 
   scenario 'can view the create peep page' do
