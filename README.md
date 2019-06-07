@@ -6,7 +6,7 @@ Steps to run the app:
 1. Run bundle install
 2. Create db with pqsl and connect with PG - follow queries from db/migrations
 
-
+Used bcrypt to encrypt passwords
 
 
 Features:

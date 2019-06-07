@@ -1,9 +1,13 @@
 require_relative "db_connection"
+require 'bcrypt'
 
 class User
   attr_reader :email, :id
   def self.create(email, pass)
-    add_user = DbConnection.query("INSERT INTO users (email, pass) VALUES ('#{email}', '#{pass}');")
+    # magic encyption
+    encrypted_pass = BCrypt::Password.create(pass)
+
+    add_user = DbConnection.query("INSERT INTO users (email, pass) VALUES ('#{email}', '#{encrypted_pass}');")
   end
 
   def self.find(email)
