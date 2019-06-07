@@ -16,4 +16,15 @@ class Chitter < Sinatra::Base
     peep.create
     redirect '/'
   end
+
+  get '/sign-up' do
+    erb :sign_up
+  end
+
+  post '/register' do
+    user = User.new(params[:username], params[:password])
+    user.register
+    @auth_user = true
+    redirect '/'
+  end
 end

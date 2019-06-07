@@ -1,0 +1,38 @@
+.formInput.submitForm {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.formInput.submitForm input {
+  font-size: 14px;
+  font-weight: bold;
+  width: 30%;
+  background-color: #1da1f2;
+  border: 1px solid #1da1f2;
+  color: #fff;
+  border-radius: 100px;
+}
+
+.formInput.submitForm input:hover {
+  background-color: #fff;
+  color: #1da1f2;
+  cursor: pointer;
+}
+
+.formInput * {
+  padding: 10px;
+  vertical-align: middle;
+  margin: 5px;
+}
+
+.formInput input {
+  line-height: 20px;
+  width: 85%;
+  border: none;
+}
+
+.formInput label {
+  font-weight: bold;
+  font-size: 14px;
+  display: contents;
+}

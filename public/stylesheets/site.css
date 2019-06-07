@@ -38,20 +38,50 @@ h1, h3 {
   padding-bottom: 10px;
 }
 
-.navHome a {
+.blockContainer {
+  width: 50%;
+  height: 70%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f3f3f3;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 20px;
+}
+
+.blockHeader {
+  background-color: #1d94e0;
+  padding: 10px 0 10px 0;
+  position: fixed;
+  width: 49%;
+  border-radius: 20px 20px 0 0;
+}
+
+.blockHeader h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.navHome a, .navSignUp a {
   text-decoration: none;
   color: #66757f;
   font-weight: bolder;
 }
 
-.navHome {
+.navHome, .navSignUp {
   display: inline-block;
   margin-left: 20px;
   padding: 10px;
 }
 
-.navHome:hover {
+.navHome:hover, .navSignUp:hover {
   color: #fff;
   cursor: pointer;
   border-bottom: 3px solid #1da1f2
+}
+
+.navSignUp {
+  float: right;
+  margin-right: 40px;
 }

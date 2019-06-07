@@ -1,0 +1,47 @@
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" href="/stylesheets/form_layout.css" />
+  <link rel="stylesheet" href="/stylesheets/sign_up.css" />
+  <link rel="stylesheet" href="/stylesheets/site.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<header class="nav">
+  <div class="navHome"><a href="/"><img src="" />Home</a></div>
+  <div class="navHome"><a href="/peep-form">Add</a></div>
+  <div class="navSignUp"><a href="/sign-up">Sign Up</a></div>
+</header>
+<body>
+  <div class="innerBody">
+    <h2>Join us!</h2>
+
+    <div class="blockContainer">
+      <div class="blockHeader">
+        <h3>Sign up</h3>
+      </div>
+      <div class="signUpFormOuter">
+
+        <form action="/register" method="post" class="signUpForm">
+          <div class="formInput">
+            <label class="formLabel">Name: </label>
+            <input class="inputField" type="text" name="name" placeholder="Enter your name here..." />
+          </div>
+          <div class="formInput">
+            <label class="formLabel">Username: </label>
+            <input class="inputField" type="text" name="username" placeholder="Enter your username here..." />
+          </div>
+          <div class="formInput">
+            <label class="formLabel">Password: </label>
+            <input class="inputField" type="password" name="password" placeholder="Enter your password here..." />
+          </div>
+          <div class="formInput submitForm">
+            <input type="submit" value="Sign up" />
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+<footer>
+  <p>© 2019 Megan Goode</p>
+</footer>
