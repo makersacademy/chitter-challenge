@@ -7,6 +7,7 @@
   background-color: #f3f3f3;
   overflow-y: auto;
   overflow-x: hidden;
+  border-radius: 20px;
 }
 
 .messagesSection {
@@ -17,7 +18,9 @@
   padding: 10px;
   height: auto;
   width: auto;
-  background-color: #0000000d;
+  background-color: #fff;
+  border: 1px solid #1da1f2;
+  border-radius: 20px;
   margin: 10px 0 10px 0;
 }
 
@@ -26,6 +29,7 @@
   padding: 10px 0 10px 0;
   position: fixed;
   width: inherit;
+  border-radius: 20px 20px 0 0;
 }
 
 .messageBlockHeader h3 {

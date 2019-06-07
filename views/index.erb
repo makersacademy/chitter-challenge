@@ -15,6 +15,15 @@
         <h3>Peeps</h3>
       </div>
       <div class="messagesSection">
+        <% if @peeps.length != 0 %>
+          <% @peeps.each do |peep| %>
+            <div class="messageBlock">
+              <p><%= peep%></p>
+            </div>
+          <% end%>
+      <% else%>
+        <div class="messageBlock">No peeps</div>
+      <% end%>
       </div>
     </div>
 </body>

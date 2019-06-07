@@ -1,3 +1,5 @@
+require 'pg'
+
 class Peep
   attr_reader :name, :content, :timestamp, :peeps_list
 
@@ -5,6 +7,16 @@ class Peep
     @name = name
     @content = content
     @peeps_list = []
+  end
+
+  def self.all
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec("select * from peeps order by id desc")
+    result.map { |peep| Peep.new(peep['name'], peep['content']) }
+  end
+
+  def to_s
+    "#{@name}: #{@content}"
   end
 
   def create
