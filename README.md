@@ -1,3 +1,16 @@
+# Peter's Chitter challenge
+
+## Setup instructions:
+1. Create database: ```CREATE DATABASE chitter WITH ENCODING 'UTF8';```
+2. Create test database: ```CREATE DATABASE chitter_test WITH ENCODING 'UTF8';```
+
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
