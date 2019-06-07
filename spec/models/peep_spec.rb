@@ -18,8 +18,10 @@ describe Peep do
     end
 
     it 'returns peeps with the test time' do
-      pending('figuring out how to write this test')
-      fail
+      now = Time.now
+      string = now.strftime('%Y%m%d%H%I%M')
+      Peep.create(text: "Testing time", created_at: now)
+      expect(Peep.all.last.created_at.to_time.strftime('%Y%m%d%H%I%M')).to eq(string)
     end
   end
 
