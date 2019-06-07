@@ -21,6 +21,13 @@ class User
     User.new(email: find_user[0]["email"], id: find_user[0]["id"], name: find_user[0]["username"])
   end
 
+  def self.all
+    users = DbConnection.query("SELECT * FROM users;")
+    users.map { |user|
+      User.new(email: user["email"], id: user["id"], name: user["username"])
+    }
+  end
+
   def initialize(email:, id:, name:)
     # symbols are good for adding columns
     @email = email

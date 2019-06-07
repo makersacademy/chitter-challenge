@@ -32,6 +32,11 @@ describe User do
     user = User.find_by_id(nil)
     expect(user).to eq(nil)
   end
+
+  it "lists all of the users" do
+    connect_delete_and_create_data
+    expect(User.all.length).to eq 3
+  end
 end
 
 
