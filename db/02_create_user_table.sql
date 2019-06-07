@@ -1,0 +1,11 @@
+CREATE TABLE Users (
+    ID SERIAL PRIMARY KEY,
+    Name VARCHAR(50),
+    Username VARCHAR(30) UNIQUE,
+    Email VARCHAR(320) UNIQUE,
+    PasswordHash VARCHAR UNIQUE
+);
+
+ALTER TABLE messages 
+ADD CONSTRAINT FK_Messages_Users
+    FOREIGN KEY (userid) REFERENCES Users(ID);
