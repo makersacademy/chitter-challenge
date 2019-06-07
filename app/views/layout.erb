@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link href="/style.css" rel="stylesheet">
+    <title>CHITTER THIS</title>
+  </head>
+  <body>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><a href="/" style="color: black">Chitty chitty bang bang 🐭</a></h1>
+    <p class="lead">This is where you chit things</p>
+  </div>
+  </div>
+  <div class="container-fluid">
+   
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/sessions/new">login</a></li>
+    <li class="breadcrumb-item"><a href="/users/new">sign up</a></li>
+    <li class="breadcrumb-item"><a href="/peeps/new">post</a></li>
+    <li class="breadcrumb-item"><a href="/peeps">peeps</a></li>
+  </ol>
+</nav>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+    <%= yield %>
+    </div>
+  </body>
+</html>

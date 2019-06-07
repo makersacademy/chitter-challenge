@@ -1,0 +1,35 @@
+
+
+<div class="container-fluid" style="padding: 20px 20px;" align="center">
+    <div class="card" style="width: 30rem; padding: 40px;" align="left">
+    <h5> Welcome to Chitter </h5>
+    <p> To register please enter your name, email address, a username and a password </p>
+    <form action="/users/new" method="post">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" name="name" value = '<%= @user.name%>' required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email:</label>
+          <input type="email" name="email_address"value = '<%= @user.email_address%>' required class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" name="username" value = '<%= @user.username%>'required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Password:</label>
+          <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="confirmpassword">Password confirmation:</label>
+          <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" name="password_confirmation">
+        <div class="form-group col-md-6" style="padding: 20px 0 0 0;">
+          <input class="btn btn-primary" type="submit" value="sign-up">
+        </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>

@@ -1,0 +1,15 @@
+<div class="container-fluid" style="padding: 20px 20px;" align="center">
+   <ul id='peeps'>
+   <% @peeps.each do |peep| %> 
+  <div class="container-fluid" style="padding: 20px 20px;">
+    <div class="card" style="width: 38rem;" align="left">
+      <div class="card-body">
+        <h5 class="card-title"><%= peep.user.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted" id="timestamp">created on <%= peep.created_at.strftime("posted %d/%m/%Y @ %l:%M%p") %></h6>
+        <p class="card-text" id="post"><%= peep.post %>.</p>
+        <a href="#" class="card-link"><%= peep.user.username %></a>
+      </div>
+    </div>
+    </div>
+    <% end%>
+  </div>
