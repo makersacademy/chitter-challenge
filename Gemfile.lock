@@ -131,6 +131,7 @@ GEM
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     tilt (2.0.9)
+    timecop (0.9.1)
     unicode-display_width (1.6.0)
     uuidtools (2.1.5)
     xpath (3.2.0)
@@ -152,6 +153,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
+  timecop
 
 BUNDLED WITH
    1.17.2
