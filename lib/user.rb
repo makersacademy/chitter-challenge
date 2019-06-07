@@ -23,4 +23,13 @@ class User
       false
     end
   end 
+
+  def self.authenticated?(username,password)
+    result =  DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}' AND password = '#{password}'").map { |row| row }
+    if result.empty?
+      false
+    else 
+      true 
+    end
+  end 
 end 
