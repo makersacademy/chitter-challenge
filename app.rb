@@ -1,7 +1,7 @@
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
-
+attr_reader :messages
   get '/' do
   end
 
@@ -10,10 +10,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/registering' do
+    # user = User.new(user_name: params[:user_name], password: params[:password] )
     redirect '/welcome'
   end
 
   get '/welcome' do
+    @messages = Peep.all
     erb :'welcome'
   end
 

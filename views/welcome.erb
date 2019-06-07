@@ -6,6 +6,19 @@
 <body>
 
 <h1>Welcome</h1>
+<form action='/welcome' method='post'>
+  Message: <br>
+  <input type="text" name="message" placeholder="Write message here..."><br>
+  <input type="submit" name="submit" value="Post">
+</form>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li>
+        <%=message%>
+    </li>
+    <% end %>
+</ul>
 
 </body>
 </html>
