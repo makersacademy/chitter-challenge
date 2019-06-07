@@ -13,4 +13,8 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end 
 
+  get '/users/add' do 
+    erb(:add_user)
+  end 
+
 end 
