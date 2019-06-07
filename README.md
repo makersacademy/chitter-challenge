@@ -39,14 +39,28 @@ Ed's Chitter Challenge
 
 Technologies Used
 -----------------
-Bcrypt
-Datamapper
-Postgres
+* Bcrypt
+* Datamapper
+* Postgres
 
 User Stories
 ------------------
+```As a user
+So that I can let people know what I am doing, regardless of whether or not it's interesting 
+I want to post a message (peep) to chitter```
 
-#####
+Database Setup
+------------------
+1. Connect to psql
+2. Create two databases, a live and test database, using the following psql commands;
+  * ```CREATE DATABASE chitter;```
+  * ```CREATE DATABASE chitter_test;```
+3. Connect to each database in turn using the pqsl commands;
+  * ``` \c bookmark_manager;``` and ```\c bookmark_manager_test;```
+4. Run the following queries in each database;
+  * 01_create_messages_table.sql
+
+
 Chitter Challenge
 =================
 
