@@ -36,7 +36,7 @@ feature 'chitter' do
 
   feature 'viewing peeps' do 
     feature 'user is not authenticated' do
-      scenario 'user is not authenticated' do
+      scenario 'user is redirected to login with an error' do
         visit '/peeps'
         expect(page).to have_css('.error', text: 'Error: not logged in')
       end
@@ -70,21 +70,29 @@ feature 'chitter' do
 
   feature 'peeping (posting peeps)' do
 
-    scenario 'user is not authenticated'
-    scenario 'user can click the post button and be taken to the post page' do
-      login
-      click_button('Post a peep')
-      expect(page).to have_field('text')
-      expect(page).to have_button('Submit')
+    feature 'user is not authenticated' do
+      scenario 'user is redirected to login with an error' do
+        visit '/post'
+        expect(page).to have_css('.error', text: 'Error: not logged in')
+      end
     end
 
-    scenario 'user can peep and see their peep at the top of the index page' do
-      login
-      click_button('Post a peep')
-      fill_in('text', with: 'I can peep too!')
-      click_button('Submit')
-      within first('.peep') do
-        expect(page).to have_css('.text', text: 'I can peep too!')
+    feature 'user is authenticated' do
+      scenario 'user can click the post button and be taken to the post page' do
+        login
+        click_button('Post a peep')
+        expect(page).to have_field('text')
+        expect(page).to have_button('Submit')
+      end
+
+      scenario 'user can peep and see their peep at the top of the index page' do
+        login
+        click_button('Post a peep')
+        fill_in('text', with: 'I can peep too!')
+        click_button('Submit')
+        within first('.peep') do
+          expect(page).to have_css('.text', text: 'I can peep too!')
+        end
       end
     end
   end

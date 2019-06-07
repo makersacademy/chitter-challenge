@@ -34,22 +34,29 @@ class Chitter < Sinatra::Base
   end
 
   get '/post' do
+    check_login
     erb :post
   end
 
   get '/peeps' do
-    unless session[:user_id]
-      flash[:login] = 'Error: not logged in'
-      redirect('/')
-    end
+    check_login
     @peeps = Peep.reverse
     erb :peeps
   end
 
   post '/post' do
+    check_login
     Peep.create(text: params[:text], created_at: Time.now)
     redirect('/peeps')
   end
+
+  def check_login
+    unless session[:user_id]
+      flash[:login] = 'Error: not logged in'
+      redirect('/')
+    end
+  end
+    
 
   run! if app_file == $0
 end
