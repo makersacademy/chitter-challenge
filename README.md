@@ -54,4 +54,4 @@ I want to receive an email if I am tagged in a Peep
 MVC architecture diagram
 ---------
 
-<center><img width="400" alt="MVC" src="images/mvc_chitter_v1.png"></center>
+<p align="center"><img width="400" alt="MVC" src="images/mvc_chitter_v1.png"></p>
