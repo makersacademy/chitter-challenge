@@ -46,7 +46,7 @@ class Chitter < Sinatra::Base
 
   post '/post' do
     check_login
-    Peep.create(text: params[:text], created_at: Time.now)
+    Peep.create(text: params[:text], created_at: Time.now, user_id: session[:user_id])
     redirect('/peeps')
   end
 

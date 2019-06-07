@@ -6,4 +6,5 @@ class User
   property :id,           Serial
   property :username,     String
   property :password,     BCryptHash
+  has n, :peeps
 end

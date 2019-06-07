@@ -3,8 +3,8 @@ feature 'chitter' do
   before(:each) do
     Peep.destroy
     User.destroy
-    create_peeps
     create_users
+    create_peeps
   end
 
   # Capybara.default_driver = :selenium
@@ -57,7 +57,7 @@ feature 'chitter' do
 
       scenario 'peep times are displayed' do
         now = Time.now
-        Peep.create(text: "Hello", created_at: now)
+        Peep.create(text: "Hello", created_at: now, user_id: User.first({username: 'Peter'}).id)
         date_time = now.strftime("#{now.day.ordinalize} of %B, %Y at%l:%M%P")
         login
         within first('.peep') do
@@ -65,11 +65,17 @@ feature 'chitter' do
           expect(page).to have_css('.text', text:"Hello")
         end
       end
+
+      scenario 'peep user is displayed' do
+        login
+        within all('.peep').last do
+          expect(page).to have_css('.username', text: 'Peter')
+        end
+      end
     end
   end
 
   feature 'peeping (posting peeps)' do
-
     feature 'user is not authenticated' do
       scenario 'user is redirected to login with an error' do
         visit '/post'
