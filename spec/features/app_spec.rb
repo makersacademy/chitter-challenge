@@ -36,7 +36,7 @@ feature Chitter do
     expect(page).to have_field('email')
   end 
 
-  scenario 'creates a new user at sign up' do 
+  scenario 'creates a new user at sign up and lets them go to peeps' do 
     visit '/users/add'
     fill_in 'name', with: "Lauren"
     fill_in 'username', with: "lillozza"
@@ -44,5 +44,6 @@ feature Chitter do
     fill_in 'password', with: 'Password123'
     click_button 'Sign up'
     expect(page).to have_content('Welcome, Lauren')
+    expect(page).to have_button('To the peeps!')
   end 
 end
