@@ -8,7 +8,8 @@ describe Peep do
   end 
 
   it 'adds a peep to all and returns it' do 
-    Peep.add(name: 'Lauren O', username: 'lilloz', text: 'new peep', date_time: DateTime.now)
-    expect(Peep.all.first.text).to eq('new peep')
+    Peep.add(user_id:1, text: 'new peep', date_time: DateTime.now)
+    peeps = Peep.all
+    expect(peeps[0].text).to eq('new peep')
   end 
 end 

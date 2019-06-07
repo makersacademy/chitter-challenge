@@ -2,24 +2,27 @@ require 'pg'
 require_relative 'database_connect'
 
 class Peep 
-  attr_reader :id, :username, :name, :text, :date_time
-  def initialize(id:, username:, name:, text:, date_time:)
+  attr_reader :id, :user_id, :name, :username, :text, :date_time
+
+  def initialize(id:, user_id:, name:, username:, text:, date_time:)
     @id = id
-    @username = username
-    @name = name
+    @user_id = user_id
     @text = text
+    @name = name
+    @username = username
     @date_time = date_time
   end
 
   def self.all
-    result = DatabaseConnection.query('SELECT * FROM peeps ORDER BY date_time DESC')
+    result = DatabaseConnection.query('SELECT peeps.id, user_id, text, users.username, users.name, date_time 
+                                    FROM peeps JOIN users ON peeps.user_id = users.id')
     result.map do |peep|
-      Peep.new(id: peep['id'], username: peep['username'], name: peep['name'], text: peep['text'], date_time: peep['date_time'])
+      Peep.new(id: peep['id'], user_id: peep['user_id'], name: peep['name'], username: peep['username'], text: peep['text'], date_time: peep['date_time'])
     end
   end 
 
-  def self.add(name:,username:, text:, date_time:)
-    DatabaseConnection.query("INSERT INTO peeps (name,username,text,date_time) 
-                      VALUES ('#{name}','#{username}','#{text}', '#{date_time}')")
+  def self.add(user_id:, text:, date_time:)
+    DatabaseConnection.query("INSERT INTO peeps (user_id,text,date_time) 
+                      VALUES (#{user_id},'#{text}', '#{date_time}')")
   end 
 end 
