@@ -24,6 +24,10 @@
   margin: 10px 0 10px 0;
 }
 
+.messageBlock p {
+  font-size: 14px;
+}
+
 .messageBlockHeader {
   background-color: #1d94e0;
   padding: 10px 0 10px 0;
@@ -35,4 +39,11 @@
 .messageBlockHeader h3 {
   margin: 0;
   color: #fff;
+}
+
+.messageBlock .timestamp {
+  text-align: right;
+  margin-top: -5px;
+  font-size: 10px;
+  color: #657786;
 }

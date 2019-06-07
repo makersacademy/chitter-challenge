@@ -9,7 +9,8 @@
   <div class="navHome"><a href="/peep-form">Add</a></div>
 </header>
 <body>
-  <h2>Peep Board</h2>
+  <div class="innerBody">
+    <h2>Peep Board</h2>
 
     <div class="messagesBlockContainer">
       <div class="messageBlockHeader">
@@ -19,6 +20,7 @@
         <% if @peeps.length != 0 %>
           <% @peeps.each do |peep| %>
             <div class="messageBlock">
+              <p class="timestamp"><%= peep.time_stamp%></p>
               <p><%= peep%></p>
             </div>
           <% end%>
@@ -27,6 +29,7 @@
       <% end%>
       </div>
     </div>
+  </div>
 </body>
 <footer>
   <p>© 2019 Megan Goode</p>

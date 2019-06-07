@@ -30,6 +30,14 @@ h1, h3 {
   padding-left: 10px;
 }
 
+.innerBody {
+  background-color: #fff;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+
 .navHome a {
   text-decoration: none;
   color: #66757f;
