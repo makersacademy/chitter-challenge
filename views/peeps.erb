@@ -1,6 +1,17 @@
-<div class>
+<h1>Peeps</h1>
+<div class="new-peep">
+  <form action="/peeps/add" method="post">
+    <input type ="hidden" name="username">
+    <input type="hidden" name="name" value="Lauren">
+    Say what you wanna say:<br>
+    <input type="text" name="text"><br><br>
+    <input type ="submit" value="Post Peep">
+  </form>
+</div>
+<div class="peep-board">
   <% @peeps.each do |peep| %>
-    <h2><%= peep.name %> says:</h2>
+    <div class ="peep-name"><%= "#{peep.name}"%>
+    <div class="peep-info"> <%="@#{peep.username} - #{peep.date_time}"%></div><br>
     <div class="peep"> <%= peep.text%></div>
   <% end %>
-</div >
+</div>

@@ -5,9 +5,13 @@ feature Chitter do
     expect(page).to have_content('Today is a great day! Ask me why...')
   end 
 
-  scenario 'it displayes the name' do 
+  scenario 'it displays the name' do 
     visit '/peeps'
     expect(page).to have_content('Lauren')
   end 
 
+  scenario 'displays option to add a new peep' do 
+    visit '/peeps'
+    expect(page).to have_field('text')
+  end 
 end
