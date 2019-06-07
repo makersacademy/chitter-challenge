@@ -2,6 +2,8 @@
 # rvm: '2.5.0'
 # # os: osx - if needed for mec OS
 #
+# services:
+#   - postgresql
 # script:
 #   - mkdir -p spec && bundle exec rspec spec
 #
