@@ -45,7 +45,7 @@ feature 'display' do
     fill_in 'username', with: 'username'
     fill_in 'password', with: 'fakepass123'
     click_button id='signUpSubmit'
-    expect(page).to have_content("Hi Name!")
+    expect(page).to have_content("Welcome aboard!")
   end
 
 
