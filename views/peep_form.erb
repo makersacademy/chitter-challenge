@@ -1,0 +1,38 @@
+<head>
+  <title>Add Message</title>
+  <link rel="stylesheet" href="/stylesheets/peep_form.css" />
+  <link rel="stylesheet" href="/stylesheets/site.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<header class="nav">
+  <div class="navHome"><a href="/"><img src="" />Home</a></div>
+  <div class="navHome"><a href="/peep-form">Add</a></div>
+</header>
+
+<body>
+  <div class="innerBody">
+    <h2>Add Peep</h2>
+    <div class="msgFormContainer">
+      <div class="msgFormHeader">
+        <h3>Peep Template</h3>
+      </div>
+      <form action="/create-peep" method="post" class="addMsgForm">
+        <div class="formInput">
+          <label class="formLabel">Name: </label>
+          <input type="text" name="name" placeholder="Enter your name here..." />
+        </div>
+        <div class="formInput">
+          <label class="formLabel">Body: </label>
+          <textarea rows="5" name="content" placeholder="Type your text here..."></textarea>
+        </div>
+        <div class="formInput submitForm">
+          <input type="submit" value="Post" />
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+<footer>
+  <p>© 2019 Megan Goode</p>
+</footer>

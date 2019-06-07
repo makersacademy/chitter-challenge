@@ -6,7 +6,6 @@ class Peep
   def initialize(name, content)
     @name = name
     @content = content
-    @peeps_list = []
   end
 
   def self.all
@@ -15,11 +14,12 @@ class Peep
     result.map { |peep| Peep.new(peep['name'], peep['content']) }
   end
 
-  def to_s
-    "#{@name}: #{@content}"
+  def create
+    connection = ENV["ENVIRONMENMT"] == "test" ? PG.connect(dbname: 'chitter_test') : PG.connect(dbname: 'chitter')
+    connection.exec("insert into peeps (name, content) values ('#{@name}', '#{@content}');")
   end
 
-  def create
-    @peeps_list.push({ name: name, content: content })
+  def to_s
+    "#{@name}: #{@content}"
   end
 end

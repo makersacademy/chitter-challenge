@@ -3,6 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   text-align: center;
   overflow: hidden;
+  background-color: #e6ecf0;
 }
 
 header {
@@ -12,11 +13,17 @@ header {
   text-align: left;
   height: 40px;
   border-bottom: 1px solid rgba(0,0,0,0.25);
-  position: fixed;
 }
 
 footer {
   padding: 10px;
+  background-color: #fff;
+  width: 96.5%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 11px;
+  color: #657786;
 }
 
 h1, h3 {
@@ -25,8 +32,8 @@ h1, h3 {
 
 .navHome a {
   text-decoration: none;
-  color: #000;
-
+  color: #66757f;
+  font-weight: bolder;
 }
 
 .navHome {
