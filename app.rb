@@ -1,12 +1,12 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'active_support/core_ext/integer/inflections'
 require_relative 'lib/peep'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   get '/' do
     @peeps = Peep.reverse
-    puts @peeps
     erb :index
   end
 

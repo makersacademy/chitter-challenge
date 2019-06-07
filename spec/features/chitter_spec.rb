@@ -1,5 +1,3 @@
-# Capybara.default_driver = :selenium
-# Capybara.server = :webrick
 
 feature 'chitter' do
   before(:each) do
@@ -20,6 +18,18 @@ feature 'chitter' do
       visit '/'
       within all('.peep').last do
         expect(page).to have_css('.text', text: 'First ever peep!!!!')
+      end
+    end
+
+    scenario 'peep times are displayed' do
+      now = Time.now
+      Peep.create(text: "Hello", created_at: now)
+      date_time = now.strftime("#{now.day.ordinalize} of %B, %Y at%l:%M%P")
+      visit '/'
+      within first('.peep') do
+        expect(page).to have_css('.datetime', text:date_time)
+        expect(page).to have_css('.text', text:"Hello")
+
       end
     end
   end
