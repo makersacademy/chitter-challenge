@@ -13,9 +13,9 @@ end
 
 feature "Add new peep page" do
   scenario "it takes a contenct and posts it on ChitterChatter borad" do
-    visit("/new-post")
+    visit("/new-peep")
     fill_in "peep", with: "Today is the best day!"
     click_button("Peep")
-    expect(page).to have_content("Today is the best day!")
+    expect(page).to have_content("aaaaaaaaaaaaaToday is the best day!")
   end
 end
