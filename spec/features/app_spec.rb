@@ -14,4 +14,11 @@ feature Chitter do
     visit '/peeps'
     expect(page).to have_field('text')
   end 
+
+  scenario 'it displays new peep back' do
+    visit '/peeps'
+    fill_in 'text', with: "cant wait to watch love island tonight"
+    click_button 'Post Peep'
+    expect(page).to have_content("cant wait to watch love island tonight")
+  end
 end
