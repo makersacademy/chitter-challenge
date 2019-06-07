@@ -9,7 +9,6 @@ end
 describe User do
   before(:each) do
     connect_delete_and_create_data
-    User.create("SueprMario", "Emma@me.com", "pass123")
   end
   it "can be registered" do
     connect_delete_and_create_data
@@ -20,11 +19,11 @@ describe User do
   it "find a user by email" do
     user = User.find("Emma@me.com")
     expect(user.email).to eq("Emma@me.com")
-    expect(user.id).to eq("1")
+    expect(user.id).to eq("3")
   end
 
   it "find a user by id" do
-    user = User.find_by_id(1)
+    user = User.find_by_id(3)
     expect(user.email).to eq("Emma@me.com")
   end
 
