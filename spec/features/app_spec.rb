@@ -54,6 +54,6 @@ feature Chitter do
     fill_in 'email', with: 'lauren@blah.com'
     fill_in 'password', with: 'Password123'
     click_button 'Sign up'
-    expect(page).to have_content('This email is already in use')
+    expect(page).to have_content('Your username or email has already been taken')
   end
 end

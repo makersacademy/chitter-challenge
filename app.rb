@@ -30,11 +30,8 @@ class Chitter < Sinatra::Base
       @name = params[:name] 
       User.add(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
       erb(:new_user)
-    elsif User.unique_username?(params[:username]) == false
-      flash[:error_username] = 'This username is taken'
-      redirect '/users/add'
-    elsif User.unique_email?(params[:email]) == false
-      flash[:error_email] = 'This email is already in use'
+    else
+      flash[:error] = 'Your username or email has already been taken'
       redirect '/users/add'
     end
   end 
