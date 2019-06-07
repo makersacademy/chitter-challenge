@@ -37,6 +37,16 @@ describe 'Bookmark Manager' do
       expect(page).to have_content("Email already taken")
     end
 
+    scenario 'can add a post' do
+      visit('/login')
+      fill_in('username', with: 'kks110')
+      fill_in('password', with: 'test')
+      click_button 'Login!'
+      fill_in('body', with: 'This is a test comment')
+      click_button 'Post'
+      expect(page).to have_content('This is a test comment')
+    end
+
   end
 
   feature 'Login page' do

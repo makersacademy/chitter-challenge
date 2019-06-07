@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
   <body>
     <%= erb :header_partial %>
-    <h1>Posts</h1>
 
     <% flash.keys.each do |type| %>
     <% if type == :success
@@ -17,24 +16,39 @@
       </div>
 
     <% end %>
+    <br>
+    <div class="w3-row w3-container">
+      <div class="w3-col" style="width:20%"><br></div>
+        <div class="w3-col" style="width:60%">
+          <% if @logged_in %>
+            <form action="/add_post" id="post_form" method="post">
+              <textarea name="body" rows="4" cols="40" form="post_form"></textarea><br>
+              <input type="submit" value="Post">
+            </form>
+          <% end %>
 
-    <% if @logged_in %>
-      <form action="/add_post" id="post_form" method="post">
-        <textarea name="body" rows="4" cols="40" form="post_form"></textarea><br>
-        <input type="submit" value="Post">
-      </form>
-    <% end %>
+        <% @posts.each do |post| %>
+          <% @individual_user = @user.find_by_id(post.user_id) %>
+          <% @date_time = DateTime.parse(post.creation_date) %>
+          <div class="w3-container">
+            <div class="w3-card-4">
 
-    <% @posts.each do |post| %>
-      <% @individual_user = @user.find_by_id(post.user_id) %>
-      <% @date_time = DateTime.parse(post.creation_date) %>
-      <div class="w3-card">
-        <p><%= post.body %></p>
-        <p><%= @date_time.strftime("Created on: %H:%M %d/%m/%Y") %></p>
-        <p><%= @individual_user.name %></p>
-        <p><%= @individual_user.username %></p>
-      </div>
-    <% end %>
+              <div class="w3-container">
+                <p><%= post.body %></p>
+              </div>
+
+              <footer class="w3-container w3-sand">
+                <p><%= @individual_user.username %> (<%= @individual_user.name %>) wrote this post on <%= @date_time.strftime("Created on: %H:%M %d/%m/%Y") %></p>
+              </footer>
+            </div>
+          </div>
+          <br>
+        <% end %>
+        </div>
+      <div class="w3-col" style="width:20%"><br></div>
+    </div>
+
+
 
   </body>
 </html>
