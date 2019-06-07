@@ -39,3 +39,13 @@ feature "Add new peep page" do
     expect(page).to have_content("Today is the best day!")
   end
 end
+
+feature "Add users" do
+  scenario "user registration" do
+    visit("/user")
+    fill_in('user', with: 'user@me.com')
+    fill_in('pass', with: 'pass123')
+    click_button('Sign Me Up')
+    expect(page).to have_content "Hello, user@me.com"
+  end
+end

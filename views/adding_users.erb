@@ -8,19 +8,17 @@ if you dont want it, you can remove the line that is similar to this in your hea
 or if you want to use an icon for the title bar, you can use icon convertor to generate a .ico image and keep it in your website folder and use the above line in the head section
 -->
 <link rel="icon" href="data:,">
-<title>Hello Friend!</title>
+<title>Register</title>
 </head>
 <body>
-<h2>Chitter away!</h2>
+<h1>Please Sign Up to Chitter Chatter</h1>
 <div>
-<%@all_peeps.reverse_each do |peep|%>
-  Posted @: <%=peep.date%>
-  <%=peep.content%><br>
-<% end %>
-</div>
-<div>
- <form action="/new-peep" method="get">
- <input type="submit" value="Add new Peep">
+ <form action="/add-user" method="post">
+ <label for="user">Please enter your email</label>
+  <input type="text" name="user" placeholder="me@me.com">
+  <label for="pass">Please enter your email</label>
+  <input type="text" name="pass" placeholder="*********">
+ <input type="submit" value="Sign Me Up">
  </form>
 </div>
 </body>

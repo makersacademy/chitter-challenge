@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/user'
 
 class ChitterChatter < Sinatra::Base
   
@@ -14,6 +15,15 @@ class ChitterChatter < Sinatra::Base
 
    post '/add' do
     Peep.create(params[:peep])
+    redirect '/'
+   end
+
+   get '/user' do
+    erb :adding_users
+   end
+
+   post '/add-user' do
+    User.create(params[:user], params[:pass])
     redirect '/'
    end
   
