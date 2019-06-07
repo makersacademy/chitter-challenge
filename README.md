@@ -8,6 +8,8 @@ Steps to run the app:
 
 Used bcrypt to encrypt passwords
 
+Run: rackup -p 4567 and go to http://localhost:4567/
+
 
 Features:
 -------
