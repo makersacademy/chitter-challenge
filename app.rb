@@ -10,8 +10,9 @@ class ChitterChatter < Sinatra::Base
   set :session_secret, "My session secret"
 
   get "/" do
+    User.create("Anonymous", "me@email.com", "1112")
+    (session[:id]).nil? ? @user_by_id = User.find("me@email.com") : @user_by_id = User.find_by_id(session[:id])
     @all_peeps = Peep.all
-    @user_by_id = User.find_by_id(session[:id])
     erb :main
   end
 
