@@ -1,4 +1,15 @@
+# Capybara.default_driver = :selenium
+# Capybara.server = :webrick
+
 feature 'chitter' do
+  before(:each) do
+    Peep.destroy
+    create_peeps
+  end
+
+  Capybara.default_driver = :selenium
+  Capybara.server = :webrick
+
   feature 'viewing peeps' do 
     scenario 'peep is present on the page' do
       visit '/'
