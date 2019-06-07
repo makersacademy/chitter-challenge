@@ -6,10 +6,14 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/chitter' do
+  post '/user_details' do
     @name = params[:name]
     @user_name = params[:user_name]
     @email_address = params[:email_address]
+    erb :user_details
+  end
+
+  post '/chitter' do
     erb :chitter
   end
 
