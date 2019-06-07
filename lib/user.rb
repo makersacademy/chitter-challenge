@@ -7,6 +7,8 @@ class User
   end
 
   def self.find(email)
+    find_user = DbConnection.query("SELECT * FROM users WHERE email = '#{email}';")
+    User.new(email: find_user[0]["email"], pass: find_user[0]["pass"])
   end
 
   def initialize(email:, pass:)

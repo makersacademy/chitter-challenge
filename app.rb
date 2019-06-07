@@ -4,8 +4,14 @@ require "./lib/user"
 require "./setup_of_db"
 
 class ChitterChatter < Sinatra::Base
+
+  enable :sessions, :method_override
+  # what should it say?
+  set :session_secret, "My session secret"
+
   get "/" do
     @all_peeps = Peep.all
+    @user_mail = session[:email]
     erb :main
   end
 
@@ -24,6 +30,7 @@ class ChitterChatter < Sinatra::Base
 
   post "/add-user" do
     User.create(params[:user], params[:pass])
+    session[:email] = params[:user]
     redirect "/"
   end
 

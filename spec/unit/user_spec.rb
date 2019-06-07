@@ -12,6 +12,5 @@ describe User do
       User.create("Emma@me.com", "pass123")
       user = User.find("Emma@me.com")
       expect(user.email).to eq("Emma@me.com")
-      expect(user.pass).to eq("pass123")
     end
 end 
