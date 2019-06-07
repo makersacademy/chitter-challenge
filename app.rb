@@ -41,10 +41,11 @@ class Chitter < Sinatra::Base
   end 
 
   post '/users/login' do 
-    if User.authenticated?(params[:username],params[:passsword])
+    if User.authenticated?(params[:username],params[:password])
       redirect '/peeps'
     else 
       flash[:error] = 'Your username or password is incorrect'
+      redirect '/users/login'
     end
   end 
 end 
