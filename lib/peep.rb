@@ -1,7 +1,7 @@
 require_relative "db_connection"
 
 class Peep
-  attr_reader :content, :date
+  attr_reader :content, :date, :user_id
 
   def self.create(entry, user_id)
       peep_add = DbConnection.query("INSERT INTO peeps (content, user_id) VALUES ('#{entry}', '#{user_id}');")

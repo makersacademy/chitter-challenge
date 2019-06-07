@@ -34,6 +34,7 @@ class ChitterChatter < Sinatra::Base
   end
 
   post "/add-user" do
+    # only crete new one if it does not exist alreday
     User.create(params[:name], params[:user], params[:pass])
     new_user = User.find(params[:user])
     p new_user

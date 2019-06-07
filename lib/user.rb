@@ -12,7 +12,7 @@ class User
 
   def self.find(email)
     find_user = DbConnection.query("SELECT * FROM users WHERE email = '#{email}';")
-    User.new(email: find_user[0]["email"], id: find_user[0]["id"], name: find_user[0]["username"])
+    User.new(email: find_user[0]["email"], id: find_user[0]["id"], name: find_user[0]["username"]) 
   end
 
   def self.find_by_id(id)

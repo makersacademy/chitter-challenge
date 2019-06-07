@@ -36,6 +36,11 @@ describe User do
     connect_delete_and_create_data
     expect(User.all.length).to eq 3
   end
+
+  # it "returns nil if no email found" do
+  #   user = User.find("Ada@me.com")
+  #   expect(user.length).to eq(0)
+  # end
 end
 
 

@@ -19,7 +19,11 @@ or if you want to use an icon for the title bar, you can use icon convertor to g
 <h2>Chitter away!</h2>
 <div>
 <%@all_peeps.reverse_each do |peep|%>
-  Posted @: <%=peep.date%>
+<%@who_amI = "eee"%>
+  <%@who_amI = @all_users.find do |user| %>
+      <%user.id == peep.user_id%>
+      <%end%>
+  <%=@who_amI%>Posted @: <%=peep.date%>
   <%=peep.content%><br>
 <% end %>
 </div>
