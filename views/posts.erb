@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+    <%= erb :header_partial %>
+    <h1>Posts</h1>
+
+    <% flash.keys.each do |type| %>
+    <% if type == :success
+        @message_colour = 'green'
+      else
+        @message_colour = 'red'
+      end %>
+
+      <div class="w3-panel w3-pale-<%= @message_colour %> w3-display-container">
+        <h4><%= flash[type] %></h4>
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-hover-pale-<%= @message_colour %> w3-pale-<%= @message_colour %> w3-large w3-display-right">X</span>
+      </div>
+
+    <% end %>
+
+    <% if @logged_in %>
+      <form action="/add_post" id="post_form" method="post">
+        <textarea name="body" rows="4" cols="40" form="post_form"></textarea><br>
+        <input type="submit" value="Post">
+      </form>
+    <% end %>
+
+    <% @posts.each do |post| %>
+      <% @individual_user = @user.find_by_id(post.user_id) %>
+      <% @date_time = DateTime.parse(post.creation_date) %>
+      <div class="w3-card">
+        <p><%= post.body %></p>
+        <p><%= @date_time.strftime("Created on: %H:%M %d/%m/%Y") %></p>
+        <p><%= @individual_user.name %></p>
+        <p><%= @individual_user.username %></p>
+      </div>
+    <% end %>
+
+  </body>
+</html>

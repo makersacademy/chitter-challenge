@@ -14,7 +14,7 @@ class Post
 
   def self.all
     posts_array = []
-    response = DatabaseConnection.query("SELECT * FROM posts")
+    response = DatabaseConnection.query("SELECT * FROM posts ORDER BY creation_date DESC")
     response.each do |post|
       posts_array << Post.new(post['id'], post['body'], post['creation_date'], post['user_id'])
     end

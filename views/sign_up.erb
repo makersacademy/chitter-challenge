@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+    <%= erb :header_partial %>
+    <h1>Welcome to Chitter</h1>
+
+    <% flash.keys.each do |type| %>
+      <div class="w3-panel w3-pale-red w3-display-container">
+        <h4><%= flash[type] %></h4>
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-hover-pale-red w3-pale-red w3-large w3-display-right">X</span>
+      </div>
+    <% end %>
+
+    <h4>Sign up</h4>
+    <form action="/sign_up" method="post">
+      Name:
+      <input type="text" name="name">
+      Username:
+      <input type="text" name="username">
+      Email:
+      <input type="text" name="email">
+      Password:
+      <input type="password" name="password">
+      <input type="submit" value="Sign-up!">
+    </form>
+  </body>
+</html>
