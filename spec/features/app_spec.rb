@@ -100,4 +100,13 @@ feature Chitter do
     expect(page).not_to have_button('Log in')
     expect(page).to have_button('Log out')
   end 
+
+  scenario "logging out means session is cleared" do 
+    visit '/users/login'
+    fill_in 'username', with: "lozza_peeps"
+    fill_in 'password', with: 'Password1'
+    click_button 'Log in'
+    click_button 'Log out' 
+    expect(page).to have_button('Log in')
+  end 
 end

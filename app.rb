@@ -51,4 +51,9 @@ class Chitter < Sinatra::Base
       redirect '/users/login'
     end
   end 
+
+  get '/users/logout' do 
+    session.clear
+    redirect '/peeps'
+  end 
 end 
