@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--the line below is to avoid favicon.ico 404
+favicon.ico is the icon of a website on the title bar of your website. Netbeans couldnt find the favicon.ico file in your website folder
+if you dont want it, you can remove the line that is similar to this in your head section
+ <link rel="shortcut icon" href="favicon.ico">
+or if you want to use an icon for the title bar, you can use icon convertor to generate a .ico image and keep it in your website folder and use the above line in the head section
+-->
+<link rel="icon" href="data:,">
+<title>Chtter Chatter</title>
+</head>
+<body>
+<h1>What is on your mind?</h1>
+<div>
+ <form action="/add" method="post">
+  <input type="text" name="peep" placeholder="I want to tell the world about...">
+ <input type="submit" value="Peep">
+ </form>
+</div>
+</body>
+</html>
