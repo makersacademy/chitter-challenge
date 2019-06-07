@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @user = nil
     @peeps = Peep.all
     erb(:peeps)
   end 
@@ -43,6 +44,7 @@ class Chitter < Sinatra::Base
   post '/users/login' do 
     if User.authenticated?(params[:username],params[:password])
       session[:id] = User.id(params[:username])
+      @user = User.active(session[:id])
       redirect '/peeps'
     else 
       flash[:error] = 'Your username or password is incorrect'

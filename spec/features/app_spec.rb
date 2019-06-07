@@ -16,12 +16,18 @@ feature Chitter do
   end 
 
   scenario 'displays option to add a new peep' do 
-    visit '/peeps'
+    visit '/users/login'
+    fill_in 'username', with: "lozza_peeps"
+    fill_in 'password', with: 'Password1'
+    click_button 'Log in'
     expect(page).to have_field('text')
   end 
 
   scenario 'it displays new peep back as the first peep' do
-    visit '/peeps'
+    visit '/users/login'
+    fill_in 'username', with: "lozza_peeps"
+    fill_in 'password', with: 'Password1'
+    click_button 'Log in'
     fill_in 'text', with: "cant wait to watch love island tonight"
     click_button 'Post Peep'
     expect(page).to have_content("cant wait to watch love island tonight")
@@ -42,7 +48,7 @@ feature Chitter do
     expect(page).to have_field('email')
   end 
 
-  scenario 'creates a new user at sign up and lets them go to peeps' do 
+  scenario 'creates a new user at sign up and asks them to login' do 
     visit '/users/add'
     fill_in 'name', with: "Lauren"
     fill_in 'username', with: "lillozza"
@@ -50,7 +56,7 @@ feature Chitter do
     fill_in 'password', with: 'Password123'
     click_button 'Sign up'
     expect(page).to have_content('Welcome, Lauren')
-    expect(page).to have_button('To the peeps!')
+    expect(page).to have_button('Click here to log in')
   end 
 
   scenario 'display error message if email not unique' do
@@ -77,4 +83,12 @@ feature Chitter do
     click_button 'Log in'
     expect(page).to have_content('Your username or password is incorrect')
   end
+
+  scenario 'home page recognises only shows add peep nox on homepage when user is logged in' do 
+    visit '/users/login'
+    fill_in 'username', with: "lozza_peeps"
+    fill_in 'password', with: 'Password1'
+    click_button 'Log in'
+    expect(page).to have_content('Say what you wanna say')
+  end 
 end

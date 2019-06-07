@@ -7,15 +7,17 @@
   </form>
 </div>
 <h1>Peeps</h1>
-<div class="new-peep">
-  <form action="/peeps/add" method="post">
+<% if session[:id] != nil %>
+  <div class="new-peep">
+    <form action="/peeps/add" method="post">
     <input type ="hidden" name="username">
     <input type="hidden" name="name" value="Lauren">
     Say what you wanna say:<br>
     <input type="text" name="text"><br><br>
     <input type ="submit" value="Post Peep">
-  </form>
-</div>
+    </form>
+  </div>
+<% end %>
 <div class="peep-board">
   <% @peeps.each do |peep| %>
     <div class ="peep-name"><%= "#{peep.name}"%>
