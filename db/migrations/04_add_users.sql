@@ -1,1 +1,2 @@
 CREATE TABLE users (id serial PRIMARY KEY, email VARCHAR(60), pass VARCHAR(160));
+ALTER TABLE users ADD COLUMN username VARCHAR(10);

@@ -45,7 +45,8 @@ feature "Add users" do
     visit("/user")
     fill_in('user', with: 'user@me.com')
     fill_in('pass', with: 'pass123')
+    fill_in('name', with: 'Rocky')
     click_button('Sign Me Up')
-    expect(page).to have_content "Hello, user@me.com"
+    expect(page).to have_content "Hello, Rocky"
   end
 end

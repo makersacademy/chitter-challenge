@@ -29,7 +29,7 @@ class ChitterChatter < Sinatra::Base
   end
 
   post "/add-user" do
-    User.create(params[:user], params[:pass])
+    User.create(params[:name], params[:user], params[:pass])
     new_user = User.find(params[:user])
     session[:id] = new_user.id
     redirect "/"

@@ -14,7 +14,7 @@ or if you want to use an icon for the title bar, you can use icon convertor to g
 <% if @user_by_id.nil? %>
 <h1>Hello, Friend</h1>
 <% else%>
-<h1>Hello, <%=@user_by_id.email%></h1>
+<h1>Hello, <%=@user_by_id.name%></h1>
 <% end %>
 <h2>Chitter away!</h2>
 <div>
@@ -26,6 +26,12 @@ or if you want to use an icon for the title bar, you can use icon convertor to g
 <div>
  <form action="/new-peep" method="get">
  <input type="submit" value="Add new Peep">
+ </form>
+</div>
+
+<div>
+ <form action="/user" method="get">
+ <input type="submit" value="Register">
  </form>
 </div>
 </body>
