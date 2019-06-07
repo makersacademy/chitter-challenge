@@ -1,18 +1,6 @@
-
-<ul>
-  <% @peeps.each do |peep| %>
-    <li class='peep'>
-      <p class='text'>
-        <%= peep.text %>
-      </p>
-      <p class='datetime'>
-        <%= peep.format_created_at %>
-      </p>
-    </li>
-  <% end %>
-</ul>
-
-<form action='/post' method='GET'>
-  <button type='submit'>Post a peep</button>
+<h2 class="error"><%= @error %></h2>
+<form action='/login' method='POST'>
+  <input type='text' name='username' value='username'>
+  <input type='password' name='password' value='password'>
+  <button type='submit'>Login</button>
 </form>
-

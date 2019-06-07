@@ -12,6 +12,8 @@ gem 'json', '1.8.6'
 gem 'shotgun'
 gem 'selenium-webdriver'
 gem 'activesupport'
+gem 'bcrypt'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

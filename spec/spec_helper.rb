@@ -9,7 +9,8 @@ require 'rspec'
 require 'user'
 require 'peep'
 require_relative '../data_mapper_setup'
-require_relative 'database_helper'
+require_relative 'database_helpers'
+require_relative 'web_helpers'
 
 Capybara.app = Chitter
 

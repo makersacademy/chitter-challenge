@@ -12,3 +12,19 @@ def create_peeps
     created_at: Time.now
   )
 end
+
+def create_users
+  User.create(
+    username: 'Peter',
+    password: '12345'
+  )
+  User.create(
+    username: 'Bird person',
+    password: '12345678'
+  )
+  User.create(
+    username: 'Magpie',
+    password: 'password'
+  )
+
+end

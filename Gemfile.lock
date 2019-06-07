@@ -157,6 +157,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  bcrypt
   capybara
   data_mapper
   dm-postgres-adapter

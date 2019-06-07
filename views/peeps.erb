@@ -1,0 +1,18 @@
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class='peep'>
+      <p class='text'>
+        <%= peep.text %>
+      </p>
+      <p class='datetime'>
+        <%= peep.format_created_at %>
+      </p>
+    </li>
+  <% end %>
+</ul>
+
+<form action='/post' method='GET'>
+  <button type='submit'>Post a peep</button>
+</form>
+

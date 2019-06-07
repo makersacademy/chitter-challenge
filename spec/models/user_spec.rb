@@ -10,3 +10,22 @@ describe User do
     expect(user.id).to be 1
   end
 end
+  # describe '.check_login' do
+  #   before (:each) do
+  #     Peep.destroy
+  #     User.destroy
+  #     create_peeps
+  #     create_users
+  #   end
+
+  #   scenario 'correct username and password' do
+  #     it ''
+  #   end
+
+
+  #   scenario 'user does not exist'
+
+  #   scenario 'user exists, incorrect password'
+  # end
+# end
+
