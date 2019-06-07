@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require './lib/user'
+require './lib/peeps'
 
 class Chitter < Sinatra::Base
 
@@ -14,7 +16,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
+    @peeps = params[:peep]
+    @list_peeps = Peeps.all
     erb :chitter
+  end
+
+  post '/add_peep' do
+    Peeps.create(params[:peep])
+    redirect '/chitter'
   end
 
 run! if app_file == $0
