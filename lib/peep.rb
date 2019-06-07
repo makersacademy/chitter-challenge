@@ -11,14 +11,6 @@ class Peep
     @date_time = date_time
   end
 
-  # def self.create_connection
-  #   if ENV['ENVIRONMENT']== 'test'
-  #     @connection = PG.connect(dbname: 'chitter_test')
-  #   else
-  #     @connection = PG.connect(dbname: 'chitter')
-  #   end
-  # end 
-
   def self.all
     result = DatabaseConnection.query('SELECT * FROM peeps ORDER BY date_time DESC')
     result.map do |peep|
