@@ -16,6 +16,10 @@ class Peep
       }
   end
 
+  # def self.author()
+  #   author = DbConnection.query("SELECT users.username FROM users WHERE users.id = peeps.user_id;")
+  # end
+
   def initialize(content:, date:, user_id:)
     @content = content
     @date = date

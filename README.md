@@ -2,6 +2,11 @@ Chitter Challenge
 =================
 This is a small Twitter clone that will allow the users to post messages to a public stream.
 
+The app currently displays the peeps in correct order and lets different users add peeps.
+The peeps are correctly saved in DB together with user_id. The displaying of the peep author is not working correctly.
+I still need to implement the functionality to validate if the user exists and let them log in and log out.
+Unfortunately there is no styling for the app at all :(
+
 Steps to run the app:
 1. Run bundle install
 2. Create db with pqsl and connect with PG - follow queries from db/migrations

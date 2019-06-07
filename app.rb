@@ -12,9 +12,9 @@ class ChitterChatter < Sinatra::Base
   get "/" do
     #session.clear
     User.create("Anonymous", "me@email.com", "1112") if User.all.length == 0
-    p session[:id]
     (session[:id]).nil? ? @user_by_id = User.find("me@email.com") : @user_by_id = User.find_by_id(session[:id])
     @all_peeps = Peep.all
+    # @name = Peep.author
     @all_users = User.all
     erb :main
   end
@@ -37,7 +37,6 @@ class ChitterChatter < Sinatra::Base
     # only crete new one if it does not exist alreday
     User.create(params[:name], params[:user], params[:pass])
     new_user = User.find(params[:user])
-    p new_user
     session[:id] = new_user.id
     redirect "/"
   end

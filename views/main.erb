@@ -20,10 +20,10 @@ or if you want to use an icon for the title bar, you can use icon convertor to g
 <div>
 <%@all_peeps.reverse_each do |peep|%>
 <%@who_amI = "eee"%>
-  <%@who_amI = @all_users.find do |user| %>
+  <%@who_amI = @all_users.select do |user| %>
       <%user.id == peep.user_id%>
       <%end%>
-  <%=@who_amI%>Posted @: <%=peep.date%>
+  <%=@who_amI.first.name%> Posted @: <%=peep.date%>
   <%=peep.content%><br>
 <% end %>
 </div>

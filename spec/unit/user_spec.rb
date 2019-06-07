@@ -35,6 +35,7 @@ describe User do
   it "lists all of the users" do
     connect_delete_and_create_data
     expect(User.all.length).to eq 3
+    expect(User.all.last.name).to eq("Tortoise")
   end
 
   # it "returns nil if no email found" do
