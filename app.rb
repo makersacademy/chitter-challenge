@@ -17,4 +17,10 @@ class Chitter < Sinatra::Base
     erb(:add_user)
   end 
 
+  post '/users/add' do
+    @name = params[:name] 
+    User.add(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    erb(:new_user)
+  end 
+
 end 
