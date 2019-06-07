@@ -40,10 +40,20 @@ feature Chitter do
     visit '/users/add'
     fill_in 'name', with: "Lauren"
     fill_in 'username', with: "lillozza"
-    fill_in 'email', with: 'lauren.omara22"gmail.com'
+    fill_in 'email', with: 'lauren+testing@blah.com'
     fill_in 'password', with: 'Password123'
     click_button 'Sign up'
     expect(page).to have_content('Welcome, Lauren')
     expect(page).to have_button('To the peeps!')
   end 
+
+  scenario 'display error message if email not unique' do
+    visit '/users/add'
+    fill_in 'name', with: 'Lauren'
+    fill_in 'username', with: "lil_lozza"
+    fill_in 'email', with: 'lauren@blah.com'
+    fill_in 'password', with: 'Password123'
+    click_button 'Sign up'
+    expect(page).to have_content('This email is already in use')
+  end
 end
