@@ -11,21 +11,28 @@ class ChitterFeed
   end
 
   def self.add(message, time = Time.new)
-    con = if ENV['ENVIRONMENT'] == 'test'
-            PG.connect(dbname: 'chitter_test')
-          else
-            PG.connect(dbname: 'chitter')
-          end
-    con.exec("INSERT INTO messages (content, postedat) VALUES ('#{message}', '#{time}');")
+   set_database
+    @con.exec("INSERT INTO messages (content, postedat) VALUES ('#{message}', '#{time}');")
   end
         
   def self.view
-    con = if ENV['ENVIRONMENT'] == 'test'
-            PG.connect(dbname: 'chitter_test')
-          else
-            PG.connect(dbname: 'chitter')
-          end
-    feed_data = con.exec("SELECT * FROM messages")
+    set_database
+    feed_data = @con.exec("SELECT * FROM messages")
     feed_data.map { |message| ChitterFeed.new(message['id'], message['content'], message['postedat'], message['userid']) }
+  end
+
+  def self.add_user(name, username, email, passwordhash)
+    set_database 
+    @con.exec("INSERT INTO users (Name, Username, Email, PasswordHash) VALUES (")
+  end
+
+  private 
+
+  def self.set_database
+    @con = if ENV['ENVIRONMENT'] == 'test'
+            PG.connect(dbname: 'chitter_test')
+           else
+            PG.connect(dbname: 'chitter')
+           end
   end
 end

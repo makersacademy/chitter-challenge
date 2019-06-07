@@ -16,6 +16,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
+    
+    ChitterFeed.add_user(params[:name], params[:username], params[:email], params[:psw])
     redirect '/'
   end
 
