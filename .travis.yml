@@ -1,4 +1,6 @@
+language: ruby
 rvm: '2.5.0'
+# os: osx - if needed for mec OS
 
 script:
   - mkdir -p spec && bundle exec rspec spec
