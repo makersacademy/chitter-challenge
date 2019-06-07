@@ -47,7 +47,13 @@ User Stories
 ------------------
 ```As a user
 So that I can let people know what I am doing, regardless of whether or not it's interesting 
-I want to post a message (peep) to chitter```
+I want to post a message (peep) to chitter
+```
+
+```As a maker
+So that I can get a distorted view of my acquaintances' activities in close to real time 
+I want to see all peeps in reverse chronological order
+```
 
 Database Setup
 ------------------

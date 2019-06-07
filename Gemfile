@@ -9,6 +9,7 @@ group :test do
   gem 'pg'
   gem 'rake'
   gem 'rspec'
+  gem 'rspec-html-matchers'
   gem 'rubocop', '0.56.0'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

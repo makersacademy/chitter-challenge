@@ -5,6 +5,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @feed = ChitterFeed.view
+    @feed.reverse!
     erb :homepage
   end
 
