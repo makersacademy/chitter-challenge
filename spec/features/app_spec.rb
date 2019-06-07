@@ -23,11 +23,11 @@ feature Chitter do
 
   scenario 'it displays buttons to login or sign up' do 
     visit '/peeps' 
-    expect(page).to have_button('Login')
+    expect(page).to have_button('Log in')
     expect(page).to have_button('Sign up')
   end 
 
-  scenario 'it sign up button presents form for new user' do 
+  scenario 'sign up button presents form for new user' do 
     visit '/peeps' 
     click_button 'Sign up'
     expect(page).to have_field('name')
@@ -55,5 +55,20 @@ feature Chitter do
     fill_in 'password', with: 'Password123'
     click_button 'Sign up'
     expect(page).to have_content('Your username or email has already been taken')
+  end
+
+  scenario 'login button presents form for user to login' do 
+    visit '/peeps' 
+    click_button 'Log in'
+    expect(page).to have_field('username')
+    expect(page).to have_field('password')
+  end
+
+  scenario 'display error message if username or password not correct' do
+    visit '/users/login'
+    fill_in 'username', with: "lil_lozza"
+    fill_in 'password', with: 'Password123'
+    click_button 'Log in'
+    expect(page).to have_content('Your username or password is incorrect')
   end
 end

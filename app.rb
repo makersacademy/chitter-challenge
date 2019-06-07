@@ -36,4 +36,8 @@ class Chitter < Sinatra::Base
     end
   end 
 
+  get '/users/login' do 
+    erb(:login)
+  end 
+
 end 
