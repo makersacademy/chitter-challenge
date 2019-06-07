@@ -11,7 +11,6 @@ class Post
     @user_id = user_id
   end
 
-
   def self.all
     posts_array = []
     response = DatabaseConnection.query("SELECT * FROM posts ORDER BY creation_date DESC")
@@ -29,6 +28,5 @@ class Post
     post = DatabaseConnection.query("SELECT * FROM posts WHERE id = #{id}")
     Post.new(post[0]['id'], post[0]['body'], post[0]['creation_date'], post[0]['user_id'])
   end
-
 
 end

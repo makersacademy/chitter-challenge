@@ -1,4 +1,3 @@
-
 describe 'Bookmark Manager' do
 
   feature 'Index page' do
@@ -13,7 +12,7 @@ describe 'Bookmark Manager' do
       fill_in('username', with: 'emmature')
       fill_in('email', with: 'test1@test.com')
       fill_in('password', with: 'password')
-      click_button 'Sign-up!'
+      click_button 'Create Account'
       expect(page).to have_content("Posts")
     end
 
@@ -23,7 +22,7 @@ describe 'Bookmark Manager' do
       fill_in('username', with: 'kks110')
       fill_in('email', with: 'test1@test.com')
       fill_in('password', with: 'password')
-      click_button 'Sign-up!'
+      click_button 'Create Account'
       expect(page).to have_content("Username already taken")
     end
 
@@ -33,7 +32,7 @@ describe 'Bookmark Manager' do
       fill_in('username', with: 'emmature')
       fill_in('email', with: 'test@test.com')
       fill_in('password', with: 'password')
-      click_button 'Sign-up!'
+      click_button 'Create Account'
       expect(page).to have_content("Email already taken")
     end
 
@@ -66,7 +65,5 @@ describe 'Bookmark Manager' do
       expect(page).to have_content("Invalid Credentails")
     end
   end
-
-
 
 end

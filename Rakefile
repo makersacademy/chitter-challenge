@@ -14,7 +14,6 @@ task :remove_databases do
   connection.exec('DROP DATABASE IF EXISTS chitter_test')
 end
 
-
 task :setup do
   connection = PG.connect
   connection.exec('CREATE DATABASE chitter')

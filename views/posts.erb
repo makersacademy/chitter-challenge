@@ -10,9 +10,11 @@
         @message_colour = 'red'
       end %>
 
-      <div class="w3-panel w3-pale-<%= @message_colour %> w3-display-container">
-        <h4><%= flash[type] %></h4>
-        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-hover-pale-<%= @message_colour %> w3-pale-<%= @message_colour %> w3-large w3-display-right">X</span>
+      <div class="w3-container">
+        <div class="w3-panel w3-pale-<%= @message_colour %> w3-display-container">
+          <h4><%= flash[type] %></h4>
+          <span onclick="this.parentElement.style.display='none'" class="w3-button w3-hover-pale-<%= @message_colour %> w3-pale-<%= @message_colour %> w3-large w3-display-right">X</span>
+        </div>
       </div>
 
     <% end %>
@@ -21,16 +23,24 @@
       <div class="w3-col" style="width:20%"><br></div>
         <div class="w3-col" style="width:60%">
           <% if @logged_in %>
+          <div class="w3-row">
             <form action="/add_post" id="post_form" method="post">
-              <textarea name="body" rows="4" cols="40" form="post_form"></textarea><br>
-              <input type="submit" value="Post">
+              <div class="w3-col" style="width:90%">
+                <textarea class="w3-input w3-border" rows="3" name="body" form="post_form"></textarea>
+              </div>
+              <div class="w3-col" style="width:10%; height:">
+                <div class="w3-display-container" style="height:80px;">
+                  <input class="w3-btn w3-round-large w3-2019-soybean w3-display-middle" type="submit" value="Post">
+                </div>
+              </div>
             </form>
+          </div>
+          <br>
           <% end %>
-
         <% @posts.each do |post| %>
           <% @individual_user = @user.find_by_id(post.user_id) %>
           <% @date_time = DateTime.parse(post.creation_date) %>
-          <div class="w3-container">
+
             <div class="w3-card-4">
 
               <div class="w3-container">
@@ -41,7 +51,6 @@
                 <p><%= @individual_user.username %> (<%= @individual_user.name %>) wrote this post on <%= @date_time.strftime("Created on: %H:%M %d/%m/%Y") %></p>
               </footer>
             </div>
-          </div>
           <br>
         <% end %>
         </div>

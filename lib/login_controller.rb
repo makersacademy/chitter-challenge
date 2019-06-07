@@ -2,7 +2,6 @@ require_relative 'user'
 
 class LoginController
 
-
   def self.log_in(username, password)
     if User.user_exists?(username)
       user = User.find_by_username(username)

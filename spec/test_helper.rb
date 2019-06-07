@@ -16,18 +16,16 @@ def clear_db
   connection.exec "DELETE FROM users"
 end
 
-
 def fill_db
   connection.exec "INSERT INTO users (name, username, password, email) VALUES ('Kelvin', 'kks110', 'test', 'test@test.com')"
   @user = find_user
   connection.exec "INSERT INTO posts (body, user_id) VALUES ('First Post', '#{@user.id}'), ('Second Post', '#{@user.id}')"
 end
 
-
 def find_user
   response = connection.exec "SELECT * FROM users WHERE name = 'Kelvin'"
   response.each do |row|
-    return user = SetupHelper.new(row['id'])
+    return SetupHelper.new(row['id'])
   end
 end
 

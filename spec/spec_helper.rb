@@ -6,7 +6,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'test_helper'
 
-  Capybara.app = Chitter
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

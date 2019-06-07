@@ -4,7 +4,7 @@ describe User do
 
   it 'can add a user' do
     User.add('Emma', 'emmaturechild', 'test2@test.com', 'test')
-    expect(User.all.last.name).to eq ('Emma')
+    expect(User.all.last.name).to eq 'Emma'
   end
 
   it 'can return a specific user' do
@@ -26,6 +26,5 @@ describe User do
   it 'can see if a user exists by email' do
     expect(User.email_exists?('test@test.com')).to eq true
   end
-
 
 end
