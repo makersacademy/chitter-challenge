@@ -11,7 +11,7 @@ or if you want to use an icon for the title bar, you can use icon convertor to g
 <title>Hello Friend!</title>
 </head>
 <body>
-<% if @user_by_id.nil? %>
+<% if @user_by_id.nil? || @user_by_id.email == "me@email.com"%>
 <h1>Hello, Friend</h1>
 <% else%>
 <h1>Hello, <%=@user_by_id.name%></h1>
