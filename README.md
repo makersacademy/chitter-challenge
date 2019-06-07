@@ -31,7 +31,11 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 
 #### Instructions for set-up
 
-* Run bundle
+* bundle install
+* rake setup
+* rake chitter_db
+* rackup
+
 * Connect to psql
 * Create the database using the psql command CREATE DATABASE db_name;
 * Connect to the database using the pqsl command \c db_name;
