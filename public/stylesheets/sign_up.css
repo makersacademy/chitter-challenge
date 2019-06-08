@@ -1,0 +1,14 @@
+.signUpForm {
+  padding: 40px;
+  text-align: right;
+  margin-top: 20px;
+}
+
+
+.signUpForm .formInput input {
+  width: 50%;
+}
+
+.signUpForm .formInput .inputField {
+  margin-right: 20%;
+}

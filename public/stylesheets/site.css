@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  overflow: hidden;
+  background-color: #e6ecf0;
+}
+
+header {
+  width: 100%;
+  background-color: #fff;
+  padding: 0 10px 0 10px;
+  text-align: left;
+  height: 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+footer {
+  padding: 10px;
+  background-color: #fff;
+  width: 96.5%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 11px;
+  color: #657786;
+}
+
+h1, h3 {
+  padding-left: 10px;
+}
+
+.innerBody {
+  background-color: #fff;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+
+.blockContainer {
+  width: 50%;
+  height: 70%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f3f3f3;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 20px;
+}
+
+.blockHeader {
+  background-color: #1d94e0;
+  padding: 10px 0 10px 0;
+  position: fixed;
+  width: 49%;
+  border-radius: 20px 20px 0 0;
+}
+
+.blockHeader h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.navHome a, .navSignUp a {
+  text-decoration: none;
+  color: #66757f;
+  font-weight: bolder;
+}
+
+.navHome, .navSignUp {
+  display: inline-block;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.navHome:hover, .navSignUp:hover {
+  color: #fff;
+  cursor: pointer;
+  border-bottom: 3px solid #1da1f2
+}
+
+.navSignUp {
+  float: right;
+  margin-right: 40px;
+}

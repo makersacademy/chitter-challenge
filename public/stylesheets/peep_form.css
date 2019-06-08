@@ -1,0 +1,35 @@
+.addMsgForm {
+  padding: 10px;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.msgFormContainer {
+  width: 50%;
+  height: 70%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+}
+
+.msgFormHeader {
+  background-color: #1d94e0;
+  padding: 10px 0 10px 0;
+  border-radius: 20px 20px 0 0;
+}
+
+.msgFormHeader h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.formInput textarea {
+  width: 85%;
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
