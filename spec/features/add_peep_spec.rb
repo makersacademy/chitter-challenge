@@ -9,13 +9,14 @@ feature "Adding and viewing peeps" do
     fill_in "password", with: "password"
 
     click_button 'Log In'
+    click_button 'Write a Peep'
     fill_in "peep", with: "It's sunny outside"
-    click_button "Post"
+    click_button "Peep"
 
     time = Time.now.strftime("%Y-%m-%d %H:%M")
 
     expect(page).to have_content "It's sunny outside"
     expect(page).to have_content(time)
-    expect(page).to have_content(jsmith)
+    expect(page).to have_content("jsmith")
   end
 end

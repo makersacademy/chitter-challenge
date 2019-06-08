@@ -2,7 +2,7 @@ require './lib/peep'
 require './lib/user'
 require './scripts/setup_db.rb'
 require 'sinatra/flash'
-require 'sinatra/activerecord'
+#require 'compass'
 
 class Chitter < Sinatra::Base
 
@@ -18,12 +18,12 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @user = User.find(session[:user_id]) if session[:user_id]
-    p @peeps = Peep.all
+    @peeps = Peep.all
     erb :index
   end
 
   post '/peeps/create' do 
-    Peep.create(peep: params['peep'])
+    Peep.create(user_id: session[:user_id], peep: params['peep'])
     redirect '/'
   end
 
@@ -64,6 +64,12 @@ class Chitter < Sinatra::Base
     peep = params[:peep]
     user_id = session[:user_id]
     Peep.create(user_id: user_id, peep: peep)
+    redirect '/peeps'
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = "You have logged out"
     redirect '/peeps'
   end
 

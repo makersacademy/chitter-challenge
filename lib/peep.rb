@@ -38,7 +38,7 @@ class Peep
         user_id: peep["id"],
         username: peep["username"],
         peep: peep["peep"],
-        timestamp: peep['timestamp']
+        timestamp: peep["timestamp"]
       )
     end
   end
