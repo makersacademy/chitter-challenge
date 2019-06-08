@@ -15,7 +15,6 @@ Installation
 =================
 
 * install bundle
-<br>
 * run the sql file as shown below:
 
 > psql
