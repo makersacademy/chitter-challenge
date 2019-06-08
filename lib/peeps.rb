@@ -1,10 +1,11 @@
 require 'pg'
 
 class Peeps
-  attr_reader :peeps
+  attr_reader :peeps, :date
   # def initialize(peep, user_name, timestamp = nil)
-  def initialize(peeps)
+  def initialize(peeps, date)
     @peeps = peeps
+    @date = date
   end
 
   def self.all
@@ -14,18 +15,17 @@ class Peeps
                   PG.connect(dbname: 'chitter_test')
                 end
     result = connection.exec('SELECT * FROM peeps;')
-    result.map { |peeps| Peeps.new(peeps['peeps']) }
-    # result.map { |peeps| Peeps.new(peeps['peeps'], peeps['user_id'], peeps['date']) }
+    result.reverse_each.map { |peeps| Peeps.new(peeps['peeps'], peeps['date']) }
     #  include one to many relationship
   end
 
-  def self.create(peep)
+  def self.create(peep, date_now)
     connection = if ENV['ENVIRONMENT'] == 'prod'
                  PG.connect(dbname: 'chitter')
                  else
                  PG.connect(dbname: 'chitter_test')
                  end
-    connection.exec("INSERT INTO peeps (peeps) VALUES('#{peep}');")
+    connection.exec("INSERT INTO peeps (peeps, date) VALUES('#{peep}', '#{date_now}');")
   end
 
   # def time(timestamp)

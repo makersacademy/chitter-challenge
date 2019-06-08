@@ -15,14 +15,13 @@ class Chitter < Sinatra::Base
     erb :user_details
   end
 
-  post '/chitter' do
-    @peeps = params[:peep]
+  get '/chitter' do
     @list_peeps = Peeps.all
     erb :chitter
   end
 
   post '/add_peep' do
-    Peeps.create(params[:peep])
+    Peeps.create(params[:peep], DateTime.now)
     redirect '/chitter'
   end
 
