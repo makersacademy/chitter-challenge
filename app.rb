@@ -3,7 +3,6 @@ require './lib/peep.rb'
 require './lib/user.rb'
 
 class Chitter < Sinatra::Base
-  enable :sessions
   get '/' do
     @peeps = Peep.all
     erb :index
@@ -25,12 +24,10 @@ class Chitter < Sinatra::Base
 
   post '/register' do
     User.register(params[:name], params[:username], params[:password])
-    session['users_name'] = params[:name]
     redirect '/success'
   end
 
   get '/success' do
-    @users_name = session['users_name']
     erb :success
   end
 end

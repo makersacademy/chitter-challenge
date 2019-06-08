@@ -1,5 +1,5 @@
 require 'pg'
-require 'set_db.rb'
+require './lib/set_db.rb'
 
 class Peep
   attr_reader :name, :content, :time_stamp, :peeps_list

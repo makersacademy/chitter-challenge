@@ -1,5 +1,5 @@
 require 'pg'
-require 'set_db.rb'
+require './lib/set_db.rb'
 
 class User
   attr_reader :username, :name
