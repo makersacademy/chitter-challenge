@@ -15,7 +15,7 @@ class Peeps
                   PG.connect(dbname: 'chitter_test')
                 end
     result = connection.exec('SELECT * FROM peeps;')
-    result.reverse_each.map { |peeps| Peeps.new(peeps['peeps'], peeps['date']) }
+    result.reverse_each.map { |peeps| Peeps.new(peeps['peeps'], peeps['datenow']) }
     #  include one to many relationship
   end
 
@@ -25,7 +25,7 @@ class Peeps
                  else
                  PG.connect(dbname: 'chitter_test')
                  end
-    connection.exec("INSERT INTO peeps (peeps, date) VALUES('#{peep}', '#{date_now}');")
+    connection.exec("INSERT INTO peeps (peeps, datenow) VALUES('#{peep}', '#{date_now}');")
   end
 
   # def time(timestamp)

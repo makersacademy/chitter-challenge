@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_peep' do
-    Peeps.create(params[:peep], DateTime.now)
+    Peeps.create(params[:peep], Time.now)
     redirect '/chitter'
   end
 
