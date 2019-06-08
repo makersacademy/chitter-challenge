@@ -17,6 +17,5 @@ Installation
 > psql
 > \i ./db/migrations/01_database_setup.sql
 
-This will end you in the test database.
-Exit psql using:
+Exit DATABASE psql using:
 > \q
