@@ -31,8 +31,8 @@ feature Chitter do
 
   scenario 'it displays buttons to login or sign up' do 
     visit '/peeps' 
-    expect(page).to have_button('Log in')
-    expect(page).to have_button('Sign up')
+    expect(page).to have_content('Log in')
+    expect(page).to have_content('Sign up')
   end 
 
   scenario 'sign up button presents form for new user' do 
