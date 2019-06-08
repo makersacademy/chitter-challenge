@@ -10,8 +10,9 @@ The program should post a message (peep) to chitter, display them in reverse chr
 Installation
 =================
 
-*install bundle
-*run the sql file as shown below:
+**install bundle
+<br>
+**run the sql file as shown below:
 
 > psql
 > \i ./db/migrations/01_database_setup.sql
