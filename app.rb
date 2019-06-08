@@ -7,6 +7,9 @@ require_relative 'lib/user'
 require_relative 'data_mapper_setup'
 require 'bcrypt'
 
+
+
+
 class Chitter < Sinatra::Base
   
   enable :sessions

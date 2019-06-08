@@ -14,6 +14,7 @@ gem 'selenium-webdriver'
 gem 'activesupport'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'pg'
 
 group :test do
   gem 'rspec'
