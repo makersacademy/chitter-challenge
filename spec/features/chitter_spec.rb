@@ -60,12 +60,6 @@ feature 'chitter' do
       expect(page).to have_field('username')
       expect(page).to have_field('password')
     end
-    scenario 'trying to view peeps after logging out shows an error' do
-      login
-      click_button('Logout')
-      visit '/peeps'
-      expect(page).to have_css('.error', text: 'Error: not logged in')
-    end
     scenario 'trying to post peeps after logging out shows an error' do
       login
       click_button('Logout')
@@ -76,9 +70,9 @@ feature 'chitter' do
 
   feature 'viewing peeps' do 
     feature 'user is not authenticated' do
-      scenario 'user is redirected to login with an error' do
+      scenario 'user can view peeps' do
         visit '/peeps'
-        expect(page).to have_css('.error', text: 'Error: not logged in')
+        expect(page).to have_css('.text', text: 'First ever peep!!!!')
       end
     end
   
@@ -98,7 +92,7 @@ feature 'chitter' do
       scenario 'peep times are displayed' do
         now = Time.now
         Peep.create(text: "Hello", created_at: now, user_id: User.first({username: 'Peter'}).id)
-        date_time = now.strftime("#{now.day.ordinalize} of %B, %Y at %l:%M%P")
+        date_time = now.strftime("#{now.day.ordinalize} of %B, %Y at%l:%M%P")
         login
         within first('.peep') do
           expect(page).to have_css('.datetime', text:date_time)
@@ -126,14 +120,14 @@ feature 'chitter' do
     feature 'user is authenticated' do
       scenario 'user can click the post button and be taken to the post page' do
         login
-        click_link('Post a peep')
+        first('h3').click_link('Post a peep')
         expect(page).to have_field('text')
         expect(page).to have_button('Submit')
       end
 
       scenario 'user can peep and see their peep at the top of the index page' do
         login
-        click_link('Post a peep')
+        first('h3').click_link('Post a peep')
         fill_in('text', with: 'I can peep too!')
         click_button('Submit')
         within first('.peep') do
@@ -146,7 +140,7 @@ feature 'chitter' do
       scenario 'peep-peeping the oldest peep' do
         login
         within all('.peep').last do
-          click_button('Peep this peep')
+          click_button('Peep this Peep')
         end
         fill_in('text', with: 'I remember when peeping was cool')
         click_button('Submit')
@@ -160,6 +154,5 @@ feature 'chitter' do
         end
       end
     end
-
   end
 end

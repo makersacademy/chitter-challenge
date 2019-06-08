@@ -1,0 +1,102 @@
+body {
+  background-color: #F9F4F5;
+  font-family: 'Open Sans', sans-serif;
+  color: #502F4C;
+}
+
+.app {
+  background-color: #C8B8DB;
+  margin: 10 auto;
+  border: 2px solid #70587C;
+  border-radius: 4px;
+  width: fit-content;
+  padding: 20px 30px
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  /* font-size: small; */
+}
+
+input, select {
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #70587C;
+  border-radius: 4px;
+  background-color: #F9F4F5;
+}
+
+select {
+  margin-left: 10px;
+  height: 37px;
+  width: fit-content;
+  vertical-align: top
+}
+
+.button {
+  width: 100px;
+}
+
+a {
+  color: #502F4C;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+form {
+  margin: 0
+}
+
+.contents {
+  padding-bottom: 10;
+}
+
+.peep {
+  border: 2px solid #70587C;
+  padding: 20;
+  margin-bottom: 20;
+}
+
+.original-peep {
+  background-color: #F9F4F5;
+  padding: 10;
+  margin: 20 0 0 0;
+}
+
+.original-peep > .text:before {
+  content: '> ';
+  font-weight: bold;
+  font-size: larger;
+}
+
+.register {
+  padding: 20 0 0 0;
+}
+
+/* .post {
+  padding: 0 0 20 0;
+} */
+
+/* 
+.contents {
+  float: left;
+  padding: 10px;
+}
+
+.text {
+  width: 200px;
+}
+
+.datetime {
+  width: 25%;
+}
+
+.username {
+  width: 25%
+} */

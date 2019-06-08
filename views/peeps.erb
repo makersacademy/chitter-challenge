@@ -1,35 +1,40 @@
-
-<ul>
-  <% @peeps.each do |peep| %>
-    <li class='peep'>
-      <p class='text'><%= peep.text %></p>
-      <p class='datetime'><%= peep.format_created_at %></p>
-      <p class='username'><%= peep.user.username %></p>
-      <form action='/post' method=GET>
-        <input type="hidden" name="peep_id" value="<%= peep.id %>">
-        <button type="submit">Peep this peep</button>
-      </form>
-      <% if peep.peep %>
-        <ul>
-          <li class='original-peep'>
-            <p class='text'>
-            <%= peep.peep.text %>
-            </p>
-            <p class='datetime'>
-              <%= peep.peep.format_created_at %>
-            </p>
-            <p class='username'>
-              <%= peep.peep.user.username %>
-            </p>
-          </li>
-        </ul>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <h1>The peeps</h1>
+    <div class="post">
+      <h3><a href='/post'>Post a peep</a></h3>
+    </div>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li class='peep'>
+          <div class='text contents'><%= peep.text %></div>
+          <div class='datetime contents'><%= peep.format_created_at %></div>
+          <div class='username contents'><%= peep.user.username %></div>
+          <form action='/post' method=GET>
+            <input type="hidden" name="peep_id" value="<%= peep.id %>">
+            <input type="submit" class="button contents" value="Peep this Peep">
+          </form>
+          <% if peep.peep %>
+            <ul>
+              <li class='original-peep'>
+                <div class='text contents'><%= peep.peep.text %></div>
+                <div class='datetime contents'><%= peep.peep.format_created_at %></div>
+                <div class='username contents'><%= peep.peep.user.username %></div>
+              </li>
+            </ul>
+          <% end %>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</ul>
-
-<a href='/post'>Post a peep</a>
-
-<form action='/logout' method='POST'>
-  <button type='submit'>Logout</button>
-</form>
+    </ul>
+    <div class="post">
+      <h3><a href='/post'>Post a peep</a></h3>
+    </div>
+    <form action='/logout' method='POST'>
+      <input type='submit' value="Logout" class="button">
+    </form>
+  </div>
+</body>

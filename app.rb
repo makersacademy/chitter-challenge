@@ -32,7 +32,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    check_login
     @peeps = Peep.reverse
     erb :peeps
   end
