@@ -6,13 +6,14 @@ require 'simplecov-console'
 require 'rack/test'
 require './app'
 require 'pg'
-require_relative './setup_database'
+require_relative './setup_test_database'
 
+ENV['ENVIRONMENT'] = 'test'
 Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.before(:each) do
-    setup_database
+    setup_test_database
   end
 end
 

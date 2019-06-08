@@ -1,7 +1,7 @@
 require 'peeps'
 
 describe '.all' do
-let(:connection)  { PG.connect(dbname: 'chitter') }
+let(:connection)  { PG.connect(dbname: 'chitter_test') }
 let(:peeps)   { Peeps.all }
 
   it 'Returns a list of Peeps' do
@@ -14,15 +14,16 @@ let(:peeps)   { Peeps.all }
   end
 end
 
-# describe '.create' do
-#   it 'Creates a new Peep' do
-#     Peeps.create(peep: 'Nearly half way through Makers')
-#     peeps = Peeps.all
-#     expect(peeps[0].peeps).to include "Nearly half way through Makers"
-#     expect(peeps).to include "Can you believe it's meant to rain for a whole week!"
-#     expect(peeps).to include "#typicalbritishweather"
-#   end
-# end
+describe '.create' do
+let(:connection)  { PG.connect(dbname: 'chitter_test') }
+let(:peeps)   { Peeps.all }
 
-# INSERT INTO peeps(peeps_id, user_id, peeps, date) VALUES(3, 3, '#typicalbritishweather', '2019/06/01');
-# SELECT * FROM peeps;
+  it 'Creates a new Peep' do
+    Peeps.create('Nearly half way through Makers')
+    Peeps.create('Can you believe its meant to rain for a whole week!')
+    Peeps.create('#typicalbritishweather')
+    expect(peeps[0].peeps).to include "Nearly half way through Makers"
+    expect(peeps[1].peeps).to include "Can you believe its meant to rain for a whole week!"
+    expect(peeps[2].peeps).to include "#typicalbritishweather"
+  end
+end
