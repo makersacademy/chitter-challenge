@@ -75,7 +75,7 @@ form {
   font-size: larger;
 }
 
-.register {
+.register, .view {
   padding: 20 0 0 0;
 }
 
