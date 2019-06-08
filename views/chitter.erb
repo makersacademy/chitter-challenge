@@ -1,14 +1,20 @@
-<font size="6">Welcome to Chitter<br><br></font>
-<font size="4">Enter a peep below<br><br></font>
+<div style="text-align:center"><font size="6"><br>Welcome to Chitter<br><br></font>
+<p><font size="5">Enter a peep below<br><br></font></p>
 
 <form action="/add_peep" method="post">
   Peep: <input type="text" name="peep">
   <br><br>
   <input type="submit" value="Submit">
 </form>
+<br>
+</div>
 
-<title>Peeps</title>
+<div style="align:center"><title>Peeps</title>
 <% @list_peeps.each do |peep| %>
-  <%= peep.peeps %><br>
-  <%= peep.date %><br>
-<% end %>
+<div style="text-align:center">
+  <div id='page' style='width: 400px'>
+    <h1 style='border:2px red solid; font-size:20px;'>Post: <%= peep.peeps %><br>Date: <%= peep.date %><br></h1>
+  </div>
+  <% end %>
+<div>
+</div>
