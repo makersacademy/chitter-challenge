@@ -20,5 +20,5 @@ Installation
 > psql
 > \i ./db/migrations/01_database_setup.sql
 
-Exit DATABASE psql using:
+* Exit DATABASE psql using:
 > \q
