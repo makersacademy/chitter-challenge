@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta charset="utf-8"/>
+      <meta name="description" content="Chitter sign up or log in">
+      <meta name="author" content="Adrian Raisin">
+      <meta name="keywords" content="Chitter Homepage">
+
+      <title> Chitter| Home </title>
+
+      <link href="/indexstyles.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  </head>
+
+    <body class="body">
+        <header>
+            <h1> Welcome to Chitter!!! </h1>
+        </header>
+        <div>
+            <form class="login_form" action="/logged_in" method="post">
+                <input class="input_box" type="text" name="username" placeholder="Username">
+                <input class="input_box" type="text" name="password" placeholder="Password">
+                <input class="submit_button" type="submit" value="Log in">
+            </form>
+        </div>
+        <div>
+            <form class="sign_up" action="/sign_up" method="get">
+                <input class="submit_button" type="submit" value="Sign Up!">
+            </form>
+        </div>
+        <div>
+            <form class="peep" action="/peep" method="post">
+                <input class="input_box" type="text" name="title" placeholder="Peep Title">
+                <input class="input_box" type="text" name="content" placeholder="Write a peep...">
+                <input class="submit_button" type="submit" value="Peep!">
+            </form>
+        </div>
+        <div>
+            <% i = 0 %>
+            <% @peeps.each do |peep| %>
+                <ul class="peeps" id="peep_<%=i%>">
+                    <li> <%= peep.title %> </li>
+                    <li> <%= peep.content %> </li>
+                    <li id="peep_<%=i%>_created_at"> Created at <%= peep.created_at %> </li>
+                    <li> Peeped by <%= User.all.last.username %> </li>
+                </ul>
+            <% i += 1 %>
+            <% end %>
+        </div>
+        <div class="chitter_bird">
+            <img src="/chitter_bird.png" alt="Chitter Bird">
+        </div>
+    </body>
+</html>
