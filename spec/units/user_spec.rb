@@ -2,7 +2,6 @@ require 'user'
 
 describe User do
   before(:each) { truncates }
-  # before(:each) { add_peep }
 
   it '#create adds a new User to database' do
     User.create('Dave', '@DavetheDev', 'dave@gmail.com', 'Dave1234')

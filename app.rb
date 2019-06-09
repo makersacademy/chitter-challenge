@@ -30,11 +30,12 @@ class Chitter < Sinatra::Base
   
   post '/signup/new' do
     User.create(params[:author],params[:handle],params[:email], params[:password])
-    @user = User.find(session[:author])
+    session[:handle] = params[:handle]
     redirect 'signup/confirmation'
   end
 
   get '/signup/confirmation' do
+    @user = session[:handle] 
     erb :confirmation
   end
 

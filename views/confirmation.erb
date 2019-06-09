@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Chitter | Signup </title>
+    <title>Chitter | Signup confirmation </title>
 	</head>
 
 	<body>
@@ -49,8 +49,15 @@
 											<!-- Background image for card set in CSS! -->
 										</div>
 										<div class="card-body">
-											<h2 class="card-title text-center">Welcome to Chitter, <%= @user.author %> </h2>
+											<h2 class="card-title text-center">Welcome to Chitter, <%= @user %>.</h2>
 										</div>
+									</div>
+									<div class="container">
+								  <div class="row">
+    							<div class="col text-center">
+									<a class="btn btn-primary btn-md" href="/peeps" role="button">See all Peeps »</a>
+									</div>
+									</div>
 									</div>
 								</div>
 							</div>
