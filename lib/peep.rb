@@ -15,7 +15,7 @@ class Peep
                  else
                    PG.connect(dbname: 'chitter_manager')
                  end
-    connection.exec("INSERT INTO peeps (content) VALUES('#{text}');")
+    connection.exec("INSERT INTO peeps (content) VALUES('#{text} -#{Time.now.strftime("posted %a, %-d %b at %I:%M%p")}');")
   end
 
   def self.all
