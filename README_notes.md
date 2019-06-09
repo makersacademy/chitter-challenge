@@ -14,11 +14,18 @@ This Chitter will:
 Installation
 =================
 
-* install bundle
-* run the sql file as shown below:
+* Run the sql file as shown below:
 
 > psql
 > \i ./db/migrations/01_database_setup.sql
 
 * Exit DATABASE psql using:
 > \q
+
+* Run 
+
+> bundle install
+
+* Run
+
+> rackup
