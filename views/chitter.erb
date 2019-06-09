@@ -9,12 +9,10 @@
 <br>
 </div>
 
-<div style="align:center"><title>Peeps</title>
-<% @list_peeps.each do |peep| %>
-<div style="text-align:center">
-  <div id='page' style='width: 400px'>
-    <h1 style='border:2px red solid; font-size:20px;'>Post: <%= peep.peeps %><br>Date: <%= peep.date %><br></h1>
-  </div>
+<div style="text-align:center;margin:auto;padding:0 490px">
+  <% @list_peeps.each do |peep| %>
+      <div id='page' style='width: 450px'>
+        <h1 style='border:2px red solid; font-size:20px;'>Post: <%= peep.peeps %><br>Date: <%= peep.date %><br></h1>
+      </div>
   <% end %>
-<div>
 </div>
