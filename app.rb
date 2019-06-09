@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './database_connection_setup'
 require './lib/peep'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -26,9 +27,10 @@ class Chitter < Sinatra::Base
   get '/signup' do
     erb :signup
   end
-
+  
   post '/signup/new' do
     User.create(params[:author],params[:handle],params[:email], params[:password])
+    @user = User.find(session[:author])
     redirect 'signup/confirmation'
   end
 
