@@ -88,9 +88,7 @@ I want to log out of Chitter
 
 * Full stack web application: integrated database into Web Application using Sinatra web framework,`PG` gem and `SQL` queries. 
 * Users don't have to be logged in to see the peeps.
-* User sign up to chitter with their name, chitter handle, email and a password(e.g. Sam Morgan, @sjmog, sam@makers.com, password123).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
+* User can sign up to chitter with their name, chitter handle, email and a password(e.g. Sam Morgan, @sjmog, sam@makers.com, password123).
 
 ----------------------------
 
