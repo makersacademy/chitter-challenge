@@ -44,6 +44,7 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 
 * How can you RSpec/Capybara test that the peeps are displayed in reverse-chronological order? (presumably a feature test?) 
 * How can you validate that new sign-ups (e.g. handle and email) on registration are unique? i.e. currently the same user can sign up again and again via the SQL query: INSERT INTO users_table.
+* Outstanding: Authentication feature - very confused on how to call out the unique ID attribute on User in the #authenticate and #create class methods. How do I test and implement the authentication feature?
 
 ----------------------------
 
@@ -71,23 +72,13 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
-```
-HARDER
 
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-```
 ----------------------------
 
 #### NOTES ON FUNCTIONALITY:
 
 * Full stack web application: integrated database into Web Application using Sinatra web framework,`PG` gem and `SQL` queries. 
-* Users don't have to be logged in to see the peeps.
+* Users don't have to be logged in to see the peeps. Authentication features are not yet in place. 
 * User can sign up to chitter with their name, chitter handle, email and a password(e.g. Sam Morgan, @sjmog, sam@makers.com, password123).
 
 ----------------------------
@@ -98,5 +89,7 @@ A future release may include the following added functionality and/or features:
 * ORM implementation, via ActiveRecord
 * Password validation on new user registration to ensure passwords are matching and of sufficient complexity
 * UX and CSS improvements
+* As a Maker, So that only I can post messages on Chitter as me, I want to log in to Chitter.
+* As a Maker, So that I can avoid others posting messages on Chitter as me, I want to log out of Chitter.
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 * As a Maker, so that I can stay constantly tapped in to the shouty box of Chitter, I want to receive an email if I am tagged in a Peep.
