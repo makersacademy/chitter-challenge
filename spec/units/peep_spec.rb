@@ -7,9 +7,9 @@ describe Peep do
   it '#create can add a new Peep to database' do
     Peep.create('Lin', '@LinnyCodes', "Oh cool! I can add a new peep too!")
     output = Peep.all
-    expect(output[1].author).to eq('Lin')
-    expect(output[1].handle).to eq('@LinnyCodes')
-    expect(output[1].content).to include("Oh cool! I can add a new peep too!")
+    expect(output[3].author).to eq('Lin')
+    expect(output[3].handle).to eq('@LinnyCodes')
+    expect(output[3].content).to include("Oh cool! I can add a new peep too!")
   end 
 
   it 'has a time' do
