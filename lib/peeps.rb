@@ -1,4 +1,5 @@
 require 'pg'
+require './lib/select_database.rb'
 
 class Peeps
   attr_reader :peeps, :date
@@ -8,22 +9,13 @@ class Peeps
   end
 
   def self.all
-    connection = if ENV['ENVIRONMENT'] == 'prod'
-                  PG.connect(dbname: 'chitter')
-                else
-                  PG.connect(dbname: 'chitter_test')
-                end
+    connection = select_database
     result = connection.exec('SELECT * FROM peeps;')
     result.reverse_each.map { |peeps| Peeps.new(peeps['peeps'], peeps['datenow']) }
-    #  include one to many relationship
   end
 
   def self.create(peep, date_now)
-    connection = if ENV['ENVIRONMENT'] == 'prod'
-                 PG.connect(dbname: 'chitter')
-                 else
-                 PG.connect(dbname: 'chitter_test')
-                 end
+    connection = select_database
     connection.exec("INSERT INTO peeps (peeps, datenow) VALUES('#{peep}', '#{date_now}');")
   end
 
