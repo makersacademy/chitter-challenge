@@ -14,7 +14,8 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps
-                                       ORDER BY date, time DESC;")
+                                       ORDER BY date DESC, 
+                                                time DESC;")
     result.map{ |peep| Peep.new(peep['author'], peep['handle'], peep['content'], peep['date'], peep['time']) }
   end
 
@@ -22,4 +23,5 @@ class Peep
     DatabaseConnection.query("INSERT INTO peeps(author, handle, content, date, time) 
                               VALUES('#{author}', '#{handle}', '#{content}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
   end
+
 end
