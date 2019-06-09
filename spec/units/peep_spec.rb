@@ -9,7 +9,7 @@ describe 'Peep' do
     query = connection.exec("SELECT content FROM peeps;")
     puts query.values
     expect(query.values[0]).to eq(['Jayda is cool'])
-    expect(query.values[1]).to eq(['Testing, testing 1, 2, 3'])
+
   end
 
 end
