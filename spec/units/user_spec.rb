@@ -1,4 +1,5 @@
 require 'user'
+require 'bcrypt'
 
 describe User do
   before(:each) { truncates }
@@ -9,6 +10,12 @@ describe User do
     expect(output.last.author).to eq('Dave')
     expect(output.last.handle).to eq('@DavetheDev')
     expect(output.last.email).to eq('dave@gmail.com')
-    expect(output.last.password).to eq('Dave1234')
   end
+
+  private
+  it '#create hashes the password using BCrypt' do
+    expect(BCrypt::Password).to receive(:create).with('password123')
+    User.create('Dave', '@DavetheDev', 'dave@gmail.com', 'password123')
+  end
+
 end
