@@ -1,3 +1,25 @@
+To Do
+=================
+
+* Properly link user and peep tables (Ruby vs. backend?)
+* Make sure provide username for each session and if logged in then show logged in as certain user
+* Make sure to sort feature tests so that they pass.
+
+Technologies used
+=================
+
+* Sinatra
+* Capybara
+* Ruby
+* RSpec
+* Active Record
+* Rake
+
+Migration files for DB are included and test DB is set to wipe before all tests. To set up DB to start testing please run
+$ bundle
+$ rake db:create
+$ rake db:migrate
+
 Chitter Challenge
 =================
 

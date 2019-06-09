@@ -1,0 +1,23 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter_test
+  pool: 2
+  username: araisin
+  password: 
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter_test
+  pool: 2
+  username: araisin
+  password: 
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter_prod
+  pool: 2
+  username: araisin
+  password: 
