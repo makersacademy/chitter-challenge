@@ -18,8 +18,12 @@
     <h1>Login</h1>
     <p>Please enter your details to log in</p>
     <div id='flash' class='login_error'>
-      <a class="close" data-dismiss="alert">&#215;</a>
+      <%# <a class="close" data-dismiss="alert">&#215;</a> %>
       <%= flash[:login_error] %>
+    </div>
+    <div id='flash' class='incorrect_password'>
+      <%# <a class="close" data-dismiss="alert">&#215;</a> %>
+      <%= flash[:incorrect_password] %>
     </div>
     <hr>
 

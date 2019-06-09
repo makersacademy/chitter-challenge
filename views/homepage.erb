@@ -14,19 +14,22 @@
 
 <h1>Chitter</h1>
 <% if session[:username] == nil%>
-<form action='/login' method="get">
-  <input type="submit" value="login"/>
+<form action='/login'>
+  <input type="submit" value="Login"/>
+</form>
+<form action='/register' method="get">
+  <input type="submit" value="sign up"/>
 </form>
 <% else %>
 <p>Hi, <%= session[:username]%></p>
+  <form action='/logout' method="post">
+    <input type="submit" value="Logout"/>
+  </form>
 <% end %>
 
 <form action='/post-message' method="post">
   <input type="text" name="content" placeholder="message">
   <input type="submit" value="post"/>
-</form>
-<form action='/register' method="get">
-  <input type="submit" value="sign up"/>
 </form>
 
 

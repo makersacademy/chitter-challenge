@@ -19,6 +19,16 @@ feature 'homepage' do
     # expect(page).to have_text(/'message2'.+ 'message1'/ )
   end
 
+  scenario 'users should be able to log out' do
+    visit('/login')
+    fill_in 'Enter Email', with: 'donotreply@mail.com'
+    fill_in 'Enter Password', with: 'Qwe1'
+    click_button 'Login'
+    click_button 'Logout'
+    expect(current_path).to eq('/')
+    expect(page).to have_button('Login')
+  end
+
   before do
     now = Time.local(2008, 9, 1, 12, 0, 0)
     Timecop.freeze(now)
