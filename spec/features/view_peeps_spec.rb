@@ -8,9 +8,15 @@ feature 'On Peeps page' do
     expect(page).to have_content "Hey, this is my first test peep!"
   end
 
-  scenario 'user can navigate to Peeps page and see post time of peep' do
+  scenario 'user can navigate to Peeps page and see time of peep' do
     visit('/')
     click_link('All Peeps')
-    expect(page).to have_content "15:30!"
+    expect(page).to have_content "15:30"
+  end
+
+  scenario 'user can navigate to Peeps page and see date of peep' do
+    visit('/')
+    click_link('All Peeps')
+    expect(page).to have_content "2019-06-09"
   end
 end
