@@ -11,6 +11,12 @@ describe User do
     expect(output.last.email).to eq('dave@gmail.com')
   end
 
+  # it '#authenticate returns a user given a correct handle and password' do
+  #   user = User.create('Dave', '@DavetheDev', 'dave@gmail.com', 'Password1234')
+  #   authenticated_user = User.authenticate('@DavetheDev', 'Password1234')
+  #   expect(authenticated_user.id).to eq user.id
+  # end
+
   private
   it '#create hashes the password using BCrypt' do
     expect(BCrypt::Password).to receive(:create).with('password123')
