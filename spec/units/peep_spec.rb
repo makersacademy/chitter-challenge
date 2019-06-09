@@ -14,6 +14,7 @@ describe Peep do
 
   it 'has a time' do
     output = Peep.all
-    expect(output[0].time).to eq('15:30')
+    t = Time.new.strftime("%k:%M")
+    expect(output[0].time).to include(t)
   end
 end

@@ -11,7 +11,8 @@ feature 'On Peeps page' do
   scenario 'user can navigate to Peeps page and see time of peep' do
     visit('/')
     click_link('All Peeps')
-    expect(page).to have_content "15:30"
+    t = Time.new.strftime("%k:%M")
+    expect(page).to have_content(t)
   end
 
   scenario 'user can navigate to Peeps page and see date of peep' do

@@ -13,7 +13,7 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query('SELECT * FROM peeps;')
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map{ |peep| Peep.new(peep['author'], peep['handle'], peep['content'], peep['date'], peep['time']) }
   end
 
