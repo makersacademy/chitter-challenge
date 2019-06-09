@@ -1,24 +1,25 @@
 require 'pg'
 class Peeps
-  attr_reader :name, :message
+  attr_reader :name, :message, :date
   
-  def initialize(name, message)
+  def initialize(name, message, date)
     @name = name
     @message = message
+    @date = date
   end
   
   def self.all
     connection = PG.connect(dbname: 'peep_manager')
-    result = connection.exec("SELECT user_account.name, message.message FROM user_account INNER JOIN message ON user_account.user_id = message.user_id;")
+    result = connection.exec("SELECT user_account.name, user_account.blog_date, message.message FROM user_account 
+    INNER JOIN message ON user_account.user_id = message.user_id ORDER BY user_account.blog_date;")
     result.map {|results|
-    Peeps.new(results['name'],results['message'])}
+    Peeps.new(results['name'],results['message'],results['blog_date'])}
 
   end
 
-  def self.add_name(name)
+  def self.add_name(name, date)
     connection = PG.connect(dbname: 'peep_manager')
-    puts "*********"
-    result = connection.exec("INSERT INTO user_account(name) VALUES('#{name}') RETURNING user_id;")
+    p result = connection.exec("INSERT INTO user_account(name, blog_date) VALUES('#{name}', to_date('#{date}','yyyy/mm/dd')) RETURNING user_id;")
     result[0]['user_id']
   end
 
@@ -26,4 +27,4 @@ class Peeps
     connection = PG.connect(dbname: 'peep_manager')
     connection.exec("INSERT INTO message(message, user_id) VALUES('#{message}', #{id});")
   end
-  end
+end

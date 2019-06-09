@@ -13,10 +13,9 @@ class Chitter < Sinatra::Application
 
   post '/usermessage' do
     
-   @id =  Peeps.add_name(params[:username])
+   @id =  Peeps.add_name(params[:username], params[:date])
     Peeps.add_message(params[:message], @id)
-    p @posts = Peeps.all
-
+    @posts = Peeps.all
     erb :display
   end
 
