@@ -11,6 +11,15 @@ class Chitter < Sinatra::Base
     erb :homepage
   end
 
+  post '/find-user' do
+    user = User.find_id(params[:email], params[:psw])
+    if user == 'no such user'
+      'nope'
+    else session[:username] = user 
+    end
+    redirect ('/')
+  end
+
   post '/post-message' do
     ChitterFeed.add(params[:content], session[:userid] = 1)
     redirect '/'

@@ -8,12 +8,18 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/style.css">
   <div align="center">
+  
   <title>CHITTER</title>
 </head>
 
 <h1>Chitter</h1>
-<% %>
-<p>Hi, <%= %></p>
+<% if session[:username] == nil%>
+<form action='/login' method="get">
+  <input type="submit" value="login"/>
+</form>
+<% else %>
+<p>Hi, <%= session[:username]%></p>
+<% end %>
 
 <form action='/post-message' method="post">
   <input type="text" name="content" placeholder="message">
@@ -22,9 +28,7 @@
 <form action='/register' method="get">
   <input type="submit" value="sign up"/>
 </form>
-<form action='/login' method="get">
-  <input type="submit" value="login"/>
-</form>
+
 
 
 <ul>
