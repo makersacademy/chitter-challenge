@@ -6,11 +6,8 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
-  configure :development do
-    register Sinatra::Flash
-  end
-
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     redirect '/peeps'
