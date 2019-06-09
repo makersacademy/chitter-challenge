@@ -29,7 +29,7 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 
 ----------------------------
 
-#### Instructions for set-up
+#### INSTALLATION INSTRUCTIONS
 
 * bundle install
 * rake setup
@@ -47,7 +47,7 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 
 ----------------------------
 
-#### User stories
+#### USER STORIES
 
 Full-stack Twitter clone that allows users to post messages to a public message board.
 
@@ -84,7 +84,7 @@ I want to log out of Chitter
 ```
 ----------------------------
 
-#### Notes on functionality:
+#### NOTES ON FUNCTIONALITY:
 
 * Full stack web application: integrated database into Web Application using Sinatra web framework,`PG` gem and `SQL` queries. 
 * Users don't have to be logged in to see the peeps.
@@ -92,7 +92,7 @@ I want to log out of Chitter
 
 ----------------------------
 
-#### Roadmap
+#### ROADMAP FOR FURTHER DEVELOPEMENT
 
 A future release may include the following added functionality and/or features:
 * ORM implementation, via ActiveRecord
