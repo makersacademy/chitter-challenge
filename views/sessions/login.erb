@@ -1,3 +1,9 @@
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+  </div>
+<% end %>
+
 <h1>Log in to Chitter</h1>
 
 <form action="/sessions" method="post">
