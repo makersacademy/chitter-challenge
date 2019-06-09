@@ -76,6 +76,8 @@ Database Setup
 4. Run the following queries in each database;
   * 01_create_messages_table.sql
   * 02_create_user_table.sql
+  * 03_populate_anon_user.sql
+  * 04_edit_messages_table_FK.sql
 
 
 Chitter Challenge

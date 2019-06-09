@@ -9,7 +9,7 @@
     expect(page).to have_field('psw-repeat')
   end
 
-  scenario 'providing details leads to a logged in homepage displaying username' do
+  scenario 'providing details leads to a login page' do
     visit ('/')
     click_button 'sign up'
     fill_in 'name', with: 'Rick Vigorous'
@@ -18,7 +18,6 @@
     fill_in 'psw', with: 'P@ssword1'
     fill_in 'psw-repeat', with: 'P@ssword1'
     click_button 'Sign Up'
-    expect(current_path).to eq('/')
-    expect(page).to have_content('Hi RickV')
+    expect(current_path).to eq('/login')
   end
 end
