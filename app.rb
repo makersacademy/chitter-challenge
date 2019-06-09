@@ -1,9 +1,14 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './models/user'
 require './db/database'
+require './models/user'
+require 'uri'
+
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
   #This line stops weird session thing from happening which I don't 100% understand - follow up
   set :session_secret, "My session secret"
   #Homepage
@@ -24,8 +29,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter/feed' do
-    @peeps = Peep.all
     @user_name = session[:user_name]
+    p @user_name
     erb :"peeps/index"
   end
 
@@ -34,12 +39,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    Database.setup
-    result = Database.query("SELECT * FROM users WHERE email = '#{params[:username]}'")
-    user = User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])   
-    session[:user_name] = user.name
-    redirect('/chitter/feed')
+    user = User.authenticate(email: params[:username], password: params[:password])
+    if user
+      session[:user_name] = user.name
+      redirect('/chitter/feed')
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect('/sessions/new')
+    end
   end
 
-  
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect '/'
+  end
 end

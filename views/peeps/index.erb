@@ -1,2 +1,6 @@
 
  <h1>Welcome, <%= @user_name %></h1>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Log out" />
+</form>
