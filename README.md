@@ -38,11 +38,6 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 * rake chitter_db_test
 * rackup
 
-* Connect to psql
-* Create the database using the psql command CREATE DATABASE db_name;
-* Connect to the database using the pqsl command \c db_name;
-* Run the query we have saved in the file 01_create_db_table.sql
-
 ----------------------------
 
 #### Challenge
