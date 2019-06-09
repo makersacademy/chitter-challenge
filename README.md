@@ -1,4 +1,8 @@
 
+Notes:
+
+Should have made the username the unique identifier for users = easier authentication, prevents multiple users from having the same username. This would improve potential further system enhancments, such as searching for user (as real users will not know the user id, but are likely to know username or name)
+
 Features:
 -------
 

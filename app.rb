@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './models/user'
 require './db/database'
-require './models/user'
+require './models/peep'
 require 'uri'
 
 
@@ -53,5 +53,24 @@ class Chitter < Sinatra::Base
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect '/'
+  end
+
+  get '/chitter' do
+    @peeps = Peep.all
+    p @peeps[0]
+    erb :feed
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  get '/capybara' do
+    erb :capybara
+  end
+
+  post '/peeps' do
+    Peep.add(params[:peep])
+    redirect '/chitter'
   end
 end
