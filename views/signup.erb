@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Chitter | Signup </title>
 	</head>
 
@@ -41,13 +42,55 @@
           <h1>Join Chitter today.</h1>
           <a>See what’s happening in the world right now</a>
           <br>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-10 col-xl-9 mx-auto">
+									<div class="card card-signin flex-row my-5">
+										<div class="card-img-left d-none d-md-flex">
+											<!-- Background image for card set in CSS! -->
+										</div>
+										<div class="card-body">
+											<h5 class="card-title text-center">Register</h5>
+											<form class="form-signin">
+												<div class="form-label-group">
+													<input type="text" id="inputUserame" name="author" class="form-control" placeholder="Username" required autofocus>
+													<label for="inputUserame">Name</label>
+												</div>
 
+												<div class="form-label-group">
+													<input type="text" id="inputHandle" name="handle" class="form-control" placeholder="Chitter Handle" required autofocus>
+													<label for="inputHandle">@Chitter_handle</label>
+												</div>
 
+												<div class="form-label-group">
+													<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required>
+													<label for="inputEmail">Email address</label>
+												</div>
+												
+												<hr>
 
+												<div class="form-label-group">
+													<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+													<label for="inputPassword">Password</label>
+												</div>
+												
+												<div class="form-label-group">
+													<input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+													<label for="inputConfirmPassword">Confirm password</label>
+												</div>
 
-
+												<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+												<a class="d-block text-center mt-2 small" href="#">Sign In</a>
+												<hr class="my-4">
+												<button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+												<button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
   			</div>
 		</div>
-
 	</body>
 </html>
