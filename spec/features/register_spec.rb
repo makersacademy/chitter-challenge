@@ -8,4 +8,17 @@
     expect(page).to have_field('psw')
     expect(page).to have_field('psw-repeat')
   end
+
+  scenario 'providing details leads to a logged in homepage displaying username' do
+    visit ('/')
+    click_button 'sign up'
+    fill_in 'name', with: 'Rick Vigorous'
+    fill_in 'email', with: 'throwingbricks@yourhouse.com'
+    fill_in 'username', with: 'RickV'
+    fill_in 'psw', with: 'P@ssword1'
+    fill_in 'psw-repeat', with: 'P@ssword1'
+    click_button 'Sign Up'
+    expect(current_path).to eq('/')
+    expect(page).to have_content('Hi RickV')
+  end
 end

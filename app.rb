@@ -3,6 +3,7 @@ require 'sinatra/base'
 require './lib/chitterfeed.rb'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
     @feed = ChitterFeed.view
@@ -11,13 +12,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/post-message' do
-    ChitterFeed.add(params[:content])
+    ChitterFeed.add(params[:content], session[:userid] = 1)
     redirect '/'
   end
 
   post '/sign-up' do
-    
-    ChitterFeed.add_user(params[:name], params[:username], params[:email], params[:psw])
+    User.add(params[:name], params[:username], params[:email], params[:psw])
     redirect '/'
   end
 

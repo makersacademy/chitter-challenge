@@ -1,29 +1,24 @@
 require 'pg'
+require './lib/peep'
+require './lib/user'
 
 class ChitterFeed
-  attr_reader :id, :content, :posted_at, :user_id
 
-  def initialize(id, content, posted_at, user_id)
-    @id = id
-    @content = content
-    @posted_at = posted_at
-    @user_id = user_id
-  end
-
-  def self.add(message, time = Time.new)
+  def self.add(message, user_id = 1, time = Time.new)
    set_database
-    @con.exec("INSERT INTO messages (content, postedat) VALUES ('#{message}', '#{time}');")
+    @con.exec("INSERT INTO messages (content, postedat, userid) VALUES ('#{message}', '#{time}', #{user_id});")
   end
         
   def self.view
     set_database
     feed_data = @con.exec("SELECT * FROM messages")
-    feed_data.map { |message| ChitterFeed.new(message['id'], message['content'], message['postedat'], message['userid']) }
+    feed_data.map { |message| Peep.new(message['id'], message['content'], message['postedat'], message['userid']) }
   end
 
-  def self.add_user(name, username, email, passwordhash)
-    set_database 
-    @con.exec("INSERT INTO users (Name, Username, Email, PasswordHash) VALUES (")
+  def self.login
+  end
+
+  def self.logout
   end
 
   private 
