@@ -1,7 +1,7 @@
 require 'pg'
 
 def truncates
-  DatabaseConnection.query('TRUNCATE peeps RESTART IDENTITY')
+  DatabaseConnection.query('TRUNCATE peeps, users RESTART IDENTITY')
 end
 
 def add_peep

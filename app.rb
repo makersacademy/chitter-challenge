@@ -27,17 +27,13 @@ class Chitter < Sinatra::Base
     erb :signup
   end
 
-  get '/signup' do
-    erb :signup
-  end
-
-  get '/signup/new/confirmation' do
-    erb :confirmation
-  end
-
   post '/signup/new' do
-    User.create(params[:author],params[:handle],params[:password])
-    redirect 'signup/new/confirmation'
+    User.create(params[:author],params[:handle],params[:email], params[:password])
+    redirect 'signup/confirmation'
+  end
+
+  get '/signup/confirmation' do
+    erb :confirmation
   end
 
   run! if app_file == $0
