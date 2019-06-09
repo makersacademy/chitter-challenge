@@ -1,11 +1,10 @@
 require 'user'
-require 'bcrypt'
 
 describe User do
   before(:each) { truncates }
 
   it '#create adds a new User to database' do
-    User.create('Dave', '@DavetheDev', 'dave@gmail.com', 'Dave1234')
+    User.create('Dave', '@DavetheDev', 'dave@gmail.com', 'Password1234')
     output = User.all
     expect(output.last.author).to eq('Dave')
     expect(output.last.handle).to eq('@DavetheDev')

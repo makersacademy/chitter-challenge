@@ -1,5 +1,6 @@
 require 'pg'
 require_relative 'database_connection'
+require 'bcrypt'
 
 class User
   attr_reader :author, :handle, :email, :password
