@@ -4,7 +4,7 @@ require 'date'
 class Peep 
   attr_reader :body, :timestamp, :id, :user
   
-  def initialize(body, id, timestamp, user = "Anonymous")
+  def initialize(body, id, timestamp, user = 1)
     @body = body
     @id = id
     @timestamp = convert_date(timestamp)
@@ -12,10 +12,7 @@ class Peep
   end
 
   def self.all 
-    Database.setup
     result = Database.query("SELECT * FROM peeps ORDER BY time_created DESC")
-    p result
-
     result.map do |peep|
       Peep.new(peep['peep_body'], peep['id'], peep['time_created'], peep['user_id'])
     end
@@ -26,7 +23,6 @@ class Peep
   end
 
   def self.add(peep)
-    Database.setup
     result = Database.query("INSERT INTO peeps (peep_body) VALUES ('#{peep}')")
   end
 
