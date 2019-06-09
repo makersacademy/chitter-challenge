@@ -5,6 +5,7 @@ group :test do
   gem 'bcrypt'
   gem 'capybara'
   gem 'pg'
+  gem 'sinatra-flash'
   gem 'rake'
   gem 'rspec'
   gem 'rspec-html-matchers'

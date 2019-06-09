@@ -9,8 +9,4 @@ describe ChitterFeed do
     expect(results[0].content).to include('Chitter_feed unit test')
   end
 
-  pending 'can return the username of a logged in user' do
-    ChitterFeed.set_user(user)
-    expect(session[:userid].user_name).to eq('RickV')
-  end
 end

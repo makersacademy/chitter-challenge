@@ -1,9 +1,12 @@
 require 'bcrypt'
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/chitterfeed.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
+
 
   get '/' do
     @feed = ChitterFeed.view
@@ -14,10 +17,11 @@ class Chitter < Sinatra::Base
   post '/find-user' do
     user = User.find_id(params[:email], params[:psw])
     if user == 'no such user'
-      'nope'
+      flash[:login_error] = 'Your username or password were incorrect, please try again'
+      redirect ('/login')
     else session[:username] = user 
+      redirect ('/')
     end
-    redirect ('/')
   end
 
   post '/post-message' do

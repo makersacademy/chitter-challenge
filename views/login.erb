@@ -11,11 +11,16 @@
   
   <title>CHITTER</title>
 </head>
+<body>
 
 <form action="/find-user" method="post" style="border:1px solid #ccc">
   <div class="container">
     <h1>Login</h1>
     <p>Please enter your details to log in</p>
+    <div id='flash' class='login_error'>
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= flash[:login_error] %>
+    </div>
     <hr>
 
     <label for="email"><b>Enter Email</b></label>

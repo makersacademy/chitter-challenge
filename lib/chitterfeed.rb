@@ -15,12 +15,6 @@ class ChitterFeed
     feed_data.map { |message| Peep.new(message['id'], message['content'], message['postedat'], message['userid']) }
   end
 
-  def self.login
-  end
-
-  def self.logout
-  end
-
   private 
 
   def self.set_database

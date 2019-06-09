@@ -15,4 +15,14 @@ feature 'login page' do
     expect(current_path).to eq('/')
     expect(page).to have_content('Hi, anon')
   end
+
+  scenario 'logging in with unrecognised details returns an error' do
+    visit('/')
+    click_button 'login'
+    fill_in 'Enter Email', with: 'dfwef@mail.com'
+    fill_in 'Enter Password', with: 'dfdf'
+    click_button 'Login'
+    expect(current_path).to eq('/login')
+    expect(page).to have_content('Your username or password were incorrect, please try again')
+  end
 end

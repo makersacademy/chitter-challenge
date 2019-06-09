@@ -24,8 +24,8 @@ class User
   def self.find_id(email, pwd)
     set_database
     user = @con.exec("SELECT * FROM users WHERE email = '#{email}' AND passwordhash = '#{pwd}'")
-    if user == nil
-      puts '******** no such user'
+    if user.cmd_tuples == 0
+      'no such user'
     else user[0]['username']
     end
   end

@@ -42,6 +42,7 @@ Technologies Used
 * Bcrypt
 * Datamapper
 * Postgres
+* Sinatra-Flash
 
 User Stories
 ------------------
