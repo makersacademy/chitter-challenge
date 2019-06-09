@@ -1,8 +1,11 @@
 require 'sinatra/base'
 require './models/user'
+require './db/database'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  #This line stops weird session thing from happening which I don't 100% understand - follow up
+  set :session_secret, "My session secret"
   #Homepage
   get '/' do
     erb :index
@@ -20,22 +23,23 @@ class Chitter < Sinatra::Base
     redirect '/chitter/feed'
   end
 
-  get '/chitter' do
-    erb :submit_peep
-  end 
-
-  #Display all peeps
-  post '/chitter/feed' do
-    session[:peep] = params[:Peep]
-    redirect '/chitter/feed'
-  end
-
   get '/chitter/feed' do
-    @peep = session[:peep]
-    erb :feed
+    @peeps = Peep.all
+    @user_name = session[:user_name]
+    erb :"peeps/index"
   end
 
-  get '/log_in' do
-    erb :login
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
+
+  post '/sessions' do
+    Database.setup
+    result = Database.query("SELECT * FROM users WHERE email = '#{params[:username]}'")
+    user = User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])   
+    session[:user_name] = user.name
+    redirect('/chitter/feed')
+  end
+
+  
 end

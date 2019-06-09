@@ -7,6 +7,7 @@ gem 'shotgun'
 gem 'pg'
 gem 'rack-test'
 gem 'capybara'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
