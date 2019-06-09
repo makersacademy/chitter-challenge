@@ -50,39 +50,24 @@
 										</div>
 										<div class="card-body">
 											<h5 class="card-title text-center">Login</h5>
-											<form class="form-signin" action="/signup/new" method="post">
-												<div class="form-label-group">
-													<input type="text" id="inputUserame" name="author" class="form-control" placeholder="Username" required autofocus>
-													<label for="inputUserame">Name</label>
-												</div>
+											<form class="form-signin" action="/sessions" method="post">
 
 												<div class="form-label-group">
 													<input type="text" id="inputHandle" name="handle" class="form-control" placeholder="Chitter Handle" required autofocus>
 													<label for="inputHandle">@Chitter_handle</label>
 												</div>
-
-												<div class="form-label-group">
-													<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required>
-													<label for="inputEmail">Email address</label>
-												</div>
-
-												<hr>
 												
 												<div class="form-label-group">
 													<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 													<label for="inputPassword">Password</label>
 												</div>
-												
-												<div class="form-label-group">
-													<input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
-													<label for="inputConfirmPassword">Confirm password</label>
-												</div>
 
-												<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-												<a class="d-block text-center mt-2 small" href="/sessions/new">Log In</a>
+												<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log in</button>
+
+												<hr>
+												<a class="d-block text-center mt-2 small" href="/signup">New user? Register with Chitter here</a>
 												<hr class="my-4">
-												<button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
-												<button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+		
 											</form>
 										</div>
 									</div>

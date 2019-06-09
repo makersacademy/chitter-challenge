@@ -43,6 +43,9 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
 
+  post 'sessions' do
+    redirect '/peeps'
+  end
 
   run! if app_file == $0
 end
