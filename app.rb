@@ -43,11 +43,11 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
 
-  post 'sessions' do
-    user = User.authenticate(params[:handle], params[:password])
-    session[:user_id] = user.id
-    redirect '/peeps'
-  end
+  # post 'sessions' do
+    # user = User.authenticate(params[:handle], params[:password])
+    # session[:user_id] = user.id
+  #   redirect '/peeps'
+  # end
 
   run! if app_file == $0
 end
