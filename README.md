@@ -42,8 +42,8 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 
 #### NOTES & QUERIES FOR REVIEWERS 
 
-* How to test the peeps are displayed in reverse-chronological order? (presumably a feature test?) 
-* How can you validate that new sign-ups (e.g. handle and email) on registration are unique? (i.e. via INSERT INTO users_table?)
+* How can you RSpec/Capybara test that the peeps are displayed in reverse-chronological order? (presumably a feature test?) 
+* How can you validate that new sign-ups (e.g. handle and email) on registration are unique? i.e. currently the same user can sign up again and again via the SQL query: INSERT INTO users_table.
 
 ----------------------------
 
