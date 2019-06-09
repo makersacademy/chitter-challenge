@@ -19,9 +19,9 @@
 # task :chitter_db do
 #   connection = PG.connect :dbname => 'chitter';
 #   connection.exec ('TRUNCATE TABLE peeps;')
-#   connection.exec ("INSERT INTO peeps VALUES (1, 'Lin', '@LinnyCoding', 'Hey guys, this is my first peep');")
-#   connection.exec ("INSERT INTO peeps VALUES (2, 'Jayda', '@JMakers', 'This is another peep!');")
-#   connection.exec ("INSERT INTO peeps VALUES (3, 'Megan', '@MegsDev', 'Just to check, third peep');")
+#   connection.exec ("INSERT INTO peeps VALUES (1, 'Lin', '@LinnyCodes', 'Hey guys, this is my first peep', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);")
+#   connection.exec ("INSERT INTO peeps VALUES (2, 'Jayda', '@JMakers', 'This is another peep!', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);")
+#   connection.exec ("INSERT INTO peeps VALUES (3, 'Megan', '@MegsDev', 'Just to check, third peep', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);")
 # end
 
 # task :setup_test do
@@ -35,7 +35,7 @@
 # task :chitter_db_test do
 #   connection = PG.connect :dbname => 'chitter_test';
 #   connection.exec ('TRUNCATE TABLE peeps;')
-#   connection.exec ("INSERT INTO peeps VALUES (1, 'Lin', '@LinnyCoding', 'Test peep 1');")
-#   connection.exec ("INSERT INTO peeps VALUES (2, 'Jayda', '@JMakers', 'This is another test!');")
-#   connection.exec ("INSERT INTO peeps VALUES (3, 'Megan', '@MegsDev', 'Just to check, third test');")
+#   connection.exec ("INSERT INTO peeps VALUES (1, 'Lin', '@LinnyCodes', 'Test peep 1', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);")
+#   connection.exec ("INSERT INTO peeps VALUES (2, 'Jayda', '@JMakers', 'This is another test!', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);")
+#   connection.exec ("INSERT INTO peeps VALUES (3, 'Megan', '@MegsDev', 'Just to check, third test', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);")
 # end
