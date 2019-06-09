@@ -18,5 +18,14 @@ class Peep
     connection.exec("INSERT INTO peeps (content) VALUES('#{text}');")
   end
 
+  def self.all
+    connection = if ENV['ENVIRONMENT'] == 'test'
+                   PG.connect(dbname: 'chitter_manager_test')
+                 else
+                   PG.connect(dbname: 'chitter_manager')
+                 end
+    result = connection.exec('SELECT * FROM peeps ORDER BY id DESC;')
+    result.map { |peep| Peep.new(peep['id'], peep['content'], peep['user_id']) }
+  end
 
 end

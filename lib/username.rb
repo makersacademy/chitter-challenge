@@ -17,6 +17,4 @@ class Username
     connection.exec("INSERT INTO users (name) VALUES('#{name}');")
   end
 
-
-
 end

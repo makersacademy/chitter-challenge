@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/username'
+require './lib/peep'
 
 class ChitterManager < Sinatra::Base
 
@@ -21,6 +22,13 @@ class ChitterManager < Sinatra::Base
 
   get '/peeps' do
     @user = session[:user]
+    @peep = Peep.all
     erb :peeps
   end
+
+  post '/peeps/post' do
+    Peep.post(params[:peep_text])
+    redirect '/peeps'
+  end
+
 end
