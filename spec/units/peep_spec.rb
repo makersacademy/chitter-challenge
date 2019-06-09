@@ -11,4 +11,9 @@ describe Peep do
     expect(output[0].handle).to eq('@LinnyCoder')
     expect(output[0].content).to include("Oh cool! I can add a new peep too!")
   end 
+
+  it 'has a time' do
+    Peep.all
+    expect(output[0].time).to eq('15:30')
+  end
 end

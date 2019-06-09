@@ -18,6 +18,6 @@ class Peep
   def self.create(author, handle, content)
     DatabaseConnection.query("INSERT INTO peeps(author, handle, content) 
                               VALUES('#{author}', '#{handle}', '#{content}')")
-    end
+  end
 
 end

@@ -19,13 +19,26 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new/submit' do
-    puts "***********"
-    puts params
     Peep.create(params[:author],params[:handle],params[:content])
-    puts "***********"
     redirect '/peeps'
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
+  get '/signup' do
+    erb :signup
+  end
+
+  get '/signup/new/confirmation' do
+    erb :confirmation
+  end
+
+  post '/signup/new' do
+    User.create(params[:author],params[:handle],params[:password])
+    redirect 'signup/new/confirmation'
+  end
 
   run! if app_file == $0
 end

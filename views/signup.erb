@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Chitter | Peeps </title>
-	
+    <title>Chitter | Signup </title>
 	</head>
 
 	<body>
@@ -22,10 +20,10 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="/peeps">All Peeps <span class="sr-only">(current)</span></a>
-						</li>
 						<li class="nav-item">
+							<a class="nav-link" href="/peeps">All Peeps</a>
+						</li>
+						<li class="nav-item active">
 							<a class="nav-link" href="/signup">Sign up</a>
 						</li>
 						<li class="nav-item">
@@ -36,23 +34,20 @@
 						</li>
 					</ul>
 				</div>
-		</nav>
+		  </nav>
+      
+      <div class="jumbotron">
+		    <div class="container">
+        <h2>Sign up to Chitter now.</h2>
+ 
 
-		<div class="jumbotron">
-		<div class="container">
-    <h2>What's the Chitter?</h2>
-     <ul>
-        <% @peeps.each do |peep| %>
-        <li class="card">
-          <div class="card-body">
-            <div class="card-title" style="font-size: 2em"><%= peep.author %></div>
-            <div class="card-text"><%= peep.handle %></div>
-            <div class="card-footer"><%= peep.content %></div>
-          </div>
-        </li>
-        <% end %>
-      </ul>
-			</div>
+
+
+
+
+
+ 
+  			</div>
 		</div>
 
 	</body>
