@@ -12,7 +12,7 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-  - psql chitter_test -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, user_id INT, peep VARCHAR(60) NOT NULL, FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE);'
+  - psql chitter_test -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, user_id INT, peep VARCHAR(60) NOT NULL;'
   - psql chitter_test -c 'ALTER TABLE peeps ADD timestamp VARCHAR(60) NOT NULL DEFAULT CURRENT_TIMESTAMP;'
   - psql chitter_test -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR(60) UNIQUE NOT NULL, email VARCHAR(60) UNIQUE NOT NULL, password VARCHAR(60) NOT NULL);'
   - psql chitter_test -c 'ALTER TABLE peeps ADD user_id INT, FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE);'
