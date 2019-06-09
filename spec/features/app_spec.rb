@@ -15,7 +15,7 @@ end
 
 feature 'users can post a peep' do
   scenario 'user posts a peep and it is displayed on the page' do
-    connection = PG.connect(dbname: 'chitter_manager_test')
+    PG.connect(dbname: 'chitter_manager_test')
     visit('/')
     click_button "Click here to sign up!"
     visit('/sign_up')
