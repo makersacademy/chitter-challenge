@@ -1,16 +1,35 @@
-<div><% @peeps.each do |peep| %> 
-<div>
-<%= peep.body%> 
-<%= peep.timestamp%> 
-</div>
-<% end %>
-</div>
-<br>
+<head>
+<head>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+</head>
+<body>
 
-<form action="/sessions/new" method="get">
+<div class='sidenav'>
+<form action="/sessions/new" method="get" class='button'>
   <input type="submit" value="Log in" />
 </form>
 
-<form action="/peeps/new" method="get">
+<form action="/peeps/new" method="get" class='button'>
   <input type="submit" name='Add peep' value="Add peep"/>
 </form>
+
+</div>
+
+
+<div class='content'>
+<% @peeps.each do |peep| %> 
+  <div class = 'peep'>
+    <%= peep.body%>    <%= peep.timestamp%> 
+    Posted by: 
+    <% if peep.user.nil? %>
+    <%= "Anonymous"%>
+    <% else%>
+    <%= peep.user%>
+    <% end %>
+  </div>
+<% end %>
+</div>
+<br>
+</body>
+

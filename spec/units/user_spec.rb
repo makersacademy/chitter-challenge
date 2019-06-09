@@ -36,7 +36,7 @@ describe User do
     it 'returns a user given one exists with a correct username and password' do 
       user = User.create(name: 'Test', username: 'test', email: 'test@example.com', password: 'password123')
       authenticated_user = User.authenticate(email: 'test@example.com', password:'password123')
-      p "***************#{authenticated_user.name}"
+      p "***************#{authenticated_user.id}"
       expect(authenticated_user.id).to eq user.id
     end
 

@@ -1,6 +1,6 @@
 require 'pg'
 require 'bcrypt'
-require '../db/database'
+require './db/database'
 
 class User
 
@@ -23,11 +23,7 @@ class User
   def self.create(name:, username:, email:, password:)
     encrypted_password = BCrypt::Password.create(password)
     result = Database.query("INSERT INTO users (username, name, email, password) VALUES('#{username}', '#{name}', '#{email}', '#{encrypted_password}') RETURNING id, username, name, email")
-    p result
-    p 
-    user = User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
-    p user
-    query = Database.query("SELECT FROM users WHERE name = 'Egle'")
+    User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
   end
 
   def self.find(id)

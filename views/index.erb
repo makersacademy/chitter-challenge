@@ -1,15 +1,21 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
 <%= flash[:notice] %><br>
 
-Chitter
+<body>
+<h1>Chitter</h1>
 
-<form action='/users/new' method='get'>
-  <button name='sign_up' value='sign_up'>Sign Up</button>
-</form>
+<div class='menu'>
+  <form action='/users/new' method='get'>
+    <button name='sign_up' value='sign_up'>Sign Up</button>
+  </form>
 
-<form action='/sessions/new' method='get'>
-  <button name='log_in' value='log_in'>Log in</button>
-</form>
+  <form action='/sessions/new' method='get'>
+    <button name='log_in' value='log_in'>Log in</button>
+  </form>
 
-<form action='/chitter' method='get'>
-  <button name='feed' value='feed'>View feed</button>
-</form>
+  <form action='/chitter' method='get'>
+    <button name='feed' value='feed'>View feed</button>
+  </form>
+</div>
+</body>
