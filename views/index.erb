@@ -31,11 +31,7 @@
             </form>
         </div>
         <div>
-            <form class="peep" action="/peep" method="post">
-                <input class="input_box" type="text" name="title" placeholder="Peep Title">
-                <input class="input_box" type="text" name="content" placeholder="Write a peep...">
-                <input class="submit_button" type="submit" value="Peep!">
-            </form>
+            <h2> Error: <%= @error %> </h2>
         </div>
         <div>
             <% i = 0 %>
@@ -44,13 +40,10 @@
                     <li> <%= peep.title %> </li>
                     <li> <%= peep.content %> </li>
                     <li id="peep_<%=i%>_created_at"> Created at <%= peep.created_at %> </li>
-                    <li> Peeped by <%= User.all.last.username %> </li>
+                    <li> Peeped by <%= peep.username %> </li>
                 </ul>
             <% i += 1 %>
             <% end %>
-        </div>
-        <div class="chitter_bird">
-            <img src="/chitter_bird.png" alt="Chitter Bird">
         </div>
     </body>
 </html>
