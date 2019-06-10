@@ -1,0 +1,20 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class=app>
+  <h2 class="error"><%= @error %></h2>
+    <form action='/login' method='POST'>
+      <input type='text' name='username' value='username' onfocus="this.value=''">
+      <input type='password' name='password' value='password' onfocus="this.value=''">
+      <input class='button' type='submit' value='Login'>
+    </form>
+    <div class="register">
+      <a href='/register'>Register an account</a> 
+    </div>
+    <div class="view">
+      <a href="/peeps">Just view the peeps</a>
+    </div>
+  </h2>
+</body>

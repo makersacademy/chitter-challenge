@@ -1,0 +1,40 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <h1>The peeps</h1>
+    <div class="post">
+      <h3><a href='/post'>Post a peep</a></h3>
+    </div>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li class='peep'>
+          <div class='text contents'><%= peep.text %></div>
+          <div class='datetime contents'><%= peep.format_created_at %></div>
+          <div class='username contents'><%= peep.user.username %></div>
+          <form action='/post' method=GET>
+            <input type="hidden" name="peep_id" value="<%= peep.id %>">
+            <input type="submit" class="button contents" value="Peep this Peep">
+          </form>
+          <% if peep.peep %>
+            <ul>
+              <li class='original-peep'>
+                <div class='text contents'><%= peep.peep.text %></div>
+                <div class='datetime contents'><%= peep.peep.format_created_at %></div>
+                <div class='username contents'><%= peep.peep.user.username %></div>
+              </li>
+            </ul>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="post">
+      <h3><a href='/post'>Post a peep</a></h3>
+    </div>
+    <form action='/logout' method='POST'>
+      <input type='submit' value="Logout" class="button">
+    </form>
+  </div>
+</body>
