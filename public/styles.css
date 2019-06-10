@@ -70,7 +70,7 @@ input[type=text].new-peep {
 
 div.peep-board {
   margin: 0 auto;
-  height: 100%;
+  height: auto;
   width: 40%;
   background-color: white;
   border-radius: 12px;
@@ -79,8 +79,8 @@ div.peep-board {
 div.peep {
   font-size: 20px;
   color: darkslategrey;
+  padding-bottom: 10px;
   border-bottom: 1px dashed darkslategray;
-  padding-bottom: 20px;
 }
 
 div.peep-info {

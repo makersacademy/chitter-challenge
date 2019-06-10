@@ -16,7 +16,7 @@
 <h1>Chitter</h1>
 
 <div class="peep-board">
-<h2>Peeps</h2>
+  <h2>Peeps</h2>
   <% if session[:id] != nil %>
     <div class="new-peep">
       <form action="/peeps/add" method="post">
@@ -26,9 +26,9 @@
       </form>
     </div>
   <% end %>
-    <% @peeps.each do |peep| %>
-      <div class ="peep-name" style="display:inline"><%= "#{peep.name}"%>
-      <div class="peep-info" style="display:inline"> <%="@#{peep.username} - #{peep.date_time}"%></div>
-      <div class="peep"> <%= peep.text%></div>
-    <% end %>
+  <% @peeps.each do |peep| %>
+    <div class ="peep-name" style="display:inline"><%= "#{peep.name}"%></div>
+    <div class="peep-info" style="display:inline"> <%="@#{peep.username} - #{peep.date_time}"%></div>
+    <div class="peep"> <%= peep.text%></div>
+  <% end %>
 </div>
