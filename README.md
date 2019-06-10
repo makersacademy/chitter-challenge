@@ -80,6 +80,10 @@ Database Setup
   * 03_populate_anon_user.sql
   * 04_edit_messages_table_FK.sql
 
+Stuff to Do
+-------------
+LOADS. 
+* Couldn't get BCrypt working properly to check submitted passwords were correct
 
 Chitter Challenge
 =================

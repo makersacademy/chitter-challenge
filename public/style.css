@@ -28,7 +28,6 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
   opacity: 0.9;
 }
 
@@ -43,9 +42,23 @@ button:hover {
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+.loginbtn {
   float: center;
-  width: 50%;
+  width: 10%;
+}
+.signupbtn {
+  float: center;
+  width: 10%;
+}
+
+.logoutbtn  {
+  float: centre;
+  width: 20%;
+}
+
+.postbtn {
+  float: centre;
+  width: 40%;
 }
 
 /* Add padding to container elements */
@@ -60,9 +73,14 @@ button:hover {
   display: table;
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-    width: 100%;
-  }
+ul {
+list-style-type: none;
+}
+ul li {
+  background: #b0f8b3;
+  width: 35%;
+  font-size: 30px;
+  position: relative;
+  right: 19px;
+  padding: 10px;
 }

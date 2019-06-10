@@ -15,32 +15,47 @@
 <h1>Chitter</h1>
 <% if session[:username] == nil%>
 <form action='/login'>
-  <input type="submit" value="Login"/>
+  <div class="clearfix">
+      <button type="submit" class="loginbtn">Login</button>
+    </div>
 </form>
 <form action='/register' method="get">
-  <input type="submit" value="sign up"/>
+  <div class="clearfix">
+      <button type="submit" class="signupbtn">sign up</button>
+    </div>
 </form>
 <% else %>
 <p>Hi, <%= session[:username]%></p>
   <form action='/logout' method="post">
-    <input type="submit" value="Logout"/>
+    <div class="clearfix">
+      <button type="submit" class="logoutbn">Logout</button>
+    </div>
   </form>
 <% end %>
+<hr>
 
 <form action='/post-message' method="post">
-  <input type="text" name="content" placeholder="message">
-  <input type="submit" value="post"/>
+  <div class="container">
+      <label for="content"><b>Post new Peep</b></label>
+      <input type="text" placeholder="message" name="content" required>
+      <div class="clearfix">
+       <button type="submit" class="postbtn">post</button>
+      </div>
+    </div>
 </form>
 
 
 
+  <div class="container" > 
 <ul>
-  <% @feed.each do |message| %>
-    <li><%=message.content%>
-    posted at: <%= message.posted_at %>
+  <% @feed.each do |message| %>  
+    <li>'<%=message.content%>'
     </li>
+    posted at: <i><%= message.posted_at %> </i>by <b><%= message.find_user(message.user_id) %></b>
+    <hr>
   <% end %>
 </ul>
+    </div>
 
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
