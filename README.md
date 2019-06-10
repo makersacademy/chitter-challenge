@@ -69,3 +69,4 @@ Did some styling using bootstrap components. I also tried to get mailgun working
 I have also tried to put things in place to get this up on Heroku, but i've been unsuccessful there, this you'll see in the Rakefile. I'd like to come back to that and get it running on Heroku. 
 I have also expanded how I've used models and controllers, with a server.rb and app.rb to split things up more and mirror more of what i've seen at work so I can better understand things. 
 I've also focused on features testing more than unit testing so the full functionality is tested.
+Also really loved using timecop for testing purposes. 
