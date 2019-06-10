@@ -1,0 +1,14 @@
+<% if flash[:errors] %>
+  <div class='alert alert-success'>
+    Sorry, we need to try again:
+    <% flash[:errors].each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+</div>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class='alert alert-success'>
+    <%= flash[:notice] %>
+</div>
+<% end %>

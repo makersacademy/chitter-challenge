@@ -1,0 +1,10 @@
+<div class="container-fluid" style="padding: 20px 20px;" align="left">
+  <% if current_user %>
+    <h5> Hello <%= current_user.name %> </h5>
+    <form action="/sessions" method='post' class='logout'>
+      <input type="hidden" name='_method' value='delete'>
+      <input class="btn btn-primary" type="submit" value="Sign out"></button>
+    </form>
+  <% end %>
+  </div>
+
