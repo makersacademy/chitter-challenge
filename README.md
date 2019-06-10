@@ -79,6 +79,7 @@ Database Setup
   * 02_create_user_table.sql
   * 03_populate_anon_user.sql
   * 04_edit_messages_table_FK.sql
+  * 05_populate_messages.sql
 
 Stuff to Do
 -------------
