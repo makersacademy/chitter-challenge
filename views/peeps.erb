@@ -1,0 +1,12 @@
+<h1>Welcome <%= @user %>!  Add your peep below.</h1>
+
+<form action="/peeps/post" method="post">
+    <font size="6"><p></font>
+    What do you want to chitter about: <input type="text" name="peep_text">
+    <input type="submit" value="Post">
+</form>
+
+
+<% @peep.each do |peep| %>
+    <li> <%= peep.content %> </li>
+<% end %>

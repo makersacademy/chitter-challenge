@@ -36,6 +36,11 @@
 # reason to make things so abbreviated as to be unreadable. These messages are
 # designed to make you write more readable code - not less.
 
+inherit_mode:
+  merge:
+    - Exclude
+
+
 Metrics/LineLength:
   Max: 100
 
@@ -286,7 +291,7 @@ FirstMethodArgumentLineBreak:
   Enabled: false
 FirstMethodParameterLineBreak:
   Enabled: false
-FirstParameterIndentation:
+IndentFirstArgument:
   Enabled: false
 FlipFlop:
   Enabled: false
@@ -310,11 +315,11 @@ IfWithSemicolon:
   Enabled: false
 ImplicitRuntimeError:
   Enabled: false
-IndentArray:
+IndentFirstArrayElement:
   Enabled: false
 IndentAssignment:
   Enabled: false
-IndentHash:
+IndentFirstHashElement:
   Enabled: false
 IndentHeredoc:
   Enabled: false
