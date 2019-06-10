@@ -51,8 +51,6 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 #### NOTES ON FUNCTIONALITY:
 
 * Full stack web application: integrated database into Web Application using Ruby, Sinatra web framework, Twitter Bootstrap, `PG` gem and `SQL` queries. 
-* Users don't have to be logged in to see the peeps. Authentication features are incomplete. 
-* User can sign up to chitter with their name, chitter handle, email and a password(e.g. Sam Morgan, @sjmog, sam@makers.com, password123).
 
 ----------------------------
 
