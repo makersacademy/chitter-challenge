@@ -10,6 +10,6 @@ class Peep
   belongs_to :peep, :required => false
 
   def format_created_at
-    @created_at.strftime("#{@created_at.day.ordinalize} of %B, %Y at %l:%M%P")
+    @created_at.strftime("#{@created_at.day.ordinalize} of %B, %Y at %-l:%M%P")
   end
 end
