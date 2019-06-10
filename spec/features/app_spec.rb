@@ -25,4 +25,5 @@ feature 'users can post a peep' do
     click_on :Post
     expect(page).to have_content 'Yo'
   end
+  
 end
