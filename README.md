@@ -77,8 +77,8 @@ I want to sign up for Chitter
 
 #### NOTES ON FUNCTIONALITY:
 
-* Full stack web application: integrated database into Web Application using Sinatra web framework,`PG` gem and `SQL` queries. 
-* Users don't have to be logged in to see the peeps. Authentication features are not yet in place. 
+* Full stack web application: integrated database into Web Application using Ruby, Sinatra web framework, Twitter Bootstrap, `PG` gem and `SQL` queries. 
+* Users don't have to be logged in to see the peeps. Authentication features are incomplete. 
 * User can sign up to chitter with their name, chitter handle, email and a password(e.g. Sam Morgan, @sjmog, sam@makers.com, password123).
 
 ----------------------------
@@ -88,9 +88,8 @@ I want to sign up for Chitter
 A future release may include the following added functionality and/or features:
 * ORM implementation, via ActiveRecord
 * Password validation on new user registration to ensure passwords are matching and of sufficient complexity
-* UX and CSS improvements
 * As a Maker, So that only I can post messages on Chitter as me, I want to log in to Chitter.
 * As a Maker, So that I can avoid others posting messages on Chitter as me, I want to log out of Chitter.
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 * As a Maker, so that I can stay constantly tapped in to the shouty box of Chitter, I want to receive an email if I am tagged in a Peep.
-* Testing missing on Time and Chronological order of Peeps - use of the Timecop gem (Time.local, Timecop.freeze(now), etc?) 
+* Tests outstanding for Chitter Time and Chronological order of Peeps - use of the Timecop gem (Time.local, Timecop.freeze(now), etc?) 
