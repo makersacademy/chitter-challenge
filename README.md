@@ -16,6 +16,12 @@ Usage
 * bundle
 * rackup
 
+Preview
+-----
+
+<p align="center"><img width="400" alt="preview" src="https://user-images.githubusercontent.com/16557524/59190114-c4288300-8b73-11e9-9758-06fb28eca9ff.png"></p>
+
+
 User stories
 ---------
 
