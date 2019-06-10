@@ -27,7 +27,7 @@ describe Peep do
 
   describe '#format_created_at' do
     it 'returns a formatted date and time' do
-      expected = time.strftime("#{time.day.ordinalize} of %B, %Y at %l:%M%P")
+      expected = time.strftime("#{time.day.ordinalize} of %B, %Y at %-l:%M%P")
       expect(peep.format_created_at).to eq(expected)
     end
   end
