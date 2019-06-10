@@ -1,3 +1,7 @@
+Worked on peeps first where user just inputs their name and username at time of messaging. 
+after adding ability to sign up and log in I refactored to make the tables share the user_id and join tables on this to get all of the info needed for each peep. 
+Added CSS at the end.
+
 Chitter Challenge
 =================
 
