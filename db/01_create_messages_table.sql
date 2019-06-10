@@ -1,0 +1,6 @@
+CREATE TABLE Messages (
+    ID SERIAL PRIMARY KEY,
+    Content VARCHAR(280),
+    PostedAt TIMESTAMP,
+    UserID INTEGER
+);

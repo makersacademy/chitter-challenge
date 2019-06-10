@@ -1,133 +1,105 @@
-Chitter Challenge
+Ed's Chitter Challenge
 =================
+                                                                                                                        
+                                                                       .                                                
+                                 . .                           .  ...............  .....                                
+                                 ...                         .....777I7I777I..... ......                                
+                                ...+. .                      ...I7777777777I77I....,7II.                                
+                                 .77I...                   . .I7I777777777777777I7777?.....                             
+                                ..I77I7....                ..I7I77777777777777I777I7....7..                             
+                                 .7777II.....              .7777777777777777777777:?I7II...                             
+                                .,77I7I7I7=...   .         .7777777777777777777777III7.....                             
+                                 .I7777777II7.... .       .77777777777777777777777II=...                                
+                                 .77777777I7I7I7I....     .77I77777777777777777777I.....                                
+                                 ..77I777777777777777......I7I77777777777777777777I.                                    
+                                ....777777777777777II7III7777I777777777777777777777                                     
+                                .+...II77777777777777777777777777777777777777777777                                     
+                                .,7I777I7777777777777777777777777777777777777777I77 .                                   
+                                 .I77777777777777777777777777777777777777777777777.                                     
+                                ..?I7777777777777777777777777777777777777777777777.                                     
+                                 ..77I777777777777777777777777777777777777777777I?. .                                   
+                                 ...:77777777777777777777777777777777777777777777..                                     
+                                    ..777I777777777777777777777777777777777777II=.                                      
+                                    .....I77777777777777777777777777777777777III..                                      
+                                    ..7777777777777777777777777777777777777II7I...                                      
+                                    ...III777777777777777777777777777777777777...                                       
+                                     ...7I777777777777777777777777777777777I7.. .                                       
+                                      ...I777777777777777777777777777777777I...                                         
+                                       .....7III7777777777777777777777777I7....                                         
+                                          ......777777777777777777777777I.....                                          
+                                     .........77II777777777777777I77II77...                                             
+                              ..   .......+I777I777777777777777777III7.. ..                                             
+                              .=I++I7I777I777777777777777777777777I~.   ..                                              
+                              ....I7777777777777777777777777777II...                                                    
+                                .....~777777777I7I77I7I7I777I~....                                                      
+                                     .... .:77777I7I777:......                                                          
+                                            . ..  . .   .. ..                                                           
+                                                                                                                        
+                                                                                                                        
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Technologies Used
+-----------------
+* Bcrypt
+* Datamapper
+* Postgres
+* Sinatra-Flash
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
-```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
+User Stories
+------------------
+```As a user
+So that I can let people know what I am doing, regardless of whether or not it's interesting 
 I want to post a message (peep) to chitter
+```
 
-As a maker
-So that I can see what others are saying  
+```As a user
+So that I can get a distorted view of my acquaintances' activities in close to real time 
 I want to see all peeps in reverse chronological order
+```
 
-As a Maker
+```As a user
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+```
 
-As a Maker
+```As a user
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+Database Setup
+------------------
+1. Connect to psql
+2. Create two databases, a live and test database, using the following psql commands;
+  * ```CREATE DATABASE chitter;```
+  * ```CREATE DATABASE chitter_test;```
+3. Connect to each database in turn using the pqsl commands;
+  * ``` \c bookmark_manager;``` and ```\c bookmark_manager_test;```
+4. Run the following queries in each database;
+  * 01_create_messages_table.sql
+  * 02_create_user_table.sql
+  * 03_populate_anon_user.sql
+  * 04_edit_messages_table_FK.sql
+  * 05_populate_messages.sql
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+Stuff to Do
+-------------
+LOADS. 
+* Couldn't get BCrypt working properly to check submitted passwords were correct
+it means you can't log in and can only post anonymously. Have cheated this for new registrations as they're taken straight to homepage, already logged in
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+* haven't done any refactoring - it's a mess
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+* css and UI is shite
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+* can't post cheeps with certain characters, e.g. apostrophes, due to the following, where 'message' is the content of the written cheep;
+```def self.add(message, user_id = 1, time = Time.new)
+   set_database
+    @con.exec("INSERT INTO messages (content, postedat, userid) VALUES ('#{message}', '#{time}', #{user_id});")
+  end
+  ```
 
-Notes on functionality:
-------
+* haven't done validation for checking passwords are the same, or that a user is entering a unique e-mail address, so you can error it by creating two accouns with the same address
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+* in general this took absolutely ages to get anything even half way working and was huuuugely frustrating :-(
 
-Bonus:
------
 
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
