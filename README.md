@@ -19,7 +19,7 @@ Usage
 Preview
 -----
 
-<p align="center"><img width="400" alt="preview" src="https://user-images.githubusercontent.com/16557524/59190114-c4288300-8b73-11e9-9758-06fb28eca9ff.png"></p>
+<p align="center"><img width="800" alt="preview" src="https://user-images.githubusercontent.com/16557524/59190114-c4288300-8b73-11e9-9758-06fb28eca9ff.png"></p>
 
 
 User stories
@@ -65,7 +65,7 @@ I want to receive an email if I am tagged in a Peep
 MVC architecture diagram
 ---------
 
-<p align="center"><img width="800" alt="MVC" src="images/mvc_chitter_v1.png"></p>
+<p align="center"><img width="400" alt="MVC" src="images/mvc_chitter_v1.png"></p>
 
 
 Stretch
