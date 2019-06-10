@@ -1,0 +1,34 @@
+<link rel="stylesheet" type="text/css" href="/styles.css"/>
+<div style="display:inline" class='login'>
+  <% if session[:id] == nil %>
+    <form style="display:inline" method='get' type='submit' action='/users/add'>
+      <button>Sign up</button>
+    </form>
+    <form style="display:inline" method='get' type='submit' action='/users/login'>
+      <button>Log in</button>
+    </form>
+  <% else%>
+    <form method='get' type='submit' action='/users/logout'>
+      <button>Log out</button>
+    </form>
+  <% end %>
+</div>
+<h1>Chitter</h1>
+
+<div class="peep-board">
+  <h2>Peeps</h2>
+  <% if session[:id] != nil %>
+    <div class="new-peep">
+      <form action="/peeps/add" method="post">
+      Say what you wanna say:<br>
+      <input type="text" name="text" style="width:95%"><br><br>
+      <input type ="submit" value="Post Peep">
+      </form>
+    </div>
+  <% end %>
+  <% @peeps.each do |peep| %>
+    <div class ="peep-name" style="display:inline"><%= "#{peep.name}"%></div>
+    <div class="peep-info" style="display:inline"> <%="@#{peep.username} - #{peep.date_time}"%></div>
+    <div class="peep"> <%= peep.text%></div>
+  <% end %>
+</div>

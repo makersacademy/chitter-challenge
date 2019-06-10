@@ -1,0 +1,3 @@
+CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR (60) UNIQUE, password VARCHAR(25), username VARCHAR (15) UNIQUE, name VARCHAR (50));
+
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR (400), username VARCHAR (15), name VARCHAR(50)), user_id INTEGER REFERENCES users(id); 

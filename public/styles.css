@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
+html { 
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  background-color: #DCDCDC;
+}
+
+div.login { 
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  padding: 10px;
+}
+
+button { 
+ text-align: left;
+ background-color: #008B8B;
+ color: white; 
+ padding-top: 10px;
+ padding: 10px 25px; 
+ font-size: 16px; 
+ border-radius: 12px;
+}
+
+button:hover {
+  background-color:	#b2d8d8; 
+  color: darkslategrey;
+  font-weight: bold;
+}
+
+h1 { 
+  font-size: 40px;
+  border-bottom: 1px solid darkslategray;
+  border-top: 1px solid darkslategray;
+  text-shadow: 2px 1px #008B8B;
+}
+
+h2 {
+  color: darkslategrey;
+}
+
+input[type=submit] {
+  background-color: #008B8B;
+  border: whitesmoke;
+  color: white;
+  padding: 8px 10px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+input[type=text] {
+  width: 15%;
+  padding: 5px 20px;
+  box-sizing: border-box;
+}
+
+input[type=email] {
+  width: 15%;
+  padding: 5px 20px;
+  box-sizing: border-box;
+}
+
+input[type=text].new-peep {
+  width: 95%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+div.peep-board {
+  margin: 0 auto;
+  height: auto;
+  width: 40%;
+  background-color: white;
+  border-radius: 12px;
+}
+
+div.peep {
+  font-size: 20px;
+  color: darkslategrey;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed darkslategray;
+}
+
+div.peep-info {
+  padding-top: 20px;
+  color: darkgrey;
+  font-size: 16px;
+}
+
+div.peep-name {
+  padding-top: 20px;
+  color: #008B8B;
+  font-size: 20px;
+  font-weight: bold;
+}

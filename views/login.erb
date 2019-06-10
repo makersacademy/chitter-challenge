@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="/styles.css"/>
+<h1>Chitter</h1>
+<h2>Log in</h2>
+<div class="sign-up"> 
+  <form method='post' action='/users/login' type='submit'>
+    Username:<br>
+    <input type="text" name="username"><br><br>
+    Password: <br>
+    <input type="text" name="password"><br><br>
+    <input type ="submit" value="Log in">
+</div>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
