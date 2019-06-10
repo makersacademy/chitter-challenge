@@ -48,12 +48,6 @@ Link to challenge instructions: https://github.com/makersacademy/chitter-challen
 
 ----------------------------
 
-#### NOTES ON FUNCTIONALITY:
-
-* Full stack web application: integrated database into Web Application using Ruby, Sinatra web framework, Twitter Bootstrap, `PG` gem and `SQL` queries. 
-
-----------------------------
-
 #### ROADMAP FOR FURTHER DEVELOPEMENT
 
 A future release may include the following added functionality and/or features:
@@ -69,7 +63,9 @@ A future release may include the following added functionality and/or features:
 
 #### CHITTER USER STORIES
 
-Full-stack Twitter clone that allows users to post messages to a public message board.
+Twitter clone that allows users to post messages to a public message board.
+Full stack web application: integrated database into Web Application using Ruby, Sinatra web framework, Twitter Bootstrap, `PG` gem and `SQL` queries. 
+
 
 ```
 As a Maker
