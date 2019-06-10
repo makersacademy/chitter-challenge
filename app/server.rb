@@ -4,6 +4,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   register Sinatra::Partial
   use Rack::MethodOverride
+  # i don't actually know what the above does - delete and re run
   set :session_secret, '7a929c0c04b166475878f813dd25d869b5ad4e631eed3194edb2555e22039a94'
   set :partial_template_engine, :erb
 

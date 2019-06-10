@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
+      # clarify in naming
       erb :'users/user_signup'
     end
   end

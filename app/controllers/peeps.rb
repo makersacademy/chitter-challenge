@@ -6,6 +6,7 @@ end
 
 get '/peeps' do
   @peeps = Peep.all(order:[:created_at.desc])
+  p @peeps
   erb :'peeps/index'
 end
 

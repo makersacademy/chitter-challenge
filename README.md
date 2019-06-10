@@ -1,15 +1,20 @@
 Chitter Challenge
 =================
 
-An intro on the work for this Friday challenge
+This is my attempt at the chitter challenge. You can sign up as a user, view posts and post. It encrypts passwords and uses two tables with data-mapper this time, for myself as a quick reminder: Object-Relational Mapping (ORM) is a technique that lets you query and manipulate data from a database using an object-oriented paradigm. 
 
+I've used a lot of bootstrap components so things look a little better, test coverage with a focus on user functionality which I didn't really focus on too much before now (feature tests). 
+
+I'd like to get mailgun working, and I'd love to be able to deploy on Heroku. 
 
 
 Usage
 -----
 
-* How to use the project
-
+* clone repo
+* Create databases (test, development and live database)
+* bundle
+* rackup
 
 User stories
 ---------
@@ -55,3 +60,12 @@ MVC architecture diagram
 ---------
 
 <p align="center"><img width="400" alt="MVC" src="images/mvc_chitter_v1.png"></p>
+
+
+Stretch
+------
+
+Did some styling using bootstrap components. I also tried to get mailgun working, but i wasn't successful so i've saved this in a branch so I can come back to it later. I've also used Rack method overrides, but i'd like a bit more practice on what this can do. 
+I have also tried to put things in place to get this up on Heroku, but i've been unsuccessful there, this you'll see in the Rakefile. I'd like to come back to that and get it running on Heroku. 
+I have also expanded how I've used models and controllers, with a server.rb and app.rb to split things up more and mirror more of what i've seen at work so I can better understand things. 
+I've also focused on features testing more than unit testing so the full functionality is tested.

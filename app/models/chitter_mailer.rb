@@ -13,9 +13,9 @@ class ChitterMailer
   end
 
   def call(user, mailgun_domain_name)
-    mailer.send_message(mailgun_domain_name, {from: "chittermailer@mail.com",
+    mailer.send_message(mailgun_domain_name, {from: "@mail.com",
       to: user.email_address,
-      subject: "You have successfully registered to Chit",
+      subject: "You have successfully registered to Chit, let's go!",
       text: "Thank you for registering with Chitter, your username is #{user.username}"})
     end
 end
