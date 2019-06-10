@@ -1,0 +1,1 @@
+CREATE TABLE userdetails(id SERIAL PRIMARY KEY, name VARCHAR(60), user_name VARCHAR(30), email VARCHAR);
