@@ -28,13 +28,23 @@ class Chitter < Sinatra::Base
   end
 
   post '/post-message' do
-    ChitterFeed.add(params[:content], session[:userid] = 1)
+    if session[:logged_in]
+      ChitterFeed.add(params[:content], session[:userid])
+    else
+      ChitterFeed.add(params[:content])
+    end
     redirect '/'
-  end
-
+    end
+    
   post '/sign-up' do
     User.add(params[:name], params[:username], params[:email], params[:psw])
-    redirect '/login'
+    session[:userid] = User.session_id(params[:email])
+    puts '********'
+    puts session[:userid]
+    puts '^^^^^^^^^'
+    session[:username] = params[:username]
+    session[:logged_in] = true
+    redirect '/'
   end
 
   get '/register' do
@@ -47,6 +57,8 @@ class Chitter < Sinatra::Base
 
   post '/logout' do
     session[:username] = nil
+    session[:userid] = nil
+    session[:logged_in] = false
     redirect '/'
   end
 

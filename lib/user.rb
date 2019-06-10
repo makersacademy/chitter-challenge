@@ -34,4 +34,10 @@ class User
     end
   end
 
+  def self.session_id(email)
+    set_database
+    user = @con.exec("SELECT * FROM users WHERE email = '#{email}'")
+    user[0]['id']
+  end
+
 end

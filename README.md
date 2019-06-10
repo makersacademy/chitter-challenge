@@ -85,10 +85,21 @@ Stuff to Do
 -------------
 LOADS. 
 * Couldn't get BCrypt working properly to check submitted passwords were correct
-it means you can't log in and can only post anonymously
+it means you can't log in and can only post anonymously. Have cheated this for new registrations as they're taken straight to homepage, already logged in
 
 * haven't done any refactoring - it's a mess
 
 * css and UI is shite
 
+* can't post cheeps with certain characters, e.g. apostrophes, due to the following, where 'message' is the content of the written cheep;
+```def self.add(message, user_id = 1, time = Time.new)
+   set_database
+    @con.exec("INSERT INTO messages (content, postedat, userid) VALUES ('#{message}', '#{time}', #{user_id});")
+  end
+  ```
+
+* haven't done validation for checking passwords are the same, or that a user is entering a unique e-mail address, so you can error it by creating two accouns with the same address
+
 * in general this took absolutely ages to get anything even half way working and was huuuugely frustrating :-(
+
+
