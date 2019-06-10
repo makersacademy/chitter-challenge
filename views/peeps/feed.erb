@@ -1,0 +1,43 @@
+<head>
+<head>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+</head>
+<body>
+
+<div class='sidenav'>
+
+<% if @user_name.nil?%>
+<form action="/sessions/new" method="get" class='button'>
+  <input type="submit" value="Log in" />
+</form>
+
+
+<% else %>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Log out" />
+</form>
+
+<form action="/peeps/new" method="get" class='button'>
+  <input type="submit" name='Add peep' value="Add peep"/>
+</form>
+<% end %>
+</div>
+
+
+<div class='content'>
+<% @peeps.each do |peep| %> 
+  <div class = 'peep'>
+    <%= peep.body%>    <%= peep.timestamp%> 
+    Posted by: 
+    <% if peep.user.nil? %>
+    <%= "Anonymous"%>
+    <% else%>
+    <%= peep.user%>
+    <% end %>
+  </div>
+<% end %>
+</div>
+<br>
+</body>
+

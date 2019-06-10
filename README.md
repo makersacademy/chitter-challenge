@@ -1,18 +1,8 @@
-Chitter Challenge
-=================
+Notes:
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Should have made the username the unique identifier for users = easier authentication, prevents multiple users from having the same username. This would improve potential further system enhancments, such as searching for user (as real users will not know the user id, but are likely to know username or name)
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Check with coach/someone: What is going on with the database??
 
 Features:
 -------

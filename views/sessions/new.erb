@@ -1,0 +1,11 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<form action="/sessions" method="post">
+  <input type="email" name="username" />
+  <input type="password" name="password" />
+  <input type="submit" value="Log in" />
+</form>
