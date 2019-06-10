@@ -36,13 +36,19 @@ feature 'User can log in' do
     fill_in(:username, with: 'ebernot@domain.com')
     fill_in(:password, with: 'fakePWD123')
     click_button "Log in"
-    expect(page).to have_content 'Welcome, Egle'
+    expect(page).to have_content 'Test peep'
   end
 end
 
 feature 'User can log out' do
   scenario 'user is able to see a log out button on the website' do 
-
+    user = User.create(name: "Egle Bernotaite", username: "ebernot", email: "ebernot@domain.com", password: "fakePWD123")
+    visit '/sessions/new'
+    fill_in(:username, with: 'ebernot@domain.com')
+    fill_in(:password, with: 'fakePWD123')
+    click_button "Log in"
+    expect(page).to have_button 'Log out'
+    expect(page).not_to have_button 'Log in' 
   end
 
   scenario 'user is taken to the log in page when they press log out' do 

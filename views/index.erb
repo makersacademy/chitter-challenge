@@ -1,5 +1,6 @@
+<head>
 <link rel="stylesheet" type="text/css" href="style.css">
-
+</head>
 <%= flash[:notice] %><br>
 
 <body>
@@ -14,7 +15,7 @@
     <button name='log_in' value='log_in'>Log in</button>
   </form>
 
-  <form action='/chitter' method='get'>
+  <form action='/chitter/feed' method='get'>
     <button name='feed' value='feed'>View feed</button>
   </form>
 </div>

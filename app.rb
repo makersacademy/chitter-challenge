@@ -30,8 +30,8 @@ class Chitter < Sinatra::Base
 
   get '/chitter/feed' do
     @user_name = session[:user_name]
-    p @user_name
-    erb :"peeps/index"
+    @peeps = Peep.all
+    erb :'peeps/feed'
   end
 
   get '/sessions/new' do
@@ -55,12 +55,6 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  get '/chitter' do
-    @peeps = Peep.all
-    p @peeps[0]
-    erb :feed
-  end
-
   get '/peeps/new' do
     erb :'peeps/new'
   end
@@ -71,6 +65,6 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     Peep.add(params[:peep])
-    redirect '/chitter'
+    redirect '/chitter/feed'
   end
 end
