@@ -7,9 +7,6 @@ require_relative 'lib/user'
 require_relative 'data_mapper_setup'
 require 'bcrypt'
 
-
-
-
 class Chitter < Sinatra::Base
   
   enable :sessions
@@ -22,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    user = User.first({username: params[:username]})
+    user = User.first({ username: params[:username] })
     invalid_username unless user
     invalid_password unless user.password == params[:password]
     login(user.id)
@@ -42,7 +39,10 @@ class Chitter < Sinatra::Base
   post '/post' do
     check_login
     params[:peep_id] = nil if params[:peep_id].empty?
-    Peep.create(text: params[:text], created_at: Time.now, user_id: session[:user_id], peep_id: params[:peep_id])
+    Peep.create(text: params[:text], 
+                created_at: Time.now, 
+                user_id: session[:user_id], 
+                peep_id: params[:peep_id])
     redirect('/peeps')
   end
 

@@ -6,11 +6,11 @@ describe Peep do
   end
   let(:time) { Time.now }
   let(:peep) { Peep.new(id: 1, text: 'Test peep', created_at: time, user_id: 1) }
-  let(:peter_id) { User.first({username: 'Peter'}).id }
-  let(:first_peep_id) { Peep.first({text: 'First ever peep!!!!'}) }
+  let(:peter_id) { User.first({ username: 'Peter' }).id }
+  let(:first_peep_id) { Peep.first({ text: 'First ever peep!!!!' }) }
   describe '.all' do
     it 'returns an array of peeps' do
-      expect(Peep.all).to satisfy { |array| array.all?(Peep) }
+      expect(Peep.all).to(satisfy { |array| array.all?(Peep) })
     end
 
     it 'returns peeps with the test text' do

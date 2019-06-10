@@ -15,7 +15,7 @@ describe User do
     it 'requires username to be unique' do
       User.create(username: 'Crow', password: 'abcd')
       User.create(username: 'Crow', password: 'defg')
-      expect(User.all({username: 'Crow'}).length).to be 1
+      expect(User.all({ username: 'Crow' }).length).to be 1
     end
   end
 end
@@ -31,10 +31,8 @@ end
   #     it ''
   #   end
 
-
   #   scenario 'user does not exist'
 
   #   scenario 'user exists, incorrect password'
   # end
 # end
-

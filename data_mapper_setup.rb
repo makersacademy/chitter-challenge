@@ -1,5 +1,3 @@
-
-
 if ENV['ENVIRONMENT'] == 'test'
   database_connection = 'postgres://localhost/chitter_test'
   action = :auto_migrate!
