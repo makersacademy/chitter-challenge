@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+background-color: rgb(255, 255, 255);
+</style>
+<title>Welcome</title>
+</head>
+<body>
+
+<h1>Welcome</h1>
+<form action='/message_posted' method='post'>
+  Message: <br>
+  <input type="text" name="message" placeholder="Write message here..."><br>
+  <input type="submit" name="submit" value="Post">
+</form>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li>
+        <%=message%>
+    </li>
+    <% end %>
+
+</ul>
+
+</body>
+</html>
