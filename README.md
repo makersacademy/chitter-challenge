@@ -19,7 +19,7 @@ Chitter Challenge
                                            
 ```
 
-Week: 6 - Databases ('Integrating a database into a software application')
+Week: 6 - Databases (Integrating a database into a software application)
 
 Purpose: Friday solo challenge
 
