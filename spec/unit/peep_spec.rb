@@ -13,8 +13,8 @@ describe Peep do
 
   describe "#post" do
     it 'user can post messages' do
-      Peep.post(message: 'This is amazing')
-      expect(Peep.all).to include("This is amazing")
+      Peep.post(message: 'This is amazing', time: Time.now)
+      expect(Peep.all).to include("This is amazing",Time.now)
     end
   end
 end

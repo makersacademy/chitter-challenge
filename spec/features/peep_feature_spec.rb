@@ -16,6 +16,6 @@ feature '#post' do
     fill_in('message', with:'This is amazing')
     click_button('submit')
 
-    expect(page).to have_content("This is amazing")
+    expect(page).to have_content("This is amazing",Time.now)
   end
 end

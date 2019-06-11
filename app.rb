@@ -4,9 +4,6 @@ require './lib/peep'
 class Chitter < Sinatra::Base
 
   get '/' do
-  end
-
-  get '/register' do
     erb :'register'
   end
 
@@ -22,7 +19,7 @@ class Chitter < Sinatra::Base
 
   post '/message_posted' do
      p "Form data submited"
-     Peep.post(message: params['message'])
+     Peep.post(message: params['message'], time: Time.now)
      redirect 'welcome'
   end
 
