@@ -1,11 +1,10 @@
 Chitter Challenge
 =================
-INSTRUCTIONS FOR SETUP:
--------
 
+## Setup
 - clone the repo
 - run ruby 2.5.1
-- bundle 
+- run bundle 
 - run rake db:create (creates databases), you should have chitter_development and chitter_development_2 databaes setup
 - run rake db:migrate (migrates database) 
 
@@ -16,6 +15,7 @@ TASK SUMMARY:
 -------
 
 This is a small Twitter clone that will allow the users to post messages to a public stream.
+![](/Screensho1.png)
 
 Features:
 -------
@@ -54,9 +54,9 @@ Functionality:
 
 - ActiveRecord: Used this OR mapping to create databases for testing and development, rake migrating to create tables (Users, Messages), adding columns to existing tables (e.g. password_digest to users, timestamp to messages ). - Also used this for creating User and Message objects, (using the .create method)
 
-- timecop : used to freeze time for testing
+- Timecop : used to freeze time for testing
 
-- sinatra-flash : used to display error or notice messages (for example: when user did not sign up due to validation of sign up details)
+- Sinatra-flash : used to display error or notice messages (for example: when user did not sign up due to validation of sign up details)
 
 - Bcrpyt : used this gem to store passwords in a secured hash
 
