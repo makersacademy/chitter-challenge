@@ -74,6 +74,15 @@ CREATE DATABASE database_name
 * Visit the /peeps route and interact! Click 'Sign up' to register a username/ email,
 'Peep' to post a peep, 'Log out' to sign out and 'Log in' to sign in
 
+![homepagescreenshot](./images/screenshot1)
+Viewing the page while logged out: only the sign up and sign in options are available.
+
+![signuppagescreenshot](./images/screenshot2)
+Viewing the sign up page.
+
+![signedinhomepage](./images/screenshot3)
+While signed in users have the options to post and sign out!
+
 
 Technical Approach:
 -----
