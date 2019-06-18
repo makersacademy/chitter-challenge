@@ -1,0 +1,32 @@
+<style>
+  body {
+    font-family: helvetica, sans-serif;
+    background-color:powderblue;
+  }
+</style>
+
+<body>
+<h1>Sign up</h1>
+
+<h3><%= flash[:notice] %></h3>
+
+<form action='/users' method='post'>
+  <label for='email'>
+    <input type='text' name='email' placeholder='Email'/>
+  </label>
+  <br>
+  <label for='password'>
+    <input type='password' name='password' placeholder='Password'/>
+  </label>
+  <br>
+  <label for='name'>
+    <input type='text' name='name' placeholder='Name'/>
+  </label>
+  <br>
+  <label for='username'>
+    <input type='text' name='username' placeholder='Username'/>
+  </label>
+  <br>
+  <input type='submit' value='Submit'/>
+</form>
+</body>

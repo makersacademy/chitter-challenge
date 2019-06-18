@@ -1,0 +1,22 @@
+<style>
+  body {
+    font-family: helvetica, sans-serif;
+    background-color:powderblue;
+  }
+</style>
+
+<body>
+  <h2><%= flash[:notice] %></h2>
+
+  <form action="/login" method="post">
+    <label for='email'>
+      Email:
+      <input type="email" name="email" />
+    </label>
+    <label for='password'>
+      Password:
+      <input type="password" name="password" />
+    </label>
+    <input type="submit" value="Sign in" />
+  </form>
+</body>
