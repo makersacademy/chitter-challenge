@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
-
 gem 'rake'
-gem 'rubocop', '0.56.0'
+gem 'rubocop', '0.71.0'
 
 group :test do
   gem 'rspec'
