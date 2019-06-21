@@ -1,0 +1,1 @@
+CREATE TABLE chitters(id SERIAL PRIMARY KEY, date DATE, url VARCHAR(60));
