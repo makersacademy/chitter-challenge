@@ -1,9 +1,85 @@
 Chitter Challenge
 =================
 
+Web Project Set Up
+===================
+(Details derived from Ruby Web Project Setup List pill)
+
+Gemfile already existed so no need for:
+
+```
+bundle init
+```
+
+Ensure the following gems were in the Gemfile:
+
+Bundle install:
+
+```
+bundle install
+```
+
+A .rspec file and a spec_helper file were already in place from repo, so no need for:
+
+```
+rspec --init
+```
+
+Created basic app file called app.rb in the root directory. Added the following contents:
+
+```
+require 'sinatra/base'
+
+class Chitter < Sinatra::Base
+  get '/' do
+    'Hello World'
+  end
+
+  run! if app_file == $0
+end
+```
+
+Created a config.ru file, with the following contents:
+
+```
+require_relative "./app"
+
+run BookmarkManager
+```
+
+Added the following to the spec_helper file:
+
+```
+ENV['RACK_ENV'] = 'test'
+
+# Bring in the contents of the `app.rb` file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+# Require all the testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+# Tell Capybara to talk to Chitter
+Capybara.app = Chitter
+
+```
+
+
+```
+gem 'sinatra'
+gem 'rspec'
+gem 'capybara'
+```
+
+
+
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+
+
+
 
 
 
