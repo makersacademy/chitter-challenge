@@ -11,6 +11,19 @@ create databases - chitter_test & chitter_development
 CREATE DATABASE chitter_test;
 CREATE DATABASE chitter_development;
 
+
+tech
+data mapper
+data cleaner - used in conjuction with data mapper to clear down database before each test. The data_mapper auto_upgrade method creates new tables from the schema in the model each time (if they don't exist)
+
+Process
+Due to using a new framework (data mapper ORM) I thought best to think through my models and relationships carefully so that I could set these up from the very begining with the the fields I would need and their associations.
+Due to the amount of new information I challenged myself only with the 'STRAIGHT UP' features.
+Two models - Peep and User. There is a 1 to many relationship between user and peep. 
+Associations can be setup in the following manner (http://datamapper.org/docs/associations.html)
+
+
+
 Features:
 -------
 
