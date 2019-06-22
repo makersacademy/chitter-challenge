@@ -2,5 +2,10 @@
 
 <% @messages.each do |message_instance| %>
   <h2><%= message_instance.message%><br></h2>
-  Message posted at:<%= message_instance.created_at %><br>
+  Message posted at: <%= message_instance.created_at %><br>
 <% end %>
+<br>
+<br>
+<form action='/messages/new' method='get'>
+  <input type='submit' value='Add a new message' />
+</form>
