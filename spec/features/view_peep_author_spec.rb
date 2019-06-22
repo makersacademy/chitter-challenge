@@ -4,8 +4,8 @@ require_relative '../helpers/add_users_peeps'
 # So that I can better appreciate the context of a peep
 # I want to see the user who posted the peep at which it was made
 
-feature 'created time visible on a peep' do
-  scenario 'each peep has a created time ' do
+feature 'author name is presented with peep' do
+  scenario 'peep has author name' do
 
     create_users_peeps
 
