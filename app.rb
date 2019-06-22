@@ -5,6 +5,22 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
+  get '/' do
+    erb(:index)
+  end
+
+  get '/signup' do
+    erb(:signup)
+  end
+
+  post '/signup' do
+    # params[:name]
+    # params[:username]
+    # params[:email]
+    # params[:password]
+    redirect '/'
+  end
+
   get '/messages' do
     @messages = Message.all
     erb(:view_messages)

@@ -54,7 +54,5 @@
     - `\c chitter`- connecting you to the development database
     - again copy and paste the contents of the file `create_message_table.sql` into the terminal
 
-## User stories as visuals
-
-I want to post a message (peep) to chitter...
-![](images/IMG_20190622_090904824.jpg)
+## Things I would like to work on
+- test the validation functionality I added for my form
