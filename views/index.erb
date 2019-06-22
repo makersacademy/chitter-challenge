@@ -1,0 +1,12 @@
+
+<% if @current_user == nil %>
+  <h1> Chitter </h1>
+  <form method='get' action='/signup'>
+    <input type='submit' name='sign up' value='sign up' />
+  </form>
+<% else %>
+  <h1> Hi <%= @current_user.name %>, click to see your message board </h1>
+  <form method='get' action='/messages'>
+    <input type='submit' name='to your messages...' value='to your messages...' />
+  </form>
+<% end %>

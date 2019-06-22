@@ -1,0 +1,11 @@
+<h1> Message Board: </h1>
+
+<% @messages.each do |message_instance| %>
+  <h2><%= message_instance.message%><br></h2>
+  Message posted by <%= message_instance.find_user.name %> (<%= message_instance.username %>): <%= message_instance.created_at %><br>
+<% end %>
+<br>
+<br>
+<form action='/messages/new' method='get'>
+  <input type='submit' value='Add a new message' />
+</form>
