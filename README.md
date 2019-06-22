@@ -21,6 +21,8 @@ Due to using a new framework (data mapper ORM) I thought best to think through m
 Due to the amount of new information I challenged myself only with the 'STRAIGHT UP' features.
 Two models - Peep and User. There is a 1 to many relationship between user and peep. 
 Associations can be setup in the following manner (http://datamapper.org/docs/associations.html)
+Before embarking on Chitter I have been experimenting with a test project. Within here is where I have trialled and errored using Data Mapper e.g. the first commit of setting up the project and its environments was done after working through iterations on a different project.
+While experimenting on Associations and its syntax I have realised that it might be best to approach the problem with the creating a User story first. This is because of the setup and problem that a Peep must be associated with a User. I would like the peep to be associated with the latest user (not expressly mentioned but one I am adding to the flow)
 
 
 
