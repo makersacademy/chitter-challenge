@@ -11,11 +11,11 @@ describe DatabaseConnection do
 
   describe '.query' do
     it 'executes a query via PG' do
-       connection = DatabaseConnection.setup(dbname: 'Chitter_Test')
+      connection = DatabaseConnection.setup(dbname: 'Chitter_Test')
 
-       expect(connection).to receive(:exec).with("SELECT * FROM peep ORDER BY timestamp DESC;")
+      expect(connection).to receive(:exec).with("SELECT * FROM peep ORDER BY timestamp DESC;")
 
-       DatabaseConnection.query("SELECT * FROM peep ORDER BY timestamp DESC;")
+      DatabaseConnection.query("SELECT * FROM peep ORDER BY timestamp DESC;")
     end
   end
 end

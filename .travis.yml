@@ -13,4 +13,4 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database Chitter_Test;' -U postgres
+  - psql -c 'create database chitter_test;' -U postgres

@@ -4,7 +4,7 @@ require 'database_helpers'
 describe Peep do
   describe '.all' do
     it 'Provides a list of Peeps' do
-      connection = PG.connect(dbname: "Chitter_Test")
+      PG.connect(dbname: "Chitter_Test")
 
       Peep.create(peep: "Hi Chitter!")
       peep = Peep.create(peep: "I love Chitter!")
