@@ -1,4 +1,14 @@
-<form action="/chitter" method="post">
-  <input type="text" name="content" />
-  <input type="submit" value="Submit" />
+<h1> <%= @peeps.all %> </h1>
+<h1> Welcome to Chitter! </h1>
+
+<form action='/form' method='post'>
+  Enter your Peep:
+  <input type='text' name='peep'>
+  <br><br>
+  Enter your username:
+  <input type='text' name='username'>
+  <br> <br>
+  <button> Share Peep!</button>
 </form>
+
+<h2> <%= @peeps.all %> </h2>
