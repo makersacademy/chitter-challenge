@@ -1,6 +1,52 @@
-# RACHEL GRIFFITHS: Chitter challenge
-=====================================
+# RACHEL GRIFFITHS
+------------
+## CHALLENGE: CHITTER
+------------
+* Join the new social media craze, Chitter!
+* Post a peep!
+* See all the peeps and the time they were made.
+* Sign up to Chitter.
+* If you're lucky, you can log in and out of Chitter.
+* If you're really really lucky, you will receive an email if you are tagged in a peep.
 
+### GETTING STARTED
+------------
+* Ruby 2.5.0
+* Access: git@github.com:rachjgriff/chitter-challenge.git
+* Install dependences: bundle
+
+### USAGE
+------------
+* Start command: Rackup
+* URL: http://localhost:9292/
+
+### TESTING
+------------
+* rspec (via capybara)
+* 100% test coverage achieved
+* Linter: rubocop (no offfenses)
+
+### DATABASE
+------------
+
+### WEBSITE SPECIFICATION (REQUIREMENTS)
+------------
+* Post a message (Peep) to Chitter
+* See all Peeps in reverse chronological order
+* See the time at which a Peep was posted
+* Sign up for Chitter
+* Log in to Chitter
+* Log out of Chitter
+* Tag a user in a Peep
+* Receive an email if you are tagged in a Peep
+
+### APPROACH
+------------
+* Diagramed MVC Model of Chitter
+* Diagramed Class Responsibility Colloborator (CRC) Model of Chitter
+* Created Database structure for the Domain Model using Entity Relationship diagram
+
+------------
 Chitter Challenge
 =================
 
