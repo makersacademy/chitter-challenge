@@ -26,8 +26,8 @@ feature 'created time visible on a peep' do
     fill_in('message', with: 'This is a smug peep')
     click_button('Peep')
 
-    expect(page).to have_content(Date.today.year)
-    expect(page).to have_content(Date.today.hour)
+    expect(page).to have_content(Time.new.year)
+    expect(page).to have_content(Time.new.hour)
 
   
   end
