@@ -15,4 +15,12 @@ feature 'view list of all users' do
     expect(page).to have_content('MZ')
 
   end
+
+  scenario 'so I can post a peep as a user I want a link to my user page' do
+    create_users_peeps
+    visit('/')
+    click_button('View All Users')
+    click_link('JD')
+    expect(page).to have_content('Hi JD')
+  end
 end
