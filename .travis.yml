@@ -13,4 +13,5 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
+  - psql -c 'CREATE DATABASE Chitter_Test;' -U postgres
+  - psql Chitter_Test -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(500), timestamp TIMESTAMPTZS DEFAULT NOW())' -U postgres
