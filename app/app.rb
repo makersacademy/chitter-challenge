@@ -46,7 +46,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :created_at.desc ])
     erb :"/peep/all"
   end
 

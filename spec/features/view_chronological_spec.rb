@@ -25,6 +25,10 @@ feature 'peeps listed in reverse order (newest first' do
     click_button('Add Me')    
     click_button('Post Peep')
     fill_in('message', with: 'This is a smug peep')
+    
+    # a potential code smell
+    sleep(1)
+
     click_button('Peep')
 
     peep1 = 'This is my first peep'
