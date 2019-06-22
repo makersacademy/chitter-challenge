@@ -1,0 +1,9 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
+<br><br>
+<form action='/peeps/new' method='get'>
+  <input type="submit" value="New Peep"/>
+</form>

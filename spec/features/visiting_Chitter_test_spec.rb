@@ -1,5 +1,5 @@
 feature 'Test' do
-  scenario 'Testing visiting index page of Chitter' do
+  scenario 'Testing visiting Chitter' do
     visit('/')
 
     expect(page).to have_content "Welcome to Chitter"

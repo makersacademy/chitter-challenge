@@ -18,7 +18,7 @@
 ### USAGE
 ------------
 * Start command: Rackup
-* URL: http://localhost:9292/
+* URL: http://localhost:9292/peeps
 
 ### TESTING
 ------------
