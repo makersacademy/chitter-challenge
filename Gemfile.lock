@@ -10,6 +10,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
+    pg (1.1.4)
     powerpack (0.1.1)
     rainbow (3.0.0)
     rake (12.3.0)
@@ -49,6 +50,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  pg
   rake
   rspec
   rubocop (= 0.56.0)
@@ -59,4 +61,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.16.6
