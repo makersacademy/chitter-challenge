@@ -1,5 +1,6 @@
 
 require_relative './setup_test_database'
+require_relative './helper_methods'
 
 ENV['ENVIRONMENT'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')

@@ -29,4 +29,15 @@ class User
     )
   end
 
+  def self.find_by_username(username)
+    found_data = database_connection.exec("SELECT * FROM \"user\" WHERE username='#{username}'").first
+    User.new(
+      name: found_data['name'],
+      username: found_data['username'],
+      email: found_data['email'],
+      password: found_data['password']
+    )
+  end
+
+
 end

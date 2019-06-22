@@ -2,7 +2,7 @@
 
 <% @messages.each do |message_instance| %>
   <h2><%= message_instance.message%><br></h2>
-  Message posted at: <%= message_instance.created_at %><br>
+  Message posted by <%= message_instance.find_user.name %> (<%= message_instance.username %>): <%= message_instance.created_at %><br>
 <% end %>
 <br>
 <br>
