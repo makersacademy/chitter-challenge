@@ -1,4 +1,19 @@
-<ul>
-    <li> <%= @peep %> </li>
-    <li> <%= @peeps.all %> </li>
+<h1> Time to Chitter! </h1>
+
+<form action='/chitter' method='post'>
+  What's your Peep?
+  <input type='text' name='peep'>
+  <br><br>
+  Username:
+  <input type='text' name='username'>
+  <br> <br>
+  <button> Share my Peep!</button>
+</form>
+
+<ul> <% @peeps.each do |peep| %>
+  <ul><%= peep.peep %> </ul>
+  <ul><%= peep.time %> </ul>
+  <ul><%= peep.username %> </ul>
+  <br> <br>
+  <% end %>
 </ul>
