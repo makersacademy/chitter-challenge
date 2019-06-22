@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'peep'
 
 class Chitter < Sinatra::Base
   get '/' do
