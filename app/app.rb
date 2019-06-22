@@ -6,6 +6,7 @@ require 'sinatra/base'
 require 'dm-postgres-adapter'
 require_relative '../db/data_mapper_setup'
 require_relative '../lib/user'
+require_relative '../lib/peep'
 
 
 class Chitter < Sinatra::Base
@@ -34,6 +35,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/:user_id/peep/new' do
+    @user = User.get(params[:user_id])
     erb :"/peep/new"  
   end
 
