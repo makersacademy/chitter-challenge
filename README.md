@@ -18,10 +18,16 @@ Setup database:
 
 Run `rackup` to start the app at `localhost:9292`
 
-Setup test database:
+Setup database:
 1. Connect to psql
 2. Create the database using the psql command `CREATE DATABASE chitter;`
 3. Connect to the database using the command `\c chitter;`
+4. Run the query saved in `01_create_peep_table.sql`
+
+Setup test database:
+1. Connect to psql
+2. Create the database using the psql command `CREATE DATABASE chitter_test;`
+3. Connect to the database using the command `\c chitter_test;`
 4. Run the query saved in `01_create_peep_table.sql`
 
 User Stories
