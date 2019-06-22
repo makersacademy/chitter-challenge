@@ -1,0 +1,20 @@
+<head>
+<title> Chitter </title>
+<h1> Chitter Timeline </h1>
+</head>
+<body>
+<div align='center'>
+  <ul> 
+    <li>
+      <form action='/post/new' method='post' id='post_form'>
+        <input type='text'>
+    <%= @timeline.each do |peep| %>
+    <li>  
+       <%= User.details(peep.user_id) %>
+       <br>
+       <%= peep.body %>
+    </li>
+    <% end %>
+  </ul>
+<div>
+</body>
