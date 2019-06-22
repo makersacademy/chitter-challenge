@@ -16,4 +16,6 @@ class ChitterApp < Sinatra::Base
     Peep.create(content: params[:content])
     redirect '/chitter'
   end
+
+  run! if app_file == $0
 end

@@ -39,7 +39,7 @@ $ rackup
 
 I was provided with User stories in 3 categories - 'Straight Up', 'Harder' and 'Advanced'. They are laid out below.
 I will implement the 'Straight Up' specifications first before moving onto the 'Harder' and finally the 'Advanced' specifications.
-I was also provided with some extra notes on functionality, shown below.
+I was also provided with some extra notes on functionality, shown beneath the user stories.
 
 ### Straight Up
 ```
@@ -47,7 +47,7 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a Maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
@@ -93,7 +93,7 @@ I want to receive an email if I am tagged in a Peep
 * Makers don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. maker@makersacademy.com, password123, Maker Academy, mkracdmy).
 * The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
+* Peeps (posts to chitter) have the name of the Maker and their user handle.
 
 ## Design
 
