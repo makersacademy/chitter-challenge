@@ -1,6 +1,8 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.peep %></li>
+    <li><%= peep.peep %>
+        <%= peep.timestamp[11..15] %>
+    </li>
   <% end %>
 </ul>
 <br><br>

@@ -6,12 +6,12 @@ script:
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq postgresql-server-dev-9.3
-- gem update --system
-- gem install bundler
+#- gem update --system
+#- gem install bundler
 
 services:
   - postgresql
 
 before_script:
   - psql -c 'CREATE DATABASE Chitter_Test;' -U postgres
-  - psql Chitter_Test -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(500), timestamp TIMESTAMPTZS DEFAULT NOW())' -U postgres
+  #- psql Chitter_Test -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(500), timestamp TIMESTAMPTZS DEFAULT NOW())' -U postgres
