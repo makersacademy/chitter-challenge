@@ -286,7 +286,7 @@ FirstMethodArgumentLineBreak:
   Enabled: false
 FirstMethodParameterLineBreak:
   Enabled: false
-IndentFirstArgument:
+FirstParameterIndentation:
   Enabled: false
 FlipFlop:
   Enabled: false
@@ -310,11 +310,11 @@ IfWithSemicolon:
   Enabled: false
 ImplicitRuntimeError:
   Enabled: false
-IndentFirstArrayElement:
+IndentArray:
   Enabled: false
 IndentAssignment:
   Enabled: false
-IndentFirstHashElement:
+IndentHash:
   Enabled: false
 IndentHeredoc:
   Enabled: false

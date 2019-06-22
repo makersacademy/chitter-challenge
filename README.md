@@ -63,5 +63,28 @@ I want to receive an email if I am tagged in a Peep
 Technical Approach:
 -----
 
+#### File Structure
+``` 
+html
+
+├── Gemfile
+├── README.md
+├── app
+│    ├── controllers
+│    │       └── app.rb
+│    ├── models
+│    │       └── model.rb
+│    └── views
+|            └── peeps
+│                  └── new.erb
+├── config.ru
+├── public
+│      └── stylesheets
+└── spec    
+    ├── features
+    ├── units
+    └── spec_helper.rb
+
+```
 This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
 
