@@ -1,1 +1,5 @@
 Hi <%= @user.username %>
+<br>
+<form action='/user/<%= @user.id %>/peep/new' method='get'>
+  <input type="submit" value="Post Peep" />
+</form>

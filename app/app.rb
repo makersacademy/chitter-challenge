@@ -33,5 +33,20 @@ class Chitter < Sinatra::Base
     erb :"/user/home"
   end
 
+  get '/user/:user_id/peep/new' do
+    erb :"/peep/new"  
+  end
+
+  post '/user/:user_id/peep/new' do
+    user = User.get(params[:user_id])
+    user.peeps.create(message: params[:message])
+    redirect "/peeps"
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :"/peep/all"
+  end
+
   run! if app_file == $0
 end
