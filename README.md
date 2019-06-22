@@ -61,7 +61,7 @@ CREATE DATABASE "Chitter_Test"
 * Created Database structure for the Domain Model using Entity Relationship diagram
 
 ------------
-Chitter Challenge
+# Chitter Challenge
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
