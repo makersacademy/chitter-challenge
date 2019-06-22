@@ -4,7 +4,9 @@
       <%= peep.message %> 
         <ul>
           <li>
-            Author: <%= peep.user.username%>
+            <a href="/user/<%= peep.user.id %>" target="_blank">
+              Author: <%= peep.user.username %>
+            </a>  
           </li>
           <li>
             <%= peep.created_at%>
