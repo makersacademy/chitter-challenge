@@ -46,9 +46,9 @@ CREATE DATABASE "Chitter_Test"
 ### WEBSITE SPECIFICATION (REQUIREMENTS)
 ------------
 * Post a message (Peep) to Chitter
-* See all Peeps in reverse chronological order
+* See all Peeps in reverse chronological order with username and name displayed
 * See the time at which a Peep was posted
-* Sign up for Chitter
+* Sign up for Chitter with your name, email, username and password (username and email are unique)
 * Log in to Chitter
 * Log out of Chitter
 * Tag a user in a Peep
