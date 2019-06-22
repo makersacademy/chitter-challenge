@@ -50,5 +50,10 @@ class Chitter < Sinatra::Base
     erb :"/peep/all"
   end
 
+  get '/user' do
+    @users = User.all
+    erb :"/user/all"
+  end
+
   run! if app_file == $0
 end
