@@ -126,4 +126,4 @@ I want to receive an email if I am tagged in a Peep
 
 | id | name | username | email | password |
 |--- |----- |----------|------ |--------- |
-|    |      |          |       |          | 
+|    |      |          |       |          |
