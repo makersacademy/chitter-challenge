@@ -1,6 +1,6 @@
 # :bird: Chitter Challenge :bird:
 
-[![Build Status](link)
+[![Build Status](https://travis-ci.com/petraartep/chitter-challenge.svg?branch=master)](https://travis-ci.com/petraartep/chitter-challenge)
 
 This a small Twitter clone that will allow the users to post messages to a public stream.
 
