@@ -7,4 +7,13 @@ class ChitterApp < Sinatra::Base
     @peeps = Peep.all
     erb :chitter
   end
+
+  get '/chitter/new' do
+    erb :compose
+  end
+
+  post '/chitter' do
+    Peep.create(content: params[:content])
+    redirect '/chitter'
+  end
 end

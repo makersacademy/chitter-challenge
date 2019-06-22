@@ -3,6 +3,7 @@ feature 'view Chitter' do
     visit '/chitter'
 
     expect(page).to have_content('Chitter')
+    expect(page).to have_link('Compose new peep', href: '/chitter/new')
     expect(page).to have_content('Fake news!')
     expect(page).to have_content("Sun's out, guns out")
   end
