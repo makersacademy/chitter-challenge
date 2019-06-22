@@ -40,7 +40,7 @@ CREATE DATABASE "Chitter_Test"
 \c Chitter_Test;
 ```
 
-* Run the following queries in db/migrations to create the required tables:
+* Run the following queries in db/migrations to create the required tables in each database:
   * 01_create_peeps_table.sql
 
 ### WEBSITE SPECIFICATION (REQUIREMENTS)
@@ -57,7 +57,7 @@ CREATE DATABASE "Chitter_Test"
 ### APPROACH
 ------------
 * Diagramed MVC Model of Chitter
-* Diagramed Class Responsibility Colloborator (CRC) Model of Chitter
+* Diagramed Class Responsibility Collaborator (CRC) Model of Chitter
 * Created Database structure for the Domain Model using Entity Relationship diagram
 
 ------------

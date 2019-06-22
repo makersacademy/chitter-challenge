@@ -9,7 +9,7 @@ class Peep
       connection = PG.connect(dbname: "Chitter")
     end
 
-    peeps = connection.exec("SELECT * FROM peep;")
+    peeps = connection.exec("SELECT * FROM peep ORDER BY timestamp DESC;")
     peeps.map { |peep| peep['peep'] }
   end
 
