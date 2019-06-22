@@ -28,6 +28,20 @@
 
 ### DATABASE
 ------------
+* Connect to psql
+* Follow the below instructions to create the required database.
+
+```
+CREATE DATABASE "Chitter";
+\c Chitter;
+```
+```
+CREATE DATABASE "Chitter_Test"
+\c Chitter_Test;
+```
+
+* Run the following queries in db/migrations to create the required tables:
+  * 01_create_peeps_table.sql
 
 ### WEBSITE SPECIFICATION (REQUIREMENTS)
 ------------
