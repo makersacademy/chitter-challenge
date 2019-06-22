@@ -8,10 +8,10 @@ feature 'create a user account' do
 
     visit '/'
     click_button('New User')
-    fill_in('name' with: 'Jack')
-    fill_in('username' with: 'JD')
-    fill_in('email' with: 'jd@peep.com')
-    fill_in('password' with: 'sshhhhh')
+    fill_in('name', with: 'Jack')
+    fill_in('username', with: 'JD')
+    fill_in('email', with: 'jd@peep.com')
+    fill_in('password', with: 'sshhhhh')
     click_button('Add Me')
     expect(page).to have_content('Hi JD')  
   end

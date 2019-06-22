@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 #todo - add model files
+require_relative '../lib/user'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 
