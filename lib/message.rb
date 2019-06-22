@@ -18,9 +18,10 @@ class Message
 
   def self.all
     table_contents = database_connection.exec("SELECT * FROM message")
-    table_contents.map do |row|
+    array_of_messages = table_contents.map do |row|
       Message.new(message: row['message'])
     end
+    array_of_messages.reverse
   end
 
   def initialize(message: )

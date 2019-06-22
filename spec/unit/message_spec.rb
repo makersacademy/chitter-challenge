@@ -13,5 +13,11 @@ describe Message do
       Message.create(user_message: "Hello").first
       expect(Message.all[0].message).to eq("Hello")
     end
+    it 'displays the messages newest first' do
+      Message.create(user_message: "Hello").first
+      Message.create(user_message: "Hello again").first
+      expect(Message.all[0].message).to eq("Hello again")
+      expect(Message.all[1].message).to eq("Hello")
+    end
   end
 end
