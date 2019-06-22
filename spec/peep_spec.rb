@@ -22,7 +22,8 @@ describe Peep do
   describe '.create' do
     it 'Allows you to post a new peep' do
       peep = Peep.create(peep: "Hi Chitter!")
-      persisted_data = persisted_data(id: peep.id)
+
+      persisted_data = persisted_data(table: :peep, id: peep.id)
       p persisted_data['timestamp']
 
       expect(peep).to be_a Peep

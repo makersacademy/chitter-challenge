@@ -12,7 +12,7 @@
 ### GETTING STARTED
 ------------
 * Ruby 2.5.0
-* Access: git@github.com:rachjgriff/chitter-challenge.git
+* Git Clone: git@github.com:rachjgriff/chitter-challenge.git
 * Install dependences: bundle
 
 ### USAGE
