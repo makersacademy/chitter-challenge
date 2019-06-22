@@ -1,6 +1,9 @@
 require 'sinatra'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+
   get '/' do
     'Chitter - Speak Your Mind'
   end
@@ -10,8 +13,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @content = params[:content]
-    # redirect '/peeps'
+    @peep = Peep.create(content: params[:content])
+    session[:peep] = @peep
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @peep = session[:peep]
+    erb :peeps
   end
 
   run! if app_file == $0
