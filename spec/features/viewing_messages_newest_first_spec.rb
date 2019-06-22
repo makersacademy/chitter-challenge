@@ -1,4 +1,12 @@
+
 feature 'viewing a message' do
+
+  before(:each) do
+    @example_time = Time.new
+    @formatted_time = @example_time.strftime("%k:%M")
+    allow(Time).to receive(:new) {@example_time}
+  end
+
   scenario 'user views the messages newest first' do
     visit('/messages/new')
     fill_in('message', with: 'hello chitter')
@@ -7,5 +15,6 @@ feature 'viewing a message' do
     fill_in('message', with: 'hi there')
     click_on('add')
     expect(page).to have_content('hi there')
+    expect(page).to have_content(@formatted_time)
   end
 end
