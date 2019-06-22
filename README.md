@@ -29,9 +29,9 @@ CREATE DATABASE chitter_development;
 Example of Use
 --------------
 
-![add user example](https://raw.githubusercontent.com/ajosephides/chitter-challenge/blob/master/public/chitter_add_user.gif)
+![add user example](https://raw.githubusercontent.com/ajosephides/chitter-challenge/master/public/chitter_add_user.gif)
 
-![all users example](https://raw.githubusercontent.com/ajosephides/chitter-challenge/blob/master/public/chitter_all_users.gif)
+![all users example](https://raw.githubusercontent.com/ajosephides/chitter-challenge/master/public/chitter_all_users.gif)
 
 
 Process
