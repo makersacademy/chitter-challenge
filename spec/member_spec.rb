@@ -50,4 +50,18 @@ describe Member do
       expect(Member.find(id: nil)).to eq nil
     end
   end
+
+  describe '.authenticate' do
+    it 'returns a member given a correct email and password, if one exists' do
+      member = Member.create(
+        name: 'Test Person',
+        username: 'test123',
+        email: 'test@example.com',
+        password: 'password123')
+
+      authenticated_member = Member.authenticate(email: 'test@example.com', password: 'password123')
+
+      expect(authenticated_member.id).to eq member.id
+    end
+  end
 end
