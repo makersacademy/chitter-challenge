@@ -9,7 +9,9 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/post/new' do
-    
+    @user_id = "Test User"
+    Peep.add_post(@user_id, params[:post])
+    redirect '/timeline'
   end
 
   get '/registration' do

@@ -4,13 +4,22 @@
 </head>
 <body>
   <div align='center'>
-    <ul>
-      <li>
+    <dl>
+      <dt>
         <form action='/post/new' method='post' id='post_form'>
           <input type='text' name='post' id='post'  placeholder='Whats on your mind?'>
           <input type='submit' value='Peep?!'>
         </form>
-      </li>
-    </ul>
+      </dt>
+      <% @timeline.each do |peep| %>
+      <dt>
+        <%= peep.body %>
+      </dt>
+      <dd>
+        - <%= peep.user_id %> at <%= peep.timestamp %>
+      </dd>
+      <% end %>
+    </dl>
   </div>
 </body>
+
