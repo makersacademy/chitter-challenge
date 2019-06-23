@@ -13,4 +13,14 @@ class Peep
     peeps.map { |peep| peep['text'] }
   end
 
+  def self.create(text:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    connection.exec("INSERT INTO chitter (text) VALUES('#{text}')")
+  end
+
 end
