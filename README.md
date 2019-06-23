@@ -1,3 +1,18 @@
+### Makers Academy weekend challenge 4
+
+In this challenge I was encuraged to build a web app- a copy of Twitter with following basic functions:
+
+1) User can sign up 
+2) User can post a message 
+3) User can see messages in reversed chronological order 
+4) User can see when a message was posted 
+
+### How to run: 
+```
+bundle
+```
+
+
 Chitter Challenge
 =================
 
