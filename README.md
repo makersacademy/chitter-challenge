@@ -23,12 +23,14 @@ Setup database:
 2. Create the database using the psql command `CREATE DATABASE chitter;`
 3. Connect to the database using the command `\c chitter;`
 4. Run the query saved in `01_create_peep_table.sql`
+5. Run query saved in `02_add_created_at_to_peeps.sql`
 
 Setup test database:
 1. Connect to psql
 2. Create the database using the psql command `CREATE DATABASE chitter_test;`
 3. Connect to the database using the command `\c chitter_test;`
 4. Run the query saved in `01_create_peep_table.sql`
+5. Run query saved in `02_add_created_at_to_peeps.sql`
 
 User Stories
 ------------
