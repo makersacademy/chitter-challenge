@@ -4,13 +4,13 @@
 
 
 
-<h2 align='center'> 
-<% @messages.each do |message| %>
+<h3 align='center'> 
+<% @messages.reverse_each do |message| %>
 <li>
-<%= message.text%>
+<%= message.text %> - <%= message.created_at.strftime("%Y-%m-%d %H:%M") %>
 </li>
 <% end %>
-</h2>
+</h3>
 <form action="/post_peep" method='post'>
 <input type='text' name='peep' aria-placeholder="Type your message" >
 <input type='submit' value='submit' />

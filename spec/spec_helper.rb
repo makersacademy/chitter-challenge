@@ -1,5 +1,6 @@
 require 'capybara'
 require 'capybara/rspec'
+require 'database_cleaner'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
@@ -11,8 +12,18 @@ ENV['ENVIRONMENT'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 RSpec.configure do |config|
-  config.before(:each) do
-    setup_test_database
+
+  config.before(:suite) do # <-- before entire test run
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do # <-- create a "save point" before each test
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do # <-- after each individual test roll back to "save point"
+    DatabaseCleaner.clean
   end
 end
 
@@ -21,7 +32,7 @@ Capybara.app = Chitter
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
