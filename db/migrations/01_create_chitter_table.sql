@@ -1,1 +1,1 @@
-CREATE TABLE chitter(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), name VARCHAR(100), username VARCHAR(60));
+CREATE TABLE chitter(id SERIAL PRIMARY KEY, username VARCHAR(60), text VARCHAR(140));

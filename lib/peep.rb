@@ -10,7 +10,7 @@ class Peep
     end
 
     peeps = connection.exec("SELECT * FROM chitter;")
-    peeps.map { |peep| peep['content'] }
+    peeps.map { |peep| peep['text'] }
   end
 
 end
