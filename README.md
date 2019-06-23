@@ -1,3 +1,9 @@
+
+
+
+- rvm install 'ruby 2.5.0'
+- bundle install
+
 Chitter Challenge
 =================
 
