@@ -1,6 +1,160 @@
 Chitter Challenge
 =================
 
+Web Project Set Up
+===================
+(Details derived from Ruby Web Project Setup List pill)
+
+Gemfile already existed so no need for:
+
+```
+bundle init
+```
+
+Ensure the following gems were in the Gemfile:
+
+Bundle install:
+
+```
+bundle install
+```
+
+A .rspec file and a spec_helper file were already in place from repo, so no need for:
+
+```
+rspec --init
+```
+
+Created basic app file called app.rb in the root directory. Added the following contents:
+
+```
+require 'sinatra/base'
+
+class Chitter < Sinatra::Base
+  get '/' do
+    'Hello World'
+  end
+
+  run! if app_file == $0
+end
+```
+
+Created a config.ru file, with the following contents:
+
+```
+require_relative "./app"
+
+run BookmarkManager
+```
+
+Added the following to the spec_helper file:
+
+```
+ENV['RACK_ENV'] = 'test'
+
+# Bring in the contents of the `app.rb` file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+# Require all the testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+# Tell Capybara to talk to Chitter
+Capybara.app = Chitter
+
+```
+
+
+```
+gem 'sinatra'
+gem 'rspec'
+gem 'capybara'
+```
+
+Database Set Up
+===================
+(Details derived from step 4 of Bookmark Manager challenge)
+
+Start install of PostgreSQL:
+
+```
+brew install postgresql
+```
+
+Allow Homebrew to start and stop the Postgres service:
+
+```
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
+
+Access first database:
+
+```
+psql postgres
+```
+
+Create new database:
+
+```
+CREATE DATABASE "your_user_name_here";
+```
+Connect to new database:
+
+```
+\c users;
+```
+
+Create table to store users:
+
+```
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR
+(60), email VARCHAR(60), password VARCHAR(60));
+```
+
+Install TablePlus
+From: https://tableplus.io/
+
+Create test database:
+
+```
+CREATE DATABASE "chitter_test";
+```
+
+Create users table in test database:
+
+```
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR
+(60), email VARCHAR(60), password VARCHAR(60));
+```
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
