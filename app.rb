@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
 
-
 class Chitter < Sinatra::Base
   get '/' do
     'Welcome to Chitter'
