@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require_relative './scripts/database_connection_setup.rb'
 
 class ChitterApp < Sinatra::Base
 

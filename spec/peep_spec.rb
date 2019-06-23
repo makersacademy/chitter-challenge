@@ -4,11 +4,10 @@ require 'time'
 describe Peep do
   describe '.timeline' do 
     it 'displays all peeps' do
-      connection = PG.connect(dbname: 'chitter_db_test')
-      connection.exec("INSERT INTO peeps (user_id, body) 
+      DatabaseConnection.setup('chitter_db_test')
+      DatabaseConnection.query("INSERT INTO peeps (user_id, body) 
                         VALUES ('01', 'My first peep!');")  
       peeps = Peep.timeline
-      p peeps
 
       expect(peeps.length).to eq(1)
       expect(peeps.first).to be_a(Peep)
@@ -20,7 +19,7 @@ describe Peep do
 
   describe '.add_post' do
     it 'adds a new peep to the db' do 
-      connection = PG.connect(dbname: 'chitter_db_test')
+      DatabaseConnection.setup('chitter_db_test')
       peep = Peep.add_post('Remzilla', 'My first peep!')
 
       expect(peep.user_id).to eq('Remzilla')
