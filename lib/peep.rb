@@ -1,9 +1,16 @@
+require 'pg'
+
 class Peep
+
   def self.all
-    [
-      "This is the first peep",
-      "This is the second peep",
-      "This is the third peep"
-     ]
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    peeps = connection.exec("SELECT * FROM chitter;")
+    peeps.map { |peep| peep['content'] }
   end
+
 end
