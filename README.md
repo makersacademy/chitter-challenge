@@ -1,6 +1,7 @@
 Chitter Challenge
 =================
 
+[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
 * For this challenge, I have created a simple web app which requires a database.
 
 Features
