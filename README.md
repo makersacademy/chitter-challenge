@@ -70,6 +70,7 @@ To meet the requirements of these user stories I took the following steps:
 6. Users can sign up to Chitter (with a name, username, email and password).
 7. Peeps will store data on the user that created them.
 8. Chitter will display the name and username of the user that created each peep.
+9. Raise errors/flashes if invalid email submitted, password confirmation differs, username taken or email already used.
 
 ### Harder
 ```
@@ -105,7 +106,7 @@ I want to receive an email if I am tagged in a Peep
 |RESPONSIBILITIES | COLLABORATORS |
 | content         | User          |
 | created_at      |               |
-| which_user?     |               |
+| user_id         |               |
 
 | Class:          | User          |
 |---------------- |-------------- |
@@ -125,6 +126,6 @@ I want to receive an email if I am tagged in a Peep
 
 #### User
 
-| id | name | username | email | password |
-|--- |----- |----------|------ |--------- |
-|    |      |          |       |          |
+| id | first_name | last_name | username | email | password |
+|--- |----------- |---------- |----------|------ |--------- |
+|    |            |           |          |       |          |

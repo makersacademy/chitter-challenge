@@ -32,6 +32,8 @@ describe Peep do
       peep = Peep.create(content: 'Test peep')
 
       expect(peep.time).to match(/\d{2}:\d{2}/)
+      expect(peep.time[0..1].to_i).to be_between(0, 23).inclusive
+      expect(peep.time[3..4].to_i).to be_between(0, 59).inclusive
     end
   end
 end
