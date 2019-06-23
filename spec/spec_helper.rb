@@ -39,6 +39,20 @@ SimpleCov.start
 
 
 RSpec.configure do |config|
+
+  # config.before(:suite) do # <-- before entire test run
+  #   DatabaseCleaner.strategy = :transaction
+  #   DatabaseCleaner.clean_with(:truncation)
+  # end
+
+  # config.before(:each) do # <-- create a "save point" before each test
+  #   DatabaseCleaner.start
+  # end
+
+  # config.after(:each) do # <-- after each individual test roll back to "save point"
+  #   DatabaseCleaner.clean
+  # end
+  
   config.before(:each) do
     setup_test_database
   end
