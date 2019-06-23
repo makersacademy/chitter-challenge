@@ -3,8 +3,8 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'reurns an array of peeps from database starting at oldest' do
-      peep_one = Peep.create(text: 'first peep')
-      peep_two = Peep.create(text: 'second peep')
+      Peep.create(text: 'first peep')
+      Peep.create(text: 'second peep')
       peep_three = Peep.create(text: 'third peep')
 
       peeps = Peep.all
