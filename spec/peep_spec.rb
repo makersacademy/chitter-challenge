@@ -16,4 +16,16 @@ describe Peep do
       # expect(peeps.timestamp).to eq('2019-06-22 12:00:00')
     end
   end
+
+  describe '## add_post' do
+    it 'adds a new peep to the db' do 
+      connection = PG.connect(dbname: 'chitter_db_test')
+      peep = Peep.add_post('Remzilla', 'My first peep!')
+
+      expect(peep.user_id).to eq('Remzilla')
+      expect(peep.body).to eq('My first peep!')
+    end
+  end
+
+  
 end

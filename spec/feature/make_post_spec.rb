@@ -1,5 +1,5 @@
 feature '## Posting a peep to Chitter' do
-  scenario 'User posts a peep' do
+  xscenario 'User posts a peep' do
     visit '/timeline'
     fill_in 'post', with: 'My first Peep!'
     click_button 'Peep?!'

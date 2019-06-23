@@ -1,5 +1,5 @@
 feature '## User can sign up to Chitter' do
-  scenario 'User signs up to Chitter...' do
+  xscenario 'User signs up to Chitter...' do
     visit '/'
     click_link 'Sign up'
     expect(page).to have_content('Sign up to Chitter!')
