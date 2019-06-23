@@ -12,6 +12,6 @@ feature 'Be able to create a new user and display user info on peep' do
 
     fill_in 'text', with: 'Test peep'
     click_button 'Post Peep!'
-    expect(page).to have_content 'Test peep peeped by John1'
+    expect(page).to have_content 'John1'
   end
 end

@@ -4,7 +4,7 @@
       <%= peep.text%>
       <%= peep.time%>
       Peeped by:
-      <%= peep.user_id%>
+      <%= User.find(id: peep.user_id).username%>
     </li>
   <% end %>
 </ul>
