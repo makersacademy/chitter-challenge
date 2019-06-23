@@ -65,7 +65,7 @@ describe Member do
     end
 
     it 'returns nil given an incorrect email address' do
-      member = Member.create(
+      Member.create(
         name: 'Test Person',
         username: 'test123',
         email: 'test@example.com',

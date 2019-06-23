@@ -13,6 +13,6 @@ services:
   - postgresql
 
 before_script:
-  - psql \c 'CREATE DATABASE Chitter_Test;' -U postgres
+  - psql 'CREATE DATABASE Chitter_Test;' -U postgres
   - psql Chitter_Test 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(500), timestamp TIMESTAMPTZS DEFAULT NOW());' -U postgres
   - psql Chitter_test 'CREATE TABLE members (id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(30), email VARCHAR(100), password VARCHAR(150));' -U postgres
