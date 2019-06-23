@@ -24,7 +24,6 @@ describe Peep do
       peep = Peep.create(peep: "Hi Chitter!")
 
       persisted_data = persisted_data(table: :peep, id: peep.id)
-      p persisted_data['timestamp']
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data['id']

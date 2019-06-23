@@ -1,14 +1,18 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/member'
 require './lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
 
   get '/' do
     "Welcome to Chitter"
   end
 
   get '/peeps' do
+    @member = Member.find(id: session[:id])
     @peeps = Peep.all
     erb :"peeps/index"
   end
@@ -31,7 +35,12 @@ class Chitter < Sinatra::Base
     username = params[:username]
     email = params[:email]
     password = params[:password]
-    Member.create(name: name, username: username, email: email, password: password)
+    member = Member.create(
+      name: name,
+      username: username,
+      email: email,
+      password: password)
+    session[:id] = member.id
     redirect '/peeps'
   end
 
