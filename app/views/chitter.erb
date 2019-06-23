@@ -1,0 +1,14 @@
+<h1>Welcome to Chitter</h1>
+<a href="/chitter/sign_up">Sign up to Chitter</a><br>
+<a href="/chitter/new">Compose new peep</a>
+<h2>Peeps:</h2>
+<div>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>@<%= peep.time %>:</li>
+        <ul>
+          <li><%= peep.content %></li>
+        </ul>
+    <% end %>
+  </ul>
+</div>
