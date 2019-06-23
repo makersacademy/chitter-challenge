@@ -9,17 +9,4 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-
-
-services:
-  - postgresql
-
-addons:
-  postgresql: "9.3"
-  apt:
-    packages:
-    - postgresql-9.3
-    - postgresql-client-9.3
-env:
-  global:
-  - PGPORT=5432
+  - psql -c 'create database chitter;' -U postgres
