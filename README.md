@@ -66,9 +66,10 @@ To meet the requirements of these user stories I took the following steps:
 2. Allow users to create a peep and have it displayed on Chitter.
 3. The peep will store the time it is created.
 4. Chitter will display peeps in reverse chronological order.
-5. Users can sign up to Chitter (with a name, username, email and password).
-6. Peeps will store data on the user that created them.
-7. Chitter will display the name and username of the user that created each peep.
+5. Chitter displays the time the peep was posted.
+6. Users can sign up to Chitter (with a name, username, email and password).
+7. Peeps will store data on the user that created them.
+8. Chitter will display the name and username of the user that created each peep.
 
 ### Harder
 ```

@@ -3,10 +3,13 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it "returns all peeps" do
+      Peep.create(content: "Fake news!")
+      Peep.create(content: "Sun''s out, guns out")
+
       peeps = Peep.all
 
       expect(peeps.last.content).to eq("Fake news!")
-      expect(peeps[-2].content).to include("Sun's out, guns out")
+      expect(peeps.first.content).to eq("Sun's out, guns out")
     end
   end
 

@@ -1,5 +1,8 @@
 feature 'view Chitter' do
   scenario 'visit Chitter page and see a list of peeps' do
+    Peep.create(content: "Fake news!")
+    Peep.create(content: "Sun''s out, guns out")
+
     visit '/chitter'
 
     expect(page).to have_content('Chitter')

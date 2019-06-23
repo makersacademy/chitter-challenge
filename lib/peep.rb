@@ -17,8 +17,12 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
-    result.map do |p|
-      Peep.new(id: p['id'], content: p['content'], created_at: p['created_at'])
+    result.map do |peep|
+      Peep.new(
+        id: peep['id'],
+        content: peep['content'],
+        created_at: peep['created_at']
+      )
     end
   end
 
@@ -28,12 +32,16 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    table = "peeps (content, created_at)"
-    values = "'#{content}', CURRENT_TIME(0)"
-    return_values = "id, content, created_at"
-    query = "INSERT INTO #{table} VALUES(#{values}) RETURNING #{return_values};"
-    result = connection.exec(query)
-    Peep.new(id: result[0]['id'], content: result[0]['content'], created_at: result[0]['created_at'])
+    result = connection.exec(
+      "INSERT INTO peeps (content, created_at)
+        VALUES('#{content}', CURRENT_TIME(0))
+          RETURNING id, content, created_at;"
+        )
+    Peep.new(
+      id: result[0]['id'],
+      content: result[0]['content'],
+      created_at: result[0]['created_at']
+    )
   end
 
   def time
