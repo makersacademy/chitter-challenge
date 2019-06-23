@@ -38,6 +38,8 @@ class Peep
   end
 
   def self.reformat(timestamp)
+    # The below line reformats the time to dd/mm/yyyy. But ruby doesnt want to cooperate >:0
+    # english_datetime = timestamp.strftime("%d/%m/%Y")
     new_timestamp = timestamp.to_s.slice(0..15)
   end
 end

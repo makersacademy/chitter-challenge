@@ -1,8 +1,8 @@
 feature '## User can sign up to Chitter' do
-  xscenario 'User signs up to Chitter...' do
-    visit '/'
+  scenario 'User signs up to Chitter...' do
+    visit '/timeline'
     click_link 'Sign up'
-    expect(page).to have_content('Sign up to Chitter!')
+    expect(page).to have_content('Welcome to the cool club')
     
     fill_in 'email', with: 'testaccount@gmail.com'
     fill_in 'name', with: 'Remy'
