@@ -45,6 +45,7 @@ I used my data mapper classes to more appropriately plan the database relations.
 
 I decided not to use TDD for this project, as it adds another level of difficulty. Learning this new tool is my priority, so I leave writing tests for later.
 
+Once my setup seems to work and app racks up, I add a feature test to test rspec implementation.
 
 Features:
 -------

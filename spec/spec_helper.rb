@@ -19,11 +19,11 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  config.before(:each) do
-    DataMapper.setup(:default, "postgres://localhost/chitter_test")
-    DataMapper.finalize
-    DataMapper.auto_migrate!
-  end
+#  config.before(:each) do
+#    DataMapper.setup(:default, "postgres://localhost/chitter_test")
+#    DataMapper.finalize
+#    DataMapper.auto_migrate!
+#  end
   
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
