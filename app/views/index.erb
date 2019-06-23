@@ -12,11 +12,16 @@
         </form>
       </dt>
       <% @timeline.each do |peep| %>
+      <br>
+      <br>
       <dt>
         <%= peep.body %>
       </dt>
       <dd>
-        - <%= peep.user_id %> at <%= peep.timestamp %>
+        - <%= peep.user_id %> 
+      </dd>
+      <dd>
+        <%= peep.timestamp %>
       </dd>
       <% end %>
     </dl>

@@ -1,4 +1,6 @@
 require 'pg'
+require 'time'
+
 class Peep
 
   attr_reader :user_id, :body, :timestamp
@@ -18,7 +20,7 @@ class Peep
 
     result = connection.exec('SELECT user_id, body, timestamp FROM peeps;')
     result.map do |peep|
-      Peep.new(peep['user_id'], peep['body'], peep['timestamp'])
+      Peep.new(peep['user_id'], peep['body'], Peep.reformat(peep['timestamp']))
     end
   end
 
@@ -33,5 +35,9 @@ class Peep
                                VALUES ('#{user_id}', '#{body}')
                                 RETURNING user_id, body, timestamp;")
     Peep.new(result[0]['user_id'], result[0]['body'], result[0]['timestamp'])
+  end
+
+  def self.reformat(timestamp)
+    new_timestamp = timestamp.to_s.slice(0..18)
   end
 end
