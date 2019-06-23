@@ -23,21 +23,10 @@ class Peep
   
   belongs_to :user
 
-  def publish!
-    @published = true
-    @created_at = DateTime.today
-  end
 end
 
 class Chitter < Sinatra::Base
-  enable :sessions, :method_override
-#  configure :development do
-#    DataMapper.setup(:default, 'postgres://postgres@localhost/chitter_test')
-#  end
-
-#  configure :production do
-#    DataMapper.setup(:default, 'postgres://postgres@localhost/chitter_development')
-#  end
+  enable :sessions
 
   get '/' do
     erb :welcome
@@ -59,9 +48,37 @@ class Chitter < Sinatra::Base
     erb :user_success
   end
 
+  get '/peep' do
+    id = session[:id]
+    @user = User.get(id)
+    erb :peepery
+  end
+
+  post '/newpeep' do
+    id = session[:id]
+    peep = Peep.create(body: params[:body], published: true, created_at: Time.now, user_id: id)
+    result = peep.save
+    p "OUTCOME OF SAVE"
+    p result 
+    p "I AM A PEEP, ROH ROH ROH"
+    p peep
+    redirect '/peeps'
+  end
+
   get '/peeps' do
-    @peeps = Peep.all :order => :created_at.desc
+    @peeps = Peep.all #:order => :created_at.desc
+    @users = User.all
+    p "PRINTING ALL THOSE IMVISIBLE PEEPS"
+    p @peeps
+    p "ALL DA USAHS"
+    p @users
     erb :index
+  end
+
+  get '/peepery' do
+    id = session[:id]
+    @user = User.get(id)
+    erb :peepery
   end
 
   run! if app_file == $0

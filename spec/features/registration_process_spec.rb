@@ -30,6 +30,7 @@ RSpec.feature 'Registration Process' do
     expect(page).to have_content('Peeper Success!')
     p "STEP TWO EXECUTES"
     expect(page).to have_link('Go to Peeps', href: '/peeps')
+    expect(page).to have_link('Start Peepin', href: '/peep')
     p "STEP THREE EXECUTES"
   end
 end
