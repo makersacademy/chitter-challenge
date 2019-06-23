@@ -1,0 +1,36 @@
+
+
+<style>
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #5FEEFE;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 5px 5px #4DCFFE;
+}
+
+.button:hover {background-color: #9CF4FE}
+
+.button:active {
+  background-color: #4DCFFE;
+  box-shadow: 5px 5px #35848D;
+  transform: translateY(4px);
+}
+</style>
+<center>
+<h1><font face="verdana" color="light blue">Welcome to Chitter!</font></h1><br>
+<h3>What would you like to do?</h3><br>
+
+<form action="/add_peep" method="get">
+<button class="button" name="add_peep" button style="margin:5px;">Add Peep</button>
+</form>
+<form action="/view_peeps" method="get">
+<button class="button" name="view_peep" button style="margin:5px;">View Peeps</button>
+</form>
+</center>
