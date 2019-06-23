@@ -1,9 +1,8 @@
-require 'pg'
-
 feature 'VIEWING PEEPS' do
   feature 'visiting the homepage' do
     scenario 'visiting the index page' do
       visit '/'
+      
       expect(page).to have_content "Chitter"
     end
   end

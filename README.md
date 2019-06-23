@@ -7,7 +7,11 @@ This a small Twitter clone that will allow the users to post messages to a publi
 ---
 
 ## Technologies used
-
+- Ruby 
+- Sinatra
+- Capybara
+- Data Mapper
+- Postgresql 
 
 ---
 
@@ -63,7 +67,13 @@ I want to receive an email if I am tagged in a Peep
 
 ## Challenges
 
-- Using an Object Relational Mapper as the database interface.
+
+- STILL IN PROGRESS
+  - creating functionalities (sign up, sign in)
+  - adding timestamp on the peeps
+  - displaying in reverse chronological order
+- Wrapping database data in program objects
+- Using an Object Relational Mapper as the database interface
 
 
 ## How to use
