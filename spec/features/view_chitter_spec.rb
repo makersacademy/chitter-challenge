@@ -7,4 +7,13 @@ feature 'view Chitter' do
     expect(page).to have_content('Fake news!')
     expect(page).to have_content("Sun's out, guns out")
   end
+
+  scenario 'peeps are listed in reverse chronological order' do
+    Peep.create(content: "First peep")
+    Peep.create(content: "Second peep")
+
+    visit '/chitter'
+
+    expect("Second peep").to appear_before("First peep")
+  end
 end

@@ -7,6 +7,8 @@ require 'capybara'
 require 'capybara/rspec'
 
 Capybara.app = ChitterApp
+
+require 'orderly'
 require 'simplecov'
 require 'simplecov-console'
 
