@@ -43,7 +43,8 @@ class Member
       "SELECT * FROM members WHERE email = '#{email}';")
 
     return unless result.any?
-    
+    return unless BCrypt::Password.new(result[0]['password']) == password
+
     Member.new(
       id: result[0]['id'],
       name: result[0]['name'],

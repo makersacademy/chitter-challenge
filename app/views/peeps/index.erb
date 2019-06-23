@@ -1,5 +1,8 @@
 <% if @member %>
   <h1>Welcome to Chitter, <%= @member.name %></h1>
+  <form action='/sessions/destroy' method='post'>
+    <input type="submit" value="Sign Out"/>
+  </form>
 <% end %>
 <br><br>
 <ul>

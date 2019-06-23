@@ -73,5 +73,15 @@ describe Member do
 
       expect(Member.authenticate(email: 'incorrecttest@example.com', password: 'password123')).to be nil
     end
+
+    it 'returns nil given an incorrect password' do
+      Member.create(
+        name: 'Test Person',
+        username: 'test123',
+        email: 'test@example.com',
+        password: 'password123')
+
+      expect(Member.authenticate(email: 'test@example.com', password: 'incorrectpassword')).to be nil  
+    end
   end
 end
