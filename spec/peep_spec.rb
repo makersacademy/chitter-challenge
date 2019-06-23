@@ -3,9 +3,11 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'reurns an array of peeps from database starting at oldest' do
-      Peep.create(text: 'first peep')
-      Peep.create(text: 'second peep')
-      peep_three = Peep.create(text: 'third peep')
+      user = User.create(name: 'John', username: 'John1', email: 'john@test.com',
+      password: 'password123')
+      Peep.create(text: 'first peep', user_id: user.id)
+      Peep.create(text: 'second peep', user_id: user.id)
+      peep_three = Peep.create(text: 'third peep', user_id: user.id)
 
       peeps = Peep.all
 
@@ -18,7 +20,9 @@ describe Peep do
 
   describe '.create' do
     it 'creates and returns a new peep' do
-      peep = Peep.create(text: 'test peep')
+      user = User.create(name: 'John', username: 'John1', email: 'john@test.com',
+      password: 'password123')
+      peep = Peep.create(text: 'test peep', user_id: user.id)
 
       expect(peep).to be_a Peep
       expect(peep.text).to eq 'test peep'

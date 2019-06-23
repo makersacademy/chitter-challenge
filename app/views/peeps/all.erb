@@ -3,10 +3,15 @@
     <li class="peep" id="peep-<%= peep.id %>">
       <%= peep.text%>
       <%= peep.time%>
+      Peeped by:
+      <%= peep.user_id%>
     </li>
   <% end %>
 </ul>
 <br><br>
-<form class="peep" action="/peeps/new" method="get">
+<form action="/peeps/new" method="get">
   <input type="submit" name="Create Peep" value="Create Peep">
+</form>
+<form action="/user/new" method="get">
+  <input type="submit" name="Register" value="Register">
 </form>
