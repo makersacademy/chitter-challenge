@@ -1,18 +1,46 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Approach
 
-Challenge:
--------
+### 1. Research and planning
 
-As usual please start by forking this repo.
+I decided to use DataMapper to model my database relations.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+DataMapper resources used:  
+- [official documentation](https://datamapper.org/getting-started.html) 
+- [this video tutorial](https://www.youtube.com/watch?v=G93-ZVw_S2c)
+
+I decide not to worry too much about security of my users because implementing registration is a new thing for me so I start with the basics
+
+**CRCs:**
+
+_User_  
+| Responsibilities | Collaborators | 
+| --- | --- | 
+| has id | ? | 
+| has a name | ? | 
+
+
+_Peep_  
+| Responsibilities | Collaborators | 
+| --- | --- | 
+| has id | ? |
+| author | User | 
+| has text | ? |
+| timestamp | ? | 
+
+I used my data mapper classes to more appropriately plan the database relations. 
+
+### 2. Setup
+
+- added data mapper gems, pg, sinatra etc, ran bundle
+- checklist for setting up Ruby projects completed
+- added a test_db helper for spec_helper
+- added a db.rb with data mapper setup and my CRC models in README 
+- testing my db locally
+- many failed attempts later, I use [this repo](https://github.com/Rosa-Fox/todo-sinatra-datamapper) and [this resource](http://cheat.errtheblog.com/s/datamapper) to refactor my setup
+
 
 Features:
 -------
