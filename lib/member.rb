@@ -1,6 +1,6 @@
+require_relative 'database_connection'
 require 'bcrypt'
 require 'pg'
-require_relative 'database_connection'
 
 class Member
 

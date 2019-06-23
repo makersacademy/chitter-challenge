@@ -5,5 +5,7 @@ feature "Viewing Posts" do
     visit("/peeps")
 
     expect(page).to have_content "Hi Chitter!"
+    expect(page).to have_button "New Peep"
+    expect(page).to have_button "Sign Up"
   end
 end

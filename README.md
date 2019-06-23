@@ -4,7 +4,7 @@
 ------------
 * Join the new social media craze, Chitter!
 * Post a peep!
-* See all the peeps and the time they were made.
+* See all the peeps and the time they were posted.
 * Sign up to Chitter.
 * If you're lucky, you can log in and out of Chitter.
 * If you're really really lucky, you will receive an email if you are tagged in a peep.
