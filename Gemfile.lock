@@ -1,21 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (5.2.3)
-      activesupport (= 5.2.3)
-    activerecord (5.2.3)
-      activemodel (= 5.2.3)
-      activesupport (= 5.2.3)
-      arel (>= 9.0)
-    activesupport (5.2.3)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (>= 0.7, < 2)
-      minitest (~> 5.1)
-      tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
-    arel (9.0.0)
     ast (2.4.0)
     bcrypt (3.1.13)
     bcrypt-ruby (3.1.5)
@@ -28,7 +16,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    concurrent-ruby (1.1.5)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -41,6 +28,7 @@ GEM
       dm-validations (~> 1.2.0)
     data_objects (0.10.17)
       addressable (~> 2.1)
+    database_cleaner (1.7.0)
     diff-lcs (1.3)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
@@ -80,13 +68,10 @@ GEM
       data_objects (= 0.10.17)
     docile (1.3.2)
     fastercsv (1.5.5)
-    i18n (1.6.0)
-      concurrent-ruby (~> 1.0)
     json (1.8.6)
     json_pure (1.8.6)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
-    minitest (5.11.3)
     multi_json (1.13.1)
     mustermann (1.0.3)
     nokogiri (1.10.3)
@@ -140,16 +125,12 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.5)
       tilt (~> 2.0)
-    sinatra-activerecord (2.0.13)
-      activerecord (>= 3.2)
-      sinatra (>= 1.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     stringex (1.5.1)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    thread_safe (0.3.6)
     tilt (2.0.9)
-    tzinfo (1.2.5)
-      thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
     uuidtools (2.1.5)
     xpath (3.2.0)
@@ -159,10 +140,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 5.2, >= 5.2.3)
+  bcrypt
   capybara
-  data_mapper (~> 1.2)
-  dm-postgres-adapter (~> 1.2)
+  data_mapper
+  database_cleaner
+  dm-postgres-adapter
   pg
   rake
   rspec
@@ -170,7 +152,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
-  sinatra-activerecord (~> 2.0, >= 2.0.13)
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.5.0p0

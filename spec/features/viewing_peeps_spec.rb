@@ -11,15 +11,15 @@ feature 'VIEWING PEEPS' do
   feature 'viewing peeps' do
     scenario 'a user can see all peeps' do
 
-      Peep.create(text: "This is the first peep")
-      Peep.create(text: "This is the second peep")
-      Peep.create(text: "This is the third peep")
+      Peep.create(username: "johndoe", text: "This is the first peep")
+      Peep.create(username: "johndoe", text: "This is the second peep")
+      Peep.create(username: "johndoe", text: "This is the third peep")
 
       visit '/peeps'
       
-      expect(page).to have_content "This is the first peep"
-      expect(page).to have_content "This is the second peep"
-      expect(page).to have_content "This is the third peep"
+      expect(page).to have_content("johndoe", "This is the first peep")
+      expect(page).to have_content("johndoe", "This is the second peep")
+      expect(page).to have_content("johndoe", "This is the third peep")
     end
   end
 end

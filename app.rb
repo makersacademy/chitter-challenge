@@ -1,22 +1,25 @@
 require 'sinatra/base'
 require_relative './lib/peep'
 
+
 class Chitter < Sinatra::Base
+  enable :sessions, :method_override
+  
   get '/' do
     'Chitter'
   end
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :"peeps/index"
+    erb :'peeps/index'
   end
 
   get '/peeps/new' do
-    erb :"peeps/new"
+    erb :'peeps/new'
   end
 
   post '/peeps' do
-    Peep.create(text: params[:text])
+    Peep.create(username: params[:username], text: params[:text])
     redirect '/peeps'
   end
 

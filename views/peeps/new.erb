@@ -1,4 +1,5 @@
-<form action="/peeps" method="post">
-  <input type="text" name="text" />
-  <input type="submit" value="Submit" />
-</form>  
+<form method="post" action="/peeps">
+  <input type="text" name="username" placeholder="USERNAME" />
+  <input type="text" name="text" placeholder="PEEP" minlength='2' maxlength='140'size='50' required />
+  <button type='submit'>Submit</button>
+</form>
