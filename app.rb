@@ -2,6 +2,7 @@ require 'sinatra/base'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
+
   get '/' do
     erb :homepage
   end
@@ -11,14 +12,14 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/signup' do
-    session[:current_user] = User.create(
-      name: params[:name],
-      username: params[:username],
-      password: params[:password],
-      email: params[:email]
-    )
-    redirect '/'
+    User.create(name: params[:name], username: params[:username], email: params[:email], psw: params[:psw])
+    @username = User.username
+    redirect '/chitter'
   end
-  
+
+  get '/chitter' do
+    erb :chitter
+  end
+
   run! if app_file == $0
 end
