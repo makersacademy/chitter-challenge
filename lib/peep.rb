@@ -38,7 +38,7 @@ class Peep
       list_all = connect_to_database.exec('SELECT * FROM peeps ORDER BY ID DESC')
       list_all.map do |peep|
 
-        Peep.new(id: peep['id'], date: peep['date'], text: peep['text'],date: peep['date'])
+        Peep.new(id: peep['id'], date: peep['date'], text: peep['text'])
     end
   end
 end

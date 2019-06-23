@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+Welcome to Chitter! Please log in:
+
+<%if @username == nil %>
+<a href="/sign_in">Sign in</a>
+<% else %>
+<p> You are logged in as <%= @username %> </p>
+<% end %>
+
+<form action="/new" method="post">
+  <input type="text" name="text" placeholder="What's up?">
+  <input type= "submit" value="Peep!">
+  </form>
+
+  <br>
+
+  <% @peeps.each do |peep| %>
+  <%= @username%>
+  <%= peep.text%>
+  <%= peep.date%>
+  <% end %>
+</html>

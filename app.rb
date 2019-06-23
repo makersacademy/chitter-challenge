@@ -13,9 +13,7 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/new' do
-
-  redirect '/new'
-
+    redirect '/new'
   end
 
   post '/new' do

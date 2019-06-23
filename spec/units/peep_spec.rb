@@ -23,7 +23,6 @@ describe Peep do
 
   describe ".all" do
     it "returns a list of all peeps" do
-    # connect_to_database = PG.connect(dbname: "chitter_test")
     peep= Peep.create(text: "This is a test")
 
     peeps= Peep.all
