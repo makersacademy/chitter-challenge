@@ -23,8 +23,8 @@
 ### TESTING
 ------------
 * rspec (via capybara)
-* 100% test coverage achieved
-* Linter: rubocop (no offfenses)
+* 99.56% test coverage achieved
+* Linter: rubocop (2 offfenses)
 
 ### DATABASE
 ------------
@@ -42,6 +42,7 @@ CREATE DATABASE "Chitter_Test"
 
 * Run the following queries in db/migrations to create the required tables in each database:
   * 01_create_peeps_table.sql
+  * 02_create_members_table.sql
 
 ### WEBSITE SPECIFICATION (REQUIREMENTS)
 ------------
