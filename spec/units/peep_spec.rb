@@ -25,3 +25,7 @@ describe Peep do
     end    
   end
 end
+
+# peep = Peep.create(content: 'I love chocolate')
+# connection = PG.connect(dbname: 'chitter_test')
+# persisted_data = connection.exec("SELECT * FROM peeps WHERE id = #{peep.id}")

@@ -15,12 +15,10 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peep.create(content: params[:content])
-    # session[:peep] = @peep
     redirect '/peeps'
   end
 
-  get '/peeps' do
-    # @peep = session[:peep]    
+  get '/peeps' do     
     @peeps = Peep.order_by_date 
     erb :'peeps/index'
   end
