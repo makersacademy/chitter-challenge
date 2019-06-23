@@ -18,7 +18,6 @@ describe User do
          email: 'john@test.com', password: 'password123')
       found_user = User.find(id: user.id)
 
-
       expect(found_user.name).to eq user.name
       expect(found_user.username).to eq user.username
     end
