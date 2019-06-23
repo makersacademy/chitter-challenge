@@ -1,4 +1,5 @@
 require 'peep'
+require 'time'
 
 describe Peep do
   describe '## timeline' do 
@@ -27,5 +28,12 @@ describe Peep do
     end
   end
 
-  
+  describe '## reformat(timestamp)' do
+    it 'reformats a time value and returns YYYY-MM-DD HH:MI' do
+      test_date = Time.parse("2019-06-22 12:00:00")
+      new_datetime = Peep.reformat(test_date)
+      expect(new_datetime).to eq("2019-06-22 12:00")
+    end
+  end
+
 end

@@ -38,6 +38,6 @@ class Peep
   end
 
   def self.reformat(timestamp)
-    new_timestamp = timestamp.to_s.slice(0..18)
+    new_timestamp = timestamp.to_s.slice(0..15)
   end
 end
