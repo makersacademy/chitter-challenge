@@ -1,9 +1,10 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class ChitterApp < Sinatra::Base
 
   get '/timeline' do
-    @timeline = Peeps.all
+    @timeline = Peep.timeline
     erb :index
   end
 
