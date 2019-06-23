@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'pg'
 load 'db.rb'
 
 class User
@@ -9,6 +10,7 @@ class User
   property :name, String
 
   has n, :peeps
+
 end
 
 class Peep
@@ -28,7 +30,7 @@ class Peep
 end
 
 class Chitter < Sinatra::Base
-
+  enable :sessions, :method_override
 #  configure :development do
 #    DataMapper.setup(:default, 'postgres://postgres@localhost/chitter_test')
 #  end
@@ -39,6 +41,22 @@ class Chitter < Sinatra::Base
 
   get '/' do
     erb :welcome
+  end
+
+  get '/register' do
+    erb :register
+  end
+
+  post '/users' do
+    @user = User.create(name: params[:username])
+    session[:id] = @user.id
+    redirect '/user_success'
+  end
+
+  get '/user_success' do
+    id = session[:id]
+    @user = User.get(id)
+    erb :user_success
   end
 
   get '/peeps' do

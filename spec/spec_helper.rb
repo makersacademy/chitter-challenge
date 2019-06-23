@@ -19,6 +19,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.include Capybara::DSL, :type => :feature
+
 #  config.before(:each) do
 #    DataMapper.setup(:default, "postgres://localhost/chitter_test")
 #    DataMapper.finalize

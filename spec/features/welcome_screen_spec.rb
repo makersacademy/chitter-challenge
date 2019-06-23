@@ -6,7 +6,7 @@ RSpec.feature 'Welcome screen' do
 
   scenario 'there are correct links' do
     visit '/'
-    expect(page).to have_link('Sign up for Chitter to Peep')
+    expect(page).to have_link('Sign up for Chitter to Peep', href: '/register')
     expect(page).to have_link('See all Peeps', href: '/peeps')
   end
 end
