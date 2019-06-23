@@ -17,12 +17,11 @@ class User
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("INSERT INTO users(name, username, email, psw) VALUES('#{name}', '#{username}', '#{email}', '#{psw}') RETURNING id, name, username, email, psw")
-    # User.new(
-    #   name: result['name'],
-    #   username: result['username'],
-    #   email: result['email'],
-    #   psw: result['psw']
-    #   )
-    # end
-  end
+    User.new(
+      name: result['name'],
+      username: result['username'],
+      email: result['email'],
+      psw: result['psw']
+      )
+    end
 end
