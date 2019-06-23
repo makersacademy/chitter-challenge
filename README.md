@@ -5,7 +5,7 @@ Peeps are restricted to 500 characters.
 
 ## MVC model
 
-  
+TBC
 
 ## Getting started
 
@@ -19,3 +19,5 @@ Peeps are restricted to 500 characters.
 * if show a message error `Address already in use` type `rackup config.ru -p 9393` where -p specifies the port number.
 
 ### Example of usage
+
+TBC

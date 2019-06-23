@@ -1,9 +1,6 @@
-<div>
-
 <h1 align='center'> Chitter </h1>
 
-
-
+<div>
 <h3 align='center'> 
 <% @messages.reverse_each do |message| %>
 <li>
@@ -11,8 +8,22 @@
 </li>
 <% end %>
 </h3>
+</div>
+
+<div>
 <form action="/post_peep" method='post'>
-<input type='text' name='peep' aria-placeholder="Type your message" >
+<input type='text' name='peep' aria-placeholder="Type your message" />
 <input type='submit' value='submit' />
 </form>
 </div>
+
+<div>
+  <form action="/user_sign_in" method="get" >
+  <input type="submit" value="sign in">
+  </form>
+</div>
+<% @user.each do |user| %> 
+  <% if user.id == @user_id %>
+<h4 align='left'> Welcome <%= user.user_name %> </h4>
+<% end %>
+<% end %>
