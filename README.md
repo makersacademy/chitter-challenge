@@ -15,22 +15,7 @@ I decide not to worry too much about security of my users because implementing r
 
 **CRCs:**
 
-_User_  
-| Responsibilities | Collaborators | 
-| --- | --- | 
-| has id | ? | 
-| has a name | ? | 
-
-
-_Peep_  
-| Responsibilities | Collaborators | 
-| --- | --- | 
-| has id | ? |
-| author | User | 
-| has text | ? |
-| timestamp | ? | 
-
-I used my data mapper classes to more appropriately plan the database relations. 
+I used my data mapper classes to appropriately plan the database relations. 
 
 ### 2. Setup
 
