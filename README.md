@@ -113,6 +113,21 @@ CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR
 (60), email VARCHAR(60), password VARCHAR(60));
 ```
 
+Install TablePlus
+From: https://tableplus.io/
+
+Create test database:
+
+```
+CREATE DATABASE "chitter_test";
+```
+
+Create users table in test database:
+
+```
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR
+(60), email VARCHAR(60), password VARCHAR(60));
+```
 
 As a Maker
 So that I can post messages on Chitter as me
