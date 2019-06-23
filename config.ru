@@ -1,4 +1,4 @@
-require_relative './app.rb'
-require_relative './db.rb'
+require './app.rb'
+require './db.rb'
 
 run Chitter

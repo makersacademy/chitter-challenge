@@ -1,4 +1,4 @@
-load 'db.rb'
+require 'data_mapper'
 
 ENV['ENVIRONMENT'] = 'test'
 ENV['RACK_ENV'] = 'test'
@@ -9,7 +9,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
-require_relative './test_db'
+# require_relative './test_db'
 
 Capybara.app = Chitter
 
@@ -19,13 +19,23 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
- # config.before(:each) do
- #   setup_test_database
- # end
+  config.before(:each) do
+    DataMapper.setup(:default, "postgres://localhost/chitter_test")
+    DataMapper.finalize
+    DataMapper.auto_migrate!
+  end
+  
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+  
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
+  
+  config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.after(:suite) do
     puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end

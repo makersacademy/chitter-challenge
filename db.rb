@@ -9,5 +9,5 @@ DataMapper::Logger.new($stdout, :debug)
 
 DataMapper.finalize
 
-DataMapper.auto_update!
+DataMapper.auto_migrate!
 

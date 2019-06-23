@@ -1,0 +1,7 @@
+<h1>Chitterz</h1>
+<div>
+<% @peeps.each do |peep| %>
+<span><%= peep.body %></span><br>
+<span><%= peep.created_at %></span>
+<% end %>
+</div>

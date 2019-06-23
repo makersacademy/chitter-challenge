@@ -21,16 +21,13 @@ class Peep
   
   belongs_to :user
 
-  # def self.all
-  # end
-
   def publish!
     @published = true
     @created_at = DateTime.today
   end
 end
 
-class Chitter < Sinatra::base
+class Chitter < Sinatra::Base
 
 #  configure :development do
 #    DataMapper.setup(:default, 'postgres://postgres@localhost/chitter_test')
@@ -41,8 +38,13 @@ class Chitter < Sinatra::base
 #  end
 
   get '/' do
+    erb :welcome
+  end
+
+  get '/peeps' do
     @peeps = Peep.all :order => :created_at.desc
     erb :index
   end
 
   run! if app_file == $0
+end

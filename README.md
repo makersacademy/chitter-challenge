@@ -41,6 +41,10 @@ I used my data mapper classes to more appropriately plan the database relations.
 - testing my db locally
 - many failed attempts later, I use [this repo](https://github.com/Rosa-Fox/todo-sinatra-datamapper) and [this resource](http://cheat.errtheblog.com/s/datamapper) to refactor my setup
 
+### 3. Writing the code
+
+I decided not to use TDD for this project, as it adds another level of difficulty. Learning this new tool is my priority, so I leave writing tests for later.
+
 
 Features:
 -------
