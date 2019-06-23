@@ -12,4 +12,3 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-  # - psql -c 'CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(500));' -U postgres
