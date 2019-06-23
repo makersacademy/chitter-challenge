@@ -72,6 +72,46 @@ gem 'rspec'
 gem 'capybara'
 ```
 
+Database Set Up
+===================
+(Details derived from step 4 of Bookmark Manager challenge)
+
+Start install of PostgreSQL:
+
+```
+brew install postgresql
+```
+
+Allow Homebrew to start and stop the Postgres service:
+
+```
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
+
+Access first database:
+
+```
+psql postgres
+```
+
+Create new database:
+
+```
+CREATE DATABASE "your_user_name_here";
+```
+Connect to new database:
+
+```
+\c users;
+```
+
+Create table to store users:
+
+```
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), username VARCHAR
+(60), email VARCHAR(60), password VARCHAR(60));
+```
 
 
 As a Maker
