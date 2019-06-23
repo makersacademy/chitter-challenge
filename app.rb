@@ -9,19 +9,23 @@ enable :sessions
     erb :homepage
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
   post '/signup' do
-    user = User.create(
+    @user = User.create(
       name: params[:name],
       username: params[:username],
       email: params[:email],
       password: params[:password]
     )
     # session[:message] = "Successfully stored your login information"
-    redirect '/homepage'
+    redirect '/chitter'
   end
 
-  get '/homepage' do
-
+  get '/chitter' do
+    erb :chitter
   end
 
   run! if app_file == $0
