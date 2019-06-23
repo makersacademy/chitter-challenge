@@ -6,8 +6,8 @@ script:
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq postgresql-server-dev-9.3
-#- gem update --system
-#- gem install bundler
+- gem update --system
+- gem install bundler
 
 services:
   - postgresql
