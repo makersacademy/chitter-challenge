@@ -2,17 +2,17 @@ require 'peep'
 
 describe Peep do
   describe '.all' do
-    it 'reurns an array of peeps frorm database' do
-      peep = Peep.create(text: 'first peep')
-      Peep.create(text: 'second peep')
-      Peep.create(text: 'third peep')
+    it 'reurns an array of peeps from database starting at oldest' do
+      peep_one = Peep.create(text: 'first peep')
+      peep_two = Peep.create(text: 'second peep')
+      peep_three = Peep.create(text: 'third peep')
 
       peeps = Peep.all
 
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.text).to eq 'first peep'
+      expect(peeps.first.id).to eq peep_three.id
+      expect(peeps.first.text).to eq 'third peep'
     end
   end
 
