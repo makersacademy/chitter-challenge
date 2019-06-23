@@ -13,6 +13,6 @@ services:
   - postgresql
 
 before_script:
-  - sudo psql -c 'CREATE DATABASE Chitter_Test;' -U postgres
-  - sudo psql -d Chitter_Test -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(500), timestamp TIMESTAMPTZS DEFAULT NOW());' -U postgres
-  - sudo psql -d Chitter_test -c 'CREATE TABLE members (id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(30), email VARCHAR(100), password VARCHAR(150));' -U postgres
+  - psql \c 'CREATE DATABASE Chitter_Test;' -U postgres
+  - psql Chitter_Test 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(500), timestamp TIMESTAMPTZS DEFAULT NOW());' -U postgres
+  - psql Chitter_test 'CREATE TABLE members (id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(30), email VARCHAR(100), password VARCHAR(150));' -U postgres

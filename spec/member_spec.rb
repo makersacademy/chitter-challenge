@@ -63,5 +63,15 @@ describe Member do
 
       expect(authenticated_member.id).to eq member.id
     end
+
+    it 'returns nil given an incorrect email address' do
+      member = Member.create(
+        name: 'Test Person',
+        username: 'test123',
+        email: 'test@example.com',
+        password: 'password123')
+
+      expect(Member.authenticate(email: 'incorrecttest@example.com', password: 'password123')).to be nil
+    end
   end
 end

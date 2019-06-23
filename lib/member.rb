@@ -41,6 +41,9 @@ class Member
   def self.authenticate(email:, password:)
     result = DatabaseConnection.query(
       "SELECT * FROM members WHERE email = '#{email}';")
+
+    return unless result.any?
+    
     Member.new(
       id: result[0]['id'],
       name: result[0]['name'],
