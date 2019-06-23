@@ -6,7 +6,7 @@ require 'simplecov-console'
 require './app'
 require 'pg'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require File.join(File.dirname(__FILE__), '..', './app.rb')
 
 # Set the environment to "test"
 ENV['ENVIRONMENT'] = 'test'

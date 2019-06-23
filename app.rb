@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require './lib/user'
+
 
 class ChitterApp < Sinatra::Base
   enable :sessions
@@ -12,12 +14,17 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/signup' do
-    User.create(name: params[:name], username: params[:username], email: params[:email], psw: params[:psw])
-    @username = User.username
+    session[:current_user] = User.create(
+      name: params[:name],
+      username: params[:username],
+      email: params[:email],
+      psw: params[:psw],
+    )
     redirect '/chitter'
   end
 
   get '/chitter' do
+    @current_user = session[:current_user]
     erb :chitter
   end
 
