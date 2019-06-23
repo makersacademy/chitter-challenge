@@ -2,14 +2,12 @@ ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 
-
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'RSpec'
 require_relative './setup_test_database'
-
 
 Capybara.app = Chitter
 
@@ -18,7 +16,6 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
