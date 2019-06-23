@@ -14,17 +14,17 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/signup' do
-    session[:current_user] = User.create(
+      User.create(
       name: params[:name],
       username: params[:username],
       email: params[:email],
-      psw: params[:psw],
+      psw: params[:psw]
     )
     redirect '/chitter'
   end
 
   get '/chitter' do
-    @current_user = session[:current_user]
+    @current_user
     erb :chitter
   end
 

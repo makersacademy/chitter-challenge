@@ -3,7 +3,7 @@ require 'pg'
 class User
   attr_reader :name, :username, :email, :psw
 
-  def initialize(name:, username:, email:, psw:)
+  def initialize(name, username, email, psw)
     @name = name
     @username = username
     @email = email
@@ -16,12 +16,11 @@ class User
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("INSERT INTO users(name, username, email, psw) VALUES('#{name}', '#{username}', '#{email}', '#{psw}') RETURNING id, name, username, email, psw")
+    result = connection.exec("INSERT INTO chitter_user(name, username, email, psw) VALUES('#{name}', '#{username}', '#{email}', '#{psw}') RETURNING id, name, username, email, psw")
     User.new(
       name: result['name'],
       username: result['username'],
       email: result['email'],
-      psw: result['psw']
-      )
+      psw: result['psw'] )
     end
 end
