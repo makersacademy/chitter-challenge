@@ -1,12 +1,12 @@
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require './MVC/controller/chitter'
+require './app'
 require 'pg'
 require 'simplecov'
 require 'simplecov-console'
 
-require File.join(File.dirname(__FILE__), '..', './MVC/controller/chitter')
+require File.join(File.dirname(__FILE__), '..', './app')
 
 ENV['EVIRONMENT'] = 'test'
 

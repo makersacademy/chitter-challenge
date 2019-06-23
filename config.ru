@@ -1,3 +1,3 @@
-require './MVC/controller/chitter'
+require './app'
 
 run Chitter
