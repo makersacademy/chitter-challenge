@@ -6,7 +6,7 @@ The full instructions I was given for this project can be found in `challenge-in
 
 ## Progress
 
-
+I have done up to step 6 of the Straight Up user stories. RSpec passes but the controller needs debugging as I'm not able to sign up a user successfully when running the app locally. With more time I would have debugged and implemented the later steps.
 
 ## Set-up
 
