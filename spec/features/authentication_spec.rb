@@ -61,6 +61,6 @@ feature 'authentication' do
     click_button('Sign Out')
 
     expect(page).not_to have_content 'Welcome to Chitter, Test Person'
-    #expect(page).to have_content 'You have signed out'
+    # expect(page).to have_content 'You have signed out'
   end
 end

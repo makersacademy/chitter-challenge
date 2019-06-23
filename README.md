@@ -24,7 +24,7 @@
 ------------
 * rspec (via capybara)
 * 99.56% test coverage achieved
-* Linter: rubocop (2 offfenses)
+* Linter: rubocop (1 offence)
 
 ### DATABASE
 ------------
@@ -58,8 +58,26 @@ CREATE DATABASE "Chitter_Test"
 ### APPROACH
 ------------
 * Diagramed MVC Model of Chitter
-* Diagramed Class Responsibility Collaborator (CRC) Model of Chitter
-* Created Database structure for the Domain Model using Entity Relationship diagram:
+* Diagramed Class Responsibility Collaborator (CRC) Model of Chitter: https://github.com/rachjgriff/chitter-challenge/blob/master/UNADJUSTEDNONRAW_thumb_d77.jpg
+* Created Database structure for the Domain Model using Entity Relationship diagram: https://github.com/rachjgriff/chitter-challenge/blob/master/UNADJUSTEDNONRAW_thumb_d69.jpg
+
+* Used the Makers Wk 4 Challenge, bookmark_manager to guide me: https://github.com/makersacademy/course/tree/master/bookmark_manager
+
+* Completed first 6 user stories.
+* HOWEVER:
+  * You cannot see which user posted a peep.
+  * Not 100% sure if the sign out page is working (had to hash out part of the test in spec/features/authentication_spec.rb).
+  * Not 100% sure if the BCrypt functionality to encrypt the passwords is working properly as had to restart and exit servers completely to see the results I was expecting.
+
+### FOLLOW UP
+------------
+* Make it prettier with CSS!
+* Link Peep & Members tables together with a Foreign Key - this would allow functionality to display username and name with each tweet,
+* Look into how to ensure that password and username are unique.
+* Use Sinatra Flash to ensure email entered is valid.
+* Review how i have used Timestamptz and displayed time of tweet - I'm sure there is a better way of doing this!
+* Create Tag functionality.
+* Send email if user is tagged in a Peep.
 
 ------------
 # Chitter Challenge
