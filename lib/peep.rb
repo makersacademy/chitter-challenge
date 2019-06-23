@@ -21,9 +21,10 @@ class Peep
     peeps = DatabaseConnection.query('SELECT * FROM peeps
        ORDER BY created_at DESC')
     peeps.map do |peep|
+      time = Time.parse(peep['created_at']).strftime("%H:%M")
       Peep.new(id: peep['id'],
         text: peep['text'],
-        time: peep['created_at'])
+        time: time)
     end
   end
 
