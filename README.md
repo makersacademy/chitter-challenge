@@ -1,25 +1,38 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/Danielandro/chitter-challenge.svg?branch=master)](https://travis-ci.org/Danielandro/chitter-challenge)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Makers week 4 challenge
 
-Challenge:
--------
+Write a small Twitter clone that will allow the users to post messages to a public stream.
 
-As usual please start by forking this repo.
+Instructions
+------------
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Fork the repo 
 
-Features:
--------
+Run `bundle` to install dependencies
 
+**Setup database:**
+1. Connect to psql
+2. Create the database using the psql command `CREATE DATABASE chitter;`
+3. Connect to the database using the command `\c chitter;`
+4. Run the query saved in `01_create_peep_table.sql`
+5. Run query saved in `02_add_created_at_to_peeps.sql`
+
+**Setup test database:**
+1. Connect to psql
+2. Create the database using the psql command `CREATE DATABASE chitter_test;`
+3. Connect to the database using the command `\c chitter_test;`
+4. Run the query saved in `01_create_peep_table.sql`
+5. Run query saved in `02_add_created_at_to_peeps.sql`
+
+Run `rackup` to start the app at `localhost:9292`
+
+User Stories
+------------
+**DONE**
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -28,6 +41,10 @@ As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
+```
+
+**TODO**
+```
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
@@ -53,81 +70,56 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+#### File Structure
+``` 
+html
 
+├── Gemfile
+├── README.md
+├── lib
+│    └──  peep.rb
+├── app
+│    ├── app.rb
+│    │
+│    └── views
+│          └── peeps
+│                ├── index.erb
+│                │
+|                └── new.erb
+├── config.ru
+│
+└── spec    
+    ├── features
+    ├── units
+    └── spec_helper.rb
+
+```
 This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+Progress + Challenges:
+-----------------------
+I have satisfied the first two user stories - adding new peeps & viewing them in reverse chroinological order. I started to implement the third user story, but realised I need to store the dates using the Ruby Date object rather than postgres's format.
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+Test coverage is good > 90%
+Linting issues to be fixed so CI passes
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
-Notes on functionality:
-------
+* Decide if date should be created in database or model (probably in database - more flexibility)
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+* Fix linting issues (lines too long)
 
-Bonus:
------
+* Implement at least next two user stories
 
-If you have time you can implement the following:
+* Understand how to implement user authentication
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+* Add some styling (public directory)
 
-And/Or:
+Resources
+----------
+[Sinatra MVC File Structure](https://learn.co/lessons/sinatra-mvc-file-structure)
 
-* Work on the CSS to make it look good.
+[PostgreSQL Data Types - TutorialsPoint](https://www.tutorialspoint.com/postgresql/postgresql_data_types.htm)
 
-Good luck and let the chitter begin!
+[PostgreSQL Date/Time Types](https://www.postgresql.org/docs/9.5/datatype-datetime.html)
 
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+[Automatic Time Stamps](https://x-team.com/blog/automatic-timestamps-with-postgresql/)
