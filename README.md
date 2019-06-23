@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-This is my version of the chitter challenge.
+This is my version of the chitter challenge. You can view the original README file [here](https://github.com/makersacademy/chitter-challenge)
 
 Approach
 =========
@@ -47,8 +47,33 @@ Installation Instructions
 ==========================
 
 ```
-$ git clone https://github.com/tansaku/chitter_challenge
-$ bundle
-$ rackup
-visit localhost:9292/peeps to see and create peeps
+$ git clone git@github.com:bengscott2/chitter-challenge.git
+$ bundle install
 ```
+Database Setup
+===============
+
+* Connect to psql
+* Create the database and the testing database using the psql commands:
+
+```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+
+* Connect to the database using the pqsl command:
+
+```
+ \c chitter;
+ \c chitter_test;
+ ```
+
+* To set up the appropriate tables, connect to each database in 'psql' and run the SQL scripts in the 'db/migration' folder in the given order.
+
+
+Startup
+========
+```
+$ rackup
+```
+In your browser visit http://http://localhost:9292/peeps
