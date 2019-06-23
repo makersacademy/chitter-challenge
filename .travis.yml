@@ -10,3 +10,15 @@ before_install:
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
 
+services:
+  - postgresql
+
+addons:
+  postgresql: "11.3"
+  apt:
+    packages:
+    - postgresql-11.3
+    - postgresql-client-11.3
+env:
+  global:
+  - PGPORT=5432
