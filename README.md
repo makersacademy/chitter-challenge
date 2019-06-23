@@ -57,7 +57,7 @@ CREATE DATABASE "Chitter_Test"
 ### APPROACH
 ------------
 * Diagramed MVC Model of Chitter
-* Diagramed Class Responsibility Collaborator (CRC) Model of Chitter
+* Diagramed Class Responsibility Collaborator (CRC) Model of Chitter: https://github.com/rachjgriff/chitter-challenge/blob/master/UNADJUSTEDNONRAW_thumb_d69.jpg
 * Created Database structure for the Domain Model using Entity Relationship diagram
 
 ------------
