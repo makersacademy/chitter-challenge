@@ -42,8 +42,8 @@ class Member
     result = DatabaseConnection.query(
       "SELECT * FROM members WHERE email = '#{email}';")
 
-    return unless result.any?
-    return unless BCrypt::Password.new(result[0]['password']) == password
+    # return unless result.any?
+    # return unless BCrypt::Password.new(result[0]['password']) == password
 
     Member.new(
       id: result[0]['id'],

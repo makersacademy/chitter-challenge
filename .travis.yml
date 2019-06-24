@@ -18,5 +18,4 @@ before_install:
 #   username: postgres
 
 before_script:
-  - psql -c "CREATE DATABASE Chitter_Test;" - U postgres
-  - psql -c "CREATE DATABSE Chitter;" - U postgres
+  - "psql -c 'CREATE DATABASE Chitter_Test;'"
