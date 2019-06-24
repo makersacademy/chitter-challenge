@@ -18,6 +18,6 @@ postgres:
   username: postgres
 
 before_script:
-  - "psql -c 'CREATE DATABASE Chitter_Test;'"
-  - "psql -c Chitter_Test 'CREATE TABLE peep(id SERIAL PRIMARY KEY, peep VARCHAR(500), timestamp TIMESTAMPTZ DEFAULT NOW());'"
-  - "psql -c Chitter_Test 'CREATE TABLE members(id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(30), email VARCHAR(100), password VARCHAR(150));'"
+  - psql -c "CREATE DATABASE Chitter_Test;"
+  - psql -c Chitter_Test "CREATE TABLE peep(id SERIAL PRIMARY KEY, peep VARCHAR(500), timestamp TIMESTAMPTZ DEFAULT NOW());"
+  - psql -c Chitter_Test "CREATE TABLE members(id SERIAL PRIMARY KEY, name VARCHAR(100), username VARCHAR(30), email VARCHAR(100), password VARCHAR(150));"
