@@ -1,17 +1,17 @@
 rvm: '2.5.0'
 
+services:
+  - postgresql
+
 script:
   - mkdir -p spec && bundle exec rspec spec
 
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq postgresql-server-dev-9.3
-
-services:
-  - postgresql
+- gem update --system 
+- gem install bundler
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-
-
-  
+  - psql -c 'create database chitter;' -U postgres
