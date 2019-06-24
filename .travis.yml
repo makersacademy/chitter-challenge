@@ -14,4 +14,5 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_db_test;' -U postgres
+  - psql -c 'create database chitter_db;' -U postgres
   
