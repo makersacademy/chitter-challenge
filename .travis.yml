@@ -1,4 +1,4 @@
-rvm: '2.5.0'
+rvm: '2.6.0'
 
 services:
   - postgresql
