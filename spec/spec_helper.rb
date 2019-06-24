@@ -4,6 +4,7 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require_relative './setup_test_database'
+require_relative './create_test_tables'
 
 
 ENV['RACK_ENV'] = 'test'
@@ -16,6 +17,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 Capybara.app  = ChitterApp
+
+## Create test tables
+create_test_tables
 
 RSpec.configure do |config|
   config.filter_run_when_matching :focus

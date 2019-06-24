@@ -21,12 +21,17 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sessions/new' do
-    user = User.authenticate(email: params[:email], password: params[:password])
+    session[:user] = User.authenticate(email: params[:email], password: params[:password])
     redirect 'timeline/home'
   end
 
   post '/post/new' do
-    @user_id = "Test User"
+    if session[:user] != nil
+      user = session[:user]
+      @user_id = user.id      
+    else
+      @user_id = 'Anonymous'
+    end
     Peep.add_post(@user_id, params[:post])
     redirect '/timeline'
   end
