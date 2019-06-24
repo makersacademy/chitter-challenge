@@ -7,6 +7,6 @@ feature ' ## Authentication' do
    fill_in("username", with: 'Remzilla')
    fill_in(:password, with: 'password1')
    click_button('Sign in')
-   expect(page).to have_content 'Welcome, Remzilla'
+   expect(page).to have_content 'logged in as: Remzilla'
   end
 end

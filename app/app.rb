@@ -13,6 +13,7 @@ class ChitterApp < Sinatra::Base
 
   get '/timeline/home' do 
     @user = session[:user]
+    @timeline = Peep.timeline
     erb :user_timeline
   end
 
