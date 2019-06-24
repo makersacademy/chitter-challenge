@@ -1,0 +1,3 @@
+CREATE DATABASE chitter_test;
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, date  VARCHAR (60), text VARCHAR(60));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username  VARCHAR (10), password VARCHAR(10));

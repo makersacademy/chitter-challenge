@@ -1,3 +1,36 @@
+### Makers Academy weekend challenge 4
+
+In this challenge I was encuraged to build a web app- a copy of Twitter with following basic functions:
+
+1) User can sign up 
+2) User can post a message 
+3) User can post a message under it's own name
+4) User can see messages in reversed chronological order 
+5) User can see when a message was posted 
+
+### How to run: 
+```
+Ruby 2.6.3
+git clone git@github.com:monikakaczan/chitter-challenge.git
+bundle
+```
+
+### Testing 
+Rspec (capybara)
+96% coverage achieved
+
+### Database
+Detailed instructions in ```'./db'```
+<br>
+Connect to ```psql``` in Terminal
+
+The challenge involved using Ruby, Sinatra, Rspec/Capybara
+
+### Approach 
+
+Object Oriented Design and Test Driven Development
+
+
 Chitter Challenge
 =================
 
