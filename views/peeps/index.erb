@@ -1,5 +1,15 @@
-<ul>
+<!DOCTYPE html>
+<html>
+<h1>Welcome to Chitter!</h1>
+
+  <form method='post' action='/new'>
+    <input type='text' name="username" placeholder='USERNAME' />
+    <input type='text' name='text' placeholder='PEEP' minlength='2' maxlength='140'size='50' required />
+    <button type='submit'>Submit</button>
+  </form>
+
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <%= @username %>
+    <%= peep.text %></li>
   <% end %>
-</ul>
+</html>
