@@ -1,0 +1,61 @@
+<head>
+  <title> Chitter </title>
+  <h1> Chitter Timeline </h1>
+  <div align="right">
+    <a href='/registration'> Sign up </a>
+    <br>
+    <a href='/sessions'> Login </a>
+  </div>
+</head>
+<style>
+  /* dt {
+    background: #3399ff;
+    padding: 5px;
+  }
+  
+  dd {
+    background: #cce5ff;
+    margin: 30px;
+  } */
+
+  body {
+    font: 15px arial, sans-serif;
+    background-color: #33ccff;
+  } 
+
+  input[type=text] {
+    border: 2px solid blue;
+    border-radius: 4px;
+  }
+
+  #demo {
+    -webkit-box-shadow: 7px 5px 15px 5px #000000; 
+    box-shadow: 7px 5px 15px 5px #000000;
+  }
+</style>
+<body>
+  <div align='center'>
+    <dl>
+      <dt>
+        <form action='/post/new' method='post' id='post_form'>
+          <input type='text' name='post' id='post'  placeholder='Whats on your mind?'>
+          <input type='submit' value='Peep?!'>
+        </form>
+      </dt>
+      <% @timeline.reverse.each do |peep| %>
+      <br>
+      <br>
+      <dt id="#demo">
+        <%= peep.body %>
+      </dt>
+      <dd>
+        - <%= peep.user_id %> 
+      </dd>
+      <dd>
+        <%= peep.timestamp %>
+      </dd>
+      <% end %>
+    </dl>
+  </div>
+</body>
+

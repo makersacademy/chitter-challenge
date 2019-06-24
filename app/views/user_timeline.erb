@@ -1,0 +1,44 @@
+<head>
+  <title> Chitter </title>
+  <h1> Chitter Timeline </h1>
+  <div align="right">
+    <a href='/registration'> logged in as: <%= @user.username %> </a>
+  </div>
+</head>
+<style>
+  dt {
+    background: #3399ff;
+    padding: 20px;
+  }
+  
+  dd {
+    background: #cce5ff;
+    margin: 5px;
+  }
+</style>
+<body>
+  <div align='center'>
+    <dl>
+      <dt>
+        <form action='/post/new' method='post' id='post_form'>
+          <input type='text' name='post' id='post'  placeholder='Whats on your mind?'>
+          <input type='submit' value='Peep?!'>
+        </form>
+      </dt>
+      <% @timeline.reverse.each do |peep| %>
+      <br>
+      <br>
+      <dt>
+        <%= peep.body %>
+      </dt>
+      <dd>
+        - <%= peep.user_id %> 
+      </dd>
+      <dd>
+        <%= peep.timestamp %>
+      </dd>
+      <% end %>
+    </dl>
+  </div>
+</body>
+
