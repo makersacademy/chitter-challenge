@@ -1,4 +1,86 @@
-Chitter Challenge
+# RACHEL GRIFFITHS
+------------
+## CHALLENGE: CHITTER
+------------
+* Join the new social media craze, Chitter!
+* Post a peep!
+* See all the peeps and the time they were posted.
+* Sign up to Chitter.
+* If you're lucky, you can log in and out of Chitter.
+* If you're really really lucky, you will receive an email if you are tagged in a peep.
+
+### GETTING STARTED
+------------
+* Ruby 2.5.0
+* Git Clone: git@github.com:rachjgriff/chitter-challenge.git
+* Install dependences: bundle
+
+### USAGE
+------------
+* Start command: Rackup
+* URL: http://localhost:9292/peeps
+
+### TESTING
+------------
+* rspec (via capybara)
+* 99.56% test coverage achieved
+* Linter: rubocop (1 offence)
+
+### DATABASE
+------------
+* Connect to psql
+* Follow the below instructions to create the required database.
+
+```
+CREATE DATABASE "Chitter";
+\c Chitter;
+```
+```
+CREATE DATABASE "Chitter_Test"
+\c Chitter_Test;
+```
+
+* Run the following queries in db/migrations to create the required tables in each database:
+  * 01_create_peeps_table.sql
+  * 02_create_members_table.sql
+
+### WEBSITE SPECIFICATION (REQUIREMENTS)
+------------
+* Post a message (Peep) to Chitter
+* See all Peeps in reverse chronological order with username and name displayed
+* See the time at which a Peep was posted
+* Sign up for Chitter with your name, email, username and password (username and email are unique)
+* Log in to Chitter
+* Log out of Chitter
+* Tag a user in a Peep
+* Receive an email if you are tagged in a Peep
+
+### APPROACH
+------------
+* Diagramed MVC Model of Chitter
+* Diagramed Class Responsibility Collaborator (CRC) Model of Chitter: https://github.com/rachjgriff/chitter-challenge/blob/master/UNADJUSTEDNONRAW_thumb_d77.jpg
+* Created Database structure for the Domain Model using Entity Relationship diagram: https://github.com/rachjgriff/chitter-challenge/blob/master/UNADJUSTEDNONRAW_thumb_d69.jpg
+
+* Used the Makers Wk 4 Challenge, bookmark_manager to guide me: https://github.com/makersacademy/course/tree/master/bookmark_manager
+
+* Completed first 6 user stories.
+* HOWEVER:
+  * You cannot see which user posted a peep.
+  * Not 100% sure if the sign out page is working (had to hash out part of the test in spec/features/authentication_spec.rb).
+  * Not 100% sure if the BCrypt functionality to encrypt the passwords is working properly as had to restart and exit servers completely to see the results I was expecting.
+
+### FOLLOW UP
+------------
+* Make it prettier with CSS!
+* Link Peep & Members tables together with a Foreign Key - this would allow functionality to display username and name with each tweet,
+* Look into how to ensure that password and username are unique.
+* Use Sinatra Flash to ensure email entered is valid.
+* Review how i have used Timestamptz and displayed time of tweet - I'm sure there is a better way of doing this!
+* Create Tag functionality.
+* Send email if user is tagged in a Peep.
+
+------------
+# Chitter Challenge
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am

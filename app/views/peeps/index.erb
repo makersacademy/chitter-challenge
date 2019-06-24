@@ -1,0 +1,26 @@
+<% if @member %>
+  <h1>Welcome to Chitter, <%= @member.name %></h1>
+  <form action='/sessions/destroy' method='post'>
+    <input type="submit" value="Sign Out"/>
+  </form>
+<% end %>
+<br><br>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.peep %>
+        <%= peep.timestamp[11..15] %>
+    </li>
+  <% end %>
+</ul>
+<br>
+<form action='/peeps/new' method='get'>
+  <input type="submit" value="New Peep"/>
+</form>
+<br>
+<form action='/members/new' method='get'>
+  <input type="submit" value="Sign Up"/>
+</form>
+<br>
+<form action='/sessions/new' method='get'>
+  <input type="submit" value="Sign In"/>
+</form>
