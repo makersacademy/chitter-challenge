@@ -24,6 +24,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_database'
+require_relative './create_test_tables'
 
 Capybara.app = Chitter
 
