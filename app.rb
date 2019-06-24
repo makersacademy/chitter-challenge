@@ -8,8 +8,13 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
-    erb(:peeps)
+    @peeps = Chitter.all
+    erb :peeps
   end
 
+  post '/peeps' do
+    Chitter.create(peeps: params[:peeps])
+    redirect '/peeps'
+  end
   run! if app_file == $0
 end

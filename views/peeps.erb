@@ -1,3 +1,5 @@
-<p>First peep</p>
-<p>Second peep</p>
-<p>Third peep</p>
+<ul>
+  <% @peeps.each do |peeps| %>
+   <li><%= peeps %></li>
+   <% end %>
+</ul>
