@@ -13,8 +13,8 @@ class ChitterApp < Sinatra::Base
     erb :signup
   end
 
-  post '/signup' do
-      User.create(
+  post '/signup/success' do
+      session[:current_user] = User.create(
       name: params[:name],
       username: params[:username],
       email: params[:email],
