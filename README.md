@@ -91,8 +91,8 @@ bundle
 Connect to `psql` and create the `chitter_db` and `chitter_db_test` databases:
 
 ```
-CREATE DATABASE chitter_db;
-CREATE DATABASE chitter_db_test;
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
 ```
 
 To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
@@ -103,7 +103,7 @@ To set up the appropriate tables, connect to each database in `psql` and run the
 ```
 rackup
 ```
-To view bookmarks, navigate to `localhost:9292`.
+To view peeps, navigate to `localhost:9292`.
 
 
 ### To run tests:
