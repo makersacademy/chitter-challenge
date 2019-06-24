@@ -21,7 +21,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sessions/new' do
-    session[:user] = User.authenticate(email: params[:email], password: params[:password])
+    session[:user] = User.authenticate(params[:email], params[:password])
     redirect 'timeline/home'
   end
 
