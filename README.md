@@ -99,10 +99,14 @@ Tests can be run from the root directory with `rspec`. The gem Simplecov will al
 
 Over the course of this project I constructed two MVC models at different stages of development:
 
+
 User story 1:
+
 ![User Story 1: Domain Model](https://github.com/marbuthnott/chitter-challenge/blob/master/images/user_story_1.jpg?raw=true)
 
+
 User story 2:
+
 ![User Story 4: Domain Model](https://github.com/marbuthnott/chitter-challenge/blob/master/images/user_story_4.jpg?raw=true)
 
 ### MOTIVATION
