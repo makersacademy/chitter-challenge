@@ -1,11 +1,45 @@
 Chitter Challenge
 =================
 
-### INTRODUCTION
+## INTRODUCTION
 
 The aim of this project is to build a small Twitter clone that will allow the users to post messages to a public stream.
 
 The project is provided by Makers Academy. It is the fourth weekend challenge and is the culmination of a week spent on the fundamentals of web app development with a database.
+
+## GETTING STARTED
+
+1. Fork/clone this repository using `git clone https://github.com/marbuthnott/chitter-challenge`
+
+2. Navigate to the route directory with `cd chitter-challenge`
+
+3. Run `bundle install` to install the project's dependencies
+
+4. Run `psql postgres` to open the psql prompt.
+
+5. Create the chitter database with `\i ./db/01_create_chitter_database.sql;` and connect to it with `\c chitter`
+
+6. Create the peeps table with `\i ./db/02_create_peeps_table.sql;`
+
+7. Create the users table with `\i ./db/03_create_uers_table.sql;`
+
+8. Open this server with `rackup` and navigate to the specified address. By default it's `localhost:9292`.
+
+## HOW TO USE THE APP
+
+SIGN UP
+1. Click the 'Sign Up' button.
+2. Fill in all the text fields with your details and click the 'Submit' button.
+
+LOGIN
+1. Click the 'Log In' button.
+2. Fill in the fields with your login details and click 'Log In'. If you've entered incorrect details you'll see a flash notice.
+
+WRITE A PEEP
+1. Once you've logged in you'll see the 'Write a Peep' button.
+2. Click on 'Write a Peep' and submit your peep!
+
+Happy peeping!!
 
 ### USER STORIES
 
@@ -44,6 +78,32 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+## TECH/FRAMEWORK USED
+
+**Primary programming language:** *Ruby*
+
+**Other programming languages:** *HTML*
+
+**Unit testing framework:** *RSpec* is a Behaviour Driven Development for Ruby, run from the command line.
+
+**Feature testing framework:** *Capybara* is used to test web applications by simulating how a real user would interact with your app. It is run through RSpec commands in the terminal.
+
+**ORM:** *PostgreSQL* is an open-source relational database management system. It is designed to handle a range of workloads, from single machines to data warehouses or Web services.
+
+## RUNNING TESTS
+
+Tests can be run from the root directory with `rspec`. The gem Simplecov will also be run to provide code coverage.
+
+## MODELS/IMAGES
+
+Over the course of this project I constructed two MVC models at different stages of development:
+
+User story 1:
+![User Story 1: Domain Model](https://github.com/marbuthnott/chitter-challenge/blob/master/images/user_story_1.jpg?raw=true)
+
+User story 2:
+![User Story 4: Domain Model](https://github.com/marbuthnott/chitter-challenge/blob/master/images/user_story_4.jpg?raw=true)
 
 ### MOTIVATION
 
@@ -109,12 +169,12 @@ I want to post a message (peep) to chitter
 
 Feature tests:
 
--[X] A user can add multiple peeps and view them.
+- [X] A user can add multiple peeps and view them.
 
 `peep` unit tests:
 
--[X] Creates a new peep.
--[X] Returns a list of peeps.
+- [X] Creates a new peep.
+- [X] Returns a list of peeps.
 
 ### USER STORY 2
 
@@ -128,7 +188,7 @@ I want to see all peeps in reverse chronological order
 
 Feature tests:
 
--[X] A user sees the posts in reverse chronological order.
+- [X] A user sees the posts in reverse chronological order.
 
 ### USER STORY 3
 
@@ -140,11 +200,11 @@ I want to see the time at which it was made
 
 Feature tests:
 
--[X] A user can see the time a peep was made.
+- [X] A user can see the time a peep was made.
 
 `peep` unit tests:
 
--[X] Creates a new peep with a timestamp.
+- [X] Creates a new peep with a timestamp.
 
 ### USER STORY 4
 ```
@@ -157,13 +217,13 @@ I want to sign up for Chitter
 
 Feature tests:
 
--[X] A user can sign up to Chitter.
+- [X] A user can sign up to Chitter.
 
 `user` unit tests:
 
--[X] It can create a new user.
--[X] It creates a new user and stores the data in a users table.
--[X] It can find a user by id.
+- [X] It can create a new user.
+- [X] It creates a new user and stores the data in a users table.
+- [X] It can find a user by id.
 
 Technical Approach:
 -----
