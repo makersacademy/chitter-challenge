@@ -1,34 +1,47 @@
-<h1>Chitter</h1>
+<!DOCTYPE html>
+<head>
+  <meta charset = "UTF-8">
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
 
-<% if !@user %>
-  <form action="/sessions/create" method="post">
-    <input type="submit" name="type" value="Log In">
-    <input type="submit" name="type" value="Sign Up">
-  </form>
+<body>
+  <div class="banner">
+    <h1>Chitter</h1>
 
-<% else @user %>
-  <h2>Welcome <%= @user.username %> </h2>
-  <form action="/peeps/create">
-    <input type="submit" name="send" value="Write a Peep">
-  </form>
-<% end %>
-
-<% if !@peeps.empty? %>
-  <% @peeps.each do |peep| %>
-    <div class='container'>
-      <div class="card" style="width: 50%; margin: 2px auto;">
-        <div class="card-body">
-          <h6 class="card-subtitle"><%= peep.username %></h6>
-          <h6 class="card-subtitle"><%= peep.timestamp %></h6>
-          <p class="card-text"><%= peep.peep %></p>
-        </div>
+    <% if @user %>
+      <div class='header-container'>
+        <form action="/sessions/destroy" method="post">
+          <input class="button" type="submit" value="Log Out">
+        </form>
       </div>
-    </div>
-  <% end %>
-<% end %>
+    <% end %>
 
-<% if @user %>
-  <form action="/sessions/destroy" method="post">
-    <input type="submit" value="Log Out">
-  </form>
-<% end %>
+    <% if !@user %>
+      <div class='header-container'>
+        <form action="/sessions/create" method="post">
+          <input class='button' id='login-button' type="submit" name="type" value="Log In">
+          <input class='button' id='signup-button' type="submit" name="type" value="Sign Up">
+        </form>
+      </div>
+  </div>
+
+    <% else @user %>
+      <p class="welcome-note">Welcome <%= @user.username %> </p>
+      <form action="/peeps/create">
+        <input class="peep-button" type="submit" name="send" value="Write a Peep">
+      </form>
+    <% end %>
+
+  <div class='container'>
+    <% if !@peeps.empty? %>
+      <% @peeps.each do |peep| %>
+        <div class='card-container'>
+          <p class="card-text"><%= peep.peep %></p>
+          <p class="card-subtitle"><%= peep.username %></p>
+          <p class="card-subtitle"><%= peep.timestamp %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</body>

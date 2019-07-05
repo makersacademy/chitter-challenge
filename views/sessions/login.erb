@@ -1,13 +1,30 @@
-<%= flash[:notice] %>
+<!DOCTYPE html>
+<head>
+  <meta charset = "UTF-8">
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
 
-<h1>Log in to Chitter</h1>
+<body>
+  <div class="banner">
+    <h1>Chitter</h1>
+    <p class="welcome-note">Log in to Chitter</p>
+    <div class="welcome-note">
+      <%= flash[:notice] %>
+    </div>
+    <div class="header-container">
+      <a class="button" id="back-button" href="/">Back</a>
+    </div>
+  </div>
 
-<form action="/sessions" method="post">
+  <div class="container" id="signup-container">
+    <div class="card-container" id="signup-card-container">
+      <form action="/sessions" method="post">
+        Username <input class="main-form__input"  type="text" name="username" placeholder="username">
+        Password <input class="main-form__input"  type="text" name="password" placeholder="password">
+        <input class="button" id="submit-button" type="submit" value="Log In">
+      </form>
+    </div>
+  </div>
 
-  Username <input type="text" name="username" placeholder="username">
-  Password <input type="text" name="password" placeholder="password">
-
-  <input type="submit" value="Log In">
-</form>
-<br>
-<a href="/">Back</a>
+</body>
