@@ -5,9 +5,9 @@ Chitter Challenge
 
 ## INTRODUCTION
 
-The aim of this project is to build a small Twitter clone that will allow the users to post messages to a public stream.
+The aim of this project was to build a small Twitter clone that will allow the users to post messages to a public stream.
 
-The project is provided by Makers Academy. It is the fourth weekend challenge and is the culmination of a week spent on the fundamentals of web app development with a database.
+The project is provided by Makers Academy. It is the fourth weekend challenge and is the culmination of a week spent on the fundamentals of web app development with a database. It is written in ruby using the domain-specific framework, Sinatra.
 
 ## GETTING STARTED
 
@@ -86,6 +86,8 @@ I want to receive an email if I am tagged in a Peep
 **Primary programming language:** *Ruby*
 
 **Other programming languages:** *HTML*
+
+**Web application framework:** *Sinatra*. Sinatra is a free and open source software web application library and domain-specific language written in Ruby.
 
 **Unit testing framework:** *RSpec* is a Behaviour Driven Development for Ruby, run from the command line.
 
