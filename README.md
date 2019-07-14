@@ -119,4 +119,6 @@ The focus of this project was to cement my learnings from the previous week usin
 
 I started by reading through the user stories and mapping out what objects would be required and the methods they may include. Once I had mapped the objects and their methods I started iterating through the user stories using TDD. I would write the feature test, and then the passing code. Here is where the MVC models became extremely useful! As an MVC newbie having a model by your side while writing the code made it significantly easier to write the code, refactor, and debug.
 
+## WHAT I WOULD DO DIFFERENTLY
+
 For future projects it would be good to move away from using PG queries as an ORM (Object Relational Mapping), and try out the DataMapper or ActiveRecord plugins.
