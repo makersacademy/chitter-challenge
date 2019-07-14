@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+  <meta charset = "UTF-8">
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+
+<body>
+  <div class="banner">
+    <h1>Chitter</h1>
+    <p class="welcome-note">Create your Chitter account</p>
+    <div class="header-container">
+      <a class="button" id="back-button" href="/">Back</a>
+    </div>
+  </div>
+  <div class="container" id="signup-container">
+    <div class="card-container" id="signup-card-container">
+      <form action="/users/create" method="post" id="signup">
+        Name: <input class="main-form__input" type="text" name="name" placeholder="full name">
+        Username: <input class="main-form__input" type="text" name="username" placeholder="username">
+        Email: <input class="main-form__input" type="text" name="email" placeholder="email">
+        Password: <input class="main-form__input" type="text" name="password" placeholder="password">
+        <input class="button" id="submit-button" type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+</body>

@@ -1,0 +1,125 @@
+
+body {
+  font-family: 'Overpass Mono', monospace;
+}
+
+.banner {
+  display: fixed;
+  background: white;
+}
+
+.header-container {
+  position: absolute;
+  display: flex;
+  right: 10px;
+  top: 10px;
+  padding: 10px;
+}
+
+.welcome-note {
+  position: absolute;
+  display: flex;
+  left: 50%;
+  transform: translate(-50%, 0);  
+  top: 10px;
+  padding: 10px;
+  font-size: 1.2rem;
+  float: center;
+}
+
+.container {
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 3px solid black;
+  box-shadow: 5px 9px;
+}
+
+#signup-container {
+  margin-top: 50px;
+  max-width: 450px;
+}
+
+.card-container {
+  margin: 20px auto;
+  width: 400px;
+  transition: 0.3s;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(111, 219, 143);
+}
+
+#signup-card-container {
+  width: 250px;
+  font-size: 1.1rem;
+}
+
+.button {
+  letter-spacing: 3px;
+  font-family: 'Overpass Mono', monospace;
+  padding: 10px 20px;
+  width: 120px;
+  float: left;
+  background-color: black;
+  color: white;
+  display: block;
+  margin: 4px 0px;
+  margin-right: 10px;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  letter-spacing: 3px;
+}
+
+#back-button {
+  width: 50%;
+}
+
+.peep-button {
+  position: absolute;
+  padding: 10px 20px;
+  letter-spacing: 3px;
+  font-family: 'Overpass Mono', monospace;
+  border: 3px solid black;
+  border-radius: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);  
+  margin-top: 10px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 5px 9px;
+}
+
+.card-subtitle {
+  color: rgb(107, 148, 138);
+  font-size: 0.9rem;
+  float: left;
+  padding-right: 20px;
+}
+
+.main-form__input {
+  display: block;
+  width: 87%;
+  border: 0;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 10px;
+  outline: 0;
+  font-size: .7rem;
+  color: #464545;
+}
+
+.form__input {
+  margin: 4px 0px;
+  margin-right: 10px;
+}
+
+#submit-button {
+  transform: translate(50%, 0); 
+}

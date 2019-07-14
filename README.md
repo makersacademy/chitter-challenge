@@ -1,21 +1,49 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+![Chitter](./images/peep_view.png)
 
-Challenge:
--------
+## INTRODUCTION
 
-As usual please start by forking this repo.
+The aim of this project was to build a small Twitter clone that will allow the users to post messages to a public stream.
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+The project is provided by Makers Academy. It is the fourth weekend challenge and is the culmination of a week spent on the fundamentals of web app development with a database. It is written in ruby using the domain-specific framework, Sinatra.
 
-Features:
--------
+## GETTING STARTED
+
+1. Fork/clone this repository using `git clone https://github.com/marbuthnott/chitter-challenge`
+
+2. Navigate to the route directory with `cd chitter-challenge`
+
+3. Run `bundle install` to install the project's dependencies
+
+4. Run `psql postgres` to open the psql prompt.
+
+5. Create the chitter database with `\i ./db/01_create_chitter_database.sql;` and connect to it with `\c chitter`
+
+6. Create the peeps table with `\i ./db/02_create_peeps_table.sql;`
+
+7. Create the users table with `\i ./db/03_create_uers_table.sql;`
+
+8. Open this server with `rackup` and navigate to the specified address. By default it's `localhost:9292`.
+
+## HOW TO USE THE APP
+
+SIGN UP
+1. Click the 'Sign Up' button.
+2. Fill in all the text fields with your details and click the 'Submit' button.
+
+LOGIN
+1. Click the 'Log In' button.
+2. Fill in the fields with your login details and click 'Log In'. If you've entered incorrect details you'll see a flash notice.
+
+WRITE A PEEP
+1. Once you've logged in you'll see the 'Write a Peep' button.
+2. Click on 'Write a Peep' and submit your peep!
+
+Happy peeping!!
+
+### USER STORIES
 
 ```
 STRAIGHT UP
@@ -53,81 +81,46 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+## TECH/FRAMEWORK USED
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+**Primary programming language:** *Ruby*
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+**Other programming languages:** *HTML*
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+**Web application framework:** *Sinatra*. Sinatra is a free and open source software web application library and domain-specific language written in Ruby.
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
+**Unit testing framework:** *RSpec* is a Behaviour Driven Development for Ruby, run from the command line.
 
-Notes on functionality:
-------
+**Feature testing framework:** *Capybara* is used to test web applications by simulating how a real user would interact with your app. It is run through RSpec commands in the terminal.
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+**ORM:** *PostgreSQL* is an open-source relational database management system. It is designed to handle a range of workloads, from single machines to data warehouses or Web services. [Link](https://www.postgresql.org/) for more info.
 
-Bonus:
------
+**Web Server Interface:** *Rack*. While developing the app I used the Ruby web server interface, Rack. More info can be found at [Rack](https://rack.github.io/).
 
-If you have time you can implement the following:
+## RUNNING TESTS
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+Tests can be run from the root directory with `rspec`. The gem Simplecov will also be run to provide statistics on code coverage.
 
-And/Or:
+## MODELS/IMAGES
 
-* Work on the CSS to make it look good.
+Over the course of this project I constructed two MVC models at different stages of development:
 
-Good luck and let the chitter begin!
 
-Code Review
------------
+User story 1:
 
-In code review we'll be hoping to see:
+![User Story 1: Domain Model](https://github.com/marbuthnott/chitter-challenge/blob/master/images/user_story_1.jpg?raw=true)
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+User story 2:
 
-Automated Tests:
------
+![User Story 4: Domain Model](https://github.com/marbuthnott/chitter-challenge/blob/master/images/user_story_4.jpg?raw=true)
 
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
+## APPROACH
 
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
+The focus of this project was to cement my learnings from the previous week using `PG` and `SQL` queries. I wanted to demonstrate my understanding of a CRUD (Create, Read, Update, Delete) server, and to make the web app as RESTful (Representational State Transfer) as I could. Finally I wanted a better understanding of the  MVC relationship by sketching out the request/response cycle of each feature.
 
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
+I started by reading through the user stories and mapping out what objects would be required and the methods they may include. Once I had mapped the objects and their methods I started iterating through the user stories using TDD. I would write the feature test, and then the passing code. Here is where the MVC models became extremely useful! As an MVC newbie having a model by your side while writing the code made it significantly easier to write the code, refactor, and debug.
 
-Notes on test coverage
-----------------------
+## WHAT I WOULD DO DIFFERENTLY
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+For future projects it would be good to move away from using PG queries as an ORM (Object Relational Mapping), and try out the DataMapper or ActiveRecord plugins.
