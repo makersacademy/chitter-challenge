@@ -8,3 +8,8 @@ feature 'viewing chitter' do
     expect(page).to have_content "peep"
   end
 end
+
+
+# As a maker
+# So that I can see what others are saying
+# I want to see all peeps in reverse chronological order
