@@ -2,14 +2,15 @@
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
-Rspec.configure do |config
+require_relative 'setup_test_database'
+require 'simplecov'
+require 'simplecov-console'
+
+RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
   end
 end
-require 'simplecov'
-require 'simplecov-console'
-
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
