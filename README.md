@@ -1,5 +1,10 @@
 Memoization
 
+date_on
+time_at
+
+sent at / sent on
+
 
 Chitter Challenge
 =================
@@ -14,7 +19,7 @@ $> psql
 admin=# CREATE DATABASE "bookmark_manager_test";
 admin=# CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
 
-PLease test chitter_test database 
+PLease test chitter_test database
 
 Challenge:
 -------

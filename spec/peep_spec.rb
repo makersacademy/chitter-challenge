@@ -1,8 +1,8 @@
 require 'peep.rb'
 
 describe Peep do
-  # subject(:peep) { described_class.new }
-  context '#message' do
+  subject(:peep) { described_class.new }
+  context '.message' do
     it 'returns messages' do
       test_connection = PG.connect(dbname: 'chitter_test')
 
@@ -13,5 +13,12 @@ describe Peep do
 
       expect(peep).to include "Your New Peep is now life!"
     end
+  end
+  describe '.message' do
+    it 'creates a new message' do
+    Peep.create(url: 'Testing New Message')
+
+    expect(Peep.message).to include 'Testing New Message'
+  end
   end
 end
