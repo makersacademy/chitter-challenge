@@ -6,7 +6,13 @@ feature 'posting a peep' do
     visit('/')
     expect(page).to have_content "Hello, world!"
   end
-  # scenario 'user can go to /create and add a peep to the db' do
-  #   visit('/')
-  # end
+  scenario 'user can go to /create and add a peep to the db' do
+    visit('/')
+    click_button 'create'
+    expect(page).to have_content "Please enter your message below"
+    fill_in 'body', with: 'a sample peep'
+    click_button 'submit'
+    click_button 'view_peeps'
+    expect(page).to have_content "a sample peep"
+  end
 end
