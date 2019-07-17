@@ -8,6 +8,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep' do
+    p ENV
+    
     @peep = Peep.message
     erb(:peep)
   end
