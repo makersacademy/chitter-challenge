@@ -1,0 +1,16 @@
+<html>
+  <body style="background-color:rgb(66, 190, 194)">
+    <h1><center>Chitter</center></h1>
+    <form action="/post-peep" method="post">
+        <label for="peep">
+         <center>Whats on your mind?
+        <input type="text" name="peep">
+        <input type="submit" value="Post">
+      </form></center>
+      <ul>
+        <% @peeps.reverse.each do |peep| %>
+          <li><%= peep %></li><br>
+        <% end %>
+      </ul>
+  </body>
+</html>
