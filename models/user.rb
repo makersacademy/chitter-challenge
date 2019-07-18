@@ -13,7 +13,7 @@ class User
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'peep_manager_test')
     else 
-      connection = PG.connect(dbname: 'peep_manager')
+     connection = PG.connect(dbname: 'peep_manager')
     end
     result = connection.exec("SELECT * FROM users;")
     result.map { |user| [user['username'], user['name'], user['email']] }
@@ -23,7 +23,7 @@ class User
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'peep_manager_test')
     else 
-      connection = PG.connect(dbname: 'peep_manager')
+     connection = PG.connect(dbname: 'peep_manager')
     end
     result = connection.exec("INSERT INTO users (username, name, email, password) 
                               VALUES('#{username}', '#{name}', '#{email}', '#{password}') 

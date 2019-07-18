@@ -12,7 +12,7 @@ describe Peep do
     peeps = Peep.all
     
     # will need to update these tests later to include time and other data types etc.
-    expect(peeps.length).to eq 4
+    expect(peeps.length).to eq 3
     expect(peeps.first).to be_a Peep
     expect(peeps.last.peep).to eq "mike"
     end
