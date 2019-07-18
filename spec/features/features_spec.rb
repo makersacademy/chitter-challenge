@@ -28,6 +28,6 @@ feature 'allows a user to sign up for chitter' do
     fill_in 'email', with: 'richieganney@icloud.com'
     fill_in 'password', with: 'Password123'
     click_button("Sign up!")
-    expect(page).to have_content "Welcome to Chitter!"
+    expect(page).to have_content "Chitter"
   end
 end

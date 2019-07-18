@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './models/peep'
+require_relative './models/user'
 # require_relative './models/chitter'
 
 class ApplicationManager < Sinatra::Base
@@ -18,8 +19,9 @@ class ApplicationManager < Sinatra::Base
     erb(:sign_up)
   end
 
-  post 'save-sign-up' do
-    "Welcome to Chitter!"
+  post '/save-sign-up' do
+    User.add(params[:username], params[:name], params[:email], params[:password])
+    redirect '/'
   end
 
   run! if app_file == $0
