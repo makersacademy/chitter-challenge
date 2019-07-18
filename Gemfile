@@ -7,6 +7,7 @@ gem 'rubocop', '0.56.0'
 gem 'capybara'
 gem 'sinatra'
 gem 'pg'
+gem 'timecop'
 
 group :test do
   gem 'rspec'
