@@ -4,9 +4,21 @@ require_relative './lib/peeps.rb'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions, :method_override
+
   get '/' do
     'Welcome to Chitter'
     erb :index
+  end
+
+  get '/peeps/new' do
+    erb :"peeps/new"
+  end
+
+  post '/peeps/new' do
+    time = Time.now
+    Peeps.create(peep: params['peep'], time: time)
+    redirect '/peeps'
   end
 
   get '/peeps' do
@@ -14,12 +26,8 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
-  get '/peeps/new' do
-    erb :"peeps/new"
-  end
-
-  post '/peeps' do
-    Peeps.create(peep: params['peep'])
+  delete '/peeps/:id' do
+    Peeps.delete(id: params[:id])
     redirect '/peeps'
   end
 
