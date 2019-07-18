@@ -14,6 +14,14 @@ class ApplicationManager < Sinatra::Base
     redirect '/'
   end
 
+  get '/sign-up' do
+    erb(:sign_up)
+  end
+
+  post 'save-sign-up' do
+    "Welcome to Chitter!"
+  end
+
   run! if app_file == $0
 
 end
