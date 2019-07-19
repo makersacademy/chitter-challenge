@@ -15,11 +15,11 @@ class ApplicationManager < Sinatra::Base
     redirect '/'
   end
 
-  get '/sign-up' do
-    erb(:sign_up)
+  get '/users' do
+    erb(:users)
   end
 
-  post '/save-sign-up' do
+  post '/users/new' do
     User.add(params[:username], params[:email], params[:password])
     redirect '/'
   end

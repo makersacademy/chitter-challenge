@@ -18,16 +18,15 @@ feature 'allows a user to sign up for chitter' do
 
   scenario 'homepage has link to sign-up page' do
     visit('/')
-    expect(page).to have_selector(:css, 'a[href="/sign-up"]')
+    expect(page).to have_selector(:css, 'a[href="/users"]')
   end
 
   scenario 'sign in to chitter' do
-    visit('/sign-up')
-    fill_in 'name', with: 'Richie'
+    visit('/users')
     fill_in 'username', with: 'richieganney'
     fill_in 'email', with: 'richieganney@icloud.com'
     fill_in 'password', with: 'Password123'
     click_button("Sign up!")
-    expect(page).to have_content "Chitter"
+    expect(page).to have_content "Welcome, richieganney"
   end
 end

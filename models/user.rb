@@ -4,10 +4,9 @@ require './spec/database_connection_setup'
 
 class User
 
-  def initialize(username = nil, email = nil, password = nil)
+  def initialize(username = nil, email = nil)
     @username = username
     @email = email
-    @password = password
   end
 
   def self.all
@@ -18,8 +17,8 @@ class User
   def self.add(username, email, password)
     result = DatabaseConnection.query("INSERT INTO users (username, email, password) 
                                       VALUES('#{username}', '#{email}', '#{password}') 
-                                      RETURNING username, email, password;")
-    User.new(result[0]['username'], result[0]['email'], result[0]['password'])
+                                      RETURNING username, email;")
+    User.new(result[0]['username'], result[0]['email'])
   end
 
 end

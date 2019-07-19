@@ -6,7 +6,7 @@ describe User do
     it 'returns all user details apart from password' do
     
     connection = PG.connect(dbname: 'peep_manager_test')
-    connection.exec("INSERT INTO users (username, name, email) VALUES('richieganney', 'richie', 'richieganney@gmail.com');")
+    connection.exec("INSERT INTO users (username, email) VALUES('richieganney', 'richieganney@gmail.com');")
     users = User.all
     expect(users.flatten).to include 'richieganney'
     expect(users.flatten).to include 'richieganney@gmail.com'
