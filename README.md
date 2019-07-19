@@ -2,6 +2,22 @@
 
 This is my attempt at the week 4 weekend challenge - [Chitter](https://github.com/makersacademy/chitter-challenge)
 
+###Setup instructions for database
+The databases used are PostgreSQL databases and can be setup as follows:
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE chitter;
+3. Connect to the database using the pqsl command \c chitter;
+4. Run the query we have saved in the file 01_create_peeps_table.sql
+
+CREATE TEST DATABASE
+
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE chitter_test;
+3. Connect to the database using the pqsl command \c chitter_test;
+4. Run the query we have saved in the file 01_create_peeps_table.sql
+
 ## DOMAIN MODEL for the 'Straight Up' User stories
 ```
 As a Maker

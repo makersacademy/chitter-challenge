@@ -2,9 +2,8 @@ require 'peep'
 
 describe Peep do
   describe '#all' do
-    xit 'returns all peeps' do
-
-        connection = PG.connect(dbname: 'chitter')
+    it 'returns all peeps' do
+      connection = PG.connect(dbname: 'chitter_test')
 
         # Add the test data
         peep = Peep.create(peep: 'Test peep', time: '2019-07-16')
