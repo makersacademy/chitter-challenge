@@ -4,9 +4,13 @@ require_relative '../app.rb'
 
 require 'capybara'
 require 'capybara/rspec'
+require 'features/web_helpers'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'pg'
+
+Dir[File.expand_path(File.join(File.dirname(__FILE__), 'support', '**', '*.rb'))].each { |f| require f }
 
 Capybara.app = Chitter
 

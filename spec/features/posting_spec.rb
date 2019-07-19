@@ -6,10 +6,7 @@
 
 feature 'Posting a peep:' do
   scenario 'posts a peep' do
-    visit('/')
-    click_button('Post a peep!')
-    fill_in('peep_text', :with => 'This is a test peep 123!')
-    click_button('Submit')
+    post_peep('This is a test peep 123!')
     expect(current_path).to eq '/view_peeps'
     expect(page).to have_content('This is a test peep 123!')
     expect(page.status_code).to eq(200)

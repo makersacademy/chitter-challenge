@@ -1,9 +1,21 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (5.2.3)
+      activesupport (= 5.2.3)
+    activerecord (5.2.3)
+      activemodel (= 5.2.3)
+      activesupport (= 5.2.3)
+      arel (>= 9.0)
+    activesupport (5.2.3)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
+    arel (9.0.0)
     ast (2.4.0)
     capybara (3.26.0)
       addressable
@@ -13,18 +25,23 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    concurrent-ruby (1.1.5)
     diff-lcs (1.3)
     docile (1.1.5)
     hirb (0.7.3)
+    i18n (1.6.0)
+      concurrent-ruby (~> 1.0)
     json (2.1.0)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
+    minitest (5.11.3)
     mustermann (1.0.3)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
+    pg (1.1.4)
     powerpack (0.1.1)
     public_suffix (3.1.1)
     rack (2.0.7)
@@ -70,7 +87,13 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.5)
       tilt (~> 2.0)
+    sinatra-activerecord (2.0.13)
+      activerecord (>= 3.2)
+      sinatra (>= 1.0)
+    thread_safe (0.3.6)
     tilt (2.0.9)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
     unicode-display_width (1.3.2)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -79,13 +102,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   capybara
+  pg
   rake
   rspec
   rubocop (= 0.56.0)
   simplecov
   simplecov-console
   sinatra
+  sinatra-activerecord
 
 RUBY VERSION
    ruby 2.5.0p0
