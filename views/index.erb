@@ -1,10 +1,43 @@
+<style>
+  h1 {
+background-color: #0E4742;
+color: #F4FAFF;
+padding: 20px;
+text-align: center;
+}
+#peep {
+  background-color: #25A2E2;
+  color: #F4FAFF;
+  padding: 30px;
+  text-align: center;
+  margin: auto
+}
+
+#time {
+  background-color: #1C81A8;
+  color: #F4FAFF;
+  padding: 10px;
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+#newPeep {
+  background-color: #BA2D0B;
+  color: #F4FAFF;
+  padding: 10px;
+  text-align: center;
+}
+</style>
 <h1>Welcome to Chitter</h1>
-<form action="/messages" method="post">
+<form id="newPeep" action="/messages" method="post">
+  <h2>Peep here: </h2>
   <input type="text" name="message" placeholder="your peep"/>
   <input type="submit" value="Post" />
 </form>
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= "#{ peep.peep }, #{ peep.time }" %></li>
-  <% end %>
-</ul>
+</style>
+
+<% @peeps.each do |peep| %>
+  <p id="peep"> <%= "#{ peep.peep }" %> </p>
+  <p id="time"> <%= "Posted: #{ peep.time }" %> </p>
+<% end %>
