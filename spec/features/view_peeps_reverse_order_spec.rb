@@ -11,6 +11,5 @@ feature 'See all peeps in reverse chronological order' do
     fill_in('message', with: "Another feature test peep")
     click_button('Post')
     expect(page.find('li:nth-child(1)')).to have_content 'Another feature test peep'
-
   end
 end

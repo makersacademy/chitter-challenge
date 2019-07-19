@@ -37,7 +37,9 @@ text-align: center;
 </form>
 </style>
 
-<% @peeps.each do |peep| %>
-  <p id="peep"> <%= "#{ peep.peep }" %> </p>
-  <p id="time"> <%= "Posted: #{ peep.time }" %> </p>
-<% end %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li id="peep"> <%= "#{ peep.peep }" %> </li>
+    <p id="time"> <%= "Posted: #{ peep.time }" %> </p>
+  <% end %>
+</ul>

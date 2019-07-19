@@ -43,10 +43,6 @@ Methods:
 * .all
 * .get_time
 
-###Time class
-Method
-* .now
-
 ###User
 Methods:
 * .sign_up
