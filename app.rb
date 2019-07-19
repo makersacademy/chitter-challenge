@@ -5,7 +5,10 @@ require_relative './models/user'
 
 class ApplicationManager < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
+    @user = User.find(session[:username])
     @peeps = Peep.all
     erb(:index)
   end
@@ -20,7 +23,8 @@ class ApplicationManager < Sinatra::Base
   end
 
   post '/users/new' do
-    User.add(params[:username], params[:email], params[:password])
+    user = User.add(params[:username], params[:email], params[:password])
+    session[:username] = user
     redirect '/'
   end
 

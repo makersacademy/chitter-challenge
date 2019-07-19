@@ -17,6 +17,27 @@ describe User do
     it 'adds user information to the database' do
       expect(User.add('username', 'email', 'password')).to be_a User
     end
+
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+  
+      User.add('testy_boi', 'test@example.com', 'password123')
+    end
+  end
+
+  describe '.find' do
+
+    it 'finds a user by username' do
+      user = User.add('testy_boi', 'test@example.com', 'password123')
+      result = User.find(user)
+  
+      expect(result.username).to eq user.username
+      expect(result.email).to eq user.email
+    end    
+
+    it 'returns nil if there is no ID given' do
+      expect(User.find(nil)).to eq nil
+    end
   end
 end
 
