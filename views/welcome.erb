@@ -7,29 +7,30 @@
 </head>
 
 <body style ="background-image:url(https://pixabay.com/get/52e3d6424251a914f6d1867dda6d49214b6ac3e45657724c772878d09f/ocean-4331835_1920.jpg)">
+<html>
+<h2 style="text-align:center"> Welcome <%= @person.name %> </h2>
 
-
-
-
-<h2> Welcome to Chitter </h2>
-<h2> Sign in to peep with your buddies! </h2>
 <form method="post" action="/welcome">
   <label for="user">
     <!-- Username: -->
     <input type="text" name="username" placeholder="Username" />
-    <!-- Name: -->
-    <input type="text" name="name" placeholder= "Name" />
-    <!-- Email: -->
-    <input type="text" name="email" placeholder="Email"/>
-    <!-- Password: -->
-    <input type="text" name="password" placeholder= "Password" />
-  </label>
+
     <input type="submit" value="Submit"/>
+    <label for="exampleMessage">Message</label>
+     <textarea class="u-half-width" placeholder="You can change my size on the right bottom..." id="exampleMessage"></textarea>
+     <label class="example-send-yourself-copy">
+       <input type="checkbox">
+       <span class="label-body">Send a copy to yourself</span>
+     </label>
+     <input class="button-primary" type="submit" value="Submit">
   </form>
 
+<body>
 
-  <footer>
-    <h2>Posted by: Kaja</h2>
-    <h2>Contact information: <a href="kaja.polkowska@gmail.com">
-    someone@example.com</a>.</h2>
-  </footer>
+<footer style ="bottom:0">
+  <h2>Posted by: Kaja</h2>
+  <h2>Contact information: <a href="www.happythreefriends.com">
+  kaja.polkowska@gmail.com</a>.</h2>
+</footer>
+</body>
+</html>

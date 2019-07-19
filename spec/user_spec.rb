@@ -1,17 +1,14 @@
-feature 'call on messages to access ID' do
-  scenario 'correctly' do
-
-    test_connection = PG.connect(dbname: 'chitter')
-    person1 = Person.new
-    person2 = Person.new
-
-    test_connection = PG.connect(dbname: 'chitter')
-
-    # test_connection.exec("INSERT INTO messages (name) VALUES (person1),(person2);")
-    #
-
-    expect(person1).to have_content %q{person 1 message}
-    expect(page).not_to have_content 'person 1 message'
-
-  end
-end
+# feature 'call on messages to access ID' do
+#   scenario 'correctly' do
+#     person1 = Person.create(name: 'Person1')
+#     person2 = Person.create(name: 'Person2')
+#     message1 = Message.create(person_id: person1.id, content: 'Person1 message')
+#     message2 = Message.create(person_id: person2.id, content: 'Person2 message')
+#
+#     person = Person.find_by(name: 'Person1')
+#
+#     expect(person1.messages).to match_array([
+#       have_attribues(content: 'Person1 message')
+#     ])
+#   end
+# end

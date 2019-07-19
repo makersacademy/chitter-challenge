@@ -1,0 +1,157 @@
+\l
+CREATE DATABASE "kajapolkowska"
+CREATE DATABASE "kajapolkowska";
+\l
+\q
+\q
+\q
+CREATE DATABASE "kajapolkowska";
+\l
+\q
+CREATE DATABASE bookmark;
+\c bookmark;
+\dt
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+\dt
+\q
+CREATE DATABASE bookmark;
+psql bookmark
+\c
+\c bookmark
+INSERT INTO bookmarks VALUES(1, 'www.google.co.uk');
+INSERT INTO bookmarks VALUES(1, 'www.google.co.uk');
+INSERT INTO bookmarks VALUES(1, 'www.yahoo.com');
+INSERT INTO bookmarks VALUES(2, 'www.yahoo.com');
+INSERT INTO bookmarks VALUES(3, 'www.facebook.com');
+\dt
+\l
+SELECT * FROM bookmarks;
+\q
+CREATE DATABASE chitter;
+\c chitter;
+\dt
+CREATE TABLE messages(id SERIAL PRIMARY KEY, url VARCHAR(60));
+-DB/
+-db
+-migrations/
+INSERT INTO messages VALUES(1, "Your New Peep is now life!");
+INSERT INTO messages VALUES(1, "Your New Peep is now life!");
+INSERT INTO messages VALUES(1, "www.google.com");
+INSERT INTO messages VALUES(1, 'Your New Peep is now life!');
+SELECT * FROM messages;
+\q
+/q
+\q
+ show status like 'Conn%';
+ show status 'Conn%';
+MAXConnections=120
+\q
+show max_connections;
+SELECT COUNT(*) pg_stat_activity;
+resultset.close();
+resultset.close();
+Connexion.close();
+statement.close();
+\q
+CREATE DATABASE "chitter_test";
+CREATE TABLE messages(id SERIAL PRIMARY KEY, url VARCHAR(60));
+\q
+\c chitter_test
+dt
+\dt
+=
+-)
+-
+\dt
+CREATE TABLE messages(id SERIAL PRIMARY KEY, url VARCHAR(60));
+CREATE TABLE messages(id SERIAL PRIMARY KEY, url VARCHAR(60));
+-DB/
+-/db
+- migrations/
+ls
+/c
+\q
+\c messages_test
+\c chitter_test
+INSERT INTO messages VALUES(1, 'Your Peep is now life!');
+\q
+CREATE DATABASE bookmark_manager;
+\c bookmark_manager;
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+INSERT INTO bookmarks VALUES(1. 'www.google.com');
+INSERT INTO bookmarks VALUES(1,  'www.google.com');
+INSERT INTO bookmarks VALUES(2,  'www.makersacademy.com');
+INSERT INTO bookmarks VALUES(3,  'www.twitter.com');
+SELECT * FROM bookmarks
+SELECT * FROM bookmarks;
+SELECT * FROM bookmarks;
+\q
+CREATE DATABASE "bookmark_manager_test";
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+\q
+\c bookmark_manager_test
+\dt
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+\dt
+\q
+\c chitter_test
+\dt
+\q
+\c bookmark_manager
+ALTER TABLE bookmarks ADD COLUMN title VARCHAR(60);
+\q
+\c bookmark_manager_test
+ALTER TABLE bookmarks ADD title VARCHAR(60);
+\C
+RSPEC
+\Q
+\q
+\c chitter
+ALTER TABLE messages ADD COLUMN date VARCHAR(60);
+\q
+\c chitter
+\dt
+ALTER TABLE messages ADD date_on date;
+\l
+\q
+\c chitter
+\l
+\dt
+CREATE TABLE person(id SERIAL PRIMARY KEY, name VARCHAR(60));
+\dt
+DROP TABLE peron;
+DROP TABLE person;
+CREATE TABLE person(id SERIAL PRIMARY
+ KEY, name VARCHAR(60));people
+\dt
+CREATE TABLE person(id SERIAL PRIMARY
+ KEY, name VARCHAR(60));people
+DROP TABLE person;
+DROP TABLE person;
+\dt
+CREATE TABLE people(id SERIAL PRIMARY
+ KEY, name VARCHAR(60));
+\dt
+ALTER TABLE people ADD person_id;
+ALTER TABLE people ADD person_id int4;
+\dt
+ALTER TABLE messages  ADD person_id int4;
+ALTER TABLE people DROP COLUMN person_id;
+ALTER TABLE messages  ADD person_id int4;
+ALTER TABLE people DROP COLUMN date;
+ALTER TABLE messages DROP COLUMN date;
+ALTER TABLE messages 
+ADD CONSTRAINT "kf_person_id_on_messages" FOREIGN KEY person_id REFERENCES people (id);
+ALTER TABLE messages 
+ADD CONSTRAINT "kf_person_id_on_messages" FOREIGN KEY (person_id) REFERENCES people (id);
+INSERT INTO people (name) VALUES (person1),(person2);
+INSERT INTO people (name) VALUES ("person1"),("p
+INSERT INTO people (name) VALUES ('person1', 'person2');
+INSERT INTO people (name) VALUES ('person1'),('person2');
+SELECT * FROM people;
+INSERT INTO messages (person_id, url) VALUES (1, 'person 1 message'),(2, 'person 2 message');
+SELECT * FROM messages;
+INSERT INTO messages (person_id, url) VALUES (1, 'person 1 message'),(2, 'person 2 message');
+SELECT * FROM messages;
+\q
+\s chitter
