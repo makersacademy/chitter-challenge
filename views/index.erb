@@ -1,16 +1,23 @@
 <style>
   h1 {
-background-color: #0E4742;
+background-color: #5a6b8a;
 color: #F4FAFF;
 padding: 20px;
 text-align: center;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+font: 40px arial, sans-serif;
+margin-top: 0px;
+margin-bottom: 0px;
 }
 #peep {
   background-color: #25A2E2;
   color: #F4FAFF;
   padding: 30px;
   text-align: center;
-  margin: auto
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font: 20px arial, sans-serif;
 }
 
 #time {
@@ -19,20 +26,45 @@ text-align: center;
   padding: 10px;
   text-align: left;
   margin-top: 0px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font: 15px arial, sans-serif;
 }
 
 #newPeep {
-  background-color: #BA2D0B;
+  background-color: #7aa19d;
   color: #F4FAFF;
   padding: 10px;
   text-align: center;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font: 20px arial, sans-serif;
 }
+
+input[type=text] {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type=submit] {
+    padding:15px 15px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
 </style>
 <h1>Welcome to Chitter</h1>
 <form id="newPeep" action="/messages" method="post">
-  <h2>Peep here: </h2>
-  <input type="text" name="message" placeholder="your peep"/>
+  <h2>Post a new peep here: </h2>
+  <input type="text" name="message" placeholder="say something..."/>
   <input type="submit" value="Post" />
 </form>
 </style>
