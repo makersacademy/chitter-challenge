@@ -8,7 +8,6 @@ describe User do
     connection = PG.connect(dbname: 'peep_manager_test')
     connection.exec("INSERT INTO users (username, name, email) VALUES('richieganney', 'richie', 'richieganney@gmail.com');")
     users = User.all
-    expect(users.flatten).to include 'richie'
     expect(users.flatten).to include 'richieganney'
     expect(users.flatten).to include 'richieganney@gmail.com'
     end
@@ -16,7 +15,7 @@ describe User do
 
   describe '#.add' do
     it 'adds user information to the database' do
-      expect(User.add('username', 'name', 'email', 'password')).to be_a User
+      expect(User.add('username', 'email', 'password')).to be_a User
     end
   end
 end

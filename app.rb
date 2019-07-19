@@ -20,7 +20,7 @@ class ApplicationManager < Sinatra::Base
   end
 
   post '/save-sign-up' do
-    User.add(params[:username], params[:name], params[:email], params[:password])
+    User.add(params[:username], params[:email], params[:password])
     redirect '/'
   end
 
