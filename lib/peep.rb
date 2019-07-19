@@ -1,7 +1,6 @@
 require 'PG'
 require_relative 'database_connection'
 
-
 class Peep
 
   attr_reader :id, :peep, :time
@@ -22,7 +21,8 @@ class Peep
   def self.create(peep:, time:)
     result = DatabaseConnection.query("INSERT INTO peeps (peep, time) VALUES('#{peep}', '#{time}') RETURNING id, peep, time;")
 
-    Peep.new(id: result[0]['id'], peep: result[0]['peep'], time: result[0]['time'])
+    Peep.new(id: result[0]['id'], peep: result[0]['peep'],
+      time: result[0]['time'])
 
   end
 end
