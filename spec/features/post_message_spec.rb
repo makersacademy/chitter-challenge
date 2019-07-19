@@ -4,8 +4,8 @@
 feature 'Post a message' do
   scenario 'A user can post a message' do
     visit('/')
-    fill_in('message', with: "My first peep")
+    fill_in('message', with: "Feature test peep")
     click_button('Post')
-    expect(page).to have_content("My first peep")
+    expect(page).to have_content("Feature test peep")
   end
 end
