@@ -1,6 +1,5 @@
 ##NOTES TO MYSELF
 ### TO DO:
-* Database to record the user's details
 * Home page knows if signed in.
 * Associate peeps with the user (although this is Harder user story...)
 * Make an external style sheet work.

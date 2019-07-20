@@ -80,15 +80,17 @@ input[type=submit] {
 }
 
 </style>
-<h1>Welcome to Chitter</h1>
+<h1>Welcome to Chitter <%=@user%></h1>
 <form id="signUp" action="/registration" method="get">
   <input type="submit" value="Sign up" />
+</form>
+<form id="signUp" action="/sessions/new" method="get">
+  <input type="submit" value="Log in" />
 </form>
 <form id="newPeep" action="/messages" method="post">
   <input type="text" name="message" placeholder="say something..."/>
   <input type="submit" value="Post" />
 </form>
-</style>
 
 <ul>
   <% @peeps.each do |peep| %>
