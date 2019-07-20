@@ -1,0 +1,23 @@
+<div class="sixteen columns">
+    <div class="four columns offset-by-four">
+      <div class="flash"><%=styled_flash%></div>
+      <div class="sign-in-box">
+        <p>Sign in</p>
+        <form action="/sessions" method="post">
+          <input type="email" name="email" placeholder="Email" /><br>
+          <input type="password" name="password" placeholder="Password"/><br>
+          <input type="submit" value="Sign in" />
+        </form>
+      </div>
+
+      <div class="sign-in-box">
+        <p>Or create an account</p>
+        <form action="/users" method="post">
+          <input type="email" name="email" placeholder="Email"/><br>
+          <input type="text" name="name" placeholder="Name" /><br>
+          <input type="password" name="password" placeholder="Password" /><br>
+          <input type="submit" value="Create account"/>
+        </form>
+      </div>
+    </div>
+</div>

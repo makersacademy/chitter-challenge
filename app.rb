@@ -8,7 +8,11 @@ class Squiggler < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    redirect '/sessions/new'
+    redirect '/sign_in'
+  end
+
+  get '/sign_in' do
+    erb :sign_in
   end
 
   get '/squiggles' do
@@ -33,9 +37,9 @@ class Squiggler < Sinatra::Base
     redirect('/squiggles')
   end
 
-  get '/sessions/new' do
-    erb :"sessions/new"
-  end
+  # get '/sessions/new' do
+  #   erb :"sessions/new"
+  # end
 
   post '/sessions' do
     user = User.authenticate(params['email'], params['password'])
@@ -45,7 +49,7 @@ class Squiggler < Sinatra::Base
       redirect('/squiggles')
     else
       flash[:notice] = 'Please check your email or password.'
-      redirect('/sessions/new')
+      redirect('/sign_in')
     end
   end
 

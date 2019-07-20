@@ -1,10 +1,31 @@
-.background {
+/* .background {
 
   background-image: url(/images/forest.svg);
   background-position: center bottom;
   background-repeat: repeat-x;
   background-attachment: scroll;
   background-clip: border-box;
+} */
+
+.flash {
+  margin: 20px;
+  max-width: 600px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.sign-in-box {
+  margin: 20px;
+  max-width: 600px;
+  background-color: rgba(235, 245, 255, 1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.sign-out {
+  width:100%;
+  padding:20px;
+  background-color:rgba(203, 223, 238, 1) ;
 }
 
 .squiggle-post {
@@ -17,8 +38,8 @@
 }
 
 .squiggle-form {
-  margin-left: 20px;
-  margin-bottom: -15px;
+  margin-top: 10px;
+  margin-bottom: -10px;
 }
 
 .squiggle-box {
