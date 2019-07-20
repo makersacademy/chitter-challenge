@@ -6,10 +6,10 @@ feature 'Sign up' do
   scenario 'A user can sign up with email address and password ' do
     visit('/')
     click_button('Sign up')
-    fill_in('username', with: "will")
+    fill_in('username', with: 'test_user')
     fill_in('email', with: "test@example.com")
     fill_in('password', with: "1234")
     click_button('Submit')
-    expect(page).to have_content("Registration successful")
+    expect(page).to have_content("Welcome to Chitter test_user")
   end
 end

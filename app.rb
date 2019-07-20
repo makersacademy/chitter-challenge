@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/database_connection_setup'
 require './lib/user'
@@ -6,10 +7,10 @@ require './lib/user'
 class Chitter < Sinatra::Base
 
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     @user = User.find(id: session[:user_id])
-    # @username = @user.username
     @peeps = Peep.all.sort_by(&:time).reverse
     erb :index
   end
@@ -20,11 +21,12 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    if user == nil
-      erb :"/registration_failure"
-    else
+    if user
       session[:user_id] = user.id
       redirect('/')
+    else
+      flash[:notice] = 'Incorrect log in details'
+      redirect('/sessions/new')
     end
   end
 
@@ -41,11 +43,18 @@ class Chitter < Sinatra::Base
   post '/sign_up' do
     user = User.create(email: params[:email], password: params[:password], username: params[:username])
     session[:user_id] = user.id
-    redirect('/registration_success')
+    flash[:notice] = 'Registration successful'
+    redirect('/')
   end
 
   get '/registration_success' do
     erb :registration_success
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out'
+    redirect('/')
   end
 
   run! if app_file == $0

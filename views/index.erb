@@ -4,15 +4,20 @@
   <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
-  <h1>Welcome to Chitter <%=@user%></h1>
-
+  <div id='flash' class='notice'>
+   <a class="close" data-dismiss="alert">&#215;</a>
+   <%= flash[:notice] %>
+  </div>
+  <h1>Welcome to Chitter <%= "#{ @user.username }" unless @user == nil %></h1>
   <form id="signUp" action="/registration" method="get">
     <input type="submit" value="Sign up" />
   </form>
   <form id="signUp" action="/sessions/new" method="get">
     <input type="submit" value="Log in" />
   </form>
+  <form id="signUp" action="/sessions/destroy" method="post">
+  <input type="submit" value="Log out" />
+</form>
   <form id="newPeep" action="/messages" method="post">
     <input type="message" name="message" placeholder="say something..."/>
     <input type="submit" value="Post" />

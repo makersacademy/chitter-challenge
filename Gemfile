@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
-
 gem 'rake'
-gem 'rubocop', '0.56.0'
+gem 'rubocop'
 
 group :test do
   gem 'capybara'
@@ -16,3 +14,4 @@ gem 'bcrypt'
 gem 'pg'
 gem 'shotgun'
 gem 'sinatra'
+gem 'sinatra-flash'

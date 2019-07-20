@@ -4,7 +4,10 @@
   <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
+  <div id='flash' class='notice'>
+   <a class="close" data-dismiss="alert">&#215;</a>
+   <%= flash[:notice] %>
+  </div>
   <h1 id="signUpHeader">Log in to Chitter</h1>
 
   <form id="signUp" action="/sessions" method="post">
