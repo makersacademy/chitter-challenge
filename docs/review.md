@@ -158,7 +158,7 @@ end
 
 ## Clean the Database between tests
 
-Each test (feature or unit) should: 
+Each test (feature or unit) should:
 
 - Start on an empty database.
 - Create whatever data is needed for that test.
@@ -543,7 +543,7 @@ require_relative 'helpers'
 class Chitter < Sinatra::Base
   helpers Helpers
 end
-
+\
 # app/helpers.rb
 module Helpers
   def current_user

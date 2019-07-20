@@ -1,0 +1,25 @@
+<%= styled_flash %>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
+
+<div class="squiggle-post">
+  You are logged in as <%=@user.name%>
+  <form class="squiggle-form" action="/squiggles/<%=@user.id%>/new" method="post">
+    <input type="text" name="squiggle" placeholder="Your squiggle" />
+  <input type="submit" value="Add to Fowwest" />
+</form>
+</div>
+
+<% @squiggles.reverse.each do |squiggle| %>
+  <div class="squiggle-box">
+    <div class="squiggle-title"><%=User.find(squiggle.user_id).name%> @ <%=squiggle.time%></div>
+    <div class="squiggle-content"><%=squiggle.nuttify%></div>
+    <% if squiggle.user_id == @user.id %>
+    <form action="/squiggles/<%= squiggle.id %>/delete" method="post">
+      <input type="submit" value="Delete" />
+    </form>
+    <% end %>
+  </div>
+<% end %>

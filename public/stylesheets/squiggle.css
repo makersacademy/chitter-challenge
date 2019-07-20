@@ -1,0 +1,44 @@
+.background {
+
+  background-image: url(/images/forest.svg);
+  background-position: center bottom;
+  background-repeat: repeat-x;
+  background-attachment: scroll;
+  background-clip: border-box;
+}
+
+.squiggle-post {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 600px;
+  background-color: rgba(235, 245, 255, 1);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.squiggle-form {
+  margin-left: 20px;
+  margin-bottom: -15px;
+}
+
+.squiggle-box {
+
+  border: solid 1px;
+  border-radius: 10px;
+  border-color: #cccccc;
+  width: 70%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: rgba(203, 223, 238, 1);
+
+}
+
+.squiggle-title {
+  border-bottom: solid 1px;
+  border-color: #cccccc;
+}
+
+.squiggle-content {
+  padding-top: 10px;
+}
