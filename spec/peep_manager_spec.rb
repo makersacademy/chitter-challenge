@@ -10,6 +10,14 @@ describe Peep do
       expect(peeps.id).to eq persisted_data.first['id']
       expect(peeps.peep).to eq 'Hello Chitter'
     end
+
+    it "Shows time each peep was created" do
+      Peep.create(peep: 'Hello Chitter')
+      time = Time.now
+      peeps = Peep.all
+
+      expect(peeps.first.time).to eq time.strftime("%H:%M:%S")
+    end
   end
 
   describe '.all' do

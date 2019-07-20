@@ -1,9 +1,10 @@
 class Peep
-  attr_reader :id, :peep
+  attr_reader :id, :peep, :time
 
-  def initialize(id:, peep:)
+  def initialize(id:, peep:, time:)
     @id = id
     @peep = peep
+    @time = time
   end
 
   def self.create(peep:)
@@ -12,8 +13,8 @@ class Peep
     else
       connection = PG.connect(dbname: "peeps_manager")
     end
-    result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep;")
-    Peep.new(id: result[0]['id'], peep: result[0]['peep'])
+    result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep, time;")
+    Peep.new(id: result[0]['id'], peep: result[0]['peep'], time: result[0]['time'])
   end
 
   def self.all
@@ -24,7 +25,7 @@ class Peep
     end
     result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
     result.map do |peep|
-      Peep.new(id: peep['id'], peep: peep['peep'])
+      Peep.new(id: peep['id'], peep: peep['peep'], time: peep['time'])
     end
   end
 end
