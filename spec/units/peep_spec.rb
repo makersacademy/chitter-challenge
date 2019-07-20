@@ -13,8 +13,8 @@ describe Peep do
 
       expect(peeps.length).to eq 3
       expect(peeps[0]).to be_a Peep
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.text).to eq 'This is the first peep'
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.text).to eq 'This is the first peep'
     end
   end
 end
