@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+  </head>
+  <body>
+
+    <div id="nav1">
+      <h1 class="top_space">Chitter<h1/>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <br>
+
+    <form action="/posts" class="top_space" method="post">
+      <input name="peep" type="textbox" placeholder="Write a peep">
+      <input type="submit" value="Post">
+    </form>
+
+    <ul>
+      <% @posts.each do |post| %>
+      <li><%= post %></li>
+      <% end %>
+    </ul>
+
+  </body>
+
+</html>
