@@ -1,100 +1,29 @@
-<style>
-  h1 {
-background-color: #5a6b8a;
-color: #F4FAFF;
-padding: 20px;
-text-align: center;
--webkit-border-radius: 5px;
-border-radius: 5px;
-font: 40px arial, sans-serif;
-margin-top: 0px;
-margin-bottom: 0px;
-}
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<body>
 
-  h2 {
+  <h1>Welcome to Chitter <%=@user%></h1>
 
+  <form id="signUp" action="/registration" method="get">
+    <input type="submit" value="Sign up" />
+  </form>
+  <form id="signUp" action="/sessions/new" method="get">
+    <input type="submit" value="Log in" />
+  </form>
+  <form id="newPeep" action="/messages" method="post">
+    <input type="message" name="message" placeholder="say something..."/>
+    <input type="submit" value="Post" />
+  </form>
 
-  }
-#peep {
-  background-color: #25A2E2;
-  color: #F4FAFF;
-  padding: 15px;
-  text-align: left;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  font: 16px arial, sans-serif;
-}
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li id="peep"> <%= "#{ peep.peep }" %> </li>
+      <p id="time"> <%= "Posted: #{ peep.time }" %> </p>
+    <% end %>
+  </ul>
 
-#time {
-  background-color: #1C81A8;
-  color: #F4FAFF;
-  padding: 8px;
-  text-align: left;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  font: 12px arial, sans-serif;
-}
-
-#newPeep {
-  background-color: #7aa19d;
-  color: #F4FAFF;
-  padding: 10px;
-  text-align: center;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  font: 20px arial, sans-serif;
-}
-
-input[type=text] {
-  width: 70%;
-  padding: 10px 10px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
-
-input[type=submit] {
-    padding:9px 9px;
-    background:#ccc;
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    font-size: 17px;
-}
-
-#signUp {
-
-  background-color: #7aa19d;
-  color: #F4FAFF;
-  padding: 10px;
-  margin-bottom: 0px;
-  text-align: center;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  font: 30px arial, sans-serif;
-
-}
-
-</style>
-<h1>Welcome to Chitter <%=@user%></h1>
-<form id="signUp" action="/registration" method="get">
-  <input type="submit" value="Sign up" />
-</form>
-<form id="signUp" action="/sessions/new" method="get">
-  <input type="submit" value="Log in" />
-</form>
-<form id="newPeep" action="/messages" method="post">
-  <input type="text" name="message" placeholder="say something..."/>
-  <input type="submit" value="Post" />
-</form>
-
-<ul>
-  <% @peeps.each do |peep| %>
-    <li id="peep"> <%= "#{ peep.peep }" %> </li>
-    <p id="time"> <%= "Posted: #{ peep.time }" %> </p>
-  <% end %>
-</ul>
+</body>
+</html>

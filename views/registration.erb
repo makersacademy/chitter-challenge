@@ -1,53 +1,24 @@
-<style>
-  #signUpHeader {
-    background-color: #5a6b8a;
-    color: #F4FAFF;
-    padding: 20px;
-    text-align: left;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    font: 30px arial, sans-serif;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<body>
 
-#signUp {
+  <h1 id="signUpHeader">Sign up for Chitter</h1>
 
-  background-color: #7aa19d;
-  color: #F4FAFF;
-  padding: 10px;
-  margin-bottom: 0px;
-  text-align: center;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  font: 30px arial, sans-serif;
-}
+  <form id="signUp" action="/sign_up" method="post">
+    <label for="username">User Name:</label>
+    <input id="textField" type="text" name="username" placeholder="username"/>
+    <br></br>
+    <label for="email">Email address:</label>
+    <input id="textField" type="text" name="email" placeholder="email address"/>
+    <br></br>
+    <label for="password">Password:</label>
+    <input id="textField" type="password" name="password" placeholder="password"/>
+    <br></br>
+    <input type="submit" value="Submit" />
+  </form>
 
-#textField {
-  width: 25%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
-
-input[type=submit] {
-    padding:12px 12px;
-    background:#ccc;
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    font-size: 18px;
-}
-
-</style>
-
-<h1 id="signUpHeader">Sign up for Chitter</h1>
-<form id="signUp" action="/sign_up" method="post">
-  <input id="textField" type="text" name="username" placeholder="username"/>
-  <input id="textField" type="text" name="email" placeholder="email address"/>
-  <input id="textField" type="password" name="password" placeholder="password"/>
-  <input type="submit" value="Submit" />
-</form>
+</body>
+</html>

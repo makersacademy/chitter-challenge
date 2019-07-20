@@ -1,0 +1,98 @@
+h1 {
+background-color: #d0ddf2;
+color: #191a1c;
+padding: 20px;
+text-align: center;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+font: 40px arial, sans-serif;
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+#peep {
+background-color: #f0f4fa;
+color: #021129;
+padding: 15px;
+text-align: left;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+font: 16px arial, sans-serif;
+}
+
+#time {
+background-color: #e3e5e8;
+color: #232a36;
+padding: 8px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 20px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+font: 12px arial, sans-serif;
+}
+
+#newPeep {
+background-color: #edf5fc;
+color: #F4FAFF;
+padding: 10px;
+text-align: center;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+font: 20px arial, sans-serif;
+}
+
+input[type=text] {
+width: 30%;
+padding: 10px 10px;
+margin: 8px 0;
+box-sizing: border-box;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+}
+
+input[type=password] {
+width: 20%;
+padding: 10px 10px;
+margin: 8px 0;
+box-sizing: border-box;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+}
+
+input[type=message] {
+width: 60%;
+padding: 10px 10px;
+margin: 8px 0;
+box-sizing: border-box;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+}
+
+input[type=submit] {
+  padding:9px 9px;
+  background:#ccc;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+#signUp {
+
+background-color: #fafafc;
+color: #2a2c2e;
+padding: 10px;
+margin-bottom: 0px;
+text-align: center;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+font: 17px arial, sans-serif;
+
+}
+
+ul {
+  list-style:none;
+  padding-left:0;
+}

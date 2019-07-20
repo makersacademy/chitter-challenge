@@ -20,8 +20,12 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/')
+    if user == nil
+      erb :"/registration_failure"
+    else
+      session[:user_id] = user.id
+      redirect('/')
+    end
   end
 
   post '/messages' do

@@ -2,7 +2,6 @@
 ### TO DO:
 * Home page knows if signed in.
 * Associate peeps with the user (although this is Harder user story...)
-* Make an external style sheet work.
 
 # Chitter - Week 4 Weekend challenge
 
@@ -15,6 +14,7 @@ The databases used are PostgreSQL databases and can be setup as follows:
 2. Create the database using the psql command CREATE DATABASE chitter;
 3. Connect to the database using the pqsl command \c chitter;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
+02_create_users_table.sql
 
 CREATE TEST DATABASE
 
@@ -23,6 +23,7 @@ CREATE TEST DATABASE
 2. Create the database using the psql command CREATE DATABASE chitter_test;
 3. Connect to the database using the pqsl command \c chitter_test;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
+02_create_users_table.sql
 
 ## DOMAIN MODEL for the 'Straight Up' User stories
 ```
