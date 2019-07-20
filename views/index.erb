@@ -3,7 +3,10 @@
     <h1><center>Chitter</center></h1>
     <div class="right">
       <a href='/users' style="float: right;"> Sign-up! </a><br><br>
-      <a href='/sessions/new' style="float: right;"> Login! </a>
+      <a href='/sessions/new' style="float: right;"> Login! </a><br><br>
+      <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out" />
+      </form>
     </div>
     <form action="/post-peep" method="post">
         <label for="peep">

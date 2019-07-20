@@ -51,4 +51,23 @@ feature 'allows a user to sign up for chitter' do
     expect(page).not_to have_content 'Welcome, test@example.com'
     expect(page).to have_content 'Please check your email or password'
   end
+
+  feature 'authenticate' do
+    scenario 'a user can sign out' do
+      # Create the user
+      User.add('testy_boi', 'test@example.com', 'password123')
+  
+      # Sign in as that user
+      visit '/sessions/new'
+      fill_in(:email, with: 'test@example.com')
+      fill_in(:password, with: 'password123')
+      click_button('Sign in')
+  
+      # Sign out
+      click_button('Sign out')
+  
+      expect(page).not_to have_content 'Welcome, test@example.com'
+      expect(page).to have_content 'You have signed out'
+    end
+  end
 end
