@@ -12,6 +12,7 @@ group :test do
   gem 'simplecov-console', require: false
 end
 
+gem 'bcrypt'
 gem 'pg'
 gem 'shotgun'
 gem 'sinatra'
