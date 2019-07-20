@@ -8,6 +8,11 @@ class User
 
   end
 
+  def self.find(id:)
+    return nil unless id
+    result = DatabaseConnection.query(("SELECT * FROM users WHERE id = '#{id}'"))
+    User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'])
+  end
   attr_reader :id, :email, :username
 
   def initialize(id:, email:, username:)

@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all.sort_by(&:time).reverse
     erb :index
   end
@@ -23,7 +24,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    User.create(email: params[:email], password: params[:password], username: params[:username])
+    user = User.create(email: params[:email], password: params[:password], username: params[:username])
+    session[:user_id] = user.id
     redirect('/registration_success')
   end
 
