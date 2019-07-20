@@ -10,26 +10,31 @@ font: 40px arial, sans-serif;
 margin-top: 0px;
 margin-bottom: 0px;
 }
+
+  h2 {
+
+
+  }
 #peep {
   background-color: #25A2E2;
   color: #F4FAFF;
-  padding: 30px;
-  text-align: center;
+  padding: 15px;
+  text-align: left;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  font: 20px arial, sans-serif;
+  font: 16px arial, sans-serif;
 }
 
 #time {
   background-color: #1C81A8;
   color: #F4FAFF;
-  padding: 10px;
+  padding: 8px;
   text-align: left;
   margin-top: 0px;
   margin-bottom: 20px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  font: 15px arial, sans-serif;
+  font: 12px arial, sans-serif;
 }
 
 #newPeep {
@@ -44,7 +49,7 @@ margin-bottom: 0px;
 
 input[type=text] {
   width: 70%;
-  padding: 12px 20px;
+  padding: 10px 10px;
   margin: 8px 0;
   box-sizing: border-box;
   -webkit-border-radius: 5px;
@@ -52,18 +57,34 @@ input[type=text] {
 }
 
 input[type=submit] {
-    padding:15px 15px;
+    padding:9px 9px;
     background:#ccc;
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    font-size: 17px;
+}
+
+#signUp {
+
+  background-color: #7aa19d;
+  color: #F4FAFF;
+  padding: 10px;
+  margin-bottom: 0px;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font: 30px arial, sans-serif;
+
 }
 
 </style>
 <h1>Welcome to Chitter</h1>
+<form id="signUp" action="/registration" method="get">
+  <input type="submit" value="Sign up" />
+</form>
 <form id="newPeep" action="/messages" method="post">
-  <h2>Post a new peep here: </h2>
   <input type="text" name="message" placeholder="say something..."/>
   <input type="submit" value="Post" />
 </form>

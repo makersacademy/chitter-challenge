@@ -1,3 +1,10 @@
+##NOTES TO MYSELF
+### TO DO:
+* Database to record the user's details
+* Home page knows if signed in.
+* Associate peeps with the user (although this is Harder user story...)
+* Make an external style sheet work.
+
 # Chitter - Week 4 Weekend challenge
 
 This is my attempt at the week 4 weekend challenge - [Chitter](https://github.com/makersacademy/chitter-challenge)
@@ -35,6 +42,17 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+
+HARDER
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
 ```
 
 ###Peep class
@@ -42,6 +60,11 @@ Methods:
 * .create
 * .all
 * .get_time
+Attributes:
+* id
+* message
+* time
+* user
 
 ###User
 Methods:
