@@ -4,7 +4,7 @@ require './spec/database_connection_setup'
 
 class Peep
 
-  attr_reader :time, :peep
+  attr_reader :time, :peep, :username
 
   def initialize(peep = nil, time = nil, username = nil)
     @peep = peep
@@ -14,7 +14,7 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
-    result.map { |peep| Peep.new(peep['peep'], peep['time']) }
+    result.map { |peep| Peep.new(peep['peep'], peep['time'], peep['username']) }
     # implement a sort_by(time) method instead of reversing the array
   end
 

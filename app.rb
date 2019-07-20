@@ -10,6 +10,10 @@ class ApplicationManager < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    erb(:home)
+  end
+
+  get '/home' do
     @user = User.find(session[:username])
     @peeps = Peep.all
     erb(:index)
@@ -18,7 +22,7 @@ class ApplicationManager < Sinatra::Base
   post '/post-peep' do
     @user = User.find(session[:username])
     Peep.add(params[:peep], @user.username)
-    redirect '/'
+    redirect '/home'
   end
 
   get '/users' do
@@ -35,7 +39,7 @@ class ApplicationManager < Sinatra::Base
     else
       user = User.add(params[:username], params[:email], params[:password])
       session[:username] = user
-      redirect '/'
+      redirect '/home'
     end
   end
 
@@ -48,7 +52,7 @@ class ApplicationManager < Sinatra::Base
 
     if user
       session[:username] = user
-      redirect '/'
+      redirect '/home'
     else
       flash[:notice] = 'Please check your email or password'
       redirect('/sessions/new')
@@ -57,8 +61,8 @@ class ApplicationManager < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
-    flash[:notice] = 'You have signed out'
     redirect('/')
+    flash[:notice] = 'You have signed out'
   end
 
   run! if app_file == $0
