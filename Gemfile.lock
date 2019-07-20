@@ -92,6 +92,7 @@ GEM
       sinatra (>= 1.0)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    timecop (0.9.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.3.2)
@@ -112,6 +113,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-activerecord
+  timecop
 
 RUBY VERSION
    ruby 2.5.0p0

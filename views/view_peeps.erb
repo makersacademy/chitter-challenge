@@ -1,6 +1,10 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>">
-        <%= peep.text %>
-  <% end %>
+<div style="text-align: center">
+<ul style="list-style-type:none;">
+<% @peeps.each do |peep| %>
+  <li class="peep" id="peep-<%= peep.id %>">
+    <%= peep.text %>
+    <br><%= peep.timestamp %><br />
+    <br />
+<% end %>
 </ul>
+</div>

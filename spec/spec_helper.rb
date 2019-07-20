@@ -3,7 +3,6 @@ ENV['ENVIRONMENT'] = 'test'
 
 require_relative '../app.rb'
 require_relative './setup_test_database'
-# require_relative '../lib/database_connection'
 require_relative '../lib/database_connection_setup'
 
 require 'capybara'
@@ -12,6 +11,7 @@ require 'features/web_helpers'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'timecop'
 require 'pg'
 
 Dir[File.expand_path(File.join(File.dirname(__FILE__), 'support', '**', '*.rb'))].each { |f| require f }
