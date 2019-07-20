@@ -1,17 +1,14 @@
 <html>
+   <%= flash[:notice] %>
    <body style="background-color:rgb(66, 190, 194)">
-    <h1><center>Enter your details:</center></h1><br><br>
-    <form action="/users/new" method="post">
+    <h1><center>Sign in:</center></h1><br><br>
+    <form action="/sessions" method="post">
       <label for="sign-up-details"><br><br>
-      Username
-      <input type="text" name="username" required><br><br>
       email
       <input type="text" name="email" required><br><br>
       Password
       <input type="password" name="password" required><br><br>
-      <input type="submit" value="Sign up!">
+      <input type="submit" value="Sign in">
     </form></center> 
   </body> 
 </html>
-
-<%= flash[:notice] %>

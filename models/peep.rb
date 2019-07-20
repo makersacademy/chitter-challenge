@@ -14,6 +14,7 @@ class Peep
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map { |peep| Peep.new(peep['peep'], peep['time']) }
+    # implement a sort_by(time) method instead of reversing the array
   end
 
   def self.add(peep, time = Time.now)

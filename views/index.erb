@@ -2,7 +2,8 @@
   <body style="background-color:rgb(66, 190, 194)">
     <h1><center>Chitter</center></h1>
     <div class="right">
-      <a href='/users' style="float: right;"> Sign-up! </a>
+      <a href='/users' style="float: right;"> Sign-up! </a><br><br>
+      <a href='/sessions/new' style="float: right;"> Login! </a>
     </div>
     <form action="/post-peep" method="post">
         <label for="peep">
@@ -21,3 +22,5 @@
       </ul>
   </body>
 </html>
+
+<%= flash[:notice] %>
