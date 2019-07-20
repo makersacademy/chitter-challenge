@@ -26,9 +26,17 @@ class ApplicationManager < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.add(params[:username], params[:email], params[:password])
-    session[:username] = user
-    redirect '/'
+    if User.check_username(params[:username])
+      flash[:notice] = 'username already taken'
+      redirect('/users')
+    elsif User.check_email(params[:email]) 
+      flash[:notice] = 'email already taken'
+      redirect('/users')
+    else
+      user = User.add(params[:username], params[:email], params[:password])
+      session[:username] = user
+      redirect '/'
+    end
   end
 
   get '/sessions/new' do

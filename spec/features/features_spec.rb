@@ -70,4 +70,28 @@ feature 'allows a user to sign up for chitter' do
       expect(page).to have_content 'You have signed out'
     end
   end
+
+  feature 'check' do
+    scenario 'does not allow a user to create a create a profile with a username that is already taken' do
+      User.add('testy_boi', 'test@example.com', 'password123')
+      visit('/users')
+      fill_in 'username', with: 'testy_boi'
+      fill_in 'email', with: 'another@email.com'
+      fill_in 'password', with: 'Password123'
+      click_button("Sign up!")
+    
+      expect(page).to have_content 'username already taken'
+    end
+
+    scenario 'does not allow a user to create a create a profile with an email that is already taken' do
+      User.add('testy_boi', 'test@example.com', 'password123')
+      visit('/users')
+      fill_in 'username', with: 'another_username'
+      fill_in 'email', with: 'test@example.com'
+      fill_in 'password', with: 'Password123'
+      click_button("Sign up!")
+    
+      expect(page).to have_content 'email already taken'
+    end
+  end
 end
