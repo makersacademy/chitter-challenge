@@ -19,7 +19,7 @@
           <h1>Welcome, <%= @user.username %></h1>
         <% end %>
         <% @peeps.reverse.each do |peep| %>
-          <li><%= peep.peep %><br><%= peep.time %>
+          <li><%= peep.peep %><br><br><%= peep.time %>
           </li><br>
         <% end %>
       </ul>

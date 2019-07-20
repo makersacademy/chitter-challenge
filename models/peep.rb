@@ -6,9 +6,10 @@ class Peep
 
   attr_reader :time, :peep
 
-  def initialize(peep = nil, time = nil)
+  def initialize(peep = nil, time = nil, username = nil)
     @peep = peep
     @time = time
+    @username = username
   end
 
   def self.all
@@ -17,9 +18,9 @@ class Peep
     # implement a sort_by(time) method instead of reversing the array
   end
 
-  def self.add(peep, time = Time.now)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep, time) VALUES('#{peep}', '#{time}') RETURNING peep, time;")
-    Peep.new(result[0]['peep'], result[0]['time'])
+  def self.add(peep, username, time = Time.now)
+    result = DatabaseConnection.query("INSERT INTO peeps (peep, username, time) VALUES('#{peep}', '#{username}', '#{time}') RETURNING peep, username, time;")
+    Peep.new(result[0]['peep'], result[0]['username'], result[0]['time'])
     # RETURNING id, title, url
   end
 

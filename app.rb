@@ -16,7 +16,8 @@ class ApplicationManager < Sinatra::Base
   end
 
   post '/post-peep' do
-    Peep.add(params[:peep])
+    @user = User.find(session[:username])
+    Peep.add(params[:peep], @user.username)
     redirect '/'
   end
 

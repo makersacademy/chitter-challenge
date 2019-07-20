@@ -12,7 +12,7 @@ describe Peep do
     peeps = Peep.all
     
     # will need to update these tests later to include time and other data types etc.
-    expect(peeps.length).to eq 3
+    expect(peeps.length).to eq 2
     expect(peeps.first).to be_a Peep
     expect(peeps.last.peep).to eq "mike"
     end
@@ -20,7 +20,7 @@ describe Peep do
 
   describe '#.post' do
     it 'allows you to post a new peep to chitter' do
-      expect(Peep.add("first peep!")).to be_a Peep
+      expect(Peep.add("first peep!", 'richieganney')).to be_a Peep
     end
   end
 end
