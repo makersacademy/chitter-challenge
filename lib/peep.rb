@@ -8,4 +8,5 @@ require 'dm-timestamps'
   property :id, Serial
   property :message, String
   belongs_to :user
+  property :created_at, DateTime
 end

@@ -1,5 +1,17 @@
 Hi <%= @user.username %>
 <br>
+<ul>
+  <% @user.peeps.each do |peep| %>
+    <li >
+      <%= peep.message %>
+        <ul>
+          <li>
+            <%= peep.created_at%>
+          </li>
+        </ul>
+    </li>
+  <% end %>
+</ul>
 <form action='/user/<%= @user.id %>/peep/new' method='get'>
   <input type="submit" value="Post Peep" />
 </form> 
