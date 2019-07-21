@@ -1,0 +1,1 @@
+ALTER TABLE messages ADD COLUMN post_time VARCHAR(60);

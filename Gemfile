@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
-
+gem 'bcrypt'
+gem 'pg'
+gem 'rubocop'
 gem 'rake'
-gem 'rubocop', '0.56.0'
-
-group :test do
-  gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'capybara'
+gem 'rspec'
+gem 'simplecov', require: false
+gem 'simplecov-console', require: false

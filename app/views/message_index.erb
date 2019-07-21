@@ -1,0 +1,44 @@
+<head>
+ <link rel="stylesheet" type="text/css" href="/style.css"/>
+ <link rel="stylesheet" type="text/css" href="/normalize.css"/>
+ <link rel="stylesheet" type="text/css" href="/skeleton.css"/>
+ <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+</head>
+<font color="white">
+  <style="text-align:center">
+<html>
+
+<% if @user %>
+<h2 style="text-align:center"><b>Welcome,  <%= @user.email %></b></h2>
+<form style="color:#000000; text-align:center;" action="/sessions/destroy" method="post">
+  <input class="button button-primary" type="submit" value="Sign out" />
+</form>
+<% end %>
+<h2 style="text-align:center"><b><u>Lastest Peep's</u></b></h2>
+
+<form style="color:#000000; text-align:center;" action="/message/new" method="get">
+    <input class="button button-primary" type="submit" value="Create Peep" formaction="/message/new">
+</form>
+<ul style="text-align:center; list-style-type:none;">
+  <% @chitter.each do |peep| %>
+  <br>
+    <li><h3><b><%= peep['message'] %></b></h3></li>
+    <sub>posted at <%= peep['post_time'] %>
+    by <%= peep['nickname'] %><br>  </sub>
+  <% end %><br>
+</ul><br>
+
+
+<body style="background-image:url(../images/smartphone-4236924_1920.jpg);">
+
+  <style>
+  ul {
+    margin: auto;
+    background: rgba(51, 196, 240,0.9);
+    border-radius: 25px;
+    padding: auto;
+    width: 30%;
+  }
+
+
+  </style>
