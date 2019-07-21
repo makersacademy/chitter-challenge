@@ -1,9 +1,53 @@
-'Hello, world!'
-<div>
-  <form action="/create" method="get">
-    <input type="submit" name="create" value="Create Peep">
+<h3>Welcome to Chitter</h3>
+<br>
+<% if @current_user.nil? %>
+<div class="log_in">
+  <form action="/user/register" method="get">
+    <input type="submit" name="register" value="Register">
   </form>
-  <form action="/peeps" method="get">
-    <input type="submit" name="view_peeps" value="View Peeps">
+  <form action="/user/log_in" method="post">
+    <input type="text" name="email" placeholder="Enter your email">
+    <input type="password" name="password" placeholder="Enter your password">
+    <input type="submit" name="submit" value="Sign in">
   </form>
+</div>
+<% end %>
+<% if @current_user.nil? == false %>
+  <form class="logout" action="/user/log_out" method="get">
+    <input type="submit" name="submit" value="Log Out">
+  </form>
+<% end %>
+<% if @current_user.nil? == false %>
+<div class="current_user">
+  <%= @current_user.id %>
+  <%= @current_user.username %>
+  <%= @current_user.email %>
+  <%= @current_user.password %>
+</div>
+<% end %>
+<% if @current_user.nil? == false %>
+<div class="new_peep">
+  <form action="/peeps/new" method="post">
+    <input type="text" name="body" placeholder="What's happening?">
+    <input type="submit" name="submit" value="Submit">
+  </form>
+</div>
+<% end %>
+<% if @current_user.nil? %>
+<form class="delete" action="/reset" method="get">
+  <input type="submit" name="submit" value="Delete all Data">
+</form>
+<% end %>
+<div class="peeps_list">
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <h3><%= peep.author.username %></h3>
+        <body>
+          <%= peep.body %>
+        </body>
+        <%= peep.time %>
+      </li>
+    <% end %>
+  </ul>
 </div>
