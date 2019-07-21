@@ -49,6 +49,7 @@ class Chitter < Sinatra::Base
     user = User.create(email: params[:email], password: params[:password],
       username: params[:username])
     session[:user_id] = user.id
+    session[:current_user] = user.username
     flash[:notice] = 'Registration successful'
     redirect('/current_session')
   end
