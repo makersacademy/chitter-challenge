@@ -1,0 +1,2 @@
+ALTER TABLE peeps
+ADD COLUMN "peep_user" VARCHAR(60);

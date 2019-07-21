@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div id="flash" class="notice">
+   <!-- <a class="close" data-dismiss="alert">&#215;</a> -->
+   <%= flash[:notice] %>
+  </div>
+  <h1>Welcome to Chitter <%= "#{ @user.username }" unless @user == nil %></h1>
+  <form id="signUp" action="/sessions/destroy" method="post">
+  <input type="submit" value="Log out" />
+</form>
+  <form id="newPeep" action="/messages" method="post">
+    <input type="message" name="message" placeholder="say something..."/>
+    <input type="submit" value="Post" />
+  </form>
+
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li id="peep"> <%= "#{ peep.peep }" %> </li>
+      <p id="time"> <%= "Posted: #{ peep.time }" %> </p>
+      <p id="time"> <%= "Posted by: #{ peep.peep_user }" %> </p>
+    <% end %>
+  </ul>
+
+</body>
+</html>

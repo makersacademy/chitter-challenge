@@ -5,30 +5,18 @@
 </head>
 <body>
   <div id='flash' class='notice'>
-   <a class="close" data-dismiss="alert">&#215;</a>
+   <!-- <a class="close" data-dismiss="alert">&#215;</a> -->
    <%= flash[:notice] %>
   </div>
   <h1>Welcome to Chitter <%= "#{ @user.username }" unless @user == nil %></h1>
   <form id="signUp" action="/registration" method="get">
     <input type="submit" value="Sign up" />
+    <br></br>
+    <a id="or">Or</a>
   </form>
   <form id="signUp" action="/sessions/new" method="get">
     <input type="submit" value="Log in" />
   </form>
-  <form id="signUp" action="/sessions/destroy" method="post">
-  <input type="submit" value="Log out" />
-</form>
-  <form id="newPeep" action="/messages" method="post">
-    <input type="message" name="message" placeholder="say something..."/>
-    <input type="submit" value="Post" />
-  </form>
-
-  <ul>
-    <% @peeps.each do |peep| %>
-      <li id="peep"> <%= "#{ peep.peep }" %> </li>
-      <p id="time"> <%= "Posted: #{ peep.time }" %> </p>
-    <% end %>
-  </ul>
 
 </body>
 </html>

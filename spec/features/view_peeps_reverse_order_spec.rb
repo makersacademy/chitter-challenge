@@ -4,7 +4,12 @@
 
 feature 'See all peeps in reverse chronological order' do
   scenario 'A user can see all peeps in revers chronological order ' do
-    visit('/')
+    User.create(email: "test@example.com", password: "password123", username: "test_user")
+
+    visit('/sessions/new')
+    fill_in('email', with: "test@example.com")
+    fill_in('password', with: "password123")
+    click_button('Log in')
     fill_in('message', with: "Feature test peep")
     click_button('Post')
     sleep 1

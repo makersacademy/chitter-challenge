@@ -96,3 +96,22 @@ ul {
   list-style:none;
   padding-left:0;
 }
+
+ #or {
+   color: #191a1c;
+   text-align: center;
+   font: 19px arial, sans-serif;
+ }
+
+ .notice {
+   background-color: #bd3333;
+   color: #fcfcfc;
+   padding: 20px;
+   text-align: center;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   font: 30px arial, sans-serif;
+   margin-top: 0px;
+   margin-bottom: 0px;
+
+ }

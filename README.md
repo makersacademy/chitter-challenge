@@ -1,7 +1,8 @@
 ##NOTES TO MYSELF
 ### TO DO:
-* Home page knows if signed in.
 * Associate peeps with the user (although this is Harder user story...)
+* Add styling to flash notices (and remove the 'x' at top of the page if no flash needed)
+* Change date to UK format (need to parse the date?)
 
 # Chitter - Week 4 Weekend challenge
 

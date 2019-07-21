@@ -10,9 +10,13 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    erb :index
+  end
+
+  get '/current_session' do
     @user = User.find(id: session[:user_id])
     @peeps = Peep.all.sort_by(&:time).reverse
-    erb :index
+    erb :current_session
   end
 
   get '/sessions/new' do
@@ -23,7 +27,8 @@ class Chitter < Sinatra::Base
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect('/')
+      session[:current_user] = user.username
+      redirect('/current_session')
     else
       flash[:notice] = 'Incorrect log in details'
       redirect('/sessions/new')
@@ -32,8 +37,8 @@ class Chitter < Sinatra::Base
 
   post '/messages' do
     Peep.create(peep: params[:message],
-      time: Time.now.strftime("%m/%d/%Y %H:%M:%S"))
-    redirect('/')
+      time: Time.now.strftime("%m/%d/%Y %H:%M:%S"), peep_user: session[:current_user])
+    redirect('/current_session')
   end
 
   get '/registration' do
@@ -41,14 +46,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    user = User.create(email: params[:email], password: params[:password], username: params[:username])
+    user = User.create(email: params[:email], password: params[:password],
+      username: params[:username])
     session[:user_id] = user.id
     flash[:notice] = 'Registration successful'
-    redirect('/')
-  end
-
-  get '/registration_success' do
-    erb :registration_success
+    redirect('/current_session')
   end
 
   post '/sessions/destroy' do
