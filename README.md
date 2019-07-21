@@ -2,7 +2,9 @@
 
 Built for a Makers weekend challenge
 
-In squiggle one can
+![Image screenshot](/screenshot.png)
+
+In Squiggler one can
 - create an account
 - login to your account
 - logout of your account
