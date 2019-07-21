@@ -1,0 +1,6 @@
+<% @squiggles.reverse.each do |squiggle| %>
+  <div class="squiggle-box">
+    <div class="squiggle-title"><%=User.find(squiggle.user_id).name%> @ <%=squiggle.time%></div>
+    <div class="squiggle-content"><%=squiggle.nuttify%></div>
+</div>
+<% end %>

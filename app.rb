@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'lib/squiggle'
 require_relative 'lib/user'
+require_relative 'lib/tag'
+require_relative 'lib/squiggles_tag'
 
 class Squiggler < Sinatra::Base
   enable :sessions
@@ -29,6 +31,28 @@ class Squiggler < Sinatra::Base
   post '/squiggles/:id/delete' do
     Squiggle.delete(params['id'])
     redirect '/squiggles'
+  end
+
+  post '/squiggles/:id/tag' do
+    nuttags = params['nuttag']
+    nuttags.split(",").map do |nuttag|
+      nuttag.strip!
+      tag = Tag.create(nuttag)
+      SquiggleTag.create(params['id'], tag.id)
+    end
+    redirect('/squiggles')
+  end
+
+  get '/tags' do
+    nuttag = params['tag_search']
+    squiggle_id_array = Tag.squiggles_tagged(nuttag)
+    @squiggles = squiggle_id_array.uniq.map { |id|
+      Squiggle.find(id)
+    }
+
+    p @squiggles
+    erb :tags
+
   end
 
   post '/users' do
