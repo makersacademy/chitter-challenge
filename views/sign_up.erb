@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+    .button {
+      background-color: #555555;
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 30px;
+      margin: 6px 3px;
+      cursor: pointer;
+    }
+
+    body {
+      background-color: lightblue;
+    }
+    {
+      background-color: lightblue;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+    }
+
+    input[type=text] {
+      width: 30%;
+      padding: 10px 10px;
+      margin: 1px 0;
+      box-sizing: border-box;
+    }
+    
+    </style>
+<body>
+<form action='/save_data' method='post'>
+  <center><h1 style="color:orange;font-size:40px;">Enter a name:</h1></center><br>
+  <center><input type='text' name='username'></center><br>
+  <center><h1 style="color:orange;font-size:40px;">Enter an email:</h1></center><br>
+  <center><input type='text' name='email'><br></center>
+  <center><h1 style="color:orange;font-size:40px;">Enter a password:</h1></center><br>
+  <center><input type='text' name='password'><br></center>
+  <center><input type='submit' class="button" value='Submit' /></center>
+  </form>
+</body>
