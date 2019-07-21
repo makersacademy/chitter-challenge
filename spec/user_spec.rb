@@ -11,12 +11,18 @@ describe User do
       expect(user.id).to eq persisted_data.first['id']
       expect(user.email).to eq "test1234@test.com"
     end
+
+    it "stores an encrypted password" do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+
+      User.create(email: 'test@123.com', password: 'password123')
+    end
   end
 
   describe ".find" do
     it "finds a user by his/her id" do
       user = User.create(email: "test1234@test.com", password: "1234test")
-      result = User.find(id: user.id)
+      result = User.find(user.id)
 
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email

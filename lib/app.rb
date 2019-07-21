@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'pg'
 require_relative 'peep_manager'
+require_relative 'user'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -10,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = User.find[session[:user_id]]
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :'peeps/peeps'
   end
@@ -28,6 +29,10 @@ class Chitter < Sinatra::Base
     user = User.create(email: params[:email], password: params[:password])
     session[:user_id] = user.id
     redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
   run! if app_file == $0

@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class User
   def self.create(email:, password:)
@@ -7,7 +8,9 @@ class User
     else
       connection = PG.connect(dbname: "peeps_manager")
     end
-    result = connection.exec("INSERT INTO users (email, password) VALUES('#{email}', '#{password}') RETURNING id, email;")
+    encrypted_password = BCrypt::Password.create(password)
+
+    result = connection.exec("INSERT INTO users (email, password) VALUES('#{email}', '#{encrypted_password}') RETURNING id, email;")
     User.new(id: result[0]['id'], email: result[0]['email'])
   end
 
@@ -18,7 +21,7 @@ class User
     else
       connection = PG.connect(dbname: "peeps_manager")
     end
-    result = connection.exec("SELECT * FROM users WHERE id = '#{id[:id]}'")
+    result = connection.exec("SELECT * FROM users WHERE id = '#{id}'")
     User.new(id: result[0]['id'],email: result[0]['email'])
   end
 
