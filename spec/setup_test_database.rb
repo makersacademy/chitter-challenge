@@ -1,6 +1,6 @@
-require 'pg'
+require 'database_connection'
 
 def setup_test_database
-  connection = PG.connect(dbname: 'peeps_manager_test')
-  connection.exec("TRUNCATE peeps, users;")
+  DatabaseConnection.setup('peeps_manager_test')
+  DatabaseConnection.query("TRUNCATE peeps, users;")
 end
