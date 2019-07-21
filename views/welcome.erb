@@ -9,20 +9,23 @@
 <body style ="background-image:url(https://pixabay.com/get/52e3d6424251a914f6d1867dda6d49214b6ac3e45657724c772878d09f/ocean-4331835_1920.jpg)">
 <html>
 <h2 style="text-align:center"> Welcome <%= @person.name %> </h2>
+<h3 style="text-align:center"> What is in Your head? </h3>
 
-<form method="post" action="/welcome">
-  <label for="user">
+
+<form method="post" action="/peep">
+
+  <label for="username">
     <!-- Username: -->
-    <input type="text" name="username" placeholder="Username" />
+    <!-- <input type="text" name="username" placeholder="Username" /> -->
 
-    <input type="submit" value="Submit"/>
-    <label for="exampleMessage">Message</label>
-     <textarea class="u-half-width" placeholder="You can change my size on the right bottom..." id="exampleMessage"></textarea>
+    <!-- <input type="submit" value="Submit"/> -->
+    <label for="Message">Time to Peep!</label>
+     <textarea class="u-full-width" placeholder="You can change my size on the right bottom..." id="Message"></textarea>
      <label class="example-send-yourself-copy">
        <input type="checkbox">
        <span class="label-body">Send a copy to yourself</span>
      </label>
-     <input class="button-primary" type="submit" value="Submit">
+     <input class="button-primary" type="submit" value="Add Peep">
   </form>
 
 <body>

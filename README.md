@@ -1,9 +1,7 @@
-Memoization
+Chitter Challenge:
 
-date_on
-time_at
 
-sent at / sent on
+Application allows users to sign in. Their data is stored on database (Tableplus). I am using ruby for back end and PostgreSQL for databases. Migration files to use for implementing tables and columns.
 
 
 Chitter Challenge

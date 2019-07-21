@@ -1,7 +1,12 @@
 require 'pg'
 
 class Peep
-
+  attr_reader  :id, :url
+    def initialize(id:, url:)
+      @url = url
+      @id = id
+    end
+    
   def self.message
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -23,6 +28,15 @@ class Peep
 
     connection.exec("INSERT INTO messages (url) VALUES('#{url}')")
   end
+
+  def self.delete(id:)
+  if ENV['ENVIRONMENT'] == 'test'
+    connection = PG.connect(dbname: 'chitter_test')
+  else
+    connection = PG.connect(dbname: 'chitter')
+  end
+  connection.exec("DELETE FROM messages WHERE id = #{id}")
+end
 
 end
 
