@@ -5,7 +5,7 @@ ruby '2.6.3'
 gem 'rake'
 gem 'rubocop'
 gem 'sinatra'
-gem 'data_mapper', '1.2.0'
+gem 'data_mapper'
 gem 'dm-postgres-adapter'
 
 group :test do

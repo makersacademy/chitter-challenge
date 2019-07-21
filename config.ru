@@ -1,4 +1,4 @@
 require 'data_mapper'
-require_relative './libapp.rb'
+require_relative './lib/app'
 
 run Chitter

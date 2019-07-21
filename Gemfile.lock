@@ -138,7 +138,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  data_mapper (= 1.2.0)
+  data_mapper
   database_cleaner
   dm-postgres-adapter
   rake

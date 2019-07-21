@@ -9,7 +9,7 @@ require 'rack/test'
 require 'data_mapper'
 require 'database_cleaner'
 
-require File.join(File.dirname(__FILE__), '..', './app/app.rb')
+require File.join(File.dirname(__FILE__), '..', './lib/app.rb')
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -21,6 +21,7 @@ SimpleCov.start
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
