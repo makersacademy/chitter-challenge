@@ -6,7 +6,7 @@ class Send
   def self.email(user_email)
     from = Email.new(email: 'test@example.com')
     to = Email.new(email: "#{user_email}")
-    subject = 'Sending with SendGrid is Fun'
+    subject = 'You`ve been tagged in a peep...'
     content = Content.new(type: 'text/plain', value: 'Hello chicken lamb. You have been tagged in a peep! login to see who it was (because cook knows how to tell you who it is).')
     mail = Mail.new(from, subject, to, content)
 
