@@ -1,4 +1,7 @@
-rvm: '2.5.0'
+rvm: '2.6.3'
+
+services:
+  - postgresql
 
 script:
   - mkdir -p spec && bundle exec rspec spec

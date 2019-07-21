@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div id='flash' class='notice'>
+   <%= flash[:notice] %>
+  </div>
+  <h1>Welcome to Chitter <%= "#{ @user.username }" unless @user == nil %></h1>
+  <form id="signUp" action="/registration" method="get">
+    <input type="submit" value="Sign up" />
+    <br></br>
+    <a id="or">Or</a>
+  </form>
+  <form id="signUp" action="/sessions/new" method="get">
+    <input type="submit" value="Log in" />
+  </form>
+  <div id="latest">Latest Peeps:</div>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li id="peep"> <%= "#{ peep.peep }" %> </li>
+      <p id="time"> <%= "Posted: #{ peep.uk_date } by: #{ peep.peep_user }" %> </p>
+    <% end %>
+  </ul>
+</body>
+</html>

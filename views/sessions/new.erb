@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div id='flash' class='notice'>
+   <%= flash[:notice] %>
+  </div>
+
+  <form id="signUp" action="/" method="get">
+    <input type="submit" value="Home" />
+  </form>
+
+  <h1 id="signUpHeader">Log in to Chitter</h1>
+
+  <form id="signUp" action="/sessions" method="post">
+    <label for="email">Email:</label>
+    <input id="textField" type="text" name="email" placeholder="email address"/>
+    <br></br>
+    <label for="password">Password:</label>
+    <input id="textField" type="password" name="password" placeholder="password"/>
+    <br></br>
+    <input type="submit" value="Log in" />
+  </form>
+
+</body>
+</html>
