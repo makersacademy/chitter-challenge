@@ -1,0 +1,25 @@
+<head>
+ <link rel="stylesheet" type="text/css" href="/style.css"/>
+ <link rel="stylesheet" type="text/css" href="/normalize.css"/>
+ <link rel="stylesheet" type="text/css" href="/skeleton.css"/>
+ <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+</head>
+<html>
+<font color="white">
+<h2 style="text-align:center">Please Log In Below<h2>
+
+<h2 style="text-align:center">
+<%= flash[:notice] %>
+</h2>
+<form  style="color:#000000; text-align:center;" action="/sessions" method="post">
+  <input type="email" name="email" placeholder="Email" required/>
+  <input type="password" name="password" placeholder="Password" required/>
+  <input class="button button-primary" type="submit" value="Sign in"/>
+</form>
+
+<form style="text-align:center" method='get' action='/'>
+  <input class="button button-primary" type='submit' value='Go Back'>
+</form>
+
+</font>
+<body style="background-image:url(../images/smartphone-4236924_1920.jpg);">
