@@ -5,7 +5,6 @@
 </head>
 <body>
   <div id='flash' class='notice'>
-   <!-- <a class="close" data-dismiss="alert">&#215;</a> -->
    <%= flash[:notice] %>
   </div>
   <h1>Welcome to Chitter <%= "#{ @user.username }" unless @user == nil %></h1>
@@ -17,6 +16,12 @@
   <form id="signUp" action="/sessions/new" method="get">
     <input type="submit" value="Log in" />
   </form>
-
+  <div id="latest">Latest Peeps:</div>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li id="peep"> <%= "#{ peep.peep }" %> </li>
+      <p id="time"> <%= "Posted: #{ peep.uk_date } by: #{ peep.peep_user }" %> </p>
+    <% end %>
+  </ul>
 </body>
 </html>

@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all.sort_by(&:time).reverse
     erb :index
   end
 
@@ -37,8 +38,9 @@ class Chitter < Sinatra::Base
 
   post '/messages' do
     Peep.create(peep: params[:message],
-        time: Time.now.strftime("%m/%d/%Y %H:%M:%S"), peep_user: session[:current_user])
-    redirect('/current_session') 
+      time: Time.now.strftime("%m/%d/%Y %H:%M:%S"),
+      peep_user: session[:current_user])
+    redirect('/current_session')
   end
 
   get '/registration' do

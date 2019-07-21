@@ -2,7 +2,20 @@
 
 This is my attempt at the week 4 weekend challenge - [Chitter](https://github.com/makersacademy/chitter-challenge)
 
-###Setup instructions for database
+## Notes for reviewer
+A few limitations of my code due to time constraints:
+1. The home page takes gives you the option to sign in or log in, so in that sense you cannot post until you done either of these. However, if you went direct to the '/current_session' page you could actually post a peep without an account.
+
+2. There are no tests in place to ensure a username or email address is unique.
+
+3. User is not required to give their name, only a username.
+
+## Setup
+* After cloning the repository, run ```bundle``` to install the gems.
+* Tests can be run using ```rspec```
+* Datases will need to be set up as below...
+
+### Setup instructions for database
 The databases used are PostgreSQL databases and can be setup as follows:
 
 1. Connect to psql
@@ -51,7 +64,8 @@ I want to log out of Chitter
 
 ```
 
-###Peep class
+## My Domain model from the start...
+### Peep class
 Methods:
 * .create
 * .all
@@ -62,11 +76,12 @@ Attributes:
 * time
 * user
 
-###User
+### User class
 Methods:
-* .sign_in
+* .register
+* .log_in
 * .log_out
-Instance Variable:
+Attributes:
 * user_name
 * email_address
 * password

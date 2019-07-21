@@ -5,9 +5,13 @@
 </head>
 <body>
   <div id='flash' class='notice'>
-   <!-- <a class="close" data-dismiss="alert">&#215;</a> -->
    <%= flash[:notice] %>
   </div>
+
+  <form id="signUp" action="/" method="get">
+    <input type="submit" value="Home" />
+  </form>
+
   <h1 id="signUpHeader">Log in to Chitter</h1>
 
   <form id="signUp" action="/sessions" method="post">

@@ -5,7 +5,6 @@
 </head>
 <body>
   <div id="flash" class="notice">
-   <!-- <a class="close" data-dismiss="alert">&#215;</a> -->
    <%= flash[:notice] %>
   </div>
   <h1>Welcome to Chitter, <%= "#{ @user.username }" unless @user == nil %></h1>
@@ -16,7 +15,7 @@
     <input type="message" name="message" placeholder="say something..."/>
     <input type="submit" value="Post" />
   </form>
-
+  <div id="latest">Latest Peeps:</div>
   <ul>
     <% @peeps.each do |peep| %>
       <li id="peep"> <%= "#{ peep.peep }" %> </li>
