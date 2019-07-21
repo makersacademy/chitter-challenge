@@ -1,4 +1,4 @@
-require 'pg'
+require_relative 'database_connection'
 require 'bcrypt'
 
 class User

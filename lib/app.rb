@@ -1,6 +1,6 @@
 require_relative 'peep_manager'
 require_relative 'user'
-require './lib/database_connection_setup'
+require_relative 'database_connection_setup'
 require 'sinatra'
 require 'sinatra/flash'
 

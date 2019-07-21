@@ -1,4 +1,4 @@
-require './lib/database_connection'
+require_relative 'database_connection'
 
 if ENV["ENVIRONMENT"] == "test"
   DatabaseConnection.setup("peeps_manager_test")
