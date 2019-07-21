@@ -1,12 +1,12 @@
 require 'sinatra/base'
 require './app/models/peep.rb'
 
+# class for control of client interaction with server,
 class ApplicationManager < Sinatra::Base
-
   configure do
     enable :sessions
-    set :views, "app/views"
-    set :public_dir, "public"
+    set :views, 'app/views'
+    set :public_dir, 'public'
   end
 
   get '/' do
@@ -23,5 +23,5 @@ class ApplicationManager < Sinatra::Base
     erb(:posts)
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
