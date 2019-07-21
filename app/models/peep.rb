@@ -2,20 +2,21 @@ require 'pg'
 
 # class for manipulating/transfering peep information to and from database.
 class Peep
-  attr_reader :text
+  attr_reader :text, :id
   def initialize(id:, text:)
     @id = id
     @text = text
   end
 
-  def self.add(message:)
+  def self.post(message:)
     # added method to apostrophe in peep without causing SQL malfunction
     if message.include?("'")
       index = message.index("'")
       message.insert(index, "'")
     end
-    connect_to_database.exec("INSERT INTO peeps (message_text)
-    VALUES('#{message}');")
+    result = connect_to_database.exec("INSERT INTO peeps (message_text)
+    VALUES('#{message}') RETURNING id, message_text;").first
+    Peep.new(id: result['id'], text: result['message_text'])
   end
 
   def self.list

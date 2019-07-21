@@ -14,7 +14,7 @@ class ApplicationManager < Sinatra::Base
   end
 
   post '/create_post' do
-    Peep.add(message: params[:peep])
+    Peep.post(message: params[:peep])
     redirect('/posts')
   end
 
