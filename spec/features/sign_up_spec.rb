@@ -10,6 +10,6 @@ feature 'Sign up' do
     fill_in('email', with: "test@example.com")
     fill_in('password', with: "1234")
     click_button('Submit')
-    expect(page).to have_content("Welcome to Chitter test_user")
+    expect(page).to have_content("Welcome to Chitter, test_user")
   end
 end

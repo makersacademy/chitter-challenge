@@ -3,7 +3,7 @@
 # I want to see all peeps in reverse chronological order
 
 feature 'See all peeps in reverse chronological order' do
-  scenario 'A user can see all peeps in revers chronological order ' do
+  scenario 'A user can see all peeps in reverse chronological order ' do
     User.create(email: "test@example.com", password: "password123", username: "test_user")
 
     visit('/sessions/new')

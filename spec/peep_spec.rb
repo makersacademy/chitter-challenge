@@ -5,7 +5,7 @@ describe Peep do
     it 'returns all peeps' do
       peep = Peep.create(peep: 'Test peep', time: '2019-07-16', peep_user: 'test_user')
       Peep.create(peep: 'Second test peep', time: '2019-07-17', peep_user: 'test_user_2')
-      Peep.create(peep: 'Third test peep', time: '2019-07-18', peep_user: 'test_user') 
+      Peep.create(peep: 'Third test peep', time: '2019-07-18', peep_user: 'test_user')
 
       peeps = Peep.all
 

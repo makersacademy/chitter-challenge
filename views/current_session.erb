@@ -8,7 +8,7 @@
    <!-- <a class="close" data-dismiss="alert">&#215;</a> -->
    <%= flash[:notice] %>
   </div>
-  <h1>Welcome to Chitter <%= "#{ @user.username }" unless @user == nil %></h1>
+  <h1>Welcome to Chitter, <%= "#{ @user.username }" unless @user == nil %></h1>
   <form id="signUp" action="/sessions/destroy" method="post">
   <input type="submit" value="Log out" />
 </form>
@@ -20,8 +20,8 @@
   <ul>
     <% @peeps.each do |peep| %>
       <li id="peep"> <%= "#{ peep.peep }" %> </li>
-      <p id="time"> <%= "Posted: #{ peep.time }" %> </p>
-      <p id="time"> <%= "Posted by: #{ peep.peep_user }" %> </p>
+      <p id="time"> <%= "Posted: #{ peep.uk_date } by: #{ peep.peep_user }" %> </p>
+
     <% end %>
   </ul>
 

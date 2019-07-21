@@ -1,9 +1,3 @@
-##NOTES TO MYSELF
-### TO DO:
-* Associate peeps with the user (although this is Harder user story...)
-* Add styling to flash notices (and remove the 'x' at top of the page if no flash needed)
-* Change date to UK format (need to parse the date?)
-
 # Chitter - Week 4 Weekend challenge
 
 This is my attempt at the week 4 weekend challenge - [Chitter](https://github.com/makersacademy/chitter-challenge)
@@ -16,17 +10,18 @@ The databases used are PostgreSQL databases and can be setup as follows:
 3. Connect to the database using the pqsl command \c chitter;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
 02_create_users_table.sql
+03_add_user_column.sql
 
-CREATE TEST DATABASE
-
+TO CREATE TEST DATABASE
 
 1. Connect to psql
 2. Create the database using the psql command CREATE DATABASE chitter_test;
 3. Connect to the database using the pqsl command \c chitter_test;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
 02_create_users_table.sql
+03_add_user_column.sql
 
-## DOMAIN MODEL for the 'Straight Up' User stories
+## User stories
 ```
 As a Maker
 So that I can let people know what I am doing  
@@ -69,8 +64,9 @@ Attributes:
 
 ###User
 Methods:
-* .sign_up
+* .sign_in
+* .log_out
 Instance Variable:
 * user_name
+* email_address
 * password
-* peeps

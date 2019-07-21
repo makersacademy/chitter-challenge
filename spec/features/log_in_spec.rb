@@ -11,7 +11,7 @@ feature 'log in' do
     fill_in('password', with: "password123")
     click_button('Log in')
 
-    expect(page).to have_content('Welcome to Chitter test_user')
+    expect(page).to have_content('Welcome to Chitter, test_user')
   end
 
   scenario 'user sees an error if username or password don\'t match' do

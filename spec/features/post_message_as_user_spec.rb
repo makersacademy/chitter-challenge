@@ -11,6 +11,6 @@ feature 'post message as me' do
 
     fill_in('message', with: "Feature test peep as me")
     click_button('Post')
-    expect(page).to have_content("Posted by: test_user")
+    expect(page).to have_content("by: test_user")
   end
 end

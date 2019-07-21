@@ -115,3 +115,16 @@ ul {
    margin-bottom: 0px;
 
  }
+
+  #peepUser {
+    background-color: #e3e5e8;
+    color: #232a36;
+    padding: 8px;
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font: 14px arial, sans-serif;
+
+  }
