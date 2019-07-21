@@ -9,4 +9,13 @@ describe Posts do
       expect(posts).to include("I have eaten")
     end
   end
+
+
+  describe '.show_posts' do
+    it 'Should return posts' do
+      posts = Posts.show_posts
+      
+    end
+  end
+
 end

@@ -1,10 +1,10 @@
+require 'pg'
+
 class Posts
 
   def self.show_posts
-    posts = [
-      "I am awake",
-      "I have eaten",
-      "I will sleep"
-     ]
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec("SELECT * FROM peeps;")
+    result.map { |post| post['peep_text'] }
   end
 end

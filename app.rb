@@ -2,6 +2,7 @@ require 'sinatra/base'
 require_relative 'lib/posts'
 
 
+
 class WebChitter < Sinatra::Base
   enable :sessions
   get '/' do
