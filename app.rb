@@ -37,6 +37,7 @@ class Squiggler < Sinatra::Base
     nuttags = params['nuttag']
     nuttags.split(",").map do |nuttag|
       nuttag.strip!
+      nuttag = nuttag.delete('#')
       tag = Tag.create(nuttag)
       SquiggleTag.create(params['id'], tag.id)
     end
@@ -45,12 +46,11 @@ class Squiggler < Sinatra::Base
 
   get '/tags' do
     nuttag = params['tag_search']
+    nuttag = nuttag.delete('#')
     squiggle_id_array = Tag.squiggles_tagged(nuttag)
     @squiggles = squiggle_id_array.uniq.map { |id|
       Squiggle.find(id)
     }
-
-    p @squiggles
     erb :tags
 
   end
