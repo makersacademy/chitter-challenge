@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative './models/peep'
 require_relative './models/user'
+require_relative './models/send'
 require 'sinatra/flash'
 # require_relative './models/chitter'
 
@@ -15,7 +16,12 @@ class ApplicationManager < Sinatra::Base
 
   get '/home' do
     @user = User.find(session[:username])
+    @users = User.all
     @peeps = Peep.all
+    all_peeps = @peeps.map { |tag| tag.peep }
+    if @peeps.each { |users| all_peeps.include?(users.username) }
+       @users.each { |users| Send.email(users.email) }
+    end
     erb(:index)
   end
 
