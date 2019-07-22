@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head
+  <style>
+.center {
+  text-align: center;
+}
+</style>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
   </head>
   <body>
@@ -8,24 +13,41 @@
     <div id="nav1">
       <h1 class="top_space">Chitter<h1/>
     </div>
-
+    <div class="center">
     <br>
     <br>
     <br>
 
     <br>
 
-    <form action="/posts" class="top_space" method="post">
+    <form action="/posts" class="top_space center" method="post" style="text-align: center;">
       <input name="peep" type="textbox" placeholder="Write a peep">
+      <input name="user" type="textbox" placeholder="name">
+      <input name="date" type="hidden" value="2019-06-22 19:10:25-07">
       <input type="submit" value="Post">
     </form>
 
-    <ul>
+    <ul class="center" style="text-align: center;">
+      <% if @posts.empty?  %>
+        <h1> No Peeps Available :(</h1>
+      <% else  %>
       <% @posts.each do |post| %>
-      <li><%= post %></li>
+
+      <br>
+      <p class="peep" id="peep-<%= post.id %>">
+        <%= post.peep_text %>
+      </p>
+      <p> by  <%= post.user_name %></p>
+      <p> at  <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+      <form action="/posts/<%= post.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+      </form>
+      <br>
+      <% end %>
       <% end %>
     </ul>
-
+    </div>
   </body>
 
 </html>

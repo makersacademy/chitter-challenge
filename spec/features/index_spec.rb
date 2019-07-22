@@ -1,3 +1,5 @@
+require "spec_helper"
+
 feature 'Test for index page' do
   scenario 'Visiting index page' do
     visit('/')
