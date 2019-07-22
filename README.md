@@ -72,3 +72,6 @@ Accounts class methods:
 #username
 #email
 #password
+
+
+![GitHub Logo](/images/Screenshot 2019-07-22 at 10.37.12)
