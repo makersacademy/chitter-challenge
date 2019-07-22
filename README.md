@@ -73,4 +73,4 @@ Accounts class methods:
 #email
 #password
 
-![Image screenshot](/Screenshot 2019-07-22 at 10.37.12.png)
+![Image screenshot](Screenshot 2019-07-22 at 10.37.12.png)
