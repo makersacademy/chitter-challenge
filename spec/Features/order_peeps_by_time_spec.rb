@@ -7,6 +7,7 @@ feature "View messages in reverse chronological order" do
     fill_in 'peep', with: 'First post'
     click_button('Post Peep')
     visit('/')
+    sleep 1 # capybara will wait for 1 second
     fill_in 'peep', with: 'Second post'
     click_button('Post Peep')
     expect('Second post').to appear_before('First post')
