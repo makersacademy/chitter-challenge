@@ -8,6 +8,7 @@ Chitter database
 2. Create the database using the psql command CREATE DATABASE chitter;
 3. Connect to the database using the pqsl command \c chitter;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
+5. Run the query we have saved in the file 01_create_users_table.sql
 
 Chitter test database
 
@@ -15,6 +16,7 @@ Chitter test database
 2. Create the database using the psql command CREATE DATABASE chitter;
 3. Connect to the database using the pqsl command \c chitter;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
+5. Run the query we have saved in the file 01_create_users_table.sql
 
 
 * Challenge time: rest of the day and weekend, until Monday 9am
