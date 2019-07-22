@@ -1,0 +1,10 @@
+<h1> Welcome <%= @username %> </h1>
+<% @chitter.each do |chitter_object| %>
+
+<h1> <%= chitter_object.message %> </h1>
+<br> Posted by <%= chitter_object.username %>  (<%= chitter_object.posted_by %>) at <br> <%= chitter_object.created_at %> </br>
+ <% end %>
+
+<form action="/peep/new" method = "get">
+  <input type="submit" value="add">
+</form>
