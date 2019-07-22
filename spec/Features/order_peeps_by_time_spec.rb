@@ -1,8 +1,8 @@
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
-feature "View messages in reverse chronological order" do
-  scenario "" do
+feature 'Add time stamps to peeps' do
+  scenario 'View peeps in reverse chronological order' do
     visit('/')
     fill_in 'peep', with: 'First post'
     click_button('Post Peep')
