@@ -1,0 +1,68 @@
+body {
+  /* background-color: #91EADA; */
+  background-image: url(https://i1.wp.com/campcoeurdalene.com/wp-content/uploads/2014/01/pink-bg.jpg?fit=1920%2C1080);
+  background-size: cover;
+}
+
+p {
+  font-family: Andale Mono, monospace;
+
+}
+
+h1 {
+  font-size: 40px;
+  font-family: Andale Mono, monospace;
+}
+.button {
+  background-color: #66ff66;
+  border: 2px solid #e7e7e7;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.button:hover {
+  background-color: #ECE955;
+}
+
+input {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 8px #7E55EC;
+  border-radius: 4px;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+
+.timeline {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+ li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+
+    @media screen and (min-width: 600px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .peep-meta {
+    margin: 0 auto 0.5rem;
+    line-height: 1;
+  }
+
+  .peep-content {
+    margin: 0;
+    word-wrap: break-word;
+  }
