@@ -1,0 +1,44 @@
+
+<div class="sign-out">
+  <div class="row">
+    <div class="ten columns">
+      <form class="squiggle-form" action="/tags" method="get">
+        <input type="text" name="tag_search" placeholder="#nuttag">
+        <input type="submit" value="Search"/>
+      </form>
+    </div>
+
+    <div class="two columns">
+      <form class="squiggle-form" action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="squiggle-post">
+  <form class="squiggle-form" action="/squiggles/<%=@user.id%>/new" method="post">
+    <textarea class="u-full-width" name="squiggle" placeholder="Hi <%=@user.name%>! Write your squiggle here..." /></textarea>
+    <input type="submit" value="Add to Fowwest" />
+  </form>
+</div>
+
+<% @squiggles.reverse.each do |squiggle| %>
+  <div class="squiggle-box">
+    <div class="squiggle-title"><%=User.find(squiggle.user_id).name%> @ <%=squiggle.time%></div>
+    <div class="squiggle-content"><%=squiggle.nuttify%></div>
+
+      <% squiggle.tags.each do |tag| %>
+      <input type="button" value="🌰<%= tag.tag %>" />
+      <% end %>
+    <% if squiggle.user_id == @user.id %>
+    <form class="squiggle-form" action="/squiggles/<%= squiggle.id %>/tag" method="post">
+      <input type="text" name="nuttag" placeholder="#nuttag1, #nuttag2, etc...">
+      <input type="submit" value="Add" />
+    </form>
+    <form class="squiggle-form" action="/squiggles/<%= squiggle.id %>/delete" method="post">
+      <input type="submit" value="Delete" />
+    </form>
+    <% end %>
+  </div>
+<% end %>
