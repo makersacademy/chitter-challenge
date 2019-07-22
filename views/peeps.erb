@@ -1,16 +1,26 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>">
-      <%= peep.peep %>
-      <%= peep.name %>
-      <form action="/peeps/<%= peep.id %>" method="post">
-       <input type='hidden' name='_method' value='DELETE'/>
-       <input type="submit" value="Delete" />
-     </form>
-    </li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+    <body>
+      <ul>
+        <% @peeps.each do |peep| %>
+          <li class="peep-meta" id="peep-<%= peep.id %>">
+            <%= peep.peep %>
+            <%= peep.name %>
+            <%= peep.time %>
+            <form action="/peeps/<%= peep.id %>" method="post">
+             <input type='hidden' name='_method' value='DELETE'/>
+             <input type="submit" value="Delete" />
+           </form>
+          </li>
+        <% end %>
+      </ul>
 
-<form action="/" method="get">
-<button type="submit" value="return">Return to homepage</button>
-</form>
+    <form action="/" method="get">
+    <button type="submit" value="return">Return to homepage</button>
+    </form>
+
+</body>
+</html>

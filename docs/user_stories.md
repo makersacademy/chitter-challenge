@@ -7,7 +7,7 @@ I want to post a message (peep) to chitter
 * visiting page /peeps/new
 * Typing a message into a form on that page
 * submitting the form
-* seeing the peep they just submitted 
+* seeing the peep they just submitted
 
 As a maker
 So that I can see what others are saying  
@@ -36,3 +36,5 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+
+<!-- <span class="time">on <%= format_date_time(peep.timestamp) %></span> -->
