@@ -2,10 +2,11 @@ require 'pg'
 
 # class for manipulating/transfering peep information to and from database.
 class Peep
-  attr_reader :text, :id
-  def initialize(id:, text:)
+  attr_reader :text, :id, :time
+  def initialize(id:, text:, time:)
     @id = id
     @text = text
+    @time = time
   end
 
   def self.post(message:)
@@ -14,15 +15,18 @@ class Peep
       index = message.index("'")
       message.insert(index, "'")
     end
-    result = connect_to_database.exec("INSERT INTO peeps (message_text)
-    VALUES('#{message}') RETURNING id, message_text;")
-    Peep.new(id: result[0]['id'], text: result[0]['message_text'])
+    time = Time.now.to_s[0..18] # time excluding timezone
+    result = connect_to_database.exec("INSERT INTO peeps (message_text, time)
+    VALUES('#{message}', '#{time}') RETURNING id, message_text, time;").first
+    Peep.new(id: result['id'], text: result['message_text'],
+      time: result['time'])
   end
 
   def self.list
-    result = connect_to_database.exec('SELECT message_text FROM peeps;')
+    result = connect_to_database.exec('SELECT * FROM peeps
+      ORDER BY time DESC;')
     result.map do |peep|
-      Peep.new(id: peep['id'], text: peep['message_text'])
+      Peep.new(id: peep['id'], text: peep['message_text'], time: peep['time'])
     end
   end
 

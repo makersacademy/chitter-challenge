@@ -6,7 +6,7 @@ describe "#post" do
     message = 'This is my first peep'
     peep = Peep.post(message: 'This is my first peep')
     connection = PG.connect(dbname: 'chitter_test')
-    p persisted_data = persisted_data(id: peep.id)
+    persisted_data = persisted_data(id: peep.id)
 
     expect(peep).to be_a Peep
     expect(peep.id).to eq persisted_data['id']
