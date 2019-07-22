@@ -15,8 +15,8 @@ class Peep
       message.insert(index, "'")
     end
     result = connect_to_database.exec("INSERT INTO peeps (message_text)
-    VALUES('#{message}') RETURNING id, message_text;").first
-    Peep.new(id: result['id'], text: result['message_text'])
+    VALUES('#{message}') RETURNING id, message_text;")
+    Peep.new(id: result[0]['id'], text: result[0]['message_text'])
   end
 
   def self.list
