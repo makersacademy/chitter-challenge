@@ -1,0 +1,9 @@
+<ul>
+  <% @users.each do |user| %>
+    <li >
+      <a href="/user/<%= user.id %>" target="_blank">
+        <%= user.username %>
+      </a>
+    </li>
+  <% end %>
+</ul>
