@@ -6,7 +6,7 @@ class Chitter
 
   def self.create(body)
     time = Time.now
-    DatabaseConnection.query("INSERT INTO peeps (body, time, author) VALUES('#{body.gsub!(/[',]/, "'" => "''")}', '#{time}', #{@current_user.id});")
+    DatabaseConnection.query("INSERT INTO peeps (body, time, author) VALUES('#{body}', '#{time}', #{@current_user.id});")
   end
 
   def self.list

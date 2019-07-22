@@ -3,6 +3,7 @@ require_relative './lib/database_connection_setup'
 require_relative './lib/chitter'
 require_relative './lib/User'
 
+
 class ChitterApp < Sinatra::Base
 
   configure do

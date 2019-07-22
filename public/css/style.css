@@ -1,0 +1,30 @@
+.container {
+  background-color: #dedede;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 10px;
+  clear: both;
+}
+
+.menu {
+  width: 33.3%;
+  float: left;
+}
+
+.content {
+  width: 33.3%;
+  float: left;
+  padding: 0px;
+}
+
+.rightcolumn {
+  width: 33.3%;
+  float: left;
+}
+
+.peeps_list {
+  padding: 0px;
+}

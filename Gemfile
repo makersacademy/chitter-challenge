@@ -5,6 +5,8 @@ gem 'rubocop'
 gem 'capybara'
 gem 'pg'
 gem 'sinatra'
+gem 'activerecord'
+
 
 group :test do
   gem 'rspec'
