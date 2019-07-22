@@ -1,0 +1,34 @@
+ #nav1{
+   width:98%;
+   height:160px;
+   Position:fixed;
+   z-index:200;
+   margin-top:-100px;
+   background-color:rgb(59,90,154);
+   font-family:Arial;
+   text-align:center;
+   font-size:45px;
+   font-weight:bold;
+   line-height:.9em;
+   padding-top:30px;
+   color:white;
+   margin-right: 10px;
+   margin-left: 10px;
+}
+
+em{
+   font-style:normal;
+   font-size:100px;
+   text-transform:uppercase;
+}
+
+ .top_space {
+   padding-top: 30px;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
