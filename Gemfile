@@ -1,9 +1,20 @@
 source 'https://rubygems.org'
-
 ruby '2.5.0'
 
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'bcrypt'
+gem 'pg'
+
+group :test do
+  gem 'cucumber'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'coveralls', require: false
+  gem 'capybara'
+end
+
 gem 'rake'
-gem 'rubocop', '0.56.0'
 
 group :test do
   gem 'rspec'
