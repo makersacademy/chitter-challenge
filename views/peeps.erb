@@ -1,0 +1,7 @@
+
+  <h1>Welcome <%= @user.name %></h1>
+
+
+<% @peeps.each do |peep| %>
+	     <p><%= peep.created_at %>>- <%= peep.peep %></p>
+          <% end %>
