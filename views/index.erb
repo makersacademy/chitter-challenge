@@ -1,0 +1,15 @@
+<h1>Chitter</h1>
+<br />
+<h3>Cheet-feed: </h3>
+<br />
+
+<ul>
+  <% @cheets.each do |cheet| %>
+    <li><%= cheet %></li>
+  <% end %>
+</ul>
+
+<form method="post" action="/newpost">
+  <input type="text" name="message" placeholder="type your message here" />
+  <input type="submit" value="Submit" />
+</form>
