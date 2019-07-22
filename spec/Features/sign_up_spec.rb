@@ -10,6 +10,6 @@ feature "Sign up for chitter" do
     fill_in 'password', with: 'pa$$word'
     click_button('Sign Up')
     expect(page).to have_content 'Welcome Joe Bloggs! A confirmation email has
-    been sent to test@testing.com!' 
+    been sent to test@testing.com!'
   end
 end

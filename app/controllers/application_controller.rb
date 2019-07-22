@@ -13,6 +13,10 @@ class ApplicationManager < Sinatra::Base
     erb(:index)
   end
 
+  get '/home' do
+    erb(:home)
+  end
+
   post '/create_post' do
     Peep.post(message: params[:peep])
     redirect('/posts')

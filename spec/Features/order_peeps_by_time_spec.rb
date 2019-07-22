@@ -3,10 +3,10 @@
 # I want to see all peeps in reverse chronological order
 feature 'Add time stamps to peeps' do
   scenario 'View peeps in reverse chronological order' do
-    visit('/')
+    visit('/home')
     fill_in 'peep', with: 'First post'
     click_button('Post Peep')
-    visit('/')
+    visit('/home')
     sleep 1 # capybara will wait for 1 second
     fill_in 'peep', with: 'Second post'
     click_button('Post Peep')

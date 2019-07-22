@@ -4,7 +4,7 @@
 
 feature "Post a message (peep) to chitter" do
   scenario "Post a message that can be viewed" do
-    visit('/')
+    visit('/home')
     fill_in 'peep', with: 'So sunny today!'
     click_button('Post Peep')
     visit('/posts')
