@@ -1,3 +1,9 @@
+Chitter Challenge:
+
+
+Application allows users to sign in. Their data is stored on database (Tableplus). I am using ruby for back end and PostgreSQL for databases. Migration files to use for implementing tables and columns.
+
+
 Chitter Challenge
 =================
 
@@ -6,6 +12,12 @@ Chitter Challenge
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
+
+$> psql
+admin=# CREATE DATABASE "bookmark_manager_test";
+admin=# CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+
+PLease test chitter_test database
 
 Challenge:
 -------
