@@ -26,7 +26,7 @@ task :setup do
     connection.exec("CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(60), email VARCHAR(60), password VARCHAR(240));")
     connection.exec("CREATE TABLE squiggles(id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users (id), squiggle VARCHAR(60), time TIMESTAMP);")
     connection.exec("CREATE TABLE nuttags(id SERIAL PRIMARY KEY, tag VARCHAR(60));")
-    connection.exec("CREATE TABLE squiggles_tags(id SERIAL PRIMARY KEY, squiggle_id INTEGER REFERENCES squiggles (id), nuttag_id INTEGER REFERENCES nuttags (id));")
+    connection.exec("CREATE TABLE squiggles_tags(id SERIAL PRIMARY KEY, squiggle_id INTEGER REFERENCES squiggles (id) ON DELETE CASCADE, nuttag_id INTEGER REFERENCES nuttags (id));")
   end
 end
 

@@ -16,6 +16,13 @@ class Squiggle
     @squiggle.gsub(/[aeiou]/,'🌰')
   end
 
+  def self.sanitise(string)
+    raise "NICE TRY now go away" if string.match('DROP TABLE')
+    raise "NICE TRY now go away" if string.match('DROP DATABASE')
+    raise "NICE TRY now go away" if string.match('TRUNCATE')
+    string.gsub("\'","\'\'")
+  end
+
   # def find_nuttags
   #   @squiggle.split.select { |word| word.start_with?('#')}
   # end

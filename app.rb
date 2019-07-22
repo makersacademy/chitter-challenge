@@ -24,7 +24,9 @@ class Squiggler < Sinatra::Base
   end
 
   post '/squiggles/:id/new' do
-    squiggle = Squiggle.create(user_id: params[:id], squiggle: params['squiggle'])
+    squiggle_string = params['squiggle']
+    squiggle_string = Squiggle.sanitise(squiggle_string)
+    squiggle = Squiggle.create(user_id: params[:id], squiggle: squiggle_string)
     redirect '/squiggles'
   end
 
