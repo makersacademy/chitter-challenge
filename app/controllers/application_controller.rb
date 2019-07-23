@@ -13,6 +13,14 @@ class ApplicationManager < Sinatra::Base
     erb(:index)
   end
 
+  get '/sign_up' do
+    erb(:sign_up)
+  end
+
+  post '/sign_up' do
+    erb(:sign_up_confirmation)
+  end
+
   get '/home' do
     erb(:home)
   end
