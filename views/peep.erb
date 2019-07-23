@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 6px 3px;
+  cursor: pointer;
+}
+
+body {
+  background-color: lightblue;
+}
+{
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+input[type=text] {
+  width: 30%;
+  padding: 40px 20px;
+  margin: 1px 0;
+  box-sizing: border-box;
+}
+
+
+li {
+  display:block;
+  float:justify;
+  color:black;
+  background:white;
+  margin-right:10px;
+  text-align:center;
+}
+
+</style>
+<form action= '/get_peep' method='post'>
+    <h1 style="color:black;font-size:40px;">Enter a peep:<br>
+  </div>
+</div>
+<center><input type='text' name='peep'></center><br>
+<center><input type='submit' class="button" value='Send' /></center>
+</form>
+
+  <ul>
+  <% @peeps.each do |peep| %>
+  <li class="peep" >
+    <%= "#{peep.peep}" %>
+    <%= "#{peep.time}" %>
+  </li>
+<% end %>
+</ul>
