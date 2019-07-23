@@ -1,0 +1,9 @@
+<body background="https://res.cloudinary.com/teepublic/image/private/s--3whm5ZQG--/t_Preview/b_rgb:c62b29,c_limit,f_jpg,h_630,q_90,w_630/v1522955449/production/designs/2562673_0.jpg">
+<h1><font color="white"> Peeps Peeps</font> </h1>
+
+<% @peeps_list.each do |peep| %>
+    <li class="peep">
+      <font size="3" color="white"><b><%= peep.text %></b> - Posted: [<%= peep.time %>]</font>
+      <p>
+    </li>
+  <% end %>
