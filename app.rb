@@ -18,10 +18,10 @@ class ApplicationManager < Sinatra::Base
     @user = User.find(session[:username])
     @users = User.all
     @peeps = Peep.all
-    all_peeps = @peeps.map { |tag| tag.peep }
-    if @peeps.each { |users| all_peeps.include?(users.username) }
-       @users.each { |users| Send.email(users.email) }
-    end
+    # all_peeps = @peeps.map { |tag| tag.peep }
+    # if @peeps.each { |users| all_peeps.include?(users.username) }
+    #    @users.each { |users| Send.email(users.email) }
+    # end
     erb(:index)
   end
 
