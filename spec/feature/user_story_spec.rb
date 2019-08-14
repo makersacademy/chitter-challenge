@@ -4,7 +4,9 @@
 feature 'post message' do
   scenario 'Write a message and post to chitter' do
     visit '/'
-
+    fill_in('content', with: 'Blah blah blah')
+    click_button('Post')
+    expect(page).to have_content 'Blah blah blah'
   end
 end
 # As a maker
