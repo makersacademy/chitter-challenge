@@ -2,10 +2,13 @@
 
 ## Instructions for use
 
-Connect to psql
-Create the database using the psql command CREATE DATABASE peeps;
-Connect to the database using the pqsl command \c peeps;
-Run the scripts in the db/migrations file in the given order
+Connect to psql and create the 'peeps' and 'peeps_test' databases:
+
+CREATE DATABASE peeps;
+CREATE DATABASE peeps_test;
+
+To set up the tables, connect to each database in 'psql' and run the SQL
+scripts in the db/migrations file in the given order
 
 
 ## User Stories
