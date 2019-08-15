@@ -1,0 +1,12 @@
+<form action="/" method="post">
+  <input type= 'text' value = 'content' name = 'content' >
+  <input type = "submit" name = "submit">
+  </form>
+
+
+<li>
+  <% @peeps.each do |peep| %>
+  <li class= "peep" >
+    <li><%= peep['content'] %><%= peep['name'] %></li>
+  <%end%>
+</li>
