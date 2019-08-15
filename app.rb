@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   get '/' do
-    "Hello Chitter"
+    erb :'/root/index'
   end
 
   get '/messages' do

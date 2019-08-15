@@ -29,7 +29,7 @@ class Chat
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO messages (text,created_at) VALUES('#{text}', '#{created_at}') RETURNING id, text, created_at")
+    connection.exec("INSERT INTO messages (text, created_at) VALUES('#{text}', '#{created_at}') RETURNING id, text, created_at")
 
   end
 
