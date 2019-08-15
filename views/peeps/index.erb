@@ -4,9 +4,9 @@
   </form>
 
 
-<li>
+<ul>
   <% @peeps.each do |peep| %>
-  <li class= "peep" >
-    <li><%= peep['content'] %><%= peep['name'] %></li>
+
+    <li class= "peep" > <%= peep['content'] %><%= peep['time'] %></li>
   <%end%>
-</li>
+<ul>
