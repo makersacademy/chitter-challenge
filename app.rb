@@ -1,13 +1,17 @@
 require 'sinatra/base'
 require './lib/chat.rb'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
   get '/' do
     "Hello Chitter"
   end
 
   get '/messages' do
-
+    p session[:user_id]
+    @user = User.find(session[:user_id])
     @messages = Chat.all
     erb :'/messages/index'
 
@@ -19,6 +23,16 @@ class Chitter < Sinatra::Base
 
   post '/messages' do
     Chat.create(text: params[:text], created_at: Time.now)
+    redirect '/messages'
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/messages'
   end
 
