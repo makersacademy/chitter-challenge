@@ -15,5 +15,12 @@ describe Chat do
       expect(messages).to include("Ruby is fantastic!")
     end
   end
+  describe '.create' do
+    it 'creates a new message' do
+      Chat.create(text: 'nice to meet you')
+
+      expect(Chat.all).to include 'nice to meet you'
+    end
+  end
 end
 

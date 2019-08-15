@@ -7,12 +7,9 @@ feature 'viewing messages' do
   end
 
   scenario 'a user can see messages' do
-    connection = PG.connect(dbname: 'chitter_test')
-
-
-    connection.exec("INSERT INTO messages VALUES(1,'Hello');")
-    connection.exec("INSERT INTO messages VALUES(2,'How are you?');")
-    connection.exec("INSERT INTO messages VALUES(3,'Ruby is fantastic!');")
+    Chat.create(text:'Hello')
+    Chat.create(text:'How are you?')
+    Chat.create(text:'Ruby is fantastic!')
 
     visit('/messages')
 
