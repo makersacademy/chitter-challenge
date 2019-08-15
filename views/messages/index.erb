@@ -1,5 +1,7 @@
 <ul>
   <% @messages.each do |message| %>
-    <li><%= message %></li>
+  <p>Posted at: <%= message.created_at %></p>
+    <li><%= message.text %></li>
+
   <% end %>
 </ul>

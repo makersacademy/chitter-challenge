@@ -18,10 +18,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    Chat.create(text: params[:text])
+    Chat.create(text: params[:text], created_at: Time.now)
     redirect '/messages'
   end
 
 
   run! if app_file == $0
 end
+
+# Time.now.strftime("%d/%m/%Y %H:%M")
