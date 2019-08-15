@@ -1,1 +1,1 @@
-ALTER TABLE messages ADD COLUMN created_at TIMESTAMPTZ;
+ALTER TABLE messages ADD created_at  TIMESTAMPTZ;
