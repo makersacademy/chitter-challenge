@@ -17,7 +17,7 @@ class Chat
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("SELECT * FROM messages;")
-    result.map {|message| message['text']
+    result.reverse_each.map {|message| message['text']
       Chat.new(id: message['id'], text: message['text'], created_at: message['created_at'])
     }
   end
