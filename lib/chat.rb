@@ -1,9 +1,21 @@
+require 'pg'
 class Chat
+
+
   def self.all
-    [
-      "Hello",
-      "How are you?",
-      "Ruby is fantastic!"
-     ]
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec("SELECT * FROM messages;")
+    result.map {|message| message['text']}
   end
+
+
+
+
+
+
+
+
+
+
+
 end
