@@ -2,20 +2,25 @@ require './lib/databaseconnection'
 
 class User
 
-  def self.create(email:, username:, name:, password:)
-    result = DatabaseConnection.query("INSERT INTO users (email, username, name, password) VALUES ('#{email}', '#{username}', '#{name}', '#{password}') RETURNING id, email;")
+  def self.create(email:, password:, username:, name:)
+    result = DatabaseConnection.query("INSERT INTO users (email, username, name, password) VALUES ('#{email}', '#{username}', '#{name}', '#{password}') RETURNING id, email, password, username, name;")
     User.new(
       id: result[0]['id'],
-      email: result[0]['email']
+      email: result[0]['email'],
+      password: result[0]['password'],
+      name: result[0]['name'],
+      username: result[0]['username']
     )
   end
 
   attr_reader :email, :name, :username, :password, :id
 
-  def initialize(email:, id:)
+  def initialize(email:, id:, password:, username:, name:)
     @email = email
     @id = id
+    @password = password
     @username = username
+    @name = name
   end
 
   def self.find(id:)
@@ -24,6 +29,9 @@ class User
     User.new(
       email: result[0]['email'],
       id: result[0]['id'],
+      password: result[0]['password'],
+      name: result[0]['name'],
+      username: result[0]['username']
     )
   end
 
