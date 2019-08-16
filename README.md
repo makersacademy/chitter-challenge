@@ -1,7 +1,6 @@
 Chitter Challenge
 =================
 
-# Bookmark Manager
 
 
 ### setting up database:
