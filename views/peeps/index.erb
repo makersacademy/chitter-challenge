@@ -7,6 +7,6 @@
 <ul>
   <% @peeps.each do |peep| %>
 
-    <li class= "peep" > <%= peep['content'] %><%= peep['time'].chop.chop.chop %></li>
+    <li class= "peep" > <%= peep['name'] %><%= peep['handle'] %><%= peep['content'] %><%= peep['time'].chop.chop.chop %></li>
   <%end%>
 <ul>
