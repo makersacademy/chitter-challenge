@@ -1,10 +1,11 @@
 require 'pg'
+require_relative 'databaseconnection'
 
 class Peep
 
   def self.all
-      result = DatabaseConnection.query("SELECT name, handle, content, time FROM peeps ORDER BY time DESC;")
-      result.map { |peep|
+      peeps = DatabaseConnection.query("SELECT name, handle, content, time FROM peeps ORDER BY time DESC;")
+      peeps.map { |peep|
         peep
       }
   end

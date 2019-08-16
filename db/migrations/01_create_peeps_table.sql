@@ -1,1 +1,1 @@
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, name VARCHAR(60), handle VARCHAR(60), content VARCHAR(280), time TIME (0) NOT NULL, peep_id INTEGER REFERENCES peeps (id);
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, name VARCHAR(60), handle VARCHAR(60), content VARCHAR(280), time TIME (0) NOT NULL);

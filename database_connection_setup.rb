@@ -1,7 +1,7 @@
 require './lib/databaseconnection'
 
 if ENV['ENVIRONMENT'] == 'test'
-  DatabaseConnection.setup('bookmark_manager_test')
+  DatabaseConnection.setup('peeps_test')
 else
-  DatabaseConnection.setup('bookmark_manager')
+  DatabaseConnection.setup('peeps')
 end
