@@ -2,11 +2,12 @@ Chitter Challenge
 =================
 
 [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
-* For this challenge, I have created a simple web app which requires a database.
+
+For this project challenge, I have created a simple web app which requires a database.
 
 Features
 -------
-### User Stories:
+### User Stories / Requirements
 ```
 As a Maker
 So that I can let people know what I am doing  
@@ -37,3 +38,16 @@ CREATE DATABASE chitter;
 CREATE DATABASE chitter_test;
 ```
 To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+### Run tests
+
+```
+rspec
+```
+## Tech stack
+
+* Ruby
+* Sinatra
+* PostgreSQL
+* Travis CI
+* Rubocop
