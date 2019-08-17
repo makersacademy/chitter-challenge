@@ -40,4 +40,13 @@ feature 'authentication' do
     expect(page).to have_content 'See you soon.'
   end
 
+  scenario 'a user tries to signup with an email that already exists' do
+    User.create(email: 'test@email.com', username: 'testusername', name: 'Test Name', password: 'Test Password')
+    signup
+
+    expect(page).not_to have_content 'Welcome, test@email.com'
+    expect(page).to have_content 'That email address is already registered, go back to sign in'
+
+  end
+
 end

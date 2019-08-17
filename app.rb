@@ -28,16 +28,25 @@ class Chitter < Sinatra::Base
   #   erb :'peeps/index'
   # end
   get '/signup' do
+
     erb :'users/signup'
   end
 
   post '/users' do
+
     user = User.create(email: params['email'], name: params['name'], username: params['username'], password: params['password'])
-    session[:user_id] = user.id
-    session[:name] = user.name
-    session[:username] = user.username
-    # session[:username] = user.username
-    redirect '/'
+    if user
+
+      session[:user_id] = user.id
+      session[:name] = user.name
+      session[:username] = user.username
+      # session[:username] = user.username
+      redirect '/'
+    else
+
+    flash[:notice] = 'That email address is already registered, go back to sign in'
+    redirect('/signup')
+    end
   end
 
   get '/sessions/new' do

@@ -4,6 +4,9 @@ require "bcrypt"
 class User
 
   def self.create(email:, password:, username:, name:)
+    duplicate = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    return unless duplicate.count == 0
+
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query("INSERT INTO users (email, username, name, password) VALUES ('#{email}', '#{username}', '#{name}', '#{encrypted_password}') RETURNING id, email, password, username, name;")
     User.new(
@@ -13,7 +16,8 @@ class User
       name: result[0]['name'],
       username: result[0]['username']
     )
-  end
+    end
+
 
   attr_reader :email, :name, :username, :password, :id
 
