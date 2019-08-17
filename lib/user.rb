@@ -1,9 +1,11 @@
-require './lib/databaseconnection'
+
+require "bcrypt"
 
 class User
 
   def self.create(email:, password:, username:, name:)
-    result = DatabaseConnection.query("INSERT INTO users (email, username, name, password) VALUES ('#{email}', '#{username}', '#{name}', '#{password}') RETURNING id, email, password, username, name;")
+    encrypted_password = BCrypt::Password.create(password)
+    result = DatabaseConnection.query("INSERT INTO users (email, username, name, password) VALUES ('#{email}', '#{username}', '#{name}', '#{encrypted_password}') RETURNING id, email, password, username, name;")
     User.new(
       id: result[0]['id'],
       email: result[0]['email'],
@@ -38,7 +40,10 @@ class User
   def self.authenticate(email:, password:)
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
     return unless result.any?
-    User.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'], username: result[0]['username'], name: result[0]['name'])
+    return unless BCrypt::Password.new(result[0]['password']) == password
+     User.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'], name: result[0]['name'], username: result[0]['username'])
+     #name and username = the results from the other table
+    # User.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'], username: result[0]['username'], name: result[0]['name'])
   end
     # result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
     # User.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'])
