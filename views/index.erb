@@ -1,0 +1,10 @@
+<h2>Chitter</h2>
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<form action="/new_post" method="post">
+  <input type="text" name="peep" placehodler="message">
+  <input type="submit" name="post">
+</form>

@@ -1,9 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+ruby '2.6.3'
 
 gem 'rake'
 gem 'rubocop', '0.56.0'
+
+
+gem 'sinatra'
+gem 'capybara'
+gem 'pg'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
