@@ -3,9 +3,9 @@ require_relative 'database_connection'
 class Message
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map {|message| message['text']}
-    # Message.new(id: chitter['id'], text: chitter['text'])
-  
+    result.reverse_each.map do |message| 
+    Message.new(id: message['id'], text: message['text'])
+  end
   end
 
   def self.create(text:)

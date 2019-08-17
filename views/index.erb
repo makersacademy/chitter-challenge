@@ -1,7 +1,7 @@
 <h2>Chitter</h2>
 <ul>
   <% @messages.each do |message| %>
-    <li><%= message %></li>
+    <li><%= message.text %></li>
   <% end %>
 </ul>
 <form action="/new_post" method="post">
