@@ -29,6 +29,27 @@ feature 'viewing peeps' do
     expect(all('li')[1].text).to have_content "This is the second peep"
   end
 
+  scenario 'a user can see the username and name of the user who posted a peep' do
+    connection = PG.connect(dbname: 'peeps_test')
+
+    User.create(email: 'test1@email.com', password: 'password123', username: 'un1', name: 'name1')
+    User.create(email: 'test2@email.com', password: 'password123', username: 'un2', name: 'name2')
+    visit ('/sessions/new')
+    fill_in(:email, with:'test1@email.com')
+    fill_in(:password, with: 'password123')
+    click_button('Sign In')
+    fill_in('content', with: "peep")
+    click_button('submit')
+    click_button('Sign Out')
+    visit ('/sessions/new')
+    fill_in(:email, with:'test2@email.com')
+    fill_in(:password, with: 'password123')
+    click_button('Sign In')
+
+    expect(page).to have_content "un1"
+  end
+
+
 
 
 
@@ -37,9 +58,6 @@ feature 'viewing peeps' do
   before do
     Timecop.freeze(Time.now)
   end
-  # after do
-  #   Timecop.return
-  # end
 
   scenario 'a user can see the time each peep was posted' do
 
