@@ -6,7 +6,7 @@ feature 'authentication' do
     fill_in(:password, with: 'Test Password')
     click_button('Sign In')
 
-    expect(page).to have_content 'Welcome, test@email.com'
+    expect(page).to have_content 'Welcome, testusername'
   end
 
   scenario 'a user sees an error if they get their email wrong' do
@@ -17,7 +17,7 @@ feature 'authentication' do
     click_button('Sign In')
 
     expect(page).not_to have_content 'Welcome, wrongemail@email.com'
-    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).not_to have_content 'Welcome, testusername'
     expect(page).to have_content 'Please check your email or password'
   end
 
@@ -42,6 +42,6 @@ feature 'authentication' do
 
     expect(page).not_to have_content 'Welcome, test@example.com'
     expect(page).to have_content 'See you soon.'
-  end 
+  end
 
 end

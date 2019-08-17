@@ -7,6 +7,8 @@ feature 'signup' do
     fill_in('password', with: 'Test Password')
     click_button('Submit')
 
-    expect(page).to have_content "Welcome, test@email.com"
+    
+
+    expect(page).to have_content "Welcome, testusername"
   end
 end

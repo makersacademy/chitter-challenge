@@ -6,8 +6,8 @@ describe Peep do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'peeps_test')
 
-      Peep.create(content: "This is the first peep")
-      Peep.create(content: "This is the second peep")
+      Peep.create(content: "This is the first peep", name: 'testname', username: 'testusername')
+      Peep.create(content: "This is the second peep", name: 'testname', username: 'testusername')
 
       peeps = Peep.all
 
@@ -20,7 +20,7 @@ describe Peep do
   describe '.create' do
     it  'creates a new peep' do
 
-      Peep.create(content: 'This is a test peep')
+      Peep.create(content: 'This is a test peep', name: 'testname', username: 'testusername')
 
       peeps = Peep.all
       peepss = peeps.map { |peep| peep}
