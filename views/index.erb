@@ -1,7 +1,7 @@
 <h2>Chitter</h2>
 <ul>
   <% @messages.each do |message| %>
-    <li><%= message.text %></li>
+    <%= message.text %> <span style="font-weight: bold;">created at: </span><%= message.time %>
   <% end %>
 </ul>
 <form action="/new_post" method="post">

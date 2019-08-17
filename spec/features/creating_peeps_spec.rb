@@ -1,4 +1,5 @@
-require 'spec_helper.rb'
+require 'pg'
+require 'spec_helper'
 
 feature 'posting messages:' do
   scenario 'it posts a message to Chitter' do
