@@ -1,16 +1,20 @@
 <% if @user %>
   <h1>Welcome, <%= @user.email %></h1>
-  <% else %>
-  <form action='/signup' method= "get">
-  <button name= 'signup' type= 'submit' method = 'get'> Sign Up </button>
-</form>
-<% end %>
 
 <form action="/" method="post">
   What's on your mind?
   <input type= 'text' name = 'content' >
    <button type = "submit" name = "submit"> Peep </button>
   </form>
+  <% else %>
+  <form action='/signup' method= "get">
+  <button name= 'signup' type= 'submit' method = 'get'> Sign Up </button>
+</form>
+
+<form action='/sessions/new' method= "get">
+<button name= 'signin' type= 'submit' method = 'get'> Sign In </button>
+</form>
+<% end %>
 
 
 <ul>

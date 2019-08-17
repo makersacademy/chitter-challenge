@@ -2,10 +2,12 @@ require 'sinatra/base'
 require './lib/peep'
 require './database_connection_setup'
 require './lib/user'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @peeps = Peep.all
@@ -41,13 +43,14 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
+    if user
     session[:user_id] = user.id
-    # result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
-    # user = User.new(id: result[0]['id'], email: result[0]['email'], password: result[0]['password'])
-    # session[:user_id] = user.id
-
     redirect('/')
+  else
+    flash[:notice] = 'Please check your email or password'
+    redirect('/sessions/new')
   end
+end
 
 
   run! if app_file == $0

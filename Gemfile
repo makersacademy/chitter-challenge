@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'capybara'
 gem 'pg'
 gem 'timecop'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
