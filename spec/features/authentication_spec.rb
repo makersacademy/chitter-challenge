@@ -10,8 +10,8 @@ feature 'authentication' do
 
   scenario 'a user sees an error if they get their email wrong' do
     User.create(email: 'test@example.com', password: 'password123', username: 'testusername', name: 'Test Name')
-    visit ('/sessions/new')
-    fill_in(:email, with:'wrongemail@email.com')
+    visit '/sessions/new'
+    fill_in(:email, with: 'wrongemail@email.com')
     fill_in(:password, with: 'password123')
     click_button('Sign In')
 
@@ -22,8 +22,8 @@ feature 'authentication' do
 
   scenario 'a user sees an error if they try to log in with the wrong password' do
     User.create(email: 'test@example.com', password: 'password123', username: 'testusername', name: 'Test Name')
-    visit ('/sessions/new')
-    fill_in(:email, with:'test@example.com')
+    visit '/sessions/new'
+    fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'wrongpassword123')
     click_button('Sign In')
 

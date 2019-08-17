@@ -1,5 +1,10 @@
+<style>
+body {background-color: powderblue;}
+  </style>
+
+<body>
 <% if @user %>
-  <h1>Welcome, <%= @user.username %></h1>
+  <h1 style= "color:blue;" >Welcome, <%= @user.username %></h1>
 
 <form action="/" method="post">
   What's on your mind?
@@ -23,10 +28,12 @@
 <ul>
   <% @peeps.each do |peep| %>
 
-    <li class= "peep" >  <%= peep['name'] %> <%= peep['username'] %> <%= peep['content'] %> <%= peep['time'].chop.chop.chop %> <%= peep['date'] %></li>
+    <li class= "peep" >   <%= peep['name'] %> <%= peep['username'] %> says :<span style= "font-size: 160%;"><%= peep['content'] %> </span> at <%= peep['time'].chop.chop.chop %> <%= peep['date'] %></li>
   <%end%>
 </ul>
 
 <h2>
 <%= flash[:notice] %>
 </h2>
+
+</body>

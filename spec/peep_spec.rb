@@ -4,8 +4,7 @@ describe Peep do
 
   describe '.all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'peeps_test')
-
+      
       Peep.create(content: "This is the first peep", name: 'testname', username: 'testusername')
       Peep.create(content: "This is the second peep", name: 'testname', username: 'testusername')
 
@@ -16,12 +15,12 @@ describe Peep do
   end
 
   describe '.create' do
-    it  'creates a new peep' do
+    it 'creates a new peep' do
 
       Peep.create(content: 'This is a test peep', name: 'testname', username: 'testusername')
 
       peeps = Peep.all
-      peepss = peeps.map { |peep| peep}
+      peepss = peeps.map { |peep| peep }
       expect(peepss[0]['content']).to eq 'This is a test peep'
 
     end

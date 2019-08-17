@@ -9,8 +9,8 @@ def signup
 end
 
 def signin
-  visit ('/sessions/new')
-  fill_in(:email, with:'test@email.com')
+  visit '/sessions/new'
+  fill_in(:email, with: 'test@email.com')
   fill_in(:password, with: 'Test Password')
   click_button('Sign In')
 

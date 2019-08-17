@@ -11,13 +11,14 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    @peeps= Peep.all
+    @peeps = Peep.all
     @user = User.find(id: session[:user_id])
     erb :'peeps/index'
   end
 
   post '/' do
-    Peep.create(content: params['content'], name: session[:name], username: session[:username])
+    Peep.create(content: params['content'], name: session[:name],
+      username: session[:username])
     # content = params['content']
     # connection = PG.connect(dbname: 'peeps_test')
     # connection.exec("INSERT INTO peeps (peep) VALUES ('#{content}')")
@@ -34,7 +35,8 @@ class Chitter < Sinatra::Base
 
   post '/users' do
 
-    user = User.create(email: params['email'], name: params['name'], username: params['username'], password: params['password'])
+    user = User.create(email: params['email'], name: params['name'],
+      username: params['username'], password: params['password'])
     if user
 
       session[:user_id] = user.id
@@ -44,8 +46,9 @@ class Chitter < Sinatra::Base
       redirect '/'
     else
 
-    flash[:notice] = 'That email address is already registered, go back to sign in'
-    redirect('/signup')
+      flash[:notice] =
+      'That email address is already registered, go back to sign in'
+      redirect('/signup')
     end
   end
 
@@ -56,26 +59,21 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
-    session[:user_id] = user.id
-    session[:name] = user.name
-    session[:username] = user.username
-    redirect('/')
-  else
-    flash[:notice] = 'Please check your email or password'
-    redirect('/sessions/new')
+      session[:user_id] = user.id
+      session[:name] = user.name
+      session[:username] = user.username
+      redirect('/')
+    else
+      flash[:notice] = 'Please check your email or password'
+      redirect('/sessions/new')
+    end
   end
-end
-
-  # post '/sessions/destroy' do
-  #   "hello world"
-  # end
 
   post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'See you soon.'
     redirect('/')
   end
-
 
   run! if app_file == $0
 end
