@@ -1,0 +1,16 @@
+<h2>Welcome to Chitter</h2>
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+
+<ul>
+  <% @messages.each do |message| %>
+   <li> 
+   <%= message.text %> <span style="font-weight: bold;">created at: </span><%= message.time %>
+  </li>
+  <% end %>
+</ul>
+<form action="/messages/new" method="post">
+  <input type="text" name="text" placeholder="message">
+  <input type="submit" value="Post">
+</form>
