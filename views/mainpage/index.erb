@@ -1,0 +1,12 @@
+<ul>
+  <% @posts.each do |post| %>
+    <li class="post" id="post-<%= post.id %>">
+      <%= post.msg %>
+      <h1>Time Added<%= post.time %> </h1>
+    </li>
+  <% end %>
+</ul>
+
+  <form action="/bookmarks/new" method="get">
+    <input type="submit" value="New" />
+  </form>
