@@ -11,4 +11,12 @@ describe Message do
       expect(message).to include('my second comment')
     end
   end
+
+  describe '.create' do
+    it 'allows user to post a new message to chitter' do
+      connection = PG.connect(dbname: 'chitter_test')
+      message = Message.create(text: 'my first comment')
+      expect(message.text).to eq('my first comment')
+    end
+  end
 end
