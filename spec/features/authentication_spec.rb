@@ -1,10 +1,9 @@
+require_relative '../web_helpers'
+
 feature 'authentication' do
   it 'a user can sign in' do
     User.create(email: 'test@email.com', username: 'testusername', name: 'Test Name', password: 'Test Password')
-    visit ('/sessions/new')
-    fill_in(:email, with:'test@email.com')
-    fill_in(:password, with: 'Test Password')
-    click_button('Sign In')
+    signin
 
     expect(page).to have_content 'Welcome, testusername'
   end
@@ -34,10 +33,7 @@ feature 'authentication' do
 
   scenario 'a user can sign out' do
     User.create(email: 'test@email.com', username: 'testusername', name: 'Test Name', password: 'Test Password')
-    visit ('/sessions/new')
-    fill_in(:email, with:'test@email.com')
-    fill_in(:password, with: 'Test Password')
-    click_button('Sign In')
+    signin
     click_button('Sign Out')
 
     expect(page).not_to have_content 'Welcome, test@example.com'
