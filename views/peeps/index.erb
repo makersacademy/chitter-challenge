@@ -6,6 +6,9 @@
   <input type= 'text' name = 'content' >
    <button type = "submit" name = "submit"> Peep </button>
   </form>
+  <form action='/sessions/destroy' method = 'post'>
+    <button type = 'submit' value= 'Sign Out'> "Sign Out" </button>
+  </form>
   <% else %>
   <form action='/signup' method= "get">
   <button name= 'signup' type= 'submit' method = 'get'> Sign Up </button>
@@ -20,6 +23,10 @@
 <ul>
   <% @peeps.each do |peep| %>
 
-    <li class= "peep" > <%= peep['name'] %><%= peep['handle'] %><%= peep['content'] %><%= peep['time'].chop.chop.chop %></li>
+    <li class= "peep" > <%= peep['name'] %><%= peep['handle'] %><%= peep['content'] %> <%= peep['time'].chop.chop.chop %></li>
   <%end%>
-<ul>
+</ul>
+
+<h2>
+<%= flash[:notice] %>
+</h2>

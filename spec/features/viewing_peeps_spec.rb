@@ -24,7 +24,7 @@ feature 'viewing peeps' do
 
     visit('/')
     # expect(first('.peep')).to have_content "This is the second peep"
-    expect(all('li')[0].text).to have_content "This is the first peep"
+    expect(all('li')[0].text).to have_content "This is the second peep"
   end
 
   feature 'a user can see the time each peep was posted' do
