@@ -16,9 +16,11 @@ describe Post do
   describe '.create' do
 
     it 'creates a new post' do
-          connection = PG.connect(dbname: 'chitter_test')
+
           post = Post.create(msg: 'testing test')
+        
           persisted_data = persisted_data(id: post.id)
+
           expect(post).to be_a Post
 
           expect(post.msg).to eq 'testing test'
@@ -29,7 +31,7 @@ describe Post do
 
   describe '.all' do
     it 'lists posts' do
-          connection = PG.connect(dbname: 'chitter_test')
+
           post = Post.create(msg: 'testing test')
           persisted_data = persisted_data(id: post.id)
           posts = Post.all

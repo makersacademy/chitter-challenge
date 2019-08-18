@@ -4,6 +4,6 @@ def setup_test_database
 
   connection = PG.connect(dbname: 'chitter_test')
 
-  connection.exec("TRUNCATE posts RESTART identity;")
+  connection.exec("TRUNCATE posts, users RESTART identity;")
 
 end
