@@ -14,7 +14,11 @@ end
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
+feature 'Show peeps in reverse order' do
+  scenario 'peeps should be shown in reverse chronological order' do
 
+  end
+end
 # As a Maker
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made
@@ -35,11 +39,34 @@ feature 'Show time of post' do
     expect(page).to have_content date
   end
 
+  scenario 'Time should logged and added to the database' do
+    visit '/chitter'
+    expect(page).to have_content Time.now.strftime("%H:%M")
+end
+    scenario 'Date should logged and added to the database' do
+      visit '/chitter'
+      expect(page).to have_content Time.now.strftime("%-d %b %Y")
+end
+
 end
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter
-#
+feature 'log in' do
+  scenario 'When visiting the homepage, a user should be able to log in' do
+    visit '/'
+    fill_in('username', with: 'Steve')
+    click_button 'Submit'
+    expect(page).to have_content 'Welcome to Chitter Steve!'
+  end
+
+  scenario 'Username should logged and added to the database' do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("INSERT INTO posts (id,message,username) VALUES (5, 'this is a message', 'Kriss');")
+    visit '/chitter'
+    expect(page).to have_content 'this is a message Kriss'
+  end
+end
 # HARDER
 #
 # As a Maker

@@ -10,7 +10,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/chitter' do
+    session[:username] = params[:username]
+    redirect '/chitter'
+  end
+
   get '/chitter' do
+    @username = session[:username]
     @all_posts = PostMessage.all
     erb :chitter
   end
@@ -20,7 +26,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    PostMessage.post(params[:content])
+    PostMessage.post(params[:content],session[:username])
     redirect '/chitter'
   end
 end

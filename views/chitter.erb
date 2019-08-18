@@ -1,4 +1,4 @@
-<h1>Welcome to Chitter!</h1>
+<h1>Welcome to Chitter <%= @username %>!</h1>
 Posts
 <ol>
     <% @all_posts.reverse_each do |peep| %>
@@ -6,6 +6,7 @@ Posts
           <%= peep.post %>
           <%= peep.time %>
           <%= peep.date %>
+          <%= peep.username %>
       </li>
     <%end%>
   </ol>
