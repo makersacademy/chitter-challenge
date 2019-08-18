@@ -1,10 +1,21 @@
-<header>
-  <div>
-    You are viewing <%= @user.display_name %>'s peeps
-  </div>
-  <a href="/chitter">Return Home</a>
-</header>
-<main>
+<html>
+
+<head>
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+
+  <header>
+    <div id="welcome-message">
+      <h1>You are viewing <%= @user.display_name %>'s peeps</h1>
+    </div>
+    <div class="user-actions">
+      <a href="/chitter">Return Home</a>
+    </div>
+  </header>
+  <main>
 
     <% if @user %>
     <div @class="new-peep">
@@ -20,3 +31,8 @@
     <%= erb :'/partials/latest_peeps' %>
 
   </main>
+
+</body>
+</main>
+
+</html>
