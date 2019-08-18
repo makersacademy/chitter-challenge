@@ -91,3 +91,9 @@ main {
   text-align: right;
   font-size: 80%
 }
+
+.peep-replies {
+  margin-left:20px;
+  transform: scale(0.96);
+  transform-origin: right;
+}

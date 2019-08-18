@@ -1,0 +1,20 @@
+<div class="peep-reply">
+  <div class="username"><a href="/users/profile/<%= peep.user.id %>"><b>&</b><%= peep.user.username %></a></div>
+  <div class="display-name">
+    <h3><em><%= peep.user.display_name %></em></h3>
+  </div>
+  <div class="content"><%=  peep.html_content ? peep.html_content : peep.content %></div>
+  <div class="created-at">Posted: <%= peep.created_at %></div>
+  <div class="reply-to">
+    <% if @user %>
+    <form action="/peeps/<%= peep.id %>/reply" method="get">
+      <button type="submit">Reply</button>
+    </form>
+    <% end %>
+  </div>
+  <div class="peep-replies">
+    <% peep.replies.each do |peep| %>
+    <%= erb :'/partials/peep_replies',  :locals => {:peep => peep} %>
+    <% end %>
+  </div>
+</div>

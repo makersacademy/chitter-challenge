@@ -1,5 +1,11 @@
 class Peep < ActiveRecord::Base
   belongs_to :user
+  belongs_to :reply_to_peep, :class_name => 'Peep'
+
+
+  def replies
+    Peep.where(reply_to_peep_id: self.id)
+  end
 
   def process_user_tags
     new_html_content = content

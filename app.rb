@@ -37,12 +37,20 @@ class Chitter < Sinatra::Base
 
   # create new peep
   post '/peeps/new' do
-    @peep = Peep.new(user_id: session[:user_id], content: params[:content])
+    @peep = Peep.new(user_id: session[:user_id], content: params[:content],reply_to_peep_id: params[:reply_to_peep_id])
     @peep.save!
     @peep.process_user_tags
     flash[:peep_created] = true
     redirect('/chitter')
   end
+
+
+  #reply to a peep
+  get '/peeps/:id/reply' do
+
+  end
+
+
 
   # User page
   get '/users/profile/:id' do

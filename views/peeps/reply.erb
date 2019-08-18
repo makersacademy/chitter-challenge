@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <link href="/style.css" rel="stylesheet" type="text/css">
+  <style>
+    form {
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="welcome-message">
+
+
+      <div class="peep" id="peep-<%= @parent_peep.id %>">
+
+        <div class="username"><a
+            href="/users/profile/<%= @parent_peep.user.id %>"><b>&</b><%= @parent_peep.user.username %></a></div>
+        <div class="display-name">
+          <h3><em><%= @parent_peep.user.display_name %></em></h3>
+        </div>
+        <div class="content"><%=  @parent_peep.html_content ? pee@parent_peep.html_content : @parent_peep.content %>
+        </div>
+        <div class="created-at">Posted: <%= @parent_peep.created_at %></div>
+      </div>
+
+      <div @class="new-peep">
+        <h4>Post a reply peep!</h4>
+        <form action="/peeps/new" method="post">
+          <input type="hidden" name="reply_to_peep_id" value="<%= @parent_peep.id%>">
+          <label>Peep content:<input name="content" type="text"></label>
+          <button type="submit">Post Peep!</button>
+        </form>
+      </div>
+
+      <a href="/chitter">Return Home</a>
+    </div>
+  </header>
+</body>
+
+</html>
