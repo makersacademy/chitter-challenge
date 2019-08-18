@@ -1,20 +1,24 @@
 require 'sinatra/base'
-require_relative './lib/bookmark'
+require_relative './lib/post'
 require './database_connection_setup'
 
 class ChitterChallenge < Sinatra::Base
   enable :sessions, :method_override
 
+    get '/' do
+      "Hello"
+      erb :index
+    end
 
     get '/mainpage' do
       @posts = Post.all
       p "------++++++++++-------"
       p @posts
-      erb :'mainpage'
+      erb :mainpage
     end
 
-    get '/mainpage/new' do
-      erb :'/mainpage/new'
+    get '/new' do
+      erb :new
     end
 
     post '/mainpage' do

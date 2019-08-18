@@ -5,6 +5,8 @@ ruby '2.6.3'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'simplecov', require: false
+gem 'simplecov-console'
 gem 'bcrypt'
 
 group :test do
