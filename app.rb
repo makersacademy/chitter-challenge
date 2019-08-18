@@ -26,6 +26,49 @@ class Chitter < Sinatra::Base
     'Hello world.'
   end
 
+  get '/chitter' do
+    @user = User.find_by_id(session[:user_id]) if session[:user_id]
+    erb(:index)
+  end
+
+  # USER ROUTES new / login
+  get '/users/new' do
+    # shows registration page
+    erb(:"users/new")
+  end
+
+  post '/users/new' do
+
+    @user = User.new(username:      params[:username],display_name:  params[:display_name],email_address: params[:email_address] )
+    @user.password = params[:password]
+    @user.save!
+    p @user.id
+    session[:user_id] = @user.id
+    redirect('/chitter')
+  end
+
+  # login
+  get '/session/new' do
+    erb(:"session/new")
+  end
+
+  post '/session/new' do
+    @user = User.find_by_username(params[:username])
+    if @user.nil? || @user.password != params[:password]
+      flash[:invalid_username_or_password] == true
+      redirect('/session/new')
+    end
+
+    session[:user_id] = @user.id
+    redirect('/chitter')
+  end
+
+  delete '/session' do
+    session[:user_id] = nil
+    redirect('/chitter')
+  end
+
+
   get '/users' do
     @users = User.all
     erb(:users)
