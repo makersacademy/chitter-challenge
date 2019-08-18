@@ -6,18 +6,29 @@
       <h3><%= post.msg %></h3>
       Time Added <%= post.time %>
     </li>
+
+
+  <form action="/mainpage/<%= post.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+  </form>
+
+
   <% end %>
 </ul>
 
 
-  <form action="/new" method="get">
+<form action="/order" method="post">
+  <input id="new_post" type="submit" value="Sort by VERBOSIVENESS" />
+</form>
+
+
+<form action="/mainpage" method="post">
+  <input id="new_post" type="submit" value="Sort by Newness" />
+</form>
+
+<h3>   <form action="/new" method="get">
     <input id="new_post" type="submit" value="New" />
   </form>
 
-  <form action="/order" method="post">
-    <input id="new_post" type="submit" value="Sort by VERBOSIVENESS" />
-  </form>
-
-  <form action="/mainpage" method="post">
-    <input id="new_post" type="submit" value="Sort by Newness" />
-  </form>
+  </h3>

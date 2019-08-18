@@ -30,6 +30,11 @@ class ChitterChallenge < Sinatra::Base
       @posts = Post.sort_by_verbosiveness
       erb :mainpage
     end
+
+    delete '/mainpage/:id' do
+      Post.delete(id: params[:id])
+      redirect('/mainpage')
+    end
     #
     # delete '/bookmarks/:id' do
     #   Bookmark.delete(id: params[:id])

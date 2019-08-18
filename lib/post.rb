@@ -25,8 +25,10 @@ class Post
      end
  end
 
- def self.delete
- end
+  def self.delete(id:)
+    result = DatabaseConnection.query("DELETE FROM posts WHERE id = #{id};")
+  end
+
 
  def self.sort_by_verbosiveness
    @posts = Post.all
