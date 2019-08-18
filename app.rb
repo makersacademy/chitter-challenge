@@ -6,6 +6,7 @@ require 'sinatra/activerecord'
 require 'active_record'
 require_relative './models/user.rb'
 require_relative './models/peep.rb'
+require_relative './models/peep_user_tag.rb'
 
 # ActiveRecord::Base.establish_connection(
 #   adapter:  "postgresql",
@@ -38,6 +39,7 @@ class Chitter < Sinatra::Base
   post '/peeps/new' do
     @peep = Peep.new(user_id: session[:user_id],content: params[:content])
     @peep.save!
+    @peep.process_user_tags
     flash[:peep_created] = true
     redirect('/chitter')
   end

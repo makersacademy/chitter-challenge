@@ -45,10 +45,12 @@ task :rebuild_test_db do
 end
 
 def run_scripts(conn)
+  conn.exec('drop table if exists peep_user_tags;')
   conn.exec('drop table if exists peeps;')
   conn.exec('drop table if exists users;')
   conn.exec(File.open('./db/migrate/01_create_users_table.sql', &:read))
   conn.exec(File.open('./db/migrate/02_create_peeps_table.sql', &:read))
+  conn.exec(File.open('./db/migrate/03_create_peep_user_tags_table.sql', &:read))
 end
 
 task :rebuild_dbs do
