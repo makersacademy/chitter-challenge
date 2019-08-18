@@ -21,7 +21,7 @@
         <div class="display-name">
           <h3><em><%= @parent_peep.user.display_name %></em></h3>
         </div>
-        <div class="content"><%=  @parent_peep.html_content ? pee@parent_peep.html_content : @parent_peep.content %>
+        <div class="content"><%=  @parent_peep.html_content ? @parent_peep.html_content : @parent_peep.content %>
         </div>
         <div class="created-at">Posted: <%= @parent_peep.created_at %></div>
       </div>

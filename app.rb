@@ -47,7 +47,8 @@ class Chitter < Sinatra::Base
 
   #reply to a peep
   get '/peeps/:id/reply' do
-
+    @parent_peep = Peep.find_by_id(params[:id])
+    erb(:"peeps/reply")
   end
 
 
