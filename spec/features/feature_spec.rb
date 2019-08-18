@@ -8,19 +8,18 @@ feature 'adding a post' do
   end
 
     scenario 'adding post' do
-    visit ('/mainpage/new')
+    visit ('/')
+    click_button 'New'
     fill_in('msg', with: "test")
     click_button 'Submit'
     expect(page).to have_content('test')
   end
 end
 
-
 feature 'list all posts' do
     scenario 'display posts on mainpage' do
-    visit ('/mainpage/new')
+    visit ('/new')
     fill_in('msg', with: "test")
-      fill_in('timeadded', with: "test")
     click_button 'Submit'
     expect(page).to have_content('test')
   end

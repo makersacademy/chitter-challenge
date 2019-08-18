@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require_relative './lib/post'
+
+#Runs script to connect to database
 require './database_connection_setup'
 
 class ChitterChallenge < Sinatra::Base
@@ -12,8 +14,6 @@ class ChitterChallenge < Sinatra::Base
 
     get '/mainpage' do
       @posts = Post.all
-      p "------++++++++++-------"
-      p @posts
       erb :mainpage
     end
 
@@ -22,8 +22,8 @@ class ChitterChallenge < Sinatra::Base
     end
 
     post '/mainpage' do
-      flash[:notice] = "You must submit a valid URL." unless Post.create(url: params[:url], title: params[:title])
-      redirect('/bookmarks')
+      Post.create(msg: params[:msg])
+      redirect('/mainpage')
     end
     #
     # delete '/bookmarks/:id' do

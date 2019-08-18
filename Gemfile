@@ -8,6 +8,7 @@ gem 'sinatra-flash'
 gem 'simplecov', require: false
 gem 'simplecov-console'
 gem 'bcrypt'
+gem 'timecop'
 
 group :test do
   gem 'rspec'
