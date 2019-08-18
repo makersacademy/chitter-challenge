@@ -1,0 +1,24 @@
+<header>Chitter</header>
+
+<form action="/peeps" method="post">
+<input type="text" name="text" placeholder="Text" />
+<input type="text" name="name" placeholder="Name" />
+<input type="submit" value="Submit" />
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
+
+<% @peeps.each do |peep| %>
+  <div>
+    <%= "Name: #{peep["name"]}:" %>
+    <br>
+    <%= "Peep: #{peep["text"]}" %>
+    <br>
+    <%= "Time: #{peep["datetime"]}" %>
+  </div>
+  <br>
+<% end %>
