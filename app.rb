@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
+require './lib/post_message.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -7,14 +10,17 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/index' do
-    session[:content] = params[:content]
-    redirect '/post'
+  get '/chitter' do
+    @all_posts = PostMessage.all
+    erb :chitter
   end
 
-  get '/post' do
-    @content = session[:content]
-   erb :post
+  get '/peep/new' do
+    erb :'/peep/new'
   end
 
+  post '/peep/new' do
+    PostMessage.post(params[:content])
+    redirect '/chitter'
+  end
 end

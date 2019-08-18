@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '2.5.0'
 
 gem 'rake'
-gem 'rubocop', '0.56.0'
+# gem 'rubocop', '0.56.0'
 
 group :test do
   gem 'rspec'
@@ -11,7 +13,7 @@ group :test do
   gem 'simplecov-console', require: false
 end
 
-gem 'sinatra', '2.0.5'
 gem 'capybara', '3.28.0'
+gem 'sinatra', '2.0.5'
 
 gem 'pg'

@@ -1,0 +1,15 @@
+<h1>Welcome to Chitter!</h1>
+Posts
+<ol>
+    <% @all_posts.reverse_each do |peep| %>
+      <li>
+          <%= peep.post %>
+          <%= peep.time %>
+          <%= peep.date %>
+      </li>
+    <%end%>
+  </ol>
+
+  <form action="/peep/new">
+      <input type="submit" value="Write peep">
+    </form>

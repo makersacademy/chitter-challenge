@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 # As a Maker
 # So that I can let people know what I am doing
 # I want to post a message (peep) to chitter
 feature 'post message' do
   scenario 'Write a message and post to chitter' do
-    visit '/'
+    visit '/peep/new'
     fill_in('content', with: 'Blah blah blah')
     click_button('Post')
     expect(page).to have_content 'Blah blah blah'
@@ -12,11 +14,28 @@ end
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
-#
+
 # As a Maker
 # So that I can better appreciate the context of a peep
 # I want to see the time at which it was made
-#
+feature 'Show time of post' do
+  scenario 'when a peep is made, the time should be logged in the database' do
+    time = Time.now.strftime("%H:%M")
+    visit '/peep/new'
+    fill_in('content', with: 'Blah blah blah')
+    click_button('Post')
+    expect(page).to have_content time
+  end
+
+  scenario 'when a peep is made, the date should be logged in the database' do
+    date = Time.now.strftime("%-d %b %Y")
+    visit '/peep/new'
+    fill_in('content', with: 'Blah blah blah')
+    click_button('Post')
+    expect(page).to have_content date
+  end
+
+end
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter
