@@ -36,7 +36,6 @@ class Chitter < Sinatra::Base
 
   # create new peep
   post '/peeps/new' do
-    p params
     @peep = Peep.new(user_id: session[:user_id],content: params[:content])
     @peep.save!
     flash[:peep_created] = true
@@ -46,7 +45,12 @@ class Chitter < Sinatra::Base
 
 
 
-
+  #User page
+  get '/users/profile/:id' do
+    @user = User.find(params[:id])
+    @peeps = @user.peeps.order(created_at: :desc)
+    erb(:"users/profile/index")
+  end
 
 
   # USER ROUTES new / login

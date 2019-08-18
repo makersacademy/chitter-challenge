@@ -5,7 +5,7 @@ feature 'Peeeeeps' do
     expect( find(:xpath ,'//div[@class="peep"][1]//div[@class="content"]')).to have_content('haha, does that look funny to you?')
     expect( find(:xpath ,'//div[@class="peep"][1]//div[@class="username"][1]')).to have_content('AzureDiamond')
     expect( find(:xpath ,'//div[@class="peep"][1]//div[@class="display-name"][1]')).to have_content('AD')
-    expect( find(:xpath ,'//div[@class="peep"][1]//div[@class="created_at"][1]')).to have_content('2019-03-14 02:05:09')
+    expect( find(:xpath ,'//div[@class="peep"][1]//div[@class="created-at"][1]')).to have_content('2019-03-14 02:05:09')
 
     expect( find(:xpath ,'//div[@class="peep"][5]//div[@class="content"]')).to have_content('Bring Sally up: a thread /2')
     expect( find(:xpath ,'//div[@class="peep"][5]//div[@class="username"][1]')).to have_content('user1')

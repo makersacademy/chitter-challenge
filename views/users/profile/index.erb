@@ -1,0 +1,38 @@
+<header>
+  <div>
+    You are viewing <%= @user.display_name %>'s peeps
+  </div>
+  <a href="/chitter">Return Home</a>
+</header>
+<main>
+
+    <% if @user %>
+    <div @class="new-peep">
+      Post a new peep!
+      <form action="/peeps/new" method="post">
+        <label>Peep content:<input name="content" type="text"></label>
+        <button type="submit">Post Peep!</button>
+      </form>
+    </div>
+    <% end %>
+
+
+    <div class="latest-peeps">
+      Latest Peeps
+      <div id="peep-list">
+
+        <% @peeps.each do  |peep| %>
+          <div class="peep" id="peep-<%= peep.id %>">
+
+            <div class="username"><a href="/users/profile/<%= peep.user.id %>"><b>&</b><%= peep.user.username %></a></div>
+            <div class="display-name"><em><%= peep.user.display_name %></em></div>
+            <div class="content"><%= peep.content %></div>
+            <div class="created-at">Posted: <%= peep.created_at %></div>
+
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+  </main>
