@@ -11,4 +11,13 @@ describe Peep do
       expect(peeps.first.message).to eq 'peep2'
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      peep = Peep.create(message: 'Test Peep')
+
+      expect(peep).to be_a Peep
+      expect(peep.message).to eq 'Test Peep'
+    end
+  end
 end
