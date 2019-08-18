@@ -3,4 +3,10 @@ feature 'user accounts' do
     visit('/users')
     expect(page).to have_content('Hello there, Sally')
   end
+
+  it 'has user records' do
+    users = Users.all
+    p users[0]
+    expect(users[0].username).to eq('Sally')
+  end
 end

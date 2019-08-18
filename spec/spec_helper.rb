@@ -1,4 +1,5 @@
 ENV['ENVIRONMENT'] = 'test'
+ENV['RACK_ENV'] = 'test'
 
 require_relative '../app.rb'
 require_relative '../spec/db_helper.rb'
@@ -32,7 +33,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    rake['rebuild_test_database'].execute
+    rake['rebuild_test_db'].execute
   end
 
 end

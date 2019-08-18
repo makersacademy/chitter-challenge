@@ -16,28 +16,26 @@ namespace :db do
   end
 end
 
+desc "Drops and creates both chitter and chitter test databases. Run rebuild_{type}_database to populate"
 task :create_dbs do
   conn = PG.connect(dbname: 'postgres')
-  puts "This will drop the dev and test database. Are you sure? (y/n)?"
-  if gets.chomp == "y"
     puts "Dropping Chitter and Chitter Test"
     conn.exec('drop database if exists chitter;')
     conn.exec('drop database if exists chitter_test;')
     puts "Creating Chitter and Chitter Test"
     conn.exec('create database chitter;')
     conn.exec('create database chitter_test;')
-  else
-    puts "No action taken"
-  end
 end
 
-task :rebuild_dev_database do
+desc "Drops all tables and recreates them in the dev db"
+task :rebuild_dev_db do
   conn = PG.connect(dbname: 'chitter')
   conn.exec('drop table if exists users;')
   conn.exec(File.open('./db/migrate/01_create_users_table.sql', &:read))
 end
 
-task :rebuild_test_database do
+desc "Drops all tables and recreates with seed data in the test db"
+task :rebuild_test_db do
   conn = PG.connect(dbname: 'chitter_test')
   conn.exec('drop table if exists users;')
   conn.exec(File.open('./db/migrate/01_create_users_table.sql', &:read))
