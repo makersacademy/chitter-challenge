@@ -4,7 +4,7 @@ feature 'adding a post' do
     scenario 'loading new post page' do
     visit ('/')
     click_button 'New'
-    expect(page).to have_content('Submit')
+    expect(page).to have_content('Chii')
   end
 
     scenario 'adding post' do

@@ -27,8 +27,7 @@ class ChitterChallenge < Sinatra::Base
     end
 
     post '/order' do
-      @posts = Post.all
-      @posts.sort_by! {|post| post.msg.length}
+      @posts = Post.sort_by_verbosiveness
       erb :mainpage
     end
     #

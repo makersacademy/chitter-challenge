@@ -24,4 +24,12 @@ class Post
       )
      end
  end
+
+ def self.delete
+ end
+
+ def self.sort_by_verbosiveness
+   @posts = Post.all
+   @posts.sort_by! {|post| post.msg.length}
+ end
 end
