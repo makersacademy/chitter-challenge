@@ -16,7 +16,7 @@ $ rake initialize_databases
 ```
 
 https://github.com/janko/sinatra-activerecord/blob/master/README.md
-
+https://guides.rubyonrails.org/active_record_querying.html
 ---
 
 Chitter Challenge
