@@ -19,22 +19,20 @@ end
 desc "Drops and creates both chitter and chitter test databases. Run rebuild_{type}_database to populate"
 task :create_dbs do
   conn = PG.connect(dbname: 'postgres')
-    puts "Dropping Chitter and Chitter Test"
-    conn.exec('drop database if exists chitter;')
-    conn.exec('drop database if exists chitter_test;')
-    puts "Creating Chitter and Chitter Test"
-    conn.exec('create database chitter;')
-    conn.exec('create database chitter_test;')
+  puts "Dropping Chitter and Chitter Test"
+  conn.exec('drop database if exists chitter;')
+  conn.exec('drop database if exists chitter_test;')
+  puts "Creating Chitter and Chitter Test"
+  conn.exec('create database chitter;')
+  conn.exec('create database chitter_test;')
 end
-
-
 
 desc "Drops all tables and recreates them in the dev db"
 task :rebuild_dev_db do
   print "rebuilding dev db..."
   conn = PG.connect(dbname: 'chitter')
   run_scripts(conn)
-  puts " Fin"
+  print " Fin:  "
 end
 
 desc "Drops all tables and recreates with seed data in the test db"
@@ -43,7 +41,7 @@ task :rebuild_test_db do
   conn = PG.connect(dbname: 'chitter_test')
   run_scripts(conn)
   conn.exec(File.open('./db/seed_test.sql', &:read))
-  puts " Fin"
+  print " Fin:  "
 end
 
 def run_scripts(conn)

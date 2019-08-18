@@ -6,7 +6,7 @@ values
   ,('$2a$12$whwxm.AEkFRIHdmWlY6trObUNsUEuukg8taBgLBTLTwntZ2IKmATm' ,'admin'        , 'admin' ,'admin@admin.com'  )
 ;
 
-insert into peeps (user_id ,peep_content, created_at)
+insert into peeps (user_id ,content, created_at)
   values
      (1, 'Bring Sally up'  ,'2019-01-01 02:05:09')
     ,(1, 'Bring Sally down','2019-01-01 03:05:09')

@@ -12,7 +12,6 @@ require_relative './models/peep.rb'
 #   database: ENV['ENVIRONMENT'] == 'test' ? "chitter_test" : "chitter"
 # )
 
-
 class Chitter < Sinatra::Base
   register Sinatra::Reloader
   register Sinatra::Flash
@@ -29,8 +28,26 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     @user = User.find_by_id(session[:user_id]) if session[:user_id]
+    @peeps = Peep.order(created_at: :desc)
     erb(:index)
   end
+
+  # PEEP ROUTES
+
+  # create new peep
+  post '/peeps/new' do
+    p params
+    @peep = Peep.new(user_id: session[:user_id],content: params[:content])
+    @peep.save!
+    flash[:peep_created] = true
+    redirect('/chitter')
+  end
+
+
+
+
+
+
 
   # USER ROUTES new / login
   get '/users/new' do
@@ -40,10 +57,9 @@ class Chitter < Sinatra::Base
 
   post '/users/new' do
 
-    @user = User.new(username:      params[:username],display_name:  params[:display_name],email_address: params[:email_address] )
+    @user = User.new(username: params[:username], display_name: params[:display_name], email_address: params[:email_address])
     @user.password = params[:password]
     @user.save!
-    p @user.id
     session[:user_id] = @user.id
     redirect('/chitter')
   end
@@ -68,7 +84,6 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     redirect('/chitter')
   end
-
 
   get '/users' do
     @users = User.all
