@@ -1,0 +1,16 @@
+<h1>Welcome to Chitter <%= @username %>!</h1>
+Posts
+<ol>
+    <% @all_posts.reverse_each do |peep| %>
+      <li>
+          <%= peep.post %>
+          <%= peep.time %>
+          <%= peep.date %>
+          <%= peep.username %>
+      </li>
+    <%end%>
+  </ol>
+
+  <form action="/peep/new">
+      <input type="submit" value="Write peep">
+    </form>

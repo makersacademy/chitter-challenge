@@ -1,0 +1,1 @@
+CREATE TABLE posts(id SERIAL PRIMARY KEY, message VARCHAR(60));
