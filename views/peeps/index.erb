@@ -1,3 +1,4 @@
+<h1> Welcome, <%= @user.email %> </h1>
 <h1> Chitter Feed: </h1>
 <ul class="feed">
   <% @peeps.each do |peep| %>
@@ -9,4 +10,8 @@
 
 <form action="/peeps/new" method="get">
   <button class="button" type="submit">+</button>
+</form>
+
+<form action="/users/new" method="get">
+  <button class="button" type="submit">Logout</button>
 </form>

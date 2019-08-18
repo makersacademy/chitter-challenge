@@ -31,6 +31,23 @@ I want to see the time at which it was made
 ```
 I had already put a timestamp into my tables however converting this into a time object so that I could play around with the format was a little more tricky. Testing can also be quite difficult for time. If I get time I will add tests in for this feature.
 
+### Logging in
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+```
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+```
+```
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+```
+
+
 ## Changes to Implement
 
 ## Review
