@@ -1,12 +1,15 @@
+<h1>CHIITT POSTS </h1>
+
 <ul>
-  <% @posts.each do |post| %>
+  <% @posts.reverse_each do |post| %>
     <li class="post" id="post-<%= post.id %>">
-      <%= post.msg %>
-      <h1>Time Added<%= post.time %> </h1>
+      <h3><%= post.msg %></h3>
+      Time Added <%= post.time %>
     </li>
   <% end %>
 </ul>
-<p>Hello</p>
-  <form action="mainpage/new" method="get">
+
+
+  <form action="/new" method="get">
     <input id="new_post" type="submit" value="New" />
   </form>
