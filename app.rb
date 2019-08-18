@@ -58,7 +58,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-
+    if User.where('lower(username) = ?', params[:username].downcase).any?
+      flash[:registration_notice] = "An account with that Username already exists."
+      redirect('/users/new')
+    end
+    if  User.where('lower(email_address) = ?', params[:email_address].downcase).any?
+      flash[:registration_notice] = "An account with that Email Address already exists."
+      redirect('/users/new')
+    end
     @user = User.new(username: params[:username], display_name: params[:display_name], email_address: params[:email_address])
     @user.password = params[:password]
     @user.save!

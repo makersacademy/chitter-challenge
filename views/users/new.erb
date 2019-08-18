@@ -11,6 +11,9 @@
 
 <body>
   <header>
+    <div>
+      <%= flash[:registration_notice] %>
+    </div>
     <div id="welcome-message">
 
       <form action="/users/new" method="post">
