@@ -27,17 +27,33 @@ task :create_dbs do
     conn.exec('create database chitter_test;')
 end
 
+
+
 desc "Drops all tables and recreates them in the dev db"
 task :rebuild_dev_db do
+  print "rebuilding dev db..."
   conn = PG.connect(dbname: 'chitter')
-  conn.exec('drop table if exists users;')
-  conn.exec(File.open('./db/migrate/01_create_users_table.sql', &:read))
+  run_scripts(conn)
+  puts " Fin"
 end
 
 desc "Drops all tables and recreates with seed data in the test db"
 task :rebuild_test_db do
+  print "rebuilding test db..."
   conn = PG.connect(dbname: 'chitter_test')
+  run_scripts(conn)
+  conn.exec(File.open('./db/seed_test.sql', &:read))
+  puts " Fin"
+end
+
+def run_scripts(conn)
+  conn.exec('drop table if exists peeps;')
   conn.exec('drop table if exists users;')
   conn.exec(File.open('./db/migrate/01_create_users_table.sql', &:read))
-  conn.exec(File.open('./db/seed_test.sql', &:read))
+  conn.exec(File.open('./db/migrate/02_create_peeps_table.sql', &:read))
+end
+
+task :rebuild_dbs do
+  Rake::Task[:rebuild_dev_db].invoke
+  Rake::Task[:rebuild_test_db].invoke
 end

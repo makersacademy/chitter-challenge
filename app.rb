@@ -4,7 +4,8 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require 'sinatra/activerecord'
 require 'active_record'
-require_relative './db/models.rb'
+require_relative './models/user.rb'
+require_relative './models/peep.rb'
 
 # ActiveRecord::Base.establish_connection(
 #   adapter:  "postgresql",
