@@ -4,7 +4,12 @@ class User
   def self.create(email:, password:)
     encrypted_password = BCrypt::Password.create(password)
 
-    result = DatabaseConnection.query("INSERT into users (email, password) VALUES('#{email}', '#{encrypted_password}') RETURNING id, email, password")
+    result = DatabaseConnection.query(
+      "INSERT into users (email, password)
+      VALUES('#{email}', '#{encrypted_password}')
+      RETURNING id, email, password"
+    )
+
     User.new(
       id: result[0]['id'],
       email: result[0]['email'],

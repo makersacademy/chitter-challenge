@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-ruby '2.6.3'
+ruby '2.5.0'
 
+gem 'bcrypt'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
-gem 'bcrypt'
 
 group :test do
   gem 'capybara'
