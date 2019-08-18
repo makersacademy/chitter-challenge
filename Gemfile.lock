@@ -84,7 +84,7 @@ DEPENDENCIES
   pg
   rake
   rspec
-  rubocop (= 0.56.0)
+  rubocop
   simplecov
   simplecov-console
   sinatra

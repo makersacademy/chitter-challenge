@@ -20,7 +20,6 @@ class ChitterWeb < Sinatra::Base
   end
 
   post '/peeps' do
-    p params
     Peep.create(message: params[:message])
     redirect '/peeps'
   end

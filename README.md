@@ -21,6 +21,15 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 ```
+This one was pretty straightforward as it was very similar to the weekly challenge.
+
+### Including Dates
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+I had already put a timestamp into my tables however converting this into a time object so that I could play around with the format was a little more tricky. Testing can also be quite difficult for time. If I get time I will add tests in for this feature.
 
 ## Changes to Implement
 

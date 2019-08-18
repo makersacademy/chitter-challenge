@@ -2,7 +2,7 @@
 <ul class="feed">
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.message %>
+      <%= peep.datetime %>: <%= peep.message %>
     </li>
   <% end %>
 </ul>

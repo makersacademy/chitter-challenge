@@ -5,7 +5,7 @@ class Peep
       Peep.new(
         id: peep['id'],
         message: peep['message'],
-        created_at: peep['created_at']
+        created_at: Time.parse(peep['created_at'])
       )
     end
     peeps.sort_by { |peep| -peep.id.to_i }
@@ -21,11 +21,17 @@ class Peep
   end
 
 
+
+
   attr_reader :id, :message, :created_at
 
   def initialize(id:, message:, created_at:)
     @id = id
     @message = message
     @created_at = created_at
+  end
+
+  def datetime
+    @created_at.strftime("%b %e, %l:%M %p")
   end
 end
