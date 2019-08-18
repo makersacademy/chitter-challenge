@@ -9,6 +9,7 @@ gem 'simplecov', require: false
 gem 'simplecov-console'
 gem 'bcrypt'
 gem 'timecop'
+gem 'orderly'
 
 group :test do
   gem 'rspec'

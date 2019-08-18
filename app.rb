@@ -25,6 +25,12 @@ class ChitterChallenge < Sinatra::Base
       Post.create(msg: params[:msg])
       redirect('/mainpage')
     end
+
+    post '/order' do
+      @posts = Post.all
+      @posts.sort_by! {|post| post.msg.length}
+      erb :mainpage
+    end
     #
     # delete '/bookmarks/:id' do
     #   Bookmark.delete(id: params[:id])
