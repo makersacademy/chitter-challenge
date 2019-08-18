@@ -11,6 +11,7 @@ require_relative './db/models.rb'
 #   database: ENV['ENVIRONMENT'] == 'test' ? "chitter_test" : "chitter"
 # )
 
+
 class Chitter < Sinatra::Base
   register Sinatra::Reloader
   register Sinatra::Flash
