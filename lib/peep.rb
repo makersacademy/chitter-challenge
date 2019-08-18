@@ -1,17 +1,26 @@
 require 'pg'
+require 'time'
 
 class Peep
 
-  def self.posted_messages
-    # do we need to set up a 'test' database? 
+  def self.create(text:, name:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end 
+
+    connection.exec("INSERT INTO peeps (text, name, datetime) VALUES('#{text}', '#{name}', '#{Time.now}') RETURNING id, text, name, datetime")
   end
 
-  def reverse_order
-  end
+  def self.all
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end 
 
-  def time_posted
-  end
-
-  def sign_in
+    result = connection.exec("SELECT * FROM peeps;")
+    result
   end
 end
