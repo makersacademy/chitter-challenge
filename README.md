@@ -7,13 +7,13 @@ Chitter Challenge
 
 ## User Stories
 
-Posting Messages
+Viewing Messages
 ```
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
 ```
-
+At first I hard coded the peeps but then added databases for production and testing. Timestamping the peeps seemed more tricky so I used the id as a quick fix at first.
 
 ## Changes to Implement
 

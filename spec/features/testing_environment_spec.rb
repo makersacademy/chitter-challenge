@@ -1,4 +1,3 @@
-
 feature 'testing environment setup' do
   scenario 'Hello_World shown on setup' do
     visit '/'
