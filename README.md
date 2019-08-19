@@ -52,9 +52,8 @@ I want to log in to Chitter
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
-I added registration but still have to add authentication.
+I added registration and authentication.
 
 ## Changes to Implement
 Full testing for timestamps
-Authentication
 css
