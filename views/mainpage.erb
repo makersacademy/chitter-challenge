@@ -1,0 +1,41 @@
+<h1>CHIITT POSTS </h1>
+
+<ul>
+  <% @posts.reverse_each do |post| %>
+   <li id="post-<%= post.id %>">
+      <h3><%= post.msg %></h3>
+      Time Added <%= post.time %>
+
+  <form action="/mainpage/<%= post.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+  </form>
+
+  <form action="/mainpage/<%= post.id %>/comments/new" method="get">
+        <input type="submit" value="Add Comment" />
+      </form>
+
+  <ul>
+    <% post.comments.each do |comment| %>
+      <li><%= comment.text %></li>
+    <% end %>
+  </ul>
+    </li>
+  <% end %>
+</ul>
+
+
+<form action="/order" method="post">
+  <input id="new_post" type="submit" value="Sort by VERBOSIVENESS" />
+</form>
+
+
+<form action="/mainpage" method="post">
+  <input id="new_post" type="submit" value="Sort by Newness" />
+</form>
+
+<h3>   <form action="/new" method="get">
+    <input id="new_post" type="submit" value="New" />
+  </form>
+
+  </h3>
