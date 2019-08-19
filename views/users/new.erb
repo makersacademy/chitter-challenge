@@ -1,0 +1,47 @@
+
+<style>
+body {background-color: #c3c5f3;}
+div {float:left; width:50%}
+h2 {    font-size: 22px;
+    letter-spacing: 2px;
+    font-family: sans-serif;}
+h2.error_message {font-size: 14px;}
+.text {
+        width: 50%;
+    padding: 1% 2%;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.text-submit {
+    background-color: #a1a3cc;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: sans-serif;
+    width: 20%;
+    margin: 2% 0 2% 5%;
+    padding: 1% 0;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;}
+</style>
+
+<div>
+<h2>Already signed up?</h2>
+<form action="/sessions/new">
+<input class="text-submit" type="submit" value="Log in" />
+</form>
+</div>
+<div>
+<h2>Create new account:</h2>
+<form action="/users" method="post">
+  <input class="text" placeholder="email address" type="email" name="email" />
+  <input class="text" placeholder="password" type="password" name="password" />
+  <input class="text-submit" type="submit" value="Sign up" />
+</form>
+</div>
