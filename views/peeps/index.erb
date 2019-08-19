@@ -1,0 +1,22 @@
+<% if @user == nil %>
+  <h1> Please Sign up to Chitter </h1>
+<% else %>
+  <h1> Welcome, <%= @user.email %> </h1>
+<% end %>
+
+<h1> Chitter Feed: </h1>
+<ul class="feed">
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.datetime %>: <%= peep.message %>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/peeps/new" method="get">
+  <button class="button" type="submit">+</button>
+</form>
+
+<form action="/sessions/destroy" method="post">
+  <button class="button" type="submit">Sign out</button>
+</form>
