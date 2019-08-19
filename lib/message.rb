@@ -4,8 +4,8 @@ class Message
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
     result.reverse_each.map do |message| 
-    Message.new(id: message['id'], text: message['text'], time: message['time'])
-  end
+      Message.new(id: message['id'], text: message['text'], time: message['time'])
+    end
   end
 
   def self.create(text:, time:)

@@ -95,7 +95,7 @@ DEPENDENCIES
   sinatra-flash
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.5.0p0
 
 BUNDLED WITH
    1.17.3

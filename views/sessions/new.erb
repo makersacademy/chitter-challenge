@@ -1,4 +1,5 @@
 
+
 <style>
 body {background-color: #c3c5f3;}
 div {float:left; width:50%}
@@ -31,17 +32,16 @@ h2.error_message {font-size: 14px;}
     cursor: pointer;}
 </style>
 
-<div>
-<h2>Already signed up?</h2>
-<form action="/sessions/new">
-<input class="text-submit" type="submit" value="Log in" />
-</form>
-</div>
-<div>
-<h2>Create new account:</h2>
-<form action="/users" method="post">
+<div class="signin">
+
+<h2>Sign in:</h2>
+
+<form action="/sessions" method="post">
   <input class="text" placeholder="email address" type="email" name="email" />
   <input class="text" placeholder="password" type="password" name="password" />
-  <input class="text-submit" type="submit" value="Sign up" />
+  <input class="text-submit" type="submit" value="Sign in" />
 </form>
+<h2 class="error_message">
+  <%= flash[:notice] %>
+</h2>
 </div>

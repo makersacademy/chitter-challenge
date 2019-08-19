@@ -6,9 +6,7 @@ describe User do
   describe '.create' do
     it 'creates a new user' do
       user = User.create(email: 'test@example.com', password: 'password123')
-      p "this is user for create #{user}"
       persisted_data = persisted_data(table: :users, id: user.id)
-      p "this is presisted data for create #{persisted_data}" 
       expect(user).to be_a User
       expect(user.id).to eq persisted_data.first['id']
       expect(user.email).to eq 'test@example.com'
@@ -27,10 +25,32 @@ describe User do
     end
     it 'finds a user by ID' do
       user = User.create(email: 'test@example.com', password: 'password123')
-      p user
       result = User.find(user.id)
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email
     end
   end
+
+  describe '.authenticate' do
+    it 'returns a user given a correct username and password, if one exists' do
+      user = User.create(email: 'test@example.com', password: 'password123')
+      authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
+  
+      expect(authenticated_user.id).to eq user.id
+    end
+
+    it 'returns nil given an incorrect email address' do
+      user = User.create(email: 'test@example.com', password: 'password123')
+  
+      expect(User.authenticate(email: 'test@examp.com', password: 'password123')).to be_nil
+    end
+
+    it 'returns nil given an incorrect password' do
+      user = User.create(email: 'test@example.com', password: 'password123')
+  
+      expect(User.authenticate(email: 'test@example.com', password: 'password1')).to be_nil
+    end
+
+  end
+
 end
