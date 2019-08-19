@@ -1,0 +1,39 @@
+<body style="background-color: rgb(21, 32, 43);">
+
+<h1 style="width: 10%; margin-left: 45%; color: white; font-weight: bold;"> Chitter </h1>
+
+<h3 style="margin-left: 20%; color: white;">Home</h3>
+
+<form style="margin-left: 20%" action="/post_peep" method="post">
+  <input style = "
+    width: 65%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgb(21, 32, 43);"
+    name="peep_body">
+  <input style="width: 9%; background-color: rgb(29, 161, 242); border-radius: 10px; border: none; padding: 12px 20px; font-size: 1em; font-weight: bold; color: white;" type="submit" value="Peep">
+</form>
+
+<br>
+<br>
+
+<div style="width: 60%; padding-left: 20%">
+  <% $all.reverse.each do |p| %>
+  <div style="border: 1px #859cb0 solid; border-radius: 10px; background: rgb(21, 32, 43)">
+    <p style="padding-left: 3%; color: #859cb0; font-style: italic;">@<%= p.username %></p>
+    <p style="color: white; padding-left: 3%"><%= p.body %></p>
+    <p style="color: white; padding-left: 3%; align: right;"><%= p.time %></p>
+  </div>
+  <% end %>
+</div>
+<br>
+<br>
+<br>
+<br>
+<a href="/logout">Logout.</a>
+
+</body>

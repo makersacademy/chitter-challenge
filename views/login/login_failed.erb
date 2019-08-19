@@ -1,0 +1,31 @@
+<body style="background-color: rgb(21, 32, 43);">
+
+
+<h1 style="width: 10%; margin-left: 45%; color: white; font-weight: bold;"> Chitter </h1>
+<p style="color:red">Log in failed. Incorrect User Name or Password.</p>
+<br>
+<form action="/attempt_login" method="get">
+  <label for="user_name">
+    User Name
+    <br>
+    <input type="text" name="user_name">
+  </label>
+  <br>
+  <br>
+  <label for="user_pass">
+    Password
+    <br>
+    <input type="password" name="user_pass">
+  </label>
+  <br>
+  <br>
+  <label>
+    <input type="submit" value="Sign in">
+  </label>
+</form>
+
+<form action="/sign_up" method="get">
+  <input type="submit" value="Sign up">
+</form>
+
+</body>
