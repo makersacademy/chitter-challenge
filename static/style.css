@@ -1,0 +1,99 @@
+body {
+  padding: 0px;
+  max-width: 1000px;
+  margin:0 auto;
+  background-color: rgb(29, 29, 29);
+  color:rgb(219, 206, 201);
+}
+
+header {
+  display: block;
+  margin: auto;
+  width:max-content;
+  min-height:100px;
+  position: relative;
+}
+
+#welcome-message,
+#user-welcome-message
+ {
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.user-actions {
+  position:absolute;
+  bottom:20px;
+  right:0px;
+}
+
+
+
+button,form {
+  display:inline;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: rebeccapurple;
+}
+a:link {
+  color: gray;
+}
+
+a:visited {
+  color: gray;
+}
+
+a:active {
+  color: teal;
+}
+
+main {
+  position: relative;
+}
+.new-peep {
+  margin-left: 50px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+#peep-list {
+  margin-top:20px;
+  margin:5px;
+}
+
+.peep {
+  margin: 10px;
+  padding:10px;
+  background-color:rgb(68, 68, 68);
+}
+.username,
+.display-name,h3 {
+  display:inline;
+}
+
+.content {
+  font-size: 120%;
+  margin: 10px 5px;
+  padding: 20px 5px;
+  padding-left: 20px;
+  background-color: aliceblue;
+  color:rgb(44, 42, 42) ;
+}
+
+.created-at {
+  text-align: right;
+  font-size: 80%
+}
+
+.peep-replies {
+  margin-left:20px;
+  transform: scale(0.96);
+  transform-origin: right;
+}

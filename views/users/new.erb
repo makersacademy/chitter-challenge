@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <link href="/style.css" rel="stylesheet" type="text/css">
+  <style>
+    form {
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <%= flash[:registration_notice] %>
+    </div>
+    <div id="welcome-message">
+
+      <form action="/users/new" method="post">
+        <label>Username:<input type="text" name="username"></label>
+        <label>Display Name:<input type="text" name="display_name"></label>
+        <label>Email Address:<input type="text" name="email_address"></label>
+        <label>Password:<input type="text" name="password"></label>
+        <button type="submit">Register</button>
+      </form>
+      <a href="/chitter">Return Home</a>
+    </div>
+  </header>
+</body>
+
+</html>

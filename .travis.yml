@@ -3,9 +3,16 @@ rvm: '2.5.0'
 script:
   - mkdir -p spec && bundle exec rspec spec
 
+
+services:
+  - postgresql
+
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
+  - psql -c "create database chitter_test;" -U postgres
+  - psql -d chitter_test -c "create table users (id serial primary key ,password_hash varchar(255) ,username varchar(255) ,display_name varchar(255) ,email_address varchar(255));" -U postgres
+  - psql -d chitter_test -c "create table peeps (id serial primary KEY,reply_to_peep_id integer references peeps(id),user_id integer references users (id),content varchar(255),html_content varchar(1000),created_at timestamp without time zone default (now() at time zone 'utc'));" -U postgres
+  - psql -d chitter_test -c "create table peep_user_tags (id serial primary key, peep_id integer references peeps (id), user_id integer references users (id));" -U postgres

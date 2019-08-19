@@ -1,3 +1,25 @@
+
+
+# Setting up the database
+
+ActiveRecord v5 is being used since sinatra/activerecord/rake doesn't handle version 6 correctly.
+(There is a 'fix' where you copy a file and rename it to activerecord_6.rb but the repo has been dead for a while)
+
+
+```
+$ brew install postgresql
+$ psql postgres
+# create database chitter;
+# create database chitter_test;
+# quit
+$ rake initialize_databases
+```
+
+https://github.com/janko/sinatra-activerecord/blob/master/README.md
+https://guides.rubyonrails.org/active_record_querying.html
+https://gist.github.com/jessieay/3131622  ActiveRecord Cheat Sheet
+---
+
 Chitter Challenge
 =================
 
@@ -21,11 +43,11 @@ Features:
 STRAIGHT UP
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a Maker

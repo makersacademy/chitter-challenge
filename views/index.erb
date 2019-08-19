@@ -1,0 +1,56 @@
+<html>
+
+<head>
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <% if @user %>
+  <header>
+    <div id="user-welcome-message">
+      <h1>Hello there, <%= @user.display_name %></h1>
+    </div>
+    <div class="user-actions">
+      <form action="/session" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+  </header>
+  <% else %>
+  <header>
+    <div id="welcome-message">
+      <h1>Welcome to Chitter</h1>
+    </div>
+    <div class="user-actions">
+      <form action="/users/new" method="get">
+        <button type="submit">Sign Up</button>
+      </form>
+      <form action="/session/new" method="get">
+        <button type="submit">Login</button>
+      </form>
+    </div>
+    <!-- Add menu? Home, Profile, Users -->
+  </header>
+  <% end %>
+
+
+  <main>
+
+    <% if @user %>
+    <div @class="new-peep">
+      <h4>Post a new peep!</h4>
+      <form action="/peeps/new" method="post">
+        <label>Peep content:<input name="content" type="text"></label>
+        <button type="submit">Post Peep!</button>
+      </form>
+    </div>
+    <% end %>
+
+
+    <%= erb :'/partials/latest_peeps' %>
+
+</body>
+</main>
+
+</html>
