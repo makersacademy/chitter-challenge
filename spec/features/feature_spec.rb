@@ -45,16 +45,15 @@ end
     scenario 'a comment is added to a post' do
       post = Post.create(msg: 'HarloHARlo')
 
-      visit '/bookmarks'
-      first('.bookmark').click_button 'Add Comment'
+      visit '/'
+      first('.post').click_button 'Add Comment'
 
-      expect(current_path).to eq "/bookmarks/#{bookmark.id}/comments/new"
+      expect(current_path).to eq "/mainpage/#{post.id}/comments/new"
 
       fill_in 'comment', with: 'This is a second comment'
       click_button 'Submit'
 
-      expect(current_path).to eq '/bookmarks'
-      expect(first('.bookmark')).to have_content 'this is a test comment on this bookmark'
+      expect(current_path).to eq '/mainpage'
+      expect(first('.post')).to have_content 'this is a test comment on this bookmark'
     end
   end
-end

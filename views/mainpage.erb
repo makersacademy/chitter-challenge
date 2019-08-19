@@ -2,18 +2,25 @@
 
 <ul>
   <% @posts.reverse_each do |post| %>
-    <li class="post" id="post-<%= post.id %>">
+   <li id="post-<%= post.id %>">
       <h3><%= post.msg %></h3>
       Time Added <%= post.time %>
-    </li>
-
 
   <form action="/mainpage/<%= post.id %>" method="post">
         <input type='hidden' name='_method' value='DELETE'/>
         <input type="submit" value="Delete" />
   </form>
 
+  <form action="/mainpage/<%= post.id %>/comments/new" method="get">
+        <input type="submit" value="Add Comment" />
+      </form>
 
+  <ul>
+    <% post.comments.each do |comment| %>
+      <li><%= comment.text %></li>
+    <% end %>
+  </ul>
+    </li>
   <% end %>
 </ul>
 

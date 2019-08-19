@@ -18,8 +18,8 @@ describe Post do
     it 'creates a new post' do
 
           post = Post.create(msg: 'testing test')
-        
-          persisted_data = persisted_data(id: post.id)
+
+          persisted_data = persisted_data(table: posts, id: post.id)
 
           expect(post).to be_a Post
 
@@ -33,7 +33,7 @@ describe Post do
     it 'lists posts' do
 
           post = Post.create(msg: 'testing test')
-          persisted_data = persisted_data(id: post.id)
+          persisted_data = persisted_data(table: posts, id: post.id)
           posts = Post.all
           expect(posts.length).to eq(1)
           expect(posts.first).to be_a Post

@@ -1,3 +1,5 @@
+require_relative './comment.rb'
+
 class Post
 
   attr_reader :msg, :time, :id
@@ -23,6 +25,14 @@ class Post
         id: post['id']
       )
      end
+ end
+
+ def comments
+     DatabaseConnection.query("SELECT * FROM comments WHERE bookmark_id = #{id};")
+   end
+
+ def comments(comment_class = Comment)
+   comment_class.where(post_id: id)
  end
 
   def self.delete(id:)

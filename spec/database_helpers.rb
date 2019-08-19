@@ -1,11 +1,7 @@
 require 'pg'
 require 'database_connection'
+require_relative '../lib/database_connection'
 
-def persisted_data(id:)
-  connection = DatabaseConnection.query("SELECT * FROM posts WHERE id = '#{id}';")
-end
-
-
-def persisted_data_user(id:)
-  connection = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}';")
+def persisted_data(table:, id:)
+  DatabaseConnection.query("SELECT * FROM #{table} WHERE id = '#{id}';")
 end
