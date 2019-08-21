@@ -1,5 +1,5 @@
-require 'data_mapper'
-require './database_connection_setup.rb'
+# require 'data_mapper'
+# require './database_connection_setup.rb'
 # require './lib/models/message.rb'
 
 class User
@@ -14,4 +14,4 @@ class User
   # has n, :messages
 end
 
-DataMapper.auto_upgrade!
+# DataMapper.auto_upgrade!

@@ -1,5 +1,5 @@
-require 'data_mapper'
-require './database_connection_setup.rb'
+# require 'data_mapper'
+# require './database_connection_setup.rb'
 # require './lib/models/user.rb'
 
 class Message
@@ -12,4 +12,4 @@ class Message
   # belongs_to :user
 end
 
-DataMapper.auto_upgrade!
+# DataMapper.auto_upgrade!

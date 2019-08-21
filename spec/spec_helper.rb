@@ -5,6 +5,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
+
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 

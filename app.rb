@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './database_connection_setup.rb'
 require './lib/models/message.rb'
 require './lib/models/user.rb'
 
