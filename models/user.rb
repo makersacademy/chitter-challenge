@@ -19,9 +19,7 @@ class User
   end
 
   def self.add(username, email, password)
-    #encrypt the plaintext password
     encrypted_password = BCrypt::Password.create(password)
-    #insert the encrypted password into the database, instead of the plaintext one
     result = DatabaseConnection.query("INSERT INTO users (username, email, password) 
                                       VALUES('#{username}', '#{email}', '#{encrypted_password}') 
                                       RETURNING username, email;")
@@ -52,5 +50,4 @@ class User
     return unless result.any?
     User.new(result[0]['username'], result[0]['email'], result[0]['password'])
   end
-
 end

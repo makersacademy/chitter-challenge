@@ -60,11 +60,5 @@ describe User do
       expect(User.authenticate('test@example.com', 'wrongpassword')).to be_nil
     end
   end
-
-  # describe '.check' do
-  #   it 'does not allow a user to sign up with a username that is already taken' do
-  #     user = User.add('testy_boi', 'test@example.com', 'password123')
-
-  #     expect(User.check)
 end
 

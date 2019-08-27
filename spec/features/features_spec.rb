@@ -1,4 +1,3 @@
-
 feature 'allows a user to post a peep' do
   scenario 'post a peep' do
     sign_up_and_sign_in_as_richie
@@ -6,13 +5,6 @@ feature 'allows a user to post a peep' do
     click_button("Post")
     expect(page).to have_content 'first peep!'
   end
-
-  # scenario 'seeing the time a next to a peep' do
-  #   visit('/')
-  #   fill_in 'Whats on your mind?', with: 'first peep!'
-  #   click_button("Post")
-  #   expect(page).to have_content Time.now
-  # end
 end
 
 feature 'allows a user to sign up for chitter' do
