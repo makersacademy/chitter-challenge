@@ -19,15 +19,15 @@
         <input type="text" name="peep">
         <input type="submit" value="Post">
       </form></center>
-      <ul>
+      <center><ul>
         <% if @user %>
           <h1>Welcome, <%= @user.username %></h1>
         <% end %>
         <% @peeps.reverse.each do |peep| %>
           <li>@<%= peep.username %><br><%= peep.peep %><br><%= peep.time %>
-          </li><br><br>
+          </li><<br><br>
         <% end %>
-      </ul>
+      </ul></center>
   </body>
 </html>
 
