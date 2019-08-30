@@ -33,3 +33,29 @@ conn.exec("INSERT INTO details (password) VALUES('#{password}')")
 **MAKE A TEST DATABASE SO WE DONT TRUNCATE EVERYTHING EVERY 4 SECONDS**
 **ALLOW THE USER TO SEND A BUDGET TWITTER TWEET**
 **DISPLAY EACH ONE OF THOSE IN A REVERSE ORDER FROM WHEN THEY WERE SENT BY USING THE DATE/TIME STAMP**
+
+
+**CREATING THE DATABASE THAT WILL STORE ALL PEEPS THAT ARE SENT BY ANYONE FOR SIMPLICITY**
+CREATE DATABASE peep_storage
+CREATE TABLE listOfPeeps(peepID SERIAL PRIMARY KEY, dateSent DATE , peepContent TEXT);
+
+
+
+***NEED to use a ul tag to list the peeps
+
+dunno how to get them to list in reverse crono by date...***
+
+<li> LIST TAG </li>
+
+<ul>
+  DO THINGS
+</ul>
+
+<ul>
+  <% @peep.each do |peep| %>
+    <li> <%= peep %> </li>
+  <% end %>
+</ul>
+
+result = conn.exec('SELECT * FROM listofpeeps')
+@peep = res.map { |peep| peep['peepcontent'] }
