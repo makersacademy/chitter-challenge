@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require 'pg'
 
 require_relative 'lib/user'
+require_relative 'lib/peep'
 require_relative 'lib/database_connection_setup'
 
 class ApplicationController < Sinatra::Base

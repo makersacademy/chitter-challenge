@@ -5,7 +5,7 @@
   </head>
   <body>
     <% if @user %>
-    <h2 class='sessions'>Signed in as <%= @email %></h2>
+    <h3 class='sessions'>Signed in as <%= @email %></h3>
     <form action="/sessions/destroy" method="post">
       <input type="submit" value="Sign out" />
     </form>

@@ -46,6 +46,7 @@ CREATE DATABASE chitter;
 CREATE DATABASE chitter_test;
 ```
 Execute the sql scripts in db/migrations, in order, for each db.
+
 OR, from commandline:
 ```
 for file in db/migrations/*.sql;
@@ -60,3 +61,7 @@ do
     psql chitter_test -f "$file"
 done
 ```
+
+
+t = Time.now
+2.6.3 :012 > con.exec "INSERT INTO users (peep_time) VALUES ('#{t}');"
