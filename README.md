@@ -162,3 +162,5 @@ sign up to Chitter
 
 Chitter Databases
 ID  | Message |  Time
+
+gem 'pg', bundle install
