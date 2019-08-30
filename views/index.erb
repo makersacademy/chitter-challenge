@@ -4,10 +4,22 @@
     <link href='/stylesheets/style.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <h1 style='color:blue'>It's Chitter time</h1>
-    <form name='sign-up' action='/users/new' method='GET'>
-      <input type='submit' value='Sign up'>
+    <% if @user %>
+    <h2 class='sessions'>Signed in as <%= @email %></h2>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Sign out" />
     </form>
-    <%= flash[:confirmation] %>
+    <% else %>
+      <form class='sessions' name='sign-in' action='/sessions/new' method='GET'>
+        <input type='submit' value='Sign in'>
+      </form>
+      <form class='sessions' name='sign-up' action='/users/new' method='GET'>
+        Not a member? <input type='submit' value='Sign up'>
+      </form>
+    <% end %>
+    <p style='color:red'><%= flash[:confirmation] %></p>
+    <p style='color:red'><%= flash[:notice] %></p>
+    <br>
+    <h1 style='color:blue'>It's Chitter time</h1>
   </body>
 </html>

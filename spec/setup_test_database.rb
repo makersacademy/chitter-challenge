@@ -6,4 +6,5 @@ def setup_test_database
   rs.each { |db|
     DatabaseConnection.query("ALTER SEQUENCE #{db['table_name']}_id_seq RESTART WITH 1;")
   }
+  User.create('admin@chitter.com', 'password1234')
 end

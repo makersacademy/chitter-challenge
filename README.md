@@ -7,6 +7,14 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
 As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
@@ -18,7 +26,12 @@ As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
-The peeps table does not have referencing f_key user_id, as I want to be able to see who posted even if they no longer have an account.
+Peeps table foreign key
+If a user can delete their profile, what do I want to happen to the associated peeps?
+* Remove peeps
+* Null user_id field
+* Don't allow to delete profile
+At present, go with option 3 so I can have a reference to user_id 
 
 ## To use:
 ```

@@ -8,5 +8,6 @@ feature 'sign up for chitter' do
 
     expect(page).to have_current_path('/')
     expect(page).to have_content('me@example.com is now signed up')
+    expect(page).to_not have_content('Not a member?')
   end
 end
