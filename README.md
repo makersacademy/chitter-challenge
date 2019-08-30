@@ -153,3 +153,12 @@ require 'rspec'
 
 # Tell Capybara to talk to Chitter
 Capybara.app = Chitter
+
+Chitter class
+Post messages
+Time Stamp
+View messages
+sign up to Chitter
+
+Chitter Databases
+ID  | Message |  Time
