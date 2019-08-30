@@ -31,12 +31,13 @@ If a user can delete their profile, what do I want to happen to the associated p
 * Remove peeps
 * Null user_id field
 * Don't allow to delete profile
-At present, go with option 3 so I can have a reference to user_id 
+
+At present, go with option 3 so I can have a reference to user_id
 
 ## To use:
 ```
 git clone
-cd
+cd chitter-challenge
 bundle
 ```
 Set up databases:
@@ -45,3 +46,17 @@ CREATE DATABASE chitter;
 CREATE DATABASE chitter_test;
 ```
 Execute the sql scripts in db/migrations, in order, for each db.
+OR, from commandline:
+```
+for file in db/migrations/*.sql;
+do
+    psql chitter -f "$file"
+done
+```
+AND
+```
+for file in db/migrations/*.sql;
+do
+    psql chitter_test -f "$file"
+done
+```
