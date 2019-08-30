@@ -13,7 +13,14 @@ feature 'the user can sign up' do
 
     expect(uname).to include("TestUser1")
     expect(pword).to include("TestPass1")
+end
+end
+end
 
-end
-end
+feature 'Goes to the Homepage' do
+  scenario 'Displays Text and a button' do
+    visit('/home')
+    expect(page).to have_content("This is YOUR Homepage")
+    expect(page).to have_button("Send Peep")
+  end
 end

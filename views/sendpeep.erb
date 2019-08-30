@@ -3,6 +3,8 @@
 <form method="post" action="/sendpeep">
   <!-- <input type="textbox" name="peep" placeholder="PEEP" /> -->
   <textarea rows="4" cols="50" name="sendpeep"></textarea>
-  <p>   </p>
-  <input type="submit" value="Submit" />
+  <p id="date"  </p>
+
+  <input type="submit" value="Send Peep" />
 </form>
+<script> document.write(new Date().toLocaleDateString()); </script>
