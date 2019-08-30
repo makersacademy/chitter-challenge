@@ -131,3 +131,36 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+List the gems in the Gemfile
+gem 'sinatra'
+gem 'capybara'
+bundle install
+
+rspec --init
+create config.ru
+
+# Set the environment to "test"
+ENV['RACK_ENV'] = 'test'
+
+# Bring in the contents of the `app.rb` file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+# Require all the testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+# Tell Capybara to talk to Chitter
+Capybara.app = Chitter
+
+Chitter class
+Post messages
+Time Stamp
+View messages
+sign up to Chitter
+
+Chitter Databases
+ID  | Message |  Time
+
+gem 'pg', bundle install
