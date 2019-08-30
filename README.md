@@ -61,7 +61,3 @@ do
     psql chitter_test -f "$file"
 done
 ```
-
-
-t = Time.now
-2.6.3 :012 > con.exec "INSERT INTO users (peep_time) VALUES ('#{t}');"
