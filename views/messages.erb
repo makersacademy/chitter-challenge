@@ -1,0 +1,22 @@
+<center>
+
+<h1> Post your message here </h1>
+
+<form action ='/chitter' method = 'POST'>
+  <input type="text" name="message"/>
+  <input type="submit" value="post"/>
+</form>
+<p><h6>
+  Current time is: <%= Time.now %>
+</h6>
+</p>
+<br>
+<br>
+<p>
+  <% @peeps.map do |peep| %>
+  <ul>
+  <%= peep %> (<%@time%>)
+  </ul>
+  <% end %>
+</p>
+</center>
