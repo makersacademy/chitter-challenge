@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='/stylesheets/style.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <h1 style='color:blue'>It's Chitter time</h1>
+    <form name='sign-up' action='/users/new' method='GET'>
+      <input type='submit' value='Sign up'>
+    </form>
+    <%= flash[:confirmation] %>
+  </body>
+</html>
