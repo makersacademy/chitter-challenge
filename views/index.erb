@@ -21,5 +21,15 @@
     <p style='color:red'><%= flash[:notice] %></p>
     <br>
     <h1 style='color:blue'>It's Chitter time</h1>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li>
+          <%= peep.content %>
+        </li>
+      <% end %>
+    </ul>
+    <form name='create-peep' action='/new' method='GET'>
+      <input type='submit' value='Create peep'>
+    </form>
   </body>
 </html>

@@ -1,10 +1,7 @@
 feature 'sign in to chitter' do
   scenario 'can sign in with a valid username and password' do
     visit '/'
-    click_button 'Sign in'
-    fill_in(:email, with: 'admin@chitter.com')
-    fill_in(:password, with: 'password1234')
-    click_button 'Sign in'
+    sign_in
 
     expect(page).to have_content('Signed in as admin@chitter.com')
   end

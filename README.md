@@ -26,13 +26,14 @@ As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
-Peeps table foreign key
+peeps table foreign key
 If a user can delete their profile, what do I want to happen to the associated peeps?
 * Remove peeps
 * Null user_id field
 * Don't allow to delete profile
 
-At present, go with option 3 so I can have a reference to user_id
+At present, go with option 2 - won't currently allow user to delete profile
+but if so, can return null
 
 ## To use:
 ```

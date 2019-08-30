@@ -6,6 +6,13 @@ class Peep
     Peep.new(rs[0]['id'], rs[0]['content'], rs[0]['peep_time'], rs[0]['user_id'])
   end
 
+  def self.all
+    rs = DatabaseConnection.query("SELECT * FROM peeps ORDER BY id DESC;")
+    rs.map { |peep|
+      Peep.new(peep['id'], peep['content'], peep['peep_time'], peep['user_id'])
+    }
+  end
+
   attr_reader :id, :content, :peep_time, :user_id
 
   def initialize(id, content, peep_time, user_id)
