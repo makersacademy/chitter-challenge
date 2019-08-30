@@ -25,7 +25,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/' do
+    p params[:content]
     Peep.create(params[:content], session[:user].id)
+    p 'created'
     redirect '/'
   end
 

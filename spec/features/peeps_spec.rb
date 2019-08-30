@@ -1,10 +1,10 @@
 feature 'Peeps page' do
-  scenario 'it shows a list of peeps by date in reverse order' do
+  scenario 'it shows a list of peeps in reverse chronological order' do
+    allow(Time).to receive(:now).and_return('2019-01-01 00:00:00')
     Peep.create('My first peep!', '1')
-    Peep.create('Hello', '1')
-    Peep.create('World', '1')
+    Peep.create('My second peep!', '1')
     visit '/'
-    expect(page).to have_content("World Hello My first peep!")
+    expect(page).to have_content("My second peep!sent byadmin@chitter.com on 2019-01-01 00:00:00+00 My first peep!sent byadmin@chitter.com on 2019-01-01 00:00:00+00")
   end
   scenario 'can post a new peep if logged in' do
     sign_in

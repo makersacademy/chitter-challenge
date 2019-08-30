@@ -5,7 +5,7 @@ class DatabaseConnection
     @con = PG.connect dbname: db_name
   end
 
-  def self.query(sql)
-    @con.exec sql
+  def self.query(sql, params = nil)
+    @con.exec_params sql, params
   end
 end

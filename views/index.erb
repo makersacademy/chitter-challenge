@@ -24,7 +24,7 @@
     <ul>
       <% @peeps.each do |peep| %>
         <li>
-          <%= peep.content %>
+          <%= peep.content %><br>sent by<%= User.find(peep.user_id).email %> on <%= peep.peep_time %>
         </li>
       <% end %>
     </ul>
