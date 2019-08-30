@@ -1,2 +1,5 @@
-<p><%= @peep %></p>
-<%= @time %>
+<h1>Chitter</h1>
+<% @peeps.each do |peep| %>
+  <p><%= peep.peep %></p>
+  <%= peep.time %>
+<% end %>

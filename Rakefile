@@ -18,7 +18,7 @@ task :setup_databases do
   p 'Setting up databases...'
   ['chitter', 'chitter_test'].each do |database|
     connection = PG.connect
-    connection.exec("CREATE DATABASE #{ database };")
+    connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
     connection.exec("CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR, time TIMESTAMP);")
   end
