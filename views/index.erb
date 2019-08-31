@@ -24,12 +24,14 @@
     <ul>
       <% @peeps.each do |peep| %>
         <li>
-          <%= peep.content %><br>sent by<%= User.find(peep.user_id).email %> on <%= peep.peep_time %>
+          <%= peep.content %><br>sent by <%= User.find(peep.user_id).email %> on <%= peep.peep_time %>
         </li>
       <% end %>
     </ul>
-    <form name='create-peep' action='/new' method='GET'>
-      <input type='submit' value='Create peep'>
-    </form>
+    <% if @user %>
+      <form name='create-peep' action='/new' method='GET'>
+        <input type='submit' value='Create peep'>
+      </form>
+    <% end %>
   </body>
 </html>

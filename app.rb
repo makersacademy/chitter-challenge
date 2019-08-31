@@ -2,9 +2,12 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'pg'
 
-require_relative 'lib/user'
-require_relative 'lib/peep'
 require_relative 'lib/database_connection_setup'
+require_relative './lib/email'
+require_relative './lib/mailer'
+require_relative './lib/mailer_setup'
+require_relative 'lib/peep'
+require_relative 'lib/user'
 
 class ApplicationController < Sinatra::Base
   enable :method_override, :sessions
@@ -25,9 +28,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/' do
-    p params[:content]
     Peep.create(params[:content], session[:user].id)
-    p 'created'
     redirect '/'
   end
 
@@ -51,9 +52,14 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(params[:email], params[:password])
-    flash[:confirmation] = "#{user.email} is now signed up"
-    session[:user] = user
+    @user = User.create(params[:email], params[:password])
+    if @user.nil?
+      flash[:confirmation] = "#{params[:email]} is already signed up"
+    else
+      flash[:confirmation] = "#{@user.email} is now signed up"
+      session[:user] = @user
+      Mailer.send(WelcomeEmail.new(@user))
+    end
     redirect '/'
   end
 

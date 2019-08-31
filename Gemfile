@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 gem 'bcrypt'
+gem 'dotenv'
+gem 'mailjet'
 gem 'pg'
 gem 'rake'
 gem 'rubocop', '0.71.0'

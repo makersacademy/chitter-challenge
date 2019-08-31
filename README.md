@@ -28,7 +28,7 @@ I want to see the time at which it was made ✅
 ```
 peeps table foreign key
 If a user can delete their profile, what do I want to happen to the associated peeps?
-* ~~ Remove peeps ~~
+* ~ Remove peeps ~
 * Null user_id field
 * ~~ Don't allow to delete profile ~~
 
