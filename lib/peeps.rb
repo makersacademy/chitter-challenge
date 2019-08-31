@@ -9,7 +9,7 @@ class Peep
     end
     # connection = PG.connect(dbname: 'chitter')
     result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
-    result.map {|peep| peep['peeps'] }
+    result.map {|peep| message = [peep['peeps'],peep['timestamp']]} 
   end
 
   def self.create(peeps:,timestamp:)
