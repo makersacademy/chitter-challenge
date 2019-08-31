@@ -9,7 +9,7 @@ class ChitterApp < Sinatra::Base
 
   post '/chitter' do
     @time = Inputtime.timestamp
-    @peep = Peep.create(peeps: params['message'],timestamp: @time)
+    @peep = Peep.create(peeps: params['message'],timestamp: @time) 
 
     # connection = PG.connect(dbname: 'chitter_test')
     # connection.exec("INSERT INTO peeps (peeps) VALUES('#{peep}')")

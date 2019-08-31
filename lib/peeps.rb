@@ -9,7 +9,7 @@ class Peep
     end
     # connection = PG.connect(dbname: 'chitter')
     result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
-    result.map {|peep| message = [peep['peeps'],peep['timestamp']]} 
+    result.map {|peep| message = [peep['peeps'],peep['timestamp']]}
   end
 
   def self.create(peeps:,timestamp:)
@@ -18,6 +18,6 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-      connection.exec("INSERT INTO peeps (peeps, timestamp) VALUES ('#{peeps}','#{timestamp}');")
+      connection.exec("INSERT INTO peeps (peeps, timestamp) VALUES ('#{peeps.gsub(/'/,"''")}','#{timestamp}');")
   end
 end
