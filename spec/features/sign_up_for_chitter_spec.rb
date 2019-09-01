@@ -10,4 +10,22 @@ feature 'sign up for chitter' do
     expect(page).to have_content('me@example.com is now signed up')
     expect(page).to_not have_content('Not a member?')
   end
+  scenario 'a user cannot sign up if already registered' do
+    visit '/'
+    click_button 'Sign up'
+    fill_in(:email, with: 'admin@chitter.com')
+    fill_in(:password, with: 'password1234')
+    click_button 'Sign up'
+
+    expect(page).to have_content('admin@chitter.com is already signed up')
+  end
+  scenario 'a user cannot sign up with an invalid email' do
+    visit '/'
+    click_button 'Sign up'
+    fill_in(:email, with: 'admin.chitter.com')
+    fill_in(:password, with: 'password1234')
+    click_button 'Sign up'
+
+    expect(page).to have_content('admin.chitter.com is not a valid email')
+  end
 end

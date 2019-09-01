@@ -19,7 +19,6 @@ class ApplicationController < Sinatra::Base
       @email = session[:user].email
     end
     @peeps = Peep.all
-    p @peeps
     erb(:index)
   end
 
@@ -53,12 +52,12 @@ class ApplicationController < Sinatra::Base
 
   post '/users' do
     @user = User.create(params[:email], params[:password])
-    if @user.nil?
-      flash[:confirmation] = "#{params[:email]} is already signed up"
-    else
+    if @user.is_a?(User)
       flash[:confirmation] = "#{@user.email} is now signed up"
       session[:user] = @user
       Mailer.send(WelcomeEmail.new(@user))
+    else
+      flash[:confirmation] = @user
     end
     redirect '/'
   end

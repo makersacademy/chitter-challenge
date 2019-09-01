@@ -14,7 +14,7 @@ feature 'sign in to chitter' do
 
     expect(page).to have_content('Your email and/or password was incorrect')
   end
-  scenario 'can\'t sign in if username not valid' do
+  scenario 'can\'t sign in if password not valid' do
     visit '/'
     click_button 'Sign in'
     fill_in(:email, with: 'admin@chitter.com')

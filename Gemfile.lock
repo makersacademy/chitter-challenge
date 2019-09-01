@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (6.0.0)
+      activesupport (= 6.0.0)
     activesupport (6.0.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
@@ -38,6 +40,8 @@ GEM
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.3)
     json (2.1.0)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
     mailjet (1.5.4)
       activesupport (>= 3.1.0)
       rack (>= 1.4.0)
@@ -122,6 +126,9 @@ GEM
       unf_ext
     unf_ext (0.0.7.6)
     unicode-display_width (1.6.0)
+    valid_email2 (3.0.4)
+      activemodel (>= 3.2)
+      mail (~> 2.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.1.9)
@@ -144,6 +151,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-flash
+  valid_email2
 
 RUBY VERSION
    ruby 2.6.3p62
