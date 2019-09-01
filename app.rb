@@ -1,9 +1,14 @@
 require 'sinatra/base'
 require './lib/peep'
-require 'pg'
+require './lib/user'
+require './lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+
   get '/' do
+    database_connection_setup
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :peeps
   end
@@ -13,15 +18,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/new' do
+    database_connection_setup
     Peep.create(peep: params['peep'])
     redirect '/'
   end
 
-  # get '/peep' do
-  #   connection = PG.connect(dbname: 'chitter_test')
-  #   result = connection.exec("SELECT peep, time FROM peeps ORDER BY time DESC LIMIT 1;")
-  #   @peep = result[0]['peep']
-  #   @time = result[0]['time']
-  #   erb :peeps
-  # end
+  get '/users/new' do
+    erb :registration
+  end
+
+  post '/users' do
+    database_connection_setup
+    user = User.create(name: params['name'], email: params['email'], password: params['password'])
+    session[:user_id] = user.id[0]
+    redirect '/'
+  end
 end

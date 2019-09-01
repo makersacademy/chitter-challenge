@@ -1,5 +1,3 @@
-require 'pg'
-
 feature 'Chitter' do
   scenario 'I can post a message (peep) to chitter' do
     visit '/new'

@@ -1,4 +1,9 @@
 <h1>Chitter</h1>
+
+<% if @user %>
+  <h2>Welcome, <%= @user.name %></h2>
+<% end %>
+
 <% @peeps.each do |peep| %>
   <p><%= peep.peep %></p>
   <%= peep.time %>

@@ -11,7 +11,7 @@ require 'pg'
 task :clear_test_database do
   p 'Clearing test database...'
   connection = PG.connect(dbname: 'chitter_test')
-  connection.exec("TRUNCATE peeps");
+  connection.exec("TRUNCATE peeps, users");
 end
 
 task :setup_databases do
@@ -21,5 +21,6 @@ task :setup_databases do
     connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
     connection.exec("CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR, time TIMESTAMP);")
+    connection.exec("CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(30), email VARCHAR(60), password VARCHAR(140));")
   end
 end
