@@ -1,7 +1,9 @@
 # require gems
 require 'capybara/rspec'
+require 'puma'
 require 'simplecov'
 require 'simplecov-console'
+require 'selenium-webdriver'
 require 'rspec-html-matchers'
 require_relative './setup_test_database.rb'
 require_relative 'features/web_helpers.rb'
@@ -9,7 +11,7 @@ require_relative 'features/web_helpers.rb'
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
@@ -19,6 +21,7 @@ ENV['ENVIRONMENT'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = ApplicationController
+Capybara.current_driver = :selenium
 
 RSpec.configure do |config|
   config.before(:each) do

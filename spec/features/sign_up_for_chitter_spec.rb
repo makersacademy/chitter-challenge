@@ -28,4 +28,13 @@ feature 'sign up for chitter' do
 
     expect(page).to have_content('admin.chitter.com is not a valid email')
   end
+  scenario 'password must be 6 characters or longer', js: true do
+    visit '/'
+    click_button 'Sign up'
+    fill_in(:email, with: 'newuser@chitter.com')
+    fill_in(:password, with: '1234')
+    click_button 'Sign up'
+
+    expect(page).to have_content('Password must be at least 6 characters')
+  end
 end

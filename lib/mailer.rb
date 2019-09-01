@@ -19,8 +19,8 @@ class Mailer
       },
       'To'=> [
         {
-          'Email'=> email.user.email,
-          'Name'=> ''
+          'Email'=> email.to_email,
+          'Name'=> email.to_name
         }
       ],
       'Subject'=> email.subject,

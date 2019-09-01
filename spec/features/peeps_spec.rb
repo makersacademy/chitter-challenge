@@ -4,7 +4,7 @@ feature 'Peeps page' do
     Peep.create('My first peep!', '1')
     Peep.create('My second peep!', '1')
     visit '/'
-    expect(page).to have_content("My second peep!sent by admin@chitter.com on 2019-01-01 00:00:00+00 My first peep!sent by admin@chitter.com on 2019-01-01 00:00:00+00")
+    expect(page).to have_content("My second peep!\nsent by admin@chitter.com on 2019-01-01 00:00:00+00\nMy first peep!\nsent by admin@chitter.com on 2019-01-01 00:00:00+00")
   end
   scenario 'can post a new peep if logged in' do
     sign_in

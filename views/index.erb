@@ -17,10 +17,10 @@
         Not a member? <input type='submit' value='Sign up'>
       </form>
     <% end %>
-    <p style='color:red'><%= flash[:confirmation] %></p>
-    <p style='color:red'><%= flash[:notice] %></p>
+    <p><%= flash[:confirmation] %></p>
+    <p class='notices'><%= flash[:notice] %></p>
     <br>
-    <h1 style='color:blue'>It's Chitter time</h1>
+    <h1>It's Chitter time</h1>
     <ul>
       <% @peeps.each do |peep| %>
         <li>

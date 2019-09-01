@@ -62,3 +62,4 @@ do
     psql chitter_test -f "$file"
 done
 ```
+Replace the example.env with a .env file. Add your Mailjet API keys, and domain email address (note - with a public email address any emails sent will go to spam).

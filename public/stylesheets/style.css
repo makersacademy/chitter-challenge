@@ -1,5 +1,16 @@
+body {
+  background-color: #B0E0E6;
+  /* text-align: center; */
+}
+h1  {
+  color: #0000CD;
+  text-align: center;
+}
 form.sessions {
-    display: inline-block;
+  display: inline-block;
+}
+.notices{
+  color: #FF0000; !important
 }
 /* .peep {
     width: 30em;

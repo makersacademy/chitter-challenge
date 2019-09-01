@@ -2,14 +2,16 @@
 <html>
   <head>
     <link href='/stylesheets/style.css' rel='stylesheet' type='text/css'>
+    <script src="/javascripts/script.js"></script>
+
   </head>
   <body>
     <h1>New user sign-up</h1>
-    <form name='new-user' action='/users' method='POST'>
+    <form name='sign-up' action='/users' method='POST' onsubmit='event.preventDefault(); return validateForm();'>
       Email: <input type='text' name='email' maxlength='60' value=''><br>
-      Username: <input type='text' name='username' maxlength='15' value=''><br>
-      Password: <input type='password' name='password' value=''>
+      Password: <input type='password' name='password' id='password' value=''>
       <input type='submit' value='Sign up'>
     </form>
+    <p class='notices' id='password-length'></p>
   </body>
 </html>
