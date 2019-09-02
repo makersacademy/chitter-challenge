@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
     conn = PG.connect(dbname: 'chitter_signup')
     result = conn.exec('SELECT * FROM listofpeeps')
     @peep = result.map { |peep| peep['peepcontent'] }
+    @date = result.map { |date| date['datesent'] }
     erb :homepage
 
   end

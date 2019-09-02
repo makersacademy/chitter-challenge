@@ -24,3 +24,12 @@ feature 'Goes to the Homepage' do
     expect(page).to have_button("Send Peep")
   end
 end
+feature 'Displays Peeps' do
+  scenario 'Displays Text and a button' do
+    visit('/sendpeep')
+    fill_in('peepcontent', with: 'This is a Test Peep')
+    click_button('Send Peep')
+    visit('/home')
+    expect(page).to have_content("This is a Test Peep")
+  end
+end
