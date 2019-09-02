@@ -1,7 +1,7 @@
 class Email
   def initialize(user)
-    @to_email = user.email
-    @to_name = user.email.split(/@/).first
+    @address = user.email
+    @name = user.email.split(/@/).first
   end
 end
 

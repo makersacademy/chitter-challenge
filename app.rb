@@ -22,11 +22,20 @@ class ApplicationController < Sinatra::Base
     erb(:index)
   end
 
-  get '/new' do
-    erb(:new)
+  get '/peeps/:id' do
+    if session[:user]
+      @user = session[:user]
+      @email = session[:user].email
+    end
+    @peeps = Peep.find_user(params[:id])
+    erb(:index)
   end
 
-  post '/' do
+  get '/peep/new' do
+    erb(:'peeps/new')
+  end
+
+  post '/peeps' do
     Peep.create(params[:content], session[:user].id)
     redirect '/'
   end

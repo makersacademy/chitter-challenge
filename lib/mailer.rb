@@ -20,7 +20,7 @@ class Mailer
       'To'=> [
         {
           'Email'=> email.address,
-          'Name'=> email.name
+          'Name'=> email.name,
         }
       ],
       'Subject'=> email.subject,
