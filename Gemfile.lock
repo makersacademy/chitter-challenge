@@ -129,6 +129,8 @@ GEM
       sinatra (>= 1.0.0)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    travis-lint (2.0.0)
+      json
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -162,6 +164,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-flash
+  travis-lint
   valid_email2
 
 RUBY VERSION

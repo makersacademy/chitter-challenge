@@ -12,6 +12,7 @@ gem 'rubocop', '0.71.0'
 gem 'selenium-webdriver'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'travis-lint'
 gem 'valid_email2'
 
 group :test do
