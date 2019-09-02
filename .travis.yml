@@ -3,8 +3,8 @@ language: ruby
 rvm: '2.6.0'
 
 script:
+  - "bundle exec rake Rakefile:setup_databases"
   - mkdir -p spec && bundle exec rspec spec
-  - bundle exec rake spec
 
 before_install:
 - sudo apt-get update -qq
