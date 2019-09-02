@@ -15,6 +15,13 @@ class Peep
     }
   end
 
+  def self.find_user(user_id)
+    rs = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = $1 ORDER BY id DESC;", [user_id])
+    rs.map { |peep|
+      Peep.new(peep['id'], peep['content'], peep['peep_time'], peep['user_id'])
+    }
+  end
+
   attr_reader :id, :content, :peep_time, :user_id
 
   def initialize(id, content, peep_time, user_id)

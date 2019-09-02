@@ -36,4 +36,12 @@ describe User do
       expect(user).to be_nil
     end
   end
+  context '.find' do
+    it 'can find a user' do
+      user = User.find(1)
+      expect(user).to be_a(User)
+      expect(user.id).to eq ('1')
+      expect(user.email).to eq('admin@chitter.com')
+    end
+  end
 end

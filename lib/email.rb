@@ -1,6 +1,4 @@
 class Email
-  attr_reader :user
-
   def initialize(user)
     @to_email = user.email
     @to_name = user.email.split(/@/).first
@@ -8,11 +6,21 @@ class Email
 end
 
 class WelcomeEmail < Email
-  attr_reader :to_email, :to_name, :subject, :body
+  attr_reader :address, :name, :subject, :body
 
   def initialize(user)
     super(user)
-    @subject = 'Welcome to Chitter!'
-    @body = "<h3>You are now signed up to Chitter, #{to_name}!</h3>"
+    @subject = "Welcome to Chitter!"
+    @body = "<h3>You are now signed up to Chitter, #{name}!</h3>"
+  end
+end
+
+class TaggedEmail < Email
+  attr_reader :address, :name, :subject, :body
+
+  def initialize(user, peep)
+    super(user)
+    @subject = 'You\'ve been tagged'
+    @body = "<h3>#{name}, you were tagged in the following peep:</h3><p>#{peep.content}</p>"
   end
 end

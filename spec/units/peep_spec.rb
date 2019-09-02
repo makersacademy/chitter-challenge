@@ -1,3 +1,4 @@
+require 'bcrypt'
 require 'peep'
 
 describe Peep do
@@ -10,6 +11,9 @@ describe Peep do
     expect(peep.user_id).to eq('1')
   end
   it 'returns all peeps' do
+    encrypted_password = BCrypt::Password.create('password1234')
+    sql = %q{INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email;}
+    DatabaseConnection.query(sql, [Mail::Address.new('me@example.com').address, encrypted_password])
     Peep.create('My first peep!', '1')
     Peep.create('Hello', '1')
     Peep.create('World', '1')
@@ -17,5 +21,19 @@ describe Peep do
     peeps = Peep.all
     expect(peeps).to all(be_a(Peep))
     expect(peeps.count).to eq(3)
+  end
+  it 'returns all peeps by a specific user' do
+    encrypted_password = BCrypt::Password.create('password1234')
+    sql = %q{INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email;}
+    DatabaseConnection.query(sql, [Mail::Address.new('me@example.com').address, encrypted_password])
+    Peep.create('My first peep!', '1')
+    Peep.create('Hello', '2')
+    Peep.create('World', '2')
+
+    peeps = Peep.find_user(2)
+    expect(peeps).to all(be_a(Peep))
+    expect(peeps.count).to eq(2)
+    expect(peeps[0].user_id).to eq('2')
+    expect(peeps[1].user_id).to eq('2')
   end
 end
