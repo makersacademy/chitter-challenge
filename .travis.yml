@@ -1,4 +1,4 @@
-rvm: '2.6.0'
+rvm: '2.6.3'
 
 script:
   - mkdir -p spec && bundle exec rspec spec
@@ -12,3 +12,5 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  - psql 'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));'
+  - psql 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(141), peep_time TIMESTAMPTZ, user_id INTEGER REFERENCES users (id) ON DELETE SET NULL);'
