@@ -1,6 +1,6 @@
 feature 'authentication' do
   scenario 'a user can log in' do
-    user = User.create(name: 'John', email: 'test@example.com', password: 'password123')
+    User.create(name: 'John', email: 'test@example.com', password: 'password123')
     visit '/login'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
@@ -29,7 +29,7 @@ feature 'authentication' do
   end
 
   scenario 'a user can log out' do
-    user = User.create(name: 'John', email: 'test@example.com', password: 'password123')
+    User.create(name: 'John', email: 'test@example.com', password: 'password123')
     visit '/login'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')

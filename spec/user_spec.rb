@@ -41,13 +41,13 @@ describe User do
     end
 
     it 'returns nil given an incorrect email address' do
-      user = User.create(name: 'John', email: 'test@example.com', password: 'password123')
+      User.create(name: 'John', email: 'test@example.com', password: 'password123')
       auth = User.authenticate(email: 'wrongemail@example.com', password: 'password123')
       expect(auth).to be_nil
     end
 
     it 'returns nil given an incorrect password' do
-      user = User.create(name: 'John', email: 'test@example.com', password: 'password123')
+      User.create(name: 'John', email: 'test@example.com', password: 'password123')
       auth = User.authenticate(email: 'test@example.com', password: 'wrongpassword')
       expect(auth).to be_nil
     end
