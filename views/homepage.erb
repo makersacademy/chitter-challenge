@@ -1,0 +1,15 @@
+<h2> This is YOUR Homepage </h2>
+<form method="post" action="/home">
+  <ul>
+    <% @peep.each do |peep| %>
+    <% @date.each do |datesent| %>
+
+      <li> <%= "#{peep} Sent on #{datesent}"  %> </li>
+      <% end %>
+      <% end %>
+
+  </ul>
+  <input type="submit" value="Send Peep!" />
+  <input type="submit" value="Log Out" />
+
+</form>
