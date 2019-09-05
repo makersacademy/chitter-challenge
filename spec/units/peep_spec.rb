@@ -1,4 +1,5 @@
 require 'peeps'
+require 'timestamp'
 
 describe Peep do
 #   describe '.all' do
@@ -12,9 +13,17 @@ describe Peep do
 #   end
     describe '.create' do
       it 'create a new peep' do
-        Peep.create(peeps: 'Hello from Mars!', timestamp: Time.now)
 
-        expect(Peep.all).to include 'Hello from Mars!'
+        peep = Peep.create(peeps: 'Hello from Mars!', timestamp:Inputtime.timestamp)
+        id = peep.id
+        connection = PG.connect(dbname: 'chitter_test')
+        result = connection.query("SELECT * FROM peeps WHERE id = #{id};")
+        result.first
+        # puts result.first
+        expect(peep).to be_a Peep
+        expect(peep.id).to eq result.first["id"]
+        expect(peep.peeps).to eq 'Hello from Mars!'
+        expect(peep.timestamp).to eq Inputtime.timestamp
       end
     end
 end

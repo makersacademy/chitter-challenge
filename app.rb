@@ -5,6 +5,7 @@ require './lib/users'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
+
   get '/chitter' do
     @peeps = Peep.all
     erb :messages
@@ -39,6 +40,12 @@ class ChitterApp < Sinatra::Base
 
   get '/signin' do
     erb :signin
+  end
+
+  post '/signin' do
+    @u_name = params ['name']
+    @u_email = params ['email']
+    @u_password = params ['password']
   end
 
   get '/welcome' do
