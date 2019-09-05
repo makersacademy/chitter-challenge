@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='/stylesheets/style.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <% if @user %>
+    <h3 class='sessions'>Signed in as <%= @email %></h3>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Sign out" />
+    </form>
+    <% else %>
+      <form class='sessions' name='sign-in' action='/sessions/new' method='GET'>
+        <input type='submit' value='Sign in'>
+      </form>
+      <form class='sessions' name='sign-up' action='/users/new' method='GET'>
+        Not a member? <input type='submit' value='Sign up'>
+      </form>
+    <% end %>
+    <p><%= flash[:confirmation] %></p>
+    <p class='notices'><%= flash[:notice] %></p>
+    <br>
+    <h1>It's Chitter time</h1>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li>
+          <%= peep.content %><br>sent by <a href='/peeps/<%= peep.user_id %>'><%= User.find(peep.user_id).email %></a> on <%= peep.peep_time %>
+        </li>
+      <% end %>
+    </ul>
+    <% if @user %>
+      <form name='create-peep' action='/peep/new' method='GET'>
+        <input type='submit' value='Create peep'>
+      </form>
+    <% end %>
+  </body>
+</html>

@@ -1,4 +1,5 @@
-rvm: '2.6.0'
+language: ruby
+rvm: '2.6.3'
 
 script:
   - mkdir -p spec && bundle exec rspec spec
@@ -12,3 +13,7 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  — bundle install — jobs=3 — retry=3
+  — bundle exec rake db:create
+  — bundle exec rake db:migrate
+  — bundle exec rspec
