@@ -1,0 +1,7 @@
+<h2>Please enter your details below to log in:</h2>
+<form action='/login' method='post'>
+  Email: <input type='email' name='email' required />
+  Password: <input type='password' name='password' required />
+  <input type='submit' value='Log in' />
+</form>
+<h3><%= @error %></h3>

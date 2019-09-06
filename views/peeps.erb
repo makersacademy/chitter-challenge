@@ -1,0 +1,25 @@
+<h1>Chitter</h1>
+<% if @logged_in %>
+  <form action="/logout" method="post">
+    <input type="submit" value="Log out" />
+  </form>
+  <form action="/new" method="get">
+    <input type="submit" value="New peep" />
+  </form>
+<% else %>
+  <form action="/login" method="get">
+    <input type="submit" value="Log in" />
+  </form>
+  <form action="/users/new" method="get">
+    <input type="submit" value="Sign up" />
+  </form>
+<% end %>
+
+<% if @user %>
+  <h2>Welcome, <%= @user.name %></h2>
+<% end %>
+
+<% @peeps.each do |peep| %>
+  <p><%= peep.peep %></p>
+  <%= peep.time %>
+<% end %>
