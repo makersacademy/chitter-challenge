@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 30px 0;
+}
+</style>
+<center>
+<h1> Chitter Chatter </h1>
+<div>
+  Sign in/ sign up to chat with other Makers
+  <br>
+  <form>
+    <input type="button" value="Sign up" onclick="window.location.href='/signup'"/>
+    <input type="button" value="Sign in" onclick="window.location.href='/signin'"/>
+  </form>
+</div>
+
+<h5> Post your message here </h5>
+
+<form action ='/chitter' method = 'POST'>
+  <input type="text" name="message"/>
+  <input type="submit" value="post"/>
+</form>
+<p><h6>
+  Current time is: <%= Time.now %>
+</h6>
+</p>
+<br>
+<br>
+
+<p>
+  <% @peeps.map do |peep| %>
+    <ul>
+      <div class="container">
+        <%= peep.first %>
+        <h6> <%= peep.last%> </h6>
+      </div>
+    </ul>
+  <% end %>
+</p>
+
+
+</center>

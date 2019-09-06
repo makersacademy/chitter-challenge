@@ -1,0 +1,20 @@
+<center>
+<form action ='/signup' method = 'POST'>
+  <input type = "text" name = "name" placeholder = "Name"/>
+  <br>
+  <input type = "email" name = "email" placeholder = "Email"/>
+  <br>
+  <input type = "password" name= "password" placeholder = "Password">
+  <br>
+  <input type = "submit" name = "action" value= "Sign up"/>
+</form>
+
+<div>
+  <p style="color:red">
+  <% if @error == true %>
+  <%= 'Email has already been taken'%>
+  <% end %>
+  </p>
+</div>
+
+</center>
