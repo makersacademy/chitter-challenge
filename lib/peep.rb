@@ -11,16 +11,16 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
+
     result.map do |peep|
-      Peep.new(id: peep['id'], content: peep['title'], time: peep['url'])
+      Peep.new(id: peep['id'], content: peep['content'], time: peep['time'])
     end
   end
 
-  def self.create(content:, user_id:)
+  def self.create(content:)
     time = Time.now.to_s[0..-7]
     result = DatabaseConnection.query("INSERT INTO peeps (content, time) VALUES ('#{content}', '#{time}' RETURNING id, content, time;")
-    newpeep = Peep.new(id: result[0]['id'], content: result[0]['content'], time: result[0]['time'])
-    UserPeep.create(user_id: user_id, peep_id: newpeep.id)
+    Peep.new(id: result[0]['id'], content: result[0]['content'], time: result[0]['time'])
   end
 
 end

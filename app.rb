@@ -21,6 +21,7 @@ class ChitterApp < Sinatra::Base
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.user_id
+      session[:username] = user.handle
       redirect('/peeps')
     else
       flash[:notice] = 'Please check your email or password.'
@@ -33,6 +34,7 @@ class ChitterApp < Sinatra::Base
     user = User.create(name: params[:name], email: params[:email], password: params[:password], handle: params[:handle])
     if user
       session[:user_id] = user.user_id
+      session[:username] = user.handle
       redirect('/peeps')
     else
       flash[:notice] = "Email/Handle already in use, try again"
@@ -51,9 +53,16 @@ class ChitterApp < Sinatra::Base
   end
 
   # submit form with NEW peep, updates same page
-  post '/:id/postpeep' do
-    Peep.create(content: params[:content], user_id: params[:id])
+  post '/postpeep' do
+    newpeep = Peep.create(content: params[:content])
+    UserPeep.create(user_id: session['user_id'], peep_id: newpeep.id)
     redirect('/peeps')
+  end
+
+  post '/peeps/signout' do
+    session.clear
+    flash[:notice] = "You have been signed out. Please log back in to continue."
+    redirect('/')
   end
 
 
