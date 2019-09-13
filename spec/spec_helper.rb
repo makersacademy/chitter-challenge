@@ -1,4 +1,12 @@
+require 'database_cleaner.rb'
+
 ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    database_cleaner
+  end
+end
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
