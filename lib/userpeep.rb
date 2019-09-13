@@ -14,4 +14,15 @@ class UserPeep
     UserPeep.new(user_id: result[0]['user_id'], peep_id: result[0]['peep_id'])
   end
 
+  def self.all
+    peeps = DatabaseConnection.query("SELECT * FROM peeps;")
+    users = DatabaseConnection.query("SELECT * FROM users;")
+    # get user_id and grab handle from users
+    # get peep_id and grab comment & time from users
+    result = DatabaseConnection.query("SELECT * FROM userspeeps;")
+    result.map do |peep|
+      Peep.new(id: peep['id'], content: peep['content'], time: peep['time'])
+    end
+  end
+
 end

@@ -5,10 +5,10 @@
 </form>
 
 <form action='/postpeep' method='post' id='Peepform'>
-  <label for='Peepbox'>What do you want to say?</label>
+  <label for='content'>What do you want to say?</label>
 </form>
 
-<textarea rows='5' cols='80' name="Peepbox" form='Peepform'>
+<textarea rows='5' cols='80' name="content" form='Peepform'>
   Write Peep here...
 </textarea>
 <br>
@@ -20,4 +20,17 @@
 <br>
 <h2> Peeps </h2>
 
+<% if @peeps != nil 
+@peeps.each do |peep| %>
+
+  <%= peep.content %>
+  <br>
+  <%= peep.time %>
+  <br>
+  <br>
+  <br>
+
+<% end %>
+<% end %>
+    
 
