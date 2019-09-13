@@ -3,8 +3,8 @@ feature 'post a message' do
     visit ('/')
     click_button('Add Peep')
     visit('/add_peep')
-    fill_in(:message, with: "I'm Hungry.")
+    fill_in(:message, with: "Excited")
     click_button('Peep')
-    expect(page).to have_content("I'm Hungry.")
+    expect(page).to have_content("Excited")
   end
 end

@@ -7,12 +7,11 @@ end
 
 feature 'viewing other users peeps' do
   scenario 'see all peeps in reverse chitter_test' do
-    connection = PG.connect(dbname: 'chitter_test')
 
-  connection.exec("INSERT INTO peeps_timeline (peep) VALUES ('Tired');")
-  connection.exec("INSERT INTO peeps_timeline (peep) VALUES ('Hungry');")
-  connection.exec("INSERT INTO peeps_timeline (peep) VALUES ('lonely');")
-
+    Peeps.add(message: "Tired")
+    Peeps.add(message: "Hungry")
+    Peeps.add(message: "lonely")
+    
     visit ('/')
 
     expect(page).to have_content "Tired"

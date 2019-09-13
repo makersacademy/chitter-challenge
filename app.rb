@@ -2,12 +2,12 @@ require 'sinatra/base'
 require './lib/peeps'
 
 class Chitter < Sinatra::Base
-  enable :sessions
+  #enable :sessions
 
   get '/' do
-   @timeline
+   # @timeline
    @timeline = Peeps.all
-   @peep_message = session[:peep_message]
+   #@peep_message = session[:peep_message]
     erb :index
   end
 
@@ -16,7 +16,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_peep' do
-    session[:peep_message] = params[:message]
+    Peeps.add(message: params[:message])
+    #session[:peep_message] = params[:message]
     redirect '/'
   end
 

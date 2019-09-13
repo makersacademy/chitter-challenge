@@ -4,17 +4,29 @@ describe Peeps do
 
    describe '.all' do
      it 'returns all peeps/messages' do
-       connection = PG.connect(dbname: 'chitter_test')
 
-       connection.exec("INSERT INTO peeps_timeline (peep) VALUES ('Tired');")
-       connection.exec("INSERT INTO peeps_timeline (peep) VALUES ('Hungry');")
-       connection.exec("INSERT INTO peeps_timeline (peep) VALUES ('lonely');")
+       Peeps.add(message: "Tired")
+       Peeps.add(message: "Hungry")
+       Peeps.add(message: "lonely")
+
 
        timeline = Peeps.all
 
        expect(timeline).to include("Tired")
        expect(timeline).to include("Hungry")
-       expect(timeline).to include ("lonely")
+       expect(timeline).to include("lonely")
        end
      end
-   end
+
+  describe '.add' do
+    it 'allows user to add a new peep/message post' do
+      Peeps.add(message: "Tired")
+      Peeps.add(message: "Hungry")
+      Peeps.add(message: "lonely")
+
+      expect(Peeps.all).to include "Tired"
+      expect(Peeps.all).to include "Hungry"
+      expect(Peeps.all).to include "lonely"
+    end
+  end
+end
