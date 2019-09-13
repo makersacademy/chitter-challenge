@@ -27,7 +27,6 @@ class Posts
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("INSERT INTO posts (name, message) VALUES ('#{name}','#{message}') RETURNING id,name,message;")
-    Posts.new(id: result[0]['id'], name: result[0]['name'], message: result[0]['message'])
   end
 
 end

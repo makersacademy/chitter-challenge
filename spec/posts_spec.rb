@@ -13,13 +13,14 @@ describe Posts do
       expect(post.first.message).to eq 'test message'
     end
   end
-  
+
   describe 'create' do
     it 'posts a message on the homepage' do
-      post = Posts.create(name: 'Sam', message: 'I am busy')
+      Posts.create(name: 'Sam', message: 'I am busy')
+      post = Posts.show
 
-      expect(post.name).to eq 'Sam'
-      expect(post.message).to eq 'I am busy'
+      expect(post[0].name).to eq 'Sam'
+      expect(post[0].message).to eq 'I am busy'
     end
   end
 
