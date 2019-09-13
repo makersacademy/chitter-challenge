@@ -10,8 +10,8 @@ class UserPeep
   end
 
   def self.create(user_id:, peep_id:)
-    result = DatabaseConnection.query("INSERT INTO userpeeps (user_id, peep_id) VALUES ('#{user_id}', '#{peep_id}') RETURNING user_id, peep_id;")
-    Userpeep.new(user_id: result[0]['user_id'], peep_id: result[0]['peep_id'])
+    result = DatabaseConnection.query("INSERT INTO userspeeps (user_id, peep_id) VALUES ('#{user_id}', '#{peep_id}') RETURNING user_id, peep_id;")
+    UserPeep.new(user_id: result[0]['user_id'], peep_id: result[0]['peep_id'])
   end
 
 end

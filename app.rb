@@ -22,6 +22,7 @@ class ChitterApp < Sinatra::Base
     if user
       session[:user_id] = user.user_id
       session[:username] = user.handle
+      session[:email] = user.email
       redirect('/peeps')
     else
       flash[:notice] = 'Please check your email or password.'
@@ -35,6 +36,7 @@ class ChitterApp < Sinatra::Base
     if user
       session[:user_id] = user.user_id
       session[:username] = user.handle
+      session[:email] = user.email
       redirect('/peeps')
     else
       flash[:notice] = "Email/Handle already in use, try again"

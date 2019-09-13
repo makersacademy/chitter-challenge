@@ -3,6 +3,8 @@ require_relative 'userpeep'
 
 class Peep
 
+  attr_reader :id
+  
   def initialize(id:, content:, time:)
     @id = id
     @content = content
@@ -19,7 +21,7 @@ class Peep
 
   def self.create(content:)
     time = Time.now.to_s[0..-7]
-    result = DatabaseConnection.query("INSERT INTO peeps (content, time) VALUES ('#{content}', '#{time}' RETURNING id, content, time;")
+    result = DatabaseConnection.query("INSERT INTO peeps (content, time) VALUES ('#{content}', '#{time}') RETURNING id, content, time;")
     Peep.new(id: result[0]['id'], content: result[0]['content'], time: result[0]['time'])
   end
 
