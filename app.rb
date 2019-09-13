@@ -27,9 +27,25 @@ class ChitterApp < Sinatra::Base
       redirect('/')
     end
   end
+
+  # create new user, validating if email/handle already in use.
+  post '/newsignup' do
+    user = User.create(name: params[:name], email: params[:email], password: params[:password], handle: params[:handle])
+    if user
+      redirect('/peeps/:id')
+    else
+      flash[:notice] = "Email/Handle already in use, try again"
+      redirect('/signup')
+    end
+  end
   
+  # signup page
+  get '/signup' do
+    erb(:signup)
+  end
+
   # peeps page
-  get '/peeps' do
+  get '/peeps/:id' do
     erb(:peeps)
   end
 
