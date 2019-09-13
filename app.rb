@@ -17,8 +17,15 @@ class ChitterApp < Sinatra::Base
   end
 
   # submit form on login page, goes to peeps
-  post '/:id/login' do
-    redirect('/peeps')
+  post '/login' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.user_id
+      redirect('/peeps')
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect('/')
+    end
   end
   
   # peeps page

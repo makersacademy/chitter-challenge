@@ -1,4 +1,5 @@
 require_relative 'database_connection'
+require 'bcrypt'
 
 class User
 
@@ -12,13 +13,23 @@ class User
     @handle = handle
   end
 
+  # for when user signs up
   def self.create(name:, email:, password:, handle:)
     # need a fail clause if handle/email already exists here
-    result = Database.query("INSERT INTO users (name, email, password, handle) VALUES ('#{name}', '#{email}', '#{password}', '#{handle}');")
+    encrypted_password = BCrypt::Password.create(password)
+    result = DatabaseConnection.query("INSERT INTO users (name, email, password, handle) VALUES ('#{name}', '#{email}', '#{encrypted_password}', '#{handle}') RETURNING id, name, email, password, handle;")
+    User.new(user_id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'], handle: result[0]['handle'])
   end
 
-  def login
-    # define some sort of login behaviour
+  def self.login(email:, password:)
+    DatabaseConnection.query("SELECT id FROM users WHERE email = '#{email}, password = '#{password}")
+  end
+
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    User.new(user_id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'], handle: result[0]['handle'])
   end
 
 end
