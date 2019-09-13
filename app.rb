@@ -1,6 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require './database_connection_setup'
+require './lib/peep'
+require './lib/user'
+require './lib/userpeep'
+require './lib/database_connection'
 
 class ChitterApp < Sinatra::Base
 
@@ -13,7 +17,7 @@ class ChitterApp < Sinatra::Base
   end
 
   # submit form on login page, goes to peeps
-  post '/login' do
+  post '/:id/login' do
     redirect('/peeps')
   end
   
@@ -23,7 +27,8 @@ class ChitterApp < Sinatra::Base
   end
 
   # submit form with NEW peep, updates same page
-  post '/postpeep' do
+  post '/:id/postpeep' do
+    Peep.create(content: params[:content], user_id: params[:id])
     redirect('/peeps')
   end
 

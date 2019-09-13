@@ -3,7 +3,7 @@ require_relative 'userpeep'
 
 class Peep
 
-  def initialize(id:, :content, :time)
+  def initialize(id:, content:, time:)
     @id = id
     @content = content
     @time = time
@@ -22,5 +22,5 @@ class Peep
     newpeep = Peep.new(id: result[0]['id'], content: result[0]['content'], time: result[0]['time'])
     UserPeep.create(user_id: user_id, peep_id: newpeep.id)
   end
-  
+
 end
