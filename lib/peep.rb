@@ -1,7 +1,9 @@
 class Peep
-  attr_reader :peep
+  attr_reader :id, :peep, :timestamp
 
-  def initialize(peep)
+  def initialize(id:, peep:, timestamp:)
+    @id = id
     @peep = peep
+    @timestamp = timestamp
   end
 end
