@@ -19,6 +19,16 @@ How to use:
 #### Any feedback/suggestions are really appreciated. I wanted to stay true to the challenge and use a single relational database to keep track of user-peep relationships, but this proved tricky when it came to printing name + peep, meaning I ended up using a class variable array (which in this instance I don't think is a big deal, but probably not best practice.)
 
 
+In-App Action Shots:
+-------
+
+![](https://github.com/DanGyi23/chitter-challenge/blob/master/Screenshots/ss1.png)
+
+![](https://github.com/DanGyi23/chitter-challenge/blob/master/Screenshots/ss2.png)
+
+![](https://github.com/DanGyi23/chitter-challenge/blob/master/Screenshots/ss3.png)
+
+
 Features:
 -------
 
