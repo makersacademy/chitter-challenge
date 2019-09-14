@@ -1,0 +1,25 @@
+<a href="https://github.com/DanGyi23/chitter-challenge">
+  <img align ='right' height='50' width='50' style='margin:10px;margin-left: -60px' src='https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg'>
+</a>
+
+<h1> Give us your data </h1>
+
+<form action='/newsignup' method='post'>
+  <label for='email'>Email</label>
+  <input type='text' name='email' placeholder='Email'>
+  <br>
+  <label for='password'>Password</label>
+  <input type='text' name='password' placeholder='Password'>
+  <br>
+  <label for='name'>Name</label>
+  <input type='text' name='name' placeholder='Name'>
+  <br>
+  <label for='handle'>Unique Username</label>
+  <input type='text' name='handle' placeholder='Unique Username'>
+  <br>
+  <button type='submit' name='Sign Up'>Sign Up</button>
+</form>
+
+<h3>
+  <%= flash[:notice] %>
+</h3>
