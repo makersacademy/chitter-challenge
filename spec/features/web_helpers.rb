@@ -5,7 +5,6 @@ def log_in_test
   click_button "Log In"
 end
 
-# only use once in one of your tests to create the new user, otherwise flash notice will occur
 def create_new_user
   visit '/'
   click_link 'Sign Up Here'
@@ -14,4 +13,11 @@ def create_new_user
   fill_in "name", with: "Testboy"
   fill_in "handle", with: "Testboy987"
   click_button "Sign Up"
+end
+
+def delete_db_rows
+  conn = PG.connect( dbname: 'chitter_test' )
+  conn.exec( "TRUNCATE TABLE users CASCADE" )
+  conn.exec( "TRUNCATE TABLE peeps CASCADE" )
+  conn.exec( "TRUNCATE TABLE userspeeps CASCADE" )
 end

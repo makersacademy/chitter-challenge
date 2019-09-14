@@ -17,6 +17,15 @@ class UserPeep
     UserPeep.new(user_id: result[0]['user_id'], peep_id: result[0]['peep_id'])
   end
 
+  def self.all
+    UserPeep.user_peeps_populate
+    UserPeep.peeps_populate
+    UserPeep.users_populate
+    @@content_handle_pairs
+  end
+
+  # private
+
   def self.user_peeps_populate
     userpeeps = DatabaseConnection.query("SELECT * FROM userspeeps;")
     userpeeps.map do |userpeep|
@@ -48,13 +57,6 @@ class UserPeep
         end
       end
     end
-  end
-
-  def self.all
-    UserPeep.user_peeps_populate
-    UserPeep.peeps_populate
-    UserPeep.users_populate
-    @@content_handle_pairs
   end
 
 end

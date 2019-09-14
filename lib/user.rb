@@ -12,7 +12,6 @@ class User
     @handle = handle
   end
 
-  # for when user signs up
   def self.create(name:, email:, password:, handle:)
     check_email_exist = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';")
     check_handle_exist = DatabaseConnection.query("SELECT * FROM users WHERE handle = '#{handle}';")
@@ -22,7 +21,6 @@ class User
     User.new(user_id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], handle: result[0]['handle'])
   end
 
-  # for login
   def self.authenticate(email:, password:)
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
     return unless result.any?
