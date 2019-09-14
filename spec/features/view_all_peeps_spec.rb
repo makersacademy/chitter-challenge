@@ -5,7 +5,7 @@
 
 feature 'Show all peeps' do
   scenario 'Show a list of all peeps in reverse chronological order' do
-    visit '/peeps'
+    visit '/peeps/'
     expect(page).to have_content 'Third time lucky!'
     expect(page).to have_content 'My second peep!'
     expect(page).to have_content 'Hello world! First peep!'
