@@ -1,3 +1,7 @@
+<a href="https://github.com/DanGyi23/chitter-challenge">
+  <img align ='right' height='50' width='50' style='margin:10px;margin-left: -60px' src='https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg'>
+</a>
+
 <h1> Chitter - Get your Daily Peeps </h1>
 
 <form action="/peeps/signout" method="post">
@@ -23,14 +27,17 @@
 <% if @peeps != nil 
 @peeps.each do |peep| %>
 
+<div style='border:4px outset blue;margin:10px;padding:5px;width:400px'>
   <%= peep[1] %>
   <br>
   <%= peep[2] %>
   <br>
   Posted by <strong><%= peep[0] %></strong>
+  </div>
   <br>
   <br>
   <br>
+  
 
 <% end %>
 <% end %>
