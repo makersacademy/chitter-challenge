@@ -51,7 +51,7 @@ class ChitterApp < Sinatra::Base
 
   # peeps page
   get '/peeps' do
-    @peeps = Peep.all.reverse
+    @peeps = UserPeep.all.reverse
     erb(:peeps)
   end
 

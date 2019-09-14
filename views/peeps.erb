@@ -23,9 +23,11 @@
 <% if @peeps != nil 
 @peeps.each do |peep| %>
 
-  <%= peep.content %>
+  <%= peep[0] %>
   <br>
-  <%= peep.time %>
+  <%= peep[1] %>
+  <br>
+  <%= peep[2] %>
   <br>
   <br>
   <br>
