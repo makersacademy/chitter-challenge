@@ -19,8 +19,6 @@ class ChitterApp < Sinatra::Base
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.user_id
-      session[:username] = user.handle
-      session[:email] = user.email
       redirect('/peeps')
     else
       flash[:notice] = 'Please check your email or password.'
@@ -33,8 +31,6 @@ class ChitterApp < Sinatra::Base
        password: params[:password], handle: params[:handle])
     if user
       session[:user_id] = user.user_id
-      session[:username] = user.handle
-      session[:email] = user.email
       redirect('/peeps')
     else
       flash[:notice] = "Email/Handle already in use, try again"

@@ -25,8 +25,8 @@ class UserPeep
     @@content_handle_pairs
   end
 
-  # private
-
+  private
+  
   def self.user_peeps_populate
     userpeeps = DatabaseConnection.query("SELECT * FROM userspeeps;")
     userpeeps.map do |userpeep|
