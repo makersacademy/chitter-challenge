@@ -16,8 +16,8 @@ def create_new_user
 end
 
 def delete_db_rows
-  conn = PG.connect( dbname: 'chitter_test' )
-  conn.exec( "TRUNCATE TABLE users CASCADE" )
-  conn.exec( "TRUNCATE TABLE peeps CASCADE" )
-  conn.exec( "TRUNCATE TABLE userspeeps CASCADE" )
+  conn = PG.connect(dbname: 'chitter_test')
+  conn.exec("TRUNCATE TABLE users CASCADE")
+  conn.exec("TRUNCATE TABLE peeps CASCADE")
+  conn.exec("TRUNCATE TABLE userspeeps CASCADE")
 end

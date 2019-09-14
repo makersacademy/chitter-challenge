@@ -1,18 +1,15 @@
 ruby '2.6.0'
 
 source "https://rubygems.org"
-
+gem 'bcrypt'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'bcrypt'
 
 group :test do
-gem 'capybara'
-gem 'rspec'
-gem 'simplecov'
-gem 'simplecov-console'
-gem 'rubocop'
-gem 'sinatra-flash'
+  gem 'capybara'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'simplecov'
+  gem 'simplecov-console'
 end
-

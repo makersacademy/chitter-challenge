@@ -11,12 +11,10 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
-  #login page
   get '/' do
     erb(:index)
   end
 
-  # submit form on login page, goes to peeps
   post '/login' do
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
@@ -30,9 +28,9 @@ class ChitterApp < Sinatra::Base
     end
   end
 
-  # create new user, validating if email/handle already in use.
   post '/newsignup' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password], handle: params[:handle])
+    user = User.create(name: params[:name], email: params[:email],
+       password: params[:password], handle: params[:handle])
     if user
       session[:user_id] = user.user_id
       session[:username] = user.handle
