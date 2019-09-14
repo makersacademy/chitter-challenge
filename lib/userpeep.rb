@@ -9,7 +9,7 @@ class UserPeep
   def initialize(user_id:, peep_id:)
     @user_id = user_id
     @peep_id = peep_id
-    @content_handle_pairs = []
+    @@content_handle_pairs = []
   end
 
   def self.create(user_id:, peep_id:)
@@ -17,27 +17,29 @@ class UserPeep
     UserPeep.new(user_id: result[0]['user_id'], peep_id: result[0]['peep_id'])
   end
 
-  def user_peeps_populate
+  def self.user_peeps_populate
     userpeeps = DatabaseConnection.query("SELECT * FROM userspeeps;")
     userpeeps.map do |userpeep|
-      new_userpeep = UserPeep.new(user_id: user['user_id'], peep_id: user['peep_id'])
-      @content_handle_pairs << [new_userpeep.user_id, new_userpeep.peep_id, nil]
+      instance = UserPeep.new(user_id: userpeep['user_id'], peep_id: userpeep['peep_id'])
+      @@content_handle_pairs << [instance.user_id, instance.peep_id, nil]
     end
   end
 
-  def users_populate
+  def self.users_populate
     users = DatabaseConnection.query("SELECT * FROM users;").map do |user|
       new_user = User.new(user_id: user['id'], name: user['name'], email: user['email'], handle: user['handle'])
-      @content_handle_pairs.map do |pair|
-        pair[0] = new_user.handle if pair[0] == new_user.user_id
+      @@content_handle_pairs.map do |pair|
+        if pair[0] == new_user.user_id
+          pair[0] = new_user.handle  
+        end
       end
     end
   end
 
-  def peeps_populate
+  def self.peeps_populate
     peeps = DatabaseConnection.query("SELECT * FROM peeps;").map do |peep|
       new_peep = Peep.new(id: peep['id'], content: peep['content'], time: peep['time'])
-      @content_handle_pairs.map do |pair|
+      @@content_handle_pairs.map do |pair|
         if pair[1] == new_peep.id
           pair[1] = new_peep.content
           pair[2] = new_peep.time
@@ -47,10 +49,10 @@ class UserPeep
   end
 
   def self.all
-    user_peeps_populate
-    peeps_populate
-    users_populate
-    @content_handle_pairs
+    UserPeep.user_peeps_populate
+    UserPeep.peeps_populate
+    UserPeep.users_populate
+    @@content_handle_pairs
   end
 
 end
