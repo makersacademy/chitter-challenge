@@ -7,6 +7,18 @@ Database Setup
 * Follow steps in db/migrations to set up your databases locally. 
 * _test database will be used for capybara feature tests.
 
+How to use:
+-------
+* Once databases and dependencies are set up, type `rackup` in your terminal (in the correct working directory)
+* Open your browser and visit `localhost:9292`
+* You'll need to sign up with details, click Sign Up once complete
+* Either read someone elses Peeps, or post one yourself
+* Congratulations! You're on your way to becoming the next big influencer
+* Click Sign Out once you've done enough social-media-ing for the day
+
+#### Any feedback/suggestions are really appreciated. I wanted to stay true to the challenge and use a single relational database to keep track of user-peep relationships, but this proved tricky when it came to printing name + peep, meaning I ended up using a class variable array (which in this instance I don't think is a big deal, but probably not best practice.)
+
+
 Features:
 -------
 
