@@ -112,22 +112,33 @@ If you want a green tick against your pull request you'll need to configure Trav
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
-Notes on test coverage
-----------------------
+## Domain model
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+```sequence {theme="hand"}
+user->app.rb: Type url to send http Get '/peeps' route
+app.rb->peeps.rb: peeps.list
+peeps.rb->app.rb: peeps
+app.rb->peeps.erb: peeps
+peeps.erb->app.rb: page html
+app.rb->user: http response displaying peeps in descending chronological order
 ```
+## Terminal instructions for downloading and running the app
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+* git clone git@github.com:mariacuffaro/bookmark_manager.git
+* bundle install
+* rackup
+
+## Setting up the database
+
+**Enter postgresql and create the database**
+* $>psql
+* =# CREATE DATABASE "chitter";
+* =# CREATE DATABASE "chitter_test";
+
+**Connect to each database and create the tables**
+* =# \c chitter;
+* Run the sql in the files in the db folder (run in numerical order)
+* =# \c chitter_test;
+* Run the sql in the files in the db/migrations folder (run in numerical order)
+* type \q to exit postgresql
