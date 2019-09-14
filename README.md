@@ -1,5 +1,12 @@
 Chitter Challenge
 =================
+Neil's Set up
+Database:
+
+Connect to psql
+Enter Peep_Manager database /c Peep_Manager
+View peeps by entering \dt
+
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
