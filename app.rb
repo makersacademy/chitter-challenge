@@ -4,7 +4,6 @@ class Peep < Sinatra::Base
 
 get '/' do
   @peeps = Peeps.all
-
   erb :index
 end
 

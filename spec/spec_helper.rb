@@ -16,7 +16,9 @@ RSpec.configure do |config|
   end
 end
 
+require_relative './set_up_database'
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] ='test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
