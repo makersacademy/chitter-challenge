@@ -43,23 +43,30 @@ class ChitterApp < Sinatra::Base
       redirect('/signup')
     end
   end
-  
-  # signup page
+
   get '/signup' do
     erb(:signup)
   end
 
-  # peeps page
   get '/peeps' do
-    @peeps = UserPeep.all.reverse
+    if session[:user_id] != nil
+      @peeps = UserPeep.all.reverse
+    else
+      flash[:notice] = "You must log in to see Peeps!"
+      redirect('/')
+    end
     erb(:peeps)
   end
 
-  # submit form with NEW peep, updates same page
   post '/postpeep' do
-    newpeep = Peep.create(content: params[:content])
-    UserPeep.create(user_id: session['user_id'], peep_id: newpeep.id)
-    redirect('/peeps')
+    if session[:user_id] != nil
+      newpeep = Peep.create(content: params[:content])
+      UserPeep.create(user_id: session['user_id'], peep_id: newpeep.id)
+      redirect('/peeps')
+    else
+      redirect('/')
+      flash[:notice] = "You must be logged in to post a peep!"
+    end
   end
 
   post '/peeps/signout' do
@@ -67,10 +74,6 @@ class ChitterApp < Sinatra::Base
     flash[:notice] = "You have been signed out. Please log back in to continue."
     redirect('/')
   end
-
-
-
-
 
   run! if app_file == $0
 
