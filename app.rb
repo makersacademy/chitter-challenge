@@ -10,12 +10,16 @@ class Chitter < Sinatra::Base
   # include DataMapper::Resource
   # enable :sessions, :method_override
   get '/peep' do
-    p @peeps = Peep.all
+    @peeps = Peep.all
     erb :index
   end
 
   post '/peep' do
+    Peep.create(text: 'my first peep')
+    p @peeps = Peep.all
+    @peeps.each do |peep|
+      p peep.text
+    end
     erb :index
-    'my first peep'
   end
 end
