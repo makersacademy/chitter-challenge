@@ -20,8 +20,10 @@ class UserPeep
   def self.user_peeps_populate
     userpeeps = DatabaseConnection.query("SELECT * FROM userspeeps;")
     userpeeps.map do |userpeep|
-      instance = UserPeep.new(user_id: userpeep['user_id'], peep_id: userpeep['peep_id'])
-      @@content_handle_pairs << [instance.user_id, instance.peep_id, nil]
+      UserPeep.new(user_id: userpeep['user_id'], peep_id: userpeep['peep_id'])
+    end
+    userpeeps.each do |userpeep|
+      @@content_handle_pairs << [userpeep['user_id'], userpeep['peep_id'], nil]
     end
   end
 
