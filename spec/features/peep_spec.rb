@@ -11,3 +11,15 @@ feature 'post a peep' do
     expect(page).to have_content("Hello Peeps!")
   end
 end
+
+# As a maker
+# So that I can see what others are saying
+# I want to see all peeps in reverse chronological order
+
+feature 'view peeps' do
+  scenario 'Maker viewing peeps in reverse chronological order' do
+    visit('/peeps')
+
+    expect(page).to have_content("peep1, peep2, peep3, peep4")
+  end
+end
