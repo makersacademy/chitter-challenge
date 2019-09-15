@@ -18,4 +18,18 @@ describe Users do
     end
   end
 
+  describe '.log_in' do
+    it 'returns the user name of the user if they already exist' do
+        truncate_table
+        Users.add("Tony Smith", "tomysmith@gmail.com", "tony_smith", "password1234")
+        expect(Users.log_in("tony_smith", "password1234")).to eq "tony_smith"
+    end
+
+    it 'returns false of the user if they already exist' do
+        truncate_table
+        expect(Users.log_in("tony_smith", "password1234")).to eq false
+    end
+
+  end
+
 end

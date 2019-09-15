@@ -52,5 +52,20 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/log_in' do
+    if Users.log_in(params[:username], params[:password])
+      session[:user_id] = params[:username]
+      flash[:notice] = "You have logged in - #{session[:user_id]} - welcome back!"
+    else
+      flash[:notice] = "Incorrect username/password - Please try again!"
+      redirect '/log_in'
+    end
+    redirect '/'
+  end
+
   run! if app_file == $0
 end

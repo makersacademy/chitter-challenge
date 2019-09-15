@@ -29,4 +29,14 @@ class Users
     false
   end
 
+  def self.log_in(username, password)
+    result = DatabaseConnection.query("SELECT * FROM users")
+    result.map do |user| 
+      if user["username"] == username && user["password"] == password
+        return user["username"]
+      end
+    end
+    false
+  end
+
 end

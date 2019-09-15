@@ -2,24 +2,30 @@
 <%= flash[:notice] %>
 <br>
 <br>
+<form action='/view'>
+<input type = 'submit' name='View Peeps' value='View Peeps'>
+</form>
+<br>
+<br>
+
 <% if session[:user_id] != nil %>
 <form action='/create'>
 <input type = 'submit' name='Create Peeps' value='Create Peeps'>
 </form>
-<% end %>
-
-<form action='/view'>
-<input type = 'submit' name='View Peeps' value='View Peeps'>
-</form>
-
-<form action='/sign_up'>
-<input type = 'submit' name='Sign Up Here!' value='Sign Up Here!'>
-</form>
-<% if session[:user_id] != nil %>
 <form action='/log_out'>
 <input type = 'submit' name='Log Out!' value='Log Out!'>
 </form>
 <% end %>
+
+<% if session[:user_id] == nil %>
+<form action='/sign_up'>
+<input type = 'submit' name='Sign Up Here!' value='Sign Up Here!'>
+</form>
+<form action='/log_in'>
+<input type = 'submit' name='Log In!' value='Log In!'>
+</form>
+<% end %>
+
 
 
 

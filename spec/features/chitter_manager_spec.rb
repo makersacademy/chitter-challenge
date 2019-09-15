@@ -39,6 +39,7 @@ feature 'Sign up for chitter' do
     truncate_table
     visit '/' 
     add_a_user('tomysmith@gmail.com')
+    click_button 'Log Out'
     add_a_user('tomysmith@gmail.com')   
     expect(page).to have_content 'That user already exists - please choose a different name!'
   end
@@ -46,7 +47,7 @@ feature 'Sign up for chitter' do
 end
 
 feature 'Log out of chitter' do
-  scenario 'Log in for chitter successfully' do
+  scenario 'Log out of chitter successfully' do
     truncate_table
     visit '/'
     add_a_user('tomysmith@gmail.com')
@@ -54,3 +55,29 @@ feature 'Log out of chitter' do
     expect(page).to have_content 'You have logged out - tony_smith - have a nice day!'
   end
 end
+
+feature 'Log into chitter' do
+  scenario 'Log in to chitter successfully' do
+    truncate_table
+    visit '/'
+    add_a_user('tomysmith@gmail.com')
+    click_button 'Log Out'
+    click_button 'Log In'
+    fill_in 'username', with: 'tony_smith'
+    fill_in 'password', with: 'password1234'
+    click_button 'Submit'
+    expect(page).to have_content 'You have logged in - tony_smith - welcome back!'
+  end
+
+  scenario 'Fail to log in to Chitter' do
+    truncate_table
+    visit '/'
+    click_button 'Log In'
+    fill_in 'username', with: 'tony_smith'
+    fill_in 'password', with: 'password1234'
+    click_button 'Submit'
+    expect(page).to have_content 'Incorrect username/password - Please try again!'
+  end
+
+end
+
