@@ -14,3 +14,11 @@ feature 'Post a message' do
     expect(page).to have_content 'my second peep'
   end
 end
+feature 'See messages' do
+  scenario 'displayed in reverse chronological order' do
+    visit '/peep'
+    p index_of_first_peep = page.body.index('my first peep')
+    p index_of_second_peep = page.body.index('my second peep')
+    expect(index_of_second_peep).to be < index_of_first_peep
+  end
+end

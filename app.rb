@@ -8,18 +8,16 @@ Dir["#{current_dir}/models/*.rb"].each { |file| require file }
 
 class Chitter < Sinatra::Base
   # include DataMapper::Resource
-  # enable :sessions, :method_override
+  enable :sessions
+  # , :method_override
   get '/peep' do
-    @peeps = Peep.all
+    @peeps = Peep.all.order(created_at: :desc)
     erb :index
   end
 
   post '/peep' do
     Peep.create(text: "#{params['new_peep']}")
-    @peeps = Peep.all
-    @peeps.each do |peep|
-      peep.text
-    end
+    @peeps = Peep.all.order(created_at: :desc)
     erb :index
   end
 end

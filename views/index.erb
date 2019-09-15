@@ -3,6 +3,8 @@
   <input type='submit' name='Post_Peep' value='Post Peep'/>
 </form>
 <ul><%@peeps.each do |peep|%>
-      <%=peep.text%><br>
+  <div class="peep" id="peep-<%=peep.id%>" >
+      <%=peep.text%> <%=peep.created_at%><br>
     <%end%>
+  </div>
 </ul>
