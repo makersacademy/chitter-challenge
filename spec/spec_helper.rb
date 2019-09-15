@@ -1,5 +1,11 @@
-
+require_relative 'setup_test_database'
 require_relative './database_helper'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    truncate
+  end
+end
 
 ENV['ENVIRONMENT'] = 'test'
 
