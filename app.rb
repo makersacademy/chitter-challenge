@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
 
   post '/sign_up' do
     if Users.validation(params[:email])
-      if Users.user_exists(params[:username])
+      if !Users.user_exists(params[:username])
         Users.add(params[:name], params[:email], params[:username], params[:password])
         session[:user_id] = params[:username]
         flash[:notice] = "You have signed up for chitter - #{session[:user_id]} - you can now write your own peeps!"
@@ -43,6 +43,12 @@ class Chitter < Sinatra::Base
 
   post '/new' do
     Peeps.post(params[:text], Time.new, session[:user_id])
+    redirect '/'
+  end
+
+  get '/log_out' do
+    flash[:notice] = "You have logged out - #{session[:user_id]} - have a nice day!"
+    session[:user_id] = nil
     redirect '/'
   end
 

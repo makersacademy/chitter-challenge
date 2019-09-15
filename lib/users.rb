@@ -20,16 +20,13 @@ class Users
   end
 
   def self.user_exists(username)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
-    new_array = []
-    result.map do |user|
-      new_array << user
+    result = DatabaseConnection.query("SELECT * FROM users")
+    result.map do |user| 
+      if user["username"] == username
+        return true
+      end
     end
-    if new_array.empty? 
-      return true
-    else
-      return false
-    end
+    false
   end
 
 end

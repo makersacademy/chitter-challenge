@@ -1,6 +1,7 @@
 <h1>Welcome to Chitter!</h1>
 <%= flash[:notice] %>
 <br>
+<br>
 <% if session[:user_id] != nil %>
 <form action='/create'>
 <input type = 'submit' name='Create Peeps' value='Create Peeps'>
@@ -14,5 +15,13 @@
 <form action='/sign_up'>
 <input type = 'submit' name='Sign Up Here!' value='Sign Up Here!'>
 </form>
+<% if session[:user_id] != nil %>
+<form action='/log_out'>
+<input type = 'submit' name='Log Out!' value='Log Out!'>
+</form>
+<% end %>
+
+
+
 
 

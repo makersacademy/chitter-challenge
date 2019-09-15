@@ -14,7 +14,7 @@ feature 'Create a new peep' do
       click_button 'submit'
       click_button 'View Peeps'
       expect(page).to have_content 'This is my first peep'
-      expect(page).to have_content time_new
+      expect(page).to have_content time_new.strftime("%d/%m/%Y %k:%M")
       expect(page).to have_content 'tony_smith'
     end
   end
@@ -43,5 +43,14 @@ feature 'Sign up for chitter' do
     expect(page).to have_content 'That user already exists - please choose a different name!'
   end
 
+end
 
+feature 'Log out of chitter' do
+  scenario 'Log in for chitter successfully' do
+    truncate_table
+    visit '/'
+    add_a_user('tomysmith@gmail.com')
+    click_button 'Log Out'
+    expect(page).to have_content 'You have logged out - tony_smith - have a nice day!'
+  end
 end

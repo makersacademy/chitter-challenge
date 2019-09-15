@@ -11,10 +11,10 @@ describe Users do
   end
 
   describe '.user_exists' do
-    it 'returns false if a user already exists' do
+    it 'returns true if a user already exists' do
         truncate_table
         Users.add("Tony Smith", "tomysmith@gmail.com", "tony_smith", "password1234")
-        expect(Users.user_exists("tony_smith")).to eq false
+        expect(Users.user_exists("tony_smith")).to eq true
     end
   end
 

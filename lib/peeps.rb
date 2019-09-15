@@ -19,6 +19,7 @@ class Peeps
   end
 
   def self.post(text, time, username)
+    time = time.strftime("%d/%m/%Y %k:%M")
     result = DatabaseConnection.query("INSERT INTO peeps (text, time_posted, username) VALUES ('#{text}', '#{time}', '#{username}') RETURNING id, text, time_posted, username")
     Peeps.new(id: result[0]['id'], text: result[0]['text'], time_posted: result[0]['time_posted'], username: result[0]['username'])
   end
