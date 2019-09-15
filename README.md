@@ -6,8 +6,7 @@ How to load the program
 * Enter 'rackup' into your terminal - and use the program in your localhost
 * Enter 'rspec' to run the tests
 * Have Fun!
-
-Technologies used include Ruby, Sinatra and PostgresSQL
+* Technologies used include Ruby, Sinatra and PostgresSQL
 
 
 Chitter Challenge
