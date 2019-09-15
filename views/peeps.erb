@@ -11,7 +11,7 @@
     </form>
 
     <ul><% @peeps.each do |peep| %>
-      <li><%= peep.peep %></li>
+      <li><%= peep.peep %> (<%= peep.time %>)</li>
       <% end %>
     </ul>
   </body>
