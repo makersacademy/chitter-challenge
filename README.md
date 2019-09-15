@@ -1,3 +1,14 @@
+How to load the program
+=================
+
+* Move into the directory where the file is located
+* Use bundle to load up the gemfiles
+* Enter 'rackup' into your terminal - and use the program in your localhost
+* Enter 'rspec' to run the tests
+* Have Fun!
+* Technologies used include Ruby, Sinatra and PostgresSQL
+
+
 Chitter Challenge
 =================
 

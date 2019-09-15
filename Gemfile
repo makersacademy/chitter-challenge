@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'rubocop', '0.71.0'
+gem 'capybara'
+gem 'sinatra'
+gem 'pg'
+gem 'timecop'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
