@@ -1,0 +1,5 @@
+test:
+  adapter: postgresql
+  host: localhost
+  username: student
+  database: chitter_test
