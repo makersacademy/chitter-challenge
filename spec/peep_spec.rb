@@ -8,7 +8,6 @@ describe Peep do
       drop_test_database
       populate_test_database
       expect(Peep.all.first.content).to eq 'This is chitter'
-
     end
   end
 end

@@ -1,3 +1,101 @@
+# Chitter Challenge - week 4
+
+This is the fourth weekend challenge at Makers Academy where I've been tasked to create "Chitter" which has some  of Twitter's basic functionality. A user can see some 'peeps',  that registers your name and lets you playe Rock, Paper Scissors.
+
+Learning objectives
+-------
+- Use Capybara for feature tests
+- MVC pattern
+- HTML and Ruby integration
+- HTTP GET/POST methods
+- PostgreSQL storing and querying databases
+
+
+Instructions
+-------
+* Fork this repo
+* Clone to your desired directory
+```
+$ git clone git@github.com:gabokappa/chitter-challenge.git
+$ cd chitter-challenge
+```
+* Run the command 'bundle' in the project directory to ensure you have all the gems installed.
+
+```
+$ bundle
+```
+Before bundling ensure your Gemfile has the following content:
+
+```
+source 'https://rubygems.org'
+
+gem 'capybara'
+gem 'pg'
+gem 'rake'
+gem 'rspec'
+gem 'rubocop', '0.71.0'
+gem 'sinatra'
+gem 'sinatra-flash'
+
+group :test do
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+end
+```
+
+* Rackup to run the program locally. Open your browser and go to localhost:9292
+
+```
+$ rackup
+```
+Database setup
+-------
+
+1) Create a Table in your chosen database for the Chitter users.
+
+```
+CREATE TABLE chitter_users (id SERIAL PRIMARY KEY, email VARCHAR(60) UNIQUE, username VARCHAR(60) UNIQUE, name VARCHAR(60), password VARCHAR(60));
+```
+
+2) Create a Table to hold the 'peeps'.
+
+```
+CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  content VARCHAR(280),
+  timestamp timestamp DEFAULT to_timestamp(to_char(current_timestamp,
+    'YYYY-MM-DD HH24:MI'), 'YYYY-MM-DD HH24:MI'));
+```
+
+
+
+## Note to reviewer
+At the time of writing core user stories had been met with no bonus functionality (Login verification, and only logged in users allowed to post)
+
+## Approach
+I took the main user stories and dealt with each one in turn, writing both feature tests and unit tests.
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+
+## ORIGINAL INSTRUCTIONS BELOW
+
 Chitter Challenge
 =================
 
