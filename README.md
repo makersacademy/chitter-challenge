@@ -7,7 +7,7 @@ How to load the program
 * Enter 'rspec' to run the tests
 * Have Fun!
 
-- Technologies used include Ruby, Sinatra and PostgresSQL
+Technologies used include Ruby, Sinatra and PostgresSQL
 
 
 Chitter Challenge
