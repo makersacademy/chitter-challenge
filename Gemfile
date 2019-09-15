@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'data_mapper'
+gem 'dm-postgres-adapter'
 gem 'rake'
 gem 'rubocop', '0.71.0'
 gem 'sinatra'
