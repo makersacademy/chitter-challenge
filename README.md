@@ -1,3 +1,11 @@
+How to load the program
+=================
+
+* Use bundle to load up the gemfiles
+* Enter 'rackup' into your terminal
+* Have Fun!
+
+
 Chitter Challenge
 =================
 
