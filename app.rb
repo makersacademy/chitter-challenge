@@ -9,11 +9,11 @@ class Chitter < Sinatra::Base
 
   get '/peeps/' do
     @peeps = Peep.all
-    erb :'index'
+    erb :index
   end
 
   get '/peeps/new_peep/' do
-    erb :'new_peep'
+    erb :new_peep
   end
 
   post '/peeps/new_peep/' do
