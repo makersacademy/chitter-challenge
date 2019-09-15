@@ -1,6 +1,18 @@
-<h1>Chitter</h1>
-<form action="/peeps/new">
-  <input type="submit" value="new peep" />
-</form>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <form action="/peeps/new">
+      <input type="submit" value="new peep" />
+    </form>
 
-<%= @peep %>
+    <ul><% @peeps.each do |peep| %>
+      <li><%= peep.peep %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>

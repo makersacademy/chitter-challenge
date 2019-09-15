@@ -6,7 +6,7 @@ feature 'post a peep' do
     visit '/'
     click_button 'new peep'
 
-    fill_in 'peep', with: 'Hello peeps, this is my first peep!'
+    fill_in 'peep', with: "Hello peeps, this is my first peep!"
     click_button 'send peep'
 
     expect(current_path).to eq '/peeps'
