@@ -3,6 +3,7 @@ require './database_connection_setup'
 require_relative './lib/peeps'
 require 'sinatra/flash'
 require './lib/users'
+require './lib/validation'
 
 class Chitter < Sinatra::Base
 
@@ -27,16 +28,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    if Users.validation(params[:email])
-      if !Users.user_exists(params[:username])
-        Users.add(params[:name], params[:email], params[:username], params[:password])
+    if Validation.check_email(params[:email])
+      if !Validation.check_user_exists(params[:username])
+        @user = Users.add(params[:name], params[:email], params[:username], params[:password])
+        p @user.username
         session[:user_id] = params[:username]
-        flash[:notice] = "You have signed up for chitter - #{session[:user_id]} - you can now write your own peeps!"
+        flash[:notice] = "You have signed up for chitter - #{@user.username} - you can now write your own peeps!"
       else
         flash[:notice] = 'That user already exists - please choose a different name!'
+        redirect '/sign_up'
       end
     else
       flash[:notice] = 'Please enter a valid email!'
+      redirect '/sign_up'
     end
     redirect '/'
   end
@@ -57,7 +61,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_in' do
-    if Users.log_in(params[:username], params[:password])
+    if Validation.check_log_in(params[:username], params[:password])
       session[:user_id] = params[:username]
       flash[:notice] = "You have logged in - #{session[:user_id]} - welcome back!"
     else
