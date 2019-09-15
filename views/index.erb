@@ -1,10 +1,16 @@
-<form action='/peep' method='post'>
-  <input type='text' placeholder='new_peep' name='new_peep'/>
-  <input type='submit' name='Post_Peep' value='Post Peep'/>
-</form>
-<ul><%@peeps.each do |peep|%>
-  <div class="peep" id="peep-<%=peep.id%>" >
-      <%=peep.text%> <%=peep.created_at%><br>
-    <%end%>
-  </div>
-</ul>
+<table style="height: 100%; left: 0; position: absolute; text-align: center; width: 100%;">
+  <tr>
+    <td>
+      <form action='/peep' method='post'>
+        <input type='text' placeholder='new_peep' name='new_peep'/>
+        <input type='submit' name='Post_Peep' value='Post Peep'/>
+      </form>
+      <ul><%@peeps.each do |peep|%>
+        <div class="peep" id="peep-<%=peep.id%>" >
+          <%=peep.text%> <%=peep.created_at.strftime('%F %T')%><br>
+          <%end%>
+        </div>
+      </ul>
+    </td>
+  </tr>
+</table>

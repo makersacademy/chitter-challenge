@@ -37,9 +37,6 @@ GEM
     mustermann (1.0.3)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
-    orderly (0.1.0)
-      capybara (>= 1.1)
-      rspec (>= 2.14)
     parallel (1.17.0)
     parser (2.6.4.1)
       ast (~> 2.4.0)
@@ -95,6 +92,7 @@ GEM
       unicode-display_width (~> 1.1, >= 1.1.1)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    timecop (0.9.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
@@ -108,7 +106,6 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   capybara
-  orderly
   pg
   rake
   rspec
@@ -117,6 +114,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-activerecord
+  timecop
 
 BUNDLED WITH
    1.17.3
