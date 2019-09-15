@@ -1,4 +1,8 @@
 <h1>Welcome to Chitter!</h1>
+<%= flash[:notice] %>
+<br>
+
+Welcome to chitter, <%= session[:user_id] %> - have fun!
 
 <form action='/create'>
 <input type = 'submit' name='Create Peeps' value='Create Peeps'>
@@ -7,3 +11,9 @@
 <form action='/view'>
 <input type = 'submit' name='View Peeps' value='View Peeps'>
 </form>
+
+<form action='/sign_up'>
+<input type = 'submit' name='Sign Up Here!' value='Sign Up Here!'>
+</form>
+
+

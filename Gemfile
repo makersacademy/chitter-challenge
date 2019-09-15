@@ -6,6 +6,7 @@ gem 'capybara'
 gem 'sinatra'
 gem 'pg'
 gem 'timecop'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

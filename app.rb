@@ -1,15 +1,20 @@
 require 'sinatra/base'
 require './database_connection_setup'
 require_relative './lib/peeps'
+require 'sinatra/flash'
+require './lib/users'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+  register Sinatra::Flash
+
   get '/' do
     erb :index
   end
 
   get '/view' do
     @peeps = Peeps.all
-    p @peeps
     erb :view
   end
 
@@ -17,8 +22,27 @@ class Chitter < Sinatra::Base
     erb :create
   end
 
+  get '/sign_up' do
+    erb :sign_up
+  end
+
+  post '/sign_up' do
+    if Users.validation(params[:email])
+      if Users.user_exists(params[:username])
+        Users.add(params[:name], params[:email], params[:username], params[:password])
+        flash[:notice] = 'You have signed up for chitter!'
+        session[:user_id] = params[:username]
+      else
+        flash[:notice] = 'That user already exists - please choose a different name!'
+      end
+    else
+      flash[:notice] = 'Please enter a valid email!'
+    end
+    redirect '/'
+  end
+
   post '/new' do
-    Peeps.post(params[:text], Time.new)
+    Peeps.post(params[:text], Time.new, session[:user_id])
     redirect '/'
   end
 
