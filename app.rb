@@ -15,10 +15,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(text: 'my first peep')
-    p @peeps = Peep.all
+    Peep.create(text: "#{params['new_peep']}")
+    @peeps = Peep.all
     @peeps.each do |peep|
-      p peep.text
+      peep.text
     end
     erb :index
   end
