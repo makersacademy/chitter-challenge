@@ -88,6 +88,8 @@ GEM
     sinatra-activerecord (2.0.14)
       activerecord (>= 3.2)
       sinatra (>= 1.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thread_safe (0.3.6)
@@ -114,6 +116,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-activerecord
+  sinatra-flash
   timecop
 
 BUNDLED WITH

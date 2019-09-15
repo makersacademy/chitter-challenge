@@ -1,6 +1,7 @@
 feature 'Post a message' do
   scenario 'peep on chitter' do
     Peep.delete_all
+    User.delete_all
     visit '/peep'
     fill_in 'new_peep', with: 'my first peep'
     click_button 'Post_Peep'
@@ -28,5 +29,17 @@ feature 'See messages' do
     fill_in 'new_peep', with: 'my third peep'
     click_button 'Post_Peep'
     expect(page).to have_content(time.strftime('%F %T'))
+  end
+end
+feature 'sign up' do
+  scenario 'enter user details and create user account' do
+    visit '/peep'
+    click_button 'Sign_Up'
+    fill_in 'username', with: 'maz'
+    fill_in 'email', with: 'maria@email_provider.com'
+    fill_in 'name', with: 'maria'
+    fill_in 'password', with: 'p4ssw0rd'
+    click_button 'sign_up'
+    expect(page).to have_content 'Successfully Signed Up!'
   end
 end
