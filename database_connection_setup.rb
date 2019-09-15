@@ -9,16 +9,16 @@ def setup_test_connection
     database: 'chitter_test'
   )
 
-  drop_test_tables
-  create_test_tables
+  drop_tables
+  create_tables
 end
 
-def drop_test_tables
+def drop_tables
   CreatePeeps.migrate(:down) if ActiveRecord::Base.connection.table_exists?(:peeps)
   CreateUser.migrate(:down) if ActiveRecord::Base.connection.table_exists?(:users)
 end
 
-def create_test_tables
+def create_tables
   CreateUser.migrate(:up) unless ActiveRecord::Base.connection.table_exists?(:users)
   CreatePeeps.migrate(:up) unless ActiveRecord::Base.connection.table_exists?(:peeps)
 end

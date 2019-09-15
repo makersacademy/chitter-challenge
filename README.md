@@ -28,7 +28,7 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
+HARDER - not yet implemented
 
 As a Maker
 So that only I can post messages on Chitter as me
@@ -38,7 +38,7 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
+ADVANCED - not yet implemented
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
@@ -54,7 +54,7 @@ This solution uses [ActiveRecord ORM](https://guides.rubyonrails.org/active_reco
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
 - [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
-Notes on functionality:
+Notes on functionality (once all user stories are implemented):
 ------
 
 * You don't have to be logged in to see the peeps.
@@ -63,7 +63,7 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
+Bonus - not implemented:
 -----
 
 If you have time you can implement the following:
@@ -73,29 +73,6 @@ If you have time you can implement the following:
 And/Or:
 
 * Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
 ## Domain model
 
@@ -134,9 +111,10 @@ app.rb->user: http response displaying peeps with user name
 * =# CREATE DATABASE "chitter";
 * =# CREATE DATABASE "chitter_test";
 
-**Connect to each database and create the tables**
-* =# \c chitter;
-* Run the sql in the files in the db folder (run in numerical order)
-* =# \c chitter_test;
-* Run the sql in the files in the db/migrations folder (run in numerical order)
-* type \q to exit postgresql
+**In irb run the following commands to create the tables**
+* $>irb
+require './database_connection_setup.rb'
+setup_test_connection
+setup_prod_connection
+drop_tables
+create_tables
