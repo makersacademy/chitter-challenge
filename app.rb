@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new' do
-    Peeps.post(params[:text])
+    Peeps.post(params[:text], Time.new)
     redirect '/'
   end
 
