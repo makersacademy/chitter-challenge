@@ -16,4 +16,12 @@ describe Peep do
       expect(peeps).to include('Third time lucky!')
     end
   end
+
+  describe '.new_peep' do
+    it 'creates a new peep and adds it to the database' do
+      Peep.new_peep('I just posted a peep!')
+      peeps = Peep.all
+      expect(peeps).to include('I just posted a peep!')
+    end
+  end
 end

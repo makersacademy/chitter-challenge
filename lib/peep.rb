@@ -9,6 +9,12 @@ class Peep
     end
   end
 
+  def self.new_peep(peep)
+    p peep
+    conn = self.connect
+    conn.exec("INSERT INTO peeps (peep) VALUES('#{peep}');")
+  end
+
 private_class_method
 
   def self.connect
