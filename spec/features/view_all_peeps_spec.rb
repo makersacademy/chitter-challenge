@@ -5,6 +5,13 @@
 
 feature 'Show all peeps' do
   scenario 'Show a list of all peeps in reverse chronological order' do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    # Add the test data:
+    connection.exec("INSERT INTO peeps (peep) VALUES('Hello world! First peep!')")
+    connection.exec("INSERT INTO peeps (peep) VALUES('My second peep!')")
+    connection.exec("INSERT INTO peeps (peep) VALUES('Third time lucky!')")
+
     visit '/peeps/'
     expect(page).to have_content 'Third time lucky!'
     expect(page).to have_content 'My second peep!'
