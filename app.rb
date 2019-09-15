@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter_challenge < Sinatra::Base
 
@@ -7,13 +8,14 @@ class Chitter_challenge < Sinatra::Base
   end
 
   get '/peeps' do
-    erb :index
+    @peeps = Peep.all.sort_by { |peep| peep.date }.reverse
+    erb :peeps
   end
 
   post '/peeps' do
-    params['peep']
+    Peep.create(peep: params[:peep])
+    redirect '/peeps'
   end
-
 
   run! if app_file == $0
 end

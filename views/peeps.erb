@@ -5,3 +5,14 @@
     Submit
   </button>
 </form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+      <li>
+        Peep:
+        <%= peep.peep %>
+        Date:
+        <%= peep.date %>
+      </li>
+    <% end %>
+</ul>
