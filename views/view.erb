@@ -1,7 +1,8 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.text %></li>
-    <li><%= peep.time_posted %></li>
-    <li><%= peep.username %></li>
+    Peep: <%= peep.text %>
+    When: <%= peep.time_posted %>
+    Username: <%= peep.username %>
+    <br>
   <% end %>
 </ul>

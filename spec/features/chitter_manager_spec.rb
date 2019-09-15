@@ -25,7 +25,7 @@ feature 'Sign up for chitter' do
     truncate_table
     visit '/'
     add_a_user('tomysmith@gmail.com')
-    expect(page).to have_content 'You have signed up for chitter!'
+    expect(page).to have_content 'You have signed up for chitter - tony_smith - you can now write your own peeps!'
   end
 
   scenario 'Sign up for chitter unsuccessfully due to incorrect email' do

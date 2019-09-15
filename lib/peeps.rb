@@ -13,7 +13,7 @@ class Peeps
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map do |peep|
+    result.reverse_each.map do |peep|
     Peeps.new(id: peep['id'], text: peep['text'], time_posted: peep['time_posted'], username: peep['username'])
     end
   end

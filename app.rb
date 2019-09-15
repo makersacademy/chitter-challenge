@@ -30,8 +30,8 @@ class Chitter < Sinatra::Base
     if Users.validation(params[:email])
       if Users.user_exists(params[:username])
         Users.add(params[:name], params[:email], params[:username], params[:password])
-        flash[:notice] = 'You have signed up for chitter!'
         session[:user_id] = params[:username]
+        flash[:notice] = "You have signed up for chitter - #{session[:user_id]} - you can now write your own peeps!"
       else
         flash[:notice] = 'That user already exists - please choose a different name!'
       end

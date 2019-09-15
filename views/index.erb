@@ -1,12 +1,11 @@
 <h1>Welcome to Chitter!</h1>
 <%= flash[:notice] %>
 <br>
-
-Welcome to chitter, <%= session[:user_id] %> - have fun!
-
+<% if session[:user_id] != nil %>
 <form action='/create'>
 <input type = 'submit' name='Create Peeps' value='Create Peeps'>
 </form>
+<% end %>
 
 <form action='/view'>
 <input type = 'submit' name='View Peeps' value='View Peeps'>

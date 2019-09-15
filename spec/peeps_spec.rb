@@ -18,8 +18,8 @@ describe Peeps do
         expect(peeps.length).to eq 3
         expect(peeps[0]).to be_a Peeps
         expect(peeps[0].username).to eq 'tony-smith'
-        expect(peeps.first.id).to eq peep.id
-        expect(peeps.first.text).to eq 'This is my first peep'
+        expect(peeps.last.id).to eq peep.id
+        expect(peeps.first.text).to eq 'This is my third peep'
       end
     end
   end
