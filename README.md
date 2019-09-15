@@ -100,13 +100,26 @@ If you want a green tick against your pull request you'll need to configure Trav
 ## Domain model
 
 
+**Access Main Page and show Peeps**
 ```sequence {theme="hand"}
 user->app.rb: Type url to send http Get '/peeps' route
 app.rb->peeps.rb: peeps.list
 peeps.rb->app.rb: peeps
-app.rb->peeps.erb: peeps
-peeps.erb->app.rb: page html
+app.rb->index.erb: peeps
+index.erb->app.rb: page html
 app.rb->user: http response displaying peeps in descending chronological order
+```
+
+**Sign Up to Chitter**
+```sequence {theme="hand"}
+user->app.rb: click to Get '/peeps/sign_in' route
+sign_in.erb->app.rb: sign in page html
+app.rb->user: http response displaying sign in fields
+user->app.rb: click to Post '/peeps/sign_in' route
+app.rb->users.rb: user.update
+app.rb->app.rb: redirect to http Get '/peeps' route
+app.rb->user: http response displaying peeps with user name
+
 ```
 ## Terminal instructions for downloading and running the app
 
