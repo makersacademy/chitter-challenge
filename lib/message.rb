@@ -21,14 +21,14 @@ class Message
 
   def self.all
     conn = connect
-    result = conn.exec('SELECT * FROM messages')
+    result = conn.exec('SELECT * FROM messages ORDER BY created_on DESC')
     result.map do |msg|
       Message.new(
         msg_id: msg['msg_id'],
         username: msg['username'],
         msg: msg['msg'],
         created_on: DateTime.strptime(
-          msg['created_on'], '%Y-%m-%d %H:%M:%s'
+          msg['created_on'], '%Y-%m-%d %H:%M:%S'
         )
       )
     end
@@ -36,7 +36,7 @@ class Message
 
   private_class_method def self.connect
     return PG.connect(dbname: 'chitter_test') if ENV['ENVIRONMENT'] == 'test'
-    
+
     PG.connect(dbname: 'chitter')
   end
 end

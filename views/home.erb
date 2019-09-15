@@ -1,0 +1,16 @@
+<form action="new_message" method="post">
+  <input type="text" placeholder="username" name="username">
+  <div>
+    <textarea maxlength="280" class="form-control" name="message" placeholder="What's happening?"></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Post">
+</form>
+
+<% @messages.each do |message| %>
+  <div>
+    <b><%= message.username %>:</b>
+    <br><%= message.msg %>
+    <br><%= message.created_on %>
+    <br>
+  </div>
+<% end %>
