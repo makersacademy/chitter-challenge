@@ -4,7 +4,10 @@ gem 'rake'
 gem 'rubocop', '0.71.0'
 
 group :test do
+  gem 'sinatra'
+  gem 'capybara'
   gem 'rspec'
+  gem 'pg'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
