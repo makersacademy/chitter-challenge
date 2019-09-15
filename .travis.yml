@@ -11,5 +11,4 @@ services:
   - postgresql
 
 before_script:
-  - cp database.yml.travis 
   - psql -c 'create database chitter_test;' -U postgres
