@@ -1,4 +1,4 @@
-require 'pg'
+# require 'pg'
 feature 'Add a peep' do
   scenario 'user can add a peep' do
     drop_test_database
