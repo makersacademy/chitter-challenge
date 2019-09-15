@@ -11,4 +11,8 @@ class Chitter < Sinatra::Application
     erb :index
   end
 
+  get '/register' do
+    erb :register
+  end
+
 end
