@@ -26,7 +26,7 @@ class Posts
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("INSERT INTO posts (name, message) VALUES ('#{name}','#{message}') RETURNING id,name,message;")
+    connection.exec("INSERT INTO posts (name, message) VALUES ('#{name}','#{message}');")
   end
 
 end
