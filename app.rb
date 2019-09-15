@@ -7,7 +7,6 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    'Testing infrastructure working!'
     erb :index
   end
 
@@ -17,7 +16,12 @@ class Chitter < Sinatra::Base
 
   post '/add_peep' do
     Peep.add(content: params[:peep_text])
-    redirect '/'
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @all_peeps = Peep.all
+    erb :peeps
   end
 
   run if app_file == $PROGRAM_NAME

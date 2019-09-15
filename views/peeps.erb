@@ -1,0 +1,14 @@
+<h1> All peeps </h1>
+
+<form action="/compose" method="get">
+  <button name='compose' type="submit" value="compose"> Compose your peep</button>
+</form>
+
+<ul>
+  <% @all_peeps.reverse.each do |peep| %>
+  <li class="peep" id="peep"-<%= peep.id %>">
+    <%= peep.content%>
+    <br><%=peep.timestamp%>
+  </li>
+</ul>
+    <% end %>

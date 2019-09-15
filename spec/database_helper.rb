@@ -6,6 +6,7 @@ end
 def populate_test_database
   con = PG.connect dbname: 'chitter_test'
   con.exec "INSERT INTO peeps (content) VALUES('This is chitter')"
+  con.exec "INSERT INTO peeps (content) VALUES('This peep should appear first')"
 end
 
 def drop_test_database
