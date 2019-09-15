@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/honk.rb'
+require './lib/database_connection_setup.rb'
 
 class Honker < Sinatra::Base
 
@@ -8,7 +9,7 @@ class Honker < Sinatra::Base
   end
 
   get '/honks' do
-    @honks = Honk.all
+    @honks = Honk.all.reverse
     erb :'honks/index'
   end
 

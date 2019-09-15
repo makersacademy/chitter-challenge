@@ -6,6 +6,7 @@ feature 'adding a honk' do
     click_button 'Honk!'
     
     expect(page).to have_content('Honkety honk')
+    # expect(page).to have_content('2019-09-15 17:36:58')
   end
 end
     

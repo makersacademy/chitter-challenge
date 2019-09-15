@@ -16,7 +16,7 @@ class Honk
     end 
   end
 
-  def self.add(text: )
+  def self.add(text:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'honker_test')
     else
