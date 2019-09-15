@@ -132,6 +132,23 @@ SimpleCov.start
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
 
+## Chitter challenge notes
+
+1. Forked repo and cloned to local machine.
+2. Drafted basic model.
+3. Setup web project environment including app.rb, config.ru and additional gems.
+4. Wrote first feature test - post a peep.
+5. Fixed feature test with peeps.erb, postapeep.erb and updates to app.rb
+6. Wrote a second feature test for peeps to be viewed.
+7. Installed Postgres and setup a chitter database with a  table to hold all peeps.
+8. The second feature test is not yet passing and will also need to include the ability to view the feature test in reverse chronological order.  To complete this and the remaining components of the straight up challenge I would do the following:
+
+* Update the user peeps path so they are stored in the database.
+* Access the database via the app.rb route and peeps.erb page to display the peeps as an ordered list.
+* To complete the 3rd user story I would add a third column to the exiting table which will store a time stamp of the peep.
+* To complete the 4th user story I will add a log in feature on the home page.  It will setup a new table that will store user names and passwords.  The two tables in the database will will be linked by a unique ID.  perhaps user email address.   
+
+
 ## Create Table Guide
 
 1. Connect to psql
