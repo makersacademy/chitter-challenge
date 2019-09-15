@@ -20,6 +20,6 @@ require 'pg'
     else
     connection = PG.connect(dbname: 'Peep_Manager')
   end
-    result = connection.exec("INSERT INTO peeps (peep,date) VALUES ('#{message}') RETURNING id, peep, date;")
+    result = connection.exec("INSERT INTO peeps (peep) VALUES ('#{message}') RETURNING id, peep")
 end
 end
