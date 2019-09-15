@@ -9,7 +9,7 @@ feature 'Show all peeps' do
     expect(page).to have_content 'Third time lucky!'
     expect(page).to have_content 'My second peep!'
     expect(page).to have_content 'Hello world! First peep!'
-    # I installed the 'orderly' gem so I could test using appear_before:
+    # I installed the 'orderly' gem so I could test the order using appear_before:
     expect('My second peep!').to appear_before('Hello world! First peep!')
     expect('Third time lucky!').to appear_before('My second peep!')
   end

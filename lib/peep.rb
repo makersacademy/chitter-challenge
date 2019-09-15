@@ -1,5 +1,11 @@
+require 'pg'
+
 class Peep
   def self.all
-    @peeps = ['Third time lucky!', 'My second peep!', 'Hello world! First peep!']
+    conn = PG::connect(dbname: 'chitter')
+    result = conn.exec('SELECT * FROM peeps ORDER BY id DESC')
+    result.map do |row|
+      row['peep']
+    end
   end
 end
