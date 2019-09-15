@@ -1,5 +1,5 @@
-feature 'Homepage' do
-  scenario 'display a welcome to the user' do
+feature 'test infrastructure' do
+  scenario 'user visits home page' do
     visit('/')
     expect(page).to have_content 'Test infrastructure working.'
   end

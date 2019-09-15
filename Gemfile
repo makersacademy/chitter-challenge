@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
+gem 'pg'
 gem 'rake'
 gem 'rubocop', '0.71.0'
+gem 'sinatra'
 
 group :test do
   gem 'capybara'
