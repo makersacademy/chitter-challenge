@@ -32,7 +32,6 @@ class Chitter < Sinatra::Base
   post '/add_peeper' do
     ChitterUser.add(email: params[:email], username: params[:username],
     name: params[:name], password: params[:password])
-    # Bookmark.add(title: params[:title], url: params[:url])
     redirect '/peeps'
   end
 

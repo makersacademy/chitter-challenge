@@ -7,7 +7,7 @@ describe Peep do
     it 'returns all peeps' do
       drop_test_database
       populate_test_database
-      expect((Peep.all.first).content).to eq 'This is chitter'
+      expect(Peep.all.first.content).to eq 'This is chitter'
 
     end
   end
