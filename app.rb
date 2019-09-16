@@ -22,7 +22,7 @@ class Chitter < Sinatra::Application
     name = params[:name]
     email = params[:user_email]
     password = params[:password]
-    user = User.create(:name => name, :email => email, :password => password)
+    User.create(:name => name, :email => email, :password => password)
     redirect '/'
   end
 
