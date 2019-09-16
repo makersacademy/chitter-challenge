@@ -5,3 +5,4 @@ class Chitter < Sinatra::Base
     'Hello world!'
   end
 end
+
