@@ -1,0 +1,1 @@
+CREATE TABLE peeps_timeline(id SERIAL PRIMARY KEY, peep VARCHAR(60));
