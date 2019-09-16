@@ -6,6 +6,8 @@
 
 <ul>
   <% @timeline.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.created_at %>
+      <%= peep.peep %>
+    </li>
   <% end %>
 </ul>
