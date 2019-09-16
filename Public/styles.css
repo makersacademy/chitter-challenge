@@ -1,0 +1,31 @@
+body {
+  background-color: #f5eee4;
+}
+
+.honk-container {
+  position: relative;
+  left: 30%;
+  right: 30%;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: orange;
+  background-color: #fefefe;
+  padding: 20px;
+  margin: 15px;
+  width: 33%;   
+}
+
+.honk-content {
+  font-family: 'Lucida Sans';
+}
+
+.honk-datetime {
+  font-family: 'Lucida Sans';
+}
+
+#goose-icon {
+  width: 10%; 
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
