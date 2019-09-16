@@ -13,12 +13,7 @@ get '/new' do
 end
 
 post '/peeps' do
-  Message.create(message:params[:message])
-  # date = DateTime.now
-  # date.strftime("%d/%m/%Y %H:%M")
-  # connection = PG.connect(dbname: 'peep_manager_test')
-  # connection.exec("INSERT INTO peeps (peep) VALUES('#{message}')")
-  # Peeps.create(peep: params[:peep], date: DateTime.now)
+  Message.create(message: params[:message], title: params[:title], date: Time.now.strftime("%d/%m/%Y %H:%M"))
   redirect('/')
 end
 

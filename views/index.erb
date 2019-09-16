@@ -1,11 +1,53 @@
-<h1>Welcome to Chitter!</h1>
-<ul>
-<%= @peeps %>
-</ul>
 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
+tr:nth-child(even) {
+  background-color: #24b9c1;
+}
+#button1 {
+  background-color: purple;
+  color : white;
+  border-radius:10px;
+  height: 50px
+}
+</style>
+</head>
+<body>
+
+<h2>Welcome to Chitter!</h2>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Message</th>
+    <th>Title</th>
+    <th>Date</th>
+  </tr>
+    <% @peeps.each do |peep| %>
+  <tr>
+    <td><%= peep.id %></td>
+    <td><%= peep.message %></td>
+    <td><%= peep.title %></td>
+    <td><%= peep.date %></td>
+  </tr>
+<% end %>
+</table>
 
 <form action = '/new'>
-<input type="submit" value="New Peep">
+<input type="submit" value="New Peep" id ="button1">
  </form>
+</body>
