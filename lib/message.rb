@@ -12,10 +12,8 @@ class Message
 
   def self.create(username:, msg:, created_on:)
     conn = connect
-    query = <<-EOF
-      INSERT INTO messages (username, msg, created_on)
-      VALUES ($1, $2, $3) 
-    EOF
+    query = 'INSERT INTO messages (username, msg, created_on)
+      VALUES ($1, $2, $3)'
     conn.exec(query, [username, msg, created_on])
   end
 
@@ -27,9 +25,7 @@ class Message
         msg_id: msg['msg_id'],
         username: msg['username'],
         msg: msg['msg'],
-        created_on: DateTime.strptime(
-          msg['created_on'], '%Y-%m-%d %H:%M:%S'
-        )
+        created_on: DateTime.strptime(msg['created_on'], '%Y-%m-%d %H:%M:%S')
       )
     end
   end
