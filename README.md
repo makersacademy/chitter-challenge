@@ -1,3 +1,43 @@
+# Chitter
+
+Clone this repo and then run
+
+```
+bundle
+```
+
+### To set up the database:
+
+Connect to 'psql' and create the 'chitter' and 'chitter_test' databases:
+
+```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+
+To set up the appropriate tables, connect to each database in 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
+
+### To run the Chitter app:
+
+```
+rackup -p3000
+```
+
+To view peeps, navigate to 'localhost:3000/peeps'.
+
+### To run tests:
+
+```
+rspec
+```
+### To run linting:
+```
+rubocop
+```
+
+
+********************************************************************************
+
 Chitter Challenge
 =================
 

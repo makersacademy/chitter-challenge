@@ -1,0 +1,9 @@
+<h1>Here's the Chitter chatter!</h1>
+<ul>
+  <% @peeps.each do |peep| %>
+  <li><%=peep.peep%> Posted at <%=peep.timestamp%></li>
+  <%end%>
+</ul>
+<form action='/peeps/new_peep/' method='get'>
+  <input type='submit' name='Submit' value='Post a new peep'>
+</form>
