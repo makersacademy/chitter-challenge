@@ -70,7 +70,15 @@ CREATE TABLE peeps (
 
 
 ## Note to reviewer
-At the time of writing core user stories had been met with no bonus functionality (Login verification, and only logged in users allowed to post)
+At the time of writing core user stories had been met with no bonus functionality (Login verification, and only logged in users allowed to post) Other steps to implement:
+
+- implement a login erb
+- validate login by making a query to the database
+- raise a flash fail message if above query returns false
+- use sessions to record user being logged in and clear session when user logs out
+- only let logged in users compose a peep
+- create a table in the database that joins peep id with chitter_user username
+- create a method in peeps that looks up at the join table and determine the chitter_user username
 
 ## Approach
 I took the main user stories and dealt with each one in turn, writing both feature tests and unit tests.
