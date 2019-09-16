@@ -2,17 +2,25 @@ body {
   background-color: #f5eee4;
 }
 
+.honk-entry {
+  position: relative;
+  left: 40%;
+  padding: 20px;
+  margin: 15px;
+  width: 100%;   
+}
+
 .honk-container {
   position: relative;
   left: 30%;
   right: 30%;
-  border-style: solid;
-  border-radius: 2px;
-  border-color: orange;
-  background-color: #fefefe;
   padding: 20px;
   margin: 15px;
   width: 33%;   
+  border-style: solid;
+  border-radius: 20px;
+  border-color: orange;
+  background-color: #fefefe;
 }
 
 .honk-content {
@@ -20,7 +28,11 @@ body {
 }
 
 .honk-datetime {
+  position: relative;
+  bottom: 0px;
+  text-align: right;
   font-family: 'Lucida Sans';
+  font-size: 10px;
 }
 
 #goose-icon {
