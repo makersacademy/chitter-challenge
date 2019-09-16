@@ -16,7 +16,7 @@ end
     else
     connection = PG.connect(dbname: 'Peep_Manager')
   end
-    result = connection.exec("SELECT * FROM peeps;")
+    result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
     result.map do |peeps|
       Message.new(id: peeps['id'], title: peeps['title'], message: peeps['peep'], date: peeps['date'])
     end
