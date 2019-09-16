@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'activesupport'
 gem 'pg'
 gem 'rake'
 gem 'rubocop', '0.71.0'
