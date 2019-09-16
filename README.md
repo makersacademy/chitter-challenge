@@ -1,6 +1,6 @@
 # Chitter Challenge - week 4
 
-This is the fourth weekend challenge at Makers Academy where I've been tasked to create "Chitter" which has some  of Twitter's basic functionality. A user can see some 'peeps',  that registers your name and lets you playe Rock, Paper Scissors.
+This is the fourth weekend challenge at Makers Academy where I've been tasked to create "Chitter" which has some  of Twitter's basic functionality. A user can see some 'peeps', and signup to Chitter.
 
 Learning objectives
 -------
