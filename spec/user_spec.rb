@@ -13,4 +13,15 @@ describe User do
     populate_test_database
     expect(User.find_username(2)).to eq('Volker2')
   end
+  it 'creates a new user' do
+    drop_test_database
+    populate_test_database
+    test_user = User.create('test_user', 'test_email')
+    expect(test_user.name).to eq('test_user')
+    expect(test_user.email).to eq('test_email')
+    r = DBcon.query("SELECT * from users WHERE id = 4;")
+    expect(r.values[0][0].to_i).to eq(4)
+    expect(r.values[0][1]).to eq('test_user')
+    expect(r.values[0][2]).to eq('test_email')
+  end
 end

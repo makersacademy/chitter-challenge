@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
     redirect '/peep' if params[:submit] == 'view_peeps'
     redirect '/user' if params[:submit] == 'select_user'
     redirect '/peep/post' if params[:submit] == 'post_peep'
-
+    redirect '/user/add' if params[:submit] == 'add_user'
   end
 
   get '/peep' do
@@ -35,6 +35,15 @@ class Chitter < Sinatra::Base
 
   get '/user' do
     erb :'/user/index'
+  end
+
+  get '/user/add' do
+    erb :'/user/add'
+  end
+
+  post '/user/store' do
+    User.create(params[:name], params[:email])
+    redirect '/'
   end
 
   post '/user/select' do

@@ -1,26 +1,26 @@
 describe Peep do
   it 'initializes a new peep' do
     test_time = Time.now
-    test_peep = Peep.new(2, 1, 'Test_user', test_time,  'Test content')
-    expect(test_peep.user_id).to eq (1)
-    expect(test_peep.user).to eq ('Test_user')
-    expect(test_peep.submission_time).to eq (test_time)
-    expect(test_peep.content).to eq ('Test content')
+    test_peep = Peep.new(2, 1, 'Test_user', test_time, 'Test content')
+    expect(test_peep.user_id).to eq(1)
+    expect(test_peep.user).to eq('Test_user')
+    expect(test_peep.submission_time).to eq(test_time)
+    expect(test_peep.content).to eq('Test content')
   end
   it 'creates a new peep' do
     drop_test_database
     populate_test_database
     test_time = Time.now
     test_peep = Peep.create(1, 'Test_user', test_time, 'Test content')
-    expect(test_peep.user_id).to eq (1)
-    expect(test_peep.user).to eq ('Test_user')
+    expect(test_peep.user_id).to eq(1)
+    expect(test_peep.user).to eq('Test_user')
     # expect(test_peep.submission_time).to eq (test_time)
-    expect(test_peep.content).to eq ('Test content')
+    expect(test_peep.content).to eq('Test content')
     r = DBcon.query("SELECT * from peep WHERE peep_id = 5;")
-    expect(r.values[0][0].to_i).to eq (5)
-    expect(r.values[0][1]).to eq ('Test content')
+    expect(r.values[0][0].to_i).to eq(5)
+    expect(r.values[0][1]).to eq('Test content')
     # expect(r.values[0][2]).to eq (test_time)
-    expect(r.values[0][3].to_i).to eq (1)
+    expect(r.values[0][3].to_i).to eq(1)
   end
 
   # user_id, user, submission_time, content
