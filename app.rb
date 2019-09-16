@@ -5,7 +5,7 @@ require 'active_support/all'
 class Chitter < Sinatra::Base
 
   get '/' do
-    "Welcome to Chitter"
+    "Welcome to Chitter!"
   end
 
   get '/peeps/' do
