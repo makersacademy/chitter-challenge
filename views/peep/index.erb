@@ -1,0 +1,7 @@
+<h1> Peep stream </h1>
+
+<ul>
+  <% Peep.all.each do |p| %>
+  <%= p.user %> <%= p.content %> <%= p.submission_time %> <br>
+  <% end %>
+<ul>
