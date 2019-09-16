@@ -1,0 +1,9 @@
+<h1> Select user </h1>
+
+<form action ='/user/select' method ='post'>
+  <% User.all.each do |user|%>
+  <input type="radio" name="user" value="<%= user.id %>" id="<%= user.id %>"> <%= user.name %> <br>
+  <% end %>
+  <br>
+  <input type="submit" value="Submit" />
+</form>

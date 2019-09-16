@@ -1,8 +1,16 @@
+require 'capybara'
+require 'capybara/rspec'
+require 'pg'
 require 'simplecov'
 require 'simplecov-console'
-require 'pg'
-require 'capybara'
-require 'sinata'
+require 'sinatra'
+require './lib/peep.rb'
+
+ENV['ENVIRONMENT'] = 'test'
+
+require './lib/databaseconnection_setup.rb'
+require './lib/databaseconnection.rb'
+require_relative 'database_helper'
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
