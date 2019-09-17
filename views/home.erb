@@ -5,11 +5,25 @@
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 </head>
 <html>
-  <h1>Welcome to Chitter!</h1>
+  <h1 style="text-align:center">Welcome to Ganneys Chitter!</h1>
   <body style="background-color:rgb(66, 190, 194)"><br>
       <div>
-        <center><a href='/users' style="float: right;"> Sign-up! </a><br><br>
-        <a href='/sessions/new' style="float: right;"> Login! </a><br><br></center>
+      <html>
+      <body style="background-color:rgb(66, 190, 194)">
+       <h2><center>Sign up now:</center></h2>
+       <form action="/users/new" method="post" style="text-align:center">
+         <label for="sign-up-details"><br><br>
+         Username
+         <input type="text" name="username" required><br><br>
+         email
+         <input type="text" name="email" required><br><br>
+         Password
+         <input type="password" name="password" required><br><br>
+         <input type="submit" value="Sign up!">
+       </form> 
+       <p style="text-align:center">Already a user? sign in <a href='/sessions/new'> here </a><br><br></center></p>
+     </body> 
+   </html>
     </div>
   </body>
 </html>

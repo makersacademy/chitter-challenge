@@ -9,23 +9,22 @@
   <body style="background-color:rgb(66, 190, 194)">
     <h1 ><center>Chitter</center></h1>
     <div class="right">
-      <form action="/sessions/destroy" method="post">
+      <form color:"black" style="text-align:right" action="/sessions/destroy" method="post">
         <input type="submit" value="Sign out" />
       </form>
     </div>
-    <form action="/post-peep" method="post">
+    <form action="/post-peep" method="post" style="text-align:center">
         <label for="peep">
-         <center>Whats on your mind?
-        <input type="text" name="peep">
+        <input type="text" name="peep" placeholder="What's on your mind?">
         <input type="submit" value="Post">
-      </form></center>
-      <center><ul>
+      </form>
+      <center><ul style="list-style: none;">
         <% if @user %>
           <h1>Welcome, <%= @user.username %></h1>
         <% end %>
         <% @peeps.reverse.each do |peep| %>
-          <li>@<%= peep.username %><br><%= peep.peep %><br><%= peep.time %>
-          </li><<br><br>
+          <li>@<%= peep.username %><br><%= peep.peep %><br><%= peep.time[11..15] %>
+          </li><br>
         <% end %>
       </ul></center>
   </body>
