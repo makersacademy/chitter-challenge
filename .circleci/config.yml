@@ -1,26 +1,7 @@
-version: 2
-jobs:
-  build:
-    ...
-  deploy:
-    docker:
-      - image: buildpack-deps:trusty
-    steps:
-      - checkout
-      - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:$fbceac09-fc1f-479d-91f8-31e863d1e6ce@git.heroku.com/$ganneys-chitter.git master
-
+version: 2.1
+orbs:
+  heroku: circleci/heroku@1.0.0
 workflows:
-  version: 2
-  build-deploy:
+  heroku_deploy:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
-              
+      - heroku/deploy-via-git
