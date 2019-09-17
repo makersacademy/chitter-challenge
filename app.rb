@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/activerecord'
 require_relative './models/peep'
 require_relative './models/user'
 require 'sinatra/flash'

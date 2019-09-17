@@ -11,6 +11,7 @@ gem 'timecop'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'sendgrid-ruby'
+gem 'sinatra-activerecord'
 
 group :test do
   gem 'rspec'
