@@ -18,4 +18,4 @@ jobs:
       - run:
           name: Deploy master to heroku
           command: |
-            git push https://heroku:$fbceac09-fc1f-479d-91f8-31e863d1e6ce@git.heroku.com/ganneys-chitter.git master
+            git push https://heroku:$fbceac09-fc1f-479d-91f8-31e863d1e6ce@git.heroku.com/$ganneys-chitter.git master
