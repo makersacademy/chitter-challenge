@@ -2,7 +2,7 @@
 
 ## Project description
 
-Welcome to a clone of twitter built over a weekend! Users are able to:
+Welcome to a clone of twitter that I built for one of the weekend challenges. Users are able to:
 - sign up, sign in and logout
 - post peeps to be displayed on the homepage
 
