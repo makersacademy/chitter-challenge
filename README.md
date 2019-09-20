@@ -86,7 +86,7 @@ In order to start a conversation as a maker I want to reply to a peep from anoth
 
 Work on the CSS to make it look better.
 
-- Screen shots
+Screen shots:
 
 ![signuppage](./readme_images/chittersignup.png)
 
