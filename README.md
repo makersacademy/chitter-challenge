@@ -84,4 +84,12 @@ In order to start a conversation as a maker I want to reply to a peep from anoth
 
 - In development
 
-Work on the CSS to make it look good.
+Work on the CSS to make it look better.
+
+- Screen shots
+
+![1](./readme_images/ChitterSignUp.png)
+
+![2](./readme_images/ChitterLogIn.png)
+
+![3](./readme_images/ChitterPeeps.png)

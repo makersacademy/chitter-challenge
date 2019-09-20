@@ -7,9 +7,15 @@
   </head>
   <body>
     <% if @user %>
-    <form action="/session/delete">
-      <input type="submit" value='log out' class='sign-up-submit-btn' />
-    </form>
+    <div id="navigation">
+      <form action="/session/delete" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value='log out' class='sign-up-submit-btn'/>
+      </form>
+    </div>
+    <br>
+    <br>
+    <br>
     <% else %>
     <div id="navigation">
       <form action="/sessions/new">
