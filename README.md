@@ -88,8 +88,8 @@ Work on the CSS to make it look better.
 
 - Screen shots
 
-![signup](./readme_images/ChitterSignUp.png)
+![signup](./readme_images/chittersignup.png)
 
-![login](./readme_images/ChitterLogIn.png)
+![login](./readme_images/chitterlogin.png)
 
-![peeping](./readme_images/ChitterPeeps.png)
+![peeping](./readme_images/chitterpeeps.png)
