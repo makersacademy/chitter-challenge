@@ -1,0 +1,15 @@
+CREATE DATABASE chitter_database;
+\c 'chitter_database'
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHAR(20), peep VARCHAR(200), date TIMESTAMP default CURRENT_TIMESTAMP,loves INT default 0);
+
+CREATE DATABASE test_chitter_database;
+\c 'test_chitter_database'
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHAR(20), peep VARCHAR(200), date TIMESTAMP default CURRENT_TIMESTAMP,loves INT default 0);
+
+CREATE DATABASE chitter_username_database;
+\c 'chitter_username_database'
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHAR(20), password VARCHAR(20));
+
+CREATE DATABASE test_chitter_username_database;
+\c 'test_chitter_username_database'
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHAR(20), password VARCHAR(20));

@@ -1,0 +1,75 @@
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #F2C1D5;
+}
+</style>
+</head>
+<center>
+<body>
+
+  <h1>Welcome, <%= @current_user %> ! </h1>
+
+  <h2>
+  <form action ="/" method="get">
+      Not, <%= @current_user %> ? Sign out...
+      <input type="submit" value="Sign out">
+  </form>
+  </h2>
+
+
+  <h2>
+  <form action ="/add_peep" method="post">
+      Make a new peep :
+      <input type="text" name="peep">
+      <input type="submit" value="Peep It">
+  </form>
+  </h2>
+
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Peep</th>
+      <th>Timestamp</th>
+      <th>Loves</th>
+    </tr>
+
+    <% @peeps.each do |p| %>
+    <tr>
+      <td> <%= p.username %> </td>
+      <td> <%= p.peep %> </td>
+      <td> <%= p.date %> </td>
+      <td>
+
+        <form action ='/peeps/loves/<%=p.id%>' method="post">
+          <input type="hidden" name="_method" value="PATCH">
+          <input type="submit" value="Love">
+        </form>
+        <form action ='/peeps/hates/<%=p.id%>' method="post">
+          <input type="hidden" name="_method" value="PATCH">
+          <input type="submit" value="Hate">
+        </form>
+
+        Number of Loves: <%= p.loves %>
+      </td>
+    </tr>
+
+    <% end %>
+
+  </table>
+
+  </body>
+  </center>
+  </html>
