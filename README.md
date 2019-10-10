@@ -1,3 +1,18 @@
+set up
+
+CREATE DATABASE chitter
+
+CREATE DATABASE chitter_test
+
+connect to both Databases \c chitter and \c chitter_test.
+
+in each database create following tables
+
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(255), created_at TIMESTAMP DEFAULT NOW());
+
+
+
+
 Chitter Challenge
 =================
 
