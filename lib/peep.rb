@@ -1,5 +1,5 @@
 require 'pg'
-require 'database_connection'
+require_relative 'database_connection'
 class Peep
 
   attr_reader :id, :message, :created_at

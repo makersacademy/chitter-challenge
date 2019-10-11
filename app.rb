@@ -1,6 +1,7 @@
 require 'sinatra/base'
+require './lib/peep'
 
-require './database_connection_setup'
+require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
@@ -9,7 +10,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    'a peep'
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
   get '/peeps/new' do
@@ -17,6 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    Peep.create(message: params[:message])
     redirect '/peeps'
   end
 
