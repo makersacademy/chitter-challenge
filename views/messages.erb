@@ -1,0 +1,18 @@
+<h3>Logged in successfully></h3>
+
+<form action="/messages" method="post">
+  <input type="text" name="message" placeholder="MESSAGE" />
+  <input type="submit" value="Submit" />
+</form>
+
+
+
+<ul>
+  <% @messages.each do |chitter| %>
+    <li>
+        <%= chitter.message %>
+        <br>
+        <br>
+    </li>
+  <% end %>
+</ul>
