@@ -19,10 +19,10 @@ describe Peep do
       peeps = Peep.all
 
       expect(peeps.length).to eq 3
-      expect(peeps.first).to be_a Peep
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.message).to eq "My first peep"
-      expect(peeps.first.created_at).to eq peep.created_at
+      expect(peeps.last).to be_a Peep
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.message).to eq "My first peep"
+      expect(peeps.last.created_at).to eq peep.created_at
     end
   end
 end
