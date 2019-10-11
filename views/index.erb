@@ -1,0 +1,13 @@
+<% if @user %>
+  Hi <%= @user.name %>!
+<% else %>
+  <div class="sign-up">
+    <form action="/users/new" method="post">
+      <input type="text" name="email" placeholder="Email address"> <br>
+      <input type="password" name="password" placeholder="Password"> <br>
+      <input type="text" name="name" placeholder="Name"> <br>
+      <input type="text" name="username" placeholder="username"> <br>
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
+<% end %>

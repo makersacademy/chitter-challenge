@@ -1,18 +1,91 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
     ast (2.4.0)
+    bcrypt (3.1.13)
+    capybara (3.29.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.5)
+      xpath (~> 3.2)
+    data_mapper (1.0.2)
+      dm-aggregates (= 1.0.2)
+      dm-constraints (= 1.0.2)
+      dm-core (= 1.0.2)
+      dm-migrations (= 1.0.2)
+      dm-serializer (= 1.0.2)
+      dm-timestamps (= 1.0.2)
+      dm-transactions (= 1.0.2)
+      dm-types (= 1.0.2)
+      dm-validations (= 1.0.2)
+    data_objects (0.10.17)
+      addressable (~> 2.1)
     diff-lcs (1.3)
+    dm-aggregates (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-constraints (1.0.2)
+      dm-core (~> 1.0.2)
+      dm-migrations (~> 1.0.2)
+    dm-core (1.0.2)
+      addressable (~> 2.2)
+      extlib (~> 0.9.15)
+    dm-do-adapter (1.0.2)
+      data_objects (~> 0.10.2)
+      dm-core (~> 1.0.2)
+    dm-migrations (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-postgres-adapter (1.0.2)
+      dm-do-adapter (~> 1.0.2)
+      do_postgres (~> 0.10.2)
+    dm-serializer (1.0.2)
+      dm-core (~> 1.0.2)
+      fastercsv (~> 1.5.3)
+      json_pure (~> 1.4)
+    dm-timestamps (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-transactions (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-types (1.0.2)
+      dm-core (~> 1.0.2)
+      fastercsv (~> 1.5.3)
+      json_pure (~> 1.4)
+      stringex (~> 1.1.0)
+      uuidtools (~> 2.1.1)
+    dm-validations (1.0.2)
+      dm-core (~> 1.0.2)
+    do_postgres (0.10.17)
+      data_objects (= 0.10.17)
     docile (1.1.5)
+    extlib (0.9.16)
+    fastercsv (1.5.5)
     hirb (0.7.3)
     jaro_winkler (1.5.3)
     json (2.1.0)
+    json_pure (1.8.6)
+    mini_mime (1.0.2)
+    mini_portile2 (2.4.0)
+    mustermann (1.0.3)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
+    pg (1.1.4)
+    public_suffix (4.0.1)
+    rack (2.0.7)
+    rack-protection (2.0.7)
+      rack
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     rainbow (3.0.0)
     rake (12.3.0)
+    regexp_parser (1.6.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -43,17 +116,39 @@ GEM
       hirb
       simplecov
     simplecov-html (0.10.2)
+    sinatra (2.0.7)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.7)
+      tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
+    stringex (1.1.0)
+    tilt (2.0.10)
     unicode-display_width (1.6.0)
+    uuidtools (2.1.5)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
+  capybara
+  data_mapper
+  dm-postgres-adapter
+  pg
   rake
   rspec
   rubocop (= 0.71.0)
   simplecov
   simplecov-console
+  sinatra
+  sinatra-flash
+
+RUBY VERSION
+   ruby 2.6.0p0
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
