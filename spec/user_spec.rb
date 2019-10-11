@@ -4,7 +4,7 @@ describe User do
 
   let(:email) { 'test@example.com' }
   let(:password) { 'pass123' }
-  let(:name) { 'Melvin Lau'}
+  let(:name) { 'Melvin Lau' }
   let(:username) { 'melvinlau' }
 
   describe '.create' do
