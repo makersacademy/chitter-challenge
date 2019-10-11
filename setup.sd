@@ -8,8 +8,8 @@ CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHAR(20), peep VARCHAR(200
 
 CREATE DATABASE chitter_username_database;
 \c 'chitter_username_database'
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHAR(20), password VARCHAR(20));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20), password VARCHAR(20), age INT, gender VARCHAR(1), picture VARCHAR(200));
 
 CREATE DATABASE test_chitter_username_database;
 \c 'test_chitter_username_database'
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHAR(20), password VARCHAR(20));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20), password VARCHAR(20), age INT, gender VARCHAR(1), picture VARCHAR(200));
