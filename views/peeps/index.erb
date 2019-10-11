@@ -11,12 +11,13 @@
     <ul>
       <% @peeps.each do |peep| %>
         <li>
-          <%=peep.message%> peeped @ <%=peep.created_at%>
+          <%=peep.message%> ---
+          Peeped on <%=peep.created_at%>.
         </li>
       <% end %>
     </ul>
     <form action="/peeps/new" method="get">
-        <button type="button">New Peep</button>
+        <input type="submit" value="New Peep" />
     </form>
   </body>
 </html>
