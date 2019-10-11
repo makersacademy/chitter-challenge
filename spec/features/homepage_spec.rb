@@ -1,7 +1,6 @@
 feature 'Viewing homepage' do
 
   scenario 'visiting the index page' do
-    connection = PG.connect(dbname: 'chitter_manager_test')
 
     Chitter.peep('First peep')
     Chitter.peep('Second peep')

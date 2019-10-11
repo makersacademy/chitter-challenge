@@ -2,7 +2,11 @@
 
 
 <% @all_peeps.each do |peep| %>
-  <li><%= peep.peep %> </li>
+  <li>
+    <%= peep.peep %>
+    <br>
+    <font size="1.5"> peeped at: <%= peep.time %> </font>
+  </li>
 <% end %>
 
 <br>

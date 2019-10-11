@@ -10,6 +10,7 @@ feature 'Adding peeps' do
     fill_in('new_peep', with: 'Example peep')
     click_button('Peep!')
     expect(page).to have_content 'Example peep'
+    expect(page).to have_content "#{Time.now.strftime("%F %T")}"
   end
 
 end
