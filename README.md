@@ -2,10 +2,16 @@ Chitter Challenge
 =================
 
 # SQL Queries
-### Create Peeps Table
+### Create Peep_Manager Database and Peeps Table
 1. Connect to `psql`
 2. Create the database using the `psql` command `CREATE DATABASE peep_manager;`
 3. Connect to the database using the `psql` command `\c peep_manager`
+4. Run the query I have saved in the file `01_create_peeps_table.sql`
+
+### Create Peep_Manager_Test Database and Peeps Table
+1. Connect to `psql`
+2. Create the database using the `psql` command `CREATE DATABASE peep_manager_test;`
+3. Connect to the database using the `psql` command `\c peep_manager_test`
 4. Run the query I have saved in the file `01_create_peeps_table.sql`
 
 # User Story 1
