@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require './lib/chitter'
 
-class Chitter < Sinatra::Base
-  
+class ChitterManager < Sinatra::Base
+
   get '/' do
-    'Hello World'
+    @all_peeps = Chitter.all_peeps
+    erb(:index)
   end
 
   run! if app_file == $0
