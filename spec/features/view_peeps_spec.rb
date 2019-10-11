@@ -1,7 +1,7 @@
 feature 'Viewing Peeps' do
   scenario 'user can see all peeps' do
     Peep.create(message: 'This is a test peep')
-    Peep.create(message: 'This is a test peep 2') 
+    Peep.create(message: 'This is a test peep 2')
 
     visit '/peeps'
 
