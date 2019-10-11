@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require './lib/peep'
 require 'pg'
-require './database_connection_setup' 
+require './database_connection_setup'
 
 class Peeps < Sinatra::Base
 
@@ -12,6 +12,16 @@ class Peeps < Sinatra::Base
   get '/peeps' do
     @peeps = Peep.all
     erb :"peeps/index"
+  end
+
+  get '/peeps/new' do
+    erb :"peeps/new"
+  end
+
+  post '/peeps' do
+    peep = params['peep']
+    DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}');")
+    redirect '/peeps'
   end
 
   run if app_file == $0
