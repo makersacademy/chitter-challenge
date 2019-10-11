@@ -1,4 +1,4 @@
-feature 'Sign up' do
+feature 'Sign up and log in' do
   scenario 'User can sign up' do
     visit('/')
     click_button('Sign Up')
@@ -7,5 +7,11 @@ feature 'Sign up' do
     fill_in('password', with: "password")
     click_button('Sign Up')
     expect(current_path).to eq '/peeps'
+  end
+
+  scenario 'User can log in' do
+    visit('/')
+    click_button('Log In')
+    expect(current_path).to eq "/users/sign_in"
   end
 end
