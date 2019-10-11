@@ -1,6 +1,7 @@
 class Peep
 
   def self.all
-    ['This is a test peep', 'This is a test peep 2']
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
+    result.map { |peep| peep['peep'] }
   end
 end
