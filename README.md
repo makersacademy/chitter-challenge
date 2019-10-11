@@ -1,6 +1,13 @@
 Chitter Challenge
 =================
 
+# SQL Queries
+### Create Peeps Table
+1. Connect to `psql`
+2. Create the database using the `psql` command `CREATE DATABASE peep_manager;`
+3. Connect to the database using the `psql` command `\c peep_manager`
+4. Run the query I have saved in the file `01_create_peeps_table.sql`
+
 # User Story 1
 As a Maker
 So that I can let people know what I am doing  
@@ -68,7 +75,7 @@ User Flow:
 4. Fill out sign up form
 5. Click submit
 6. Taken to page /chitter where you can see the peeps
-7. When you go to create a peep, your name and handle field are auot-populated
+7. When you go to create a peep, your name and handle field are auto-populated
 
 
 HARDER
