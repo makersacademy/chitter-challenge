@@ -11,7 +11,7 @@ describe Peep do
   end
 
   describe '.all' do
-    it "returns all peeps" do
+    it "returns all peeps in reverse chronological order" do
       peep = Peep.create(message: "My first peep")
       Peep.create(message: "My second peep")
       Peep.create(message: "My third peep")
