@@ -1,13 +1,11 @@
-require 'pg'
-
 feature 'Viewing homepage' do
 
   scenario 'visiting the index page' do
     connection = PG.connect(dbname: 'chitter_manager_test')
 
-    connection.exec("INSERT INTO peeps (time, peep) VALUES('#{Time.now}', 'First peep');")
-    connection.exec("INSERT INTO peeps (time, peep) VALUES('#{Time.now}', 'Second peep');")
-    connection.exec("INSERT INTO peeps (time, peep) VALUES('#{Time.now}', 'Third peep');")
+    Chitter.peep('First peep')
+    Chitter.peep('Second peep')
+    Chitter.peep('Third peep')
 
     visit('/')
 

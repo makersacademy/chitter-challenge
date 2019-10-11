@@ -5,17 +5,22 @@ describe Chitter do
   describe '.all_peeps' do
 
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_manager_test')
+      Chitter.peep('First peep')
+      Chitter.peep('Second peep')
+      Chitter.peep('Third peep')
 
-      connection.exec("INSERT INTO peeps (time, peep) VALUES('#{Time.now}', 'First peep');")
-      connection.exec("INSERT INTO peeps (time, peep) VALUES('#{Time.now}', 'Second peep');")
-      connection.exec("INSERT INTO peeps (time, peep) VALUES('#{Time.now}', 'Third peep');")
+      expect(Chitter.all_peeps).to include("First peep")
+      expect(Chitter.all_peeps).to include("Second peep")
+      expect(Chitter.all_peeps).to include("Third peep")
+    end
 
-      peeps = Chitter.all_peeps
+  end
 
-      expect(peeps).to include("First peep")
-      expect(peeps).to include("Second peep")
-      expect(peeps).to include("Third peep")
+  describe '.peep' do
+
+    it 'creates a new peep' do
+      Chitter.peep('Example peep')
+      expect(Chitter.all_peeps).to include('Example peep')
     end
 
   end

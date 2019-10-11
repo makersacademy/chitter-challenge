@@ -4,3 +4,10 @@
 <% @all_peeps.each do |peep| %>
   <li><%= peep %> </li>
 <% end %>
+
+<br>
+
+<form action="/peep" method="post">
+  <input type="text" name="new_peep" placeholder="What's on your mind?" />
+  <input type="submit" value="Peep!" />
+</form>
