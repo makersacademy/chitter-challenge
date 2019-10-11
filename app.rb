@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep' 
 
 class Peeps < Sinatra::Base
 
@@ -7,7 +8,7 @@ class Peeps < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = ['This is a test peep', 'This is a test peep 2']
+    @peeps = Peep.all
     erb :"peeps/index"
   end
 
