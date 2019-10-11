@@ -19,8 +19,7 @@ class Peeps < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = params['peep']
-    DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}');")
+    Peep.create(message: params[:message])
     redirect '/peeps'
   end
 
