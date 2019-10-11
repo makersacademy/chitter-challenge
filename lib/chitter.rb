@@ -2,6 +2,14 @@ require 'pg'
 
 class Chitter
 
+  attr_reader :id, :time, :peep
+
+  def initialize(id:, time:, peep:)
+    @id = id
+    @time = time
+    @peep = peep
+  end
+
   def self.all_peeps
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_manager_test')
@@ -9,7 +17,9 @@ class Chitter
       connection = PG.connect(dbname: 'chitter_manager')
     end
     result = connection.exec("SELECT * FROM peeps ORDER BY time;")
-    result.map { |peep| peep['peep'] }.reverse
+    result.map { |peep|
+    Chitter.new(id: peep['id'], time: peep['time'], peep: peep['peep'])
+    }
   end
 
   def self.peep(peep)

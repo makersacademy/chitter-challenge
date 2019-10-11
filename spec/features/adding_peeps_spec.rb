@@ -1,6 +1,6 @@
 feature 'Adding peeps' do
 
-  scenario 'peep button exits' do
+  scenario 'peep button exists' do
     visit('/')
     expect(page).to have_button 'Peep!'
   end
