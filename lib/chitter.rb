@@ -8,8 +8,8 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter_manager')
     end
-    result = connection.exec("SELECT * FROM peeps;")
-    result.map { |peep| peep['peep'] }
+    result = connection.exec("SELECT * FROM peeps ORDER BY time;")
+    result.map { |peep| peep['peep'] }.reverse
   end
 
   def self.peep(peep)
