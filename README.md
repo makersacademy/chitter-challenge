@@ -23,10 +23,10 @@ Domain Mapping:
 
 
 User Flow:
-1. Visit page chitter/new or /peeps/new
+1. Visit page /peeps/new
 2. Type out peep (include max. character count of 280 characters), name and Chitter handle
 3. Submit the peep
-4. See the new peep on the /chitter or /peeps page, with the writer's name and Chitter handle attached
+4. See the new peep on the /peeps page, with the writer's name and Chitter handle attached
 
 
 # User Story 2
@@ -38,7 +38,7 @@ I want to see all peeps in reverse chronological order
 - add timestamp to get peeps to print in chronological order
 
 User Flow:
-1. Visit page /chitter or /peeps
+1. Visit page /peeps
 2. See peeps in chronological order
 
 # User Story 3
@@ -49,7 +49,7 @@ I want to see the time at which it was made
 - use timestamp feature created in US2 to view the timestamp next to each peep
 
 User Flow:
-1. Visit page /chitter or /peeps
+1. Visit page /peeps
 2. See peeps in chronological order with timestamp printed alongside peep
 
 # User Story 4
