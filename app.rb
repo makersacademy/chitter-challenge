@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     'Hello world!'
+    redirect '/peeps'
   end
 
   get '/peeps' do

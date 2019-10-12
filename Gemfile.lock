@@ -94,6 +94,7 @@ GEM
       sinatra (>= 1.0.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    timecop (0.9.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
@@ -118,6 +119,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-flash
+  timecop
 
 RUBY VERSION
    ruby 2.6.0p0

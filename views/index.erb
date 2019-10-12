@@ -4,11 +4,11 @@
   <input type="submit" value="Post" />
 </form>
 
-<ul>
+<ul class="peeps_list">
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
         <%= peep.content %>
-        <%= peep.published_on %> 
+        <%= peep.created_at.strftime("%d %b %Y at %I:%M %p") %> 
     </li>
   <% end %>
 </ul>

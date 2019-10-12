@@ -1,14 +1,23 @@
+require 'timecop'
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps in reverse chronological order' do
     Peep.create(content: "So sunny today!")
     Peep.create(content: "Watching Adventure Time.")
-    Peep.create(content: "Time is an illusion.")
 
     visit('/peeps')
+    peeps = page.all('.peep')
+    expect(peeps[0]).to have_content "Watching Adventure Time."
+    expect(peeps[1]).to have_content "So sunny today!"
+  end
 
-    expect(page).to have_content "So sunny today!"
-    expect(page).to have_content "Watching Adventure Time."
-    expect(page).to have_content "Time is an illusion."
+  scenario 'A user can see the time when the peep was posted' do
+    t = Time.utc(2019, 10, 12, 10, 15, 10)
+      Timecop.freeze(t)
+    Peep.create(content: "Chirp-chirp!")
+
+    visit('/peeps')
+    expect(page).to have_content "12 Oct 2019 at 10:15 AM"
+    Timecop.return
   end
 end
