@@ -1,9 +1,25 @@
-<form action="/" method="post">
-  Insert the message:
-   <input type="text" name="message">
-   <input type="submit" value="Peeps">
-</form>
+<%= flash[:notice] %>
+<% if @user.nil? || !@user %>
+  <form action="/users/new">
+     Sign up or sign in to post a peep
+     <input type="submit" value="Sign up">
+  </form>
+  <form action="/users/user">
+     <input type="submit" value="Sign in">
+  </form>
+<% else %>
+  <form action="/" method="post">
+    Insert the message:
+     <input type="text" name="message">
+     <input type="submit" value="Peeps">
+  </form>
+<% end %>
 
-<% if !@message.nil? %>
-<%= @message.text %> from <%= @user.name %>
-<%end%>
+All peeps:
+<ul>
+<% @messages.show_all.each do |message| %>
+    <li>
+      <%= message.text %> from <%= message.user %> (<%= message.time %>)
+    </li>
+    <% end %>
+</ul>

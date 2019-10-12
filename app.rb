@@ -1,26 +1,54 @@
 require 'sinatra/base'
 require './lib/messages'
+require 'sinatra/flash'
 require './lib/users'
 require './database_connection_setup'
 
 class Chitter < Sinatra::Base
-  enable :session
+  enable :sessions
+  register Sinatra::Flash
 
   before do
     @messages = Messages
-    @users = Users
   end
 
   get '/' do
-    @user = @users.instance
-    @message = @messages.instance
+    flash[:notice]
+    @user = session[:user]
+    @messages.instance
     erb :index
   end
 
   post '/' do
-    @user = Users.create('test@test.com', 'password', 'John Doe', 'J')
-    @messages.create(params[:message], @user.id)
+    @user = session[:user]
+    @messages.create(params[:message], @user)
     redirect '/'
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users/new' do
+    user = Users.create(params[:email], params[:password], params[:name], params[:user_name])
+    flash[:notice] = "email or username already in use" unless user
+    session[:user] = user
+    redirect '/'
+  end
+
+  get '/users/user' do
+    erb :'users/user'
+  end
+
+  post '/users/user' do
+    user = Users.find(params[:email], params[:password])
+    if !user
+      flash[:notice] = "email or username incorrect" unless user
+      redirect '/users/user'
+    else
+      session[:user] = user
+      redirect '/'
+    end
   end
 
   run! if app_file == $0
