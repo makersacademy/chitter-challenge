@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <h2>homepage</h2>
+    <ul><% @posts.each do |post| %>
+      <li><%= post.content %></li>
+    <% end %>
+    </ul>
+    <form action="/posts/new">
+      <input type="submit" value="New Post">
+    </form>
+  </body>
+</html>
