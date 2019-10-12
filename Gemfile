@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'sinatra'
+gem 'sinatra-activerecord'
 gem 'rubocop', '0.71.0'
 
 group :test do
