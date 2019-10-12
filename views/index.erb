@@ -8,7 +8,12 @@
     <li>
         <%= peep.peep %>
         <%= peep.time.to_s[0..15] %>
+        <%= peep.person %>
         <!-- .to_s[0..15] cuts off the milliseconds part of the timestamp -->
     </li>
   <% end %>
 </ul>
+<form action=/signup method="post">
+  <input type="text" name="name" placeholder="Enter your name to sign your peep!"/>
+  <input type="submit" value="Sign up">
+</form>

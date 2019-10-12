@@ -13,6 +13,11 @@ class Chitter < Sinatra::Base
     redirect '/chitter'
   end
 
+  post '/signup' do
+    Peep.signup(name: params['name'])
+    redirect '/chitter'
+  end
+
   # run! if app_file = $0
 
 end
