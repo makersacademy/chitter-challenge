@@ -22,8 +22,8 @@ describe Peep do
 
   # Test content
   let(:content_one) { "Hello world! Whassup y'all?" }
-  let(:content_two) { "I'm posting more stuff" }
-  let(:content_three) { "And even more stuff" }
+  let(:content_two) { "I'm bored!" }
+
 
   describe '.create' do
     it 'creates a new peep' do
@@ -36,12 +36,12 @@ describe Peep do
   end
 
   describe '.all' do
-    it 'displays all peeps on the index page' do
-      Peep.create(content: content, user_id: user.id)
-    end
-
-    it 'displays peeps in reverse chronological order' do
-      #
+    it 'returns a list of peeps' do
+      peep_one = Peep.create(content: content_one, user_id: user.id)
+      peep_two = Peep.create(content: content_two, user_id: user.id)
+      expect(Peep.all.length).to eq 2
+      expect(Peep.all[0].content).to eq content_one
+      expect(Peep.all[1].content).to eq content_two
     end
   end
 

@@ -21,6 +21,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = session[:user]
+    @feed = Peep.all
     erb(:index)
   end
 

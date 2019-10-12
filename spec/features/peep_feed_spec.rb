@@ -23,8 +23,11 @@ feature 'Peep feed' do
   scenario 'User sees a peep feed when visiting the site' do
     Peep.create(content: content, user_id: user.id)
     visit '/'
-    expect(page).to have_content user.username
+    # expect(page).to have_content user.username
     expect(page).to have_content content
   end
-  
+
+  scenario 'Reverse chronological order' do
+
+  end
 end
