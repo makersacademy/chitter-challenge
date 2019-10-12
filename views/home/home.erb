@@ -13,16 +13,6 @@
       </header>
     </div>
     <div class='col-5'>
-      <% flash.keys.each do |type| %>
-        <div data-alert class="flash <%= type %> alert-box radius">
-          <%= flash[type] %>
-          <a href="/home" class="close">&times;</a>
-        </div>
-      <% end %>
-      <div data-alert class="flash new_user alert-box radius">
-        Thanks for joining Chitter, The Queen! Have a really chit time!
-        <a href="/home" class="close">&times;</a>
-      </div>
       <body>
         <div class='continer'>
         <div class='card'>

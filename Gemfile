@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'activerecord'
+gem 'bcrypt'
 gem 'pg'
 gem 'rake'
 gem 'rubocop', '0.71.0'
@@ -8,6 +9,7 @@ gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sinatra-flash'
 gem 'time_diff'
+gem 'warden'
 
 group :test do
   gem 'capybara'

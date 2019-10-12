@@ -1,8 +1,17 @@
 .buffer {
   padding: 1em
 }
+
 .buffer-lg {
   padding: 2em
+}
+
+.buffer-sm {
+  padding: 0.7em
+}
+
+.buffer-xsm {
+  padding: 0.5em
 }
 
 .card {
@@ -26,12 +35,50 @@ div.chitter-content {
   margin: auto;
 }
 
-.new_user {
-  background-color:lightgreen;
+.flash-new_user {
+  background-color: #8cc152;
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
+}
+
+.flash-login {
+  background-color: #8cc152;
+  padding-left: 5em;
+  padding-right: 1em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
+.flash-fail_login {
+  background-color: #e9673f;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+.index-left{
+  width: 100%;
+  height: 100vh;
+  background-image: url('Chitter.jpeg');
+  background-size: 120%;
+}
+.index-login {
+  border-radius: 0px;
+}
+
+.index-login-main-btn {
+  width: 100%;
+}
+
+.index-login-btn {
+  font-size: 80%;
+  border-color: #4A89DC;
+  border-radius: 20px;
+}
+.index-login-btn:hover {
+  background-color: rgb(184, 212, 248);
 }
 
 .peep-btn {
@@ -45,4 +92,8 @@ div.chitter-content {
 
 .right-align {
   text-align: right;
+}
+
+.mpad {
+  padding: 0.7em;
 }

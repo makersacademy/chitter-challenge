@@ -16,6 +16,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
     ast (2.4.0)
+    bcrypt (3.1.13)
     capybara (3.29.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -100,6 +101,8 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.2.0)
@@ -109,6 +112,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  bcrypt
   capybara
   pg
   rake
@@ -120,6 +124,7 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-flash
   time_diff
+  warden
 
 BUNDLED WITH
    1.17.2
