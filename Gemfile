@@ -6,6 +6,7 @@ gem 'rake'
 gem 'rubocop', '0.71.0'
 gem 'sinatra'
 gem 'sinatra-activerecord'
+gem 'sinatra-flash'
 gem 'time_diff'
 
 group :test do

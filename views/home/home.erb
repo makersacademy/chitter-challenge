@@ -1,0 +1,43 @@
+<div class='chitter-content'>
+  <div class='row'>
+    <div class='col-1'></div>
+    <div class='col-2'>
+      <header>
+        <div class='container'>
+          <div class='navbar-header'>
+            <div class='container'>
+              <a class='navbar-brand' href='/'>Chitter</a>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <div class='col-5'>
+      <% flash.keys.each do |type| %>
+        <div data-alert class="flash <%= type %> alert-box radius">
+          <%= flash[type] %>
+          <a href="/home" class="close">&times;</a>
+        </div>
+      <% end %>
+      <div data-alert class="flash new_user alert-box radius">
+        Thanks for joining Chitter, The Queen! Have a really chit time!
+        <a href="/home" class="close">&times;</a>
+      </div>
+      <body>
+        <div class='continer'>
+        <div class='card'>
+          <div class='card-body'>
+            <h5>
+              <strong>
+                <%= @page.to_s.split("/")[0].capitalize %>
+              </strong>
+            </h5>
+          </div>
+        </div>
+        <%= erb :'forms/peep_form' %>
+        <%= erb :'home/peeps' %>
+      </body>
+    </div>
+    <div class='col-4'></div>
+  </div>
+</div>

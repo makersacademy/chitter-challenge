@@ -14,16 +14,24 @@
   padding-bottom: 0.7em;
 }
 
-div.chitter-content {
-  max-width: 1500px;
-  margin: auto;
-}
-
 .created-at {
   text-align: right;
   padding: 0.3em;
   padding-right: 1em;
   background: 0%;
+}
+
+div.chitter-content {
+  max-width: 1500px;
+  margin: auto;
+}
+
+.new_user {
+  background-color:lightgreen;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
 }
 
 .peep-btn {
