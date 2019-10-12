@@ -1,7 +1,3 @@
-
-.body_header {
-  padding: 3em
-}
 .buffer {
   padding: 1em
 }
@@ -9,5 +5,30 @@
   padding: 2em
 }
 
-.peep-compose-content {
+.card {
+  border-radius: 0px;
+  border-top: 0px;
+}
+
+.card-body {
+  padding-bottom: 0.7em;
+}
+
+.created-at {
+  text-align: right;
+  padding: 0.3em;
+  padding-right: 1em;
+  background: 0%;
+}
+
+.peep-btn {
+  border-radius: 20px;
+}
+
+.peep-form {
+  border: 0px;
+}
+
+.right-align {
+  text-align: right;
 }

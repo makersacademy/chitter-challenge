@@ -10,8 +10,8 @@ class Chitter < Sinatra::Base
   end
   
   get '/home' do
-    @peeps = Peep.all
-    @csspath = 'main.css'
+    @peeps = Peep.all.reverse
+    @css_path = 'main.css'
     @page = :home
     erb :template
   end
