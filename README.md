@@ -2,6 +2,17 @@ Chitter Challenge
 =================
 
 # How to Use SQL Queries
+To do:
+
+- Implement the ability to log in/out and show the user handle for peeps.
+
+- Implement one-to-many relationship between users and peeps databases.
+
+- Error messages when users sign up/log in incorrectly.
+
+- Fix test database issues where users are not deleted after tests.
+
+
 1. Connect to ```psql```
 2. Create the database using the ```psql``` command ```CREATE DATABASE chitter_manager;```
 3. Connect to the database using the ```psql``` command ```\c chitter_manager;```
@@ -17,7 +28,6 @@ Chitter Challenge
 13. Run the query on line 1 we have saved in the file ```create_users_table.sql```
 14. Run the query on line 2 we have saved in the file ```create_users_table.sql```
 15. Repeat steps 11-14 except at step 12, connect to the test database using the ```psql``` command ```\c chitter_manager_test;```
-
 
 
 Features:
