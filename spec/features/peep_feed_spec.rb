@@ -17,17 +17,21 @@ feature 'Peep feed' do
     )
   }
 
-  # Test content for a test peep
-  let(:content) { "Hello world! Whassup y'all?" }
+  # Test content for a test peeps
+  let(:content_one) { "Hello world! Whassup y'all?" }
+  let(:content_two) { "I'm bored!" }
 
-  scenario 'User sees a peep feed when visiting the site' do
-    Peep.create(content: content, user_id: user.id)
+  scenario 'User sees a peep feed on the index page' do
+    Peep.create(content: content_one, user_id: user.id)
     visit '/'
     # expect(page).to have_content user.username
-    expect(page).to have_content content
+    expect(page).to have_content content_one
   end
 
-  scenario 'Reverse chronological order' do
-
+  scenario 'Peeps are displayed in reverse-chronological order' do
+    Peep.create(content: content_one, user_id: user.id)
+    Peep.create(content: content_two, user_id: user.id)
+    visit '/'
+    expect(first('.peep')).to have_content content_two
   end
 end

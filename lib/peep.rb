@@ -17,7 +17,7 @@ class Peep
 
   def self.all
     peeps = DBConnection.query("SELECT * FROM peeps;")
-    peeps.map do |peep|
+    peeps.reverse_each.map do |peep|
       Peep.new(
         id: peep['id'],
         content: peep['content'],

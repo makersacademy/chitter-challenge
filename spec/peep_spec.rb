@@ -36,12 +36,12 @@ describe Peep do
   end
 
   describe '.all' do
-    it 'returns a list of peeps' do
+    it 'returns a list of peeps in reverse-chronological order' do
       peep_one = Peep.create(content: content_one, user_id: user.id)
       peep_two = Peep.create(content: content_two, user_id: user.id)
       expect(Peep.all.length).to eq 2
-      expect(Peep.all[0].content).to eq content_one
-      expect(Peep.all[1].content).to eq content_two
+      expect(Peep.all[0].content).to eq content_two
+      expect(Peep.all[1].content).to eq content_one
     end
   end
 

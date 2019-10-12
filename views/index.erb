@@ -1,7 +1,7 @@
-<div class="peeps">
+<div class="feed">
   <% @feed.each do |peep| %>
     <ul>
-      <li>
+      <li class="peep">
         <%= peep.content %> (<%= peep.timestamp %>)
       </li>
     </ul>
