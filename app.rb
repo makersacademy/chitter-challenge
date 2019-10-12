@@ -26,5 +26,15 @@ class ChitterManager < Sinatra::Base
     redirect '/'
   end
 
+  get '/login' do
+    erb(:login)
+  end
+
+  post '/login_details' do
+    session[:email] = params[:email]
+    session[:password] = params[:password]
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
