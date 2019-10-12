@@ -12,4 +12,6 @@ feature 'Sign Up' do
     expect(page).to have_content 'Melvin Lau'
   end
 
+  # Edge case: user cannot sign up with an email that already exists in database.
+
 end

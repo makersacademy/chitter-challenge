@@ -1,6 +1,8 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'data_mapper'
 require 'pg'
+require 'bcrypt'
 
 # require './datamapper_setup'
 
@@ -14,6 +16,7 @@ require './database_connection'
 class Chitter < Sinatra::Base
 
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     @user = session[:user]
@@ -27,16 +30,21 @@ class Chitter < Sinatra::Base
       name: params[:name],
       username: params[:username]
     )
-    session[:user] = user # User signed in automatically after registration
+    session[:user] = user
     redirect '/'
   end
 
   post '/users/session' do
+
     user = User.authenticate(
       email: params[:email],
       password: params[:password]
     )
-    session[:user] = user # This should not coincide with registration scenario
+    if user
+      session[:user] = user
+    else
+      flash[:notice] = 'Please check your email or password.'
+    end
     redirect '/'
   end
 

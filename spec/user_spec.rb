@@ -20,6 +20,16 @@ describe User do
       expect(user.id).to eq result[0]['id']
       expect(user.username).to eq result[0]['username']
     end
+
+    it 'encrypts the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with(password)
+      User.create(
+        email: email,
+        password: password,
+        name: name,
+        username: username
+      )
+    end
   end
 
   describe '.authenticate' do
@@ -34,7 +44,27 @@ describe User do
       expect(authenticated_user.id).to eq user.id
     end
 
-    # Tests for unhappy paths
+    it 'returns nil if incorrect email given' do
+      user = User.create(
+        email: email,
+        password: password,
+        name: name,
+        username: username
+      )
+      authenticated_user = User.authenticate(email: 'wrong_email', password: password)
+      expect(authenticated_user).to be_nil
+    end
+
+    it 'returns nil if incorrect password given' do
+      user = User.create(
+        email: email,
+        password: password,
+        name: name,
+        username: username
+      )
+      authenticated_user = User.authenticate(email: email, password: 'wrong password')
+      expect(authenticated_user).to be_nil
+    end
 
   end
 

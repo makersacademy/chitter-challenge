@@ -8,6 +8,9 @@
       <input type="submit" value="Sign In">
     </form>
   </div>
+  <div class="flash-notice">
+    <%= flash[:notice] %>
+  </div>
   <div class="sign-up">
     <form action="/users/new" method="post">
       <input type="text" name="email" placeholder="Email address"> <br>
