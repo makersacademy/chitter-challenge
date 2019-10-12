@@ -8,6 +8,7 @@ describe User do
   let(:username) { 'melvinlau' }
 
   describe '.create' do
+
     it 'creates a new user' do
       user = User.create(
         email: email,
@@ -30,6 +31,39 @@ describe User do
         username: username
       )
     end
+
+    it 'returns appropriate message if user attempts to register an existing email' do
+      User.create(
+        email: email,
+        password: password,
+        name: name,
+        username: username
+      )
+      user = User.create(
+        email: email,
+        password: password,
+        name: name,
+        username: 'another_username'
+      )
+      expect(user).to eq 'Email exists'
+    end
+
+    it 'returns appropriate message if user attempts to register an existing username' do
+      User.create(
+        email: email,
+        password: password,
+        name: name,
+        username: username
+      )
+      user = User.create(
+        email: 'another@example.com',
+        password: password,
+        name: name,
+        username: username
+      )
+      expect(user).to eq 'Username exists'
+    end
+
   end
 
   describe '.authenticate' do
@@ -69,19 +103,36 @@ describe User do
   end
 
   describe '.find' do
-    it 'finds and retrieves a user from the database' do
-      user = User.create(
+
+    before(:each) do
+      User.create(
         email: email,
         password: password,
         name: name,
         username: username
       )
-      result = User.find(user.id)
-      # At the moment, it's possible for duplicate usernames to exist
-      # A username should be unique, this should be implemented later
-      expect(result.id).to eq user.id
-      expect(result.username).to eq user.username
     end
+
+    it 'searches the user database by email and returns any matches' do
+      result = User.find(by: 'email', term: email)
+      expect(result.email).to eq email
+    end
+
+    it 'returns nil if no matches by email are found' do
+      result = User.find(by: 'email', term: 'nonexistent@example.com')
+      expect(result).to eq nil
+    end
+
+    it 'searches the user database by username and returns any matches' do
+      result = User.find(by: 'username', term: username)
+      expect(result.username).to eq username
+    end
+
+    it 'returns nil if no matches by username are found' do
+      result = User.find(by: 'username', term: 'nonexistent_user')
+      expect(result).to eq nil
+    end
+
   end
 
 end

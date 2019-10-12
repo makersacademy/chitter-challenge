@@ -1,5 +1,10 @@
 <% if @user %>
-  Hi <%= @user.name %>!
+  <div class="user-dashboard">
+    Hi <%= @user.name %>!
+    <form action="/users/<%= @user.id %>/session/destroy" method="post">
+      <input type="submit" value="Sign Out">
+    </form>
+  </div>
 <% else %>
   <div class="sign-in">
     <form action="/users/session" method="post">

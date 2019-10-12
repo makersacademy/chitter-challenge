@@ -3,6 +3,9 @@ require './database_connection'
 class User
 
   def self.create(email:, password:, name:, username:)
+    return 'Email exists' if User.find(by: 'email', term: email)
+    return 'Username exists' if User.find(by: 'username', term: username)
+
     encrypted_password = BCrypt::Password.create(password)
     sql = "INSERT INTO users (email, password, name, username) "
     sql += "VALUES('#{email}', '#{encrypted_password}', '#{name}', '#{username}') "
@@ -31,9 +34,11 @@ class User
     )
   end
 
-  def self.find(id)
-    sql = "SELECT * FROM users WHERE id = '#{id}';"
+  def self.find(by:, term:)
+    sql = "SELECT * FROM users WHERE #{by} = '#{term}';"
     result = DBConnection.query(sql)
+
+    return nil unless result.any?
 
     User.new(
       id: result[0]['id'],

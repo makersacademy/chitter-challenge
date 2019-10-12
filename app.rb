@@ -23,6 +23,7 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
+  # Sign Up
   post '/users/new' do
     user = User.create(
       email: params[:email],
@@ -30,12 +31,18 @@ class Chitter < Sinatra::Base
       name: params[:name],
       username: params[:username]
     )
-    session[:user] = user
+    if user == 'Email exists'
+      flash[:notice] = 'An account already exists with this email address. Please use another.'
+    elsif user == 'Username exists'
+      flash[:notice] = 'An account already exists with this username. Please choose another.'
+    else
+      session[:user] = user
+    end
     redirect '/'
   end
 
+  # Sign In
   post '/users/session' do
-
     user = User.authenticate(
       email: params[:email],
       password: params[:password]
@@ -45,6 +52,13 @@ class Chitter < Sinatra::Base
     else
       flash[:notice] = 'Please check your email or password.'
     end
+    redirect '/'
+  end
+
+  # Sign Out
+  post '/users/:id/session/destroy' do
+    session.clear
+    flash[:notice] = "You have successfully signed out."
     redirect '/'
   end
 
