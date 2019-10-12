@@ -1,0 +1,9 @@
+<form action="/" method="post">
+  Insert the message:
+   <input type="text" name="message">
+   <input type="submit" value="Peeps">
+</form>
+
+<% if !@message.nil? %>
+<%= @message.text %>
+<%end%>

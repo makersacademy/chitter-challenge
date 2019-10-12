@@ -1,5 +1,16 @@
 Chitter Challenge
 =================
+# To set up the database
+1. Create development database using psql command CREATE DATABASE chitter
+2. Connect to the database to create two tables
+3. Run script in db/migrations / 01_create_users_table.sql
+4. Run script in db/migrations / 02_create_messages_table.sql
+
+# To set up test environment
+1. Create test database using psql command CREATE DATABASE chitter_test
+2. Connect to the test database to create two tables
+3. Run script in db/migrations / 01_create_users_table.sql
+4. Run script in db/migrations / 02_create_messages_table.sql
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
