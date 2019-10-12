@@ -47,19 +47,23 @@ I want to sign up for Chitter
 
 
 ## Technologies used
+## Postgress
+```
+brew install postgresql
+```
 -----
 ## SQL
 - connect
-# h
-```psql
+```
+psql
 ```
 
 ### Creating the Databases
-```psql``` command ```CREATE DATABASE chitter;
+```psql``` command ```CREATE DATABASE "chitter";
 ```
-```psql``` command ```CREATE DATABASE chitter_test;
+```psql``` command ```CREATE DATABASE "chitter_test";
 ```
-- see 'db/migrations' for further instructions.
+- see 'db/migrations/' for further instructions.
 
 ### Viewing the Databases
 - connect:
@@ -75,7 +79,7 @@ chitter_test.sql
 ```
 
 - to inspect the list of existing tables:
-```\dt
+```\dt;
 ```     
 
 - to view the table's content:            
@@ -95,9 +99,9 @@ bundle
 ### To run the Bookmark Manager app:
 
 ```
-rackup -p 3000
+rackup
 ```
-
+- browser: http://localhost:9292
 ### To run tests:
 
 ```
