@@ -18,8 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    DatabaseConnection(dbname: 'posts')
-    Database.query("INSERT INTO posts (content) VALUES('#{params[:content]}');")
+    Posts.create(content: params[:content])
     redirect '/homepage'
   end
 
