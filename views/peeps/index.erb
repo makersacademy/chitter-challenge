@@ -1,5 +1,8 @@
 <ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+  <% @peeps.each do |a_peep| %>
+    <li>
+      <%= a_peep.username %>:
+      <%= a_peep.peep %>
+    </li>
   <% end %>
 </ul>

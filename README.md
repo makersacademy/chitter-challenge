@@ -22,7 +22,7 @@ I want to sign up for Chitter
 ```
 -----
 ## Features:
-- user can post a new message. (CREATE)
+- user can post a new message & their username. (CREATE)
 - user can view all messages. (READ)
 - messages include time it was created.
 - user can sign up for chitter.
@@ -32,14 +32,9 @@ I want to sign up for Chitter
 - Chitter
 - Peep
 
-Chitter has MANY Peeps
- _______      ____
-|Chitter|---≡|Peep| 
- –––––––      ––––
-
 ### Messages
 - |Peep|--.all - ->|Chitter| (Read all peeps)
-- |Peep|--.add - ->|Chitter| (Create new peep)
+- |Peep|--.create(peep, username) - ->|Chitter| (Create new peep)
 
 ### Sequence Diagrams
 |User| --peep(time)--> |Chitter|
@@ -51,8 +46,19 @@ Chitter has MANY Peeps
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-
-
+------
+## Domain Relationships
+Chitter has MANY Peeps
+ _______      ____
+|Chitter|---≡|Peep|
+ –––––––      ––––
+------
+## Class Responsibility Collaborator (CRC) Models
+Table: Peeps
+| id |     peep     | username |
+|------------------------------|
+| 1  | "first peep" |  "Josh"  |
+------
 ## Technologies used
 ## Postgress
 ```
