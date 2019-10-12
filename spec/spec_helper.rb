@@ -17,6 +17,7 @@ require 'rspec'
 require 'active_record'
 require 'sinatra/activerecord'
 require_relative './setup_test_database'
+require_relative './web_helpers'
 
 Capybara.app = Chitter
 

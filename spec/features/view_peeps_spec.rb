@@ -2,6 +2,7 @@ require 'timecop'
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps in reverse chronological order' do
+    sign_up
     Peep.create(content: "So sunny today!")
     Peep.create(content: "Watching Adventure Time.")
 
@@ -12,6 +13,7 @@ feature 'Viewing peeps' do
   end
 
   scenario 'A user can see the time when the peep was posted' do
+    sign_up
     t = Time.utc(2019, 10, 12, 10, 15, 10)
       Timecop.freeze(t)
     Peep.create(content: "Chirp-chirp!")
