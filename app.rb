@@ -27,7 +27,16 @@ class Chitter < Sinatra::Base
       name: params[:name],
       username: params[:username]
     )
-    session[:user] = user
+    session[:user] = user # User signed in automatically after registration
+    redirect '/'
+  end
+
+  post '/users/session' do
+    user = User.authenticate(
+      email: params[:email],
+      password: params[:password]
+    )
+    session[:user] = user # This should not coincide with registration scenario
     redirect '/'
   end
 
