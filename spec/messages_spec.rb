@@ -1,9 +1,11 @@
 require 'messages'
+require 'users'
 
 describe Messages do
   describe '#create' do
     it 'create a new message' do
-      message = Messages.new('Hello')
+      user = Users.create('test@test.com', 'password', 'John Doe', 'J')
+      message = Messages.create('Hello', user.id)
       expect(message).to be_a Messages
       expect(message.text).to eq 'Hello'
     end

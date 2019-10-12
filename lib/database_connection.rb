@@ -9,5 +9,4 @@ class DatabaseConnection
   def self.query(query_string)
     @connection.exec(query_string)
   end
-
 end

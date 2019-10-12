@@ -1,7 +1,8 @@
 require 'pg'
 
 def setup_test_database
+  puts 'Setting up test database...'
+
   connection = PG.connect(dbname: 'chitter_test')
-  # Clear the bookmarks table
   connection.exec('TRUNCATE TABLE users, messages;')
 end
