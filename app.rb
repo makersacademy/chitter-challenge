@@ -66,6 +66,14 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  # Post a new peep
+  post '/peeps/new' do
+    Peep.create(
+      content:,
+      user_id:
+    )
+  end
+
   run! if app_file == $0
 
 end

@@ -24,7 +24,6 @@ describe Peep do
   let(:content_one) { "Hello world! Whassup y'all?" }
   let(:content_two) { "I'm bored!" }
 
-
   describe '.create' do
     it 'creates a new peep' do
       peep = Peep.create(content: content_one, user_id: user.id)
