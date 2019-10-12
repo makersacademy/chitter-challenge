@@ -1,8 +1,8 @@
 feature 'Add a new peep' do
-  scenario 'user sees the new peep button on the /peeps page' do
-    visit '/peeps'
-    expect(page).to have_button 'New peep'
-  end
+  # scenario 'user sees the new peep button on the /peeps page' do
+  #   visit '/peeps'
+  #   expect(page).to have_button 'New peep'
+  # end
 
   scenario 'user can write a peep and add it to list of peeps' do
     visit '/peeps/new'
@@ -10,6 +10,6 @@ feature 'Add a new peep' do
     fill_in('handle', with: 'js2019')
     fill_in('message', with: 'This is a test peep')
     click_button 'Submit'
-    expect(page).to have_content('John Smith', 'js2019', 'This is a test peep') 
-  end
+    expect(page).to have_content('This is a test peep')
+  end 
 end

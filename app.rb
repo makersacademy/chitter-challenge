@@ -19,7 +19,7 @@ class Peeps < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message])
+    Peep.create(name: params[:name], handle: [:handle], message: params[:message])
     redirect '/peeps'
   end
 

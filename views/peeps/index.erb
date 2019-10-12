@@ -1,8 +1,12 @@
 <ul>
   <% @peeps.each do |message| %>
-    <li><%= message %></li>
+    <li>
+      <h3><%= message.name %></h3>
+          <%= message.handle %>
+        <p><%= message.message %></p>
+    </li>
   <% end %>
 </ul>
 <form action="/peeps/new">
   <input type="submit" value="New peep" />
-</form> 
+</form>
