@@ -5,12 +5,19 @@ Chitter Challenge
 1. Connect to ```psql```
 2. Create the database using the ```psql``` command ```CREATE DATABASE chitter_manager;```
 3. Connect to the database using the ```psql``` command ```\c chitter_manager;```
-4. Run the query we have saved in the file ```01_create_peeps_table.sql```
+4. Run the query we have saved in the file ```create_peeps_table.sql```
 5. Exit PSQL
 6. Connect to ```psql```
 7. Create the database using the ```psql``` command ```CREATE DATABASE chitter_manager_test;```
 8. Connect to the database using the ```psql``` command ```\c chitter_manager_test;```
-9. Run the query we have saved in the file ```01_create_peeps_table.sql```
+9. Run the query we have saved in the file ```create_peeps_table.sql```
+10. Exit PSQL
+11. Connect to ```psql```
+12. Connect to the database using the ```psql``` command ```\c chitter_manager;```
+13. Run the query on line 1 we have saved in the file ```create_users_table.sql```
+14. Run the query on line 2 we have saved in the file ```create_users_table.sql```
+15. Repeat steps 11-14 except at step 12, connect to the test database using the ```psql``` command ```\c chitter_manager_test;```
+
 
 
 Features:

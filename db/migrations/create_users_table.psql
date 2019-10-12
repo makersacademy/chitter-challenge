@@ -1,0 +1,2 @@
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(20), username VARCHAR(20), email VARCHAR(50), password VARCHAR(30));
+ALTER TABLE peeps ADD COLUMN users_id INTEGER REFERENCES users (id);

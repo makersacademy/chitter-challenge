@@ -18,7 +18,7 @@ class Chitter
     end
     result = connection.exec("SELECT * FROM peeps ORDER BY time;")
     result.map { |peep|
-    Chitter.new(id: peep['id'], time: peep['time'], peep: peep['peep'])
+      Chitter.new(id: peep['id'], time: peep['time'], peep: peep['peep'])
     }
   end
 
