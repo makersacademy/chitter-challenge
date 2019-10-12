@@ -3,9 +3,9 @@ feature 'Viewing peeps' do
     connection = PG.connect(dbname: 'chitter_test')
 
     # test data
-    connection.exec("INSERT INTO peeps VALUES(1, 'first peep');")
-    connection.exec("INSERT INTO peeps VALUES(2, 'second peep');")
-    connection.exec("INSERT INTO peeps VALUES(3, 'third peep');")
+    Peep.create(peep: "first peep")
+    Peep.create(peep: "second peep")
+    Peep.create(peep: "third peep")
 
     visit('/peeps')
 
