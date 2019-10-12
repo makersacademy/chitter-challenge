@@ -1,6 +1,6 @@
 feature 'Posting a peep' do
   scenario 'A new peep can be posted' do
-    visit ('/peep/new')
+    visit '/peep/new'
     fill_in('message', with: 'A new peep')
     click_button('Peep!')
 

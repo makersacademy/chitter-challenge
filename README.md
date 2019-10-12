@@ -1,12 +1,13 @@
 ### To set up the database
 
-Connect to `psql` and create the `chitter` database:
+Connect to `psql` and create the `chitter` and `chitter_test` databases:
 
 ```
 CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
 ```
 
-To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+To set up the appropriate tables, connect to the databases in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
 
 

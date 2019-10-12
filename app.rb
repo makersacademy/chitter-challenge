@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/message'
 
 class Chitter < Sinatra::Base
 
@@ -12,10 +13,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    p params['message']
     redirect '/'
   end
 
-run if app_file == $0
+  run if app_file == $0
 
 end
