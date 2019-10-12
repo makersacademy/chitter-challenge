@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/time_converter'
 
 class Chitter < Sinatra::Base
   enable :method_override, :sessions

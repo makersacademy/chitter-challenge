@@ -6,7 +6,7 @@
       </div>
       <div class='created-at text-muted'>
         <small>
-          posted  <%= peep.created_at.strftime('%H:%M  %d/%m/%Y') %>
+          posted  <%= TimeConverter.time_since(peep.created_at) %>
         </small>
       </div>
     </div>

@@ -92,6 +92,9 @@ GEM
       unicode-display_width (~> 1.1, >= 1.1.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    time_diff (0.3.0)
+      activesupport
+      i18n
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
@@ -113,6 +116,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-activerecord
+  time_diff
 
 BUNDLED WITH
    1.17.2
