@@ -9,14 +9,20 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 ENV['ENVIRONMENT'] = 'test'
+ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-# require 'features/web_helper'
+require 'active_record'
+require 'sinatra/activerecord'
 require_relative './setup_test_database'
 
 Capybara.app = Chitter
+
+# Load rake file for database tasks
+# rake = Rake.application
+# rake.load_rakefile
 
 RSpec.configure do |config|
   config.before(:each) do
