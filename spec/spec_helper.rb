@@ -1,5 +1,6 @@
 require_relative './setup_test_database'
 require_relative './database_helpers'
+require_relative './features/web_helper'
 
 ENV['ENVIRONMENT'] = 'test'
 

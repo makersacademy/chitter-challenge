@@ -8,6 +8,10 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_overide
   register Sinatra::Flash
 
+  get '/' do
+    redirect '/homepage'
+  end
+
   get '/homepage' do
     @posts = Posts.all
     erb :homepage

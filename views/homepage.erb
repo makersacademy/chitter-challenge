@@ -8,7 +8,7 @@
     <h1>Chitter</h1>
     <h2>homepage</h2>
     <ul><% @posts.each do |post| %>
-      <li><%= post.content %></li>
+      <li><%= post.content %> --- <%= post.date %></li>
     <% end %>
     </ul>
     <form action="/posts/new">

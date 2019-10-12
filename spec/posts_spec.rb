@@ -5,9 +5,10 @@ require_relative './database_helpers'
 describe Posts do
   describe '.all' do
     it "lists all posts" do
-      connection = PG.connect(dbname: "posts_test")
-      result = connection.exec("INSERT INTO posts (content) VALUES('This is a test post') RETURNING content;")
-      Posts.new(id: result[0]['id'], content: result[0]['content'])
+      # connection = PG.connect(dbname: "posts_test")
+      # result = connection.exec("INSERT INTO posts (content) VALUES('This is a test post') RETURNING content;")
+      # Posts.new(id: result[0]['id'], content: result[0]['content'], date: result[0]['date'])
+      Posts.create(content: "This is a test post")
 
       posts = Posts.all
 
