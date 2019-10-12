@@ -12,6 +12,16 @@ class Chitter < Sinatra::Base
     'Hello world!'
   end
 
+  get '/peeps' do
+    @peeps = Peep.order(created_at: :desc)
+    erb :index
+  end
+
+  post '/peeps/new' do
+    @peep = Peep.create(content: params[:content])
+    redirect '/peeps'
+  end
+
   run! if app_file == $0
 
 end

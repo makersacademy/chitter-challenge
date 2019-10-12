@@ -1,0 +1,14 @@
+
+<form action="/peeps/new" method="post">
+  <input type="text" name="content" placeholder="New Peep"/>
+  <input type="submit" value="Post" />
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+        <%= peep.content %>
+        <%= peep.published_on %> 
+    </li>
+  <% end %>
+</ul>
