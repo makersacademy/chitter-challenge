@@ -1,4 +1,5 @@
 require_relative './setup_test_database'
+require_relative './database_helpers'
 
 ENV['ENVIRONMENT'] = 'test'
 
@@ -11,6 +12,12 @@ require 'pg'
 require 'sinatra/flash'
 
 ENV['RACK_ENV'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 

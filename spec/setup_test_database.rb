@@ -1,6 +1,8 @@
 require 'pg'
 
-def persisted_data(id:, table:)
+def setup_test_database
+  p "Setting up test database"
+
   connection = PG.connect(dbname: 'posts_test')
-  connection.exec("SELECT * FROM #{table} WHERE id = '#{id}';")
+  connection.exec("TRUNCATE posts CASCADE")
 end

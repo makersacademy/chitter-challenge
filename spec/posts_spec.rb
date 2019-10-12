@@ -1,5 +1,6 @@
 require_relative '../lib/posts'
 require_relative './setup_test_database'
+require_relative './database_helpers'
 
 describe Posts do
   describe '.all' do
@@ -12,6 +13,17 @@ describe Posts do
 
       expect(posts.first.content).to eq 'This is a test post'
       expect(posts.first).to be_a Posts
+    end
+
+    it "lists most recent posts first" do
+      Posts.create(content: "This post should be last")
+      Posts.create(content: "This post should be second")
+      Posts.create(content: "This post should be first")
+
+      posts = Posts.all
+
+      expect(posts.first.content).to eq "This post should be first"
+      expect(posts.last.content).to eq "This post should be last"
     end
   end
 

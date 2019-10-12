@@ -10,7 +10,7 @@ class Posts
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM posts;")
+    result = DatabaseConnection.query("SELECT * FROM posts ORDER BY id DESC;")
     result.map do |post|
       Posts.new(id: post['id'], content: post['content'])
     end
