@@ -51,6 +51,8 @@ I want to sign up for Chitter
 ```
 brew install postgresql
 ```
+## TablePlus
+- Optional, Graphic User Interface to database program.
 -----
 ## SQL
 - connect
@@ -63,7 +65,7 @@ psql
 ```
 ```psql``` command ```CREATE DATABASE "chitter_test";
 ```
-- see 'db/migrations/' for further instructions.
+- see 'db/migrations/' for further instructions. (follow instructions for both databases)
 
 ### Viewing the Databases
 - connect:
