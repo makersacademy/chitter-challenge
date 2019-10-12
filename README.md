@@ -30,9 +30,16 @@ I want to sign up for Chitter
 ## Domain Modelling
 ### Objects
 - Chitter
+- Peep
+
+Chitter has MANY Peeps
+ _______      ____
+|Chitter|---≡|Peep| 
+ –––––––      ––––
 
 ### Messages
-- peep
+- |Peep|--.all - ->|Chitter| (Read all peeps)
+- |Peep|--.add - ->|Chitter| (Create new peep)
 
 ### Sequence Diagrams
 |User| --peep(time)--> |Chitter|
