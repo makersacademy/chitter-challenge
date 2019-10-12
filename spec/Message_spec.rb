@@ -2,18 +2,20 @@ require 'message'
 
 describe Message do
 
-  it 'creates a new peep' do
-    # insert once database has been set up
+  describe '.create' do  
+    it 'creates a new peep' do
+      Message.create(text: 'A peep')
 
+      expect(Message.all).to include 'A peep'
+    end
   end
 
   describe '.all' do
     it 'displays all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
 
-      connection.exec("INSERT INTO message (text) VALUES ('Peepin aint easy');")
-      connection.exec("INSERT INTO message (text) VALUES ('Look before you peep');")
-      connection.exec("INSERT INTO message (text) VALUES ('Im a peep');")
+      Message.create(text: 'Peepin aint easy')
+      Message.create(text: 'Look before you peep')
+      Message.create(text: 'Im a peep')
 
       peeps = Message.all
 

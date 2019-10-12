@@ -2,15 +2,16 @@ require 'pg'
 
 class Message
 
-  # def initialize(id, text)
+  def self.create(text:)
+    if ENV['ENVIRONMENT'] == 'test' 
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
 
-  #   @id = id
-  #   @text = text
-  #   # @username = username
-  #   # @name = name
-  #   # @time = time
+    connection.exec("INSERT INTO message (text) VALUES ('#{text}')")
 
-  # end
+  end
 
   def self.all
 

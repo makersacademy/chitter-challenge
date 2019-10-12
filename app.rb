@@ -13,6 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
+    Message.create(text: params['message'])
     redirect '/'
   end
 
