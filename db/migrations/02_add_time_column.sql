@@ -1,0 +1,1 @@
+ALTER TABLE message ADD COLUMN time timestamp default current_timestamp;
