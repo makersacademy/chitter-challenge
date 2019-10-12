@@ -1,14 +1,9 @@
-Chitter Challenge
+# Chitter Challenge
 =================
-
-A small Twitter clone that will allow users to post messages to a public stream.
-
-Features:
+A small Twitter clone that allows users to post messages to a public stream.
 -------
-
+## User Stories
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -24,67 +19,93 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
-
-Technical Approach:
 -----
+## Features:
+- user can post a new message. (CREATE)
+- user can view all messages. (READ)
+- messages include time it was created.
+- user can sign up for chitter.
+-----
+## Domain Modelling
+### Objects
+- Chitter
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+### Messages
+- peep
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
+### Sequence Diagrams
+|User| --peep(time)--> |Chitter|
+|User| <- - "peeps" - - |Chitter|
 ------
-
-* You don't have to be logged in to see the peeps.
+## Notes on functionality:
+------
+* Don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
+
+## Technologies used
 -----
+## SQL
+- connect
+# h
+```psql
+```
 
-If you have time you can implement the following:
+### Creating the Databases
+```psql``` command ```CREATE DATABASE chitter;
+```
+```psql``` command ```CREATE DATABASE chitter_test;
+```
+- see 'db/migrations' for further instructions.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+### Viewing the Databases
+- connect:
+```psql
+```
 
-And/Or:
+- change to database
+chitter.sql
+```\c chitter;
+```
+chitter_test.sql
+```\c chitter_test;
+```
 
-* Work on the CSS to make it look good.
+- to inspect the list of existing tables:
+```\dt
+```     
 
-
-Automated Tests:
+- to view the table's content:            
+```SELECT * FROM chitter;
+```
 -----
+## How to use
 
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
+### To set up the project
 
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
+Clone this repository and then run:
 
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
+```
+bundle
+```
+
+### To run the Bookmark Manager app:
+
+```
+rackup -p 3000
+```
+
+### To run tests:
+
+```
+rspec
+```
+
+### To run linting:
+
+```
+rubocop
+```
