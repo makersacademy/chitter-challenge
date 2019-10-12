@@ -19,7 +19,7 @@ describe DatabaseConnection do
   describe '.query' do
     it 'takes an SQL string and executes it' do
       DatabaseConnection.setup(dbname: 'peeps_test')
-      query = DatabaseConnection.query("INSERT INTO peeps (message) VALUES('Test message') RETURNING id;").first
+      query = DatabaseConnection.query("INSERT INTO peeps (message, tdz) VALUES('Test message', '#{Time.now}') RETURNING id;").first
       selection = DatabaseConnection.query("SELECT * FROM peeps").first
       expect(selection['id']).to eq query['id']
     end

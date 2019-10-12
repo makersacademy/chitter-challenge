@@ -1,0 +1,19 @@
+
+<h1 style="text-align: center;" >Chitter</h1>
+<br>
+
+<div style="margin-left: 12.5%;">
+<form  action="/peep" method="post">
+    <input name"peep">
+    <textarea class=".peep" style="width: 85%;" name="peep" cols="60" rows="3" placeholder="Write a peep! Share your thoughts!"></textarea>
+    </input>
+    <br>
+    <input style="width: 75px; margin-top: 5px;" type="submit" value="Post" />
+</form>
+</div>
+
+<p> 1st Test Peep </p>
+<% if @peep %>
+    <p> <%= @peep.message %> </p>
+<% end %>
+

@@ -5,7 +5,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require_relative './setup_test_database'
-require './database_connection_setup'
+require_relative './database_connection_setup'
 
 ENV['ENVIRONMENT'] = 'test'
 
