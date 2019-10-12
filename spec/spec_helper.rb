@@ -1,16 +1,21 @@
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-# Dir[File.join(File.dirname(__FILE__), 'helpers/*.rb')].each { |file| require file }
+Dir[File.join(File.dirname(__FILE__), 'helpers/*.rb')].each { |file| require file }
 
 ENV['RACK_ENV'] = 'test'
 
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require File.join(File.dirname(__FILE__), '..', 'config/environment.rb')
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-  config.before(:each) do
+  config.before do
+    ActiveRecord::Base.subclasses.each(&:delete_all)
+  end
+  config.after do
+    ActiveRecord::Base.subclasses.each(&:delete_all)
   end
 end
 

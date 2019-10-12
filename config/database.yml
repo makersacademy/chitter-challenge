@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+  timeout: 5000
+
+development:
+  <<: *default
+  database: chitter_dev
+
+test:
+  <<: *default
+  database: chitter_test
+
+production:
+  <<: *default
+  database: chitter

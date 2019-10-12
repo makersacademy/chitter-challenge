@@ -1,0 +1,17 @@
+<% @peeps.each do |peep| %>
+  <div class='card'>
+    <div class=card-body>
+      <%= peep.content %>
+    </div>
+    <div class='card-footer text-muted'>
+      <div class='row'>
+        <div class='col-8 '></div>
+        <div class='col'>
+          <small>
+            posted  <%= peep.created_at.strftime('%H:%M  %d/%m/%Y') %>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
