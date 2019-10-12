@@ -9,6 +9,7 @@ require 'bcrypt'
 # Models
 require './lib/db_connection'
 require './lib/user'
+require './lib/peep'
 
 # Helpers
 require './database_connection'
