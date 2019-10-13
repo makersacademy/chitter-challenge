@@ -24,12 +24,13 @@
           <div class="peep-timestamp">
             <%= peep.timestamp %>
 
-            <% if @user %>
+            <% if @user && @user.id == peep.user.id %>
               <form action="/peeps/<%= peep.id %>/delete" method="post">
                 <input type="hidden" name="peep_id" value="<%= peep.id %>">
                 <input class="btn btn-dark btn-sm" type="submit" value="Delete">
               </form>
             <% end %>
+
           </div>
 
         </div>
