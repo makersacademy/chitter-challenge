@@ -6,7 +6,14 @@
     color: #FEF5E8; 
 }
 </style>
+<form action="/new_user" method="get">
+  <input type="submit" value="Sign up for Chitter!" />
+</form>
 <center>
+<% if @user %>
+  <h1>Welcome, <%= @user.user_name %></h1>
+<% end %>
+<h1> What's happening today in Chitter </h1>
   <ul>
   <% @peeps.reverse_each.each do |peep| %>
     <li><%= peep.text %> 
