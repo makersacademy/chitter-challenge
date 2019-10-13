@@ -7,6 +7,9 @@
   <body>
     <center>
       <h1> Peeps</h1>
+      <% if @user %>
+      <h2>You are signed in as <%=@user.username%></h2>
+      <% end %>
       </center>
     <ul>
       <% @peeps.each do |peep| %>
