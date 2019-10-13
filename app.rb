@@ -31,12 +31,28 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.where(username: params[:username]).first
+    password = params[:password]
+    if user && user.authenticate(password)
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = "Username or password is invalid"
+      redirect '/sessions/new'
+    end
+  end
+
   post '/users/new' do
     user = User.create(
       name: params[:name],
       username: params[:username],
       email: params[:email],
-      password: params[:password],
+      password: params[:password]
     )
     session[:user_id] = user[:id]
     redirect '/peeps'

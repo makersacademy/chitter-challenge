@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2019_10_12_112450) do
   create_table "peeps", force: :cascade do |t|
     t.bigint "user_id"
     t.string "content"
-    t.datetime "published_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_peeps_on_user_id"
@@ -28,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_112450) do
     t.string "name", null: false
     t.string "username", null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
   end
 
 end
