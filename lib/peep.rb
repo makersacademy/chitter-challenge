@@ -27,6 +27,10 @@ class Peep
     end
   end
 
+  def self.delete(id:)
+    DBConnection.query("DELETE FROM peeps WHERE id = #{id}")
+  end
+
   attr_reader :id, :content, :timestamp, :user_id, :user
 
   def initialize(id:, content:, timestamp:, user_id:)

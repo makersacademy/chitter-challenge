@@ -45,4 +45,12 @@ describe Peep do
     end
   end
 
+  describe '.delete' do
+    it 'deletes a peep' do
+      peep = Peep.create(content: content_one, user_id: user.id)
+      Peep.delete(id: peep.id)
+      expect(Peep.all).not_to include peep
+    end
+  end
+
 end

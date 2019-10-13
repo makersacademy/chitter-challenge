@@ -12,13 +12,26 @@
     <% if @feed.length > 0 %>
 
       <% @feed.each do |peep| %>
-        <div class="peep m-3 p-4">
+        <div class="peep m-3 p-4" id="peep-<%= peep.id %>">
+
           <div class="author mb-2">
             <strong><%= peep.user.name %></strong>
             <span class="handle ml-2">@<%= peep.user.username %></span>
           </div>
+
           <div class="peep-content mb-3"><%= peep.content %></div>
-          <div class="peep-timestamp"><%= peep.timestamp %></div>
+
+          <div class="peep-timestamp">
+            <%= peep.timestamp %>
+
+            <% if @user %>
+              <form action="/peeps/<%= peep.id %>/delete" method="post">
+                <input type="hidden" name="peep_id" value="<%= peep.id %>">
+                <input class="btn btn-dark btn-sm" type="submit" value="Delete">
+              </form>
+            <% end %>
+          </div>
+
         </div>
       <% end %>
 
