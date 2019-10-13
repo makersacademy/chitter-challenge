@@ -15,10 +15,10 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.before do
-    ActiveRecord::Base.subclasses.each(&:delete_all)
+    ActiveRecord::Base.subclasses.reverse_each(&:delete_all)
   end
   config.after do
-    ActiveRecord::Base.subclasses.each(&:delete_all)
+    ActiveRecord::Base.subclasses.each.reverse_each(&:delete_all)
   end
 end
 

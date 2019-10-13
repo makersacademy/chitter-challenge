@@ -1,29 +1,29 @@
 describe UserPassword do
-  let(:user) { double(:user) }
+  let(:user) { double(:user, id: 1) }
   describe '.set' do
     it 'sets the password and salt for the given user' do
-      expect(user).to receive(:passhash=)
-      expect(user).to receive(:salt=)
-      UserPassword.create(user, "Password")
+      user = User.create(name: "name", handle: "handle")
+      user_password = UserPassword.set(user, "Password")
+      expect(user_password.passhash).to be_a(String)
+      expect(user_password.salt).to be_a(String)
+      expect(user_password.user_id).to eq user.id
     end
   end
   
-  describe '.check' do
+  describe 'check' do
     context 'given the correct password' do
       it 'returns true' do
-        salt = BCrypt::Engine.generate_salt
-        passhash = BCrypt::Engine.hash_secret("password", salt)
-        result = UserPassword.check(password: "password", salt: salt, passhash: passhash)
-        expect(result).to be true
+        user = User.create(name: "name", handle: "handle")
+        user_password = UserPassword.set(user, "Password")
+        expect(user_password.check('Password')).to be true
       end
     end
 
     context 'given an incorrect password' do
       it 'returns false' do
-        salt = BCrypt::Engine.generate_salt
-        passhash = BCrypt::Engine.hash_secret("password", salt)
-        result = UserPassword.check(password: "wrong password", salt: salt, passhash: passhash)
-        expect(result).to be false
+        user = User.create(name: "name", handle: "handle")
+        user_password = UserPassword.set(user, "Password")
+        expect(user_password.check('wrong password')).to be false
       end
     end
   end

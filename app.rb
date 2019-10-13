@@ -13,6 +13,7 @@ class Chitter < Sinatra::Base
   end
   
   get '/home' do
+    @user = warden_handler.user if warden_handler.authenticated?
     @peeps = Peep.all.reverse
     @css_path = 'main.css'
     @page = :'home/home'
@@ -41,7 +42,7 @@ class Chitter < Sinatra::Base
       handle: params[:handle],
       name: params[:name],
     )
-    UserPassword.create(user, params[:password])
+    UserPassword.set(user, params[:password])
     flash[:new_user] = "Thanks for joining Chitter, #{user.name}! Have a really chit time!"
     redirect '/home'
   end

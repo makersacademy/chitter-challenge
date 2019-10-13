@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 describe User do
-  let(:user_password_class) { double(:user_password_class) }
+  let(:user_password) { double(:user_password) }
   let(:bcrypt_class) { double(:bcrypt_class) }
 
   subject(:user) { 
@@ -23,12 +23,8 @@ describe User do
 
   describe '#authenticate' do
     it 'forwards the authentication check to the UserPassword class' do
-      allow(user).to receive(:user_password_class) { user_password_class }
-      expect(user_password_class).to receive(:check).with(
-        password: "passhash",
-        salt: user.salt,
-        passhash: user.passhash
-      )
+      allow(user).to receive(:password) { user_password }
+      expect(user_password).to receive(:check).with("passhash")
       user.authenticate("passhash")
     end
   end

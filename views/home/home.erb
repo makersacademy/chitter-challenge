@@ -24,7 +24,7 @@
             </h5>
           </div>
         </div>
-        <%= erb :'forms/peep_form' %>
+        <%= erb :'forms/peep_form' if @user %>
         <%= erb :'home/peeps' %>
       </body>
     </div>
