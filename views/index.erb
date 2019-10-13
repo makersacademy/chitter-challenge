@@ -1,11 +1,10 @@
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
-<% end %>
-
-<form action="/peeps/new" method="post">
+  <form action="/peeps/new" method="post">
   <input type="text" name="content" placeholder="New Peep"/>
   <input type="submit" value="Post" />
 </form>
+<% end %>
 
 <ul class="peeps_list">
   <% @peeps.each do |peep| %>
@@ -16,14 +15,14 @@
   <% end %>
 </ul>
 
-<form action="/sessions/destroy" method="post">
+<form action="/logout" method="post">
   <input type="submit" value="Log out" />
 </form>
 
-<form action="/sessions/new" method="get">
+<form action="/login" method="get">
   <input type="submit" value="Log in" />
 </form>
-<form action="/users/new" method="get">
+<form action="/signup" method="get">
   <input type="submit" value="Sign up" />
 </form>
 <h2>

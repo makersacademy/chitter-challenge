@@ -25,19 +25,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    @peep = Peep.create(content: params[:content], user_id: current_user.id)
+    @peep = Peep.create(content: params[:content])
     redirect '/peeps'
   end
 
-  get '/signup' do
-    erb :signup
+  get '/users/new' do
+    erb :'users/new'
   end
 
-  get '/login' do
-    erb :login
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
-  post '/login' do
+  post '/sessions' do
     user = User.where(username: params[:username]).first
     password = params[:password]
     if user && user.authenticate(password)
@@ -45,17 +45,17 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash[:notice] = "Username or password is invalid"
-      redirect '/login'
+      redirect '/sessions/new'
     end
   end
 
-  post '/logout' do
+  post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect('/peeps')
   end
 
-  post '/signup' do
+  post '/users/new' do
     user = User.create(
       name: params[:name],
       username: params[:username],
