@@ -7,6 +7,7 @@ feature 'Sign up and log in' do
     fill_in('password', with: "password123")
     click_button('Sign Up')
     expect(current_path).to eq '/peeps'
+    expect(page).to have_content 'You are signed in as user001'
   end
 
   scenario 'User can log in' do

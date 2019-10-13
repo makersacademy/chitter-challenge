@@ -4,8 +4,11 @@ describe Peep do
   describe '.create' do
     it "creates a new peep" do
       peep = Peep.create(message: "My first peep")
+      connection = PG.connect(dbname: 'chitter_test')
+      result = connection.query("SELECT * FROM peeps")
 
       expect(peep).to be_a Peep
+      expect(peep.id).to eq result.first['id']
       expect(peep.message).to eq "My first peep"
 
     end
@@ -22,7 +25,7 @@ describe Peep do
       expect(peeps.length).to eq 3
       expect(peeps.last).to be_a Peep
       expect(peeps.last.id).to eq peep.id
-      expect(peeps.last.message).to eq "My first peep"
+      expect(peeps.last.message).to eq peep.message
       expect(peeps.last.created_at).to eq peep.created_at
     end
   end

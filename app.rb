@@ -1,5 +1,7 @@
 require 'sinatra/base'
+
 require './lib/peep'
+require './lib/user'
 
 require_relative './database_connection_setup'
 
@@ -14,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
+    User.create(username: params[:username], password: params[:password])
     redirect '/peeps'
   end
 
