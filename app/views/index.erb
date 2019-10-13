@@ -2,8 +2,6 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
-
     <style>
       .peep-form {
         display: flex;
@@ -11,23 +9,24 @@
         align-content: center;
       }
 
-      .peep{
+      .peep {
         margin-top: 89px;
       }
     </style>
   </head>
   <body>
     <center>
+      <% if current_user %>
+        <h1>Welcome <%= @current_user.username %> </h1>
+        <p>add peeps below!</p>
+      <% else %>
       <h1>Welcome to Chitter</h1>
       <p>Please sign up/sign in to Chitter in order to peep!</p>
     </center>
-
-    <form class = 'peep-form'action="/peeps" method="post">
+    <% end %>
+    <form class='peep-form' action="/peeps" method="post">
       <textarea name="text" rows="8" cols="80" placeholder="what's Peepin'?"></textarea>
       <input class='peep' type="submit" name="Add peep" value="Add peep">
-    </form>
-    <form action="/peeps" method="get">
-      <input type="submit" name="View all Peeps" value="View all Peeps">
     </form>
   </body>
 </html>

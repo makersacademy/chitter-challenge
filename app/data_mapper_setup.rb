@@ -5,6 +5,7 @@ require 'sinatra/partial'
 require 'dm-validations'
 require 'dm-timestamps'
 require_relative 'models/peep'
+require_relative 'models/user'
 
 # require_relative all models ie models/user
 

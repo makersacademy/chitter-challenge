@@ -21,16 +21,10 @@ class Chitter < Sinatra::Base
   end
 
   helpers do
+
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
-
-    def date_and_time(time)
-      time.strftime("%c")
-    end
-  end
-
-  helpers do
 
     def date_and_time(time)
       time.strftime("posted on %B %dth at %I:%M%p")
@@ -41,3 +35,4 @@ class Chitter < Sinatra::Base
 end
 
 require_relative 'controllers/peeps'
+require_relative 'controllers/users'
