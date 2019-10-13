@@ -36,7 +36,7 @@
           <div class="mb-3"><strong>Post a new peep:</strong></div>
           <form action="/peeps/new" method="post">
             <textarea rows="6" maxlength="280" placeholder="What are you up to?" name="content"></textarea>
-            <br>
+            <div class="flash-notice my-2"><%= flash[:notice] %></div>
             <input class="btn btn-dark mt-3" type="submit" value="Post">
           </form>
         </div>

@@ -32,4 +32,27 @@ feature 'Add peep' do
     visit '/'
     expect(page).to have_content content
   end
+
+  scenario 'User gets a message when submitting an empty peep' do
+    # Create a test user account in the database
+    User.create(
+      email: email,
+      password: password,
+      name: name,
+      username: username
+    )
+    # Sign in with correct credentials
+    visit '/'
+    within('div.sign-in') do
+      fill_in 'email', with: email
+      fill_in 'password', with: password
+      click_button 'Sign In'
+    end
+    # Post an empty peep
+    within('div.add-peep') do
+      click_button 'Post'
+    end
+    expect(page).to have_content 'You just tried to submit an empty post!'
+  end
+
 end

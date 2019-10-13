@@ -70,10 +70,15 @@ class Chitter < Sinatra::Base
 
   # Post a new peep
   post '/peeps/new' do
-    Peep.create(
-      content: params[:content],
-      user_id: session[:user].id
-    )
+
+    if params[:content].length > 0
+      Peep.create(
+        content: params[:content],
+        user_id: session[:user].id
+      )
+    else
+      flash[:notice] = 'You just tried to submit an empty post!'
+    end
     redirect '/'
   end
 
