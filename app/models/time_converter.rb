@@ -1,5 +1,3 @@
-require 'time_diff'
-
 class TimeConverter
   def self.time_since(time)
     diff = Time.now - time

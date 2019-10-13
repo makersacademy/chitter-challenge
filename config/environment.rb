@@ -2,6 +2,7 @@ require 'active_record'
 require 'bcrypt'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'time_diff'
 require 'warden'
 
 puts "Environment #{ENV['RACK_ENV']})"
