@@ -41,6 +41,7 @@ describe Peep do
       expect(Peep.all.length).to eq 2
       expect(Peep.all[0].content).to eq content_two
       expect(Peep.all[1].content).to eq content_one
+      expect(Peep.all[0].user.name).to eq name
     end
   end
 

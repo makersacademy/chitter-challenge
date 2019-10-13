@@ -27,13 +27,14 @@ class Peep
     end
   end
 
-  attr_reader :id, :content, :timestamp, :user_id
+  attr_reader :id, :content, :timestamp, :user_id, :user
 
   def initialize(id:, content:, timestamp:, user_id:)
     @id = id
     @content = content
     @timestamp = timestamp
     @user_id = user_id
+    @user = User.find(by: 'id', term: user_id)
   end
 
 end
