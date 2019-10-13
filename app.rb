@@ -14,7 +14,6 @@ class Chitter < Sinatra::Base
 
   post '/messages' do
     @chitter_message = params[:chitter_message]
-    # redirect '/messages'
     erb :messages
   end
 
