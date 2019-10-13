@@ -8,6 +8,7 @@ require_relative './setup_test_database'
 
 ENV['ENVIRONMENT'] = 'test'
 
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

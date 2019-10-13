@@ -2,24 +2,28 @@ require 'peep'
 
 describe Peep do
   describe '.all' do
-    it 'returns a list of peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
-  
-      connection.exec("INSERT INTO peeps (text) VALUES ('Its my first peep!');")
-      connection.exec("INSERT INTO peeps (text) VALUES('Peep, peep, peep!');")
-      
-  
-      peeps = Peep.all
-  
-      expect(peeps).to include('Its my first peep!')
-      expect(peeps).to include('Peep, peep, peep!')
-    end
-  end
+      it 'returns a list of peeps' do
+        connection = PG.connect(dbname: 'chitter_test')
+     
+        peep = Peep.create(text: 'Hello!', time: 'Now')
+        Peep.create(text: 'Hello again!', time: 'Later than now')
+     
+        peeps = Peep.all
+     
+        expect(peeps.length).to eq 2
+        expect(peeps.first).to be_a Peep
+        expect(peeps.first.id).to eq peep.id
+        expect(peeps.first.text).to eq 'Hello!'
+        expect(peeps.first.time).to eq 'Now'
+       end
+     end
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create(text: 'Im a new peep!')
-      expect(Peep.all).to include 'Im a new peep!'
+      peep = Peep.create(text: 'Im a new peep!', time: 'Time.new').first
+  
+      expect(peep['text']).to eq 'Im a new peep!'
+      expect(peep['time']).to eq 'Time.new'
     end
   end
 end

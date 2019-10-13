@@ -1,13 +1,12 @@
-feature 'Viewing peeps' do
-  scenario 'A user can see peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
+feature 'viewing peeps' do
+  scenario 'peeps are visible' do
+    Peep.create(text: 'Hello!', time: 'Now')
+    Peep.create(text: 'Hello again!', time: 'Later than now')
+   
 
-    connection.exec("INSERT INTO peeps VALUES(1, 'Its my first peep!');")
-    connection.exec("INSERT INTO peeps VALUES(2, 'Peep, peep, peep!');")
+    visit '/index'
 
-    visit('/peeps')
-
-    expect(page).to have_content "Its my first peep!"
-    expect(page).to have_content "Peep, peep, peep!"
+    expect(page).to have_content('Hello')
+    expect(page).to have_content('Now')
   end
 end

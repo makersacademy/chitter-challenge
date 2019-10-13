@@ -4,13 +4,16 @@
  body {
     background-color: #D6AD6B; 
     color: #FEF5E8; 
-    font-size:30px;
 }
 </style>
 <center>
   <ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep %><br><br></li>
+  <% @peeps.reverse_each.each do |peep| %>
+    <li><%= peep.text %> 
+    <br>
+    <%= peep.time %> 
+    <br><br>
+    </li>
   <% end %>
 </ul>
 </center>

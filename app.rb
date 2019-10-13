@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/flash'
 require 'uri'
-
 require './lib/peep'
 
 class Chitter < Sinatra::Base
@@ -19,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/index' do
-    Peep.create(text: params['text'])
+    Peep.create(text: params['peep'], time: Time.new.strftime("%m/%d/%Y %I:%M %p"))
     redirect '/index'
   end
 
