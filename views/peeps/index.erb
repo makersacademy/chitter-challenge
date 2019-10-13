@@ -5,9 +5,13 @@
     background-color: #D6AD6B; 
     color: #FEF5E8; 
 }
+ul {
+    text-align: center;
+    list-style-position: inside;
+}
 </style>
-<form action="/new_user" method="get">
-  <input type="submit" value="Sign up for Chitter!" />
+<form action="/new" method="get">
+  <input type="submit" value="Create a peep!" />
 </form>
 <center>
 <% if @user %>
@@ -23,4 +27,5 @@
     </li>
   <% end %>
 </ul>
+<img src="https://cdn0.iconfinder.com/data/icons/dottie-food-vegetable/24/vegetable_040-acorns-food-veggie-eat-512.png" width="200" height="200" alt= "Acorn!">
 </center>
