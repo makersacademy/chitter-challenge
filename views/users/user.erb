@@ -1,8 +1,22 @@
-<%= flash[:notice] %>
-<p>Insert your email and password:
-<form action="/users/user" method="post">
-  <input type="text" name="email" placeholder="email">
-  <input type="text" name="password" placeholder="password">
-  <input type="submit" value="Sign in">
-</form>
-</p>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="container">
+  <% if flash[:notice] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <p>
+  Insert your email and password:
+  </p>
+  <form action="/users/user" method="post">
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      </div>
+    <button type="submit" class="btn btn-info sign-in">Sign in</button>
+  </form>
+</div>

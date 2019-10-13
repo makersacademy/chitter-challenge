@@ -33,6 +33,6 @@ feature 'chitter homepage' do
     visit('/')
     click_button('Sign in')
     sign_in_correct
-    expect(page).to have_content 'All peeps:'
+    expect(page).to have_content 'Sign up'
   end
 end

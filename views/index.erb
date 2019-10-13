@@ -1,28 +1,47 @@
-<% if @user.nil? || !@user %>
-  <form action="/users/new">
-     Sign up or sign in to post a peep
-     <input type="submit" value="Sign up">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="container">
+  <nav class="navbar navbar-light bg-light">
+
+  <% if @user.nil? || !@user %>
+  <form class="form-inline" action="/users/new">
+    <button class="btn btn-outline-info sign-up" type="submit">Sign up</button>
   </form>
-  <form action="/users/user">
-     <input type="submit" value="Sign in">
+  <a class="navbar-brand">
+    Chitter
+  </a>
+
+  <form class="form-inline" action="/users/user">
+     <button class="btn btn-outline-info sign-in" type="submit">Sign in</button>
   </form>
+
 <% else %>
-<form action="/users/log_out" method="post">
-   Log out
-   <input type="submit" value="Log out">
-</form> <br>
-  <form action="/" method="post">
-    Insert the message:
-     <input type="text" name="message">
-     <input type="submit" value="Peeps">
+  <form class="form-inline" action="/" method="post">
+    <div class="form-group">
+      <input type="text" class="form-control mr-sm-2" name="message" id="message" placeholder="Peep a message:">
+    </div>
+    <button class="btn btn-outline-info peeps" type="submit">Peeps</button>
+  </form>
+  
+  <a class="navbar-brand">
+    Chitter
+  </a>
+
+  <form class="form-inline" action="/users/log_out" method="post">
+     <button class="btn btn-outline-info log-out" type="submit">Log out</button>
   </form>
 <% end %>
+</nav>
 
-All peeps:
-<ul>
-<% @chitter.show_all_messages.each do |message| %>
-    <li>
-      <%= message.text %> from <%= message.user %> (<%= message.time %>)
-    </li>
-    <% end %>
-</ul>
+<br>
+  <% @chitter.show_all_messages.each do |message| %>
+  <div class="card mb-3">
+    <div class="card-header border-info"><%= message.user %> <small class="text-muted"> at <%= message.time %></small></div>
+    <div class="card-body bg-light">
+      <div class="card-text text-info"><%= message.text %></div>
+    </div>
+  </div>
+  <% end %>
+
+
+
+</div>
