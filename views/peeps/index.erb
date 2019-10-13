@@ -11,8 +11,8 @@
 <ul>
   <% @peeps.reverse.each do |a_peep| %>
     <li>
-      <%= a_peep.username %>:
       <%= a_peep.peep %>
+      (<%= a_peep.time %>)
     </li>
   <% end %>
 </ul>
