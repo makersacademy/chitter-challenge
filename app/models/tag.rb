@@ -23,7 +23,7 @@ class Tag < ActiveRecord::Base
 
   def read!
     self.read = true
-    self.save
+    save
   end
 
   def peep

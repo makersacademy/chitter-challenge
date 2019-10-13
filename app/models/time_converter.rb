@@ -7,11 +7,11 @@ class TimeConverter
       "Seconds ago"
     when diff < 159
       "About a minute ago"
-    when diff < 10000
+    when diff < 10_000
       "#{diff_hash[:minute]} minutes ago"
-    when diff < 86400
+    when diff < 86_400
       "#{diff_hash[:hour]} hours ago"
-    when diff < 172800
+    when diff < 172_800
       "Yesterday"
     else
       diff_hash[:diff] + " ago"

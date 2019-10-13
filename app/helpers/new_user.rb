@@ -6,7 +6,7 @@ def user_valid?
   
   params.each do |key, value|
     next unless keys.include?(key)
-    return false if value.length == 0
+    return false if value.length.zero?
   end
 
   true

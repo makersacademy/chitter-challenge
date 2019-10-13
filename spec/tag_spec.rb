@@ -2,7 +2,7 @@ describe Tag do
   describe '.check' do
     context 'given a peep' do
       it 'returns a tag if required' do
-        user, peep = tag_user
+        user = tag_user.first
         expect(Tag.find_by(user_id: user.id)).to be_a Tag
       end
     end
@@ -21,7 +21,7 @@ describe Tag do
   
   describe '#read!' do
     it 'sets a tag as read' do
-      user, peep = tag_user
+      user = tag_user.first
       tag = Tag.user_tags(user.id)[:unread].first
       
       expect(tag).to_not be_read
@@ -35,7 +35,7 @@ describe Tag do
   describe '.user_tags' do
     context 'given a user id' do
       it 'returns a hash of read and unread tags' do
-        user, peep = tag_user
+        user = tag_user.first
         expect(Tag.user_tags(user.id)).to be_a Hash
         expect(Tag.user_tags(user.id)[:unread].first).to be_a Tag
       end
@@ -44,7 +44,7 @@ describe Tag do
   
   describe '#peep' do
     it 'returns the tags peep' do
-      user, peep = tag_user
+      user = tag_user.first
       tag = Tag.user_tags(user.id)[:unread].first
       expect(tag.peep).to be_a Peep
       expect(tag.peep.content).to eq "@guy tagged"

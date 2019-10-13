@@ -6,7 +6,6 @@ require File.join(root, 'app.rb')
 require File.join(root, 'app/models/init')
 require File.join(root, 'config/environment.rb')
 
-
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
@@ -21,7 +20,6 @@ RSpec.configure do |config|
     User.delete_all
   end
 end
-
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

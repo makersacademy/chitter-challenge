@@ -1,4 +1,4 @@
-class UserPassword <ActiveRecord::Base
+class UserPassword < ActiveRecord::Base
   def self.set(user, password)
     salt = BCrypt::Engine.generate_salt
     passhash = BCrypt::Engine.hash_secret(password, salt)

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   def tags
     tags = Tag.user_tags(id)
-    return nil unless tags.length > 0
+    return nil unless tags.length.positive?
 
     tags
   end

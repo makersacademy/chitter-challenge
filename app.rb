@@ -80,7 +80,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/:id/replies' do
-    peep = Peep.create(
+    Peep.create(
       content: params['reply'],
       user_id: warden_handler.user.id,
       parent_id: params[:id]
@@ -127,11 +127,11 @@ class Chitter < Sinatra::Base
   use Warden::Manager do |manager|
     manager.default_strategies :password
     manager.failure_app = Chitter
-    manager.serialize_into_session {|user| user.id}
-    manager.serialize_from_session {|id| User.find_by_id(id)}
+    manager.serialize_into_session { |user| user.id }
+    manager.serialize_from_session { |id| User.find_by_id(id) }
   end
 
-  Warden::Manager.before_failure do |env,opts|
+  Warden::Manager.before_failure do |env, _opts|
     env['REQUEST_METHOD'] = 'POST'
   end
 
@@ -142,7 +142,7 @@ class Chitter < Sinatra::Base
 
     def authenticate!
       user = User.find_by(email: params['email'])
-      if user && user.authenticate(params["password"])
+      if user&.authenticate(params["password"])
         success!(user)
       else
         fail!("Could not log in")
