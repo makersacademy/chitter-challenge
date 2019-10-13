@@ -8,16 +8,15 @@ describe Peep do
       connection.exec("INSERT INTO peeps (text) VALUES('This is Peep 2');")
       peeps = Peep.all
 
-      expect(peeps).to include 'This is Peep 1'
-      expect(peeps).to include 'This is Peep 2'
+      expect(peeps.first.text).to include 'This is Peep 1'
     end
   end
 
   describe '.create' do
     it 'adds a peep to the list' do
-      Peep.create(text: 'This is Peep 1')
+      peep = Peep.create(text: 'This is Peep 1')
 
-      expect(Peep.all).to include 'This is Peep 1'
+      expect(peep.text).to include 'This is Peep 1'
     end
   end
 end

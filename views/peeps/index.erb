@@ -1,5 +1,7 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.text %>
+      <%= peep.created_at %>
+    </li>
   <% end %>
 </ul>
