@@ -4,11 +4,9 @@ describe Cheep do
   describe ".all" do
     it 'returns a list of current cheeps' do
 
-      connection = PG.connect(dbname: 'chitter_test')
-
       cheep = Cheep.create(text: 'first cheep')
-      Cheep.create(text: 'first cheep')
-      Cheep.create(text: 'first cheep')
+      Cheep.create(text: 'second cheep')
+      Cheep.create(text: 'third cheep')
 
       cheeps = Cheep.all
 

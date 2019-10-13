@@ -11,9 +11,14 @@ get '/' do
 end
 
 get '/cheeps' do
-  p ENV
   @cheeps = Cheep.all
   erb :'cheeps/index'
+end
+
+post '/add' do
+  cheep = Cheep.create(text: params[:text])
+  p params
+  redirect '/cheeps'
 end
 
 run! if app_file == $0
