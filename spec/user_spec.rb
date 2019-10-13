@@ -21,10 +21,10 @@ describe User do
     expect(user.passhash).to be_a String
   end
 
-  describe '#authenticate!' do
+  describe '#authenticate' do
     context 'given the correct password' do
       it 'returns true' do
-        expect(user.authenticate!("passhash")).to be true
+        expect(user.authenticate("passhash")).to be true
       end
     end
   end

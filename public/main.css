@@ -35,34 +35,34 @@ div.chitter-content {
   margin: auto;
 }
 
-.flash-new_user {
-  background-color: #8cc152;
+.flash {
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
+  text-align: center;
+}
+
+.flash-new_user {
+  background-color: #8cc152;
+
 }
 
 .flash-login {
   background-color: #8cc152;
-  padding-left: 5em;
-  padding-right: 1em;
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
+
 }
 
 .flash-fail_login {
   background-color: #e9673f;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
 }
 .index-left{
   width: 100%;
   height: 100vh;
   background-image: url('Chitter.jpeg');
-  background-size: 120%;
+  background-size: 120vh;
+  background-position: 0%;
+  color: white;
 }
 .index-login {
   border-radius: 0px;
@@ -81,6 +81,14 @@ div.chitter-content {
   background-color: rgb(184, 212, 248);
 }
 
+.ir-form {
+  max-width: 800px;
+}
+
+.mpad {
+  padding: 0.7em;
+}
+
 .peep-btn {
   width: 5em;
   border-radius: 20px;
@@ -94,6 +102,10 @@ div.chitter-content {
   text-align: right;
 }
 
-.mpad {
-  padding: 0.7em;
+.lv-mid {
+  padding-top: 40vh;
+}
+
+.rv-mid {
+  padding-top: 30vh;
 }
