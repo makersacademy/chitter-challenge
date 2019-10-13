@@ -18,6 +18,7 @@ class User
     :format => "That doesn't look like an email address to me.."
   }
   property :password_digest, Text
+  property :name, String
 
   def password=(password)
     @password = password

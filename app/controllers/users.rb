@@ -9,9 +9,10 @@ class Chitter < Sinatra::Base
       :username => params[:username],
       :email => params[:email],
       :password => params[:password],
-      :password_confirmation => params[:password_confirmation]
+      :password_confirmation => params[:password_confirmation],
+      :name => params[:name]
     )
-    
+
     if user.save
       session[:user_id] = user.id
     else
