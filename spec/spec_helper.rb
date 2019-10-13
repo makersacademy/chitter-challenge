@@ -14,12 +14,7 @@ require 'simplecov-console'
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-  config.before do
-    UserPassword.delete_all
-    Peep.delete_all
-    User.delete_all
-  end
-  config.after do
+  config.before :each do
     UserPassword.delete_all
     Peep.delete_all
     User.delete_all
@@ -36,7 +31,9 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.after(:suite) do
-    puts
+    UserPassword.delete_all
+    Peep.delete_all
+    User.delete_all
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end

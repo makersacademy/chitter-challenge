@@ -45,6 +45,7 @@ class Chitter < Sinatra::Base
     user = User.create(
       handle: params[:handle],
       name: params[:name],
+      email: params[:email]
     )
     UserPassword.set(user, params[:password])
     redirect('/sessions', 307)
@@ -62,6 +63,11 @@ class Chitter < Sinatra::Base
   
   post '/unauthenticated' do
     flash[:fail_login] = "Wrong password!"
+    redirect '/'
+  end
+
+  delete '/sessions' do
+    warden_handler.logout
     redirect '/'
   end
 
@@ -84,7 +90,7 @@ class Chitter < Sinatra::Base
     end
 
     def authenticate!
-      user = User.find_by(handle: params['handle'])
+      user = User.find_by(email: params['email'])
       if user && user.authenticate(params["password"])
         success!(user)
       else

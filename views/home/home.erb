@@ -7,6 +7,10 @@
           <div class='navbar-header'>
             <div class='container'>
               <a class='navbar-brand' href='/'>Chitter</a>
+              <form action='/sessions' method='POST'>
+                <input type="hidden" name="_method" value="DELETE">
+                <button type='submit'>Log out</button>
+              </form>
             </div>
           </div>
         </div>
