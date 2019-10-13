@@ -9,7 +9,6 @@ feature 'Viewing peeps' do
 
     expect(page).to have_content 'A new peep'
     expect(page).to have_content 'Another new peep'
-    #expect(page).to have_content '2019'
+    expect(page).to have_content '2019'
   end
 end
-

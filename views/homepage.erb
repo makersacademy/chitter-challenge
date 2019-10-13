@@ -1,6 +1,22 @@
 <html>
 <head>
 <style>
+
+li:before {
+content: '\1F509';
+margin-left: -20px;
+margin-right: 10px;
+}
+
+
+li{
+    margin-top: 20px;
+}
+
+li:first-child {
+    margin-top:0;
+}
+
 body {background-color: aliceblue;}
 h1   {color: cadetblue; font-family: 'Teko', sans-serif;}
 p    {color: gray;}
@@ -16,8 +32,7 @@ p    {color: gray;}
 
 <p><ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
-    
+    <li><%= peep.text%> was posted at ~ <%= peep.time %></li>
   <% end %>
 </ul></p>
 
