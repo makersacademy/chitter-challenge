@@ -25,4 +25,11 @@ class User
     @name = name
   end
 
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM users")
+    result.map do |a_user|
+      User.new(id: a_user['id'], email: a_user['email'], user_name: a_user['user_name'], name: a_user['name'])
+    end
+  end
+
 end
