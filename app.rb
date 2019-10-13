@@ -48,10 +48,16 @@ class Chitter < Sinatra::Base
     if user
       session[:user_id] = user.id
       redirect '/homepage'
-    else 
+    else
       flash[:notice] = 'Invalid email, please try again'
       redirect '/sessions/new'
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'User signed out'
+    redirect '/homepage'
   end
 
   run if app_file == $0

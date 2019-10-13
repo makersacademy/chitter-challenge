@@ -10,6 +10,7 @@
     <% if @user %>
       <h3>Welcome, <%= "#{@user.username}" %></h3>
     <% end %>
+    <h5><%= flash[:notice] %></h5>
     <ul>
       <% @posts.each do |post| %>
         <div><%= post.content %>
@@ -26,6 +27,10 @@
     <br>
     <form action="/sessions/new">
       <input type="submit" value="Sign in">
+    </form>
+    <br>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Sign out">
     </form>
   </body>
 </html>
