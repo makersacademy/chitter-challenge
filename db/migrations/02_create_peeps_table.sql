@@ -1,0 +1,1 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(240), user_id INTEGER REFERENCES users (id))
