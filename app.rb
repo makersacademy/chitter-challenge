@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    redirect "/user/#{User.logged_in.user_name}" if User.logged_in  
+    # redirect "/user/#{User.logged_in.user_name}" if User.logged_in  
     @peeps = Peep.all_in_order
     erb :index
   end
@@ -62,9 +62,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    if User.logged_in != nil
-      Peep.create(message:params['peep'])
-      redirect "/user/#{User.logged_in.user_name}"
+    @user = User.logged_in
+    if @user != nil
+      Peep.create(message:params['peep'], user_id: @user.id)
+      redirect "/user/#{@user.user_name}"
     else
       flash[:notice] = "Not logged in, please login or sign up"
       redirect '/'

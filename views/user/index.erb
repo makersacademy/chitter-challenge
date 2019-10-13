@@ -17,9 +17,12 @@
     </div>
 
     <% @peeps.each do |peep| %>
-        <h3> <%= peep.message %> </h3>
-        <p> <% d = DateTime.parse(peep.tdz) %> </p>
-        <p> <%= d.strftime("%d/%m/%Y") %> <%= d.strftime("%I:%M%p") %> <%= d.zone %></p>
+        <div style="border: 3px solid lightblue; margin: 3px; margin-left: 12.5%; width: 75%;">
+            <h3 style="font: italic bold">@<%= peep.user_name %> has peeped: </h3>
+            <h3> <%= peep.message %> </h3>
+            <p> <% d = DateTime.parse(peep.tdz) %> </p>
+            <p style="color:grey"> <%= d.strftime("%d/%m/%Y") %> <%= d.strftime("%I:%M%p") %> <%= d.zone %></p>
+        </div>
     <% end %>
 </body>
 
