@@ -3,7 +3,7 @@ feature 'Posting messages' do
     visit ('/')
     expect(page).to have_content "Chitter"
     expect(page).to have_content "What's happening?"
-    fill_in('message', with: 'Hello')
+    fill_in :chitter_message, with: 'Hello'
     click_button('Submit')
   end
 end

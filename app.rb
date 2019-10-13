@@ -2,26 +2,27 @@ require 'sinatra/base'
 require_relative 'lib/message'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+
+  not_found do
+     erb :error
+   end
 
   get '/' do
-    erb :'index'
+    erb :index
   end
 
-  post '/message' do
-    p params
-    @message = params[:message]
-    puts params
-    erb :'index'
+  post '/messages' do
+    @chitter_message = params[:chitter_message]
+    # redirect '/messages'
+    erb :messages
+  end
+
+  get '/messages' do
+    @chitter_message = params[:chitter_message]
+    erb :messages
   end
 
   run! if app_file == $0
 
 end
-
-# post '/names' do
-#   p params
-#   player1 = Player.new(params[:Player1])
-#   player2 = Player.new(params[:Player2])
-#   Game.create(player1, player2)
-#   redirect '/play'
-# end
