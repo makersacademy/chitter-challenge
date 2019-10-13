@@ -12,6 +12,16 @@ Chitter Challenge
 3. Run script in db/migrations / 01_create_users_table.sql
 4. Run script in db/migrations / 02_create_messages_table.sql
 
+# Technologies used
+- Ruby
+- Sinatra
+- PostgreSQL
+- HTML
+- CSS
+- Bootstrap
+
+-------
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
