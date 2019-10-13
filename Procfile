@@ -1,1 +1,1 @@
-web: ruby app.rb
+web: rackup
