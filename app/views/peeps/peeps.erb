@@ -10,8 +10,9 @@
     </header><br>
     <div>
       <% @peeps.each do |peep| %>
+
         <div class="peep-time">
-          <%= date_and_time(peep.created_at) %>
+          <b><%= peep.user.username %></b> <%= date_and_time(peep.created_at) %>
         </div>
         <div class="peep-message" id="peep-<%= peep.id %>">
           <%= peep.message %>

@@ -2,6 +2,7 @@ require 'timecop'
 
 feature 'see all peeps' do
   scenario 'I can see all peeps' do
+    user_sign_up
     visit '/'
     fill_in :text, with: 'This is my First peep'
     click_button 'Add peep'
@@ -11,6 +12,7 @@ feature 'see all peeps' do
   end
 
   scenario 'Peeps are displayed in reverse chronological order' do
+    user_sign_up
     Timecop.freeze(2019, 10, 13, 16, 0, 0)
     visit '/'
     fill_in :text, with: 'This is my First peep'
@@ -20,6 +22,6 @@ feature 'see all peeps' do
     fill_in :text, with: 'This is my second peep'
     click_button 'Add peep'
     click_button 'View all Peeps'
-    expect(page).to have_content "posted on October 13th at 05:00PM\nThis is my second peep\nposted on October 13th at 04:00PM\nThis is my First peep"
+    expect(page).to have_content "Test posted on October 13th at 05:00PM\nThis is my second peep\nTest posted on October 13th at 04:00PM\nThis is my First peep"
   end
 end

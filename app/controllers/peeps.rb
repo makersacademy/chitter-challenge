@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:text])
+    Peep.create(message: params[:text], user_id: current_user.id)
     flash[:success] = 'Peep added to Chitter'
     redirect '/'
   end
