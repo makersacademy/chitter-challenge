@@ -7,6 +7,10 @@
      <input type="submit" value="Sign in">
   </form>
 <% else %>
+<form action="/users/log_out" method="post">
+   Log out
+   <input type="submit" value="Log out">
+</form> <br>
   <form action="/" method="post">
     Insert the message:
      <input type="text" name="message">

@@ -6,6 +6,7 @@ feature 'user sign in options' do
     expect(current_path).to eq '/users/user'
     sign_in_correct
     expect(page).to have_content 'Insert the message:'
+    expect(page).to have_content 'Log out'
   end
 
   scenario 'the user try to log in with incorrect email or password' do

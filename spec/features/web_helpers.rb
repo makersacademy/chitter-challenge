@@ -17,3 +17,10 @@ def sign_in_incorrect
   fill_in('password', with: 'ciao')
   click_button('Sign in')
 end
+
+def log_out
+  visit('/')
+  click_button('Sign in')
+  sign_in_correct
+  click_button('Log out')
+end
