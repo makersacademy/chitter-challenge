@@ -26,6 +26,10 @@ p    {color: gray;}
 
 <h1 align="center">Chitter</h1>
 
+<% if @user %>
+<h2> Welcome, <%= @user.username %>. You are now logged in.</h2>
+<% end %>
+
 <form action='users/new' method='get'>
   <input type='submit' value='Sign up!'>
 </form>

@@ -1,10 +1,12 @@
 require 'sinatra/base'
 require './lib/message'
 require './database_connection_setup'
+require './lib/users'
 
 class Chitter < Sinatra::Base
 
   get '/' do
+    @user = User.find(id: session[:user_id])
     @peeps = Message.all
     erb(:homepage)
   end
@@ -19,12 +21,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
-    "Hello World"
     erb(:'users/new')
   end
 
   post '/users' do
-    User.create(email: params['email'], password: params['password'], name: params['name'], username: params['username'])
+    user = User.create(email: params['email'], password: params['password'], name: params['name'], username: params['username'])
+    session[:user_id] = user.id
     redirect '/'
   end
 

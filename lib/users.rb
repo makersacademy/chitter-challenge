@@ -1,4 +1,4 @@
-require 'database_helpers'
+require './spec/database_helpers'
 
 class User
 
@@ -17,5 +17,12 @@ class User
 
     User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'], name: result[0]['name'])
 
+  end
+
+  def self.find(id:)
+    return nil unless id
+
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'], name: result[0]['name'])
   end
 end

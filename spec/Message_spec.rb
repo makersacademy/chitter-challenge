@@ -5,9 +5,9 @@ describe Message do
 
   describe '.create' do  
     it 'creates a new peep' do
-     message = Message.create(text: '\1F388')
+      message = Message.create(text: '\1F388')
 
-     persisted_data = persisted_data(id: message.id, table: 'message')
+      persisted_data = persisted_data(id: message.id, table: 'message')
 
       expect(message).to be_a Message
       expect(message.id).to eq persisted_data.first['id']
