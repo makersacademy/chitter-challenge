@@ -7,6 +7,7 @@ describe Peep do
 
       expect(peep).to be_a Peep
       expect(peep.message).to eq "My first peep"
+
     end
   end
 
