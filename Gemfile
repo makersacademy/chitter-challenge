@@ -5,7 +5,7 @@ gem 'rake'
 gem 'rubocop', '0.71.0'
 gem "sinatra"
 gem "pg"
-
+gem 'bcrypt'
 
 group :test do
   gem "capybara", require: false

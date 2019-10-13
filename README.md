@@ -37,9 +37,8 @@ I want to sign up for Chitter
 - |Peep|--.create(peep, username) - ->|Chitter| (Create new peep)
 
 ### Sequence Diagrams
-|User| --peep(time)--> |Chitter|
------
-|User| <- - "peeps" - - |Chitter|
+- |User| --peep(time)--> |Chitter|
+- |User| <- - "peeps" - - |Chitter|
 ------
 ## Notes on functionality:
 * Don't have to be logged in to see the peeps.
@@ -59,12 +58,12 @@ I want to sign up for Chitter
 
 ------
 ## Class Responsibility Collaborator (CRC) Models
-Table: peeps
+- Table: peeps
 | id |     peep     | username | time?
 |------------------------------|
 | 1  | "first peep" |  "Josh"  |
 ------
-Table: users
+- Table: users
  id | email | user_name | name | password
 ----+-------+-----------+------+----------
 ------

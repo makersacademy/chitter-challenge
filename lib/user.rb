@@ -1,8 +1,12 @@
 require_relative 'database_connection'
+require 'bcrypt'
 
 class User
   def self.create(email:, user_name:, name:, password:)
-    result = DatabaseConnection.query("INSERT INTO users (email, user_name, name, password) VALUES('#{email}', '#{user_name}', '#{name}', '#{password}') RETURNING id, email, user_name, name;")
+    # encrypt the plantext password
+    encrypted_password = BCrypt::Password.create(password)
+
+    result = DatabaseConnection.query("INSERT INTO users (email, user_name, name, password) VALUES('#{email}', '#{user_name}', '#{name}', '#{encrypted_password}') RETURNING id, email, user_name, name;")
     User.new(id: result[0]['id'], email: result[0]['email'], user_name: result[0]['user_name'], name: result[0]['name'])
   end
 
