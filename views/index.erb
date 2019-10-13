@@ -1,9 +1,16 @@
   <style>
  a { display: inline; }
  form { display: inline; }
+ body {
+    background-color: #D6AD6B; /* The page background will be black */
+    color: #FEF5E8; /* The page text will be white */
+    font-size:30px;
+}
 </style>
+<center>
   <ul>
   <% @peeps.each do |peep| %>
     <li><%= peep %><br><br></li>
   <% end %>
 </ul>
+</center>
