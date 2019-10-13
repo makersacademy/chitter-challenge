@@ -48,16 +48,25 @@ I want to sign up for Chitter
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 ------
 ## Domain Relationships
-Chitter has MANY Peeps
  _______      ____
-|Chitter|---≡|Peep|
+|Chitter|---≡|Peep|  Chitter has MANY Peeps
  –––––––      ––––
+ _______      ____
+|Chitter|---≡|User|  Chitter has MANY users
+ –––––––      ––––
+ ____      ____
+|user|---≡|User|  a User has MANY peeps
+ ––––      ––––
 ------
 ## Class Responsibility Collaborator (CRC) Models
-Table: Peeps
-| id |     peep     | username |
+- Table: peeps
+| id |     peep     | username | time?
 |------------------------------|
 | 1  | "first peep" |  "Josh"  |
+------
+- Table: users
+ id | email | user_name | name | password
+----+-------+-----------+------+----------
 ------
 ## Technologies used
 ## Postgress

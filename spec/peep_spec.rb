@@ -4,7 +4,6 @@ require 'database_helpers'
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
       # test data
       my_peep = Peep.create(peep: "first peep", username: "Josh")
       Peep.create(peep: "second peep", username: "Josh")
@@ -23,7 +22,7 @@ describe Peep do
   describe '.create' do
     it 'creates a new peep' do
       my_peep = Peep.create(peep: 'new peep', username: 'Josh')
-      persisted_data = persisted_data(id: my_peep.id)
+      persisted_data = persisted_data(id: my_peep.id, table: 'peeps')
 
       expect(my_peep).to be_a Peep
       expect(my_peep.id).to eq persisted_data.first['id']
