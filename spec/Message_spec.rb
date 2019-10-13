@@ -7,10 +7,10 @@ describe Message do
     it 'creates a new peep' do
      message = Message.create(text: '\1F388')
 
-     persisted_data = persisted_data(id: message.id)
+     persisted_data = persisted_data(id: message.id, table: 'message')
 
       expect(message).to be_a Message
-      expect(message.id).to eq persisted_data['id']
+      expect(message.id).to eq persisted_data.first['id']
       expect(message.text).to eq '\1F388'
       expect(message.time).to include '2019'
     end

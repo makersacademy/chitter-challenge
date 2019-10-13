@@ -26,13 +26,17 @@ p    {color: gray;}
 
 <h1 align="center">Chitter</h1>
 
+<form action='users/new' method='get'>
+  <input type='submit' value='Sign up!'>
+</form>
+
 <form action='peep/new' method='get'>
   <input type='submit' value='Post a peep'>
 </form>
 
 <p><ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.text%> was posted at ~ <%= peep.time %></li>
+    <li><%= peep.text%> ~ Message posted on : <%= peep.time %></li>
   <% end %>
 </ul></p>
 

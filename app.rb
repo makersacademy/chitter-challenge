@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/message'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
 
@@ -14,6 +15,16 @@ class Chitter < Sinatra::Base
 
   post '/peep/new' do
     Message.create(text: params['message'])
+    redirect '/'
+  end
+
+  get '/users/new' do
+    "Hello World"
+    erb(:'users/new')
+  end
+
+  post '/users' do
+    User.create(email: params['email'], password: params['password'], name: params['name'], username: params['username'])
     redirect '/'
   end
 
