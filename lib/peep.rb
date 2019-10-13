@@ -1,8 +1,10 @@
 class Peep
 
     def self.create(message:)
-        peep = DatabaseConnection.query("INSERT INTO peeps (message, tdz) VALUES ('#{message}', '#{Time.now}') RETURNING *;").first
-        Peep.new(id:peep['id'], message:peep['message'], tdz:peep['tdz'])
+        if message != ""
+            peep = DatabaseConnection.query("INSERT INTO peeps (message, tdz) VALUES ('#{message}', '#{Time.now}') RETURNING *;").first
+            Peep.new(id:peep['id'], message:peep['message'], tdz:peep['tdz'])
+        end
     end
 
     def self.all_in_order
