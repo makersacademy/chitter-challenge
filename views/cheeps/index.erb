@@ -1,8 +1,9 @@
 <ul>
   <% @cheeps.each do |cheep| %>
   <li class="cheep"id="cheep-<%= cheep.id%>">
-    <a href="<%= cheep.id %>" target=_"blank">
+    <a>
       <%=cheep.text%>
+      <%=cheep.time%>
     </a>
     <form action="/cheeps/<%= cheep.id %>" method="post">
     <input type='hidden' name='_method' value='DELETE'/>

@@ -11,13 +11,12 @@ get '/' do
 end
 
 get '/cheeps' do
-  @cheeps = Cheep.all
+  @cheeps = Cheep.all.reverse!
   erb :'cheeps/index'
 end
 
 post '/add' do
   cheep = Cheep.create(text: params[:text])
-  p params
   redirect '/cheeps'
 end
 
