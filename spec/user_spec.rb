@@ -4,13 +4,13 @@ require 'user'
 describe User do
   describe '.create' do
     it 'creates a new user' do
-      user = User.create(email: 'test@example.com', user_name: 'JD', name: 'Josh', password: 'password123')
+      user = User.create(email: 'example@example.com', user_name: 'Jimmy', name: 'James', password: 'password123')
 
       persisted_data = persisted_data(id: user.id, table: 'users')
 
       expect(user).to be_a User
       expect(user.id).to eq persisted_data.first['id']
-      expect(user.email).to eq 'test@example.com'
+      expect(user.email).to eq 'example@example.com'
     end
 
     it 'hashes the password using BCrypt' do

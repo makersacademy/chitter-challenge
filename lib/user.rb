@@ -3,7 +3,7 @@ require 'bcrypt'
 
 class User
   def self.create(email:, user_name:, name:, password:)
-    # encrypt the plantext password
+    # encrypt the password
     encrypted_password = BCrypt::Password.create(password)
 
     result = DatabaseConnection.query("INSERT INTO users (email, user_name, name, password) VALUES('#{email}', '#{user_name}', '#{name}', '#{encrypted_password}') RETURNING id, email, user_name, name;")

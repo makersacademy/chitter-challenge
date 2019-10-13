@@ -3,15 +3,16 @@ feature 'Viewing peeps.' do
     connection = PG.connect(dbname: 'chitter_test')
 
     # test data
-    Peep.create(peep: "first peep")
-    Peep.create(peep: "second peep")
-    Peep.create(peep: "third peep")
+    Peep.create(peep: "first peep", user_id: 1)
+    Peep.create(peep: "second peep", user_id: 1)
+    Peep.create(peep: "third peep", user_id: 1)
 
     visit('/peeps')
 
     expect(page).to have_content "first peep"
     expect(page).to have_content "second peep"
     expect(page).to have_content "third peep"
-    expect(page).to have_content Time.now
+    time = Time.new
+    expect(page).to have_content "#{time.hour}:#{time.min}"
   end
 end

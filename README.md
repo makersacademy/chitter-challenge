@@ -22,8 +22,8 @@ I want to sign up for Chitter
 ```
 -----
 ## Features:
-- user can post a new message & their username. (CREATE)
-- user can view all messages. (READ)
+- user can post a new message with their user_name and name. (CREATE)
+- user can view all messages in reverse chronological order. (READ)
 - messages include time it was created.
 - user can sign up for chitter.
 -----
@@ -31,19 +31,21 @@ I want to sign up for Chitter
 ### Objects
 - Chitter
 - Peep
+- User
 
 ### Messages
 - |Peep|--.all - ->|Chitter| (Read all peeps)
-- |Peep|--.create(peep, username) - ->|Chitter| (Create new peep)
+- |Peep|--.create(peep) - ->|Chitter| (Create new peep)
+- |User|--.create(user) - ->|Chitter| (Create new user)
 
 ### Sequence Diagrams
-- |User| --peep(time)--> |Chitter|
+- |User| --peep--> |Chitter|
 - |User| <- - "peeps" - - |Chitter|
 ------
 ## Notes on functionality:
 * Don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
+* Makers sign up to chitter with their email, password, name and a user_name (e.g. Josh@makersacademy.com, password123, Josh, JD).
+* The user_name and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 ------
 ## Domain Relationships
@@ -59,13 +61,11 @@ I want to sign up for Chitter
 ------
 ## Class Responsibility Collaborator (CRC) Models
 - Table: peeps
-| id |     peep     | username | time?
-|------------------------------|
-| 1  | "first peep" |  "Josh"  |
+| id | peep | time | user_id |
 ------
 - Table: users
- id | email | user_name | name | password
-----+-------+-----------+------+----------
+ id | email | user_name | name | password (encrypted)
+ 
 ------
 # Technologies used:
 ## Postgress
