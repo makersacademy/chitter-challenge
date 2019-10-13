@@ -16,8 +16,13 @@ h4 {
   border-radius: 10px;
   box-shadow: 2px 2px #000;
 }
+
 .author {
   color: #21e6c1;
+}
+
+.handle {
+  color: #9B9B9B;
 }
 
 .peep-content {

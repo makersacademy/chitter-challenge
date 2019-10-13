@@ -25,6 +25,7 @@ feature 'Peep feed' do
     Peep.create(content: content_one, user_id: user.id)
     visit '/'
     expect(page).to have_content user.name
+    expect(page).to have_content user.username
     expect(page).to have_content content_one
   end
 
