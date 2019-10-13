@@ -10,6 +10,12 @@ describe '.create' do
     expect(user.username).to eq 'user001'
     expect(user.id).to eq result.first['id']
   end
+
+  it 'hashes the password using Bcrypt' do
+    expect(BCrypt::Password).to receive(:create).with('password123')
+
+    User.create(username: 'user001', password: 'password123')
+  end
 end
 
 describe '.find' do

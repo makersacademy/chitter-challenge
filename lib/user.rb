@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
 
   attr_reader :id, :username
@@ -8,8 +10,12 @@ class User
   end
 
   def self.create(username:, password:)
+    # ecrypt password
+    encrypted_password = BCrypt::Password.create(password)
+
+    # insert encrypted password into DB, instead of plaintext pne
     result = DatabaseConnection.query("INSERT INTO users (username, password)
-    VALUES('#{username}', '#{password}')
+    VALUES('#{username}', '#{encrypted_password}')
     RETURNING id, username;")
     User.new(id: result[0]['id'], username: result[0]['username'])
   end
