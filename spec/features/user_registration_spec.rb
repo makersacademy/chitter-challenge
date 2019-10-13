@@ -1,11 +1,6 @@
 feature 'registration' do
   scenario 'a user can sign up' do
-    visit '/users/new'
-    fill_in :email, with: 'test@example.com'
-    fill_in :password, with: 'password123'
-    fill_in :password_confirmation, with: 'password123'
-    fill_in :username, with: 'Test'
-    click_button('Submit')
+    user_sign_up
 
     expect(page).to have_content "Welcome Test\nadd peeps below!"
   end
