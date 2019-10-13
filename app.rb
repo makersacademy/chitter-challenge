@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
   get '/home' do
     @user = warden_handler.user if warden_handler.authenticated?
     @peeps = Peep.all.reverse
+    peep = @peeps.first
     @css_path = 'main.css'
     @page = :'home/home'
     erb :template
@@ -33,7 +34,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.create(content: params['peep-content'])
+    @peep = Peep.create(
+      content: params['peep-content'],
+      user_id: warden_handler.user.id
+    )
     redirect '/home'
   end
 
@@ -43,14 +47,13 @@ class Chitter < Sinatra::Base
       name: params[:name],
     )
     UserPassword.set(user, params[:password])
-    flash[:new_user] = "Thanks for joining Chitter, #{user.name}! Have a really chit time!"
-    redirect '/home'
+    redirect('/sessions', 307)
   end
-
+  
   post '/sessions' do
     warden_handler.authenticate!
     if warden_handler.authenticated?
-      flash[:login] = "Welcome back, #{warden_handler.user.name}!"
+      set_flash
       redirect '/home'
     else
       redirect '/'

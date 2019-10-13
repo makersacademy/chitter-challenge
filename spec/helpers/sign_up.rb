@@ -1,5 +1,5 @@
 def sign_up
-   visit '/'
+  visit '/'
   click_link 'Sign Up'
   fill_in "Chitter Handle", with: "the_queen"
   fill_in "Name", with: "The Queen"

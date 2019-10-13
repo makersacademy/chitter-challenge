@@ -1,7 +1,7 @@
 feature 'log in as user' do
   scenario 'user logs in from index page' do
     new_user
-    log_in('password')
+    log_in
     expect(current_path).to eq '/home'
     expect(page).to have_content("Welcome back, Guy!")
   end

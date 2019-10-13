@@ -98,6 +98,11 @@ div.chitter-content {
   border: 0px;
 }
 
+.peep-name {
+  padding-top: 0.5em;
+  padding-left: 2em;
+}
+
 .right-align {
   text-align: right;
 }

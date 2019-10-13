@@ -1,13 +1,14 @@
 <% @peeps.each do |peep| %>
   <div class='peep' id='peep-<%= peep.id %>'>
     <div class='card'>
-      <div class=card-body>
-        <%= peep.content %>
+      <div class='peep-name'>
+        <strong><%= peep.user.name %></strong> @<%= peep.user.handle %>
+        <small class='created-at text-muted'><%= TimeConverter.time_since(peep.created_at) %></small>
       </div>
-      <div class='created-at text-muted'>
-        <small>
-          posted  <%= TimeConverter.time_since(peep.created_at) %>
-        </small>
+      <div class=card-body>
+        <div class='peep-content'>
+            <%= peep.content %>
+        </div>
       </div>
     </div>
   </div>

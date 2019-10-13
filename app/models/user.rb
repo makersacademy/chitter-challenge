@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   private
 
   def password
-    UserPassword.find_by(user_id: id)
+    user_password_class.find_by(user_id: id)
+  end
+
+  def user_password_class
+    UserPassword
   end
 end
