@@ -1,0 +1,65 @@
+body {
+  background-color: #121212;
+  color: #FFF;
+}
+
+h1 {
+  font-family: 'Righteous', sans-serif;
+}
+
+h4 {
+  color: #9B9B9B;
+}
+
+.peep {
+  background-color: #1F1B24;
+  border-radius: 10px;
+  box-shadow: 2px 2px #000;
+}
+
+.author {
+  color: #21e6c1;
+}
+
+.handle {
+  color: #9B9B9B;
+}
+
+.peep-content {
+  font-size: 1.4rem;
+}
+
+.peep-empty {
+  font-size: 1.4rem;
+  color: #9B9B9B;
+}
+
+.peep-timestamp {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #9B9B9B;
+}
+
+.add-peep textarea {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #292929;
+  color: #FFF;
+}
+
+.sign-up input[type="text"],
+.sign-up input[type="password"],
+.sign-in input[type="text"],
+.sign-in input[type="password"]
+ {
+   width: 100%;
+   font-size: 1rem;
+   padding: 10px;
+   margin: 0 0 10px 0;
+   border: solid 1px #121212;
+   border-radius: 5px;
+   background-color: #292929;
+   color: #FFF;
+}

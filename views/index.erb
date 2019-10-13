@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="col-12 mt-3">
+    <h1>CHITTERBOX // PUBLIC</h1>
+  </div>
+</div>
+
+<div class="row">
+
+  <!-- Main -->
+  <div class="feed col-8 pl-3 py-2">
+
+    <% if @feed.length > 0 %>
+
+      <% @feed.each do |peep| %>
+        <div class="peep m-3 p-4" id="peep-<%= peep.id %>">
+
+          <div class="author mb-2">
+            <strong><%= peep.user.name %></strong>
+            <span class="handle ml-2">@<%= peep.user.username %></span>
+          </div>
+
+          <div class="peep-content mb-3"><%= peep.content %></div>
+
+          <div class="peep-timestamp">
+            <%= peep.timestamp %>
+
+            <% if @user && @user.id == peep.user.id %>
+              <form action="/peeps/<%= peep.id %>/delete" method="post">
+                <input type="hidden" name="peep_id" value="<%= peep.id %>">
+                <input class="btn btn-dark btn-sm" type="submit" value="Delete">
+              </form>
+            <% end %>
+
+          </div>
+
+        </div>
+      <% end %>
+
+    <% else %>
+
+      <div class="peep m-3 p-4">
+        <div class="peep-empty">
+          No posts exist. You can be the first!
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <!-- Sidebar -->
+  <div class="col-4 pr-3 py-2">
+
+    <% if @user %>
+
+      <div class="user-dashboard my-2">
+        <div class="greeting mb-3">
+          <h2><strong><%= @user.name %></strong></h2>
+          <div class="float-right">
+            <form action="/users/<%= @user.id %>/session/destroy" method="post">
+              <input class="btn btn-dark btn-sm" type="submit" value="Sign Out">
+            </form>
+          </div>
+          <h4>@<%= @user.username %></h4>
+        </div>
+        <div class="add-peep mt-5">
+          <div class="mb-3"><strong>Post a new peep:</strong></div>
+          <form action="/peeps/new" method="post">
+            <textarea rows="6" maxlength="280" placeholder="What are you up to?" name="content"></textarea>
+            <div class="flash-notice my-2"><%= flash[:notice] %></div>
+            <input class="btn btn-dark mt-3" type="submit" value="Post">
+          </form>
+        </div>
+      </div>
+
+    <% else %>
+
+      <div class="sign-in my-2">
+        <h5 class="mb-3"><strong>Sign in</strong> to your account</h5>
+        <form action="/users/session" method="post">
+          <input type="text" name="email" placeholder="Email" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <input class="btn btn-dark" type="submit" value="Sign In">
+        </form>
+      </div>
+
+      <div class="flash-notice my-5">
+        <%= flash[:notice] %>
+      </div>
+
+      <div class="sign-up my-2">
+        <h5 class="mb-3">Create a new account</h5>
+        <form action="/users/new" method="post">
+          <input type="text" name="email" placeholder="Email address" required> <br>
+          <input type="password" name="password" placeholder="Password" required> <br>
+          <input type="text" name="name" placeholder="Name" required> <br>
+          <input type="text" name="username" placeholder="Username" required> <br>
+          <input class="btn btn-dark" type="submit" value="Sign Up">
+        </form>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

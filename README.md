@@ -1,11 +1,71 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## About
+
+Chitter is a web app that allows users to register, sign in and post short messages ('peeps') to a public feed. It mimics the basic functionality of Twitter.
+
+## How to use on a local computer
+
+1. Clone this repo: `git clone git@github.com:melvinlau/chitter-challenge.git`
+
+2. `cd` into the `chitter-challenge` directory then run `bundle install` to install dependencies.
+
+3. Set up the database tables on your local computer.
+
+    From your terminal, run `psql`:
+    ```
+    $ psql postgres
+    ```
+    In `psql` (the user prompt appearing after `postgres=#`) create and connect to the `chitter` database.
+
+    ```
+    postgres=# CREATE DATABASE chitter;
+    postgres=# \c chitter
+    ```
+
+    Still in the `psql` terminal, set up the required database tables by pasting in the following commands:
+
+    ```
+    CREATE TABLE users(
+      id SERIAL PRIMARY KEY,
+      email VARCHAR(60),
+      password VARCHAR(160),
+      name VARCHAR(60),
+      username VARCHAR(60)
+    );
+
+    CREATE TABLE peeps(
+      id SERIAL PRIMARY KEY,
+      content VARCHAR(280),
+      timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      user_id INTEGER REFERENCES users (id)
+    );
+    ```
+
+    Exit `psql` by typing `\q` and hitting return. This will return you to the normal command line.
+
+4. Use command `ruby app.rb` to start the local server.
+
+5. Open your browser, navigate to [http://localhost:4567](http://localhost:4567) and **have fun!**
+
+## Tech Stack
+
+**Back End:**
+- Ruby/Sinatra
+- PostgreSQL
+
+**Front-End:**
+- HTML / CSS
+- Bootstrap 4
+
+## How to test
+
+This web app was developed following the principles of Test-Driven Development, using Capybara and RSpec. To run the tests, navigate to the `chitter-challenge` directory in the Terminal and then run the command `rspec`.
+
+
+---
+
 
 Challenge:
 -------
