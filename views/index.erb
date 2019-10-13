@@ -1,0 +1,20 @@
+<h1> CHITTER </h1>
+
+<% if @user %>
+  <h2>Welcome, <%= @user.username %></h2>
+  <form action='/peeps/new'>
+    <input type="submit" value="Write a new peep" />
+  </form>
+<% end %>
+
+<h3> 
+<form action='/peeps'>
+  <input type="submit" value="View all peeps" />
+</form>
+
+<form action='/users/new'>
+  <input type="submit" value="Create an account" />
+</form>
+
+
+</h3>

@@ -6,7 +6,7 @@ describe Peep do
     it 'creates a new peep' do
       peep = Peep.create(message: "Test Peep")
       connection = PG.connect(dbname: 'chitter_test')
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(id: peep.id, table: :peeps)
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data['id']
