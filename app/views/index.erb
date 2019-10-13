@@ -1,0 +1,82 @@
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #F2C1D5;
+}
+</style>
+</head>
+<center>
+<body>
+
+  <h1>Welcome, <%= @current_user.username %> ! </h1>
+      <img src="<%= @current_photo %> " width="100" height="100">
+  <h2>
+  <form action ="/home" method="get">
+      Not, <%= @current_user.username %> ? Sign out...
+      <input type="submit" value="Sign Out">
+  </form>
+
+  <form action ="/profile" method="get">
+    <input type="submit" value="View Profile">
+  </form>
+
+  <form action ="/add_peep" method="post">
+      Make a new peep :
+      <input type="text" name="peep">
+      <input type="submit" value="Peep It">
+  </form>
+  </h2>
+
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Peep</th>
+      <th>Timestamp</th>
+      <th>Loves</th>
+    </tr>
+
+    <% @peeps.each do |p| %>
+    <tr>
+      <td> <h2> <center>
+           <%= Users.get_user(p.username).username %> <br>
+           <img src="<%= Users.get_user(p.username).picture%> " width="100" height="100">
+           </center> </h2>
+      </td>
+      <td> <%= p.peep %> </td>
+      <td> <%= p.date %> </td>
+      <td>
+
+        <form action ='/peeps/loves/<%=p.id%>' method="post">
+          <input type="hidden" name="_method" value="PATCH">
+          <input type="submit" value="Love">
+        </form>
+        <form action ='/peeps/hates/<%=p.id%>' method="post">
+          <input type="hidden" name="_method" value="PATCH">
+          <input type="submit" value="Hate">
+        </form>
+
+        Number of Loves: <%= p.loves %>
+      </td>
+    </tr>
+
+    <% end %>
+
+  </table>
+
+
+
+  </body>
+  </center>
+  </html>

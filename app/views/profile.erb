@@ -1,0 +1,77 @@
+<html>
+<head>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #F2C1D5;
+  }
+
+</style>
+</head>
+<body>
+
+  <h2>
+  <form action ="/peeps" method="get">
+      <input type="submit" value="Go Back">
+  </form>
+  </h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Username</th>
+    <th>Profile Picture</th>
+    <th>Age</th>
+    <th>Gender</th>
+  </tr>
+  <tr>
+    <td> <%= @current_user.username %> </td>
+    <td>
+         <center> 
+         <img src="<%=@current_photo%>" width="100" height="100">
+         <br>
+         <form action ="/update/<%= @current_user.id %>" method="post">
+         <br>
+          <input type="hidden" name="_method" value="PATCH">
+            <input type="submit" value="Change">
+         </form>
+         </center>
+    </td>
+
+    <td> <%= @current_user.age %> </td>
+    <td> <%= @current_user.gender %> </td>
+  </tr>
+
+</table>
+
+<table>
+  <tr>
+    <th>Peep by this User</th>
+    <th>Timestamp</th>
+    <th>Loves</th>
+  </tr>
+
+  <% @peeps.each do |p| %>
+  <tr>
+    <td> <%= p.peep %> </td>
+    <td> <%= p.date %> </td>
+    <td>
+      Number of Loves: <%= p.loves %>
+    </td>
+  </tr>
+
+  <% end %>
+
+</table>
+
+</body>
+</html>
