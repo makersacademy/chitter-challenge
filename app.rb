@@ -27,13 +27,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    p @user = User.find(session[:id])
+    @user = User.find(session[:id])
     @peeps = Peep.all
     erb :'peeps/peeps'
   end
 
   get '/peeps/new' do
-    erb:'peeps/new'
+    erb :'peeps/new'
   end
 
   post '/peeps' do
