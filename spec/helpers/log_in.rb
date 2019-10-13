@@ -1,4 +1,4 @@
-def log_in(password='password')
+def log_in(password = 'password')
   visit '/'
   click_link "Log In"
   fill_in "Email", with: 'guy@mail.com'

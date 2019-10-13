@@ -14,8 +14,7 @@ class Chitter < Sinatra::Base
   
   get '/home' do
     @user = warden_handler.user if warden_handler.authenticated?
-    @peeps = Peep.all.reverse
-    peep = @peeps.first
+    @peeps = Peep.parents.reverse if Peep.parents != nil
     @css_path = 'main.css'
     @page = :'home/home'
     erb :template
@@ -23,13 +22,25 @@ class Chitter < Sinatra::Base
 
   get '/sign_up' do
     @css_path = 'main.css'
-    @page = :'users/sign_up'
+    @form = :'forms/sign_up'
+    @page = :'users/login_signup'
     erb :template
   end
   
   get '/login' do
     @css_path = 'main.css'
-    @page = :'users/login'
+    @form = :'forms/login'
+    @page = :'users/login_signup'
+    erb :template
+  end
+  
+  get '/peeps/:id/reply' do
+    @css_path = 'main.css'
+    @reply_id = params[:id].to_i
+    @user = warden_handler.user if warden_handler.authenticated?
+    @peeps = Peep.parents.reverse if Peep.parents
+    @css_path = '../../main.css'
+    @page = :'home/home'
     erb :template
   end
 
@@ -37,6 +48,15 @@ class Chitter < Sinatra::Base
     @peep = Peep.create(
       content: params['peep-content'],
       user_id: warden_handler.user.id
+    )
+    redirect '/home'
+  end
+
+  post '/peeps/:id/replies' do
+    peep = Peep.create(
+      content: params['reply'],
+      user_id: warden_handler.user.id,
+      parent_id: params[:id]
     )
     redirect '/home'
   end

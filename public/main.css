@@ -19,6 +19,16 @@
   border-top: 0px;
 }
 
+.child-peep {
+  border-radius: 0px;
+  border: 0px;
+  border-top: 1px;
+  border-top-style: solid;
+  border-left: 1px;
+  border-left-style: solid;
+  border-color: lightgray;
+}
+
 .card-body {
   padding-bottom: 0.7em;
 }
@@ -85,8 +95,59 @@ div.chitter-content {
   max-width: 800px;
 }
 
+.ls-btn {
+  width: 20%;
+  border-radius: 20px;
+}
+
+.ls-form {
+  padding: 10%;
+  height: 60vh;
+  border-radius: 20px;
+}
+
+.ls-header-row {
+  height: 2.3em;
+}
+
+.ls-header {
+  color: darkslategrey;
+  font-size: 90%;
+}
+
+.ls-header:hover {
+  border-bottom: #4A89DC;
+  border-bottom-style: solid;
+}
+
+.login-signup-page {
+  background-color: lightgray;
+  height: 100vmax;
+}
+
+.logout {
+  padding: 0%;
+  background: 0%;
+}
+
+.logout-btn {
+  border-radius: 0px;
+  text-align: left;
+  width: 100%;
+}
+
+.logout-btn:hover {
+  text-decoration: none;
+  background-color: rgb(233, 231, 231);
+}
+
 .mpad {
   padding: 0.7em;
+}
+
+.nav {
+  padding-top: 10%;
+  text-align: left !important;
 }
 
 .peep-btn {
@@ -98,13 +159,42 @@ div.chitter-content {
   border: 0px;
 }
 
+.peep-footer {
+  background: 0;
+  border: 0px;
+  text-align: right;
+}
+
 .peep-name {
   padding-top: 0.5em;
   padding-left: 2em;
 }
 
+.replies {
+  /* width: 100%;
+  border-top: 1px;
+  border-top-style: solid;
+  border-color; lightgrey; */
+  padding-left: 1em;
+  color: #4A89DC;
+}
+
 .right-align {
   text-align: right;
+}
+
+.sidebar {
+  padding-top: 10vh;
+}
+
+.sq-gray {
+  padding: 1.8em;
+  background-color: rgb(236, 236, 236);
+  border-radius: 0px;
+  border: 0px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  border-bottom-width: 0.1em;
 }
 
 .lv-mid {
@@ -113,4 +203,8 @@ div.chitter-content {
 
 .rv-mid {
   padding-top: 30vh;
+}
+
+.ls-mid {
+  padding-top: 15vh;
 }

@@ -6,14 +6,31 @@
         <div class='container'>
           <div class='navbar-header'>
             <div class='container'>
-              <a class='navbar-brand' href='/'>Chitter</a>
+              <% if @user %>
+                <a class='navbar-brand' href='/home'>Chitter</a>
+              <% else %>
+                <a class='navbar-brand' href='/'>Chitter</a>
+              <% end %>
+              
+            </div>
+          </div>
+        </div>
+        <% if @user %>
+        <div class='sidebar'>
+          <div class='card nav shadow rounded'>
+            <div class='container'>
+              <strong><%= @user.name %></strong>
+              <p>@<%= @user.handle %></p>
+            </div>
+            <div class ='card-footer logout'>
               <form action='/sessions' method='POST'>
                 <input type="hidden" name="_method" value="DELETE">
-                <button type='submit'>Log out</button>
+                <button class='btn btn-link logout-btn' type='submit'>Log out</button>
               </form>
             </div>
           </div>
         </div>
+        <% end %>
       </header>
     </div>
     <div class='col-5'>

@@ -1,15 +1,60 @@
-<% @peeps.each do |peep| %>
-  <div class='peep' id='peep-<%= peep.id %>'>
-    <div class='card'>
-      <div class='peep-name'>
-        <strong><%= peep.user.name %></strong> @<%= peep.user.handle %>
-        <small class='created-at text-muted'><%= TimeConverter.time_since(peep.created_at) %></small>
-      </div>
-      <div class=card-body>
-        <div class='peep-content'>
-            <%= peep.content %>
+<% if @peeps %>
+  <% @peeps.each do |peep| %>
+    <div class='peep' id='peep-<%= peep.id %>'>
+      <div class='card'>
+        <div class='peep-name'>
+          <strong><%= peep.user.name %></strong> @<%= peep.user.handle %>
+          <small class='created-at text-muted'><%= TimeConverter.time_since(peep.created_at) %></small>
         </div>
+        <div class='card-body'>
+          <div class='peep-content'>
+              <%= peep.content %>
+          </div>
+        </div>
+        <% if @user %>
+          <% if @reply_id == peep.id %>
+            <form action='/peeps/<%= peep.id %>/replies' method='post'>
+              <div class='card-footer peep-footer'>
+                <div class="form-group">
+                  <textarea name="reply" cols="40" rows="1" class="form-control peep-form" placeholder="Reply"></textarea>
+                </div> 
+                <div class='right-align'>
+                  <button name="reply-submit" type="submit" class="btn-sm btn-primary peep-btn">Submit</button>
+                </div>
+              </div>
+            </form>
+          <% else %>
+            <div class='card-footer peep-footer'>
+              <a href='/peeps/<%= peep.id %>/reply' class='btn-sm btn-primary peep-btn'>Reply</a>
+            </div>
+          <% end %>
+        <% end %>
+        <% unless peep.replies.nil? %>
+          <div class='replies'>
+            <h6><strong>Replies</strong></h6>
+          </div>
+          <% peep.replies.each do |reply| %>
+            <div class='row'>
+              <div class='col-sm'></div>
+              <div class='col-10'>
+                <div class='card child-peep'>
+                  <div class='card-body'>
+                    <div class='peep-name'>
+                      <strong><%= reply.user.name %></strong> @<%= reply.user.handle %>
+                      <small class='created-at text-muted'><%= TimeConverter.time_since(reply.created_at) %></small>
+                    </div>
+                    <div class='card-body'>
+                      <div class='peep-content'>
+                        <%= reply.content %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

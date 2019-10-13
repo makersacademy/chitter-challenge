@@ -15,4 +15,25 @@ describe Peep do
       peep.user
     end
   end
+
+  describe '#replies' do
+    context 'when no replies' do
+      it 'returns nil' do
+        expect(peep.replies).to be nil
+      end
+    end
+
+    it 'returns a list of peeps' do
+      Peep.create(content: 'stuff', parent_id: peep.id)
+      expect(peep.replies.first.content).to eq 'stuff'
+    end
+  end
+
+  describe '.parents' do
+    it 'returns all parent peeps' do
+      Peep.create(content: 'things', parent_id: peep.id)
+      
+      expect(Peep.parents.first).to be_a(Peep)
+    end
+  end
 end
