@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'data_mapper'
 require 'pg'
 require 'bcrypt'
 
