@@ -1,5 +1,3 @@
-require 'time_converter'
-
 describe TimeConverter do
   describe '.time_since' do
     context 'given a very recent time' do

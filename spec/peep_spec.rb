@@ -1,5 +1,3 @@
-require 'peep'
-
 describe Peep do
   subject(:peep) { Peep.create(content: "Stuff") }
   it 'knows its content' do

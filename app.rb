@@ -1,20 +1,24 @@
-require 'sinatra/base'
-require 'sinatra/flash'
-require 'warden'
-require './lib/peep'
-require './lib/time_converter'
-require './lib/user'
+require_relative './config/environment.rb'
+require_relative 'app/models/init'
+require_relative 'app/helpers/init'
 
 class Chitter < Sinatra::Base
   enable :method_override, :sessions
   register Sinatra::Flash
-
+  
   get '/' do
     @css_path = 'main.css'
     @page = :index
     erb :template
   end
   
+  get '/home' do
+    @peeps = Peep.all.reverse
+    @css_path = 'main.css'
+    @page = :'home/home'
+    erb :template
+  end
+
   get '/sign_up' do
     @css_path = 'main.css'
     @page = :'users/sign_up'
@@ -24,13 +28,6 @@ class Chitter < Sinatra::Base
   get '/login' do
     @css_path = 'main.css'
     @page = :'users/login'
-    erb :template
-  end
-  
-  get '/home' do
-    @peeps = Peep.all.reverse
-    @css_path = 'main.css'
-    @page = :'home/home'
     erb :template
   end
 
@@ -67,20 +64,7 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  def warden_handler
-    env['warden']
-  end
-
-  def current_user
-    warden_handler.user
-  end
-
-  def check_auth
-    redirect '/login' unless warden_handler.authenticated?
-  end
-
-  # Warden config for authenticated sessions
-
+  # Warden config for user authentication
 
   use Warden::Manager do |manager|
     manager.default_strategies :password
@@ -88,7 +72,7 @@ class Chitter < Sinatra::Base
     manager.serialize_into_session {|user| user.id}
     manager.serialize_from_session {|id| User.find_by_id(id)}
   end
-  
+
   Warden::Manager.before_failure do |env,opts|
     env['REQUEST_METHOD'] = 'POST'
   end
@@ -97,7 +81,7 @@ class Chitter < Sinatra::Base
     def valid?
       params["handle"] || params["password"]
     end
-  
+
     def authenticate!
       user = User.find_by(handle: params['handle'])
       if user && user.authenticate(params["password"])

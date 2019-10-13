@@ -1,12 +1,15 @@
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
-Dir[File.join(File.dirname(__FILE__), 'helpers/*.rb')].each { |file| require file }
-
 ENV['RACK_ENV'] = 'test'
+
+Dir[File.join(File.dirname(__FILE__), 'helpers/*.rb')].each { |file| require file }
+root = File.dirname(__FILE__)[0..-5]
+require File.join(root, 'app.rb')
+require File.join(root, 'app/models/init')
+require File.join(root, 'config/environment.rb')
+
 
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-require File.join(File.dirname(__FILE__), '..', 'config/environment.rb')
 
 Capybara.app = Chitter
 

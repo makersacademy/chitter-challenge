@@ -1,4 +1,3 @@
-require 'user'
 require 'bcrypt'
 
 describe User do

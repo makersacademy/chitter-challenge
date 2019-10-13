@@ -1,5 +1,10 @@
-puts "Environment #{ENV['RACK_ENV']})"
+require 'active_record'
+require 'bcrypt'
+require 'sinatra/base'
+require 'sinatra/flash'
+require 'warden'
 
+puts "Environment #{ENV['RACK_ENV']})"
 case ENV['RACK_ENV']
 when 'development'
   p "Connecting to dev database..."
