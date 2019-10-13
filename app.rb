@@ -21,6 +21,7 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
+  # Index Page
   get '/' do
     @user = session[:user]
     @feed = Peep.all
@@ -69,9 +70,10 @@ class Chitter < Sinatra::Base
   # Post a new peep
   post '/peeps/new' do
     Peep.create(
-      content:,
-      user_id:
+      content: params[:content],
+      user_id: session[:user].id
     )
+    redirect '/'
   end
 
   run! if app_file == $0
