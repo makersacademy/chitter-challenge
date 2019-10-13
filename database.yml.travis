@@ -1,0 +1,13 @@
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(60),
+  password VARCHAR(160),
+  name VARCHAR(60),
+  username VARCHAR(60)
+);
+CREATE TABLE peeps(
+  id SERIAL PRIMARY KEY,
+  content VARCHAR(280),
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  user_id INTEGER REFERENCES users (id)
+);
