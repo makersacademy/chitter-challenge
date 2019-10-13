@@ -1,6 +1,6 @@
 # Chitter Challenge
 =================
-A small Twitter clone that allows users to post messages to a public stream.
+- A small Twitter clone that allows users to post messages to a public stream.
 -------
 ## User Stories
 ```
@@ -38,102 +38,103 @@ I want to sign up for Chitter
 
 ### Sequence Diagrams
 |User| --peep(time)--> |Chitter|
+-----
 |User| <- - "peeps" - - |Chitter|
 ------
 ## Notes on functionality:
-------
 * Don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 ------
 ## Domain Relationships
- _______      ____
-|Chitter|---≡|Peep|  Chitter has MANY Peeps
- –––––––      ––––
- _______      ____
-|Chitter|---≡|User|  Chitter has MANY users
- –––––––      ––––
- ____      ____
-|user|---≡|User|  a User has MANY peeps
- ––––      ––––
+- Chitter has MANY Peeps
+|Chitter|---≡|Peep|  
+
+- Chitter has MANY users
+|Chitter|---≡|User|  
+
+- a User has MANY peeps
+|user|---≡|User|  
+
 ------
 ## Class Responsibility Collaborator (CRC) Models
-- Table: peeps
+Table: peeps
 | id |     peep     | username | time?
 |------------------------------|
 | 1  | "first peep" |  "Josh"  |
 ------
-- Table: users
+Table: users
  id | email | user_name | name | password
 ----+-------+-----------+------+----------
 ------
-## Technologies used
+# Technologies used:
 ## Postgress
 ```
 brew install postgresql
 ```
 ## TablePlus
 - Optional, Graphic User Interface to database program.
------
+
 ## SQL
-- connect
+- To connect:
 ```
 psql
 ```
 
 ### Creating the Databases
-```psql``` command ```CREATE DATABASE "chitter";
 ```
-```psql``` command ```CREATE DATABASE "chitter_test";
+CREATE DATABASE "chitter";
 ```
-- see 'db/migrations/' for further instructions. (follow instructions for both databases)
+```
+CREATE DATABASE "chitter_test";
+```
+- see 'db/migrations/' for further instructions. (follow same instructions for each database)
 
 ### Viewing the Databases
 - connect:
-```psql
+```
+psql
 ```
 
 - change to database
-chitter.sql
-```\c chitter;
 ```
-chitter_test.sql
-```\c chitter_test;
+\c chitter;
+```
+```
+\c chitter_test;
 ```
 
 - to inspect the list of existing tables:
-```\dt;
+```
+\dt;
 ```     
 
 - to view the table's content:            
-```SELECT * FROM chitter;
+```
+SELECT * FROM chitter;
 ```
 -----
 ## How to use
 
-### To set up the project
-
-Clone this repository and then run:
+### To set up the project:
+- Clone this repository and then run:
 
 ```
 bundle
 ```
 
 ### To run the Bookmark Manager app:
-
 ```
 rackup
 ```
 - browser: http://localhost:9292
 ### To run tests:
-
 ```
 rspec
 ```
 
 ### To run linting:
-
 ```
 rubocop
 ```
