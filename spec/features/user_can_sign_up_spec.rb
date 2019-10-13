@@ -10,7 +10,7 @@ feature 'sign up' do
     end
 
     scenario 'gives error is username taken' do
-        User.create(user_name:'test', email:'test@test.com', password:'test')
+        DatabaseConnection.query("INSERT INTO users (user_name, email, password) VALUES ('test', 'test@test.com', 'test');")
         visit('/')
         click_link 'Sign up'
         fill_in 'email', with:'test2@test.com'
@@ -22,14 +22,26 @@ feature 'sign up' do
     end
 
     scenario 'gives error is email is taken' do
-        User.create(user_name:'test', email:'test@test.com', password:'test')
+        DatabaseConnection.query("INSERT INTO users (user_name, email, password) VALUES ('test', 'test@test.com', 'test');")
         visit('/')
         click_link 'Sign up'
         fill_in 'email', with:'test@test.com'
         fill_in 'user_name', with:'test2'
         fill_in 'password', with:'test'
         click_button 'Submit'
-        expect(page).to have_content('email already in use')
+        expect(page).to have_content('Email already in use')
         expect(page).not_to have_content('test')
     end
+
+    scenario 'gives error if field is left blank' do
+        visit('/')
+        click_link 'Sign up'
+        fill_in 'email', with:''
+        fill_in 'user_name', with:'test2'
+        fill_in 'password', with:'test'
+        click_button 'Submit'
+        expect(page).to have_content('Fill in all fields')
+        expect(page).not_to have_content('test')
+    end
+
 end

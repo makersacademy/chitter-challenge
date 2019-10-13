@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    redirect "/user/#{User.logged_in.id}" if User.logged_in  
+    redirect "/user/#{User.logged_in.user_name}" if User.logged_in  
     @peeps = Peep.all_in_order
     erb :index
   end
@@ -23,17 +23,39 @@ class Chitter < Sinatra::Base
   post '/user' do
     User.create(user_name:params['user_name'], email:params['email'], password:params['password'])
     if User.error == nil
-      redirect "/user/#{user.id}"
+      redirect "/user/#{User.logged_in.user_name}"
     elsif User.error == 'user_name'
       flash[:notice] = "Username taken"
       redirect '/user/new'
     elsif User.error == 'email'
-      flash[:notice] = "email already in use"
+      flash[:notice] = "Email already in use"
+      redirect '/user/new'
+    else
+      flash[:notice] = "Fill in all fields"
       redirect '/user/new'
     end
   end
 
-  get '/user/:id' do
+  get '/user/login' do
+    erb :'user/login'
+  end
+
+  post '/user/login' do
+    user = User.login(user_name:params['user_name'], password:params['password'])
+    if User.logged_in
+      redirect "/user/#{user.user_name}"
+    else 
+      flash[:notice] = "Incorrect details try again"
+      redirect '/user/login'
+    end
+  end
+
+  get '/user/logout' do
+    User.logout
+    redirect '/'
+  end
+
+  get '/user/:name' do
     @peeps = Peep.all_in_order
     @user = User.logged_in
     erb :'user/index'
@@ -42,7 +64,7 @@ class Chitter < Sinatra::Base
   post '/peep' do
     if User.logged_in != nil
       Peep.create(message:params['peep'])
-      redirect "/user/#{User.logged_in.id}"
+      redirect "/user/#{User.logged_in.user_name}"
     else
       flash[:notice] = "Not logged in, please login or sign up"
       redirect '/'
