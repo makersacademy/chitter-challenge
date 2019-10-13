@@ -30,8 +30,18 @@ describe Peep do
 
       expect(peep).to be_a Peep
       expect(peeps.length).to eq 2
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.message).to eq('Covfefe')
+      expect(peeps.last.message).to eq('Covfefe')
+    end
+
+    it 'shows stored peeps in chronological order' do
+      peep1 = Peep.create(message: "Covfefe")
+      peep2 = Peep.create(message: "Ed Balls")
+      peep3 = Peep.create(message: "Hello!")
+      peeps = Peep.all
+      result = peeps.each { |peep| peep.message}
+
+      expect(peeps.first.id).to eq peep3.id
+      expect(peeps.first.message).to eq "Hello!"
     end
 
   end
