@@ -20,17 +20,18 @@ tr:nth-child(even) {
 <center>
 <body>
 
-  <h1>Welcome, <%= @current_user %> ! </h1>
-
+  <h1>Welcome, <%= @current_user.username %> ! </h1>
+      <img src="<%= @current_photo %> " width="100" height="100">
   <h2>
-  <form action ="/" method="get">
-      Not, <%= @current_user %> ? Sign out...
+  <form action ="/home" method="get">
+      Not, <%= @current_user.username %> ? Sign out...
       <input type="submit" value="Sign Out">
   </form>
-  </h2>
 
+  <form action ="/profile" method="get">
+    <input type="submit" value="View Profile">
+  </form>
 
-  <h2>
   <form action ="/add_peep" method="post">
       Make a new peep :
       <input type="text" name="peep">
@@ -40,7 +41,7 @@ tr:nth-child(even) {
 
   <table>
     <tr>
-      <th>Username</th>
+      <th>User</th>
       <th>Peep</th>
       <th>Timestamp</th>
       <th>Loves</th>
@@ -48,7 +49,11 @@ tr:nth-child(even) {
 
     <% @peeps.each do |p| %>
     <tr>
-      <td> <%= p.username %> </td>
+      <td> <h2> <center>
+           <%= Users.get_user(p.username).username %> <br>
+           <img src="<%= Users.get_user(p.username).picture%> " width="100" height="100">
+           </center> </h2>
+      </td>
       <td> <%= p.peep %> </td>
       <td> <%= p.date %> </td>
       <td>
@@ -69,6 +74,8 @@ tr:nth-child(even) {
     <% end %>
 
   </table>
+
+
 
   </body>
   </center>

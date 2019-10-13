@@ -1,6 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
 require_relative 'setup_testing_database'
+require 'features/web_helpers'
 
 ENV['ENVIRONMENT'] = 'test'
 

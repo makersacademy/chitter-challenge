@@ -2,7 +2,7 @@ require 'pg'
 require_relative 'connect_database'
 class Peeps
 
-  attr_reader :username, :id, :peep, :date, :loves
+  attr_reader :username, :id, :peep, :date, :loves, :current_user
 
   def initialize(id,peep,date,username,loves)
     @id = id.to_i
@@ -12,13 +12,13 @@ class Peeps
     @loves = loves.to_i
   end
 
-  def self.sign_in(username, connect_database_class = ConnectDatabase)
-    @connection = connect_database_class.start
-    @username = username
+  def self.sign_in(current_user, connect_database_class = ConnectDatabase)
+    @connection = connect_database_class.start('peep')
+    @current_user = current_user
   end
 
-  def self.username
-    @username
+  def self.current_user
+    @current_user
   end
 
   def self.view_all
@@ -35,8 +35,23 @@ class Peeps
     @results
   end
 
-  def self.add_peep(text)
-    sql = "INSERT INTO peeps (username,peep) VALUES('#{@username}','#{text}');"
+  def self.view_by_user(username)
+    sql = "SELECT * FROM peeps WHERE username = '#{username}' ORDER BY date DESC"
+    result = @connection.query(sql)
+    @results = result.map do |peep|
+      Peeps.new(
+        peep['id'],
+        peep['peep'],
+        peep['date'],
+        peep['username'],
+        peep['loves'])
+    end
+    @results
+  end
+
+
+  def self.add_peep(text,id)
+    sql = "INSERT INTO peeps (username,peep) VALUES('#{id}','#{text}');"
     @connection.query(sql)
   end
 

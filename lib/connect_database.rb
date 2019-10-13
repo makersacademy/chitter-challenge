@@ -1,8 +1,11 @@
 require 'pg'
+require_relative 'choose_peep_database'
+require_relative 'choose_user_database'
 
 class ConnectDatabase
 
-  def self.start(pg_class = PG)
+  def self.start(pg_class = PG,mode)
+    @mode = mode
     @connection = pg_class.connect(dbname: which_database)
   end
 
@@ -17,10 +20,10 @@ class ConnectDatabase
   private
 
   def self.which_database
-    if ENV['ENVIRONMENT'] == 'test'
-      return 'test_chitter_database'
+    if @mode == 'user'
+      which_user_database
     else
-      return 'chitter_database'
+      which_peep_database
     end
   end
 
