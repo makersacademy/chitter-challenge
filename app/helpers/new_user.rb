@@ -1,5 +1,4 @@
 def user_valid?
-  puts "#{params}"
   keys = ['name', 'handle', 'email', 'password']
   keys.each do |key|
     return false unless params.keys.include?(key)

@@ -71,7 +71,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    check_params
     @peep = Peep.create(
       content: params['peep-content'],
       user_id: warden_handler.user.id

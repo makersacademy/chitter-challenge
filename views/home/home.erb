@@ -28,7 +28,7 @@
               <p><%= @user.handle %></p>
             </div>
             <a class='btn btn-link sidebar-btn' href='/users/<%= @user.id %>/tags'>
-              Tags <%= "<b class='tag-alert'>!</b>" unless @tags[:unread].length == 0 || @directory = :'users/tags' %>
+              Tags <%= "<b class='tag-alert'>!</b>" unless @tags[:unread].length == 0 || @directory == :'users/tags' %>
             </a>
             <div class ='card-footer logout'>
               <form action='/sessions' method='POST'>
@@ -54,6 +54,7 @@
           </div>
         </div>
         <%= erb :'forms/peep_form' if @user %>
+        <% puts @directory %>
         <%= erb @directory %>
       </body>
     </div>
