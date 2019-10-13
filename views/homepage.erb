@@ -6,13 +6,22 @@
   </head>
   <body>
     <h1>Chitter</h1>
-    <h2>homepage</h2>
-    <ul><% @posts.each do |post| %>
-      <li><%= post.content %> --- <%= post.date %></li>
+    <h2>Homepage</h2>
+    <% if @user %>
+      <h3>Welcome, <%= "#{@user.username}" %></h3>
     <% end %>
+    <ul>
+      <% @posts.each do |post| %>
+        <div><%= post.content %>
+          --- (<%= post.date %>)</div><br>
+      <% end %>
     </ul>
     <form action="/posts/new">
       <input type="submit" value="New Post">
+    </form>
+    <br>
+    <form action="/users/new">
+      <input type="submit" value="Create account">
     </form>
   </body>
 </html>

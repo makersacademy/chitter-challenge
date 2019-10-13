@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'pg'
 require_relative './lib/posts'
+require_relative './lib/user'
 require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
@@ -13,6 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/homepage' do
+    @user = Users.find(session[:user_id])
     @posts = Posts.all
     erb :homepage
   end
@@ -23,6 +25,16 @@ class Chitter < Sinatra::Base
 
   post '/posts' do
     Posts.create(content: params[:content])
+    redirect '/homepage'
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    user = Users.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/homepage'
   end
 

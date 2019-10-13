@@ -1,4 +1,5 @@
 require 'pg'
+require_relative './database_connection'
 
 class Posts
 
