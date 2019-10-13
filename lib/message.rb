@@ -9,7 +9,7 @@ class Message
       connection = PG.connect(dbname: 'chitter')
     end
 
-    connection.exec("INSERT INTO message (text) VALUES ('#{text}')")
+    connection.exec("INSERT INTO message (text) VALUES ('#{text}') RETURNING id, text, time")
 
   end
 
@@ -21,7 +21,7 @@ class Message
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("SELECT * FROM message")
+    result = connection.exec("SELECT * FROM message ORDER BY time DESC")
 
     result.map { |message| message['text'] }
 

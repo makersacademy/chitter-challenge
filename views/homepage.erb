@@ -1,11 +1,25 @@
-<h1> Chitter </h1>
+<html>
+<head>
+<style>
+body {background-color: aliceblue;}
+h1   {color: cadetblue; font-family: 'Teko', sans-serif;}
+p    {color: gray;}
+</style>
+</head>
+<body>
+
+<h1 align="center">Chitter</h1>
 
 <form action='peep/new' method='get'>
   <input type='submit' value='Post a peep'>
 </form>
 
-<ul>
+<p><ul>
   <% @peeps.each do |peep| %>
     <li><%= peep %></li>
+    
   <% end %>
-</ul>
+</ul></p>
+
+</body>
+</html>
