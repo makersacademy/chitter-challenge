@@ -4,7 +4,7 @@
 
 <div style="margin-left: 12.5%;">
 <form  action="/peep" method="post">
-    <input name"peep">
+    <input name"peep" style="visibility: hidden; width: 0.1px; height 0.1px;" >
     <textarea class=".peep" style="width: 85%;" name="peep" cols="60" rows="3" placeholder="Write a peep! Share your thoughts!"></textarea>
     </input>
     <br>
@@ -12,8 +12,10 @@
 </form>
 </div>
 
-<p> 1st Test Peep </p>
-<% if @peep %>
-    <p> <%= @peep.message %> </p>
+<% @peeps.each do |peep| %>
+    <h3> <%= peep.message %> </h3>
+    <p> <% d = DateTime.parse(peep.tdz) %> </p>
+    <p> <%= d.strftime("%d/%m/%Y") %> <%= d.strftime("%I:%M%p") %> <%= d.zone %></p>
 <% end %>
+
 

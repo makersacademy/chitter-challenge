@@ -1,15 +1,17 @@
 require 'sinatra/base'
 require './lib/peep'
 require './spec/database_connection_setup'
+require 'date'
 
 class Chitter < Sinatra::Base
 
   get '/' do
+    @peeps = Peep.all_in_order
     erb :index
   end
 
   post '/peep' do
-    @peep = Peep.create(message:params['peep'])
+    Peep.create(message:params['peep'])
     redirect '/'
   end
   
