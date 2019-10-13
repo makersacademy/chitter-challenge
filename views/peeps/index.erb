@@ -1,12 +1,22 @@
+<h1 style="text-align:center;">CHITTER</h1>
+
 <% if @user %>
-  <h1>Welcome, <%= @user.name %></h1>
+  <h3>Signed in as: <%= @user.name %></h3>
 <% end %>
 
+<form action= "/peeps/new" >
+  <input type="submit" value="New Peep">
+</form>
+
 <ul>
-  <% @peeps.each do |a_peep| %>
+  <% @peeps.reverse.each do |a_peep| %>
     <li>
       <%= a_peep.username %>:
       <%= a_peep.peep %>
     </li>
   <% end %>
 </ul>
+
+<form action= "/" >
+  <input type="submit" value="Back to homepage">
+</form>

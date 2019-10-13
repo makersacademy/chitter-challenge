@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "Chitter"
+    erb :'index'
   end
 
   get '/peeps' do
