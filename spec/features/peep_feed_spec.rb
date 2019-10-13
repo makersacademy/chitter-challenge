@@ -35,4 +35,9 @@ feature 'Peep feed' do
     visit '/'
     expect(first('.peep')).to have_content content_two
   end
+
+  scenario 'A message is displayed if no peeps exist' do
+    visit '/'
+    expect(page).to have_content 'No posts exist.'
+  end
 end

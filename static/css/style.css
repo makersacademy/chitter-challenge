@@ -29,6 +29,11 @@ h4 {
   font-size: 1.4rem;
 }
 
+.peep-empty {
+  font-size: 1.4rem;
+  color: #9B9B9B;
+}
+
 .peep-timestamp {
   font-size: 0.8rem;
   font-weight: bold;
