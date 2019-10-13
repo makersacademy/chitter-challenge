@@ -15,3 +15,17 @@
     </li>
   <% end %>
 </ul>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Log out" />
+</form>
+
+<form action="/sessions/new" method="get">
+  <input type="submit" value="Log in" />
+</form>
+<form action="/users/new" method="get">
+  <input type="submit" value="Sign up" />
+</form>
+<h2>
+  <%= flash[:notice] %>
+</h2>

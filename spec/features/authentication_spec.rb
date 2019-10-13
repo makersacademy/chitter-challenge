@@ -21,4 +21,18 @@ feature 'authentication' do
     expect(page).not_to have_content 'Welcome, John Bob'
     expect(page).to have_content 'Username or password is invalid'
   end
+
+  scenario 'a user can sign out' do
+    User.create(name: 'John Bob', username: 'johnbob', email: 'test@example.com', password: 'password123')
+
+    visit '/sessions/new'
+    fill_in(:username, with: 'johnbob')
+    fill_in(:password, with: 'password123')
+    click_button('Log in')
+
+    click_button('Log out')
+
+    expect(page).not_to have_content 'Welcome, John Bob!'
+    expect(page).to have_content 'You have signed out.'
+  end
 end
