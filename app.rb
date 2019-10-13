@@ -37,15 +37,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    salt = BCrypt::Engine.generate_salt
-    passhash = BCrypt::Engine.hash_secret(params[:password], salt)
-    @user = User.create(
+    user = User.create(
       handle: params[:handle],
       name: params[:name],
-      passhash: passhash,
-      salt: salt
     )
-    flash[:new_user] = "Thanks for joining Chitter, #{@user.name}! Have a really chit time!"
+    UserPassword.create(user, params[:password])
+    flash[:new_user] = "Thanks for joining Chitter, #{user.name}! Have a really chit time!"
     redirect '/home'
   end
 

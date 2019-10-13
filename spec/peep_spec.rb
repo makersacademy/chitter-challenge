@@ -6,4 +6,8 @@ describe Peep do
   it 'knows its ID' do
     expect(peep.id).to be_a Integer
   end
+
+  it 'knows the id of the user that peeped' do
+    
+  end
 end
