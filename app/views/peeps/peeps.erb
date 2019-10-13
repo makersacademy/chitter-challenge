@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter Peeps</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">Homepage</a>
+    </header><br>
+    <div>
+      <% @peeps.each do |peep| %>
+        <div class="peep-time">
+          <%= date_and_time(peep.created_at) %>
+        </div>
+        <div class="peep-message" id="peep-<%= peep.id %>">
+          <%= peep.message %>
+        </div><br>
+      <% end %>
+    </div>
+  </body>
+</html>

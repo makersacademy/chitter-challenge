@@ -10,8 +10,6 @@ require 'features/web_helper'
 require 'simplecov'
 require 'simplecov-console'
 require 'sinatra/partial'
-# require './app/app'
-# require_relative './setup_test_database'
 
 Capybara.app = Chitter
 

@@ -20,6 +20,23 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+
+    def date_and_time(time)
+      time.strftime("%c")
+    end
+  end
+
+  helpers do
+
+    def date_and_time(time)
+      time.strftime("posted on %B %dth at %I:%M%p")
+    end
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
 
