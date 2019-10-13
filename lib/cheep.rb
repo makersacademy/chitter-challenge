@@ -19,4 +19,8 @@ class Cheep
       Cheep.new(cheep['id'], cheep['text'], cheep['time'])
     end
 
+  def self.delete(id:)
+    DatabaseConnection.query("DELETE FROM cheeps WHERE id = #{id}")
+  end
+
 end

@@ -21,5 +21,10 @@ post '/add' do
   redirect '/cheeps'
 end
 
+delete '/cheeps/:id' do
+    Cheep.delete(id: params[:id])
+    redirect '/cheeps'
+  end
+
 run! if app_file == $0
 end
