@@ -1,3 +1,3 @@
-User.create!(name: 'John Bob', username: 'johnbob', email: 'test@example.com', password: 'password123')
-User.create!(name: 'Jaba Jaba', username: 'jaba', email: 'jaba@gmail.com', password: 'jabajaba')
-User.create!(name: 'Admin', username: 'admin', email: 'admin@gmail.com', password: 'password')
+User.create!(name: 'BMO', username: 'bmo', email: 'bmo@gmail.com', password: '123456')
+User.create!(name: 'Jake The Dog', username: 'jake', email: 'jake@gmail.com', password: '123456')
+User.create!(name: 'Finn', username: 'finn', email: 'finn@gmail.com', password: '123456')

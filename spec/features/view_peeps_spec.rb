@@ -11,6 +11,13 @@ feature 'Viewing peeps' do
     expect(peeps[0]).to have_content "Watching Adventure Time."
     expect(peeps[1]).to have_content "So sunny today!"
   end
+  scenario 'A user can see an author of the peep' do
+    sign_up
+    fill_in('content', with: 'So sunny today!')
+    click_button 'Post'
+
+    expect(page).to have_content 'by John Doe'
+  end
 
   scenario 'A user can see the time when the peep was posted' do
     sign_up

@@ -1,4 +1,37 @@
-<% if @user %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Welcome to Chitter!</title>
+</head>
+<body>
+
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Chitter</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+<form action="/login" method="get" class="form-inline my-2 my-lg-0 float-right" style="margin: 0 10px;">
+  <input type="submit" value="Log in" class="btn btn-primary" class="btn btn-outline-success my-2 my-sm-0" />
+</form>
+<form action="/signup" method="get" class="form-inline my-2 my-lg-0 float-right" style="margin: 0 10px;">
+  <input type="submit" value="Sign up" class="btn btn-primary" class="btn btn-outline-success my-2 my-sm-0" />
+</form>
+
+<form action="/logout" method="post" class="form-inline my-2 my-lg-0 float-right" style="margin: 0 10px;">
+  <input type="submit" value="Log out" class="btn btn-primary" class="btn btn-outline-success my-2 my-sm-0" />
+</form>
+
+  </div>
+</nav>
+    <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
   <form action="/peeps/new" method="post">
   <input type="text" name="content" placeholder="New Peep"/>
@@ -8,23 +41,34 @@
 
 <ul class="peeps_list">
   <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>">
+  <div class="card">
+  <div class="card-body">
+        <li class="peep" id="peep-<%= peep.id %>">
         <%= peep.content %>
-        <%= peep.created_at.strftime("%d %b %Y at %I:%M %p") %> 
     </li>
+  </div>
+  <div class="card-footer text-muted">
+    <%= peep.created_at.strftime("%d %b %Y at %I:%M %p") %> 
+        <% @user = User.where(id: peep.user_id).first&.send(:name) %>
+        <%= "by #{@user}" %>
+  </div>
+</div>
   <% end %>
+
 </ul>
 
-<form action="/logout" method="post">
-  <input type="submit" value="Log out" />
-</form>
 
-<form action="/login" method="get">
-  <input type="submit" value="Log in" />
-</form>
-<form action="/signup" method="get">
-  <input type="submit" value="Sign up" />
-</form>
-<h2>
+
+
+
+
+
+
+<div class="alert alert-info" role="alert">
+
   <%= flash[:notice] %>
-</h2>
+
+</div>
+</div>
+</body>
+</html>
