@@ -1,52 +1,74 @@
-<div class="feed">
-  <% @feed.each do |peep| %>
-
-    <div class="peep">
-      <div class="author"><%= peep.user.name %></div>
-      <div class="peep-content"><%= peep.content %></div>
-      <div class="peep-timestamp"><%= peep.timestamp %></div>
-    </div>
-
-  <% end %>
+<div class="row">
+  <div class="col-12 mt-3">
+    <h1>CHITTERBOX // PUBLIC</h1>
+  </div>
 </div>
 
-<% if @user %>
+<div class="row">
 
-  <div class="user-dashboard">
-    Hi <%= @user.name %>!
-    <div class="add-peep">
-      <form action="/peeps/new" method="post">
-        <input type="textarea" name="content">
-        <input type="submit" value="Post">
-      </form>
-    </div>
-    <form action="/users/<%= @user.id %>/session/destroy" method="post">
-      <input type="submit" value="Sign Out">
-    </form>
+  <!-- Main -->
+  <div class="feed col-8 pl-3 py-2">
+    <% @feed.each do |peep| %>
+      <div class="peep m-3 p-4">
+        <div class="author mb-2"><strong><%= peep.user.name %></strong></div>
+        <div class="peep-content mb-3"><%= peep.content %></div>
+        <div class="peep-timestamp"><%= peep.timestamp %></div>
+      </div>
+    <% end %>
   </div>
 
-<% else %>
+  <!-- Sidebar -->
+  <div class="col-4 pr-3 py-2">
 
-  <div class="sign-in">
-    <form action="/users/session" method="post">
-      <input type="text" name="email" placeholder="Email">
-      <input type="password" name="password" placeholder="Password">
-      <input type="submit" value="Sign In">
-    </form>
+    <% if @user %>
+
+      <div class="user-dashboard my-2">
+        <div class="greeting mb-3">
+          <h2><strong><%= @user.name %></strong></h2>
+          <div class="float-right">
+            <form action="/users/<%= @user.id %>/session/destroy" method="post">
+              <input class="btn btn-dark btn-sm" type="submit" value="Sign Out">
+            </form>
+          </div>
+          <h4>@<%= @user.username %></h4>
+        </div>
+        <div class="add-peep mt-5">
+          <div class="mb-3"><strong>Post a new peep:</strong></div>
+          <form action="/peeps/new" method="post">
+            <textarea rows="6" maxlength="280" placeholder="What are you up to?" name="content"></textarea>
+            <br>
+            <input class="btn btn-dark mt-3" type="submit" value="Post">
+          </form>
+        </div>
+      </div>
+
+    <% else %>
+
+      <div class="sign-in my-2">
+        <h5 class="mb-3"><strong>Sign in</strong> to your account</h5>
+        <form action="/users/session" method="post">
+          <input type="text" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+          <input class="btn btn-dark" type="submit" value="Sign In">
+        </form>
+      </div>
+
+      <div class="flash-notice my-5">
+        <%= flash[:notice] %>
+      </div>
+
+      <div class="sign-up my-2">
+        <h5 class="mb-3">Create a new account</h5>
+        <form action="/users/new" method="post">
+          <input type="text" name="email" placeholder="Email address"> <br>
+          <input type="password" name="password" placeholder="Password"> <br>
+          <input type="text" name="name" placeholder="Name"> <br>
+          <input type="text" name="username" placeholder="Username"> <br>
+          <input class="btn btn-dark" type="submit" value="Sign Up">
+        </form>
+      </div>
+
+    <% end %>
+
   </div>
-
-  <div class="flash-notice">
-    <%= flash[:notice] %>
-  </div>
-
-  <div class="sign-up">
-    <form action="/users/new" method="post">
-      <input type="text" name="email" placeholder="Email address"> <br>
-      <input type="password" name="password" placeholder="Password"> <br>
-      <input type="text" name="name" placeholder="Name"> <br>
-      <input type="text" name="username" placeholder="Username"> <br>
-      <input type="submit" value="Sign Up">
-    </form>
-  </div>
-
-<% end %>
+</div>

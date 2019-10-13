@@ -32,7 +32,7 @@ class Peep
   def initialize(id:, content:, timestamp:, user_id:)
     @id = id
     @content = content
-    @timestamp = timestamp
+    @timestamp = timestamp[0..15]
     @user_id = user_id
     @user = User.find(by: 'id', term: user_id)
   end
