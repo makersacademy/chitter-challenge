@@ -15,6 +15,7 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.before :each do
+    Tag.delete_all
     UserPassword.delete_all
     Peep.delete_all
     User.delete_all
@@ -31,6 +32,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.after(:suite) do
+    Tag.delete_all
     UserPassword.delete_all
     Peep.delete_all
     User.delete_all

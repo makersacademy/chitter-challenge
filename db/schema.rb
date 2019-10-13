@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_13_164444) do
+ActiveRecord::Schema.define(version: 2019_10_13_191749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2019_10_13_164444) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "parent_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "tagger_id"
+    t.integer "peep_id"
+    t.boolean "read"
   end
 
   create_table "user_passwords", force: :cascade do |t|
@@ -43,5 +52,8 @@ ActiveRecord::Schema.define(version: 2019_10_13_164444) do
 
   add_foreign_key "peeps", "peeps", column: "parent_id"
   add_foreign_key "peeps", "users"
+  add_foreign_key "tags", "peeps"
+  add_foreign_key "tags", "users"
+  add_foreign_key "tags", "users", column: "tagger_id"
   add_foreign_key "user_passwords", "users"
 end

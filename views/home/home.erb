@@ -6,19 +6,17 @@
         <div class='container'>
           <div class='navbar-header'>
             <div class='container'>
-              
               <% if @user %>
                 <a class='navbar-brand' href='/home'>
-                  <img src='CHITTERwhite_large.jpeg' class='header-icon rounded'>
+                  <img src=<%= @logo %> class='header-icon rounded'>
                   Chitter
                 </a>
               <% else %>
                 <a class='navbar-brand' href='/login'>
-                  <img src='CHITTERwhite_large.jpeg' class='header-icon rounded'>
+                  <img src=<%= @logo %> class='header-icon rounded'>
                   Chitter
                 </a>
               <% end %>
-              
             </div>
           </div>
         </div>
@@ -27,12 +25,15 @@
           <div class='card nav shadow rounded'>
             <div class='container'>
               <strong><%= @user.name %></strong>
-              <p>@<%= @user.handle %></p>
+              <p><%= @user.handle %></p>
             </div>
+            <a class='btn btn-link sidebar-btn' href='/users/<%= @user.id %>/tags'>
+              Tags <%= "<b class='tag-alert'>!</b>" unless @tags[:unread].length == 0 || @directory = :'users/tags' %>
+            </a>
             <div class ='card-footer logout'>
               <form action='/sessions' method='POST'>
                 <input type="hidden" name="_method" value="DELETE">
-                <button class='btn btn-link logout-btn' type='submit'>Log out</button>
+                <button class='btn btn-link sidebar-btn' type='submit'>Log out</button>
               </form>
             </div>
           </div>
@@ -53,7 +54,7 @@
           </div>
         </div>
         <%= erb :'forms/peep_form' if @user %>
-        <%= erb :'home/peeps' %>
+        <%= erb @directory %>
       </body>
     </div>
     <div class='col-4'></div>

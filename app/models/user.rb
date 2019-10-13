@@ -3,6 +3,13 @@ class User < ActiveRecord::Base
     password.check(attempt)
   end
 
+  def tags
+    tags = Tag.user_tags(id)
+    return nil unless tags.length > 0
+
+    tags
+  end
+
   private
 
   def password

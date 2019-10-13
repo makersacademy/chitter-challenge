@@ -144,17 +144,6 @@ div.chitter-content {
   background: 0%;
 }
 
-.logout-btn {
-  border-radius: 0px;
-  text-align: left;
-  width: 100%;
-}
-
-.logout-btn:hover {
-  text-decoration: none;
-  background-color: rgb(233, 231, 231);
-}
-
 .mpad {
   padding: 0.7em;
 }
@@ -201,6 +190,18 @@ div.chitter-content {
   padding-top: 10vh;
 }
 
+.sidebar-btn {
+  border-radius: 0px;
+  text-align: left;
+  width: 100%;
+}
+
+.sidebar-btn:hover {
+  text-decoration: none;
+  background-color: rgb(233, 231, 231);
+}
+
+
 .sq-gray {
   padding: 1.8em;
   background-color: rgb(236, 236, 236);
@@ -209,6 +210,16 @@ div.chitter-content {
   border-bottom-color: black;
   border-bottom-style: solid;
   border-bottom-width: 0.1em;
+}
+
+.tag-alert {
+  color: #e9673f;
+  font-size: 1.5em;
+}
+
+.tag-list {
+  padding-left: 2em;  
+  color: #4A89DC;
 }
 
 .lv-mid {

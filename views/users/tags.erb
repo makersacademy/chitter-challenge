@@ -1,0 +1,97 @@
+<% if @tags[:unread].length > 0 %>
+  <div class='card tag-list'>
+    <h5>Unread:</h5>
+  </div>
+  <% @tags[:unread].each do |tag| %>
+    <div class='peep' id='peep-<%= tag.peep.id %>'>
+      <div class='card'>
+        <div class='peep-name'>
+          <strong><%= tag.peep.user.name %></strong> <%= tag.peep.user.handle %>
+          <small class='created-at text-muted'><%= TimeConverter.time_since(tag.peep.created_at) %></small>
+        </div>
+        <div class='card-body'>
+          <div class='peep-content'>
+              <%= tag.peep.content %>
+              <%= tag.read? %>
+          </div>
+        </div>
+        <div class='card-footer peep-footer'>
+          <a href='/peeps/<%= tag.peep.id %>/reply' class='btn-sm btn-primary peep-btn'>Reply</a>
+        </div>
+        <% unless tag.peep.replies.nil? %>
+          <div class='replies'>
+            <h6><strong>Replies</strong></h6>
+          </div>
+          <% tag.peep.replies.each do |reply| %>
+            <div class='row'>
+              <div class='col-sm'></div>
+              <div class='col-10'>
+                <div class='card child-peep'>
+                  <div class='card-body'>
+                    <div class='peep-name'>
+                      <strong><%= reply.user.name %></strong> <%= reply.user.handle %>
+                      <small class='created-at text-muted'><%= TimeConverter.time_since(reply.created_at) %></small>
+                    </div>
+                    <div class='card-body'>
+                      <div class='peep-content'>
+                        <%= reply.content %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<% if @tags[:read].length > 0 %>
+  <div class='card tag-list'>
+    <h5>Read:</h5>
+  </div>
+  <% @tags[:read].each do |tag| %>
+    <div class='peep' id='peep-<%= tag.peep.id %>'>
+      <div class='card'>
+        <div class='peep-name'>
+          <strong><%= tag.peep.user.name %></strong> <%= tag.peep.user.handle %>
+          <small class='created-at text-muted'><%= TimeConverter.time_since(tag.peep.created_at) %></small>
+        </div>
+        <div class='card-body'>
+          <div class='peep-content'>
+              <%= tag.peep.content %>
+          </div>
+        </div>
+        <div class='card-footer peep-footer'>
+          <a href='/peeps/<%= tag.peep.id %>/reply' class='btn-sm btn-primary peep-btn'>Reply</a>
+        </div>
+        <% unless tag.peep.replies.nil? %>
+          <div class='replies'>
+            <h6><strong>Replies</strong></h6>
+          </div>
+          <% tag.peep.replies.each do |reply| %>
+            <div class='row'>
+              <div class='col-sm'></div>
+              <div class='col-10'>
+                <div class='card child-peep'>
+                  <div class='card-body'>
+                    <div class='peep-name'>
+                      <strong><%= reply.user.name %></strong> <%= reply.user.handle %>
+                      <small class='created-at text-muted'><%= TimeConverter.time_since(reply.created_at) %></small>
+                    </div>
+                    <div class='card-body'>
+                      <div class='peep-content'>
+                        <%= reply.content %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

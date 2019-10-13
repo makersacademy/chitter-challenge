@@ -3,7 +3,7 @@
     <div class='peep' id='peep-<%= peep.id %>'>
       <div class='card'>
         <div class='peep-name'>
-          <strong><%= peep.user.name %></strong> @<%= peep.user.handle %>
+          <strong><%= peep.user.name %></strong> <%= peep.user.handle %>
           <small class='created-at text-muted'><%= TimeConverter.time_since(peep.created_at) %></small>
         </div>
         <div class='card-body'>
@@ -40,7 +40,7 @@
                 <div class='card child-peep'>
                   <div class='card-body'>
                     <div class='peep-name'>
-                      <strong><%= reply.user.name %></strong> @<%= reply.user.handle %>
+                      <strong><%= reply.user.name %></strong> <%= reply.user.handle %>
                       <small class='created-at text-muted'><%= TimeConverter.time_since(reply.created_at) %></small>
                     </div>
                     <div class='card-body'>
