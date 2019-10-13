@@ -45,10 +45,16 @@ describe Users do
       expect(authenticated_user.id).to eq user.id
     end
 
-    it "returns nil if email address wrong" do
+    it "returns nil if email address is wrong" do
       user = Users.create(name: 'name', username: 'user', email: 'user@user.com', password: 'password')
 
       expect(Users.authenticate(email: 'fakeemail@user.com', password: 'password')).to eq nil
+    end
+
+    it "returns nil if password is wrong" do
+      user = Users.create(name: 'name', username: 'user', email: 'user@user.com', password: 'password')
+
+      expect(Users.authenticate(email: 'user@user.com', password: 'wrongpassword')).to eq nil
     end
   end
 end
