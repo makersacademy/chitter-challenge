@@ -11,7 +11,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'features/web_helpers.rb'
 
-Capybara.app = Chitter
+Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

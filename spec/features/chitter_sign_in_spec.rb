@@ -1,6 +1,6 @@
 feature 'user sign in options' do
   scenario 'the user log in with correct email and password' do
-    User.create('test@test.com', 'password', 'John Doe', 'J')
+    Chitter.create_user('test@test.com', 'password', 'John Doe', 'J')
     visit('/')
     click_button('Sign in')
     expect(current_path).to eq '/users/user'
@@ -9,7 +9,7 @@ feature 'user sign in options' do
   end
 
   scenario 'the user try to log in with incorrect email or password' do
-    User.create('test@test.com', 'password', 'John Doe', 'J')
+    Chitter.create_user('test@test.com', 'password', 'John Doe', 'J')
     visit('/')
     click_button('Sign in')
     expect(current_path).to eq '/users/user'

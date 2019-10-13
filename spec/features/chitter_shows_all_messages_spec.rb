@@ -1,7 +1,7 @@
 feature 'chitter homepage' do
   scenario 'the page show all messages' do
-    user = Users.create('test@test.com', 'password', 'John Doe', 'J')
-    Messages.create('Hello', user)
+    user = Chitter.create_user('test@test.com', 'password', 'John Doe', 'J')
+    Chitter.create_message('Hello', user)
     visit('/')
     expect(page).to have_content 'Hello'
   end
@@ -21,7 +21,7 @@ feature 'chitter homepage' do
   end
 
   scenario 'the user cannot sign up because email or username already in use' do
-    Users.create('test@test.com', 'password', 'John Doe', 'J')
+    Chitter.create_user('test@test.com', 'password', 'John Doe', 'J')
     visit('/')
     click_button('Sign up')
     sign_up
@@ -32,7 +32,7 @@ feature 'chitter homepage' do
   scenario 'the user log in' do
     visit('/')
     click_button('Sign in')
-    sign_in
+    sign_in_correct
     expect(page).to have_content 'All peeps:'
   end
 end

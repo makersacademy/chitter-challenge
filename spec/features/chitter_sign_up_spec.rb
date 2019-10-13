@@ -14,7 +14,7 @@ feature 'user sign up options' do
   end
 
   scenario 'the user cannot sign up because email or username already in use' do
-    User.create('test@test.com', 'password', 'John Doe', 'J')
+    Chitter.create_user('test@test.com', 'password', 'John Doe', 'J')
     visit('/')
     expect(page).to have_content 'Sign up or sign in to post a peep'
     click_button('Sign up')

@@ -1,4 +1,3 @@
-<%= flash[:notice] %>
 <% if @user.nil? || !@user %>
   <form action="/users/new">
      Sign up or sign in to post a peep
@@ -17,7 +16,7 @@
 
 All peeps:
 <ul>
-<% @messages.show_all.each do |message| %>
+<% @chitter.show_all_messages.each do |message| %>
     <li>
       <%= message.text %> from <%= message.user %> (<%= message.time %>)
     </li>

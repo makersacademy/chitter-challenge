@@ -1,27 +1,24 @@
 require 'sinatra/base'
-require './lib/messages'
+require './lib/chitter'
 require 'sinatra/flash'
-require './lib/users'
 require './database_connection_setup'
 
-class Chitter < Sinatra::Base
+class ChitterApp < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
   before do
-    @messages = Messages
+    @chitter = Chitter
   end
 
   get '/' do
-    flash[:notice]
     @user = session[:user]
-    @messages.instance
     erb :index
   end
 
   post '/' do
     @user = session[:user]
-    @messages.create(params[:message], @user)
+    @chitter.create_message(params[:message], @user)
     redirect '/'
   end
 
@@ -30,10 +27,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    user = Users.create(params[:email], params[:password], params[:name], params[:user_name])
-    flash[:notice] = "email or username already in use" unless user
-    session[:user] = user
-    redirect '/'
+    user = @chitter.create_user(params[:email], params[:password], params[:name], params[:user_name])
+    if !user
+      flash[:notice] = "email or username already in use" unless user
+      redirect '/users/new'
+    else
+      session[:user] = user
+      redirect '/'
+    end
   end
 
   get '/users/user' do
@@ -41,7 +42,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/user' do
-    user = Users.find(params[:email], params[:password])
+    user = @chitter.user_log_in(params[:email], params[:password])
     if !user
       flash[:notice] = "email or username incorrect" unless user
       redirect '/users/user'
