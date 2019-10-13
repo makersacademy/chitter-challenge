@@ -1,0 +1,13 @@
+<ul>
+  <% @cheeps.each do |cheep| %>
+  <li class="cheep"id="cheep-<%= cheep.id%>">
+    <a href="<%= cheep.id %>" target=_"blank">
+      <%=cheep.text%>
+    </a>
+    <form action="/cheeps/<%= cheep.id %>" method="post">
+    <input type='hidden' name='_method' value='DELETE'/>
+    <input type="submit" value="Delete" />
+    </form>
+    </li>
+  <% end %>
+</ul>
