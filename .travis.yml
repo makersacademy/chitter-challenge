@@ -1,5 +1,10 @@
 rvm: '2.6.0'
 
+before_script:
+  - psql -c 'CREATE DATABASE chitter_test;' -U postgres
+  - psql -d chitter_test -f db/migrations/01_create_user_table.sql -U postgres
+  - psql -d chitter_test -f db/migrations/02_create_peeps_table.sql -U postgres
+
 script:
   - mkdir -p spec && bundle exec rspec spec
 
