@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 
+gem 'pg'
+gem 'sinatra'
+gem 'rspec'
+gem 'capybara'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
 gem 'rake'
-gem 'rubocop', '0.71.0'
-
-group :test do
-  gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
+gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'rspec-sinatra'
+gem 'simplecov'
+gem 'simplecov-console'

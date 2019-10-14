@@ -1,4 +1,9 @@
 Chitter Challenge
+
+create database chitter_challenge
+create table chitter
+
+
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
