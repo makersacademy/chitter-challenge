@@ -1,0 +1,19 @@
+<ul>
+  <% @cheeps.each do |cheep| %>
+  <li class="cheep"id="cheep-<%= cheep.id%>">
+    <a>
+      <%=cheep.text%>
+      <%=cheep.time%>
+    </a>
+    <form action="/cheeps/<%= cheep.id %>" method="post">
+    <input type='hidden' name='_method' value='DELETE'/>
+    <input type="submit" value="Delete" />
+    </form>
+    </li>
+  <% end %>
+</ul>
+<form action="/add" method='post'>
+  <label for = "text"> New:</label>
+  <input type="text" name="text"> <br>
+  <input type="submit" value= "Post Cheep">
+</form>
