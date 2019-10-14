@@ -1,8 +1,7 @@
 <ul>
   <% @peeps.each do |message| %>
     <li>
-      <h3><%= message.name %></h3>
-          <%= message.handle %>
+      <h4><%= message.name %><br><%= message.handle %></br></h4>
         <p><%= message.message %></p>
     </li>
   <% end %>

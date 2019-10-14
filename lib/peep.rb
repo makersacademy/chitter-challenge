@@ -13,7 +13,7 @@ class Peep
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |message|
       Peep.new(id: message['id'], name: message['name'], handle: message['handle'], message: message['message'])
-    end
+    end.reverse 
   end
 
   def self.create(name:, handle:, message:)
