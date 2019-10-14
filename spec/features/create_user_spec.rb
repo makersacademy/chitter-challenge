@@ -8,6 +8,6 @@ feature 'Sign up as a user' do
     fill_in('password', with: 'Marge')
     click_button('Register')
 
-    expect(page).to have_content 'Welcome, Chunkylover53. You are now logged in.'
+    expect(page).to have_content 'Hello, Chunkylover53.'
   end
 end

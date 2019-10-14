@@ -14,6 +14,12 @@ describe User do
       expect(user.username).to eq 'Chunkylover53'
       expect(user.name).to eq 'Homer Simpson'
     end
+    it 'stores the password securely' do
+      expect(BCrypt::Password).to receive(:create).with('Marge')
+
+      user = User.create(email: 'chunkylover53@aol.com', password: 'Marge', username: 'Chunkylover53', name: 'Homer Simpson')
+
+    end
   end
 
   describe '.find' do
@@ -22,9 +28,7 @@ describe User do
       result = User.find(id: user.id)
 
       expect(result.id).to eq user.id
-      # expect(result.id).to eq user.id
-      # expect(result.id).to eq user.id
-      # expect(result.id).to eq user.id
+      expect(result.email).to eq user.email
     end
 
     it 'returns nil if there is no ID given' do

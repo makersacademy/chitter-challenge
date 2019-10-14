@@ -22,7 +22,7 @@ describe Message do
       connection = PG.connect(dbname: 'chitter')
 
       message = Message.create(text: 'Peepin aint easy')
-      Message.create(text: 'Look before you peep')
+      Message.create(text: 'Hello')
       Message.create(text: 'This film is an idiot and so is everyone who likes it')
 
       peeps = Message.all

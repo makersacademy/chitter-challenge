@@ -26,10 +26,6 @@ p    {color: gray;}
 
 <h1 align="center">Chitter</h1>
 
-<% if @user %>
-<h2> Welcome, <%= @user.username %>. You are now logged in.</h2>
-<% end %>
-
 <form action='users/new' method='get'>
   <input type='submit' value='Sign up!'>
 </form>
@@ -37,6 +33,10 @@ p    {color: gray;}
 <form action='peep/new' method='get'>
   <input type='submit' value='Post a peep'>
 </form>
+
+<% if @user %>
+<h2> Hello, <%= @user.username %>.</h2>
+<% end %>
 
 <p><ul>
   <% @peeps.each do |peep| %>

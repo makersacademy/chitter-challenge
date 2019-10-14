@@ -5,8 +5,10 @@ require './lib/users'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
-    @user = User.find(id: session[:user_id])
+    p @user = User.find(id: session[:user_id])
     @peeps = Message.all
     erb(:homepage)
   end
