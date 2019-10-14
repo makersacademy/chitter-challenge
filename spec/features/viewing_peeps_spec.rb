@@ -13,6 +13,6 @@ feature 'Viewing peeps.' do
     expect(page).to have_content "second peep"
     expect(page).to have_content "third peep"
     time = Time.new
-    expect(page).to have_content "#{time.hour}:#{time.min}"
+    expect(page).to have_content "#{time.min}"
   end
 end
