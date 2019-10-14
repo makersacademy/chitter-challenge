@@ -10,7 +10,7 @@ class Peep
     end
 
     def self.all_in_order
-        peeps = DatabaseConnection.query("SELECT * FROM peeps ORDER BY tdz DESC")
+        peeps = DatabaseConnection.query("SELECT * FROM peeps ORDER BY tdz DESC;")
         peeps.map do |peep|
             user_name = Peep.get_user_name(user_id: peep['user_id'])
             Peep.new(id:peep['id'], message:peep['message'], tdz:peep['tdz'], user_name: user_name)
@@ -28,7 +28,7 @@ class Peep
 
     private
     def self.get_user_name(user_id:)
-        DatabaseConnection.query("SELECT user_name FROM users WHERE id = #{user_id}").first['user_name']
+        DatabaseConnection.query("SELECT user_name FROM users WHERE id = #{user_id};").first['user_name']
     end
 
 end

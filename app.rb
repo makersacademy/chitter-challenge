@@ -11,7 +11,6 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    # redirect "/user/#{User.logged_in.user_name}" if User.logged_in  
     @peeps = Peep.all_in_order
     erb :index
   end
