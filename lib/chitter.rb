@@ -1,4 +1,5 @@
 require 'date'
+require 'bcrypt'
 require_relative 'users'
 require_relative 'messages'
 require_relative 'database_connection'
@@ -8,14 +9,15 @@ class Chitter
   def self.create_user(email, password, name, username)
     return false unless user_unique?(email, username)
 
+    encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query("INSERT INTO users
       (email, password, name, username)
-      VALUES ('#{email}', '#{password}', '#{name}', '#{username}')
+      VALUES ('#{email}', '#{encrypted_password}', '#{name}', '#{username}')
       RETURNING id ")
     Users.create(
       result[0]['id'],
       email,
-      password,
+      encrypted_password,
       name,
       username)
   end
@@ -30,12 +32,14 @@ class Chitter
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';")
     return false if result.ntuples.zero?
 
-    return false if password != result[0]['password']
+    return false if BCrypt::Password.new(result[0]['password']) != password
+
+    encrypted_password = BCrypt::Password.create(password)
 
     Users.create(
       result[0]['id'],
       email,
-      password,
+      encrypted_password,
       result[0]['name'],
       result[0]['username'])
   end

@@ -5,6 +5,7 @@ gem 'rake'
 gem 'rubocop', '0.71.0'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'

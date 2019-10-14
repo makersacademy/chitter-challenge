@@ -7,5 +7,9 @@ describe Users do
       expect(user).to be_a Users
       expect(user.name).to eq 'John Doe'
     end
+
+    it 'hashes the password using BCrypt' do
+      Users.create('1', 'test@test.com', 'password', 'John Doe', 'J')
+    end
   end
 end

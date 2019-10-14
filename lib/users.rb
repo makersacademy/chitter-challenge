@@ -4,9 +4,9 @@ class Users
   def initialize(id:, email:, password:, name:, username:)
     @id = id
     @email = email
-    @password = password
     @name = name
     @username = username
+    @password = password
   end
 
   def self.create(id, email, password, name, username)
