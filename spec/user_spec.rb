@@ -6,8 +6,6 @@ describe User do
   let(:bcrypt_class) { double(:bcrypt_class) }
 
   subject(:user) { 
-    salt = BCrypt::Engine.generate_salt
-    password = BCrypt::Engine.hash_secret("passhash", salt)
     User.create(name: "Guy", handle: 'guy') 
   }
   it 'knows its name' do

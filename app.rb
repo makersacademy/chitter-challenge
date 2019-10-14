@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
     @css_path = @root + 'main.css'
     @user = warden_handler.user if warden_handler.authenticated?
     @tags = @user.tags if @user
-    @peeps = Peep.parents.reverse if Peep.parents != nil
+    @peeps = Peep.parents.reverse unless Peep.parents.nil?
     @directory = :'home/peeps'
     @page = :'home/home'
     erb :template

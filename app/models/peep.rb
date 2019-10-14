@@ -1,7 +1,7 @@
 class Peep < ActiveRecord::Base
   def self.parents
     p_peeps = Peep.where(parent_id: nil).map { |peep| peep }
-    return nil if p_peeps.length.positive?
+    return nil unless p_peeps.length.positive?
 
     p_peeps
   end
