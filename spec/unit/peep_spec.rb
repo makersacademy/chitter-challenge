@@ -5,7 +5,6 @@ describe Peep do
 
   describe '.all' do
     it 'returns all the peeps' do
-      connection = PG.connect(dbname: 'peep_manager_test')
 
       peep = Peep.create(name: 'John Smith', handle: 'js2019', message: 'This is a test peep')
       Peep.create(name: 'John Smith', handle: 'js2019', message: 'This is a test peep 2')
@@ -16,7 +15,7 @@ describe Peep do
       expect(peep).to be_a Peep
       expect(peep.message).to eq 'This is a test peep'
       expect(peep.name).to eq 'John Smith'
-      expect(peep.handle).to eq 'js2019' 
+      expect(peep.handle).to eq 'js2019'
     end
   end
 
