@@ -5,7 +5,7 @@ feature 'Viewing Peeps' do
 
     visit '/peeps'
 
-    expect(page).to have_content ('This is a test peep')
-    expect(page).to have_content ('This is a test peep 2')
+    expect(page).to have_content 'This is a test peep'
+    expect(page).to have_content 'This is a test peep 2' 
   end
 end

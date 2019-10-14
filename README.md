@@ -1,20 +1,11 @@
-** ADDED TO CREATE_SPEC THAT PAGE WILL HAVE HANDLE, NAME AND MESSAGE.
-** ADDED OPTION TO FORM ON NEW.ERB FOR USER TO INPUT HANDLE, NAME AND MESSAGE.
-** NEED TO PASS ALL 3 AT INITIALIZE AND HANDLE AND NAME INTO CREATE METHOD.
-** SEE FORM ON INDEX.EBR IN BOOKMARK CHALLENGE
-** WILL HAVE TO UPDATE VIEW TESTS TOO AND .ALL METHOD AND .CREATE METHOD TO PASS ALL THESE THINGS
-** WANT TO SEE:
-John Smith
-js2019
-This is my tweet.
-or
-John Smith, js2019
-This is my tweet.
-
-
-
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/jessmar94/chitter-challenge.svg?branch=master)](https://travis-ci.org/jessmar94/chitter-challenge) 
+
+# Project Status
+As of October 14th 2019, the first three user stories have been implemented. I have 8 passing tests with 100% coverage.
+
+In order to implement User Story 4, I plan to create a users table which connect up with the peeps table via a user_id column. I will also need to create a User Class which will handle all the information around the user, such as their email address. Once the user has signed up, every time they post, it will either auto-populate the name/handle section with their details or automatically post the peep with their details so they don't have to fill it out themselves.
 
 # SQL Queries
 ### Create Peep_Manager Database and Peeps Table
@@ -28,6 +19,12 @@ Chitter Challenge
 2. Create the database using the `psql` command `CREATE DATABASE peep_manager_test;`
 3. Connect to the database using the `psql` command `\c peep_manager_test`
 4. Run the query I have saved in the file `01_create_peeps_table.sql`
+
+### Add created_at column to Peeps Tables
+1. Connect to `psql`
+2. Connect to the database using the `psql` command `\c peep_manager_test`
+3. Run the query I have saved in the file `02_add_created_at_column.sql`
+4. Repeat from step 2 but connect to `\c peep_manager`
 
 # User Story 1
 As a Maker
@@ -113,19 +110,6 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
-
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Technical Approach:
 -----

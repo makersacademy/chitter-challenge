@@ -10,6 +10,6 @@ feature 'Add a new peep' do
     fill_in('handle', with: 'js2019')
     fill_in('message', with: 'This is a test peep')
     click_button 'Submit'
-    expect(page).to have_content('This is a test peep')
+    expect(page).to have_content 'This is a test peep' 
   end
 end

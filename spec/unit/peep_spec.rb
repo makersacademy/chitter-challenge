@@ -5,7 +5,6 @@ describe Peep do
 
   describe '.all' do
     it 'returns all the peeps' do
-
       peep = Peep.create(name: 'John Smith', handle: 'js2019', message: 'This is a test peep')
       Peep.create(name: 'John Smith', handle: 'js2019', message: 'This is a test peep 2')
 
@@ -18,7 +17,6 @@ describe Peep do
       expect(peep.handle).to eq 'js2019'
     end
   end
-
 
   describe '.create' do
     it 'creates a new peep' do
