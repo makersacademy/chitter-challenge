@@ -14,10 +14,11 @@
     <ul>
       <% @posts.each do |post| %>
         <div><%= post.content %>
-          --- (<%= post.date %>)</div><br>
+          --- (<%= post.date %>) --- <%= post.get_user.name %>
+        </div><br>
       <% end %>
     </ul>
-    <form action="/posts/new">
+    <form action="/user/<%= @user_id %>/posts/new" method="get">
       <input type="submit" value="New Post">
     </form>
     <br>

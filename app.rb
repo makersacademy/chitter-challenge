@@ -15,16 +15,20 @@ class Chitter < Sinatra::Base
 
   get '/homepage' do
     @user = Users.find(session[:user_id])
+    # @user_name = Users.username(session[:user_id])
+    @user_id = session[:user_id]
     @posts = Posts.all
+    p "#{@posts}"
     erb :homepage
   end
 
-  get '/posts/new' do
+  get '/user/:id/posts/new' do
+    @user_id = params[:id]
     erb :"posts/new"
   end
 
-  post '/posts' do
-    Posts.create(content: params[:content])
+  post '/user/:id/posts' do
+    Posts.create(content: params[:content], user_id: params[:id])
     redirect '/homepage'
   end
 

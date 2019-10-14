@@ -32,4 +32,13 @@ class Users
 
     Users.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
   end
+
+  def self.username(id:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'").first
+    Users.new(id: result['id'].to_i, name: result['name'], username: result['username'], email: result['email'])
+    # result.map { |user|
+    #   p user
+    #   Users.new(id: user['id'].to_i, name: user['name'], username: user['username'], email: user['email'])
+    # }
+  end
 end
