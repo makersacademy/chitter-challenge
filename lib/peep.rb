@@ -2,8 +2,8 @@ class Peep
 
     def self.create(message:, user_id:)
         if message != ""
-            string = "#{message}"
-            peep = DatabaseConnection.query("INSERT INTO peeps (message, tdz, user_id) VALUES ('#{string}', '#{Time.now}', #{user_id}) RETURNING *;").first
+            message = message.gsub("'", "~~~~")
+            peep = DatabaseConnection.query("INSERT INTO peeps (message, tdz, user_id) VALUES ('#{message}', '#{Time.now}', #{user_id}) RETURNING *;").first
             user_name = Peep.get_user_name(user_id: peep['user_id'])
             Peep.new(id:peep['id'], message:peep['message'], tdz:peep['tdz'], user_name: user_name)
         end
@@ -13,7 +13,8 @@ class Peep
         peeps = DatabaseConnection.query("SELECT * FROM peeps ORDER BY tdz DESC;")
         peeps.map do |peep|
             user_name = Peep.get_user_name(user_id: peep['user_id'])
-            Peep.new(id:peep['id'], message:peep['message'], tdz:peep['tdz'], user_name: user_name)
+            message = peep['message'].gsub("~~~~", "'")
+            Peep.new(id:peep['id'], message:message, tdz:peep['tdz'], user_name: user_name)
         end
     end
 
