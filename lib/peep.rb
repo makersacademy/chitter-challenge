@@ -7,7 +7,7 @@ class Peep
   def initialize(id:, message:, created_at:)
     @id = id
     @message = message
-    @created_at = created_at
+    @created_at =  Time.strptime(created_at, '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d %H:%M:%S')
   end
 
   def self.create(message:)
