@@ -8,9 +8,10 @@ enable :sessions, :method_override
 
 get '/' do
   'Welcome to Chitter'
+  erb :'homepage'
 end
 
-get '/cheeps' do
+post '/cheeps' do
   @cheeps = Cheep.all.reverse!
   erb :'cheeps/index'
 end
@@ -24,6 +25,10 @@ delete '/cheeps/:id' do
     Cheep.delete(id: params[:id])
     redirect '/cheeps'
   end
+
+post '/signup' do
+  erb :'signup'
+end
 
 run! if app_file == $0
 end
