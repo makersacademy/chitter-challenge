@@ -1,0 +1,48 @@
+<html>
+<head>
+<style>
+
+li:before {
+content: '\1F509';
+margin-left: -20px;
+margin-right: 10px;
+}
+
+
+li{
+    margin-top: 20px;
+}
+
+li:first-child {
+    margin-top:0;
+}
+
+body {background-color: aliceblue;}
+h1   {color: cadetblue; font-family: 'Teko', sans-serif;}
+p    {color: gray;}
+</style>
+</head>
+<body>
+
+<h1 align="center">Chitter</h1>
+
+<form action='users/new' method='get'>
+  <input type='submit' value='Sign up!'>
+</form>
+
+<form action='peep/new' method='get'>
+  <input type='submit' value='Post a peep'>
+</form>
+
+<% if @user %>
+<h2> Hello, <%= @user.username %>.</h2>
+<% end %>
+
+<p><ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.text%> ~ Message posted on : <%= peep.time %></li>
+  <% end %>
+</ul></p>
+
+</body>
+</html>

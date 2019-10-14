@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'capybara'
+gem 'pg'
 gem 'rake'
 gem 'rubocop', '0.71.0'
+gem 'sinatra'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
