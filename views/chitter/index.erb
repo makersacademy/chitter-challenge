@@ -1,0 +1,29 @@
+<html>
+   <body>
+      <style>
+      p.serif { font-family: "Courier New", Helvetica, serif;
+    }
+    </style>
+   </body>
+<body>
+
+<h1>
+<p class="serif"> Ready --> Set ==> "Chitter" </p></h1>
+</body>
+</html>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" >
+      <%= p peep.peeps %><br> <%= p peep.created_at %><br>
+    </li>
+
+  <% end %>
+</ul>
+
+<ul>
+  <form action="/chitter/new" method="get">
+    <button type="submit"> new_peep <br>
+    <!-- <input type="submit" value="Submit" /> -->
+  </form>
+</ul>
+  <%= %>
