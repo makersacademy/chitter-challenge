@@ -1,20 +1,21 @@
 require 'peep'
 
 describe Peep do
-  describe '.all' do
-      it 'returns a list of peeps' do
-        connection = PG.connect(dbname: 'chitter_test')
 
-        peep = Peep.create(text: 'Hello!', time: Time.new.strftime("%m/%d/%Y %I:%M %p"))
-        Peep.create(text: 'Hello again!', time: Time.new.strftime("%m/%d/%Y %I:%M %p"))
+  describe '.all' do
+    it 'returns a list of peeps' do
+      connection = PG.connect(dbname: 'chitter_test')
+
+      peep = Peep.create(text: 'Hello!', time: Time.new.strftime("%m/%d/%Y %I:%M %p"))
+      Peep.create(text: 'Hello again!', time: Time.new.strftime("%m/%d/%Y %I:%M %p"))
      
-        peeps = Peep.all
+      peeps = Peep.all
      
-        expect(peeps.first).to be_a Peep
-        expect(peeps.first.text).to eq 'Hello!'
-        expect(peeps.first.time).to eq Time.new.strftime("%m/%d/%Y %I:%M %p")
-       end
-     end
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.text).to eq 'Hello!'
+      expect(peeps.first.time).to eq Time.new.strftime("%m/%d/%Y %I:%M %p")
+    end
+  end
 
   describe '.create' do
     it 'creates a new peep' do

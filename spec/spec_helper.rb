@@ -6,7 +6,6 @@ require 'capybara/rspec'
 require 'capybara'
 require 'rspec'
 
-
 ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
@@ -14,7 +13,6 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
-
 
 Capybara.app = Chitter
 

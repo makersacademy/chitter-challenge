@@ -3,7 +3,7 @@ feature 'Adding a new peep' do
     visit('/new')
     fill_in('peep', with: 'Im a new peep!')
     click_button('Submit')
-
+    
     expect(page).to have_content 'Im a new peep!'
   end
 end

@@ -6,7 +6,7 @@ class Peep
   attr_reader :id, :text, :time
 
   def initialize(id:, text:, time:)
-    @id  = id
+    @id = id
     @text = text
     @time = time
   end
@@ -17,7 +17,6 @@ class Peep
       Peep.new(id: peep['id'], text: peep['text'], time: peep['time'])
     end
   end
-
   
   def self.create(text:, time:)
     result = DatabaseConnection.query("INSERT INTO peeps (text,time) VALUES('#{text}','#{time}') RETURNING id, text, time;")
