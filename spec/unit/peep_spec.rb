@@ -6,8 +6,8 @@ describe Peep do
   describe '.all' do
     it 'returns all the peeps' do
 
-      peep = Peep.create(name: 'John Smith', handle: 'js2019', message: 'This is a test peep', timestamp: '14/10/2019 10:30')
-      Peep.create(name: 'John Smith', handle: 'js2019', message: 'This is a test peep 2', timestamp: '14/10/2019 10:30')
+      peep = Peep.create(name: 'John Smith', handle: 'js2019', message: 'This is a test peep')
+      Peep.create(name: 'John Smith', handle: 'js2019', message: 'This is a test peep 2')
 
       peeps = Peep.all
 
@@ -22,7 +22,7 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      peep = Peep.create(name: 'John Smith', handle: 'js2019', message: 'test message', timestamp: '14/10/2019 10:30')
+      peep = Peep.create(name: 'John Smith', handle: 'js2019', message: 'test message')
 
       persisted_data = persisted_data(id: peep.id)
 
