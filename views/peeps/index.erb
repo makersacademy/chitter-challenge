@@ -1,9 +1,9 @@
 <ul>
   <% @peeps.each do |message| %>
-    <li>
       <h4><%= message.name %><br><%= message.handle %></br></h4>
         <p><%= message.message %></p>
-    </li>
+        <br>Posted at: <%= message.timestamp %></br>
+        --------------------
   <% end %>
 </ul>
 <form action="/peeps/new">
