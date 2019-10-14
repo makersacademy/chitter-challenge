@@ -1,5 +1,9 @@
 rvm: '2.6.0'
 
+- psql -c 'CREATE DATABASE peep_manager_test;' -U postgres
+- psql -d peep_manager_test -f db/migrations/01_create_peeps_table.sql
+- psql -d peep_manager_test -f db/migrations/02_add_created_at_column.sql
+
 script:
   - mkdir -p spec && bundle exec rspec spec
 
