@@ -11,4 +11,8 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
+  - psql -c 'CREATE DATABASE chitter_test;' -U postgres
+  - psql -d chitter_test -f db/migrations/01_create_peep_table_table.sql -U postgres
+  - psql -d chitter_test -f db/migrations/02_add_time_to_peep.sql -U postgres
+  - psql -d chitter_test -f db/migrations/03_create_table_users.sql -U postgres
+  - psql -d chitter_test -f db/migrations/04_add_user_id_to_peeps_table.sql -U postgres
