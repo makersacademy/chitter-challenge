@@ -11,7 +11,11 @@ class Peep
   end
 
   def self.all
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+  else
     connection = PG.connect(dbname: 'chitter')
+  end
     result = connection.exec("SELECT * FROM chitterbase ORDER BY created_at DESC;")
     result.map { |peep|
       Peep.new(
@@ -28,7 +32,6 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-
       connection.exec("INSERT INTO chitterbase (peeps) VALUES('#{peeps}')")
     end
 
