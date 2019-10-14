@@ -10,27 +10,24 @@
 <body>
 
 <div class="container">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Chitter</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Chitter</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-<form action="/login" method="get" class="form-inline my-2 my-lg-0 float-right" style="margin: 0 10px;">
-  <input type="submit" value="Log in" class="btn btn-primary" class="btn btn-outline-success my-2 my-sm-0" />
-</form>
-<form action="/signup" method="get" class="form-inline my-2 my-lg-0 float-right" style="margin: 0 10px;">
-  <input type="submit" value="Sign up" class="btn btn-primary" class="btn btn-outline-success my-2 my-sm-0" />
-</form>
-
-<form action="/logout" method="post" class="form-inline my-2 my-lg-0 float-right" style="margin: 0 10px;">
-  <input type="submit" value="Log out" class="btn btn-primary" class="btn btn-outline-success my-2 my-sm-0" />
-</form>
-
-  </div>
-</nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form action="/login" method="get" class="form-inline my-2 my-lg-0 float-right" style="margin: 0 10px;">
+        <input type="submit" value="Log in" class="btn btn-primary" class="btn btn-outline-success my-2 my-sm-0" />
+      </form>
+      <form action="/signup" method="get" class="form-inline my-2 my-lg-0 float-right" style="margin: 0 10px;">
+        <input type="submit" value="Sign up" class="btn btn-primary" class="btn btn-outline-success my-2 my-sm-0" />
+      </form>
+      <form action="/logout" method="post" class="form-inline my-2 my-lg-0 float-right" style="margin: 0 10px;">
+        <input type="submit" value="Log out" class="btn btn-primary" class="btn btn-outline-success my-2 my-sm-0" />
+      </form>
+    </div>
+  </nav>
     <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
   <form action="/peeps/new" method="post">
@@ -54,21 +51,11 @@
   </div>
 </div>
   <% end %>
-
 </ul>
 
-
-
-
-
-
-
-
-<div class="alert alert-info" role="alert">
-
-  <%= flash[:notice] %>
-
-</div>
+  <div class="alert alert-info" role="alert">
+    <%= flash[:notice] %>
+  </div>
 </div>
 </body>
 </html>

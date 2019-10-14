@@ -5,7 +5,7 @@ require './helpers/session_helpers'
 
 set :database_file, 'config/database.yml'
 
-Dir[File.dirname(__FILE__) + '/models/*.rb'].each {|file| require file }
+Dir[File.dirname(__FILE__) + '/models/*.rb'].each { |file| require file }
 
 class Chitter < Sinatra::Base
   register Sinatra::ActiveRecordExtension
@@ -14,7 +14,6 @@ class Chitter < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    'Hello world!'
     redirect '/peeps'
   end
 
@@ -70,8 +69,3 @@ class Chitter < Sinatra::Base
 
 end
 
-# rename the routes and views
-# reorganise routes
-# if logged in – no sign up and log in
-# if not logged in – no post form
-# peep author logged in user
