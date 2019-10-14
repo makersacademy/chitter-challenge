@@ -2,7 +2,8 @@ class Peep
 
     def self.create(message:, user_id:)
         if message != ""
-            peep = DatabaseConnection.query("INSERT INTO peeps (message, tdz, user_id) VALUES ('#{message}', '#{Time.now}', #{user_id}) RETURNING *;").first
+            string = "#{message}"
+            peep = DatabaseConnection.query("INSERT INTO peeps (message, tdz, user_id) VALUES ('#{string}', '#{Time.now}', #{user_id}) RETURNING *;").first
             user_name = Peep.get_user_name(user_id: peep['user_id'])
             Peep.new(id:peep['id'], message:peep['message'], tdz:peep['tdz'], user_name: user_name)
         end
