@@ -22,8 +22,7 @@ class Tag < ActiveRecord::Base
   # instance methods
 
   def read!
-    self.read = true
-    save
+    ActiveRecord::Base.connection.execute("UPDATE tags SET read = true WHERE id = #{self.id}")
   end
 
   def peep
