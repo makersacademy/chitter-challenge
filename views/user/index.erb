@@ -1,0 +1,29 @@
+
+<body>
+    <header>
+    <a href="/user/logout" name="Logout">Logout</a>
+    </header>
+    <h1 style="text-align: center;" >Welcome to Chitter, <%= @user.user_name %> </h1>
+    <br>
+
+    <div style="margin-left: 12.5%;">
+    <form action="/peep" method="post">
+        <input name"peep" style="visibility: hidden; width: 0.1px; height 0.1px;" >
+        <textarea class=".peep" style="width: 85%;" name="peep" cols="60" rows="3" placeholder="Write a peep! Share your thoughts!"></textarea>
+        </input>
+        <br>
+        <input style="width: 75px; margin-top: 5px;" type="submit" value="Post" />
+    </form>
+    </div>
+
+    <% @peeps.each do |peep| %>
+        <div style="border: 3px solid lightblue; margin: 3px; margin-left: 12.5%; width: 75%;">
+            <h3 style="font: italic bold">@<%= peep.user_name %> has peeped: </h3>
+            <h3> <%= peep.message %> </h3>
+            <p> <% d = DateTime.parse(peep.tdz) %> </p>
+            <p style="color:grey"> <%= d.strftime("%d/%m/%Y") %> <%= d.strftime("%I:%M%p") %> <%= d.zone %></p>
+        </div>
+    <% end %>
+</body>
+
+

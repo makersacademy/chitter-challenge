@@ -1,0 +1,6 @@
+<h1 style="color:red"><%= flash[:notice] %></h1>
+<form action="/user/login" method="post">
+  <input type="text" name="user_name" placeholder="Enter a username">
+  <input type="text" name="password" placeholder="Password">
+  <input type="submit" value="Submit">
+</form>
