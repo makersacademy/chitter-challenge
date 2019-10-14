@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>
++   <%= flash[:notice] %>
++   </h2>
+    <form action="/sessions" method="post">
+      <h5>Enter Username:</h5>
+      <input type="text" name="email" placeholder="email">
+      <h5>Enter Password:</h5>
+      <input type="text" name="password" placeholder="password">
+      <input type="submit" value="Sign in">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Chitter</h1>
+    <h2>Homepage</h2>
+    <% if @user %>
+      <h3>Welcome, <%= "#{@user.username}" %></h3>
+    <% end %>
+    <h5><%= flash[:notice] %></h5>
+    <ul>
+      <% @posts.each do |post| %>
+        <div><%= post.content %>
+          --- (<%= post.date %>) --- <%= post.get_user.name %>
+        </div><br>
+      <% end %>
+    </ul>
+    <form action="/user/<%= @user_id %>/posts/new" method="get">
+      <input type="submit" value="New Post">
+    </form>
+    <br>
+    <form action="/users/new">
+      <input type="submit" value="Create account">
+    </form>
+    <br>
+    <form action="/sessions/new">
+      <input type="submit" value="Sign in">
+    </form>
+    <br>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Sign out">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>New Post</h2>
+    <h4>What's on your mind today?</h4>
+    <form class="post" action="/user/<%= @user_id %>/posts" method="post">
+      <input type="text" name="content" placeholder="type post here (max chrs:240)">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
