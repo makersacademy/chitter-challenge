@@ -1,0 +1,2 @@
+CREATE TABLE chitterbase (id SERIAL PRIMARY KEY, newchit VARCHAR(150), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+ALTER TABLE chitterbase RENAME COLUMN "newchit" TO "peeps";
