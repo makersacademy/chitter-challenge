@@ -39,4 +39,6 @@ Notes on functionality:
 
 Feature tests
 -----------
-
+![](images/homepage.png)
+![](images/createaccount.png)
+![](images/createpeep.png)
