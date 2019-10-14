@@ -14,5 +14,5 @@ before_script:
   - psql -c 'create database chitter_test;' -U postgres
 
 script:
-  - bin/rake db:migrate
-  - bin/rake
+  - rake db:migrate
+  - rake
