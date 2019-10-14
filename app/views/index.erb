@@ -1,0 +1,20 @@
+<body bgcolor="#6699ff">
+  <font color ="white">
+<center>
+  <img src="bird.png" height="20%">
+  <img src="logo.png">
+<form method="post" action="/postpeep">
+  <input type="text" name="peep" placeholder="What would you like to say?" />
+  <input type="submit" value="Peep it!" />
+</form>
+
+<p>
+  <ul>
+  <% @chitterpeeps.each do |peeps| %>
+
+  <%= peeps.time %><p> <%= peeps.peep %>
+  <p>
+  <% end %>
+</ul>
+<p>
+<p>
