@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <center>
+      <h1> Peeps</h1>
+      <% if @user %>
+      <h2>You are signed in as <%=@user.username%></h2>
+      <% end %>
+      </center>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li>
+          <%=peep.message%> ---
+          Peeped on <%=peep.created_at%>
+        </li>
+      <% end %>
+    </ul>
+    <form action="/peeps/new" method="get">
+        <input type="submit" value="New Peep" />
+    </form>
+  </body>
+</html>
