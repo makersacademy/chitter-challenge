@@ -14,15 +14,17 @@ ul {
   <input type="submit" value="Create a peep!" />
 </form>
 <center>
-<% if @user %>
-  <h1>Welcome, <%= @user.user_name %></h1>
-<% end %>
+<% if @user.id == session[:user_id] %>
+  <h1>Welcome to your Chitterfeed, <%= @user.user_name %></h1>
+<% else %>
 <h1> What's happening today in Chitter </h1>
+<%end%>
   <ul>
   <% @peeps.reverse_each.each do |peep| %>
     <li><%= peep.text %> 
     <br>
     <%= peep.time %> 
+    <%= peep.user_name%>
     <br><br>
     </li>
   <% end %>
