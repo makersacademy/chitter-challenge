@@ -2,7 +2,28 @@
 <html>
   <head>
     <style>
-      p.groove {border-style: groove;}
+
+      h1 {
+        color: white;
+        letter-spacing: 8px;
+        font: arial, sans-serif;
+      }
+      h3 {
+        color: white;
+      }
+      body {
+        color: white;
+        background-color: #003a73;
+        padding: 20px;
+      }
+      p.groove {
+        border-style: groove;
+        border-color: white;
+        border-width: 1px;
+        border-radius: 5px;
+        padding: 12px;
+        background-color: #002040;
+      }
     </style>
   </head>
   <body>
@@ -11,7 +32,7 @@
 
     <% if @user %>
       <h3>Signed in as: <%= @user.name %></h3>
-      
+
       <form action= "/peeps/new" >
         <input type="submit" value="New Peep">
       </form>
