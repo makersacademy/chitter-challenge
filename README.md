@@ -9,7 +9,7 @@ js2019
 This is my tweet.
 or
 John Smith, js2019
-This is my tweet. 
+This is my tweet.
 
 
 
@@ -56,14 +56,12 @@ User Flow:
 3. Submit the peep
 4. See the new peep on the /peeps page, with the writer's name and Chitter handle attached
 
-
 # User Story 2
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-- use self.all method created in US1
-- add timestamp to get peeps to print in chronological order
+- use self.all method created in US1 and call .reverse on the iteration
 
 User Flow:
 1. Visit page /peeps
@@ -74,7 +72,8 @@ As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-- use timestamp feature created in US2 to view the timestamp next to each peep
+- use timestamp feature to view the timestamp next to each peep
+- will need to create 'created_at' column in database table
 
 User Flow:
 1. Visit page /peeps
