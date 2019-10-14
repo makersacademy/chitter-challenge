@@ -42,3 +42,4 @@ Feature tests
 ![](images/homepage.png)
 ![](images/createaccount.png)
 ![](images/createpeep.png)
+![](images/peeps.png)
