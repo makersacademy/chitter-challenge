@@ -1,0 +1,35 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Log in</title>
+</head>
+<body>
+
+
+
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Chitter</a>
+ 
+</nav>
+
+
+<form action="/login" method="post" class="form-inline my-2 my-lg-0 float-left">
+  <input type="text" name="username" />
+  <input type="password" name="password" />
+  <input type="submit" value="Log in" class="btn btn-primary" />
+</form>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+</div>
+</body>
+</html>
