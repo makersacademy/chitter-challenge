@@ -6,6 +6,6 @@ feature 'registration' do
     fill_in('Email', with: 'dani@peep.com')
     click_button('Submit')
 
-    expect(page).to have_content "Welcome, Danielle"
+    expect(page).to have_content "Danielle"
   end
 end

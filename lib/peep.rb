@@ -3,7 +3,7 @@ require_relative 'database_connection'
 require_relative 'user'
 
 class Peep
-  attr_reader :id, :text, :time, :user_name
+  attr_reader :id, :text, :time, :user_name, :user_id
 
   def initialize(id:, text:, time:, user_id:)
     @id = id
