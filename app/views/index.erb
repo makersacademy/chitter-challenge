@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .peep-form {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+
+      .peep {
+        margin-top: 89px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <% if current_user %>
+        <h1>Welcome <%= @current_user.username %> </h1>
+        <p>add peeps below!</p>
+      <% else %>
+      <h1>Welcome to Chitter</h1>
+      <p>Please sign up/sign in to Chitter in order to peep!</p>
+    </center>
+    <% end %>
+    <form class='peep-form' action="/peeps" method="post">
+      <textarea name="text" rows="8" cols="80" placeholder="what's Peepin'?"></textarea>
+      <input class='peep' type="submit" name="Add peep" value="Add peep">
+    </form>
+  </body>
+</html>

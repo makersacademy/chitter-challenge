@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".close").click(function () {
+          $("#myAlert").alert("close");
+        });
+      });
+    </script>
+
+    <style>
+      .sign_up {
+        float: left;
+        margin-right: 47px;
+      }
+
+      .peeps {
+        float: right;
+        position: relative;
+        bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <%= partial :flash %>
+    <%= partial :header %>
+    <%= yield %>
+  </body>
+</html>

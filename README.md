@@ -1,20 +1,34 @@
-Chitter Challenge
-=================
+##How to use my program
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+### Setup
 
-Challenge:
--------
+* Git clone this repo.
+* Make sure you have postgrl installed and run the two commands below in the terminal:
+  * CREATE DATABASE chitter
+  * CREATE DATABASE chitter_test
 
-As usual please start by forking this repo.
+* After this open the repo in your favourite editor and run `bundle install` to install all gem dependencies.
+* CD into the repo and run the command rackup in the terminal.
+* Navigate to http://localhost:9292 within your favourite browser. Enjoy!
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+## Challenges faced this week.
 
-Features:
+In order to push myself I wanted to get to grips and make use of the ORM DataMapper this week. ORM stands for Object Rational Mapping and is a program that helps convert data between incompatible type systems by using object orientated programming languages such as ruby. This basically sets up a virtual database object database that can be used from within the program.
+
+The first thing I needed to do was create a file, data_mapper_setup.rb, that helped setup and run DataMapper. As we were using Postgres this week I decided to stick with this. When setting up DataMapper for the first time you have to specify your database connection. Within this project I required two databases, chitter_development and also chitter_test, to run all my tests in their own environment. Thanks to environmental variables I was able to inform DataMapper when to connect to the test database and when to connect to the production/development database. This file requires the two models in order to work and is also required by the app file. The last two lines in the file are `DataMapper.finalize` and `DataMapper.auto_upgrade!`. `DataMapper.finalize` This checks the models (users and peeps) for validity and initialises all properties associated with relationships. `DataMapper.auto_upgrade!` This tries to make the programme match the model. It will CREATE new tables, and add columns to existing tables. It won’t change any existing columns though (say, to add a NOT NULL constraint) and it doesn’t drop any columns.
+
+After this I created my app and config file as normal. Within the app file I had to require the DataMapper setup script in order for both to interact and communicate correctly. The app file also had to require my other controllers. These controllers were all wrapped inside the same Class,  `class Chitter < Sinatra::Base`. The reason I choose to break up the controllers was for readability and meant each controller had a set amount of routes to look over. It was then a case of building all models that were required for this project.
+
+This is done by including DataMapper::Resource in your model classes. This ensures the models are persistent. The next step was to build the  model tables. This is pretty easy, all you need to do is define the different properties(columns) your tables have and then also specify the type of data they will hold. You can also specify whether a particular piece of data is required or check its valid before it is saved to the database. This was useful as within my User model I set up the following validations in order for a user to be saved:
+* A Username is required.
+* A Username has to be unique.
+* An Email address is required.
+* An Email address has to be unique.
+* An Email address has to be formatted correctly.
+
+The last step is to define any associations. IE the class Peep belongs to the class User and a User can have many Peeps. This essentially sets up a one to many relationship, and creates a user_id column in your peeps table as a foreign key.
+
+## User Stories I had to cover.
 -------
 
 ```
@@ -52,82 +66,3 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
-Technical Approach:
------
-
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
