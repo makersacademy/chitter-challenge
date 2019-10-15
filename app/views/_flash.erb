@@ -5,7 +5,7 @@
     <% end %>
 
 
-<% if !!flash[:success] %>
+<% if !!flash[:success] || !!flash[:alert] %>
 <% flash.keys.each do |type| %>
   <div class="alert alert-success alert-dismissible" id="myAlert">
     <%= flash[type] %>

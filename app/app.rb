@@ -36,3 +36,4 @@ end
 
 require_relative 'controllers/peeps'
 require_relative 'controllers/users'
+require_relative 'controllers/sessions'
