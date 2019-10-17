@@ -15,9 +15,9 @@ ul {
 </form>
 <center>
 <% if @user.id == session[:user_id] %>
-  <h1>Welcome to your Chitterfeed, <%= @user.user_name %></h1>
+  <h1><u>Welcome to your Chitterfeed, <%= @user.user_name %>!</u></h1>
 <% else %>
-<h1> What's happening today in Chitter </h1>
+<h1><u> What's happening today on Chitter: </u></h1>
 <%end%>
   <ul>
   <% @peeps.reverse_each.each do |peep| %>
