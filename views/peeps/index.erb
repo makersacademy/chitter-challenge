@@ -1,0 +1,33 @@
+  <style>
+ a { display: inline; }
+ form { display: inline; }
+ body {
+    background-color: #D6AD6B; 
+    color: #FEF5E8; 
+}
+ul {
+    text-align: center;
+    list-style-position: inside;
+}
+</style>
+<form action="/new" method="get">
+  <input type="submit" value="Create a peep!" />
+</form>
+<center>
+<% if @user.id == session[:user_id] %>
+  <h1><u>Welcome to your Chitterfeed, <%= @user.user_name %>!</u></h1>
+<% else %>
+<h1><u> What's happening today on Chitter: </u></h1>
+<%end%>
+  <ul>
+  <% @peeps.reverse_each.each do |peep| %>
+    <li><%= peep.text %> 
+    <br>
+    <%= peep.time %> 
+    <%= peep.user_name%>
+    <br><br>
+    </li>
+  <% end %>
+</ul>
+<img src="https://cdn0.iconfinder.com/data/icons/dottie-food-vegetable/24/vegetable_040-acorns-food-veggie-eat-512.png" width="200" height="200" alt= "Acorn!">
+</center>
