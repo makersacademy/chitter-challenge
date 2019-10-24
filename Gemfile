@@ -4,7 +4,6 @@ ruby '2.6.0'
 
 gem 'activerecord'
 gem 'bcrypt'
-gem 'heroku'
 gem 'pg'
 gem 'rake'
 gem 'rack'
