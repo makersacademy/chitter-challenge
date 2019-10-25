@@ -9,7 +9,6 @@ class Chitter < Sinatra::Base
 
   get '/chitter_feed' do
     @feed_items = ChitterFeed.content
-    @name_items = ChitterFeed.names
     erb :feed
   end
 end
