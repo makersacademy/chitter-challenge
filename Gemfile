@@ -1,10 +1,12 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-gem 'rake'
-gem 'rubocop', '0.71.0'
+source "https://rubygems.org"
 
-group :test do
-  gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
+# git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+
+gem 'pg'
+gem 'sinatra'
+gem 'rspec'
+gem 'capybara'

@@ -1,0 +1,24 @@
+<h1>Hello!</h1>
+<h2>Either Sign In Here:</h2>
+<form></form>
+
+<h2>or make an account if you don't have one</h2>
+<form action = "/create_account">
+<input type = "text" name = "name" placeholder="Name"/><br>
+<input type = "text" name = "user_name" placeholder="Username"/><br>
+<input type = "text" name = "email" placeholder="Email"/><br>
+<input type = "password" name = "password" placeholder="Password" /><br>
+<input type = "submit" value = "Submit" />
+</form>
+
+
+
+<p>Put a bunch of tweets on this bit here i guess</p>
+
+<form action = "/create_tweet">
+<input type = "text" name = "tweet" placeholder = "tweet"/>
+<input type = "submit" value = "submit">
+</form>
+
+<h2>tweets</h2>
+<%= @tweets %>
