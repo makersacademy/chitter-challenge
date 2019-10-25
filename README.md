@@ -18,6 +18,7 @@ Features:
 -------
 
 ```
+completed stories:
 STRAIGHT UP
 
 As a Maker
@@ -46,13 +47,20 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
+not completed:
 ADVANCED
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
+```
+HOW TO SET UP:
+DO:
+- bundle install
+- rake
+and your ready to go.
+```
 Technical Approach:
 -----
 

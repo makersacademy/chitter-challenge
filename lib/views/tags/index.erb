@@ -1,0 +1,9 @@
+<ul>
+  <% @tag.peeps.each do |peep| %>
+    <li>
+      <a>
+        <%= peep.message %>. Posted at:<%= peep.time_stamp %>
+      </a>
+    </li>
+  <% end %>
+</ul>
