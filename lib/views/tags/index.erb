@@ -1,8 +1,8 @@
 <ul>
   <% @tag.peeps.each do |peep| %>
     <li>
-      <a href="<%= peep.time_stamp %>" target="_blank">
-        <%= peep.message %>
+      <a>
+        <%= peep.message %>. Posted at:<%= peep.time_stamp %>
       </a>
     </li>
   <% end %>
