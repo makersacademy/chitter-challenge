@@ -12,15 +12,15 @@ end
 
 
 ENV['ENVIRONMENT'] = 'test'
-# Load the Rakefile
-# Rake.application.load_rakefile
-#
-# # Then, in the RSpec config...
-# RSpec.configure do |config|
-#   config.before(:each) do
-#     Rake::Task['setup'].execute
-#   end
-# end
+Load the Rakefile
+Rake.application.load_rakefile
+
+# Then, in the RSpec config...
+RSpec.configure do |config|
+  config.before(:each) do
+    Rake::Task['setup'].execute
+  end
+end
 RSpec.configure do |config|
   config.before(:each) do
     setup_test_database

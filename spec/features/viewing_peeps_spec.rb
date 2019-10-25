@@ -17,7 +17,7 @@ feature 'Viewing peeps' do
       visit '/peeps'
 
       expect(page).to have_content(time, "I am bored right now")
-      expect(page).to have_content(time,  "I am bored")
+      expect(page).to have_content(time, "I am bored")
       expect(page).to have_content(time, "Binge watch time")
     end
   end
