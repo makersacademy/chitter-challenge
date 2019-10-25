@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <p>We have redirected to the Feed</p>
+    <p>Here is the Chitter feed:</p>
+
+    <ul>
+      <% @feed_items.each do |item| %>
+        <li>Post: <%= item %> </li>
+      <% end %>
+    </ul>
+
+  <body>
+</html>
