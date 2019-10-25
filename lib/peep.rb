@@ -32,8 +32,8 @@ class Peep
   end
 
   def self.all
-    output = ""
-    result = DatabaseConnection.query("SELECT chitter, username, time FROM tblchitters")
+    output = "<h1>Peeps</h1>"
+    result = DatabaseConnection.query("SELECT chitter, username, time FROM tblchitters ORDER BY time DESC")
     result.each do |peep|
       # Peep.new(id: peep['chitter_id'], user_id: peep['user_id'], message: peep['chitter'], username: peep['username'], name: peep['name'], time: peep['time'])
       output += "#{peep['username']} peeped: #{peep['chitter']} at #{peep['time']}<br>"
