@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'pg'
+gem 'sinatra'
 gem 'rake'
 gem 'rubocop', '0.71.0'
 

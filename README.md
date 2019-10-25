@@ -1,6 +1,30 @@
 Chitter Challenge
 =================
 
+Stories Completed:
+--------
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+--------
+
+Setting up Database:
+CREATE DATABASE chitter_challenge;
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(240), time VARCHAR(20));
+
+CREATE DATABASE chitter_challenge_test;
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(240), time VARCHAR(20));
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
