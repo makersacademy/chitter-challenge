@@ -3,12 +3,13 @@ if ENV['RACK_ENV'] != 'production'
 
   RSpec::Core::RakeTask.new :spec
 
-  task default: [:spec]
+  task default: [:setup]
 end
 require 'pg'
 task :setup do
-
-  ['bookmark_manager', 'bookmark_manager_test'].each do |database|
+  # connection = PG.connect(dbname: 'chitter_manager_test')
+  # PG.connect.exec("DROP DATABASE chitter_manager_test;")
+  ['chitter_manager', 'chitter_manager_test'].each do |database|
     connection = PG.connect
     connection.exec("CREATE DATABASE #{ database };")
     connection = PG.connect(dbname: database)

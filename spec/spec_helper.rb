@@ -1,6 +1,17 @@
+require 'rake'
+# Load the Rakefile
+# Rake.application.load_rakefile
+#
+# # Then, in the RSpec config...
+# RSpec.configure do |config|
+#   config.before(:each) do
+#     Rake::Task['setup'].execute
+#   end
+# end
 require 'simplecov'
 require 'simplecov-console'
 require 'setup_test_database'
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -12,15 +23,7 @@ end
 
 
 ENV['ENVIRONMENT'] = 'test'
-Load the Rakefile
-Rake.application.load_rakefile
 
-# Then, in the RSpec config...
-RSpec.configure do |config|
-  config.before(:each) do
-    Rake::Task['setup'].execute
-  end
-end
 RSpec.configure do |config|
   config.before(:each) do
     setup_test_database

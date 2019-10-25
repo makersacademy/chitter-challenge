@@ -11,7 +11,7 @@ require_relative 'peep_tag'
 
 
 class PeepManager < Sinatra::Base
-  enable :sessions, :method_override
+  enable :sessions
   register Sinatra::Flash
 
   get '/' do
