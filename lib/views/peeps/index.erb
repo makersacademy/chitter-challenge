@@ -1,0 +1,35 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
+<% end %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+      <a>
+        <%= peep.message %>. Posted at:<%= peep.time_stamp %>
+      </a>
+      <form action="/peeps/<%= peep.id %>/tags/new" method="get">
+        <input type="submit" value="Add Tag" />
+      </form>
+      <% if peep.tags.length > 0 %>
+        <div>
+          <h2>Tags</h2>
+          <ul>
+            <% peep.tags.each do |tag| %>
+              <li>
+                <a href="/tags/<%= tag.id %>/peeps">
+                  <%= tag.content %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<h2>
+  <%= flash[:notice] %>
+</h2>

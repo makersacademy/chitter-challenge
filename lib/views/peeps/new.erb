@@ -1,0 +1,5 @@
+<form action="/peeps" method="post">
+  <input type="text" name="message" placeholder="MESSAGE" />
+  <input type="hidden" name="time_stamp" value="<%=(Time.now + 60 * 60).strftime("%H:%M:%S")%>" />
+  <input type="submit" value="Submit" />
+</form>
