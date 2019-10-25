@@ -16,6 +16,43 @@ We are going to write a small Twitter clone that will allow the users to post me
 
 Features:
 -------
+<!--
+CREATE TABLE tweets(tweet_id SERIAL PRIMARY KEY, user_name INTEGER, FOREIGN KEY(user_name) REFERENCES users(user_name), tweet VARCHAR(240), time TIMESTAMP); -->
+
+
+<!-- CREATE TABLE users(username SERIAL PRIMARY KEY,);
+                                                       ^
+twitter_clone=# CREATE TABLE users(username SERIAL PRIMARY KEY);
+CREATE TABLE
+
+twitter_clone=# ALTER TABLE users ADD COLUMN name VARCHAR(60);
+ALTER TABLE
+twitter_clone=# ALTER TABLE users ADD COLUMN email VARCHAR(60);
+ALTER TABLE
+twitter_clone=# ALTER TABLE users ADD COLUMN password VARCHAR(48);
+ALTER TABLE
+twitter_clone=# ALTER TABLE users RENAME username TO user_name;
+ALTER TABLE
+
+And then the same but with '_test'
+
+CREATE TABLE tweets(tweet_id SERIAL PRIMARY KEY, user_name INTEGER, FOREIGN KEY(user_name) REFERENCES users(user_name), tweet VARCHAR(240), time TIMESTAMP);
+
+
+CREATE TABLE users(username SERIAL PRIMARY KEY,);
+                                                       ^
+twitter_clone=# CREATE TABLE users(username SERIAL PRIMARY KEY);
+CREATE TABLE
+
+twitter_clone=# ALTER TABLE users ADD COLUMN name VARCHAR(60);
+ALTER TABLE
+twitter_clone=# ALTER TABLE users ADD COLUMN email VARCHAR(60);
+ALTER TABLE
+twitter_clone=# ALTER TABLE users ADD COLUMN password VARCHAR(48);
+ALTER TABLE
+twitter_clone=# ALTER TABLE users RENAME username TO user_name;
+ALTER TABLE -->
+
 
 ```
 STRAIGHT UP
