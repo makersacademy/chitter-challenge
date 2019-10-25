@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+input {
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+.container {
+    max-width: 50%;
+    text-align: center;
+ 
+}
+.no-border {
+    border: 0;
+    box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+    width: 50%;
+}
+.custom-button {
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+}

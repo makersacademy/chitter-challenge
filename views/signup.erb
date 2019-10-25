@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Chitter - signup</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+    <div class="container">
+    <h1>Signup to chitter</h1>
+    <br>
+    <form action="/process-signup" method="POST">
+        <input type="text" id="name"class="no-border" name="name" placeholder="Name">
+        <br>
+        <br>
+        <input type="text" id="username"class="no-border" name="username" placeholder="Username">
+         <br>
+         <br>
+        <input type="email" id="email"class="no-border" name="email" placeholder="Email"">
+         <br>
+         <br>
+        <input type="password" id="password"class="no-border" name="password" placeholder="Password">
+        <br>
+        <br>
+        <input type="submit"class="btn btn-success custom-button" id="submit" name="submit" placeholder="Create Account">
+    </form>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    </body>
+</html>

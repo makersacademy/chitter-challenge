@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Chitter - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+    <div class="container">
+    <h1>Welcome to chitter</h1>
+    <% if session[:loggedin] == true%>
+    <h3>Welcome: <%= session[:username]%></h3>
+    <form method="post" action="/process-logout">
+    <button id="logout">Log out</button> 
+    </form>
+    <form action="/submit-peep" method="POST">
+        <input type="text" id="text" name="text" placeholder="Send a new peep!">
+        <input type="submit" class="custom-button" id="submit" name="submit" placeholder="Send">
+    </form>
+    <%else%>
+   <form method="get" action="/login">
+    <button>Log in</button> 
+    </form>
+    <form method="get" action="/signup">
+    <button>Sign up</button> 
+    </form>
+    <%end%>
+    <% @output.each do | peep | %>
+    <% @output_text =  peep["text"] %>
+    <% @output_post_time =  peep["post_time"] %>
+    <% @output_username =  peep["username"] %>
+    <ul><li> 
+   <p> <%= @output_text %></p>
+   <p> <%= @output_post_time %></p>
+   <p> <%= @output_username %></p>
+   <br>
+    </li> </ul>
+  <% end %>
+  </div>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    </body>
+</html>
