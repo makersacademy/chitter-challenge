@@ -1,5 +1,15 @@
 <html>
   <body>
     <p>We have redirected to the Feed</p>
+    <p>Here is the Chitter feed:</p>
+
+    <ul>
+      <% @feed_items.each do |item| %>
+        <% @name_items.each do |name| %>
+        <li>Post: <%= item %>   From: <%= name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+
   <body>
 </html>
