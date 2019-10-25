@@ -1,0 +1,25 @@
+<h1>Sign In</h1>
+<h2>Or</h2>
+<h1>Sign Up</h1>
+
+<br>
+<h2>Sign In</h2>
+<form action="sign_in" method="post">
+  <input type="text" name="username" placeholder="Username">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Submit">
+</form>
+
+<br>
+<h2>Sign Up</h2>
+<form action="sign_up" method="post">
+  <input type="text" name="name" placeholder="Name">
+  <input type="text" name="email" placeholder="Email">
+  <input type="text" name="username" placeholder="Username">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Submit">
+</form>
+
+<% if @exists == true || @signed_in_erb == false %>
+  <%= "User already exits or Sign in details are wrong" %>
+<% end %>
