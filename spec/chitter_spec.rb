@@ -1,4 +1,4 @@
-require 'lib/chitter'
+require 'chitter'
 describe Chitter do
 
 end
