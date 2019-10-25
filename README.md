@@ -17,6 +17,14 @@ We are going to write a small Twitter clone that will allow the users to post me
 Features:
 -------
 
+completed stories
+
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+
 ```
 STRAIGHT UP
 
