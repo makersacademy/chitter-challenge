@@ -1,5 +1,8 @@
 <h2>Please write your new Peep in the Text Box below:</h2>
 <br>
+<!-- Form to compose a new Peep; -->
+<!-- submit button directs to /adding_new_peep route -->
+<!-- which calls Peep.create method, adds inputted Peep to database -->
 <form action='/adding_new_peep' method='post'>
   <input type='text' name='peep'>
   <input type='submit' name='Add Peep'>

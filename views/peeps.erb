@@ -1,6 +1,9 @@
+<!-- For each of the Peeps in the @peeps array (in reverse chronological order), -->
+<!-- Output it as an item in a list -->
+
 <h1>Welcome to Chitter!</h1>
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li><%= peep %></li>
   <% end %>
 </ul>

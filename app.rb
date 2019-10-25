@@ -1,15 +1,12 @@
 require 'sinatra/base'
+require './lib/peep'
+require 'pg'
 
 class ChitterChallenge < Sinatra::Base
   enable :sessions
 
   get '/' do
-    session[:peeps] = [
-        "This is my first ever Peep!",
-        "This is me saying something inspirational.",
-        "I'm upset about politics right now!"
-        ]
-    @peeps = session[:peeps]
+    @peeps = Peep.all
     erb (:peeps)
   end
 
@@ -18,16 +15,8 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/adding_new_peep' do
-    p params[:peep]
-    new_peep = params[:peep]
-    p new_peep
-    session[:peeps] << new_peep
-    redirect '/peeps'
-  end
-
-  get '/peeps' do
-    @peeps = session[:peeps]
-    erb :peeps
+    Peep.create(peep: params['peep'],)
+    redirect '/'
   end
 
   run! if app_file == $0
