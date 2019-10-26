@@ -44,7 +44,7 @@ class SQL
   def self.all
     connection = PG.connect(dbname: 'chitter')
     result = connection.exec("SELECT * FROM users")
-    result.map { |bookmark| bookmark['username'] }
+    result.map { |main| main['username'] }
   end
 
 end
