@@ -1,0 +1,28 @@
+<h1> Welcome to Chitter </h1>
+<p> Enter Peep </p>
+
+<form action="/addmessage">
+    <input type="text" name="message"/>
+    <input type="submit" name="submit"/>
+</form>
+
+<h2> Make an account if you dont have one </h2>
+<form action="/register">
+    <p>Username</p>
+    <input type = "text" name="username">
+    <p>Name</p>
+    <input type = "text" name="name">
+    <p>Email</p>
+    <input type = "text" name="email">
+    <p>Password</p>
+    <input type = "text" name="password">
+    <input type="submit" name="submit"/>
+</form>
+
+<h3> Messages </h3>
+
+<ul>
+<% @message.each do |msg| %>
+    <%= msg %>
+  <% end %>
+</ul>

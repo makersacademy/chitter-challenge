@@ -1,0 +1,4 @@
+CREATE TABLE details(user_id SERIAL PRIMARY KEY, name VARCHAR(50), username VARCHAR(12) UNIQUE, email VARCHAR(30) UNIQUE, password VARCHAR(20))
+
+CREATE TABLE messages(user_id SERIAL PRIMARY KEY, message VARCHAR(140))
+
