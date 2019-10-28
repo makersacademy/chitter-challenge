@@ -15,7 +15,7 @@ class Chitter
   end
 
   def self.log_in(account: , password:)
-    user = DatabaseConnection.query("SELECT * FROM users WHERE username = #{account} OR email = #{account}").first
+    user = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{account}' OR email = '#{account}'").first
     if user['password'] == password
       create_object(user)
     else
@@ -25,21 +25,21 @@ class Chitter
 
   class << self
     def username_used?(username)
-      results = DatabaseConnection.query("SELECT * FROM users WHERE username = #{username}")
-      if results.empty?
+      results = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'").first
+      if results == nil
+        false
+      else
+        true
+      end
+    end
+
+    def email_used?(email)
+      results = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'").first
+      if results == nil
         false
       else
         true
       end
     end
   end
-
-    def email_used?(email)
-      results = DatabaseConnection.query("SELECT * FROM users WHERE email = #{email}")
-      if results.empty?
-        false
-      else
-        true
-      end
-    end
 end
