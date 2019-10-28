@@ -7,7 +7,7 @@ feature 'post peep' do
   scenario 'Maker wants to post a peep' do
     visit('/postapeep')
     fill_in 'peep', with: "Hello Chitter!"
-    click_button 'send peep'
+    click_button 'Send peep'
 
     expect(page).to have_content("Hello Chitter!")
   end
