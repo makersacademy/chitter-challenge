@@ -14,6 +14,21 @@ As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+
+Setup:
+-------
+SQL instructions:
+. Connect to psql
+. Create the database using the psql command CREATE DATABASE Chitter;
+. Connect to the database using the pqsl command \c Chitter;
+. Run the queries we have saved in the db/migrations folder
+
+SQL instructions for test database:
+. Connect to psql
+. Create the database using the psql command CREATE DATABASE Chitter_test;
+. Connect to the database using the pqsl command \c Chitter_test;
+. Run the queries we have saved in the db/migrations folder
+
 Features:
 -------
 
