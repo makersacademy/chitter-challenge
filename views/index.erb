@@ -1,0 +1,13 @@
+Chitter
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep %>
+    </li>
+  <% end %>
+</ul>
+
+<form action='/add_peep' method='get'>
+  <input type='submit' value='Add Peep' />
+</form>
