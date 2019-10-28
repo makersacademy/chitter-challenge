@@ -1,0 +1,11 @@
+chitter
+
+<ul>
+  <% @chitter.each do |peeps| %>
+    <li>
+      <a>
+        <%= peeps.peep %>
+      </a>
+    </li>
+  <% end %>
+</ul>

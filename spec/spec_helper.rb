@@ -1,5 +1,22 @@
+require_relative './setup_test_database'
+
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
+# Bring in the contents of the `app.rb` file
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+# Require all the testing gems
+require 'sinatra'
+require 'capybara'
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'rake'
+require 'rspec'
+
+# Tell Capybara to talk to Chitter
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
