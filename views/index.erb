@@ -1,0 +1,22 @@
+<% if session[:logged_in] == true %>
+<form action="/log-out" method="get">
+  <input type="submit" name ="log-out" value="Log Out" />
+</form>
+<form action="/" method="post">
+  <input type="text" name ="peep-text" placeholder="Enter your peep text" />
+  <input type="submit" name ="post-peep" value="Post Peep" />
+</form>
+<% else %>
+<form action="/" method="post">
+  <input type="submit" name ="log-in-or-register" value="Register" />
+  <input type="submit" name ="log-in-or-register" value="Log in" />
+</form>
+<% end %>
+
+
+<ul>
+  <% @peeplist.each do |peep| %>
+    <li><%= peep["peep_text"] %> <br />
+    <sub><%= peep["username"] + "    " + peep["upload_time"] %> </sub> </li>
+  <% end %>
+</ul>
