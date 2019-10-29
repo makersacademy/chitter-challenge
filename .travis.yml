@@ -2,7 +2,7 @@ services:
   - postgresql
 
 before_script:
-  - bundle exec rake
+  - rake db:migrate
 
 script:
   - bundle exec rspec
