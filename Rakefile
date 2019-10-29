@@ -1,6 +1,7 @@
 require './app'
 require 'sinatra/activerecord/rake'
-require 'pg'
+
+
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
@@ -8,6 +9,12 @@ if ENV['RACK_ENV'] != 'production'
   RSpec::Core::RakeTask.new :spec
 
   task default: [:spec]
+  task default: [:setup]
+end
+
+require 'pg'
+
+task :setup do
   ['chitter', 'chitter_test']. each do |database|
     connection = PG.connect
     connection.exec("CREATE DATABASE #{ database };")
