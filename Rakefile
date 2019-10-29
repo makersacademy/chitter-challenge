@@ -1,6 +1,8 @@
 require './app'
 require 'sinatra/activerecord/rake'
 
+rake db:migrate
+
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
 

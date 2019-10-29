@@ -2,7 +2,6 @@ services:
   - postgresql
 
 before_script:
-  - bundle install
   - bundle exec rake
 
 script:
