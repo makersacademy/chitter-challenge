@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'sinatra/activerecord'
 require 'sinatra/base'
 require 'sinatra/flash'
 require './database_connection_setup'
