@@ -3,7 +3,7 @@ services:
 
 before_script:
   - bundle install
-  - rake db:migrate
+  - bundle exec rake
 
 script:
   - bundle exec rspec
