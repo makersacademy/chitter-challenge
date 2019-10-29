@@ -8,7 +8,7 @@ if ENV['RACK_ENV'] != 'production'
 
   RSpec::Core::RakeTask.new :spec
 
-  task default: [:spec]
+  # task default: [:spec]
   task default: [:setup]
 end
 
