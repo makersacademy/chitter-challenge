@@ -1,5 +1,6 @@
 services:
   - postgresql
+  - bundle install
 
 before_script:
   - rake db:migrate
