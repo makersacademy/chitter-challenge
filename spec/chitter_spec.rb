@@ -41,7 +41,7 @@ describe Chitter do
 
   describe '.log_in' do
     it 'checks user exists' do
-
+      
     end
 
     # it 'calls #log_in on an instance user class' do

@@ -8,7 +8,7 @@ end
 
 require 'pg'
 
-task :setup do
+RSpec::Core::RakeTeask.new :setup do
   ['chitter', 'chitter_test']. each do |database|
     connection = PG.connect
     connection.exec("CREATE DATABASE #{ database };")
