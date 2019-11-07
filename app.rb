@@ -7,11 +7,20 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    erb :index
+    erb :'peeps/index'
   end
 
   get '/peeps/add' do
-    "What is your message?"
+    erb :'peeps/add'
+  end
+
+  post '/peeps/new' do
+    Peeps.add(peep: params['peep'])
+    redirect ('/peeps/view')
+  end
+
+  get '/peeps/view' do
+    "My first Peep!"
   end
 
   run! if app_file == $0
