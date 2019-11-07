@@ -2,7 +2,7 @@ services:
   - postgresql
 
 before_script:
-  - psql create database chitter_test;
+  - psql createdb chitter_test;
   - psql -c chitter_test;
   - psql CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20), email VARCHAR(60), password VARCHAR(30));
   - psql CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(240), date VARCHAR(10), time VARCHAR(5), user_id INTEGER REFERENCES users (id) ON DELETE CASCADE);
