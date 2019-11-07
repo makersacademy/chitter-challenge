@@ -1,5 +1,12 @@
+<h3>
 <ul>
-  <% @peeps.each do |peep| %>
+  <% view = @peeps.each do |peep| %>
     <li><%= peep %></li>
   <% end %>
 </ul>
+
+<form action='/peeps/add' method='GET'>
+  <input type="submit" value="Add a Peep" />
+</form
+
+</h3>
