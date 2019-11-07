@@ -63,6 +63,8 @@ Gems to Install
 ----------------------
 ```
 gem 'sinatra'
+
 gem 'rspec'
+
 gem 'capybara'
 ```
