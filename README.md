@@ -59,9 +59,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 ```
 
-Gems to Install:
-________________
-
+Gems to Install
+----------------------
+```
 gem 'sinatra'
 gem 'rspec'
 gem 'capybara'
+```
