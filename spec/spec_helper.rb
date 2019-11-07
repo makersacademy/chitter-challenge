@@ -12,7 +12,7 @@ require 'simplecov-console'
 
 Capybara.app = Chitter
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
   end
