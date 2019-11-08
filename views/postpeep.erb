@@ -1,0 +1,16 @@
+<div class="topnav">
+    <a>Welcome to Chitter</a>
+    <a class="hover" href="/homepage">Home</a>
+    <a class="hover" href="/homepage/account">Account</a>
+    <a class=" active" href="/homepage/postpeep">Post</a>
+    <a class="hover" href="/homepage/messages">Messages</a>
+    <input type='text' placeholder="Search Chitter..">
+</div>
+
+<div align=center>
+    <form action="/homepage/postpeep" method="post"><br>
+        <input class="peepbox" type="text" name="peeptext" required minlength="1" maxlength="180"
+            placeholder="Please write your peep here, the character limit is 180.."></input><br>
+        <input type="submit" name="submit_peep" />
+    </form>
+</div>

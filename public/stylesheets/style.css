@@ -1,11 +1,11 @@
 /* background colour */
 body {
-    background-color: rgb(176, 239, 250);
+    background-color: white;
 }
 
-/* Add a black background color to the top navigation */
+/* Add a background color to the top navigation */
 .topnav {
-    background-color: #333;
+    background-color: rgb(0, 162, 255);
     overflow: hidden;
   }
   
@@ -23,13 +23,13 @@ body {
   
   /* Change the color of links on hover */
   .topnav a.hover:hover {
-    background-color: rgb(40, 144, 241);
+    background-color: rgb(75, 212, 253);
     color: rgb(255, 255, 255);
   }
   
   /* Add a color to the active/current link */
   .topnav a.active {
-    background-color: rgb(53, 211, 250);
+    background-color: rgb(75, 212, 253);
     color: white;
   }
 
@@ -41,3 +41,9 @@ body {
     margin-right: 16px;
     font-size: 17px;
   }
+
+.peepbox {
+  font-size: 13pt;
+  width: 500px;
+  height: 250px;
+}

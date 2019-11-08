@@ -11,13 +11,13 @@ class Peep
     @timeposted = timeposted
   end
 
-  def self.create(id:, peeptext:, username:, dateposted: "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}", timeposted: "#{Time.now.hour}:#{Time.now.min}:#{Time.now.sec}")
+  def self.create(peeptext:, username:, dateposted: "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}", timeposted: "#{Time.now.hour}:#{Time.now.min}:#{Time.now.sec}")
     if ENV["ENVIRONMENT"] == "test"
       connection = PG.connect(dbname: "chitter_peeps_test")
     else
       connection = PG.connect(dbname: "chitter_peeps_manager")
     end
 
-    connection.exec("INSERT INTO chitter_peeps (id, peep, username, dateposted, timeposted) VALUES ('#{id}, '#{peeptext}', '#{dateposted}', '#{timeposted}')")
+    connection.exec("INSERT INTO chitter_peeps (peep, username, dateposted, timeposted) VALUES ('#{peeptext}', '#{dateposted}', '#{timeposted}')")
   end
 end
