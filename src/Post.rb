@@ -8,20 +8,15 @@ class Post
 	end
 
 	def self.convert_to_post(data)
-		new_data = []
-		title = nil
-		poster = nil
-		time = nil
-
+		new_data = [] 
+		
 		data.each do |key, value|
+			p value
 			if key == "post"
 				post = value
-			end
-			if key == "poster"
+			elsif key == "poster"
 				poster = value
-				poster = true
-			end
-			if key == "time"
+			elsif key == "time"
 				time = value
 			end
 			new_data << Post.new(post, poster, time)	

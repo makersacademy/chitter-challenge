@@ -14,4 +14,5 @@ class User
 
 		return User.new(email, user_name, username)
 	end
+
 end

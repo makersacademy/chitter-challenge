@@ -27,6 +27,8 @@ class Chitter < Sinatra::Base
 
         @posts = Post.convert_to_post(@peeps)
 
+        p @posts[0].poster
+
         @current_user = session[:user]
         erb(:home)
 
@@ -37,6 +39,10 @@ class Chitter < Sinatra::Base
         @current_user = session[:user]
 
         erb(:create_post)
+    end
+
+    post '/generate_post' do
+        
     end
 
 
