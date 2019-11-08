@@ -13,7 +13,7 @@ class Peep
 
   def self.all
     connection = PG.connect(dbname: 'chitter')
-    result = connection.exec("SELECT * FROM bookmarks")
+    result = connection.exec("SELECT * FROM peeps")
     result.map do |peep|
       Peep.new(id: peep['id'], maker: peep['maker'], time: peep['time'], message: peep['message'])
     end

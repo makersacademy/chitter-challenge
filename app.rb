@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     @peeps = Peep.all
-    p Peep.all
+    erb :chitter
   end
 
   get '/peep' do
@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
 
   post '/peeped' do
     Peep.make_peep(maker: params[:maker], message: params[:message], time: params[:time])
-    erb :peeped
+    redirect '/chitter'
   end
   
   
