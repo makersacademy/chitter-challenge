@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title>Chitter - Home</title>
 </head>
 <body>
-<%= current_user.name %>
+    <ul>
+      <li> <%= @current_user.user_name%> </li>
+      <li><a class="active" href="/">Home</a></li>
+      <li><a href="/create">Create</a></li>
+    </ul>
+
+<div class="text">
+    <div class="welcome-div">
+        <h1>Your Chitter Updates</h1>
+    </div>
+
+
+</div>
 </body>
 </html>

@@ -14,8 +14,10 @@ class Chitter < Sinatra::Base
     end
 
     post '/load_user' do
-        session[:user] = User.convert_to_user(DbHelper.get(params[:email]))
-        @current_user = session[:user]
+        email = params[:email]
+        result = DbHelper.get_exac(email)
+        @current_user = User.convert_to_user(result)
+        session[:user] = @current_user
         erb(:home)
     end
 
