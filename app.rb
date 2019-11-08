@@ -12,7 +12,22 @@ class Chitter < Sinatra::Base
         erb(:login)
     end
 
+    post '/login' do
+        user = User.find(params[:email], params[:password]) 
+        user.length == 1 ? session[:user] = user.first : redirect('/login')
+        redirect('/home')
+    end
+
     get '/signup' do 
         erb(:signup)
+    end
+
+    post '/signup' do 
+        #Need to complete
+    end
+
+    get '/home' do 
+        @user = session[:user]
+        erb(:home)
     end
 end
