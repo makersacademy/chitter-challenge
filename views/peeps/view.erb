@@ -1,7 +1,10 @@
 <h3>
 <ul>
   <% view = @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li>
+      <%= peep.time %>
+      <%= peep.peep %>
+    </li>
   <% end %>
 </ul>
 

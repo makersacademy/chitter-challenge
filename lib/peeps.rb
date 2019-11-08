@@ -1,6 +1,15 @@
 require 'pg'
 
+
 class Peeps
+
+  attr_reader :id, :time, :peep
+
+  def initialize(id:, time:, peep:)
+    @id = id
+    @time = time
+    @peep = peep
+  end
 
   def self.add(peep:)
     if ENV['RACK_ENV'] == 'test'
@@ -8,7 +17,8 @@ class Peeps
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}')")
+    result = connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}') RETURNING id, peep, time")
+    Peeps.new(id: result[0]['id'], time: result[0]['time'], peep: result[0]['peep'])
   end
 
   def self.all
@@ -19,7 +29,8 @@ class Peeps
     end
 
     result = connection.exec('SELECT * FROM peeps ORDER BY id DESC')
-    result.map { |peeps| peeps['peep']}
+    result.map do |peeps|
+      Peeps.new(id: peeps['id'], time: peeps['time'], peep: peeps['peep'])
+    end
   end
-
 end
