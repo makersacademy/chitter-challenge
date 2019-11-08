@@ -7,7 +7,6 @@ class Bitter < Sinatra::Base
 
   get '/beets' do
     @beets = Beet.all
-    p @beets
     erb(:beets)
   end
 
