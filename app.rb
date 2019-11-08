@@ -1,4 +1,5 @@
 require "sinatra/base"
+require "./lib/peep"
 
 class Chitter < Sinatra::Base
   get "/" do
@@ -6,10 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get "/homepage" do
-    @peeps = [
-      "This is a test Peep! Peep Peep Peep!",
-      "This is a second, even longer, test Peep! Peep Peep Peep!",
-    ]
+    @peeps = Peep.all
 
     erb :'chitter/homepage'
   end
