@@ -22,4 +22,13 @@ class DBhelper
     connection.exec("SELECT * FROM peeps")
   end
 
+  def self.check_user(username)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    connection.exec("SELECT * FROM users WHERE username = ('#{username}')")
+  end
 end

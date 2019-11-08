@@ -15,7 +15,6 @@ feature "Peeps" do
     fill_in('title', with: 'New Peep')
     fill_in('body', with: 'This is a test peep')
     click_button("submit")
-    save_and_open_page
     expect(page).to have_content "New Peep"
     expect(page).to have_content "This is a test peep"
   end
@@ -25,3 +24,15 @@ feature "Peeps" do
     visit '/home'
   end
 end
+
+feature "Users" do
+  scenario "Can log in" do
+    visit '/login'
+    fill_in('username', with: 'bradley')
+    fill_in('password', with: 'bradley')
+    click_button('submit')
+    expect(page).to have_content "Welcome Bradley"
+  end
+end
+
+
