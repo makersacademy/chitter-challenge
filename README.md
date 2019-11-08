@@ -131,3 +131,18 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+### Sara Rancati - 8 November 2019
+
+Technologies used:
+- Sinatra
+- Capybara
+- TablePlus
+- PostgreSQL
+
+Setting up the databases:
+
+1. Connect to psql
+2. Create the 'bookmark_manager' database using the psql command ``` CREATE DATABASE peeps; ``` or (for the test database) ``` CREATE DATABASE peeps_test; ```
+3. Connect to the database using the pqsl command ``` \c peeps; ```
+4. Run the query we have saved in the file 01_create_posts.sql to create a bookmarks table
