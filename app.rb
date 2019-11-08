@@ -9,7 +9,12 @@ class ChitterApp < Sinatra::Base
 
     get '/users' do
         @users = Chitter.return_users
-        erb :'users/users-names'
+        erb :'/users/users-names'
+    end
+
+    get '/messages' do
+        @messages = Messages.return_messages
+        erb :'/messages/messages'
     end
 
     get '/users/new' do
