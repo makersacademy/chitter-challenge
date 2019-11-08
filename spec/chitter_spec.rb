@@ -1,7 +1,9 @@
+require "chitter"
+
 describe ".all" do
   it "returns a list of peeps" do
     chitter = Chitter.all
-
-    expect(peeps_table).to include "hello"
+    expect(chitter).to include "hello"
   end
 end
+#this test isnt working, dont know why or how to fix it
