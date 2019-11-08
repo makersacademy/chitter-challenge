@@ -8,14 +8,12 @@
   <body>
     <table class="table">
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Maker</th>
         <th scope="col">Peep</th>
         <th scope="col">Time</th>
       </tr>
       <% @peeps.each do |peep| %>
         <tr>
-          <td><%= peep.id %></td>
           <td><%= peep.maker %></td>
           <td><%= peep.message %></td>
           <td><%= peep.time%></td>
