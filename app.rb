@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-class TBD < Sinatra::Base
+class Chitter < Sinatra::Base
   get '/' do
     'Hello World'
   end
