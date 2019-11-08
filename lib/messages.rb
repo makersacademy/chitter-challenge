@@ -1,0 +1,3 @@
+class Messages
+    
+end
