@@ -1,5 +1,7 @@
-<ul>
-    <% @messages.each do |message| %>
-        <li><%= message %></li>
-    <% end %>
-</ul>
+<div class="divcontainer">
+    <div class="messages-container">
+        <% @messages.each do |message| %>
+            <div class="message"><%= message %></div>
+        <% end %>
+    </div>
+</div>

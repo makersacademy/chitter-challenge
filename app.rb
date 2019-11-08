@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/chitter'
+require './lib/messages'
 
 class ChitterApp < Sinatra::Base
     
