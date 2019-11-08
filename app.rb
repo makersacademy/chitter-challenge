@@ -2,8 +2,11 @@ require "sinatra/base"
 
 class Chitter < Sinatra::Base
   get "/" do
-    "Welcome to chitter"
-    erb(:index)
+    redirect("/homepage")
+  end
+
+  get "/homepage" do
+    erb(:homepage)
   end
 
   run! if app_file == $0
