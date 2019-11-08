@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+    <table class="table">
+      <tr>
+        <th scope="col">Maker</th>
+        <th scope="col">Peep</th>
+        <th scope="col">Time</th>
+      </tr>
+      <% @peeps.each do |peep| %>
+        <tr>
+          <td><%= peep.maker %></td>
+          <td><%= peep.message %></td>
+          <td><%= peep.time%></td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
