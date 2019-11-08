@@ -1,3 +1,5 @@
+require "./app"
+
 feature "Viewing Chitter" do
   scenario "user can visit the Chitter homepage" do
     visit("/")
