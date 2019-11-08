@@ -12,4 +12,12 @@ describe Peep do
       expect(peeps).to include("This is a second, even longer, test Peep! Peep Peep Peep!")
     end
   end
+
+  describe ".create" do
+    it "creates a new bookmark" do
+      Peep.create(peep: "I can post a peep now!")
+
+      expect(Peep.all).to include "I can post a peep now!"
+    end
+  end
 end
