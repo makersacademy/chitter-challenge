@@ -1,8 +1,9 @@
 require 'sinatra/base'
 
+
 class MyApp < Sinatra::Base
 
     get '/' do
-        "Welcome to Chitter!"
+        erb:"messages/index"
     end
 end
