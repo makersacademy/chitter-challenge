@@ -33,6 +33,7 @@ class Chitter < Sinatra::Base
     end 
 
     get '/create' do
+        @time = Time.new
         @current_user = session[:user]
 
         erb(:create_post)

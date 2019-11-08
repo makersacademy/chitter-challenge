@@ -20,7 +20,7 @@
             <h3> Post </h3>
             <textarea id="text-box" type="text" name="post"> </textarea><br>
             <h3> Date </h3>
-            <%= Time.now %><br>
+            <h4> <%= @time.hour%>:<%= @time.min%> </h4><br>
             <button type="submit" disabled style="display: none" aria-hidden="true"></button>
             <input type="submit" value="Submit">
         </form>
