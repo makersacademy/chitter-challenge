@@ -40,7 +40,6 @@ feature 'Chitter' do
     end
 end
 
-
 def log_in
     User.create('rob@rob.com', "rob")
     visit('/login')
