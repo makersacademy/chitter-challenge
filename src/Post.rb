@@ -9,9 +9,8 @@ class Post
 
 	def self.convert_to_post(data)
 		new_data = [] 
-		
+
 		data.each do |key, value|
-			p value
 			if key == "post"
 				post = value
 			elsif key == "poster"

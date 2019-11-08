@@ -24,11 +24,17 @@ class Chitter < Sinatra::Base
 
     get '/view' do
         @peeps = DbHelper.get_peeps
+        p @peeps
+        @posts = []
 
-        @posts = Post.convert_to_post(@peeps)
+        @peeps.each do |hash|
+            p hash
+            @posts << Post.convert_to_post(hash)
+        end
 
-        p @posts[0].poster
-
+        @posts.each do |a|
+            p a.peep
+        end
         @current_user = session[:user]
         erb(:home)
 
