@@ -9,7 +9,7 @@ class ChitterApp < Sinatra::Base
 
     get '/users' do
         @users = Chitter.return_users
-        erb :users
+        erb :'users/users-names'
     end
     
     run! if app_file == $0
