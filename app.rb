@@ -12,5 +12,9 @@ class Bitter <Sinatra::Base
     erb(:new_beet)
   end
 
+  post '/post_beet' do
+    redirect '/beets'
+  end
+
   run! if app_file == $0
 end
