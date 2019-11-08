@@ -11,7 +11,6 @@ class MyApp < Sinatra::Base
         @chitter = Chits.all
         erb:"messages/chits"
      end
-     
      run! if app_file == $0
-
+    
 end
