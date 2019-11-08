@@ -8,6 +8,6 @@ class DatabaseConnection
   end
 
   def self.query(query)
-    reult = @connection.exec(query)
+    result = @connection.exec(query)
   end
 end

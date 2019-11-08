@@ -3,7 +3,7 @@ require 'database_connection'
 describe DatabaseConnection do
   context "Connecting to the database" do
     it "connects to a database" do
-      expect(DatabaseConnection.setup("bitter")).to be_a(PG::Connection)
+      expect(DatabaseConnection.setup("bitter_test")).to be_a(PG::Connection)
     end
   end
 

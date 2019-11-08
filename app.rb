@@ -1,10 +1,13 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require './lib/beet'
 
-class Bitter <Sinatra::Base
+class Bitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/beets' do
+    @beets = Beet.all
+    p @beets
     erb(:beets)
   end
 
