@@ -2,7 +2,7 @@ require 'user'
 require 'pg'
 
 describe User do
-    it 'get a user' do 
+    it 'Get a user' do 
         connection = PG.connect(dbname: 'chitter_test')
         email = 'rob@rob.com'
         password = 'rob'
