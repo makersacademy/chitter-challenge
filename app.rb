@@ -3,11 +3,12 @@ require "./lib/peep"
 
 class Chitter < Sinatra::Base
   get "/" do
+    @peep = Peep.all
     erb :index
   end
 
-  get "/peeps" do
-    @peep = Peep.all
+  post "/peeps" do
+    @peep = Peep.add_peep
     erb :peeps
   end
 
