@@ -20,4 +20,11 @@ describe Chitter do
             expect(users).to include "Jay Z"
         end
     end
+
+    describe '#create_user' do
+        it 'creates a new user account' do
+            Chitter.create_user(name: 'Earl', username: 'earlSweatshirt', email: 'earl@gmail.com', password: 'password123')
+            expect(Chitter.return_users).to include 'Earl'
+        end
+    end
 end
