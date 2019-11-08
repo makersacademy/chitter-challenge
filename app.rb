@@ -10,7 +10,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    "hello"
+    @posts = Peep.get
+    erb :home
   end
 
   get '/new_peep' do
