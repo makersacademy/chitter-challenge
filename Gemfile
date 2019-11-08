@@ -14,4 +14,5 @@ group :test do
   gem "simplecov-console"
   gem "coveralls", require: false
   gem "capybara"
+  gem "pg"
 end

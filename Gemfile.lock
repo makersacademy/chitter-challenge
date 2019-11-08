@@ -53,6 +53,7 @@ GEM
     parallel (1.18.0)
     parser (2.6.5.0)
       ast (~> 2.4.0)
+    pg (1.1.4)
     public_suffix (4.0.1)
     rack (2.0.7)
     rack-protection (2.0.7)
@@ -119,6 +120,7 @@ DEPENDENCIES
   capybara
   coveralls
   cucumber
+  pg
   rspec
   rubocop
   rubocop-rspec
