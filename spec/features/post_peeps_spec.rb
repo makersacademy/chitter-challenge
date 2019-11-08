@@ -4,8 +4,15 @@
 # I want to post a message (peep) to chitter
 
 feature "post peeps" do
-  scenario "user can connect to the page, see all peeps, and add some" do
+  scenario "see peeps" do
     visit "/"
     expect(page).to have_content("Chitter:")
+  end
+
+  scenario "add peeps" do
+    visit("/peeps")
+    fill_in("peeps", with: "First peep")
+    click_button("Submit")
+    expect(page).to have_content "First peep"
   end
 end
