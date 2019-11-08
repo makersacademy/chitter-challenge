@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/user'
+require './lib/message'
 
 class Chitter < Sinatra::Base
 
@@ -34,7 +35,23 @@ class Chitter < Sinatra::Base
 
     get '/home' do 
         redirect('/login') if !session[:user]
+        @messages = Message.all
         @user = session[:user]
         erb(:home)
+    end
+
+    post '/message' do 
+        if params['text'] == ""
+            redirect('/home') 
+        end
+
+        time = Time.new
+        Message.create(session[:user].id, params['text'], time)
+        redirect('/home')
+    end
+
+    get '/logout' do 
+        session.clear
+        redirect('/login')
     end
 end
