@@ -1,3 +1,5 @@
+ENV['Environment'] = 'test'
+
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
