@@ -1,4 +1,5 @@
 require './lib/peep.rb'
+require 'database_helpers'
 
 describe Peep do
 
@@ -23,14 +24,13 @@ describe Peep do
 
   describe '.make_peep' do
     it 'creates a new peep' do
-      peep = Peep.make_peep(maker: 'Marc', message: 'Checking peep created!', time: '5:50pm')
-      connection = PG.connect(dbname: 'chitter_test')
-      result = connection.query("SELECT * FROM peeps WHERE id = #{id};")
-      result.first
-  
-      expect(peep).to be_a Peep
-      expect(peep.maker).to eq 'Marc'
-      expect(peep.message).to eq 'Checking peep created!'
+        peep = Peep.make_peep(maker: 'Marc', message: 'Checking .make_peep!', time: '5:30pm')
+        persisted_data = persisted_data(id: peep.id)
+    
+        expect(peep).to be_a Peep
+        expect(peep.id).to eq persisted_data.first[1]
+        expect(peep.message).to eq 'Checking .make_peep!'
+        expect(peep.maker).to eq 'Marc'
     end
   end
 end
