@@ -1,0 +1,1 @@
+CREATE TABLE beets(id SERIAL PRIMARY KEY, beet_text VARCHAR(140));

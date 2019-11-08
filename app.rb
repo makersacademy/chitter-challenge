@@ -13,6 +13,7 @@ class Bitter <Sinatra::Base
   end
 
   post '/post_beet' do
+    p params
     redirect '/beets'
   end
 
