@@ -1,5 +1,6 @@
 require "sinatra/base"
-#require "pg"
+require "pg"
+require "./lib/chitter"
 
 class ChitterApp < Sinatra::Base
   enable :sessions
