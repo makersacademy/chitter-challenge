@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="text-center">Welcome to Chitter</h1>
+      <% if @user %>
+        <div class="text-right">
+          <h4>Hi, <%= @user['username'] %>!</h4>
+          <span class="text-muted d-block mb-3"><%= @user['name'] %></span>
+          <a href="/signout" class="btn btn-secondary">Sign out</a>
+        </div>
+
+        <h5 class="mt-4">Post a new peep</h5>
+        <form action="/peeps" method="POST" class="text-left">
+          <div class="form-group">
+            <textarea class="form-control" id="text" name="text"></textarea>
+          </div>
+          <input name="username" type="hidden" value="<%= @user['username'] %>">
+          <button type="submit" class="btn btn-primary">Peep!</button>
+        </form>
+      <% else %>
+        <div class="text-right">
+          <a href="/register" class="btn btn-secondary">Register</a>
+          <a href="/login" class="btn btn-primary">Log in</a>
+        </div>
+      <% end %>
+
+      <h3 class="mt-4 mb-3">Latest Peeps</h3>
+      <ul class="list-unstyled">
+        <% @peeps.each do |peep| %>
+          <div class="media mb-2 border-dark border-top pt-2">
+            <img class="mr-3" style="width: 50px; height: 50px;" src=<%= peep['image'] %> />
+            <div class="media-body">
+              <span class="float-right"><%= peep['date'] %></span>
+              <div>
+                <h5 class="d-inline"><%= peep['name'] %></h5>
+                <h6 class="d-inline text-muted">@<%= peep['username'] %></h6>
+              </div>
+              <%= peep['text'] %>
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>
