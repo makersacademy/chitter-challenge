@@ -1,11 +1,12 @@
 require 'sinatra/base'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
     enable :sessions
     
     get '/' do 
-        session[:login] == true ? redirect('/home') : redirect('/login')
+        session[:user] ? redirect('/home') : redirect('/login')
     end
 
     get '/login' do 
@@ -23,10 +24,16 @@ class Chitter < Sinatra::Base
     end
 
     post '/signup' do 
-        #Need to complete
+        User.create(params[:email], params[:password])
+        redirect('/signup/success')
+    end
+
+    get '/signup/success' do
+        erb(:success)
     end
 
     get '/home' do 
+        redirect('/login') if !session[:user]
         @user = session[:user]
         erb(:home)
     end
