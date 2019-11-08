@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title>Chitter - Login</title>
 </head>
 <body>
-	<p> Hello World! </p>
+    <ul>
+      <li><a class="active" href="/">Home</a></li>
+      <li><a href="/create">View</a></li>
+      <li><a href="/create">Create</a></li>
+    </ul>
+
+<div class="text">
+    <div class="welcome-div">
+        <h1>Welcome to Chitter</h1>
+        <h3 id="message">Search for a post</h3>
+        <h5> (leave it blank to retreieve all posts) </h5>
+    </div>
+
+    <div class="search-form">
+        <form action="/search_for_post" method="POST">
+            <input type="text" name="text">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
 </body>
 </html>
