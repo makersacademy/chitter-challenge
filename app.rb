@@ -11,15 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeproom' do
-    @peep = params[:peep]
+    Peep.all
     erb :peeproom
-  end
-
-  get '/preproom' do
-    peeps = [
-      'my first peep'
-    ]
-
-    peeps.join
   end
 end
