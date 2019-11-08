@@ -5,7 +5,7 @@
 </head>
 <body>
     <ul>
-      <li> <%= @current_user.user_name%> </li>
+      <li><a><%= @current_user.user_name%> </a></li>
       <li><a class="active" href="/">Home</a></li>
       <li><a href="/create">Create</a></li>
     </ul>
@@ -15,6 +15,13 @@
         <h1>Your Chitter Updates</h1>
     </div>
 
+    <% @posts.each do |peep| %>
+    <div>
+    	<h2> <%= peep.post %> </h2>
+    	<h4> <%= peep.poster %> </h4>
+    	<h5> <%= peep.time %> </h5>
+    </div>
+    <% end %> 
 
 </div>
 </body>

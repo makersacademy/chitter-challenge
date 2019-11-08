@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chitter - Create a Post</title>
+</head>
+<body>
+    <ul>
+      <li><a><%= @current_user.user_name%> </a></li>
+      <li><a href="/">Home</a></li>
+      <li><a class="active" href="/create">Create</a></li>
+    </ul>
+
+<div class="text">
+    <div class="welcome-div">
+        <h1>Create a post</h1>
+    </div>
+
+    <div class="create-post">
+        <form action="/generate_post" method="POST">
+            <h3> Post </h3>
+            <textarea id="text-box" type="text" name="post"> </textarea><br>
+            <h3> Date </h3>
+            <%= Time.now %><br>
+            <button type="submit" disabled style="display: none" aria-hidden="true"></button>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

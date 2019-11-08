@@ -11,4 +11,15 @@ feature 'load peeps' do
 		expect(page).to have_content 'Test Peep'
 	end
 
+	scenario "user can see a time" do
+		visit '/'
+		fill_in('password', :with => 'rhys@rhys.com')
+		fill_in('password', :with => 'test')
+
+		click_button('submit')
+
+		expect(page).to have_content ':'
+	end
+
+
 end
