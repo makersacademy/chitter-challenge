@@ -15,7 +15,7 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
   ENV['RACK_ENV'] = 'test'
-  # ENV['ENVIRONMENT'] = 'test'
+  ENV['ENVIRONMENT'] = 'test'
   # Bring in the contents of the `app.rb` file
   require File.join(File.dirname(__FILE__), '..', 'app.rb')
   
@@ -25,6 +25,6 @@ RSpec.configure do |config|
   require 'rspec'
   
   # Tell Capybara to talk to BookmarkManager
-  Capybara.app = BookmarkManager
+  Capybara.app = Chitter
 
 end
