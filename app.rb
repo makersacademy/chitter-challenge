@@ -5,7 +5,7 @@ class Bitter <Sinatra::Base
   register Sinatra::Flash
 
   get '/beets' do
-    'Bitter'
+    erb(:beets)
   end
 
   run! if app_file == $0
