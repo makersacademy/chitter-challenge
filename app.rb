@@ -1,11 +1,17 @@
 require 'sinatra'
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
 
   get '/peep' do
     erb :peep
+  end
+
+  post '/peeped' do
+   
+    erb :peeped
   end
 
 
