@@ -22,4 +22,9 @@ feature "it can call the website" do
     click_button "Submit"
     expect(page).to have_content "Hello World"
   end
+  #need to sort out  a test server
+  scenario " it displays the username, peep and time" do
+    visit("/peep_page")
+    expect(page).to have_content "Sarah peeped: hello at: 15"
+  end
 end

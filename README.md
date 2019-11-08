@@ -1,19 +1,18 @@
 
 
 next : 
-- firgure out how to save my peep to the  DB table 
+- display test peep to peep_page to pass test 
+- figure out how to save my peep to the  DB table 
 
 
 Done : 
 -created and setup app.rb 
 -added submit to index page 
--got and saved username <form>
+-got and saved username 
 -asked for peep 
 -created chitterPeeps database 
   -added columns to table 
-- 
-
-
+- read test data from DB with class 
 
 Todo : 
 Display Pages 
@@ -38,7 +37,10 @@ Tests
     -can enter peep 
     - peep is stored in DB 
     - user can access peep from DB 
+    -setup test server 
 
+Make it pretty 
+  -CSS 
 
 
 

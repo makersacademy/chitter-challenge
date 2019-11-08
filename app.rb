@@ -19,6 +19,12 @@ class ChitterApp < Sinatra::Base
 
   post "/display_peep" do
     session[:peep] = params[:peep]
+    redirect "/peep_page"
+  end
+  get "/peep_page" do
+    $chitter = Chitter.new
+    @fullPeep = "#{$chitter.username} peeped #{$chitter.peep} at #{$chitter.time}"
+    erb :peep_display
   end
   run! if app_file == $0
 end
