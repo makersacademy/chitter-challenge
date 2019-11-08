@@ -25,8 +25,13 @@ class Chitter < Sinatra::Base
     end
 
     post '/signup' do 
-        User.create(params[:email], params[:password])
-        redirect('/signup/success')
+        redirect('/signup') if params[:email] == "" || params[:password] == ""
+        if User.find_by_email(params[:email]).length > 0
+            redirect('/signup')
+        else
+            User.create(params[:email], params[:password])
+            redirect('/signup/success')
+        end
     end
 
     get '/signup/success' do

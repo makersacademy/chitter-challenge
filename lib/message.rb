@@ -1,12 +1,13 @@
 require 'pg'
 
 class Message
-    attr_reader :id, :text, :time
+    attr_reader :id, :text, :time, :user
 
-    def initialize(id:, text:, time:)
+    def initialize(id:, text:, time:, user:)
         @id = id
         @text = text
         @time = time
+        @user = user
     end
 
     def self.create(user_id, text, time)
@@ -18,7 +19,11 @@ class Message
         connection = connect
         result = connection.exec("SELECT * from messages")
         result.map do |message|
-            Message.new(id: message['id'], text: message['text'], time: message['time'])
+            Message.new(id: message['id'], 
+                        text: message['text'], 
+                        time: message['time'], 
+                        user: connection.exec("SELECT email from users where id = $1;", [message['user_id']]).first['email']
+            )
         end
     end
 

@@ -21,6 +21,14 @@ class User
         end
     end
 
+    def self.find_by_email(email)
+        connection = connect
+        result = connection.exec("SELECT * from users WHERE email = $1;", [email])
+        result.map do |user|
+            User.new(id: user['id'], email: user['email'])
+        end
+    end
+
     private
 
     def self.connect
