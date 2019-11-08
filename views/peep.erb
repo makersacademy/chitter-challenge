@@ -1,0 +1,10 @@
+<h1> Welcome to Chitter! </h1>
+<p> <%= @username %> What would you like to peep? </p>
+
+<form action="/display_peep" method="post">
+    <label for="peep">
+        Enter Peep: 
+        <input type="text" name="peep"> 
+    </label> 
+        <input type="submit" value="Submit"> 
+</form> 

@@ -1,4 +1,20 @@
 
+
+next : 
+- firgure out how to save my peep to the  DB table 
+
+
+Done : 
+-created and setup app.rb 
+-added submit to index page 
+-got and saved username <form>
+-asked for peep 
+-created chitterPeeps database 
+  -added columns to table 
+- 
+
+
+
 Todo : 
 Display Pages 
   - home page, 

@@ -1,6 +1,7 @@
 require "sinatra/base"
+#require "pg"
 
-class Chitter < Sinatra::Base
+class ChitterApp < Sinatra::Base
   enable :sessions
 
   get "/" do
@@ -9,7 +10,14 @@ class Chitter < Sinatra::Base
 
   post "/username" do
     session[:username] = params[:username]
+    redirect("/enter_peep")
+  end
+  get "/enter_peep" do
+    erb :peep
   end
 
+  post "/display_peep" do
+    session[:peep] = params[:peep]
+  end
   run! if app_file == $0
 end
