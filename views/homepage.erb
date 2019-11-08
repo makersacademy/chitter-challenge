@@ -6,3 +6,16 @@
     <a class="hover" href="/homepage/messages">Messages</a>
     <input type='text' placeholder="Search Chitter..">
 </div>
+
+<div align="center">
+    <h1>Peep feed:</h1>
+
+    <form>
+        <% @peeps.each do |peep| %>
+            <%= peep.peeptext %> <br>
+            <%= peep.username %>
+            <%= peep.dateposted %> <br><br>
+        <% end %>
+    </form>
+
+</div>

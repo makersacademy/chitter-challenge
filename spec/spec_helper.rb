@@ -23,13 +23,14 @@ SimpleCov.start
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  ENV["ENVIRONMENT"] = "test"
+  ENV["RACK_ENV"] = "test"
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
-
-  ENV["RACK_ENV"] = "test"
 
   require File.join(File.dirname(__FILE__), "..", "app.rb")
 
