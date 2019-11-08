@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeproom' do
-    @firstpeep = params[:peep]
+    @peep = params[:peep]
     erb :peeproom
   end
 end
