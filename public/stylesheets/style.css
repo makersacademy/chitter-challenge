@@ -48,3 +48,16 @@ li a {
 li a:hover {
   background-color: #111;
 }
+
+input{
+  background-color: #eee;
+  border-radius: 25px;
+  border: grey;
+  padding: 5px;
+  margin: 5px;
+  outline: none;
+}
+
+input[type=text]:focus{
+  background-color: white;
+}

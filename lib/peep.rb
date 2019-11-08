@@ -2,12 +2,13 @@
 
 
 class Peep
-  attr_reader :time, :title, :body
+  attr_reader :time, :title, :body, :username
 
-  def initialize(title, body)
+  def initialize(title, body, username)
     @time = Time.now
     @title = title
     @body = body
+    @username = username
   end
 
   def self.get
