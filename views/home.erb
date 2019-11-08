@@ -1,0 +1,30 @@
+<html>
+  <head>
+  <body>
+    <% if @user == nil %>
+      <ul>
+        <li><a class="active" href="/home">Home</a></li>
+        <li><a href="/new_peep">Create</a></li>
+        <li><a href="/login">Log In</a></li>
+        <li><a href="/create_account">Create Account</a></li>
+      </ul>
+    <% end %>
+    <% if @user != nil %>
+      <ul>
+        <li><a class="active" href="/home">Home</a></li>
+        <li><a href="/new_peep">Create</a></li>
+        <li><a href=""><%= @user.username %></a></li>
+      </ul>
+    <% end %>
+    <h1>Welcome to Chitter</h1>
+    <% @posts.each do |post| %>
+      <h2> <%= post['title'] %> </h2>
+      <p1> <%= post['body'] %> </p1>
+      <br>
+      <p2> <%= post['username'] %> </p2>
+      <br>
+      <p3> <%= post['time'] %> </p3>
+    <% end %>
+  </body>
+  </head>
+</html>

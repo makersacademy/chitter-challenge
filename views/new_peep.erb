@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <body>
+        <% if @user == nil %>
+        <ul>
+          <li><a class="active" href="/home">Home</a></li>
+          <li><a href="/new_peep">Create</a></li>
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/create_account">Create Account</a></li>
+        </ul>
+      <% end %>
+      <% if @user != nil %>
+        <ul>
+          <li><a class="active" href="/home">Home</a></li>
+          <li><a href="/new_peep">Create</a></li>
+          <li><a href=""><%= @user.username %></a></li>
+        </ul>
+      <% end %>
+
+      <h1>New Peep</h1>
+
+      <form action='/redirect/new_peep' method="POST" >
+        <input type="text" name="title" placeholder="Title"/>
+        <input type="text" name="body" placeholder="Body"/>
+        <input type="submit", value="submit" />
+      </form>
+    </body>
+  </head>
+</html>

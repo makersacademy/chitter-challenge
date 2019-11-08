@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <body>
+      <ul>
+        <li><a class="active" href="/home">Home</a></li>
+        <li><a href="/new_peep">Create</a></li>
+        <li><a href="/login">Log In</a></li>
+        <li><a href="/create_account">Create Account</a></li>
+      </ul>
+
+      <h1>Create Account</h1> 
+
+      <% if @emptybox != true %>
+        <form action='/redirect/create_account' method="POST" >
+          <input type="text" name="username" placeholder="Username"/><br>
+          <input type="text" name="password" placeholder="Password"/><br>
+          <input type="text" name="password2" placeholder="Re-Enter your Password"/><br>
+          <input type="text" name="email" placeholder="Email"/><br>
+          <input type="submit", value="submit" />
+        </form>
+      <% end %>
+      <% if @emptybox == true %>
+        <form action='/redirect/create_account' method="POST" >
+          <label>Error - You left a box empty, Please try again </label><br>
+          <input type="text" name="username" placeholder="Username"/><br>
+          <input type="text" name="password" placeholder="Password"/><br>
+          <input type="text" name="password2" placeholder="Re-Enter your Password"/><br>
+          <input type="text" name="email" placeholder="Email"/><br>
+          <input type="submit", value="submit" />
+        </form>
+      <% end %>
+    </body>
+  </head>
+</html>
