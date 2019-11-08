@@ -19,6 +19,6 @@ class Chitter
             connection = PG.connect(dbname: 'chitter')
         end
 
-        connection.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}')")
+        connection.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}') RETURNING userid, name, username, email, password")
     end
 end
