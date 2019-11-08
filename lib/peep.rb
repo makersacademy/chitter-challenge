@@ -2,10 +2,13 @@ require "pg"
 
 class Peep
   def self.all
-    peeps = [
-      "This is a peep",
-      "This is another peep",
-      "This is the lucky third peep",
-    ]
+    if ENV["ENVIRONMENT"] == "test"
+      connection = PG.connect(dbname: "chitter_test")
+    else
+      connection = PG.connect(dbname: "chitter")
+    end
+
+    peeps = connection.exec("SELECT * FROM peeps;")
+    peeps.map { |peep| peep["url"] }
   end
 end
