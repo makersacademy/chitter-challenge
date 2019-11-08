@@ -36,13 +36,21 @@ class Chitter < Sinatra::Base
 
     get '/create' do
         @time = Time.new
+        @current_time = "#{@time.hour}:#{@time.min}"
+        session[:time] = @current_time
         @current_user = session[:user]
 
         erb(:create_post)
     end
 
     post '/generate_post' do
-        
+        post = params[:post]
+        time = session[:time]
+        current_user_name = session[:user].user_name
+
+        DbHelper.insert(post, current_user_name, time)
+
+        redirect '/view'
     end
 
 

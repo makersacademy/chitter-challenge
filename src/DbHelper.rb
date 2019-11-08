@@ -25,8 +25,8 @@ class DbHelper
 		return temp
 	end
 
-	def self.insert(post)    
-		@connection = PG.connect(dbname: 'postsdb')
-		@connection.exec("INSERT INTO posts(post, poster, time) VALUES('#{post.post}', '#{post.poster}', '#{post.time}')") 
+	def self.insert(post, poster, time)    
+		@connection = PG.connect(dbname: 'chitter')
+		@connection.exec("INSERT INTO posts(post, poster, time) VALUES(#{post}', '#{poster}', '#{time}')") 
 	end
 end
