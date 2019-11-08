@@ -1,0 +1,38 @@
+<h1>CHITTER</h1>
+<div class="user-container">
+    <p><%= @user.email %></p>
+    <a class="link-logout" href="/logout">Log out</a>
+</div>
+
+<div class="page-narrow">
+    <form id="add-message" class="message-container" action="/message" method="POST">
+        <p class="message-heading">Add Post</p>
+        <input class="input-textarea" placeholder="What's happening?" type="textarea" name="text">
+        <input class="input-submit input-submit__post" type="submit" value="Post" >
+        <p class="error-text"><%= @error_text %></p>
+    </form>
+
+    <div class="messages-container">
+        <% @messages.each do |message| %>
+            <div class="message-container">
+                <p class="message-heading"><%= message.user %></p>
+                <p><%= message.text.capitalize %></p>
+                <p><%= message.time %></p>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+
+<script>
+    document.querySelector('.input-submit').addEventListener("click", (e) => {
+        if(document.querySelector('.input-textarea').value == "") {
+            e.preventDefault();
+            document.querySelector('.error-text').innerHTML = "Please enter some text to post";
+        };
+    });
+
+    document.querySelector('.input-textarea').addEventListener("input", () => {
+        document.querySelector('.error-text').innerHTML = ""
+    })
+</script>

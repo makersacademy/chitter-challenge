@@ -1,0 +1,145 @@
+body {
+    font-family:                        'Roboto', sans-serif;
+    color:                              #FFFFFF;
+    background-color:                   #00acee; 
+}
+
+p {
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    text-align:                         center;
+    font-family:                        'Raleway', sans-serif;
+    font-weight:                        700;
+    letter-spacing:                     2px;
+}
+
+.page-narrow {
+    max-width:                          600px;
+    margin:                             0 auto;
+}
+
+.user-container { 
+    position:                           absolute;
+    top:                                10px;
+    right:                              20px; 
+    display:                            flex;
+    align-items:                        center;
+}
+
+.messages-container {
+    display:                            flex;
+    flex-direction:                     column-reverse;
+}
+
+.message-container {
+    background-color:                   #FFFFFF;
+    color:                              #545454;
+    margin:                             10px;
+    padding:                            20px;
+    box-shadow:                         0 4px 8px 0 rgba(0,0,0,0.2);
+    position:                           relative;
+}
+
+.message-heading {
+    color:                              #00acee;
+    font-size:                          18px;
+    margin-bottom:                      10px;
+    border-bottom:                      #00acee 1px solid;
+    padding:                            5px 0;
+}
+
+.input-textarea {
+    width:                              515px;
+    height:                             70px;
+    margin:                             0px auto 30px auto;
+    padding:                            10px;
+    border:                             1px solid #00acee; 
+    border-bottom-right-radius:         0;
+    border-bottom-left-radius:          10px;      
+    border-top-right-radius:            10px;
+    border-top-left-radius:             10px;       
+}
+
+.input-submit {
+    border-radius:                      100px;
+    cursor:                             pointer;
+    font-size:                          14px;
+    font-weight:                        bold;
+    line-height:                        20px;
+    padding:                            6px 16px;
+    text-align:                         center;
+    white-space:                        nowrap;
+    background-color:                   #fff;
+    border:                             1px solid #00acee;
+    color:                              #00acee;
+}
+
+.input-submit__post {
+    position:                           absolute;
+    bottom:                             10px;
+    right:                              20px;
+}
+
+.input-submit:disabled {
+    opacity:                            0.6;
+}
+
+.input-submit:disabled:hover {
+    cursor: default;
+    background-color: transparent;
+}
+
+.input-submit:hover {
+    background-color:                   #eaf5fd;
+}
+
+.error-text {
+    color:                              #ee5253;
+    margin-top:                         10px;
+}
+
+.link-logout {
+    color:                              #FFFFFF;
+    margin-left:                        20px;
+}
+
+.link-logout:hover {
+    text-decoration:                    none;
+}
+
+.input-text {
+    display:                            block;
+    border:                             none;
+    border-bottom:                      2px solid #696969;
+    width:                              40%;
+    margin:                             10px 0 20px 0;
+}
+
+.login-container {
+    height:                             300px;
+    width:                              500px;
+    position:                           absolute;
+    top:                                0;
+    left:                               0;
+    bottom:                             0;
+    right:                              0;
+    margin:                             auto;
+    padding:                            20px;
+
+    background-color:                   #FFFFFF;
+    color:                              #00acee;
+    box-shadow:                         0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.link-login {
+    position:                           absolute;
+    bottom:                             10px;
+    left:                               25%;
+    color:                              #00acee;
+}
+
+.link-login:hover {
+    text-decoration:                    none;
+}
