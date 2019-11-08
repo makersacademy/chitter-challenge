@@ -7,15 +7,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    ENV
+    @peeps = Peep.all
     erb(:peeps)
   end
 
-  get '/post' do
-    erb(:post)
+  get '/peeps/new' do
+    erb(:"peeps/new")
   end
 
   post '/peeps' do
-    Peep.add(peep: params['Peep'])
+    Peep.add(peep: params['peep'])
     redirect '/peeps'
   end
 
