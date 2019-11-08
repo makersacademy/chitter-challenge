@@ -1,0 +1,36 @@
+<html style="background-color:DodgerBlue;">
+
+<head>
+    <title>Welcome to Chitter!</title>
+</head>
+
+<body>
+    <center>
+        <img src="squirrel2.png" alt="Chitter Logo">
+        <h1 style="color:white; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            <p style="font-size:125px;">
+                <b>CHITTER</b>
+            </p>
+        </h1>
+    </center>
+
+    <center>
+        <h2>
+
+            <i>
+                Latest Peeps
+            </i>
+
+        </h2>
+    </center>
+
+    <center>
+        <ul>
+            <% @peeps.each do |peep| %>
+            <li><%= peep %></li>
+            <% end %>
+        </ul>
+    </center>
+</body>
+
+</html>
