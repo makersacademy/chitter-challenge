@@ -13,13 +13,13 @@
 <div class="text">
     <div class="welcome-div">
         <h1>Welcome to Chitter</h1>
-        <h3 id="message">Search for a post</h3>
-        <h5> (leave it blank to retreieve all posts) </h5>
+        <h3 id="message">Please Login to post</h3>
     </div>
 
-    <div class="search-form">
-        <form action="/search_for_post" method="POST">
-            <input type="text" name="text">
+    <div class="login-form">
+        <form action="/load_user" method="POST">
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="password" placeholder="Password">
             <input type="submit" value="Submit">
         </form>
     </div>
