@@ -7,11 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = [
-      "Test Peep 1",
-      "Test Peep 2",
-      "Test Peep 3"
-    ]
+    @peeps = Peep.all
     erb :peeps
   end
   
