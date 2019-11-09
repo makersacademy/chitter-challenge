@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'pg'
+require './lib/peeps.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -9,12 +10,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    session[:peep] = params[:add_peep]
+    Peeps.create(peep: params['add_peep'])
     redirect '/peeps'
   end
 
   get '/peeps' do
-    session[:peep]
+    @peeps = Peeps.all
+    erb :peeps
   end
 
   run! if app_file == $0
