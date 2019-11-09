@@ -9,7 +9,11 @@ attr_reader :id, :text
   end
 
   def self.create(text:)
-    connection = PG.connect(dbname: 'chitter')
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
     result = connection.exec("INSERT INTO peeps (text) VALUES('#{text}') RETURNING id, text;")
     Peep.new(id: result[0]['id'], text: result[0]['text'])
   end
