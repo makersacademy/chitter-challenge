@@ -1,5 +1,3 @@
-require 'pg'
-
 feature 'posting a peep to chitter' do
   scenario 'user can add peep' do
     visit('/')
