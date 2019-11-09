@@ -15,3 +15,11 @@ describe '.all' do
     expect(peeps).to include('Set them free!')
   end
 end
+
+describe '.create' do
+  it 'creates a new peep' do
+    Peeps.create(comment: 'Best film? Mad Max... Mic drop!')
+
+    expect(Peeps.all).to include 'Best film? Mad Max... Mic drop!'
+  end
+end

@@ -7,10 +7,10 @@ feature 'Viewing Peeps' do
   scenario 'A user can see peeps' do
     connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps VALUES(1, 'Steak and eggs is the breakfast of champions!');")
-    connection.exec("INSERT INTO peeps VALUES(2, 'Dwayne Johnson does it again....');")
-    connection.exec("INSERT INTO peeps VALUES(3, 'Steve Buscemi has an odd autograph');")
-    connection.exec("INSERT INTO peeps VALUES(4, 'Set them free!');")
+    Peeps.create(comment: "Steak and eggs is the breakfast of champions!")
+    Peeps.create(comment: "Dwayne Johnson does it again....")
+    Peeps.create(comment: "Steve Buscemi has an odd autograph")
+    Peeps.create(comment: "Set them free!")
 
     visit('/peeps')
 

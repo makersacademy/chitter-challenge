@@ -15,4 +15,13 @@ class Chitter_Challenge < Sinatra::Base
     erb :'peeps/index'
   end
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/new' do
+    Peeps.create(comment: params["comment"])
+    redirect '/peeps'
+  end
+
 end
