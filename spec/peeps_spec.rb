@@ -7,7 +7,7 @@ describe '.all' do
     connection.exec("INSERT INTO peeps (comment) VALUES ('Steve Buscemi has an odd autograph');")
     connection.exec("INSERT INTO peeps (comment) VALUES ('Set them free!');")
 
-    peeps = Chitter.all
+    peeps = Peeps.all
 
     expect(peeps).to include('Steak and eggs is the breakfast of champions!')
     expect(peeps).to include('Dwayne Johnson does it again....')

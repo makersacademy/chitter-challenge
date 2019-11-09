@@ -1,7 +1,7 @@
 feature 'Viewing Peeps' do
   scenario 'visiting the index page' do
     visit('/')
-    expect(page).to have_content "Chitter Peeps:"
+    expect(page).to have_content "Welcome to Chitter!!"
   end
 
   scenario 'A user can see peeps' do

@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './lib/chitter'
+require './lib/peeps'
 require 'pg'
 
 class Chitter_Challenge < Sinatra::Base
@@ -7,11 +7,11 @@ class Chitter_Challenge < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    "Chitter Peeps:"
+    "Welcome to Chitter!!"
   end
 
   get '/peeps' do
-    @peeps = Chitter.all
+    @peeps = Peeps.all
     erb :'peeps/index'
   end
 
