@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'pg'
 require './lib/peeps.rb'
 
 class Chitter < Sinatra::Base
@@ -10,12 +9,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peeps.create(peep: params['add_peep'])
+    Peeps.create(:peep => params['add_peep'], :created_at => Time.now)
     redirect '/peeps'
   end
 
   get '/peeps' do
-    @peeps = Peeps.all
+    @peeps = Peeps.all(:order => [ :created_at.desc ])
     erb :peeps
   end
 

@@ -1,26 +1,22 @@
-require 'pg'
+require 'dm-core'
+require 'dm-timestamps'
+require 'dm-validations'
+require 'dm-migrations'
+
+if ENV['ENVIRONMENT'] == 'test'
+  DataMapper.setup(:default, 'postgres://localhost/chitter_test')
+else
+  DataMapper.setup(:default, 'postgres://localhost/chitter')
+end
 
 class Peeps
+  include DataMapper::Resource
 
-  def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(:dbname => 'chitter_test')
-    else
-      connection = PG.connect(:dbname => 'chitter')
-    end
-
-    result = connection.exec('SELECT * FROM peeps ORDER BY id DESC;')
-    result.map { |peep| peep['peep']}
-  end
-
-  def self.create(peep:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(:dbname => 'chitter_test')
-    else
-      connection = PG.connect(:dbname => 'chitter')
-    end
-
-    connection.exec("INSERT INTO peeps(peep) VALUES('#{peep}')")
-  end
+  property :id, Serial
+  property :peep, Text, :length => 100
+  property :created_at, DateTime
 
 end
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
