@@ -24,14 +24,22 @@
             <a class="nav-link" href="#">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sign Up</a>
+            <a class="nav-link" href="/users">Sign Up</a>
           </li>
         </ul>
       </div>
     </nav> 
 
-    <!---Body---->
-    
+
+    <% if @user_name %>
+      <% @welcome_message = "Welcome, #{@user_name} to Bitter!" %>
+    <% else %>
+      <% @welcome_message = "Welcome To Bitter!" %>
+    <% end %>
+
+    <h1 class ="welcome-message text-center"> <%= @welcome_message %></h1>
+
+    <!----------------Body------------------------>
     <div class="container text-center col-lg-6 col-md-6 col-sm-8 col-xs-8">
       <a href="/new_beet">Post a new Beet!</a>
       <% @beets.each do |beet| %>
@@ -44,7 +52,7 @@
       <% end %>
     </div>
 
-        <!---Body---->
+    <!---Body---->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
