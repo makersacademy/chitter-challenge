@@ -3,9 +3,9 @@ require './lib/peep'
 
 class Chitter < Sinatra::Base
 
-get '/' do
-  'Chitter'
-end
+# get '/' do
+#   'Chitter'
+# end
 
 get '/peeps' do
   @peeps = Peep.all
