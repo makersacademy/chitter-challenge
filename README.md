@@ -2,7 +2,22 @@
 
 Twitter clone that allows posting of 'peeps' into a public timeline.
 
+## SETUP
 
+This application uses a PostgreSQL database. Once installed run the following commands to set up the database:
+
+```bash
+$ psql
+
+# create the database
+$ CREATE DATABASE chitter
+
+# connect to the database
+$ \c chitter
+
+# run the query saved in db/migrations/01_create_peeps_table.sql
+$ CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep TEXT);
+```
 Features:
 -------
 
