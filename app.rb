@@ -20,5 +20,20 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/peeps/new' do
+    erb(:'peeps/new')
+  end
+
+  post '/peeps/new-peep' do
+    session['peep'] = params['message']
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @peep = session['peep']
+    @user = session['user']
+    erb(:'peeps/index')
+  end
+
   run! if app_file == $0
 end
