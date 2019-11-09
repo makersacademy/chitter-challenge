@@ -4,6 +4,7 @@ feature "viewing peeps" do
     Peep.create(text: 'Test peep')
 
     visit('/')
+    visit('/peeps')
     expect(page).to have_content 'Test peep'
 
   end
