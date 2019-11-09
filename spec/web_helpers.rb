@@ -11,3 +11,17 @@ def load_beets
     INSERT INTO beets (beet_text, timestamp) VALUES ('I love Coding!', '#{Time.now}');
     ")
 end
+
+def insert_users
+  connection = PG::Connection.open(:dbname => 'bitter_test')
+  connection.exec("
+    INSERT INTO users (first_name, last_name, email, password)
+    VALUES ('Thomas', 'Tester', 'tom@test.com', 'itsasecret');
+
+    INSERT INTO users (first_name, last_name, email, password)
+    VALUES ('Robert', 'Lobert', 'robert@test.com', 'shhhh');
+    
+    INSERT INTO users (first_name, last_name, email, password)
+    VALUES ('Valerie', 'Mallorie', 'val@test.com', 'password');
+    ")
+end

@@ -29,7 +29,7 @@ describe Beet do
 
   # context ".edit" do
   #   truncate_dbs
-  load_beets
+  # load_beets
   #   it "edits a beet" do
   #     beet_1 = Beet.add("Ruby is my shizz")
   #     Beet.edit(beet_1["id"], "Javascript is my shizz")

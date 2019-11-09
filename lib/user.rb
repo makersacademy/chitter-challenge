@@ -18,4 +18,10 @@ class User
     id = query.values[0][0].to_i
     user = User.new(first, last, email, password, id)
   end
+
+  def self.find(user_id)
+    user = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{user_id}'")
+    return user.values[0]
+  end
+
 end

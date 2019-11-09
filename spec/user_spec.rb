@@ -31,4 +31,11 @@ describe User do
     end
   end
 
+  context '.find' do
+    test_user = User.create('Robert', 'Rosiji', 'test@gmail.com', 'password123')
+    it 'finds a user from the database' do
+      expect(User.find(test_user.id)).to include(test_user.id.to_s)
+    end
+  end
+
 end

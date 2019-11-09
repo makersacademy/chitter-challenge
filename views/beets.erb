@@ -31,8 +31,8 @@
     </nav> 
 
 
-    <% if @user_name %>
-      <% @welcome_message = "Welcome, #{@user_name} to Bitter!" %>
+    <% if @first_name %>
+      <% @welcome_message = "Welcome, #{@first_name} to Bitter!" %>
     <% else %>
       <% @welcome_message = "Welcome To Bitter!" %>
     <% end %>

@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/beet'
+require './lib/user'
 
 class Bitter < Sinatra::Base
   register Sinatra::Flash
@@ -8,7 +9,7 @@ class Bitter < Sinatra::Base
 
   get '/beets' do
     @beets = Beet.all
-    @user_name = session[:first_name]
+    @first_name = session[:first_name]
     erb(:beets)
   end
 
@@ -27,10 +28,9 @@ class Bitter < Sinatra::Base
   end
 
   post '/users/new' do
+    user = User.create(params[:first_name], params[:last_name], params[:email], params[:password])
     session[:first_name] = params[:first_name]
-    session[:last_name] = params[:last_name]
-    session[:email] = params[:email]
-    session[:password] = params[:password]
+    session[:user_id] = user.id
     redirect '/beets'
   end
 
