@@ -14,7 +14,7 @@ attr_reader :id, :text
     else
       connection = PG.connect(:dbname => 'chitter')
     end
-    result = connection.exec("SELECT * FROM peeps;")
+    result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
     result.map do |peep|
       Peep.new(id: peep['id'], text: peep['text'])
     end
