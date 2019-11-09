@@ -5,8 +5,17 @@ class Chitter < Sinatra::Base
   get '/' do  
     erb :index
   end
+
+  get '/peeps' do
+    peeps = [
+      "Test Peep 1",
+      "Test Peep 2",
+      "Test Peep 3"
+    ]
+    peeps.join
+  end
   
-  get '/peep' do
+  get '/new-peep' do
     "Peep your thoughts."
   end
 
