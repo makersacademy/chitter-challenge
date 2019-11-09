@@ -5,7 +5,12 @@ require './lib/peeps'
 
 class ChitterManager < Sinatra::Base
   get '/' do
-    "Hello World"
+    "*&"
+  end
+
+  get '/peeps' do
+    @peeps = Peeps.all
+    erb :'peeps/index'
   end
 
   get '/peeps/post' do
@@ -13,7 +18,8 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/peeps' do
-    Hello Word
+    Peeps.create(text: params['new_peep'])
+    redirect('/peeps')
   end
 
 
