@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    redirect '/'
+    redirect '/peeps'
   end
 
   get '/peeps' do

@@ -20,9 +20,14 @@ describe Peep do
 
     it "displays all peeps" do
 
-      Peep.all
-      # expect(peep).to be_a Peep
-      # expect(peep.id).to eq peep.id
+      connection = PG.connect(dbname: 'chitter_test')
+      peep = Peep.create(text: 'My first peep')
+      peeps = Peep.all
+
+      expect(peeps.length).to eq 1
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.text).to eq 'My first peep'
 
     end
 
