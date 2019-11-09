@@ -16,4 +16,16 @@ describe Peep do
     end
   end
 
+  describe ".all" do
+
+    it "displays all peeps" do
+
+      Peep.all
+      # expect(peep).to be_a Peep
+      # expect(peep.id).to eq peep.id
+
+    end
+
+  end
+
 end

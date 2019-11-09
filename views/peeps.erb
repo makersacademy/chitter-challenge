@@ -17,6 +17,9 @@ Hi! Welcome to Chitter
 
 </form>
 
-My first peep
+<% @peeps.each do |peep| %>
+  <li><%= peep.text %>
+  </li>
+  <% end %>
 
 </center>

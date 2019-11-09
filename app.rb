@@ -7,8 +7,12 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
+  post '/' do
+    redirect '/'
+  end
+
   get '/peeps' do
-    #@peeps = Peeps.all
+    @peeps = Peep.all
     erb :peeps
   end
 
