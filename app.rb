@@ -15,7 +15,8 @@ class Bitter < Sinatra::Base
   end
 
   post '/post_beet' do
-    p params
+    @text = params[:beet_text]
+    Beet.add(@text)
     redirect '/beets'
   end
 
