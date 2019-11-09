@@ -1,5 +1,7 @@
 class User
 
+  attr_reader :handle
+
   def initialize(name, email, handle, password)
     @name = name
     @email = email

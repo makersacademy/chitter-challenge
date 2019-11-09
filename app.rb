@@ -1,12 +1,13 @@
 require 'sinatra/base'
 require 'pg'
+require_relative 'lib/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
   get '/' do
-    @handle = session[:handle]
+    @user = session['user']
     erb(:index)
   end
 
@@ -15,7 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new-user' do
-    session[:handle] = params['handle']
+    session['user'] = User.create(params[:name], params[:email], params[:handle], params[:password])
     redirect '/'
   end
 
