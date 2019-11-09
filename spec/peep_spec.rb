@@ -33,4 +33,18 @@ describe Peep do
 
   end
 
+  describe "timestamp" do
+
+    it "peep has a timestamp" do
+
+      connection = PG.connect(dbname: 'chitter_test')
+      peep = Peep.create(text: 'My first peep')
+      peeps = Peep.all
+
+      expect(peeps.first.created_at).to eq peep.created_at
+
+    end
+
+  end
+
 end
