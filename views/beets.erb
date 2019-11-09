@@ -1,5 +1,8 @@
 <% @beets.each do |beet| %>
 <ul>
-  <li><%= beet.text %></li>
+  <li>
+  <p><%= beet.text %></p>
+  <p>Created at <%= beet.timestamp %></p>
+  </li>
 </ul>
 <% end %>
