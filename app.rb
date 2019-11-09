@@ -11,7 +11,7 @@ class Chitter_Challenge < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peeps.all
+    @peeps = Peeps.all.reverse
     erb :'peeps/index'
   end
 
