@@ -9,7 +9,7 @@ class Peeps
       connection = PG.connect(:dbname => 'chitter')
     end
 
-    result = connection.exec('select * from peeps;')
+    result = connection.exec('SELECT * FROM peeps ORDER BY id DESC;')
     result.map { |peep| peep['peep']}
   end
 
