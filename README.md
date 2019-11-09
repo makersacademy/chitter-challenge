@@ -12,3 +12,12 @@
 4. Run the query we have saved in the file `01_create_users_table.sql`
 5. Create a test database using the psql command `CREATE DATABASE chitter_test;`
 6. Run the query we have saved in the file `01_create_users_table.sql`
+
+## Building the app
+
+User story 1:
+```
+As a Maker
+So I can post as me
+I want to sign up for Chitter
+```
