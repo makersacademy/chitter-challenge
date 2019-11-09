@@ -3,11 +3,8 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
 
 get '/' do
-  "chitter"
-end 
-
-
-
+  "Peeps"
+end
 
 
 
