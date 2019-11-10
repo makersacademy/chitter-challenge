@@ -1,5 +1,4 @@
 require 'sinatra/base'
-# require './lib/peeps'
 require 'pg'
 require './lib/peep'
 
@@ -8,12 +7,22 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    "Welcome to Chitter"
+    erb :'peeps/index'
+  end
+
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    session[:current_user] = params[:username]
+    redirect '/peeps'
   end
 
   get '/peeps' do
+    @user_name = session[:current_user]
     @peeps = Peep.all.reverse
-    erb :'peeps/index'
+    erb :'peeps/feed'
   end
 
   get '/peeps/new' do

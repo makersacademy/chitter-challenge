@@ -20,7 +20,7 @@ class Peep
     end
     result = connection.exec("SELECT * FROM peeps")
     result.map do |row|
-      Peep.new(comment: row['comment'], posted_at: row['posted_at'])
+      Peep.new(comment: row['comment'], posted_at: row['posted_at'], )
     end
   end
 

@@ -1,6 +1,6 @@
 feature 'infrastructure' do
-  scenario 'Home page says "Welcome to Chitter"' do
+  scenario 'Home page says "The home of cat pictures"' do
     visit('/')
-    expect(page).to have_content('Welcome to Chitter')
+    expect(page).to have_content('The home of cat pictures')
   end
 end
