@@ -55,3 +55,7 @@ CREATE TABLE peeps (
   text VARCHAR(60),
   time TIME
 );
+CREATE TABLE users (
+  name VARCHAR(20),
+  password VARCHAR(20)
+);

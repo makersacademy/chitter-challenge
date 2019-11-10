@@ -12,8 +12,4 @@ class Feed
     @peeps << peep
   end
 
-  def print
-    p @peeps
-  end
-
 end
