@@ -1,0 +1,15 @@
+<h3>
+<ul>
+  <% view = @peeps.each do |peep| %>
+    <li>
+      <%= peep.time %>
+      <%= peep.peep %>
+    </li>
+  <% end %>
+</ul>
+
+<form action='/peeps/add' method='GET'>
+  <input type="submit" value="Add a Peep" />
+</form
+
+</h3>
