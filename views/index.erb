@@ -1,9 +1,20 @@
-<h1> Welcome, <%= @user.handle %>! </h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+  </head>
 
-<form action="/peeps/new">
-    <input type="submit" value="Start peeping!" />
-</form>
+  <body>
 
-<form action="/peeps">
-    <input type="submit" value="See what the world is peeping!" />
-</form>
+    <h1> Welcome, <%= @user.handle %>! </h1>
+
+    <form action="/peeps/new">
+        <input class="button" type="submit" value="Start peeping!" />
+    </form>
+
+    <form action="/peeps">
+        <input class="button" type="submit" value="See what the world is peeping!" />
+    </form>
+
+  </body>
+</html>
