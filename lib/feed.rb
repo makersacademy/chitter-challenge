@@ -2,8 +2,18 @@ require_relative 'peep'
 
 class Feed
 
-  def initialize
+  attr_reader :peeps
 
-  end 
+  def initialize
+    @peeps = []
+  end
+
+  def add_peep(peep)
+    @peeps << peep
+  end
+
+  def print
+    p @peeps
+  end
 
 end
