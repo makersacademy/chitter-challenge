@@ -10,6 +10,7 @@ gem 'sinatra'
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'dm-transactions'
   gem 'orderly'
   gem 'rspec'
   gem 'simplecov', require: false

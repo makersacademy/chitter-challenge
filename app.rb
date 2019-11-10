@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peeps.rb'
+require 'date'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -9,7 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peeps.create(:peep => params['add_peep'], :created_at => Time.now)
+    Peeps.create(:peep => params['add_peep'], :created_at => Time.now.strftime("%d/%m/%Y %H:%M"))
     redirect '/peeps'
   end
 

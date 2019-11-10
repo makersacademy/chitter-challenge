@@ -49,6 +49,8 @@ GEM
     dm-serializer (0.10.0)
     dm-timestamps (1.2.0)
       dm-core (~> 1.2.0)
+    dm-transactions (1.2.0)
+      dm-core (~> 1.2.0)
     dm-types (0.10.0)
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
@@ -128,6 +130,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-transactions
   orderly
   pg
   rake
