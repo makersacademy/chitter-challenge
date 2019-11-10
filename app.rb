@@ -21,6 +21,17 @@ class Bitter < Sinatra::Base
     erb(:users)
   end
 
+  get '/login' do
+    erb(:login)
+  end
+
+  post '/login' do
+    @user_credentials = User.find(params[:email])[5]
+    @id = @user_credentials[0]
+    session[:first_name] = @user_credentials[5]
+    redirect '/beets'
+  end
+
   post '/post_beet' do
     @text = params[:beet_text]
     Beet.add(@text)

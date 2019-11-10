@@ -1,6 +1,12 @@
+ENV['ENVIRONMENT'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
-
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require 'web_helpers'
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -8,13 +14,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-ENV['ENVIRONMENT'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
-require 'web_helpers'
+
+
 Capybara.app = Bitter
 
 RSpec.configure do |config|
