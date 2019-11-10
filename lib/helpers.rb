@@ -21,7 +21,7 @@ end
 
 def new_user(user)
   session[:first_name] = params[:first_name]
-  session[:bitter_handle] = user.bitter_handle
+  session[:bitter_handle] = user.handle
   session[:user_id] = user.id
   session[:logged_in] = true
   redirect '/beets'
