@@ -1,6 +1,6 @@
 <h1> Chitter Feed: </h1>
 <ul>
   <% @peeps.each do |peep| %>
-  <li><%= peep %></li>
+  <li><%= peep.comment %> @ <%= peep.created_at %></li>
   <% end %>
 </ul>
