@@ -20,5 +20,12 @@ class Chitter < Sinatra::Base
     erb :log_in
   end
 
+  post '/logged_in' do
+    @peeper = Peeper.retrieve(name: params[:name], password: params[:password])
+    redirect '/log_in' if @peeper.nil?
+
+    erb :home
+  end
+
   run! if app_file == $0
 end
