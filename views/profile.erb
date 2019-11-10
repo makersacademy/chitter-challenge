@@ -1,0 +1,14 @@
+<h1>Welcome <%=@user.name%></h1>
+
+<form action="/chit_post" method="post">
+  <input type="text" name="chit" placeholder="Chit">
+    <input type="submit" value="Send Chit">
+</form>
+
+<form action="/newsfeed">
+  <input type="submit" value="Newsfeed">
+</form>
+
+<form action="/log_out" method="post">
+  <input type="submit" value="Log Out">
+</form>
