@@ -19,4 +19,12 @@ describe Peep do
 
   end
 
+  describe '.create' do
+    it 'creates a peep' do
+      Peep.create(peep: "Test peep xyz")
+
+      expect(Peep.all).to include "Test peep xyz"
+    end
+  end
+
 end
