@@ -18,6 +18,16 @@ p {
   color: black;
 }
 
+.sign-up-form {
+  text-align : center !important;
+  width: 10% !important;
+}
+
+button.btn {
+  background-color: #e0707bc0 !important;
+  border-color: lightpink;
+}
+
 li.list-group-item {
   background-image: linear-gradient(to bottom right, #ffdfdf, #ffc0c0);
   border-radius: 10px !important;
