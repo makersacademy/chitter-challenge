@@ -34,10 +34,12 @@
         </ul>
       </div>
     </nav> 
-    
+
+    <% if flash[:logout] != nil %>
     <div class = "alert alert-danger pb-0 pt-0 mt-0 mb-0" role ="alert">
       <h4 class =" text-center pb-0 pt-0 mt-0 mb-0"> <%= flash[:logout] %></h4>
     </div>
+    <% end %>
 
     <% if @first_name %>
       <% @welcome_message = "Welcome, #{@first_name} to Bitter!" %>
