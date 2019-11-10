@@ -1,0 +1,26 @@
+<center>
+<body bgcolor="beige">
+<font face="Arial" size="2" color="cadetblue">
+
+<% @peeps.each do |peep| %>
+
+
+    <font size="3" color="slategray"><%= peep.text %></font>
+    <br>
+    <%= peep.created_at %>
+    <br>
+    <br>
+
+  <% end %>
+
+<br>
+
+<form action="/new">
+  <input type="submit" value="Make a peep">
+</form>
+
+<form action="/">
+  <input type="submit" value="Go home">
+</form>
+
+</center>
