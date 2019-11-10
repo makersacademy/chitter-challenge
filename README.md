@@ -16,9 +16,9 @@
     
 ```
     
-Twitter clone that allows posting of 'peeps' into a public timeline. Built using Sinatra and PostgreSQL.
+Twitter clone that allows posting of 'peeps' into a public timeline. Built using **Sinatra** and **PostgreSQL**.
 
-## SETUP
+## Setup
 
 This application uses a PostgreSQL database. Details on how to install can be found [here](https://www.postgresql.org/download/). Once installed run the following commands to set up the database:
 
@@ -38,12 +38,21 @@ $ \c chitter
 
 To run the tests a "test" database will need to be created using the same process as above but using ```$ CREATE DATABASE chitter_test```
 
-**To install and run:**
+**To install:**
+
 ```bash
 $ git clone
 
+# cd into root directory
 $ bundle
+
+# to run the server
+$ rackup
 ```
+
+**To run:**
+
+Visit ```http://localhost:9292/``` in your browser.
 
 ## User stories covered
 
