@@ -13,4 +13,10 @@ describe '.all' do
     expect(peeps).to include "This is my first peep"
     expect(peeps).to include "Happy Saturday:)"
   end
+
+  describe '/.create' do
+    it 'creates a new peep' do
+      Peep.create(text: 'Have a good weekend')
+    end 
+  end
 end
