@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    # order by timestamp and id - could just order by id
     @peeps = Peep.all(:order => [:created_at.desc, :id.desc])
     erb :all
   end
