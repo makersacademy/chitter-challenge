@@ -17,6 +17,6 @@ describe '.all' do
   describe '/.create' do
     it 'creates a new peep' do
       Peep.create(text: 'Have a good weekend')
-    end 
+    end
   end
 end
