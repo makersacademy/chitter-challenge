@@ -1,12 +1,12 @@
 class Message
 
-  attr_reader :id, :sender, :message, :time_sent
+  attr_reader :id, :sender, :message, :date, :time
 
   def initialize(id:, sender:, message:, time_sent:)
     @id = id
     @sender = sender
     @message = message
-    @time_sent = time_sent
+    date_time_seperator(time_sent)
   end
 
   def self.new_message(sender:,content:)
@@ -19,6 +19,11 @@ class Message
 
   def self.database
     ENV['RACK_ENV'] == 'test' ? PG.connect(dbname:'chitter_test') : PG.connect(dbname:'chitter')
+  end
+
+  def date_time_seperator(time)
+    @date = time.to_s[0..9].split("-").join('/')
+    @time = time.to_s[11..15]
   end
 
 end
