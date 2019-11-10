@@ -139,10 +139,13 @@ Technologies used:
 - Capybara
 - TablePlus
 - PostgreSQL
+- postgres Adapter
 
 Setting up the databases:
 
 1. Connect to psql
-2. Create the 'bookmark_manager' database using the psql command ``` CREATE DATABASE peeps; ``` or (for the test database) ``` CREATE DATABASE peeps_test; ```
-3. Connect to the database using the pqsl command ``` \c peeps; ```
-4. Run the query we have saved in the file 01_create_posts.sql to create a bookmarks table
+2. Create the 'bookmark_manager' database using the psql command ``` CREATE DATABASE chitter; ``` or (for the test database) ``` CREATE DATABASE chitter_test; ```
+3. Connect to the database using the pqsl command ``` \c chitter; ```
+4. Run the query saved in the file 01_create_posts.sql to create a peeps table
+
+5. Install postgres adapter (gem install dm-postgres-adapter) and DataMapper (gem install data_mapper)
