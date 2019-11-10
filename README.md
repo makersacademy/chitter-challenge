@@ -28,4 +28,4 @@ All peeps are displayed in reverse chronological order, and are timestamped for 
 
 Throughout this challenge, I have been referring to the walkthrought form previous challenges we have done, as well as using Google. 
 
-For learning DataMapper, I watched [this] (https://code.tutsplus.com/tutorials/ruby-for-newbies-working-with-datamapper--net-19622) video.
+For learning DataMapper, I watched [this](https://code.tutsplus.com/tutorials/ruby-for-newbies-working-with-datamapper--net-19622) video.
