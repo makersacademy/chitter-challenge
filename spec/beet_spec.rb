@@ -4,7 +4,7 @@ describe Beet do
   context '.all' do
     truncate_dbs
     load_beets
-    it 'returns all tweets' do
+    it 'returns all beets' do
       expect(Beet.all[0].text).to eq("No Brexit!")
     end
   end

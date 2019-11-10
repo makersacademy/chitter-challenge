@@ -38,6 +38,12 @@ describe User do
         expect(User.find(test_user.email)).to include(test_user.email)
       end
     end
+
+    context 'A User does not exist in the database' do
+      it "returns nil if user does not exist" do
+        expect(User.find('invalid@email.com')).to eq(nil)
+      end
+    end
   end
 
 end

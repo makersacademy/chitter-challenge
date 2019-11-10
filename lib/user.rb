@@ -21,6 +21,7 @@ class User
 
   def self.find(user_email)
     user = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{user_email}'")
+    return nil if !user.values[0]
     return user.values[0]
   end
 
