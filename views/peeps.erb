@@ -1,0 +1,7 @@
+<h1> Peeps feed </h1>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <li><%= peep.peep %> posted at <%=peep.created_at.strftime('%H:%M %m/%d/%y') %> </li>
+  <% end %>
+</ul>
