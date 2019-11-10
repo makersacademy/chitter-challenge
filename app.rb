@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peeps.rb'
+require './lib/users.rb'
 require 'date'
 
 class Chitter < Sinatra::Base
@@ -17,6 +18,17 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @peeps = Peeps.all(:order => [ :created_at.desc ])
     erb :peeps
+  end
+
+  post '/user' do
+    Users.create(:email => params['email'], :password => params['password'], :name => params['name'], :username => params['username'])
+    session[:name] = params['name']
+    redirect '/user'
+  end
+
+  get '/user' do
+    @name = session[:name]
+    erb :user
   end
 
   run! if app_file == $0

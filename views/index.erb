@@ -1,4 +1,14 @@
 <h1> Welcome to Chitter </h1>
+<br>
+<h2> Sign up to make your first peep! </h2>
+<form action='/user' method='post'>
+  <input type='text' name='email' placeholder='enter email'>
+  <input type='text' name='password' placeholder='enter password'>
+  <input type='text' name='name' placeholder='enter name'>
+  <input type='text' name='username' placeholder='enter username'>
+  <input type='submit' value='Sign up'>
+</form>
+
 <form action='/peep' method='post'>
   <input type='text' name='add_peep' placeholder='Post your peep'>
   <input type='submit' value='Post'>
