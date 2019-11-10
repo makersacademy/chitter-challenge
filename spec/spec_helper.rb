@@ -14,9 +14,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  # config.before(:each) do
-  #   setup_test_database
-  # end
   config.order = 'random'
 
   config.before(:suite) do

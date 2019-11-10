@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<html>
+
+  <ul>
+    <% @peeps.reverse.each do |peep| %>
+      <li><%= peep.text %></li>
+      <li>Created at: <%= peep.created_at %></li>
+    <% end %>
+  </ul>
+
+
+</html>

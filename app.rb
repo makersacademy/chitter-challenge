@@ -1,19 +1,19 @@
 require_relative 'database'
 require 'sinatra/base'
-require './lib/peep'
+require './lib/peep.rb'
 
 
 class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @peeps = []
     erb(:index)
   end
 
   get '/peeps' do
-    ENV
-    @peeps = Peep.all
-    erb(:peeps)
+    @peeps = Peep.all.map { |peep| @peeps << { id: peep.id, text: peep.text, created_at: peep.created_at } }
+    erb(:"peeps/peeps")
   end
 
   get '/peeps/new' do
@@ -21,8 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    time = Time.now
-    Peep.create(text: params["text"], :time => time)
+    peep = Peep.new(text: params["text"])
+    @peeps << peep
     redirect '/peeps'
   end
 

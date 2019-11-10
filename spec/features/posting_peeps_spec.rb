@@ -7,6 +7,6 @@ feature '1. Posting Peeps' do
     visit '/peeps/new'
     fill_in "text", with: "This is a new peep"
     click_button('Create Peep')
-    expect(page).to have_content 'This is a new peep'
+    expect(page).to have_content "This is a new peep"
   end
 end
