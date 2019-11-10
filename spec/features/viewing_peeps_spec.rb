@@ -3,10 +3,10 @@ require 'pg'
 
 feature 'Viewing peeps on Chitter' do
   scenario 'Visiting the index page to view peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps VALUES(1, 'This is my first peep');")
-    connection.exec("INSERT INTO peeps VALUES(2, 'Happy Saturday:)');")
+    Peep.create(text: "This is my first peep")
+    Peep.create(text: "Happy Saturday:)")
+    Peep.create(text: "Have a good weekend")
 
     visit ('/peeps')
 
