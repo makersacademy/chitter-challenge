@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './lib/peeps.rb'
 require './lib/users.rb'
 require 'date'
+require 'bcrypt'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -11,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-    Users.create(:email => params['email'], :password => params['password'], :name => params['name'], :username => params['username'])
+    Users.create(:email => params['email'], :password => BCrypt::Password.create(params['password']), :name => params['name'], :username => params['username'])
     session[:name] = params['name']
     redirect '/user'
   end
