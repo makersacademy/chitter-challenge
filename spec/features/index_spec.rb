@@ -3,7 +3,7 @@ feature 'index page' do
     visit '/'
     fill_in 'peep', with: 'test'
     click_button 'submit'
-    expect(page).to have_content 'Peeps: test'
+    expect(page).to have_content 'Peeps:' && 'test'
   end
 
   scenario 'shows multiple peeps' do

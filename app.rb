@@ -2,14 +2,14 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
 
-  $peep = Array.new
+  $peeps = Array.new
 
   get '/' do
     erb :feed
   end
 
   post '/feed' do
-    $peep << params[:peep]
+    $peeps << params[:peep]
     redirect '/'
   end
 
