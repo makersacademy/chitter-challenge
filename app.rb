@@ -26,7 +26,6 @@ class Bitter < Sinatra::Base
   end
 
   get '/logout' do
-    "You have been logged out"
     session[:logged_in] = false
     flash[:logout] = "You have been logged out"
     redirect '/beets'
