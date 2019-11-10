@@ -1,5 +1,11 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
-  <% end %>
-</ul>
+<% @peeps.each do |peep| %>
+    <article>
+      <main>
+        <%= peep.peep %>
+      </main>
+      <footer>  
+        <%= peep.time %>
+      </footer>
+    </article>
+<% end %>
+
