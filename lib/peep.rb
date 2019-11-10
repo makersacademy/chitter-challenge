@@ -1,9 +1,15 @@
 class Peep
 
-  attr_reader :comment
+  attr_reader :comment, :posted_at
 
-  def initialize(comment:)
+  def initialize(comment:, posted_at:)
     @comment = comment
+    @posted_at = posted_at
+  end
+
+  def self.current_time
+    time = Time.new
+    time.strftime("%A, %B %e, %Y, %k:%M")
   end
 
   def self.all
@@ -14,7 +20,7 @@ class Peep
     end
     result = connection.exec("SELECT * FROM peeps")
     result.map do |row|
-      Peep.new(comment: row['comment'])
+      Peep.new(comment: row['comment'], posted_at: row['posted_at'])
     end
   end
 
@@ -24,7 +30,7 @@ class Peep
     else
      connection = PG.connect(dbname: 'chitter-challenge')
     end
-    # created_at = Peeps.current_time
-    connection.exec("INSERT INTO peeps (comment) VALUES('#{comment}') RETURNING comment")
+    posted_at = Peep.current_time
+    connection.exec("INSERT INTO peeps (comment, posted_at) VALUES('#{comment}', '#{posted_at}') RETURNING comment, posted_at")
   end
 end
