@@ -1,5 +1,5 @@
 feature 'Home page' do
-  scenario 'displays username of new user' do
+  scenario 'greets new user' do
     visit('/')
     click_button('Register')
     fill_in('name', with: 'Tom')
