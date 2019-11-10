@@ -19,10 +19,18 @@ class User
     user = User.new(first, last, email, password, id)
   end
 
-  def self.find(user_email)
-    user = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{user_email}'")
+  def self.find(email)
+    user = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
     return nil if !user.values[0]
     return user.values[0]
   end
 
+  def self.authenticate(email, password)
+    user = User.find(email)
+    if user && password == user[2] && email == user[1]
+      return true
+    else
+      return false
+    end
+  end
 end
