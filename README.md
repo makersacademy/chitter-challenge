@@ -53,8 +53,8 @@ CREATE DATABASE chitter_board_test;
 ```
 To run the ChitterApp:
 ---------------------
-`rackup -p 3000`
-To view peeps, navigate to http://localhost:3000/peeps
+`ruby app.rb`
+To view peeps, navigate to http://localhost:4567/peeps
 
 To run tests:
 ------------
