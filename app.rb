@@ -1,6 +1,6 @@
 require 'sinatra'
 require './lib/account'
-
+require './lib/message'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -28,10 +28,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/chit_post' do
+    session[:chit] = Message.new_message(sender:session[:user].name,content:params[:chit])
     redirect '/newsfeed'
   end
 
   get '/newsfeed' do
+    @chit = session[:chit]
     erb :newsfeed
   end
 

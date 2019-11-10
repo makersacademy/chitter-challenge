@@ -20,7 +20,7 @@ class Account
 
   def self.account_identifier(email:,password:)
     account = database.exec("SELECT * FROM user_accounts WHERE email = '#{email}' AND password = '#{password}'").first
-      Account.new(id:account['id'],email:account['email'],password:account['password'],name:account['name'])
+    Account.new(id:account['id'],email:account['email'],password:account['password'],name:account['name'])
   end
 
   private

@@ -1,8 +1,5 @@
 class Message
 
-
-
-
   attr_reader :id, :sender, :message, :time_sent
 
   def initialize(id:, sender:, message:, time_sent:)
@@ -17,6 +14,7 @@ class Message
     VALUES ('#{content})','#{Time.now}','#{sender}') RETURNING id,message,date_time,sender").first
     Message.new(id:row_hash['id'], sender:row_hash['sender'], message:row_hash['message'], time_sent:row_hash['date_time'])
   end
+
   private
 
   def self.database
