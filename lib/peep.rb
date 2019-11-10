@@ -1,3 +1,5 @@
+require 'pg'
+
 class Peep
 
   attr_reader :id, :time, :text
@@ -14,7 +16,8 @@ class Peep
     else
       conn = PG.connect(dbname: 'chitter_challenge')
     end
-    result = conn.exec("INSERT INTO peeps (text) VALUES('#{text}') RETURNING id, time, text")
+    t = Time.now
+    result = conn.exec("INSERT INTO peeps (text, time) VALUES('#{text}', '#{t.strftime('%k:%M:%S')}') RETURNING id, time, text")
     Peep.new(id: result[0]['id'], time: result[0]['time'], text: result[0]['text'])
   end
 

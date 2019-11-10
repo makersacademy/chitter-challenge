@@ -1,15 +1,17 @@
 require 'sinatra/base'
+require './lib/feed'
 
 class Chitter < Sinatra::Base
 
-  $peeps = Array.new
+  $feed = Feed.new
 
   get '/' do
     erb :feed
   end
 
   post '/feed' do
-    $peeps << params[:peep]
+#   $feed << params[:peep]
+    $feed.add_peep(Peep.create(text: params[:peep]))
     redirect '/'
   end
 
