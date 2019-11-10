@@ -1,8 +1,6 @@
 require 'sinatra/base'
 require './lib/peeps'
 
-
-
 class ChitterManager < Sinatra::Base
   get '/' do
     "*&"
@@ -22,7 +20,7 @@ class ChitterManager < Sinatra::Base
     redirect('/peeps')
   end
 
-
+  
   run! if app_file == $0
 
 end
