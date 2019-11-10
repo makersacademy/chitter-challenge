@@ -1,1 +1,1 @@
-CREATE TABLE beets(id SERIAL PRIMARY KEY, beet_text VARCHAR(140));
+CREATE TABLE beets(id SERIAL PRIMARY KEY, beet_text VARCHAR(140), user_handle VARCHAR(60));

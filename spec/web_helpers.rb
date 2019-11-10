@@ -6,9 +6,9 @@ end
 def load_beets
   connection = PG::Connection.open(:dbname => 'bitter_test')
   connection.exec("
-    INSERT INTO beets (\"beet_text\", \"timestamp\", \"user\") VALUES (\'No Brexit!\', \'#{Time.now}\', \'mr_jones\');
-    INSERT INTO beets (\"beet_text\", \"timestamp\", \"user\") VALUES (\'SJWs make me sick!\', \'#{Time.now}\', \'madame_buffooir\');
-    INSERT INTO beets (\"beet_text\", \"timestamp\", \"user\") VALUES (\'I love Coding!\', \'#{Time.now}\', \'jesus\');
+    INSERT INTO beets (beet_text, timestamp, user_handle) VALUES ('No Brexit!', '#{Time.now}', 'mr_jones');
+    INSERT INTO beets (beet_text, timestamp, user_handle) VALUES ('SJWs make me sick!', '#{Time.now}', 'madame_buffooir');
+    INSERT INTO beets (beet_text, timestamp, user_handle) VALUES ('I love Coding!', '#{Time.now}', 'jesus');
     ")
 end
 

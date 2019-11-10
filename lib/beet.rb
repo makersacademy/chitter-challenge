@@ -21,7 +21,7 @@ class Beet
   end
 
   def self.add(text, user)
-    result = DatabaseConnection.query("INSERT INTO beets (\"beet_text\", \"timestamp\", \"user\") VALUES (\'#{text}\', \'#{Time.now}\', \'#{user}\');")
+    result = DatabaseConnection.query("INSERT INTO beets (beet_text, timestamp, user_handle) VALUES ('#{text}', '#{Time.now}', '#{user}');")
   end
 
   # def self.edit(beet_id, new_text)
