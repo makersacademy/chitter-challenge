@@ -5,14 +5,21 @@ feature "Login page/sign up" do
     expect(page).to have_text("Chitter")
   end
 
-  scenario 'creating account' do
-    visit '/'
-    click_on 'Sign Up!'
-    fill_in "email", with: 'eddy@gmail.com'
-    fill_in "password", with: '1234'
-    fill_in "name", with: 'Eddy'
-    click_on "Create account"
-    expect(page).to have_text("Account created successfully!")
+  context "creating account" do
+
+    scenario 'creating account' do
+    sign_up
+    expect(page).to have_text('Welcome Eddy')
+    end
+
   end
+
+  context "loging in" do
+    scenario 'user already has account and trys to log in' do
+    sign_up_and_log_in
+    expect(page).to have_text('Welcome Eddy')
+    end
+  end
+
 
 end

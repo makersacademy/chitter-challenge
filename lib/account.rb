@@ -18,4 +18,9 @@ class Account
     Account.new(id:row_hash['id'],email:row_hash['email'],password:row_hash['password'],name:row_hash['name'])
   end
 
+  def self.account_identifier(email:,password:)
+    account = @@chitter_database.exec("SELECT * FROM user_accounts WHERE email = '#{email}' AND password = '#{password}'").first
+      Account.new(id:account['id'],email:account['email'],password:account['password'],name:account['name'])
+  end
+
 end

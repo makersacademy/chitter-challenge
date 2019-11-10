@@ -1,8 +1,9 @@
 require 'sinatra'
+require './lib/account'
 
 
 class Chitter < Sinatra::Base
-
+  enable :sessions
   get '/' do
     erb :index
   end
@@ -12,12 +13,22 @@ class Chitter < Sinatra::Base
   end
 
   post '/create_account_post' do
-    redirect '/account_created' 
+    session[:user] = Account.create_account(email:params['email'],password:params['password'],name:params['name'])
+    redirect '/profile'
   end
 
-  get '/account_created' do
-    'Account created successfully!'
+  post '/login_post' do
+    session[:user] = Account.account_identifier(email:params['email'],password:params['password'])
+    redirect '/profile'
   end
+
+  get '/profile' do
+    @user = session[:user]
+    erb :profile
+  end
+
+
+
 
 
 
