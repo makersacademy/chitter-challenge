@@ -92,3 +92,6 @@ The build of your application created by has no connection to the local database
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
+Resources used:
+--------------
+* Found some cool twitter scaffolding at: https://codepen.io/Gi_18/pen/xwVJKg
