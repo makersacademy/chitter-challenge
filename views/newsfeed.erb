@@ -1,9 +1,17 @@
 <h2>Newsfeed</h2>
 
+<form action="/profile" >
+  <input type="submit" value="View Profile">
+</form>
+
+  <form action="/log_out" method="post">
+    <input type="submit" value="Log Out">
+  </form>
+
 <%@chits.each do |chit| %>
 
 <h3><%=chit.sender%> </h3>
 <p><%=chit.message%></p>
 <em>Posted <%=chit.date%> at <%=chit.time%></em>
-
+<br>
 <%end%>

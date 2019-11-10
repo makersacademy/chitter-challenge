@@ -37,6 +37,11 @@ class Chitter < Sinatra::Base
     erb :newsfeed
   end
 
+  post '/log_out' do
+    session[:user] = nil
+    redirect '/'
+  end
+
 
 
 
