@@ -48,3 +48,10 @@ I want to receive an email if I am tagged in a Peep
 
 Database setup:
 -------
+
+CREATE DATABASE chitter_challenge;
+CREATE TABLE peeps (
+  id int,
+  text VARCHAR(60),
+  time TIME
+);
