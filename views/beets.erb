@@ -26,10 +26,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/users">Sign Up</a>
           </li>
+          <% if session[:logged_in] %>
+            <li class="nav-item float-left">
+              <a class="nav-link" href="/logout">Log out</a>
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav> 
-
+    
+    <div class = "alert alert-danger pb-0 pt-0 mt-0 mb-0" role ="alert">
+      <h4 class =" text-center pb-0 pt-0 mt-0 mb-0"> <%= flash[:logout] %></h4>
+    </div>
 
     <% if @first_name %>
       <% @welcome_message = "Welcome, #{@first_name} to Bitter!" %>

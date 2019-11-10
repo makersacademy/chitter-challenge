@@ -22,4 +22,12 @@ feature 'loging in' do
     click_button("Log In")
     expect(page).to have_content("Email or Password incorrect")
   end
+
+  scenario 'user signs in, log out button becomes visible' do
+    visit '/login'
+    fill_in(:email, with: "test@gmail.com")
+    fill_in(:password, with: "password123")
+    click_button("Log In")
+    expect(page).to have_content("Log out")
+  end
 end

@@ -25,11 +25,21 @@ class Bitter < Sinatra::Base
     erb(:login)
   end
 
+  get '/logout' do
+    "You have been logged out"
+    session[:logged_in] = false
+    flash[:logout] = "You have been logged out"
+    redirect '/beets'
+  end
+
   post '/login' do
     @user_credentials = User.authenticate(params[:email], params[:password])
+
     if @user_credentials
       session[:first_name] = @user_credentials[3]
       session[:user_id] = @user_credentials[0]
+      session[:logged_in] = true
+      flash[:logout] = nil
       redirect '/beets'
     elsif @user_credentials == nil
       flash[:authenticate_message] = "User not found, Please sign up!"
