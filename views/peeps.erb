@@ -1,11 +1,21 @@
+<div class="container margin-top">
+  <h1>What people are saying</h1>
+</div>
+<main>
 <% @peeps.each do |peep| %>
     <article>
-      <main>
+      <p>
         <%= peep.peep %>
-      </main>
+      </p>
       <footer>  
         <%= peep.time %>
       </footer>
     </article>
 <% end %>
+</main>
+<footer class="peeps-footer">
+  <div class="container d-flex justify-content-center">
+    <a class="btn btn-primary btn-lg" href="/new-peep">Join the Conversation</a>
+  <div>
+</footer>
 

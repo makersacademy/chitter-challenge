@@ -18,8 +18,37 @@ img {
   height: 200px;
 }
 
+textarea {
+  height: 100px;
+  width: 300px;
+}
+
+main {
+  width: 50%;
+  height: 300px;
+  margin: auto;
+  overflow: scroll;
+}
+
+article {
+  margin-top: 50px;
+  background-color: #00acee;
+  color: white;
+  padding: 25px;
+}
+
+article > footer {
+  text-align: right;
+  color: #BA3A13;
+}
+
+.peeps-footer {
+  margin-top: 75px;
+}
+
 .container {
   margin-bottom: 25px;
+  text-align: center;
 }
 
 .jumbotron {
@@ -31,4 +60,8 @@ img {
   background-color: #00acee;
   margin: auto;
   border: none;
+}
+
+.margin-top {
+  margin-top: 100px;
 }
