@@ -11,6 +11,10 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
   post '/user' do
     Users.create(:email => params['email'], :password => BCrypt::Password.create(params['password']), :name => params['name'], :username => params['username'])
     session[:name] = params['name']
@@ -28,7 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peeps.all(:order => [ :created_at.desc ])
+    @peeps = Peeps.all(:order => [:created_at.desc])
     erb :peeps
   end
 

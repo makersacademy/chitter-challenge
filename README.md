@@ -1,3 +1,27 @@
+How to use
+===========
+
+```
+$ git clone
+$ bundle install
+$ psql
+$ CREATE DATABASE chitter
+$ \c chitter
+follow steps in db-migrations directory to set up SQL tables
+$ ruby app.rb
+
+visit http://localhost:4567 and enjoy!
+
+```
+
+Additional technologies/ gems used
+-----------------------------------
+* Datamapper was used as the database interface
+* Database cleaner gem was used for truncating test database between tests
+* orderly gem was used for testing order of elements appearing on page
+* bcrypt was used to encrypt passwords
+
+
 Chitter Challenge
 =================
 

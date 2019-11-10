@@ -19,7 +19,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-RSpec.configure do|config|
+RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner[:data_mapper].strategy = :transaction

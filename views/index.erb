@@ -1,17 +1,12 @@
 <h1> Welcome to Chitter </h1><br>
-<h2> Sign up below to make your first peep! </h2>
-<form action='/user' method='post'>
-  <label for='email'> Email: </label>
-  <input type='text' name='email' placeholder='enter email'><br>
-  <label for='password'> Password: </label>
-  <input type='text' name='password' placeholder='enter password'><br>
-  <label for='name'> Name: </label>
-  <input type='text' name='name' placeholder='enter name'><br>
-  <label for='username'> Username: </label>
-  <input type='text' name='username' placeholder='enter username'><br>
-  <input type='submit' value='Sign up'>
-</form>
-<br>
 <form action='/peeps' method='get'>
   <button type='submit'>Go to Peeps feed</button>
+</form>
+<br>
+<form action='/signup' method='get'>
+  <button type='submit'>Sign up</button>
+</form>
+<br>
+<form>
+  <button type='submit'>Login</button>
 </form>
