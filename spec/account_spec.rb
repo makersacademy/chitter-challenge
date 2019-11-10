@@ -4,12 +4,12 @@ describe Account do
   context "#create_account" do
     it "adds new row to database" do
       account = Account.create_account(email: 'eddy@gmail.com', password: '1234', name: 'Eddy')
-      account_creation_verifier = account_creation_verifier(id:account.id)
+      row_creation_verifier = row_creation_verifier(table:"user_accounts", id:account.id)
 
-      expect(account.id).to eq account_creation_verifier['id']
-      expect(account.email).to eq account_creation_verifier['email']
-      expect(account.password).to eq account_creation_verifier['password']
-      expect(account.name).to eq account_creation_verifier['name']
+      expect(account.id).to eq row_creation_verifier['id']
+      expect(account.email).to eq row_creation_verifier['email']
+      expect(account.password).to eq row_creation_verifier['password']
+      expect(account.name).to eq row_creation_verifier['name']
     end
   end
 
@@ -20,7 +20,6 @@ describe Account do
       Account.create_account(email: 'harry@live.com', password: 'password1234', name: 'Harry')
       account = Account.account_identifier(email:'ailsarenton@gmail.com', password:'eddy')
       expect(account.id).to eq id_check.id
-
     end
   end
 end

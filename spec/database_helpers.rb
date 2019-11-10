@@ -1,13 +1,15 @@
 require 'pg'
 
-@@connection = PG.connect(dbname: 'chitter_test')
 
 
-def account_creation_verifier(id:)
 
-  @@connection.exec("SELECT * FROM user_accounts WHERE id = #{id}").first
+def row_creation_verifier(table:,id:)
+  connection = PG.connect(dbname: 'chitter_test')
+  connection.exec("SELECT * FROM #{table} WHERE id = #{id}").first
 end
 
 def reset_table
-  @@connection.exec("TRUNCATE user_accounts")
+  connection = PG.connect(dbname: 'chitter_test')
+  connection.exec("TRUNCATE user_accounts")
+  connection.exec("TRUNCATE chits")
 end

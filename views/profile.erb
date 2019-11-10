@@ -1,1 +1,6 @@
 <h1>Welcome <%=@user.name%></h1>
+
+<form action="/chit_post" method="post">
+  <input type="text" name="chit" placeholder="Chit">
+    <input type="submit" value="Send Chit">
+</form>

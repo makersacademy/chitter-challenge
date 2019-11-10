@@ -27,6 +27,14 @@ class Chitter < Sinatra::Base
     erb :profile
   end
 
+  post '/chit_post' do
+    redirect '/newsfeed'
+  end
+
+  get '/newsfeed' do
+    erb :newsfeed
+  end
+
 
 
 
