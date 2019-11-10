@@ -19,7 +19,10 @@ describe Peep do
 
   describe ".create" do
     it 'creates a new peep' do
+      peep = Peep.create(time: "2004-10-19 10:23:54", post: "This is my test peep")
 
+      expect(peep).to be_a Peep
+      expect(peep.post).to eq 'This is my test peep'
     end
   end
 end
