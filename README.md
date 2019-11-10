@@ -44,6 +44,11 @@ To set up this project
 Clone this repository and then run:
 `bundle`
 
+To install postgres
+-------------------
+` brew install postgresql`
+
+
 To set up the database
 ----------------------
 Connect to `psql` and create the `chitter_board` and `chitter_board_test databases`
@@ -54,6 +59,7 @@ CREATE DATABASE chitter_board_test;
 To run the ChitterApp:
 ---------------------
 `ruby app.rb`
+
 To view peeps, navigate to http://localhost:4567/peeps
 
 To run tests:
