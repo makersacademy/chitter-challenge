@@ -2,11 +2,16 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/beet'
 require './lib/user'
+require './lib/helpers'
 
 class Bitter < Sinatra::Base
   enable :sessions
   set :session_secret, "secret"
   register Sinatra::Flash
+
+  get '/' do
+    erb(:landing_page)
+  end
 
   get '/beets' do
     @beets = Beet.all
@@ -23,47 +28,36 @@ class Bitter < Sinatra::Base
   end
 
   get '/login' do
-    erb(:login)
+    if session[:logged_in] != true
+      session = nil
+      erb(:login)
+    else
+      redirect '/beets'
+    end
   end
 
   get '/logout' do
     session[:logged_in] = false
+    session = nil
     flash[:logout] = "You have been logged out"
     redirect '/beets'
   end
 
   post '/login' do
     @user_credentials = User.authenticate(params[:email], params[:password])
-
-    if @user_credentials
-      session[:first_name] = @user_credentials[3]
-      session[:user_id] = @user_credentials[0]
-      session[:user_handle] = @user_credentials[5]
-      session[:logged_in] = true
-      flash[:logout] = nil
-      p session
-      redirect '/beets'
-    elsif @user_credentials == nil
-      flash[:authenticate_message] = "User not found, Please sign up!"
-      redirect '/login'
-    else
-      flash[:authenticate_message] = "Email or Password incorrect"
-      redirect '/login'
-    end
+    login(@user_credentials)
   end
 
   post '/post_beet' do
     @text = params[:beet_text]
-    @user = session[:user_handle]
+    @user = session[:bitter_handle]
     Beet.add(@text, @user)
     redirect '/beets'
   end
 
   post '/users/new' do
     @user = User.create(params[:first_name], params[:last_name], params[:email], params[:password], params[:bitter_handle])
-    session[:first_name] = params[:first_name]
-    session[:user_id] = @user.id
-    redirect '/beets'
+    new_user(@user)
   end
 
   run! if app_file == $0

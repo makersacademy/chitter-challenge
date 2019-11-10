@@ -2,18 +2,26 @@
   color: #a02e01;
 }
 
-img {
+img.img-logo {
   width: 50px;
   height: 50px;
 }
 
+h1 {
+  color: #e0707c
+}
+
+h2 {
+  color: #e0707bc0
+}
 p {
   color: black;
 }
+
 li.list-group-item {
   background-image: linear-gradient(to bottom right, #ffdfdf, #ffc0c0);
   border-radius: 10px !important;
-  box-shadow: 4px 4px 5px 	#ffba97;
+  box-shadow: 4px 4px 5px rgb(155, 150, 150);
 }
 
 .navbar {
