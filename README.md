@@ -54,6 +54,12 @@ $ rackup
 
 Visit ```http://localhost:9292/``` in your browser.
 
+## Screenshots
+
+![Homepage](https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-home.png =500x)
+![New Peep](https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-new.png =500x)
+![Timeline](https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-timeline.png =500x)
+
 ## User stories covered
 
 ```
