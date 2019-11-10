@@ -55,11 +55,10 @@ $ rackup
 Visit ```http://localhost:9292/``` in your browser.
 
 ## Screenshots
-
-![Homepage](https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-home.png | width=500x)   
-<img src="https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-home.png" width="100%">
-![New Peep](https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-new.png | width=500x)   
-![Timeline](https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-timeline.png | width=500x)    
+  
+<img src="https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-home.png" width="100%" alt="Homepage">
+<img src="https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-new.png" width="100%" alt="New peep">
+<img src="https://github.com/jonesandy/learning-goals/blob/master/week4/_imgs/chitter-timeline.png" width="100%" alt="Peep timeline">
 
 ## User stories covered
 
