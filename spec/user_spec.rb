@@ -3,7 +3,7 @@ require "user"
 describe User do
   describe ".new" do
     context 'initialize' do
-      user = User.new('Robert', 'Rosiji', 'test@gmail.com', 'password123', '1')
+      user = User.new('Robert', 'Rosiji', 'test@gmail.com', 'password123', '1', 'tester1')
 
       it 'has a first name' do
         expect(user.first).to eq('Robert')
@@ -26,16 +26,17 @@ describe User do
 
   context '.create' do
     it 'creates a new user' do
-      test_user = User.create('Robert', 'Rosiji', 'test@gmail.com', 'password123')
+      test_user = User.create('Robert', 'Rosiji', 'test@gmail.com', 'password123', 'mr_bitter')
       expect(test_user.email).to eq('test@gmail.com')
       expect(test_user.first).to eq('Robert')
       expect(test_user.last).to eq('Rosiji')
+      expect(test_user.handle).to eq('mr_bitter')
     end
   end
 
   describe '.find' do
     context 'a User exists in the data base' do
-      test_user = User.create('Robert', 'Rosiji', 'test@gmail.com', 'password123')
+      test_user = User.create('Robert', 'Rosiji', 'test@gmail.com', 'password123', 'iamtester')
       it 'finds a user from the database' do
         expect(User.find(test_user.email)).to include(test_user.email)
       end

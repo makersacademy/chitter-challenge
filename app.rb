@@ -33,10 +33,12 @@ class Bitter < Sinatra::Base
 
   post '/login' do
     @user_credentials = User.authenticate(params[:email], params[:password])
+    p @user_credentials
 
     if @user_credentials
       session[:first_name] = @user_credentials[3]
       session[:user_id] = @user_credentials[0]
+      session[:user_handle] = @user_credentials[5]
       session[:logged_in] = true
       flash[:logout] = nil
       redirect '/beets'
@@ -51,12 +53,13 @@ class Bitter < Sinatra::Base
 
   post '/post_beet' do
     @text = params[:beet_text]
-    Beet.add(@text)
+    @user = session[:user_handle]
+    Beet.add(@text, @user)
     redirect '/beets'
   end
 
   post '/users/new' do
-    @user = User.create(params[:first_name], params[:last_name], params[:email], params[:password])
+    @user = User.create(params[:first_name], params[:last_name], params[:email], params[:password], params[:bitter_handle])
     session[:first_name] = params[:first_name]
     session[:user_id] = @user.id
     redirect '/beets'
