@@ -28,12 +28,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/chit_post' do
-    session[:chit] = Message.new_message(sender:session[:user].name,content:params[:chit])
+    Message.new_message(sender:session[:user].name, content:params[:chit])
     redirect '/newsfeed'
   end
 
   get '/newsfeed' do
-    @chit = session[:chit]
+    @chits = Message.sort(Message.all)
     erb :newsfeed
   end
 

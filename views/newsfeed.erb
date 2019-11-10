@@ -1,5 +1,9 @@
 <h2>Newsfeed</h2>
 
-<h3><%=@chit.sender%> </h3> 
-<p><%=@chit.message%></p>
-<em>Posted <%=@chit.date%> at <%=@chit.time%></em>
+<%@chits.each do |chit| %>
+
+<h3><%=chit.sender%> </h3>
+<p><%=chit.message%></p>
+<em>Posted <%=chit.date%> at <%=chit.time%></em>
+
+<%end%>
