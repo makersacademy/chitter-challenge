@@ -1,3 +1,4 @@
+require './lib/peeper'
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
@@ -10,7 +11,8 @@ class Chitter < Sinatra::Base
     erb :register
   end
 
-  post '/home' do
+  post '/registration' do
+    @peeper = Peeper.create(name: params[:name], email: params[:email], password: params[:password])
     erb :home
   end
 
