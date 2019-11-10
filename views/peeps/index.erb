@@ -1,4 +1,6 @@
-<p>
-  <%= @user.handle %> (<%= @user.name %>) peeped:
-  <%= @peep %>
+<% @peeps.each do |peep| %>
+<p> <%= peep.user_handle %> (<%= peep.user_name %>) peeped at <%= peep.time_stamp %>:
+<br>
+<%= peep.message %>
 </p>
+<% end %>
