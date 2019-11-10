@@ -51,16 +51,16 @@ describe User do
   describe ".authenticate" do
     context 'A user enters the correct email and password' do
       result = User.find('test@gmail.com')
-      it 'returns true if the email and password are correct' do
-        expect(User.authenticate('test@gmail.com', 'password123')).to eq(true)
+      it 'returns the user if the email and password are correct' do
+        expect(User.authenticate('test@gmail.com', 'password123')[1]).to eq("test@gmail.com")
       end
 
       it 'returns false if the email is correct but password is incorrect' do
         expect(User.authenticate('test@gmail.com', 'password')).to eq(false)
       end
 
-      it 'returns false if the email is incorrect' do
-        expect(User.authenticate('tester@gmail.com', 'password')).to eq(false)
+      it 'returns nil if the email is incorrect' do
+        expect(User.authenticate('tester@gmail.com', 'password')).to eq(nil)
       end
     end
   end

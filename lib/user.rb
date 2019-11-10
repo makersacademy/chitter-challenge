@@ -28,9 +28,11 @@ class User
   def self.authenticate(email, password)
     user = User.find(email)
     if user && password == user[2] && email == user[1]
-      return true
-    else
+      return user
+    elsif user && password != user[2] && email == user[1]
       return false
+    else
+      return nil
     end
   end
 end
