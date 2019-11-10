@@ -1,6 +1,10 @@
+require_relative 'database'
 require 'sinatra/base'
+require './lib/peep'
+
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
     erb(:index)
@@ -17,11 +21,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.add(peep: params['peep'])
+    time = Time.now
+    Peep.create(text: params["text"], :time => time)
     redirect '/peeps'
   end
-
-
 
   run! if app_file == $0
 end

@@ -2,8 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'sinatra'
-gem 'rubocop', '0.71.0'
 gem 'pg'
+gem 'orderly'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'rubocop', '0.71.0'
+
 
 group :test do
   gem 'capybara'
