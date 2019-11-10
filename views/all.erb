@@ -1,0 +1,10 @@
+<h1>Welcome to Chitter</h1>
+<h2>All peeps</h2>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.content %>
+    </li>
+  <% end %>
+</ul>
