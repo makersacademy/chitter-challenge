@@ -1,11 +1,15 @@
+require 'pg'
+
 class Peep
 
   def self.all
-    [
-      "Test Peep 1",
-      "Test Peep 2",
-      "Test Peep 3"
-    ]
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    results = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
+    results.map { |peep| peep['peep'] }
   end
 
 end
