@@ -10,16 +10,6 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/peep' do
-    Peeps.create(:peep => params['add_peep'], :created_at => Time.now.strftime("%d/%m/%Y %H:%M"))
-    redirect '/peeps'
-  end
-
-  get '/peeps' do
-    @peeps = Peeps.all(:order => [ :created_at.desc ])
-    erb :peeps
-  end
-
   post '/user' do
     Users.create(:email => params['email'], :password => params['password'], :name => params['name'], :username => params['username'])
     session[:name] = params['name']
@@ -29,6 +19,16 @@ class Chitter < Sinatra::Base
   get '/user' do
     @name = session[:name]
     erb :user
+  end
+
+  post '/peep' do
+    Peeps.create(:peep => params['add_peep'], :created_at => Time.now.strftime("%d/%m/%Y %H:%M"))
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @peeps = Peeps.all(:order => [ :created_at.desc ])
+    erb :peeps
   end
 
   run! if app_file == $0

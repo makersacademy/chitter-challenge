@@ -10,10 +10,9 @@ feature 'viewing peeps' do
 
   scenario 'user can see all peeps in reverse chronological order' do
     post_peep
-    visit('/')
+    visit('/user')
     fill_in :add_peep, with: 'how are you today?'
     click_button 'Post'
-    visit('/peeps')
     expect('hello, world').to appear_before('how are you today?')
   end
 end
