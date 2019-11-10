@@ -33,6 +33,10 @@ Entity Relationship Diagram:
 -----
 [To be included]
 
+Screenshot:
+-----
+[To be included]
+
 How to use
 
 To set up this project
