@@ -1,6 +1,5 @@
-<h1> Chitter Feed: </h1>
-<ul>
-  <% @peeps.each do |peep| %>
-  <li><%= peep.comment %> @ <%= peep.created_at %></li>
-  <% end %>
-</ul>
+<h1> WELCOME TO CHITTER: Sign up here... </h1>
+
+<form method='get' action='/signup'>
+  <input type='submit' name='sign up' value='sign up' />
+</form>

@@ -7,12 +7,24 @@ class Chitter_Challenge < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    "Welcome to Chitter!!"
+    erb :'peeps/index'
+  end
+
+  get '/signup' do
+    erb :'peeps/signup'
+  end
+
+  post '/signup' do
+    # params[:name]
+    # params[:username]
+    # params[:email]
+    # params[:password]
+    redirect '/peeps'
   end
 
   get '/peeps' do
     @peeps = Peeps.all.reverse
-    erb :'peeps/index'
+    erb :'peeps/feed'
   end
 
   get '/peeps/new' do

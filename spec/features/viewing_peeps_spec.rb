@@ -6,11 +6,6 @@ feature 'Viewing Peeps' do
     allow(Time).to receive(:new) {@time}
   end
 
-  scenario 'visiting the index page' do
-    visit('/')
-    expect(page).to have_content "Welcome to Chitter!!"
-  end
-
   scenario 'A user can see peeps' do
     connection = PG.connect(dbname: 'chitter_test')
 
