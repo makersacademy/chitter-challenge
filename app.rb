@@ -5,6 +5,7 @@ require './lib/user'
 
 class Bitter < Sinatra::Base
   enable :sessions
+  set :session_secret, "secret"
   register Sinatra::Flash
 
   get '/beets' do
@@ -33,7 +34,6 @@ class Bitter < Sinatra::Base
 
   post '/login' do
     @user_credentials = User.authenticate(params[:email], params[:password])
-    p @user_credentials
 
     if @user_credentials
       session[:first_name] = @user_credentials[3]
@@ -41,6 +41,7 @@ class Bitter < Sinatra::Base
       session[:user_handle] = @user_credentials[5]
       session[:logged_in] = true
       flash[:logout] = nil
+      p session
       redirect '/beets'
     elsif @user_credentials == nil
       flash[:authenticate_message] = "User not found, Please sign up!"
