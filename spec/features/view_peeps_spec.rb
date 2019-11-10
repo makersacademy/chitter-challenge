@@ -8,4 +8,12 @@ feature 'viewing peeps' do
     click_on 'Submit'
     expect(page.body.index('Goodbye, world')).to be < page.body.index('Hello, world')
   end
+
+  scenario 'peeps are listed with their timestamps' do
+    allow(DateTime).to receive(:now).and_return(DateTime.new(2019, 11, 10, 15))
+    visit('/')
+    fill_in('content', with: 'Hello, sunshine')
+    click_on 'Submit'
+    expect(page).to have_content 'Hello, sunshine (15:00 10 Nov 2019)'
+  end
 end

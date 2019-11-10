@@ -4,7 +4,7 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.content %>
+      <%= peep.content %> (<%= peep.created_at.strftime('%H:%M %e %b %Y') %>)
     </li>
   <% end %>
 </ul>
