@@ -18,6 +18,8 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
+I attempted to implement the user sign up but this isn't working yet and I can't figure out why.
+
 ## Instructions on how to run
 
 ```
