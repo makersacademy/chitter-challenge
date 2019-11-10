@@ -3,8 +3,8 @@ def setup_test_database
 
   p "Setting up test database..."
 
-  connection = PG.connect(dbname: 'chitter_challenge_test')
+  connection = PG.connect(dbname: 'chitter-challenge-test')
 
   # Clear the bookmarks table
-  connection.exec("TRUNCATE bookmarks;")
+  connection.exec("TRUNCATE peeps;")
 end

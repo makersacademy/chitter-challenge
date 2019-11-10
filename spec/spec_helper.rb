@@ -2,11 +2,11 @@ require_relative './database_helpers/setup_test_database'
 
 ENV['ENVIRONMENT'] = 'test'
 
-# RSpec.configure do |config|
-#   config.before(:each) do
-#     setup_test_database
-#   end
-# end
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 require 'capybara/rspec'
 require 'simplecov'
