@@ -15,4 +15,8 @@ describe Peep do
   it 'returns the content of the first peep when #all.first.content is called' do
     expect(Peep.all.first.content).to eq 'Test 1'
   end
+
+  # add after(:all) to clean Users table after tests
+  # (or, better, use before each & after each)
+  # (factory bot works with ActiveRecord to manage dbs)
 end
