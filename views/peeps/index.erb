@@ -1,0 +1,8 @@
+<ul>
+  <% @peeps.each do |peep| %>
+  <li>
+    <% a = peep.timestamp.to_s %> <% a.slice!(19..99) %>
+    <%= peep.text %>    <%= a %>
+  </li>
+  <% end %>
+</ul>
