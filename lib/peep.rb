@@ -14,7 +14,7 @@ class Peep
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter-challenge-test')
+      connection = PG.connect(dbname: 'chitter_challenge_test')
     else
       connection = PG.connect(dbname: 'chitter-challenge')
     end
@@ -26,7 +26,7 @@ class Peep
 
   def self.create(comment:)
     if ENV['ENVIRONMENT'] == 'test'
-     connection = PG.connect(dbname: 'chitter-challenge-test')
+     connection = PG.connect(dbname: 'chitter_challenge_test')
     else
      connection = PG.connect(dbname: 'chitter-challenge')
     end
