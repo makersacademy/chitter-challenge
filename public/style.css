@@ -14,8 +14,15 @@ h1 {
 h2 {
   color: #e0707bc0
 }
+
 p {
   color: black;
+}
+
+.col-centered {
+  margin: 0 auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .sign-up-form {
