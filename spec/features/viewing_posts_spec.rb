@@ -7,7 +7,7 @@ feature 'Viewing posts' do
   end
 
   scenario 'A user can see peeps' do
-    connection = PG.connect(dbname: 'chitter-challenge-test')
+    connection = PG.connect(dbname: 'chitter_challenge_test')
 
     Peep.create(comment: "Hacking!!")
     Peep.create(comment: "GET BACK TO THE LOBBY")
