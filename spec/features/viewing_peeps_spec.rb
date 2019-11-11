@@ -9,10 +9,10 @@ feature 'Viewing peeps' do
       connection = PG.connect(dbname: 'chitter_board_test')
 
       # Add the test data:
-      connection.exec("INSERT INTO peeps (title, author, url) VALUES('UNTIL','Nelson Mandela','https://bit.ly/33ADu6u');")
-      connection.exec("INSERT INTO peeps (title, author, url) VALUES('Something very big','Donald J Trump','https://bit.ly/34MAALX');")
-      connection.exec("INSERT INTO peeps (title, author, url) VALUES('I am slow to learn','Abraham Lincoln','https://bit.ly/33AuU7P');")
-      connection.exec("INSERT INTO peeps (title, author, url) VALUES('The secret of life.','Fela Kuti','https://bit.ly/3717kmS');")
+      Peep.create(title: "UNTIL")
+      Peep.create(title: "Something very big")
+      Peep.create(title: "I am slow to learn")
+      Peep.create(title: "The secret of life.")
 
       visit('/peeps')
       expect(page).to have_content "UNTIL"
