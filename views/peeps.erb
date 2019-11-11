@@ -1,7 +1,5 @@
-<h1>Chitter:</h1>
-<h2>Latest peeps:</h2>
-<ul>
-    <% @peep.each do |peep| %>
-    <li><%= peep%></li>
-    <% end %>
-</ul>
+
+<form action="/peeps" method="post">
+  <input type="text" name="url" /> 
+  <input type="submit" name="Submit" />
+</form>

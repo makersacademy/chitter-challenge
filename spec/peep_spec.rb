@@ -1,4 +1,4 @@
-require "peep"
+require "./lib/peep"
 
 describe Peep do
   describe "#all" do
@@ -10,6 +10,14 @@ describe Peep do
       peeps = Peep.all
 
       expect(peeps).to include ("First peep")
+    end
+  end
+
+  describe "#add_peep" do
+    it "creates a new bookmark" do
+      Peep.add_peep(peep: "I love coding!")
+
+      expect(Peep.all).to include "I love coding!"
     end
   end
 end
