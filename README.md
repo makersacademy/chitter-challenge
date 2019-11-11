@@ -1,3 +1,13 @@
+Installations instructions :
+
+$ git clone https://github.com/olkras03/chitter_challenge
+$ bundle
+$ rake setup
+$ rake migrate
+$ rspec
+$ rackup
+
+
 Chitter Challenge
 =================
 
