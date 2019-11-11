@@ -1,5 +1,5 @@
-<% if @chitter_log.first.username != 'TestUser'%>
-  Signed in as <%= @chitter_log.first.username %>
+<% if @user_name != nil %>
+  <h1>Signed in as <%= @user_name %></h1>
 <% else %>
   <form action="/sign_up" method="post">
     <input type="text" name="email" placeholder="Email">
@@ -17,7 +17,7 @@
 <ul>
   <% @chitter_log.reverse_each do |post| %>
     <br>
-      <%= post.peep %> by <%= post.username %> at <%= post.post_time %>
+      <%= post.peep %> by <%= @user_name %> at <%= post.post_time %>
     <br>
   <% end %>
 </ul>

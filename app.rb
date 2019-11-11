@@ -4,8 +4,11 @@ require './lib/peep'
 require './lib/user'
 
 class ChitterManager < Sinatra::Base
+
+  enable :sessions
   get '/chitter' do
     @chitter_log = Chitter.log
+    @user_name = session[:username]
     erb :chitter_index
   end
 
@@ -15,9 +18,9 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/sign_up' do
-    @email = params[:email]
-    @username = params[:username]
-    @password = params[:password]
+    session[:email] = params[:email]
+    session[:username] = params[:username]
+    session[:password] = params[:password]
     User.new(@email, @username, @password)
     redirect('/chitter')
   end
