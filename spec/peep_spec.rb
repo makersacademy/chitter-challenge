@@ -3,19 +3,21 @@ require_relative "./setup_test_database.rb"
 
 describe Peep do
   describe ".all" do
-    it "returns all peeps" do
+    it "returns all Peeps" do
       connection = PG.connect(dbname: "chitter_test")
-
-      # Add the test data
-      connection.exec("INSERT INTO peeps VALUES(1, 'This is a peep');")
-      connection.exec("INSERT INTO peeps VALUES(2, 'This is another peep');")
-      connection.exec("INSERT INTO peeps VALUES(3, 'This is the lucky third peep');")
-
+  
+      chit_stream = Peep.create(msg: "This is a peep test")
+      Peep.create(msg: "This is a peep test")
+      Peep.create(msg: "This is a peep test")
+  
       peeps = Peep.all
-
-      expect(peeps).to include("This is a peep")
-      expect(peeps).to include("This is another peep")
-      expect(peeps).to include("This is the lucky third peep")
+  
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq chit_stream.id
+      expect(peeps.first.msg).to eq "This is a peep test"
     end
   end
+
+
 end

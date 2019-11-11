@@ -1,5 +1,6 @@
 require "sinatra/base"
 require_relative "lib/peep"
+require_relative "./database_connection_setup"
 
 class Chitter < Sinatra::Base
   get "/" do
@@ -16,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post "/chitcreek" do
-    Peep.create(params[:new_chit])
+    Peep.create(msg: params[:new_chit])
     redirect "/chitcreek"
   end
 

@@ -1,31 +1,29 @@
-feature "View peep" do
+feature "View Peep" do
   scenario "visiting the index page" do
     visit("/")
     expect(page).to have_content "Chitwits"
   end
 
-  scenario "a user can see all the peeps" do
-    connection = PG.connect(dbname: "chitter_test")
-
-    # Add the test data
-    connection.exec("INSERT INTO peeps VALUES(1, 'This is a peep');")
-    connection.exec("INSERT INTO peeps VALUES(2, 'This is another peep');")
-    connection.exec("INSERT INTO peeps VALUES(3, 'This is the third lucky peep');")
-
+  scenario "a user can see all the Peeps" do
     visit("/chitcreek")
-
-    expect(page).to have_content "This is a peep"
+    click_button("Peep a chit")
+    fill_in("new_chit", with: "This is a Peep")
+    click_button("Peep!")
+    expect(page).to have_content "This is a Peep"
   end
 
-  scenario "a user sees peeps in reverse order" do
+  scenario "a user sees Peeps in reverse order" do
     visit("/chitcreek")
-    fill_in("peep", with: "This is a peep")
-    click_button("Peep")
-    fill_in("peep", with: "This is another peep")
-    click_button("Peep")
-    fill_in("peep", with: "This is the lucky third peep")
-    click_button("Peep")
+    click_button("Peep a chit")
+    fill_in("new_chit", with: "This is a Peep")
+    click_button("Peep!")
+  click_button("Peep a chit")
+  fill_in("new_chit", with: "This is another Peep")
+  click_button("Peep!")
+  click_button("Peep a chit")
+  fill_in("new_chit", with: "This is the lucky third Peep")
+  click_button("Peep!")
 
-    expect(page).to have_content "This is the lucky third peep, This is another peep, This is a peep"
+    expect(page).to have_content "This is the lucky third Peep, This is another Peep, This is a Peep"
   end
 end

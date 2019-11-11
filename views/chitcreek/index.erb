@@ -1,9 +1,11 @@
 <h1>Chitty Chat 💬</h1>
 
 <ul>
-  <% @peeps.reverse.each do |peeps| %>
-    <li><%= peep %></li>
+  <% @peeps.reverse.each do |peep| %>
+    <li><%= peep.msg %> peeped at <%=peep.time%></li>
   <% end %>
 </ul>
-
-
+ 
+<form action="/chitcreek/new_chit" method="get">
+  <input type="submit" value="Peep a chit">
+</form>
