@@ -89,7 +89,7 @@ Notes on additional functionality partially implemented:
 Confirmed for Code Review
 -------------------------
 * All tests passing
-* [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (100%)
+* [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (80%)
 
 Automated Tests:
 -----
