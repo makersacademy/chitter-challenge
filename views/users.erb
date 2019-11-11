@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/beets">
+        <img class="img-logo bg-light" src="/img/icon.png" alt="Bitter Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+          <% if !session[:logged_in] %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users">Sign Up</a>
+            </li>
+          <% end %>
+
+          <% if session[:logged_in] %>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Log out</a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav> 
+  <%# <div class="container"></div> %>
+    <div class="row align-items-center">
+      <div class="bg-light col-4 d-flex col-centered">
+        <div class="text-center login-form">
+          <form class= "text-center" action="/users/new" method="post">
+            <h2 class="text-center" >Sign Up!</h2>
+      
+            <div class="form-group">
+              <label for="first_name" class="">First Name: </label>
+              <input type="text" class="" name="first_name" placeholder="Enter First Name">
+            </div>
+
+            <div class="form-group">
+              <label for="last_name" class="">Last Name: </label>
+              <input type="text" class="" name="last_name" placeholder="Enter Last Name">
+            </div>
+
+            <div class="form-group">
+              <label for="bitter_handle" class="">Bitter Handle: </label>
+              <input type="text" class="" name="bitter_handle" placeholder="Enter First Name">
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="">Email: </label>
+              <input type="email" class="" class="form-control-md" name="email" placeholder="Enter email">
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="">Password</label>
+              <input type="password" class="" name="password" placeholder="Enter password">
+            </div>
+
+            <div class="form-group">
+              <button class ="btn btn-primary" type="submit" value="submit">Submit</button>
+            </div>
+
+          </form> 
+        </div>
+      </div>
+    </div>  
+  <%# </div> %>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
