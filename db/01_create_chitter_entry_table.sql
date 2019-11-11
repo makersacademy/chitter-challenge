@@ -1,0 +1,2 @@
+CREATE TABLE chitter_peeps (id SERIAL PRIMARY KEY, url VARCHAR(60));
+
