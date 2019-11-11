@@ -1,0 +1,11 @@
+<form action="/create_peep" method="post">
+  <label>What is on your mind?</label>
+  <input type="text" name="peep">
+  <input type="submit" value="Post peep!">
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.body %> (at <%= peep.created_at %>)</li>
+  <% end %>
+</ul>
