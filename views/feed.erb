@@ -1,0 +1,20 @@
+<body>
+  Welcome <%=$user.name%>
+  <form action="/feed" method="post">
+    <input type="text" name="peep">
+    <input type="submit" name="submit" value="Send Peep">
+  </form>
+  <% @peeps = $feed.peeps.reverse %>
+  <div>
+    Peeps: <% @peeps.each do |peep| %>
+    <div style="border-style: solid; text-align:center; max-width: 600px; margin: 25px 25px 25px 25px;">
+      <%=$user.name%> says:
+      <br>
+      <%= peep.text %>
+      <br>
+      posted at: <%= peep.time %>
+      <br>
+    </div>
+    <% end %>
+  </div>
+</body>
