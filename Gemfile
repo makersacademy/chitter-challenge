@@ -1,10 +1,12 @@
-source 'https://rubygems.org'
+source 'https://rubygems.org' do
 
-gem 'rake'
-gem 'rubocop', '0.71.0'
-
-group :test do
+  gem 'capybara'
+  gem 'launchy'
+  gem 'pg'
   gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
+  gem 'rubocop'
+  gem 'simplecov'
+  gem 'simplecov-console'
+  gem 'sinatra'
+
 end
