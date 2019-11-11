@@ -5,6 +5,7 @@ before_script:
   - psql -c 'create database chitter_test;' -U postgres
   - psql -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(140));'
   - psql -c 'ALTER TABLE peeps ADD COLUMN timestamp TIMESTAMPTZ DEFAULT now();'
+  - p
 
 script:
   - bundle exec rspec
