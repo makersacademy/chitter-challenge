@@ -1,0 +1,15 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li >
+      <%= peep.message %> <br>
+      <a href="/user/<%= peep.user.id %>" target="_blank">
+        Author: <%= peep.user.username %>
+      </a><br>
+      <%= peep.created_at%><br>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/" target="_blank">
+  Back to main page
+</a>
