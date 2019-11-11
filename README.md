@@ -56,6 +56,8 @@ Connect to `psql` and create the `chitter_board` and `chitter_board_test databas
 CREATE DATABASE chitter_board;
 CREATE DATABASE chitter_board_test;
 ```
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
 To run the ChitterApp:
 ---------------------
 `ruby app.rb`
