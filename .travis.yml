@@ -3,6 +3,8 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  - psql -d 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, comment VARCHAR(60));'
+  - psql -d 'ALTER TABLE bookmarks ADD COLUMN posted_at VARCHAR(60);'
 
 script:
   - bundle exec rspec
