@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      body { font-family: "Arial"; font-size: 16px;}
+      .btn {
+        background-color: #99CCFF;
+        font-size: 16px;
+        cursor:pointer;
+      }
+    </style>
+  </head>
+  <body>
+      <h2 style= 'color: blue'> Recent peeps </h2>
+      
+  <% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+  <% end %>  
+  <% @peeps.each do |peep| %>
+    <li class="peep" >
+        <%= peep.post %>
+        (<%= peep.time %>)
+      <% end %>
+
+    </body>
+</html>

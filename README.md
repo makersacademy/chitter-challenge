@@ -131,3 +131,21 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+### Sara Rancati - 8 November 2019
+
+Technologies used:
+- Sinatra
+- Capybara
+- TablePlus
+- PostgreSQL
+- postgres Adapter
+
+Setting up the databases:
+
+1. Connect to psql
+2. Create the 'bookmark_manager' database using the psql command ``` CREATE DATABASE chitter; ``` or (for the test database) ``` CREATE DATABASE chitter_test; ```
+3. Connect to the database using the pqsl command ``` \c chitter; ```
+4. Run the query saved in the file 01_create_posts.sql to create a peeps table
+
+5. Install postgres adapter (gem install dm-postgres-adapter) and DataMapper (gem install data_mapper)
