@@ -8,11 +8,11 @@ class Chitter < Sinatra::Base
 
   get "/chitcreek" do
     @peeps = Peep.all
-    erb :chitcreek
+    erb :"chitcreek/index"
   end
 
   get "/chitcreek/new_chit" do
-    erb :new_chit
+    erb :"chitcreek/new_chit"
   end
 
   post "/chitcreek" do

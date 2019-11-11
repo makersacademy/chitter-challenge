@@ -1,4 +1,5 @@
 require "peep"
+require_relative "./setup_test_database.rb"
 
 describe Peep do
   describe ".all" do
