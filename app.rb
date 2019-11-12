@@ -23,7 +23,7 @@ class ChitterApp < Sinatra::Base
   end
   get "/peep_page" do
     $chitter = Chitter.new
-    @fullPeep = "#{$chitter.username} peeped #{$chitter.peep} at #{$chitter.time}"
+    @full_peep = "#{$chitter.user}"
     erb :peep_display
   end
   run! if app_file == $0

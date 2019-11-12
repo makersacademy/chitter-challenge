@@ -2,7 +2,7 @@ require "capybara/rspec"
 require "capybara"
 
 feature "it can call the website" do
-  #   scenario "it can call the index page" do
+  #   scenario "it can visit  the index page" do
   #     visit "/"
   #     expect(page).to have_content ("Hello World")
   #   end
