@@ -1,3 +1,34 @@
+Setting up the Required Databases 
+=================================
+
+Using PSQL :-
+
+1. Create the Chitter Database
+------------------------------
+CREATE DATABASE chitter
+
+Connect to the database using '\c chitter'
+
+2. Create the "Peeps" Table inside the Chitter DB 
+-------------------------------------------------
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(260), date DATE, time TIME)
+
+Exit PSQL '\q'
+
+Re-enter PSQL
+
+3. Create the Test Database
+---------------------------
+CREATE DATABASE chitter_test
+
+Connect to the Test Database with '\c chitter_test'
+
+4. Create the Test Table
+------------------------
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(260), date DATE, time TIME)
+
+
+
 Chitter Challenge
 =================
 
