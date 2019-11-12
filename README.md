@@ -1,3 +1,60 @@
+
+
+next : 
+- display test peep to peep_page to pass test 
+- figure out how to save my peep to the  DB table 
+
+
+Done : 
+-created and setup app.rb 
+-added submit to index page 
+-got and saved username 
+-asked for peep 
+-created chitterPeeps database 
+  -added columns to table 
+- read test data from DB with class 
+
+Todo : 
+Display Pages 
+  - home page, 
+    - login 
+  -make peep 
+    -get input 
+    -save to DB 
+    - Save with time 
+    -save with user name 
+  -search peep
+    -can search by time 
+
+DB for Storing peeps 
+  - create DB 
+    -colums : name, peep, time 
+
+
+Tests 
+    - test can call webpage 
+    -can enter login 
+    -can enter peep 
+    - peep is stored in DB 
+    - user can access peep from DB 
+    -setup test server 
+
+Make it pretty 
+  -CSS 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
