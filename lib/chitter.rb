@@ -20,6 +20,6 @@ class Chitter
   end
 
   def self.create(peep)
-    connection.exec("INSERT INTO peeps_table(id, username, peep, time) VALUES (2, @username, @peep, @time;")
+    connection.exec("INSERT INTO peeps_table VALUES (2, @username, @peep, @time);")
   end
 end
