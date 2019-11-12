@@ -1,3 +1,41 @@
+
+Getting Started
+=================
+
+### To set up the database
+
+Connect to `psql` and create the `chitter` and `chitter_test` databases:
+
+
+```	```
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```	```
+
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.	To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+### To run the Chitter app:
+
+```
+rackup -p 3000
+```
+
+To view chitter, navigate to `localhost:3000/chitcreek`.
+
+### To run tests:
+
+```
+rspec
+```
+
+### To run linting:
+
+```
+rubocop
+```
+
+
 Chitter Challenge
 =================
 

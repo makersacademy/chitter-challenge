@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rake'
-gem 'rubocop', '0.71.0'
+gem "rspec"
+gem "capybara"
+gem "sinatra"
+gem "pg"
+gem "sinatra-flash"
 
 group :test do
   gem 'rspec'
