@@ -5,15 +5,15 @@ require 'pg'
         describe '.all' do
           it 'returns all messages' do
             connection = PG.connect(dbname:'chitter_test')
-            connection.exec("INSERT INTO peep (peep) VALUES ('The zombies are coming');")
-            connection.exec("INSERT INTO peep (peep) VALUES('Bring food');")
-            connection.exec("INSERT INTO peep (peep) VALUES('And Alcohol');")
+            connection.exec("INSERT INTO chitter_test (peep) VALUES ('The zombies are coming');")
+            connection.exec("INSERT INTO chitter_test (peep) VALUES('Bring food');")
+            connection.exec("INSERT INTO chitter_test (peep) VALUES('And Alcohol');")
       
-            chitter = Chitter.all
+            chitters = Chitter.all
       
-            expect(peep).to include("The zombies are coming")
-            expect(peep).to include("Bring food")
-            expect(peep).to include("And Alcohol")
+            expect(chitter_test).to include("The zombies are coming")
+            expect(chitter_test).to include("Bring food")
+            expect(chitter_test).to include("And Alcohol")
           end
         end
     end

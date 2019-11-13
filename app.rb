@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'pg'
 
+
 class Chitter < Sinatra::Base
     enable :sessions
     
@@ -11,8 +12,8 @@ class Chitter < Sinatra::Base
   
     post "/peeps" do
     session[:peep] = params[:peep]
-   
-    # peep = params['peeps']
+    
+    #  peep = params['peeps']
     # connection = PG.connect(dbname: 'chitter_test')
     # connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
     
