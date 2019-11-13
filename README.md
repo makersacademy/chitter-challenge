@@ -1,3 +1,13 @@
+To Create DB's 
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+
+Create tables in DB's
+CREATE TABLE chitter(id SERIAL PRIMARY KEY, peep VARCHAR(60));
+CREATE TABLE chitter_test(id SERIAL PRIMARY KEY, peep VARCHAR(60));
+
+
+
 Chitter Challenge
 =================
 
