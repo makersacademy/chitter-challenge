@@ -6,23 +6,15 @@ class Validation
   end
 
   def self.check_user_exists(username)
-    result = DatabaseConnection.query("SELECT * FROM users")
-    result.map do |user| 
-      if user["username"] == username
-        return true
-      end
-    end
-    false
+    result = DatabaseConnection.query("SELECT * FROM users where username = '#{username}'")
+    return false if result.ntuples == 0
+    true
   end
 
   def self.check_log_in(username, password)
-    result = DatabaseConnection.query("SELECT * FROM users")
-    result.map do |user| 
-      if user["username"] == username && user["password"] == password
-        return user["username"]
-      end
-    end
-    false
+    result = DatabaseConnection.query("SELECT * FROM users where username = '#{username}' and password ='#{password}'")
+    return false if result.ntuples == 0
+    return username
   end
 
 end
