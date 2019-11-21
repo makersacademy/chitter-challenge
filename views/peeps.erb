@@ -2,7 +2,7 @@
   <img align ='right' height='50' width='50' style='margin:10px;margin-left: -60px' src='https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg'>
 </a>
 
-<h1> Chitter - Get your Daily Peeps </h1>
+<h1 style='color:blue;'> Chitter - Get your Daily Peeps </h1>
 
 <form action="/peeps/signout" method="post">
   <input type="submit" value="Sign out" />
@@ -28,9 +28,11 @@
 @peeps.each do |peep| %>
 
 <div style='border:4px outset blue;box-shadow: 0 0 0 0.5rem skyblue;margin:10px;padding:5px;width:400px'>
-  <%= peep[1] %>
+  <p style='color: blue'><em><%= peep[1] %></em></p>
   <br>
-  <%= peep[2] %>
+  Date: <strong><%= peep[2][0..10] %></strong>
+  <br>
+  Time: <strong><%= peep[2][11..-1] %></strong>
   <br>
   Posted by <strong><%= peep[0] %></strong>
   </div>
