@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pg'
 gem 'rake'
 gem 'sinatra'
 
@@ -12,5 +13,6 @@ group :test do
 end
 
 group :development do
+  gem 'launchy'
   gem 'shotgun'
 end
