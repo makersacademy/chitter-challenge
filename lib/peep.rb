@@ -6,6 +6,8 @@ class Peep
   attr_reader :username, :post
 
   def create(username, post)
+    raise "Username not recognised" if is_user?(username) == false
+    
     @username = username
     @post = post.to_s
     "Post created"
