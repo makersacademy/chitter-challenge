@@ -1,13 +1,13 @@
 require 'sinatra/base'
 
-class Peeps < Sinatra::Base
+class Chitter < Sinatra::Base
 
   get '/' do
-    'List of Peeps'
+    'Welcome to Chitter'
   end
 
   get '/peeps' do
-    @peeps = ["I am posting a message to Chitter"]
+    @peeps = Peep.all
 
     erb :'index'
   end

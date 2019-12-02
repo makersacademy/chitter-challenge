@@ -27,5 +27,5 @@ require 'capybara/rspec'
 require 'rspec'
 #require all the testing gems
 
-Capybara.app = Peeps
+Capybara.app = Chitter
 #Tell Capybara to talk to Peeps
