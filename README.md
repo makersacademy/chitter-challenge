@@ -53,6 +53,12 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+#My Approach
+I decided to approach the second user story first.
+Initially I created feature and unit tests to display peeps in reverse order.
+
+I decided to add the test for chronological order after connecting to the database.
+
 ##Stories Completed
 
 
