@@ -5,7 +5,7 @@ feature 'User can visit the home page and read peeps' do
     visit('/')
     expect(page).to have_content "Welcome to Chitter"
     within(:css, '#buttons') do
-      click_link 'Enter'
+      click_link 'Sign Up'
     end
   end
 
