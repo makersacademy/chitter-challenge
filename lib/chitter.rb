@@ -13,4 +13,15 @@ class Chitter
 result = connection.exec("SELECT * from chitters ORDER BY created_at ASC")
 result.map { |chitter| chitter['peep']}
 end
+
+def self.create(peep:)
+
+  if ENV['ENVIRONMENT'] == 'test'
+    connection = PG.connect(dbname: 'chitter_challenge_test')
+  else
+    connection = PG.connect(dbname: 'chitter_challenge')
+end
+
+connection.exec("INSERT INTO chitters (peep) VALUES ('#{peep}')")
+end
 end

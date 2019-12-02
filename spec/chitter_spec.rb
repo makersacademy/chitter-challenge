@@ -17,6 +17,17 @@ describe 'it returns all chitters' do
   end
 end
 
+describe 'it lets you add a peep to chitter' do
+  it 'should let you add a peep and add it to the database' do
+    connection = PG.connect(dbname: 'chitter_challenge_test')
+
+connection.exec("INSERT INTO chitters (peep) VALUES ('This is a new peep')")
+
+chitters = Chitter.all
+expect(chitters).to include "This is a new peep"
+  end
+end
+
 # describe 'it returns chitters in the correct order' do
 #   it 'should return chitters in reverse order' do
 #     chitters = Chitter.all
