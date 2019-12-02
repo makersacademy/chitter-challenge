@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/chitter'
 
 class ChitterChallenge < Sinatra::Base
 
@@ -7,6 +8,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/chitter' do
+    @chitters = Chitter.all
     erb :index
   end
 
