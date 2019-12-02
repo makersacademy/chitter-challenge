@@ -6,6 +6,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'setup_test_database'
+require 'features/post_messages'
 require 'simplecov'
 require 'simplecov-console'
 
