@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require './lib/peeps'
+
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -6,6 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/viewpeeps' do
+    @peeps = @peeps
   end
   run! if app_file == $0
 
