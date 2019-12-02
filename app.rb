@@ -12,6 +12,10 @@ class ChitterChallenge < Sinatra::Base
     erb :index
   end
 
+  get '/chitter/new' do
+    erb :new
+  end
+
 
   run if app_file == $0
 end
