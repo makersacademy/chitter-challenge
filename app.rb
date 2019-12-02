@@ -12,5 +12,9 @@ class Chitter < Sinatra::Base
     erb :'index'
   end
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
 run! if app_file == $0
 end
