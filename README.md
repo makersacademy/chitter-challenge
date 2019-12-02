@@ -5,6 +5,14 @@ Stories Completed:
 -------
 
 
+Database Migration:
+-------
+
+* The database setup can be located in `db/migrations` folder
+  * First ensure that PostgreSQL is installed: `brew install postgresql`
+  * Run `brew services start postgresql` to ensure that it runs on startup
+  * `CREATE DATABASE chitter;` from `psql` to create database
+  * Run the SQL queries documented in `db/migrations`
 
 
 The Challenge Overview:
