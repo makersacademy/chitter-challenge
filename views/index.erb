@@ -3,6 +3,9 @@
   <input type="submit" name="sumbit" value="Post Peep!">
 </form>
 
+<br>
+
 <% @peeps.each do |peep| %>
   <%= peep.body %>
+  <br><br>
 <% end %>
