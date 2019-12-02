@@ -11,6 +11,7 @@ feature 'Post new peep' do
     # user is redirected to /peeps
     within('.peeps') do
       expect(page).to have_content('I ate a plum!')
+      expect(find('.peep-created-at').text).to match(/\d{2} \w{3} \d{4} at \d{2}:\d{2}\w{2}/)
     end
   end
 end
