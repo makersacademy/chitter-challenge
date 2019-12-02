@@ -1,4 +1,13 @@
-Chitter Challenge
+Chitter Challenge - Samuel King 2nd Dec 2019
+=================
+
+Stories Completed:
+-------
+
+
+
+
+The Challenge Overview:
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
