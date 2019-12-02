@@ -7,7 +7,9 @@ class Peeps < Sinatra::Base
   end
 
   get '/peeps' do
-    peeps = ["I am posting a message to Chitter"]
+    @peeps = ["I am posting a message to Chitter"]
+
+    erb :'index'
   end
 
 run! if app_file == $0
