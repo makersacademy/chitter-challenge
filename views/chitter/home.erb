@@ -1,0 +1,27 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Oswald', sans-serif;
+      text-align: center;
+      padding-top: 200px;
+      border: 1px solid black;
+    }
+    .medium_hr {
+      padding-right: 150px;
+      padding-left: 150px;
+    }
+  </style>
+</head>
+<body>
+<% if @user_name %>
+  <h1>Welcome <%= @user_name %>!</h1>
+<% else %>
+  <h1>Welcome!</h1>
+<% end %>
+<h2 class="center">Please enter your peep below:</h2>
+<form action="/chitters" method="post">
+  <input type="text" name="peep">
+  <input type="submit" value="Submit">
+</form>
+</body>
