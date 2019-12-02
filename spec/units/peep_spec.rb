@@ -19,4 +19,20 @@ describe Peep do
       expect(peep.body).to eq('first peep')
     end
   end
+
+  describe '#all' do
+    it 'should return array of Peep instances that exist in database' do
+      peep = Peep.create(body: 'first peep')
+      Peep.create(body: 'second peep')
+      Peep.create(body: 'third peep')
+
+      peeps = Peep.all
+      db_first_peep = peeps.first
+
+      expect(db_first_peep).to be_instance_of(Peep)
+      expect(db_first_peep.id).to eq(peep.id)
+      expect(db_first_peep.body).to eq(peep.body)
+      expect(peeps.length).to eq(3)
+    end
+  end
 end
