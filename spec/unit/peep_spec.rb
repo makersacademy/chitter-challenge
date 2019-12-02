@@ -1,4 +1,4 @@
-# Unit tests for the classes in the model (lib)
+# Unit tests for the Peep class in the model (lib)
 
 require 'peep'
 require './spec/web_helpers'
@@ -29,7 +29,7 @@ describe Peep do
 
     end
 
-    it '- can store the peep in the database with time and date' do
+    it '- can store the peep in the database' do
       subject.create("test@test.com", "Test post")
       connection = PG.connect(dbname: 'chittertest')
       result = connection.exec("SELECT 1 FROM peeps WHERE post = 'Test post';")
@@ -43,7 +43,5 @@ describe Peep do
       end
       expect { subject.create("test@test.com", post) }.to raise_error "Too many characters"
     end
-
   end
-
 end

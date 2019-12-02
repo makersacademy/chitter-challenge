@@ -1,15 +1,16 @@
-require './db/database_connection.rb'
-require './db/access_database.rb'
+require './db/database_connection.rb' # Contains database connection methods
 require 'date' # Required to use the DateTime function
 
 DatabaseConnection.setup('chitter') # Connect to the chitter database
+
+PEEP_LENGTH = 140
 
 class Peep
   attr_reader :username, :post
 
   def create(username, post)
     raise "Username not recognised" if is_user?(username) == false
-    raise "Too many characters" if post.size > 140
+    raise "Too many characters" if post.size > PEEP_LENGTH
 
     # Get current date and time
     datenow = DateTime.now.strftime("%Y-%m-%d")

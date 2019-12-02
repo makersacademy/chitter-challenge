@@ -8,10 +8,11 @@ class DatabaseConnection
 
     # If rspec test is running, connect to test database
     # instead of live one:
-    db_name += "test" if ENV['RACK_ENV'] = 'test'
+    if ENV['RACK_ENV'] == 'test'
+      db_name += "test"
+    end
 
     @connection = PG.connect :dbname => db_name
-
   end
 
   # Takes an SQL query as an argument and runs it using the
