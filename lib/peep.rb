@@ -7,5 +7,6 @@ class Peep
     #   "This is message 3"
     #  ]
     connection = PG.connect(dbname: 'chitter')
+    connection.exec("SELECT * FROM peeps;")
   end
 end
