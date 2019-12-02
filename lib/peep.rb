@@ -1,3 +1,4 @@
+require 'pg'
 class Peep
   def self.all
     # [
@@ -5,5 +6,6 @@ class Peep
     #   "Here is message 2",
     #   "This is message 3"
     #  ]
+    connection = PG.connect(dbname: 'chitter')
   end
 end
