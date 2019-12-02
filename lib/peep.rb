@@ -7,6 +7,8 @@ class Peep
     #   "This is message 3"
     #  ]
     connection = PG.connect(dbname: 'chitter')
-    connection.exec("SELECT * FROM peeps;")
+    result = connection.exec("SELECT * FROM peeps;")
+    #result.map { |peep| peep['msg'] }
+    result.map { |peep| peep['msg'] }
   end
 end
