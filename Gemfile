@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'pg'
 gem 'rake'
 gem 'rubocop', '0.71.0'
-gem 'pg'
 
 group :test do
   gem 'capybara'
