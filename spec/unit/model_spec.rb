@@ -2,6 +2,7 @@
 
 require 'peep'
 require './spec/web_helpers'
+require 'pg'
 
 
 describe Peep do
@@ -27,11 +28,14 @@ describe Peep do
       expect{ subject.create("bob@test.com", "Test post") }.to raise_error "Username not recognised"
 
     end
-    #
-    # it 'can store the peep in the database with time and date' do
-    #
-    # end
-    #
+
+    it 'can store the peep in the database with time and date' do
+      subject.create("test@test.com", "Test post")
+      connection = PG.connect(dbname: 'chittertest')
+      result = connection.exec("SELECT 1 FROM peeps WHERE post = 'Test post';")
+      expect(result.map { |line| line }).not_to eq []
+    end
+
     # it 'rejects a peep which is too long' do
     #
     # end
