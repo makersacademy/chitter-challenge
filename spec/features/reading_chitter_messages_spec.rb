@@ -11,12 +11,3 @@ scenario 'go to the chitter page and read the chitter messages' do
   expect(page).to have_content "Test Chitter Message"
 end
 end
-
-feature 'it returns all chitters' do
-  scenario 'it should return all the chitter peeps' do
-    visit '/chitter'
-    expect(page).to include("Test Chitter Message")
-    expect(page).to include("Another test chitter")
-    expect(page).to include("yet another test chitter")
-  end
-end
