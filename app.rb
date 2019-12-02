@@ -1,10 +1,19 @@
 require 'sinatra/base'
+require 'pg'
 
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Hello World!'
+    erb :index
   end
+
+  # get '/register' do
+  #
+  # end
+  #
+  # get '/login' do
+  #
+  # end
 
   run! if app_file == $0
 end
