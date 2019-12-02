@@ -27,3 +27,12 @@ chitters = Chitter.all
 expect(chitters).to include "This is a new peep"
   end
 end
+
+describe 'it should return tweets in reverse order' do
+  it 'should have an array of tweets in reverse order' do
+    Chitter.create(peep: "First peep")
+    Chitter.create(peep: "Second peep")
+    chitters = Chitter.all
+    expect(chitters[0]).to eq "Second peep"
+  end
+end

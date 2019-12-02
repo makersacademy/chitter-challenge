@@ -20,11 +20,11 @@ scenario 'go to the chitter page and read the chitter messages' do
 end
 end
 
-feature 'peeps should be in the reverse order' do
-  scenario 'I want to read the latest peeps last' do
-    Chitter.create(peep: "First peep")
-    Chitter.create(peep: "Second peep")
-    visit '/chitter'
-expect(page).to start_with "Second peep"
-  end
-end
+# feature 'peeps should be in the reverse order' do
+#   scenario 'I want to read the latest peeps last' do
+#     Chitter.create(peep: "First peep")
+#     Chitter.create(peep: "Second peep")
+#     visit '/chitter'
+# expect(page).to start_with "Second peep"
+#   end
+# end
