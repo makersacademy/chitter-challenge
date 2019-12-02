@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/user'
 
 class Chitter < Sinatra::Base
   get '/test' do
@@ -21,6 +22,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/submit-user-details' do
-    
+    User.create(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    redirect('/signed-up')
+  end
+
+  get '/signed-up' do
+    @user = User.last
+    erb :confirm_signup
   end
 end
