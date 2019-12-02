@@ -10,8 +10,11 @@ class Chitter
         end
     # ["Test Chitter Message", "Another test chitter", "yet another test chitter"]
 
-result = connection.exec("SELECT * from chitters ORDER BY id DESC")
-result.map { |chitter| chitter['peep']}
+result = connection.exec("SELECT * FROM chitters ORDER BY id DESC")
+
+result.map { |chitter|
+  chitter['peep'] }
+
 end
 
 def self.create(peep:)
