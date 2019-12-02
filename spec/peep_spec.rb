@@ -30,7 +30,7 @@ describe Peep do
   end
 
   it "can create a new entry in the database" do
-    new_peep = Peep.create("Hello World!", "Marianne", "marianneoco", "09:00")
+    Peep.create("Hello World!", "Marianne", "marianneoco", "09:00")
     expect(Peep.all[0]).to be_instance_of(Peep)
   end
 
