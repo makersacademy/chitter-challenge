@@ -19,4 +19,8 @@ class Chitter < Sinatra::Base
   get '/signup' do
     erb :signup
   end
+
+  post '/submit-user-details' do
+    
+  end
 end
