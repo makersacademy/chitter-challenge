@@ -13,7 +13,7 @@ class Peep
   end
 
   def self.create(username, post)
-    raise "Username not recognised" if is_user?(username) == false
+    raise "Username not recognised" if user?(username) == false
     raise "Too many characters" if post.size > PEEP_LENGTH
 
     # Insert post into database
@@ -23,7 +23,7 @@ class Peep
     "Post created"
   end
 
-  def self.is_user?(username)
+  def self.user?(username)
     # Returns false if username is not in table
     result = DatabaseConnection.query(
       "SELECT 1 FROM users WHERE username = '#{username}';"
@@ -31,14 +31,8 @@ class Peep
     result.map { |line| line } != []
   end
 
-  private
-
   def self.datetimenow
     DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
   end
-
-  # def self.datenow
-  #   DateTime.now.strftime("%Y-%m-%d")
-  # end
 
 end

@@ -12,15 +12,16 @@ class Wall
   def self.return_all
     peeps_table = DatabaseConnection.query("SELECT * FROM peeps;")
 
-    peeps_table.map do |row|
+    posts = peeps_table.map do |row|
       Peep.new(row['id'], row['datetime'], row['username'], row['post'])
     end
+
+    sort(posts)
+
   end
 
-  private
-
   def self.sort(posts)
-
+    posts.sort_by { |peep| peep.content[:datetime] }.reverse
   end
 
 end
