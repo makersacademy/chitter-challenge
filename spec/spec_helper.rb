@@ -28,4 +28,4 @@ require 'rspec'
 #require all the testing gems
 
 Capybara.app = Chitter
-#Tell Capybara to talk to Peeps
+#Tell Capybara to talk to Chitter
