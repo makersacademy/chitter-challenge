@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/signup' do
-    erb :peepsdisplay
+    erb :signup
   end
 
   run! if app_file == $0
