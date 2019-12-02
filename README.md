@@ -54,10 +54,26 @@ I want to receive an email if I am tagged in a Peep
 ```
 
 #My Approach
-I decided to approach the second user story first.
+1)I decided to approach the second user story first.
 Initially I created feature and unit tests to display peeps in reverse order.
 
-I decided to add the test for chronological order after connecting to the database.
+2)Then I created the database in psql.
+
+3)Then I connected the app to database.
+
+##User instructions
+###Setting Up Database
+If you would like to contribute you can connect to the database by:
+
+Accessing psql in the terminal - psql
+Create a database - CREATE DATABASE chitter;
+Connect to the database -  \c chitter;
+Run the query in - db/migrations/01_create_peeps_table.sql
+by using rackup -p 9292
+View in browser by navigating to localhost:9292/peeps
+
+
+
 
 ##Stories Completed
 
