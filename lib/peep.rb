@@ -9,6 +9,7 @@ class Peep
 
   def create(username, post)
     raise "Username not recognised" if is_user?(username) == false
+    raise "Too many characters" if post.size > 140
 
     # Get current date and time
     datenow = DateTime.now.strftime("%Y-%m-%d")

@@ -23,22 +23,26 @@ describe Peep do
       expect(subject).to respond_to(:create).with(2).arguments
     end
 
-    it ' - checks the user is in the database' do
+    it '- checks the user is in the database' do
       expect(subject.create("test@test.com", "Test post")).to eq "Post created"
       expect{ subject.create("bob@test.com", "Test post") }.to raise_error "Username not recognised"
 
     end
 
-    it 'can store the peep in the database with time and date' do
+    it '- can store the peep in the database with time and date' do
       subject.create("test@test.com", "Test post")
       connection = PG.connect(dbname: 'chittertest')
       result = connection.exec("SELECT 1 FROM peeps WHERE post = 'Test post';")
       expect(result.map { |line| line }).not_to eq []
     end
 
-    # it 'rejects a peep which is too long' do
-    #
-    # end
+    it '- rejects a peep which is too long' do
+      post = ""
+      141.times do
+        post += "x"
+      end
+      expect { subject.create("test@test.com", post) }.to raise_error "Too many characters"
+    end
 
   end
 
