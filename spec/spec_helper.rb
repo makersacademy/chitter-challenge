@@ -1,5 +1,3 @@
-ENV['RACK_ENV'] = 'test'
-
 require_relative './setup_test_database'
 
 ENV['ENVIRONMENT'] = 'test'
@@ -9,6 +7,8 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
+
+ENV['RACK_ENV'] = 'test'
 
 require 'simplecov'
 require 'simplecov-console'
