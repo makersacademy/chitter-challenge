@@ -1,11 +1,12 @@
 require 'pg'
 
 class Peep
-  attr_reader :id, :body
+  attr_reader :id, :body, :time
 
-  def initialize(id:, body:)
+  def initialize(id:, body:, time:)
     @id = id
     @body = body
+    @time = time
   end
 
   def self.create(body:)
