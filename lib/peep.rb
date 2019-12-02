@@ -8,6 +8,7 @@ class Peep
   def create(username, post)
     @username = username
     @post = post.to_s
+    "Post created"
   end
 
   def is_user?(username)
