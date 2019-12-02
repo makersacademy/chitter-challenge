@@ -3,6 +3,6 @@ Date: <%=  peep.content[:datetime] %><br>
 Name: <%=  peep.content[:username] %><br>
 Post:<br><%=  peep.content[:post] %><br><br>
 <% end %>
-<form action="/create" method="POST">
+<form action="/create" method="GET">
   <input type="submit" value="Create Post">
 </form>
