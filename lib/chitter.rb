@@ -2,6 +2,14 @@ require 'pg'
 
 class Chitter
 
+  attr_reader :id, :peep, :time
+
+  def initialize(id:, peep:, time:)
+    @id = id
+    @peep = peep
+    @time = time
+end
+
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
           connection = PG.connect(dbname: 'chitter_challenge_test')
@@ -13,7 +21,7 @@ class Chitter
 result = connection.exec("SELECT * FROM chitters ORDER BY id DESC")
 
 result.map { |chitter|
-  chitter['peep'] }
+  Chitter.new(id: chitter['id'], peep: chitter['peep'], time: chitter['time']) }
 
 end
 
