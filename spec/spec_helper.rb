@@ -15,3 +15,17 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+ENV['ENVIRONMENT'] = 'test'
+#Set the environment to "test"
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+#Bring in the contents of the 'app.rb' file
+
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+#require all the testing gems
+
+Capybara.app = Peeps
+#Tell Capybara to talk to Peeps
