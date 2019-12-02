@@ -55,11 +55,17 @@ I want to receive an email if I am tagged in a Peep
 
 #My Approach
 1)I decided to approach the second user story first.
-Initially I created feature and unit tests to display peeps in reverse order.
+Initially I created feature and unit tests to display peeps in reverse order but realised reversing the order was uneccessary.
 
 2)Then I created the database in psql.
 
-3)Then I connected the app to database.
+3)Then I wanted to connect the app to database.
+
+4)I was going to create a new app route for a erb page that would render a form page to allow the user to input a message.
+
+5)I would redirect the post route for the form to a get method route to a new page
+
+6)I was going to revisit my database and add a timestamp column that would add the time the record was posted.
 
 ##User instructions
 ###Setting Up Database

@@ -1,5 +1,9 @@
 require 'pg'
 class Peep
+  attr_reader :peep
+  def initialize(peep)
+    @peep = peep
+  end
   def self.all
     # [
     #   "hello message 1",
