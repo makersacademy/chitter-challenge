@@ -14,5 +14,19 @@ feature 'Visit homepage' do
     fill_in('peep', with: 'Hello World!')
     click_button('Peep')
     expect(page).to have_content('Hello World!')
+    expect(page).to have_content("Marianne")
+    expect(page).to have_content("marianneoco")
   end
+
+  scenario 'User can see a new peep along with previous peeps' do
+    visit('/')
+    fill_in('peep', with: 'Hello World!')
+    click_button('Peep')
+    visit('/')
+    fill_in('peep', with: 'Second Hello World!')
+    click_button('Peep')
+    expect(page).to have_content('Hello World!')
+    expect(page).to have_content('Second Hello World!')
+  end
+
 end
