@@ -2,10 +2,11 @@ require 'peep'
 
 describe Peep do
   describe '#initialize' do
-    it 'stores id and body' do
-      peep = Peep.new(id: 1, body: "first peep")
+    it 'stores id, body, and time' do
+      peep = Peep.new(id: 1, body: "first peep", time: '2019-12-02 14:02:35')
       expect(peep.id).to eq(1)
       expect(peep.body).to eq("first peep")
+      expect(peep.time).to eq('2019-12-02 14:02:35')
     end
   end
 
