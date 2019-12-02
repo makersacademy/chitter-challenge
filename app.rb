@@ -6,12 +6,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    peeps = [
+    @peeps = [
       "hello message 1",
       "Here is message 2",
       "This is message 3"
     ]
-    peeps.reverse
+    erb :'peeps/index'
   end
 
   run! if app_file == $0
