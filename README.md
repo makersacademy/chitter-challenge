@@ -1,6 +1,22 @@
 
 Stories Completed :-)
+download required gem files
+-modify README
+-create app.rb
+-set up homepage test in features and passing code in app.rb
+-set up config.ru
+-modify spec_helper to set up project
 
+Database migrations:
+
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter;
+Connect to the database using the pqsl command \c chitter;
+Run the query we have saved in the file 01_create_peep_table.sql
+
+Create the database using the psql command CREATE DATABASE chitter_test;
+Connect to the database using the pqsl command \c chitter;
+Run the query we have saved in the file 01_create_peep_table.sql
 
 Chitter Challenge
 =================
