@@ -9,7 +9,7 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter_db')
     end
-    result = connection.exec("SELECT * FROM peeps;")
+    result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
     result.map {|peep| peep['peep']}
   end
 
@@ -20,7 +20,7 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter_db')
     end
-      connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
+      connection.exec("INSERT INTO peeps (peep, posted_at) VALUES('#{peep}','#{Time.now}')")
   # connection.exec("INSERT INTO peeps (time) VALUES('#{Time.now}')")
   end
 end
