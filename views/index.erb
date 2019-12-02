@@ -1,19 +1,37 @@
 Welcome to Chitter!
 <br>
 <br>
-
-<form action = '/sign-up' method = 'post'>
-  <input type = 'submit' value = 'Sign up!'>
-</form>
-
-<br>
-<br>
-
 <form action = '/peeps' method = 'post'>
   <input type = 'text' name = 'peep'>
   <input type = 'submit' value = 'Peep'>
 </form>
-
+<br>
+<br>
+If you already have an account, sign in with your email and password.
+<br>
+<br>
+<form action = '/sign-in' method = 'post'>
+  <label for = 'email'>Enter your email:</label>
+  <input type = 'text' name = 'email'>
+  <br>
+  <br>
+  <label for = 'password'>Enter your password:</label>
+  <input type = 'text' name = 'password'>
+  <br>
+  <br>
+  <input type = 'submit' value = 'Sign in!'>
+</form>
+Otherwise, sign up here!
+<br>
+<br>
+<form action = '/sign-up' method = 'post'>
+  <input type = 'submit' value = 'Sign up!'>
+</form>
+<br>
+<br>
+<!-- if User.signed_in? == true, show tweet button. Else show sign in/sign up button -->
+<br>
+<br>
 <% @peeps.reverse.each do |peep| %>
   <%= peep.content %>
   <br>

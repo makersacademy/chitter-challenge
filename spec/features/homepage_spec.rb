@@ -10,11 +10,6 @@ feature 'Visit homepage' do
     expect(page).to have_selector(:link_or_button, 'Peep')
   end
 
-  scenario 'User can see a sign-up button' do
-    visit('/')
-    expect(page).to have_selector(:link_or_button, 'Sign up!')
-  end
-
   scenario 'User can fill in form with a new peep and the new peep is shown' do
     visit('/')
     fill_in('peep', with: 'Hello World!')
@@ -33,6 +28,18 @@ feature 'Visit homepage' do
     click_button('Peep')
     expect(page).to have_content('Hello World!')
     expect(page).to have_content('Second Hello World!')
+  end
+
+  scenario 'User can see a sign-up button' do
+    visit('/')
+    expect(page).to have_selector(:link_or_button, 'Sign up!')
+  end
+
+  scenario 'User can see a sign-in button' do
+    visit('/')
+    expect(page).to have_selector(:link_or_button, 'Sign in!')
+    expect(page).to have_field('email')
+    expect(page).to have_field('password')
   end
 
 end
