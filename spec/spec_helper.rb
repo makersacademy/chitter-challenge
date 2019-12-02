@@ -8,6 +8,30 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+# Require database setup helper
+require 'setup_test_db'
+
+# Require app.rb
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+# Require testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+# Specify the Capybara app
+Capybara.app = Chitter
+
+# Set environment variable
+ENV['RACK_ENV'] = 'test'
+
+# Run #setup_db method before each
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_db
+  end
+end
+
 RSpec.configure do |config|
   config.after(:suite) do
     puts
