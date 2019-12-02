@@ -27,7 +27,7 @@ describe Peep do
       Peep.create(body: 'third peep')
 
       peeps = Peep.all
-      db_first_peep = peeps.first
+      db_first_peep = peeps.last
 
       expect(db_first_peep).to be_instance_of(Peep)
       expect(db_first_peep.id).to eq(peep.id)
