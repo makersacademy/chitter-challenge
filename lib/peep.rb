@@ -26,6 +26,6 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
     peeps = connection.query("SELECT * FROM peeps")
-    peeps.map { |peep| Peep.new(id: peep['id'], body: peep['body'])}.reverse
+    peeps.map { |peep| Peep.new(id: peep['id'], body: peep['body'], time: peep['time'])}.reverse
   end
 end
