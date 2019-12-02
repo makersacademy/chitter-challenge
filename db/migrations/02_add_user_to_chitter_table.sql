@@ -1,0 +1,1 @@
+ALTER TABLE chitter ADD COLUMN user_name VARCHAR(60);
