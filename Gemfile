@@ -14,3 +14,8 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
+
+group :development do
+  gem 'launchy'
+  gem 'shotgun'
+end
