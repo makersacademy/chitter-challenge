@@ -1,7 +1,13 @@
 require './db/database_connection.rb' # Contains database connection methods
-require './lib/peep'
+require './lib/peep.rb'
 
-DatabaseConnection.setup('chitter') # Connect to the chitter database
+# If rspec test is running, connect to test database
+# instead of live one:
+if ENV['RACK_ENV'] == 'test'
+  DatabaseConnection.setup('chittertest')
+else
+  DatabaseConnection.setup('chitter')
+end
 
 class Wall
 
@@ -17,7 +23,6 @@ class Wall
     end
 
     sort(posts)
-
   end
 
   def self.sort(posts)

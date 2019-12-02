@@ -5,13 +5,6 @@ class DatabaseConnection
   # Takes the database to be connected to as an argument and sets
   # up the connection using PG:
   def self.setup(db_name)
-
-    # If rspec test is running, connect to test database
-    # instead of live one:
-    if ENV['RACK_ENV'] == 'test'
-      db_name += "test" # db_name == "chittertest" now, instead of "chitter"
-    end
-
     @connection = PG.connect :dbname => db_name
   end
 

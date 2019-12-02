@@ -1,9 +1,15 @@
 require './db/database_connection.rb' # Contains database connection methods
 require 'date' # Required to use the DateTime function
 
-DatabaseConnection.setup('chitter') # Connect to the chitter database
-
 PEEP_LENGTH = 140
+
+# If rspec test is running, connect to test database
+# instead of live one:
+if ENV['RACK_ENV'] == 'test'
+  DatabaseConnection.setup('chittertest')
+else
+  DatabaseConnection.setup('chitter')
+end
 
 class Peep
   attr_reader :content

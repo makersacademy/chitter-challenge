@@ -1,3 +1,8 @@
-Page HTML goes here
-To insert ruby variables use <%= @ruby_code %>
-To insert ruby code use <% ruby_code = true %>
+<% @posts.each do |peep| %>
+Date: <%=  peep.content[:datetime] %><br>
+Name: <%=  peep.content[:username] %><br>
+Post:<br><%=  peep.content[:post] %><br><br>
+<% end %>
+<form action="/create" method="POST">
+  <input type="submit" value="Create Post">
+</form>

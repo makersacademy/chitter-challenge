@@ -1,5 +1,11 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require './spec/web_helpers'
+
+ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -12,7 +18,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
 
-  ENV['RACK_ENV'] = 'test'
+  Capybara.app = Chitter
 
   config.after(:suite) do
 
