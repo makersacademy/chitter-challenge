@@ -5,4 +5,15 @@ Welcome to Chitter!
   <input type = 'submit' value = 'Peep'>
 </form>
 
-<%= @peep %>
+<% @peeps.reverse.each do |peep| %>
+  <%= peep.content %>
+  <br>
+  <%= peep.author_name %>
+  <br>
+  <%= peep.author_handle %>
+  <br>
+  <%= peep.time %>
+  <br>
+  <br>
+  <br>
+<% end %>
