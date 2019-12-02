@@ -1,0 +1,16 @@
+<style>
+body {
+  background-color: grey;
+}
+</style>
+
+<h1 style = "color: purple;">
+  Chitter</h1>
+
+<h2 style = "color: black;">
+  <%= @peeps %>
+
+<form action="/chitter" method="post">
+  <input type="text" name="peep" placeholder="----- Write peep here -----" />
+  <input type="submit" value="Post Peep" />
+</form>

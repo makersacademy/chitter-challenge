@@ -1,5 +1,13 @@
 Stories completed
 
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+Migrations
+
+1. CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(100));
+  Table for only the message and the identifier created
 
 Chitter Challenge
 =================
