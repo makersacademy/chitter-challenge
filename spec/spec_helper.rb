@@ -16,9 +16,6 @@ RSpec.configure do |config|
 
   config.after(:suite) do
 
-    # ENV['RACK_ENV'] = nil
-    # puts "\nRACK_ENV set to nil"
-
   end
 
 end

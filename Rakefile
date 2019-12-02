@@ -17,7 +17,7 @@ task :setup do
   # columns:
   connection = PG.connect :dbname => 'chitter';
   connection.exec(
-    'CREATE TABLE peeps (id SERIAL PRIMARY KEY, date DATE, time TIME, username VARCHAR(20), post VARCHAR(140));'
+    'CREATE TABLE peeps (id SERIAL PRIMARY KEY, datetime TIMESTAMP, username VARCHAR(20), post VARCHAR(140));'
   )
   connection.exec(
     'CREATE TABLE users (id SERIAL PRIMARY KEY, datetime TIMESTAMP, first_name VARCHAR(20), last_name VARCHAR(20), username VARCHAR(20), password VARCHAR(60));'
@@ -30,7 +30,7 @@ task :setup do
   # columns:
   connection = PG.connect :dbname => 'chittertest';
   connection.exec(
-    'CREATE TABLE peeps (id SERIAL PRIMARY KEY, date DATE, time TIME, username VARCHAR(20), post VARCHAR(140));'
+    'CREATE TABLE peeps (id SERIAL PRIMARY KEY, datetime TIMESTAMP, username VARCHAR(20), post VARCHAR(140));'
   )
   connection.exec(
     'CREATE TABLE users (id SERIAL PRIMARY KEY, datetime TIMESTAMP, first_name VARCHAR(20), last_name VARCHAR(20), username VARCHAR(20), password VARCHAR(60));'

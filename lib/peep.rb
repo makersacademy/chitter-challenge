@@ -6,31 +6,39 @@ DatabaseConnection.setup('chitter') # Connect to the chitter database
 PEEP_LENGTH = 140
 
 class Peep
-  attr_reader :username, :post
+  attr_reader :content
 
-  def create(username, post)
+  def initialize(id, datetime, username, post)
+    @content = { id: id, datetime: datetime, username: username, post: post }
+  end
+
+  def self.create(username, post)
     raise "Username not recognised" if is_user?(username) == false
     raise "Too many characters" if post.size > PEEP_LENGTH
 
-    # Get current date and time
-    datenow = DateTime.now.strftime("%Y-%m-%d")
-    timenow = DateTime.now.strftime("%H:%M:%S")
+    # Insert post into database
     DatabaseConnection.query(
-      "INSERT INTO peeps (date, time, username, post) VALUES ('#{datenow}', '#{timenow}', '#{username}', '#{post}');"
+      "INSERT INTO peeps (datetime, username, post) VALUES ('#{datetimenow}', '#{username}', '#{post}');"
     )
-
-    @username = username
-    @post = post.to_s
     "Post created"
   end
 
-  def is_user?(username)
-
+  def self.is_user?(username)
     # Returns false if username is not in table
     result = DatabaseConnection.query(
       "SELECT 1 FROM users WHERE username = '#{username}';"
     )
     result.map { |line| line } != []
   end
+
+  private
+
+  def self.datetimenow
+    DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+  end
+
+  # def self.datenow
+  #   DateTime.now.strftime("%Y-%m-%d")
+  # end
 
 end

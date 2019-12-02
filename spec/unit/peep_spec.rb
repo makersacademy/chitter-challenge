@@ -13,24 +13,24 @@ describe Peep do
 
   context 'Check_user' do
     it '- checks the user is in the database' do
-      expect(subject.is_user?("test@test.com")).to eq true
-      expect(subject.is_user?("bob@test.com")).to eq false
+      expect(Peep.is_user?("test@test.com")).to eq true
+      expect(Peep.is_user?("bob@test.com")).to eq false
     end
   end
 
   context 'User creates a peep' do
     it '- method responds to correct # of arguments' do
-      expect(subject).to respond_to(:create).with(2).arguments
+      expect(Peep).to respond_to(:create).with(2).arguments
     end
 
     it '- checks the user is in the database' do
-      expect(subject.create("test@test.com", "Test post")).to eq "Post created"
-      expect{ subject.create("bob@test.com", "Test post") }.to raise_error "Username not recognised"
+      expect(Peep.create("test@test.com", "Test post")).to eq "Post created"
+      expect{ Peep.create("bob@test.com", "Test post") }.to raise_error "Username not recognised"
 
     end
 
     it '- can store the peep in the database' do
-      subject.create("test@test.com", "Test post")
+      Peep.create("test@test.com", "Test post")
       connection = PG.connect(dbname: 'chittertest')
       result = connection.exec("SELECT 1 FROM peeps WHERE post = 'Test post';")
       expect(result.map { |line| line }).not_to eq []
@@ -41,7 +41,7 @@ describe Peep do
       141.times do
         post += "x"
       end
-      expect { subject.create("test@test.com", post) }.to raise_error "Too many characters"
+      expect { Peep.create("test@test.com", post) }.to raise_error "Too many characters"
     end
   end
 end
