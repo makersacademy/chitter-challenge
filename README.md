@@ -4,6 +4,11 @@ Chitter Challenge - Samuel King 2nd Dec 2019
 Stories Completed:
 -------
 
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
 
 Database Migration:
 -------
