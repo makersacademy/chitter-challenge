@@ -1,9 +1,24 @@
 Stories completed
 =================
 
+1. To setup database:
+-----------------
+Connect to `psql` and create the `chitter` database:
+```
+CREATE DATABASE chitter;
+```
+2. To setup the tables:
+-----------------
+connect to the database in 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
 
-
-
+3. To run the Chitter app:
+-----------------
+```
+rackup -p 9292
+```
+4. To view bookmarks
+-----------------
+Navigate to: 'localhost:3000/'.
 
 
 
