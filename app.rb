@@ -1,5 +1,6 @@
 require 'sinatra/base'
-require './lib/peep'
+require 'pg'
+require_relative 'lib/peep'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -9,6 +10,7 @@ class Chitter < Sinatra::Base
     #   "Minions will takeover the world."
     # ]
     # @peeps.join
+    p ENV
     @peeps = Peep.all
     erb :index
   end

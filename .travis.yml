@@ -2,6 +2,7 @@ services:
   - postgresql
 
 before_script:
+  - bundle exec rake setup
   - psql -c 'create database chitter_test;' -U postgres
 
 script:

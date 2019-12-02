@@ -9,7 +9,26 @@ CREATE DATABASE chitter;
 ```
 2. To setup the tables:
 -----------------
-connect to the database in 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
+Connect to the database in 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
+
+3. To run the Chitter app:
+-----------------
+```
+rackup -p 9292
+```
+4. To view bookmarks
+-----------------
+Navigate to: 'localhost:3000/'.
+
+1. To setup the test database:
+-----------------
+Connect to `psql` and create the `chitter_test` database:
+```
+CREATE DATABASE chitter_test;
+```
+2. To setup the tables:
+-----------------
+Connect to the database in 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
 
 3. To run the Chitter app:
 -----------------

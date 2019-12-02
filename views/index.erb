@@ -1,7 +1,8 @@
 <h1>Chitter</h1>
 
 <ul style="list-style-type:none">
+  <h2>Peeps</h2>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li>@<%= peep.user_handle %>: <%= peep.post %></li>
   <% end %>
 </ul>
