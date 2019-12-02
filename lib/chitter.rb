@@ -20,9 +20,10 @@ end
 
 result = connection.exec("SELECT * FROM chitters ORDER BY id DESC")
 
-result.map { |chitter|
-  Chitter.new(id: chitter['id'], peep: chitter['peep'], time: chitter['time']) }
+result.map do |chitter|
+  Chitter.new(id: chitter['id'], peep: chitter['peep'], time: chitter['time'])
 
+end
 end
 
 def self.create(peep:)

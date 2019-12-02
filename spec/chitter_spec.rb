@@ -11,9 +11,9 @@ describe 'it returns all chitters' do
 
 
     chitters = Chitter.all
-    expect(chitters).to include("Test Chitter Message")
-    expect(chitters).to include("Another test chitter")
-    expect(chitters).to include("yet another test chitter")
+    expect(chitters.length).to eq 3
+    expect(chitters.first).to be_a Chitter
+    expect(chitters.first.peep).to eq "yet another test chitter"
   end
 end
 
@@ -24,7 +24,7 @@ describe 'it lets you add a peep to chitter' do
 connection.exec("INSERT INTO chitters (peep) VALUES ('This is a new peep')")
 
 chitters = Chitter.all
-expect(chitters).to include "This is a new peep"
+expect(chitters.first.peep).to eq "This is a new peep"
   end
 end
 
@@ -33,6 +33,6 @@ describe 'it should return tweets in reverse order' do
     Chitter.create(peep: "First peep")
     Chitter.create(peep: "Second peep")
     chitters = Chitter.all
-    expect(chitters[0]).to eq "Second peep"
+    expect(chitters[0].peep).to eq "Second peep"
   end
 end
