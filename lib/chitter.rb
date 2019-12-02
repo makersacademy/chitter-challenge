@@ -3,9 +3,14 @@ require 'pg'
 class Chitter
 
   def self.all
+    if ENV['ENVIRONMENT'] == 'test'
+          connection = PG.connect(dbname: 'chitter_challenge_test')
+        else
+          connection = PG.connect(dbname: 'chitter_challenge')
+        end
     # ["Test Chitter Message", "Another test chitter", "yet another test chitter"]
-connection = PG.connect(dbname: 'chitter_challenge')
-result = connection.exec("SELECT * from chitters ORDER BY peep DESC")
+
+result = connection.exec("SELECT * from chitters ORDER BY created_at ASC")
 result.map { |chitter| chitter['peep']}
 end
 end

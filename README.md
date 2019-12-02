@@ -1,3 +1,7 @@
+Setting up the database:
+
+
+
 User Stories Completed:
 
 
