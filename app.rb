@@ -8,6 +8,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/chitter' do
+    @user = User.find(session[:user_id])
     @chitters = Chitter.all
     erb :index
   end
@@ -18,6 +19,16 @@ class ChitterChallenge < Sinatra::Base
 
   post '/chitter' do
   Chitter.create(peep: params['peep'])
+  redirect '/chitter'
+end
+
+get '/users/new' do
+  erb :'users/new'
+end
+
+post '/users' do
+  User.create(email: params[:email], password: params[:password], username: params[:username], name: params[:name])
+  session[:user_id]= user.id
   redirect '/chitter'
 end
 
