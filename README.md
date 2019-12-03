@@ -66,7 +66,7 @@ list of peeps. Each peep is wrapped in a Peep class instance, and then the .sort
 is then invoked which sorts the posts in reverse alphabetical order using their
 timestamps. Wrapping the peeps in a Peep class allows the content to be called
 via an attribute reader, and also includes methods for displaying the date and time
-in more human-readable formats using the .date and .time methods (see below).
+in more human-readable formats using the .return_date and .return_time methods (see below).
 
 Posting peeps is handled by the Peep class:
 ```ruby
