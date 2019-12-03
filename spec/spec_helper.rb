@@ -20,6 +20,10 @@ RSpec.configure do |config|
 
   Capybara.app = Chitter
 
+  config.before(:each) do
+    setup_tables
+  end
+
   config.after(:suite) do
 
   end
