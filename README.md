@@ -26,8 +26,18 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-Can sign up but can't sign in.
-Sign up does prevent duplicate sign ups. 
+- Can sign up but can't sign in.
+- Sign up does prevent duplicate sign ups.
+
+- Currently, when the home page is initially loaded, previous tweets aren't visible.?
+
+- I don't have a test for checking that the peeps post in reverse order.
+
+- post '/sign-up-check' isn't skinny. Could try using session variables. Tried using a table with hidden fields but couldn't get it to work...
+
+To use:
+- Clone, bundle, create database Chitter and Chitter_test.
+- Use info in db/migrations/01_create_tables.sql to set up 'peeps' and 'users' tables.
 
 -------
 

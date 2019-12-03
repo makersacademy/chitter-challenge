@@ -1,6 +1,20 @@
 Welcome to Chitter!
 <br>
 <br>
+<% @peeps.reverse.each do |peep| %>
+  <%= peep.content %>
+  <br>
+  <%= peep.author_name %>
+  <br>
+  <%= peep.author_handle %>
+  <br>
+  <%= peep.time %>
+  <br>
+  <br>
+  <br>
+<% end %>
+<br>
+<br>
 <form action = '/peeps' method = 'post'>
   <input type = 'text' name = 'peep'>
   <input type = 'submit' value = 'Peep'>
@@ -30,17 +44,3 @@ Otherwise, sign up here!
 <br>
 <br>
 <!-- if User.signed_in? == true, show tweet button. Else show sign in/sign up button -->
-<br>
-<br>
-<% @peeps.reverse.each do |peep| %>
-  <%= peep.content %>
-  <br>
-  <%= peep.author_name %>
-  <br>
-  <%= peep.author_handle %>
-  <br>
-  <%= peep.time %>
-  <br>
-  <br>
-  <br>
-<% end %>

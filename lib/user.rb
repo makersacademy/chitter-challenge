@@ -13,7 +13,7 @@ class User
   end
 
   def self.create(author_name, author_handle, email, password)
-    if ENV['RACK_ENV'] = 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect( dbname: 'Chitter_test' )
     else
       connection = PG.connect( dbname: 'Chitter' )
@@ -26,7 +26,7 @@ class User
   end
 
   def self.all_handles
-    if ENV['RACK_ENV'] = 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect( dbname: 'Chitter_test' )
     else
       connection = PG.connect( dbname: 'Chitter' )
@@ -36,7 +36,7 @@ class User
   end
 
   def self.all_emails
-    if ENV['RACK_ENV'] = 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect( dbname: 'Chitter_test' )
     else
       connection = PG.connect( dbname: 'Chitter' )
@@ -46,7 +46,7 @@ class User
   end
 
   def self.all
-   if ENV['RACK_ENV'] = 'test'
+   if ENV['RACK_ENV'] == 'test'
      connection = PG.connect( dbname: 'Chitter_test' )
    else
      connection = PG.connect( dbname: 'Chitter' )
@@ -54,5 +54,5 @@ class User
    result = connection.exec "SELECT * FROM users"
    result.map { |user| User.new(user['id'], user['author_name'], user['author_handle'], user['email'], user['password']) }
  end
- 
+
 end

@@ -13,7 +13,7 @@ class Peep
   end
 
   def self.create(content, author_name = "Marianne", author_handle = "marianneoco", time = Time.now)
-    if ENV['RACK_ENV'] = 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect( dbname: 'Chitter_test' )
     else
       connection = PG.connect( dbname: 'Chitter' )
@@ -25,7 +25,7 @@ class Peep
   end
 
   def self.all
-    if ENV['RACK_ENV'] = 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect( dbname: 'Chitter_test' )
     else
       connection = PG.connect( dbname: 'Chitter' )
