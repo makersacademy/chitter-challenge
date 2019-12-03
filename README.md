@@ -53,6 +53,37 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+#My Approach
+1)I decided to approach the second user story first.
+Initially I created feature and unit tests to display peeps in reverse order but realised reversing the order was uneccessary.
+
+2)Then I created the database in psql.
+
+3)Then I connected the app to database.
+
+5)I was going to create a new app route for a erb page that would render a form page to allow the user to input a message.
+
+6)I would redirect the post route for the form to a get method route to a new page
+
+7)I was going to revisit my database and add a timestamp column that would add the time the record was posted.
+
+##User instructions
+###Setting Up Database
+If you would like to contribute you can connect to the database by:
+
+Accessing psql in the terminal - psql
+Create a database - CREATE DATABASE chitter;
+Connect to the database -  \c chitter;
+Run the query in - db/migrations/01_create_peeps_table.sql
+by using rackup -p 9292
+View in browser by navigating to localhost:9292/peeps
+
+
+
+
+##Stories Completed
+
+
 Technical Approach:
 -----
 
