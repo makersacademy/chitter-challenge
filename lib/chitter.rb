@@ -1,21 +1,22 @@
-# require 'pg'
-class Chitter
-  # def self.all
-  #   if ENV['RACK_ENV'] == 'test'
-  #     connection = PG.connect(dbname: 'bookmark_manager_test')
-  #   else
-  #     connection = PG.connect(dbname: 'bookmark_manager')
-  #   end
-  #   result = connection.exec('SELECT * FROM bookmarks')
-  #   result.map { |bookmark| bookmark['url'] }
-  # end
+require 'pg'
 
-  # def self.create(url:)
-  #   # if ENV['RACK_ENV'] == 'test'
-  #   #   connection = PG.connect(dbname: 'bookmark_manager_test')
-  #   # else
-  #   #   connection = PG.connect(dbname: 'bookmark_manager')
-  #   # end
-  #   # connection.exec("INSERT INTO bookmarks (url) VALUES('#{url}')")
-  # end
+class Chitter
+  def self.all
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    result = connection.exec('SELECT * FROM peeps')
+    result.map { |peep| peep['peep'] }
+  end
+
+  def self.create(peep:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
+  end
 end
