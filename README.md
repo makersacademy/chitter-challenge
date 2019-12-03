@@ -3,6 +3,7 @@ Chitter challenge is a twitter clone which allows users to view posts (called
 'peeps') in reverse alphabetical order, as well as being able to add a new post
 via the text input field at the top. The application functions on a single page,
 with the peeps wall automatically updating when a new peep is added.
+
 ![Screenshot of Chitter](https://github.com/djlonboy/chitter-challenge/blob/master/docs/chitter_screenshot.png)
 
 ### Stories Completed
