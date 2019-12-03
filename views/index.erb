@@ -1,0 +1,10 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+<% end %>
+
+<ul>
+<% @chitters.each do |parp|%>
+<li>  Peep: <%= parp.peep %>  --  Posted at <%= Time.parse(parp.time).strftime("%Y-%m-%d %H:%M") %></li>
+<% end %>
+
+</ul>
