@@ -1,6 +1,47 @@
 Chitter Challenge
 =================
 
+## Stories completed
+```
+As a Maker
+So that I can let people know what I am doing
+I want to post a message (peep) to chitter
+```
+
+## Prerequisites
+
+- Ruby 2.6.5
+- Postgres 12
+
+## Get started
+
+1. Clone this repository
+1. Install gem bundle
+    ```bash
+    $ bundle install
+    ```
+1. Create databases for local development and testing
+    ```bash
+    $ createdb chitter
+    $ createdb chitter_test
+    ```
+1. Run migrations
+    ```bash
+    $ psql -d chitter -f db/migrations/01_create_peeps_table.sql
+    $ psql -d chitter_test -f db/migrations/01_create_peeps_table.sql
+    ```
+1. Run the tests
+    ```bash
+    $ rspec
+    ```
+1. Start the web server
+    ```bash
+    $ shotgun
+    ```
+1. Open the web app in your browser at http://localhost:9393
+
+---
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
