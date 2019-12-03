@@ -8,6 +8,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+require_relative './setup_test_database'
+
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
