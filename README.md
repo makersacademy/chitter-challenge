@@ -173,9 +173,22 @@ Wall
 Finished in 0.28545 seconds (files took 0.54104 seconds to load)
 10 examples, 0 failures
 ```
-Rubocop is currently returning some
-issues, these are mainly to do with long lines required for the SQL commands. I
-have not been able to find a way to split these lines up.
+Tests use a different database (chittertest) which is setup on first install using
+```$ rake setup``` and then populated before each test using code in the web-helpers
+file in the spec folder. The database to connect to is selected using this code in the model
+files:
+```ruby
+if ENV['RACK_ENV'] == 'test'
+  DatabaseConnection.setup('chittertest')
+else
+  DatabaseConnection.setup('chitter')
+end
+```
+The RSPEC spec_helper file sets the environment variable RACK_ENV to 'test', which triggers the
+chittertest database to be used.
+
+Rubocop is currently returning some issues, these are mainly to do with long lines 
+required for the SQL commands. I have not been able to find a way to split these lines up.
 
 To run tests, from within the project folder, first ensure that you have run
 ```$ bundle```, then run ```$ rspec``` from within the project folder. To run
