@@ -7,6 +7,40 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
+Stories Completed
+=================
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+- Can sign up but can't sign in.
+- Sign up does prevent duplicate sign ups.
+
+- Currently, when the home page is initially loaded, previous tweets aren't visible.?
+
+- I don't have a test for checking that the peeps post in reverse order.
+
+- post '/sign-up-check' isn't skinny. Could try using session variables. Tried using a table with hidden fields but couldn't get it to work...
+
+To use:
+- Clone, bundle, create database Chitter and Chitter_test.
+- Use info in db/migrations/01_create_tables.sql to set up 'peeps' and 'users' tables.
+
+-------
+
 Challenge:
 -------
 
