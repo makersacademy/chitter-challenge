@@ -133,3 +133,12 @@ SimpleCov.start
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
 
 Completed Stories:-
+1:- First User stories.
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter (Still pending to be completed.)
+     1 > Created first feature test to check the basic function.
+     2 > Created second freature test to check whether web server displays 
+     messages and also created new link where user can post peep messages.
+     NEXT STEP > Need to get the 'New link' working where user can post peep 
+     messages.
