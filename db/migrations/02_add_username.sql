@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD name VARCHAR(20);

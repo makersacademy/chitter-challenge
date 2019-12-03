@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
 
   post "/" do
     p 'testing... testing'
-    @peep = Peep.create(peep: params['peep'])
+    @peep = Peep.create(peep: params['peep'], name: params['name'])
     # erb(:homepage)
     redirect "/"
   end
