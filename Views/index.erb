@@ -1,0 +1,24 @@
+<style>
+body {
+  background-color: grey;
+}
+</style>
+
+<h1 style = "color: purple;">
+  Chitter</h1>
+
+  <form action="/chitter" method="post">
+    <input type="text" name="peep" placeholder="------ Write peep here ------" />
+    <input type="submit" value="Post Peep" />
+  </form>
+
+<h4 style = "color: black;">
+  <ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <!-- peep is the placeholder, then iteration and then the object for the column -->
+        <%= peep.peep[:peep] %>
+        <%= peep.peep[:posted_at] %>
+    </li>
+  <% end %>
+</ul>

@@ -1,3 +1,20 @@
+Stories completed
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+
+Migrations
+
+1. CREATE TABLE using file 01_create_peeps_table.sql
+2. CREATE NEW TIME COLUMN using file 02_add_timestamp_to_peeps.sql
+
+
 Chitter Challenge
 =================
 
