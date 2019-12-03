@@ -16,5 +16,17 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
+  get '/peeps/new' do
+    erb :"peeps/new"
+  end
+
+  post '/peeps' do
+    msg = params['msg']
+  connection = PG.connect(dbname: 'chitter_test')
+  connection.exec("INSERT INTO peeps (msg) VALUES('#{msg}')")
+  redirect '/peeps'
+  end
+
+
   run! if app_file == $0
 end
