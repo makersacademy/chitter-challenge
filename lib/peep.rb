@@ -41,4 +41,12 @@ class Peep
     DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
   end
 
+  def return_date
+    Date.parse(content[:datetime]).strftime("%A %d %B %Y")
+  end
+
+  def return_time
+    DateTime.parse(content[:datetime]).strftime("%H:%M")
+  end
+
 end

@@ -43,4 +43,19 @@ describe Peep do
       expect { Peep.create("test@test.com", post) }.to raise_error "Too many characters"
     end
   end
+
+  it '- return date returns the full date of the post' do
+    retrive_peep = DatabaseConnection.query("SELECT * FROM peeps WHERE id = 1;")
+    expect(retrive_peep.map {
+      |row| Peep.new(row['id'], row['datetime'], row['username'], row['post'])
+    }[0].return_date).to eq "Monday 02 December 2019"
+  end
+
+  it '- return_time returns the time of the post without seconds' do
+    retrive_peep = DatabaseConnection.query("SELECT * FROM peeps WHERE id = 1;")
+    expect(retrive_peep.map {
+      |row| Peep.new(row['id'], row['datetime'], row['username'], row['post'])
+    }[0].return_time).to eq "10:00"
+  end
+
 end

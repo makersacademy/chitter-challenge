@@ -19,6 +19,11 @@ class Chitter < Sinatra::Base
     erb :create
   end
 
+  post '/save_post' do
+    Peep.create('test@test.com', params[:post])
+    redirect('/')
+  end
+
   run! if app_file == $0
 
 end
