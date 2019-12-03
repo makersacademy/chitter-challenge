@@ -1,8 +1,6 @@
 <ul>
 <% @chitters.each do |parp|%>
-<li>  <%= parp.peep %> at <%= parp.time %></li>
+<li>  Peep: <%= parp.peep %>  --  Posted at <%= Time.parse(parp.time).strftime("%Y-%m-%d %H:%M") %></li>
 <% end %>
 
 </ul>
-
-   
