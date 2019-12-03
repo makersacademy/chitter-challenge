@@ -1,4 +1,5 @@
 require_relative './set_up_database'
+require 'database_helper'
 require 'simplecov'
 require 'simplecov-console'
 
