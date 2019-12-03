@@ -1,6 +1,16 @@
 Stories completed
 =================
 
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+---this user story is partially completed - able to submit a post but not pulling data through to the peeps view yet.
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+---this user story is partially completed - able to view a list of posts but not in reverse chronological order yet.
+
 
 1. To setup database:
 -----------------

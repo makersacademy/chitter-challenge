@@ -27,6 +27,6 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO chitter(user_handle, post) VALUES('#{user_handle}','#{post}');")
+    connection.exec("INSERT INTO peeps(user_handle, post) VALUES('#{user_handle}','#{post}');")
     end
 end
