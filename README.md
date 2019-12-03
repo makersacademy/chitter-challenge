@@ -1,4 +1,90 @@
-Chitter Challenge
+Chitter Challenge - Samuel King 2nd Dec 2019
+=================
+
+Overview:
+-------
+
+* Four user stories [completed](#stories-completed)
+* Followed a TDD style for the challenge
+  * Usually started with a feature test based on the user story, then TDD'd from there, creating unit tests where necessary
+* Two classes in my model:
+  * `Peep`
+    * Has three instance attributes: `@id`, `@body`, `@time`
+    * Has one instance method `#initialize` and two class methods `#create` and `#all` which act as ORM interface between model and database
+  * `User`
+    * Has five instance attributes: `@id`, `@name`, `@username`, `@email`, `@password`
+    * Has one instance method `#initialize` and two class methods `#create` and `#last` which act as ORM interface between model and database
+* The controller in `app.rb` follows the post-redirect-get pattern
+* Environment variables set in the `spec_helper.rb` file, dictates which database to connect to
+* Database setup is documented in `db/migrations` and also fully listed in `Rakefile` which is run from `.travis.yml` for CI testing functionality
+
+Lessons Learned:
+-------
+
+* Environment setup (development environment, gems, spec helpers, CI testing) takes considerable time
+* TDD is important, considering more than one user story helps to have a vision/overall direction, but care required not to let it distract from TDD'ing each story one at a time
+* Taking the time to plan an approach to the challenge was valuable
+* Got the chance to implement MVC with a database, and use ORM to interface with the database
+* Building web apps takes a lot of time! By the end of the day just felt like I had a foundation to build on, would have been nice to build on it further with some relationships between databases
+
+Overall Feelings/Thoughts:
+-------
+
+* Enjoyable challenge, lots of setup, helped consolidate learnings from the module. Would have been nice to have a little more time to get onto the newer/more challenging stuff
+
+Stories Completed:
+-------
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+
+Stories Outstanding:
+-------
+
+```
+HARDER
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+```
+
+Database Migration:
+-------
+
+* The database setup can be located in `db/migrations` folder
+  * First ensure that PostgreSQL is installed: `brew install postgresql`
+  * Run `brew services start postgresql` to ensure that it runs on startup
+  * `CREATE DATABASE chitter;` from `psql` to create database
+  * Run the SQL queries documented in `db/migrations`
+
+
+The Challenge Overview:
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
