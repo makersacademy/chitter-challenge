@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/chitter.rb'
+
 class Chitter < Sinatra::Base
 
   enable :sessions  #Enables use of session[:hash] for storing data
@@ -23,4 +24,5 @@ class Chitter < Sinatra::Base
     erb :'chitter/peeps'
   end
 
+  run! if app_file == $0
 end

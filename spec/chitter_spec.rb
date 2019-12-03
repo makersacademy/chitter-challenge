@@ -12,9 +12,8 @@ describe Chitters do
 
   describe '.create' do
     it 'creates a new peep' do
-      peep = Chitters.create(user_name: 'user', peep: 'This is a test peep')
-      expect(peep['user_name']).to eq 'user'
-      expect(peep['peep']).to eq 'This is a test peep'
+      Chitters.create(user_name: 'user', peep: 'This is a test peep')
+      expect(Chitters.all).to include 'This is a test peep'
     end
   end
 
