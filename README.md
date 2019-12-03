@@ -26,6 +26,9 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
+Can sign up but can't sign in.
+Sign up does prevent duplicate sign ups. 
+
 -------
 
 Challenge:
