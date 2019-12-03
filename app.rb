@@ -17,8 +17,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    p "Form data submitted to the /peeps route!"
-    p params
+    Peeps.create(message: params[:message])
+    redirect '/bookmarks'
   end
 
 run! if app_file == $0
