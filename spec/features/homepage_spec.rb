@@ -1,6 +1,6 @@
 feature 'homepage' do
 
-  scenario 'a user can visit the homepage' do
+  scenario 'a user can visit the homepage and see content' do
     visit '/'
     expect(page).to have_content "Welcome to Chitter!"
     expect(page).to have_content "Sign up or login below."
@@ -10,6 +10,13 @@ feature 'homepage' do
     visit '/'
     expect(page).to have_field('enter peep')
     expect(page).to have_selector(:link_or_button, 'Peep')
+  end
+
+  scenario 'a user can fill in form with a peep that becomes visible on page' do
+    visit '/'
+    fill_in('enter peep', with: 'My first peep!')
+    click_button('Peep')
+    expect(page).to have_content 'My first peep!'
   end
 
   scenario 'a user can click the Newbie button' do
