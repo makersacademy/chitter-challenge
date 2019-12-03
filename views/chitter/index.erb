@@ -1,0 +1,24 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Oswald', sans-serif;
+      text-align: center;
+      padding-top: 200px;
+      border: 1px solid black;
+    }
+    .medium_hr {
+      padding-right: 150px;
+      padding-left: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Chitter!</h1>
+  <hr class="medium_hr">
+  <h2 class="center">Please enter your name:</h2>
+  <form action="/home" method="post">
+    <input type="text" name="user_name" placeholder="User name"/>
+    <input type="submit" value="Submit"/>
+  </form>
+</body>
