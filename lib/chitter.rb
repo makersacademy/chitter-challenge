@@ -17,9 +17,9 @@ class Chitter
     end
     result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
     result.map do |peep|
-      Chitter.new(id: peeps['id'], peep: peeps['peep'], posted_at: peeps['posted_at'] )
+      Chitter.new(id: peep['id'], peep: peep['peep'], posted_at: peep['posted_at'] )
+    end
   end
-end
 # result = connection.exec("SELECT * FROM bookmarks")
 #   result.map do |bookmark|
 #     Bookmark.new(id: bookmark['id'], title: bookmark['title'], url: bookmark['url'])

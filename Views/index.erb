@@ -14,10 +14,11 @@ body {
 
 <h4 style = "color: black;">
   <ul>
-  <% @messages.each do |message| %>
+  <% @peeps.each do |peep| %>
     <li>
-        <%= message %>
-      </a>
+      <!-- peep is the placeholder, then iteration and then the object for the column -->
+        <%= peep.peep[:peep] %>
+        <%= peep.peep[:posted_at] %>
     </li>
   <% end %>
 </ul>
