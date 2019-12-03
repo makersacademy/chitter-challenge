@@ -19,7 +19,8 @@ class Chitter < Sinatra::Base
     erb :"chitter/home"
   end
 
-  get '/peeps' do
+  post '/peeps' do
+    @peep = params[:peep]
     @peeps = Chitters.all
     erb :'chitter/peeps'
   end
