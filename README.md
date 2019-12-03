@@ -70,6 +70,8 @@ in more human-readable formats using the .date and .time methods (see below).
 
 Posting peeps is handled by the Peep class:
 ```ruby
+PEEP_LENGTH = 140
+
 class Peep
   attr_reader :content
 
