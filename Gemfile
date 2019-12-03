@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'sinatra'
 gem 'rubocop', '0.71.0'
+gem 'sinatra'
 
 group :test do
   gem 'capybara'

@@ -7,5 +7,10 @@ class App < Sinatra::Base
     erb :index
   end
 
+  post '/signin' do
+     "Sign In"
+    erb :Signin
+  end
+
   run! if app_file == $0
   end

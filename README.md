@@ -14,6 +14,10 @@ As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+For this challenge the user will enter their sign up credential into the Homepage.
+Which will then take them into sign in page. Here they can use their credential to login their account.
+
+
 Features:
 -------
 
