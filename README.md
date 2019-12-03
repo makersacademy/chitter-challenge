@@ -25,6 +25,7 @@ CREATE DATABASE chitter;
 rackup -p 9292
 ```
 4. To view bookmarks: navigate to: 'localhost:3000/'.
+---------------------
 
 1. To setup the test database: connect to `psql` and create the `chitter_test` database:
 ```
