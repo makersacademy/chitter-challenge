@@ -1,0 +1,10 @@
+<h1> "Welcome to Chitter" </h1>
+<div id="buttons">
+ <a href="/signup"><button>Sign Up</button></a>
+</div>
+<ul>
+<% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+
+</ul>
