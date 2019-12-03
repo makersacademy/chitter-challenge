@@ -24,7 +24,7 @@ class Peep
 
     # Insert post into database
     DatabaseConnection.query(
-      "INSERT INTO peeps (datetime, username, post) VALUES ('#{datetimenow}', '#{username}', '#{post}');"
+      "INSERT INTO peeps (datetime, username, post)VALUES ('#{datetimenow}', '#{username}', '#{post}');"
     )
     "Post created"
   end

@@ -3,7 +3,6 @@
 
 require 'sinatra/base'
 require './db/database_connection.rb'
-require './db/access_database.rb'
 require './lib/wall.rb'
 
 class Chitter < Sinatra::Base
@@ -13,10 +12,6 @@ class Chitter < Sinatra::Base
   get '/' do
     @posts = Wall.return_all
     erb :index
-  end
-
-  get '/create' do
-    erb :create
   end
 
   post '/save_post' do

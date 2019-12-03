@@ -37,13 +37,3 @@ task :setup do
   )
 
 end
-
-# Input data into database on local machine:
-
-# task :seed_db do
-#
-#   # Connects to 'my_database' and inserts data into the 'my_table' table:
-#   connection = PG.connect :dbname => 'my_database';
-#   connection.exec ("INSERT INTO my_table VALUES (1, 'text1', 'text2', 01, 02);")
-#
-# end
