@@ -1,133 +1,195 @@
-Chitter Challenge
-=================
+# Chitter Challenge
+Chitter challenge is a twitter clone which allows users to view posts (called
+'peeps') in reverse alphabetical order, as well as being able to add a new post
+via the text input field at the top. The application functions on a single page,
+with the peeps wall automatically updating when a new peep is added.
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+![Screenshot of Chitter](https://github.com/djlonboy/chitter-challenge/blob/master/docs/chitter_screenshot.png)
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+### Stories Completed
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a Maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
+### Build Status
+The application currently works for all of the above user stories.
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+Additionally, the Peep class also has support for checking whether a username is
+valid before posting a peep, and the database also contains a table for users,
+although currently usernames are not yet implemented on the front-end.
 
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
+### How it Works
+The front-end website consists of a single page hosted on the '/' index address.
+The controller pulls a list of peeps and the index view file posts them to the
+page by running an ```each``` loop to cycle through each peep.
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
+The application model consists of classes for Peep and Wall. An additional class
+for User has also been added but is not yet functional.
 
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
+The wall consists of a list of previously added peeps, displayed in reverse
+alphabetical order. The display is handled by the Wall class within the model:
 ```ruby
-require 'simplecov'
-require 'simplecov-console'
+class Wall
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+  def initialize
+    @posts = []
+  end
+
+  def self.return_all
+    peeps_table = DatabaseConnection.query("SELECT * FROM peeps;")
+
+    posts = peeps_table.map do |row|
+      Peep.new(row['id'], row['datetime'], row['username'], row['post'])
+    end
+
+    sort(posts)
+  end
+
+  def self.sort(posts)
+    posts.sort_by { |peep| peep.content[:datetime] }.reverse
+  end
+
+end
+```
+The .return_all class method queries the peeps table in the database, and pulls the full
+list of peeps. Each peep is wrapped in a Peep class instance, and then the .sort method
+is then invoked which sorts the posts in reverse alphabetical order using their
+timestamps. Wrapping the peeps in a Peep class allows the content to be called
+via an attribute reader, and also includes methods for displaying the date and time
+in more human-readable formats using the .return_date and .return_time methods (see below).
+
+Posting peeps is handled by the Peep class:
+```ruby
+PEEP_LENGTH = 140
+
+class Peep
+  attr_reader :content
+
+  def initialize(id, datetime, username, post)
+    @content = { id: id, datetime: datetime, username: username, post: post }
+  end
+
+  def self.create(username, post)
+    raise "Username not recognised" if user?(username) == false
+    raise "Too many characters" if post.size > PEEP_LENGTH
+
+    # Insert post into database
+    DatabaseConnection.query(
+      "INSERT INTO peeps (datetime, username, post)VALUES ('#{datetimenow}', '#{username}', '#{post}');"
+    )
+    "Post created"
+  end
+
+  def self.user?(username)
+    # Returns false if username is not in table
+    result = DatabaseConnection.query(
+      "SELECT 1 FROM users WHERE username = '#{username}';"
+    )
+    result.map { |line| line } != []
+  end
+
+  def self.datetimenow
+    DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+  end
+
+  def return_date
+    Date.parse(content[:datetime]).strftime("%A %d %B %Y")
+  end
+
+  def return_time
+    DateTime.parse(content[:datetime]).strftime("%H:%M")
+  end
+
+end
+```
+When a peep is added, the .create class method within the Peep class takes the username
+and post, checks it is not longer than the limit set using the PEEP_LENGTH constant,
+adds a timestamp (using the .datetimenow method), and inserts the peep into the
+'peeps' table in the postgreSQL database. The wall is then reloaded to include the
+most recently added peep.
+
+An additional DatabaseConnection class handles communication with the database,
+with the .setup method ensuring connection to the correct database and the .query
+method taking SQL queries as arguments and pssing them to postgreSQL via the
+connection.exec method:
+```ruby
+class DatabaseConnection
+
+  # Takes the database to be connected to as an argument and sets
+  # up the connection using PG:
+  def self.setup(db_name)
+    @connection = PG.connect :dbname => db_name
+  end
+
+  # Takes an SQL query as an argument and runs it using the
+  # connection setup above:
+  def self.query(sql)
+    @connection.exec(sql)
+  end
+
+end
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+### Installation
+To install and run chitter on a local machine:
+ - Download the project file
+ - Run ```$ bundle``` to install required gems
+ - Run ```$ rake setup``` to install the database and tables
+ - Run ```$ rackup``` to open a new server connection
+ - Navigate to localhost:9292 on a browser to view the application
+
+### Tests
+Testing is covered by RSPEC, Capybara (for front-end) and Rubocop. Currently all
+RSPEC feature and unit tests are passing:
+```
+Peeps page:
+  - index shows all peeps
+  - 'Enter a peep' adds a new peep
+
+Peep
+  - return date returns the full date of the post
+  - return_time returns the time of the post without seconds
+  Check_user
+    - checks the user is in the database
+  User creates a peep
+    - method responds to correct # of arguments
+    - checks the user is in the database
+    - can store the peep in the database
+    - rejects a peep which is too long
+
+Wall
+  - creates an array of posts in reverse chronological order
+
+Finished in 0.28545 seconds (files took 0.54104 seconds to load)
+10 examples, 0 failures
+```
+Tests use a different database (chittertest) which is setup on first install using
+```$ rake setup``` and then populated before each test using code in the web-helpers
+file in the spec folder. The database to connect to is selected using this code in the model
+files:
+```ruby
+if ENV['RACK_ENV'] == 'test'
+  DatabaseConnection.setup('chittertest')
+else
+  DatabaseConnection.setup('chitter')
+end
+```
+The RSPEC spec_helper file sets the environment variable RACK_ENV to 'test', which triggers the
+chittertest database to be used.
+
+Rubocop is currently returning some issues, these are mainly to do with long lines 
+required for the SQL commands. I have not been able to find a way to split these lines up.
+
+To run tests, from within the project folder, first ensure that you have run
+```$ bundle```, then run ```$ rspec``` from within the project folder. To run
+rubocop, run ```$ rubocop```.

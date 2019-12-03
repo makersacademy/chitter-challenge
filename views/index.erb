@@ -1,0 +1,12 @@
+<h1>Welcome to Chitter</h1>
+Enter a peep:<br>
+<form action="/save_post" maxlength="140" method="POST">
+  <textarea name="post" rows="3" cols="50"></textarea>
+  <br>
+  <input type="submit" name="Submit">
+</form>
+<% @posts.each do |peep| %>
+Date: <%=  peep.return_date %> at <%= peep.return_time %><br>
+Name: <%=  peep.content[:username] %><br>
+Post:<br><%=  peep.content[:post] %><br><br>
+<% end %>
