@@ -4,11 +4,13 @@ require './lib/peep'
 class Chitter < Sinatra::Base
 
   get '/' do
+   p ENV
    erb :index
   end
 
  post '/peep' do
-  
+  @peeps = Peep.all
+  erb :peep
  end
 
 run! if app_file == $0

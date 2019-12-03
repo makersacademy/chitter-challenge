@@ -1,3 +1,4 @@
+require_relative './set_up_database'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -18,6 +19,12 @@ require 'rspec'
 
 # Specify the Capybara app
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+  config.before(:each) do
+    set_up_database
+  end
+end
 
 RSpec.configure do |config|
   config.after(:suite) do
