@@ -131,3 +131,15 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+Stories Completed
+---
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+Chitter Peep Feed Database created - psql PostgreSQL & Tableplus
+Tests for creating User I.D. and log-ins created
+Methods for peep posting created
+RSPEC failing after create USER Log-in
