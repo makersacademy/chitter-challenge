@@ -1,6 +1,7 @@
 Stories completed
 =================
 
+
 1. To setup database:
 -----------------
 Connect to `psql` and create the `chitter` database:

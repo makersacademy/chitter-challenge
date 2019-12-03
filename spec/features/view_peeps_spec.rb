@@ -5,7 +5,7 @@ feature 'View all peeps' do
     connection.exec("INSERT INTO peeps (user_handle,post) VALUES ('leonardo_dicaprio', 'Hello World!');")
     connection.exec("INSERT INTO peeps (user_handle,post) VALUES ('meryl_streep', 'I am feeling sunny today!');")
     connection.exec("INSERT INTO peeps (user_handle,post) VALUES ('bob', 'Minions will takeover the world.');")
-
+    
     visit '/'
     expect(page).to have_content "leonardo_dicaprio", "Hello World!"
     expect(page).to have_content "meryl_streep", "I am feeling sunny today!"

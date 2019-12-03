@@ -20,4 +20,13 @@ class Peep
       Peep.new(user_handle: peep['user_handle'], post: peep['post'])
     end
   end
+
+  def self.add(user_handle:, post:)
+    if ENV['RACK_ENV'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    connection.exec("INSERT INTO chitter(user_handle, post) VALUES('#{user_handle}','#{post}');")
+    end
 end
