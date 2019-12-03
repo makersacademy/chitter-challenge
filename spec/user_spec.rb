@@ -5,8 +5,8 @@ describe 'create' do
     user = User.create(email: 'testemail2@gmail.com', password: 'password123', username: 'testuser2', name: 'testname' )
 
     expect(user).to be_a User
-    expect(user.id).to eq '1'
-    expect(user.email).to eq 'testemail@gmail.com'
+    expect(user.name).to eq 'testname'
+    expect(user.email).to eq 'testemail2@gmail.com'
   end
 end
 

@@ -18,6 +18,13 @@ def self.create(email:, password:, username:, name:)
         connection = PG.connect(dbname: 'chitter_challenge')
       end
   result = connection.exec("INSERT INTO users(email, password, username, name) VALUES ('#{email}', '#{password}', '#{username}', '#{name}') RETURNING id, email, password, username, name;")
+  User.new(
+      id: result[0]['id'],
+      email: result[0]['email'],
+      password: result[0]['password'],
+      username: result[0]['username'],
+      name: result[0]['name'],
+    )
 end
 
 def self.find(id)

@@ -3,6 +3,8 @@ require './lib/chitter'
 require './lib/user'
 
 class ChitterChallenge < Sinatra::Base
+  enable :sessions, :method_override
+  
 
   get '/' do
     "Chitter Challenge!"
