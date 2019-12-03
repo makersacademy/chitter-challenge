@@ -11,8 +11,9 @@ I want to see all peeps in reverse chronological order
 
 Migrations
 
-1. CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(100));
-  Table for only the message and the identifier created
+1. CREATE TABLE using file 01_create_peeps_table.sql
+2. CREATE NEW TIME COLUMN using file 02_add_timestamp_to_peeps.sql
+
 
 Chitter Challenge
 =================

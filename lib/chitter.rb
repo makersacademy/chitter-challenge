@@ -1,6 +1,12 @@
 require 'pg'
 
 class Chitter
+  attr_reader :peep, :posted_at
+
+  def initialize(peep = '', posted_at = '')
+    @peep = peep
+    @posted_at = posted_at
+  end
 
   def self.all
 
@@ -10,9 +16,15 @@ class Chitter
       connection = PG.connect(dbname: 'chitter_db')
     end
     result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
-    result.map {|peep| peep['peep']}
+    result.map do |peep|
+      Chitter.new(id: peeps['id'], peep: peeps['peep'], posted_at: peeps['posted_at'] )
   end
-
+end
+# result = connection.exec("SELECT * FROM bookmarks")
+#   result.map do |bookmark|
+#     Bookmark.new(id: bookmark['id'], title: bookmark['title'], url: bookmark['url'])
+#   end
+# end
   def self.create(peep:)
 
     if ENV['ENVIRONMENT'] == 'test'
@@ -21,6 +33,5 @@ class Chitter
       connection = PG.connect(dbname: 'chitter_db')
     end
       connection.exec("INSERT INTO peeps (peep, posted_at) VALUES('#{peep}','#{Time.now}')")
-  # connection.exec("INSERT INTO peeps (time) VALUES('#{Time.now}')")
   end
 end
