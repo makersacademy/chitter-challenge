@@ -18,7 +18,7 @@ end
         end
     # ["Test Chitter Message", "Another test chitter", "yet another test chitter"]
 
-result = connection.exec("SELECT * FROM chitters ORDER BY id DESC")
+result = connection.exec("SELECT id, peep, time FROM chitters ORDER BY id DESC")
 
 result.map do |chitter|
   Chitter.new(id: chitter['id'], peep: chitter['peep'], time: chitter['time'])
@@ -34,6 +34,7 @@ def self.create(peep:)
     connection = PG.connect(dbname: 'chitter_challenge')
 end
 
-connection.exec("INSERT INTO chitters (peep) VALUES ('#{peep}')")
+result = connection.exec("INSERT INTO chitters (peep) VALUES ('#{peep}')")
+
 end
 end
