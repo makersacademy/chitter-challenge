@@ -14,7 +14,6 @@ feature 'Peeps page:' do
     fill_in "post", with: "Testing 1, 2, 3"
     click_button "Submit"
     expect(page).to have_content "Testing 1, 2, 3"
-
-
   end
+  
 end

@@ -1,7 +1,7 @@
 # Chitter Challenge
 Info about your project, and what your project is about
 
-## Stories Completed
+### Stories Completed
 ```
 As a Maker
 So that I can let people know what I am doing  
@@ -16,7 +16,7 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Build Status
+### Build Status
 Information about the build status of the project, continuous integration
 
 Screenshots

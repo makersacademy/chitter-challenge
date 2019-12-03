@@ -6,10 +6,6 @@ require 'pg'
 
 describe Peep do
 
-  # before(:each) do
-  #   setup_tables
-  # end
-
   context 'Check_user' do
     it '- checks the user is in the database' do
       expect(Peep.user?("test@test.com")).to eq true
