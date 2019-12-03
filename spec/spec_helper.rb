@@ -12,7 +12,8 @@ SimpleCov.start
 
 ENV["ENVIRONMENT"] = "test"
 
-require_relative "../app"
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
 Capybara.app = Chitter
 
 RSpec.configure do |config|
