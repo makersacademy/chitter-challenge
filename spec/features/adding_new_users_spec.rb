@@ -5,6 +5,7 @@ feature 'add users' do
     fill_in('username', with: 'testuser')
     fill_in('password', with: 'password123')
     fill_in('name', with: 'testname')
+    click_button 'Submit'
 
     expect(page).to have_content "Welcome, testuser"
   end

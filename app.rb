@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/chitter'
+require './lib/user'
 
 class ChitterChallenge < Sinatra::Base
 
@@ -8,7 +9,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/chitter' do
-    @user = User.find(session[:user_id])
+
     @chitters = Chitter.all
     erb :index
   end
