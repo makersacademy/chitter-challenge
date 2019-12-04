@@ -1,3 +1,46 @@
+Stories completed
+=================
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+---this user story is partially completed - able to submit a post but not pulling data through to the peeps view yet.
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+---this user story is partially completed - able to view a list of posts but not in reverse chronological order yet.
+
+---------------------
+1. To setup the main database: connect to `psql` and create the `chitter` database:
+```
+CREATE DATABASE chitter;
+```
+2. To setup the tables: connect to the database in 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
+
+3. To run the Chitter app:
+```
+rackup -p 9292
+```
+4. To view bookmarks: navigate to: 'localhost:3000/'.
+---------------------
+
+1. To setup the test database: connect to `psql` and create the `chitter_test` database:
+```
+CREATE DATABASE chitter_test;
+```
+2. To setup the tables: connect to the database in 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
+
+3. To run the Chitter app:
+```
+rackup -p 9292
+```
+4. To view bookmarks: navigate to: 'localhost:3000/'.
+
+-----------------
+
 Chitter Challenge
 =================
 

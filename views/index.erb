@@ -1,0 +1,12 @@
+<h1>Chitter</h1>
+
+<ul style="list-style-type:none">
+  <h2>Peeps</h2>
+  <% @peeps.each do |peep| %>
+    <li>@<%= peep.user_handle %>: <%= peep.post %></li>
+  <% end %>
+</ul>
+
+<form action="/new-peep" method="get">
+<input type="submit" value="New peep">
+</form>

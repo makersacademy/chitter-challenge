@@ -1,0 +1,1 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY,user_handle VARCHAR(60),post VARCHAR(140));
