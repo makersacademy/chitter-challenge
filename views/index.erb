@@ -1,13 +1,22 @@
 <h1>Welcome to Chitter!</h1>
 <br>
+
 <form action="/peeps" method="post">
   <input type="text" placeholder="enter peep here" name="enter peep">
   <input type="submit" value="Peep">
 </form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
 <br>
 <br>
+
 <h3>Register or login below:</h3>
 <br>
+
 <div id="button_1">
   <a href="/register"><button>Newbie</button></a>
 <br>
