@@ -4,11 +4,12 @@ require 'pg'
 class Chitter < Sinatra::Base
 
   get '/' do
+    @peeps = []
+    @peeps << 'My first peep!'
     erb :index
   end
 
   post '/peeps' do
-    erb :index
     redirect '/'
   end
 
