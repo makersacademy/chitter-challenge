@@ -1,8 +1,28 @@
 Chitter Challenge
 =================
 
-Completed User Stories
+A clone of twitter, Chitter Challenge is a platform for users to share messages in the form of 'peeps'. This application, enables a list of time-stamped peeps to be viewed in reverse alphabetical order on the Home Page. The list updates to include new peeps as they are posted.
+
+<!-- <include screenshot of page here> -->
+
+User Stories Completed
 --------------
+
+Build Status
+-----------
+
+How it Works
+----------
+
+Installation
+--------
+
+To install and run chitter on your local machine:
+- Clone this repo
+- Run ```$ bundle``` to install required gems
+- Run ```$ rake setup``` to install Chitter database and tables
+- Run ```$ rspec```
+- Run ```$ rackup``` to open a new server connection
 
 
 * Challenge time: rest of the day and weekend, until Monday 9am
