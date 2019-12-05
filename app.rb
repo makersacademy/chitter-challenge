@@ -9,16 +9,16 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     erb :index
+    redirect '/'
   end
 
+  get '/register' do
 
-  # get '/register' do
-  #
-  # end
-  #
-  # get '/login' do
-  #
-  # end
+  end
+
+  get '/login' do
+
+  end
 
   run! if app_file == $0
 end
