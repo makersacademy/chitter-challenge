@@ -23,4 +23,12 @@ require 'rspec'
 
 Capybara.app = Chitter
 
+ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    connection = PG.connect(dbname: 'message_database_test')
+    connection.exec("TRUNCATE TABLE messages;")
+  end
+end

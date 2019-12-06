@@ -8,7 +8,8 @@ describe Message do
       Message.add("Another message")
 
       messages = Message.all
-      expect(messages.first.message).to eq "Another message"
+    
+      expect(messages.last.message).to eq "Another message"
     end
 
 

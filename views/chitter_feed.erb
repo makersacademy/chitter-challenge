@@ -1,5 +1,8 @@
-<ul>
+<center><h1>Chitter Feed</h1>
+
+<ul style = 'list-style-type:none;'>
   <% @peep.each do |peep|%>
-    <li> <%= peep.message %> </li>
+    <li> <%= peep.message %><br>
+        Time posted: <%= peep.time %> </li><br>
   <% end %>
 </ul>
