@@ -10,6 +10,10 @@ class Chitter < Sinatra::Base
     erb :new
   end
 
+  post '/sign-up' do
+    User.create(params[:username], params[:email], params[:password])
+  end
+
   post '/peeps' do
   end
 
