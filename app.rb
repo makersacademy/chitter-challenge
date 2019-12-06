@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/message.rb'
 
 class Chitter < Sinatra::Base
 
@@ -7,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter_feed' do
-    @message = $message
+    @peep = Message.all
     erb :chitter_feed
   end
 
@@ -16,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_message' do
-    $message = params[:message]
+    Message.add(params[:message])
     redirect '/chitter_feed'
   end
 

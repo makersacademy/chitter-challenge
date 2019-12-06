@@ -22,3 +22,5 @@ require 'capybara/rspec'
 require 'rspec'
 
 Capybara.app = Chitter
+
+ENV['ENVIRONMENT'] = 'test'
