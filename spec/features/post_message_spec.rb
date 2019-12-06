@@ -1,6 +1,6 @@
 feature 'post message' do
 
-  scenario 'user can post messages to chitter' do
+  scenario 'user can post 1 message to chitter' do
     visit '/'
     click_on 'Post Message'
     fill_in 'message', with: 'Hello world'
