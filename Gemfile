@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rake'
-gem 'rubocop', '0.71.0'
-
 ruby "2.6.5"
 
 group :test do
@@ -17,5 +14,6 @@ group :development do
   gem "capybara"
   gem "pg"
   gem "rubytree"
+  gem 'rake'
+  gem 'rubocop', '0.71.0'
 end
-
