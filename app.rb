@@ -10,6 +10,9 @@ class Chitter < Sinatra::Base
     erb :new
   end
 
+  post '/peeps' do
+  end
+
   run! if app_file == $0
 
 end

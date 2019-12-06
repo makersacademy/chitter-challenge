@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'pg'
 
 Capybara.app = Chitter
 
