@@ -7,8 +7,16 @@
     <title>Chitter</title>
   </head>
   <body>
+    <h1><%= @current_user.username %>'s Peeps</h1>
+    <table>
+      <% @peeps.map do |peep| %>
+        <tr>
+          <td><%= peep.body %></td>
+        </tr>
+      <% end %>
+    </table>
     <form action="/send-peep" method="POST">
-      <input type="text-area" name="new-peep">
+      <input type="textarea" class="new-peep" name="new-peep">
       <input type="submit" id="send-peep" value="Send Peep">
     </form>
   </body>

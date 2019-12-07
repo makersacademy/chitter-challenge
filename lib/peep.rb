@@ -1,13 +1,17 @@
-class Peep
-  attr_reader :body, :likes, :timestamp
-  
-  def initialize body, likes = 0, timestamp = Time.now.utc.strftime('%k:%M')
-    @body = body
-    @likes = likes
-    @timestamp = timestamp
+class Peep < ActiveRecord::Base
+  def receive_like user_id, peep_id
+    Like.create user_id: user_id, peep_id: peep_id
   end
 
-  def like
-    @likes += 1
+  def timestamp
+    created_at.strftime('%k:%M')
+  end
+
+  def self.new_peep body, user_id
+    create body: body, user_id: user_id
+  end
+
+  def self.all_by user_id
+    Peep.where user_id: user_id
   end
 end

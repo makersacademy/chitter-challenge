@@ -1,6 +1,6 @@
 RSpec.feature 'testing' do
   scenario 'user visits the homepage' do
-    visit '/'
+    sign_up_and_sign_in
     fill_in 'new-peep', with: 'this is my first peep!'
     click_on 'Send Peep'
 

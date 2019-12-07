@@ -1,7 +1,12 @@
 require 'user'
 
 RSpec.describe User do
-  let(:test_user) { User.new 'Sam123', 'sam@example.com', '1234icecream' }
+  let(:user_info) { { id: 1, username: 'Sam123', email: 'sam@example.com', password: '1234icecream' } }
+  let(:test_user) { User.where(id: 1).first }
+
+  before(:each) do
+    User.create user_info
+  end
 
   it 'has a seperate username' do
     expect(test_user.username).to eq 'Sam123'
@@ -16,13 +21,15 @@ RSpec.describe User do
   end
 
   it 'can send a peep' do
-    expect { test_user.peep 'this is a peep' }.to change { test_user.all_peeps.length }.by 1
+    expect { test_user.peep 'this is a peep', user_info[:id] }.to change { test_user.all_peeps.length }.by 1
   end
 
   it 'stores a history of all peeps' do
-    test_user.peep 'this is a peep'
-    test_user.peep 'this is another peep'
+    test_user.peep 'this is a peep', 1
+    test_user.peep 'this is another peep', 1
 
-    expect(test_user.all_peeps).to eq ['this is a peep', 'this is another peep']
+    all_peeps = test_user.all_peeps.map(&:body)
+
+    expect(all_peeps).to eq ['this is a peep', 'this is another peep']
   end
 end
