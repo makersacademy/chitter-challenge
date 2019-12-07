@@ -12,18 +12,18 @@ describe Peep do
     end
   end
 
-#   describe '.show' do
-#     it 'shows all of the posts' do
-#
-#     # Adding test data
-#     Peep.post(provocative_opinion_2)
-#     Peep.post(provocative_opinion_1)
-#
-#     peepfest_blackhole = Peep.show
-#
-#     expect(peepfest_blackhole.first). to eq provocative_opinion_2
-#
-#     end
-#   end
-#
-# end
+  describe '.all' do
+    it 'shows all of the posts' do
+
+    # Adding test data
+    Peep.post(provocative_opinion_2)
+    Peep.post(provocative_opinion_1)
+
+    peepfest_blackhole = Peep.all
+
+    expect(peepfest_blackhole.first). to eq provocative_opinion_1
+
+    end
+  end
+
+end
