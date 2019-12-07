@@ -1,10 +1,10 @@
 <style>
-.centre {
-  text-align: centre;
+.center {
+  text-align: center;
 }
 </style>
 
-<div class="centre">
+<div class="center">
   <h1>Welcome to Peep</h1>
 
   <form action="/peeps/new" method="GET">
@@ -13,7 +13,9 @@
 
   <ul style="list-style-type: none;">
     <% @peeps.each do |peep| %>
-      <li>peep.message</li>
+      <li>
+        <%= peep.message %>
+      </li>
     <% end %>
   </ul>
 </div>
