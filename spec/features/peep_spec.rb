@@ -11,7 +11,7 @@ feature "post messages to Chitter" do
     visit '/'
     click_on 'Peep'
     fill_in 'message', with: "I think"
-    click_on 'Publish' # I want to make the publication go straight to the top of the timeline page.
+    click_on 'Publish'
 
     expect(page).to have_content "I think"
   end

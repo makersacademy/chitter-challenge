@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep' do
-    @peeps= Peep.all
+    @peeps = Peep.all
     erb :"peep/timeline"
   end
 
