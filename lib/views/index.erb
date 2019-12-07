@@ -11,9 +11,12 @@
     <p>Peeps</p>
     <p><%= @peeps.all_by(@current_user.id).count %></p>
     <table>
-      <% @peeps.all_by(@current_user.id).map.with_index do |peep, i| %>
+      <% @peeps.all_by(@current_user.id).reverse.map.with_index do |peep, i| %>
         <tr>
-          <td><%= peep.body %></td>
+          <td>
+            <%= peep.body %>
+            <p>Peeped at <%= peep.timestamp %></p>
+          </td>
           <td>
             Luvs <%= @luvs.all_for peep %>
             <form action="/handle-luv" method="POST">
