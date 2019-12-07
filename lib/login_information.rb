@@ -1,12 +1,12 @@
 class LoginInformation
-  attr_reader :username, :password
+  attr_reader :email, :password
 
-  def initialize username, password
-    @username = username
+  def initialize email, password
+    @email = email
     @password = password
   end
 
-  def authenticate username_entry, password_entry
-    username == username_entry && password == password_entry
+  def authenticate email_entry, password_entry
+    email == email_entry && password == password_entry
   end
 end

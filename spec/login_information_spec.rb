@@ -2,8 +2,9 @@ require 'login_information'
 
 RSpec.describe LoginInformation do
   let(:test_login_info) { LoginInformation.new 'Sam123', '1234icecream' }
-  it 'stores a username' do
-    expect(test_login_info.username).to eq 'Sam123'
+  
+  it 'stores an email' do
+    expect(test_login_info.email).to eq 'Sam123'
   end
 
   it 'stores a password' do
