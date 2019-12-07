@@ -15,7 +15,6 @@ class Chitter < Sinatra::Base
 
   post '/sign-up' do
     user = User.create(username: params[:username], email: params[:email], password: params[:password])
-    p user.id
     redirect '/new'
   end
 
