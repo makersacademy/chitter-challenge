@@ -22,6 +22,9 @@ GEM
     mustermann (1.0.3)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
+    orderly (0.1.0)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     parallel (1.18.0)
     parser (2.6.5.0)
       ast (~> 2.4.0)
@@ -82,6 +85,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  orderly
   pg
   rake
   rspec

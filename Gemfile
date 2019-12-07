@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'capybara'
+gem 'orderly'
 gem 'pg'
 gem 'rake'
 gem 'rubocop', '0.71.0'

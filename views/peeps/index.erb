@@ -1,7 +1,7 @@
-<ol>
-  <% @peeps.each do |peep| %>
+<ul>
+  <% @peeps.reverse_each do |peep| %>
     <li>
       <p><%= peep.content %></p>
     </li>
   <% end %>
-</ol>
+</ul>
