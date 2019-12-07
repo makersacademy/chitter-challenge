@@ -8,8 +8,10 @@
   </head>
   <body>
     <h1><%= @current_user.username %>'s Peeps</h1>
+    <p>Peeps</p>
+    <p><%= @peeps.all_by(@current_user.id).count %></p>
     <table>
-      <% @peeps.map do |peep| %>
+      <% @peeps.all_by(@current_user.id).map do |peep| %>
         <tr>
           <td><%= peep.body %></td>
         </tr>

@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
 
   before do
     @current_user = session[:user]
-    @peeps = Peep.all
+    @peeps = Peep
   end
 
   get '/' do
