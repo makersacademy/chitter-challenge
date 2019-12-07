@@ -14,7 +14,8 @@ class Message
   def self.add(username, message)
     database_selector
 
-    @connection.exec("INSERT INTO messages(username, message, time) VALUES('#{username}','#{message}', '#{Time.now.strftime("%k:%M:%S on %d/%m/%Y")}')")
+    @connection.exec("INSERT INTO messages(username, message, time) 
+    VALUES('#{username}','#{message}', '#{Time.now.strftime("%k:%M:%S on %d/%m/%Y")}')")
   end
 
   def self.all
@@ -27,8 +28,6 @@ class Message
     }
   end
 
-  private
-
   def self.database_selector
     if ENV['ENVIRONMENT'] == 'test'
       @connection = PG.connect(dbname: 'message_database_test')
@@ -36,5 +35,7 @@ class Message
       @connection = PG.connect(dbname: 'message_database')
     end
   end
+  
+  private_class_method :database_selector
 
 end

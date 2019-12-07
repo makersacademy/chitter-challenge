@@ -12,7 +12,6 @@ describe Message do
       expect(messages.last.message).to eq "Another message"
     end
 
-
   end
 
 end

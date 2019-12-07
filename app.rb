@@ -44,7 +44,6 @@ class Chitter < Sinatra::Base
 
   get '/account/confirmation' do
     @account = Account.new_account
-    session[:exists] == false
     erb :confirmation
   end
 
