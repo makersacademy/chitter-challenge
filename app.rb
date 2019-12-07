@@ -8,6 +8,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    erb :index
+  end
+
+  post '/send-peep' do
+    
   end
 end

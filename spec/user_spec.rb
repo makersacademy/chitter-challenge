@@ -14,4 +14,15 @@ RSpec.describe User do
   it 'has a login password' do
     expect(test_user.password).to eq '1234icecream'
   end
+
+  it 'can send a peep' do
+    expect { test_user.peep 'this is a peep' }.to change { test_user.all_peeps.length }.by 1
+  end
+
+  it 'stores a history of all peeps' do
+    test_user.peep 'this is a peep'
+    test_user.peep 'this is another peep'
+
+    expect(test_user.all_peeps).to eq ['this is a peep', 'this is another peep']
+  end
 end
