@@ -16,4 +16,5 @@ group :development do
   gem "rubytree"
   gem 'rake'
   gem 'rubocop', '0.71.0'
+  gem 'sinatra'
 end

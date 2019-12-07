@@ -19,6 +19,7 @@ GEM
     json (2.2.0)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
+    mustermann (1.0.3)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     parallel (1.18.0)
@@ -27,6 +28,8 @@ GEM
     pg (1.1.4)
     public_suffix (4.0.1)
     rack (2.0.7)
+    rack-protection (2.0.7)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
@@ -67,9 +70,15 @@ GEM
       simplecov
       terminal-table
     simplecov-html (0.10.2)
+    sinatra (2.0.7)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.7)
+      tilt (~> 2.0)
     structured_warnings (0.4.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    tilt (2.0.10)
     unicode-display_width (1.6.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -88,6 +97,7 @@ DEPENDENCIES
   shotgun
   simplecov
   simplecov-console
+  sinatra
 
 RUBY VERSION
    ruby 2.6.5p114
