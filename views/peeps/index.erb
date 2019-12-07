@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/peeps_index.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
 <body>
   <h1>Welcome, <%=@username%></h1>
+  <% @peeps.each do |peep| %>
+    <li id="peep">
+      <p><%=@username%></p>
+      <p><%=peep%></p>
+    </li>
+  <% end %>
 </body>
 </html>

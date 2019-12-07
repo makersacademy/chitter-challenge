@@ -1,0 +1,7 @@
+#peep {
+  border: 3px solid black;
+  margin: 5px;
+  padding: 5px;
+  list-style-type: none;
+  width: 25%;
+}

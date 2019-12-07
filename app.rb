@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require './lib/peep'
+require './lib/peep'
 # require './database_connection_setup'
 require 'sinatra/flash'
 
@@ -19,6 +19,7 @@ class ChitterApp < Sinatra::Base
 
   get '/peeps' do
     @username = session[:username]
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 

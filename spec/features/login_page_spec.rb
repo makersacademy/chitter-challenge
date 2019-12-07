@@ -13,9 +13,7 @@ feature "login page" do
   end
 
   scenario "welcomes user after login" do
-    visit('/')
-    fill_in "username", with: "Andrew"
-    click_button "login"
-    expect(page).to have_content("Welcome, Andrew")
+    sign_in
+    expect(page).to have_content("Welcome, abacon")
   end
 end

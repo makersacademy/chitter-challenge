@@ -23,5 +23,6 @@ require 'capybara/rspec'
 require 'sinatra'
 require 'capybara'
 require 'pg'
+require_relative './features/web_helpers'
 
 Capybara.app = ChitterApp
