@@ -3,8 +3,8 @@ class CreatePeeps < ActiveRecord::Migration[6.0]
     create_table :peeps do |peep|
       peep.text     :body
       peep.integer  :likes
+      peep.datetime :timestamp
       peep.string   :user_id
-      peep.datetime :created_at
     end
   end
 end

@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2019_12_07_111510) do
   create_table "peeps", force: :cascade do |t|
     t.text "body"
     t.integer "likes"
+    t.datetime "timestamp"
     t.string "user_id"
-    t.datetime "created_at"
   end
 
   create_table "users", force: :cascade do |t|
