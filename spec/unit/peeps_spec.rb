@@ -1,14 +1,21 @@
 require 'peeps'
 
 describe Peeps do
+  let(:user) { double :user }
+  connection = PG.connect(dbname: 'chitter_test')
+
   describe '.all' do
     it 'should return a list of all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
-      connection.exec("INSERT INTO peeps(user, content) VALUES('EllieM', 'This is my peep!')")
+      connection.exec("INSERT INTO peeps(content) VALUES('This is my peep!')")
 
-      visit('/')
+      expect(Peeps.all).to include 'This is my peep!'
+    end
+  end
 
-      expect(Peeps.all).to include 'EllieM: This is my peep!'
+  describe '.create' do
+    it "should create a new peep and add it to the database" do
+      Peeps.create(user, 'New peep', '10:00')
+      expect(Peeps.all).to include 'New peep'
     end
   end
 end
