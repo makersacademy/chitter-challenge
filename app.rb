@@ -28,16 +28,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/account' do
+    @exists = session[:exists]
     erb :account
   end
 
   post '/account' do
-    Account.create(params[:username], params[:email], params[:password])
-    redirect '/account/confirmation'
+    session[:exists] = Account.exists?(params[:email]) 
+    if session[:exists] == true
+      redirect '/account'
+    else
+      Account.create(params[:username], params[:email], params[:password])
+      redirect '/account/confirmation'
+    end
   end
 
   get '/account/confirmation' do
     @account = Account.new_account
+    session[:exists] == false
     erb :confirmation
   end
 
@@ -47,7 +54,6 @@ class Chitter < Sinatra::Base
 
   post '/account/log_in' do
     session[:logged_in?] = Account.log_in(params[:username], params[:password])
-    # session[:logged_out?] = nil
     redirect '/'
   end
 

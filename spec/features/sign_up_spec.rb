@@ -1,13 +1,18 @@
+require 'web_helper.rb'
+
 feature 'sign up' do
 
   scenario 'user can create an account' do
     visit '/'
-    click_on 'Create Account'
-    fill_in 'username', with: 'dbacall'
-    fill_in 'email', with: 'dbacall@hotmail.co.uk'
-    fill_in 'password', with: 'password'
-    click_on 'Create'
+    create_account
     expect(page).to have_content 'Account created. Welcome dbacall!'
+  end
+
+  scenario 'should raise an error if email already assigned to an account' do
+    Account.create('dbacall', 'dbacall@hotmail.co.uk', 'password')
+    visit '/'
+    create_account
+    expect(page).to have_content 'Email already in use!'
   end
 
 end

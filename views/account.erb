@@ -1,7 +1,10 @@
 <center>
 <form name = 'account creator' action = '/account' method = 'post'>
-  <input type = 'text' name = 'username' placeholder = 'User name'><br>
-  <input type = 'text' name = 'email' placeholder = 'Email address'><br>
-  <input type = 'text' name = 'password' placeholder = 'Password'><br>
+  <input type = 'text' name = 'username' placeholder = 'User name' required><br>
+  <input type = 'text' name = 'email' placeholder = 'Email address' required><br>
+  <input type = 'text' name = 'password' placeholder = 'Password' required><br>
   <input type = 'submit' value = 'Create'>
 </form>
+<% if @exists == true %>
+Email already in use!
+<% end %>

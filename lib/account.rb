@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class Account
 
   attr_reader :id, :username
@@ -16,10 +18,16 @@ class Account
   end
 
   def self.create(username, email, password)
+    encrypted_password = BCrypt::Password.create(password)
     database_selector
-
-    result = @connection.exec("INSERT INTO accounts(username, email, password) VALUES('#{username}', '#{email}', '#{password}') RETURNING id, username")
+    result = @connection.exec("INSERT INTO accounts(username, email, password) VALUES('#{username}', '#{email}', '#{encrypted_password}') RETURNING id, username")
     Account.new(result[0]['id'], result[0]['username'])
+  end
+
+  def self.exists?(email)
+    database_selector
+    result = @connection.exec("SELECT email FROM accounts WHERE email = '#{email}'")
+    true if result.ntuples > 0
   end
 
   def self.new_account
@@ -31,11 +39,12 @@ class Account
 
   def self.log_in(username, password)
     database_selector
-    result = @connection.exec("SELECT id, username, password FROM accounts WHERE username = '#{username}' AND password = '#{password}'")
+    result = @connection.exec("SELECT id, username, password FROM accounts WHERE username = '#{username}'")
     Account.create_instance(result[0]['id'], result[0]['username'])
-    true if result.ntuples == 1
+    true if BCrypt::Password.new(result[0]['password']) == password
     
   end
+
   private
 
   def self.database_selector
