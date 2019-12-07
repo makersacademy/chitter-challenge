@@ -1,0 +1,3 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, comment VARCHAR(240));
+ALTER TABLE peeps ADD COLUMN created_at TIMESTAMP DEFAULT NOW();
+ALTER TABLE peeps ADD COLUMN username varchar(60);
