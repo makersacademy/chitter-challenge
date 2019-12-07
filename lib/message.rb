@@ -2,18 +2,19 @@ require 'pg'
 
 class Message
 
-  attr_reader :id, :message, :time
+  attr_reader :id, :message, :time, :username
 
-  def initialize(id, message, time)
+  def initialize(id, username, message, time)
     @id = id
     @message = message
     @time = time
+    @username = username
   end
 
-  def self.add(message)
+  def self.add(username, message)
     database_selector
 
-    @connection.exec("INSERT INTO messages(message, time) VALUES('#{message}', '#{Time.now.strftime("%k:%M:%S on %d/%m/%Y")}')")
+    @connection.exec("INSERT INTO messages(username, message, time) VALUES('#{username}','#{message}', '#{Time.now.strftime("%k:%M:%S on %d/%m/%Y")}')")
   end
 
   def self.all
@@ -22,7 +23,7 @@ class Message
     result = @connection.exec("SELECT * FROM messages ORDER BY time DESC;")
     
     result.map { |peep|
-      Message.new(peep['id'], peep['message'], peep['time'])
+      Message.new(peep['id'], peep['username'], peep['message'], peep['time'])
     }
   end
 

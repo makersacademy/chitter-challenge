@@ -4,8 +4,8 @@ describe Message do
 
   describe "#add" do
     it 'should add a new message' do
-      Message.add("Hello world")
-      Message.add("Another message")
+      Message.add("dbacall", "Hello world")
+      Message.add("dbacall", "Another message")
 
       messages = Message.all
     

@@ -4,7 +4,11 @@ require './lib/account.rb'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
+    @logged_in = session[:logged_in?]
+    @logged_out = session[:logged_out?]
     erb :index
   end
 
@@ -18,7 +22,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_message' do
-    Message.add(params[:message])
+    @username = Account.instance.username
+    Message.add(@username, params[:message])
     redirect '/chitter_feed'
   end
 
@@ -34,6 +39,21 @@ class Chitter < Sinatra::Base
   get '/account/confirmation' do
     @account = Account.new_account
     erb :confirmation
+  end
+
+  get '/account/log_in' do
+    erb :"/account/log_in"
+  end
+
+  post '/account/log_in' do
+    session[:logged_in?] = Account.log_in(params[:username], params[:password])
+    # session[:logged_out?] = nil
+    redirect '/'
+  end
+
+  get '/account/log_out' do
+    session[:logged_in?] = nil
+    redirect '/'
   end
 
   run! if app_file == $0

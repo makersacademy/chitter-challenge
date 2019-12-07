@@ -7,6 +7,14 @@ class Account
     @username = username
   end
 
+  def self.create_instance(id, username)
+    @account = Account.new(id, username)
+  end
+
+  def self.instance
+    @account
+  end
+
   def self.create(username, email, password)
     database_selector
 
@@ -21,6 +29,13 @@ class Account
     Account.new(result[0]['id'], result[0]['username'])
   end  
 
+  def self.log_in(username, password)
+    database_selector
+    result = @connection.exec("SELECT id, username, password FROM accounts WHERE username = '#{username}' AND password = '#{password}'")
+    Account.create_instance(result[0]['id'], result[0]['username'])
+    true if result.ntuples == 1
+    
+  end
   private
 
   def self.database_selector

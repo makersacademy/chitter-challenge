@@ -15,9 +15,14 @@ describe Account do
     it 'should return the new account as an instance of account' do
       Account.create('dbacall', 'dbacall@hotmail.co.uk', 'password')
       account = Account.new_account
-      p account
       expect(account.username).to eq 'dbacall'
     end
   end
 
+  describe '#log_in' do
+    it 'should return true if log in succesful' do
+      Account.create('dbacall', 'dbacall@hotmail.co.uk', 'password')
+      expect(Account.log_in('dbacall', 'password')).to eq true
+    end
+  end
 end

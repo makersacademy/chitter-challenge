@@ -29,7 +29,6 @@ ENV['ENVIRONMENT'] = 'test'
 RSpec.configure do |config|
   config.before(:each) do
     connection = PG.connect(dbname: 'message_database_test')
-    connection.exec("TRUNCATE TABLE messages;")
-    connection.exec("TRUNCATE TABLE accounts;")
+    connection.exec("TRUNCATE TABLE messages, accounts;")
   end
 end
