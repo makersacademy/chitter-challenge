@@ -2,12 +2,12 @@
   <input type='submit' name='new-peep' value="New peep">
 </form>
 
-<h1> This is a new peep</h1>
+<h1>New peeps:</h1>
 
 <div>
   <ul>
   <% @peeps.each do |peep| %>
-  <li> <%= peep %> </li>
+  <li> <%= peep.id %> <%= peep.userid %> <%= peep.content %> <%= peep.time %></li>
   <% end %>
   </ul>
 </div>
