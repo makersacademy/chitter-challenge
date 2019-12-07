@@ -1,10 +1,28 @@
-<center><h1> Timeline </h1></center>
-<center><h2> This is where you can check out all peeps! </h2></center>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timeline</title>
 
-<ul>
+</head>
 
-  <% @peeps.each do |peep| %>
-    <li> <%= peep.message %> </li>
-  <% end %>
+<body>
+  <center><h1> Timeline </h1></center>
+  <center><h2> This is where you can check out all peeps! </h2></center>
 
-</ul>
+  <ul>
+
+    <% @peeps.each do |peep| %>
+      <li class='peep'>
+        <div class='peep-message'>
+          <p>
+            <span> Published : <%= peep.timestamp%> </span>
+            <%= peep.message %>
+          </p>
+        </div>
+      </li>
+    <% end %>
+
+  </ul>
+
+</body>
+</html>

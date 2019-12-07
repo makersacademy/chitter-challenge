@@ -6,7 +6,7 @@ class Peep
   def initialize(id:, message:, timestamp:)
     @id = id
     @message = message
-    @timestamp = timestamp
+    @timestamp = DateTime.parse(timestamp).strftime("%a, %d %b %Y %I:%M %p")
   end
 
   def self.all

@@ -13,6 +13,7 @@ describe Peep do
       expect(peeps.length).to eq 1
       expect(peeps.first.id).to eq(peep.id)
       expect(peeps.first.message).to eq("I think")
+      expect(peeps.first.timestamp).to eq(peep.timestamp)
     end
   end
 
