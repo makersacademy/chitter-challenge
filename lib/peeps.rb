@@ -23,14 +23,15 @@ class Peeps
     end
   end
 
-  def self.create(userid, content, time)
+  def self.create(userid:, content:, time:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("INSERT INTO peeps (userid, content, time) VALUES('#{userid}', '#{content}', '#{time}')")
+    result = connection.exec("INSERT INTO peeps (userid, content, time) VALUES('#{userid}', '#{content}', '#{time}') RETURNING id, userid, content, time")
+    Peeps.new(id: result[0]['id'], userid: result[0]['userid'], content: result[0]['content'], time: result[0]['time'])
   end
 
 end
