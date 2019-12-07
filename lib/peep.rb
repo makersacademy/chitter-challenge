@@ -1,12 +1,8 @@
+require 'pg'
+
 class Peep
-
-  
-
   def self.all
-    @peeps = [
-      "this is peep1",
-      "this is peep2",
-      "this is peep3"
-    ]
+    con = PG.connect(dbname: 'chitter')
+    result = con.exec('SELECT * FROM peeps')
   end
 end
