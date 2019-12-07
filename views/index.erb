@@ -3,3 +3,11 @@
 </form>
 
 <h1> This is a new peep</h1>
+
+<div>
+  <ul>
+  <% @peeps.each do |peep| %>
+  <li> <%= peep %> </li>
+  <% end %>
+  </ul>
+</div>

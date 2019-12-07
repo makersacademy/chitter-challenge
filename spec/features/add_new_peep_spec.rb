@@ -3,9 +3,9 @@ feature 'Add peeps' do
     visit('/')
     click_on 'new-peep'
     fill_in 'username', with: 'EllieM'
-    fill_in 'content', with: 'This is my peep!'
+    fill_in 'content', with: 'Test peep'
     click_on 'post'
     expect(page).to have_content 'EllieM'
-    expect(page).to have_content 'This is my peep!'
+    expect(page).to have_content 'Test peep'
   end
 end
