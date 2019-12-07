@@ -6,9 +6,14 @@ class Chitter < Sinatra::Base
     erb:'homepage'
   end
 
-  get '/register' do
+  get '/register/new' do
     erb:'register'
   end
+
+  post '/register' do
+    redirect '/'
+  end
+
 
   run! if app_file == $0
 end
