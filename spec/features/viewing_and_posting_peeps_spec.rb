@@ -10,9 +10,14 @@ feature 'Posting peeps' do
       click_button 'Peep'
     end
 
-    scenario 'see the peep' do
+    scenario 'see the message' do
       expect(current_path).to eq('/peeps')
       expect(page).to have_content('First peep')
+    end
+
+    scenario 'see the timestamp' do
+      expect(current_path).to eq('/peeps')
+      expect(page).to have_content('Peeped: ')
     end
 
     scenario 'seeing multiple peeps in reverse chronological order' do

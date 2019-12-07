@@ -14,7 +14,8 @@
   <ul style="list-style-type: none;">
     <% @peeps.each do |peep| %>
       <li>
-        <%= peep.message %>
+        <h3> <%= peep.message %> </h3>
+        <div style="font-size: 12px"> Peeped: <%= peep.created %> </div>
       </li>
     <% end %>
   </ul>
