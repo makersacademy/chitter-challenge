@@ -1,0 +1,10 @@
+<center><h1> Timeline </h1></center>
+<center><h2> This is where you can check out all peeps! </h2></center>
+
+<ul>
+
+  <% @peeps.each do |peep| %>
+    <li> <%= peep.message %> </li>
+  <% end %>
+
+</ul>
