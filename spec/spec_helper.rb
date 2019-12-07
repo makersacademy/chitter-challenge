@@ -1,3 +1,5 @@
+ENV['ENVIRONMENT'] = 'test'
+
 # Require all the testing gems
 require 'simplecov'
 require 'simplecov-console'
@@ -7,8 +9,6 @@ require 'rspec'
 
 # Bring in the contents of the `app.rb` file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-
-ENV['ENVIRONMENT'] = 'test'
 
 # Set the environment to "test"
 require_relative './setup_test_database'
