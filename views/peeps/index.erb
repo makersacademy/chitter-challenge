@@ -1,1 +1,7 @@
-A new message
+<ol>
+  <% @peeps.each do |peep| %>
+    <li>
+      <p><%= peep.content %></p>
+    </li>
+  <% end %>
+</ol>

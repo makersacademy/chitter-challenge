@@ -1,10 +1,14 @@
 require 'sinatra/base'
-# require './lib/bookmark'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
 
   get "/peeps" do
+    @peeps = Peep.all
+    puts "here"
+    p @peeps
+    p @peeps.first.content
     erb :"peeps/index"
   end
 
@@ -13,6 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   post "/peeps/new" do
+    Peep.create(content: params[:content])
     redirect "/peeps"
   end
 
