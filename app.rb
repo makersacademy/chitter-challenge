@@ -6,9 +6,6 @@ class Chitter < Sinatra::Base
 
   get "/peeps" do
     @peeps = Peep.all
-    puts "here"
-    p @peeps
-    p @peeps.first.content
     erb :"peeps/index"
   end
 

@@ -28,8 +28,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("INSERT INTO peeps (content)
-                              VALUES ('#{content}') returning id, content;")
+    result = connection.exec("INSERT INTO peeps (content) VALUES ('#{content}') returning id, content;")
     Peep.new(id: result[0]['id'], content: result[0]['content'])
   end
 end
