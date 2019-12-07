@@ -7,6 +7,7 @@ if ENV['RACK_ENV'] != 'production'
 end
 
 require 'pg'
+require './app'
 
 task :reset do
   p "Deleting databases..."
@@ -24,6 +25,6 @@ task :setup do
     connection = PG.connect
     connection.exec("CREATE DATABASE #{database};")
     connection = PG.connect(dbname: database)
-    connection.exec("CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(280));")
+    connection.exec("CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(280));")
   end
 end

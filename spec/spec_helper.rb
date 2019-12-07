@@ -19,7 +19,13 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+require './spec/helper.rb'
+
 RSpec.configure do |config|
+  config.before(:each) do
+    clear_tables
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

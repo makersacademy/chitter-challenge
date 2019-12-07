@@ -1,0 +1,19 @@
+<style>
+.centre {
+  text-align: centre;
+}
+</style>
+
+<div class="centre">
+  <h1>Welcome to Peep</h1>
+
+  <form action="/peeps/new" method="GET">
+    <button type="submit">Peep</button>
+  </form>
+
+  <ul style="list-style-type: none;">
+    <% @peeps.each do |peep| %>
+      <li>peep.message</li>
+    <% end %>
+  </ul>
+</div>
