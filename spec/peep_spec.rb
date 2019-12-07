@@ -11,9 +11,9 @@ RSpec.describe Peep do
     expect(test_peep.body).to eq 'message'
   end
 
-  it 'has likes and can be liked' do
+  it 'has luvs and can be luvd' do
     test_user_id = 1
-    expect { test_peep.receive_like test_user_id, test_peep.id }.to change { Like.all_for test_peep }.by 1
+    expect { test_peep.receive_luv test_user_id, test_peep.id }.to change { Luv.all_for test_peep }.by 1
   end
 
   it 'keeps a record of the time it was posted' do

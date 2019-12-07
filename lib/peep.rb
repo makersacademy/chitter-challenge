@@ -1,6 +1,6 @@
 class Peep < ActiveRecord::Base
-  def receive_like user_id, peep_id
-    Like.create user_id: user_id, peep_id: peep_id
+  def receive_luv user_id, peep_id
+    Luv.create user_id: user_id, peep_id: peep_id
   end
 
   def timestamp

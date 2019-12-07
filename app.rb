@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require_relative 'lib/user'
 require_relative 'lib/peep'
+require_relative 'lib/luv'
 
 ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'chitter')
 
@@ -16,6 +17,7 @@ class Chitter < Sinatra::Base
   before do
     @current_user = session[:user]
     @peeps = Peep
+    @luvs = Luv
   end
 
   get '/' do
@@ -47,5 +49,10 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  post '/handle-luv' do
+    peep = Peep.where(id: params.keys.pop).first
+    peep.receive_luv @current_user.id, peep.id
+    redirect '/peeps'
+  end
   run! if app_file == $0
 end

@@ -11,9 +11,15 @@
     <p>Peeps</p>
     <p><%= @peeps.all_by(@current_user.id).count %></p>
     <table>
-      <% @peeps.all_by(@current_user.id).map do |peep| %>
+      <% @peeps.all_by(@current_user.id).map.with_index do |peep, i| %>
         <tr>
           <td><%= peep.body %></td>
+          <td>
+            Luvs <%= @luvs.all_for peep %>
+            <form action="/handle-luv" method="POST">
+              <input type="submit" id="luv-peep-<%= i + 1 %>" name="<%= peep.id %>" value="Luv">
+            </form>
+          </td>
         </tr>
       <% end %>
     </table>
