@@ -4,8 +4,16 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
 
-  get '/' do
-    "Test"
+  get "/peeps" do
+    erb :"peeps/index"
+  end
+
+  get "/peeps/new" do
+    erb :"peeps/new"
+  end
+
+  post "/peeps/new" do
+    redirect "/peeps"
   end
 
   run! if app_file == $0
