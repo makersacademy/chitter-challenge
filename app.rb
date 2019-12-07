@@ -14,7 +14,6 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     Peep.create(params[:message])
-    p params
     @peeps = Peep.all
     erb(:peeps)
   end
