@@ -12,6 +12,12 @@ describe Maker do
       expect(maker.name).to eq "Andrea"
       expect(maker.username).to eq "Angea89"
     end
+
+    it "hashes the password using BCrypt" do
+      expect(BCrypt::Password).to receive(:create).with("mypassword")
+
+      Maker.create(email: "andrea@gmail.com", password: "mypassword", name: "Andrea", username: "Angea89")
+    end
   end
 
   describe ".find" do

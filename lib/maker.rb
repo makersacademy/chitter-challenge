@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class Maker
   attr_reader :id, :email, :name, :username
 
@@ -9,8 +11,9 @@ class Maker
   end
 
   def self.create(email:, password:, name:, username:)
+    encrypted_password = BCrypt::Password.create(password)
     sql = "INSERT INTO makers (email, password, name, username)
-           VALUES ('#{email}', '#{password}', '#{name}', '#{username}')
+           VALUES ('#{email}', '#{encrypted_password}', '#{name}', '#{username}')
            RETURNING id, email, name, username;"
     result = DatabaseConnection.query(sql)
     Maker.new(

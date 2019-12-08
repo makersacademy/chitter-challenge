@@ -33,8 +33,6 @@ class Chitter < Sinatra::Base
       username: params[:username]
       )
     session[:maker_id] = maker.id
-    puts "Inside /makers"
-    p session[:maker_id]
     redirect "/peeps"
   end
 
