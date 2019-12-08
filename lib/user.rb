@@ -34,8 +34,6 @@ class User
     raise 'Email or password do not exist'
   end
 
-  # private
-
   def self.connect_to_database
     if ENV['RACK_ENV'] == 'test'
       @connection = PG.connect(dbname: 'chitter_test_database')

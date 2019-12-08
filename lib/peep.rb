@@ -21,9 +21,7 @@ class Peep
 
     result = @connection.exec("SELECT * FROM users WHERE user_id = '#{@user_id}';")
 
-    @user_class.new(user_name: result[0]['user_name'], user_handle: result[0]['user_handle'],
-      email: result[0]['email'], password: result[0]['password'],
-      created_at: result[0]['created_at'], user_id: result[0]['user_id'])
+    @user_class.new_user(result)
   end
 
   def self.all

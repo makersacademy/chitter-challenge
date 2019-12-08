@@ -2,13 +2,7 @@ feature "user can sign in" do
 
   before do
     test_database_setup
-
-    visit '/chitter'
-    fill_in 'name', with: 'Sipho Adebayo'
-    fill_in 'user-handle', with: 'Sips'
-    fill_in 'email', with: 'sipho_adebayo@test.com'
-    fill_in 'password', with: 'darby34'
-    click_button 'Sign up'
+    sign_up_new_user
   end
 
   scenario "signs in if email and password are correct/exist" do
@@ -35,7 +29,7 @@ feature "user can sign in" do
     fill_in 'email', with: 'sipho_adebayo@test.com'
     fill_in 'password', with: 'da508967'
     click_button "Sign in"
-    
+
     expect(page).to have_content "Email or password are incorrect. Please try again."
   end
 end
