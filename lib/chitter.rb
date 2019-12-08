@@ -10,7 +10,7 @@ class Chitter
   end
 
   def self.all
-    result = DBConnection.query("select * from chitter")
+    result = DBConnection.query("select * from chitter order by date desc;")
     result.map { |chitter|
       Chitter.new(id: chitter['id'], message: chitter['message'], date: chitter['date'])
     }

@@ -1,5 +1,5 @@
 feature 'Edit a peep' do
-  scenario 'user can update a bookmark' do
+  scenario 'user can update a message from chitter' do
     chitter = Chitter.create(message: '1st post')
     visit('/chitter')
     expect(page).to have_content '1st post', chitter.date

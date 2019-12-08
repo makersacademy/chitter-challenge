@@ -11,10 +11,10 @@ describe Chitter do
       chitters = Chitter.all
       
       expect(chitters.length).to eq 3
-      expect(chitters.first).to be_a Chitter
-      expect(chitters.first.id).to eq chitter.id
-      expect(chitters.first.message).to eq "1st post"
-      expect(chitters.first.date).to eq chitter.date
+      expect(chitters.last).to be_a Chitter
+      expect(chitters.last.id).to eq chitter.id
+      expect(chitters.last.message).to eq "1st post"
+      expect(chitters.last.date).to eq chitter.date
     end
   end
 
