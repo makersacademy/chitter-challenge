@@ -3,7 +3,6 @@ feature 'Add peeps' do
     visit('/new')
     fill_in 'content', with: 'Test peep'
     click_on 'post'
-    expect(page).to have_content 'EllieM'
     expect(page).to have_content 'Test peep'
   end
 end

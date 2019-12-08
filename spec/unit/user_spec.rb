@@ -2,9 +2,14 @@ require 'user'
 
 describe User do
   let(:user) { User.new(id: 1, username: 'EllieM', email: 'makers@gmail.com', password: 'PASSWORD123') }
-  describe '#username' do
-    it 'fills in username' do
+
+  describe '.create' do
+    it "should create a new peep and add it to the database" do
+      expect(user).to be_a User
       expect(user.username).to eq 'EllieM'
+      expect(user.email).to eq 'makers@gmail.com'
+      expect(user.password).to eq 'PASSWORD123'
     end
   end
+
 end
