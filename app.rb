@@ -1,9 +1,17 @@
+require 'pg'
 require 'sinatra/base'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
     erb:'homepage'
+  end
+
+  get '/interface' do
+    @user = User.find(session[:user_id])
+    erb:'interface'
   end
 
   get '/register/new' do
@@ -11,7 +19,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/register' do
-    redirect '/'
+  user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+  session[:user_id] = user.id
+  redirect '/'
   end
 
 

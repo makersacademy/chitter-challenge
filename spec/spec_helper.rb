@@ -1,10 +1,19 @@
+require_relative './setup_database'
+
 ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_database
+  end
+end
 
 # Bring in the contents of the `app.rb` file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 # Require all the testing gems
 require 'capybara'
+require 'pg'
 require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
