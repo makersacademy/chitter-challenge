@@ -4,38 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chitter</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="css/chitter_timeline.css" type="text/css" rel="stylesheet"/>
+    <title>Chitter - Profile</title>
   </head>
   <body>
-    <h1><%= @current_user.username %>'s Peeps</h1>
-    <p>Peeps</p>
-    <p><%= Peep.all_by(@current_user.id).count %></p>
-    <p>Luvs</p>
-    <p><%= Luv.where(user_id: @current_user.id).count %></p>
-    <table>
-      <% Peep.all_by(@current_user.id).reverse.map.with_index do |peep, i| %>
-        <tr>
-          <td>
-            <div><%= @current_user.username %></div>
-            <%= peep.body %>
-            <p>Peeped at <%= peep.timestamp %></p>
-          </td>
-          <td>
-            Luvs <%= Luv.all_for peep %>
-            <form action="/handle-luv" method="POST">
-              <input type="submit" id="luv-peep-<%= i + 1 %>" name="<%= peep.id %>" value="Luv">
-            </form>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-    <% if @current_user.logged_in %>
-      <form action="/send-peep" method="POST">
-        <input type="textarea" class="new-peep" name="new-peep">
-        <input type="submit" id="send-peep" value="Send Peep">
-      </form>
-      <a href="/peeps">Main Feed</a>
-    <% end %>
-    <a href="/log-out">Log Out</a>
+    <div class="content">
+      <div class="user-nav">
+        <span class="user-info">
+          <div id="profile-picture"></div>
+          <h1 id="profile-username"><%= @current_user.username %></h1>
+          <span class="peeps-and-luvs">
+            <span id="peep-stats">Peeps <div class="b"><%= Peep.all_by(@current_user.id).count %></div></span>
+            <span id="luv-stats">Luvs <div class="b"><%= Luv.where(user_id: @current_user.id).count %></div></span>
+          </span>
+        </span>
+        <span class="nav-buttons">
+          <%= '<a id="my-profile" href="/peeps">Main Feed</a>' if @current_user.logged_in %>
+          <a id="log-out" href="/log-out">Log Out</a>
+        </span>
+      </div>
+      <div id="division"></div>
+      <div class="chitter-feed">
+        <h1 id="chitter-feed-header"><%= @current_user.username %>'s Peeps</h1>
+        
+        <div id="stream-of-chitter-posts">
+          <% Peep.all_by(@current_user.id).reverse.map.with_index do |peep, i| %>
+
+            <div class="chitter-post">
+              <div class="peep-username"><%= User.find(peep.user_id).username %></div>
+              <div class="post-div"></div>
+              <div class="peep-body"><%= peep.body %></div>
+              <div class="post-div"></div>
+              <div class="peep-info">
+                <div class="peeped-at">Peeped at <%= peep.timestamp %></div>
+                <div class="luv-interaction">
+                  <div><%= Luv.all_for peep %> Luvs</div>
+                  <form class="give-luv" action="/handle-luv" method="POST">
+                    <input type="submit" class="luv-icon" id="luv-peep-<%= i + 1 %>" name="<%= peep.id %>" value="Luv">
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          <% end %>
+        </div>
+
+        <% if @current_user.logged_in %>
+          <span id="peep-form-prompt">What's on your mind?</span>
+          <form id="peep-form" action="/send-peep" method="POST">
+            
+            <span id="peep-form-div"></span>
+            <span id="peep-form-interface">
+              <input type="submit" id="send-peep" value="Send Peep">
+              <textarea class="new-peep" name="new-peep" spellcheck="false" required></textarea>
+            </span>
+          </form>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>
+

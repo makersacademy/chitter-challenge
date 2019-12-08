@@ -115,7 +115,6 @@ textarea:focus {
   background: #a5a5d3;
   border-top-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  transition: 0.3s;
 }
 
 .peeps-and-luvs {
@@ -177,13 +176,12 @@ textarea:focus {
   width: 100px;
   margin: 10px 0 10px 10px;
   font-size: 0.75em;
-  transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.3s;
 }
 
 #send-peep:hover {
   height: 90%;
   color: cornflowerblue;
-  transition: all ease-in-out 0.3s;
 }
 
 .peep-username {
@@ -194,8 +192,6 @@ textarea:focus {
 
 .peep-body {
   font-size: 25px;
-  border-top: 1px solid #9e9ec4;
-  border-bottom: 1px solid #9e9ec4;
   padding: 10px 10px 7px 5px;
 }
 
