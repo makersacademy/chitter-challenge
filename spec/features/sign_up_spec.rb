@@ -5,6 +5,6 @@ feature 'Sign up' do
     fill_in 'email', with: 'makersemail@gmail.com'
     fill_in 'password', with: 'PASSWORD123'
     click_on 'submit'
-    expect(page).to have_content 'Hello EllieM, what would you like to do?'
+    expect(page).to have_content 'Peep:'
   end
 end
