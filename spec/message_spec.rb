@@ -5,8 +5,6 @@ describe Message do
   describe '.all' do
 
     it 'returns all messages' do
-      connection = PG.connect(dbname: 'chitter_test')
-
       # Add the test data
 
       message = Message.create(msg: "hello world")
@@ -15,8 +13,8 @@ describe Message do
       
       messages = Message.all
 
-      #this tests that the Message object returns the same data we input into the database, 
-      #basically, that our object behaves the way we want it to
+      # this tests that the Message object returns the same data we input into the database, 
+      # basically, that our object behaves the way we want it to
       expect(messages.length).to eq 3
       expect(messages.first).to be_a Message
       expect(messages.first.id).to eq message.id
