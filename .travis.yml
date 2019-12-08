@@ -3,6 +3,7 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test_database;' -U postgres
+  - psql -c '\c chitter_test_database;' -U postgres
   - psql -c 'CREATE TABLE peeps(id serial PRIMARY KEY, content VARCHAR(280) NOT NULL,
     created_at TIMESTAMP NOT NULL);' -U postgres
   - psql -c 'CREATE TABLE users(
