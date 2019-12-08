@@ -8,6 +8,4 @@ def setup_test_database
   # Clear the messages table
   connection.exec("TRUNCATE TABLE messages, users;")
   # connection.exec("TRUNCATE users;")
-
-
 end

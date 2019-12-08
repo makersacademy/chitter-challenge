@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/message'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
@@ -29,7 +30,6 @@ class Chitter < Sinatra::Base
     Message.create(msg: params['msg'])
     redirect :messages
   end
-
 
   run! if app_file == $0
 
