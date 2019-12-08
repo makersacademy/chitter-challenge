@@ -4,7 +4,5 @@ def setup_test_database
 end
 
 def persistent_data(table:, id:)
-  connection = PG.connect(dbname: 'chitter_test')
-  result = connection.exec("SELECT * FROM #{table} WHERE id='#{id}';")
-  result[0]
+  DatabaseConnection.query("SELECT * FROM #{table} WHERE id='#{id}';")
 end

@@ -7,7 +7,7 @@ describe Maker do
       persistent_data = persistent_data(table: :makers, id: maker.id)
 
       expect(maker).to be_a Maker
-      expect(maker.id).to eq persistent_data['id']
+      expect(maker.id).to eq persistent_data[0]['id']
       expect(maker.email).to eq "andrea@gmail.com"
       expect(maker.name).to eq "Andrea"
       expect(maker.username).to eq "Angea89"

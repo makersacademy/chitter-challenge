@@ -38,7 +38,7 @@ describe Peep do
       persistent_data = persistent_data(table: :peeps, id: peep.id)
 
       expect(peep).to be_a Peep
-      expect(peep.id).to eq persistent_data['id']
+      expect(peep.id).to eq persistent_data[0]['id']
       expect(peep.content).to eq "First peep"
       expect(peep.time).to eq "2019-02-24 12:00:00"
       expect(peep.maker_id).to eq maker.id
