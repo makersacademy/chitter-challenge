@@ -3,7 +3,7 @@ require 'pg'
 class Peep
   attr_reader :peep, :id, :time
 
-  def initialize(id, peep, time = Time.now)
+  def initialize(id, peep, time = Time.now.strftime("%k:%M"))
     @id = id
     @peep = peep
     @time = time
