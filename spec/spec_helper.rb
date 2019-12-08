@@ -22,6 +22,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     truncate_peeps
+    truncate_users
   end
 
   config.after(:suite) do
