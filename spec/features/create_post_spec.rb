@@ -1,6 +1,6 @@
 feature 'Adding a new peep' do
   scenario 'user can add a message to chitter' do
-    visit('/chitter/new')
+    visit('/chitter')
     chitter = Chitter.create(message: '1st post')
     click_button('Submit')
 

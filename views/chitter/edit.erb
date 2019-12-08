@@ -1,5 +1,7 @@
+<br><center> <h1> <strong><font face="verdana" color="#5476C4">Chitter</font></strong> </h1><br><br>
 <form action="/chitter/<%= @chitter.id %>" method="post">
   <input type="hidden" name="_method" value="PATCH" />
-  <input type="text" name="message" value="<%= @chitter.message %>" />
+  <textarea rows = "4" cols = "50" value="<%= @chitter.message %>" name = "message" type = "text" placeholder="Edit your peep here..."></textarea>
   <input type="submit" value="Submit" />
 </form>
+</center>
