@@ -2,14 +2,14 @@ require 'models/peep'
 require 'pg'
 
 describe Peep do
-  it "should be able to list the peeps table" do
-    add_to_peeps content: "This is a test peep"
-    add_to_peeps content: "This is a second one"
+  it "should be able to list the peeps table in reverse order" do
+    add_to_peeps content: "This is a test peep", time: Time.now.utc - 10
+    add_to_peeps content: "This is a second one", time: Time.now.utc
 
-    peeps = Peep.all
+    peeps = Peep.all.order created_at: :desc
 
     expect(peeps.size).to eq 2
-    expect(peeps.first.content).to eq "This is a test peep"
+    expect(peeps.first.content).to eq "This is a second one"
   end
 
   it "should be able to create a peep" do
