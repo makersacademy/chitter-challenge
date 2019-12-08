@@ -2,12 +2,12 @@ require 'pg'
 
 class Message
 
-  attr_reader :id, :msg
+  attr_reader :id, :msg, :ts
 
-  def initialize(id:, msg:)
+  def initialize(id:, msg:, ts:)
     @id = id
     @msg = msg
-    # @ts = Time.now.to_i
+    @ts = ts
   end
 
   def self.all
@@ -18,8 +18,8 @@ class Message
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("SELECT id, msg FROM messages;")
-    result.map { |message| Message.new(id: message ['id'], msg: message['msg']) }
+    result = connection.exec("SELECT * FROM messages ORDER BY ts DESC;")
+    result.map { |message| Message.new(id: message['id'], msg: message['msg'], ts: message['ts']) }
   end 
 
   def self.create(msg:)
@@ -33,11 +33,10 @@ class Message
     # using bind params; telling the db which info comes from me, which info comes from the user
     # then i tell it how to bind them
     # this protects against sql injection
-    connection.prepare('statement1', 'INSERT INTO messages (msg) VALUES($1) RETURNING id, msg')
-    result = connection.exec_prepared('statement1', [msg])
+    connection.prepare('statement1', 'INSERT INTO messages (msg, ts) VALUES($1, $2) RETURNING id, msg, ts')
+    result = connection.exec_prepared('statement1', [msg, Time.now])
 
-    Message.new(id: result[0]['id'], msg: result[0]['msg'])
-  
+    Message.new(id: result[0]['id'], msg: result[0]['msg'], ts: result[0]['ts'])
   end
   
 end
