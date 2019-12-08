@@ -6,10 +6,10 @@ describe Message do
 
     it 'returns all messages' do
       # Add the test data
-
-      message = Message.create(msg: "hello world")
-      Message.create(msg: "i love kimchi")
-      Message.create(msg: "donuts, amirite?")
+      user = User.sign_up(email: "test@mail.com", password: "password")
+      message = Message.create(msg: "hello world", user_id: user.id)
+      Message.create(msg: "i love kimchi", user_id: user.id)
+      Message.create(msg: "donuts, amirite?", user_id: user.id)
       
       messages = Message.all
 
@@ -18,21 +18,19 @@ describe Message do
       expect(messages.length).to eq 3
       expect(messages.first).to be_a Message
       expect(messages.first.id).to eq message.id
+      expect(messages.first.user_id).to eq message.user_id
       expect(messages.first.msg).to eq 'hello world'
-      # expect(message.first.ts).to eq '2019-12-07 19:29:31.493764'
     end
   end
 
   describe ".create" do
 
     it "creates a new chitter message" do
-      message = Message.create(msg: "hello world")
-      # persisted_data = persisted_data(id: message.id)      
-
+      user = User.sign_up(email: "test@mail.com", password: "password")
+      message = Message.create(msg: "hello world", user_id: user.id)
       expect(message).to be_a Message
-      # expect(bookmark.id).to eq persisted_data['id']
       expect(message.msg).to eq 'hello world'
-      # expect(message.ts).to eq 'whatever'
+      expect(message.user_id).to eq user.id
     end
 
   end

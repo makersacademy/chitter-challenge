@@ -4,6 +4,8 @@ require './lib/user'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     erb :index
   end
@@ -13,7 +15,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/sign_up' do
-    User.sign_up(email: params['email'], password: params['password'])
+    user = User.sign_up(email: params['email'], password: params['password'])
+    session[:user_id] = user.id
     redirect :"messages/new"
   end
 
@@ -27,7 +30,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages/new' do
-    Message.create(msg: params['msg'])
+    Message.create(msg: params['msg'], user_id: session[:user_id])
     redirect :messages
   end
 

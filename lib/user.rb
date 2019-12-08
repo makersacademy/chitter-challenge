@@ -23,5 +23,9 @@ class User
 
     User.new(id: result[0]['id'], email: result[0]['email'], 
       password_digest: result[0]['password_digest'])
+
+    
   end
+
+
 end
