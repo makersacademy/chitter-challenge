@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/chitter'
+require './db_connection_setup'
 
 class ChitterManager < Sinatra::Base
   enable :sessions, :method_override
