@@ -17,6 +17,6 @@ describe Peep do
   it 'knows the time a peep was created' do
     time_created = Time.now.strftime("%k:%M") 
     peep = Peep.create('I am a test peep')
-    expect(peep.time).to eq(time_created)
+    expect(peep.time.slice(11..15)).to eq(time_created)
   end
 end

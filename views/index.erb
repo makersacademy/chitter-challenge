@@ -1,3 +1,15 @@
-<%@peeps.each do |peep|%>
-  <li><%="#{peep.time}: #{peep.peep}"%></li>
-<%end%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chitter</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  </head>
+  <body>
+    <%@peeps.reverse.each do |peep|%>
+      <li><%="#{peep.time.slice(11..15)} - #{peep.peep}"%></li>
+    <%end%>
+  </body>
+</html>
+

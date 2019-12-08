@@ -3,7 +3,7 @@ require 'pg'
 class Peep
   attr_reader :peep, :id, :time
 
-  def initialize(id, peep, time = Time.now.strftime("%k:%M"))
+  def initialize(id, peep, time)
     @id = id
     @peep = peep
     @time = time
@@ -12,14 +12,14 @@ class Peep
   def self.all
     connect_to_database do |connection|
       result = connection.exec("SELECT * FROM peeps;")
-      result.map { |peep| Peep.new(peep['id'], peep['peep']) }
+      result.map { |peep| Peep.new(peep['id'], peep['peep'], peep['created_at']) }
     end
   end
 
   def self.create(peep)
     connect_to_database do |connection|
-      result = connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}') RETURNING id, peep")
-      Peep.new(result[0]['id'], result[0]['peep'])
+      result = connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}') RETURNING id, peep, created_at")
+      Peep.new(result[0]['id'], result[0]['peep'], result[0]['created_at'])
     end
   end
 
