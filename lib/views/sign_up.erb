@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <form action="/new-profile" method="POST">
-  <input type="text" name="new email" placeholder="Enter Your Email">
-    <input type="text" name="new username" placeholder="Enter a Username">
-    <input type="text" name="new password" placeholder="Enter a Password">
-    <input type="submit" name="submit" value="Sign Up">
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="css/chitter_login.css" type="text/css" rel="stylesheet"/>
+    <title>Sign Up for Chitter</title>
+  </head>
+  <body>
+  <div id="content">
+    <h1 id="signup-header">Sign Up</h1>
+      <form id="signup-form" action="/new-profile" method="POST">
+        <div class="input-underline">
+          <input 
+            type="text" 
+            name="new email" 
+            placeholder="Enter Your Email"
+            spellcheck="false" 
+            autocomplete="off" 
+            required
+          >
+        </div>
+        <div class="input-underline">
+          <input 
+            type="text" 
+            name="new username" 
+            placeholder="Enter a Username"
+            spellcheck="false" 
+            autocomplete="off" 
+            required
+          >
+        </div>
+        <div class="input-underline">
+          <input type="text" name="new password" placeholder="Enter a Password"
+            spellcheck="false" 
+            autocomplete="new-password"
+            required
+          >
+        </div>
+        <input id="sign-up-for-new-profile" type="submit" name="submit" value="Sign Up">
+      </form>
+      <div id="go-back"><a href="/">Go Back</a></div>
+    </div>
+  </body>
 </html>

@@ -33,6 +33,10 @@ input[type="submit"] {
   background: transparent;
 }
 
+input[type="submit"]:focus {
+  outline: none;
+}
+
 input:hover::placeholder{
   opacity: 0.6;
   transition: 0.2s;
@@ -75,7 +79,12 @@ textarea:focus {
   text-align: center;
 }
 
-#login-form {
+#signup-header {
+  font-size: 11vw;
+  text-align: center;
+}
+
+#login-form, #signup-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,7 +114,7 @@ input[type="text"] {
   width: 100%;
 }
 
-#log-in {
+#log-in, #sign-up-for-new-profile {
   padding: 35px 10% 40px 10%;
   color: #9e9ec4;
   text-decoration: none;
@@ -119,19 +128,19 @@ input[type="text"] {
   transition: 0.2s;
 }
 
-#log-in:hover {
+#log-in:hover, #sign-up-for-new-profile:hover {
   width: 60%;
   color: rgb(201, 194, 211);
 }
 
-#sign-up {
+#sign-up, #go-back {
   display: flex;
   justify-content: center;
   height: 50px;
   margin: 30px;
 }
 
-#sign-up a {
+#sign-up a, #go-back a {
   text-align: center;
   text-decoration: none;
   font-size: 30px;
@@ -139,7 +148,7 @@ input[type="text"] {
   transition: 0.2s;
 }
 
-#sign-up a:hover {
+#sign-up a:hover, #go-back a:hover {
   color: rgb(132, 166, 230);
 }
 
