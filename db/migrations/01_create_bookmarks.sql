@@ -1,0 +1,1 @@
+CREATE DATABASE chitter_chatter WITH OWNER student ENCODING 'UTF8';
