@@ -1,5 +1,7 @@
 feature "View peeps" do
   scenario "A maker can view the peeps in reverse cronological order" do
+    sign_in
+    sign_up
     post_peep
 
     visit "/peeps/new"
