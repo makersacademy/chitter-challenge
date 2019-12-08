@@ -20,14 +20,24 @@ feature 'Posting peeps' do
       click_button 'Peep'
     end
 
-    scenario 'see the message' do
+    scenario 'see the message of the peep' do
       expect(current_path).to eq('/peeps')
       expect(page).to have_content('First peep')
     end
 
-    scenario 'see the timestamp' do
+    scenario 'see the timestamp of the peep' do
       expect(current_path).to eq('/peeps')
       expect(page).to have_content('Peeped: ')
+    end
+
+    scenario 'see the maker of who peeped the peep' do
+      expect(current_path).to eq('/peeps')
+      expect(page).to have_content('Sam Morgan')
+    end
+
+    scenario 'see the username of who peeped the peep' do
+      expect(current_path).to eq('/peeps')
+      expect(page).to have_content('By: sjmog')
     end
 
     scenario 'seeing multiple peeps in reverse chronological order' do
@@ -42,6 +52,14 @@ feature 'Posting peeps' do
       expect(page.find('li:nth-child(1)')).to have_content('Second peep')
       expect(page.find('li:nth-child(2)')).to have_content('First peep')
 
+    end
+
+    scenario 'seeing peeps after signing out' do
+      click_button 'Sign out'
+
+      expect(current_path).to eq('/peeps')
+      expect(page).to have_content('First peep')
+      expect(page).to have_content('By: sjmog (Sam Morgan)')
     end
 
   end

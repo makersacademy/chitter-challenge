@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(params[:message])
+    Peep.create(message: params[:message], user_id: session[:user_id])
     redirect '/peeps'
   end
 
@@ -53,7 +53,9 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash[:notice] = 'The email and password that you entered did not match our records. Please double-check and try again.'
+      flash[:notice] = 
+      'The email and password that you entered did not match our records. 
+      Please double-check and try again.'
       redirect '/sessions/new'
     end
   end

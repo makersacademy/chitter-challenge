@@ -36,6 +36,7 @@
       <li>
         <h3> <%= peep.message %> </h3>
         <div style="font-size: 12px"> Peeped: <%= peep.created %> </div>
+        <div style="font-size: 12px"> By: <%= User.find(id: peep.user_id).username %> (<%= User.find(id: peep.user_id).name %>) </div>
       </li>
     <% end %>
   </ul>
