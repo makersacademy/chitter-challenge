@@ -22,9 +22,7 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li> <%= peep.content %> <br>
-      <% if @user %>
-        Posted by: <%=@user.user_handle%> (<%=@user.user_name%>) <br>
-      <% end %>
+      Posted by: <%= peep.user.user_handle%> (<%= peep.user.user_name%>) <br>
       Posted on: <%= peep.created_at %> <br>
     </li>
   <% end%>

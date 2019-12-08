@@ -40,7 +40,7 @@ class User
     if ENV['RACK_ENV'] == 'test'
       @connection = PG.connect(dbname: 'chitter_test_database')
     else
-      connection = PG.connect(dbname: 'chitter_database')
+      @connection = PG.connect(dbname: 'chitter_database')
     end
   end
 

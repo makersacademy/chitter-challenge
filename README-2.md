@@ -157,6 +157,8 @@ You can run tests by running "rspec" in the terminal in the chitter_challenge di
 
 #### Unit tests
 Peep  
+  - #user"  
+    - returns the user that posted the peep
   - .all
     - returns all peeps made in reverse chronological order
   - .create

@@ -1,4 +1,5 @@
 require 'peep'
+require 'user'
 require 'pg'
 
 describe Peep do
@@ -9,6 +10,13 @@ describe Peep do
     @user = connection.exec("INSERT INTO users(user_name, user_handle, email, password, created_at)
       VALUES('Debbie Handler', 'The Real Debs', 'debbie@test.com', 'dkfg14', NOW()) RETURNING user_id;")
     @user_id = @user[0]['user_id']
+  end
+
+  describe "#user" do
+    it "returns the user that posted the peep" do
+      peep = Peep.create(content: "Hello World!", user_id: @user_id)
+      expect(peep.user).to be_instance_of User
+    end
   end
 
   describe ".all" do

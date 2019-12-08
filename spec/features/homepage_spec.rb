@@ -25,5 +25,7 @@ feature "visit homepage" do
     visit '/chitter'
 
     expect(page).to have_content "I am obsessed with this new pizza joint!"
+    expect(page).to have_content "Posted by: Sips (Sipho Adebayo)"
+    expect(page).to have_content "Posted on: "
   end
 end
