@@ -1,0 +1,8 @@
+<center><h1>Chitter Feed</h1>
+<a href = '/'>Back to Homepage</a>
+<ul style = 'list-style-type:none;'>
+  <% @peep.each do |peep|%>
+    <li> @<%= peep.username %>: <%= peep.message %><br>
+        Time posted: <%= peep.time %> </li><br>
+  <% end %>
+</ul>

@@ -15,3 +15,20 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
+Capybara.app = Chitter
+
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    connection = PG.connect(dbname: 'message_database_test')
+    connection.exec("TRUNCATE TABLE messages, accounts;")
+  end
+end
