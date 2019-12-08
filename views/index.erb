@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="/stylesheets/index.css">
 
 <div class="container">
+  <form action='/sign-up' method='get'>
+    <input type='submit' value='Sign-up'>
+  </form>
+  
   <form
   <% if @user %>
   action='/new'
@@ -20,7 +24,7 @@
   <ul>
     <% @peeps.reverse.each do |peep| %>
     <div id="peep">
-      <%= peep.username %> <%= peep.userid %> || <%= peep.content %> <%= (peep.time)[0...16] %>
+      <%= peep.username %> || <%= peep.content %> || <%= (peep.time)[0...16] %>
     </div>
     <% end %>
   </ul>
