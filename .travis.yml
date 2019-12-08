@@ -3,9 +3,9 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-  - psql -c 'create database message_database_test' -U postgres
-  - psql -c message_database_test 'create table messages(id serial primary key, url varchar(100), time varchar);' -U postgres
-  - psql -c message_database_test'create table accounts(id serial primary key, username varchar, email varchar, password varchar)' -U postgres
+  - psql -c 'CREATE DATABASE message_database_test;' -U postgres
+  - psql -c '\c message_database_test CREATE TABLE messages(id SERIAL PRIMARY KEY, url VARCHAR(100), time VARCHAR);' -U postgres
+  - psql -c '\c message_database_test CREATE TABLE accounts(id SERIAL PRIMARY KEY, username VARCHAR, email VARCHAR, password VARCHAR);' -U postgres
 
 script:
   - bundle exec rspec
