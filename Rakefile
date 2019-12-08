@@ -7,7 +7,6 @@ if ENV['RACK_ENV'] != 'production'
 end
 
 require 'pg'
-# require './app'
 
 task :setup do
   p "Creating databases..."
