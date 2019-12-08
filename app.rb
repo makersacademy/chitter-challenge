@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/maker'
 require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get "/peeps" do
     @maker = Maker.find(id: session[:maker_id])
@@ -32,8 +34,14 @@ class Chitter < Sinatra::Base
       name: params[:name],
       username: params[:username]
       )
-    session[:maker_id] = maker.id
-    redirect "/peeps"
+    p maker
+    if maker
+      session[:maker_id] = maker.id
+      redirect "/peeps"
+    else
+      flash[:notice] = "Email already registered."
+      redirect "/makers/new"
+    end
   end
 
   run! if app_file == $0

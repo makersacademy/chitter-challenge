@@ -2,7 +2,7 @@ require "database_connection"
 
 describe DatabaseConnection do
   describe ".setup" do
-    it "setups a connection to a databse though PG" do
+    it "setups a connection to a databse via PG" do
       expect(PG).to receive(:connect).with(dbname: "chitter_test")
       DatabaseConnection.setup("chitter_test")
     end

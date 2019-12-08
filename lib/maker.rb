@@ -11,6 +11,9 @@ class Maker
   end
 
   def self.create(email:, password:, name:, username:)
+    result =  DatabaseConnection.query("SELECT * FROM makers WHERE email = '#{email}';")
+    return if result.any?
+    
     encrypted_password = BCrypt::Password.create(password)
     sql = "INSERT INTO makers (email, password, name, username)
            VALUES ('#{email}', '#{encrypted_password}', '#{name}', '#{username}')

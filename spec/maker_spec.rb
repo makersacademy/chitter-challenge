@@ -18,6 +18,16 @@ describe Maker do
 
       Maker.create(email: "andrea@gmail.com", password: "mypassword", name: "Andrea", username: "Angea89")
     end
+
+    it "does not create a new maker if the given email has already been used" do
+      Maker.create(email: "andrea@gmail.com", password: "mypassword", name: "Andrea", username: "Angea89")
+      
+      expect(Maker.create(email: "andrea@gmail.com",
+                          password: "mypassword_2",
+                          name: "Andrea_2",
+                          username: "Angea89_2")
+                          ).to be nil
+    end
   end
 
   describe ".find" do

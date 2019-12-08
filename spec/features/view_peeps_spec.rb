@@ -1,5 +1,5 @@
 feature "View peeps" do
-  scenario "A Maker can view the peeps in reverse cronological order" do
+  scenario "A maker can view the peeps in reverse cronological order" do
     visit "/peeps/new"
     fill_in "content", with: "First peep"
     click_button "Post"
