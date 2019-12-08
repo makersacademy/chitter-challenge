@@ -467,11 +467,11 @@ TrailingWhitespace:
   Enabled: false
 UnlessElse:
   Enabled: false
-UnneededCapitalW:
+RedundantCapitalW:
   Enabled: false
-UnneededInterpolation:
+RedundantInterpolation:
   Enabled: false
-UnneededPercentQ:
+RedundantPercentQ:
   Enabled: false
 VariableInterpolation:
   Enabled: false
