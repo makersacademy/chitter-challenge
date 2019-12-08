@@ -11,6 +11,11 @@ class Chitter < Sinatra::Base
     erb(:status)
   end
 
+  post "/status" do
+    Status.create(status: params['status'], author: params['author']) 
+    redirect "/news"
+  end
+
   get "/news" do
     @statuses = Status.all
     erb(:news)

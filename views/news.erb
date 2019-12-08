@@ -2,8 +2,8 @@
 <ul>
   <% @statuses.each { |status_info| %>
     <div>
-      <p><%= status_info[0] %></p>
-      <li>by <em><%= status_info[1] %></em></li>
+      <p><%= status_info[1] %></p>
+      <li>by <em><%= status_info[0] %></em></li>
     </div>
   <% } %>
 </ul>
