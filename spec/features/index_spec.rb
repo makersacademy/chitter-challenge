@@ -1,5 +1,5 @@
-feature 'Chitter' do
-  scenario 'User can see the index page' do
+feature 'Welcome to Chitter' do
+  scenario 'user can see a welcoming message' do
     visit '/'
     expect(page).to have_content "Welcome to Chitter"
   end
