@@ -1,13 +1,21 @@
 require 'peep'
+require 'pg'
 
 describe Peep do
+
+  before do
+    test_database_setup
+    connection = PG.connect(dbname: 'chitter_test_database')
+    @user = connection.exec("INSERT INTO users(user_name, user_handle, email, password, created_at)
+      VALUES('Debbie Handler', 'The Real Debs', 'debbie@test.com', 'dkfg14', NOW()) RETURNING user_id;")
+    @user_id = @user[0]['user_id']
+  end
+
   describe ".all" do
     it "returns all peeps made in reverse chronological order" do
-      test_database_setup
-
-      Peep.create("Hello World!")
-      Peep.create("This breakfast is amazing!")
-      peep = Peep.create("I just read the most interesting article")
+      Peep.create(content: "Hello World!", user_id: @user_id)
+      Peep.create(content: "This breakfast is amazing!", user_id: @user_id)
+      peep = Peep.create(content: "I just read the most interesting article", user_id: @user_id)
 
       peeps = Peep.all
 
@@ -23,11 +31,11 @@ describe Peep do
 
   describe ".create" do
     it "creates a new peep" do
-      test_database_setup
-      peep = Peep.create("I am obsessed with this new pizza joint!")
+      peep = Peep.create(content: "I am obsessed with this new pizza joint!", user_id: @user_id)
 
       expect(peep.content).to eq "I am obsessed with this new pizza joint!"
       expect(peep).to be_instance_of Peep
+
     end
   end
 end

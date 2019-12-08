@@ -2,13 +2,12 @@ feature "the user can sign up for Chitter" do
 
   before do
     test_database_setup
-    clear_users_table
     visit '/chitter'
     fill_in 'name', with: 'Sipho Adebayo'
     fill_in 'user-handle', with: 'Sips'
     fill_in 'email', with: 'sipho_adebayo@test.com'
     fill_in 'password', with: 'darby34'
-    click_button "Sign in"
+    click_button "Sign up"
   end
 
   scenario "their user-handle is displayed once logged in" do
