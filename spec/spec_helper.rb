@@ -9,7 +9,6 @@ require 'timecop'
 require_relative './database_helpers'
 require_relative './features/web_helpers'
 
-ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
