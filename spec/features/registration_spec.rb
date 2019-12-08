@@ -16,7 +16,7 @@ feature "Registration" do
     click_button "Submit"
 
     expect(page).not_to have_content "Welcome Angea89_2"
-    expect(page).to have_content "Email or username already registered."
+    expect(page).to have_content "Email or username already registered"
   end
 
   scenario "The maker's username must be unique" do
@@ -30,6 +30,6 @@ feature "Registration" do
     click_button "Submit"
 
     expect(page).not_to have_content "Welcome Angea89"
-    expect(page).to have_content "Email or username already registered."
+    expect(page).to have_content "Email or username already registered"
   end
 end

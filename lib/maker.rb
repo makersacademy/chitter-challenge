@@ -11,7 +11,8 @@ class Maker
   end
 
   def self.create(email:, password:, name:, username:)
-    result =  DatabaseConnection.query("SELECT * FROM makers WHERE email = '#{email}' OR username = '#{username}';")
+    sql = "SELECT * FROM makers WHERE email = '#{email}' OR username = '#{username}';"
+    result =  DatabaseConnection.query(sql)
     return if result.any?
 
     encrypted_password = BCrypt::Password.create(password)
@@ -43,6 +44,8 @@ class Maker
   def self.authenticate(email:, password:)
     sql = "SELECT * FROM makers WHERE email = '#{email}';"
     result = DatabaseConnection.query(sql)
+    return nil unless result.any?
+    
     Maker.new(
       id: result[0]['id'],
       email: result[0]['email'],

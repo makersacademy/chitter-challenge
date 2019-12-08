@@ -63,5 +63,12 @@ describe Maker do
 
       expect(authenticated_maker.id).to eq maker.id
     end
+
+    it 'returns nil given an incorrect email address' do
+      maker = Maker.create(email: "andrea@gmail.com", password: "mypassword", name: "Andrea", username: "Angea89")
+      authenticated_maker = Maker.authenticate(email: "wrong_email@gmail.com", password: "mypassword")
+    
+      expect(authenticated_maker).to eq nil
+    end
   end
 end
