@@ -44,6 +44,8 @@ class User
     result = DatabaseConnection.query(
       "SELECT id, email, name, username FROM users WHERE email = '#{email}'"
       )
+
+    return nil unless result.any?
     
     User.new(
       id: result[0]['id'], email: result[0]['email'], 

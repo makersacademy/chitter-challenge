@@ -6,11 +6,11 @@ describe User do
   describe '#create' do
     it "should create a new User" do
       user = User.create(
-        email: 'samm@makersacademy.com', 
-        password: 'password123', 
-        name: 'Sam Morgan',
-        username: 'sjmog'
-      )
+          email: 'samm@makersacademy.com', 
+          password: 'password123', 
+          name: 'Sam Morgan',
+          username: 'sjmog'
+        )
 
       persisted_data = persisted_data(table: 'users', id: user.id)
 
@@ -37,12 +37,12 @@ describe User do
   describe '#find' do
     it "should find a user by id" do
       user = User.create(
-        email: 'samm@makersacademy.com', 
-        password: 'password123', 
-        name: 'Sam Morgan',
-        username: 'sjmog'
-      )
-
+          email: 'samm@makersacademy.com', 
+          password: 'password123', 
+          name: 'Sam Morgan',
+          username: 'sjmog'
+        )
+        
       found_user = User.find(id: user.id)
 
       expect(found_user.id).to eq user.id
@@ -51,7 +51,7 @@ describe User do
       expect(found_user.username).to eq user.username
     end
 
-    it "should return nil is no id is given" do
+    it "should return nil if no id is given" do
       expect(User.find(id: nil)).to eq nil
     end
 
@@ -70,6 +70,17 @@ describe User do
       authenticated_user = User.authenticate(email: 'samm@makersacademy.com', password: 'password123')
   
       expect(authenticated_user.id).to eq user.id
+    end
+
+    it 'should return nil given an incorrect email address' do
+      User.create(
+          email: 'samm@makersacademy.com', 
+          password: 'password123', 
+          name: 'Sam Morgan',
+          username: 'sjmog'
+        )
+
+      expect(User.authenticate(email: 'wrongeamail@makersacademy.com', password: 'password123')).to eq nil
     end
 
   end
