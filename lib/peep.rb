@@ -15,9 +15,9 @@ class Peep
     result.map do |peep|
       Peep.new(id: peep['id'],
                content: peep['content'],
-              time: peep['time'],
-              maker_id: peep['maker_id']
-              )
+               time: peep['time'],
+               maker_id: peep['maker_id']
+               )
     end
   end
 
