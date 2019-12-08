@@ -1,9 +1,13 @@
 require 'simplecov'
 require 'simplecov-console'
 require './app'
+ENV["RACK_ENV"] = 'test'
+ENV["ENVIRONMENT"] = 'test'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+
+require_relative 'helpers/database_helpers.rb'
 
 Capybara.app = Chitter
 
@@ -20,4 +24,10 @@ RSpec.configure do |config|
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
+
+RSpec.configure do |config|
+  config.before(:each) do
+    truncator
+  end
+end
 end

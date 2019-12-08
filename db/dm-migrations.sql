@@ -1,0 +1,1 @@
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, message VARCHAR(280));
