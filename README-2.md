@@ -1,4 +1,4 @@
-# Bookmark Manager
+# Chitter
 
 This project is a small clone of Twitter that allows users to post messages to a public stream.  
 
