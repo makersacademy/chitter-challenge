@@ -36,7 +36,7 @@ feature 'authentication' do
 
     end
 
-    scenario 'a user sees an error if they get their email wrong' do
+    scenario 'a user sees an error if they get their password wrong' do
 
       visit '/sessions/new'
       fill_in 'email', with: 'samm@makersacademy.com'
@@ -47,6 +47,19 @@ feature 'authentication' do
       message = 'The email and password that you entered did not match our records. Please double-check and try again.'
       expect(page).to have_content message
 
+    end
+
+    scenario 'a user can sign out' do
+
+      visit '/sessions/new'
+      fill_in 'email', with: 'samm@makersacademy.com'
+      fill_in :password, with: 'password123'
+      click_button 'Sign in'
+  
+      click_button 'Sign out'
+  
+      expect(page).not_to have_content 'Welcome, sjmog'
+      expect(page).to have_content 'Successfully signed out'
     end
 
   end

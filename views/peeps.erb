@@ -11,6 +11,8 @@
 </style>
 
 <div class="center">
+  <%= flash[:notice] %>
+  
   <h1>Welcome<% if @user %>, <%= @user.username %><% end %></h1>
 
   <form action="/peeps/new" method="GET">
@@ -25,4 +27,12 @@
       </li>
     <% end %>
   </ul>
+</div>
+
+<div>
+  <% if @user %>
+    <form action ="/sessions/destroy" method="POST">
+      <button type="submit" style="float: right;">Sign out</button>
+    </form>
+  <% end %>
 </div>
