@@ -18,4 +18,16 @@ feature "Authentication" do
     expect(page).not_to have_content 'Welcome Angea89'
     expect(page).to have_content "Incorrect email or password"
   end
+
+  scenario 'A maker sees an error if they get their password wrong' do
+    Maker.create(email: "andrea@gmail.com", password: "mypassword", name: "Andrea", username: "Angea89")
+
+    visit '/sessions/new'
+    fill_in "email", with: "andrea@gmail.com"
+    fill_in "password", with: "wrong_password"
+    click_button 'Sign in'
+
+    expect(page).not_to have_content 'Welcome Angea89'
+    expect(page).to have_content "Incorrect email or password"
+  end
 end

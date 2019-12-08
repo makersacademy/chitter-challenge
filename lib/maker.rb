@@ -45,7 +45,8 @@ class Maker
     sql = "SELECT * FROM makers WHERE email = '#{email}';"
     result = DatabaseConnection.query(sql)
     return nil unless result.any?
-    
+    return unless BCrypt::Password.new(result[0]['password']) == password
+
     Maker.new(
       id: result[0]['id'],
       email: result[0]['email'],

@@ -70,5 +70,12 @@ describe Maker do
     
       expect(authenticated_maker).to eq nil
     end
+
+    it 'returns nil given an incorrect password' do
+      Maker.create(email: "andrea@gmail.com", password: "mypassword", name: "Andrea", username: "Angea89")
+      authenticated_maker = Maker.authenticate(email: "andrea@gmail.com", password: "wrong_password")
+    
+      expect(authenticated_maker).to eq nil
+    end
   end
 end

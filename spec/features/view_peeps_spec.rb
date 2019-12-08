@@ -10,7 +10,7 @@ feature "View peeps" do
     expect("Second peep").to appear_before("First peep")
   end
 
-  scenario "A maker can view the name and username of each peep" do
+  scenario "A maker can view the author's name and username for all the peeps" do
     sign_up
     sign_in
     post_peep
