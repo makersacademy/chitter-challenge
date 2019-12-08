@@ -18,7 +18,7 @@ end
 
 feature 'Option to sign up' do 
   scenario 'when a new user would like to create an account' do 
-    visit('/chitter/home')
+    visit('/users/new')
     expect(page).to have_content "Please sign up below:"
     expect(page).to have_content "Desired Username:"
     expect(page).to have_content "Desired Password:"
