@@ -8,7 +8,11 @@ I want to post a message (peep) to chitter
 
 As a maker  
 So that I can see what others are saying    
-I want to see all peeps in reverse chronological order  
+I want to see all peeps in reverse chronological order
+
+As a Maker  
+So that I can better appreciate the context of a peep  
+I want to see the time at which it was made   
 
 
 ## Domain modelling
@@ -45,7 +49,7 @@ To install all necessary gems, run ```bundle``` in the terminal.
 
 ## Running the tests
 
-You can run tests by running "rspec" in the terminal in the bookmark_manager directory.
+You can run tests by running "rspec" in the terminal in the chitter_challenge directory.
 
 #### Test coverage
 

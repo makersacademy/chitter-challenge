@@ -6,7 +6,7 @@ feature "visit homepage" do
 
   scenario "it displays all the peeps posted" do
     test_database_setup
-    
+
     visit '/chitter'
     fill_in "content", with: "Hello World!"
     click_button "Peep peep"
@@ -15,5 +15,6 @@ feature "visit homepage" do
 
     expect(page).to have_content "Hello World!"
     expect(page).to have_content "This breakfast is amazing!"
+    expect(page).to have_content "Created at: "
   end
 end
