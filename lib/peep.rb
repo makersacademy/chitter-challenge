@@ -1,11 +1,12 @@
 require 'pg'
 
 class Peep
-  attr_reader :peep, :id
+  attr_reader :peep, :id, :time
 
-  def initialize(id, peep)
+  def initialize(id, peep, time = Time.now)
     @id = id
     @peep = peep
+    @time = time
   end
 
   def self.all
@@ -17,7 +18,7 @@ class Peep
 
   def self.create(peep)
     connect_to_database do |connection|
-      result = connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}') RETURNING id, peep;")
+      result = connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}') RETURNING id, peep")
       Peep.new(result[0]['id'], result[0]['peep'])
     end
   end
