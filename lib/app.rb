@@ -27,7 +27,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.create(name: params[:name], username: params[:username], email: params[:email])
+    user = User.create(name: params[:name], username: params[:username],
+                       password: params[:password], email: params[:email])
     if user.id.nil?
       session[:message] = "This username or email is already registered, sorry."
     else
@@ -39,5 +40,21 @@ class Chitter < Sinatra::Base
   get '/logout' do
     session.delete(:id)
     redirect '/peeps'
+  end
+
+  get '/login' do
+    @message = session[:message]
+    erb :login
+  end
+
+  post '/login' do
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      session[:id] = user.id
+      redirect '/peeps'
+    else
+      session[:message] = "Username or password incorrect."
+      redirect '/login'
+    end
   end
 end 

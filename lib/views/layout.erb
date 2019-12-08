@@ -11,7 +11,8 @@
       <a href='/logout'>Log out</a>
       </p>
     <% else %>
-      <a href='/users/new'>Sign up</a>
+      <a href='/users/new'>Sign up</a> |
+      <a href='/login'>Log in</a>
     <%end%>
 
     <%= yield if block_given? %>

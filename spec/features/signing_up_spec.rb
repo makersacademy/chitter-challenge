@@ -16,9 +16,9 @@ feature "signing up for chitter" do
   end
 
   scenario "attempting to sign up with the same username fails" do
-    sign_up "Alastair", "alastair@fake_email.com", "username1"
+    sign_up "Alastair", "alastair@fake_email.com", username: "username1"
     click_on 'Log out'
-    sign_up "Not Alastair", "not_alastair@fake_email.com", "username1"
+    sign_up "Not Alastair", "not_alastair@fake_email.com", username: "username1"
 
     expect(page).to have_content "This username or email is already registered, sorry."
     expect(User.all.size).to eq 1
