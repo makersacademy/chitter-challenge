@@ -1,7 +1,10 @@
 require 'sinatra/base'
+require 'sinatra'
+require 'sinatra/activerecord'
 require './lib/peep'
-# require './database_connection_setup'
 require 'sinatra/flash'
+require './database_connection_setup'
+
 
 class ChitterApp < Sinatra::Base
 
