@@ -4,15 +4,28 @@ describe Peep do
   describe ".all" do
     it "returns all peeps made in reverse chronological order" do
       test_database_setup
-      
-      connection = PG.connect(dbname: 'chitter_test_database')
-      connection.exec("INSERT INTO peeps(content, created_at) VALUES('Hello World!', NOW());")
-      connection.exec("INSERT INTO peeps(content, created_at) VALUES('This breakfast is amazing!', NOW());")
+
+      Peep.create("Hello World!")
+      Peep.create("This breakfast is amazing!")
+      Peep.create("I just read the most interesting article")
 
       peeps = Peep.all
 
-      expect(peeps.first).to eq("This breakfast is amazing!")
-      expect(peeps).to include("Hello World!")
+      expect(peeps.first).to eq("I just read the most interesting article")
+      expect(peeps).to include("This breakfast is amazing!")
+      expect(peeps.last).to eq("Hello World!")
+    end
+  end
+
+  describe ".create" do
+    it "creates a new peep" do
+      test_database_setup
+
+      Peep.create("I am obsessed with this new pizza joint!")
+
+      peeps = Peep.all
+
+      expect(peeps.first).to eq "I am obsessed with this new pizza joint!"
     end
   end
 end
