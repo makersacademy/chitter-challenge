@@ -7,13 +7,18 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/message' do
+  get '/messages' do
     @messages = Message.all
-    erb :message
+    erb :messages
   end
 
-  get'/messages/new' do
+  get '/messages/new' do
     erb :"messages/new"
+  end
+
+  post'/messages/new' do
+    erb :"messages/new"
+    redirect :messages
   end
 
   run! if app_file == $0

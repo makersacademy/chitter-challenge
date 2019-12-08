@@ -1,0 +1,8 @@
+
+<ul>
+  <% @messages.each do |message| %>
+    <li class="message" id="message-<%= message.id %>">
+        <%= message.msg %> 
+    </li>
+  <% end %>
+</ul>
