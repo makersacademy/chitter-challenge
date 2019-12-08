@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/sign_up' do
-    erb :"messages/new"
+    User.sign_up(email: params['email'], password: params['password'])
+    redirect :"messages/new"
   end
 
   get '/messages' do
