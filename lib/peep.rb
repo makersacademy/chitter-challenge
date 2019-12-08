@@ -1,6 +1,6 @@
 require 'pg'
 
-Class Peep
+class Peep
 
   def self.all 
     peeps = DatabaseConnection.connect.exec("SELECT * FROM peeps")
