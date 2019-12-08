@@ -1,6 +1,20 @@
-<form action='/sign-up' method='post'>
-  Username:<input type='text' name='username'>
-  Email: <input type='text' name='email'>
-  Password: <input type='text' name='password'>
-  <input type='submit' name='submit' value='Sign Up'>
-</form>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="/stylesheets/sign_up.css">
+
+<div class="container">
+  <h2>Sign up</h2>
+  <form action='/sign-up' method='post'>
+    <div>
+      Username:<input type='text' name='username'>
+    </div>
+    <div>
+      Email: <input type='text' name='email'>
+    </div>
+    <div>
+      Password: <input type='text' name='password'>
+    </div>
+    <div>
+      <input type='submit' name='submit' value='Sign Up'>
+    </div>
+  </form>
+</div>

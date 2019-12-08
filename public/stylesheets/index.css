@@ -1,0 +1,8 @@
+#peep {
+	margin-top: 13px;
+	padding: 10px 10px;
+	background: #f7f7f7;
+	color: #2B3942;
+	border: solid #f5f5f5 3px;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
