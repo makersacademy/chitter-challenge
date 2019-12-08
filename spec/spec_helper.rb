@@ -1,4 +1,5 @@
 require_relative "./../app"
+require_relative "./helper_methods.rb"
 require "capybara/rspec"
 require 'rspec'
 require 'simplecov'
