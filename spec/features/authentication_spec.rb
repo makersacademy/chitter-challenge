@@ -36,6 +36,19 @@ feature 'authentication' do
 
     end
 
+    scenario 'a user sees an error if they get their email wrong' do
+
+      visit '/sessions/new'
+      fill_in 'email', with: 'samm@makersacademy.com'
+      fill_in 'password', with: 'wrongpassword'
+      click_button 'Sign in'
+
+      expect(page).not_to have_content 'Welcome, sjmog'
+      message = 'The email and password that you entered did not match our records. Please double-check and try again.'
+      expect(page).to have_content message
+
+    end
+
   end
   
 

@@ -83,6 +83,17 @@ describe User do
       expect(User.authenticate(email: 'wrongeamail@makersacademy.com', password: 'password123')).to eq nil
     end
 
+    it 'should return nil given an incorrect password' do
+      User.create(
+          email: 'samm@makersacademy.com', 
+          password: 'password123', 
+          name: 'Sam Morgan',
+          username: 'sjmog'
+        )
+
+      expect(User.authenticate(email: 'samm@makersacademy.com', password: 'wrongpassword')).to eq nil
+    end
+
   end
 
 end
