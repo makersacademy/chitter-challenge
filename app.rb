@@ -8,13 +8,12 @@ class Chitter < Sinatra::Base
   end
 
   get "/status" do
-    # @statuses = Status.all
-    "What's on your mind?"
-    # erb(:status)
+    erb(:status)
   end
 
   get "/news" do
-    "Current Events!"
+    @statuses = Status.all
+    erb(:news)
   end
 
   run! if app_file == $0
