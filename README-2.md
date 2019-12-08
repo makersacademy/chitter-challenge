@@ -56,8 +56,8 @@ This project is a small clone of Twitter that allows users to post messages to a
 | ```@user_handle``` | ```@user_id``` |
 | ```@created_at``` |  |
 | ```@user_id``` |  |
-| ---- | ---- |
-| ```.create``` | ```.create`` |
+| ------------- | ------------- |
+| ```.create``` | ```.create``` |
 | ```.authenticate``` | ```.all``` |  
 
 ## Database structure
