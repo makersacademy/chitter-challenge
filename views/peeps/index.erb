@@ -1,5 +1,10 @@
+
+<% if @user %>
+  <h2>Welcome, <%= @user.email %></h2>
+<% end %>
+
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.message %></li>
+    <li><%= peep.message %> <%= peep.handle %></li>
   <% end %>
 </ul>

@@ -7,7 +7,7 @@ class Peep
     @id = id
     @message = message
     @handle = handle
-    @time = time
+    @time = Time.now
   end
 
   def self.post(message:, handle:, time:)

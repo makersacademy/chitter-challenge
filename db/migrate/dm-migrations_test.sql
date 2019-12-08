@@ -1,0 +1,2 @@
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(280), handle VARCHAR(60));
+ALTER TABLE peeps ADD Column time TIMESTAMP;

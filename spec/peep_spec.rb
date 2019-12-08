@@ -23,7 +23,7 @@ describe Peep do
     peep_first = Peep.post(message: provocative_opinion_1, handle: '@meagain', time: Time.now)
     Peep.post(message: provocative_opinion_2, handle: '@youagain', time: Time.now)
 
-    peepfest_blackhole = Peep.all
+    p peepfest_blackhole = Peep.all
 
     expect(peepfest_blackhole.length). to eq 2
     expect(peepfest_blackhole.first). to be_a Peep
