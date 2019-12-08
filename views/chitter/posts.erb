@@ -1,4 +1,10 @@
+<br><center> <h1> <strong><font face="verdana" color="#5476C4">Chitter</font></strong> </h1></center>
+<h2>
 <ul>
+<form action="/chitter" method="post">
+  <textarea rows = "4" cols = "50" name = "message" type = "text" placeholder="Insert your peep here..."></textarea>
+  <input type="submit" name="Submit" />
+</form>
   <% @chitter.each do |chitter| %>
   <li class="chitter" id="chitter-<%= chitter.id %>">
     <a <%= chitter.message %> target="_blank">
@@ -13,4 +19,4 @@
     </form>
   </li>
   <% end %>
-</ul>
+</ul></h2>

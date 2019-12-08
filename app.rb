@@ -14,10 +14,6 @@ class ChitterManager < Sinatra::Base
     erb :'chitter/posts'
   end
 
-  get '/chitter/new' do
-    erb :'chitter/new'
-  end
-
   post '/chitter' do
     Chitter.create(message: params['message'])
     redirect '/chitter'
