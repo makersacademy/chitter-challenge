@@ -7,7 +7,7 @@ before_script:
   # - psql -d chitter_test -f db/migrations/02_time_to_peeps.sql -U postgres
   # - psql -d chitter_test -f db/migrations/03_create_makers_table.sql -U postgres
   # - psql -d chitter_test -f db/migrations/04_maker_id_to_peeps.sql -U postgres
-  - bundle exec rake
+  - bundle exec rake database:migrate
 
 script:
   - bundle exec rspec
