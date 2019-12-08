@@ -1,12 +1,8 @@
 class LoginInformation
-  attr_reader :email, :password
+  def self.authenticate email_entry, password_entry
+    target = User.where(email: email_entry).first
+    return false unless target
 
-  def initialize email, password
-    @email = email
-    @password = password
-  end
-
-  def authenticate email_entry, password_entry
-    email == email_entry && password == password_entry
+    target.email == email_entry && target.password == password_entry
   end
 end

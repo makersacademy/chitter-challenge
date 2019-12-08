@@ -9,10 +9,13 @@
   <body>
   <h1>Chitter</h1>
     <form action="/log-in" method="POST">
-      <input type="text" name="email" placeholder="Email">
-      <input type="text" name="password" placeholder="Password">
+      <input type="text" name="email" placeholder="Email" required>
+      <input type="text" name="password" placeholder="Password" required>
       <input type="submit" name="submit" value="Log In">
     </form>
+    <% unless @successful_login %>
+    <p>Invalid Username or Password</p>
+    <% end %>
     <a href="/sign-up">Sign Up</a>
   </body>
 </html>

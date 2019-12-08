@@ -7,16 +7,16 @@
     <title>Chitter</title>
   </head>
   <body>
-    <h1>Chitter Feed</h1>
+    <h1><%= @current_user.username %>'s Peeps</h1>
     <p>Peeps</p>
     <p><%= Peep.all_by(@current_user.id).count %></p>
     <p>Luvs</p>
     <p><%= Luv.where(user_id: @current_user.id).count %></p>
     <table>
-      <% Peep.all.reverse.map.with_index do |peep, i| %>
+      <% Peep.all_by(@current_user.id).reverse.map.with_index do |peep, i| %>
         <tr>
           <td>
-            <div><%= User.find(peep.user_id).username %></div>
+            <div><%= @current_user.username %></div>
             <%= peep.body %>
             <p>Peeped at <%= peep.timestamp %></p>
           </td>
@@ -34,7 +34,7 @@
         <input type="textarea" class="new-peep" name="new-peep">
         <input type="submit" id="send-peep" value="Send Peep">
       </form>
-      <a href="/profile">My Profile</a>
+      <a href="/peeps">Main Feed</a>
     <% end %>
     <a href="/">Log Out</a>
   </body>

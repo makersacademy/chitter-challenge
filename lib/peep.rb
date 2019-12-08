@@ -1,4 +1,7 @@
 class Peep < ActiveRecord::Base
+  has_many :luvs
+  belongs_to :user
+
   def receive_luv user_id, peep_id
     Luv.create user_id: user_id, peep_id: peep_id
   end
