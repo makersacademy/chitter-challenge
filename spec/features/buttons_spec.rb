@@ -5,5 +5,4 @@ feature "testing buttons" do
     click_button 'sign_up'
     expect(page).to have_content 'Register'
   end
-
 end

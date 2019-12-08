@@ -1,8 +1,8 @@
-
 describe '.add' do
   it 'creates a new peep' do
     peep = Peep.add(text: 'cos tam', user_id: 1, time: Time.now.strftime("%H:%M"))
-    persisted_data = persisted_data(table: :peeps, id: peep.id)
+    persisted_data(table: :peeps, id: peep.id)
+    
     expect(peep).to be_a Peep
     expect(peep.text).to eq 'cos tam'
   end

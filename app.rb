@@ -9,17 +9,17 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    erb:'homepage'
+    erb :homepage
   end
 
   get '/sessions/new' do
-    erb:'logging_in'
+    erb :logging_in
   end
 
   post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
-    redirect('/')
+    redirect '/'
   end
 
   post '/sessions' do
@@ -27,35 +27,36 @@ class Chitter < Sinatra::Base
   
     if user
       session[:user_id] = user.id
-      redirect('/interface')
+      redirect '/interface'
     else
       flash[:notice] = 'Please check your email or password.'
-      redirect('/sessions/new')
+      redirect '/sessions/new'
     end
   end
 
   get '/interface' do
     @user = User.find(session[:user_id])
     @peeps = Peep.all(session[:user_id])
-    erb:'interface'
+    erb :interface
   end
 
   post '/peep/new' do
     @user = User.find(session[:user_id])
-    Peep.add(text: params[:text], user_id: session[:user_id], time: Time.now.strftime("%H:%M"))
+    Peep.add(text: params[:text], user_id: session[:user_id],
+    time: Time.now.strftime("%H:%M"))
     redirect '/interface'
   end
 
   get '/register/new' do
-    erb:'register'
+    erb :register
   end
 
   post '/register' do
-  user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
-  session[:user_id] = user.id
-  redirect '/'
+    user = User.create(email: params[:email], password: params[:password],
+    name: params[:name], username: params[:username])
+    session[:user_id] = user.id
+    redirect '/'
   end
-
 
   run! if app_file == $0
 end
