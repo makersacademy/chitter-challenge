@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/post_peep' do
-    erb:'peep/add_peep'
+    erb:'peeps/post_peep'
   end
 
   post '/post_peep' do
