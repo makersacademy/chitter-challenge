@@ -1,0 +1,13 @@
+<h1> Chitty Chitty Bang Bang! </h1>
+
+<form action='/chitter' method='post'>
+  Write a peep:
+  <input type='text' name='content'> <br>
+  <input type='submit' value='Peep peep'> <br>
+</form>
+
+<ul>
+  <%if @peep %>
+    <%= @peep %>
+  <%end%>
+</ul>
