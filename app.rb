@@ -42,7 +42,7 @@ class Chitter < Sinatra::Base
 
   post '/peep/new' do
     @user = User.find(session[:user_id])
-    Peep.add(text: params[:text], user_id: session[:user_id])
+    Peep.add(text: params[:text], user_id: session[:user_id], time: Time.now.strftime("%H:%M"))
     redirect '/interface'
   end
 

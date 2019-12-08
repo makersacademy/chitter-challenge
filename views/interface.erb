@@ -8,8 +8,9 @@
     <input type="text" name="text" style="height:100px;width:440px;font-size:10pt;text-align:justify;background-color:lightgrey;"/>
     <center><input type="submit" id="submit" value="Submit" /></center>
   </form></center>
-  <% @peeps.sort.each do |peep| %>
-  <center> <div><p><%= peep %></p></div></center>
+  <% @peeps.each do |peep| %>
+  
+  <center><div><h5><%= peep[1] %></h5><p><%= peep[0] %></p></div></center> 
   <% end %>
 <% end %>
 
@@ -22,6 +23,9 @@
 
 
 <style>
+h5 {
+  float:right;
+}
 #submit {
   margin-top: 1vh;
   font-size: 24px;
@@ -55,13 +59,18 @@
   border:0.16em solid rgba(255,255,255,0);
 }
 div {
+  overflow-wrap: break-word;
+  position: relative;
   background-color: lightgrey;
   width: 500px;
+  height: 60px;
   border: 5px solid black;
-  padding: 30px;
-  margin: 40px;
+  padding: 15px;
+  margin: 20px;
+  float:middle;
 }
 p {
+  position: relative;
   letter-spacing: 1px;
   color: 	#C71585;
   font-family: "Lucida Console", Monaco, monospace;
