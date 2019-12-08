@@ -1,4 +1,4 @@
-<h2> Account: <%=@user_handle%> </h2> <br>
+<h2> Account: <%=@user.user_handle%> </h2> <br>
 
 <form action='/chitter/user' method='post'>
   Write a peep:
@@ -10,7 +10,7 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li> <%= peep.content %> <br>
-      Posted by: <%=@user_handle%> (<%=@user_name%>) <br>
+      Posted by: <%=@user.user_handle%> (<%=@user.user_name%>) <br>
       Posted on: <%= peep.created_at %> <br>
     </li>
   <% end%>

@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'lib/peep.rb'
+require_relative 'lib/user.rb'
 require 'pg'
 
 class Chitter < Sinatra::Base
@@ -12,15 +13,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    session[:user_name] = params['name']
-    session[:user_handle] = params['user-handle']
+    session[:user] = User.create(user_name: params['name'], user_handle: params['user-handle'], email: params['email'], password: params['password'])
     redirect '/chitter/user'
   end
 
   get '/chitter/user' do
     @peeps = Peep.all
-    @user_handle = session[:user_handle]
-    @user_name = session[:user_name]
+    @user = session[:user]
     erb :user
   end
 

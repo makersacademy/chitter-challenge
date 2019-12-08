@@ -16,6 +16,11 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li> <%= peep.content %> <br> Created at: <%= peep.created_at %> </li>
+    <li> <%= peep.content %> <br>
+      <% if @user %>
+        Posted by: <%=@user.user_handle%> (<%=@user.user_name%>) <br>
+      <% end %>
+      Posted on: <%= peep.created_at %> <br>
+    </li>
   <% end%>
 </ul>
