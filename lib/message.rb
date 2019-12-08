@@ -30,7 +30,12 @@ class Message
       connection = PG.connect(dbname: 'chitter')
     end
   
-    result = connection.exec("INSERT INTO messages (msg) VALUES('#{msg}') RETURNING id, msg")
+    #using bind params; telling the db which info comes from me, which info comes from the user
+    #then i tell it how to bind them
+    #this protects against sql injection
+    connection.prepare('statement1', 'INSERT INTO messages (msg) VALUES($1) RETURNING id, msg')
+    result = connection.exec_prepared('statement1', [msg])
+
     Message.new(id: result[0]['id'], msg: result[0]['msg'])
   
   end
