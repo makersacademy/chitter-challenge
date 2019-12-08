@@ -1,0 +1,29 @@
+
+<h2>
+  <center><%= flash[:notice] %></center>
+</h2><center>
+<form action="/sessions" method="post">
+  <input type="username" name="username" placeholder='Username' style="height:100px;width:440px;font-size:30pt;text-align:justify;background-color:lightgrey;"/>
+  <input type="password" name="password" placeholder='password' style="height:100px;width:440px;font-size:30pt;text-align:justify;background-color:lightgrey;"/>
+  <center><input type="submit" id="sign_in" value="Sign in" /></center>
+</form></center>
+
+<style>
+#sign_in {
+  margin-top: 2vh;
+  font-size: 24px;
+  background-color: #f44336;
+  cursor: pointer;
+  text-align:center;
+  width: 8em;
+  border-color: rgba(255,255,255,1);
+  border-radius:3em;
+  border:0.16em solid rgba(255,255,255,0);
+}
+
+body {
+background-color: #ffb31a;
+}
+</style>
+<body>
+</body>

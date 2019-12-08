@@ -1,4 +1,5 @@
 require_relative './setup_database'
+require './spec/features/web_helpers.rb'
 
 ENV['ENVIRONMENT'] = 'test'
 

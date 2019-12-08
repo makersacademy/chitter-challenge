@@ -1,4 +1,43 @@
-Chitter
-<form action='/register/new' method='get'>
+<center><h1> Welcome to Chitter</h1></center>
+<h2>
+  <center><%= flash[:notice] %></center>
+</h2>
+<center><form action='/register/new' method='get'>
   <button type='submit' id='sign_up'>Sign up</button>
-</form>
+</form></center>
+
+<center><form action='/sessions/new' method='get'>
+  <button type='submit' id='sign_in'>Sign in</button>
+</form></center>
+
+<style>
+#sign_in {
+  margin-top: 2vh;
+  font-size: 24px;
+  background-color: #f44336;
+  cursor: pointer;
+  text-align:center;
+  width: 8em;
+  border-color: rgba(255,255,255,1);
+  border-radius:3em;
+  border:0.16em solid rgba(255,255,255,0);
+}
+#sign_up {
+  margin-top: 2vh;
+  font-size: 24px;
+  background-color: #f44336;
+  cursor: pointer;
+  text-align:center;
+  width: 8em;
+  border-color: rgba(255,255,255,1);
+  border-radius:3em;
+  border:0.16em solid rgba(255,255,255,0);
+}
+
+body {
+background-color: #ffb31a;
+}
+</style>
+<body>
+</body>
+

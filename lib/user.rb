@@ -32,4 +32,16 @@ class User
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
     User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'], name: result[0]['name'])
   end
+
+  def self.authenticate(username:, password:)
+    if ENV['ENVIRONMENT'] == 'test'
+      DatabaseConnection.setup('chitter_test')
+    else
+      DatabaseConnection.setup('chitter')
+    end
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'], name: result[0]['name'])
+  end
 end
