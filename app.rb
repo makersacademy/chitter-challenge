@@ -16,8 +16,8 @@ class Chitter < Sinatra::Base
     erb :"messages/new"
   end
 
-  post'/messages/new' do
-    erb :"messages/new"
+  post '/messages/new' do
+    Message.create(msg: params['msg'])
     redirect :messages
   end
 

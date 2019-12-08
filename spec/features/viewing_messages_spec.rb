@@ -5,9 +5,9 @@ feature "viewing messages" do
     #   connection = PG.connect(dbname: 'chitter_test')
   
       # Add the test data
-      Bookmark.create(msg: "hello world")
-      Bookmark.create(msg: "i love kimchi")
-      Bookmark.create(msg: "donuts, amirite?")
+      Message.create(msg: "hello world")
+      Message.create(msg: "i love kimchi")
+      Message.create(msg: "donuts, amirite?")
   
       visit '/messages'
   
