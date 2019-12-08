@@ -1,6 +1,6 @@
 feature "posting peeps" do
   scenario "entering a text and submiting it to be seen on the homepage" do
-    visit '/'
+    sign_up "Person", "fake@email.com"
 
     fill_in 'peep_text', with: 'This is my first test peep'
     click_button 'Post'
@@ -9,7 +9,7 @@ feature "posting peeps" do
   end
 
   scenario "Posts should be shown in reverse chronological order" do
-    visit '/'
+    sign_up "Person", "fake@email.com"
 
     fill_in 'peep_text', with: 'This is my first test peep'
     click_button 'Post'
@@ -23,7 +23,7 @@ feature "posting peeps" do
   end
 
   scenario "time of post should be displayed" do
-    visit '/'
+    sign_up "Person", "fake@email.com"
 
     fill_in 'peep_text', with: "This is my post"
     time = Time.now

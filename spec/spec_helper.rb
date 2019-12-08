@@ -14,6 +14,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'app'
 require_relative 'helpers/database_helpers'
+require_relative 'helpers/signup_helper'
 
 Capybara.app = Chitter
 

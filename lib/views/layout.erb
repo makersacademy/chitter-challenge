@@ -6,9 +6,12 @@
     <h1>Chitter</h1>
     <%= @message %>
     <% unless @user.nil? %>
-      <p>Welcome <%= @user.name %></p>
+      <p>
+      Welcome <%= @user.name %> |
+      <a href='/logout'>Log out</a>
+      </p>
     <% else %>
-      <a href='/users/new'>Sign Up</a>
+      <a href='/users/new'>Sign up</a>
     <%end%>
 
     <%= yield if block_given? %>

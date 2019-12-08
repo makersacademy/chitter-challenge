@@ -9,5 +9,12 @@ describe User do
       expect(user.name).to eq "Alastair"
       expect(user.email).to eq "alastair@fake_email.com"
     end
+
+    it "shouldn't have an id if the email isn't unique" do
+      User.create(name: "Alastair", email: "alastair@fake.com")
+      user = User.create(name: "Alastair2", email: "alastair@fake.com")
+
+      expect(user.id).to be_nil
+    end
   end
 end

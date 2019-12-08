@@ -35,4 +35,9 @@ class Chitter < Sinatra::Base
     end
     redirect '/peeps' 
   end
+
+  get '/logout' do
+    session.delete(:id)
+    redirect '/peeps'
+  end
 end 
