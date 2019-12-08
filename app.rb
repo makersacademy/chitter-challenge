@@ -18,8 +18,8 @@ class Chitter < Sinatra::Base
     erb :"peeps/new"
   end
 
-  post "/peeps/new" do
-    Peep.create(content: params[:content])
+  post "/peeps" do
+    Peep.create(content: params[:content], maker_id: session[:maker_id])
     redirect "/peeps"
   end
 

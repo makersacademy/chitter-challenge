@@ -7,6 +7,9 @@
     <li class="peep" id="peep-<% peep.id %>">
       <p><%= peep.content %></p>
       <p><%= peep.time %></p>
+      <% if peep.maker_id %>
+        <p>by <%= Maker.find(id: peep.maker_id).name %> (@<%= Maker.find(id: peep.maker_id).username %>)</p>
+      <% end %>
     </li>
   <% end %>
 </ul>

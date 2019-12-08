@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD COLUMN maker_id INTEGER REFERENCES makers (id);

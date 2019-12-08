@@ -15,10 +15,11 @@ describe Peep do
     end
 
     it "should return all the peeps" do
-      peep = Peep.create(content: "First peep")
-      Peep.create(content: "Second peep")
-      Peep.create(content: "Third peep")
-      
+      maker = Maker.create(email: "andrea@gmail.com", password: "mypassword", name: "Andrea", username: "Angea89")
+      peep = Peep.create(content: "First peep", maker_id: maker.id)
+      Peep.create(content: "Second peep", maker_id: maker.id)
+      Peep.create(content: "Third peep", maker_id: maker.id)
+
       peeps = Peep.all
 
       expect(peeps.length).to eq 3
@@ -26,18 +27,21 @@ describe Peep do
       expect(peeps[0].id).to eq peep.id
       expect(peeps[0].content).to eq "First peep"
       expect(peeps[0].time).to eq "2019-02-24 12:00:00"
+      expect(peeps[0].maker_id).to eq maker.id
     end
   end
 
   describe ".create" do
     it "should create a new peep" do
-      peep = Peep.create(content: "First peep")
+      maker = Maker.create(email: "andrea@gmail.com", password: "mypassword", name: "Andrea", username: "Angea89")
+      peep = Peep.create(content: "First peep", maker_id: maker.id)
       persistent_data = persistent_data(table: :peeps, id: peep.id)
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persistent_data['id']
       expect(peep.content).to eq "First peep"
       expect(peep.time).to eq "2019-02-24 12:00:00"
+      expect(peep.maker_id).to eq maker.id
     end
   end
 end
