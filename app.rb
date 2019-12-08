@@ -7,6 +7,14 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/users/sign_up' do
+    erb :"users/sign_up"
+  end
+
+  post '/users/sign_up' do
+    erb :"messages/new"
+  end
+
   get '/messages' do
     @messages = Message.all
     erb :messages
@@ -20,6 +28,7 @@ class Chitter < Sinatra::Base
     Message.create(msg: params['msg'])
     redirect :messages
   end
+
 
   run! if app_file == $0
 
