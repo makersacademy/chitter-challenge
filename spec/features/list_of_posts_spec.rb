@@ -1,14 +1,12 @@
-feature 'Posts' do
+feature 'List of peeps' do
   scenario 'user can see a list of posts' do
-    connection = PG.connect(dbname: 'chitter_db_test')
-
-    connection.exec("INSERT INTO chitter (message) VALUES('1st post');")
-    connection.exec("INSERT INTO chitter (message) VALUES('2nd post');")
-    connection.exec("INSERT INTO chitter (message) VALUES('3rd post');")
+    chitter1 = Chitter.create(message: '1st post')
+    chitter2 = Chitter.create(message: '2nd post')
+    chitter3 = Chitter.create(message: '3rd post')
 
     visit '/chitter'
-    expect(page).to have_content "1st post"
-    expect(page).to have_content "2nd post"
-    expect(page).to have_content "3rd post"
+    expect(page).to have_content("1st post", chitter1.date)
+    expect(page).to have_content("2nd post", chitter2.date)
+    expect(page).to have_content("3rd post", chitter3.date)
   end
 end

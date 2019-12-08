@@ -29,4 +29,36 @@ describe Chitter do
       expect(chitter.date).to eq chitter.date
     end
   end
+
+  describe '.delete' do
+    it 'removes the post selected' do
+      chitter = Chitter.create(message: 'Remove me')
+      Chitter.delete(id: chitter.id)
+
+      expect(Chitter.all).to eq []
+    end
+  end
+
+  describe '.edit' do
+    it 'edits the post selected' do
+      chitter = Chitter.create(message: '1st post')
+      chitter_update = Chitter.edit(id: chitter.id, message: '2nd post')
+
+      expect(chitter_update).to be_a Chitter
+      expect(chitter_update.id).to eq chitter.id
+      expect(chitter_update.message).to eq '2nd post'
+    end
+  end
+  
+  describe '.find' do
+    it 'returns the requested Chitter object' do
+      chitter = Chitter.create(message: '1st post')
+
+      result = Chitter.find(id: chitter.id)
+
+      expect(result).to be_a Chitter
+      expect(result.id).to eq chitter.id
+      expect(result.message).to eq '1st post'
+    end
+  end
 end
