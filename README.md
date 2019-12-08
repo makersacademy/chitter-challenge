@@ -4,13 +4,14 @@ bundle
 
 ### To set up the database
 
-Connect to `psql` and create the `Chitter` database:
+Connect to `psql` and create the `chitter_db` and `chitter_db_test` databases
 
 ```
-CREATE DATABASE Chitter;
+CREATE DATABASE chitter_db;
+CREATE DATABASE chitter_db_test;
 ```
 
-To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+To set up the appropriate tables, connect to each databases in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
 ### To run the Chitter app:
 
