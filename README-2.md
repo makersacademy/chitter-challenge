@@ -1,5 +1,7 @@
 # Bookmark Manager
 
+This project is a small clone of Twitter that allows users to post messages to a public stream.  
+
 ## Contents
 - [User stories](#user-stories)
 - [Domain modelling](#domain-modelling)
