@@ -64,3 +64,10 @@ As a Maker
 In order to start a conversation
 I want to reply to a peep from another maker
 ```
+
+Technologies used
+-----
+
+* Sinatra to host the web application
+* PostgreSQL to create and use databases
+* RSpec & Capybara for testing
