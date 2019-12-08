@@ -27,7 +27,7 @@ $ open http://localhost:9292
 $ cd path/CHITTER-CHALLENGE  
 $ rspec
 
-### USER STORIES
+### User stories
 
 As a Maker  
 So that I can let people know what I am doing  
