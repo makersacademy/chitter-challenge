@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peep'
 require './lib/maker'
-require './database_connection_spec'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
