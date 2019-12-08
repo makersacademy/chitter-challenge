@@ -2,11 +2,12 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
-  - psql -d chitter_test -f db/migrations/01_create_peeps_table.sql -U postgres
-  - psql -d chitter_test -f db/migrations/02_time_to_peeps.sql -U postgres
-  - psql -d chitter_test -f db/migrations/03_create_makers_table.sql -U postgres
-  - psql -d chitter_test -f db/migrations/04_maker_id_to_peeps.sql -U postgres
+  # - psql -c 'create database chitter_test;' -U postgres
+  # - psql -d chitter_test -f db/migrations/01_create_peeps_table.sql -U postgres
+  # - psql -d chitter_test -f db/migrations/02_time_to_peeps.sql -U postgres
+  # - psql -d chitter_test -f db/migrations/03_create_makers_table.sql -U postgres
+  # - psql -d chitter_test -f db/migrations/04_maker_id_to_peeps.sql -U postgres
+  - bundle exec rake
 
 script:
   - bundle exec rspec
