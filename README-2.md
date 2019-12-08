@@ -90,11 +90,12 @@ user_id | user_name | user_handle | email | password | created_at |
 Peeps that include apostrophes cannot be posted.
 
 ## Features
-- View all peeps
 - Sign up
 - Sign in
-- Post peeps
 - Log out
+- Post Peeps
+- Listing Peeps
+- Display creator and time of Peeps  
 
 ## Code style
 - OOD
