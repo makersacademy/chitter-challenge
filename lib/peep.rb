@@ -1,3 +1,5 @@
+require 'pg'
+
 class Peep
 
   attr_reader :id, :content, :created_at, :user_id
