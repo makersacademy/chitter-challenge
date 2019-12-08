@@ -1,5 +1,5 @@
 <ul>
   <% @chitter.each do |chitter| %>
-    <li><%= chitter %></li>
+    <li><%= chitter.message %></li><ul><%= chitter.date %></ul>
   <% end %>
 </ul>
