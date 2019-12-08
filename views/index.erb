@@ -1,9 +1,17 @@
 <h1> Chitty Chitty Bang Bang! </h1>
 
+<h3> Sign up for Chitter: </h3> <br>
 <form action='/chitter' method='post'>
-  Write a peep:
-  <input type='text' name='content'> <br>
-  <input type='submit' value='Peep peep'> <br>
+  Name:
+  <input type='text' name='name' placeholder='Jill Smith' required> <br>
+  User Handle:
+  <input type='text' name='user-handle' placeholder='Jilly S' required> <br>
+  Email:
+  <input type='text' name='email' placeholder='j.smith@hotmail.com' required> <br>
+  Password:
+  <input type='password' name='password' minlength='8' required> <br>
+  (Minimum length of 8 characters) <br>
+  <input type='submit' value='Sign in'> <br>
 </form>
 
 <ul>

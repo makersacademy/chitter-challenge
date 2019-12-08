@@ -1,0 +1,17 @@
+<h2> Account: <%=@user_handle%> </h2> <br>
+
+<form action='/chitter/user' method='post'>
+  Write a peep:
+  <input type='text' name='content' maxlength='280' required> <br>
+  (Maximum length of 280 characters) <br>
+  <input type='submit' value='Peep peep'> <br>
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li> <%= peep.content %> <br>
+      Posted by: <%=@user_handle%> (<%=@user_name%>) <br>
+      Posted on: <%= peep.created_at %> <br>
+    </li>
+  <% end%>
+</ul>

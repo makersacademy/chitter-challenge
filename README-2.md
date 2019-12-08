@@ -45,7 +45,7 @@ To install all necessary gems, run ```bundle``` in the terminal.
 - Connect to ```psql```
 - Create the database using the ```psql``` command ```CREATE DATABASE chitter_test_database;```  
 - Connect to the database using the ```pqsl``` command ```\c chitter_test_database;```  
-- Run the query we have saved in the file ```db\migrations\01_create_peeps_table.sql```  
+- Run the queries we have saved in the folder ```db\migrations\```  
 
 ## Running the tests
 

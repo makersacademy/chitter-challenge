@@ -12,8 +12,21 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
+    session[:user_name] = params['name']
+    session[:user_handle] = params['user-handle']
+    redirect '/chitter/user'
+  end
+
+  get '/chitter/user' do
+    @peeps = Peep.all
+    @user_handle = session[:user_handle]
+    @user_name = session[:user_name]
+    erb :user
+  end
+
+  post '/chitter/user' do
     Peep.create(params['content'])
-    redirect '/chitter'
+    redirect '/chitter/user'
   end
 
   run! if app_file == $0
