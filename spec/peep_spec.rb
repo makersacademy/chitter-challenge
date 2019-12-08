@@ -32,7 +32,7 @@ describe Peep do
   describe ".create" do
     it "should create a new peep" do
       peep = Peep.create(content: "First peep")
-      persistent_data = persistent_data(id: peep.id)
+      persistent_data = persistent_data(table: :peeps, id: peep.id)
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persistent_data['id']
