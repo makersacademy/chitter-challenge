@@ -23,7 +23,7 @@ require './spec/helper.rb'
 
 RSpec.configure do |config|
   config.before(:each) do
-    clear_tables
+    setup_tables
   end
 
   config.after(:suite) do

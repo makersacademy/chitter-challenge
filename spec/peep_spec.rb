@@ -1,4 +1,5 @@
 require 'peep'
+require_relative 'helper'
 
 describe Peep do
   describe '#all' do
@@ -17,7 +18,10 @@ describe Peep do
     it "should create a new peep" do
       peep = Peep.create("test message")
 
+      persisted_data = persisted_data(table: 'messages', id: peep.id)
+
       expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data.first['id']
       expect(peep.message).to eq "test message"
     end
   end

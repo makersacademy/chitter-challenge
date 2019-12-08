@@ -2,16 +2,22 @@
 .center {
   text-align: center;
 }
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 </style>
 
 <div class="center">
-  <h1>Welcome to Peep</h1>
+  <h1>Welcome<% if @user %>, <%= @user.username %><% end %></h1>
 
   <form action="/peeps/new" method="GET">
     <button type="submit">Peep</button>
   </form>
 
-  <ul style="list-style-type: none;">
+  <ul class="ul">
     <% @peeps.each do |peep| %>
       <li>
         <h3> <%= peep.message %> </h3>

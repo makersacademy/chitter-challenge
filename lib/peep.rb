@@ -28,7 +28,9 @@ class Peep
     else
       connection = PG.connect(dbname: 'peeps')
     end
-    result = connection.exec("INSERT INTO messages(text) VALUES('#{message}') RETURNING id, text, created;")
+    result = connection.exec(
+      "INSERT INTO messages(text) VALUES('#{message}') RETURNING id, text, created;"
+      )
     Peep.new(id: result[0]['id'], message: result[0]['text'], created: result[0]['created'])
   end
 
