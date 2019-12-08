@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
 
   get "/news" do
     @statuses = Status.all
+    p @statuses[0][2]
     erb(:news)
   end
 

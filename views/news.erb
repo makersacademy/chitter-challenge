@@ -1,9 +1,9 @@
 <h1>Current Events!</h1>
 <ul>
-  <% @statuses.each { |status_info| %>
+  <% @statuses.reverse.each { |status_info| %>
     <div>
       <p><%= status_info[1] %></p>
-      <li>by <em><%= status_info[0] %></em></li>
+      <li>by <em><%= status_info[0] %></em> at <strong><%= status_info[2] %></strong></li>
     </div>
   <% } %>
 </ul>

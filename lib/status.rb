@@ -10,7 +10,7 @@ class Status
     end
 
     result = connection.exec('SELECT * FROM statuses')
-    result.map { |status| [status['author'], status["status"]] }
+    result.map { |status| [status['author'], status['status'], status['time']] }
   end
 
   def self.create(status:, author:)
@@ -20,7 +20,9 @@ class Status
       connection = PG.connect(dbname: 'chitter')
     end
 
-    connection.exec("INSERT INTO statuses (status, author) VALUES('#{status}', '#{author}')")
+    time = "#{Time.now.hour}:#{Time.now.min}"
+    connection.exec("INSERT INTO statuses (status, author, time)\
+    VALUES('#{status}', '#{author}', '#{time}')")
   end
 
 end
