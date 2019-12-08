@@ -1,7 +1,10 @@
 feature 'Registration' do
 
   scenario "sign up a new user" do
-    visit '/users/new'
+    visit '/peeps'
+    click_button 'Sign up'
+
+    expect(current_path).to eq '/users/new'
     fill_in 'email', with: 'samm@makersacademy.com'
     fill_in 'password', with: 'password123'
     fill_in 'name', with: 'Sam Morgan'

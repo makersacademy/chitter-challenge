@@ -12,12 +12,24 @@
 
 <div class="center">
   <%= flash[:notice] %>
-  
+
   <h1>Welcome<% if @user %>, <%= @user.username %><% end %></h1>
 
-  <form action="/peeps/new" method="GET">
-    <button type="submit">Peep</button>
-  </form>
+  <% if @user %>
+    <form action ="/sessions/destroy" method="POST">
+      <button type="submit">Sign out</button>
+    </form>
+    <form action="/peeps/new" method="GET">
+      <button type="submit">Peep</button>
+    </form>
+  <% else %>
+    <form action ="/users/new" method="GET">
+      <button type="submit">Sign up</button>
+    </form>
+    <form action ="/sessions/new" method="GET">
+      <button type="submit">Sign in</button>
+    </form>
+  <% end %>
 
   <ul class="ul">
     <% @peeps.each do |peep| %>
@@ -27,12 +39,4 @@
       </li>
     <% end %>
   </ul>
-</div>
-
-<div>
-  <% if @user %>
-    <form action ="/sessions/destroy" method="POST">
-      <button type="submit" style="float: right;">Sign out</button>
-    </form>
-  <% end %>
 </div>

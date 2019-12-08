@@ -13,7 +13,10 @@ feature 'authentication' do
 
     scenario "a user can sign in" do
 
-      visit '/sessions/new'
+      visit '/peeps'
+      click_button 'Sign in'
+      expect(current_path).to eq '/sessions/new'
+
       fill_in 'email', with: 'samm@makersacademy.com'
       fill_in(:password, with: 'password123')
       click_button 'Sign in'
@@ -25,7 +28,10 @@ feature 'authentication' do
 
     scenario 'a user sees an error if they get their email wrong' do
 
-      visit '/sessions/new'
+      visit '/peeps'
+      click_button 'Sign in'
+      expect(current_path).to eq '/sessions/new'
+
       fill_in 'email', with: 'wrongemail@makersacademy.com'
       fill_in 'password', with: 'password123'
       click_button 'Sign in'
@@ -38,7 +44,10 @@ feature 'authentication' do
 
     scenario 'a user sees an error if they get their password wrong' do
 
-      visit '/sessions/new'
+      visit '/peeps'
+      click_button 'Sign in'
+      expect(current_path).to eq '/sessions/new'
+
       fill_in 'email', with: 'samm@makersacademy.com'
       fill_in 'password', with: 'wrongpassword'
       click_button 'Sign in'
@@ -51,7 +60,10 @@ feature 'authentication' do
 
     scenario 'a user can sign out' do
 
-      visit '/sessions/new'
+      visit '/peeps'
+      click_button 'Sign in'
+      expect(current_path).to eq '/sessions/new'
+
       fill_in 'email', with: 'samm@makersacademy.com'
       fill_in :password, with: 'password123'
       click_button 'Sign in'
@@ -60,6 +72,7 @@ feature 'authentication' do
   
       expect(page).not_to have_content 'Welcome, sjmog'
       expect(page).to have_content 'Successfully signed out'
+
     end
 
   end

@@ -1,8 +1,18 @@
 feature 'Posting peeps' do
-  context 'posting one peep' do
+  context 'after signing up and peeping a peep' do
+
+    before do
+      visit '/peeps'
+      click_button 'Sign up'
+
+      fill_in 'email', with: 'samm@makersacademy.com'
+      fill_in 'password', with: 'password123'
+      fill_in 'name', with: 'Sam Morgan'
+      fill_in 'username', with: 'sjmog'
+      click_button 'Submit'
+    end
 
     before(:each) do
-      visit '/peeps'
       click_button 'Peep'
 
       expect(current_path).to eq('/peeps/new')
