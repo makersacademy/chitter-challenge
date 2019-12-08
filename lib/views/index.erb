@@ -1,0 +1,11 @@
+<form action='/peeps/new' method='post'>
+  <textarea rows='3' cols='60' maxlength='140' name='peep_text' placeholder="Whatcha thinkin'?"></textarea>
+  <br>
+  <input type='submit' value='Post'>
+</form>
+
+<% @peeps.each do |peep| %>
+  <div>
+    <%= peep.content %>
+  </div>
+<% end %>
