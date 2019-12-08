@@ -39,7 +39,7 @@ class Chitter < Sinatra::Base
       session[:maker_id] = maker.id
       redirect "/peeps"
     else
-      flash[:notice] = "Email already registered."
+      flash[:notice] = "Email or username already registered."
       redirect "/makers/new"
     end
   end
