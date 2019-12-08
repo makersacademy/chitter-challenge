@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%# <link href="css/peeps_index.css" type="text/css" rel="stylesheet"> %>
   <style>
     #peep {
       border: 3px solid red;
@@ -20,8 +19,9 @@
 </head>
 <body>
   <h1>Welcome, <%=@username%></h1>
-  <form action="/peeps/new" method='get'>
-    <button type="submit" name='new_peep'>New Peep</button>
+  <form action="/peeps" method='post'>
+    <input type="text" name="content" />
+    <button type="submit" name='submit_peep'>Submit Peep</button>
   </form>
   <% @peeps.each do |peep| %>
     <li id="peep">
