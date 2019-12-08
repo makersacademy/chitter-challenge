@@ -25,20 +25,23 @@ class User
 
   def self.authenticate(email:, password:)
     self.connect_to_database
-    result = @connection.exec("SELECT * FROM users WHERE email = '#{email}' AND password = '#{password}';")
+
+    result = @connection.exec("SELECT * FROM users WHERE email = '#{email}'
+      AND password = '#{password}';")
+
     self.new_user(result)
   rescue IndexError
     raise 'Email or password do not exist'
   end
 
-  private
+  # private
 
   def self.connect_to_database
-    # if ENV['RACK_ENV'] == 'test'
+    if ENV['RACK_ENV'] == 'test'
       @connection = PG.connect(dbname: 'chitter_test_database')
-    # else
-    #   connection = PG.connect(dbname: 'chitter_database')
-    # end
+    else
+      connection = PG.connect(dbname: 'chitter_database')
+    end
   end
 
   def self.new_user(result)
