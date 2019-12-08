@@ -14,13 +14,21 @@ enable :sessions
 
   post '/sign_up' do
     session[:name] = params[:name]
-    User.add(params[:name], params[:username], params[:email], params[:password])
+    # User.add(params[:name], params[:username], params[:email], params[:password])
     redirect '/peeps'
   end
 
   get '/peeps' do
     @name = session[:name]
     erb :peeps
+  end
+
+  get '/new_post' do
+    erb :new_post
+  end
+
+  post 'new_post' do
+    redirect '/peeps'
   end
   
 
