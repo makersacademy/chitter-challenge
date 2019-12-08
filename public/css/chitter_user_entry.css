@@ -82,6 +82,7 @@ textarea:focus {
 #signup-header {
   font-size: 11vw;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 #login-form, #signup-form {
@@ -92,7 +93,7 @@ textarea:focus {
 
 .input-underline {
   text-align: center;
-  height: 8vw;
+  height: 8vh;
   width: 80%;
   border-bottom: 4px solid #1e204d;
   padding: 0;
@@ -122,7 +123,7 @@ input[type="text"] {
   text-align: center;
   font-size: 2vw;
   line-height: normal;
-  margin: 50px 0 0px 0;
+  margin: 4vw 0 0px 0;
   background-color: #1e204d;
   width: 40%;
   transition: 0.2s;

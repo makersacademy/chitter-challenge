@@ -32,7 +32,10 @@
           <% Peep.all_by(@current_user.id).reverse.map.with_index do |peep, i| %>
 
             <div class="chitter-post">
-              <div class="peep-username"><%= User.find(peep.user_id).username %></div>
+              <div class="peep-username">
+                <div id="peep-pic"></div>
+                <%= User.find(peep.user_id).username %>
+              </div>
               <div class="post-div"></div>
               <div class="peep-body"><%= peep.body %></div>
               <div class="post-div"></div>
