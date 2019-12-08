@@ -2,10 +2,10 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
-  - psql -c 'CREATE DATABASE message_database_test;' -U postgres
-  - psql message_database_test -U postgres -c 'CREATE TABLE messages(id SERIAL PRIMARY KEY, url VARCHAR(100), time VARCHAR);' 
-  - psql message_database_test -U postgres -c 'CREATE TABLE accounts(id SERIAL PRIMARY KEY, username VARCHAR, email VARCHAR, password VARCHAR);'
+  - psql -c 'create database message_database_test;' -U postgres
+  # - psql -c 'CREATE DATABASE message_database_test;' -U postgres
+  # - psql message_database_test -U postgres -c 'CREATE TABLE messages(id SERIAL PRIMARY KEY, url VARCHAR(100), time VARCHAR);' 
+  # - psql message_database_test -U postgres -c 'CREATE TABLE accounts(id SERIAL PRIMARY KEY, username VARCHAR, email VARCHAR, password VARCHAR);'
 
 script:
   - bundle exec rspec
