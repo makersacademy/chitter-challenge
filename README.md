@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-Installation:
+Installation
 -------
 
 ```
@@ -12,12 +12,12 @@ $ rspec
 $ rackup
 ```
 
-Functionality:
+Functionality
 -------
 
 Makers sign up to chitter with their email, password, name and a username and then can make Peeps (post messages). Anyone can see all peeps, even those that are signed out.
 
-User Stories:
+User Stories
 -------
 
 ```
@@ -46,7 +46,7 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
 
-Areas of improvement:
+Areas of improvement
 -----
 
 If I had more time I would have:
