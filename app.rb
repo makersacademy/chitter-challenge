@@ -1,5 +1,6 @@
 require "sinatra"
 require "./lib/status.rb"
+require "./lib/user.rb"
 
 class Chitter < Sinatra::Base
 
@@ -18,8 +19,18 @@ class Chitter < Sinatra::Base
 
   get "/news" do
     @statuses = Status.all
-    p @statuses[0][2]
+    @users = User.all
     erb(:news)
+  end
+
+  get "/signup" do
+    erb(:signup)
+  end
+
+  post "/signup" do
+    User.create(email: params['email'], password: params['password'],\
+    username: params['username'], name: params['name'])
+    redirect "/news"
   end
 
   run! if app_file == $0

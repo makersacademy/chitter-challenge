@@ -1,4 +1,7 @@
 <h1>Current Events!</h1>
+<% if @users.length > 0 %>
+<h2><%= @users[0][2] %></h2>
+<% end %>
 <ul>
   <% @statuses.reverse.each { |status_info| %>
     <div>
