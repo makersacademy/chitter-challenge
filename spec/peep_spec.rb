@@ -24,7 +24,6 @@ describe Peep do
   describe ".create" do
     it "creates a new peep" do
       test_database_setup
-
       peep = Peep.create("I am obsessed with this new pizza joint!")
 
       expect(peep.content).to eq "I am obsessed with this new pizza joint!"

@@ -1,6 +1,8 @@
 feature "the user can sign up for Chitter" do
 
   before do
+    test_database_setup
+    clear_users_table
     visit '/chitter'
     fill_in 'name', with: 'Sipho Adebayo'
     fill_in 'user-handle', with: 'Sips'
@@ -14,7 +16,6 @@ feature "the user can sign up for Chitter" do
   end
 
   scenario "their name and user-handle shows against any peep they post" do
-    test_database_setup
     fill_in "content", with: "Hello World!"
     click_button "Peep peep"
 

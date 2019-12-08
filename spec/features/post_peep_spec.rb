@@ -1,6 +1,7 @@
 feature "post a peep" do
   scenario "the user can write a peep and it displays on screen" do
     test_database_setup
+    clear_users_table
 
     visit '/chitter'
     fill_in 'name', with: 'Sipho Adebayo'
