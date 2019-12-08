@@ -11,6 +11,7 @@ This is a web app that allows the user to sign up by entering their preferred us
 - Create the two tables using the commands in db/migrations/01_create_peeps_table.sql and db/migrations/02_create_users_table.sql
 - Run bundle install
 - Run rspec to see tests
+- Run ``` ruby app.rb ``` to use Chitter
 
 ## Technology used
 
