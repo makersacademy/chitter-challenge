@@ -57,4 +57,21 @@ describe User do
 
   end
 
+  describe '#authenticate' do
+
+    it 'should return an existing user given a correct username and password' do
+      user = User.create(
+        email: 'samm@makersacademy.com', 
+        password: 'password123', 
+        name: 'Sam Morgan',
+        username: 'sjmog'
+      )
+
+      authenticated_user = User.authenticate(email: 'samm@makersacademy.com', password: 'password123')
+  
+      expect(authenticated_user.id).to eq user.id
+    end
+
+  end
+
 end
