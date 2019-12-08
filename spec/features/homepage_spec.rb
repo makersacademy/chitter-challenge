@@ -5,6 +5,8 @@ feature "visit homepage" do
   end
 
   scenario "it displays all the peeps posted" do
+    test_database_setup
+    
     visit '/chitter'
     fill_in "content", with: "Hello World!"
     click_button "Peep peep"
