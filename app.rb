@@ -1,17 +1,19 @@
 require 'sinatra/base'
-require 'peep'
+require_relative 'lib/peep.rb'
+require 'pg'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
 
   get '/chitter' do
-    @peep = session[:peep]
+    @peeps = Peep.all
     erb :index
   end
 
   post '/chitter' do
-    session[:peep] = params['content']
+    connection = PG.connect(dbname: 'chitter_test_database')
+    connection.exec("INSERT INTO peeps(content, created_at) VALUES('#{params['content']}', NOW());")
     redirect '/chitter'
   end
 

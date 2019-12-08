@@ -7,9 +7,12 @@ class Peep
   end
 
   def self.all
-    [
-      "Hello World!",
-      "This breakfast is amazing!"
-    ]
+    if ENV['RACK_ENV'] = 'test'
+      connection = PG.connect(dbname: 'chitter_test_database')
+    else
+      connection = PG.connect(dbname: 'chitter_database')
+    end
+      database = connection.exec("SELECT * FROM peeps;")
+      database.map { |peep| peep['content'] }
   end
 end
