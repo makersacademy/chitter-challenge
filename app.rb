@@ -34,7 +34,6 @@ class Chitter < Sinatra::Base
       name: params[:name],
       username: params[:username]
       )
-    p maker
     if maker
       session[:maker_id] = maker.id
       redirect "/peeps"
@@ -42,6 +41,16 @@ class Chitter < Sinatra::Base
       flash[:notice] = "Email or username already registered."
       redirect "/makers/new"
     end
+  end
+
+  get "/sessions/new" do
+    erb :"sessions/new"
+  end
+
+  post "/sessions" do
+    maker = Maker.authenticate(email: params[:email], password: params[:password])
+    session[:maker_id] = maker.id
+    redirect "/peeps"
   end
 
   run! if app_file == $0

@@ -1,22 +1,12 @@
 feature "Registration" do
   scenario "A maker can sign up" do
-    visit "makers/new"
-    fill_in "email", with: "andrea@gmail.com"
-    fill_in "password", with: "mypassword"
-    fill_in "name", with: "Andrea"
-    fill_in "username", with: "Angea89"
-    click_button "Submit"
+    sign_up
 
     expect(page).to have_content "Welcome Angea89"
   end
 
   scenario "The maker's email must be unique" do
-    visit "makers/new"
-    fill_in "email", with: "andrea@gmail.com"
-    fill_in "password", with: "mypassword"
-    fill_in "name", with: "Andrea"
-    fill_in "username", with: "Angea89"
-    click_button "Submit"
+    sign_up
 
     visit "makers/new"
     fill_in "email", with: "andrea@gmail.com"
@@ -30,12 +20,7 @@ feature "Registration" do
   end
 
   scenario "The maker's username must be unique" do
-    visit "makers/new"
-    fill_in "email", with: "andrea@gmail.com"
-    fill_in "password", with: "mypassword"
-    fill_in "name", with: "Andrea"
-    fill_in "username", with: "Angea89"
-    click_button "Submit"
+    sign_up
 
     visit "makers/new"
     fill_in "email", with: "andrea_2@gmail.com"

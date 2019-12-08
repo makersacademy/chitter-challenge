@@ -7,6 +7,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'timecop'
 require_relative './database_helpers'
+require_relative './features/web_helpers'
 
 ENV['ENVIRONMENT'] = 'test'
 

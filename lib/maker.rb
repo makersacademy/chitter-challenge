@@ -39,4 +39,15 @@ class Maker
       username: result[0]['username']
       )
   end
+
+  def self.authenticate(email:, password:)
+    sql = "SELECT * FROM makers WHERE email = '#{email}';"
+    result = DatabaseConnection.query(sql)
+    Maker.new(
+      id: result[0]['id'],
+      email: result[0]['email'],
+      name: result[0]['name'],
+      username: result[0]['username']
+      )
+  end
 end
