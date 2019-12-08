@@ -8,7 +8,16 @@ class ChitterManager < Sinatra::Base
 
   get '/chitter' do
     @chitter = Chitter.all
-    erb :'chitter/post'
+    erb :'chitter/posts'
+  end
+
+  get '/chitter/new' do
+    erb :'chitter/new'
+  end
+
+  post '/chitter' do
+    Chitter.create(message: params['message'])
+    redirect '/chitter'
   end
 
   run! if app_file == $0
