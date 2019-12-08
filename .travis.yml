@@ -3,6 +3,17 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test_database;' -U postgres
+  - psql -c 'CREATE TABLE peeps(id serial PRIMARY KEY, content VARCHAR(280) NOT NULL,
+    created_at TIMESTAMP NOT NULL);' -U postgres
+  - psql -c 'CREATE TABLE users(
+    user_id serial PRIMARY KEY,
+    user_name VARCHAR(50) NOT NULL,
+    user_handle VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(350) UNIQUE NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP NOT NULL);' -U postgres
+  - psql -c 'ALTER TABLE peeps ADD user_id INT NOT NULL;' -U postgres
+  - psql -c 'ALTER TABLE peeps ADD CONSTRAINT constraint_fk FOREIGN KEY (user_id) REFERENCES users (user_id);' -U postgres
 
 script:
   - bundle exec rspec
