@@ -15,7 +15,7 @@ class User
 
     password_digest = BCrypt::Password.create(password)
 
-    connection = get_db_connection
+    connection = db_connection
 
     connection.prepare('statement1', 'INSERT INTO users (email, password_digest) VALUES($1, $2) 
       RETURNING id, email, password_digest')
@@ -26,6 +26,5 @@ class User
 
     
   end
-
 
 end

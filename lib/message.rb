@@ -14,16 +14,17 @@ class Message
 
   def self.all
 
-    connection = get_db_connection
+    connection = db_connection
 
     result = connection.exec("SELECT * FROM messages ORDER BY ts DESC;")
     result.map { |message| Message.new(id: message['id'], msg: message['msg'], 
-      user_id: message['user_id'], ts: message['ts']) }
+      user_id: message['user_id'], ts: message['ts']) 
+    }
   end 
 
   def self.create(msg:, user_id:)
 
-    connection = get_db_connection
+    connection = db_connection
   
     # using bind params; telling the db which info comes from me, which info comes from the user
     # then i tell it how to bind them
@@ -32,7 +33,8 @@ class Message
       RETURNING id, msg, user_id, ts')
     result = connection.exec_prepared('statement1', [msg, user_id, Time.now])
 
-    Message.new(id: result[0]['id'], msg: result[0]['msg'], user_id: result[0]['user_id'], ts: result[0]['ts'])
+    Message.new(id: result[0]['id'], msg: result[0]['msg'], 
+      user_id: result[0]['user_id'], ts: result[0]['ts'])
   end
   
 end
