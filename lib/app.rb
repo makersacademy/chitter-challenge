@@ -27,9 +27,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.create(name: params[:user_name], email: params[:user_email])
+    user = User.create(name: params[:name], username: params[:username], email: params[:email])
     if user.id.nil?
-      session[:message] = "This email is already registered, sorry."
+      session[:message] = "This username or email is already registered, sorry."
     else
       session[:id] = user.id
     end
