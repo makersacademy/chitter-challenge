@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/chitter'
 
 class Chitter < Sinatra::Base
 enable :sessions
@@ -13,6 +14,7 @@ enable :sessions
 
   post '/sign_up' do
     session[:name] = params[:name]
+    User.add(params[:name], params[:username], params[:email], params[:password])
     redirect '/peeps'
   end
 
