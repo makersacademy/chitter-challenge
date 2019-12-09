@@ -1,18 +1,18 @@
 require_relative './peeper.rb'
 
 class Peep
-@online = false
 
-  def self.create_account()
+  def self.create_account( name:, email:, password:, user: )
+    Peeper.new(name: name, email: email, password: password, user: user)
   end
-
-  def self.login(peeper: Peeper, email:, password: )
-    @online = true
+#Implement some kind of session hash variable in the front end for online: to use
+  def self.login(peeper: Peeper, email:, password:, online:)
+    online = true
     peeper.new
   end
 
-  def self.logout
-    @online = false
+  def self.logout(online: )
+    online = false
   end
 
   def self.records
@@ -21,7 +21,6 @@ class Peep
   #Peep instance
 attr_reader :content, :user
   def initialize(content:, user:)
-    raise "Not logged in" if online = false
     @content = content
     @time = Time.now
     @user = user
