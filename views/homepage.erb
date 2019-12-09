@@ -1,0 +1,16 @@
+<h1> Welcome to Chitter </h1>
+
+<h2> Hi <%= @user_email %> </h2>
+<h3> what's on your mind? </h3>
+
+<form action="/homepage/add" method='post'>
+  <input type="text" name='what' />
+  <input type=submit value='post' />
+</form>
+
+<% @all_post.each do |peeps| %>
+  <li>
+    <%= peeps.messages %>
+    <%= peeps.time %>
+  </li>
+<% end %>
