@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<br><h1><p class="text-success">Chitter</p></h1>
+<center>
+<h4>Welcome to Chitter! <%= @name%></h4>
+<br><a class="btn btn-success" href = '/new_post' role="button">New Post</a>
+
+<br><div class="card text-center mb-3" style="width: 20rem;">
+  <div class="card-body">
+    <p class="card-text">
+    <% @list.each do |peep| %>
+    <li><%= peep.date %><%= peep.content %></li>
+      <% end %>
+    </p>
+  </div>
+</div>
+
+</center>

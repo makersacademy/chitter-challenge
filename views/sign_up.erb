@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<br><h1><p class="text-success">Chitter</p></h1>
+<center>
+<h2>Sign up</h2>
+</center>
+<div class="container">
+<form action='/sign_up' method='post'>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Name</label>
+    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="First name Last name">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Username</label>
+    <input type="text" name="username" class="form-control" id="formGroupExampleInput2">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" name="email" class="form-control" id="inputEmail4">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" name="password" class="form-control" id="inputPassword4">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+</div>
