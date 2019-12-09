@@ -1,3 +1,5 @@
+ENV['ENVIRONMENT'] = 'test'
+
 require_relative "./../app"
 require_relative "./helper_methods.rb"
 require_relative "./setup_test_database.rb"

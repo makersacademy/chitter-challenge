@@ -1,1 +1,6 @@
-<%= @peep %>
+<ol>
+  <% @peeps.each do |peep| %>
+      <%= peep.message %>
+    </li>
+  <% end %>
+</ol>

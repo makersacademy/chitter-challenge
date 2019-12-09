@@ -9,6 +9,14 @@ class Peep
     @message = message
   end
 
+  def self.all
+    con = connect_database
+    peeps = con.exec('SELECT * FROM chitter')
+    peeps.map do |peep|
+      Peep.new(id: peep['id'], message: peep['msg'])
+    end
+  end
+
   def self.create(message:)
     con = connect_database
     result = con.exec("INSERT INTO chitter (msg) VALUES('#{message}') RETURNING id, msg;")
