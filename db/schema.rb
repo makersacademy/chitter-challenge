@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_12_08_175927) do
     t.string "grip", limit: 60
     t.string "name", limit: 60
     t.string "email", limit: 60
-    t.string "password", limit: 60
+    t.string "password", limit: 255
   end
 
 end
