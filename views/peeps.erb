@@ -1,0 +1,43 @@
+<style>
+.center {
+  text-align: center;
+}
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
+
+<div class="center">
+  <%= flash[:notice] %>
+
+  <h1>Welcome<% if @user %>, <%= @user.username %><% end %></h1>
+
+  <% if @user %>
+    <form action ="/sessions/destroy" method="POST">
+      <button type="submit">Sign out</button>
+    </form>
+    <form action="/peeps/new" method="GET">
+      <button type="submit">Peep</button>
+    </form>
+  <% else %>
+    <form action ="/users/new" method="GET">
+      <button type="submit">Sign up</button>
+    </form>
+    <form action ="/sessions/new" method="GET">
+      <button type="submit">Sign in</button>
+    </form>
+  <% end %>
+
+  <ul class="ul">
+    <% @peeps.each do |peep| %>
+      <li>
+        <h3> <%= peep.message %> </h3>
+        <div style="font-size: 12px"> Peeped: <%= peep.created %> </div>
+        <div style="font-size: 12px"> By: <%= peep.username %> (<%= peep.name %>) </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
