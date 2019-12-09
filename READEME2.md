@@ -6,4 +6,4 @@ A web application that allows users to post messages onto a Chitter page. The pa
 
 Completed 3 of the 4 user stories. The user can send a peep that will show on the chitter page. The chitter messages are shown in a non chronological order and they show the time and date that they were posted.
 
-If I had enough time I would implement the user sign up user story.
+If I had enough time I would implement the user sign up user story, and have the choice to sign out.
