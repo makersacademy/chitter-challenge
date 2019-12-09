@@ -9,7 +9,21 @@ Chitter Challenge
 
 Database Migrations
 
-```
+Although Activerecord hasnt been fully implemented in this project yet, we will make use of the Activerecord rake tasks to create the datanbases and tables required to run the project
+
+Run the following to create databases:
+
+```$ rake db:create```
+
+Run the following command to migrate the tables to the development database:
+
+```$ rake db:migrate```
+
+Finally, run the following command to migrate the tables to the test database:
+
+```$ rake db:migrate RACK_ENV=test```
+
+
 
 
 Challenge:

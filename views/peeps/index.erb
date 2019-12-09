@@ -6,7 +6,7 @@
   <%# <link href="css/peeps_index.css" type="text/css" rel="stylesheet"> %>
   <style>
     #peep {
-      border: 3px solid red;
+      border: 1px solid lightblue;
       margin: 5px;
       padding: 5px;
       list-style-type: none;
@@ -19,14 +19,16 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Welcome, <%=@username%></h1>
+  <h1>Welcome, <%=@user.name%> (<%=@user.grip%>)</h1>
+
   <form action="/peeps/new" method='get'>
     <button type="submit" name='new_peep'>New Peep</button>
   </form>
   <% @peeps.each do |peep| %>
     <li id="peep">
-      <p><%=@username%></p>
-      <p><%=peep['content']%></p>
+      <p><%=@user.name%> (<%=@user.grip%>)</p>
+      <p><%=peep.content%></p>
+      <p><%=peep.created_at%></p>
     </li>
   <% end %>
 </body>

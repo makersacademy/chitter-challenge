@@ -2,8 +2,10 @@ require 'sinatra/base'
 require 'sinatra'
 require 'sinatra/activerecord'
 require './lib/peep'
+require './lib/user'
 require 'sinatra/flash'
 require './database_connection_setup'
+require 'date'
 
 
 class ChitterApp < Sinatra::Base
@@ -21,13 +23,13 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
-    @username = session[:username]
+    @user = User.find(id: session[:userid])
     @peeps = Peep.all
     erb :'peeps/index'
   end
 
   get '/peeps/new' do
-    @username = session[:username]
+    @user = User.find(id: session[:userid])
     @peeps = Peep.all
     erb :'peeps/new'
   end
@@ -37,6 +39,15 @@ class ChitterApp < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    user = User.create(grip: params[:grip], name: params[:name], email: params[:email], password: params[:password])
+    session[:userid] = user.id
+    redirect '/peeps'
+  end
 
   run! if app_file == $0
 end
