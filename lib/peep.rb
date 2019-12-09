@@ -14,7 +14,7 @@ class Peep
 
   def self.all
     con = connect_database
-    peeps = con.exec('SELECT * FROM chitter')
+    peeps = con.exec("SELECT * FROM chitter ORDER BY date, time DESC;")
     peeps.map do |peep|
       Peep.new(id: peep['id'], date: peep['date'], message: peep['msg'], time: peep['time'])
     end
@@ -31,6 +31,8 @@ class Peep
     con = PG.connect(dbname: database)
   end
 
+  private
+
   def self.time_of_msg
     time_obj = Time.new
     time =  "#{time_obj.hour}:#{time_obj.min}:#{time_obj.sec}"
@@ -39,5 +41,9 @@ class Peep
   def self.date_of_msg
     time_obj = Time.new
     date = "#{time_obj.year}-#{time_obj.month}-#{time_obj.day}"
+  end
+
+  def self.sort(con)
+    con.exec("SELECT * FROM chitter ORDER BY date, time DESC;")
   end
 end
