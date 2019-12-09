@@ -29,4 +29,12 @@ class Peep
     created: result[0]['created'], user_id: result[0]['user_id'])
   end
 
+  def username
+    User.find(id: user_id).username
+  end
+
+  def name
+    User.find(id: user_id).name
+  end
+
 end
