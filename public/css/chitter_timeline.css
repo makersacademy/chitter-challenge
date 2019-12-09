@@ -96,7 +96,7 @@ textarea:focus {
 
 #chitter-feed-header {
   padding: 30px 0 30px 10px;
-  font-size: 6vw;
+  font-size: 5vw;
 }
 
 #stream-of-chitter-posts {
@@ -188,6 +188,10 @@ textarea:focus {
   color: cornflowerblue;
 }
 
+#send-peep:focus {
+  outline: none;
+}
+
 
 #peep-pic {
   width: 26px;
@@ -275,7 +279,7 @@ textarea:focus {
 }
 
 .nav-buttons a {
-  padding: 25px 10% 40px 10%;
+  padding: 25px 10% 67px 10%;
   color: #9e9ec4;
   text-decoration: none;
   border-radius: 20px;
