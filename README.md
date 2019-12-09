@@ -1,6 +1,6 @@
 Chitter Challenge
 =================
-[![Build Status](https://travis-ci.org/jessmar94/chitter-challenge.svg?branch=master)](https://travis-ci.org/jessmar94/chitter-challenge) 
+[![Build Status](https://travis-ci.org/jessmar94/chitter-challenge.svg?branch=master)](https://travis-ci.org/jessmar94/chitter-challenge)
 
 # Project Status
 As of October 14th 2019, the first three user stories have been implemented. I have 8 passing tests with 100% coverage.
@@ -24,6 +24,12 @@ In order to implement User Story 4, I plan to create a users table which connect
 1. Connect to `psql`
 2. Connect to the database using the `psql` command `\c peep_manager_test`
 3. Run the query I have saved in the file `02_add_created_at_column.sql`
+4. Repeat from step 2 but connect to `\c peep_manager`
+
+### Create Userse Table
+1. Connect to `psql`
+2. Connect to the database using the `psql` command `\c peep_manager_test`
+3. Run the query I have saved in the file `03_add_users_table.sql`
 4. Repeat from step 2 but connect to `\c peep_manager`
 
 # User Story 1
