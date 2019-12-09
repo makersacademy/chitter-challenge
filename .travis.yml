@@ -3,6 +3,13 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  - psql -c 'create database chitter;' -U postgres
+  - psql -c '\c chitter_test' -U postgres
+  - psql -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, username TEXT, email TEXT, password TEXT);' -U postgres
+  - psql -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, userid VARCHAR, content TEXT, time TEXT, username TEXT;)' -U postgres
+  - psql -c '\c chitter' -U postgres
+  - psql -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, username TEXT, email TEXT, password TEXT);' -U postgres
+  - psql -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, userid VARCHAR, content TEXT, time TEXT, username TEXT;)' -U postgres
 
 script:
   - bundle exec rspec
