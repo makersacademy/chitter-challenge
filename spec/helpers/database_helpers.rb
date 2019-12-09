@@ -14,11 +14,13 @@ def add_to_peeps content:, user: 1, time: Time.now.utc
   connect_to_test_db { |con| con.exec command }
 end
 
+=begin
 def add_to_users name:, email:, username:, password:
   command = "INSERT INTO users (name, email, username, password) "
   command << "VALUES ('#{name}', '#{email}', #{username}, #{password})"
   connect_to_test_db { |con| con.exec command }
 end
+=end
 
 def connect_to_test_db
   con = PG.connect dbname: "chitter_test"

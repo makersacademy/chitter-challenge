@@ -12,13 +12,13 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @user = User.find_by(id: session[:id])
-    @peeps = Peep.all.order created_at: :desc
+    @peeps = Peep.includes(:user).order created_at: :desc
     @message = session.delete(:message)
     erb :index
   end
 
   post '/peeps/new' do
-    Peep.create(user_id: 1, content: params[:peep_text])
+    Peep.create(user_id: session[:id], content: params[:peep_text])
     redirect '/peeps'
   end
 
@@ -49,7 +49,7 @@ class Chitter < Sinatra::Base
 
   post '/login' do
     user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
+    if user&.authenticate(params[:password])
       session[:id] = user.id
       redirect '/peeps'
     else

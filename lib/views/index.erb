@@ -8,6 +8,11 @@
 
 <% @peeps.each do |peep| %>
   <div>
-    <%= peep.created_at.localtime.strftime('%H:%M %d/%m/%y') %>: <%= peep.content %>
+    <p> 
+    At 
+    <%= peep.created_at.localtime.strftime('%H:%M %d/%m/%y') %>
+    <%= peep.user.name %> said: <br>
+    <%= peep.content %>
+    </p>
   </div>
 <% end %>

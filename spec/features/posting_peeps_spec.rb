@@ -31,4 +31,13 @@ feature "posting peeps" do
 
     expect(page).to have_content time.strftime '%H:%M %d/%m/%y'
   end
+
+  scenario "The poster's name should be displayed" do
+    sign_up "Actual Person", "real_email@honest.com"
+
+    fill_in 'peep_text', with: "This is what I have to say"
+    click_button 'Post'
+
+    expect(page).to have_content "Actual Person said"
+  end
 end

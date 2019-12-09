@@ -4,15 +4,19 @@
   </head>
   <body>
     <h1>Chitter</h1>
+    <p>
     <%= @message %>
+    </p>
     <% unless @user.nil? %>
       <p>
       Welcome <%= @user.name %> |
       <a href='/logout'>Log out</a>
       </p>
     <% else %>
+      <p>
       <a href='/users/new'>Sign up</a> |
       <a href='/login'>Log in</a>
+      </p>
     <%end%>
 
     <%= yield if block_given? %>
