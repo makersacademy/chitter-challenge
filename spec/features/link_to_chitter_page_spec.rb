@@ -4,7 +4,7 @@ feature 'Send user to a new message page' do
     fill_in 'message', with: 'Henlo World'
     click_button 'post'
     click_button 'Send new peep'
-    expect(page).to have_content 'post'
+    expect(page).to have_content 'Post'
     expect(current_path).to eq '/peeps/new'
   end
 end
