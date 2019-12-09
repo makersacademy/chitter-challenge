@@ -31,8 +31,11 @@ class Peeps
       connection = PG.connect(dbname: 'chitter')
     end
 
+    #gsub a second single quote into the content if there's a single quote
     result = connection.exec("INSERT INTO peeps (username, userid, content, time) VALUES('#{username}', '#{userid}', '#{content}', '#{time}') RETURNING username, id, userid, content, time")
     Peeps.new(username: result[0]['username'], id: result[0]['id'], userid: result[0]['userid'], content: result[0]['content'], time: result[0]['time'])
   end
+
+  #put in a username method and find_by_id method in user, and return the User.username
 
 end
