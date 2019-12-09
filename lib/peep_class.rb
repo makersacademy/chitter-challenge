@@ -1,20 +1,22 @@
 require 'pg'
 
-class Message
+class Peep
 
-  attr_reader :messages
+  attr_reader :id, :messages, :time
 
-  def initialize(message:)
+  def initialize(id:, message:, time:)
+    # @id = id
     @messages = message
+    @time = time
   end
 
-  def self.post(message)
+  def self.post(message:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("insert into chitter(message) values('#{message}');")
+    result = connection.exec("insert into chitter (message, time) values('#{message}', '#{Time.now}') RETURNING id, message, time")
   end
 
   def self.all
@@ -25,7 +27,12 @@ class Message
     end
     data = connection.exec('select * from chitter;')
     data.map {|post|
-      Message.new(message: post['message'])}
+      Peep.new(id: post['id'], message: post['message'], time: post['time'])}
+  end
+
+  def self.sort_by
+    peeps = Peep.all
+    peeps.reverse {|peep| peep.id}
   end
 
 end
