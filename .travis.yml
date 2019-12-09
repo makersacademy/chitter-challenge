@@ -3,6 +3,7 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  - rake db:migrate RACK_ENV=test
 
 script:
   - bundle exec rspec
