@@ -3,6 +3,9 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  - psql -c 'CREATE TABLE statuses(user_id SERIAL PRIMARY KEY, author VARCHAR(30), status VARCHAR(120), time VARCHAR(10));'
+  - psql -c 'create table users (user_id SERIAL PRIMARY KEY, email VARCHAR(60), username VARCHAR(20), name VARCHAR(20), password VARCH
+AR(15));' -d chitter_test
 
 script:
   - bundle exec rspec
