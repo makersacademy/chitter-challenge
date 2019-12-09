@@ -1,0 +1,18 @@
+<% unless @user.nil? %>
+  <form action='/peeps/new' method='post'>
+    <textarea rows='3' cols='60' maxlength='140' name='peep_text' placeholder="Whatcha thinkin'?"></textarea>
+    <br>
+    <input type='submit' value='Post'>
+  </form>
+<% end %>
+
+<% @peeps.each do |peep| %>
+  <div>
+    <p> 
+    At 
+    <%= peep.created_at.localtime.strftime('%H:%M %d/%m/%y') %>
+    <%= peep.user.name %> said: <br>
+    <%= peep.content %>
+    </p>
+  </div>
+<% end %>

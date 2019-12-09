@@ -1,6 +1,56 @@
 Chitter Challenge
 =================
 
+## My Solution so far
+
+This is a minimal solution to all user stories
+from the original readme apart from implementing
+sending any emails. It uses two activerecord models
+called User and Peep which have a one to many
+ relationship.
+
+### Installation
+
+To install you need to set up a postgresql database
+called `chitter` after running bundle. The database
+then needs to be migrated. Follow these commands:
+```
+$ bundle install
+...
+$ psql -c 'CREATE DATABASE chitter;' -U postgre
+$ bundle exec rake db:migrate
+...
+```
+#### Installation for tests
+
+This is almost identical to above but with the database
+name `chitter_test`.
+```
+$ bundle install
+...
+$ psql -c 'CREATE DATABASE chitter_test;' -U postgre
+$ bundle exec rake db:migrate RACK_ENV=test
+...
+```
+
+### Running
+
+After installation you can start the server with
+```
+$ rackup -p 4567
+```
+And then navigate to `localhost:4567/` in your
+browser
+
+#### Running tests
+
+To run the tests after installation use:
+```
+$ rspec
+```
+
+## Original Readme Below
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README

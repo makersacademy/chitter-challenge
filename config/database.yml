@@ -1,0 +1,17 @@
+development:
+    adapter: postgresql
+    encoding: unicode
+    database: chitter
+    pool: 2
+
+production:
+    adapter: postgresql
+    encoding: unicode
+    database: chitter
+    pool: 2
+
+test:
+    adapter: postgresql
+    encoding: unicode
+    database: chitter_test
+    pool: 2
