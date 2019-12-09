@@ -1,0 +1,1 @@
+ALTER TABLE chitter ADD date date not null default current_timestamp;
