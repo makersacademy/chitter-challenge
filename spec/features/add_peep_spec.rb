@@ -1,4 +1,4 @@
-feature 'Add bookmark' do
+feature 'Add peep' do
   scenario 'Should add a peep and show the peep in the list' do
     visit('/')
     sign_in
