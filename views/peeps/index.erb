@@ -1,0 +1,25 @@
+<h1>Chitter</h1>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
+<% if @maker %>
+  <h2>Welcome <%= @maker.username %></h2>
+<% end %>
+
+<ul>
+  <% @peeps.reverse_each do |peep| %>
+    <li class="peep" id="peep-<% peep.id %>">
+      <p><%= peep.content %></p>
+      <p><%= peep.time %></p>
+      <% if peep.maker_id %>
+        <p>by <%= Maker.find(id: peep.maker_id).name %> (@<%= Maker.find(id: peep.maker_id).username %>)</p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out">
+</form>
