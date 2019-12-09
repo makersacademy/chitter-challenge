@@ -87,7 +87,8 @@ user_id | user_name | user_handle | email | password | created_at |
 **CSS Design**  
 
 **Edge Case**  
-Peeps that include apostrophes cannot be posted.
+- Peeps that include apostrophes cannot be posted.
+- Sign up does not check if email address already has an account attached to it.
 
 ## Features
 - Sign up
