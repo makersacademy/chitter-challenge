@@ -6,7 +6,12 @@ require './db/database_connection_setup'
 class ChitterApp < Sinatra::Base
   enable :sessions
 
+  get '/' do
+    redirect '/chitter/index'
+  end
+
   get '/chitter/home' do
+    "Test"
     erb :'chitter/index'
   end
 
@@ -14,8 +19,8 @@ class ChitterApp < Sinatra::Base
     erb :'users/sign_up'
   end
 
-  post '/login' do 
-
+  post '/users/new' do
+    redirect '/chitter/home'
   end
 
   run! if app_file == $0
