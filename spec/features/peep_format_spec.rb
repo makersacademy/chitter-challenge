@@ -19,6 +19,6 @@ RSpec.feature 'peep format' do
   end
 
   scenario 'user wants to know what time they sent each peep' do
-    expect(page).to have_content "Peeped at#{Time.now.utc.strftime('%k:%M')}"
+    expect(page).to have_content "Peeped at #{Time.now.utc.strftime('%k:%M')}"
   end
 end

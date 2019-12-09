@@ -21,10 +21,11 @@
   transition: 0.2s;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
   outline: none;
 }
-input[type="text"]:focus::placeholder{
+
+input[type="text"]:focus::placeholder, input[type="password"]:focus::placeholder {
   color:transparent;
   transition: 0s;
 }
@@ -103,7 +104,7 @@ textarea:focus {
   align-items: flex-end;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
   text-align: center;
   width: 100%;
   background-color: transparent;
