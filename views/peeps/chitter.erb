@@ -1,5 +1,9 @@
-<ol>
+<ul>
   <% @peeps.each do |peep| %>
       <%= peep.message %>, <%= peep.date %>, <%= peep.time %>
   <% end %>
-</ol>
+</ul>
+
+<form action='/peeps/new' method='post'>
+  <input type='submit' name='Send new peep'
+</form>
