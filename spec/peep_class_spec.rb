@@ -4,8 +4,7 @@ require 'pg'
 describe Peep do
   describe '#post' do
     it 'post the message to the database' do
-      status_post= Peep.post(message: "I am cleaning my house").first
-
+      status_post = Peep.post(message: "I am cleaning my house").first
       expect(status_post['message']).to eq "I am cleaning my house"
     end
   end
