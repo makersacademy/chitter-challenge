@@ -176,7 +176,7 @@ textarea:focus {
   border: none;
   border-top-right-radius: 30px;
   border-bottom-left-radius: 10px;
-  height: 80%;
+  height: 60%;
   width: 100px;
   margin: 0 10px 0 0;
   font-size: 0.75em;

@@ -93,7 +93,7 @@ textarea:focus {
 
 .input-underline {
   text-align: center;
-  height: 8vh;
+  height: 10vh;
   width: 80%;
   border-bottom: 4px solid #1e204d;
   padding: 0;
