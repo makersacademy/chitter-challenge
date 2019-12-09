@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="css/chitter_user_entry.css" type="text/css" rel="stylesheet"/>
+    <title>Welcome To Chitter</title>
+  </head>
+  <body>
+  <div id="content">
+    <h1 id="login-header">Chitter</h1>
+      <form id="login-form" action="/log-in" method="POST">
+        <div class="input-underline">
+          <input 
+            type="text" 
+            name="email" 
+            placeholder="Email" 
+            spellcheck="false" 
+            autocomplete="off" 
+            required
+          >
+        </div>
+        <div class="input-underline">
+          <input 
+            type="password" 
+            name="password" 
+            placeholder="Password" 
+            spellcheck="false" 
+            autocomplete="off" 
+            required
+          >
+        </div>
+        <% unless @successful_login %>
+          <p id="invalid-login">Invalid Username or Password</p>
+        <% end %>
+        <input id="log-in" type="submit" name="submit" value="Log In">
+      </form>
+      <div id="sign-up"><a href="/sign-up">Sign Up</a></div>
+    </div>
+  </body>
+</html>

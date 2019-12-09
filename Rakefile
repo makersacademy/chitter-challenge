@@ -5,3 +5,7 @@ if ENV['RACK_ENV'] != 'production'
   
   task default: [:spec]
 end
+
+require 'sinatra/activerecord'
+require 'sinatra/activerecord/rake'
+require_relative 'app'

@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 0.05em;
+  color: #1e204d;
+  /* border: 1px solid red; */
+}
+
+::selection {
+  background: #ffb7b7;
+}
+::-moz-selection {
+  background: #ffb7b7;
+}
+
+::placeholder {
+  color: #1e204d;
+  opacity: 0.4;
+  transition: 0.2s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  outline: none;
+}
+
+input[type="text"]:focus::placeholder, input[type="password"]:focus::placeholder {
+  color:transparent;
+  transition: 0s;
+}
+
+input[type="submit"] {
+  background: transparent;
+}
+
+input[type="submit"]:focus {
+  outline: none;
+}
+
+input:hover::placeholder{
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: #ccccd3
+}
+
+textarea {
+  resize: none;
+  border: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+}
+
+#login-header {
+  font-size: 13vw;
+  text-align: center;
+}
+
+#signup-header {
+  font-size: 11vw;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#login-form, #signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-underline {
+  text-align: center;
+  height: 10vh;
+  width: 80%;
+  border-bottom: 4px solid #1e204d;
+  padding: 0;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+input[type="text"], input[type="password"] {
+  text-align: center;
+  width: 100%;
+  background-color: transparent;
+  font-size: 40px;
+  border: none;
+}
+
+.input-underline:hover {
+  width: 100%;
+}
+
+#log-in, #sign-up-for-new-profile {
+  padding: 35px 10% 40px 10%;
+  color: #9e9ec4;
+  text-decoration: none;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 2vw;
+  line-height: normal;
+  margin: 4vw 0 0px 0;
+  background-color: #1e204d;
+  width: 40%;
+  transition: 0.2s;
+}
+
+#log-in:hover, #sign-up-for-new-profile:hover {
+  width: 60%;
+  color: rgb(201, 194, 211);
+}
+
+#sign-up, #go-back {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  margin: 30px;
+}
+
+#sign-up a, #go-back a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px;
+  color: cornflowerblue;
+  transition: 0.2s;
+}
+
+#sign-up a:hover, #go-back a:hover {
+  color: rgb(132, 166, 230);
+}
+
+#invalid-login {
+  color: #c80055;
+  margin: 20px;
+}
