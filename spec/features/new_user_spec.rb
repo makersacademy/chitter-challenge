@@ -1,7 +1,7 @@
 feature "registering new user" do
 
 
-  scenario "should register a new user to the database and return to the login screen" do
+  xscenario "should register a new user to the database and return to the login screen" do
     visit('/')
     click_button "sign_up"
     fill_in "grip", with: "&abacon"
