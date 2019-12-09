@@ -1,3 +1,10 @@
+ENV['ENVIRONMENT'] = 'test'
+#require app.rb, regardless of file path
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+#testing software
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
