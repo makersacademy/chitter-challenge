@@ -15,12 +15,13 @@ enable :sessions
 
   post '/sign_up' do
     session[:name] = params[:name]
-    # User.add(params[:name], params[:username], params[:email], params[:password])
+    User.add(params[:name], params[:username], params[:email], params[:password])
     redirect '/peeps'
   end
 
   get '/peeps' do
     @name = session[:name]
+    @list = Peep.all
     erb :peeps
   end
 
@@ -28,9 +29,12 @@ enable :sessions
     erb :new_post
   end
 
-  post 'new_post' do
+  post '/new_post' do
+    Peep.add(params[:date], params[:content], params[:userID])
     redirect '/peeps'
   end
+
+  
   
 
   run! if app_file ==$0
