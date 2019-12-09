@@ -2,7 +2,6 @@ services:
   - postgresql
 
 before_script:
-  - bundle
   - bundle exec rake db:create
   - bundle exec rake db:migrate RACK_ENV=test
 
