@@ -44,12 +44,12 @@ describe User do
     end
 
     it 'returns nil when incorrect email' do
-      user = User.create(email: 'jess@test.com', password: 'abcdef', handle: 'jesstest')
-      expect(User.authenticate(email: 'js@test.com', password: 'abcdef')).to be_nil 
+      User.create(email: 'jess@test.com', password: 'abcdef', handle: 'jesstest')
+      expect(User.authenticate(email: 'js@test.com', password: 'abcdef')).to be_nil
     end
 
     it 'returns nil when incorrect password' do
-      user = User.create(email: 'jess@test.com', password: 'abcdef', handle: 'jesstest')
+      User.create(email: 'jess@test.com', password: 'abcdef', handle: 'jesstest')
       expect(User.authenticate(email: 'js@test.com', password: 'def')).to be_nil
     end
   end

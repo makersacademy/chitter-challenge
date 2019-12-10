@@ -1,10 +1,10 @@
 Chitter Challenge
 =================
-<!-- [![Build Status](https://travis-ci.org/jessmar94/chitter-challenge.svg?branch=master)](https://travis-ci.org/jessmar94/chitter-challenge) -->
+[![Build Status](https://travis-ci.org/jessmar94/chitter-challenge.svg?branch=master)](https://travis-ci.org/jessmar94/chitter-challenge)
 ## Summary
-Write a small Twitter clone that allows users to post messages to a public stream. More info on the project can be found here: https://github.com/makersacademy/chitter-challenge.
+Write a small Twitter clone that allows users to post messages to a public stream.
 
-This project has 13 passing tests with 100% test coverage.
+This project has 20 passing tests with 100% test coverage.
 
 ## SQL Queries
 ### Create Peep_Manager Database and Peeps Table
@@ -89,17 +89,8 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
 
-ADVANCED
-``
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-``
-
 ## Plan
 See my plan for more information.
 
 ## Project Status
-As of December 10th 2019, the first six user stories have been implemented.
-
-In order to implement User Story 5 and 6, I will implement an authentication feature to allow users to sign in and sign out. There will be one path if the user gives the correct login details and one if they give any of the wrong login details. I would create a 'sessions' path for these new features.
+As of December 10th 2019, all of the user stories have been implemented.
