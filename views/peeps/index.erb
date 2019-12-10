@@ -9,7 +9,7 @@
 <% if @current_user %>
   <h1>Welcome to Chitter <%= @current_user.handle %>
   <form action="/sessions/destroy" method="post">
-    <input type="submit" value="Sign out" /> 
+    <input type="submit" value="Sign out" />
   </form>
 <% end %>
 <h3>What's on your mind?</h3>
@@ -21,8 +21,8 @@
   <% @peeps.each do |message| %>
     <% if message.user_id == @current_user.id %>
       <h4><%= @current_user.handle %>: </h4>
-    <% else %>
-      <span></span>
+    <% elsif (@author = User.find(id: message.user_id)) %>
+      <h4><%= @author.handle %>: </h4>
     <% end %>
         <p><%= message.message %></p>
         <br>Posted at: <%= message.timestamp %></br>
