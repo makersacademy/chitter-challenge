@@ -89,8 +89,22 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
 
+ADVANCED
+```bash
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+``` 
+
 ## Plan
-See my plan for more information.
+See my [plan](https://github.com/jessmar94/chitter-challenge/blob/master/plan.md) for more information.
+
+## Images 
+
+![Image of Homepage]
+(./images/Homepage.png)
 
 ## Project Status
-As of December 10th 2019, all of the user stories have been implemented.
+As of December 10th 2019, all of the user stories have been implemented. 
+
+If I have more time, I would like to implement an edit/delete functionality for a user and their peeps. I would also like to implement the final user story, allowing a user to tag another user in a peep and for the tagged user to be notified via email which I would do using a library such as [Pony](https://www.rubydoc.info/gems/pony/1.11). In order to implement the email feature, I would want to create a messaging class and messaging table which stores the sender_id, receiver_id and email_content. 
