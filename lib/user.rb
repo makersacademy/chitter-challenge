@@ -24,6 +24,15 @@ class User
     )
   end
 
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';")
+    User.new(
+      id: result[0]['id'],
+      email: result[0]['email'],
+      handle: result[0]['handle']
+    )
+  end
+
   attr_reader :email, :id, :handle
 
   def initialize(id:, email:, handle:)
