@@ -1,11 +1,9 @@
 feature 'User sign up' do
   scenario 'a user can sign up to Chitter' do
-    visit '/users/new'
-    fill_in('email', with: 'jess@test.com')
-    fill_in('handle', with: 'jesstest')
-    fill_in('password', with: 'abcdef')
-    click_button('Sign up')
+    user_sign_up
 
-    expect(page).to have_content 'Hello jesstest'
+    visit '/peeps'
+
+    expect(page).to have_content 'Welcome to Chitter jesstest'
   end
 end

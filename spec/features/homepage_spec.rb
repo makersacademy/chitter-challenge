@@ -1,6 +1,7 @@
 feature 'Sinatra testing' do
-  scenario 'see welcome to chitter message on homepage' do
+  scenario 'see Chitter on signup page' do
     visit '/'
-    expect(page).to have_content 'Welcome to Chitter'
+    expect(page).to have_content 'Chitter'
+    expect(page).to have_button 'Sign up'
   end
 end
