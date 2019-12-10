@@ -19,7 +19,7 @@ class Peeps < Sinatra::Base
 
   post '/peeps' do
     user = User.find(id: session[:user_id])
-    Peep.create(name: params[:name], handle: user.handle, message: params[:message])
+    Peep.create(message: params[:message], user_id: user.id)
     redirect '/peeps'
   end
 

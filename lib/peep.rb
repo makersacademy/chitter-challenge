@@ -1,25 +1,24 @@
 class Peep
 
-  attr_reader :message, :id, :name, :handle, :timestamp
+  attr_reader :message, :id, :timestamp, :user_id
 
-  def initialize(id:, name:, handle:, message:, timestamp:)
-    @name = name
-    @handle = handle
+  def initialize(id:, message:, timestamp:, user_id:)
     @message = message.gsub("`apos*") {"'"}
     @id = id
+    @user_id = user_id
     @timestamp = Time.parse(timestamp).strftime("%d/%m/%Y %H:%M")
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |message|
-      Peep.new(id: message['id'], name: message['name'], handle: message['handle'], message: message['message'], timestamp: message['created_at'])
+      Peep.new(id: message['id'], message: message['message'], user_id: message['user_id'], timestamp: message['created_at'])
     end.reverse
   end
 
-  def self.create(name:, handle:, message:)
-    result = DatabaseConnection.query("INSERT INTO peeps (name, handle, message) VALUES('#{name}', '#{handle}', '#{message.gsub("'") {"`apos*"}}') RETURNING id, name, handle, message, created_at;")
+  def self.create(message:, user_id:)
+    result = DatabaseConnection.query("INSERT INTO peeps (message, user_id) VALUES('#{message.gsub("'") {"`apos*"}}', '#{user_id}') RETURNING id, message, user_id, created_at;")
 
-    Peep.new(id: result[0]['id'], name: result[0]['name'], handle: result[0]['handle'], message: result[0]['message'], timestamp: result[0]['created_at'])
+    Peep.new(id: result[0]['id'], user_id: result[0]['user_id'], message: result[0]['message'], timestamp: result[0]['created_at'])
   end
 end
