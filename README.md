@@ -102,7 +102,7 @@ See my [plan](https://github.com/jessmar94/chitter-challenge/blob/master/plan.md
 ## Images 
 
 ![Image of Homepage]
-(./images/Homepage.png)
+(Homepage.png)
 
 ## Project Status
 As of December 10th 2019, all of the user stories have been implemented. 
