@@ -1,5 +1,5 @@
 require 'user'
-require 'database_helpers_spec'
+require 'database_helpers'
 
 describe User do
 
@@ -14,4 +14,4 @@ describe User do
       expect(user.email).to eq 'jess@test.com'
     end
   end
-end 
+end

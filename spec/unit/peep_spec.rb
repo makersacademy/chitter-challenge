@@ -1,5 +1,5 @@
 require 'peep'
-require 'database_helpers_spec'
+require 'database_helpers'
 
 describe Peep do
 
@@ -22,7 +22,7 @@ describe Peep do
     it 'creates a new peep' do
       peep = Peep.create(name: 'John Smith', handle: 'js2019', message: 'test message')
 
-      persisted_data = persisted_data(id: peep.id)
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data['id']
