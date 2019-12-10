@@ -20,4 +20,15 @@ feature 'authentication' do
     expect(page).not_to have_content 'Welcome to Chitter test'
     expect(page).to have_content 'Please check your email or password'
   end
+
+  it 'user sees error if wrong password' do
+    User.create(email: 'test@test.com', password: 'password', handle: 'test')
+    visit '/sessions/new'
+    fill_in('email', with: 't@test.com')
+    fill_in('password', with: 'pword')
+    click_button('Sign in')
+
+    expect(page).not_to have_content 'Welcome to Chitter test'
+    expect(page).to have_content 'Please check your email or password'
+  end
 end
