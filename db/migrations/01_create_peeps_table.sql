@@ -1,0 +1,2 @@
+CREATE TABLE peeps(id serial PRIMARY KEY, content VARCHAR(280) NOT NULL,
+created_at TIMESTAMP NOT NULL);

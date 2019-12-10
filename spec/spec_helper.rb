@@ -1,10 +1,20 @@
+ENV['RACK_ENV'] = 'test'
+
+require_relative '../app'
+require_relative './test_database_setup.rb'
+require_relative './features/web_helpers.rb'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
