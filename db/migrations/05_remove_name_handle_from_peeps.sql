@@ -1,0 +1,1 @@
+ALTER TABLE peeps DROP COLUMN handle, DROP COLUMN name; 
