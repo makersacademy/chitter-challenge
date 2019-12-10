@@ -7,5 +7,5 @@ def user_sign_up
   fill_in('handle', with: 'jesstest')
   fill_in('password', with: 'abcdef')
   click_button('Sign up')
-  
+
 end

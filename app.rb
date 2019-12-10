@@ -10,7 +10,7 @@ class Peeps < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    erb :"root/index"
+    erb :"welcome/index"
   end
 
   get '/peeps' do
@@ -47,7 +47,13 @@ class Peeps < Sinatra::Base
     else
       flash[:notice] = 'Please check your email or password'
       redirect '/sessions/new'
-    end 
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'Successfully signed out'
+    redirect '/'
   end
 
   run if app_file == $0
