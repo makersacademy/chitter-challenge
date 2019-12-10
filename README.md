@@ -100,6 +100,6 @@ I want to receive an email if I am tagged in a Peep
 See my plan for more information.
 
 ## Project Status
-As of December 10th 2019, the first four user stories have been implemented.
+As of December 10th 2019, the first six user stories have been implemented.
 
 In order to implement User Story 5 and 6, I will implement an authentication feature to allow users to sign in and sign out. There will be one path if the user gives the correct login details and one if they give any of the wrong login details. I would create a 'sessions' path for these new features.
