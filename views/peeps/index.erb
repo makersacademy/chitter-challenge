@@ -1,9 +1,17 @@
+<style>
+  * {
+    font-family: "Courier new", times, serif;
+  }
+  div { width: 60% }
+</style>
+
+<center>
 <% if @current_user %>
-  <h1>Hello <%= @current_user.handle %>
+  <h1>Welcome to Chitter <%= @current_user.handle %>
 <% end %>
-<h2>What's on your mind?</h2>
+<h3>What's on your mind?</h3>
   <form action="/peeps" method="post">
-    <input type="text" name="message" placeholder="Write your message here..." />
+    <input type="text" name="message" placeholder="Write your peep here" />
     <input type="submit" value="Submit" />
   </form>
 <ul>
@@ -16,5 +24,7 @@
         <p><%= message.message %></p>
         <br>Posted at: <%= message.timestamp %></br>
         --------------------
+    <br></br>
   <% end %>
 </ul>
+</center>
