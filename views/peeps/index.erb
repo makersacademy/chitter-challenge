@@ -12,9 +12,9 @@
       <h4><%= @current_user.handle %>: </h4>
     <% else %>
       <span></span>
+    <% end %>
         <p><%= message.message %></p>
         <br>Posted at: <%= message.timestamp %></br>
         --------------------
-    <% end %>
   <% end %>
 </ul>

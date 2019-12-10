@@ -12,8 +12,8 @@ class Peeps < Sinatra::Base
   end
 
   get '/peeps' do
-    redirect '/' if @current_user == nil 
     @current_user = User.find(id: session[:user_id])
+    redirect '/' if @current_user == nil 
     @peeps = Peep.all
     erb :"peeps/index"
   end
