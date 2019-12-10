@@ -17,12 +17,9 @@ class Peeps < Sinatra::Base
     erb :"peeps/index"
   end
 
-  get '/peeps/new' do
-    erb :"peeps/new"
-  end
-
   post '/peeps' do
-    Peep.create(name: params[:name], handle: params[:handle], message: params[:message])
+    user = User.find(id: session[:user_id])
+    Peep.create(name: params[:name], handle: user.handle, message: params[:message])
     redirect '/peeps'
   end
 

@@ -1,6 +1,11 @@
 <% if @user %>
-  <h1>Welcome <%= @user.handle %>
+  <h1>Hello <%= @user.handle %>
 <% end %>
+<h2>What's on your mind?</h2>
+  <form action="/peeps" method="post">
+    <input type="text" name="message" placeholder="Write your message here..." />
+    <input type="submit" value="Submit" />
+  </form>
 <ul>
   <% @peeps.each do |message| %>
       <h4><%= message.name %><br><%= message.handle %></br></h4>
@@ -9,6 +14,3 @@
         --------------------
   <% end %>
 </ul>
-<form action="/peeps/new">
-  <input type="submit" value="New peep" />
-</form>
