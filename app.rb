@@ -5,14 +5,13 @@ require 'pg'
 require './database_connection_setup'
 
 class Peeps < Sinatra::Base
+  enable :sessions
 
   get '/' do
-    "Welcome to Chitter"
+    erb :"root/index"
   end
 
   get '/peeps' do
-    p "*****"
-    p session[:user_id]
     @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :"peeps/index"
