@@ -12,14 +12,14 @@ class Peeps < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = User.find(id: session[:user_id])
+    redirect '/' if @current_user == nil 
+    @current_user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :"peeps/index"
   end
 
   post '/peeps' do
-    user = User.find(id: session[:user_id])
-    Peep.create(message: params[:message], user_id: user.id)
+    peep = Peep.create(message: params[:message], user_id: session[:user_id])
     redirect '/peeps'
   end
 
