@@ -16,3 +16,6 @@ before_script:
   - psql -c 'CREATE DATABASE peep_manager_test;' -U postgres
   - psql -d peep_manager_test -f db/migrations/01_create_peeps_table.sql -U postgres
   - psql -d peep_manager_test -f db/migrations/02_add_created_at_column.sql -U postgres
+  - psql -d peep_manager_test -f db/migrations/03_create_users_table.sql -U postgres
+  - psql -d peep_manager_test -f db/migrations/04_add_userid_to_peeps.sql -U postgres
+  - psql -d peep_manager_test -f db/migrations/05_remove_name_handle_from_peeps.sql -U postgres

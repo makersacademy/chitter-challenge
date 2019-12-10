@@ -3,7 +3,7 @@ feature 'Viewing Peeps' do
     user_sign_up
 
     user = User.create(email: 'bob@test.com', handle: 'bob', password: 'password')
-    peep = Peep.create(message: 'Test peep', user_id: user.id)
+    Peep.create(message: 'Test peep', user_id: user.id)
 
     visit '/peeps'
 
