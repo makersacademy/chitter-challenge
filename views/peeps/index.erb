@@ -8,6 +8,9 @@
 <center>
 <% if @current_user %>
   <h1>Welcome to Chitter <%= @current_user.handle %>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" /> 
+  </form>
 <% end %>
 <h3>What's on your mind?</h3>
   <form action="/peeps" method="post">
@@ -27,7 +30,4 @@
     <br></br>
   <% end %>
 </ul>
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out"
-</form>
 </center>
