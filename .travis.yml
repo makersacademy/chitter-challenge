@@ -14,3 +14,9 @@ before_script:
   - psql -c 'CREATE DATABASE chitter_test;' -U postgres
   - psql -d chitter_test -f db/migrations/01_create_users_table.sql -U postgres
   - psql -d chitter_test -f db/migrations/02_create_peeps_table.sql -U postgres
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

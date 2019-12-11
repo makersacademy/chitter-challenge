@@ -1,5 +1,8 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'coveralls'
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start
 
 require 'capybara'
 require 'capybara/rspec'
