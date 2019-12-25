@@ -37,10 +37,12 @@ class Chitter < Sinatra::Base
 
   post '/chitter/sign-in' do
     session[:user] = User.authenticate(email: params['email'], password: params['password'])
-    redirect '/chitter/user'
-  rescue RuntimeError
-    session[:error] = true
-    redirect '/chitter/sign-in'
+    if session[:user]
+      redirect '/chitter/user'
+    else
+      session[:error] = true
+      redirect '/chitter/sign-in'
+    end
   end
 
   get '/chitter/log-out' do

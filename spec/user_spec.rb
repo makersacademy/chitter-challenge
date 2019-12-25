@@ -23,14 +23,12 @@ describe User do
       expect(user.user_handle).to eq 'Sips'
     end
 
-    it "returns an error if email does not exist" do
-      message = 'Email or password do not exist'
-      expect{ User.authenticate(email: 'sipho@test.com', password: 'darby34') }.to raise_error message
+    it "returns false if email does not exist" do
+      expect(User.authenticate(email: 'sipho@test.com', password: 'darby34')).to be false
     end
 
-    it "returns an error if password does not exist" do
-      message = 'Email or password do not exist'
-      expect{ User.authenticate(email: 'sipho@test.com', password: 'da50') }.to raise_error message
+    it "returns false if password does not exist" do
+      expect(User.authenticate(email: 'sipho@test.com', password: 'da50')).to be false
     end
   end
 

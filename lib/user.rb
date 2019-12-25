@@ -31,7 +31,7 @@ class User
 
     self.new_user(result)
   rescue IndexError
-    raise 'Email or password do not exist'
+    return false
   end
 
   def self.connect_to_database

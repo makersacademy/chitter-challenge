@@ -25,7 +25,7 @@ class Peep
   end
 
   def self.all
-    self.connect_to_database
+    connect_to_database
 
     database = @connection.exec("SELECT * FROM peeps;")
 
@@ -36,7 +36,7 @@ class Peep
   end
 
   def self.create(content:, user_id:)
-    self.connect_to_database
+    connect_to_database
 
     result = @connection.exec("INSERT INTO peeps(content, created_at, user_id)
       VALUES('#{content}', NOW(), '#{user_id}') RETURNING id, content, created_at, user_id;")
@@ -44,8 +44,6 @@ class Peep
     Peep.new(id: result[0]['id'], content: result[0]['content'],
       created_at: result[0]['created_at'], user_id: result[0]['user_id'])
   end
-
-  # private
 
   def self.connect_to_database
     if ENV['RACK_ENV'] == 'test'
