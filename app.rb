@@ -6,48 +6,53 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
-  get '/chitter' do
+  get '/' do
     @peeps = Peep.all
-    erb :index
+    @user = session[:user]
+    erb :index, { :layout => :layout }
   end
 
-  post '/chitter' do
+  post '/' do
     session[:user] = User.create(user_name: params['name'],
       user_handle: params['user-handle'], email: params['email'],
       password: params['password'])
-    redirect '/chitter/user'
-  end
-
-  get '/chitter/user' do
-    @peeps = Peep.all
-    @user = session[:user]
-    erb :'chitter/user'
-  end
-
-  post '/chitter/user' do
-    Peep.create(content: params['content'], user_id: session[:user].user_id )
-    redirect '/chitter/user'
-  end
-
-  get '/chitter/sign-in' do
-    @error = session[:error]
-    session[:error] = false
-    erb :'chitter/sign_in'
-  end
-
-  post '/chitter/sign-in' do
-    session[:user] = User.authenticate(email: params['email'], password: params['password'])
-    if session[:user]
-      redirect '/chitter/user'
+    if session[:user] == :email_clash || session[:user] == :handle_clash
+      redirect '/'
     else
-      session[:error] = true
-      redirect '/chitter/sign-in'
+      redirect '/user'
     end
   end
 
-  get '/chitter/log-out' do
+  get '/user' do
+    @peeps = Peep.all
+    @user = session[:user]
+    erb :user, { :layout => :layout }
+  end
+
+  post '/user' do
+    Peep.create(content: params['content'], user_id: session[:user].user_id)
+    redirect '/user'
+  end
+
+  get '/log-in' do
+    @error = session[:error]
+    session[:error] = false
+    erb :log_in, { :layout => :layout }
+  end
+
+  post '/log-in' do
+    session[:user] = User.authenticate(email: params['email'], password: params['password'])
+    if session[:user]
+      redirect '/user'
+    else
+      session[:error] = true
+      redirect '/log-in'
+    end
+  end
+
+  get '/log-out' do
     session.clear
-    erb :'chitter/log_out'
+    erb :log_out, { :layout => :layout }
   end
 
   run! if app_file == $0

@@ -1,8 +1,14 @@
 <h2> Chitty chitty bang bang... </h2>
 <h1> Welcome to Chitter! </h1>
 
+<% if @user == :email_clash %>
+  <h3> This email already has an account, please try again. </h3>
+<% elsif @user == :handle_clash %>
+  <h3> This user handle is already in use, please choose another. </h3>
+<% end %>
+
 <h3> Sign up for Chitter: </h3>
-<form action='/chitter' method='post'>
+<form action='/' method='post'>
   Name:
   <input type='text' name='name' placeholder='Jill Smith' maxlength='50' required> <br>
   User Handle:
@@ -11,11 +17,11 @@
   <input type='email' name='email' placeholder='test@hotmail.com' required> <br>
   Password (minimum 8 characters):
   <input type='password' name='password' minlength='8' required> <br>
-  <input type='submit' value='Sign up'> <br>
+  <input type='submit' value='Sign Up'> <br>
 </form>
 
 <h3> Already signed up? </h3>
-<h4> <a href='/chitter/sign-in'>Sign in here</a></h4>
+<h4> <a href='/log-in'>Log In</a></h4>
 
 <h2> Peeps </h2>
 

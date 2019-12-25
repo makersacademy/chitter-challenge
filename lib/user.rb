@@ -22,7 +22,8 @@ class User
 
     connect_to_database
 
-    result = @connection.exec("INSERT INTO users(user_name, user_handle, email, password, created_at)
+    result = @connection.exec("INSERT INTO users(user_name, user_handle, email,
+      password, created_at)
       VALUES('#{user_name}', '#{user_handle}', '#{email}', '#{encrypted_psw}', NOW())
       RETURNING user_name, user_handle, email, password, created_at, user_id;")
 

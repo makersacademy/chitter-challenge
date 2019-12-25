@@ -1,10 +1,10 @@
 <h2> Account: <%=@user.user_handle%> </h2> <br>
 
-<form action='/chitter/user' method='post'>
+<form action='/user' method='post'>
   Write a peep:
   <input type='text' name='content' maxlength='280' required> <br>
   (Maximum length of 280 characters) <br>
-  <input type='submit' value='Peep peep'> <br>
+  <input type='submit' value='Drop Science'> <br>
 </form>
 
 <ul>
@@ -16,4 +16,4 @@
   <% end%>
 </ul>
 
-<h4> <a href='/chitter/log-out'>Log out here</a></h4>
+<h4> <a href='/log-out'>Log Out</a></h4>

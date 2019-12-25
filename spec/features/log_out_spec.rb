@@ -6,11 +6,11 @@ feature "the user can log out of Chitter" do
   end
 
   scenario "there is a link to log out" do
-    expect(page).to have_link("Log out", href: "/chitter/log-out")
+    expect(page).to have_link("Log Out", href: "/log-out")
   end
 
   scenario "they can press the link and log out" do
-    click_link "Log out here"
+    click_link "Log Out"
     expect(page).to have_content "You are logged out!"
   end
 end

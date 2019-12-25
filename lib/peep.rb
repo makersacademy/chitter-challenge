@@ -30,9 +30,9 @@ class Peep
     database = @connection.exec("SELECT * FROM peeps;")
 
     database.map { |peep|
-        Peep.new(id: peep['id'], content: peep['content'],
-          created_at: peep['created_at'], user_id: peep['user_id'])
-      }.reverse
+      Peep.new(id: peep['id'], content: peep['content'],
+      created_at: peep['created_at'], user_id: peep['user_id'])
+    }.reverse
   end
 
   def self.create(content:, user_id:)
