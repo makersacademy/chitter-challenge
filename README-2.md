@@ -87,7 +87,8 @@ user_id | user_name | user_handle | email | password | created_at |
 **CSS Design**  
 
 **Edge Case**  
-Peeps that include apostrophes cannot be posted.
+- Peeps that include apostrophes cannot be posted.
+- Sign up does not check if email address already has an account attached to it.
 
 ## Features
 - Sign up
@@ -112,7 +113,10 @@ Peeps that include apostrophes cannot be posted.
 
 ## Getting started
 
-To install all necessary gems, run ```bundle``` in the terminal.
+Run the below in the terminal in your chitter-challenge directory:
+- To install all necessary gems, run ```bundle```
+- To open in web browser run ```ruby app.rb```
+- Open http://localhost:4567/chitter
 
 ## Database setup
 
