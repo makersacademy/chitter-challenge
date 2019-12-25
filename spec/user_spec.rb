@@ -13,6 +13,14 @@ describe User do
       expect(@new_user.user_name).to eq 'Sipho Adebayo'
       expect(@new_user.user_handle).to eq 'Sips'
     end
+
+    it "returns an error if email already has an account assigned to it" do
+      expect(User.create(user_name: 'Sips Adebayo', user_handle: 'Sipho', email: 'sipho_adebayo@test.com', password: 'heyo034')).to eq :email_clash
+    end
+
+    it "returns an error if user handle already has an account assigned to it" do
+      expect(User.create(user_name: 'Sips Adebayo', user_handle: 'Sips', email: 'hello@test.com', password: 'heyo034')).to eq :handle_clash
+    end
   end
 
   describe ".authenticate" do
