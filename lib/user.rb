@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 
 class User
 
@@ -14,24 +15,25 @@ class User
   attr_reader :user_name, :user_handle, :user_id
 
   def self.create(user_name:, user_handle:, email:, password:)
-    self.connect_to_database
+    encrypted_psw = BCrypt::Password.create(password)
+
+    connect_to_database
 
     result = @connection.exec("INSERT INTO users(user_name, user_handle, email, password, created_at)
-      VALUES('#{user_name}', '#{user_handle}', '#{email}', '#{password}', NOW())
+      VALUES('#{user_name}', '#{user_handle}', '#{email}', '#{encrypted_psw}', NOW())
       RETURNING user_name, user_handle, email, password, created_at, user_id;")
 
-    self.new_user(result)
+    new_user(result)
   end
 
   def self.authenticate(email:, password:)
-    self.connect_to_database
+    connect_to_database
 
-    result = @connection.exec("SELECT * FROM users WHERE email = '#{email}'
-      AND password = '#{password}';")
+    result = @connection.exec("SELECT * FROM users WHERE email = '#{email}';")
+    return false unless result.any?
+    return false unless BCrypt::Password.new(result[0]["password"]) == password
 
-    self.new_user(result)
-  rescue IndexError
-    return false
+    new_user(result)
   end
 
   def self.connect_to_database
