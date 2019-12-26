@@ -10,16 +10,16 @@ feature "user can log in" do
     visit '/log-in'
     fill_in 'email', with: 'sipho_adebayo@test.com'
     fill_in 'password', with: 'darby34'
-    click_button "Righteous"
+    click_button "RIGHTEOUS"
 
-    expect(page).to have_content "Account: Sips"
+    expect(page).to have_content "What's on your mind Sips?"
   end
 
   scenario "sign in fails if email is not correct" do
     visit '/log-in'
     fill_in 'email', with: 'sipho@test.com'
     fill_in 'password', with: 'darby34'
-    click_button "Righteous"
+    click_button "RIGHTEOUS"
 
     expect(page).to have_content "Email or password are incorrect. Please try again."
   end
@@ -28,7 +28,7 @@ feature "user can log in" do
     visit '/log-in'
     fill_in 'email', with: 'sipho_adebayo@test.com'
     fill_in 'password', with: 'da508967'
-    click_button "Righteous"
+    click_button "RIGHTEOUS"
 
     expect(page).to have_content "Email or password are incorrect. Please try again."
   end

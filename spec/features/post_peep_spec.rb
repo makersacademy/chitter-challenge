@@ -4,10 +4,10 @@ feature "post a peep" do
     sign_up_new_user
 
     fill_in "content", with: "Hello World!"
-    click_button "Drop Science"
+    click_button "DROP SCIENCE"
 
     expect(page).to have_content "Hello World!"
-    expect(page).to have_content "Posted by: Sips (Sipho Adebayo)"
-    expect(page).to have_content "Posted on: "
+    expect(page).to have_content "Sips"
+    expect(page).to have_content "Sipho Adebayo"
   end
 end
