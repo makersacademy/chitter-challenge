@@ -9,11 +9,11 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li> <%= peep.content %> <br>
-      Posted by: <%= peep.user.user_handle%> (<%= peep.user.user_name%>) <br>
-      Posted on: <%= peep.created_at %> <br>
-    </li>
+    <div class="posts">
+      <li> <%= peep.content %> <br>
+        Posted by: <%= peep.user.user_handle%> (<%= peep.user.user_name%>) <br>
+        Posted on: <%= peep.created_at %> <br>
+      </li>
+    </div>
   <% end%>
 </ul>
-
-<h4> <a href='/log-out'>Log Out</a></h4>

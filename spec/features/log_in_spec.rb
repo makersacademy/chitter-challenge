@@ -10,7 +10,7 @@ feature "user can log in" do
     visit '/log-in'
     fill_in 'email', with: 'sipho_adebayo@test.com'
     fill_in 'password', with: 'darby34'
-    click_button "Log In"
+    click_button "Righteous"
 
     expect(page).to have_content "Account: Sips"
   end
@@ -19,7 +19,7 @@ feature "user can log in" do
     visit '/log-in'
     fill_in 'email', with: 'sipho@test.com'
     fill_in 'password', with: 'darby34'
-    click_button "Log In"
+    click_button "Righteous"
 
     expect(page).to have_content "Email or password are incorrect. Please try again."
   end
@@ -28,7 +28,7 @@ feature "user can log in" do
     visit '/log-in'
     fill_in 'email', with: 'sipho_adebayo@test.com'
     fill_in 'password', with: 'da508967'
-    click_button "Log In"
+    click_button "Righteous"
 
     expect(page).to have_content "Email or password are incorrect. Please try again."
   end

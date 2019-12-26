@@ -16,7 +16,7 @@ feature "the user can sign up for Chitter" do
     fill_in 'user-handle', with: 'Sipho'
     fill_in 'email', with: 'sipho_adebayo@test.com'
     fill_in 'password', with: 'heyo034'
-    click_button "Sign Up"
+    click_button "Schweet"
 
     expect(page).to have_content "This email already has an account, please try again."
   end
@@ -28,7 +28,7 @@ feature "the user can sign up for Chitter" do
     fill_in 'user-handle', with: 'Sips'
     fill_in 'email', with: 'hello@test.com'
     fill_in 'password', with: 'heyo034'
-    click_button "Sign Up"
+    click_button "Schweet"
 
     expect(page).to have_content "This user handle is already in use, please choose another."
   end

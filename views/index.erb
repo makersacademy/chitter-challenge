@@ -1,35 +1,42 @@
-<h2> Chitty chitty bang bang... </h2>
-<h1> Welcome to Chitter! </h1>
+<img class="logo" src="the-411-pixelated-logo.png" alt="The 4-1-1 logo">
+
+<h2> What's on your mind bruh? </h2>
 
 <% if @user == :email_clash %>
-  <h3> This email already has an account, please try again. </h3>
+  <div class="alert alert-danger" role="alert">
+    <h5> This email already has an account, please try again. </h5>
+  </div>
 <% elsif @user == :handle_clash %>
-  <h3> This user handle is already in use, please choose another. </h3>
+  <div class="alert alert-danger" role="alert">
+    <h5> This user handle is already in use, please choose another. </h5>
+  </div>
 <% end %>
 
-<h3> Sign up for Chitter: </h3>
-<form action='/' method='post'>
-  Name:
-  <input type='text' name='name' placeholder='Jill Smith' maxlength='50' required> <br>
-  User Handle:
-  <input type='text' name='user-handle' placeholder='Jilly S' maxlength='50' required> <br>
-  Email:
-  <input type='email' name='email' placeholder='test@hotmail.com' required> <br>
-  Password (minimum 8 characters):
-  <input type='password' name='password' minlength='8' required> <br>
-  <input type='submit' value='Sign Up'> <br>
-</form>
+<% if @user != :email_clash || @user != :handle_clash %>
+  <h5> SIGN UP </h5>
+  <form action='/' method='post'>
+    <input type='text' name='name' placeholder='Name' maxlength='50' required> <br>
+    <input type='text' name='user-handle' placeholder='Handle' maxlength='50' required> <br>
+    <input type='email' name='email' placeholder='Email' required> <br>
+    <input type='password' name='password' placeholder="Password" minlength='8' required><br>
+    (minimum 8 characters)<br>
+    <input class="start-btn" type='submit' value='Schweet' id="sign-up"> <br>
+  </form>
 
-<h3> Already signed up? </h3>
-<h4> <a href='/log-in'>Log In</a></h4>
-
-<h2> Peeps </h2>
+  <h5> Already signed up? <a href='/log-in'>Log In</a></h5>
+<% end %>
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li> <%= peep.content %> <br>
-      Posted by: <%= peep.user.user_handle%> (<%= peep.user.user_name%>) <br>
-      Posted on: <%= peep.created_at %> <br>
-    </li>
+    <div class="cloud">
+      <li class="content">
+        <strong> <%= peep.content %> <br></strong>
+        <small>
+          <%= peep.user.user_handle%> <br>
+          <%= peep.user.user_name%> <br>
+          <%= peep.created_at %> <br>
+        </small>
+      </li>
+    </div>
   <% end%>
 </ul>
