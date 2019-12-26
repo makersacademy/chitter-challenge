@@ -3,7 +3,7 @@
 This is a repository containing a Twitter clone application, Chitter.  
 
 ## User stories
-
+```
 As a Maker  
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -27,7 +27,7 @@ I want to log in to Chitter
 As a Maker  
 So that I can avoid others posting messages on Chitter as me  
 I want to log out of Chitter
-
+```
 ## Technologies Used
 
 - Ruby
