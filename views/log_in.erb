@@ -1,15 +1,13 @@
-<h1> Sign in: </h1>
+<h1> LOGIN </h1>
 
-<h3>
-  <% if @error == true %>
+<% if @error == true %>
+  <div class="alert alert-danger" role="alert">
     Email or password are incorrect. Please try again.
-  <% end %>
-</h3>
+  </div>
+<% end %>
 
 <form action='/log-in' method='post'>
-  Email:
-  <input type='email' name='email' placeholder='test@hotmail.com' required> <br>
-  Password:
-  <input type='password' name='password' minlength='8' required> <br>
-  <input type='submit' value='Righteous'> <br>
+  <input type='email' name='email' placeholder='Email' required> <br>
+  <input type='password' name='password' placeholder='Password' minlength='8' required> <br>
+  <input class='start-btn submit' type='submit' value='Righteous'> <br>
 </form>

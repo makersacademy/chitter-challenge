@@ -35,6 +35,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/log-in' do
+    @user = session[:user]
     @error = session[:error]
     session[:error] = false
     erb :log_in, { :layout => :layout }
@@ -51,6 +52,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/log-out' do
+    @user = session[:user]
     session.clear
     erb :log_out, { :layout => :layout }
   end

@@ -1,18 +1,22 @@
-<h2> Account: <%=@user.user_handle%> </h2> <br>
+<h2> You legit, <%=@user.user_handle%> </h2> <br>
 
 <form action='/user' method='post'>
   Write a peep:
   <input type='text' name='content' maxlength='280' required> <br>
   (Maximum length of 280 characters) <br>
-  <input type='submit' value='Drop Science'> <br>
+  <input class='start-btn submit' id='post' type='submit' value='Drop Science'> <br>
 </form>
 
 <ul>
   <% @peeps.each do |peep| %>
-    <div class="posts">
-      <li> <%= peep.content %> <br>
-        Posted by: <%= peep.user.user_handle%> (<%= peep.user.user_name%>) <br>
-        Posted on: <%= peep.created_at %> <br>
+    <div class="cloud">
+      <li class="content">
+        <strong> <%= peep.content %> <br></strong>
+        <small>
+          <%= peep.user.user_handle%> <br>
+          <%= peep.user.user_name%> <br>
+          <%= peep.created_at %> <br>
+        </small>
       </li>
     </div>
   <% end%>

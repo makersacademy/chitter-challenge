@@ -16,16 +16,12 @@ body {
   margin-top: 2%;
 }
 
-h2, h5 {
+h1, h2, h5 {
   margin-top: 2%;
 }
 
 input {
   margin-top: 5px;
-}
-
-#sign-up {
-  margin-top: 10px;
 }
 
 small {
@@ -37,7 +33,7 @@ small {
   padding: 1.5em;
   height: 10%;
   width: 55%;
-  background: rgb(61, 45, 116, 0.95);
+  background: rgb(61, 45, 116, 0.97);
   border-radius: 40vw;
   border: 3px solid rgb(235, 88, 247, 0.4);
   position: relative;
@@ -58,7 +54,7 @@ small {
   border: 3px solid rgb(235, 88, 247, 0.4);
   border-bottom-color: transparent;
   border-right-color: transparent;
-  background: rgb(61, 45, 116, 0.95);
+  background: rgb(61, 45, 116, 0.97);
   transform: rotate(26deg);
 }
 
@@ -74,7 +70,7 @@ small {
   border: 3px solid rgb(235, 88, 247, 0.4);
   border-bottom-color: transparent;
   border-right-color: transparent;
-  background: rgb(61, 45, 116, 0.95);
+  background: rgb(61, 45, 116, 0.97);
   transform: rotate(57deg);
 }
 
@@ -105,4 +101,8 @@ small {
 	box-shadow: none;
 	position: relative;
 	top: .2em;
+}
+
+.submit {
+  margin-top: 10px;
 }

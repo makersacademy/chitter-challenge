@@ -2,28 +2,29 @@
 
 <h2> What's on your mind bruh? </h2>
 
-<% if @user == :email_clash %>
-  <div class="alert alert-danger" role="alert">
-    <h5> This email already has an account, please try again. </h5>
-  </div>
-<% elsif @user == :handle_clash %>
-  <div class="alert alert-danger" role="alert">
-    <h5> This user handle is already in use, please choose another. </h5>
-  </div>
-<% end %>
-
-<% if @user != :email_clash || @user != :handle_clash %>
+<% if !@user || @user != :email_clash || @user != :handle_clash %>
   <h5> SIGN UP </h5>
+
+  <% if @user == :email_clash %>
+    <div class="alert alert-danger" role="alert">
+      This email already has an account, please try again.
+    </div>
+  <% elsif @user == :handle_clash %>
+    <div class="alert alert-danger" role="alert">
+      This user handle is already in use, please choose another.
+    </div>
+  <% end %>
+
   <form action='/' method='post'>
     <input type='text' name='name' placeholder='Name' maxlength='50' required> <br>
     <input type='text' name='user-handle' placeholder='Handle' maxlength='50' required> <br>
     <input type='email' name='email' placeholder='Email' required> <br>
     <input type='password' name='password' placeholder="Password" minlength='8' required><br>
     (minimum 8 characters)<br>
-    <input class="start-btn" type='submit' value='Schweet' id="sign-up"> <br>
+    <input class="start-btn submit" type='submit' value='Schweet'> <br>
   </form>
 
-  <h5> Already signed up? <a href='/log-in'>Log In</a></h5>
+  <h5> Already signed up? <a href='/log-in' class="btn btn-secondary btn-lg">LOGIN</a></h5>
 <% end %>
 
 <ul>
