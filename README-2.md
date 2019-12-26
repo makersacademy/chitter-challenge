@@ -87,9 +87,6 @@ user_id | user_name | user_handle | email | password | created_at |
 > So that I can stay constantly tapped in to the shouty box of Chitter  
 > I want to receive an email if I am tagged in a Peep  
 
-**Edge Case**  
-- Peeps that include apostrophes cannot be posted.
-
 ## Features
 - Sign up (warning if email or user handle already in use)
 - Login (warning if incorrect log in details)
