@@ -4,17 +4,18 @@ require './lib/account.rb'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
+  enable :sessions, :method_override
 
-  get '/' do
+  before do
     @logged_in = session[:logged_in?]
     @logged_out = session[:logged_out?]
-    erb :index
   end
 
-  get '/chitter_feed' do
+  get '/' do
+    @current_user = session[:username]
     @peep = Message.all
-    erb :chitter_feed
+    Message.all[0]
+    erb :index, { :layout => :layout } 
   end
 
   get '/new_message' do
@@ -22,9 +23,27 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_message' do
+    Account.instance.username
     @username = Account.instance.username
+    @params[:message]
     Message.add(@username, params[:message])
-    redirect '/chitter_feed'
+    redirect '/'
+  end
+
+  delete '/message/:id' do
+    Message.delete(params[:id])
+    redirect '/'
+  end
+
+  get '/message/:id/edit' do
+    @id = params[:id]
+    @message = Message.get_message(params[:id])
+    erb :edit, { :layout => :layout }
+  end
+
+  patch '/message/:id' do
+    Message.edit(params[:id], params[:message])
+    redirect '/'
   end
 
   get '/account' do
@@ -44,14 +63,15 @@ class Chitter < Sinatra::Base
 
   get '/account/confirmation' do
     @account = Account.new_account
-    erb :confirmation
+    erb :confirmation, { :layout => :layout } 
   end
 
-  get '/account/log_in' do
-    erb :"/account/log_in"
+  get '/log_in' do
+    erb :log_in, { :layout => :layout }
   end
 
-  post '/account/log_in' do
+  post '/log_in' do
+    session[:username] = params[:username]
     session[:logged_in?] = Account.log_in(params[:username], params[:password])
     redirect '/'
   end

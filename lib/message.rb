@@ -28,6 +28,26 @@ class Message
     }
   end
 
+  def self.delete(id)
+    database_selector
+
+    @connection.exec("DELETE FROM messages WHERE id='#{id}'")
+  end
+
+  def self.get_message(id)
+    database_selector
+
+    result = @connection.exec("SELECT * FROM messages WHERE id='#{id}'")
+
+    result[0]['message']
+  end
+
+  def self.edit(id, message)
+    database_selector
+
+    @connection.exec("UPDATE messages SET message='#{message}' WHERE id='#{id}'")
+  end
+
   def self.database_selector
     if ENV['ENVIRONMENT'] == 'test'
       @connection = PG.connect(dbname: 'message_database_test')

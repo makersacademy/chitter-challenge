@@ -1,11 +1,21 @@
-<center><h1>Chitter</h1>
-<a href = '/chitter_feed'>See Chitter Feed</a><br>
-<% if @logged_in == true %>
-<a href = '/new_message' method = 'get'>Post Message</a><br>
-<% end %>
-<a href = '/account'>Create Account</a><br>
-<% if @logged_in == nil %>
-<a href = '/account/log_in'>Log in</a><br>
-<% else %>
-<a href = '/account/log_out'>Log out</a>
-<% end %>
+
+<center><h1>Chitter Feed</h1>
+<div class='message-list'>
+  <ul style = 'list-style-type:none;'>
+    
+      <% @peep.each do |peep|%>
+        <div class='message-block'>
+          <li class='message'> @<%= peep.username %>: <%= peep.message %></li>
+          <li class='time'>Time posted: <%= peep.time %> </li>
+          <% if peep.username == @current_user %>
+            <form action='/message/<%= peep.id %>' method='post'>
+              <input type='hidden' name='_method' value='DELETE' />
+              <input type='submit' value='Delete' class='delete'>
+            </form>
+            <a href='/message/<%= peep.id %>/edit' class='edit'>Edit</a>
+          <% end %>   
+        </div>  
+      <% end %>
+  
+  </ul>
+</div>

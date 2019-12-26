@@ -11,23 +11,23 @@ The technologies used to create and run the application are:
 - The bcrypt gem in order to encrypt the user's password
 - The rspec gem to test the application
 
-### Install
-
+## Install
+```
 $ cd path/CHITTER-CHALLENGE  
 $ bundle
-
-### Run the app
-
+```
+## Run the app
+```
 $ cd path/CHITTER-CHALLENGE  
 $ rackup  
 $ open http://localhost:9292
-
-### Run the tests
-
+```
+## Run the tests
+```
 $ cd path/CHITTER-CHALLENGE  
 $ rspec
-
-### User stories
+```
+## User stories
 
 As a Maker  
 So that I can let people know what I am doing  

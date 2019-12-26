@@ -3,7 +3,6 @@ feature 'message feed' do
   scenario 'can see chitter feed page' do
 
     visit '/'
-    click_on 'See Chitter Feed'
     expect(page).to have_content 'Chitter Feed'
 
   end

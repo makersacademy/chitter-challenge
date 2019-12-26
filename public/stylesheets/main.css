@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+}
+
+#header {
+  text-align: center;
+  font-size: 2em;
+  background: orange;
+  color: white;
+  padding: 0.7%;
+}
+
+#navbar {
+  text-align: center;
+  background-color: lightgray;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+}
+
+#navbar a {
+  color: black;
+  background-color: lightgray;
+  text-decoration: none;
+  margin: 0;
+  height: 100%;
+  padding: 10px;
+}
+
+#navbar a:hover {
+  cursor: pointer;
+  background-color: gray;
+  color: white;
+}
+
+.message-list {
+  
+  width: 70%;
+}
+
+.message-block {
+  position: relative;
+  height: 10%;
+  background: lightsalmon;
+  border-bottom: 1px solid black;
+}
+
+.message-block:nth-child(even) {
+  background: lightgray;
+}
+
+.message {
+ 
+  padding-top: 4%;
+  text-align: center;
+  width: 100%;
+}
+
+.time {
+  position: absolute;
+  bottom: 0;
+}
+
+.edit {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  background-color: orange;
+  text-decoration: none;
+  margin: 0;
+  height: 7%;
+  padding: 10px;
+  border: 1px solid black;
+  border-bottom: none;
+}
+
+.edit:hover {
+  cursor: pointer;
+  background-color: lightgray;
+  color: black;
+}
+
+.delete {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  color: white;
+  background-color: orange;
+  margin: 0;
+  height: 7%;
+  padding: 10px;
+  border: 1px solid black;
+  border-bottom: none;
+}
+
+.delete:hover {
+  cursor: pointer;
+  background-color: lightgray;
+  color: black;
+}

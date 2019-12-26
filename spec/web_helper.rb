@@ -3,7 +3,7 @@ def sign_in
   click_on 'Log in'
   fill_in 'username', with: 'dbacall'
   fill_in 'password', with: 'password'
-  click_on 'Log in'
+  click_on 'Sign in'
 end
 
 def post_message(message)
@@ -13,6 +13,7 @@ def post_message(message)
 end
 
 def create_account
+  visit '/'
   click_on 'Create Account'
   fill_in 'username', with: 'dbacall'
   fill_in 'email', with: 'dbacall@hotmail.co.uk'
