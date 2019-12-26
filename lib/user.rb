@@ -8,7 +8,7 @@ class User
     @user_handle = user_handle
     @email = email
     @password = password
-    @created_at = created_at
+    @created_at = DateTime.parse(created_at)
     @user_id = user_id
   end
 
@@ -23,8 +23,8 @@ class User
     connect_to_database
 
     result = @connection.exec("INSERT INTO users(user_name, user_handle, email,
-      password, created_at)
-      VALUES('#{user_name}', '#{user_handle}', '#{email}', '#{encrypted_psw}', NOW())
+      password)
+      VALUES('#{user_name}', '#{user_handle}', '#{email}', '#{encrypted_psw}')
       RETURNING user_name, user_handle, email, password, created_at, user_id;")
 
     new_user(result)

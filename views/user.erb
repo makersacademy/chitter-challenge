@@ -14,7 +14,7 @@
         <small>
           <%= peep.user.user_handle%> <br>
           <%= peep.user.user_name%> <br>
-          <%= peep.created_at %> <br>
+          <%= peep.created_at.strftime('%d %b %Y %H:%M') %> <br>
         </small>
       </li>
     </div>

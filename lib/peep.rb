@@ -7,7 +7,7 @@ class Peep
   def initialize(id:, content:, created_at:, user_id:, user_class: User)
     @id = id
     @content = content
-    @created_at = created_at[0..15]
+    @created_at = DateTime.parse(created_at)
     @user_id = user_id
     @user_class = user_class
   end
@@ -38,10 +38,10 @@ class Peep
   def self.create(content:, user_id:)
     connect_to_database
 
-    result = @connection.exec("INSERT INTO peeps(content, created_at, user_id)
-      VALUES('#{content}', NOW(), '#{user_id}') RETURNING id, content, created_at, user_id;")
+    result = @connection.exec("INSERT INTO peeps(content, user_id)
+      VALUES('#{content}', '#{user_id}') RETURNING id, content, created_at, user_id;")
 
-    Peep.new(id: result[0]['id'], content: result[0]['content'],
+    peep = Peep.new(id: result[0]['id'], content: result[0]['content'],
       created_at: result[0]['created_at'], user_id: result[0]['user_id'])
   end
 
