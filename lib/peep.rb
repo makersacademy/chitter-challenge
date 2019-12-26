@@ -36,12 +36,14 @@ class Peep
   end
 
   def self.create(content:, user_id:)
+    content.gsub!("'", "\\\\'")
+
     connect_to_database
 
     result = @connection.exec("INSERT INTO peeps(content, user_id)
       VALUES('#{content}', '#{user_id}') RETURNING id, content, created_at, user_id;")
 
-    peep = Peep.new(id: result[0]['id'], content: result[0]['content'],
+    Peep.new(id: result[0]['id'], content: result[0]['content'],
       created_at: result[0]['created_at'], user_id: result[0]['user_id'])
   end
 
