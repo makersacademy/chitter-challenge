@@ -1,8 +1,8 @@
 <img class="logo" src="the-411-pixelated-logo.png" alt="The 4-1-1 logo">
 
-<h2 id='home-header'> What's on your mind bruh? </h2>
+<% unless @user && @user != :email_clash && @user != :handle_clash %>
+  <h2> What's on your mind bruh? </h2>
 
-<% if !@user || @user != :email_clash || @user != :handle_clash %>
   <h5> SIGN UP </h5>
 
   <% if @user == :email_clash %>
@@ -21,11 +21,13 @@
     <input type='email' name='email' placeholder='Email' required> <br>
     <input type='password' name='password' placeholder="Password" minlength='8' required><br>
     (minimum 8 characters)<br>
-    <input class="start-btn submit" type='submit' value='Schweet'> <br>
+    <input class="start-btn submit" type='submit' value='SCHWEET'> <br>
   </form>
 
   <h5> Already signed up? <a href='/log-in' class="btn btn-secondary btn-lg">LOGIN</a></h5>
 <% end %>
+
+<h2> Thoughts in the ether... </h2>
 
 <ul>
   <% @peeps.each do |peep| %>

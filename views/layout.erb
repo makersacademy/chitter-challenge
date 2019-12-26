@@ -11,24 +11,29 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">Home</a>
+      <a class="navbar-brand" id='nav-brand' href="/">THE 411</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse navbar-right" id="navbarNav">
         <ul class="navbar-nav">
-          <% if !@user || @user == :email_clash || @user == :handle_clash %>
           <li class="nav-item">
-            <a class="nav-link" href="/log-in">Login</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
-          <% else %>
+        <% if @user && @user != :email_clash && @user != :handle_clash %>
           <li class="nav-item">
             <a class="nav-link" href="/user">My Posts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/log-out">Log Out</a>
+            <form action='/log-out' method='post'>
+              <button type='submit' class='nav-link btn'>Log Out</button>
+            </form>
           </li>
-          <% end %>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="/log-in">Login</a>
+          </li>
+        <% end %>
         </ul>
       </div>
     </nav>

@@ -3,6 +3,10 @@ font-family: 'Monoton', cursive; */
 /* rgb(61, 45, 116) */
 /* rgb(98, 51, 133) */
 /* rgb(235, 88, 247) */
+.navbar-brand {
+  font-family: 'Monoton', cursive;
+  font-size: 2em;
+}
 
 body {
   background-image: url('/background.png');

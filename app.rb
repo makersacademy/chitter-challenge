@@ -52,9 +52,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/log-out' do
-    @user = session[:user]
-    session.clear
     erb :log_out, { :layout => :layout }
+  end
+
+  post '/log-out' do
+    session.clear
+    redirect'/log-out'
   end
 
   run! if app_file == $0
