@@ -16,6 +16,11 @@ body {
   margin-top: 2%;
 }
 
+h1 {
+  color: rgb(235, 88, 247);
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+
 h1, h2, h5 {
   margin-top: 2%;
 }
@@ -105,4 +110,8 @@ small {
 
 .submit {
   margin-top: 10px;
+}
+
+.write-post {
+  text-align: center;
 }
