@@ -152,8 +152,10 @@ You can run tests by running ```rspec``` in the terminal in the chitter_challeng
 - the user can sign up for The 411
   - their user-handle is displayed once logged in
   - their name and user-handle shows against any peep they post
+  - an error message displays if they enter an email that already has an account
+  - an error message displays if they enter a user-handle that is already in use
 
-- the user can sign in
+- the user can log in
   - signs in if email and password are correct/exist
   - sign in fails if email is not correct
   - sign in fails if password is not correct
