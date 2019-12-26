@@ -2,6 +2,10 @@
 
 This project is the 80's answer to Twitter, allowing users to post messages to a public stream.
 
+<img width="1431" alt="Screen Shot 2019-12-26 at 17 41 41" src="https://user-images.githubusercontent.com/49643736/71485227-f9db4380-2807-11ea-8ed3-c2ed052bd68f.png">
+<img width="1426" alt="Screen Shot 2019-12-26 at 17 54 05" src="https://user-images.githubusercontent.com/49643736/71485419-d369d800-2808-11ea-8ab9-5283c794fe13.png">
+<img width="1434" alt="Screen Shot 2019-12-26 at 17 54 26" src="https://user-images.githubusercontent.com/49643736/71485433-e54b7b00-2808-11ea-9165-f4983d170d6d.png">
+
 ## Contents
 - [User stories](#user-stories)
 - [Domain modelling](#domain-modelling)
@@ -136,7 +140,7 @@ Run the below in the terminal in your chitter-challenge directory:
 
 ## Running the tests  
 
-You can run tests by running "rspec" in the terminal in the chitter_challenge directory.
+You can run tests by running ```rspec``` in the terminal in the chitter_challenge directory.
 
 ### Test coverage  
 #### Feature tests
