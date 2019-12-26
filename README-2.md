@@ -1,6 +1,6 @@
-# Chitter
+# The 411
 
-This project is a small clone of Twitter that allows users to post messages to a public stream.  
+This project is the 80's answer to Twitter, allowing users to post messages to a public stream.
 
 ## Contents
 - [User stories](#user-stories)
@@ -18,8 +18,11 @@ This project is a small clone of Twitter that allows users to post messages to a
   - [Feature tests](#feature-tests)
   - [Unit tests](#unit-tests)
 - [Versioning](#versioning)  
+- [Credits](#credits)
 
 ## User stories
+
+_Rebranded to **The 411**_
 
 > As a Maker  
 > So that I can let people know what I am doing    
@@ -66,16 +69,16 @@ This project is a small clone of Twitter that allows users to post messages to a
 
 user_id | user_name | user_handle | email | password | created_at |
 | ----- | --------- | ----------- | ----- | -------- | ---------- |
-| 1 | Debbie Handler | The Real Debs | debbie@test.com | dkfg14   | 2019-12-08 21:02:31.579223 |
-| 2 | Joan Peeler    | JoJo          | jojo@test.com   | j450pl   | 2019-12-08 21:02:31.579223 |  
+| 1 | Ferris Bueller | 7 Day Weekend | ferris@test.com | dkfg14   | 2019-12-03 21:02:31.579223 |
+| 2 | Stef    | Goonies Never Die         | stef@test.com   | j450pl   | 2019-12-04 21:02:31.579223 |  
 
 **Table: peeps**   
 
 | id | content | created_at | user_id |
 | -- | ------- | ---------- | ------- |
-| 1 | Hello World! | 2019-12-08 21:02:55.919516 | 1 |
-| 2 | Pancake Palour has the the best breakfast menu! | 2019-12-08 21:02:55.919516 | 2 |
-| 3 | I just read the most interesting article. | 2019-12-08 21:02:55.919516 | 2 |  
+| 1 | Its crazy. I feel like Im babysitting except Im not getting paid. | 2019-12-08 21:02:55.919516 | 2 |
+| 2 | A person should not believe in an -ism, he should believe in himself. | 2019-12-09 21:02:55.919516 | 1 |
+| 3 | You know your voice is kind of nice when your mouth isnt screwing it up. | 2019-12-10 21:02:55.919516 | 2 |  
 
 ## Still to be completed
 
@@ -84,19 +87,16 @@ user_id | user_name | user_handle | email | password | created_at |
 > So that I can stay constantly tapped in to the shouty box of Chitter  
 > I want to receive an email if I am tagged in a Peep  
 
-**CSS Design**  
-
 **Edge Case**  
 - Peeps that include apostrophes cannot be posted.
-- Sign up does not check if email address already has an account attached to it.
 
 ## Features
-- Sign up
-- Sign in
+- Sign up (warning if email or user handle already in use)
+- Login (warning if incorrect log in details)
 - Log out
-- Post Peeps
-- Listing Peeps
-- Display creator and time of Peeps  
+- Write posts
+- View all posts
+- Display creator and time of posts
 
 ## Code style
 - OOD
@@ -109,14 +109,16 @@ user_id | user_name | user_handle | email | password | created_at |
 - Rspec  
 - Sinatra  
 - Capybara  
-- PostgreSQL  
+- PostgreSQL
+- ERM
+- CSS (including Bootstrap)
 
 ## Getting started
 
 Run the below in the terminal in your chitter-challenge directory:
 - To install all necessary gems, run ```bundle```
 - To open in web browser run ```ruby app.rb```
-- Open http://localhost:4567/chitter
+- Open http://localhost:4567/
 
 ## Database setup
 
@@ -143,7 +145,7 @@ You can run tests by running "rspec" in the terminal in the chitter_challenge di
   - it provides a signing-in link
   - it displays all the peeps posted
 
-- the user can sign up for Chitter
+- the user can sign up for The 411
   - their user-handle is displayed once logged in
   - their name and user-handle shows against any peep they post
 
@@ -155,7 +157,7 @@ You can run tests by running "rspec" in the terminal in the chitter_challenge di
 - post a peep
   - the user can write a peep and it displays on screen
 
-- the user can log out of Chitter
+- the user can log out of The 411
   - there is a link to log out
   - they can press the link and log out
 
@@ -179,4 +181,9 @@ User
 ## Versioning
 
 chitter_challenge uses ruby version 2.6.5. To change ruby versions run
-```rvm install ruby-2.6.5``` in terminal.
+```rvm install ruby-2.6.5``` in terminal.  
+
+## Credits
+- Video game buttons taken from a [code pen written by Daniel Weiner](https://codepen.io/DanielWeiner/pen/iFadn)
+- Cloud shape taken from a [Stack Overflow entry by jbutler483](https://stackoverflow.com/questions/30919053/creating-a-responsive-cloud-shape)
+- Background art sourced from Deviant Art, [created by faundly](https://www.deviantart.com/faundly/art/Starry-Night-Pattern-713357744)

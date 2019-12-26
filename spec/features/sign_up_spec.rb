@@ -1,4 +1,4 @@
-feature "the user can sign up for Chitter" do
+feature "the user can sign up for The 411" do
 
   before do
     test_database_setup

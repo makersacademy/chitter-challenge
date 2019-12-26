@@ -1,4 +1,4 @@
-feature "the user can log out of Chitter" do
+feature "the user can log out of The 411" do
 
   before do
     test_database_setup

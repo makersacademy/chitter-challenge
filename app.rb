@@ -57,7 +57,7 @@ class Chitter < Sinatra::Base
 
   post '/log-out' do
     session.clear
-    redirect'/log-out'
+    redirect '/log-out'
   end
 
   run! if app_file == $0
