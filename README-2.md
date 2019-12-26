@@ -2,6 +2,12 @@
 
 This project is the 80's answer to Twitter, allowing users to post messages to a public stream.
 
+<img width="1438" alt="Screen Shot 2019-12-26 at 19 26 11" src="https://user-images.githubusercontent.com/49643736/71487962-f9e24000-2815-11ea-89ef-e0d989b058e3.png">
+
+<img width="1417" alt="Screen Shot 2019-12-26 at 19 26 39" src="https://user-images.githubusercontent.com/49643736/71487973-0bc3e300-2816-11ea-961d-4d590e7075be.png">
+
+<img width="1413" alt="Screen Shot 2019-12-26 at 19 27 37" src="https://user-images.githubusercontent.com/49643736/71487980-1b432c00-2816-11ea-8f5b-7c45797a8ee4.png">
+
 ## Contents
 - [User stories](#user-stories)
 - [Domain modelling](#domain-modelling)
