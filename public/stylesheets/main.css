@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-  color: rgb(235, 88, 247);
+  color: orange;
   text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
 }
 
@@ -93,7 +93,7 @@ small {
   padding: 10px 0 10px 10px ;
   background-color: lightgray;
   text-shadow: -1px -1px black, 1px 1px white;
-  color: gray;
+  color: rgb(235, 88, 247);
   -webkit-border-radius: 7px;
 	-moz-border-radius: 7px;
 	-o-border-radius: 7px;
@@ -114,4 +114,15 @@ small {
 
 .write-post {
   text-align: center;
+}
+
+#back-to-home {
+  font-family: 'Monoton', cursive;
+  font-size: 3em;
+  padding: 0.5em;
+}
+
+#back-to-home:hover {
+  text-decoration: none;
+  color: rgb(235, 88, 247);
 }
