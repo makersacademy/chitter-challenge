@@ -10,4 +10,11 @@ feature 'log in' do
     expect(page).to have_content 'Post Message'
   end
 
+  scenario 'should not be able to log in with username that does not exist' do
+    visit 'log_in'
+    fill_in 'username', with: 'dbac'
+    fill_in 'password', with: 'PASSWORD'
+    click_on 'Sign in'
+    expect(page).to have_content 'Username does not exist'
+  end
 end

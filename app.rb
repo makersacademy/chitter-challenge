@@ -1,10 +1,12 @@
 require 'sinatra/base'
-require './lib/message.rb'
-require './lib/account.rb'
+require 'sinatra/flash'
+require './public/lib/message.rb'
+require './public/lib/account.rb'
 
 class Chitter < Sinatra::Base
 
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   before do
     @logged_in = session[:logged_in?]
@@ -15,18 +17,19 @@ class Chitter < Sinatra::Base
     @current_user = session[:username]
     @peep = Message.all
     Message.all[0]
+    flash[:notice]
     erb :index, { :layout => :layout } 
   end
 
-  get '/new_message' do
-    erb :new_message
-  end
-
-  post '/new_message' do
-    Account.instance.username
-    @username = Account.instance.username
-    @params[:message]
-    Message.add(@username, params[:message])
+  post '/' do
+    if @logged_in != true
+      flash[:notice] = 'Need to sign up or log in to post a message.'
+    else
+      Account.instance.username
+      @username = Account.instance.username
+      @params[:message]
+      Message.add(@username, params[:message])
+    end
     redirect '/'
   end
 
@@ -38,7 +41,7 @@ class Chitter < Sinatra::Base
   get '/message/:id/edit' do
     @id = params[:id]
     @message = Message.get_message(params[:id])
-    erb :edit, { :layout => :layout }
+    erb :edit
   end
 
   patch '/message/:id' do
@@ -47,13 +50,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/account' do
-    @exists = session[:exists]
+    flash[:notice]
     erb :account
   end
 
   post '/account' do
-    session[:exists] = Account.exists?(params[:email]) 
-    if session[:exists] == true
+    if Account.email_exists?(params[:email])  == true
+      flash[:notice] = 'Email already in use!'
       redirect '/account'
     else
       Account.create(params[:username], params[:email], params[:password])
@@ -63,17 +66,28 @@ class Chitter < Sinatra::Base
 
   get '/account/confirmation' do
     @account = Account.new_account
-    erb :confirmation, { :layout => :layout } 
+    erb :confirmation 
   end
 
   get '/log_in' do
-    erb :log_in, { :layout => :layout }
+    flash[:notice]
+    erb :log_in
   end
 
   post '/log_in' do
-    session[:username] = params[:username]
-    session[:logged_in?] = Account.log_in(params[:username], params[:password])
-    redirect '/'
+    if 
+      Account.username_exists?(params[:username]) != true
+      flash[:notice] = 'Username does not exist.'
+      redirect '/log_in'
+    elsif
+      Account.log_in(params[:username], params[:password]) != true
+      flash[:notice] = 'Wrong password entered, try again.'
+      redirect '/log_in'
+    else  
+      session[:username] = params[:username] 
+      session[:logged_in?] = Account.log_in(params[:username], params[:password])
+      redirect '/'
+    end
   end
 
   get '/account/log_out' do

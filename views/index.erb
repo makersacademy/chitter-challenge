@@ -1,21 +1,30 @@
 
-<center><h1>Chitter Feed</h1>
+<center><h1 class='subtitle'>Chitter Feed</h1>
 <div class='message-list'>
+  <form name = 'new message' action = '/' method = 'post'>
+    <textarea name = 'message' placeholder='Your message...' id='post'></textarea><br>
+    <input type = 'submit' value = 'Post'>
+  </form>
+  <%= flash[:notice] %>
   <ul style = 'list-style-type:none;'>
     
       <% @peep.each do |peep|%>
         <div class='message-block'>
           <li class='message'> @<%= peep.username %>: <%= peep.message %></li>
           <li class='time'>Time posted: <%= peep.time %> </li>
-          <% if peep.username == @current_user %>
-            <form action='/message/<%= peep.id %>' method='post'>
-              <input type='hidden' name='_method' value='DELETE' />
-              <input type='submit' value='Delete' class='delete'>
-            </form>
-            <a href='/message/<%= peep.id %>/edit' class='edit'>Edit</a>
+          <% if peep.username == @current_user && @logged_in == true %>
+            <div class='btns'>
+              <form action='/message/<%= peep.id %>' method='post' class='delete'>
+                <input type='hidden' name='_method' value='DELETE' />
+                <input type='submit' value='Delete' >
+              </form>
+              <form action='/message/<%= peep.id %>/edit' method='get' class='edit'>
+                <input type='submit' value='Edit' >
+              </form>
+            </div>
           <% end %>   
         </div>  
       <% end %>
-  
+
   </ul>
 </div>

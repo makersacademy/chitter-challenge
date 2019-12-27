@@ -3,16 +3,17 @@
   <head>
     <title>Chitter</title>
     <link rel="stylesheet" href="./stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <div id=header>
-      <h1>Chitter</h1>
+      <h1 class='title'>Chitter</h1>
     </div>
     <div id="navbar">
       <a href="/">Home</a>
       <% if @logged_in == true %>
-      <a href = '/new_message' method = 'get'>Post Message</a>
       <a href = '/account/log_out'>Log out</a>
       <% else %>
       <a href = '/account'>Create Account</a>

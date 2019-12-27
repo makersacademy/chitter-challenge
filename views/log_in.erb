@@ -1,6 +1,10 @@
 <center>
-<form action = '/log_in' method = 'post'>
-  <input type = 'text' name = 'username' placeholder = 'Username' required><br>
-  <input type = 'password' name = 'password' placeholder = 'Password' requirede><br>
-  <input type = 'submit' value = 'Sign in'>
-</form>
+<h1 class='subtitle'>Log In</h1>
+  <div class='form-container'>
+      <form action = '/log_in' method = 'post'>
+        <input type = 'text' name = 'username' placeholder = 'Username' required><br>
+        <input type = 'password' name = 'password' placeholder = 'Password' requirede><br>
+        <input type = 'submit' value = 'Sign in' class='form-btn'><br>
+        <p class='warning'><%= flash[:notice] %></p>
+      </form>
+  </div>

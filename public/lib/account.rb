@@ -25,9 +25,15 @@ class Account
     Account.new(result[0]['id'], result[0]['username'])
   end
 
-  def self.exists?(email)
+  def self.email_exists?(email)
     database_selector
     result = @connection.exec("SELECT email FROM accounts WHERE email = '#{email}'")
+    true if result.ntuples.positive?
+  end
+
+  def self.username_exists?(username)
+    database_selector
+    result = @connection.exec("SELECT username FROM accounts WHERE username = '#{username}'")
     true if result.ntuples.positive?
   end
 

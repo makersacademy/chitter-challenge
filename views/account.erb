@@ -1,10 +1,12 @@
 <center>
-<form name = 'account creator' action = '/account' method = 'post'>
-  <input type = 'text' name = 'username' placeholder = 'User name' required><br>
-  <input type = 'text' name = 'email' placeholder = 'Email address' required><br>
-  <input type = 'password' name = 'password' placeholder = 'Password' required><br>
-  <input type = 'submit' value = 'Create'>
-</form>
-<% if @exists == true %>
-Email already in use!
-<% end %>
+<h1 class='subtitle'>Create Account</h1>
+<div class='form-container'>
+  <form name = 'account creator' action = '/account' method = 'post'>
+    <input type = 'text' name = 'username' placeholder = 'User name' required><br>
+    <input type = 'text' name = 'email' placeholder = 'Email address' required><br>
+    <input type = 'password' name = 'password' placeholder = 'Password' required><br>
+    <input type = 'submit' value = 'Create'>
+    <p class='warning'><%= flash[:notice] %></p><br>
+  </form>
+  
+</div>
