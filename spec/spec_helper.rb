@@ -9,11 +9,24 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
+require './app'
+require 'capybara/rspec'
+require 'sinatra'
+require 'sinatra/activerecord'
+require 'capybara'
+require 'pg'
+require_relative './features/web_helpers'
+
+Capybara.app = ChitterApp
+
 RSpec.configure do |config|
 
-  # config.before(:each) do
-  #   setup_test_database
-  # end
+  config.before(:each) do
+    ActiveRecord::Base.connection.execute('TRUNCATE users')
+  end
 
   config.after(:suite) do
     puts
@@ -21,14 +34,3 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
-
-
-ENV['ENVIRONMENT'] = 'test'
-require './app'
-require 'capybara/rspec'
-require 'sinatra'
-require 'capybara'
-require 'pg'
-require_relative './features/web_helpers'
-
-Capybara.app = ChitterApp

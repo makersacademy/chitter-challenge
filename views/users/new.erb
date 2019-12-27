@@ -18,8 +18,9 @@
       <div><label for="new-password">Password </label><input type="password" name="new-password" id="new-password"></div>
       <div><label for="new-password-confirm">Confirm Password </label><input type="password" name="new-password-confirm" id="new-password-confirm"></div>
       <div><button type="submit" name='create-account'>Create Account</button></div>
-      
     </form>
+
+    <p><%= flash[:notice] %></p>
     
   </body>
 </html>

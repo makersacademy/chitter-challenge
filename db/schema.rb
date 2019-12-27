@@ -15,17 +15,11 @@ ActiveRecord::Schema.define(version: 2019_12_08_175927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "peeps", force: :cascade do |t|
-    t.string "userid"
-    t.string "content"
-    t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
-  end
-
   create_table "users", force: :cascade do |t|
-    t.string "grip", limit: 60
-    t.string "name", limit: 60
+    t.string "first_name", limit: 60
+    t.string "surname", limit: 60
     t.string "email", limit: 60
+    t.string "grip", limit: 60
     t.string "password", limit: 255
   end
 

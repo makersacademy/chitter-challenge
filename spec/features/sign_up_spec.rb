@@ -19,24 +19,26 @@ feature "sign up" do
   end
 
   scenario "sign up presents user with boxes for personal details" do
-    visit('/')
-    click_on ('sign-up')
-    fill_in 'first-name', with: 'User1'
-    fill_in 'surname', with: 'One'
-    fill_in 'new-email', with: 'user1@test.com'
-    fill_in 'new-grip', with: 'user1'
-    fill_in 'new-password', with: 'pass1'
-    fill_in 'new-password-confirm', with: 'pass1'
-    click_on ('create-account')
+    sign_up
 
     expect(page).to have_content('Welcome, User1')
     expect(page).to have_current_path '/peeps'
   end
 
-  # scenario "username and password text boxes are present" do
-  #   visit('/')
-  #   expect(page).to have_selector("#email")
-  #   expect(page).to have_selector("#password")
-  # end
+  scenario "prevents signing up 2 users with the same email address and flashes a message to the user" do
+    sign_up
+    sign_up
+
+    expect(page).to have_content('The supplied email address is already in use')
+    expect(page).to have_current_path '/users/new'
+  end
+
+  scenario "prevents signing up 2 users with the same grip id and flashes a message to the user" do
+    sign_up
+    sign_up_same_grip
+
+    expect(page).to have_content('The supplied grip id is already in use')
+    expect(page).to have_current_path '/users/new'
+  end
 
 end
