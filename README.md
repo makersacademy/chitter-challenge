@@ -65,3 +65,9 @@ Technical Approach:
 -----
 
 
+Order of approach
+
+Login page
+sign up
+sign in
+post peep

@@ -10,12 +10,13 @@
 <h1>Chitter</h1>
 <h2>Please Sign in</h2>
 <form action="/login" method="post">
-  <input type="text" name="username" id="username-input">
+  <input type="email" name="email" id="email">
+  <input type="password" name="password" id="password">
   <button type="submit" name='login'>Login</button>
 </form>
 <div>
   <form action="/users/new" method='get'>
-    <button type="submit" name='sign_up'>Sign Up</button>
+    <button type="submit" id='sign-up'>Sign Up</button>
   </form>
 </div>
   

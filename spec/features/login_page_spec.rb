@@ -7,10 +7,13 @@ feature "login page" do
     expect(page).to have_content("Please Sign in")
   end
 
-  scenario "username text box is present" do
+  scenario "username and password text boxes are present" do
     visit('/')
-    expect(page).to have_selector("#username-input")
+    expect(page).to have_selector("#email")
+    expect(page).to have_selector("#password")
   end
+
+
 
   # scenario "welcomes user after login" do
   #   sign_in
