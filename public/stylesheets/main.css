@@ -5,10 +5,6 @@ body {
   box-sizing: border-box;
 }
 
-h1 {
-  font-family: 'Lobster', cursive;
-  font-size: 4em;
-}
 
 ul {
   width: 100%;
@@ -16,13 +12,20 @@ ul {
 }
 
 .title {
+  font-family: 'Lobster', cursive;
+  font-size: 4em;
   margin-top: 0;
 }
 
+.fa-comments {
+  /* color: white; */
+}
+
 .subtitle {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  /* font-family: 'Yanone Kaffeesatz', sans-serif; */
   color: orange;
   margin-top: 2%;
+  font-size: 3em;
 }
 #header {
   text-align: center;
@@ -41,7 +44,7 @@ ul {
   padding: 10px;
 }
 
-#navbar a {
+a {
   color: black;
   font-size: 1.3em;
   background-color: lightgray;
@@ -51,10 +54,22 @@ ul {
   padding: 10px;
 }
 
-#navbar a:hover {
+a:hover {
   cursor: pointer;
   background-color: gray;
   color: white;
+}
+
+a#back {
+  background: orange;
+  color: white;
+  border: 2px solid black;
+}
+
+a#back:hover {
+  background: gray;
+  color: black;
+  border: 2px solid black;
 }
 
 .message-list {
@@ -158,3 +173,8 @@ input[type="text"], input[type="password"] {
   color: red;
 }
 
+#edit-box {
+  width: 75%;
+  height: 10%;
+  margin-top: 3%;
+}

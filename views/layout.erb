@@ -2,22 +2,24 @@
 
   <head>
     <title>Chitter</title>
-    <link rel="stylesheet" href="./stylesheets/main.css">
+    <link rel="stylesheet" href="./../../stylesheets/main.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
     <div id=header>
-      <h1 class='title'>Chitter</h1>
+      <h1 class='title'>Chitter <i class="fa fa-comments"></i></h1>
+      
     </div>
     <div id="navbar">
-      <a href="/">Home</a>
+      <a href="/">Home <i class="fa fa-home"></i></a>
       <% if @logged_in == true %>
-      <a href = '/account/log_out'>Log out</a>
+      <a href = '/account/log_out'>Log out <i class="fa fa-sign-out"></i></a>
       <% else %>
-      <a href = '/account'>Create Account</a>
-      <a href = '/log_in'>Log in</a>
+      <a href = '/account'>Create Account <i class="fa fa-user"></i></a>
+      <a href = '/log_in'>Log in <i class="fa fa-sign-in"></i></a>
       <% end %>
     </div>
     

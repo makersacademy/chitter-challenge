@@ -60,11 +60,11 @@ class Chitter < Sinatra::Base
       redirect '/account'
     else
       Account.create(params[:username], params[:email], params[:password])
-      redirect '/account/confirmation'
+      redirect '/confirmation'
     end
   end
 
-  get '/account/confirmation' do
+  get '/confirmation' do
     @account = Account.new_account
     erb :confirmation 
   end
