@@ -1,4 +1,5 @@
 require 'pg'
+require 'date'
 
 class Peep
 
@@ -21,7 +22,7 @@ class Peep
     @id = id
     @userid = userid
     @content = content
-    @created_at = created_at
+    @created_at = DateTime.parse(created_at).strftime("%a, %d %b %Y %I:%M %p")
   end
 
 end

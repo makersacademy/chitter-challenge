@@ -1,17 +1,17 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
+gem 'activerecord'
+gem 'bcrypt'
+gem 'capybara'
+gem 'json'
+gem 'launchy'
+gem 'pg'
 gem 'rake'
+gem 'rspec'
 gem 'rubocop', '0.71.0'
-
-group :test do
-  gem 'activerecord'
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'pg'
-  gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-  gem 'sinatra'
-  gem 'sinatra-activerecord'
-  gem 'sinatra-flash'
-end
+gem 'selenium-webdriver'
+gem 'simplecov', require: false
+gem 'simplecov-console', require: false
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'sinatra-flash'

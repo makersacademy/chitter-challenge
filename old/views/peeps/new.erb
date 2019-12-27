@@ -20,8 +20,10 @@
 <body>
   <h1>Welcome, <%=@user.name%> (<%=@user.grip%>)</h1>
   <form action="/peeps" method='post'>
-    <input type="text" name="content" />
-    <button type="submit" name='submit_peep'>Submit Peep</button>
+    <textarea rows="4" cols="57" name="content">Wha's Up?</textarea>
+    <div>
+      <button type="submit" name='submit_peep'>Submit</button>
+    </div>
   </form>
   <% @peeps.each do |peep| %>
     <li id="peep">
