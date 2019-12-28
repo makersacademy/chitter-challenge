@@ -44,6 +44,14 @@ class Account
     Account.new(result[0]['id'], result[0]['username'])
   end  
 
+  def self.get_account_details(username)
+    database_selector
+
+    result = @connection.exec("SELECT * FROM accounts WHERE username='#{username}'")
+    p result
+    [result[0]['username'], result[0]['email']]
+  end
+
   def self.log_in(username, password)
     database_selector
     result = @connection.exec("SELECT id, username, password FROM accounts WHERE username = '#{username}'")

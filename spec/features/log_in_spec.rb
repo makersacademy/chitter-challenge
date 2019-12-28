@@ -5,9 +5,11 @@ feature 'log in' do
   scenario 'user can only post messages once logged in' do
     Account.create('dbacall', 'dbacall@hotmail.co.uk', 'password')
     visit '/'
-    expect(page).not_to have_content 'Post Message'
+    post_message('Hello world')
+    expect(page).not_to have_content 'Hello world'
     sign_in
-    expect(page).to have_content 'Post Message'
+    post_message('Hello world')
+    expect(page).to have_content 'Hello world'
   end
 
   scenario 'should not be able to log in with username that does not exist' do

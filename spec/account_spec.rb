@@ -1,4 +1,4 @@
-require 'account'
+require_relative '../public/lib/account'
 
 describe Account do
 

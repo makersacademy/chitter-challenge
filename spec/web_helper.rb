@@ -7,7 +7,7 @@ def sign_in
 end
 
 def post_message(message)
-  click_on 'Post Message'
+  visit '/'
   fill_in 'message', with: "#{message}"
   click_on 'Post'
 end

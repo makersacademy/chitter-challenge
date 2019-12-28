@@ -13,20 +13,22 @@ ul {
 
 .title {
   font-family: 'Lobster', cursive;
-  font-size: 4em;
+  font-size: 3em;
   margin-top: 0;
+  padding-top: 1%;
 }
 
-.fa-comments {
-  /* color: white; */
+#title-link {
+  color: white;
+  text-decoration: none;
 }
 
 .subtitle {
-  /* font-family: 'Yanone Kaffeesatz', sans-serif; */
   color: orange;
   margin-top: 2%;
   font-size: 3em;
 }
+
 #header {
   text-align: center;
   font-size: 2em;
@@ -44,7 +46,7 @@ ul {
   padding: 10px;
 }
 
-a {
+.navbar-btn {
   color: black;
   font-size: 1.3em;
   background-color: lightgray;
@@ -54,19 +56,25 @@ a {
   padding: 10px;
 }
 
-a:hover {
+.navbar-btn:hover{
   cursor: pointer;
   background-color: gray;
   color: white;
 }
 
-a#back {
+#back {
+  font-size: 1.3em;
+  text-decoration: none;
+  margin: 0;
+  height: 100%;
+  padding: 10px;
   background: orange;
   color: white;
   border: 2px solid black;
 }
 
-a#back:hover {
+#back:hover {
+  cursor: pointer;
   background: gray;
   color: black;
   border: 2px solid black;

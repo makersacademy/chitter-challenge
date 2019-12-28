@@ -1,3 +1,5 @@
+require_relative '../web_helper.rb'
+
 feature 'message feed' do
 
   scenario 'can see chitter feed page' do
@@ -8,10 +10,10 @@ feature 'message feed' do
   end
 
   scenario 'can see all messages that have been posted' do
-    visit '/new_message'
+    create_account
+    sign_in
     fill_in 'message', with: 'Hello world'
     click_on 'Post'
-    visit '/new_message'
     fill_in 'message', with: 'Message number two'
     click_on 'Post'
     expect(page).to have_content 'Hello world'

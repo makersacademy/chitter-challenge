@@ -27,8 +27,11 @@ class Chitter < Sinatra::Base
     else
       Account.instance.username
       @username = Account.instance.username
-      @params[:message]
       Message.add(@username, params[:message])
+      @user_tagged = Message.tag(params[:message])
+      if Message.tag(params[:message]) != nil
+        Message.email(params[:message], @username, @user_tagged) 
+      end
     end
     redirect '/'
   end

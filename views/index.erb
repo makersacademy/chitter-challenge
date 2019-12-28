@@ -5,7 +5,7 @@
     <textarea name = 'message' placeholder='Your message...' id='post'></textarea><br>
     <input type = 'submit' value = 'Post'>
   </form>
-  <%= flash[:notice] %>
+  <p class='warning'><%= flash[:notice] %></p>
   <ul style = 'list-style-type:none;'>
     
       <% @peep.each do |peep|%>

@@ -1,4 +1,5 @@
-require 'message'
+require_relative '../public/lib/message'
+
 
 describe Message do
 
@@ -12,6 +13,14 @@ describe Message do
       expect(messages.last.message).to eq "Another message"
     end
 
+  end
+
+  describe "#tag" do
+    it 'should check if there are any users tagged in the message' do
+      Account.create('dbacall', 'dbacall@hotmail.co.uk', 'password')
+      Account.create('dbacall', 'dbacall@hotmail.co.uk', 'password')
+      expect(Message.tag('Hello @dbacall, what up?')).to eq 'dbacall'
+    end
   end
 
 end

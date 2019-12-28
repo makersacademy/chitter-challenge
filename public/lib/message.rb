@@ -1,4 +1,6 @@
 require 'pg'
+require_relative './account.rb'
+require 'mail'
 
 class Message
 
@@ -46,6 +48,37 @@ class Message
     database_selector
 
     @connection.exec("UPDATE messages SET message='#{message}' WHERE id='#{id}'")
+  end
+
+  def self.tag(message)
+    username = message.scan(/\s@(\w+|\d+)/).flatten.join
+    username if Account.username_exists?(username)
+  end
+
+  def self.email(message, user_sending, user_receiving)
+    
+      account = Account.get_account_details(user_receiving)
+      Mail.defaults do
+        delivery_method :smtp, { 
+          :address              => 'smtp.office365.com',
+          :port                 => 587,
+          :domain               => 'http://localhost:9292/',
+          :user_name            => 'dbacall@hotmail.co.uk',
+          :password             => '',
+          :authentication       => :login,
+          :enable_starttls_auto => true  
+        }
+      end
+
+      Mail.new do
+        from  'dbacall@hotmail.co.uk'
+        to  "#{account[1]}"
+        subject "You have a new Chitter message"
+        body "Hi #{account[0]},
+        You have received a new twitter message from #{user_sending}.
+        
+        #{message}"
+      end
   end
 
   def self.database_selector

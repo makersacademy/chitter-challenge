@@ -10,16 +10,16 @@
 
   <body>
     <div id=header>
-      <h1 class='title'>Chitter <i class="fa fa-comments"></i></h1>
+      <h1 class='title'><a href='/' id='title-link'>Chitter <i class="fa fa-comments"></i></a></h1>
       
     </div>
     <div id="navbar">
-      <a href="/">Home <i class="fa fa-home"></i></a>
+      <a href="/" class='navbar-btn'>Home <i class="fa fa-home" '></i></a>
       <% if @logged_in == true %>
-      <a href = '/account/log_out'>Log out <i class="fa fa-sign-out"></i></a>
+      <a href = '/account/log_out' class='navbar-btn'>Log out <i class="fa fa-sign-out"></i></a>
       <% else %>
-      <a href = '/account'>Create Account <i class="fa fa-user"></i></a>
-      <a href = '/log_in'>Log in <i class="fa fa-sign-in"></i></a>
+      <a href = '/account' class='navbar-btn'>Create Account <i class="fa fa-user"></i></a>
+      <a href = '/log_in' class='navbar-btn'>Log in <i class="fa fa-sign-in"></i></a>
       <% end %>
     </div>
     

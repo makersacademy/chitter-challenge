@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bcrypt'
 gem 'capybara'
+gem 'mail'
 gem 'pg'
 gem 'rack'
 gem 'rake'
