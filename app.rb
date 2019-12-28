@@ -44,9 +44,19 @@ class ChitterApp < Sinatra::Base
       password: encrypted_password 
     })
     
-
     session[:user_id] = user.id
     redirect '/peeps'
+  end
+
+  post '/sessions/new' do
+    user = User.where({ email: params[:email] }).first
+    if user && BCrypt::Password.new(user.password) == params[:password]
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = 'Could not sign in, please check your email or password'
+      redirect '/'
+    end
   end
 
   get '/peeps' do

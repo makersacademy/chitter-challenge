@@ -21,3 +21,24 @@ def sign_up_same_grip
   fill_in 'new-password-confirm', with: 'pass1'
   click_on ('create-account')
 end
+
+def sign_in
+  visit('/')
+  fill_in 'email', with: 'user1@test.com'
+  fill_in 'password', with: 'pass1'
+  click_on ('login')
+end
+
+def sign_in_wrong_email
+  visit('/')
+  fill_in 'email', with: 'wrong_user1@test.com'
+  fill_in 'password', with: 'pass1'
+  click_on ('login')
+end
+
+def sign_in_wrong_password
+  visit('/')
+  fill_in 'email', with: 'user1@test.com'
+  fill_in 'password', with: 'pass1_wrong'
+  click_on ('login')
+end
