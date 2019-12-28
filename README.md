@@ -71,3 +71,4 @@ Login page
 sign up
 sign in
 post peep
+view peeps

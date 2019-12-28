@@ -61,7 +61,18 @@ class ChitterApp < Sinatra::Base
 
   get '/peeps' do
     @user = User.find(session[:user_id])
+    @content = session[:peep_content]
     erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    @user = User.find(session[:user_id])
+    erb :'peeps/new'
+  end
+
+  post '/peeps/new' do
+    session[:peep_content] = params[:content]
+    redirect '/peeps'
   end
 
 end

@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
 
-<p>Welcome, <%= @user.first_name %> </p>
-  
-</body>
+      .peep {
+        border: 1px solid lightblue;
+        margin: 20px;
+        padding: 5px;
+        list-style-type: none;
+        width: 25%;
+        border-radius: 20px;
+      }
+      .peep p {
+        margin: 10px;
+      }
+
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+
+    <p>Welcome, <%= @user.first_name %> </p>
+    <form action="/peeps/new" method='get'>
+      <button type="submit" name='new_peep'>New Peep</button>
+    </form>
+
+    <ul>
+      <li class='peep'>
+        <p>$<%= @user.grip %></p>
+        <p><%= @content %></p>
+      </li>
+    </ul>
+
+    
+
+  </body>
 </html>
