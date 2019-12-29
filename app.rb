@@ -4,7 +4,7 @@ require './lib/user'
 
 class Chitter < Sinatra::Base
 
-  get '/'
+  get '/' do
 
     @peeps = Peeps.all
     erb :index
