@@ -4,9 +4,7 @@ require 'sinatra/activerecord'
 require 'sinatra/flash'
 require_relative 'lib/user'
 require_relative 'lib/peep'
-# require_relative 'lib/date_helper'
 require 'json'
-
 
 class ChitterApp < Sinatra::Base
 
@@ -18,7 +16,7 @@ class ChitterApp < Sinatra::Base
   before do
     begin
       @user = User.find(session[:user_id])
-    rescue
+    rescue StandardError
       @user = ""
     end
   end

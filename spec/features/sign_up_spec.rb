@@ -2,14 +2,13 @@ feature "sign up" do
 
   scenario "click sign up button on the homepage navigates to the sign-up page" do
     visit('/')
-    click_on ('sign-up')
+    click_on 'sign-up'
     expect(page).to have_current_path '/users/new'
   end
 
-
   scenario "sign up presents user with boxes for personal details" do
     visit('/')
-    click_on ('sign-up')
+    click_on 'sign-up'
     expect(page).to have_selector("#first-name")
     expect(page).to have_selector("#surname")
     expect(page).to have_selector("#new-email")

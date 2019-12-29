@@ -23,5 +23,4 @@ feature "sign in" do
     expect(page).to have_content('Could not sign in, please check your email or password')
     expect(page).to have_current_path '/'
   end
-
 end

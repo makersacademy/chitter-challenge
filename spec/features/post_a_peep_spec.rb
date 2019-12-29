@@ -1,4 +1,5 @@
 feature 'Post and view a peep' do
+  
   scenario 'Should add a peep and show the peep in the list' do
     sign_up
     sign_in
@@ -9,7 +10,6 @@ feature 'Post and view a peep' do
     expect(first('.peep')).to have_content 'this is some awesome content'
     expect(page).to have_current_path '/peeps'
   end
-
 
   scenario 'Should be able to post multiple peeps and view in the list' do
     sign_up
