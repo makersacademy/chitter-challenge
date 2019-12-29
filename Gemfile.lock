@@ -21,8 +21,11 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     mustermann (1.0.3)
-    nokogiri (1.10.5)
+    nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
+    orderly (0.1.0)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     parallel (1.18.0)
     parser (2.6.5.0)
       ast (~> 2.4.0)
@@ -71,9 +74,12 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.7)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     tilt (2.0.10)
+    timecop (0.9.1)
     unicode-display_width (1.6.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -84,6 +90,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   capybara
+  orderly
   pg
   rake
   rspec
@@ -91,6 +98,8 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
+  sinatra-flash
+  timecop
 
 BUNDLED WITH
    1.17.3
