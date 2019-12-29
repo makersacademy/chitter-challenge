@@ -48,7 +48,15 @@ _Rebranded to **The 411**_
 >
 > As a Maker  
 > So that only I can post messages on Chitter as me  
-> I want to log in to Chitter   
+> I want to log in to Chitter
+>
+> As a Maker  
+> So that I can delete a post I no longer like   
+> I want to delete a peep I've made  
+>
+> As a Maker   
+> So that I can update a post I have second thoughts on   
+> I want to edit a peep I've made  
 >
 > As a Maker  
 > So that I can avoid others posting messages on Chitter as me  

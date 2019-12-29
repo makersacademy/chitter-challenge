@@ -55,4 +55,26 @@ describe Peep do
       expect(Peep.all.length).to eq 0
     end
   end
+
+  describe ".update" do
+    it "updates the peep" do
+      peep = Peep.create(content: "I am obsessed with this new pizza joint!", user_id: @user_id)
+      expect(peep.content).to eq "I am obsessed with this new pizza joint!"
+
+      Peep.update(content: "I greatly enjoyed that new pizza joint!", id: peep.id)
+
+      expect(Peep.all.first.content).to eq "I greatly enjoyed that new pizza joint!"
+    end
+  end
+
+  describe ".find" do
+    it "finds the relevant peep" do
+      peep = Peep.create(content: "I am obsessed with this new pizza joint!", user_id: @user_id)
+      expect(peep.content).to eq "I am obsessed with this new pizza joint!"
+
+      peep_content = Peep.find_content(id: peep.id)
+
+      expect(peep_content).to eq peep.content
+    end
+  end
 end

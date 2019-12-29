@@ -56,6 +56,18 @@ class Chitter < Sinatra::Base
     redirect '/user'
   end
 
+  get '/post/:id/edit' do
+    @user = session[:user]
+    @peep_id = params[:id]
+    @peep_content = Peep.find_content(id: params[:id])
+    erb :edit
+  end
+
+  patch '/post/:id' do
+    Peep.update(content: params['content'], id: params[:id])
+    redirect '/user'
+  end
+
   get '/log-out' do
     erb :log_out, { :layout => :layout }
   end

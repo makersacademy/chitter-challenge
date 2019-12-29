@@ -50,7 +50,20 @@ class Peep
   def self.delete(id:)
     connect_to_database
 
-    @connection.exec("DELETE FROM peeps WHERE id = #{id};")
+    @connection.exec("DELETE FROM peeps WHERE id = '#{id}';")
+  end
+
+  def self.update(content:, id:)
+    connect_to_database
+
+    @connection.exec("UPDATE peeps SET content = '#{content}' WHERE id = '#{id}';")
+  end
+
+  def self.find_content(id:)
+    connect_to_database
+
+    result = @connection.exec("SELECT content FROM peeps WHERE id = '#{id}';")
+    result[0]['content']
   end
 
   def self.connect_to_database

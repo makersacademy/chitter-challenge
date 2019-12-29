@@ -1,4 +1,4 @@
-;CREATE TABLE users(
+CREATE TABLE users(
   user_id serial PRIMARY KEY,
   user_name VARCHAR(50) NOT NULL,
   user_handle VARCHAR(50) UNIQUE NOT NULL,

@@ -1,0 +1,6 @@
+<h1> EDIT YOUR POST </h1>
+<form action='/post/<%= @peep_id %>' method='post'>
+  <input type='hidden' name='_method' value='PATCH' />
+  <textarea class='write-post' name='content' rows="5" cols="30" maxlength='280' required><%= @peep_content %></textarea> <br>
+  <input class='start-btn submit' id='post' type='submit' value='TRIUMPHANT' />
+</form>
