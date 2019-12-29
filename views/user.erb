@@ -6,26 +6,28 @@
   <input class='start-btn submit' id='post' type='submit' value='DROP SCIENCE'>
 </form>
 
+<h2>Your thoughts...</h2>
+
 <ul>
   <% @peeps.each do |peep| %>
-    <div class="cloud">
-      <li class="content">
-        <strong> <%= peep.content %> <br></strong>
-        <small>
-          <%= peep.user.user_handle%> <br>
-          <%= peep.user.user_name%> <br>
-          <%= peep.created_at.strftime('%d %b %Y %H:%M') %> <br>
-        </small>
-        <% if peep.user.user_id == @user.user_id %>
-          <form action="/post/<%=peep.id%>" method="post">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete">
-          </form>
-          <form action="/post/<%=peep.id%>/edit" method="get">
-            <input type="submit" value="Edit">
-          </form>
-        <% end %>
-      </li>
-    </div>
+    <% if peep.user.user_id == @user.user_id %>
+      <div class="cloud">
+        <li class="content">
+          <strong> <%= peep.content %> <br></strong>
+          <small>
+            <%= peep.user.user_handle%> <br>
+            <%= peep.user.user_name%> <br>
+            <%= peep.created_at.strftime('%d %b %Y %H:%M') %> <br>
+            <form class="inline" action="/post/<%=peep.id%>/edit" method="get">
+              <input class="btn btn-secondary btn-sm" type="submit" value="Edit">
+            </form>
+            <form class="inline" action="/post/<%=peep.id%>" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input class="btn btn-secondary btn-sm" type="submit" value="Delete">
+            </form>
+          </small>
+        </li>
+      </div>
+    <% end %>
   <% end%>
 </ul>

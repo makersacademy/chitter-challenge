@@ -35,8 +35,8 @@ class Peep
     }.reverse
   end
 
-  def self.create(content:, user_id:)
-    content.gsub!("'", "\\\\'")
+  def self.create(content: , user_id:)
+    content.gsub!("'", "''")
 
     connect_to_database
 
@@ -53,7 +53,8 @@ class Peep
     @connection.exec("DELETE FROM peeps WHERE id = '#{id}';")
   end
 
-  def self.update(content:, id:)
+  def self.update(content: , id:)
+    content.gsub!("'", "''")
     connect_to_database
 
     @connection.exec("UPDATE peeps SET content = '#{content}' WHERE id = '#{id}';")

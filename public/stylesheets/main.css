@@ -130,3 +130,8 @@ small {
   text-decoration: none;
   color: rgb(235, 88, 247);
 }
+
+.inline {
+  display:inline-block;
+  margin-right:5px;
+}
