@@ -25,7 +25,7 @@ Capybara.app = ChitterApp
 RSpec.configure do |config|
 
   config.before(:each) do
-    ActiveRecord::Base.connection.execute('TRUNCATE users')
+    ActiveRecord::Base.connection.execute('TRUNCATE users, peeps')
   end
 
   config.after(:suite) do

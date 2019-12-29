@@ -38,4 +38,15 @@ feature 'Post and view a peep' do
     expect(page).to have_current_path '/peeps'
   end
 
+  scenario "should display the time of the post" do
+    sign_up
+
+    click_on 'new_peep'
+    fill_in 'content', with: "this is some awesome content"
+    post_time = Time.now
+    click_button 'submit_peep'
+
+    expect(first('.peep')).to have_content post_time.strftime '%H:%M %d/%m/%y'
+  end
+
 end
