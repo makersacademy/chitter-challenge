@@ -1,0 +1,49 @@
+<div style="text-align: center; color: red; padding-top: 20px;"><h4>
+  <%= flash[:notice] %>
+</h4></div>
+
+    <hr class="my-4">
+
+<h3 style="text-align: center; padding: 10px; border: 5px rounded blue;">Enter your email, password, name and username to sign up</h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign Up to Chitter</h5>
+            <form action="/makers" method="post" role="form" class="form-signin">
+              
+              <div class="form-label-group" style="padding: 8px;">
+              <label class="required">Email</label>
+              <input type="email" name="email" class="form-control" placeholder="Email" required autofocus>
+              </div>
+
+              <div class="form-label-group" style="padding: 8px;">
+                <label class="required">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Password" required autofocus>
+              </div>
+
+               <div class="form-label-group" style="padding: 8px;">
+                <label class="required">Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Name" required autofocus>
+              </div>
+
+              <div class="form-label-group" style="padding: 8px;">
+                <label class="required">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+              <hr class="my-4">
+              <a class="btn btn-lg btn-primary btn-block" href="/sessions/new">Login</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

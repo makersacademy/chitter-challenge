@@ -1,0 +1,37 @@
+<div style="text-align:center; padding: 10px;"><h1>Chitter</h2></div>
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-7 col-lg-10 mx-auto">
+       <div class="card card-signin my-5">
+          <div class="card-body">
+
+
+
+<div style="text-align:center; padding: 10px;"><% if @maker %>
+  <h4>Welcome <%= @maker.username %></h4>
+<% end %> </div>
+
+<ul>
+  <% @peeps.reverse_each do |peep| %>
+    <li class="peep" id="peep-<% peep.id %>">
+      <% if peep.maker_id %>
+      <p> <%= Maker.find(id: peep.maker_id).name %> (@<%= Maker.find(id: peep.maker_id).username %>)</p>
+      <p><%= peep.content %></p>
+      <p><%= peep.time %></p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<div style="text-align:center;"> <form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign Out">
+</form>
+</div>
