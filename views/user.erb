@@ -16,6 +16,12 @@
           <%= peep.user.user_name%> <br>
           <%= peep.created_at.strftime('%d %b %Y %H:%M') %> <br>
         </small>
+        <% if peep.user.user_id == @user.user_id %>
+          <form action="/post/<%=peep.id%>" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+          </form>
+        <% end %>
       </li>
     </div>
   <% end%>

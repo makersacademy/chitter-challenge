@@ -4,7 +4,7 @@ require_relative 'lib/user.rb'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
+  enable :sessions, :method_override
 
   get '/' do
     @peeps = Peep.all
@@ -49,6 +49,11 @@ class Chitter < Sinatra::Base
       session[:error] = true
       redirect '/log-in'
     end
+  end
+
+  delete '/post/:id' do
+    Peep.delete(id: params[:id])
+    redirect '/user'
   end
 
   get '/log-out' do

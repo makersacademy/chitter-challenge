@@ -43,7 +43,16 @@ describe Peep do
 
       expect(peep.content).to eq "I am obsessed with this new pizza joint!"
       expect(peep).to be_instance_of Peep
+    end
+  end
 
+  describe ".delete" do
+    it "deletes the peep" do
+      peep = Peep.create(content: "I am obsessed with this new pizza joint!", user_id: @user_id)
+      expect(peep.content).to eq "I am obsessed with this new pizza joint!"
+
+      Peep.delete(id: peep.id)
+      expect(Peep.all.length).to eq 0
     end
   end
 end

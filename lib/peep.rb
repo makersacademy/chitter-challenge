@@ -47,6 +47,12 @@ class Peep
       created_at: result[0]['created_at'], user_id: result[0]['user_id'])
   end
 
+  def self.delete(id:)
+    connect_to_database
+
+    @connection.exec("DELETE FROM peeps WHERE id = #{id};")
+  end
+
   def self.connect_to_database
     if ENV['RACK_ENV'] == 'test'
       @connection = PG.connect(dbname: 'chitter_test_database')
