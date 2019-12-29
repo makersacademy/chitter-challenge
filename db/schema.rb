@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_08_175927) do
+ActiveRecord::Schema.define(version: 2019_12_28_170738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "peeps", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "content", limit: 60
+    t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["user_id"], name: "index_peeps_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", limit: 60

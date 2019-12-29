@@ -10,13 +10,18 @@
         margin: 0;
       }
 
+      .grip {
+        color: grey;
+        font-size: 10px;
+      }
+
       .peep {
         border: 1px solid lightblue;
         margin: 20px;
         padding: 5px;
         list-style-type: none;
         width: 25%;
-        border-radius: 20px;
+        border-radius: 7.5px;
       }
       .peep p {
         margin: 10px;
@@ -33,13 +38,13 @@
     </form>
 
     <ul>
-      <li class='peep'>
-        <p>$<%= @user.grip %></p>
-        <p><%= @content %></p>
-      </li>
+      <% @peeps.each do |peep| %>
+        <li class='peep'>
+          <p><%= @user.first_name.capitalize + " " + @user.surname.capitalize %><span class='grip'> $<%= @user.grip %></span></p>
+          <p><%= peep.content %></p>
+        </li>
+      <% end %>
     </ul>
-
-    
 
   </body>
 </html>

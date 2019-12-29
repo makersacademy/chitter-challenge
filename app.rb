@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/flash'
 require_relative 'lib/user'
+require_relative 'lib/peep'
 # require_relative 'lib/date_helper'
 require 'json'
 
@@ -12,6 +13,14 @@ class ChitterApp < Sinatra::Base
   configure do
     enable :sessions, :method_override
     register Sinatra::Flash
+  end
+
+  before do
+    begin
+      @user = User.find(session[:user_id])
+    rescue
+      @user = ""
+    end
   end
 
   get '/' do
@@ -60,18 +69,16 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = User.find(session[:user_id])
-    @content = session[:peep_content]
+    @peeps = Peep.all.order(created_at: :desc)
     erb :'peeps/index'
   end
 
   get '/peeps/new' do
-    @user = User.find(session[:user_id])
     erb :'peeps/new'
   end
 
   post '/peeps/new' do
-    session[:peep_content] = params[:content]
+    @peep = @user.peeps.create(content: params[:content])
     redirect '/peeps'
   end
 

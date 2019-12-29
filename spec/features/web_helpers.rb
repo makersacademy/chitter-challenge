@@ -42,3 +42,10 @@ def sign_in_wrong_password
   fill_in 'password', with: 'pass1_wrong'
   click_on ('login')
 end
+
+def new_peep(content)
+  click_on 'new_peep'
+  fill_in 'content', with: content
+  click_on 'submit_peep'
+
+end
