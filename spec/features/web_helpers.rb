@@ -16,6 +16,6 @@ end
 
 def post_peep
   visit "/peeps/new"
-  fill_in "content", with: "First peep"
+  fill_in "content", with: "This is my first peep!"
   click_button "Post"
 end
