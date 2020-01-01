@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './public/lib/message.rb'
 require './public/lib/account.rb'
+require './public/lib/comment.rb'
 
 class Chitter < Sinatra::Base
 
@@ -16,7 +17,7 @@ class Chitter < Sinatra::Base
   get '/' do
     @current_user = session[:username]
     @peep = Message.all
-    Message.all[0]
+    @account_username = session[:username]
     flash[:notice]
     erb :index, { :layout => :layout } 
   end
@@ -49,6 +50,11 @@ class Chitter < Sinatra::Base
 
   patch '/message/:id' do
     Message.edit(params[:id], params[:message])
+    redirect '/'
+  end
+
+  post '/comment/:message_id/:username' do
+    Comment.add(params[:username], params[:comment], params[:message_id])
     redirect '/'
   end
 

@@ -10,7 +10,7 @@ describe Message do
 
       messages = Message.all
     
-      expect(messages.last.message).to eq "Another message"
+      expect(messages.first.message).to eq "Another message"
     end
 
   end

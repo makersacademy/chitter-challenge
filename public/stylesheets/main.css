@@ -81,7 +81,6 @@ ul {
 }
 
 .message-list {
-  /* border: 2px solid black; */
   margin-top: -2%;
   width: 70%;
 }
@@ -145,9 +144,15 @@ input[type="submit"]:hover {
   color: black;
 }
 
-#post {
+.post {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 1.1em;
   width: 100%;
   height: 7%;
+}
+
+.comment {
+  margin-top: 2%;
 }
 
 .post-btn {
@@ -172,6 +177,8 @@ input[type="submit"]:hover {
 }
 
 input[type="text"], input[type="password"] {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 1.1em;
   width: 30%;
   height: 5%;
   margin-top: 3%;
@@ -185,4 +192,71 @@ input[type="text"], input[type="password"] {
   width: 75%;
   height: 10%;
   margin-top: 3%;
+}
+
+.comment-btn, .see-comments {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 1em;
+  text-decoration: none;
+  margin: 0;
+  height: 100%;
+  background: orange;
+  padding-top: 5px;
+  color: white;
+  border: 1px solid black;
+}
+
+.comment-btn:hover, .see-comments:hover {
+  cursor: pointer;
+  background-color: gray;
+  color: black;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 80%;
+  width: 75%;
+  margin-top: 8%;
+  margin-left: 12.5%;
+  border-radius: 10px;
+  z-index: 1;
+  left: 0;
+  background-color: gray;
+  opacity: 0.9;
+  transition: 0.5s;
+  overflow: auto;
+  border: 2px solid red;
+}
+
+.overlay-content {
+  position: relative;
+  color: black;
+  height: 15%;
+  width: 90%;
+  margin-bottom: 2%;
+  display: block;
+  opacity: 1;
+  border: 4px solid black;
+  background-color: white;
+  z-index: 2;
+}
+
+.message-comment-block {
+  position: relative;
+  background: lightsalmon;
+  width: 90%;
+  height: 15%;
+  margin-bottom: 2%;
+  border: 4px solid black;
+}
+
+.closebtn {
+  font-size: 2em;
+}
+
+.comment-time {
+  position: relative;
+  left: 0;
 }

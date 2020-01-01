@@ -7,7 +7,7 @@ feature 'time' do
     sign_in
     fill_in 'message', with: 'Hello world'
     click_on 'Post'
-    expect(page).to have_content "#{Time.now.strftime("%k:%M:%S on %d/%m/%Y")}"
+    expect(page).to have_content "#{Time.now.strftime("%k:%M on %d %B %Y")}"
   end
 
 end

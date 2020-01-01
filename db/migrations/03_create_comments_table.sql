@@ -1,0 +1,1 @@
+CREATE TABLE comments(id SERIAL PRIMARY KEY, message_id INTEGER REFERENCES messages(id), username VARCHAR, comment VARCHAR(100), created_at TIMESTAMP NOT NULL DEFAULT NOW());

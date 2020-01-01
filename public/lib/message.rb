@@ -1,39 +1,43 @@
 require 'pg'
 require_relative './account.rb'
 require 'mail'
+require_relative './comment.rb'
 
 class Message
 
-  attr_reader :id, :message, :time, :username
+  attr_reader :id, :message, :time, :username, :comments
 
   def initialize(id, username, message, time)
     @id = id
     @message = message
     @time = time
     @username = username
+    @comments = Comment.all(id)
   end
 
   def self.add(username, message)
     database_selector
 
-    @connection.exec("INSERT INTO messages(username, message, time) 
-    VALUES('#{username}','#{message}', '#{Time.now.strftime("%k:%M:%S on %d/%m/%Y")}')")
+    @connection.exec("INSERT INTO messages(username, message) 
+    VALUES('#{username}','#{message}')")
   end
 
   def self.all
     database_selector
 
-    result = @connection.exec("SELECT * FROM messages ORDER BY time DESC;")
+    result = @connection.exec("SELECT * FROM messages ORDER BY created_at DESC;")
     
     result.map { |peep|
-      Message.new(peep['id'], peep['username'], peep['message'], peep['time'])
+      Message.new(peep['id'], peep['username'], peep['message'], peep['created_at'])
     }
   end
 
   def self.delete(id)
     database_selector
 
+    @connection.exec("DELETE FROM comments WHERE message_id='#{id}'")
     @connection.exec("DELETE FROM messages WHERE id='#{id}'")
+    
   end
 
   def self.get_message(id)

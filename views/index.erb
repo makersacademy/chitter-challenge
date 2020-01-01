@@ -2,29 +2,57 @@
 <center><h1 class='subtitle'>Chitter Feed</h1>
 <div class='message-list'>
   <form name = 'new message' action = '/' method = 'post'>
-    <textarea name = 'message' placeholder='Your message...' id='post'></textarea><br>
+    <textarea name = 'message' placeholder='Your message...(200 character limit)' maxlength='200' class='post'></textarea><br>
     <input type = 'submit' value = 'Post'>
   </form>
   <p class='warning'><%= flash[:notice] %></p>
   <ul style = 'list-style-type:none;'>
-    
-      <% @peep.each do |peep|%>
-        <div class='message-block'>
-          <li class='message'> @<%= peep.username %>: <%= peep.message %></li>
-          <li class='time'>Time posted: <%= peep.time %> </li>
-          <% if peep.username == @current_user && @logged_in == true %>
-            <div class='btns'>
-              <form action='/message/<%= peep.id %>' method='post' class='delete'>
-                <input type='hidden' name='_method' value='DELETE' />
-                <input type='submit' value='Delete' >
-              </form>
-              <form action='/message/<%= peep.id %>/edit' method='get' class='edit'>
-                <input type='submit' value='Edit' >
-              </form>
-            </div>
-          <% end %>   
-        </div>  
-      <% end %>
-
+    <% i = 1
+    @peep.each do |peep|%>
+      <div class='message-block'>
+        <li class='message'> @<%= peep.username %>: <%= peep.message %></li>
+        <li class='time'>Time posted: <%= DateTime.parse(peep.time).strftime("%k:%M on %d %B %Y") %> </li>
+        <div class='btns'>
+          <% if peep.comments.length > 0 %>
+            <button class='see-comments see-comments-<%= i %>'>See Comments</button>
+          <% end %>
+          <% if @logged_in == true %>
+          
+            <button class='comment-btn comment-btn-<%= i %>'>Comment</button>
+            
+              <% if peep.username == @current_user && @logged_in == true %>
+                
+                <form action='/message/<%= peep.id %>' method='post' class='delete'>
+                  <input type='hidden' name='_method' value='DELETE' />
+                  <input type='submit' value='Delete' >
+                </form>
+                <form action='/message/<%= peep.id %>/edit' method='get' class='edit'>
+                  <input type='submit' value='Edit' >
+                </form>
+                
+              <% end %> 
+          
+          <% end %> 
+        </div> 
+      </div>  
+      <form action='/comment/<%= peep.id %>/<%= @account_username %>' method='post' id='comment-form-<%= i %>' style='display:none;'>
+        <textarea name='comment' placeholder='Your comment...' class='post comment'></textarea>
+        <input type='submit' value='Send'>
+      </form>
+        <div class='overlay overlay-<%= i %>'>
+          <a href="javascript:void(0)" class="closebtn closebtn-<%= i %>">&times;</a>
+          <div class='message-comment-block'>
+            <li class='message'> @<%= peep.username %>: <%= peep.message %></li>
+            <li class='time'>Time posted: <%= DateTime.parse(peep.time).strftime("%k:%M on %d %B %Y") %> </li>
+          </div>
+          <% peep.comments.each do |comment| %>
+              <div class='overlay-content'>
+                <li class='message'> @<%= comment.username %>: <%= comment.comment %></li>
+                <li class='time'>Time posted: <%= DateTime.parse(comment.time).strftime("%k:%M on %d %B %Y") %> </li>
+              </div>
+          <% end %>
+        </div>
+      <% i += 1 %>
+    <% end %>
   </ul>
 </div>
