@@ -2,7 +2,7 @@
 <center><h1 class='subtitle'>Chitter Feed</h1>
 <div class='message-list'>
   <form name = 'new message' action = '/' method = 'post'>
-    <textarea name = 'message' placeholder='Your message...(200 character limit)' maxlength='200' class='post'></textarea><br>
+    <textarea name = 'message' placeholder='Your message...(200 character limit)' maxlength='200' class='post' style='resize:none;'></textarea><br>
     <input type = 'submit' value = 'Post'>
   </form>
   <p class='warning'><%= flash[:notice] %></p>
@@ -36,7 +36,7 @@
         </div> 
       </div>  
       <form action='/comment/<%= peep.id %>/<%= @account_username %>' method='post' id='comment-form-<%= i %>' style='display:none;'>
-        <textarea name='comment' placeholder='Your comment...' class='post comment'></textarea>
+        <textarea name='comment' placeholder='Your comment...' class='post comment' style='resize:none;'></textarea>
         <input type='submit' value='Send'>
       </form>
         <div class='overlay overlay-<%= i %>'>

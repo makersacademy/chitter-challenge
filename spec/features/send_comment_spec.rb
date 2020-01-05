@@ -7,7 +7,7 @@ feature 'send comments' do
     sign_in
     post_message('Hello world')
     click_on 'Comment'
-    fill_in 'comment', with: 'Hi!'
+    fill_in "comment", with: "Hi!"
     click_on 'Send'
     click_on 'See Comments'
     expect(page).to have_content 'Hi!'

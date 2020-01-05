@@ -4,7 +4,7 @@
 <div class='form-container'>
   <form action='/message/<%= @id %>' method='post'>
     <input type='hidden' name='_method' value='PATCH'>
-    <textarea name='message' id='edit-box'><%= @message %></textarea><br>
+    <textarea name='message' id='edit-box' style='resize:none;'><%= @message %></textarea><br>
     <input type='submit' value='Submit'>
   </form>
 </div>
