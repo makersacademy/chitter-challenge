@@ -108,6 +108,8 @@ user_id | user_name | user_handle | email | password | created_at |
 - Write posts
 - View all posts
 - Display creator and time of posts
+- Edit posts
+- Delete posts
 
 ## Code style
 - OOD
