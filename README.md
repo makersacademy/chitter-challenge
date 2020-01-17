@@ -1,6 +1,56 @@
 Chitter Challenge
 =================
 
+
+## Database Setup
+
+ 1. Connect to psql 
+ ```
+ brew install postgresql
+
+ brew services start postgresql
+
+ psql postgres
+ ```
+
+ 2. Create the database using psql
+
+```
+CREATE DATABASE peep_manager;
+
+```
+
+3. Connect to the database
+
+```
+\c peep_manager;
+
+```
+
+4. Run query in file 01_create_bookmarks_table.sql
+
+## Testing Environment Setup
+
+```
+CREATE DATABASE peep_manager_test;
+
+```
+
+Connect to the database
+
+```
+\c peep_manager_test;
+
+```
+Run query in file 01_create_bookmarks_table.sql
+
+```
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, user_name VARCHAR(60), user_handle VARCHAR(60), peep VARCHAR(140));
+```
+
+
+
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
