@@ -1,10 +1,20 @@
 require 'sinatra/base'
 
-class Peep < Sinatra::Base
+class Chitter < Sinatra::Base
 
- get '/' do
-   "Chitter"
- end
+  get '/' do
+    erb :index
+  end
+
+  get '/peep/new' do
+    erb :peeps
+  end
+
+  post '/peep' do
+    p params
+    @peep = params[:peep]
+    erb :index
+  end
 
   run! if app_file == $0
 
