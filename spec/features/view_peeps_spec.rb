@@ -20,6 +20,6 @@ feature 'View Peeps' do
     post_peep
     visit '/'
     click_link 'View Peeps'
-    page.find('#username', :visible => true)
+    expect(page).to have_content "username1"
   end
 end

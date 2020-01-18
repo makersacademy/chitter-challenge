@@ -10,6 +10,12 @@ class User
     @password = password
   end
 
+  def self.all
+    DatabaseConnection.setup(environment)
+    result = DatabaseConnection.query("SELECT * FROM users")
+    result.map { |user| user }
+  end
+
   def self.create(name:, username:, email:, password:)
     DatabaseConnection.setup(environment)
     result = DatabaseConnection.query("INSERT INTO users (name, username, email, password) VALUES ('#{name}', '#{username}', '#{email}', '#{password}') RETURNING id, name, username, email, password")
