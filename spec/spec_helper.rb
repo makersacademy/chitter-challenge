@@ -16,6 +16,7 @@ require 'rspec'
 require 'rake'
 
 require_relative './../app.rb'
+require 'database_helper'
 
 Capybara.app = Chitter
 
@@ -26,6 +27,11 @@ ENV['RACK_ENV'] = 'test'
 
 
 RSpec.configure do |config|
+
+  config.before(:each) do 
+    test_database_setup
+  end 
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

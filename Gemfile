@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'capybara'
-gem 'sinatra'
-gem 'rake'
-gem 'selenium'
-gem 'selenium-webdriver'
-gem 'pg'
 
 group :test do
+  gem 'capybara'
+  gem 'sinatra'
+  gem 'rake'
+  gem 'selenium'
+  gem 'selenium-webdriver'
+  gem 'pg'
   gem 'rspec'
   gem 'rubocop', '0.71.0'
   gem 'simplecov', require: false
