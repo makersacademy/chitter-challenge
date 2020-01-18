@@ -23,5 +23,9 @@ describe User do
       expect(User.find(id: user.id).username).to eq database_user[0]['username']
       expect(User.find(id: user.id).email).to eq database_user[0]['email']
     end
+
+    it "return nil if there is no id" do
+      expect(User.find(id: nil)).to be_nil
+    end
   end
 end
