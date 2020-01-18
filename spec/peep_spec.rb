@@ -13,4 +13,19 @@ describe Peep do
       expect(peep.created_on).to eq database_peep[0]['created_on']
     end
   end
+
+  describe '.all' do
+    it 'shows all the peeps' do
+      user = User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+      Peep.create(user_id: user.id, content: 'I am the first peep!')
+      Peep.create(user_id: user.id, content: 'I am the second peep!')
+      Peep.create(user_id: user.id, content: 'I am the third peep!')
+
+      expect(Peep.all.size).to eq 3
+      expect(Peep.all).to include(a_kind_of(Peep))
+      expect(Peep.all.first.content).to eq 'I am the third peep!'
+      expect(Peep.all.last.content).to eq 'I am the first peep!'
+      expect(Peep.all[1].content).to eq 'I am the second peep!'
+    end
+  end
 end
