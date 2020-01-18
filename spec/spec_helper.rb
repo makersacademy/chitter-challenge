@@ -14,6 +14,7 @@ require 'rspec'
 require './app'
 require 'database_helpers'
 require './lib/database_connection'
+require_relative './features/web_helpers'
 
 Capybara.app = ChitterApp
 
