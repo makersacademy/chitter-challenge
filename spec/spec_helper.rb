@@ -1,10 +1,10 @@
+ENV['ENVIRONMENT'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require './app'
 require './setup_test_database'
-
-ENV['ENVIRONMENT'] = 'test'
 
 Capybara.app = Chitter
 
