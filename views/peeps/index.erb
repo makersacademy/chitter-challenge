@@ -1,6 +1,14 @@
 <h1>Chitter Chatter</h1>
+<% if @user %>
+  <h2>Welcome <%= @user.username %>!</h2>
+<% end %>
 <ul>
   <% @peeps.each do |peep| %>
   <li> <%= peep.content %> </li>
   <% end %>
 </ul>
+<% unless @user %>
+  <form action='/users/new'>
+    <input type='submit' value='Sign Up'>
+  </form>
+<% end %>
