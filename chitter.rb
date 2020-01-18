@@ -9,12 +9,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
-    $messages = Message.all
+    @messages = Message.all
     erb :message_board
   end
 
   post '/messages/new' do
-    Message.create(content: params['content'])
+    @messages = Message.create(content: params['content'], time: Time.new)
     redirect '/messages'
   end
 

@@ -9,8 +9,11 @@
 <h1>Here are all messages</h1>
 <br>
 <ul>
-  <% $messages.each do |message| %> 
-    <li><%= message %>
+  <% @messages.each do |message| %> 
+    <li><%= message.content %>
+    <br>
+    Posted on <%= message.time %>
+    <br>
     </li>
   <% end %>
 </ul>

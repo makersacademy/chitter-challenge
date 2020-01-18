@@ -2,12 +2,12 @@ require 'pg'
 
 class Message
 
-  attr_reader :message
-  attr_accessor :all_messages
+  attr_reader :id, :content, :time
 
-  def initialize(message)
-    @message = message
-    @all_messages = ["Hi y'all"]
+  def initialize(id:, content:, time:)
+    @id = id
+    @content = content
+    @time = time
   end
 
   def self.all
@@ -17,15 +17,30 @@ class Message
       connection = PG.connect(dbname: 'chitter')
     end 
     result = connection.exec('SELECT * FROM messages ORDER BY id DESC;')
-    result.map { |row| row['content'] }
+    result.map { |row|
+      Message.new(id: row['id'], content: row['content'], time: row['time'])
+      }
   end
 
-  def self.create(content:)
+  def self.times
+    if ENV['ENVIRONMENT'] = 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end 
+      result = connection.exec('SELECT * FROM messages ORDER BY id DESC;')
+      result.map { |row| row['time'] }
+  end
+
+  def self.create(content:, time: Time.new)
     if ENV['ENVIRONMENT'] = 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO messages (content) VALUES('#{content}');")
+    result = connection.exec("INSERT INTO messages (content, time) VALUES('#{content}', '#{time}') RETURNING id, content, time;")
+    result.map { |row|
+      Message.new(id: row['id'], content: row['content'], time: row['time'])
+      }
   end
 end
