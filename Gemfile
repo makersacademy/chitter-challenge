@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'capybara'
 gem 'sinatra'
+gem 'pg'
 
 group :test do
   gem 'rspec'

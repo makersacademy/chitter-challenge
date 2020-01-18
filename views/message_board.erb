@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<h1><center>WELCOME TO CHITTER</center></h1>
+<br>
+<form action='/messages/new' method='post'>
+  <input type="text" name="content" />
+  <button type='submit' value='Publish'>Publish</button>
+</form>
+<h1>Here are all messages</h1>
+<br>
+<ul>
+  <% $messages.each do |message| %> 
+    <li><%= message %>
+    </li>
+  <% end %>
+</ul>
