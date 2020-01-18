@@ -6,6 +6,10 @@ class Chitter < Sinatra::Base
     erb :index
   end 
 
+  post '/' do 
+    redirect('/')
+  end 
+
   get '/all_peeps' do 
     erb :all_peeps
   end 
