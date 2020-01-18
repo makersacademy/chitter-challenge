@@ -12,6 +12,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app'
+require 'database_helpers'
+require './lib/database_connection'
 
 Capybara.app = ChitterApp
 
@@ -24,4 +26,9 @@ RSpec.configure do |config|
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
+
+  config.before(:each) do
+    setup_test_database
+  end
+  
 end
