@@ -16,6 +16,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    childprocess (3.0.0)
     coveralls (0.7.2)
       multi_json (~> 1.3)
       rest-client (= 1.6.7)
@@ -92,6 +93,10 @@ GEM
       rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
+    rubyzip (2.0.0)
+    selenium-webdriver (3.142.7)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     simplecov (0.17.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -131,6 +136,7 @@ DEPENDENCIES
   rspec
   rubocop (= 0.71.0)
   rubocop-rspec
+  selenium-webdriver
   simplecov
   simplecov-console
   sinatra
