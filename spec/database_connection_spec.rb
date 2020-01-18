@@ -7,4 +7,11 @@ describe DatabaseConnection do
       DatabaseConnection.setup('chitter_test')
     end
   end
+
+  describe '.connection' do
+    it 'return the connection previously set' do
+      connection = DatabaseConnection.setup('chitter_test')
+      expect(DatabaseConnection.connection).to eq connection
+    end
+  end
 end
