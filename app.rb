@@ -5,7 +5,7 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   
   get '/' do
-    @user = session[:name]
+    @user = session[:username]
     erb :index
   end
 
@@ -23,13 +23,16 @@ class ChitterApp < Sinatra::Base
     erb :'peeps/new'
   end
 
+  post '/users' do
+    User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session[:username] = User.all.first.username
+    redirect '/'
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
 
-  post '/users' do
-    session[:name] = params[:name]
-    redirect '/'
-  end
+
 
 end
