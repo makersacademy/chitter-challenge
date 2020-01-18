@@ -8,8 +8,9 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
-  get '/peeps/new' do
-    erb :'peeps/new'
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
   post '/peeps' do
@@ -17,9 +18,9 @@ class ChitterApp < Sinatra::Base
     redirect '/peeps'
   end
 
-  get '/peeps' do
-    @peeps = Peep.all
-    erb :'peeps/index'
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
+
 
 end
