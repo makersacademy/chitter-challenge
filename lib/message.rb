@@ -16,7 +16,7 @@ class Message
     else
       connection = PG.connect(dbname: 'chitter')
     end 
-    result = connection.exec('SELECT * FROM messages;')
+    result = connection.exec('SELECT * FROM messages ORDER BY id DESC;')
     result.map { |row| row['content'] }
   end
 

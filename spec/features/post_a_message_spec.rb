@@ -1,6 +1,6 @@
 feature "post a message" do
   scenario "it lets the user post a message" do
-    visit('/messages/new')
+    visit('/messages')
     fill_in 'content', with: "Cool stuff"
     click_button "Publish"
 
