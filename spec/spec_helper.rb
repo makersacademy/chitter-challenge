@@ -9,6 +9,7 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require_relative './database_helper'
 
 Capybara.app = Chitter
 

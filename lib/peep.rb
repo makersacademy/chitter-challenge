@@ -9,6 +9,11 @@ class Peep
     result.map { |peep| peep['peep'] }
   end
 
+  def self.add(peep)
+    connection = PG.connect(dbname: environment)
+    connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
+  end
+
 
   def self.environment
     ENV['RACK_ENV'] == 'test' ? 'chitter_test' : 'chitter'
