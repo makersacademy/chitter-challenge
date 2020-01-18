@@ -33,4 +33,13 @@ describe User do
       expect(User.find(id: nil)).to be_nil
     end
   end
+
+  describe '.authenticate' do
+    it 'return a user if logging in with the right credentials' do
+      user = User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+      authenticated_user = User.authenticate(email:'mock@gmail.com', password: 'psw123')
+
+      expect(authenticated_user.id).to eq user.id
+    end
+  end
 end
