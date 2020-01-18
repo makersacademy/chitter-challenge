@@ -23,7 +23,13 @@ STRAIGHT UP
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+```
 
+|   noun/class/object  |    verb/behavior/method     |
+|-----------|---------------|
+|  message (peep)     |  post to Chitter         |
+
+```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
