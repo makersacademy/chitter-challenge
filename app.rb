@@ -9,10 +9,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
+    session[:peep] = params[:peep]
     redirect('/peeps')
   end
 
   get '/peeps' do
-    "This is a peep!"
+    @peeps = session[:peep]
+    erb :peeps
   end
 end
