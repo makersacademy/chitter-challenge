@@ -5,6 +5,7 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   
   get '/' do
+    @user = session[:name]
     erb :index
   end
 
@@ -22,5 +23,13 @@ class ChitterApp < Sinatra::Base
     erb :'peeps/new'
   end
 
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    session[:name] = params[:name]
+    redirect '/'
+  end
 
 end
