@@ -4,8 +4,7 @@ class Peep
 
   def self.view
     result = DatabaseConnection.query("SELECT * FROM peeps")
-    result.map { |post| post["body"] }
-    
+    result.map { |peep| peep["body"] }
   end
 
 end
