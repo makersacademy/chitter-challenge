@@ -1,0 +1,8 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
+<form action='/sessions' method='POST'>
+  <label>Email: <input type='text' name='email'></label>
+  <label>Password: <input type='text' name='password'></label>
+  <input type='submit' value='Sign In'>
+</form>
