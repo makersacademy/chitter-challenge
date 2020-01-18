@@ -1,4 +1,9 @@
 <h1>Welcome to Chitter <%=@user%></h1>
-<a href='/users/new'>Sign Up</a>
-<a href='/peeps'>View Peeps</a>
-<a href='/peeps/new'>Write a Peep</a>
+
+<% if @user != nil %>
+  <a href='/peeps/new'>Write a Peep</a>
+  <a href='/peeps'>View Peeps</a>
+<% else %>
+  <a href='/users/new'>Sign Up</a>
+  <a href='/peeps'>View Peeps</a>
+<% end %>

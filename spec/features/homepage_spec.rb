@@ -9,7 +9,8 @@ feature 'Homepage' do
     expect(page).to have_link 'View Peeps'
   end
 
-  scenario 'Homepage has write a peep button' do
+  scenario 'Homepage has write a peep button if user is signed up' do
+    sign_up
     visit '/'
     expect(page).to have_link 'Write a Peep'
   end
