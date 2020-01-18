@@ -2,7 +2,7 @@ require 'User'
 
 describe User do
   describe '.create' do
-    it 'create a user in the database and return an instance' do
+    it 'create a user in the database and return an instance of User' do
       user = User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
       database_user = PG.connect(dbname: 'chitter_test').exec("SELECT id FROM users WHERE id='#{user.id}';")
       
