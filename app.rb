@@ -10,12 +10,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    session[:peep] = params[:peep]
     redirect('/peeps')
   end
 
   get '/peeps' do
-    @user_peep = session[:peep]
     @peeps = Peep.view
     erb :peeps
   end

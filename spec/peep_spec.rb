@@ -4,10 +4,10 @@ describe Peep do
   
   describe ".view" do
     it "returns all peeps" do
-      peeps = Peep.view
-      expect(peeps).to include("First peep")
-      expect(peeps).to include("Second peep")
-      expect(peeps).to include("Third peep")
+      peeps = Peep.view.join(" ")
+      expect(peeps).to include("First post!")
+      expect(peeps).to include("Second post!")
+      expect(peeps).to include("Third post!")
     end
   end
 
