@@ -1,11 +1,11 @@
 require 'sinatra/base'
-require './lib/database_connection_setup'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
 
   get '/' do
+    p ENV['RACK_ENV']
     'Welcome to Chitter!'
     erb(:index)
   end
