@@ -1,3 +1,18 @@
-<% @peeps.each do |peep| %>
-  <%= peep.text %>
-<% end %>
+<!DOCTYPE html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <ul>
+    <% @peeps.each do |peep| %>
+      <li> 
+        <%= peep.text %><br>
+        <div id="time">
+          <%= peep.timestamp %>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+  </body>
+</html>
