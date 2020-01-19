@@ -22,6 +22,11 @@ class User
     User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
   end
 
+  def self.authenticate(username:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
+    User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
+  end
+
   def self.environment
     ENV['RACK_ENV'] == 'test' ? 'chitter_app_test' : 'chitter_app'
   end

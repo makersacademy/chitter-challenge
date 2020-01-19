@@ -18,4 +18,13 @@ describe User do
     end
 
   end
+
+  describe '.authenticate' do
+    it 'returns a user if given a correct username and password' do
+      user = subject.create(name: 'name4', username: 'username4', email: 'name4@email.com', password: 'password4')
+      authenticated_user = subject.authenticate(username: 'username4', password: 'password4')
+  
+      expect(authenticated_user.id).to eq user.id
+    end
+  end
 end

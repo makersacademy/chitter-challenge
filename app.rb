@@ -41,8 +41,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sessions' do
-    result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{params[:username]}'")
-    user = User.create(name: result[0]['name'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
+    user = User.authenticate(username: params[:username], password: params[:password])
     session[:username] = user.username
     session[:user_id] = user.id
     redirect '/'
