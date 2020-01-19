@@ -10,10 +10,16 @@ describe 'Peep' do
 
       peeps = Peep.see_all
 
-      expect(peeps.first.user_name).to include "Harry"
-
-
-
+      expect(peeps.first.user_name).to eq "Harry"
     end
+  end
+
+  it 'creates a new peep' do
+    connection = PG.connect(dbname: 'peep_manager_test')
+    peep = Peep.create(user_name: 'Ron', user_handle: '@notthechosenone', peep: 'Ron, Ron, Ron Weasley')
+  
+    expect(peep).to be_a Peep
+    expect(peep.user_name).to eq 'Ron'
+    expect(peep.user_handle).to eq '@notthechosenone'
   end
 end
