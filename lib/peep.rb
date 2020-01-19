@@ -20,6 +20,6 @@ class Peep
     @id = id
     @user_id = user_id
     @content = content
-    @created_on = created_on
+    @created_on = DateTime.parse(created_on).strftime('%H:%M %d %b %Y')
   end
 end

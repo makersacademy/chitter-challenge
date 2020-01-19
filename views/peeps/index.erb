@@ -11,6 +11,7 @@
 <ul>
   <% @peeps.each do |peep| %>
   <li> <%= peep.content %> </li>
+  <li> Peeped on: <%= peep.created_on %>
   <% end %>
 </ul>
 <% if @user %>

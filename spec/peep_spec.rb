@@ -10,7 +10,7 @@ describe Peep do
       expect(peep.id).to eq database_peep[0]['id']
       expect(peep.content).to eq 'I am the peep!'
       expect(peep.user_id).to eq user.id
-      expect(peep.created_on).to eq database_peep[0]['created_on']
+      expect(peep.created_on).to eq DateTime.parse(database_peep[0]['created_on']).strftime('%H:%M %d %b %Y')
     end
   end
 
