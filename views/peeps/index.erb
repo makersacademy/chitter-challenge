@@ -4,20 +4,16 @@
     <link rel="stylesheet" href="">
   </head>
   <body>
-    <ul>
     <% @peeps.each do |peep| %>
-      <div id="peep">
-      <li>
-        <%= peep.text %><br>
-        <div id="time">
-          <%= peep.timestamp %>
-        </div>
-        <div id="username">
-        <%= peep.username %>
+    <div id="peep">
+      <%= peep.text %><br>
+      <div id="time">
+        Posted At: <%= peep.timestamp %>
+      </div>
+      <div id="username">
+        Posted By: <%= peep.username %>
       </div>
       </div>
-      </li>
     <% end %>
-    </ul>
   </body>
 </html>
