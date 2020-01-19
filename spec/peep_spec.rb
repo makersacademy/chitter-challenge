@@ -16,4 +16,11 @@ describe Peep do
     end
   end
 
+  describe ".create" do
+    it "creates a new peep" do
+      Peep.create("Test Peep")
+      expect(Peep.view).to include("Test Peep")
+    end
+  end
+
 end

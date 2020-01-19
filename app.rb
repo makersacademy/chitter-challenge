@@ -11,11 +11,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
+    Peep.create(params[:peep])
     redirect('/peeps')
   end
 
   get '/peeps' do
-    @peeps = Peep.view
+    @peeps = Peep.view.reverse
     erb :peeps
   end
 end

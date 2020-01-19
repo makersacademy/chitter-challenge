@@ -7,4 +7,8 @@ class Peep
     result.map { |peep| peep["body"] }
   end
 
+  def self.create(body)
+    result = DatabaseConnection.query("INSERT INTO peeps (body) VALUES('#{body}')")
+  end
+
 end
