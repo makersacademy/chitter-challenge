@@ -1,3 +1,16 @@
+require 'simplecov'
+require 'simplecov-console'
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  # Want a nice code coverage website? Uncomment this next line!
+  # SimpleCov::Formatter::HTMLFormatter
+])
+SimpleCov.start
+
+# Require all the testing gems
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
 require_relative './setup_test_database'
 require_relative './web_helpers'
 # Bring in the contents of the `app.rb` file
@@ -12,22 +25,8 @@ RSpec.configure do |config|
   end
 end
 
-# Require all the testing gems
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
-require 'simplecov'
-require 'simplecov-console'
-
 # Tell Capybara to talk to ChitterManager
 Capybara.app = ChitterManager
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
 
 RSpec.configure do |config|
   config.after(:suite) do
