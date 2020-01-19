@@ -5,7 +5,7 @@ require './lib/user'
 require './lib/peep'
 
 class Chitter < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
   register Sinatra::Flash
 
   get '/' do
@@ -41,6 +41,11 @@ class Chitter < Sinatra::Base
       flash[:notice] = 'Please check your email or password.'
       redirect '/sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session.clear
+    redirect '/peeps'
   end
 
   run! if app_file == $PROGRAM_NAME

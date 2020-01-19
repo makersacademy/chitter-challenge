@@ -37,21 +37,21 @@ describe User do
   describe '.authenticate' do
     it 'return a user if logging in with the right credentials' do
       user = User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
-      authenticated_user = User.authenticate(email:'mock@gmail.com', password: 'psw123')
+      authenticated_user = User.authenticate(email: 'mock@gmail.com', password: 'psw123')
 
       expect(authenticated_user.id).to eq user.id
     end
 
     it 'return nil if logging in with the wrong email' do
       User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
-      authenticated_user = User.authenticate(email:'wrong@gmail.com', password: 'psw123')
+      authenticated_user = User.authenticate(email: 'wrong@gmail.com', password: 'psw123')
 
       expect(authenticated_user).to be_nil
     end
 
     it 'return nil if logging in with the wrong password' do
       User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
-      authenticated_user = User.authenticate(email:'mock@gmail.com', password: 'wrong123')
+      authenticated_user = User.authenticate(email: 'mock@gmail.com', password: 'wrong123')
 
       expect(authenticated_user).to be_nil
     end

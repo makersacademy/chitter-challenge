@@ -1,6 +1,6 @@
 feature 'authentication' do
   scenario 'a user can sign in with the correct credentials' do
-    user = User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+    User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
     visit '/sessions/new'
 
     fill_in 'email', with: 'mock@gmail.com'
@@ -11,7 +11,7 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if signing in with the email password' do
-    user = User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+    User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
 
     visit '/sessions/new'
     fill_in 'email', with: 'wrong@gmail.com'
@@ -23,7 +23,7 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if signing in with the wrong password' do
-    user = User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+    User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
 
     visit '/sessions/new'
     fill_in 'email', with: 'mock@gmail.com'

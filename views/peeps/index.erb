@@ -7,8 +7,16 @@
   <li> <%= peep.content %> </li>
   <% end %>
 </ul>
-<% unless @user %>
+<% if @user %>
+  <form action='/sessions' method='POST'>
+    <input type='hidden' name='_method' value='DELETE'>
+    <input type='submit' value='Sign Out'>
+  </form>
+<% else %>
   <form action='/users/new'>
-    <input type='submit' value='Sign Up'>
+    <input type='submit' value='Register'>
+  </form>
+  <form action='/sessions/new'>
+    <input type='submit' value='Sign In'>
   </form>
 <% end %>
