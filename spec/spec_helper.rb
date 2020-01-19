@@ -1,6 +1,7 @@
-
+require 'connect_and_clear_db'
 
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] == 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -23,6 +24,11 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
+  config.before(:each) do
+    connect_and_clear_db
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

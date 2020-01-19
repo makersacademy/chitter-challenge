@@ -1,1 +1,17 @@
 <h1>Welcome to Chitter</h1>
+
+<h4>Add New Bookmark: </h4>
+<form action="/add_message" method="post">
+  <p>Insert Message: </p>
+  <input type="text" name='message' placeholder="Enter Message Here"> 
+  <input type="submit" value="Add">
+</form>
+
+<ul>
+  <% @message.each do |note| %>
+  <li>
+      <%= note.message %>
+  </li>
+  <% end %>
+</ul>
+
