@@ -2,14 +2,22 @@ require 'pg'
 
 class Peep
 
+  attr_reader :peep, :time
+
+  def initialize(peep, time)
+    @peep = peep
+    @time = time
+  end
+
   def self.all
     result = DatabaseConnection.query('SELECT * FROM peeps;')
 
-    result.map { |peep| peep['peep'] }
+    result.map { |peep| self.new(peep['peep'], peep['time']) }
   end
 
   def self.add(peep)
-    DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}')")
+    time = "#{Time.now.hour}:#{Time.now.min}"
+    DatabaseConnection.query("INSERT INTO peeps (peep, time) VALUES('#{peep}', '#{time}')")
   end
 
 end

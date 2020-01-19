@@ -17,7 +17,8 @@ describe Peep do
   it "creates a new peep and stores it in peeps table" do
     subject.add('Hello Chitter')
 
-    expect(subject.all[0]).to eq 'Hello Chitter'
+    expect(subject.all[0].peep).to eq 'Hello Chitter'
+    expect(subject.all[0].time).to eq "#{Time.now.hour}:#{Time.now.min}"
   end
 end
   
