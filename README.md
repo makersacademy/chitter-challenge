@@ -2,7 +2,7 @@
 -------
 ```
                 .-'-._
-               /    e<
+               /    /``
            _.-''';  (
  _______.-''-._.-'  /
  ====---:_''-'     /
@@ -74,17 +74,27 @@ I want to receive an email if I am tagged in a Peep
 - views:
   - homepage
     - shows messages
-    - ability to post/reply (only if logged in)
-    - ability to sign in/sign up (only if not signed in)
+    - shows last action
+    - ability to sign in
+    - ability to post/comment (only if logged in) - 160chars max
     - ability to sign out (only if signed in)
+  - signup
+    - sign up (only if not signed in)
 - models:
-  - database connection
+  - database connection - connects to relevant database and runs sql command
   - message
-  - email
+    - returns message objects for view
+    - returns 10 most popular tags for view
+    - extracts usernames and tags from message
+    - adds message to database
+  - email client - sends user email upon mention in message or comment
+  - user - authenticates user and reveals post fields in view
 - database:
-  - users table - fields:
-  - messages table - fields: (one user to many message)
-
+  - users table - fields: id, username, email, password_hash, display_name
+  - messages table - fields: id, text, fk_user_id, timestamp (one user to many message)
+  - comments table - fields: id, text, fk_message_id, fk_user_id, timestamp (one message/user to many comments)
+  - tags - fields: id, tag, (many tags to many messages/comments)
+  - tags_messages_comments join table - fields: id, fk_message_id, fk_comment_id
 
 
 
