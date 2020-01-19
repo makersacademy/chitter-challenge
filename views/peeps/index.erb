@@ -2,6 +2,12 @@
 <% if @user %>
   <h2>Welcome <%= @user.username %>!</h2>
 <% end %>
+<% if @user %>
+  <form action='/peeps' method='post'>
+    <input type='text' name='content'>
+    <input type='submit' value='New Peep'>
+  </form>
+<% end %>
 <ul>
   <% @peeps.each do |peep| %>
   <li> <%= peep.content %> </li>
