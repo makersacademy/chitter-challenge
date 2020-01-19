@@ -4,9 +4,13 @@
     <link rel="stylesheet" href="">
   </head>
   <body>
+    <%= flash[:notice] %>
     <h1>Welcome to Chitter <%=@user%></h1>
     <% if @user != nil %>
       <a href='/peeps/new'>Write a Peep</a>
+      <form action='/sessions/destroy' method='post'>
+        <input type=submit value='Log Out'>
+      </form>
     <% else %>
       <a href='/sessions/new'>Sign In</a>
       <a href='/users/new'>Sign Up</a>

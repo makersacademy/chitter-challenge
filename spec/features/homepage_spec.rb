@@ -24,4 +24,10 @@ feature 'Homepage' do
     visit '/'
     expect(page).to have_link 'Sign In'
   end
+
+  scenario 'Homepage has sign out button' do
+    sign_up
+    visit '/'
+    expect(page).to have_button 'Log Out'
+  end
 end
