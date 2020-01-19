@@ -34,7 +34,7 @@ Please log in to send peeps
       #set one RGB to zero to avoid white and grey
       user_colour[index_a..index_a+1] = '00'
 
-      #Ensure other RGBs do not exceed 12 to avoid overly bright colourw
+      #Ensure other RGBs do not exceed 12 to avoid overly bright colour
       if user_colour[index_b].to_i(16) > 10
         user_colour[index_b..index_b+1] = '99'
       end
