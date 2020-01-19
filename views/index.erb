@@ -3,6 +3,10 @@
 <form action="/add_peep" method="post">
 <p>Whats on your mind? </p>
   <input type="text" name="peep_body"> 
+  <p>Name: </p>
+  <input type="text" name="peep_name"> 
+  <p>Handle: </p>
+  <input type="text" name="peep_handle"> 
 <input type="submit" value="Post">
 </form>
 
@@ -11,7 +15,7 @@
 <ul> 
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.body %>
+      <%= peep.body %> <%= peep.time %> <%= peep.name %> <%= peep.handle %>
     </li>
     <% end %>
 </ul>
