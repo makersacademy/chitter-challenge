@@ -8,8 +8,10 @@ feature 'shows all author peeps' do
 
     visit '/'
     click_link('uValente', match: :first)
-    expect(page).to have_current_path("/users/#{user1.id}")
-    expect(page).to have_content(/Peep 2.*Peep 1/)
+    expect(page).to have_current_path("/peeps/users/#{user1.id}")
+    within(:css, 'div.single-peep', match: :first) do
+      expect(page).to have_content(/Peep 2/)
+    end
     expect(page).not_to have_content("MockingTrump")
   end
 end

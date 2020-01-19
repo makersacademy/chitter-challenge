@@ -3,9 +3,11 @@ feature 'authentication' do
     User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
     visit '/sessions/new'
 
-    fill_in 'email', with: 'mock@gmail.com'
-    fill_in 'password', with: 'psw123'
-    click_button 'Sign In'
+    within(:css, 'form.new-session') do
+      fill_in 'email', with: 'mock@gmail.com'
+      fill_in 'password', with: 'psw123'
+      click_button 'Sign In'
+    end
 
     expect(page).to have_content 'Welcome uValente!'
   end
@@ -14,10 +16,13 @@ feature 'authentication' do
     User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
 
     visit '/sessions/new'
-    fill_in 'email', with: 'wrong@gmail.com'
-    fill_in 'password', with: 'psw123'
-    click_button 'Sign In'
 
+    within(:css, 'form.new-session') do
+      fill_in 'email', with: 'wrong@gmail.com'
+      fill_in 'password', with: 'psw123'
+      click_button 'Sign In'
+    end
+    
     expect(page).not_to have_content 'Welcome uValente'
     expect(page).to have_content 'Please check your email or password.'
   end
@@ -26,9 +31,12 @@ feature 'authentication' do
     User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
 
     visit '/sessions/new'
-    fill_in 'email', with: 'mock@gmail.com'
-    fill_in 'password', with: 'wrong123'
-    click_button 'Sign In'
+
+    within(:css, 'form.new-session') do
+      fill_in 'email', with: 'mock@gmail.com'
+      fill_in 'password', with: 'wrong123'
+      click_button 'Sign In'
+    end
 
     expect(page).not_to have_content 'Welcome uValente'
     expect(page).to have_content 'Please check your email or password.'

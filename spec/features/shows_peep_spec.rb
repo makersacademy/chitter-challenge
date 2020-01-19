@@ -5,7 +5,9 @@ feature 'shows peeps' do
     Peep.create(user_id: user.id, content: 'Peep 2')
 
     visit '/'
-    expect(page).to have_content(/Peep 2.*Peep 1/)
+    within(:css, 'div.single-peep', match: :first) do
+      expect(page).to have_content(/Peep 2/)
+    end
   end
 
   scenario 'peeps have the creation date displayed' do

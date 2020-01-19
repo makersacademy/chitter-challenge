@@ -31,17 +31,17 @@ describe Peep do
 
   describe '.find_by' do
     it 'shows only the peeps from a determined user' do
-    user1 = User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
-    user2 = User.create(name: 'Trump', username: 'MockingTrump', email: 'mock@trump.com', password: 'psw123')
-    Peep.create(user_id: user1.id, content: 'Peep 1')
-    Peep.create(user_id: user2.id, content: 'I am Trump')
-    Peep.create(user_id: user1.id, content: 'Peep 2')
+      user1 = User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+      user2 = User.create(name: 'Trump', username: 'MockingTrump', email: 'mock@trump.com', password: 'psw123')
+      Peep.create(user_id: user1.id, content: 'Peep 1')
+      Peep.create(user_id: user2.id, content: 'I am Trump')
+      Peep.create(user_id: user1.id, content: 'Peep 2')
 
-    expect(Peep.find_by(user_id: user1.id).size).to eq 2
-    expect(Peep.find_by(user_id: user2.id).size).to eq 1
-    expect(Peep.find_by(user_id: user1.id).first.content).to eq 'Peep 2'
-    expect(Peep.find_by(user_id: user1.id).last.content).to eq 'Peep 1'
-    expect(Peep.find_by(user_id: user2.id).first.content).to eq 'I am Trump'
+      expect(Peep.find_by(user_id: user1.id).size).to eq 2
+      expect(Peep.find_by(user_id: user2.id).size).to eq 1
+      expect(Peep.find_by(user_id: user1.id).first.content).to eq 'Peep 2'
+      expect(Peep.find_by(user_id: user1.id).last.content).to eq 'Peep 1'
+      expect(Peep.find_by(user_id: user2.id).first.content).to eq 'I am Trump'
     end
   end
 end

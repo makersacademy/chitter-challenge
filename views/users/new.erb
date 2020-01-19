@@ -1,7 +1,17 @@
-<form action='/users' method='POST'>
-  <label>Name: <input type='text' name='name'></label>
-  <label>Username: <input type='text' name='username'></label>
-  <label>Email: <input type='text' name='email'></label>
-  <label>Password: <input type='text' name='password'></label>
-  <input type='submit' value='Register'>
-</form>
+<div class='registration-form'>
+  <form class='new-user' action='/users' method='POST'>
+    <label>Name:<br>
+      <input type='text' name='name'></label>
+    <br>
+    <label>Username:<br>
+      <input type='text' name='username'></label>
+    <br>
+    <label>Email:<br>
+      <input type='text' id='email' name='email'></label>
+    <br>
+    <label>Password:<br>
+      <input type='text' name='password'></label>
+    <br>
+    <input type='submit' value='Register'>
+  </form>
+</div>

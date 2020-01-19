@@ -24,11 +24,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    redirect '/peeps' if User.find(id: session[:user_id])
     erb :'users/new'
   end
 
-  get '/users/:id' do
+  get '/peeps/users/:id' do
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.find_by(user_id: params[:id])
+    @peep_user = User.find(id: params[:id])
     erb :'peeps/user'
   end
 
@@ -39,6 +42,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
+    redirect '/peeps' if User.find(id: session[:user_id])
     erb :'sessions/new'
   end
 

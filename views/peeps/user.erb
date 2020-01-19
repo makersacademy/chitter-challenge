@@ -1,7 +1,14 @@
-<ul>
-  <% @peeps.each do |peep| %>
-  <% peep_user = User.find(id: peep.user_id) %>
-  <li><%= peep.content %> </li>
-  <li><a href='/users/<%= peep_user.id %>'><%= peep_user.username %></a> peeped on: <%= peep.created_on %>
-  <% end %>
-</ul>
+<div class='peep-container'>
+  <h2>You are checking <%= @peep_user.username %> peeps!</h2>
+  <div class='peeps'>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <% peep_user = User.find(id: peep.user_id) %>
+        <div class='single-peep'>
+          <li class='peep-info'><a href='/peeps/users/<%= peep_user.id %>'><%= peep_user.username %></a> peeped on: <%= peep.created_on %>
+          <li class='peep-content'><%= peep.content %></li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

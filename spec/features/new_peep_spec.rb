@@ -9,9 +9,11 @@ feature 'new peep' do
 
     visit '/'
     click_button 'Sign In'
-    fill_in 'email', with: 'mock@gmail.com'
-    fill_in 'password', with: 'psw123'
-    click_button 'Sign In'
+    within(:css, 'form.new-session') do
+      fill_in 'email', with: 'mock@gmail.com'
+      fill_in 'password', with: 'psw123'
+      click_button 'Sign In'
+    end
     click_button 'Sign Out'
 
     expect { click_button 'New Peep' }.to raise_error(Capybara::ElementNotFound)
@@ -22,10 +24,11 @@ feature 'new peep' do
 
     visit '/'
     click_button 'Sign In'
-
-    fill_in 'email', with: 'mock@gmail.com'
-    fill_in 'password', with: 'psw123'
-    click_button 'Sign In'
+    within(:css, 'form.new-session') do
+      fill_in 'email', with: 'mock@gmail.com'
+      fill_in 'password', with: 'psw123'
+      click_button 'Sign In'
+    end
     fill_in 'content', with: 'I am the last peep'
     click_button 'New Peep'
     expect(page).to have_content 'I am the last peep'

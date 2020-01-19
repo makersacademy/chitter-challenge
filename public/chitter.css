@@ -1,0 +1,176 @@
+:root {
+  --main-color: #17202a;
+  --light-color: #1c2733;
+  --accent-color: #8b99a5;
+  --contrast-color: green;
+}
+
+::placeholder {
+  color: rgb(255, 255, 255);
+  font-size: 0.8rem;
+}
+
+body {
+  background-color: var(--main-color);
+  color: white;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  color: white;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  padding-top: 1rem;
+  font-size: 1.2rem;
+}
+
+nav {
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  font-size: 1.8rem;
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.3);
+  z-index: 9;
+  background-color: var(--main-color);
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav div {
+  display: flex;
+  padding: 1rem 0.75rem;
+  margin: 0 1.25rem;
+}
+
+nav div.home:hover {
+  background-color: var(--light-color);
+}
+
+nav input[type='submit'] {
+  color: white;
+  border: none;
+  background-color: var(--contrast-color);
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.75rem;
+}
+
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.registration-form, div.log-in-form {
+  width: 25vw;
+}
+
+div.registration-form input[type='text'], div.log-in-form input[type='text'] {
+  border: none;
+  background-color: var(--main-color);
+  border-bottom: 1px solid var(--accent-color);
+  width: 100%;
+  color: white;
+  padding: 0.5rem 0.25rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+div.registration-form input[type='submit'], div.log-in-form input[type='submit'] {
+  color: white;
+  border: none;
+  background-color: var(--contrast-color);
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.75rem;
+}
+
+div.peep-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--accent-color);
+  border-top: none;
+  border-bottom: none;
+  width: 50vw;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      var(--accent-color), 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+}
+
+div.peep-container input[type='text'] {
+  border: none;
+  background-color: var(--main-color);
+  border-bottom: 1px solid var(--accent-color);
+  min-width: 20vw;
+  width: 100%;
+  color: white;
+  padding: 1.25rem 0.25rem;
+  margin: 2rem 0 1rem 0;
+}
+
+div.peep-container input[type='submit'] {
+  color: white;
+  border: none;
+  background-color: var(--contrast-color);
+  border-radius: 5px;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.75rem;
+}
+
+div.peeps {
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--accent-color);
+}
+
+.peeps ul {
+  padding: 0 2rem;
+}
+
+div.single-peep {
+  border: 1px solid var(--accent-color);
+  padding: 1.5rem 1rem;
+}
+
+li.peep-content {
+  padding: 1rem 0 0 0;
+}
+
+li.peep-info {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+}
+
+li.peep-info a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+li.peep-info a:hover {
+  text-decoration: underline;
+}

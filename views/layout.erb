@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400|Raleway:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/reset.css">
+    <link rel="stylesheet" type="text/css" href="/chitter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chitter | Share your Peep!</title>
+  </head>
+  <body>
+    <nav>
+      <div class='home'>
+        <a href='/peeps'>Chitter</a>
+      </div>
+      <div>
+        <% if @user %>
+          <form action='/sessions' method='POST'>
+            <input type='hidden' name='_method' value='DELETE'>
+            <input type='submit' value='Sign Out'>
+          </form>
+        <% else %>
+          <form action='/users/new'>
+            <input type='submit' value='Register'>
+          </form>
+          <form action='/sessions/new'>
+            <input type='submit' value='Sign In'>
+          </form>
+        <% end %>
+      </div>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
