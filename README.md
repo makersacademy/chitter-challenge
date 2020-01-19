@@ -72,12 +72,12 @@ Some useful resources:
 Database Approach:
 -----
 Users' id is primary key, not nullable, unique
-Users' name is not nullable, not unique
-Users' email is not nullable unique
+Users' username is not nullable, unique
 
-Comments' id is primary key, not nullable, unique
-Comments' message is not nullable, not unique
-Comments' user_id is foreign key to users, not nullable, not unique
+Peeps' id is primary key, not nullable, unique
+Peeps' message is not nullable
+Peeps' time is not nullable
+Peeps' username is foreign key to users
 
 
 Notes on functionality:
