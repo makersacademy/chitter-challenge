@@ -1,3 +1,5 @@
+require 'timecop'
+
 feature 'Displaying peeps' do
   scenario 'user posts a peep which is displayed' do
     Peep.create(peep: 'This is a peep')

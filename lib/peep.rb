@@ -7,8 +7,8 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT * FROM peeps")
-    result.map {|peep| peep['peep_text']}
+    result = connection.exec("SELECT * FROM peeps ORDER BY id DESC")
+    result.map { |peep| peep['peep_text'] }
   end
 
   def self.create(peep:)

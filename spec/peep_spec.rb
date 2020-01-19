@@ -1,4 +1,5 @@
 require 'peep'
+require 'timecop'
 
 describe Peep do
   describe '.all' do
@@ -14,5 +15,10 @@ describe Peep do
       Peep.create(peep: 'a new peep')
       expect(Peep.all).to include 'a new peep'
     end
+  end
+
+  describe '.reverse_order' do
+    Peep.create(peep: 'this is a peep')
+    
   end
 end
