@@ -10,4 +10,5 @@ group :test do
   gem "rake"
   gem "selenium-webdriver"
   gem 'pg'
+  gem 'bcrypt'
 end

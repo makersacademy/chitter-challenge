@@ -1,19 +1,22 @@
 require 'sinatra/base'
 require './lib/peep.rb'
 require './lib/database_connection_setup'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
 
   get '/' do
-    p ENV['RACK_ENV']
     'Welcome to Chitter!'
     erb(:index)
   end
 
   post '/log_in' do
     session[:name] = params[:name]
+    session[:email] = params[:email]
+    session[:password] = params[:password]
+    User.create(session[:email], session[:password])
     redirect '/peeps'
   end
   
