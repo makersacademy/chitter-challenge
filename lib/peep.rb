@@ -16,6 +16,13 @@ class Peep
     end
   end
 
+  def self.find_by(user_id:)
+    peeps = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = #{user_id} ORDER BY created_on DESC;")
+    peeps.map do |peep|
+      Peep.new(id: peep['id'], user_id: peep['user_id'], content: peep['content'], created_on: peep['created_on'])
+    end
+  end
+
   def initialize(id:, user_id:, content:, created_on:)
     @id = id
     @user_id = user_id
