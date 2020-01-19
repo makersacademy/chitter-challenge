@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require_relative './lib/peep'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base 
 
@@ -7,11 +9,18 @@ class Chitter < Sinatra::Base
   end 
 
   post '/' do 
+    @peep = Peep.add(params[:peep])
     redirect('/')
   end 
 
-  get '/all_peeps' do 
+  get '/all_peeps' do
+    @peeps = Peep.all 
     erb :all_peeps
   end 
+
+  post '/all_peeps' do 
+    redirect('/all_peeps')
+  end 
+
   run! if app_file == $0 
 end 

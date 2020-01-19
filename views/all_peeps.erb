@@ -1,1 +1,5 @@
-<center><h1>All the Peeps<h1></center>
+<center><h1>All the Peeps<h1>
+<% @peeps.reverse.each do |peep| %>
+<br><%= peep.id %>: <%= peep.message%>
+<%end%>
+</center>
