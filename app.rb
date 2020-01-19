@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/login' do
+    @peeps = PeepList.get_peeps
     erb :login
   end
 
@@ -23,16 +24,16 @@ class Chitter < Sinatra::Base
     @current_username = params[:current_username]
     if User.exists?(@current_username)
       session[:current_username] = @current_username
-      redirect '/peeplist'
+      redirect '/send'
     else 
       redirect '/login'
     end
   end
 
-  get '/peeplist' do
+  get '/send' do
     @peeps = PeepList.get_peeps
     @current_username = session[:current_username]
-    erb :peeplist
+    erb :send
   end
 
   post '/logout' do
@@ -43,7 +44,7 @@ class Chitter < Sinatra::Base
 
   post '/add_peep' do
     PeepList.add_peep(session[:current_username],params[:message])
-    redirect '/peeplist'
+    redirect '/send'
   end
 
   run! if app_file == $0

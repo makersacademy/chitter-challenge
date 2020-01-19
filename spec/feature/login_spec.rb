@@ -16,6 +16,6 @@ feature 'user login' do
     click_on 'Register'
     fill_in :current_username, with: 'Mike'
     click_on 'Login'
-    expect(page).to have_content 'Please login'
+    expect(page).to have_content 'Please log in to send peeps'
   end
 end

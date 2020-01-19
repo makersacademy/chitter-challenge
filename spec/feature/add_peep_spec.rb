@@ -1,9 +1,9 @@
 feature 'add peep' do
   scenario 'user adds a peep' do
     visit '/'
-    fill_in :current_username, with: 'John'
+    fill_in :current_username, with: 'Jane'
     click_on 'Register'
-    fill_in :current_username, with: 'John'
+    fill_in :current_username, with: 'Jane'
     click_on 'Login'
     fill_in :message, with: 'Hello world'
     click_on 'Send peep'

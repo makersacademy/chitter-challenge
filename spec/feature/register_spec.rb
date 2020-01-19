@@ -3,6 +3,6 @@ feature 'Register for chitter' do
     visit '/'
     fill_in :current_username, with: 'John'
     click_on 'Register'
-    expect(page).to have_content 'Please login'
+    expect(page).to have_content 'Please log in to send peeps'
   end
 end

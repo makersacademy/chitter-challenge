@@ -1,7 +1,56 @@
-Please login
+Please log in to send peeps
+<br>
 <br>
 <form action="/login" method="post">
   <label for="current_username">Username</label>
   <input type="text" name="current_username">
   <input type="submit" value="Login">
 </form>
+
+<br>
+<br>
+<center>
+  <%if !!@peeps%>
+    <% @peeps.each do |peep| %>
+      <br>
+      <br>
+      <% 
+      user_colour = (Digest::MD5.hexdigest peep.username)[0..5]
+      user_colour_enhancer = (Digest::MD5.hexdigest peep.username)[6].to_i(16)
+      if user_colour_enhancer >10
+        index_a = 0
+        index_b = 2
+        index_c = 4
+      elsif user_colour_enhancer <5
+        index_a = 2
+        index_b = 4 
+        index_c = 0
+      else
+        index_a = 4
+        index_b = 0
+        index_c = 2
+      end
+
+      #set one RGB to zero to avoid white and grey
+      user_colour[index_a..index_a+1] = '00'
+
+      #Ensure other RGBs do not exceed 12 to avoid overly bright colourw
+      if user_colour[index_b].to_i(16) > 10
+        user_colour[index_b..index_b+1] = '99'
+      end
+
+      if user_colour[index_c].to_i(16) > 10
+        user_colour[index_c..index_c+1] = '99'
+      end
+
+      %>
+      <font color=<%=user_colour%>>
+        <%=peep.message%>
+        <br>
+        <%=peep.username%> 
+        <br>
+        <%=peep.time%> 
+      </font>
+    <%end%>
+  <%end%>
+</center>
