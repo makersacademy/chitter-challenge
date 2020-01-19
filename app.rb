@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_store, Rack::Session::Pool
 
+  
   get '/' do
     session[:peeps] = Peep.all
     erb(:peep)
