@@ -1,16 +1,19 @@
 Chitter Challenge
 =================
 
+Chitter webapp for users to post what they are doing and view other users posts. 
+
+Completed 3 user stories. User can post, view posts in reverse chronological order and posts are timestamped. The next step is to allow users to sign up to chitter. I would have to research how to add a sign in. Before doing this my thoughts are to have a new table in my database which stores usernames and passwords, which are checked against each other when a user logs in. 
 
 ## Database Setup
 
  1. Connect to psql 
  ```
- brew install postgresql
+ $ brew install postgresql
 
- brew services start postgresql
+ $ brew services start postgresql
 
- psql postgres
+ $ psql postgres
  ```
 
  2. Create the database using psql
@@ -44,9 +47,7 @@ Connect to the database
 ```
 Run query in file 01_create_bookmarks_table.sql
 
-```
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, user_name VARCHAR(60), user_handle VARCHAR(60), peep VARCHAR(140), timestamp VARCHAR(60));
-```
+
 
 
 
