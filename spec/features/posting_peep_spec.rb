@@ -4,6 +4,7 @@ feature 'Post peep' do
     fill_in('message', with: 'This is a peep!')
     click_button('Submit')
 
+    expect(current_path).to eq '/peeps'
     expect(page).to have_content "This is a peep!"
   end
 end
