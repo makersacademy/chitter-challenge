@@ -69,6 +69,17 @@ Some useful resources:
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
 - [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
+Database Approach:
+-----
+Users' id is primary key, not nullable, unique
+Users' name is not nullable, not unique
+Users' email is not nullable unique
+
+Comments' id is primary key, not nullable, unique
+Comments' message is not nullable, not unique
+Comments' user_id is foreign key to users, not nullable, not unique
+
+
 Notes on functionality:
 ------
 

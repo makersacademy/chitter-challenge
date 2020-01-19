@@ -1,0 +1,47 @@
+<%require 'digest/md5'%>
+Logged in as <%= @current_username %>
+<form action="/logout" method="post">
+  <input type="submit" value="Logout">
+</form>
+
+<br>
+<br>
+
+<center>
+
+<%if !!@peeps%>
+  <% @peeps.each do |peep| %>
+  <br>
+  <br>
+  <% 
+user_colour = (Digest::MD5.hexdigest peep.username)[0..6]
+user_index = (Digest::MD5.hexdigest peep.username)[6].to_i(16)
+if user_index >10
+  index = 0
+elsif user_index <5
+  index = 2
+else
+  index = 4
+end
+user_colour[index..index+2] = '00'
+%>
+  <font color=<%=user_colour%>>
+  <%=peep.message%>
+  <br>
+  <%=peep.username%> 
+  <br>
+  <%=peep.time%> 
+  <%end%>
+</font>
+<%end%>
+
+
+<br>
+<br>
+<form action="/add_peep" method="post">
+  <input type="text" name="message">
+  <input type="submit" value="Send peep">
+</form>
+
+
+</center>

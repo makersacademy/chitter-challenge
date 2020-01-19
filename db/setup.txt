@@ -1,0 +1,18 @@
+Production Database
+
+$ psql postgres
+$ postgres=# CREATE DATABASE "chitter";
+$ postgres=# \c chitter;
+$ chitter=# CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60) UNIQUE NOT NULL);
+$ chitter=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(120) NOT NULL, time TIME);
+$ chitter=# ALTER TABLE peeps ADD COLUMN username VARCHAR(60) REFERENCES users(username);
+
+Test Database
+
+$ psql postgres
+$ postgres=# CREATE DATABASE "chitter_test";
+$ postgres=# \c chitter_test;
+$ chitter_test=# CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60) UNIQUE NOT NULL);
+$ chitter_test=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(120) NOT NULL, time TIME);
+$ chitter_test=# ALTER TABLE peeps ADD COLUMN username VARCHAR(60) REFERENCES users(username);
+
