@@ -4,6 +4,18 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base 
 
+  get '/' do 
+    erb :login
+  end 
+
+  post '/authenticate' do
+    redirect('/home')
+  end 
+
+  get '/signup' do 
+    erb :signup
+  end
+
   get '/home' do 
     erb :index
   end 
