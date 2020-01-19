@@ -1,4 +1,5 @@
 require_relative './setup_test_database'
+require_relative './web_helpers'
 # Bring in the contents of the `app.rb` file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 

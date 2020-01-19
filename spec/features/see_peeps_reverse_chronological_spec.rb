@@ -6,7 +6,7 @@ feature 'See peeps in reverse chronological order' do
   end
 
   scenario 'See latest peep first' do
-    visit('/')
+    sign_up
     fill_in "peeps", with: "I'm Shaun"
     click_button "Tweet"
     Timecop.freeze(Time.now)
