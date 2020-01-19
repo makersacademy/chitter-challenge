@@ -1,7 +1,7 @@
-def post_peep
+def post_peep(text = 'My first peep')
   visit '/'
   click_link 'Write a Peep'
-  fill_in 'text', :with => 'My first peep'
+  fill_in 'text', :with => text
   click_button 'Share Peep'
 end
 

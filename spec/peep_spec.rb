@@ -17,7 +17,7 @@ describe Peep do
     end
 
     it 'wraps database data in Peep object and assigns instance variables' do
-      Peep.create(text: 'My second peep', user_id: user.id)
+      peep = Peep.create(text: 'My second peep', user_id: user.id)
       expect(subject.all.first.text).to eq 'My second peep'
     end
   end

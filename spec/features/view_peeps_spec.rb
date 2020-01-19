@@ -8,8 +8,6 @@ feature 'View Peeps' do
   end
 
   scenario 'User can see the time the peep was posted' do
-    sign_up
-    post_peep
     visit '/'
     click_link 'View Peeps'
     page.find('#time', :visible => true)
@@ -21,5 +19,13 @@ feature 'View Peeps' do
     visit '/'
     click_link 'View Peeps'
     expect(page).to have_content "username1"
+  end
+
+  scenario 'Peeps are shown in reverse chronological order' do
+    sign_up
+    post_peep('Newest Peep')
+    visit '/'
+    click_link 'View Peeps'
+    expect(first('#peep')).to have_content 'Newest Peep'
   end
 end
