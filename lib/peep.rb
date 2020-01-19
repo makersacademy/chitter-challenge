@@ -22,5 +22,4 @@ class Peep
     result = DatabaseConnection.query("INSERT INTO peeps (peep,time) VALUES ('#{message}','#{time}') RETURNING id, peep, time;")
     Peep.new(id: result[0]['id'], message: result[0]['peep'], time: result[0]['time'])
   end 
-
 end 

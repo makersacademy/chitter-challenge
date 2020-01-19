@@ -4,13 +4,13 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base 
 
-  get '/' do 
+  get '/home' do 
     erb :index
   end 
 
-  post '/' do 
+  post '/home' do 
     @peep = Peep.add(params[:peep])
-    redirect('/')
+    redirect('/home')
   end 
 
   get '/all_peeps' do

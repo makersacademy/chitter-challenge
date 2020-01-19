@@ -1,5 +1,5 @@
-<center><h1>All the Peeps<h1>
+<center><h1>All the Peeps</h1></center>
+
 <% @peeps.reverse.each do |peep| %>
-<br><%= peep.id %>: <%= peep.message%>
+<br><%=peep.time%>: <%= peep.message%>
 <%end%>
-</center>
