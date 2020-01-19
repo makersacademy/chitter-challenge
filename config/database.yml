@@ -1,0 +1,14 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter_test
+  pool: 2
+
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter
+  pool: 2
+
+

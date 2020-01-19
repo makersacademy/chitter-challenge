@@ -1,0 +1,39 @@
+
+  @font-face {
+    font-family: Jellee;
+    src: url("/fonts/Jellee-Roman.ttf");
+  }
+    body, input {
+    background-color: #ffffff;
+    text-align: center;
+    color:#ffffff;
+    font-family:Jellee;
+    font-size: 30px;
+    }
+    table {
+      background-color: #884ec7;
+      width: 100%;
+      height: 100%;
+      padding: 30px;
+      border-radius: 25px;
+      border: 1px solid rgb(0, 0, 0);
+
+    }
+    input {
+      font-size: 20px;
+      border-radius: 5%;
+    }
+    h1, th {
+      font-size: 50px;
+    }
+    img {
+      width: 400px;
+    }
+    th, td {
+      width: 33.33%;
+      border-left: 4px solid #000;
+      border-right: 4px solid #000;
+    }
+    h2 {
+      font-size: 40px;
+    }

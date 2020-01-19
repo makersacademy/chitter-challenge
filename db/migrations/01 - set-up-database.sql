@@ -1,0 +1,2 @@
+CREATE TABLE users(uid SERIAL PRIMARY KEY, username VARCHAR(25), email VARCHAR(30), name VARCHAR(40), password VARCHAR(30));
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, time TIMESTAMPTZ, msg VARCHAR(250), uid INTEGER references users(uid));

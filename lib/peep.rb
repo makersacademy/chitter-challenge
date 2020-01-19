@@ -1,10 +1,10 @@
 
 class Peep
 
-  attr_reader :email, :time, :message
+  attr_reader :author, :time, :message
 
-  def initialize(email, time, message)
-    @email = email
+  def initialize(author, time, message)
+    @author = author
     @time = time
     @message = message
   end
