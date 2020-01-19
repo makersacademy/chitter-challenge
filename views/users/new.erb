@@ -4,6 +4,7 @@
     <link type='text/css' rel='stylesheet' href='/css/style.css'>
   </head>
   <body>
+  <%= flash[:notice] %>
     <form style='text-align:center' action='/users' method=post>
       Sign Up:<br>
       Name: <input type=text name='name'><br>

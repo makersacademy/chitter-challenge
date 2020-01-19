@@ -7,9 +7,8 @@ html, body{
 
 body{
   font-family: 'Montserrat';
-  background-color: grey;
   text-align: center;
-  color: white;
+  color: #840037b2;
 }
 
 ul {
@@ -17,7 +16,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #840037;
+
 }
 
 li {
@@ -69,6 +68,7 @@ li #top_buttons input[type=submit]:hover {
 
 #peep-header {
   font-size: 50px;
+  color: grey;
 }
 
 div.card {
