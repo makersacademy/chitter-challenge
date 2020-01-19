@@ -39,18 +39,19 @@ describe User do
 
   describe '.exists?' do
     it 'returns true if user gives existing username' do
-      user = subject.create(name: 'name7', username: 'username7', email: 'name7@email.com', password: 'password7')
+      subject.create(name: 'name7', username: 'username7', email: 'name7@email.com', password: 'password7')
       expect(subject.exists?(username: 'username7', email: 'name@email.com')).to eq true
     end
 
     it 'returns true if user gives existing email' do
-      user = subject.create(name: 'name7', username: 'username7', email: 'name7@email.com', password: 'password7')
+      subject.create(name: 'name7', username: 'username7', email: 'name7@email.com', password: 'password7')
       expect(subject.exists?(username: 'username', email: 'name7@email.com')).to eq true
     end
 
     it 'returns false if user gives unique username and password' do
-      user = subject.create(name: 'name8', username: 'username8', email: 'name8@email.com', password: 'password8')
+      subject.create(name: 'name8', username: 'username8', email: 'name8@email.com', password: 'password8')
       expect(subject.exists?(username: 'username9', email: 'name9@email.com')).to eq false
     end
   end
+
 end

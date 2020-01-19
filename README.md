@@ -1,21 +1,88 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Small Twitter clone that allows the users to post messages to a public stream. Users can see all peeps (messages) without signing up/signing in. Users can sign up for Chitter accounts (username and email must be unique) and can log in and log out to use the app. All peeps are shown with the user's name, username, and time of post.
 
-Challenge:
--------
+## Getting Started
 
-As usual please start by forking this repo.
+### 1. Run Bundle Install
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Before you run the program, make sure your gems are up to date by running:
 
-Features:
--------
+```
+$ bundle install
+```
+
+### 2. Database Setup 
+ 
+* Install the postgresql command-line package (```$ brew postgres ```)
+* Start postgres and set it to run automatically when your computer starts. (See the instructions in the output that brew shows when it's installing postgres.)
+
+#### Create Database & Tables
+
+```
+$ psql postgres
+$ postgres=# CREATE DATABASE "chitter_app";
+$ postgres=# \c chitter_app;
+```
+
+```
+$ chitter_app=# CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20), email VARCHAR(60), password VARCHAR(20), name VARCHAR(20));
+$ chitter_app=# \dt
+```
+
+```
+$ chitter_app=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(250), timestamp TIMESTAMP, user_id INTEGER REFERENCES users(id));
+$ chitter_app=# \dt
+```
+
+#### Create Test Database & Tables
+
+```
+$ psql postgres
+$ postgres=# CREATE DATABASE "chitter_app_test";
+$ postgres=# \c chitter_app_test;
+```
+
+```
+$ chitter_app_testp=# CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20), email VARCHAR(60), password VARCHAR(20), name VARCHAR(20));
+$ chitter_app_test=# \dt
+```
+
+```
+$ chitter_app_test=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(250), timestamp TIMESTAMP, user_id INTEGER REFERENCES users(id));
+$ chitter_app_test=# \dt
+```
+
+## Running the program
+
+### Start Server
+
+```sh
+$ rackup -p 4567
+```
+
+### View in Browser
+
+```
+localhost:4567
+```
+
+## Running the tests
+
+To run tests for this program, run:
+
+```
+$ rspec
+```
+
+
+## Built With
+
+* Sinatra
+* PostgreSQL
+* Capybara
+
+## User Stories
 
 ```
 STRAIGHT UP
@@ -52,6 +119,8 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+=================
 
 Technical Approach:
 -----
