@@ -1,1 +1,2 @@
 CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(240), created_on timestamp without time zone NOT NULL DEFAULT(now()));
+ALTER TABLE "public"."peeps" ADD FOREIGN KEY ("user_id") REFERENCES "public"."users" ("id");
