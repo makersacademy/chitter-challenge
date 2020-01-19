@@ -1,0 +1,1 @@
+ALTER TABLE chitters ADD DateInserted TIMESTAMP DEFAULT current_timestamp;
