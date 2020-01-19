@@ -3,7 +3,7 @@ $LOAD_PATH << './app/controllers'
 $LOAD_PATH << './app/models'
 
 require 'sinatra/base'
-
+require 'database_connection'
 
 class Chitter < Sinatra::Base
   # sets root as the parent-directory of the current file
@@ -11,9 +11,7 @@ class Chitter < Sinatra::Base
   set :views, Proc.new { File.join(root, "views") }
   set :public_folder, Proc.new { File.join(root, "../public") }
 
-  get '/' do
-    erb :homepage
-  end
+  DatabaseConnection.add_details(dbname: 'chitter', user: ENV['USER'], dbms: PG)
 
   get '/' do
     erb :homepage
@@ -23,9 +21,6 @@ class Chitter < Sinatra::Base
 
 
   # before filters
-  before do
-
-  end
 
   # start the server if ruby file executed directly
   run! if $0 == __FILE__

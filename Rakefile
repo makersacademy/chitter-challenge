@@ -10,7 +10,12 @@ task :gems => [:bundle] do
   sh 'bundle'
 end
 
-task :database => [:gems] do
+task :postgresql => [:gems] do
+  puts 'Installing postgresql...'
+  sh 'brew install postgresql'
+end
+
+task :database => [:postgresql] do
   puts 'Clearing and creating databases...'
   begin
     sh "dropdb 'chitter'"

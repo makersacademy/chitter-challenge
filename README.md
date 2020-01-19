@@ -19,7 +19,8 @@ The webapp has been developed on Sinatra, a rack based platform, so to install c
 - move to the root directory in terminal
 - run ``` gem install rake ```
 - run ``` rake ```
-- run rake  , run the ```bundle``` command to install the required gems. Please make sure you have postgresql install by running the following command in terminal: ``` brew install postgre ``` then use the ```rake``` command to to create the Postgresql database. Finally run ```rackup``` (or other rackup application) in the root directory to start the application running on the local host.
+
+The rake command will install the DBMS 'postgresql', install required gems, create databases, and start the server running on the localhost port 9292.
 
 -------
 
@@ -100,9 +101,14 @@ I want to receive an email if I am tagged in a Peep
   - tags - fields: id, tag, (many tags to many messages/comments)
   - tags_messages_comments join table - fields: id, fk_message_id, fk_comment_id
 
-#### Process
+### Process
+#### Prerequisites
 - Create filestructure
 - Create databases using Rakefile
+
+#### Model
+- TDD database_connection
+
 
 ---------
 ---------

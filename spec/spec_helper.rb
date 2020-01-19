@@ -2,9 +2,8 @@ require 'rspec'
 
 #set up environment
 ENV['RACK_ENV'] = 'test'
-$LOAD_PATH << './lib'
+ENV['ENVIRONMENT'] = 'test'
 $LOAD_PATH << './app/controllers'
-$LOAD_PATH << './app/models'
 
 #add capybara setup
 require 'capybara/rspec'
@@ -22,6 +21,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Forma
 SimpleCov.start
 
 RSpec.configure do |config|
+
+  # config.after(:each) do
+  #   DbConnection.new.command("TRUNCATE users, messages, comments, tags, tags_messages_comments;")
+  # end
 
   # Use color not only in STDOUT but also in pagers and files
   config.tty = true
