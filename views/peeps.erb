@@ -1,1 +1,4 @@
-<%= @peeps %>
+<ul><% @chitter.all.each do |chitter| %></ul>
+  <li><%= chitter.peep %><%= chitter.dateinserted %></li>
+  <% end %>
+</ul>

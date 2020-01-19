@@ -1,11 +1,12 @@
 require 'pg'
 
 class Chitter
-  attr_reader :id, :peep
+  attr_reader :id, :peep, :dateinserted
 
-  def initialize(id:, peep:)
+  def initialize(id:, peep:, dateinserted:)
     @id = id
     @peep = peep
+    @dateinserted = dateinserted
   end
 
   def self.all
@@ -16,7 +17,7 @@ class Chitter
     end
     result = connection.exec('SELECT * FROM chitters')
     result.map do |chitter|
-      Chitter.new(id: chitter['id'], peep: chitter['peep'])
+      Chitter.new(id: chitter['id'], peep: chitter['peep'], dateinserted: chitter['dateinserted'])
     end
   end
 
@@ -26,9 +27,8 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter_manager')
     end
-    result = connection.exec("INSERT INTO chitters (peep) VALUES('#{peep}') RETURNING id, peep")
-    Chitter.new(id: result[0]['id'], peep: result[0]['peep'])
+    result = connection.exec("INSERT INTO chitters (peep) VALUES('#{peep}') RETURNING id, peep, dateinserted")
+    Chitter.new(id: result[0]['id'], peep: result[0]['peep'], dateinserted: result[0]['dateinserted'])
   end
-  
-  
+
 end
