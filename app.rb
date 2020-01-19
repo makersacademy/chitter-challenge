@@ -8,16 +8,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep/new' do
-    p "time!"
-    p Time.now
     erb :'peeps/form'
-    
   end
 
   post '/peep' do
     p 'params'
     p params
-    Peep.create(user_name: params[:user_name], user_handle: params[:user_handle], peep: params[:peep])
+    Peep.create(user_name: params[:user_name], user_handle: params[:user_handle], peep: params[:peep], timestamp: params[:timestamp])
     redirect 'peep/view'
   end
 
