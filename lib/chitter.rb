@@ -15,7 +15,7 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter_manager')
     end
-    result = connection.exec('SELECT * FROM chitters')
+    result = connection.exec('SELECT * FROM chitters ORDER BY dateinserted DESC')
     result.map do |chitter|
       Chitter.new(id: chitter['id'], peep: chitter['peep'], dateinserted: chitter['dateinserted'])
     end
