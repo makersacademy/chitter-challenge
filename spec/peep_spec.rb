@@ -3,9 +3,7 @@ require_relative '../lib/user'
 
 describe Peep do
   let(:subject) { Peep }
-  let(:user) { User.create(name:'user 1', username: 'user1', email: 'email', password: 'password') }
-
- 
+  let(:user) { User.create(name: 'user 1', username: 'user1', email: 'email', password: 'password') }
 
   describe '.all' do
     it { expect(subject.all).to be_a Array }
@@ -17,7 +15,7 @@ describe Peep do
     end
 
     it 'wraps database data in Peep object and assigns instance variables' do
-      peep = Peep.create(text: 'My second peep', user_id: user.id)
+      Peep.create(text: 'My second peep', user_id: user.id)
       expect(subject.all.first.text).to eq 'My second peep'
     end
   end

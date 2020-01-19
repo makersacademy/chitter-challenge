@@ -7,7 +7,6 @@ describe DatabaseConnection do
       DatabaseConnection.setup('chitter_app_test')
     end
   end
-end
 
   describe '.query' do
     it 'executes a query via PG' do
@@ -17,4 +16,5 @@ end
 
       DatabaseConnection.query("SELECT * FROM peeps;")
     end
+  end
 end

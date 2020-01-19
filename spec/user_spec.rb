@@ -27,12 +27,12 @@ describe User do
     end
 
     it 'returns nil when given incorrect username' do
-      user = subject.create(name: 'name5', username: 'username5', email: 'name5@email.com', password: 'password5')
+      subject.create(name: 'name5', username: 'username5', email: 'name5@email.com', password: 'password5')
       expect(subject.authenticate(username: 'wrongusername', password: 'password5')).to be_nil
     end
 
     it 'returns nil given an incorrect password' do
-      user = subject.create(name: 'name6', username: 'username6', email: 'name6@email.com', password: 'password6')
+      subject.create(name: 'name6', username: 'username6', email: 'name6@email.com', password: 'password6')
       expect(subject.authenticate(username: 'username6', password: 'wrongpassword')).to be_nil
     end
   end

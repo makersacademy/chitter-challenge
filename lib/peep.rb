@@ -14,8 +14,9 @@ class Peep
 
   def self.all
     DatabaseConnection.setup(environment)
-    result = DatabaseConnection.query("SELECT * FROM peeps INNER JOIN users ON peeps.user_id=users.id ORDER BY peeps.id DESC")
-    result.map { |peep| Peep.new(id: peep['id'], text: peep['text'], timestamp: peep['timestamp'], user_id: peep['user_id'], username: peep['username'] ) }
+    query = "SELECT * FROM peeps INNER JOIN users ON peeps.user_id=users.id ORDER BY peeps.id DESC"
+    result = DatabaseConnection.query(query)
+    result.map { |peep| Peep.new(id: peep['id'], text: peep['text'], timestamp: peep['timestamp'], user_id: peep['user_id'], username: peep['username']) }
   end
 
   def self.create(text:, timestamp: Time.now.strftime("%Y-%m-%d %H:%M"), user_id:)

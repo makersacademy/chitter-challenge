@@ -7,14 +7,26 @@
     <%= flash[:notice] %>
     <h1>Welcome to Chitter <%=@user%></h1>
     <% if @user != nil %>
-      <a href='/peeps/new'>Write a Peep</a>
+      <form action='/peeps/new'>
+        <input type=submit value='Write a Peep'>
+      </form>
+
       <form action='/sessions/destroy' method='post'>
         <input type=submit value='Log Out'>
       </form>
+
     <% else %>
-      <a href='/sessions/new'>Sign In</a>
-      <a href='/users/new'>Sign Up</a>
+      <form action='/sessions/new'>
+        <input type=submit value='Sign In'>
+      </form>
+
+      <form action='/users/new'>
+        <input type=submit value='Sign Up'>
+      </form>
     <% end %>
-    <a href='/peeps'>View Peeps</a>
+    
+      <form action='/peeps'>
+        <input type=submit value='View Peeps'>
+      </form>
   </body>
 </html>

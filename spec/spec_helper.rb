@@ -20,7 +20,6 @@ Capybara.app = ChitterApp
 
 ENV['RACK_ENV'] = 'test'
 
-
 RSpec.configure do |config|
   config.after(:suite) do
     puts

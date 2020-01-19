@@ -6,23 +6,23 @@ feature 'Homepage' do
 
   scenario 'Homepage has view peeps button' do
     visit '/'
-    expect(page).to have_link 'View Peeps'
+    expect(page).to have_button 'View Peeps'
   end
 
   scenario 'Homepage has write a peep button if user is signed up' do
     sign_up
     visit '/'
-    expect(page).to have_link 'Write a Peep'
+    expect(page).to have_button 'Write a Peep'
   end
 
   scenario 'Homepage has sign up button' do
     visit '/'
-    expect(page).to have_link 'Sign Up'
+    expect(page).to have_button 'Sign Up'
   end
 
   scenario 'Homepage has sign in button' do
     visit '/'
-    expect(page).to have_link 'Sign In'
+    expect(page).to have_button 'Sign In'
   end
 
   scenario 'Homepage has sign out button' do

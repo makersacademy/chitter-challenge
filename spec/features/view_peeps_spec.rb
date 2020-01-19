@@ -3,13 +3,13 @@ feature 'View Peeps' do
     sign_up
     post_peep
     visit '/'
-    click_link 'View Peeps'
+    click_button 'View Peeps'
     expect(page).to have_content 'My first peep'
   end
 
   scenario 'User can see the time the peep was posted' do
     visit '/'
-    click_link 'View Peeps'
+    click_button 'View Peeps'
     page.find('#time', :visible => true)
   end
 
@@ -17,7 +17,7 @@ feature 'View Peeps' do
     sign_up
     post_peep
     visit '/'
-    click_link 'View Peeps'
+    click_button 'View Peeps'
     expect(page).to have_content "username1"
   end
 
@@ -25,7 +25,7 @@ feature 'View Peeps' do
     sign_up
     post_peep('Newest Peep')
     visit '/'
-    click_link 'View Peeps'
+    click_button 'View Peeps'
     expect(first('#peep')).to have_content 'Newest Peep'
   end
 end

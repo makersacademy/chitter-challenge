@@ -60,5 +60,4 @@ class ChitterApp < Sinatra::Base
     redirect '/'
   end
 
-
 end
