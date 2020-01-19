@@ -20,6 +20,10 @@ class Chitter < Sinatra::Base
     erb :index
   end 
 
+  post '/check_info' do 
+    redirect('/home')
+  end 
+
   post '/home' do 
     @peep = Peep.add(params[:peep])
     redirect('/home')
