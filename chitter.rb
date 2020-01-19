@@ -48,5 +48,10 @@ class Chitter < Sinatra::Base
     redirect '/messages'
   end 
 
+  post '/logout' do
+    session[:user] = nil
+    redirect '/messages'
+  end
+
   run! if app_file == $0
 end

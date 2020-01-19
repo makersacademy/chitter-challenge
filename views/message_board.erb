@@ -18,6 +18,10 @@ User: <%= @user.username %>
   <input type="text" name="content" />
   <button type='submit' value='Publish'>Publish</button>
 </form>
+<br>
+<form action='/logout' method='post'>
+  <button type='submit' value='Logout'>Logout</button>
+</form>
 <% end %>
 
 <h1>Here are all messages</h1>
