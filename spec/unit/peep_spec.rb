@@ -1,17 +1,19 @@
 require 'peep'
+require 'database_helper'
 
 describe Peep do 
   describe '.all' do 
     it 'displays all the peepes in the database' do
-      DatabaseConnection.setup('chitter_test')
       expect(Peep.all.length).to eq 1
     end 
   end 
 
   describe '.add' do 
     it 'adds a peep to the database' do
-      expect(DatabaseConnection).to receive(:query).with("INSERT INTO peeps (peep) VALUES 'Hey how it do'")
-      Peep.add('Hey how it do') 
+      peep = Peep.add('Hey how do')
+
+      expect(peep).to be_a Peep
+      expect(peep.message).to eq 'Hey how do'
     end 
   end 
 end 
