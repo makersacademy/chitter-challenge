@@ -1,5 +1,19 @@
 require 'rspec'
 
+#set up environment
+ENV['RACK_ENV'] = 'test'
+$LOAD_PATH << './lib'
+$LOAD_PATH << './app/controllers'
+$LOAD_PATH << './app/models'
+
+#add capybara setup
+require 'capybara/rspec'
+require 'capybara'
+require 'capybara/dsl'
+require 'app_controller'
+
+Capybara.app = Chitter
+
 #add simple cov setup to rspec setup file=>>
 require 'simplecov'
 require 'simplecov-console'
@@ -19,17 +33,3 @@ RSpec.configure do |config|
     puts
   end
 end
-
-#set up environment
-ENV['RACK_ENV'] = 'test'
-$LOAD_PATH << './lib'
-$LOAD_PATH << './app/controllers'
-$LOAD_PATH << './app/models'
-
-#add capybara setup
-require 'capybara/rspec'
-require 'capybara'
-require 'capybara/dsl'
-require 'app_controller'
-
-Capybara.app = Chitter

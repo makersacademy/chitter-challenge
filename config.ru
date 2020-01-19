@@ -1,3 +1,3 @@
-require 'app/controllers/app_controler'
+require './app/controllers/app_controller.rb'
 
 run Chitter
