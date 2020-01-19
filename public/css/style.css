@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+html, body{
+  height: 100%;
+  font-weight: 800;
+}
+
+body{
+  font-family: 'Montserrat';
+  background-color: grey;
+  text-align: center;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #840037;
+}
+
+li {
+  float: left;
+}
+
+li #top_buttons input[type=submit] {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li #top_buttons input[type=submit]:hover {
+  background-color: #840037b2;
+  color: white;
+}
+
+[type=submit] {
+  background-color: #840037;
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  margin: 15px 2px;
+  transition-duration: 0.4s;
+}
+
+[type=submit]:hover {
+  background-color: #FDB731;
+  color: white;
+}
+
+#peep-text {
+  margin: 15px 0px 0px 0px;
+  font-size: 20px;
+  padding: 10px 0px 0px 0px;
+}
+
+#time {
+  font-size: 10px;
+  padding: 5px 0px 10px 0px;
+}
+
+#username {
+  font-size: 13px;
+  padding: 10px 0px 0px 0px;
+}
+
+#peep-header {
+  font-size: 50px;
+}
+
+div.card {
+  background-color: #840037d2;
+  width: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  margin: auto;
+}

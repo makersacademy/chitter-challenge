@@ -26,6 +26,6 @@ feature 'View Peeps' do
     post_peep('Newest Peep')
     visit '/'
     click_button 'View Peeps'
-    expect(first('#peep')).to have_content 'Newest Peep'
+    expect(first('#peep-text')).to have_content 'Newest Peep'
   end
 end

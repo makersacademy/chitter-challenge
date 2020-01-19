@@ -1,19 +1,54 @@
 <!DOCTYPE html>
   <head>
     <title></title>
-    <link rel="stylesheet" href="">
+    <link type='text/css' rel='stylesheet' href='/css/style.css'>
   </head>
   <body>
+    <div id="top_buttons">
+    <ul>
+    <% if @user != nil %>
+    <li>
+    <form action='/peeps/new'>
+      <input type=submit value='Write a Peep'>
+    </form></li>
+    <li>
+    <form action='/sessions/destroy' method='post'>
+      <input type=submit value='Log Out'>
+    </form></li>
+
+    <% else %>
+    <li>
+      <form action='/sessions/new'>
+        <input type=submit value='Sign In'>
+      </form></li>
+      <li>
+      <form action='/users/new'>
+        <input type=submit value='Sign Up'>
+      </form></li>
+    <% end %>
+    <li>
+    <form action='/'>
+      <input type=submit value='Home'>
+    </form></li>
+    </ul>
+    </div>
+    <div id="peep-header">
+      yo, peep dis:
+    </div>
     <% @peeps.each do |peep| %>
-    <div id="peep">
-      <%= peep.text %><br>
-      <div id="time">
-        Posted At: <%= peep.timestamp %>
-      </div>
-      <div id="username">
-        Posted By: <%= peep.username %>
-      </div>
-      </div>
+      <div class="card">
+        <div id="peep-text">
+          <%= peep.text %><br>
+        </div>
+
+        <div id="username">
+          <%= peep.name %> (@<%= peep.username %>)
+        </div>
+        <div id="time">
+          <%= peep.timestamp %>
+        </div>
+      </div> 
+
     <% end %>
   </body>
 </html>
