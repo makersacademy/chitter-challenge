@@ -3,6 +3,8 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require './lib/models/database_connection'
+require 'database_helper'
 
 ENV['RACK_ENV'] = 'test'
 
@@ -17,6 +19,11 @@ require './app'
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+
+  config.before(:each) do
+    setup_test_database
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './lib/peep'
+require './lib/models/peep'
 
 class Chitter < Sinatra::Base
 
