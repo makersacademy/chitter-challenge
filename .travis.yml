@@ -2,11 +2,13 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -c '\c chitter_test;'
-  - psql -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60) UNIQUE NOT NULL);'
-  - psql -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(120) NOT NULL, time TIME NOT NULL);'
-  - psql -U postgres -c 'ALTER TABLE peeps ADD COLUMN username VARCHAR(60) REFERENCES users(username);'
+  - psql postgres
+  - CREATE DATABASE chitter_test;
+  - \c chitter_test;
+  - CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60) UNIQUE NOT NULL);
+  - CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(120) NOT NULL, time TIME NOT NULL);
+  - ALTER TABLE peeps ADD COLUMN username VARCHAR(60) REFERENCES users(username);
+  - \q
   
 
 script:
