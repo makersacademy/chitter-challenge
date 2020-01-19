@@ -1,5 +1,5 @@
 <ul><% @chitter.all.each do |chitter| %></ul>
-  <li>Your peeps: <%= chitter.peep %> </li>
-  <li>Time inserted:<%= chitter.dateinserted %></li>
+  <li class="peep"><b>Your peeps:</b> <%= chitter.peep %> </li>
+  <li><b>Time inserted:</b> <%= chitter.dateinserted %></li>
   <% end %>
 </ul>
