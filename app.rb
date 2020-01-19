@@ -27,6 +27,11 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
+  get '/users/:id' do
+    @peeps = Peep.find_by(user_id: params[:id])
+    erb :'peeps/user'
+  end
+
   post '/users' do
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     session[:user_id] = user.id

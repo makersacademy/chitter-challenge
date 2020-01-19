@@ -11,8 +11,8 @@
 <ul>
   <% @peeps.each do |peep| %>
   <% peep_user = User.find(id: peep.user_id) %>
-  <li> <%= peep.content %> </li>
-  <li> <%= peep_user.username %> peeped on: <%= peep.created_on %>
+  <li><%= peep.content %> </li>
+  <li><a href='/users/<%= peep_user.id %>'><%= peep_user.username %></a> peeped on: <%= peep.created_on %>
   <% end %>
 </ul>
 <% if @user %>
