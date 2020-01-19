@@ -1,0 +1,23 @@
+<h1>Chitter</h1>
+<h2></h2>
+<!-- add line -->
+<div>
+<br>
+<form action="/peep" method="post">
+  <input type=text name=create_message value="enter message">
+  <input type="submit" value="Add Peep">
+</form>
+<br>
+</div>
+
+</div>
+<div>
+  <ul style="list-style-type:none">
+      <li>  Created On              Peeps </li>
+    <% session[:peeps].each do |peep| %>
+      <li class="Peep"> <%= peep.created_on %>    <%= peep.message %> </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
