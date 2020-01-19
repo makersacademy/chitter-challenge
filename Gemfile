@@ -10,3 +10,4 @@ end
 gem 'pg'
 gem 'sinatra'
 gem 'capybara'
+gem 'sinatra-flash'

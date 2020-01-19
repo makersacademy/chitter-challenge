@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="">
   </head>
   <body>
+    <%= flash[:notice] %>
     <form style='text-align:center' action='/sessions' method=post>
     Sign In:<br>
     Username: <input type=text name=username>

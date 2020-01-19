@@ -23,8 +23,12 @@ describe User do
     it 'returns a user if given a correct username and password' do
       user = subject.create(name: 'name4', username: 'username4', email: 'name4@email.com', password: 'password4')
       authenticated_user = subject.authenticate(username: 'username4', password: 'password4')
-  
       expect(authenticated_user.id).to eq user.id
+    end
+
+    it 'returns nil when given incorrect username' do
+      user = subject.create(name: 'name5', username: 'username5', email: 'name5@email.com', password: 'password5')
+      expect(subject.authenticate(username: 'wrongusername', password: 'password5')).to be_nil
     end
   end
 end

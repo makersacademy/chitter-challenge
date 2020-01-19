@@ -1,9 +1,11 @@
 require 'sinatra/base'
 require './lib/peep'
 require './lib/user'
+require 'sinatra/flash'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
   
   get '/' do
     @user = session[:username]
@@ -42,9 +44,14 @@ class ChitterApp < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    session[:username] = user.username
-    session[:user_id] = user.id
-    redirect '/'
+    if user
+      session[:username] = user.username
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash[:notice] = 'Incorrect username or password'
+      redirect '/sessions/new'
+    end
   end
 
 
