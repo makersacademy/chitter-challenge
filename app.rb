@@ -11,6 +11,11 @@ class Chitter < Sinatra::Base
     'Welcome to Chitter!'
     erb(:index)
   end
+
+  post '/log_in' do
+    session[:name] = params[:name]
+    redirect '/peeps'
+  end
   
   post '/peeps/new' do
     session[:peep] = params[:peep]
@@ -19,6 +24,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @user_name = session[:name]
     @peeps = Peep.all
     erb(:peeps)
   end

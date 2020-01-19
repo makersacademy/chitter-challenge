@@ -1,3 +1,20 @@
+<center><h1>Welcome to Chitter <%= @user_name%></h1>
+<br>
+<br>
+
+<h2>Your peeps:</h2>
+<br>
+<br>
+
 <% @peeps.each do |peep| %>
 <li> <%= peep %> </li>
 <% end %>
+
+
+<br>
+<br>
+
+<form action= '/peeps/new' method = 'post'>
+<input type= 'text' name= peep placeholder= 'Whats happening?'>
+<input type= 'submit' name= 'Peep' value= 'Peep'>
+</form></center>
