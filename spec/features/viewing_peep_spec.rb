@@ -1,5 +1,5 @@
 feature 'Viewing peep' do
-  scenario 'A user can see the peeps they posted' do
+  scenario 'A user can see peeps in reverse chronological order' do
     Peeps.post(message: 'This is a peep!')
     visit('/peeps')
 
