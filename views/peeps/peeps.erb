@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type='text/css' rel='stylesheet' href='/css/styles.css'>
+  </head>
+  <body>
+
+  <ul>
+      <% @peeps.reverse.each do |peep|%>
+        <li class="peeps" id="peep-<%=peep.id%>">
+          <%=peep.user_name%>
+          <%=peep.user_handle%><br>
+          <%=peep.peep%>
+          <%=peep.timestamp%>
+          <br>
+        </li>
+        <br>
+      <% end %>
+    </ul>
+
+    
+  </body>
+</html>

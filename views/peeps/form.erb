@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h2>What's are you doing?</h2>
+
+      <form action="/peep" method="post">
+        Your name:<br>
+        <input type="text" name="user_name">
+        <br>
+        User handle:<br>
+        <input type="text" name="user_handle">
+        <br>
+        Peep:<br>
+        <input type="text" name="peep">
+        <br><br>
+        <input type="submit" value="Post">
+        <input type="hidden" name="timestamp" value=<%=Time.now%> step="1">
+      </form>
+
+  </body>
+</html>
+      
