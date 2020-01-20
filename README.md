@@ -1,3 +1,14 @@
+## Database Setup
+
+connect to psql 
+Create a database for Chitter using: CREATE DATABASE chitter;
+Create a test database for Chitter using: CREATE DATABASE chitter_test;
+
+This database will be used to store peeps see two tables will be set up in their respective databases with identical specifications. See db file. 
+
+The test database is designed to truncate for each test and contain a peep. 
+
+
 Chitter Challenge
 =================
 
