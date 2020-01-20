@@ -1,0 +1,1 @@
+INSERT INTO users (username, email, name, password) VALUES ('#{username}', '#{email}', '#{name}', '#{password}')

@@ -1,0 +1,1 @@
+INSERT INTO peeps (time, msg, uid) VALUES '#{uid}', '#{time}', '#{msg}

@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <style>
+    .small {
+      font-size: 19px;
+    }
+    .message {
+      font-size: 27px;
+      background-color: #D8D8D8;
+      border-radius: 10px;
+    }
+    .peep {
+      width: 100%;
+      color: #884ec7;
+      background-color: #ffffff;
+      padding: 2px;
+      border-radius: 10px;
+      border-bottom: 2pt solid #884ec7;
+    }
+    </style>
 </head>
 
 <body>
-<table>
-  <tr>
-    <th style='text-align: left; colspan="2";'> Chitter </th>
-    <th style='width:9%; text-align: right'> Sign Up </th>
-    <th style='width:9%; text-align: right'> Login </th>
+  <table>
+    <tr>
+      <th style='text-align: left; colspan="2";'> Chitter </th>
+      <th style='width:9%; text-align: right'> Sign Up </th>
+      <th style='width:9%; text-align: right'><a href='./login'> Login </th>
+    </tr>
+<br>
+
+
+<% @peeps.each do |peep| %>
+<tr>
+  <td>
+    <table class = 'peep'>
+      <tr><td class='small' style='text-align: left'> @<%= peep.username  %></td></tr>
+      <tr><td class = 'message' style='text-align: left'> <%= peep.msg %></td></tr>
+      <tr><td class = 'small' style='text-align: right'> <%= peep.created_at.strftime('%-dth %B, %Y') %></td></tr>
+      <br>
+    </table>  
+  </td>
   </tr>
+  <% end %>
 </table>
+
 </body>
 
 </html>
