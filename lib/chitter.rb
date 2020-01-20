@@ -10,7 +10,7 @@ class Chitter
 
   def self.all
     connection = PG.connect(dbname: 'chitter')
-    result = connection.exec("SELECT * FROM chits;")
+    result = connection.exec("SELECT * FROM chits ORDER BY id DESC;")
     result.map { |chitter|chitter['message'] }
   end
 
