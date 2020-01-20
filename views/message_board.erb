@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<h1><center>WELCOME TO CHITTER</center></h1>
+<br>
+
+<% if @user == nil %>
+<form action='/sign_up'>
+  <button>Sign up</button>
+</form>
+<br>
+<form action='/login' method='post'>
+  <input type="text" name="username" />
+  <button type='submit' value='Login'>Login</button>
+</form>
+<% else %>
+User: <%= @user.username %>
+<form action='/messages/new' method='post'>
+  <input type="text" name="content" />
+  <button type='submit' value='Publish'>Publish</button>
+</form>
+<br>
+<form action='/logout' method='post'>
+  <button type='submit' value='Logout'>Logout</button>
+</form>
+<% end %>
+
+<h1>Here are all messages</h1>
+<br>
+<ul>
+  <% @list.each do |message| %> 
+    <li><strong><%= message.content %></strong>
+    <br>
+    Posted on <%= message.time %> by <%= message.author %>
+    <br>
+    <br>
+    </li>
+  <% end %>
+</ul>

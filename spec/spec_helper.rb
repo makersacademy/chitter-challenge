@@ -1,3 +1,21 @@
+ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
+require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
+
+require 'setup_test_database'
+require 'capybara'
+require 'rspec'
+require 'capybara/rspec'
+
+Capybara.app = Chitter
+
 require 'simplecov'
 require 'simplecov-console'
 
