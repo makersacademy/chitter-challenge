@@ -1,12 +1,27 @@
-<h1>Welcome to Chitter!!!</h1>
-<br><br><br>
-<h2>Please enter your peep:</h2>
-<form action="/message" method="post">
-  <textarea name="message" rows ="10" cols ="30"></textarea>
-  <input type="submit" value="Post">
-</form>
+<head>
+  <title>Chitter - Home</title>
+  <style>
+    body{
+      background: linear-gradient(lightblue, green);
+      margin: 50px;
+    }
+  </style>
+</head>
 
+<body>
+  <h1>Welcome to Chitter!!!</h1>
+  <br><br><br>
+  <h2>Please enter your peep:</h2>
+  <form action="/message" method="post">
+    <textarea name="message" rows ="10" cols ="30"></textarea>
+    <input type="submit" value="Post">
+  </form>
+  <br><br>
 
+  <h2>Peeps:</h2>
+  <div >
     <% @chitter.each do |chitter| %>
     <p><%= chitter %></p>
     <% end %>
+  </div>
+</body>
