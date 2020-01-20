@@ -6,6 +6,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/message' do
-    redirect '/index'
+    redirect '/'
   end
 end
