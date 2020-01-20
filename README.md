@@ -1,8 +1,8 @@
 ***User Story 1 Completed***
-I created a created an index route that communicates with the Chitter model to show the list of messages in the database (Chitter.all). I used the Chitter.create method pass a query to the database that inserts a new message(peep) into the database. The controller contains an instance variable which is called in the view to display the post on the browser.
-Chitter Challenge. I also added css elements to my view page.
+I created a created an index route that communicates with the Chitter model to show the list of messages in the database (Chitter.all). I used the Chitter.create method  to pass a query to the database that inserts a new message(peep) into the database. The controller contains an instance variable which is called in the view to display the post on the browser. I also added css elements to my view page.
 
-***User Story 2***
+***User Story 2 Completed***
+I wrote a test that expected messages not to end with "Hello World!" (as this was the first message) and amended the query in the .all method to order messages in descending order of id (therefore the latest message appears at the top) in order to pass this test. I created a test database and refactored my tests to communicate with the test database(I had to disable my create method and tests in order to do this but reinstated them after the test database  and corresponding spec tests had been established).
 
 =================
 
