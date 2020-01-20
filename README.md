@@ -1,14 +1,24 @@
 
-####Project set-up
-*Forked the project https://github.com/makersacademy/chitter-challenge
-*Cloned the project
-*Listed the gems in the Gemfile:
-  *gem 'sinatra'
-  *gem 'capybara'
-*Installed gems: bundle install
-*In the root directory, set up a basic Sinatra application in file called chitter.rb
-*Configured the rackup command to run the application in chitter.rb, via a file called config.ru
-*Adjusted the spec_helper.rb to configure Capybara
+#### Project set-up
+* Forked the project https://github.com/makersacademy/chitter-challenge
+* Cloned the project
+* Listed the gems in the Gemfile:
+  * gem 'sinatra'
+  * gem 'capybara'
+* Installed gems: bundle install
+* In the root directory, set up a basic Sinatra application in file called chitter.rb
+* Configured the rackup command to run the application in chitter.rb, via a file called config.ru
+* Adjusted the spec_helper.rb to configure Capybara
+
+#### Database set-up
+* The project uses PostgreSQL
+* Use Homebrew to install PostgreSQL: brew install postgresql
+* Connect to PostgresSQL using psql
+* Create a new database using the psql command: CREATE DATABASE chitter_manager;
+* Connect to the database using the pqsl command: \c chitter_manager;
+* Run the query we have saved in the file 01_create_peeps_table.sql
+* Install pg gem, to allow interacting with PostgreSQL from Ruby
+
 
 
 Chitter Challenge
