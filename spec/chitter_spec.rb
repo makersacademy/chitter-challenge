@@ -3,19 +3,29 @@ require 'chitter'
 describe Chitter do
   describe '.all' do
     it "shows all the mesages posted" do
-      chitters = Chitter.all
-      connection = PG.connect(dbname: 'chitter')
+      connection = PG.connect(dbname: 'chitter_test')
       # # Add the test data
-      # chitter = Chitter.create(message: 'Hello World!')
-      # Chitter.create(message: 'This is another peep.')
-      # Chitter.create(message: 'This is a third peep')
+      connection.exec("INSERT INTO chits (message) VALUES ('Hello World!');")
+      connection.exec("INSERT INTO chits (message) VALUES('This is another peep.');")
+      connection.exec("INSERT INTO chits (message) VALUES('This is a third peep');")
+
+      chitters = Chitter.all
+
       expect(chitters).to include("Hello World!")
       expect(chitters).to include("This is another peep.")
       expect(chitters).to include("This is a third peep")
     end
 
     it "shows messages posted in reverse chronological order" do
-      expect(Chitter.all).to end_with("Hello World!")
+      connection = PG.connect(dbname: 'chitter_test')
+      # # Add the test data
+      connection.exec("INSERT INTO chits (message) VALUES ('Hello World!');")
+      connection.exec("INSERT INTO chits (message) VALUES('This is another peep.');")
+      connection.exec("INSERT INTO chits (message) VALUES('This is a third peep');")
+
+      chitters = Chitter.all
+
+      expect(chitters).to end_with("Hello World!")
     end
   end
 
