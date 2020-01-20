@@ -16,8 +16,8 @@ class Peep
   end
 
   def self.add(peep)
-    time = "#{Time.now.hour}:#{Time.now.min}"
-    DatabaseConnection.query("INSERT INTO peeps (peep, time) VALUES('#{peep}', '#{time}')")
+    time = Time.now.strftime("%k:%M")
+    DatabaseConnection.query("INSERT INTO peeps (peep, time) VALUES('#{peep}','#{time}')")
   end
 
 end

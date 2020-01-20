@@ -18,7 +18,7 @@ describe Peep do
     subject.add('Hello Chitter')
 
     expect(subject.all[0].peep).to eq 'Hello Chitter'
-    expect(subject.all[0].time).to eq "#{Time.now.hour}:#{Time.now.min}"
+    expect(subject.all[0].time).to eq Time.now.strftime('%k:%M')
   end
 end
   
