@@ -1,4 +1,4 @@
-require 'User'
+require 'user'
 
 describe User do
   describe '.create' do
