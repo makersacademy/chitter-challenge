@@ -26,8 +26,12 @@ h1 {
 }
 
 h2 {
-  padding-top: 1rem;
+  padding: 1rem 0;
   font-size: 1.2rem;
+}
+
+.alert {
+  color: yellow;
 }
 
 nav {
@@ -79,6 +83,7 @@ main {
 }
 
 div.registration-form, div.log-in-form {
+  padding-top: 100px;
   width: 25vw;
 }
 
