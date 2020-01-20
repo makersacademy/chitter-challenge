@@ -14,10 +14,13 @@
 * The project uses PostgreSQL
 * Use Homebrew to install PostgreSQL: brew install postgresql
 * Connect to PostgresSQL using psql
-* Create a new database using the psql command: CREATE DATABASE chitter_manager;
-* Connect to the database using the pqsl command: \c chitter_manager;
-* Run the query we have saved in the file 01_create_peeps_table.sql
+* Create two database: development and test using the psql command:
+   CREATE DATABASE chitter_manager;
+   CREATE DATABASE chitter_manager_test;
+* Connect to each database using the pqsl command: \c chitter_manager and \c chitter_manager_test
+* Run for each database the query we have saved in the file 01_create_peeps_table.sql 
 * Install pg gem, to allow interacting with PostgreSQL from Ruby
+
 
 
 
