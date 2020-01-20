@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chitter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+  <style>
+    body {
+      background-color: #CDE7EA;
+    }
+
+    div {
+      font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 16px;
+      border-color: black;
+      border-radius: 10px;
+      border-style: solid;
+      border-width: 1px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      margin: 10px 5px;
+      padding: 0 50px 50px 50px;
+      max-width: 800px;
+   }
+    </style>
+
+<center><h1>Welcome to Chitter <%= @user_name%></h1>
+<br>
+<br>
+<p>
+<form action= '/peeps/new' method = 'post'>
+<textarea name=peep rows=“4” cols=“50" maxlength=“100” placeholder= 'Whats happening?' required></textarea>
+<input type= 'submit' name= 'Peep' value= 'Peep'>
+</form>
+
+<br>
+<br>
+
+<h2>Your peeps:</h2>
+<br>
+<br>
+
+<% @peeps.reverse.each do |peep| %>
+<div>
+<br>
+<li> <%= peep.peep %>  @ <%= peep.time%> </li>
+</div>
+<% end %>
+
+</p>
+</body></center>
+</html>
