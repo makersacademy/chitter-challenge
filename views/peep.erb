@@ -1,0 +1,33 @@
+<head>
+<title>Chitter</title>
+<div>
+<p>Welcome: <%user.username%>  
+<form action="/user" method="post"> <input type="submit" value="Sign Up"> </form>
+<form action="/user" method="get"> <input type="submit" value="Login"> </form>
+</p>
+</div>
+<h2></h2>
+<head>
+<!-- add line -->
+<body>
+<div>
+<br>
+<form action="/peep" method="post">
+  <input type=text name=create_message value="enter message">
+  <input type="submit" value="Add Peep">
+</form>
+<br>
+</div>
+
+</div>
+<div>
+  <ul style="list-style-type:none">
+      <li>  Created On              Peeps </li>
+    <% session[:peeps].each do |peep| %>
+      <li class="Peep"> <%= peep.created_on %>    <%= peep.message %> </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+<body>
