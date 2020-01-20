@@ -1,4 +1,4 @@
-task default: %w[start_server]
+task default: %w[test-tables]
 
 task :bundle do
   puts 'Installing bundle...'
@@ -47,9 +47,4 @@ task :test_tables => [:development_tables] do
   sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(160), fk_user_id INTEGER REFERENCES users(id), message_id_fkey INTEGER REFERENCES messages(id), timestamp TIMESTAMP);"]
   sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags(id SERIAL PRIMARY KEY, tag VARCHAR(160));"]
   sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags_messages_comments(id SERIAL PRIMARY KEY, message_id_fkey INTEGER REFERENCES messages(id), comment_id_fkey INTEGER REFERENCES comments(id));"]
-end
-
-task :start_server => [:test_tables] do
-  puts 'Starting server on localhost:9292'
-  sh 'rackup'
 end

@@ -22,11 +22,9 @@ class EmailClient
 
   def self.send_email(email, username, message)
 
-    message = 
-
     mail = Mail.new do
       from "#{ENV['email_username']}@#{ENV['email_domain']}"
-      to username
+      to email
       subject "You've been mentioned on Chitter"
       body message
     end

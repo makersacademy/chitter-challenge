@@ -19,8 +19,9 @@ The webapp has been developed on Sinatra, a rack based platform, so to install c
 - move to the root directory in terminal
 - run ``` gem install rake ```
 - run ``` rake ```
+- run ```rackup``` to start server on localhost port 9292
 
-The rake command will install the DBMS 'postgresql', install required gems, create databases, and start the server running on the localhost port 9292.
+The rake command will install the DBMS 'postgresql', install required gems, remove any old chitter databases and then create new ones for the project.
 
 For email functionality ensure the following environment variables have be set up correctly before running ```rake```
 - ENV['smtp_server'] - address of your email smtp server e.g. 'smtp.gmail.com'
