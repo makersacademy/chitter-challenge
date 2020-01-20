@@ -18,6 +18,14 @@ class User
     User.new(id: user[0]['id'], name: user[0]['name'], username: user[0]['username'], email: user[0]['email'])
   end
 
+  def self.used_data?(username:, email:)
+    username = DatabaseConnection.query("SELECT id FROM users WHERE username='#{username}'")
+    email = DatabaseConnection.query("SELECT id FROM users WHERE email='#{email}'")
+    return true if email.any? || username.any?
+    
+    false
+  end
+
   def self.authenticate(email:, password:)
     result = DatabaseConnection.query("SELECT * FROM users WHERE email='#{email}'")
     return nil unless result.any?

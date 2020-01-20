@@ -56,4 +56,30 @@ describe User do
       expect(authenticated_user).to be_nil
     end
   end
+
+  describe '.used_data?' do
+    it 'return false if email and username are not already in use' do
+      User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+      result = User.used_data?(username: 'aNon', email: 'another@mail.com')
+      expect(result).to be false
+    end
+
+    it 'return true if email is already in use' do
+      User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+      result = User.used_data?(username: 'aNon', email: 'mock@gmail.com')
+      expect(result).to be true
+    end
+
+    it 'return true if username is already in use' do
+      User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+      result = User.used_data?(username: 'uValente', email: 'another@gmail.com')
+      expect(result).to be true
+    end
+
+    it 'return true if username and email are already in use' do
+      User.create(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123')
+      result = User.used_data?(username: 'uValente', email: 'mock@gmail.com')
+      expect(result).to be true
+    end
+  end
 end
