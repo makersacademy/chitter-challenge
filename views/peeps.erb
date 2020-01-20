@@ -1,8 +1,14 @@
+<center><h3>Welcome <%= @email %> </h3></center>
+
 <% @peeps.each do |post| %>
-<li><%= post %></li>
+<li><%= post.body %> <%= post.time %></li>
 <% end %>
 <br>
 <br>
-<form action='/' method='get'>
-<input type='submit' value="Return Home!">
-</form> 
+<center><form action="/peeps/new" method="post">
+<textarea name=peep rows="4" cols="50" maxlength="100" placeholder="Write Peep Here..." required></textarea></center>
+<center><input type='submit' value='Post Peep!'></form></center>
+<br>
+<center><form action='/' method='get'>
+<input type='submit' value="Log Out!">
+</form></center>

@@ -1,12 +1,14 @@
 <center><h1>Welcome to Chitter!</h1></center>
-
-<center><form action="/peeps/new" method="post">
-<textarea name=peep rows="4" cols="50" maxlength="100" placeholder="Write Peep Here..." required></textarea></center>
-<center><input type='submit' value='Post Peep!'></form></center>
 <br>
-<center><form action="/peeps">
-<input type='submit' value='View Peeps!'></form></center>
+<center><form action="/users" method="post">
+Please sign in: <input type="email" name=email placeholder="test@test.com" required/>
+<input type="password" name=password placeholder="------------" required />
+<input type="submit" value="Sign In!"/>
+</form></center>
 <br>
-<center><form action="/users/new">
-<input type='submit' value='Create User!'></form></center>
-<br>
+<center><form action="/users/new" method="post">
+Create account: <input type="email" name=newemail placeholder="test@test.com" required/>
+<input type="password" name=newpassword placeholder="Password" required />
+<input type="password" name=repeatnewpassword placeholder="Repeat Password" required />
+<input type="submit" value="Create!"/>
+</form></center>

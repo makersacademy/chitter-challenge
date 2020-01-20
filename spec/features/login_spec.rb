@@ -1,9 +1,9 @@
-feature "registration" do
-  scenario "a user can sign up" do
-    visit('/users/new')
+feature "login" do
+  scenario "a user can sign in" do
+    visit('/')
     fill_in(:email, with: 'test@test.com')
     fill_in(:password, with: 'password')
-    click_button('Create User!')
+    click_button('Sign In!')
     expect(page).to have_content("test@test.com")
   end
 end
