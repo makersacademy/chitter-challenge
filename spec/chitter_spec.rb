@@ -23,16 +23,18 @@ describe Chitter do
       connection.exec("INSERT INTO chits (message) VALUES('This is another peep.');")
       connection.exec("INSERT INTO chits (message) VALUES('This is a third peep');")
 
+      connection.exec("SELECT * FROM chits ORDER BY id DESC;")
+
       chitters = Chitter.all
 
       expect(chitters).to end_with("Hello World!")
     end
   end
 
-  # describe '.create' do
-  #   it "posts a new message" do
-  #     Chitter.create(message: 'Hello World!')
-  #     expect(Chitter.all).to include("Hello World!")
-  #   end
-  # end
+  describe '.create' do
+    it "posts a new message" do
+      Chitter.create(message: 'Hello World!')
+      expect(Chitter.all).to include("Hello World!")
+    end
+  end
 end
