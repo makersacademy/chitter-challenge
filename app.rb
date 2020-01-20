@@ -10,7 +10,11 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
-    erb :index
+    if session[:user] 
+      erb :index_logged_in 
+    else
+      erb :index
+    end
   end
 
   get '/login' do
@@ -22,6 +26,24 @@ class Chitter < Sinatra::Base
     flash[:notice] = "Please enter a valid user" unless User.login(params[:login], params[:password])
     session[:user] = User.login(params[:login], params[:password])
     redirect '/'
+  end
+
+  get '/sign_up' do
+    erb :sign_up
+  end
+
+  post '/sign_up/confirm' do
+    p params
+    flash[:notice] = "Your account has been created, please login" if User.create(username: params[:username], email: params[:email], name: params[:name], password: params[:password])
+    # User.create(username: params[:username], email: params[:email], name: params[:name], password: params[:password])
+    redirect '/'
+  end
+
+  get '/account' do
+    erb :account
+  end
+
+  put '/account/:uid' do
   end
 
   run! if app_file == $0
