@@ -48,3 +48,8 @@ task :test_tables => [:development_tables] do
   sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags(id SERIAL PRIMARY KEY, tag VARCHAR(160));"]
   sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags_messages_comments(id SERIAL PRIMARY KEY, message_id_fkey INTEGER REFERENCES messages(id), comment_id_fkey INTEGER REFERENCES comments(id));"]
 end
+
+task :email_settings => [:test_tables] do
+  puts 'Adding email server settings...'
+  ruby './email_server_settings.rb'
+end

@@ -3,20 +3,15 @@ require 'mail'
 class EmailClient
 
   def self.setup
-    begin
-      Mail.defaults do
-        delivery_method :smtp, {
-          :address => ENV['smtp_server'],
-          :port => ENV['smtp_server_port'],
-          :domain => ENV['email_domain'],
-          :user_name => ENV['email_username'],
-          :password => ENV['email_password'],
-          :authentication => 'plain',
-          :enable_starttls_auto => true
-        }
-      end
-    rescue => e
-      puts e
+    Mail.defaults do delivery_method(:smtp, {
+        :address => ENV['smtp_server'],
+        :port => ENV['smtp_server_port'],
+        :domain => ENV['email_domain'],
+        :user_name => ENV['email_username'],
+        :password => ENV['email_password'],
+        :authentication => 'plain',
+        :enable_starttls_auto => true
+      })
     end
   end
 
@@ -29,7 +24,11 @@ class EmailClient
       body message
     end
 
-    mail.deliver
+    begin
+      mail.deliver
+    rescue => e
+      puts e
+    end
 
   end
 end

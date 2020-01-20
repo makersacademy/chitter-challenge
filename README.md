@@ -23,9 +23,9 @@ The webapp has been developed on Sinatra, a rack based platform, so to install c
 
 The rake command will install the DBMS 'postgresql', install required gems, remove any old chitter databases and then create new ones for the project.
 
-For email functionality ensure the following environment variables have be set up correctly before running ```rake```
+For email functionality ensure the following environment variables have be set up correctly in the ```./email_server_settings.rb``` file before running ```rake```
 - ENV['smtp_server'] - address of your email smtp server e.g. 'smtp.gmail.com'
-- ENV['smtp_server_port'] - port of your email smtp server e.g. 25
+- ENV['smtp_server_port'] - port of your email smtp server e.g. 587
 - ENV['email_domain'] - domain of your email address e.g. 'gmail.com'
 - ENV['email_username'] - username (first part) of your email address e.g. 'myname'
 - ENV['email_password'] - password of your email account e.g. 'securepassword123'

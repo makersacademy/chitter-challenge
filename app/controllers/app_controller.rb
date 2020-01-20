@@ -2,8 +2,13 @@ $LOAD_PATH << './lib'
 $LOAD_PATH << './app/controllers'
 $LOAD_PATH << './app/models'
 
+# Gems
 require 'sinatra/base'
+require 'pg'
+
+# Models
 require 'database_connection'
+
 
 class Chitter < Sinatra::Base
   # sets root as the parent-directory of the current file
