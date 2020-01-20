@@ -7,7 +7,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 # tell Capybara about our app class
-Capybara.app = Chitter
+Capybara.app = Chitters
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!

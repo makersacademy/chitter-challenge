@@ -5,3 +5,8 @@
   <input type="textbox" name="message">
   <input type="submit" value="Post">
 </form>
+
+
+    <% @chitter.each do |chitter| %>
+    <p><%= chitter %></p>
+    <% end %>
