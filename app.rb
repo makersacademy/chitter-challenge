@@ -14,15 +14,12 @@ class Chitter < Sinatra::Base
 
   post '/log_in' do
     session[:name] = params[:name]
-    session[:email] = params[:email]
-    session[:password] = params[:password]
-    User.create(session[:email], session[:password])
+    User.create(params[:email], params[:password])
     redirect '/peeps'
   end
   
   post '/peeps/new' do
-    session[:peep] = params[:peep]
-    Peep.add(session[:peep])
+    Peep.add(params[:peep])
     redirect '/peeps'
   end
 
