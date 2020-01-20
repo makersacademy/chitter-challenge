@@ -1,6 +1,7 @@
-require 'connect_and_clear_db'
+require_relative './connect_and_clear_db'
 
-ENV['RACK_ENV'] = 'test'
+
+# ENV['RACK_ENV'] == 'test'
 ENV['ENVIRONMENT'] == 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
