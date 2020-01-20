@@ -1,14 +1,10 @@
 services:
   - postgresql
 
-postgres:
-  adapter: postgresql
-  database: chitter_app_test
-  username: postgres
-
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_app_test;'
-  - 'rake db:migrate'
+  - psql -c 'CREATE DATABASE chitter_app_test;' -U postgres
+  - psql -d chitter_app_test -U postgres -f db/migrations/05_create_test_tables.sql
+
 
 script:
   - bundle exec rspec
