@@ -1,0 +1,154 @@
+h
+\h
+q
+\q
+postgres=# CREATE DATABASE "your_user_name_here";
+CREATE DATABASE "your_user_name_here";
+CREATE DATABASE 'bookmark_manager';
+CREATE DATABASE bookmark_manager;
+\l
+\c bookmark_manager;
+CREATE TABLE bookmarks (id SERIAL PRIMARY KEY, url VARCHAR(60));
+\dt
+\l
+\dt
+SELECT * FROM bookmarks;
+\q
+SELECT id FROM bookmarks;
+INSERT INTO bookmarks(url)
+INSERT INTO bookmarks(url) VALUES(http://www.makersacademy.com);
+INSERT INTO bookmarks(url) VALUES(http://www.makersacademy.com);
+INSERT INTO bookmarks(url) VALUES('http://www.makersacademy.com');
+SELECT * FROM bookmarks
+;
+INSERT INTO bookmarks(url) VALUES('http://askjeeves.com');
+INSERT INTO bookmarks(url) VALUES('http://twitter.com');
+SELECT * FROM bookmarks;
+INSERT INTO bookmarks(url) VALUES('http://www.google.com');
+SELECT * FROM bookmarks;
+DELETE FROM bookmarks
+WHERE url = 'http://twitter.com'
+;
+SELECT * FROM bookmarks;
+UPDATE bookmarks
+;
+UPDATE bookmarks
+SET url = 'http://www.destroyallsoftware.com'
+WHERE url = 'http://askjeeves.com';
+SELECT * FROM bookmarks;
+\q
+\q
+CREATE DATABASE bookmark_manager_test;
+CREATE BOOKMARK bookmarks
+;
+CREATE TABLE bookmarks
+;
+CREATE TABLE bookmarks (id SERIAL PRIMARY KEY, url VARCHAR(60));
+\q
+\c
+\c bookmark_manager_test
+\l
+\db
+CREATE TABLE bookmarks (id SERIAL PRIMARY KEY, url VARCHAR(60));
+\dt
+\q
+CREATE DATABASE 'diary_manager';
+CREATE DATABASE diary_manager;
+\c diary_manager
+CREATE TABLE diary_note(id SERIAL PRIMARY KEY, note_title VARCHAR(20), note_body VARCHAR(250));
+\dt
+CREATE DATABASE diary_manager_test;
+\c diary_manager_test 
+CREATE TABLE diary_note(id SERIAL PRIMARY KEY, note_title VARCHAR(20), note_body VARCHAR(250));
+\dt
+\q
+\c
+\db
+\dt bookmark_manager
+\dt bookmark
+\dt bookmarks
+\dn
+\df
+\df bookmarks
+\df bookmark_manager
+\dt
+\dt +
+\dt+
+\d+ bookmarks
+\d
+\d bookmarks
+SELECT * FROM bookmarks
+;
+ALTER TABLE bookmarks add column title VARCHAR(35)
+;
+SELECT * FROM bookmarks
+;
+\d bookmarks
+\c
+ALTER TABLE bookmarks ADD COLUMN title VARCHAR(35)
+;
+\d bookmarks
+\q
+\l
+\c diary_manager
+\d
+\d diary_note
+SELSECT * FROM diary_note
+;
+SELECT * FROM diary_note
+;
+\quit
+CREATE DATABASE chitter_manager;
+\c
+CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(250));
+\dt
+\q
+CREATE DATABASE chitter_manager_test;
+\c
+CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(250));
+\q
+CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(250));
+\q
+\d
+\dt
+\d +
+\d+
+\l
+CREATE DATABASE chitter_manager;
+\c
+\l
+\q
+\c
+\l
+\db
+\q
+CREATE TABLE messages(id SERIAL PRIMARY KEY, message VARCHAR(250));
+\c
+\q
+ALTER TABLE messages ADD COLUMN date_time SET DEFAULT now();
+ALTER TABLE messages ADD COLUMN date_time DEFAULT now();
+ALTER TABLE messages ADD COLUMN date_time DATE NOT NULL DEFAULT CURRENT_DATE;
+\l
+\c
+\l
+\db
+\d
+SELECT * FROM chitter_manager_test
+\c
+\q
+ALTER TABLE messages ADD COLUMN date_time DATE NOT NULL DEFAULT CURRENT_DATE;
+\q
+ALTER TABLE messages ALTER date_time SET DEFAULT now();
+\q
+ALTER TABLE messages ALTER date_time SET DEFAULT CURRENT_TIMESTAMP;
+\q
+\l
+\c chitter_manager
+\dt
+\d messages
+\dv
+\l
+\db
+\d
+\d+
+\s messages

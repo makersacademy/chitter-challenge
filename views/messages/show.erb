@@ -1,0 +1,10 @@
+<h2>List of all messages</h2>
+
+<ul>
+  <% @message.each do |note| %>
+  <li>
+    post <%= note.id %> -
+    <%= note.message %> 
+  </li>
+  <% end %>
+</ul>

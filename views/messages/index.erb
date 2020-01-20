@@ -1,0 +1,28 @@
+<h1>Welcome to Chitter</h1>
+
+<h4>Add New Bookmark: </h4>
+<form action="/add_message" method="post">
+  <p>Insert Message: </p>
+  <textarea name='message' rows='5' cols='30' placeholder="Enter Message Here"></textarea>
+  <input type="submit" value="Add">
+</form>
+
+<h4>Show all messages</h4>
+<form action="/show" method="post">
+  <input type="submit" value="Show">
+</form>
+
+<h5>Sample</h5>
+<ul>
+  <% @message.each do |note| %>
+  <li class="message" id="messasge-<%= bookmark.id %>">
+    post <%= note.id %> -
+    <%= note.message %>
+    <form action="/delete/<%= messasge.id %>" method="post">
+      <input type="hidden" name="_method" value="DELETE"/>
+      <input type="submit" name="Delete"/>
+    </form> 
+  </li>
+  <% end %>
+</ul>
+
