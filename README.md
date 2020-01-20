@@ -1,4 +1,9 @@
-Chitter Challenge
+***User Story 1 Completed***
+I created a created an index route that communicates with the Chitter model to show the list of messages in the database (Chitter.all). I used the Chitter.create method pass a query to the database that inserts a new message(peep) into the database. The controller contains an instance variable which is called in the view to display the post on the browser.
+Chitter Challenge. I also added css elements to my view page.
+
+***User Story 2***
+
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am

@@ -18,5 +18,4 @@ class Chitter
     connection = PG.connect(dbname: 'chitter')
     result = connection.exec("INSERT INTO chits(message) VALUES('#{message}');")
   end
-
 end
