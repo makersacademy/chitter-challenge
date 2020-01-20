@@ -1,3 +1,16 @@
+
+####Project set-up
+*Forked the project https://github.com/makersacademy/chitter-challenge
+*Cloned the project
+*Listed the gems in the Gemfile:
+  *gem 'sinatra'
+  *gem 'capybara'
+*Installed gems: bundle install
+*In the root directory, set up a basic Sinatra application in file called chitter.rb
+*Configured the rackup command to run the application in chitter.rb, via a file called config.ru
+*Adjusted the spec_helper.rb to configure Capybara
+
+
 Chitter Challenge
 =================
 
