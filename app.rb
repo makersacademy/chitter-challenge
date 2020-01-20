@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'pg'
 require_relative './lib/messages'
 
 class Chitter < Sinatra::Base

@@ -36,6 +36,7 @@ class Messages
       Messages.new(
         id: message['id'], 
         message: message['message']
+
       )
     end
 
@@ -55,18 +56,19 @@ class Messages
       Messages.new(
         id: message['id'], 
         message: message['message']
+        date_time: message['date_time']
       )
     end
   end
 
-  def self.delete(id:)
+  # def self.delete(id:)
 
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'chitter_manager_test')
-    else
-      connection = PG.connect(dbname: 'chitter_manager')
-    end
-    connection.exec("DELETE FROM message WHERE id = #{id:}")
-  end
+  #   if ENV['RACK_ENV'] == 'test'
+  #     connection = PG.connect(dbname: 'chitter_manager_test')
+  #   else
+  #     connection = PG.connect(dbname: 'chitter_manager')
+  #   end
+  #   connection.exec("DELETE FROM message WHERE id = #{id:}")
+  # end
 
 end
