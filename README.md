@@ -567,3 +567,31 @@ scenario 'A user logs into chitter with incorrect password' do
   end
 13) Implementation in User.rb
 return unless BCrypt::Password.new(result[0]['password']) == password
+
+# STEP 6: USER STORY 6
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+1) Feature test
+feature 'Log out' do
+  scenario 'A user can log out' do
+    User.create(email: 'example@example.com',password: 'example123',
+    name: 'Example Surname', username: 'exampleusername')
+    visit '/sessions/new'
+    fill_in('email', with: 'example@example.com')
+    fill_in('password', with: 'example123')
+    click_button('Sign In')
+    click_button('Sign Out')
+
+    expect(page).to have_content "You have signed out"
+  end
+2) Updating peeps index.erb to have sign out button
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign In" />
+</form>
+3) Update app.rb with session/destroy route
+post 'sessions/destroy' do
+  session.clear
+  flash[:notice] = 'You have signed out'
+  redirect '/peeps'
+end

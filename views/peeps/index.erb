@@ -1,3 +1,7 @@
+<h1>
+ <%= flash[:notice] %>
+</h1>
+
 <% if @user %>
 <h1> Welcome, <%= @user.name %> </h1>
 <% end %>
@@ -10,3 +14,7 @@
     </div>
   <% end %>
 </ul>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign Out" />
+</form>
