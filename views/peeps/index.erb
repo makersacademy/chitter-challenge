@@ -1,11 +1,18 @@
-<h1>
- <%= flash[:notice] %>
-</h1>
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<h1> <%= flash[:notice] %> </h1>
 <% if @user %>
 <h1> Welcome, <%= @user.name %> </h1>
 <% end %>
-
+<h1>Welcome to Chitter </h1>
+<h2>Latest peeps: </h2>
 <ul>
   <% @peeps.each do |peep| %>
   <div id="message">
@@ -14,7 +21,8 @@
     </div>
   <% end %>
 </ul>
-
 <form action="/sessions/destroy" method="post">
   <input type="submit" value="Sign Out" />
 </form>
+</body>
+</html>

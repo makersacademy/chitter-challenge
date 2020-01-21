@@ -595,3 +595,27 @@ post 'sessions/destroy' do
   flash[:notice] = 'You have signed out'
   redirect '/peeps'
 end
+
+#STEP 7:REFRACTORING ALL RUBY CODE/HTML etc.
+-added line breaks <br>
+-added labels for form
+-added feature test to check email is unique
+scenario 'A user without unique email cannot sign up to Chitter' do
+  visit '/users/new'
+  fill_in('email',with: 'example@example.com')
+  fill_in('password',with: 'example123')
+  fill_in('name',with: 'Example Surname')
+  fill_in('username',with: 'exampleusername')
+  click_button('Sign Up')
+
+  expect(page).to have_content "Welcome, Example Surname"
+  visit '/users/new'
+  fill_in('email',with: 'example@example.com')
+  fill_in('password',with: 'example124')
+  fill_in('name',with: 'Example Name')
+  fill_in('username',with: 'examplename')
+  click_button('Sign Up')
+
+  expect(page.status_code).to eq(500)
+
+end
