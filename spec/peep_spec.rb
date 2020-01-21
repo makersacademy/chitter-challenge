@@ -16,4 +16,14 @@ describe Peep do
       expect(peeps).to include("Hello")
     end
   end
+
+  describe '.post' do
+    it 'posts a new peep' do
+    Peep.post(body: 'This is testing post method...')
+
+    expect(Peep.all).to include 'This is testing post method...'
+    end
+  end
+    
+
 end
