@@ -6,7 +6,7 @@ require './lib/user'
 
 
 class Chitters < Sinatra::Base
-
+enable :sessions
   get '/' do
     @chitter = Chitter.all
     erb :index
@@ -16,15 +16,19 @@ class Chitters < Sinatra::Base
     Chitter.create(message: params[:message])
     redirect '/'
   end
+
   get '/new-user' do
     erb :new_user
   end
 
   post '/new' do
-    User.create(name: params[:name], email: params[:email], password:[:password], user_id: params[:id])
+    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/welcome'
   end
+
   get '/welcome' do
+    @user = User.find(session[:user_id])
     erb :welcome
   end
 end
