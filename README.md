@@ -23,6 +23,7 @@ The easiest approach will be to sort the array. I will create a feature test for
 Create and run feature and unit tests to ensure we can see the time.
 12. Creating a date and time columns with automatic date and time setting.
 13. Adding a new parameter :time to the Peeps class and accessing it in Controller and passing to the View. Starting with tests.
+14. User story 4. For this we need to create another table to store user information including id, name, email address, password.
 
 
 

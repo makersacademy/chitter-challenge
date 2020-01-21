@@ -1,10 +1,11 @@
 require 'sinatra/base'
 require_relative './lib/peeps'
+require './lib/users'
 require_relative './database_connection_setup'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'This is a Chitter challenge'
+    erb :'index'
   end
 
   get '/peeps' do
