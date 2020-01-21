@@ -17,17 +17,24 @@ class Chitter < Sinatra::Base
     @user = User.create(params)
     p @user
     session[:username] = params[:username]
-    redirect '/home'
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @username = session[:username]
+    erb :peep_home
+  end
+
+  post '/peep/new' do
+    
+    redirect '/peeps'
   end
 
   get '/log-in' do
     erb :login
   end
 
-  get '/home' do
-    @username = session[:username]
-    erb :home
-  end
+ 
 
   get '/sign-out' do
 
