@@ -13,7 +13,6 @@
   <div class="nav-wrapper navigation">
     <a href="/" class="brand-logo">Chitter</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/sign-up">Sign Up</a></li>
       <li><a href="/log-in">Log In</a></li>
     </ul>
   </div>
@@ -22,32 +21,32 @@
 <body >
   <h1 style="text-align:center;"> Sign Up</h1>
   <div class="container">
-    <form class="col s12" style="text-align:center;">
+    <form class="col s12" style="text-align:center;" action="/user-sign-up" method="post">
     <div class="input-field col s12">
           <i class="material-icons prefix">fingerprint</i>
-          <input id="username" type="text" required class="validate">
-          <label for="username">Username</label>
+          <input id="username" type="text" required class="validate" name="username">
+          <label class ="active" for="username">Username</label>
         </div>
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="first_name" type="text" required class="validate">
-          <label for="first_name">First Name</label>
+          <input id="first_name" type="text" required class="validate" name="first_name">
+          <label class="active" for="first_name">First Name</label>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" required class="validate">
-          <label for="last_name">Last Name</label>
+          <input id="last_name" type="text" required class="validate" name="last_name">
+          <label class="active" for="last_name">Last Name</label>
         </div>
       </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">email</i>
-          <input id="email" type="email" required class="validate">
-          <label for="email">Email</label>
+          <input id="email" type="email" required class="validate" name="email">
+          <label class="active" for="email">Email</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">vpn_key</i>
-          <input id="password" type="password" required class="validate">
-          <label for="password">Password</label>
+          <input id="password" type="password" required class="validate" name="password">
+          <label class="active" for="password">Password</label>
         </div>
         <input type="submit" value="Sign Up" class="waves-effect waves-light btn">
         </form>
