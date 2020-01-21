@@ -3,6 +3,6 @@ describe Chitter do
     #call database and retrieve latest entry in database
     chitter = Chitter.all.first
     #checking info is correct
-    expect(chitter.peep).to eq('test peep')
+    expect(chitter.peep).to eq('test post')
   end
 end

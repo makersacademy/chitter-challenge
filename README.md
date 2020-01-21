@@ -1,3 +1,9 @@
+To run the app:
+
+- `bundle install`
+- `rake setup`
+- `rackup`
+
 Chitter Challenge
 =================
 
