@@ -10,6 +10,17 @@ STEPS:
 7. Establishing connection with the database through DatabaseConnection class (so that the Peeps class is not cluttered with commands to establish connections in its methods).
 8. Now that the Peeps object can interact with the database, peeps can be stored in the table and retrieved as and when they are needed by the Controller via Peeps class and instance methods. Implementing this functionality, first by updating the units tests to use the test database data.
 9. Peeps class can now create new peeps and show them via .all method. This functionality can be used in Controller to be passed to View.
+10. Now a user can create a post and see it on the website. For the second user story
+  "As a maker
+  So that I can see what others are saying  
+  I want to see all peeps in reverse chronological order"
+several approaches can be taken:
+  a) Use ORDER BY SQL query to sort entries in descending order before displaying;
+  b) Sort the Peeps.all array by id in descending order (ids are allocated automatically so newer posts will have larger id numbers; currently sorted in ascending order);
+  c) Incorporate timestamp (User story 3) and sort by timestamp.
+The easiest approach will be to sort the array. I will create a feature test for checking posts are displayed in reverse chronological order.
+
+
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own

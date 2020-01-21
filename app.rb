@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peeps.all.sort_by { |a| a.id.to_i }
+    @peeps = Peeps.all.sort_by { |a| -a.id.to_i }
     erb :'peeps/peeps'
   end
 
