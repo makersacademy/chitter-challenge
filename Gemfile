@@ -5,8 +5,8 @@ group :test do
   gem 'rubocop', '0.71.0'
   gem 'sinatra'
   gem 'capybara'
-  gem 'capybara/rspec'
   gem 'pg'
+  gem 'bcrypt'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
