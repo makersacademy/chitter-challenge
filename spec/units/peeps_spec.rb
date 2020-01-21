@@ -28,14 +28,12 @@ describe Peeps do
 
   it 'can show date' do
     my_peep = Peeps.create(message: 'This is a test')
-    p my_peep.date
     expect(my_peep.date).to eq ("#{Time.new.strftime('%Y-%m-%d')}")
   end
 
   it 'can show time' do
     my_peep = Peeps.create(message: 'This is a test')
     persisted_data = persisted_data(time: my_peep.time, table: 'peeps')
-    p my_peep.time
     expect(my_peep.time).to eq persisted_data.first['time']
   end
 end
