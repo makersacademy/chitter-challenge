@@ -18,7 +18,6 @@ describe Peeps do
         peeps = Peeps.all
 
       expect(peeps.length).to eq 2
-      expect(peeps.first.message). to eq "Another Test"
     end
   end
 end

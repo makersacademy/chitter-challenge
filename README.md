@@ -135,7 +135,7 @@ You can see your test coverage when you run your tests. If you want this in a gr
 
 Notes:
 
-Step 1: Setup
+STEP 1: SETUP
 1) Lib- done
 2) Config.ru-done
 3) Spec with Features-done
@@ -143,7 +143,7 @@ Step 1: Setup
 5) Views folder -done
 6) Gemfile with all the necessary gems and run bundle install
 
-Step 2: User Story 1
+STEP 2: USER STORY 1
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -295,3 +295,28 @@ end
 17) replace in Peep.rb PG connect with DatabaseConnection.query
 18) Added spec tests for .query and .connection
 19) Implemented code for .query and .connection in database_connection.rb
+
+STEP 3: USER STORY 2
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+1) Feature test
+feature 'See peeps' do
+  scenario 'A user can see peeps they posted in reverse order' do
+    visit '/peeps/new'
+    fill_in('message',with: 'Latest peep')
+    click_button('Submit')
+
+    expect(first('#message')).to have_content "Latest peep"
+  end
+end
+2) Implementation- adding id #message to peeps/index.erb
+<ul>
+  <% @peeps.each do |peep| %>
+  <div id="message">
+    <li><%= peep.message %></li>
+    </div>
+  <% end %>
+</ul>
+3) Implementation of reverse order- peeps.rb
+-added ORDER by id DESC
