@@ -8,6 +8,8 @@
 <ul style="list-style-type:none;">
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>" >
+      Message created on <%= peep.date %> at <%= peep.time %>
+      <br>
       <%= peep.message %>
     </li>
     <br>

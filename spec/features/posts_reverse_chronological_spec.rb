@@ -4,6 +4,6 @@ feature 'peeps are displayed in reverse chronological order' do
     visit('/peeps/new')
     fill_in :peep, with: 'This is the second test'
     click_button 'Submit'
-    expect(page).to have_content "This is the second test This is a test peep"
+    expect(page).to have_content /This is the second test .+? This is a test peep/
   end
 end
