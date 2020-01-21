@@ -3,6 +3,6 @@ feature 'peeps with timestamps' do
     visit '/chitter'
     fill_in :post_peep, with: 'Peep The Time'
     click_button 'Submit'
-    expect(page).to have_content(DateTime)
+    expect(page).to have_content('created at')
   end
 end

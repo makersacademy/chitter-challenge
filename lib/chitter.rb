@@ -1,13 +1,14 @@
 class Chitter
-  attr_reader :peep
+  attr_reader :peep, :created_at
 
-  def initialize(peep = '')
+  def initialize(peep, created_at)
     @peep = peep
+    @created_at = DateTime.parse(created_at)
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
-    result.map { |row| row['peep'] }
+    result.map { |row| Chitter.new(row['peep'], row['created_at']) }
   end
 
   def self.post(peep)

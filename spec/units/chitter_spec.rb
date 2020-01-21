@@ -3,7 +3,7 @@ describe Chitter do
     # call database and retrieve latest entry in database
     test_post = Chitter.all.first
     # checking info is correct
-    expect(test_post).to eq('test post')
+    expect(test_post.peep).to eq('test post')
   end
 
   it 'should be able to post a peep' do
@@ -12,6 +12,12 @@ describe Chitter do
     # retrieve this post from db
     new_post = Chitter.all.last
     # check details are correct
-    expect(new_post).to eq('new post')
+    expect(new_post.peep).to eq('new post')
+  end
+
+  it 'should have a timestamp' do
+    Chitter.post('Time')
+    new_post = Chitter.all.last
+    expect(new_post.created_at).to be_kind_of DateTime
   end
 end

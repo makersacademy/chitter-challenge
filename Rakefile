@@ -9,9 +9,9 @@ task :setup do
   connection.exec('CREATE DATABASE chitter_test;')
 
   connection = PG.connect :dbname => 'chitter';
-  connection.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(280));')
+  connection.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(280), created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP);')
   connection.exec("INSERT INTO peeps (peep) VALUES ('test post');")
   connection = PG.connect :dbname => 'chitter_test';
-  connection.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(280));')
+  connection.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, peep VARCHAR(280), created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP);')
   connection.exec("INSERT INTO peeps (peep) VALUES ('test post');")
 end
