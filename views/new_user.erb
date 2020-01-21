@@ -1,0 +1,39 @@
+<head>
+  <title>Chitter - Sign Up</title>
+  <style>
+    body{
+      background: linear-gradient(lightblue, green);
+      margin: 50px;
+      font-family: Comic Sans MS;
+    }
+    header{
+      background: white;
+      overflow: hidden;
+      margin-left: -50px;
+      margin-right: -50px;
+      font-family: Times New Roman;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 style ="margin-left: 50px;">Chitter</h1>
+  </header>
+  <h1>Please enter your details:</h1>
+  <form action="/new" method= "post">
+   Name:<br>
+  <input type="text" name="name" placeholder="your name here">
+  <br>
+  User Name:<br>
+  <input type="text" name="username" placeholder="your username here">
+  <br>
+  Email:<br>
+  <input type="text" name="email" placeholder="email@example.com">
+  <br>
+  Password:<br>
+  <input type="text" name="password" placeholder="password123">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+  </body>

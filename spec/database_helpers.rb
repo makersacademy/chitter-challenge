@@ -1,7 +1,7 @@
-# require 'pg'
-#
-# def persisted_data(id:)
-#   connection = PG.connect(dbname: 'chitter_test')
-#   result = connection.query("SELECT * FROM chits ORDER BY id DESC;")
-#   result.first
-# end
+require 'pg'
+
+def persisted_data(id:)
+  connection = PG.connect(dbname: 'chitter_test')
+  result = connection.query("SELECT * FROM #{table} WHERE id = #{id};")
+  result.first
+end
