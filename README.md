@@ -9,6 +9,7 @@ STEPS:
 6. In order to use the Model .all class method, a database is required to store peeps and retrieve them. Creating database Chitter with Peeps table in it, storing CREATE TABLE SQL command in an .sql file in db/migrations for future use.
 7. Establishing connection with the database through DatabaseConnection class (so that the Peeps class is not cluttered with commands to establish connections in its methods).
 8. Now that the Peeps object can interact with the database, peeps can be stored in the table and retrieved as and when they are needed by the Controller via Peeps class and instance methods. Implementing this functionality, first by updating the units tests to use the test database data.
+9. Peeps class can now create new peeps and show them via .all method. This functionality can be used in Controller to be passed to View.
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own

@@ -5,13 +5,13 @@
 
 <h1>These are your posted peeps</h1>
 
-<ul>
-
-    <li>
-      <%= @peep %>
-
+<ul style="list-style-type:none;">
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>" >
+      <%= peep.message %>
     </li>
-
+    <br>
+  <% end %>
 </ul>
 
 

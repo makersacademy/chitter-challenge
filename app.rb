@@ -8,11 +8,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peeps.all.sort_by { |a| a.id.to_i }
     erb :'peeps/peeps'
   end
 
   post '/peeps-add' do
-    @peep = params[:peep]
+    Peeps.create(message: params[:peep])
     redirect '/peeps'
   end
 
