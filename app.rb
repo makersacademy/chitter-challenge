@@ -6,5 +6,9 @@ class Chitter < Sinatra::Base
     'Chitter Homepage'
   end
 
+  get '/new' do
+    erb :new
+  end
+
   run! if app_file == $0
 end
