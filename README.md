@@ -1,5 +1,8 @@
 Chitter Challenge
 =================
+STEPS:
+1. To implement the user story 1, I'll need to set up an MVC system. It includes a Controller (app.rb) which will interact with the View (HTML code in erb files) and Model (Chitter class object and a database storing posts).
+2. Set up the web project
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
