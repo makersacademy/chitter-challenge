@@ -5,6 +5,14 @@ require './database_connection_setup'
 
 class ChitterServer < Sinatra::Base
 
+  get '/' do
+    erb :signup
+  end
+
+  post '/signup' do
+    redirect '/chitter'
+  end
+
   get '/chitter' do
     @peeps = Chitter.all.reverse
     erb :chitter
