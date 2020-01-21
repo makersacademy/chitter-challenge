@@ -4,6 +4,6 @@
 </form>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.body %>,  <%= peep.timestamp %> </li>
   <% end %>
 </ul>

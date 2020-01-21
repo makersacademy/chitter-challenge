@@ -1,29 +1,43 @@
 require './lib/peep'
+require 'database_helpers'
 
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      connection.exec("INSERT INTO peeps (body) VALUES ('My first peep');")
-      connection.exec("INSERT INTO peeps (body) VALUES('Another peep');")
-      connection.exec("INSERT INTO peeps (body) VALUES('Hello');")
+      peep = Peep.post(body: "My first peep")
+      Peep.post(body: "Another peep")
+      Peep.post(body: "Hello")
 
       peeps = Peep.all
 
-      expect(peeps).to include("My first peep")
-      expect(peeps).to include("Another peep")
-      expect(peeps).to include("Hello")
+      expect(peeps.length).to eq 3
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.body).to eq "My first peep"
     end
   end
 
   describe '.post' do
     it 'posts a new peep' do
-    Peep.post(body: 'This is testing post method...')
+      peep = Peep.post(body: 'This is testing post method...')
+      persisted_data = persisted_data(id: peep.id)
 
-    expect(Peep.all).to include 'This is testing post method...'
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data.first['id']
+      expect(peep.body).to eq 'This is testing post method...'
     end
   end
-    
+
+  it 'Posts  new peep with the timestamp' do
+    peep = Peep.post(body: 'Test peep for timestamp')
+    persisted_data = persisted_data(id: peep.id)
+
+    expect(peep.timestamp).to eq persisted_data.first['timestamp']
+  end
+
+
+
+
 
 end
