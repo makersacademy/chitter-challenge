@@ -4,7 +4,8 @@ require 'database_helpers'
 describe Peeps do
   describe '.create' do
     it 'creates a new peep' do
-      peep = Peeps.create(message: "Test")
+      time = Time.now
+      peep = Peeps.create(message: "Test",time: time)
       persisted_data = persisted_data(id: peep.id)
 
       expect(peep.message).to eq "Test"
@@ -13,8 +14,9 @@ describe Peeps do
   end
     describe '.all' do
       it 'returns all peeps' do
-        Peeps.create(message: "Another Test")
-        Peeps.create(message: "Different Test")
+        time = Time.now
+        Peeps.create(message: "Another Test",time: time )
+        Peeps.create(message: "Different Test",time: time)
         peeps = Peeps.all
 
       expect(peeps.length).to eq 2

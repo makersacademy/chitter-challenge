@@ -320,3 +320,27 @@ end
 </ul>
 3) Implementation of reverse order- peeps.rb
 -added ORDER by id DESC
+
+STEP 4: USER STORY 3
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+1) Alter table in PSQL and added to db/migrations
+ALTER TABLE peep ADD COLUMN time TIMESTAMP; (for both test and development environments)
+3) Irb trying to see how to enter time:
+Peeps.new(id: result[0]['id'], message: result[0]['message'],time: result[0]['time'])
+ => #<Peeps:0x00007fbd0098e170 @id="73", @message="Hello", @time="2020-01-21 11:15:58">  
+ 4) Changing Peeps.rb to enter Time.now
+ #{Time.now}
+ 5) Feature test
+ feature 'See time of peep creation' do
+   scenario 'A user can see the time at which peep was created' do
+     visit '/peeps/new'
+     fill_in('message',with: '11:38am Peep')
+     click_button('Submit')
+
+     expect(first('#message')).to have_content "11:38"
+   end
+ end
+6) Editing index.erb to include Time
+<li><%= peep.time %></li>
