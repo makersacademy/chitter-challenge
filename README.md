@@ -25,6 +25,19 @@ Setting up the project:
 * Updated the spec_helper as per requirement.
 * Created config.ru file in root directory.
 
+Working on Ist user story:
+
+Steps taken:
+1. Added a feature test to see the index page.
+2. added a feature test for allowing user to add a peep.
+3. Setting up a database to store the messages.
+
+Setting up a database:
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter;
+Connect to the database using the pqsl command \c chitter;
+Run the query saved in the file 01_create_peeps_table.sql(file path- db/migrations)
+
 
 
 Features:
