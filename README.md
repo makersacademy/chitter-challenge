@@ -18,10 +18,12 @@
    CREATE DATABASE chitter_manager;
    CREATE DATABASE chitter_manager_test;
 * Connect to each database using the pqsl command: \c chitter_manager and \c chitter_manager_test
-* Run for each database the query we have saved in the file 01_create_peeps_table.sql 
+* Run for each database the query we have saved in the file 01_create_peeps_table.sql
 * Install pg gem, to allow interacting with PostgreSQL from Ruby
 
-
+Diagrams:
+[logo]: /images/create_peep.png "Diagram_Create_Peep"
+![logo]
 
 
 Chitter Challenge
