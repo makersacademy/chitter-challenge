@@ -1,4 +1,5 @@
 require 'mail'
+require 'email_server_settings'
 
 class EmailClient
 

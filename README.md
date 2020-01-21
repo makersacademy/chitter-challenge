@@ -116,6 +116,8 @@ I want to receive an email if I am tagged in a Peep
 
 #### Model
 - TDD database_connection
+- TDD email_client
+- TDD message
 
 
 ---------

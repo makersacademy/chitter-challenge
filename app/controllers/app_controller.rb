@@ -3,11 +3,13 @@ $LOAD_PATH << './app/controllers'
 $LOAD_PATH << './app/models'
 
 # Gems
-require 'sinatra/base'
+require 'sinatra'
 require 'pg'
 
 # Models
 require 'database_connection'
+require 'email_client'
+require 'message'
 
 
 class Chitter < Sinatra::Base
@@ -17,15 +19,13 @@ class Chitter < Sinatra::Base
   set :public_folder, Proc.new { File.join(root, "../public") }
 
   DatabaseConnection.add_details(dbname: 'chitter', user: ENV['USER'], dbms: PG)
+  EmailClient.setup
+  Message.setup(dbconnection: DatabaseConnection, emailclient: EmailClient)
+
 
   get '/' do
     erb :homepage
   end
-
-
-
-
-  # before filters
 
   # start the server if ruby file executed directly
   run! if $0 == __FILE__

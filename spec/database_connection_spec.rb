@@ -1,5 +1,4 @@
 require 'database_connection'
-require 'pg'
 
 describe DatabaseConnection do
 
@@ -16,12 +15,11 @@ describe DatabaseConnection do
   end
 
   describe '.command' do
-    it 'returns querys in array' do
-      expect(DatabaseConnection.command('SELECT * FROM users')[0]).to a_kind_of(PG::Result)
+    it 'returns querys as PG Result' do
+      expect(DatabaseConnection.command('SELECT * FROM users')).to a_kind_of(PG::Result)
     end
     it 'rescues errors' do
-      allow_any_instance_of(PG::Connection).to receive(:exec).and_raise('Database Error')
-      expect(DatabaseConnection.command('SELECT * FROM users')[1]).to eq 'Database Error'
+      expect{DatabaseConnection.command('Error')}.to output(%Q[ERROR:  syntax error at or near \"Error\"\nLINE 1: Error\n        ^\n]).to_stdout
     end
   end
 end

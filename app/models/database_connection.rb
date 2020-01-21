@@ -8,11 +8,10 @@ class DatabaseConnection
 
   def self.command(sql_query)
     con = @dbms.connect(:dbname => @dbname, :user => @user)
-    response = []
     begin
-      response[0] = (con.exec(sql_query))
+      response = con.exec(sql_query)
     rescue => e
-      response[1] = e.message
+      puts(e.message)
     ensure
       con.close
     end

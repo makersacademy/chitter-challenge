@@ -5,7 +5,6 @@ describe EmailClient do
   describe '.setup' do
     it 'adds mail defaults to mail gem' do
       expect(Mail).to receive(:defaults)
-
       EmailClient.setup
     end
   end
@@ -18,10 +17,8 @@ describe EmailClient do
     let(:email){double :email, :deliver => nil}
 
     it 'sends email using mail gem' do
-
       allow(Mail).to receive(:new).and_return(email)
       expect(email).to receive(:deliver)
-
       EmailClient.send_email('test@mail.com', 'Username', 'testmessage')
     end
   end

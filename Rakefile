@@ -1,4 +1,4 @@
-task default: %w[test-tables]
+task default: %w[email_settings]
 
 task :bundle do
   puts 'Installing bundle...'
@@ -33,20 +33,20 @@ end
 
 task :development_tables => [:database] do
   puts 'Creating development tables...'
-  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60), email VARCHAR(60), password_hash VARCHAR(60), display_name VARCHAR(60));"]
-  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(160), user_id_fkey INTEGER REFERENCES users(id), timestamp TIMESTAMP);"]
-  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(160), fk_user_id INTEGER REFERENCES users(id), message_id_fkey INTEGER REFERENCES messages(id), timestamp TIMESTAMP);"]
-  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE tags(id SERIAL PRIMARY KEY, tag VARCHAR(160));"]
-  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE tags_messages_comments(id SERIAL PRIMARY KEY, message_id_fkey INTEGER REFERENCES messages(id), comment_id_fkey INTEGER REFERENCES comments(id));"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE users(user_id SERIAL PRIMARY KEY, username VARCHAR(60), email VARCHAR(60), password_hash VARCHAR(60), display_name VARCHAR(60));"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE messages(message_id SERIAL PRIMARY KEY, text VARCHAR(160), user_id_fkey INTEGER REFERENCES users(user_id), date_added TIMESTAMP DEFAULT NOW());"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE comments(comment_id SERIAL PRIMARY KEY, text VARCHAR(160), user_id_fkey INTEGER REFERENCES users(user_id), message_id_fkey INTEGER REFERENCES messages(message_id), date_added TIMESTAMP DEFAULT NOW());"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE tags(tag_id SERIAL PRIMARY KEY, tag VARCHAR(160));"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter --command="CREATE TABLE tags_messages_comments(tag_message_id SERIAL PRIMARY KEY, message_id_fkey INTEGER REFERENCES messages(message_id), comment_id_fkey INTEGER REFERENCES comments(comment_id));"]
 end
 
 task :test_tables => [:development_tables] do
   puts 'Creating test tables...'
-  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60), email VARCHAR(60), password_hash VARCHAR(60), display_name VARCHAR(60));"]
-  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE messages(id SERIAL PRIMARY KEY, text VARCHAR(160), user_id_fkey INTEGER REFERENCES users(id), timestamp TIMESTAMP);"]
-  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(160), fk_user_id INTEGER REFERENCES users(id), message_id_fkey INTEGER REFERENCES messages(id), timestamp TIMESTAMP);"]
-  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags(id SERIAL PRIMARY KEY, tag VARCHAR(160));"]
-  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags_messages_comments(id SERIAL PRIMARY KEY, message_id_fkey INTEGER REFERENCES messages(id), comment_id_fkey INTEGER REFERENCES comments(id));"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE users(user_id SERIAL PRIMARY KEY, username VARCHAR(60), email VARCHAR(60), password_hash VARCHAR(60), display_name VARCHAR(60));"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE messages(message_id SERIAL PRIMARY KEY, text VARCHAR(160), user_id_fkey INTEGER REFERENCES users(user_id), date_added TIMESTAMP DEFAULT NOW());"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE comments(comment_id SERIAL PRIMARY KEY, text VARCHAR(160), user_id_fkey INTEGER REFERENCES users(user_id), message_id_fkey INTEGER REFERENCES messages(message_id), date_added TIMESTAMP DEFAULT NOW());"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags(tag_id SERIAL PRIMARY KEY, tag VARCHAR(160));"]
+  sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags_messages_comments(tag_message_id SERIAL PRIMARY KEY, message_id_fkey INTEGER REFERENCES messages(message_id), comment_id_fkey INTEGER REFERENCES comments(comment_id));"]
 end
 
 task :email_settings => [:test_tables] do
