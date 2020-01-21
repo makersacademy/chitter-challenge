@@ -1,3 +1,7 @@
+<form action="/peeps" method="post" >
+  <input type="text" name="body" />
+  <input type="submit" value="Peep" />
+</form>
 <ul>
   <% @peeps.each do |peep| %>
     <li><%= peep %></li>
