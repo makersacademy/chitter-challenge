@@ -4,7 +4,7 @@ require './lib/peep'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Chitter Homepage'
+    erb :index
   end
 
   get '/timeline' do
