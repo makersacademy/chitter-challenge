@@ -21,6 +21,8 @@ several approaches can be taken:
 The easiest approach will be to sort the array. I will create a feature test for checking posts are displayed in reverse chronological order.
 11. User story 3. In order to keep track of the time when a post was created we need to add a time column to the database and introduce the relevant parameters to the Model, and ensure this is reflected in the View.
 Create and run feature and unit tests to ensure we can see the time.
+12. Creating a date and time columns with automatic date and time setting.
+13. Adding a new parameter :time to the Peeps class and accessing it in Controller and passing to the View. Starting with tests.
 
 
 
