@@ -33,7 +33,7 @@
   <h2>Peeps:</h2>
   <div >
     <% @chitter.each do |chitter| %>
-    <p><%= chitter %></p>
+    <p><%= chitter.message %> <%= chitter.time %></p>
     <% end %>
   </div>
 </body>

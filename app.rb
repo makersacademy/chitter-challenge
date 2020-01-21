@@ -9,7 +9,7 @@ class Chitters < Sinatra::Base
   end
 
   post '/message' do
-    Chitter.create(message: params[:message], time: params[:time])
+    Chitter.create(message: params[:message])
     redirect '/'
   end
 end
