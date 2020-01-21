@@ -19,6 +19,8 @@ several approaches can be taken:
   b) Sort the Peeps.all array by id in descending order (ids are allocated automatically so newer posts will have larger id numbers; currently sorted in ascending order);
   c) Incorporate timestamp (User story 3) and sort by timestamp.
 The easiest approach will be to sort the array. I will create a feature test for checking posts are displayed in reverse chronological order.
+11. User story 3. In order to keep track of the time when a post was created we need to add a time column to the database and introduce the relevant parameters to the Model, and ensure this is reflected in the View.
+Create and run feature and unit tests to ensure we can see the time.
 
 
 
