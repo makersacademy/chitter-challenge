@@ -6,7 +6,7 @@ require './database_connection_setup'
 class ChitterServer < Sinatra::Base
 
   get '/chitter' do
-    @peeps = Chitter.all
+    @peeps = Chitter.all.reverse
     erb :chitter
   end
 
