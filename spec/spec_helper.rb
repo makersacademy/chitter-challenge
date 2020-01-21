@@ -6,9 +6,9 @@ ENV['ENVIRONMENT'] = 'test'
 $LOAD_PATH << './app/controllers'
 
 #add capybara setup
-require 'capybara/rspec'
 require 'capybara'
 require 'capybara/dsl'
+require 'capybara/rspec'
 require 'app_controller'
 
 Capybara.app = Chitter

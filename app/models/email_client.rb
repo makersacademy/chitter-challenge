@@ -1,18 +1,13 @@
 require 'mail'
-require 'email_server_settings'
+require './email_server_settings.rb'
 
 class EmailClient
 
   def self.setup
-    Mail.defaults do delivery_method(:smtp, {
-        :address => ENV['smtp_server'],
-        :port => ENV['smtp_server_port'],
-        :domain => ENV['email_domain'],
-        :user_name => ENV['email_username'],
-        :password => ENV['email_password'],
-        :authentication => 'plain',
-        :enable_starttls_auto => true
-      })
+
+    email_settings = (ENV['ENVIRONMENT'] == 'test' ? {} : EmailSettings::SETTINGS)
+
+    Mail.defaults do delivery_method(:smtp, email_settings)
     end
   end
 
