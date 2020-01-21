@@ -28,4 +28,17 @@ describe Peep do
       expect(peeps.first.message).to eq 'My first peep'
     end
   end
+
+  describe '.all_reverse_chronological_order' do
+    it 'returns a list of peeps in reverse chronological order' do
+      firs_peep = Peep.create('My first peep')
+      second_peep = Peep.create('My second peep')
+
+      peeps = Peep.all_reverse_chronological_order
+
+      expect(peeps.first.id).to eq second_peep.id
+      expect(peeps.first.message).to eq second_peep.message
+      expect(peeps.first.time).to eq second_peep.time
+    end
+  end
 end

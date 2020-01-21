@@ -5,10 +5,12 @@
 * Listed the gems in the Gemfile:
   * gem 'sinatra'
   * gem 'capybara'
+  * gem 'orderly'
 * Installed gems: bundle install
 * In the root directory, set up a basic Sinatra application in file called chitter.rb
 * Configured the rackup command to run the application in chitter.rb, via a file called config.ru
 * Adjusted the spec_helper.rb to configure Capybara
+* Install orderly gem to test chronological order
 
 #### Database set-up
 * The project uses PostgreSQL
@@ -20,10 +22,11 @@
 * Connect to each database using the pqsl command: \c chitter_manager and \c chitter_manager_test
 * Run for each database the query we have saved in the file 01_create_peeps_table.sql
 * Install pg gem, to allow interacting with PostgreSQL from Ruby
+* For User_story_2 update the **peeps** table, running he query we have saved in the file 02_add_time_created_to_peeps.sql
 
-Diagrams:
-[logo]: /images/create_peep.png "Diagram_Create_Peep"
-![logo]
+Diagram User_story_1:
+![alt text](/images/create_peep.png "Diagram_Create_Peep")
+
 
 
 Chitter Challenge
