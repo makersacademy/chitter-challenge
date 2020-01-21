@@ -133,9 +133,9 @@ SimpleCov.start
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
 
 
-Notes:
+## Notes:
 
-STEP 1: SETUP
+# STEP 1: SETUP
 1) Lib- done
 2) Config.ru-done
 3) Spec with Features-done
@@ -143,7 +143,7 @@ STEP 1: SETUP
 5) Views folder -done
 6) Gemfile with all the necessary gems and run bundle install
 
-STEP 2: USER STORY 1
+# STEP 2: USER STORY 1
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -296,7 +296,7 @@ end
 18) Added spec tests for .query and .connection
 19) Implemented code for .query and .connection in database_connection.rb
 
-STEP 3: USER STORY 2
+# STEP 3: USER STORY 2
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
@@ -312,7 +312,7 @@ feature 'See peeps' do
 end
 2) Implementation- adding id #message to peeps/index.erb
 <ul>
-  <% @peeps.each do |peep| %>
+  <% peeps.each do |peep| %>
   <div id="message">
     <li><%= peep.message %></li>
     </div>
@@ -321,7 +321,7 @@ end
 3) Implementation of reverse order- peeps.rb
 -added ORDER by id DESC
 
-STEP 4: USER STORY 3
+# STEP 4: USER STORY 3
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
@@ -344,3 +344,127 @@ Peeps.new(id: result[0]['id'], message: result[0]['message'],time: result[0]['ti
  end
 6) Editing index.erb to include Time
 <li><%= peep.time %></li>
+
+# STEP 5: USER STORY 4
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+1) PSQL & db/migrations
+CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(100) UNIQUE, password VARCHAR(100),name VARCHAR(100), username VARCHAR(50) UNIQUE);
+2) Update Setup_test_Database to truncate users table as well
+connection.exec("TRUNCATE peep, users;")
+3) Feature test
+feature 'Sign up' do
+  scenario 'A user can sign up to Chitter' do
+    visit '/users/new'
+    fill_in('email',with: 'example@example.com')
+    fill_in('password',with: 'example123')
+    fill_in('name',with: 'Example Surname')
+    fill_in('username',with: 'exampleusername')
+    click_button('Submit')
+
+    expect(page).to have_content "Welcome, Example Surname"
+  end
+end
+4) app.rb to implement get route
+get '/users/new' do
+  erb: 'users/new'
+end
+5) erb: new
+<form action="/users" method="post">
+  <input type="email" name="email" />
+  <input type="password" name="password" />
+  <input type="text" name="name" />
+  <input type="text" name="username" />
+  <input type="submit" value="Submit" />
+</form>
+6) app.rb to implement post route
+post '/users' do
+  User.create(email: params[:email],password: params[:password], name: params[:name], username: params[:username])
+  redirect '/peeps'
+end
+7)user_spec test
+require 'user'
+require 'database_helpers'
+
+describe User do
+  describe '.create' do
+    it 'creates a new user' do
+      user = User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+
+      expect(peep.email).to eq "example@example.com"
+      expect(peep.password).to eq "example123"
+      expect(peep.name).to eq "Example Surname"
+      expect(peep.username).to eq "Example Username"
+    end
+  end
+8) implementation of User class
+class User
+  def self.create(email:,password:,name:,username:)
+    result = DatabaseConnection.query("INSERT into users (email,password,name,username)
+    VALUES ('#{email}', '#{password}','#{name}','#{username}') RETURNING email, password, name, username;")
+    User.new(email: result[0]['email'],password: result[0]['password'],name: result[0]['name'],username: result[0]['username'])
+  end
+
+  attr_reader :email, :password, :name, :username
+  def initialize(email:,password:,name:,username:)
+    email = email
+    password = password
+    name = name
+    username = username
+  end
+end
+9) editing index to include welcoming the user
+<% if user %>
+<h1> Welcome, <%= user.name %> </h1>
+<% end %>
+10) But to use instance variable user need to create instance variable user in get /peep do
+so will create a method called .find which finds the user given an id and use session to pass
+over id from post to get
+-spec test for .find
+describe '.find' do
+it 'finds a user' do
+  user = User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+  found_user = User.find(id: user.id )
+
+  expect(found_user.id).to eq user.id
+  expect(found_user.name).to eq user.name
+end
+end
+11) Implementing .find in User.rb
+def self.find(id:)
+  return nil unless id
+  result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+  User.new(
+    id: result[0]['id'],
+    email: result[0]['email'],
+    password: result[0]['password'],
+    name: result[0]['name'],
+    username: result[0]['username'])
+end
+12) Adding a guard clause
+added return nil unless id (in .find since tests were failing)
+13) Refactoring to secure the password
+added 'bcrypt' to gem
+14) Update user_spec to include bcrypt
+describe '.create' do
+  it 'creates a new user' do
+    user = User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+
+    expect(user.email).to eq "example@example.com"
+    expect(user.password).to eq "example123"
+    expect(user.name).to eq "Example Surname"
+    expect(user.username).to eq "exampleusername"
+  end
+
+  it 'hides the password using bcrypt' do
+    expect(BCrypt::Password).to receive(:create).with('example123')
+    User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+end
+15) Update user.rb with bcrypt
+def self.create(email:, password:, name:, username:)
+  encrypted_password = BCrypt::Password.create(password)
+  result = DatabaseConnection.query("INSERT into users (email,password,name,username)
+  VALUES ('#{email}', '#{encrypted_password}','#{name}','#{username}') RETURNING id, email, password, name, username;")
+  User.new(id: result[0]['id'],email: result[0]['email'],password: result[0]['password'],name: result[0]['name'],username: result[0]['username'])
+end
