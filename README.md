@@ -468,3 +468,102 @@ def self.create(email:, password:, name:, username:)
   VALUES ('#{email}', '#{encrypted_password}','#{name}','#{username}') RETURNING id, email, password, name, username;")
   User.new(id: result[0]['id'],email: result[0]['email'],password: result[0]['password'],name: result[0]['name'],username: result[0]['username'])
 end
+
+# STEP 5: USER STORY 5
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+1) feature test for happy path
+feature 'Login' do
+  scenario 'A user logs into chitter' do
+      User.create(email: 'example@example.com',password: 'example123',
+      name: 'Example Surname', username: 'exampleusername')
+      visit '/sessions/new'
+      fill_in(:email,with: 'example@example.com')
+      fill_in(:password,with: 'example123')
+      click_button('Sign in')
+
+      expect(page).to have_content "Welcome, Example Surname"
+    end
+end
+2) app. rb update with get route
+get '/sessions/new' do
+  erb :'sessions/new'
+end
+3) update erb: sessions/new
+<form action="/users" method="post">
+  <input type="email" name="email" />
+  <input type="password" name="password" />
+  <input type="submit" value="Sign In" />
+</form>
+4) app.rb update with post route
+post '/sessions' do
+  User.authenticate(email: params[:email],password: params[:password])
+  redirect '/peeps'
+end
+5) Spec test for .authenticate (happy path)
+describe '.authenticate' do
+  it 'authenticates user' do
+    user = User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+    authenticated_user = User.authenticate('example@example.com', 'example123')
+
+    expect(authenticated_user.id). to eq user.id
+  end
+end
+6) Implementation of .authenticate in User.rb
+def self.authenticate(email:, password:)
+  result = DatabaseConnection.query("SELECT * FROM users where email = '#{email}'")
+  User.new(
+    id: result[0]['id'],
+    email: result[0]['email'],
+    password: result[0]['password'],
+    name: result[0]['name'],
+    username: result[0]['username'])
+end
+7) Feature test for unhappy path: incorrect email
+scenario 'A user logs into chitter with incorrect email' do
+    User.create(email: 'example@example.com',password: 'example123',
+    name: 'Example Surname', username: 'exampleusername')
+    visit '/sessions/new'
+    fill_in(:email,with: 'notcorrect@example.com')
+    fill_in(:password,with: 'example123')
+    click_button('Sign In')
+
+    expect(page).not_to have_content "Welcome, Example Surname"
+    expect(page).to have_content "Incorrect username or password"
+  end
+8) Adding flash incorrect username and password to /peeps
+-added gem "sinatra-flash" to Gemfile
+-add require 'sinatra/flash' to app.rb
+-add register Sinatra::Flash to app.rb
+9) Update app.rb with Flash
+post '/sessions' do
+  user = User.authenticate(email: params[:email],password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/peeps')
+    else
+      flash[:notice] = 'Incorrect email or password'
+      redirect('/sessions/new')
+    end
+  end
+10) Add flash notice to sessions/new.erb
+<h2>
+ <%= flash[:notice] %>
+</h2>
+11) Add implementation code in user.rb
+return unless result.any? ( guard close for scenarios where cannot find email)
+12)Feature test for unhappy path: incorrect password
+scenario 'A user logs into chitter with incorrect password' do
+    User.create(email: 'example@example.com',password: 'example123',
+    name: 'Example Surname', username: 'exampleusername')
+    visit '/sessions/new'
+    fill_in('email', with: 'example@example.com')
+    fill_in('password', with: 'example')
+    click_button('Sign In')
+
+    expect(page).not_to have_content "Welcome, Example Surname"
+    expect(page).to have_content "Incorrect email or password"
+  end
+13) Implementation in User.rb
+return unless BCrypt::Password.new(result[0]['password']) == password
