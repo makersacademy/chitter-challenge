@@ -29,12 +29,23 @@ describe Chitter do
 
       expect(chitters).to end_with("Hello World!")
     end
+    it "shows messages posted with their time" do
+      connection = PG.connect(dbname: 'chitter_test')
+      # # Add the test data
+      connection.exec("INSERT INTO chits (message) VALUES ('Hello World!');")
+      connection.exec("INSERT INTO chits (message) VALUES('This is another peep.');")
+      connection.exec("INSERT INTO chits (message) VALUES('This is a third peep');")
+
+      chitters = Chitter.all
+      expect(chitters).to include(Time.now)
+    end
   end
 
   describe '.create' do
     it "posts a new message" do
-      Chitter.create(message: 'Hello World!')
-      expect(Chitter.all).to include("Hello World!")
+      chits = Chitter.create(message: 'Hello World!', time: Time.now).first
+      expect(chits['message']).to eq'Hello World!'
+      expect(chits['time']).to eq Time.now
     end
   end
 end

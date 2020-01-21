@@ -5,7 +5,7 @@ feature 'Viewing peeps' do
     Chitter.create(message: "Hello World!")
     Chitter.create(message: "This is another peep")
     Chitter.create(message: "This is a third peep!")
-    
+
     visit '/'
 
     expect(page).to have_content "Hello World!"
