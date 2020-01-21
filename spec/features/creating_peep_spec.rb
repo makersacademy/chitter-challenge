@@ -1,6 +1,6 @@
 feature 'Creating a new peep' do
   scenario 'A user can add a peep to Chitter Manager' do
-    visit ('/peeps/new')
+    visit '/peeps/new'
     fill_in('message', with: 'My first peep')
     click_button('Submit')
 

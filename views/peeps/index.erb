@@ -5,6 +5,8 @@
     <title></title>
   </head>
   <body>
-    <%= @message.message %>
+    <% @peeps.map do |peep| %>
+    <p>  <%= peep.message %> </p>
+    <% end %>
   </body>
 </html>
