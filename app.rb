@@ -1,5 +1,5 @@
 require 'sinatra/base'
-
+require './lib/peep'
 class Chitter < Sinatra::Base
 
   get '/' do
@@ -7,7 +7,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+
     @peep = params['message']
+    p params
+    Peep.create(params)
     redirect '/peeps'
   end
 
