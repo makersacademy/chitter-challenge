@@ -1,5 +1,8 @@
 require 'sinatra/base'
 
+require './lib/Chitter'
+require './database_connection_setup'
+
 class ChitterServer < Sinatra::Base
 
   get '/chitter' do
