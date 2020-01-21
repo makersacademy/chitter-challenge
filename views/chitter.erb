@@ -4,7 +4,13 @@
 
 <form action='posting_peeps' method='post'>
   <input type='text' name='post_peep'>
-  <input type='submit' value='Post'>
+  <input type='submit' value='Submit'>
 </form>
 
 <h3>Peeps:</h3>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>

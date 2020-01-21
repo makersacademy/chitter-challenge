@@ -6,10 +6,13 @@ require './database_connection_setup'
 class ChitterServer < Sinatra::Base
 
   get '/chitter' do
+    @peeps = Chitter.all
     erb :chitter
   end
 
-  post 'posting_peeps' do
+  post '/posting_peeps' do
+    peep = params[:post_peep]
+    Chitter.post(peep)
     redirect '/chitter'
   end
 
