@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'pg'
 
+require './lib/peep'
+
 class Chitter < Sinatra::Base
   enable :sessions
 
@@ -18,9 +20,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    $message = params['message']
-    connection = PG.connect(dbname: 'chitter_manager_test')
-    connection.exec("INSERT INTO peeps (message) VALUES('#{$message}');")
+    $message = Peep.create(params['message'])
+    p $message
     redirect '/peeps'
   end
 
