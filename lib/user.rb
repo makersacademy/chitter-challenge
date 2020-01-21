@@ -10,6 +10,10 @@ class User
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM users;")
-    result.map { |row| User.new(row['email'], row['password'], row['name'], ['username']) }
+    result.map { |row| User.new(row['email'], row['password'], row['name'], row['username']) }
+  end
+
+  def self.create(email, password, name, username)
+    DatabaseConnection.query("INSERT INTO users (email, password, name, username) VALUES ('#{email}', '#{password}', '#{name}', #{username});")
   end
 end

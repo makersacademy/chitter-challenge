@@ -1,4 +1,6 @@
-<h1>Welcome To Chitter, <%= @name %>!</h1>
+<% @users.each do |user| %>
+  <h1>Welcome To Chitter, <%= user.username %>!</h1>
+<% end %>
 
 <h3>Post A Peep:</h3>
 

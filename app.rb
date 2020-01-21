@@ -11,11 +11,17 @@ class ChitterServer < Sinatra::Base
   end
 
   post '/signup' do
+    email = params[:email]
+    password = params[:password]
+    name = params[:name]
+    username = params[:username]
+    User.create(email, password, name, username)
     redirect '/chitter'
   end
 
   get '/chitter' do
     @peeps = Chitter.all.reverse
+    @users = User.all.first
     erb :chitter
   end
 
