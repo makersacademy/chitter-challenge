@@ -4,6 +4,7 @@ STEPS:
 1. To implement the user story 1, I'll need to set up an MVC system. It includes a Controller (app.rb) which will interact with the View (HTML code in .erb files) and Model (Chitter class object and a database for storing and manipulating posts).
 2. Set up the web project.
 3. Writing the first feature test for User visiting a page, posting a message and seeing it appear on the page.
+4. Creating '/peeps' and '/peeps/new' routes in Controller with .erb files to fill in a form and display peeps.
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
