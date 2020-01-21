@@ -38,6 +38,12 @@ Create the database using the psql command CREATE DATABASE chitter;
 Connect to the database using the pqsl command \c chitter;
 Run the query saved in the file 01_create_peeps_table.sql(file path- db/migrations)
 
+4. Attached the database to the web application through 'PG'.
+
+Result: First user story completed.
+
+I am able to see all peeps but in chronological order.
+
 
 
 Features:
