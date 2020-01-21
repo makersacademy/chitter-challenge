@@ -5,6 +5,7 @@ STEPS:
 2. Set up the web project.
 3. Writing the first feature test for User visiting a page, posting a message and seeing it appear on the page.
 4. Creating '/peeps' and '/peeps/new' routes in Controller with .erb files to fill in a form and display peeps.
+5. Creating a Model Peeps class to allow to store peeps and use them across routes - starting with a unit test for .all and .create class methods.
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
