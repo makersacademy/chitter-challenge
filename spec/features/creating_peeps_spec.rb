@@ -3,5 +3,7 @@ feature 'Adding a peep' do
     visit('/new')
     fill_in('peep', with: 'Hello Chitter World!')
     click_button('Post')
+
+    expect(page).to have_content 'Hello Chitter World!'
   end
 end
