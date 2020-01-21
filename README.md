@@ -1,9 +1,3 @@
-To run the app:
-
-- `bundle install`
-- `rake setup`
-- `rackup`
-
 Chitter Challenge
 =================
 
@@ -12,6 +6,12 @@ Chitter Challenge
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
+
+Set Up:
+--------
+- `bundle install`
+- `rake setup`
+- `rackup`
 
 Challenge:
 -------
