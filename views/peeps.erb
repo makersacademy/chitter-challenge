@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/theme.css">
+</head>
+
+<h1> Chitter </h1>
+<form action="/peeps" method="post" >
+  <input type="text" name="body" />
+  <input type="submit" value="Peep" />
+</form>
+<ul>
+  <% @peeps.each do |peep| %>
+    <section> <%= peep.body %>
+      <p>  <%= peep.timestamp %> </p> 
+    </section>
+  <% end %>
+</ul>
+</html>

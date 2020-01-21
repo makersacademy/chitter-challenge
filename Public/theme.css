@@ -1,0 +1,30 @@
+
+section {
+ display: inline-block;
+ margin:  0.30rem;
+ padding:  1rem;
+ width:  80%;
+ background:  #efefef;
+}
+
+body {
+ padding:  1em;
+ font-family:  "Garamond";
+
+}
+
+h1 {
+  font-size:  3rem;
+  font-weight:  800;
+}
+
+body {
+  font-size:  2rem;
+   text-align:  center;
+}
+
+p {
+
+ font-size:  1rem;
+ text-align: right;
+}
