@@ -14,6 +14,19 @@ As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+
+
+Setting up the project:
+
+* Created a lib, db and Views folder in root directory.
+* Created a features folder inside the spec folder.
+* Created an app.rb file in root directory.
+* Added the required gems in Gemfile and run "bundle install".
+* Updated the spec_helper as per requirement.
+* Created config.ru file in root directory.
+
+
+
 Features:
 -------
 
