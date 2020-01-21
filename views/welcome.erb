@@ -7,23 +7,46 @@
       font-family: Comic Sans MS;
     }
     header{
-      background: white;
+      background: #E6E6E6;
       overflow: hidden;
       margin-left: -50px;
       margin-right: -50px;
       font-family: Times New Roman;
+      font-family: Comic Sans MS;
+    }
+    section{
+      background: white;
+    }
+    .center{
+      margin: -10px;
+      width: 80%;
+      border: 20px solid black;
+      padding: 20px;
+    }
+    img{
+      margin-left: 50px;
+      width: 200;
+      height: auto;
+      position: relative;
+      float:right
+    }
+    .button{
+      font-size:60px;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1 style ="margin-left: 50px;">Chitter</h1>
+    <img src='https://www.xinix.co.uk/wp-content/uploads/2017/08/Broadcasting-Messages-and-Internal-Agent-Chatting-with-VICIdial.jpg' alt="Talking heads">
+    <h1 style ="margin-left: 50px; font-size: 400%">Chitter</h1>
   </header>
-  <% if @user %>
-  <h1>Welcome, <%= @user.name %>!</h1>
-  <% end %>
-  <form action="/" method="get">
-    <input type="submit" value="Go to Home Page">
-  </form>
+  <div>
+    <% if @user %>
+    <h1>Welcome, <%= @user.name %>!</h1>
+    <% end %>
+    <form action="/" method="get">
+      <input type="submit" value="Go to Home Page">
+    </form>
+  </div>
 </body>
