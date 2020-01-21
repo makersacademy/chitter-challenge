@@ -16,7 +16,7 @@ class Peeps
   end
 
   def self.create(message:)
-    result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{message}') RETURNING id, message;")
+    result = DatabaseConnection.query("INSERT INTO peeps (message) VALUES('#{message}') RETURNING id, message, date, time;")
     Peeps.new(id: result[0]['id'], message: message)
   end
 end
