@@ -1,9 +1,9 @@
-class Peep 
+require 'pg'
+
+class Peep
   def self.all
-    [
-      "My first peep",
-      "Another peep...",
-      "Hello"
-    ]
+  connection = PG.connect(dbname:'chitter')
+  result = connection.exec("SELECT * FROM peeps ORDER BY timestamp DESC;")
+  result.map {|peep| peep['body']}
   end
 end

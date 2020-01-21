@@ -1,3 +1,9 @@
+* Documenting database setup:
+1. Connect to psql
+2. Create database using psql command CREATE DATABASE chitter;
+3. Connect to the database using the pqsl command \c chitter;
+4. Run the querys saved in db/migrations files (listed in order)
+
 Chitter Challenge
 =================
 

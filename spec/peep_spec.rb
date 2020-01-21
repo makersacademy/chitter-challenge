@@ -6,7 +6,7 @@ describe Peep do
       peeps = Peep.all
 
       expect(peeps).to include("My first peep")
-      expect(peeps).to include("Another peep...")
+      expect(peeps).to include("Another peep")
       expect(peeps).to include("Hello")
     end
   end
