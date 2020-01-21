@@ -5,7 +5,7 @@ require 'capybara'
 require 'rspec'
 require 'capybara/rspec'
 
-Capybara.app = BookServer
+Capybara.app = ChitterServer
 
 require 'simplecov'
 require 'simplecov-console'
