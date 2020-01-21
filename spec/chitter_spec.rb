@@ -12,9 +12,8 @@ describe Chitter do
 
       chitters = Chitter.all
 
-      expect(chitters).to include("Hello World!")
-      expect(chitters).to include("This is another peep.")
-      expect(chitters).to include("This is a third peep")
+      expect(chitters.length).to eq 3
+      expect(chitters.first).to be_a Chitter
     end
 
     it "shows messages posted in reverse chronological order" do
@@ -28,7 +27,7 @@ describe Chitter do
 
       chitters = Chitter.all
 
-      expect(chitters.last).to eq("Hello World!")
+      expect(chitters.last.message).to eq("Hello World!")
     end
   end
 
@@ -37,6 +36,19 @@ describe Chitter do
       chits = Chitter.create(message: 'Hello World!').first
       persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM chits ORDER BY id DESC;")
       expect(chits['message']).to eq'Hello World!'
+    end
+  end
+
+  describe "time" do
+    before do
+      @fake_time = Time.now
+      allow(Time).to receive(:now) { @fake_time }
+    end
+    it "is equal" do
+      expect(Time.now).to eq Time.now
+    end
+    it "is close" do
+      expect(Time.now).to be_within(0.1).of(Time.now)
     end
   end
 end

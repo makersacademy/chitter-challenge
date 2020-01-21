@@ -16,7 +16,7 @@ class Chitter
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("SELECT * FROM chits ORDER BY id DESC;")
-    result.map { |chitter|chitter['message'] }
+    result.map { |chitter|Chitter.new(id: chitter['id'], message: chitter['message'], time: chitter['time']) }
   end
 
   def self.create(message:)
@@ -26,6 +26,5 @@ class Chitter
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("INSERT INTO chits(message) VALUES('#{message}') RETURNING id, message, time;")
-
   end
 end

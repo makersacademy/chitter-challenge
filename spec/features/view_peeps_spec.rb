@@ -9,6 +9,5 @@ feature 'Viewing peeps' do
     visit '/'
 
     expect(page).to have_content "Hello World!"
-    expect(page).to have_content "10:20:25.998928+00"
   end
 end
