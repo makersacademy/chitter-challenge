@@ -1,0 +1,83 @@
+<head>
+<style>
+
+header {
+  background-color: #719FF4;
+  text-align: center;
+}
+
+body {
+  background-color: #FDFDFF;
+  text-align: center;
+}
+
+footer {
+  background-color: #0A1A38;
+}
+
+p {
+  text-align: right;
+  color: #0B398E;
+}
+
+h1 {
+  border: #1460EC;
+  border-radius: 9px;
+  font-family: Segoe UI;
+  font-size: 50px;
+  color: rgb(10, 26, 56);
+  font-style: oblique;
+
+}
+
+h4 {
+  color: #1460EC;
+}
+
+ul li {
+  list-style-type: none;
+  border-style: ridge;
+  border-radius: 12px;
+  padding: 25px;
+  width: 300px;
+  text-align: center;
+  margin: auto;
+}
+
+.button:hover {
+  background-color: #1460EC;
+  color: white;
+}
+
+  </style>
+
+  </head>
+
+<body>
+
+<header>
+  <h1> Welcome </h1>
+  <h1> to Chitter </h1>
+
+  <h4> Would you like to create a peep? </h4>
+  </header>
+
+<form action='/chitter/new_peep' method='get'>
+  <button type='submit'>Create Peep</button>
+  </form>
+
+  <ul>
+    <% for @p in @peeps %>
+    <li>
+        <%= @p.peep %> <br>
+        <br>
+        <%= @p.timestamp %>
+        <li>
+      <% end %>
+    </ul>
+
+    <footer>
+      <p> Sam Dalzell 2019 </p>
+      </footer>
+
+</body>
