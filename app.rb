@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @user = session[:user]
+    @user = Users.find(session[:user_id])
     erb :'index'
   end
 
@@ -31,7 +31,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/user-add' do
-    session[:user] = Users.create(username: params[:username], email: params[:email], password: params[:password])
+    user = Users.create(username: params[:username], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/'
   end
 
