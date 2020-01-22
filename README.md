@@ -14,6 +14,48 @@ As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
+
+
+Setting up the project:
+
+* Created a lib, db and Views folder in root directory.
+* Created a features folder inside the spec folder.
+* Created an app.rb file in root directory.
+* Added the required gems in Gemfile and run "bundle install".
+* Updated the spec_helper as per requirement.
+* Created config.ru file in root directory.
+
+Ist user story:
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+Steps taken:
+1. Added a feature test to see the index page.
+2. added a feature test for allowing user to add a peep.
+3. Setting up a database to store the messages.
+
+Setting up a database:
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter;
+Connect to the database using the pqsl command \c chitter;
+Run the query saved in the file 01_create_peeps_table.sql(file path- db/migrations)
+
+4. Attached the database to the web application through 'PG'.
+
+Result: First user story completed. User can post a message to chitter.
+
+2nd User Story:
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+Result: Second user story completed. User can see all peeps in reverse chronological order
+
+
+
 Features:
 -------
 
