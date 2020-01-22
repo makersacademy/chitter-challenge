@@ -131,3 +131,492 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+
+## Notes:
+
+# STEP 1: SETUP
+1) Lib- done
+2) Config.ru-done
+3) Spec with Features-done
+4) App.rb-done
+5) Views folder -done
+6) Gemfile with all the necessary gems and run bundle install
+
+# STEP 2: USER STORY 1
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+1) PSQL create database and table
+CREATE DATABASE chitter;
+\c chitter
+CREATE TABLE peep(id SERIAL PRIMARY KEY, message VARCHAR(150));
+
+CREATE DATABASE chitter_test
+\c chitter
+CREATE TABLE peep(id SERIAL PRIMARY KEY, message VARCHAR(150));
+Added this to db/migrations
+2) CREATE TRUNCATE file
+in spec folder- setup_test_database to truncate peep table when connected
+to test databases + add to spec helper
+3) Feature test
+feature 'Posting peep' do
+  scenario 'A user can post a peep to Chitter' do
+    visit '/peep/new'
+    fill_in('message',with: 'Test')
+    click_button('Submit')
+
+    expect(page).to have_content 'Test'
+  end
+end
+Error: unable to find field message
+4) Add route to app.rb
+get '/peep/new' do
+  erb :"peep/new"
+end
+Error: unable to find field message
+5) Edit erb peep/new
+<form>
+  <input type="text" name="message" />
+  <input type="submit" value="Submit" />
+</form>
+6) Make erb peep/new a post since adding data
+<form action="/peep" method="post">
+  <input type="text" name="message" />
+  <input type="submit" value="Submit" />
+</form>
+7) Add post route to app.rb
+post '/peep' do
+  message = params['message'] (the message that the user entered)
+  connection = PG.connect(dbname: 'chitter_test')
+  connection.exec("INSERT INTO peep (messages) VALUES('#{message}')") (insert it into our database- id will be assigned automatically)
+  redirect '/peep'
+end
+
+get '/peep' do
+end
+FEATURE TEST PASSES
+8) REFRACTORING: APP.rb
+-currently we connect to the database via app.rb which goes against MVC
+-so we will try to do this through the model instead by making a class method
+post '/peep' do
+  Peep.create(message: params[:message]
+  redirect '/peep'
+end
+9) Spec test for .create
+describe '.create' do
+  it 'creates a new peep' do
+    peep = Peep.create(message: 'Test')
+
+    expect(peep.message).to eq 'Test'
+  end
+end
+10) Implementation of create & .all as need it for get
+def self.create(message:)
+  if ENV['ENVIRONMENT'] == 'test'
+    connection = PG.connect(dbname: 'chitter_test')
+  else
+    connection = PG.connect(dbname: 'chitter')
+  end
+    connection.exec("INSERT INTO peep (message) VALUES('#{message}') RETURNING id,message;")
+    Peep.new(id: result[0]['id'], message: result[0]['message'])
+  end
+
+  def self.all
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+      result = connection.exec("SELECT * from peep")
+      result.map do |peep|
+      Peeps.new(id: peep['id'], message: peep['message'])
+  end
+
+
+  11) Update to app. route to include Peep.all and erb: index
+  get '/peeps' do
+    peeps = Peeps.all
+    erb :'peeps/index'
+  end
+
+  12) Refractoring adding database_helper
+  describe '.create' do
+    it 'creates a new peep' do
+      peep = Peeps.create(message: "Test")
+      persisted_data = persisted_data(id: peep.id)
+
+      expect(peep.message).to eq "Test"
+      expect(peep.id).to eq persisted_data['id']
+    end
+  end
+  13) Adding another test for .find
+  describe '.all' do
+    it 'returns all peeps' do
+      Peeps.create(message: "Another Test")
+      Peeps.create(message: "Different Test")
+      peeps = Peeps.all
+
+    expect(peeps.length).to eq 2
+    expect(peeps.first.message). to eq "Another Test"
+  end
+end
+end
+14) Refractoring Peeps.rb as currently it connects to the database and manipulates data int he database
+-so will extract a Database setup object
+-first write spec for it
+require 'database_connection'
+
+describe DatabaseConnection do
+  describe '.setup' do
+    it 'sets up connection to the database'
+    expect(PG).to receive(:connect).with(dbname: 'chitter_test')
+
+    DatabaseConnection.setup('chitter_test')
+  end
+end
+15) Implementation Database_connection.rb
+require 'pg'
+
+class DatabaseConnection
+  def self.setup(dbname)
+    PG.connect(dbname: dbname)
+  end
+end
+16) will now write database_connection_setup at the root so that database connection is set up right at the beginning
+require './lib/database_connection'
+
+if ENV['ENVIRONMENT'] == 'test'
+  DatabaseConnection.setup('chitter_test')
+else
+  DatabaseConnection.setup('chitter')
+end
+-require it in app.rb so that it is run when application boots
+17) replace in Peep.rb PG connect with DatabaseConnection.query
+18) Added spec tests for .query and .connection
+19) Implemented code for .query and .connection in database_connection.rb
+
+# STEP 3: USER STORY 2
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+1) Feature test
+feature 'See peeps' do
+  scenario 'A user can see peeps they posted in reverse order' do
+    visit '/peeps/new'
+    fill_in('message',with: 'Latest peep')
+    click_button('Submit')
+
+    expect(first('#message')).to have_content "Latest peep"
+  end
+end
+2) Implementation- adding id #message to peeps/index.erb
+<ul>
+  <% peeps.each do |peep| %>
+  <div id="message">
+    <li><%= peep.message %></li>
+    </div>
+  <% end %>
+</ul>
+3) Implementation of reverse order- peeps.rb
+-added ORDER by id DESC
+
+# STEP 4: USER STORY 3
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+1) Alter table in PSQL and added to db/migrations
+ALTER TABLE peep ADD COLUMN time TIMESTAMP; (for both test and development environments)
+3) Irb trying to see how to enter time:
+Peeps.new(id: result[0]['id'], message: result[0]['message'],time: result[0]['time'])
+ => #<Peeps:0x00007fbd0098e170 @id="73", @message="Hello", @time="2020-01-21 11:15:58">  
+ 4) Changing Peeps.rb to enter Time.now
+ #{Time.now}
+ 5) Feature test
+ feature 'See time of peep creation' do
+   scenario 'A user can see the time at which peep was created' do
+     visit '/peeps/new'
+     fill_in('message',with: '11:38am Peep')
+     click_button('Submit')
+
+     expect(first('#message')).to have_content "11:38"
+   end
+ end
+6) Editing index.erb to include Time
+<li><%= peep.time %></li>
+
+# STEP 5: USER STORY 4
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+1) PSQL & db/migrations
+CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(100) UNIQUE, password VARCHAR(100),name VARCHAR(100), username VARCHAR(50) UNIQUE);
+2) Update Setup_test_Database to truncate users table as well
+connection.exec("TRUNCATE peep, users;")
+3) Feature test
+feature 'Sign up' do
+  scenario 'A user can sign up to Chitter' do
+    visit '/users/new'
+    fill_in('email',with: 'example@example.com')
+    fill_in('password',with: 'example123')
+    fill_in('name',with: 'Example Surname')
+    fill_in('username',with: 'exampleusername')
+    click_button('Submit')
+
+    expect(page).to have_content "Welcome, Example Surname"
+  end
+end
+4) app.rb to implement get route
+get '/users/new' do
+  erb: 'users/new'
+end
+5) erb: new
+<form action="/users" method="post">
+  <input type="email" name="email" />
+  <input type="password" name="password" />
+  <input type="text" name="name" />
+  <input type="text" name="username" />
+  <input type="submit" value="Submit" />
+</form>
+6) app.rb to implement post route
+post '/users' do
+  User.create(email: params[:email],password: params[:password], name: params[:name], username: params[:username])
+  redirect '/peeps'
+end
+7)user_spec test
+require 'user'
+require 'database_helpers'
+
+describe User do
+  describe '.create' do
+    it 'creates a new user' do
+      user = User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+
+      expect(peep.email).to eq "example@example.com"
+      expect(peep.password).to eq "example123"
+      expect(peep.name).to eq "Example Surname"
+      expect(peep.username).to eq "Example Username"
+    end
+  end
+8) implementation of User class
+class User
+  def self.create(email:,password:,name:,username:)
+    result = DatabaseConnection.query("INSERT into users (email,password,name,username)
+    VALUES ('#{email}', '#{password}','#{name}','#{username}') RETURNING email, password, name, username;")
+    User.new(email: result[0]['email'],password: result[0]['password'],name: result[0]['name'],username: result[0]['username'])
+  end
+
+  attr_reader :email, :password, :name, :username
+  def initialize(email:,password:,name:,username:)
+    email = email
+    password = password
+    name = name
+    username = username
+  end
+end
+9) editing index to include welcoming the user
+<% if user %>
+<h1> Welcome, <%= user.name %> </h1>
+<% end %>
+10) But to use instance variable user need to create instance variable user in get /peep do
+so will create a method called .find which finds the user given an id and use session to pass
+over id from post to get
+-spec test for .find
+describe '.find' do
+it 'finds a user' do
+  user = User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+  found_user = User.find(id: user.id )
+
+  expect(found_user.id).to eq user.id
+  expect(found_user.name).to eq user.name
+end
+end
+11) Implementing .find in User.rb
+def self.find(id:)
+  return nil unless id
+  result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+  User.new(
+    id: result[0]['id'],
+    email: result[0]['email'],
+    password: result[0]['password'],
+    name: result[0]['name'],
+    username: result[0]['username'])
+end
+12) Adding a guard clause
+added return nil unless id (in .find since tests were failing)
+13) Refactoring to secure the password
+added 'bcrypt' to gem
+14) Update user_spec to include bcrypt
+describe '.create' do
+  it 'creates a new user' do
+    user = User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+
+    expect(user.email).to eq "example@example.com"
+    expect(user.password).to eq "example123"
+    expect(user.name).to eq "Example Surname"
+    expect(user.username).to eq "exampleusername"
+  end
+
+  it 'hides the password using bcrypt' do
+    expect(BCrypt::Password).to receive(:create).with('example123')
+    User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+end
+15) Update user.rb with bcrypt
+def self.create(email:, password:, name:, username:)
+  encrypted_password = BCrypt::Password.create(password)
+  result = DatabaseConnection.query("INSERT into users (email,password,name,username)
+  VALUES ('#{email}', '#{encrypted_password}','#{name}','#{username}') RETURNING id, email, password, name, username;")
+  User.new(id: result[0]['id'],email: result[0]['email'],password: result[0]['password'],name: result[0]['name'],username: result[0]['username'])
+end
+
+# STEP 5: USER STORY 5
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+1) feature test for happy path
+feature 'Login' do
+  scenario 'A user logs into chitter' do
+      User.create(email: 'example@example.com',password: 'example123',
+      name: 'Example Surname', username: 'exampleusername')
+      visit '/sessions/new'
+      fill_in(:email,with: 'example@example.com')
+      fill_in(:password,with: 'example123')
+      click_button('Sign in')
+
+      expect(page).to have_content "Welcome, Example Surname"
+    end
+end
+2) app. rb update with get route
+get '/sessions/new' do
+  erb :'sessions/new'
+end
+3) update erb: sessions/new
+<form action="/users" method="post">
+  <input type="email" name="email" />
+  <input type="password" name="password" />
+  <input type="submit" value="Sign In" />
+</form>
+4) app.rb update with post route
+post '/sessions' do
+  User.authenticate(email: params[:email],password: params[:password])
+  redirect '/peeps'
+end
+5) Spec test for .authenticate (happy path)
+describe '.authenticate' do
+  it 'authenticates user' do
+    user = User.create(email: 'example@example.com',password: 'example123',name: 'Example Surname', username: 'exampleusername')
+    authenticated_user = User.authenticate('example@example.com', 'example123')
+
+    expect(authenticated_user.id). to eq user.id
+  end
+end
+6) Implementation of .authenticate in User.rb
+def self.authenticate(email:, password:)
+  result = DatabaseConnection.query("SELECT * FROM users where email = '#{email}'")
+  User.new(
+    id: result[0]['id'],
+    email: result[0]['email'],
+    password: result[0]['password'],
+    name: result[0]['name'],
+    username: result[0]['username'])
+end
+7) Feature test for unhappy path: incorrect email
+scenario 'A user logs into chitter with incorrect email' do
+    User.create(email: 'example@example.com',password: 'example123',
+    name: 'Example Surname', username: 'exampleusername')
+    visit '/sessions/new'
+    fill_in(:email,with: 'notcorrect@example.com')
+    fill_in(:password,with: 'example123')
+    click_button('Sign In')
+
+    expect(page).not_to have_content "Welcome, Example Surname"
+    expect(page).to have_content "Incorrect username or password"
+  end
+8) Adding flash incorrect username and password to /peeps
+-added gem "sinatra-flash" to Gemfile
+-add require 'sinatra/flash' to app.rb
+-add register Sinatra::Flash to app.rb
+9) Update app.rb with Flash
+post '/sessions' do
+  user = User.authenticate(email: params[:email],password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/peeps')
+    else
+      flash[:notice] = 'Incorrect email or password'
+      redirect('/sessions/new')
+    end
+  end
+10) Add flash notice to sessions/new.erb
+<h2>
+ <%= flash[:notice] %>
+</h2>
+11) Add implementation code in user.rb
+return unless result.any? ( guard close for scenarios where cannot find email)
+12)Feature test for unhappy path: incorrect password
+scenario 'A user logs into chitter with incorrect password' do
+    User.create(email: 'example@example.com',password: 'example123',
+    name: 'Example Surname', username: 'exampleusername')
+    visit '/sessions/new'
+    fill_in('email', with: 'example@example.com')
+    fill_in('password', with: 'example')
+    click_button('Sign In')
+
+    expect(page).not_to have_content "Welcome, Example Surname"
+    expect(page).to have_content "Incorrect email or password"
+  end
+13) Implementation in User.rb
+return unless BCrypt::Password.new(result[0]['password']) == password
+
+# STEP 6: USER STORY 6
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+1) Feature test
+feature 'Log out' do
+  scenario 'A user can log out' do
+    User.create(email: 'example@example.com',password: 'example123',
+    name: 'Example Surname', username: 'exampleusername')
+    visit '/sessions/new'
+    fill_in('email', with: 'example@example.com')
+    fill_in('password', with: 'example123')
+    click_button('Sign In')
+    click_button('Sign Out')
+
+    expect(page).to have_content "You have signed out"
+  end
+2) Updating peeps index.erb to have sign out button
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign In" />
+</form>
+3) Update app.rb with session/destroy route
+post 'sessions/destroy' do
+  session.clear
+  flash[:notice] = 'You have signed out'
+  redirect '/peeps'
+end
+
+#STEP 7:REFRACTORING ALL RUBY CODE/HTML etc.
+-added line breaks <br>
+-added labels for form
+-added feature test to check email is unique
+scenario 'A user without unique email cannot sign up to Chitter' do
+  visit '/users/new'
+  fill_in('email',with: 'example@example.com')
+  fill_in('password',with: 'example123')
+  fill_in('name',with: 'Example Surname')
+  fill_in('username',with: 'exampleusername')
+  click_button('Sign Up')
+
+  expect(page).to have_content "Welcome, Example Surname"
+  visit '/users/new'
+  fill_in('email',with: 'example@example.com')
+  fill_in('password',with: 'example124')
+  fill_in('name',with: 'Example Name')
+  fill_in('username',with: 'examplename')
+  click_button('Sign Up')
+
+
+  expect(page.status_code).to eq(500)
+
+end
