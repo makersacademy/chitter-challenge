@@ -47,9 +47,5 @@ task :test_tables => [:development_tables] do
   sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE comments(comment_id SERIAL PRIMARY KEY, text VARCHAR(160), user_id_fkey INTEGER REFERENCES users(user_id), message_id_fkey INTEGER REFERENCES messages(message_id), date_added TIMESTAMP DEFAULT NOW());"]
   sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags(tag_id SERIAL PRIMARY KEY, tag VARCHAR(160));"]
   sh %Q[psql -U #{ENV['USER']} -d chitter-test --command="CREATE TABLE tags_messages_comments(tag_message_id SERIAL PRIMARY KEY, message_id_fkey INTEGER REFERENCES messages(message_id), comment_id_fkey INTEGER REFERENCES comments(comment_id));"]
-end
-
-task :email_settings => [:test_tables] do
-  puts 'Adding email server settings...'
-  ruby './email_server_settings.rb'
+  puts 'Database setup completed!!'
 end

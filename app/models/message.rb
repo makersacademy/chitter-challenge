@@ -41,4 +41,12 @@ class Message
       self.new(id: m_row['message_id'], text: m_row['text'], user_id: m_row['user_id_fkey'], related_id: nil, displayname: m_row['display_name'], username: m_row['username'], time_added: DateTime.parse(m_row['date_added']), comments: comments)
     }
   end
+
+  def self.add_message(message:, user_id:, related_id: nil)
+    if related_id
+      @database.command("INSERT INTO comments(text, user_id_fkey, message_id_fkey) VALUES ('#{message}', '#{user_id}', '#{related_id}')")
+    else
+      @database.command("INSERT INTO messages(text, user_id_fkey) VALUES ('#{message}', '#{user_id}')")
+    end
+  end
 end
