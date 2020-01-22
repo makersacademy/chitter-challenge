@@ -1,0 +1,65 @@
+<head>
+  <title>Chitter - Sign Up</title>
+  <style>
+    body{
+      background: linear-gradient(lightblue, green);
+      margin: 50px;
+      font-family: Comic Sans MS;
+    }
+    header{
+      background: #E6E6E6;
+      overflow: hidden;
+      margin-left: -50px;
+      margin-right: -50px;
+      font-family: Times New Roman;
+      font-family: Comic Sans MS;
+    }
+    section{
+      background: white;
+    }
+    .center{
+      margin: -10px;
+      width: 80%;
+      border: 20px solid black;
+      padding: 20px;
+    }
+    img{
+      margin-left: 50px;
+      width: 200;
+      height: auto;
+      position: relative;
+      float:right
+    }
+    .button{
+      font-size:60px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src='https://www.xinix.co.uk/wp-content/uploads/2017/08/Broadcasting-Messages-and-Internal-Agent-Chatting-with-VICIdial.jpg' alt="Talking heads">
+    <h1 style ="margin-left: 50px; font-size: 400%">Chitter</h1>
+  </header>
+  <div>
+    <h1>Please enter your details:</h1>
+    <form action="/new" method= "post">
+      Name:<br>
+      <input type="text" name="name" placeholder="your name here">
+      <br>
+      User Name:<br>
+      <input type="text" name="username" placeholder="your username here">
+      <br>
+      Email:<br>
+      <input type="text" name="email" placeholder="email@example.com">
+      <br>
+      Password:<br>
+      <input type="text" name="password" placeholder="password123">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <footer>
+    &copy; Copyright 2020 Chitter
+  </footer>
+</body>

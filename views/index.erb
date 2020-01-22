@@ -1,0 +1,72 @@
+<head>
+  <title>Chitter - Home</title>
+  <style>
+    body{
+      background: linear-gradient(lightblue, green);
+      margin: 50px;
+      font-family: Comic Sans MS;
+    }
+    header{
+      background: #E6E6E6;
+      overflow: hidden;
+      margin-left: -50px;
+      margin-right: -50px;
+      font-family: Times New Roman;
+      font-family: Comic Sans MS;
+    }
+    section{
+      background: white;
+    }
+    .center{
+      margin: -10px;
+      width: 80%;
+      border: 20px solid black;
+      padding: 20px;
+    }
+    img{
+      margin-left: 50px;
+      width: 200;
+      height: auto;
+      position: relative;
+      float:right
+    }
+    .button{
+      font-size:60px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src='https://www.xinix.co.uk/wp-content/uploads/2017/08/Broadcasting-Messages-and-Internal-Agent-Chatting-with-VICIdial.jpg' alt="Talking heads">
+    <h1 style ="margin-left: 50px; font-size: 400%">Chitter</h1>
+    <form style="float:right; margin-right: 50px;" action="/new-user" method="get">
+      <input class="button" type="submit" value="Signup">
+    </form>
+  </header>
+
+  <h1>Welcome to Chitter!!!</h1>
+  <br><br><br>
+  <h2>Please enter your peep:</h2>
+  <form action="/message" method="post">
+    <textarea name="message" rows ="10" cols ="30"></textarea>
+    <input class ="button" type="submit" value="Post">
+  </form>
+  <br><br>
+
+  <h2>Peeps:</h2>
+  <br>
+  <div class="center" >
+    <% @chitter.each do |chitter| %>
+    <section>
+      <p style="margin-left: 20px;">Peep: <%= chitter.message %></p>
+      <br>
+      <p style="margin: 20px; padding: 20px; text-align: right;">Posted: <%= chitter.time %></p>
+    </section>
+    <% end %>
+  </div>
+  <br>
+  <footer>
+    &copy; Copyright 2020 Chitter
+  </footer>
+</body>

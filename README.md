@@ -1,4 +1,15 @@
-Chitter Challenge
+***User Story 1 Completed***
+I created a created an index route that communicates with the Chitter model to show the list of messages in the database (Chitter.all). I used the Chitter.create method  to pass a query to the database that inserts a new message(peep) into the database. The controller contains an instance variable which is called in the view to display the post on the browser. I also added css elements to my view page.
+
+***User Story 2 Completed***
+I wrote a test that expected messages not to end with "Hello World!" (as this was the first message) and amended the query in the .all method to order messages in descending order of id (therefore the latest message appears at the top) in order to pass this test. I created a test database and refactored my tests to communicate with the test database(I had to disable my create method and tests in order to do this but reinstated them after the test database  and corresponding spec tests had been established).
+
+***User Story 3 Completed***
+I added another column for the time to my database table and set the data type as TIME with time zone defaulting as the current time so that each new message is time stamped with the time it was inserted into the database. I used a stub to test the time.
+
+***User Story 4 Completed***
+I have created another table for users with fields for names, usernames, emails and passwords. I created a User class to communicate with the database and controller . Within the class I also encrypted passwords. I amended the time column in my chits table to include the date as well as the time . I also added some css elements.
+
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am

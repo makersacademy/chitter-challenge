@@ -1,0 +1,1 @@
+CREATE TABLE chits(id SERIAL PRIMARY KEY, message VARCHAR(280));
