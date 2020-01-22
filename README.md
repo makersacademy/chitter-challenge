@@ -25,7 +25,11 @@ Setting up the project:
 * Updated the spec_helper as per requirement.
 * Created config.ru file in root directory.
 
-Working on Ist user story:
+Ist user story:
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
 
 Steps taken:
 1. Added a feature test to see the index page.
@@ -40,9 +44,15 @@ Run the query saved in the file 01_create_peeps_table.sql(file path- db/migratio
 
 4. Attached the database to the web application through 'PG'.
 
-Result: First user story completed.
+Result: First user story completed. User can post a message to chitter.
 
-I am able to see all peeps but in chronological order.
+2nd User Story:
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+Result: Second user story completed. User can see all peeps in reverse chronological order
 
 
 
