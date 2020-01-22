@@ -1,0 +1,23 @@
+<% if @user %>
+  <h3>Welcome <%= @user.email %></h3>
+<% end %>
+<br>
+
+<h3>What would you like to post to Chitter?</h3>
+<br>
+<form action= "/new" method="post">
+  <label for="message">
+    Your peep:
+    <input type="text" name="message">
+  </label>
+
+   <input type="submit" value="Post">
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.message %>
+    <br>
+    This peep was created at <%= peep.created_at %></li>
+  <% end %>
+</ul>
