@@ -616,6 +616,7 @@ scenario 'A user without unique email cannot sign up to Chitter' do
   fill_in('username',with: 'examplename')
   click_button('Sign Up')
 
+
   expect(page.status_code).to eq(500)
 
 end
