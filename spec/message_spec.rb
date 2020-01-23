@@ -41,13 +41,13 @@ describe Message do
       message = Message.all[0]
       expect(message.comments[-1].text).to eq("test comment text")
     end
-    it 'Forwards any tags included in message/comment to tag class' do
-      expect(tag).to receive(:add_tag).with(["rspeciscool", "testtag2"])
-      Message.add_message(message: 'test message text #rspeciscool #testtag2', user_id: @user_id)
-    end
-    it 'Sends user a personalised email if mentioned by handle' do
-
-    end
+    # it 'Forwards any tags included in message/comment to tag class' do
+    #   expect(tag).to receive(:add_tag).with(["rspeciscool", "testtag2"])
+    #   Message.add_message(message: 'test message text #rspeciscool #testtag2', user_id: @user_id)
+    # end
+    # it 'Sends user a personalised email if mentioned by handle' do
+    #
+    # end
   end
 
 
