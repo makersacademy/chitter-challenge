@@ -21,9 +21,10 @@ class Message
   # Class Methods
   # ==============================
 
-  def self.setup(dbconnection:, emailclient:)
+  def self.setup(dbconnection:, emailclient:, tagclass:)
     @database = dbconnection
     @emailclient = emailclient
+    @tag = tagclass
   end
 
   def self.all

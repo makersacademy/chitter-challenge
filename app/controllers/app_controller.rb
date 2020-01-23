@@ -10,6 +10,7 @@ require 'pg'
 require 'database_connection'
 require 'email_client'
 require 'message'
+require 'tag'
 
 
 class Chitter < Sinatra::Base
@@ -20,7 +21,7 @@ class Chitter < Sinatra::Base
 
   DatabaseConnection.add_details(dbname: 'chitter', user: ENV['USER'], dbms: PG)
   EmailClient.setup
-  Message.setup(dbconnection: DatabaseConnection, emailclient: EmailClient)
+  Message.setup(dbconnection: DatabaseConnection, emailclient: EmailClient, tagclass: Tag)
 
 
   get '/' do

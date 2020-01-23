@@ -2,8 +2,11 @@ require 'message'
 
 describe Message do
 
+  let(:email_client){double :email_client, :send_email => nil}
+  let(:tag){double :tag, :add_tag => nil}
+
   before(:each) do
-    Message.setup(dbconnection: DatabaseConnection, emailclient: EmailClient)
+    Message.setup(dbconnection: DatabaseConnection, emailclient: email_client, tagclass: tag)
     @user_id = DatabaseConnection.command("SELECT user_id FROM users")[0]['user_id']
   end
 
@@ -37,6 +40,13 @@ describe Message do
       Message.add_message(message: "test comment text", user_id: @user_id, related_id: Message.all[0].id)
       message = Message.all[0]
       expect(message.comments[0].text).to eq("test comment text")
+    end
+    it 'Forwards any tags included in message/comment to tag class' do
+      expect(tag).to receive(:add_tag).with(["rspeciscool", "testtag2"])
+      Message.add_message(message: 'test message text #rspeciscool #testtag2', user_id: @user_id)
+    end
+    it 'Sends user a personalised email if mentioned by handle' do
+
     end
   end
 

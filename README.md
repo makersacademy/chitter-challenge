@@ -71,6 +71,16 @@ I want to log out of Chitter
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+#### Personal
+```
+So that I can stay upto date with current trends
+I want to see the top 10 mentioned hashtags
+```
+```
+So that I can see who is the real trendsetter
+I want to be able to click a hashtag and see all messages it relates to
+```
 -------
 ### Approach
 
@@ -91,15 +101,23 @@ I want to receive an email if I am tagged in a Peep
     - ability to sign in
     - ability to post/comment (only if logged in) - 160chars max
     - ability to sign out (only if signed in)
+    - top 10 hashtags
   - signup
     - sign up (only if not signed in)
+  - tags
+    - shows all messages related to hashtag
+
 - models:
   - database connection - connects to relevant database and runs sql command
   - message
     - returns message objects for view
     - returns 10 most popular tags for view
     - adds message to database (filtering for message or comment)
-    - extracts usernames and tags from message
+    - extracts usernames and tags from message and send to tag class
+  - tags
+    - stores hashtags
+    - returns top 10 hashtags
+    - returns messages related to hashtag
   - email client - sends user email upon mention in message or comment
   - user - authenticates user and reveals post fields in view
 - database:
