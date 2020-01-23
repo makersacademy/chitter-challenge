@@ -18,13 +18,13 @@ describe Message do
     it 'comments are added to message' do
       expect(Message.all[0].comments).to all( be_a(Message))
     end
-    it 'comments are related to message' do
+    it 'first comment is related to message' do
       message = Message.all[0]
-      expect(message.comments).to all( have_attributes(related_id: message.id))
+      expect(message.comments[0]).to have_attributes(related_id: message.id)
     end
-    it 'comments are in reverse chronological order' do
+    it 'comments are in chronological order' do
       message = Message.all[0]
-      expect(message.comments[0].time_added).to be >= message.comments[1].time_added
+      expect(message.comments[0].time_added).to be <= message.comments[1].time_added
     end
   end
 
@@ -34,9 +34,9 @@ describe Message do
       expect(Message.all[0].text).to eq('test message text')
     end
     it 'adds a comment to the comment database' do
-      Message.add_message(message: "test comment text", user_id: @user_id, related_id: Message.all[0].id)
+      Message.add_message(message: "test comment text", user_id: @user_id, related_id: Message.all[0].comments[-1].id)
       message = Message.all[0]
-      expect(message.comments[0].text).to eq("test comment text")
+      expect(message.comments[-1].text).to eq("test comment text")
     end
   end
 
