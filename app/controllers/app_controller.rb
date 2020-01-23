@@ -20,8 +20,8 @@ class Chitter < Sinatra::Base
   set :public_folder, Proc.new { File.join(root, "../public") }
 
   DatabaseConnection.add_details(dbname: 'chitter', user: ENV['USER'], dbms: PG)
-  EmailClient.setup
-  Message.setup(dbconnection: DatabaseConnection, emailclient: EmailClient, tagclass: Tag)
+  # EmailClient.setup
+  # Message.setup(dbconnection: DatabaseConnection, user: 'user', tagclass: Tag)
 
 
   get '/' do

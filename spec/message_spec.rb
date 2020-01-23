@@ -2,12 +2,13 @@ require 'message'
 
 describe Message do
 
-  let(:email_client){double :email_client, :send_email => nil}
-  let(:tag){double :tag, :add_tag => nil}
+  let(:tag){double :tag, :new_message => nil}
+  let(:user){double :user, :new_message => nil}
 
   before(:each) do
-    Message.setup(dbconnection: DatabaseConnection, emailclient: email_client, tagclass: tag)
-    @user_id = DatabaseConnection.command("SELECT user_id FROM users")[0]['user_id']
+    user_id = DatabaseConnection.command("SELECT user_id FROM users")[0]['user_id']
+    allow(user).to receive(:current_user).and_return(user_id)
+    Message.setup(dbconnection: DatabaseConnection, user: user, tagclass: tag)
   end
 
   describe '.all' do
@@ -33,21 +34,22 @@ describe Message do
 
   describe '.add_message' do
     it 'adds a message to the message database' do
-      Message.add_message(message: 'test message text', user_id: @user_id)
+      Message.add_message(text: 'test message text')
       expect(Message.all[0].text).to eq('test message text')
     end
     it 'adds a comment to the comment database' do
-      Message.add_message(message: "test comment text", user_id: @user_id, related_id: Message.all[0].comments[-1].id)
+      Message.add_message(text: "test comment text", related_id: Message.all[0].comments[-1].id)
       message = Message.all[0]
       expect(message.comments[-1].text).to eq("test comment text")
     end
-    # it 'Forwards any tags included in message/comment to tag class' do
-    #   expect(tag).to receive(:add_tag).with(["rspeciscool", "testtag2"])
-    #   Message.add_message(message: 'test message text #rspeciscool #testtag2', user_id: @user_id)
-    # end
-    # it 'Sends user a personalised email if mentioned by handle' do
-    #
-    # end
+    it 'Forwards message to tag class' do
+      expect(tag).to receive(:new_message).with(instance_of(String), instance_of(String))
+      Message.add_message(text: '#test_message')
+    end
+    it 'Forwards message to tag class' do
+      expect(user).to receive(:new_message).with(instance_of(String), instance_of(String))
+      Message.add_message(text: '#test_message')
+    end
   end
 
 

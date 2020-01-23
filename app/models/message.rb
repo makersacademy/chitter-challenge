@@ -21,9 +21,9 @@ class Message
   # Class Methods
   # ==============================
 
-  def self.setup(dbconnection:, emailclient:, tagclass:)
+  def self.setup(dbconnection:, tagclass:, user:)
     @database = dbconnection
-    @emailclient = emailclient
+    @user = user
     @tag = tagclass
   end
 
@@ -53,11 +53,13 @@ class Message
     }
   end
 
-  def self.add_message(message:, user_id:, related_id: nil)
+  def self.add_message(text:, related_id: nil)
     if related_id
-      @database.command("INSERT INTO messages(text, user_id_fkey, related_id) VALUES ('#{message}', '#{user_id}', '#{related_id}')")
+      message_id = @database.command("INSERT INTO messages(text, user_id_fkey, related_id) VALUES ('#{text}', '#{@user.current_user}', '#{related_id}') RETURNING message_id;")[0]['message_id']
     else
-      @database.command("INSERT INTO messages(text, user_id_fkey) VALUES ('#{message}', '#{user_id}')")
+      message_id = @database.command("INSERT INTO messages(text, user_id_fkey) VALUES ('#{text}', '#{@user.current_user}') RETURNING message_id;")[0]['message_id']
     end
+    @tag.new_message(text, message_id)
+    @user.new_message(text, message_id)
   end
 end

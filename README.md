@@ -113,13 +113,15 @@ I want to be able to click a hashtag and see all messages it relates to
     - returns message objects for view
     - returns 10 most popular tags for view
     - adds message to database (filtering for message or comment)
-    - extracts usernames and tags from message and send to tag class
   - tags
+    - extracts tags from message
     - stores hashtags
     - returns top 10 hashtags
     - returns messages related to hashtag
   - email client - sends user email upon mention in message or comment
-  - user - authenticates user and reveals post fields in view
+  - user
+    - authenticates user and reveals post fields in view
+    - extracts handles and sends user email if mentioned
 - database:
   - users table - fields: id, username, email, password_hash, display_name
   - messages table - fields: id, text, fk_user_id, timestamp (one user to many message)
