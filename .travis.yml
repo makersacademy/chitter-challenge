@@ -2,14 +2,9 @@ services:
   - postgresql
 
 before_script:
-  - psql postgres
-  - CREATE DATABASE chitter_test;
-  - \c chitter_test;
-  - CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60) UNIQUE NOT NULL);
-  - CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(120) NOT NULL, time TIME NOT NULL);
-  - ALTER TABLE peeps ADD COLUMN username VARCHAR(60) REFERENCES users(username);
-  - \q
-  
+  - psql -c 'CREATE DATABASE chitter_test;' -U postgres
+  - psql -d chitter_test -U postgres -f db/create_peeps.sql
+  - psql -d chitter_test -U postgres -f db/create_users.sql
 
 script:
   - bundle exec rspec
