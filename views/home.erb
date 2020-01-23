@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><h2> Welcome to Chitter! </h2><head>
+
+<body>
+
+ <% @peeps.each do |x| %>
+  <h2><%= '----------------------------------------' %></h2>
+  <h4> <%= x['username'] %>  <%= '12pm' %><h4> <h3> <%= x['peep'] %> </h3> <% end %> <h2> <%= '----------------------------------------' %> </h2>
+
+</body>
+<html>
