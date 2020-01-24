@@ -1,3 +1,5 @@
+require 'connect_to_db'
+
 class Peep
     def self.all
       [
@@ -5,4 +7,9 @@ class Peep
         "peep2",
        ]
     end
+
+    def self.create
+      DBCconection.query  
+
+
   end
