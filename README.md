@@ -1,6 +1,6 @@
 ## README
 
-This is my attempt at the Makers Academy Chitter challenge.
+This is my version of the Makers Academy Chitter challenge.
 
 Here are the user stories that I completed:
 
@@ -18,7 +18,7 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-I attempted to implement the user sign up but this isn't working yet and I can't figure out why.
+The next feature I would implement is to allow the user to sign up.
 
 ## Instructions on how to run
 
