@@ -91,6 +91,8 @@ I want to be able to click a hashtag and see all messages it relates to
 - Ability to login to post and logout afterwards
 - If a users handle is mentioned in message, an email is sent to the mentioned users email
 - Replies can be added to posted messages
+- Homepage shows top ten hashtags
+- Hashtags link to page showing all messages with that hashtag
 
 #### Objects
 - app_controller - controls models, views, and routes
@@ -113,11 +115,11 @@ I want to be able to click a hashtag and see all messages it relates to
     - returns message objects for view
     - returns 10 most popular tags for view
     - adds message to database (filtering for message or comment)
+    - returns messages related to hashtag
   - tags
     - extracts tags from message
     - stores hashtags
     - returns top 10 hashtags
-    - returns messages related to hashtag
   - email client - sends user email upon mention in message or comment
   - user
     - authenticates user and reveals post fields in view
@@ -138,6 +140,7 @@ I want to be able to click a hashtag and see all messages it relates to
 - TDD database_connection
 - TDD email_client
 - TDD message
+- TDD tag
 
 
 ---------
