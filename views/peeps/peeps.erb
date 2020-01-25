@@ -7,10 +7,13 @@
 
 <ul style="list-style-type:none;">
   <% @peeps.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>" >
-      Message created on <%= peep.date %> at <%= peep.time %>
-      <br>
+    <li style="width:400px; height:150px; border:0.5px solid black; padding:10px; margin-top:30px" class="peep" id="peep-<%= peep.id %>" >
+      <p style="text-align:left; font-size:120%">
       <%= peep.message %>
+      </p>
+      <br>
+      <p style="text-align:right; padding:5px;"> <i>Message created on <%= peep.date %> at <%= peep.time %>
+      <br> Created by <%= peep.user_id %></i></p>
     </li>
     <br>
   <% end %>

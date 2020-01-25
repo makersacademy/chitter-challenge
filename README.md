@@ -26,6 +26,7 @@ Create and run feature and unit tests to ensure we can see the time.
 14. User story 4. For this we need to create another table to store user information including id, name, email address, password.
 15. Creating feature test for user sign up. It expects the user to see a welcome message upon registration.
 16. Adding routes and Model class Users functionality.
+17. Extending functionality of the application to allow users to delete and modify peeps. Implementing the relevant Delete and Update methods in the Model and routes in the Controller.
 
 
 
