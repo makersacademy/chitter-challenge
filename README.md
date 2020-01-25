@@ -31,6 +31,7 @@ I want to log out of Chitter
 ## Technologies Used
 
 - Ruby
+- Jquery
 - Sinatra 
 - Rspec
 - Capybara
