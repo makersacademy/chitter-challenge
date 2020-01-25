@@ -1,5 +1,34 @@
 Chitter Challenge
 =================
+STEPS:
+1. To implement the user story 1, I'll need to set up an MVC system. It includes a Controller (app.rb) which will interact with the View (HTML code in .erb files) and Model (Chitter class object and a database for storing and manipulating posts).
+2. Set up the web project.
+3. Writing the first feature test for User visiting a page, posting a message and seeing it appear on the page.
+4. Creating '/peeps' and '/peeps/new' routes in Controller with .erb files to fill in a form and display peeps.
+5. Creating a Model Peeps class to allow to store peeps and use them across routes - starting with a unit test for .all and .create class methods.
+6. In order to use the Model .all class method, a database is required to store peeps and retrieve them. Creating database Chitter with Peeps table in it, storing CREATE TABLE SQL command in an .sql file in db/migrations for future use.
+7. Establishing connection with the database through DatabaseConnection class (so that the Peeps class is not cluttered with commands to establish connections in its methods).
+8. Now that the Peeps object can interact with the database, peeps can be stored in the table and retrieved as and when they are needed by the Controller via Peeps class and instance methods. Implementing this functionality, first by updating the units tests to use the test database data.
+9. Peeps class can now create new peeps and show them via .all method. This functionality can be used in Controller to be passed to View.
+10. Now a user can create a post and see it on the website. For the second user story
+  "As a maker
+  So that I can see what others are saying  
+  I want to see all peeps in reverse chronological order"
+several approaches can be taken:
+  a) Use ORDER BY SQL query to sort entries in descending order before displaying;
+  b) Sort the Peeps.all array by id in descending order (ids are allocated automatically so newer posts will have larger id numbers; currently sorted in ascending order);
+  c) Incorporate timestamp (User story 3) and sort by timestamp.
+The easiest approach will be to sort the array. I will create a feature test for checking posts are displayed in reverse chronological order.
+11. User story 3. In order to keep track of the time when a post was created we need to add a time column to the database and introduce the relevant parameters to the Model, and ensure this is reflected in the View.
+Create and run feature and unit tests to ensure we can see the time.
+12. Creating a date and time columns with automatic date and time setting.
+13. Adding a new parameter :time to the Peeps class and accessing it in Controller and passing to the View. Starting with tests.
+14. User story 4. For this we need to create another table to store user information including id, name, email address, password.
+15. Creating feature test for user sign up. It expects the user to see a welcome message upon registration.
+16. Adding routes and Model class Users functionality.
+17. Extending functionality of the application to allow users to delete and modify peeps. Implementing the relevant Delete and Update methods in the Model and routes in the Controller.
+
+
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
