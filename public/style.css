@@ -36,7 +36,7 @@ button.btn {
 }
 
 li.list-group-item {
-  background-image: linear-gradient(to bottom right, #ffdfdf, #ffc0c0);
+  background-image: linear-gradient(to bottom right, #fff0f0, #ffc0c0);
   border-radius: 10px !important;
   box-shadow: 4px 4px 5px rgb(155, 150, 150);
 }
