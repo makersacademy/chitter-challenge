@@ -5,7 +5,7 @@ class DatabaseConnection
   @connnection
 
   def self.setup(db_name)
-    if ENV['DATABSE_URL']
+    if ENV['DATABASE_URL']
       uri = URI.parse(ENV['DATABASE_URL'])
       print(uri)
       @connection = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user, uri.password)
