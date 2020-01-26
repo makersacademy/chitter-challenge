@@ -1,4 +1,5 @@
 require 'pg'
+require 'uri'
 
 class DatabaseConnection
   @connnection
