@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.5.7'
 gem 'rake'
 gem 'rubocop', '0.71.0'
 gem 'sinatra'
