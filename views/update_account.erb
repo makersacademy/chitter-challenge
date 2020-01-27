@@ -30,19 +30,6 @@
    <table><tr><td style='width: 100%'>
   <table class=peep >
   <tr>
-    <form class = form action = '/sign_up/confirm' method=post>
-    <td><input type=text placeholder= Username name=username></td>
+    <form class=form action = '/update/<%= session[:user].uid%>/' method=post>
+    <td><input type=text placeholder= New name=username></td>
   </tr>  <tr>
-    <td><input type=text placeholder= Name name=name></td>
-  </tr>
-  <tr>
-    <td><input type=text placeholder= email name=email></td>
-  </tr>
-  <tr><td><input type=text placeholder= Password name=password></td></tr>
-  <tr>
-    <td><input type=submit value='Sign Up'></td>
-  </form>
-  </td>
-  </tr>
-  </td></tr></table>
-  </table>

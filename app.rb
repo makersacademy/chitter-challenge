@@ -43,7 +43,15 @@ class Chitter < Sinatra::Base
     erb :account
   end
 
-  put '/account/:uid' do
+  get '/account/update/:parameter' do
+    p params
+    @change = params[:parameter]
+    erb :update_account
+  end
+
+  put '/account/update/:uid/:parameter' do
+    p params
+    # User.update(parameter:, uid: session[:user].uid, data:)
   end
 
   run! if app_file == $0
