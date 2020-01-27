@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <style>
+      .peep {
+      width: 50%;
+      color: #884ec7;
+      background-color: #ffffff;
+      padding: 2px;
+      border-radius: 10px;
+      border-bottom: 2pt solid #884ec7;
+    }
+       .form {
+      color:#884ec7;
+      font-size: 20px;
+      border-radius: 25px;
+    }
+    .input {
+      color:#884ec7;
+      width: 20%;
+      height: 7%;
+      padding: 9px;
+      border-radius: 25px;
+    }
+    </style>
+  </head>
+   
+  <table class=peep style='txt-alin: center'>
+  <tr>
+    <form class=form method=get>
+    <td> <%= session[:user].username %> </td>
+    <td><button type="submit" formaction='/account/update/username' id="Update<%= session[:user].uid %>">Update Username</button></td>
+  </tr>
+  <tr>
+    <td> <%= session[:user].name %> </td>
+    <td> <button type="submit" formaction='/update/<%=session[:user].uid%>/<%= session[:user].name %>' id="Update<%= session[:user].uid %>">Update name</button></td>
+  </tr>
+  <tr>
+    <td> <%= session[:user].email %> </td>
+    <td><button type="submit" formaction='/update/<%=session[:user].uid%>/<%= session[:user].email %>' id="Update<%= session[:user].uid %>">Update email</button></td>
+  </tr>
+  <tr>
+    <td> <%= session[:user].password %> </td>
+    <td><button type="submit" formaction='/update/<%=session[:user].uid%>/<%= session[:user].password %>' id="Update<%= session[:user].uid %>">Update password</button></td>
+  </tr>
+  </form>
+  <tr>
+    <td><form action='/delete/<%=session[:user].uid%>' method=post>
+    <button type="submit" value=delete id="<%=session[:user].uid%>">Delete Account</button>
+    <input type='hidden' name='_method' value='delete'>
+    </form></td>
+  </tr>
+  </table>

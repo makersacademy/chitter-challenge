@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <style>
+      .peep {
+      width: 100%;
+      color: #884ec7;
+      background-color: #ffffff;
+      padding: 2px;
+      border-radius: 10px;
+      border-bottom: 2pt solid #884ec7;
+      text-align: center;
+    }
+       .form {
+      color:#884ec7;
+      font-size: 20px;
+      border-radius: 25px;
+    }
+    input {
+      color:#884ec7;
+      width: 20%;
+      height: 7%;
+      padding: 9px;
+      border-radius: 25px;
+    }
+    </style>
+  </head>
+  
+   <table><tr><td style='width: 100%'>
+  <table class=peep >
+  <tr>
+    <form class=form action = '/update/<%= session[:user].uid%>/' method=post>
+    <td><input type=text placeholder= New name=username></td>
+  </tr>  <tr>

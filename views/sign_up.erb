@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <style>
+      .peep {
+      width: 100%;
+      color: #884ec7;
+      background-color: #ffffff;
+      padding: 2px;
+      border-radius: 10px;
+      border-bottom: 2pt solid #884ec7;
+      text-align: center;
+    }
+       .form {
+      color:#884ec7;
+      font-size: 20px;
+      border-radius: 25px;
+    }
+    input {
+      color:#884ec7;
+      width: 20%;
+      height: 7%;
+      padding: 9px;
+      border-radius: 25px;
+    }
+    </style>
+  </head>
+  
+   <table><tr><td style='width: 100%'>
+  <table class=peep >
+  <tr>
+    <form class = form action = '/sign_up/confirm' method=post>
+    <td><input type=text placeholder= Username name=username></td>
+  </tr>  <tr>
+    <td><input type=text placeholder= Name name=name></td>
+  </tr>
+  <tr>
+    <td><input type=text placeholder= email name=email></td>
+  </tr>
+  <tr><td><input type=text placeholder= Password name=password></td></tr>
+  <tr>
+    <td><input type=submit value='Sign Up'></td>
+  </form>
+  </td>
+  </tr>
+  </td></tr></table>
+  </table>
