@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require './lib/user'
+require './database_connection_setup'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions 
@@ -15,31 +17,37 @@ class Chitter < Sinatra::Base
 
   post '/user-sign-up' do
     @user = User.create(params)
-    p @user
     session[:username] = params[:username]
-    redirect '/peeps'
+    redirect '/log-in'
   end
 
   get '/peeps' do
-    @username = session[:username]
-    erb :peep_home
+    erb :peep_home, :locals => {
+      user: session[:username], peep: peep.find_reversed
+    }
   end
 
   post '/peep/new' do
-    
+    @peep = Peep.create(params)
+    p @peep
     redirect '/peeps'
   end
 
   get '/log-in' do
-    erb :login
+    erb :log_in
   end
 
- 
+  post '/user-log-in'
+    p user = User.find(params)
+    session[:username] = user.username
+    session[:id] = user.id 
+    redirect '/peeps'
+  end
 
-  get '/sign-out' do
-
+  get '/user-sign-out' do
+    session['username'] = nil
     redirect '/'
   end
 
-  
 end
+

@@ -18,6 +18,25 @@
 </nav>
 <body style="text-align:center;">
   <h1> Welcome @<%= @username %>!</h1>
+  
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+          <input id="peep" type="text">
+          <label for="peep">Chitter Chat...</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Drop a peep</span>
+        </div>
+    </form>
+  </div>
+  <blockquote>
+    <% peep.map do | peep | %>
+      <div>
+        <%= peep.peep %>
+        <%= peep.created_at %>
+      </div>
+      <hr>
+    <% end %>
+</blockquote>
 
 
 </body>
