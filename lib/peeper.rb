@@ -32,8 +32,10 @@ class Peeper
     else
       connection = PG.connect(dbname: 'chitter_live')
     end
+    
+    query_name = name.to_s
 
-    result = connection.exec("SELECT * FROM peepers WHERE name=name")
+    result = connection.exec("SELECT * FROM peepers WHERE name=query_name")
     return if result[0]['password'] != password
     
     Peeper.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], 
