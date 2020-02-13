@@ -75,11 +75,6 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
 ### Functionality ###
@@ -94,9 +89,42 @@ I want to receive an email if I am tagged in a Peep
 
 ### Sequence Diagrams ###
 
+User stories 1-3
+
+![Sequence Diagram 1](public/README-images/excalidraw-sequence-diagram-1.png)
+
 ### Class Diagrams ###
 
+1. 
+
+| Object: |**Tweet**| | 
+|:------:|:------------:|:-:|
+|**Attributes:**|Text|Time|User|
+|**Class Methods:**|Create|All|Filter|
+
+2. 
+
+| Object: |**User**| | 
+|:------:|:------------:|:-:|
+|**Attributes:**|Username|email|password|
+|**Class Methods:**|Create|Find |
+
+
 ### Database Designs ###
+
+Table: Tweets
+
+| id | user_id | tweet | time |  
+|:--:|:-------:|:-----:|:----:|
+| PK | FK(users) | string | time |  
+|1|lookupdaily|"Would you look at the weather"| 2020-01-13 11:20 GMT |
+
+Table: Users
+
+| id | username | name | email | password | signup_date |
+|:--:|:--------:|:-----:|:-----:|:--------:|:-----------:|
+| PK | string | string | string | string(authenticated?) | date |
+|1|lookupdaily| Liz Daly | test@gmail.com| *** | 2020-01-13 11:00 GMT |
 
 ### Designing tests ###
 
@@ -104,19 +132,35 @@ When planning my code I thought about the tests I might need, and tried to order
 
 #### Feature tests ####
 
-1.
-2.
-3.
+1. When visiting app - user sees all tweets with a timestamp
+2. User sees all tweets in reverse chronological order
+3. User can sign up and gets a confirmation message
+4. User can log in
+5. User can log out
+
 
 #### Unit Tests ####
 
-1.
-2.
-3.
+1. Tweet.all runs a database query to show all tweets with time stamp
+2. Tweet.all orders tweets in reverse chronological order
+3. User.create adds a user to a database table
+4. Object on user?? Adds a users details to session
+5. Object on user?? Removes a users details from session
+6. Tweet.create adds a new tweet IF session contains a user
 
 #### Edge Cases ####
 
+1. Null fields
+2. user tries to sign up with a username or email that already exists
+
 ## Further Improvements ##
+
+ADVANCED
+```
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+```
 
 ## Credits ##
 
