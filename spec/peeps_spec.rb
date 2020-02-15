@@ -2,6 +2,11 @@ require 'peeps'
 require 'database_helpers'
 
 describe Peep do 
+  # before :all do
+  #   t = Time.local(2019, 02, 15, 12, 0, 0)
+  #   Timecop.travel(t)
+  # end
+  
   describe "#all" do 
     it 'returns a list of bookmarks' do
       connection = PG.connect(dbname: 'chitter_test')
@@ -16,6 +21,8 @@ describe Peep do
       expect(peeps.first).to be_a Peep
       expect(peeps.first.id).to eq peep.id
       expect(peeps.first.content).to eq "This is the first test peep"
+      # expect(peeps.first.time_created).to eq "2020-02-15 12:00:00.000000"
+      expect(peeps.first.time_created).to be_a String
     end
   end
 
@@ -27,6 +34,8 @@ describe Peep do
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data.first['id']
       expect(peep.content).to eq "This is the first test peep"
+      # expect(peep.time_created).to eq "2020-02-15 12:00:00.000000"
+      expect(peep.time_created).to be_a String
     end
   end
 end 
