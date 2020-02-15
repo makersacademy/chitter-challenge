@@ -1,1 +1,10 @@
-<p>Hello World</p>
+<h1>Home</h1>
+<ul>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep.username %>
+    <%= peep.time_posted %>
+    <%= peep.body %>
+  </li>
+  <% end %>
+</ul>
