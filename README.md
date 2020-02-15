@@ -114,5 +114,6 @@ $ rspec
 ## <a name="Further_Improvements">Further Improvements</a>
 
 Implement the following: 
+* Try using the DataMapper ORM instead of the PG gem
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 * Work on the CSS to make it look good.
