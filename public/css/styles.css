@@ -1,10 +1,11 @@
 * {
-
+  
 }
 
 body {
   color: white;
   background: #38A1F3;
+  font-family: Helvetica;
 }
 
 .homepage_body {
@@ -27,3 +28,9 @@ body {}
   border-radius: 15px;
   padding: 10px;
 }
+
+.peep_user {
+  float: left;
+}
+
+

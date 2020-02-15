@@ -13,9 +13,13 @@
 
     <% @peeps.each do |peep| %>
       <div class='peep'>
-        <%= peep.content %>
-        posted by <%= peep.name %> (<%= peep.username %>)
-        on <%= peep.time %>
+        <div class="peep_user">
+          <strong><%= peep.name %></strong> (@<%= peep.username %>)
+          <em>on <%= peep.time %></em>
+        </div></br>
+        <div class="peep_content">
+          <%= peep.content %>
+        </div>               
       </div></br>
     <% end %>
 
