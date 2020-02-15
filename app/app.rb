@@ -1,7 +1,9 @@
 require 'sinatra/base'
 require './lib/peeps.rb'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
+  enable :sessions, :method_override
   
   get '/' do
     "Welcome to Chitter!"

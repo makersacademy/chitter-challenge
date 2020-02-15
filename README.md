@@ -30,7 +30,7 @@ $ bundle
 $ rspec
 $ rubocop
 ```
-4. Run the app on a local server and use on the broswer: http://localhost:9292/
+4. Run the app on a local server and use on the broswer: http://localhost:9292
 
 ```Shell
 $ rackup
@@ -39,11 +39,11 @@ $ rackup
 ## <a name="Database">Database setup</a>
 
 1. Connect to psql
-2. Create databases using the psql command CREATE DATABASE for ###### and ######;
-3. Connect to the databases using the pqsl command \c #######;
-4. Run the SQL scripts saved in the ####### folder in the given order;
+2. Create a database using the psql command `CREATE DATABASE chitter`;
+3. Connect to the databases using the pqsl command `\c chitter`;
+4. Run the SQL scripts saved in the `db/migrations` folder in the given order;
 
-Note: To set up the testing environment, create a test database and run the psql commands for both databases.
+Note: To set up the testing environment, run `CREATE DATABASE chitter_test` to create a test database and run the psql commands for both databases.
 
 ## <a name="Functional_Description">Functional Description</a>
 
@@ -107,7 +107,7 @@ I want to receive an email if I am tagged in a Peep
 Tests were written with RSpec and Capybara. To run the tests in terminal: 
 
 ```bash
-$ cd bookmarks-manager
+$ cd chitter-challenge
 $ rspec
 ```
 
