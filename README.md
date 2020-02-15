@@ -18,8 +18,6 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 2. Run the command `gem install bundle` (if you don't have bundle already)
 3. When the installation completes, run `bundle`
 
-*The template comes with pg for interacting with Postgres. If not required you can delete line from gemfile.*
-
 ## Useage ##
 
 ```shell
@@ -97,10 +95,10 @@ User stories 1-3
 
 1. 
 
-| Object: |**Tweet**| | 
-|:------:|:------------:|:-:|
-|**Attributes:**|Text|Time|User|
-|**Class Methods:**|Create|All|Filter|
+| Object: |**Tweet**| | ||
+|:------:|:------------:|:-:|:-:|:-:|
+|**Attributes:**|Text|Time|Username|||
+|**Class Methods:**|Create|All|Find|Delete
 
 2. 
 
@@ -114,16 +112,16 @@ User stories 1-3
 
 Table: Tweets
 
-| id | user_id | tweet | time |  
+| id | username | tweet | time |  
 |:--:|:-------:|:-----:|:----:|
 | PK | FK(users) | string | time |  
 |1|lookupdaily|"Would you look at the weather"| 2020-01-13 11:20 GMT |
 
 Table: Users
 
-| id | username | name | email | password | signup_date |
-|:--:|:--------:|:-----:|:-----:|:--------:|:-----------:|
-| PK | string | string | string | string(authenticated?) | date |
+| username | name | email | password | signup_date |
+|:--------:|:-----:|:-----:|:--------:|:-----------:|
+| string(PK) | string | string | string(authenticated?) | date |
 |1|lookupdaily| Liz Daly | test@gmail.com| *** | 2020-01-13 11:00 GMT |
 
 ### Designing tests ###
