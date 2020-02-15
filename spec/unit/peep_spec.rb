@@ -26,4 +26,4 @@ describe Peep do
       expect(peep.name).to eq "Jason Wong"
     end
   end    
-end
+end 
