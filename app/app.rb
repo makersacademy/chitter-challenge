@@ -1,5 +1,5 @@
 require 'sinatra/base'
-#require_relative '../lib/<model>'
+require_relative '../lib/peep'
 
 class App < Sinatra::Base
 
