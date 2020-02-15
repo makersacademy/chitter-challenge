@@ -2,3 +2,10 @@ body {
   background: rgb(22, 163, 245);
   color: white;
 }
+
+.peep {
+  background: grey;
+  border: 2px white solid;
+  border-radius: 15px;
+  padding: 10px;
+}

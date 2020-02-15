@@ -7,12 +7,18 @@
   <body>
     <h1>Peeps</h1>
     <h2>Here are your peeps:</h2>
-      <% @peeps.each do |peep| %>
-        <div><%= peep %></div>
-      <% end %>
-      </br>
-      <a href="/peeps/new"><button>Create new peep</button></a>
-      </br>
-      <a href="/"><button>Homepage</button></a>
+
+    <% @peeps.each do |peep| %>
+      <div class='peep'>
+        <%= peep.content %>
+        posted by <%= peep.name %> (<%= peep.username %>)
+        on <%= peep.time %>
+      </div></br>
+    <% end %>
+
+    </br>
+    <a href="/peeps/new"><button>Create new peep</button></a>
+    </br>
+    <a href="/"><button>Homepage</button></a>
   </body>
 </html>

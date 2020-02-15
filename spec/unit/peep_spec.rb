@@ -3,19 +3,27 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'returns all the peeps' do
-      connection = PG.connect(dbname: 'peep_manager_test')
-      connection.exec("INSERT INTO peeps (name, username, content, time) VALUES ('Jason Wong', 'jasylw', 'Hello!', '2020-02-15 11:13:01');")
-      connection.exec("INSERT INTO peeps (name, username, content, time) VALUES ('Jason Wong', 'jasylw', 'Hello again!', '2020-02-15 11:46:25');")
+      peep = Peep.create(content: 'Hello!')
+      Peep.create(content: 'Hello again!')
+      Peep.create(content: 'Hello a third time!')
+      
       peeps = Peep.all
-      expect(peeps).to include("Hello!")
-      expect(peeps).to include("Hello again!")      
+      
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.content).to eq 'Hello!'
+      expect(peeps.first.name).to eq 'Jason Wong'
     end
   end
 
   describe '.create' do
     it 'creates a new peep and adds to collection' do
-      Peep.create(content: "No time to die")
-      expect(Peep.all).to include "No time to die"
+      peep = Peep.create(content: "No time to die")
+      expect(peep).to be_a Peep
+      expect(peep.content).to eq "No time to die"
+      expect(peep.username).to eq "jasylw"
+      expect(peep.name).to eq "Jason Wong"
     end
   end    
 end
