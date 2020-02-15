@@ -13,3 +13,5 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 Capybara.app = PeepManager
+
+ENV['ENVIRONMENT'] = 'test'
