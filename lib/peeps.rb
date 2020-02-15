@@ -1,8 +1,8 @@
 require 'pg'
 require_relative 'database_connection'
 
-class Peeps  
-  attr_reader :id, :title, :url, :author_id
+class Peep  
+  attr_reader :id, :content, :time, :author_id
 
   def initialize(id:, content:, time:, author_id:)
     @id  = id
@@ -23,8 +23,8 @@ class Peeps
     end
   end
 
-  def self.create(id:, content:, time:, author_id:)
-    result = DatabaseConnection.query("INSERT INTO peeps (id, content, time, author_id) VALUES('#{id}', '#{content}', '#{time}', '#{author_id}') RETURNING id, content, time, author_id;")
+  def self.create(content:)
+    result = DatabaseConnection.query("INSERT INTO peeps (content) VALUES('#{content}') RETURNING id, content, time, author_id;")
     Peep.new(id: result[0]['id'], content: result[0]['content'], time: result[0]['time'], author_id: result[0]['author_id'])
   end
 end

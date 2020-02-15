@@ -1,17 +1,17 @@
-# require 'pg'
+require 'pg'
 
-# feature 'Viewing peeps' do
-#   scenario 'A user can see bookmarks' do
-#     connection = PG.connect(dbname: 'bookmark_manager_test')
+feature 'Viewing peeps' do
+  scenario 'A user can see peeps' do
+    connection = PG.connect(dbname: 'chitter_test')
 
-#     Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
-#     Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All Software')
-#     Bookmark.create(url: 'http://www.google.com', title: 'Google')
+    Peep.create(content: "This is the first test peep")
+    Peep.create(content: "This is the second test peep")
+    Peep.create(content: "This is the third test peep")
 
-#     visit '/bookmarks'
+    visit '/peeps/index'
 
-#     expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
-#     expect(page).to have_link('Destroy All Software',  href: 'http://www.destroyallsoftware.com')
-#     expect(page).to have_link('Google', href: 'http://www.google.com')
-#   end
-# end
+    expect(page).to have_content "This is the first test peep"
+    expect(page).to have_content "This is the second test peep"
+    expect(page).to have_content "This is the third test peep"
+  end
+end

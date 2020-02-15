@@ -1,6 +1,8 @@
 <h1>Here are the peeps:</h1>
 <ul>
-  <% @chitter_feed.each do |item| %>
-    <li><%= item %></li>
-  <% end %> 
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+    <%= peep.content %>
+    </li>
+  <% end %>
 </ul>

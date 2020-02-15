@@ -10,8 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/index' do
-    p @chitter_feed
-    @peeps = Peeps.all
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
@@ -20,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peeps.create(url: params[:url], title: params[:title])
+    Peep.create(content: params[:content])
     redirect '/peeps/index'
   end
 
