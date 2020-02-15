@@ -6,6 +6,9 @@
   </head>
   <body>
     <h1>Peeps</h1>
+      <% if @user %>
+        <h2>Welcome, <%= @user.name %></h2>
+      <% end %>
     <h2>Here are your peeps:</h2>
 
     <% @peeps.each do |peep| %>
