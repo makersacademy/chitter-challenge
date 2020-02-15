@@ -3,6 +3,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative './setup_test_database'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
@@ -19,6 +20,12 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 # tell Capybara about our app class
 Capybara.app = App
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 # RSpec.configure do |config|
 #   config.after(:suite) do
