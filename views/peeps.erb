@@ -1,7 +1,7 @@
 <h1> Chitter </h1>
 
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li class="peep" id="peep"<%= peep.id %>>
         <%= peep.peep %> <br>
       </a>

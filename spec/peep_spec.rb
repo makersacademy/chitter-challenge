@@ -4,7 +4,7 @@ require 'pg'
 describe Peep do  
   # describe "#text" do 
   #   it 'should show the text of the peep' do 
-  #     peep = Peep.new('this is a test')
+  #     peep = Peep.new(peep: 'this is a test')
   #     expect(peep.peep).to eq 'this is a test'
   #   end 
   # end
