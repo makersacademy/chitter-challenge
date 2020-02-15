@@ -20,12 +20,16 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 
 ## Useage ##
 
-```shell
-$ irb
-  > require ' '
-  >  app = App.new
-  >  
-```
+1. Connect to psql
+2. Create the database using the psql command: 
+    ```sql
+    CREATE DATABASE bookmark_manager;
+    ```
+3. Connect to the database: 
+    ```sql
+    \c bookmark_manager;
+    ```
+4. Open /db/migrations/01_create_bookmarks_table.sql and run the command in the file in your terminal.
 
 - where to use
 - example code
