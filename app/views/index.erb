@@ -1,4 +1,9 @@
-<h1>Home</h1>
+<h2>Home</h2>
+<form action=/new method="post">
+  <input type="text" name="username" placeholder="Username" maxlength="50" required/>
+  <input type="comment" name="body" maxlength="240" placeholder="What's up?" required/>
+  <input type="submit" value="Peep">
+</form>
 <ul>
   <% @peeps.each do |peep| %>
   <li>

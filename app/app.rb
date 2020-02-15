@@ -8,4 +8,9 @@ class App < Sinatra::Base
     erb :index
   end
 
+  post '/new' do
+    Peep.create(username: params[:username], body: params[:body])
+    redirect '/'
+  end
+
 end
