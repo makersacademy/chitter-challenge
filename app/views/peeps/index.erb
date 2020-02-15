@@ -1,6 +1,6 @@
 <h1>Here are the peeps:</h1>
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
     <%= peep.content %>
     </li>
