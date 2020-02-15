@@ -1,8 +1,10 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
-
+  enable :sessions
   get '/' do
+    @peeps = Peep.all
     erb :peeps
   end
 
@@ -11,6 +13,7 @@ class Chitter < Sinatra::Base
   end 
 
   post '/post' do 
+    Peep.create(peep: params['peep'])
     redirect '/'
   end 
 

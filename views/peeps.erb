@@ -1,5 +1,12 @@
 <h1> Chitter </h1>
 
-this is a test peep
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep"<%= peep.id %>>
+        <%= peep.peep %> <br>
+      </a>
+    </li>
+  <% end %>
+</ul>
 
 <form action='/post'> <input type='submit' value='Post Peep'> </form>
