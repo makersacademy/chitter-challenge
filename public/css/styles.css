@@ -1,6 +1,24 @@
+* {
+
+}
+
 body {
-  background: rgb(22, 163, 245);
   color: white;
+  background: #38A1F3;
+}
+
+.homepage_body {
+  color: white;
+  height: 100%;
+  background: linear-gradient(90deg, #38A1F3 50%, white 50%);
+}
+
+body {}
+
+.homepage_image {
+  position: absolute;
+  right: 5%;
+  width: 400;
 }
 
 .peep {
