@@ -57,7 +57,7 @@ The app will have the following specification:
 
 ## <a name="User_Stories">User Stories</a>
 
-###STRAIGHT UP
+### STRAIGHT UP
 ```
 As a Maker
 So that I can let people know what I am doing  
@@ -91,7 +91,7 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
 
-###ADVANCED
+### ADVANCED
 ```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
