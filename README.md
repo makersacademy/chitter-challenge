@@ -55,8 +55,14 @@ I want to receive an email if I am tagged in a Peep
 2. Run the command `gem install bundle` (if you don't have bundle already)
 3. When the installation completes, run `bundle`
 4. Run the server with command `rackup`
-5. Visit `localhost:9292` in your browser and play away!
-6. Tests can be run using RSpec. Run command: `rspec`
+5. Set up the required databases:
+    A. Connect to psql in terminal
+    B. Create the databases using the psql commands: `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`
+    C. Connect to the first database using the pqsl command `\c chitter`
+    D. Run the query we have saved in the file 01_create_peeps_table.sql.
+    E. Change into the chitter_test database using the pqsl command `\c chitter_test` and once again execute the query we have saved in the file 01_create_peeps_table.sql.
+6. Visit `localhost:9292` in your browser and play away!
+7. Tests can be run using RSpec. Run command: `rspec`
 
 ## <a name="Example_run">Example run</a>
 

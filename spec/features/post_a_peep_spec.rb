@@ -8,3 +8,4 @@ feature 'Post peeps' do
     expect(page).to have_content("This is my peep")
   end
 end
+
