@@ -10,4 +10,13 @@ class PeepManager < Sinatra::Base
     @peeps = Peep.all
     erb :"/peeps/index"
   end
+
+  post '/peeps' do
+    Peep.create(content: params["content"])
+    redirect('/peeps')
+  end
+
+  get '/peeps/new' do
+    erb :"peeps/new"
+  end
 end

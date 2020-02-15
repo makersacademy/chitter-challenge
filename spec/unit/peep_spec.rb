@@ -11,4 +11,11 @@ describe Peep do
       expect(peeps).to include("Hello again!")      
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep and adds to collection' do
+      Peep.create(content: "No time to die")
+      expect(Peep.all).to include "No time to die"
+    end
+  end    
 end
