@@ -5,7 +5,7 @@ describe Chitter do
     PG.connect(dbname: 'chitter_test')
     Chitter.new_peep("Flounder", "My peep")
     chitter = Chitter.all
-    expect(chitter).to include(["Flounder", "My peep"])
+    expect(chitter).to include(["Flounder", "My peep", "#{Time.now.to_s[0...-6]}"])
   end
   # describe '#add a peep' do
   # visit('/make_a_peep')

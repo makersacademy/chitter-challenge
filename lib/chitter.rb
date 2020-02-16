@@ -18,7 +18,8 @@ class Chitter
     result_peeps.each do |single_peep|
       user_name = single_peep['user_name']
       peep = single_peep['peep']
-      peep_nested_array << [user_name, peep]
+      ts = single_peep['ts']
+      peep_nested_array << [user_name, peep, ts]
     end
     peep_nested_array
   end
@@ -32,8 +33,8 @@ class Chitter
       user_id = connection.exec("SELECT id FROM users 
       WHERE user_name= '#{user_name}'")
     end
-
-    connection.exec("INSERT INTO peeps (user_id, peep) 
-    VALUES('#{user_id.getvalue(0, 0)}', '#{peep}');")
+    time = Time.now.to_s[0...-6]
+    connection.exec("INSERT INTO peeps (user_id, peep, ts) 
+    VALUES('#{user_id.getvalue(0, 0)}', '#{peep}', '#{time}');")
   end
 end
