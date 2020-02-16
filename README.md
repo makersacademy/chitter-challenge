@@ -1,6 +1,6 @@
 # Repo title #
 
-*This programme does...this (programme description)*
+This app is a basic social media platform for Makers students. Users can post messages about their learnings and thoughts, which all students can see. Currently there is no user functionality, so students can post a username, but it is a bit of a free for all! Students can steal each other's usernames and edit/delete other student's posts. Might be time for a security update...
 
 I created this programme as part of a challenge at [Makers Academy](https://makers.tech). See [Specification](#Specification) for more information on the programme's requirements.
 
@@ -21,14 +21,8 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 ## Useage ##
 
 1. Connect to psql
-2. Create the database using the psql command: 
-    ```sql
-    CREATE DATABASE bookmark_manager;
-    ```
-3. Connect to the database: 
-    ```sql
-    \c bookmark_manager;
-    ```
+2. Create the database using the psql command `CREATE DATABASE bookmark_manager;`
+3. Connect to the database: `\c bookmark_manager;`
 4. Open /db/migrations/01_create_bookmarks_table.sql and run the command in the file in your terminal.
 
 - where to use
@@ -76,6 +70,12 @@ I want to log in to Chitter
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
 
 ```
 
@@ -138,6 +138,7 @@ When planning my code I thought about the tests I might need, and tried to order
 2. User sees all tweets in reverse chronological order
 3. User can sign up and gets a confirmation message
 4. User can log in
+5. User can add a tweet *when* logged in
 5. User can log out
 
 
@@ -152,17 +153,19 @@ When planning my code I thought about the tests I might need, and tried to order
 
 #### Edge Cases ####
 
-1. Null fields
-2. user tries to sign up with a username or email that already exists
+* Null fields
+* User tries to sign up with a username or email that already exists
+* User enters '' or "" in body
 
 ## Further Improvements ##
 
-ADVANCED
-```
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
+To complete the challenge this weekend, my main focus was to create a CRUD Database web app. I would like to return to this challenge and implement registration and user authentification which should allow the following developments:
+
+* If a user tries to create a peep when not signed in the app asks them to log in
+* User can only see 'edit' and 'delete' buttons on peeps they have posted
+* User can tag other users in peeps
+
+I would also like to explore the use of Rake to pass Travis CI tests on pull request.
 
 ## Credits ##
 
