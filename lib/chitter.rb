@@ -33,6 +33,7 @@ class Chitter
       WHERE user_name= '#{user_name}'")
     end
 
-    connection.exec("INSERT INTO peeps (user_id, peep) VALUES('#{user_id.getvalue(0, 0)}', '#{peep}');")
+    connection.exec("INSERT INTO peeps (user_id, peep) 
+    VALUES('#{user_id.getvalue(0, 0)}', '#{peep}');")
   end
 end

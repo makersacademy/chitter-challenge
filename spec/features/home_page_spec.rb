@@ -17,7 +17,7 @@ feature 'view a welcome page' do
     connection = PG.connect(dbname: 'chitter_test')
     connection.exec("INSERT INTO users (user_name, password) VALUES('Testname', '123')")
     visit('/')
-    #expect(page).to have_content('Welcome to Chitter')
+    # expect(page).to have_content('Welcome to Chitter')
     fill_in :user_name, with: "Testname"
     fill_in :password, with: "bob"
     click_button('Log in')
