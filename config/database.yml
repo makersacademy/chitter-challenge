@@ -1,0 +1,10 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+  # username: your_username
+  # password: your_password
+
+development:
+  <<: *default
+  database: chitter
