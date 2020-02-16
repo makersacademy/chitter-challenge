@@ -82,4 +82,13 @@ describe Peep do
 
   end
 
+  describe '.delete' do
+    let(:peep) { Peep.create(body: 'My first peep', username: 'lookupdaily') }
+
+    it 'peep no longer exists' do
+      Peep.delete(id: peep.id)
+      expect(Peep.all.length).to eq 0
+    end
+  end
+
 end

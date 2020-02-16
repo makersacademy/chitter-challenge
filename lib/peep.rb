@@ -26,6 +26,10 @@ class Peep
     Peep.new(username: result[0]['username'], body: result[0]['body'], time_posted: result[0]['time_posted'], id: result[0]['id'])
   end
 
+  def self.delete(id:)
+    DatabaseConnection.query("DELETE FROM peeps WHERE id = #{id};")
+  end
+
   attr_reader :username, :body, :time_posted, :id
   
   def initialize(username:, body:, time_posted:, id:)

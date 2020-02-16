@@ -25,4 +25,9 @@ class App < Sinatra::Base
     redirect '/'
   end
 
+  delete '/:id' do
+    Peep.delete(id: params[:id])
+    redirect '/'
+  end
+
 end

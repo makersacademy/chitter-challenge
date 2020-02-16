@@ -13,6 +13,10 @@
     <form action="/<%= peep.id %>/edit" method="get">
       <input type="submit" value="Edit">
     </form>
+    <form action="/<%= peep.id %>" method="post">
+      <input type='hidden' name='_method' value='DELETE'/>
+      <input type="submit" value="Delete">
+    </form>
   </li>
   <% end %>
 </ul>
