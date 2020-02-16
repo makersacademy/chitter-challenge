@@ -1,9 +1,9 @@
 require 'sinatra/base'
 
-class Chitter < Sinatra:: base
+class Chitter < Sinatra::Base
     
-    get '/'
-    'Welcome to Chitter'
+    get '/' do
+        erb :index
     end
 
     
