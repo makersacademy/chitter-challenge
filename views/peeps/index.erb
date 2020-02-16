@@ -9,7 +9,7 @@
       <% if @user %>
         <h2>Welcome, <%= @user.name %></h2>
       <% end %>
-    <h2>Here are your peeps:</h2>
+    <h2>Here are the peeps:</h2>
 
     <% @peeps.each do |peep| %>
       <div class='peep'>
@@ -22,10 +22,9 @@
         </div>               
       </div></br>
     <% end %>
-
-    </br>
-    <a href="/peeps/new"><button>Create new peep</button></a>
-    </br>
+    <% if @user %>
+      <a href="/peeps/new"><button>Create new peep</button></a>
+    <% end %>
     <a href="/"><button>Homepage</button></a>
   </body>
 </html>
