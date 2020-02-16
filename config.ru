@@ -1,3 +1,3 @@
 require_relative './app.rb'
 
-run Chitter
+run ChitterManager

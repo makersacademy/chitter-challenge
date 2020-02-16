@@ -3,15 +3,15 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-# require_relative './setup_test_database'
+#require_relative './setup_test_database'
 
-# ENV['ENVIRONMENT'] = 'test'
+#ENV['ENVIRONMENT'] = 'test'
 
 # require our Sinatra app file
 require File.join(File.dirname(__FILE__), '../app')
 
 # tell Capybara about our app class
-Capybara.app = Chitter
+Capybara.app = ChitterManager
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

@@ -1,5 +1,7 @@
 require 'sinatra/base'
-class Chitter < Sinatra::Base
+require './lib/chitter.rb'
+
+class ChitterManager < Sinatra::Base
 
   get '/' do
     erb :index
