@@ -1,7 +1,8 @@
 <h1> See all peeps below! </h1>
 <br>
+Second try with each method:
 <ul>
-<% @allpeeps.each do |peep| %>
-<li> <%= peep.user_name %> <%= peep.peep %></a></li>
+<% @allpeeps.each do |single_peep| %>
+<li> <%= single_peep[0] %> <%= single_peep[1]%></a></li>
 <% end %>
 </ul>

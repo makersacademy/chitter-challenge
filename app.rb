@@ -8,6 +8,9 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/make_a_peep' do
+    p params[:user_name]
+    p params[:peep]
+    Chitter.new_peep(params[:user_name], params[:peep])
     erb :make_a_peep
   end
 
