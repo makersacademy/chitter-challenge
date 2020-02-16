@@ -16,5 +16,14 @@ feature 'has a page for viewing peeps' do
     click_button('Submit')
     expect(page).to have_content("Rosemary")
     expect(page).to have_content("rose rose")
+    expect(page).to have_content("")
+  end
+  scenario '#can use link to add a new peep' do
+    visit('view_peeps')
+    click_link('Make a new peep')
+  end
+  scenario '#can use link to log out' do
+    visit('view_peeps')
+    click_link('Log out')
   end
 end
