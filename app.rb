@@ -10,8 +10,6 @@ class ChitterManager < Sinatra::Base
 
   post '/' do
     @result = LogIn.check_password(params[:user_name], params[:password])
-    p "result on app page is: "
-    p @result
     erb :log_in_result
   end
 
