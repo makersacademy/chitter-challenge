@@ -7,9 +7,9 @@ feature 'creating peeps' do
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
-    visit 'peeps/new'
-    fill_in("text", with: 'This is a test peep')
-    click_button('Submit')
+    visit '/peeps/new'
+    fill_in('text', with: 'This is a test peep')
+    click_button('Peep')
     expect(page).to have_content 'This is a test peep'
   end
 end
