@@ -12,6 +12,7 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/view_peeps' do
+    @allpeeps = Chitter.all
     erb :view_peeps
   end
 

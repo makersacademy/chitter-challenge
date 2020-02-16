@@ -1,3 +1,7 @@
 <h1> See all peeps below! </h1>
 <br>
-Flounder: This is my first peep!
+<ul>
+<% @allpeeps.each do |peep| %>
+<li> <%= peep.user_name %> <%= peep.peep %></a></li>
+<% end %>
+</ul>
