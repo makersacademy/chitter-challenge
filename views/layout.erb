@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>a chitter</title>
+   <link rel="stylesheet" type="text/css" href="style.css" />
+   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+     <header class="header">
+       this is a chitter
+       <span id="what"> <a href="/why">what's all this</a></span>
+     </header>
+     <div class="main">
+        <div id='index'>
+         <%= yield %>
+        </div>
+     </div>
+     <footer>
+           <div id="f1"> Ruby, Sinatra, ActiveRecord
+           <br>PostgreSQL, HTML & CSS</div>
+
+     <div id="f2"> made by <a href="https://github.com/Mrtly" target="_blank">Mrtly</a> </div>
+  </footer>
+</div>
+</body>

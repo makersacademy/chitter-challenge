@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: trychitter2
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASS'] %>
+  host: localhost

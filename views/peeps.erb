@@ -1,0 +1,34 @@
+<h2>this is a Chitter</h2>
+<hr>
+<div class="geezmrgn">
+<h3> great, thanks for signing up (or not), it doesn't matter tho 
+because the tables don't talk to each other <br><br>so when you post your 
+peep just type your name again, thanks!</h3>
+</div>
+<div class="geezmrgn">
+<h2> post a peep? </h2>
+<h4> there's no delete button so please be nice</h4>
+</div>
+<div class="geezmrgn">
+<form action="/post-peep" method="POST">
+	<input type="text" name="content" placeholder="write a peep" />
+	<input type="text" name="maker_id" placeholder="your name" />
+    <input type="submit" value="post" />
+</form>
+</div>
+<div class="geezmrgn">
+<h3>all peeps</h3>
+<br>
+<ul>
+<% @peeps.each do |peep| %>
+	<li>
+		<%= peep.content %> 
+		<br><span style="font-style: italic">by <%= peep.maker_id %></span>
+	</li>
+<% end %>
+</ul>
+</div>
+<br><hr><br>
+<h4><a href="/">go back</a> &nbsp; &nbsp; <a href="/why">what's all this</a></h4>
+
+ 
