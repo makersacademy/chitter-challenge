@@ -28,6 +28,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps/:id' do
     Peep.create(text: params[:text], user_id: params[:id])
+    # p Peep.author(id: params[:id])
     body = params[:text]
     Pony.mail(:to => 'davidjohnmcgregor@gmail.com', :subject => "You've been tagged in a peep", :body => "This is the peep: #{body}", :via => :sendmail)
     redirect '/peeps/index'

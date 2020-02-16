@@ -1,19 +1,55 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="/stylesheets/index.css">
+
+<style>
+body {
+  background-image:url('https://media.giphy.com/media/k4ZItrTKDPnSU/giphy.gif'); 
+  background-repeat:repeat; 
+  background-size: auto;
+}
+
+.peep_column {
+  background: #56CCF2;  
+  background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  
+  background: linear-gradient(to right, #2F80ED, #56CCF2); 
+  color: white;
+  
+  margin: auto;
+  width: 50%;
+  padding: 30px;
+}
+
+.peep {
+  background: white;
+  color: #56CCF2;
+  border-radius: 25px;
+}
+
+</style>
+<audio controls autoplay>
+<source src="https://upload.wikimedia.org/wikipedia/en/4/4e/Carl_Orff-Carmina_Burana-O_Fortuna.ogg" type="audio/ogg">
+</audio>
+
+
+<div class="peep_column">
 <h2>
   <%= flash[:notice] %>
 </h2>
 <% if @user %>
   <h1>Welcome, <%= @user.username %></h1>
-  <form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out" />
-  </form>
+  <div class="container">
+    <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+    </form>
+  </div>
 
   <h1>Here are the peeps:</h1>
   <ul>
     <% @peeps.reverse.each do |peep| %>
-      <li class="peep" id="peep-<%= peep.id %>">
-        <p><%= peep.text %></p>
-        <p><%= peep.author_id %>, <%= DateTime.parse(peep.time_created).strftime("%A, %d %b %Y %l:%M %p") %></p>
-      </li>
+        <div class="peep">
+          <p style="color:black; font-size: 200%; padding: 10px"><%= peep.text %></p>
+          <p style="color:grey; padding: 10px"><%= DateTime.parse(peep.time_created).strftime("%A, %d %b %Y %l:%M %p") %></p>
+        </div>
     <% end %>
   </ul>
 
@@ -36,3 +72,4 @@
       </li>
     </ul>
 <% end %>
+</div>
