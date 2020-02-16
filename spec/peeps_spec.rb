@@ -10,10 +10,10 @@ describe Peep do
   describe "#all" do 
     it 'returns a list of bookmarks' do
       connection = PG.connect(dbname: 'chitter_test')
-
-      peep = Peep.create(text: "This is the first test peep")
-      Peep.create(text: "This is the second test peep")
-      Peep.create(text: "This is the third test peep")
+      user = User.create(username: 'testusername123', email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: "This is the first test peep", user_id: user.id)
+      Peep.create(text: "This is the second test peep", user_id: user.id)
+      Peep.create(text: "This is the third test peep", user_id: user.id)
   
       peeps = Peep.all
 
@@ -27,8 +27,10 @@ describe Peep do
   end
 
   describe '.create' do
+
     it 'creates a new peep' do
-      peep = Peep.create(text: "This is the first test peep")
+      user = User.create(username: 'testusername123', email: 'test@example.com', password: 'password123')
+      peep = Peep.create(text: "This is the first test peep", user_id: user.id)
       persisted_data = persisted_data(id: peep.id, table: 'peeps')
 
       expect(peep).to be_a Peep

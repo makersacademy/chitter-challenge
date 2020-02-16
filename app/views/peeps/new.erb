@@ -1,6 +1,6 @@
 <% if @user %>
 <h1>Post a peep: </h1>
-<form action="/peeps" method="post">
+<form action="/peeps/<%= @user.id %>" method="post">
 <input type="text" name="text" placeholder="What's happening?" />
 <input type="submit" value="Peep" />
 </form>

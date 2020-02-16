@@ -12,7 +12,7 @@
     <% @peeps.reverse.each do |peep| %>
       <li class="peep" id="peep-<%= peep.id %>">
         <p><%= peep.text %></p>
-        <p><%= DateTime.parse(peep.time_created).strftime("%A, %d %b %Y %l:%M %p") %></p>
+        <p><%= peep.author_id %>, <%= DateTime.parse(peep.time_created).strftime("%A, %d %b %Y %l:%M %p") %></p>
       </li>
     <% end %>
   </ul>
