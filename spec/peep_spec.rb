@@ -1,4 +1,5 @@
 require 'pg'
+require 'database_helpers'
 require 'spec_helper'
 
 describe Peep do
@@ -6,22 +7,28 @@ describe Peep do
   describe '.all' do
     it 'returns a list of the peeps' do
       connection = PG.connect(dbname: 'chitter_test')
-      connection.exec("INSERT INTO peeps (content) VALUES ('This is my first peep');")
-      connection.exec("INSERT INTO peeps (content) VALUES ('This is my second peep');")
-      connection.exec("INSERT INTO peeps (content) VALUES ('This is my third peep');")
+      peep = Peep.create(content: "This is my first peep")
+      Peep.create(content: "This is my second peep")
+      Peep.create(content: "This is my third peep")
       
       peeps = Peep.all
 
-      expect(peeps).to include("This is my third peep")
-      expect(peeps).to include("This is my second peep")
-      expect(peeps).to include("This is my first peep")
+      expect(peeps.length).to eq(3)
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.content).to eq("This is my first peep")
+      expect(peeps.last.content).to eq("This is my third peep")
     end
   end
 
   describe '.create' do
     it 'makes a new peep' do
-      Peep.create(content: "I have made a tweet")
-      expect(Peep.all).to include("I have made a tweet")
+      peep = Peep.create(content: "I have made a tweet")
+      persisted_data = persisted_data(id: peep.id)
+      
+      expect(peep).to be_a(Peep)
+      expect(peep.id).to eq(persisted_data['id'])
+      expect(peep.content).to eq("I have made a tweet")
     end
   end
   
