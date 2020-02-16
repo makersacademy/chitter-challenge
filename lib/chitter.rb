@@ -9,12 +9,16 @@ class Chitter
     @peep = peep
   end
 
-  def self.all
+  def self.connect
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
+  end
+
+  def self.all
+    connection = Chitter.connect
     result_peeps = connection.exec( "SELECT * FROM peeps INNER JOIN users ON (peeps.user_id = users.id);" )
 
     # issue atm is need db talking to each other and mapping
@@ -24,11 +28,7 @@ class Chitter
   end
 
   def self.new_peep(user_name, peep, user_id = 1)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
+    connection = Chitter.connect
     result = connection.exec( "INSERT INTO users (user_name) VALUES('#{user_name}')" )
     # work out how to automatically use foreign key values here - might need to extract somehow
     # assign something to user_id
