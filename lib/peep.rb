@@ -36,6 +36,6 @@ class Peep
     @id = id
     @username = username
     @body = body
-    @time_posted = time_posted
+    @time_posted = Time.parse(time_posted)
   end
 end

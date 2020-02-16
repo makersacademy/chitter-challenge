@@ -4,19 +4,27 @@
   <input type="comment" name="body" maxlength="240" placeholder="What's up?" required/>
   <input type="submit" value="Peep">
 </form>
-<ul>
+<section class="row">
   <% @peeps.each do |peep| %>
-  <li class="peep" id="peep-<%= peep.id %>">
-    <%= peep.username %>
-    <%= peep.time_posted %>
-    <%= peep.body %>
-    <form action="/<%= peep.id %>/edit" method="get">
-      <input type="submit" value="Edit">
-    </form>
-    <form action="/<%= peep.id %>" method="post">
-      <input type='hidden' name='_method' value='DELETE'/>
-      <input type="submit" value="Delete">
-    </form>
-  </li>
+    <div class="col-md-4">
+      <article class="peep card" id="peep-<%= peep.id %>" style="width: 100;">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h6 class="card-subtitle mb-2 text-muted">@<%= peep.username %></h6>
+            <p class="card-text text-right"><small class="text-muted"><%= peep.time_posted.strftime("%d/%m/%Y %k:%M") %></small></p>
+          </div>
+          <p class="card-text"><%= peep.body %></p>
+          <footer class="btn-group btn-group-sm justify-content-end" role="group" aria-label="Basic example">
+            <form action="/<%= peep.id %>/edit" method="get">
+              <input class="btn btn-link" type="submit" value="Edit">
+            </form>
+            <form action="/<%= peep.id %>" method="post">
+              <input type='hidden' name='_method' value='DELETE'/>
+              <input class="btn btn-link" type="submit" value="Delete">
+            </form>
+          </footer>
+      </article>
+    </div>
   <% end %>
-</ul>
+
+</section>
