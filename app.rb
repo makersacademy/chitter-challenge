@@ -13,7 +13,7 @@ class ChitterManager < Sinatra::Base
 
   post '/make_a_peep' do
     Chitter.new_peep(params[:user_name], params[:peep])
-    erb :make_a_peep
+    redirect ('/view_peeps')
   end
 
   get '/view_peeps' do

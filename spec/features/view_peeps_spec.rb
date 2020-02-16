@@ -6,7 +6,6 @@ feature 'has a page for viewing peeps' do
     fill_in :peep, with: "This is my first peep"
     fill_in :user_name, with: "Testname"
     click_button('Submit')
-    visit('/view_peeps')
     expect(page).to have_content("Testname")
     expect(page).to have_content("This is my first peep")
   end
@@ -15,7 +14,6 @@ feature 'has a page for viewing peeps' do
     fill_in :peep, with: "rose rose"
     fill_in :user_name, with: "Rosemary"
     click_button('Submit')
-    visit('/view_peeps')
     expect(page).to have_content("Rosemary")
     expect(page).to have_content("rose rose")
   end
