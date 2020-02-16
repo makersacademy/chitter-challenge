@@ -6,10 +6,13 @@
 </form>
 <ul>
   <% @peeps.each do |peep| %>
-  <li>
+  <li class="peep" id="peep-<%= peep.id %>">
     <%= peep.username %>
     <%= peep.time_posted %>
     <%= peep.body %>
+    <form action="/<%= peep.id %>/edit" method="get">
+      <input type="submit" value="Edit">
+    </form>
   </li>
   <% end %>
 </ul>

@@ -1,0 +1,6 @@
+<h2>Edit Peep</h2>
+<form action=/<%= @peep.id %> method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="comment" name="body" maxlength="240" placeholder="Update peep" value="<%= @peep.body %>" required/>
+  <input type="submit" value="Update">
+</form>

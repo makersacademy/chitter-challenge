@@ -4,28 +4,26 @@ class Peep
   def self.create(username:, body:)
     time_posted = Time.now
 
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
     query = "INSERT INTO peeps (username, body, time_posted) VALUES('#{username}', '#{body}', '#{time_posted}') RETURNING id, username, body, time_posted;"
-    result = connection.exec(query)
+    result = DatabaseConnection.query(query)
     Peep.new(username: result[0]['username'], body: result[0]['body'], time_posted: result[0]['time_posted'], id: result[0]['id'])
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'chitter_test')
-    else
-      connection = PG.connect(dbname: 'chitter')
-    end
-
-    result = connection.exec("SELECT * FROM peeps;")
+    result = DatabaseConnection.query("SELECT * FROM peeps;")
     result.map do |peep|
-    Peep.new(username: peep['username'], body: peep['body'], time_posted: peep['time_posted'], id: peep['id'])
+      Peep.new(username: peep['username'], body: peep['body'], time_posted: peep['time_posted'], id: peep['id'])
     end
+  end
+
+  def self.find(id:)
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE id = #{id};")
+    Peep.new(username: result[0]['username'], body: result[0]['body'], time_posted: result[0]['time_posted'], id: result[0]['id'])
+  end
+
+  def self.edit(id: ,body:)
+    result = DatabaseConnection.query("UPDATE peeps SET body = '#{body}' WHERE id = #{id} RETURNING id, username, body, time_posted;")
+    Peep.new(username: result[0]['username'], body: result[0]['body'], time_posted: result[0]['time_posted'], id: result[0]['id'])
   end
 
   attr_reader :username, :body, :time_posted, :id
