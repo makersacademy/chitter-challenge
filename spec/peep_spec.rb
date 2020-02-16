@@ -21,4 +21,12 @@ describe Peep do
       expect(peep.text).to eq 'test'
     end
   end
+
+  describe '#delete' do 
+    it 'should delete the given bookmark' do 
+      peep = Peep.create(text: 'delete me')
+      Peep.delete(id: peep.id)
+      expect(Peep.all.length).to eq 0
+    end 
+  end 
 end 

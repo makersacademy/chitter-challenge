@@ -1,12 +1,58 @@
+<head>
+  <title>Chitter - Home</title>
+  <style>
+    body{
+      background: linear-gradient(lightblue, darkblue);
+      margin: 50px;
+      font-family: Verdana;
+    }
+    header{
+      background: #E6E6E6;
+      overflow: hidden;
+      margin-left: -50px;
+      margin-right: -50px;
+      font-family: Verdana;
+      font-family: Verdana;
+    }
+    section{
+      background: white;
+    }
+    .center{
+      margin: -10px;
+      width: 80%;
+      border: 20px solid black;
+      padding: 20px;
+    }
+    img{
+      margin-left: 50px;
+      width: 200;
+      height: auto;
+      position: relative;
+      float:right
+    }
+    .button{
+      font-size:60px;
+    }
+  </style>
+</head>
 <h1> Chitter </h1>
-
-<ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li class="peep" id="peep"<%= peep.id %>>
-        <%= peep.text %> <br>
-      </a>
-    </li>
-  <% end %>
-</ul>
-
+<h2> The home of Peeps </h2>
 <form action='/post'> <input type='submit' value='Post Peep'> </form>
+
+ <div class="center" >
+    <% @peeps.reverse.each do |peep| %>
+    <section>
+      <p style="margin-right: 20px; text-align: right;">
+      <form action="/<%= peep.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+      </form></p>
+      <p style="margin-left: 20px;">Peep: <%= peep.text %></p>
+      <br>
+      <p style="margin: 20px; padding: 20px; text-align: right;">Posted: <%= peep.time %></p>
+    </section>
+    <% end %>
+  </div>
+
+
+
