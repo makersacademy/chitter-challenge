@@ -16,7 +16,8 @@ class PeepManager < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params["content"])
+    @user = User.find(session[:user_id])
+    Peep.create(content: params["content"], name: @user.name, username: @user.username)
     redirect('/peeps')
   end
 

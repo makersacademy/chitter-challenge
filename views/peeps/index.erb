@@ -26,5 +26,8 @@
       <a href="/peeps/new"><button>Create new peep</button></a>
     <% end %>
     <a href="/"><button>Homepage</button></a>
+    <% if !@user %>
+      <a href="/users/new"><button>Sign up</button></a>
+    <% end %>
   </body>
 </html>

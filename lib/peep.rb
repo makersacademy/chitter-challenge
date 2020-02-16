@@ -15,13 +15,13 @@ class Peep
     result2.sort_by { |peep| -Time.parse(peep.time).to_i }
   end
 
-  def self.create(content:)
+  def self.create(content:, username:, name:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'peep_manager_test')
     else
       connection = PG.connect(dbname: 'peep_manager')
     end
-    result = connection.exec("INSERT INTO peeps (name, username, content, time) VALUES ('Jason Wong', 'jasylw', '#{content}', '#{Time.now.getutc}') RETURNING id, username, name, content, time;")
+    result = connection.exec("INSERT INTO peeps (name, username, content, time) VALUES ('#{name}', '#{username}', '#{content}', '#{Time.now.getutc}') RETURNING id, username, name, content, time;")
     Peep.new(id: result[0]['id'], content: result[0]['content'], name: result[0]['name'], username: result[0]['username'], time: result[0]['time'])
   end
 
