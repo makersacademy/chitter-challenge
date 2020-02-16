@@ -1,6 +1,14 @@
-<h2>Edit Peep</h2>
-<form action=/<%= @peep.id %> method="post">
-  <input type="hidden" name="_method" value="PATCH">
-  <input type="comment" name="body" maxlength="240" placeholder="Update peep" value="<%= @peep.body %>" required/>
-  <input type="submit" value="Update">
-</form>
+<article class="container-fluid">
+  <h3>Edit Peep</h3>
+  <form action=/<%= @peep.id %> method="post">
+    <section class="form-row">
+      <div class="input-group col mb-4">
+        <input type="hidden" name="_method" value="PATCH">
+        <textarea class="form-control border-secondary" type="text" name="body" maxlength="240" aria-describedby="button-addon" required><%= @peep.body %></textarea>
+        <div class="input-group-append">
+          <input class="btn btn-lg btn-outline-secondary" type="submit" id="button-addon" value="Update">
+        </div>
+      </div>
+    </section>
+  </form>
+</article>
