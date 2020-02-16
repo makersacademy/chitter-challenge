@@ -8,7 +8,12 @@
     <h1>Peeps</h1>
       <% if @user %>
         <h2>Welcome, <%= @user.name %></h2>
+        <a href="/peeps/new"><button>Create new peep</button></a>
       <% end %>
+    <a href="/"><button>Homepage</button></a>
+    <% if !@user %>
+      <a href="/users/new"><button>Sign up</button></a>
+    <% end %>
     <h2>Here are the peeps:</h2>
 
     <% @peeps.each do |peep| %>
@@ -21,13 +26,6 @@
           <%= peep.content %>
         </div>               
       </div></br>
-    <% end %>
-    <% if @user %>
-      <a href="/peeps/new"><button>Create new peep</button></a>
-    <% end %>
-    <a href="/"><button>Homepage</button></a>
-    <% if !@user %>
-      <a href="/users/new"><button>Sign up</button></a>
     <% end %>
   </body>
 </html>

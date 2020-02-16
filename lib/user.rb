@@ -33,4 +33,15 @@ class User
     result = connection.exec("SELECT * FROM users WHERE id='#{id}';")
     User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
   end
+
+  def self.authenticate(email:, password:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'peep_manager_test')
+    else
+      connection = PG.connect(dbname: 'peep_manager')
+    end
+    result = connection.exec("SELECT * FROM users WHERE email='#{email}';")
+    return unless result.any?
+    User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'])
+  end
 end
