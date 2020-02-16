@@ -1,0 +1,20 @@
+<html>
+<head>
+<style>
+div {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid blue;
+  padding: 20px;
+  margin: 10px;
+}
+</style>
+</head>
+<body>
+<ul>
+  <% @peeps.each do |peep| %>
+    <div><p>Username: <%=peep.user.username%> </p>
+    <p> Created: <%=peep.created%> </p>
+    <p>Message:<%=peep.content%></p></div>
+  <% end %>
+</ul>

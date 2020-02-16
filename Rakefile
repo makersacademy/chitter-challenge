@@ -1,4 +1,3 @@
-require 'sinatra/activerecord'
 require './chitter/app'
 
 DB_ENV ||= 'development'
