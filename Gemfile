@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'pg'
 gem 'pry'
 gem 'sinatra'
-gem 'bcrypt'
 gem 'sinatra-flash'
 
 group :test do
