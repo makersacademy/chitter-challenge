@@ -17,5 +17,5 @@ describe Peep do
       expect(peeps).to include("This is my first peep")
     end
   end
-
+  
 end
