@@ -15,8 +15,7 @@ class LogIn
     user_id = connection.exec("SELECT id FROM users WHERE user_name= '#{user_name}';")
     # for cases where user is new
     if user_id.values == []
-      connection.exec("INSERT INTO users (user_name, password) 
-      VALUES('#{user_name}, '#{password}'')")
+      result = "User name not recongised. Please try again or create a new account"
     else
       correct_password = connection.exec("SELECT password FROM users 
       WHERE user_name= '#{user_name}'")
