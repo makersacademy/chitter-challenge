@@ -11,7 +11,14 @@ class ChitterManager < Sinatra::Base
 
   post '/' do
     @result = LogIn.check_password(params[:user_name], params[:password])
+    if @result == "Password correct"
+      redirect('/correct_log_in')
+    end
     erb :log_in_result
+  end
+
+  get '/correct_log_in' do
+    erb :correct_log_in
   end
 
   get '/sign_up' do
