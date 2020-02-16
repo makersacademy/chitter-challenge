@@ -8,6 +8,10 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/make_a_peep' do
+    erb :make_a_peep
+  end
+
+  post '/make_a_peep' do
     Chitter.new_peep(params[:user_name], params[:peep])
     erb :make_a_peep
   end
