@@ -59,8 +59,8 @@ I want to receive an email if I am tagged in a Peep
     A. Connect to psql in terminal
     B. Create the databases using the psql commands: `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`
     C. Connect to the first database using the pqsl command `\c chitter`
-    D. Run the query we have saved in the file 01_create_peeps_table.sql.
-    E. Change into the chitter_test database using the pqsl command `\c chitter_test` and once again execute the query we have saved in the file 01_create_peeps_table.sql.
+    D. Run the queries we have saved in the file 01_create_peeps_table.sql and 02_add_time_to_peeps.sql
+    E. Change into the chitter_test database using the pqsl command `\c chitter_test` and once again execute the queries we have saved in 01_create_peeps_table.sql and 02_add_time_to_peeps.sql.
 6. Visit `localhost:9292` in your browser and play away!
 7. Tests can be run using RSpec. Run command: `rspec`
 

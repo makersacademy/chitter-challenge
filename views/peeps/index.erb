@@ -1,7 +1,7 @@
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <li>
-        <%= peep.content %>
+        <%= peep.content %> <font color="#D0D0D0"><%= peep.timing[0..7] %></font>
     </li>
   <% end %>
 </ul>

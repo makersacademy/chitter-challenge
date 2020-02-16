@@ -31,5 +31,12 @@ describe Peep do
       expect(peep.content).to eq("I have made a tweet")
     end
   end
+
+  describe '.timing' do
+    it 'reports the time the peep was made' do
+      peep = Peep.create(content: "I have made a tweet")
+      expect(peep.timing).to match(/\d{2}:\d{2}:\d{2}/)
+    end
+  end
   
 end

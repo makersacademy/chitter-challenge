@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD COLUMN timing TIME default current_time;
