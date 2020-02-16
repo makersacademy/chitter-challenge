@@ -51,4 +51,10 @@ class PeepManager < Sinatra::Base
       redirect('/sessions/new')
     end
   end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = "You have signed out."
+    redirect('/peeps')
+  end
 end

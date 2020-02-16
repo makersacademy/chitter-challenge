@@ -9,10 +9,15 @@
       <% if @user %>
         <h2>Welcome, <%= @user.name %></h2>
         <a href="/peeps/new"><button>Create new peep</button></a>
+        <form action="/sessions/destroy" method='post'>
+          <input type='submit' value='Sign out' />
+        </form>
       <% end %>
+    <%= flash[:notice] %>  
     <a href="/"><button>Homepage</button></a>
     <% if !@user %>
       <a href="/users/new"><button>Sign up</button></a>
+      <a href="/sessions/new"><button>Sign in</button></a>
     <% end %>
     <h2>Here are the peeps:</h2>
 
