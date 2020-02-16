@@ -17,5 +17,12 @@ describe Peep do
       expect(peeps).to include("This is my first peep")
     end
   end
+
+  describe '.create' do
+    it 'makes a new peep' do
+      Peep.create(content: "I have made a tweet")
+      expect(Peep.all).to include("I have made a tweet")
+    end
+  end
   
 end
