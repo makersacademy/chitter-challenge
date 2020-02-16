@@ -1,9 +1,11 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
 <h1>Here are the peeps:</h1>
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
       <p><%= peep.content %></p>
-      <p><%= peep.time_created %></p>
       <p><%= DateTime.parse(peep.time_created).strftime("%A, %d %b %Y %l:%M %p") %></p>
     </li>
   <% end %>
