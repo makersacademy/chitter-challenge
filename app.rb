@@ -1,10 +1,18 @@
 require 'sinatra/base'
 require './lib/chitter.rb'
+require './lib/log_in.rb'
 
 class ChitterManager < Sinatra::Base
 
   get '/' do
     erb :index
+  end
+
+  post '/' do
+    @result = LogIn.check_password(params[:user_name], params[:password])
+    p "result on app page is: "
+    p @result
+    erb :log_in_result
   end
 
   get '/make_a_peep' do
