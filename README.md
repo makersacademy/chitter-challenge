@@ -1,6 +1,8 @@
-# Repo title #
+# Chitter Challenge #
 
-This app is a basic social media platform for Makers students. Users can post messages about their learnings and thoughts, which all students can see. Currently there is no user functionality, so students can post a username, but it is a bit of a free for all! Students can steal each other's usernames and edit/delete other student's posts. Might be time for a security update...
+This app is a basic social media platform for Makers students based on the popular platform 'Twitter'.
+
+Users can post messages about their learnings and thoughts, which all students can see. Currently there is no user functionality, students can post a username, but it is a bit of a free for all! Students can steal each other's usernames and edit/delete other student's posts. Might be time for a security update...
 
 I created this programme as part of a challenge at [Makers Academy](https://makers.tech). See [Specification](#Specification) for more information on the programme's requirements.
 
@@ -9,7 +11,6 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 * [Running tests](#Running-tests)
 * [Specification](#Specification)
 * [How I built it](#How-i-built-it)
-* [Credits](#credits)
 
 
 ## Getting Started ##
@@ -21,17 +22,22 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 ## Useage ##
 
 1. Connect to psql
-2. Create the database using the psql command `CREATE DATABASE bookmark_manager;`
-3. Connect to the database: `\c bookmark_manager;`
+2. Create the database using the psql command `CREATE DATABASE chitter;`
+3. Connect to the database: `\c chitter;`
 4. Open /db/migrations/01_create_bookmarks_table.sql and run the command in the file in your terminal.
 
-- where to use
-- example code
-- example output
+This is a web app which you can run on your local server. You will need to use the command line and a browser. In the command line type:
+
+```shell
+$ rackup
+```
+
+Open your browser and visit [localhost:9292](http://localhost:9292/).
+Enter your name and start playing!
 
 ## Running tests ##
 
-1. Navigate to top level of project directory
+1. Note: to run tests in your local environment you will need to set up the test database. Rerun steps 1-4 above in useage, but replace the database name with `chitter_test` - ie `CREATE DATABASE chitter_test;` and `\c chitter_test;`
 2. In your command line type:
 
 ```shell
@@ -39,6 +45,8 @@ $ rspec
 ```
 
 ## Specification ##
+
+See original challenge instructions [here](Challenge-instructions.md)
 
 ### User Stories ###
 
@@ -56,7 +64,11 @@ I want to see all peeps in reverse chronological order
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+```
 
+*below stories still to be implemented*
+
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -161,12 +173,9 @@ When planning my code I thought about the tests I might need, and tried to order
 
 To complete the challenge this weekend, my main focus was to create a CRUD Database web app. I would like to return to this challenge and implement registration and user authentification which should allow the following developments:
 
+* Tweets displayed in reverse time order
 * If a user tries to create a peep when not signed in the app asks them to log in
 * User can only see 'edit' and 'delete' buttons on peeps they have posted
 * User can tag other users in peeps
 
 I would also like to explore the use of Rake to pass Travis CI tests on pull request.
-
-## Credits ##
-
-List any credits or inspiration here
