@@ -116,6 +116,9 @@ $ rspec
 ## <a name="Further_Improvements">Further Improvements</a>
 
 Implement the following: 
+* Display peep author usernames under peeps (access from database)
+* Complete `Pony` gem implementation so that an email is sent to `user.email` if `peep.text` includes `user.username`
+* Complete README
 * Try using the DataMapper ORM instead of the PG gem
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 * Work on the CSS to make it look good.
