@@ -5,14 +5,34 @@
   <h1>Welcome, <%= @user.username %></h1>
   <form action="/sessions/destroy" method="post">
   <input type="submit" value="Sign out" />
-</form>
+  </form>
+
+  <h1>Here are the peeps:</h1>
+  <ul>
+    <% @peeps.reverse.each do |peep| %>
+      <li class="peep" id="peep-<%= peep.id %>">
+        <p><%= peep.text %></p>
+        <p><%= DateTime.parse(peep.time_created).strftime("%A, %d %b %Y %l:%M %p") %></p>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <h1> Choose an option: </h1>
+    <ul> 
+      <li>
+        <form action="/sessions/new" method="get">
+        Existing user sign in:
+        <input type="submit" value="Sign in" />
+        </form>
+      </li>
+    </ul>
+    <ul> 
+      <li>
+        <form action="/users/new" method="get">
+        New user sign up:
+        <input type="submit" value="Sign up" />
+        </form>
+      </li>
+    </ul>
 <% end %>
-<h1>Here are the peeps:</h1>
-<ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li class="peep" id="peep-<%= peep.id %>">
-      <p><%= peep.content %></p>
-      <p><%= DateTime.parse(peep.time_created).strftime("%A, %d %b %Y %l:%M %p") %></p>
-    </li>
-  <% end %>
-</ul>

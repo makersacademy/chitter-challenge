@@ -2,13 +2,13 @@ require 'pg'
 require_relative 'database_connection'
 
 class Peep  
-  attr_reader :id, :content, :time_created, :author_id
+  attr_reader :id, :text, :time_created, :user_id
 
-  def initialize(id:, content:, time_created:, author_id:)
+  def initialize(id:, text:, time_created:, user_id:)
     @id  = id
-    @content = content
+    @text = text
     @time_created = time_created
-    @author_id = author_id
+    @user_id = user_id
   end
     
   def self.all    
@@ -16,15 +16,15 @@ class Peep
     peeps.map do |peep|
       Peep.new(
         id: peep['id'], 
-        content: peep['content'], 
+        text: peep['text'], 
         time_created: peep['time_created'],
-        author_id: peep['author_id']
+        user_id: peep['user_id']
         )
     end
   end
 
-  def self.create(content:)
-    result = DatabaseConnection.query("INSERT INTO peeps (content) VALUES('#{content}') RETURNING id, content, time_created, author_id;")
-    Peep.new(id: result[0]['id'], content: result[0]['content'], time_created: result[0]['time_created'], author_id: result[0]['author_id'])
+  def self.create(text:)
+    result = DatabaseConnection.query("INSERT INTO peeps (text) VALUES('#{text}') RETURNING id, text, time_created, user_id;")
+    Peep.new(id: result[0]['id'], text: result[0]['text'], time_created: result[0]['time_created'], user_id: result[0]['user_id'])
   end
 end
