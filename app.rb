@@ -42,7 +42,6 @@ class PeepManager < Sinatra::Base
   end
 
   post '/sessions' do
-    p User.authenticate(email: params[:email], password: params[:password])
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id    
