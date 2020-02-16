@@ -12,8 +12,8 @@ class Chitter
 
   def self.all
     connection = Chitter.connect
-    result_peeps = connection.exec("SELECT * FROM peeps 
-    INNER JOIN users ON (peeps.user_id = users.id);")
+    result_peeps = connection.exec('SELECT * FROM peeps 
+    INNER JOIN users ON (peeps.user_id = users.id) ORDER BY "ts" DESC;')
     peep_nested_array = []
     result_peeps.each do |single_peep|
       user_name = single_peep['user_name']

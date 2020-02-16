@@ -37,4 +37,8 @@ class ChitterManager < Sinatra::Base
     erb :view_peeps
   end
 
+  get '/log_out' do
+    erb :log_out
+  end
+
 end
