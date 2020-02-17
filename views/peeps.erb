@@ -43,10 +43,11 @@
     <% @peeps.reverse.each do |peep| %>
     <section>
       <p style="margin-right: 20px; text-align: right;">
-      <form action="/<%= peep.id %>" method="post">
+       <form action="/<%= peep.id %>" method="post">
         <input type='hidden' name='_method' value='DELETE'/>
         <input type="submit" value="Delete" />
-      </form></p>
+      </form> 
+      </p>
       <p style="margin-left: 20px;">Peep: <%= peep.text %></p>
       <br>
       <p style="margin: 20px; padding: 20px; text-align: right;">Posted: <%= peep.time %></p>
