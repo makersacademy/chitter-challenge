@@ -3,7 +3,7 @@
 Chitter Ruby Challenge - original README [here](https://github.com/makersacademy/chitter-challenge/blob/master/README.md)
 -
 
-[Outline](#Outline) | [Task](#Task) | [User Stories](#User_Stories) | [Installation Instructions](#Installation_Instructions) | [Future work](#Future_work)
+[Outline](#Outline) | [Task](#Task) | [User Stories](#User_Stories) | [Installation Instructions](#Installation_Instructions) | [Challenge Progress](#Challenge_Progress)
 
 ## <a name="Outline">Outline</a>
 
@@ -67,6 +67,6 @@ I want to receive an email if I am tagged in a Peep
 6. Visit `localhost:9292` in your browser and play away!
 7. Tests can be run using RSpec. Run command: `rspec`
 
-## <a name="Future_work">Future work</a>
+## <a name="Challenge_Progress">Challenge Progress</a>
 
 Due to time constraints, only the first three user stories are built to specification. 
