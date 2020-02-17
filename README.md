@@ -3,11 +3,12 @@
 Chitter Ruby Challenge - original README [here](https://github.com/makersacademy/chitter-challenge/blob/master/README.md)
 -
 
-[Outline](#Outline) | [Task](#Task) | [User Stories](#User_Stories) | [Installation Instructions](#Installation_Instructions) | [Example run](#Example_run) | [Future work](#Future_work)
+[Outline](#Outline) | [Task](#Task) | [User Stories](#User_Stories) | [Installation Instructions](#Installation_Instructions) | [Future work](#Future_work)
 
 ## <a name="Outline">Outline</a>
 
-A clone of the popular social media platform which rhymes with chitter. Built with Ruby, Sinatra and PostgreSQL.
+A clone of the popular social media platform which rhymes with chitter.
+Technologies used: Ruby, Sinatra, PostgreSQL, RSpec, Capybara.
 
 ## <a name="Task">The Task</a>
 
@@ -15,6 +16,7 @@ This challenge started with going over the foundational skills from this week's 
 
 ## <a name="User_Stories">User Stories</a>
 
+```
 STRAIGHT UP
 
 As a Maker
@@ -48,6 +50,7 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+```
 
 ## <a name="Installation_Instructions">Installation Instructions</a>
 
@@ -64,11 +67,6 @@ I want to receive an email if I am tagged in a Peep
 6. Visit `localhost:9292` in your browser and play away!
 7. Tests can be run using RSpec. Run command: `rspec`
 
-## <a name="Example_run">Example run</a>
-
-Here is a functional example of how the webapp runs:
-
-Run `rackup` in your command line, and visit `localhost:9292` in your browser
-
 ## <a name="Future_work">Future work</a>
 
+Due to time constraints, only the first three user stories are built to specification. 
