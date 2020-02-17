@@ -28,8 +28,8 @@ class Peep
     Peep.new(id: result[0]['id'], text: result[0]['text'], time_created: result[0]['time_created'], user_id: result[0]['user_id'])
   end
 
-  # def self.author(id:)
-  #   result = DatabaseConnection.query("SELECT * FROM users WHERE id = (SELECT user_id FROM peeps WHERE id = #{id});")
-  #   username =  result[0]['username']
-  # end 
+  def self.author(id:)
+    result = DatabaseConnection.query("SELECT username FROM users WHERE id = (SELECT user_id FROM peeps WHERE id = #{id});")
+    username =  result[0]['username']
+  end 
 end

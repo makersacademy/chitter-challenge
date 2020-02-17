@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peeps.rb'
 require './lib/user.rb'
-require 'pony'
+# require 'pony'
 
 
 require './database_connection_setup'
@@ -30,7 +30,7 @@ class Chitter < Sinatra::Base
     Peep.create(text: params[:text], user_id: params[:id])
     # p Peep.author(id: params[:id])
     body = params[:text]
-    Pony.mail(:to => 'davidjohnmcgregor@gmail.com', :subject => "You've been tagged in a peep", :body => "This is the peep: #{body}", :via => :sendmail)
+    # Pony.mail(:to => 'davidjohnmcgregor@gmail.com', :subject => "You've been tagged in a peep", :body => "This is the peep: #{body}", :via => :sendmail)
     redirect '/peeps/index'
   end
 
