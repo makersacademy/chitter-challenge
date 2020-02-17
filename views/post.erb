@@ -1,0 +1,48 @@
+<head>
+  <title>Chitter - Home</title>
+  <style>
+    body{
+      background: linear-gradient(lightblue, darkblue);
+      margin: 50px;
+      font-family: Comic Sans MS;
+    }
+    header{
+      background: #E6E6E6;
+      overflow: hidden;
+      margin-left: -50px;
+      margin-right: -50px;
+      font-family: Times New Roman;
+      font-family: Comic Sans MS;
+    }
+    section{
+      background: white;
+    }
+    .center{
+      margin: -10px;
+      width: 80%;
+      border: 20px solid black;
+      padding: 20px;
+    }
+    img{
+      margin-left: 50px;
+      width: 200;
+      height: auto;
+      position: relative;
+      float:right
+    }
+    .button{
+      font-size:60px;
+    }
+  </style>
+</head>
+
+<h1> Post A Peep </h1>
+
+<form action='/post' method='post'>
+  Enter Name: 
+  <textarea name="name" rows="1" cols="70"></textarea><br> 
+  Enter Email:
+  <textarea name="email" rows="1" cols="71"></textarea><br>
+  <textarea name="peep" rows="5" cols="90"></textarea>
+  <input type='submit' value='Post Peep'>
+</form>
