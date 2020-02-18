@@ -48,7 +48,6 @@ class Account
     database_selector
 
     result = @connection.exec("SELECT * FROM accounts WHERE username='#{username}'")
-    p result
     [result[0]['username'], result[0]['email']]
   end
 
