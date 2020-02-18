@@ -43,9 +43,9 @@ describe User do
       expect(User.authenticate(email: 'wrong_email@mi6.com', password: 'pennyword')).to be_nil
     end
 
-    # it 'returns nil given an incorrect password' do
-    #   user = User.create(name: 'Eve Moneypenny', username: 'moneypenny', password: 'pennyword', email: 'secretary@mi6.com')
-    #   expect(User.authenticate(email: 'secretary@mi6.com', password: 'wrong_password')).to be_nil
-    # end
+    it 'returns nil given an incorrect password' do
+      user = User.create(name: 'Eve Moneypenny', username: 'moneypenny', password: 'pennyword', email: 'secretary@mi6.com')
+      expect(User.authenticate(email: 'secretary@mi6.com', password: 'wrong_password')).to be_nil
+    end
   end
 end

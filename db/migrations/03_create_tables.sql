@@ -1,3 +1,8 @@
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, name VARCHAR(30), username VARCHAR(30), content VARCHAR(150), time TIMESTAMP);
+CREATE TABLE peeps(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(30),
+  username VARCHAR(30),
+  content VARCHAR(150),
+  time TIMESTAMP);
 
 CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(30), username VARCHAR(30) UNIQUE, email VARCHAR(60) UNIQUE, password VARCHAR(140));

@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peep.rb'
 require './lib/user.rb'
+require './lib/data_base.rb'
 
 class PeepManager < Sinatra::Base
   enable :sessions
@@ -39,6 +40,7 @@ class PeepManager < Sinatra::Base
 
   get '/sessions/new' do
     erb :"sessions/new"
+
   end
 
   post '/sessions' do
