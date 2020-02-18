@@ -16,7 +16,7 @@ class Peep
   end
 
   def self.create(content:, username:, name:)
-    connection = DataBase.connection.new
+    connection = DataBase.new.connection
     result = connection.exec <<~SQL
       INSERT INTO peeps (name, username, content, time) 
       VALUES ('#{name}', '#{username}', '#{content}', '#{Time.now.getutc}') RETURNING id, username, name, content, time;
