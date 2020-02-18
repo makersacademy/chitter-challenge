@@ -5,7 +5,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require_relative './setup_test_database.rb'
-require_relative './lib/data_base.rb'
+require_relative '../lib/data_base.rb'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
