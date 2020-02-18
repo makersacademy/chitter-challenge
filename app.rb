@@ -33,7 +33,12 @@ class PeepManager < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params['name'], username: params['username'], password: params['password'], email: params['email'])
+    user = User.create(
+      name: params['name'],
+      username: params['username'], 
+      password: params['password'], 
+      email: params['email']
+    )
     session[:user_id] = user.id
     redirect('/peeps')
   end
