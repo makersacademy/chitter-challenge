@@ -24,7 +24,7 @@ class User
       email: result[0]['email'])
   end
 
-  def self.find(id)
+  def self.find(id) 
     return nil unless id
 
     connection = DataBase.new.connection
