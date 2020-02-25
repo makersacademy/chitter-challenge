@@ -171,6 +171,6 @@ chitter_challenge uses ruby version 2.6.5. To change ruby versions run
 ```rvm install ruby-2.6.5``` in terminal.  
 
 ## Credits
-- Video game buttons taken from a [code pen written by Daniel Weiner](https://codepen.io/DanielWeiner/pen/iFadn)
-- Cloud shape taken from a [Stack Overflow entry by jbutler483](https://stackoverflow.com/questions/30919053/creating-a-responsive-cloud-shape)
+- Video game buttons sourced from a [code pen written by Daniel Weiner](https://codepen.io/DanielWeiner/pen/iFadn)
+- Cloud shape sourced from a [Stack Overflow entry by jbutler483](https://stackoverflow.com/questions/30919053/creating-a-responsive-cloud-shape)
 - Background art sourced from Deviant Art, [created by faundly](https://www.deviantart.com/faundly/art/Starry-Night-Pattern-713357744)
