@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<center>
+  <head>
+    <title>Chitter Peeps</title>
+  </head>
+  <body>
+  <h1>Chitter Peeps:</h1>
+        <% @peeps.each do |peep| %>
+            <li>
+                <%=peep.content%>
+                -
+                <%=peep.created_at%>
+            </li>
+        <% end %>
+  </body>
+</html>

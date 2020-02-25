@@ -1,8 +1,8 @@
 class CreatePeeps < ActiveRecord::Migration[6.0]
   def change
     create_table :peeps do |t|
-      t.string :peep
-      t.datetime :time_posted
+      t.string :content
+      t.datetime :created_at
       t.references :user
     end
   end

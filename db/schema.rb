@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_210156) do
   enable_extension "plpgsql"
 
   create_table "peeps", force: :cascade do |t|
-    t.string "peep"
-    t.datetime "time_posted"
+    t.string "content"
+    t.datetime "created_at"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_peeps_on_user_id"
   end
