@@ -1,6 +1,6 @@
 # The 411
 
-[User stories](#user-stories) | [Getting started](#getting-started) | [Database setup](#database-setup) | [Test database setup](#test-database-setup) | [Domain modelling](#domain-modelling) | [Database structure](#database-structure) | [Still to be completed](#still-to-be-completed) | [Features](#features) | [Code style](#code-style) | [Tech used](#tech-used) | [Running the tests](#running-the-tests) | [Test coverage](#test-coverage) | [Versioning](#versioning) | [Credits](#credits)
+[User stories](#user-stories) | [Getting started](#getting-started) | [Database setup](#database-setup) | [Test database setup](#test-database-setup) | [Domain modelling](#domain-modelling) | [Database structure](#database-structure) | [Features](#features) | [Code style](#code-style) | [Tech used](#tech-used) | [Running the tests](#running-the-tests) | [Test coverage](#test-coverage) | [Versioning](#versioning) | [Credits](#credits)
 
 This project is the 80's answer to Twitter, allowing users to post messages to a public stream.
 
