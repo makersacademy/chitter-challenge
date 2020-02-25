@@ -150,7 +150,7 @@ user_id | user_name | user_handle | email | password | created_at |
 
 #### Unit tests
 Peep  
-  - #user"  
+  - .user
     - returns the user that posted the peep
   - .all
     - returns all peeps made in reverse chronological order
