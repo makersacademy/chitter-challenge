@@ -11,6 +11,7 @@ describe Peeps do
       Peeps.create(text: "This is the second Peep")
       Peeps.create(text: "This is another Peep")
 
+
       peeps = Peeps.all
 
       expect(peeps.length).to eq 3
