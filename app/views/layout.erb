@@ -6,8 +6,37 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <article class="container-fluid">
-      <h1 class="display-3 mb-3">Chitter</h1>
+    <nav class="navbar bg-light">
+
+      <div>
+        <a class="navbar-brand text-dark" href="/">
+          Chitter
+        </a>
+      </div>
+
+      <div>
+        <ul class="nav nav-pills justify-content-end">
+          <% if @user %>
+            <li class="nav-item">
+              <span class="nav-link disabled" href="#"><%= @user.username %></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/sessions/destroy">Log Out</a>
+            </li>
+            
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/users/new">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/sessions/new">Log In</a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+    </nav>
+    <article class="container-fluid m-0">
       <%= yield %>
     </article>
   </body>

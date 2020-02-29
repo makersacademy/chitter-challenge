@@ -1,6 +1,0 @@
-CREATE TABLE peeps(
-  id SERIAL PRIMARY KEY, 
-  username VARCHAR(50) NOT NULL, 
-  body VARCHAR(240) NOT NULL,
-  time_posted TIMESTAMP NOT NULL
-);

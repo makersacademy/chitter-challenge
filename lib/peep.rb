@@ -23,7 +23,7 @@ class Peep
 
   def self.edit(id: ,body:)
     result = DatabaseConnection.query("UPDATE peeps SET body = '#{body}' WHERE id = #{id} RETURNING id, username, body, time_posted;")
-    Peep.new(username: result[0]['username'], body: result[0]['body'], time_posted: result[0]['time_posted'], id: result[0]['id'])
+    Peep.new([username: result[0]['username'], body: result[0]['body'], time_posted: result[0]['time_posted'], id: result[0]['id']])
   end
 
   def self.delete(id:)

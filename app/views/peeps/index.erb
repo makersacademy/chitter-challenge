@@ -1,0 +1,47 @@
+<h3>Post a peep</h3>
+<form action="/peeps/new" method="post">
+  <section class="form-row">
+    <div class="input-group col mb-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text border-secondary bg-transparent" id="inputGroupPrepend">@</span>
+      </div>
+      <input class="form-control border-secondary" type="text" name="username" placeholder="Username" maxlength="50" aria-describedby="inputGroupPrepend" required/>
+    </div>
+  </section>
+  <section class="form-row">
+    <div class="input-group col mb-4">
+      <textarea class="form-control border-secondary" type="text" name="body" maxlength="240" placeholder="What's up?" aria-describedby="button-addon" required></textarea>
+      <div class="input-group-append">
+        <input class="btn btn-lg btn-outline-secondary" type="submit" id="button-addon" value="Peep">
+      </div>
+    </div>
+  </section>
+</form>
+
+<section class="card-columns">
+  <% @peeps.each do |peep| %>
+  <div class=”row text-center h-100”>
+      <div class=”col-md-4”>
+    <article class="peep card flex border-secondary p-0" id="peep-<%= peep.id %>">
+      <div class="card-body">
+        <header class="card-header border-0 bg-transparent d-flex justify-content-between p-0 mb-2">
+          
+          <p class="card-text"><small class="text-muted"><%= peep.time_posted.strftime("%d/%m/%Y %k:%M") %></small></p>
+        </header>
+        <p class="card-text mb-1"><%= peep.body %></p>
+        <footer class="card-footer border-0 bg-transparent d-flex justify-content-end">
+          <form action="/peeps/<%= peep.id %>/edit" method="get">
+            <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Edit">
+          </form>
+          <form action="/peeps/<%= peep.id %>" method="post">
+            <input type='hidden' name='_method' value='DELETE'/>
+            <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Delete">
+          </form>
+        </footer>
+    </article> 
+    </div>
+    </div> 
+  <% end %>
+</section>
+
+

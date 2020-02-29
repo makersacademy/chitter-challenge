@@ -1,10 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'capybara'
-gem 'pg'
+gem 'activerecord'
+gem 'bcrypt'
+gem 'rake'
 gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'sinatra-flash'
 
 group :test do
+  gem 'capybara'
+  gem 'pg'
   gem 'rspec'
   gem 'rubocop', '0.71.0'
   gem 'simplecov', require: false
