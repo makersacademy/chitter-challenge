@@ -8,6 +8,11 @@
  
 }
 
+html {
+  display: table;
+  margin: auto;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -20,9 +25,15 @@ body {
     background: var(--text-color);
     color: var(--other-color);
     text-align: center;
-    width: 1000px;
+    width: 960px;
     margin: auto;
     border: 10px ridge var(--other-color)
+}
+
+.container {
+  position: absolute;
+  top: -40px;
+  left: 300px;
 }
 
 .header {
@@ -71,3 +82,4 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   background: var(--dark-color);
   color: var(--text-color);
 }
+
