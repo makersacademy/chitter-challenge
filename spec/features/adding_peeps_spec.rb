@@ -6,6 +6,7 @@ feature 'adding peeps' do
     click_on 'Peep' 
 
     expect(page).to have_content "My first peep" 
-
+    expect(first('.peep')).to have_content "peterpan"
+    expect(first('.peep')).to have_content "Peter Pan"
   end
 end

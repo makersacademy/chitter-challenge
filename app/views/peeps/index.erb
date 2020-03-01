@@ -10,14 +10,15 @@
 <% end %>
 
 <h2>Peeps</h2>
-<section class="card-columns">
+<section class="card-columns" id="peeps">
   <% @peeps.each do |peep| %>
   <div class=”row text-center h-100”>
       <div class=”col-md-4”>
     <article class="peep card flex border-secondary p-0" id="peep-<%= peep.id %>">
       <div class="card-body">
         <header class="card-header border-0 bg-transparent d-flex justify-content-between p-0 mb-2">
-          
+          <h4> <%= (User.find_by id: peep.user_id).name %> </h4>
+          <h5> <%= (User.find_by id: peep.user_id).username %> </h5>
           <p class="card-text"><small class="text-muted"><%= peep.time_posted.strftime("%d/%m/%Y %k:%M") %></small></p>
         </header>
         <p class="card-text mb-1"><%= peep.body %></p>

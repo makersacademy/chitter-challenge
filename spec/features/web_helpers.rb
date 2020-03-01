@@ -8,3 +8,8 @@ def sign_up
 
   click_on 'Join Now'
 end
+
+def add_peep
+  fill_in 'body', with: 'My first peep'
+  click_on 'Peep' 
+end

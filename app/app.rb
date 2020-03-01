@@ -68,7 +68,7 @@ class App < Sinatra::Base
   end
 
   post '/peeps/new' do
-    Peep.create(body: params[:body], time_posted: Time.now)
+    @user.peeps.create(body: params[:body], time_posted: Time.now)
     redirect '/peeps'
   end
 

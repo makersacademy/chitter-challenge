@@ -1,7 +1,7 @@
 feature 'deleting peeps' do
   scenario 'user deletes a peep' do
-    Peep.create(body: 'My first peep', time_posted: Time.now)
-    visit '/peeps'
+    sign_up 
+    add_peep
 
     first('.peep').click_button 'Delete'
 
