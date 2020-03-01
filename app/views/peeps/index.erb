@@ -1,6 +1,7 @@
+<h2>Peeps</h2>
 <% if @user %>
   <form action="/peeps/new" method="post">
-    <section class="input-group">
+    <section class="input-group mb-3">
       <textarea class="form-control border-secondary" type="text" name="body" maxlength="240" placeholder="What's up?" aria-describedby="button-addon" required></textarea>
       <div class="input-group-append">
         <input class="btn btn-lg btn-outline-secondary" type="submit" id="button-addon" value="Peep">
@@ -9,20 +10,19 @@
   </form>
 <% end %>
 
-<h2>Peeps</h2>
 <section class="card-columns" id="peeps">
   <% @peeps.each do |peep| %>
-  <div class=”row text-center h-100”>
-      <div class=”col-md-4”>
-    <article class="peep card flex border-secondary p-0" id="peep-<%= peep.id %>">
-      <div class="card-body">
-        <header class="card-header border-0 bg-transparent d-flex justify-content-between p-0 mb-2">
-          <h4> <%= (User.find_by id: peep.user_id).name %> </h4>
-          <h5> <%= (User.find_by id: peep.user_id).username %> </h5>
+    <div class=”col-4”>
+      <article class="peep card d-flex border-secondary mb-3" id="peep-<%= peep.id %>">
+        <div class="card-header border-0 bg-transparent d-flex mb-n4">
+          <h5 class="card-title mr-2"> <%= (User.find_by id: peep.user_id).name %> </h5>
+          <p class="text-muted mr-2"> @<%= (User.find_by id: peep.user_id).username %> </p>
           <p class="card-text"><small class="text-muted"><%= peep.time_posted.strftime("%d/%m/%Y %k:%M") %></small></p>
-        </header>
-        <p class="card-text mb-1"><%= peep.body %></p>
-        <footer class="card-footer border-0 bg-transparent d-flex justify-content-end">
+        </div>
+        <div class="card-body">
+          <p class="card-text mb-1"><%= peep.body %></p>
+        </div>
+        <div class="card-footer border-0 bg-transparent d-flex justify-content-end">
           <form action="/peeps/<%= peep.id %>/edit" method="get">
             <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Edit">
           </form>
@@ -30,10 +30,10 @@
             <input type='hidden' name='_method' value='DELETE'/>
             <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Delete">
           </form>
-        </footer>
+        </div>
     </article> 
     </div>
-    </div> 
+   
   <% end %>
 </section>
 

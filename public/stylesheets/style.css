@@ -6,3 +6,7 @@ body {
 h1 {
   font-family: 'Zilla Slab', serif;
 }
+
+container {
+  max-width: 100%;
+}
