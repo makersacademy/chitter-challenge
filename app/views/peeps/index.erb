@@ -22,15 +22,17 @@
         <div class="card-body">
           <p class="card-text mb-1"><%= peep.body %></p>
         </div>
-        <div class="card-footer border-0 bg-transparent d-flex justify-content-end">
-          <form action="/peeps/<%= peep.id %>/edit" method="get">
-            <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Edit">
-          </form>
-          <form action="/peeps/<%= peep.id %>" method="post">
-            <input type='hidden' name='_method' value='DELETE'/>
-            <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Delete">
-          </form>
-        </div>
+        <% if @user && @user.id == peep.user_id %>
+          <div class="card-footer border-0 bg-transparent d-flex justify-content-end">
+            <form action="/peeps/<%= peep.id %>/edit" method="get">
+              <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Edit">
+            </form>
+            <form action="/peeps/<%= peep.id %>" method="post">
+              <input type='hidden' name='_method' value='DELETE'/>
+              <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Delete">
+            </form>
+          </div>
+        <% end %>
     </article> 
     </div>
    
