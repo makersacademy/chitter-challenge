@@ -61,12 +61,12 @@ class App < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.sort_by(&:created_at).reverse! 
     erb :'peeps/index'
   end
 
   post '/peeps/new' do
-    @user.peeps.create(body: params[:body], time_posted: Time.now)
+    @user.peeps.create(body: params[:body])
     redirect '/peeps'
   end
 

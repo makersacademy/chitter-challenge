@@ -1,5 +1,5 @@
 describe Peep do
-  let(:peep) { Peep.create(body: 'My first peep', time_posted: Time.now)}
+  let(:peep) { Peep.create(body: 'My first peep')}
   let(:persisted_data) { Peep.find_by id: peep.id }
 
   describe '.create' do

@@ -12,12 +12,12 @@
 
 <section class="card-columns" id="peeps">
   <% @peeps.each do |peep| %>
-    <div class=”col-4”>
+    <div class=”col-auto”>
       <article class="peep card d-flex border-secondary mb-3" id="peep-<%= peep.id %>">
         <div class="card-header border-0 bg-transparent d-flex mb-n4">
           <h5 class="card-title mr-2"> <%= (User.find_by id: peep.user_id).name %> </h5>
           <p class="text-muted mr-2"> @<%= (User.find_by id: peep.user_id).username %> </p>
-          <p class="card-text"><small class="text-muted"><%= peep.time_posted.strftime("%d/%m/%Y %k:%M") %></small></p>
+          <p class="card-text"><small class="text-muted"><%= peep.created_at.strftime("%e %b %Y %k:%M") %></small></p>
         </div>
         <div class="card-body">
           <p class="card-text mb-1"><%= peep.body %></p>

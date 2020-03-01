@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'activerecord'
 gem 'bcrypt'
+gem 'bootstrap', '~> 4.4.1'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
