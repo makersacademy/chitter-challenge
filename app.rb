@@ -58,4 +58,8 @@ class Chitter < Sinatra::Base
         erb :"peeps/my_peeps"
     end
 
+    post '/peeps/my_peeps' do
+        Peep.delete(Peep.find_by(id: params[:peep].to_i).id)
+        redirect '/peeps/my_peeps'
+    end
 end

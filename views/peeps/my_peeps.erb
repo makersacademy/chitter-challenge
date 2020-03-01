@@ -16,6 +16,10 @@
               <h3 id="peep-id">@<%= User.find_by(id: peep.user_id).name%>:</h3>
               <h3 id="peep-content"><%=peep.content%></h3>
               <h5 id="peep-date"><%=peep.created_at%></h5>
+              <form action="/peeps/my_peeps" method="post">
+              <input id="peep" type="hidden" name="peep" value="<%=peep.id%>"/>
+              <button type="submit">Remove</button>
+              </form>
           </div>
           <%end%>
         <% end %>

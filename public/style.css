@@ -20,9 +20,9 @@ body {
     background: var(--text-color);
     color: var(--other-color);
     text-align: center;
-    border: 50px solid var(--other-color);
     width: 1000px;
     margin: auto;
+    border: 10px ridge var(--other-color)
 }
 
 .header {
