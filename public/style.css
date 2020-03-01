@@ -20,15 +20,18 @@ body {
     background: var(--text-color);
     color: var(--other-color);
     text-align: center;
+    border: 50px solid var(--other-color);
+    width: 1000px;
+    margin: auto;
 }
 
 .header {
   text-align: center;
-  margin: 1rem 0;
+  margin: 0.5rem;
 }
 
 .header h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 button, input[type="button"], input[type="submit"] {
   background: var(--other-color);
@@ -38,15 +41,17 @@ button, input[type="button"], input[type="submit"] {
   cursor: pointer;
   outline: none;
   border: none;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 #peeps {
   border: solid;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
   padding: 10px;
-  font-size: 1.2rem
+  font-size: 1.2rem;
+  width: 500px;
 }
 
 #peep-content {
@@ -55,7 +60,7 @@ button, input[type="button"], input[type="submit"] {
 
 
 #peep-date {
-  color: var(--other-color);
+  color: var(--dark-color);
 }
 
 #peep-id {

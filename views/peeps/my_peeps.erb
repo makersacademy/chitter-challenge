@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<center>
+  <head>
+  <link rel="stylesheet" href="../style.css">
+    <title>My Peeps</title>
+  </head>
+  <body>
+  <form action="/peeps" method="get">
+  <button type="submit">Home</button>
+  </form>  
+  <h1>Your peeps:</h1>
+        <% Peep.all.each do |peep| %>
+        <% if peep.user_id == session[:user_id] %>
+          <div id="peeps"><span>
+              <h3 id="peep-id">@<%= User.find_by(id: peep.user_id).name%>:</h3>
+              <h3 id="peep-content"><%=peep.content%></h3>
+              <h5 id="peep-date"><%=peep.created_at%></h5>
+          </div>
+          <%end%>
+        <% end %>
+        <form action="session/destroy" method="post">
+        <button type="submit">Sign Out</button>
+        </form>
+  </body>
+</html>

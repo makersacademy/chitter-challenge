@@ -54,4 +54,8 @@ class Chitter < Sinatra::Base
         redirect '/session/new'
     end
 
+    get '/peeps/my_peeps' do
+        erb :"peeps/my_peeps"
+    end
+
 end
