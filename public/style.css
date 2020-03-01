@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+  --dark-color: #5D536B;
+  --light-color: #989FCE;
+  --text-color: #F5F5F5;
+  --other-color: #1B263B;
+ 
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: var(--text-color);
+    color: var(--other-color);
+    text-align: center;
+}
+
+.header {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.header h1 {
+  margin-bottom: 1rem;
+}
+button, input[type="button"], input[type="submit"] {
+  background: var(--other-color);
+  color: var(--light-color);
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+#peeps {
+  border: solid;
+  margin-bottom: 1rem;
+  padding: 10px;
+  font-size: 1.2rem
+}
+
+#peep-content {
+  color: var(--other-color);
+}
+
+
+#peep-date {
+  color: var(--other-color);
+}
+
+#peep-id {
+  color: var(--dark-color);
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background: var(--light-color);
+  color: var(--text-color);
+}

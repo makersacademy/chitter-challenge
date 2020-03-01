@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in to Chitter!</title>
+</head>
+<body>
+<form action="/">
+<button>Home</button>
+</form><br>
+
+<h1>Sign in below!</h1>
+<h2><%= flash[:notice1]%></h2>
+<h2><%= flash[:notice2] %></h2>
+<form action="/session" method="post">
+Email address: <br>
+<input type="email" name="email" required><br>
+Password: <br>
+<input type="password" name="password" required><br>
+<input type="submit" value="Submit">
+</form>
+  
+</body>
+</html>

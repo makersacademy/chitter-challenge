@@ -6,6 +6,7 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'capybara'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

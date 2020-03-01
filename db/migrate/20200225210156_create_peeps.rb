@@ -3,7 +3,7 @@ class CreatePeeps < ActiveRecord::Migration[6.0]
     create_table :peeps do |t|
       t.string :content
       t.datetime :created_at
-      t.references :user
+      t.references :user, foreign_key: true
     end
   end
 end

@@ -2,18 +2,22 @@
 <html>
 <center>
   <head>
+  <link rel="stylesheet" href="style.css">
     <title>Chitter Peeps</title>
   </head>
   <body>
+  <form action="session/destroy" method="post">
+  <button type="submit">Sign Out</button>
+  </form>
+    <a href='/peeps/new'><button>Create a new peep</button></a>
+    </br>
   <h1>Chitter Peeps:</h1>
         <% @peeps.each do |peep| %>
-            <li>
-                <%=peep.content%>
-                <br>
-                <%=peep.created_at%>
-                <br>
-                <br>
-            </li>
+        <div id="peeps"><span>
+            <h3 id="peep-content"><%=peep.content%></h3>
+            <h4 id="peep-date"><%=peep.created_at%></h4>
+            <h5 id="peep-id">- <%= User.find_by(id: peep.user_id).name%></h5>
+          </div>
         <% end %>
   </body>
 </html>

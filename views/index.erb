@@ -2,13 +2,17 @@
 <html>
 <center>
   <head>
+  <link rel="stylesheet" href="style.css">
     <title>Chitter Home Page</title>
   </head>
   <body>
   <h1>Chitter</h1>
-    <a href='/peeps'><button>Show Peeps</button></a>
+    <form action="/sign_up">
+    <button class="sign_up" id='signup-btn'>Sign Up</button>
+    </form>
+    <form action="/session/new">
+    <button class="sign_in">Sign In</button>
+    </form>
     <br>
-    <a href='/peeps/new'><button>Create a new peep</button></a>
-    </br>
   </body>
 </html>
