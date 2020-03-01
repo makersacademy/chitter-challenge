@@ -3,3 +3,4 @@ feature 'Viewing peeps' do
         visit ('/')
         expect(page).to have_content 'Chitter Home Page'
     end
+end
