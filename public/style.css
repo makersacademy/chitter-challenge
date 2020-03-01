@@ -30,6 +30,11 @@ body {
     border: 10px ridge var(--other-color)
 }
 
+footer {
+  color: var(--dark-color);
+  margin: 0.5rem;
+}
+
 .container {
   position: absolute;
   top: -40px;
