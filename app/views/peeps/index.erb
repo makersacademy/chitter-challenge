@@ -1,17 +1,15 @@
-<h2>Peeps</h2>
 <% if @user %>
   <form action="/peeps/new" method="post">
-    <section class="form-row">
-      <div class="input-group col mb-4">
-        <textarea class="form-control border-secondary" type="text" name="body" maxlength="240" placeholder="What's up?" aria-describedby="button-addon" required></textarea>
-        <div class="input-group-append">
-          <input class="btn btn-lg btn-outline-secondary" type="submit" id="button-addon" value="Peep">
-        </div>
+    <section class="input-group">
+      <textarea class="form-control border-secondary" type="text" name="body" maxlength="240" placeholder="What's up?" aria-describedby="button-addon" required></textarea>
+      <div class="input-group-append">
+        <input class="btn btn-lg btn-outline-secondary" type="submit" id="button-addon" value="Peep">
       </div>
     </section>
   </form>
 <% end %>
 
+<h2>Peeps</h2>
 <section class="card-columns">
   <% @peeps.each do |peep| %>
   <div class=”row text-center h-100”>

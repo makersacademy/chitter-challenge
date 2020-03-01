@@ -4,10 +4,8 @@ require 'sinatra/activerecord'
 require 'sinatra/base'
 require 'json'
 require 'sinatra/flash'
-# require_relative '../lib/peep'
 require_relative './models/user'
 require_relative './models/peep'
-# require_relative './database_connection_setup'
 
 ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'chitter_development')
 
