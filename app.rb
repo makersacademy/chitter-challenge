@@ -53,11 +53,6 @@ class Chitter < Sinatra::Base
         flash[:notice2] = 'You have successfully signed out'
         redirect '/session/new'
     end
-    post '/peeps/session/destroy' do
-        session.clear
-        flash[:notice2] = 'You have successfully signed out'
-        redirect '/session/new'
-    end
 
     get '/peeps/my_peeps' do
         erb :"peeps/my_peeps"
