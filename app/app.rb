@@ -29,9 +29,39 @@ class App < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/peeps'
+    user_check = User.where({ username: params[:username] }).first
+    email_check = User.where({ username: params[:username] }).first
+    if user_check 
+      flash[:notice] = "Sorry the username you entered is already taken. Please try another"
+      redirect '/users/new'
+    elsif email_check
+      flash[:notice] = "Sorry the username you entered is already taken. Please try another"
+      redirect '/users/new'
+    else
+      user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+      session[:user_id] = user.id
+      redirect '/peeps'
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions/new' do
+    user = User.where({ username: params[:username] }).first
+    if user && user.password == params[:password]
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = 'The username and password you entered did not match our records. Please double-check and try again.'
+      redirect '/sessions/new'
+    end
+  end
+
+  get '/sessions/destroy' do
+    session.clear
+    redirect '/sessions/new'
   end
 
   get '/peeps' do

@@ -18,12 +18,16 @@ SimpleCov.start
 # require our Sinatra app file
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
+#require our test helpers
+require 'features/web_helpers'
+
 # tell Capybara about our app class
 Capybara.app = App
 
+#configure test databases
 RSpec.configure do |config|
   config.before(:each) do
-    setup_test_database
+    ActiveRecord::Base.connection.execute("TRUNCATE users, peeps")
   end
 end
 

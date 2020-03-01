@@ -1,0 +1,15 @@
+<h2>Log in to Chitter</h2>
+<div class="container">
+<form action="/sessions/new" method="post">
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text border-none bg-light" id="inputGroupPrepend">@</span>
+      </div>
+      <input class="form-control border-none bg-light" type="text" name="username" placeholder="Username" maxlength="50" aria-describedby="inputGroupPrepend" required/>
+  </div>
+  <div class="form-group mb-3">
+    <input class="form-control border-none bg-light" type="password" name="password" placeholder="Password" maxlength="50" required/>
+  </div>
+  <input type="submit" class="btn btn-dark btn-lg" id="log-in-form" value="Join Now">
+</form>
+</div>

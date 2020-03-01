@@ -1,5 +1,6 @@
 <h2>Join Chitter</h2>
 <div class="container">
+<small class="text-danger"><%= flash[:notice] %></small>
 <form action="/users/new" method="post">
   <div class="form-group mb-3">
     <input type="text" class="form-control border-secondary" name="name" placeholder="Name">
