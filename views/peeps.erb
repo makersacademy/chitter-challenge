@@ -9,10 +9,10 @@
   <form action="session/destroy" method="post">
   <button type="submit">Sign Out</button>
   </form>
-    <a href='/peeps/new'><button>Create a new peep</button></a>
+    <a href='/peeps/new'><button>New Peep</button></a>
     </br>
   <h1>Chitter Peeps:</h1>
-        <% @peeps.each do |peep| %>
+        <% Peep.all.each do |peep| %>
         <div id="peeps"><span>
             <h3 id="peep-content"><%=peep.content%></h3>
             <h4 id="peep-date"><%=peep.created_at%></h4>

@@ -39,6 +39,7 @@ button, input[type="button"], input[type="submit"] {
   outline: none;
   border: none;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 #peeps {
