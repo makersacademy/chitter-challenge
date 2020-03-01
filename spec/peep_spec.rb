@@ -1,8 +1,8 @@
 describe Peep do
+  let(:peep) { Peep.create(body: 'My first peep', time_posted: Time.now)}
+  let(:persisted_data) { Peep.find_by id: peep.id }
 
   describe '.create' do
-    let(:peep) { Peep.create(body: 'My first peep', time_posted: Time.now)}
-    let(:persisted_data) { Peep.find_by id: peep.id }
     
     it 'creates a peep' do
       expect(peep).to be_a Peep

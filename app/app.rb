@@ -27,13 +27,11 @@ class App < Sinatra::Base
   end
 
   post '/users/new' do
-    user_check = User.where({ username: params[:username] }).first
-    email_check = User.where({ username: params[:username] }).first
-    if user_check 
+    if !User.unique_username?(params[:username])
       flash[:notice] = "Sorry the username you entered is already taken. Please try another"
       redirect '/users/new'
-    elsif email_check
-      flash[:notice] = "Sorry the username you entered is already taken. Please try another"
+    elsif !User.unique_email?(params[:email])
+      flash[:notice] = "Sorry the email you entered is already taken. Please try another"
       redirect '/users/new'
     else
       user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
