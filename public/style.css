@@ -49,6 +49,7 @@ footer {
 .header h1 {
   margin-bottom: 0.5rem;
 }
+
 button, input[type="button"], input[type="submit"] {
   background: var(--other-color);
   color: var(--light-color);
@@ -86,5 +87,10 @@ button, input[type="button"], input[type="submit"] {
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   background: var(--dark-color);
   color: var(--text-color);
+}
+
+.heading {
+  font-size: 75px;
+  font-weight: bolder;
 }
 
