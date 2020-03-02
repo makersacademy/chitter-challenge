@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+production:
+  <<: *default
+  database: chitter_prod
+
+development:
+  <<: *default
+  database: chitter_dev
+
+test: 
+  <<: *default
+  database: chitter_test

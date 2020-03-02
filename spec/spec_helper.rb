@@ -1,5 +1,15 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require_relative '../app.rb'
+require_relative '../models/peeps.rb'
+require_relative '../models/users.rb'
+require_relative './setup_test_database.rb'
+
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -7,6 +17,18 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+ENV['RACK_ENV'] = 'test'
+
+DB_ENV ||= 'test'
+connection_details = YAML::load(File.open('./config/database.yml'))
+ActiveRecord::Base.establish_connection(connection_details[DB_ENV])
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 RSpec.configure do |config|
   config.after(:suite) do

@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+  --dark-color: #5D536B;
+  --light-color: #989FCE;
+  --text-color: #F5F5F5;
+  --other-color: #1B263B;
+ 
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: var(--text-color);
+    color: var(--other-color);
+    text-align: center;
+    width: 960px;
+    margin: auto;
+    border: 10px ridge var(--other-color)
+}
+
+footer {
+  color: var(--dark-color);
+  margin: 0.5rem;
+}
+
+.container {
+  position: absolute;
+  top: -40px;
+  left: 300px;
+}
+
+.header {
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.header h1 {
+  margin-bottom: 0.5rem;
+}
+
+button, input[type="button"], input[type="submit"] {
+  background: var(--other-color);
+  color: var(--light-color);
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#peeps {
+  border: solid;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 500px;
+}
+
+#peep-content {
+  color: var(--other-color);
+}
+
+
+#peep-date {
+  color: var(--dark-color);
+}
+
+#peep-id {
+  color: var(--dark-color);
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background: var(--dark-color);
+  color: var(--text-color);
+}
+
+.heading {
+  font-size: 75px;
+  font-weight: bolder;
+}
+

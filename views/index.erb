@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<center>
+  <head>
+  <link rel="stylesheet" href="style.css">
+    <title>Chitter Home Page</title>
+  </head>
+  <body>
+  <div class="container">
+  <img src="chitter.png" alt="Chitter Icon" width="300" height="300">
+  </div>
+  <div class="heading">Chitter</div>
+    <form action="/sign_up">
+    <button class="sign_up" id='signup-btn'>Sign Up</button>
+    </form>
+    <form action="/session/new">
+    <button class="sign_in">Sign In</button>
+    </form>
+    <h2>Recent peeps:</h2> 
+    <%Peep.all.each do |peep|%>
+      <div id="peeps"><span>
+        <h3 id="peep-id">@<%= User.find_by(id: peep.user_id).name%>:</h3>
+        <h3 id="peep-content"><%=peep.content%></h3>
+        <h5 id="peep-date"><%=peep.created_at%></h5>
+      </div>
+    <%end%>
+  </body>
+  <footer>
+  ©2020 Chitter, Inc.
+  </footer>
+</html>

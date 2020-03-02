@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<center>
+  <head>
+  <link rel="stylesheet" href="style.css">
+    <title>Chitter Peeps</title>
+  </head>
+  <body>
+  <div class="container">
+  <img src="chitter.png" alt="Chitter Icon" width="300" height="300">
+  </div>
+  <form action="peeps/my_peeps" method="get">
+  <button type="submit">My Peeps</button>
+  </form>
+  <h1>Welcome <%=User.find_by(id: session[:user_id]).name%></h1>
+  
+    <a href='/peeps/new'><button>What's happening?</button></a>
+    </br>
+  <h1>Chitter Peeps:</h1>
+        <% Peep.all.each do |peep| %>
+        <div id="peeps"><span>
+            <h3 id="peep-id">@<%= User.find_by(id: peep.user_id).name%>:</h3>
+            <h3 id="peep-content"><%=peep.content%></h3>
+            <h5 id="peep-date"><%=peep.created_at%></h5>
+          </div>
+        <% end %>
+        <form action="session/destroy" method="post">
+        <button type="submit">Sign Out</button>
+        </form>
+  </body>
+    <footer>
+  ©2020 Chitter, Inc.
+  </footer>
+</html>
