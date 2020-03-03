@@ -19,6 +19,7 @@ Chitter Challenge
 - HTML
 - CSS
 - Bootstrap
+- bcrypt-ruby
 
 -------
 

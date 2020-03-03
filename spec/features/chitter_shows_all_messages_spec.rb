@@ -8,7 +8,7 @@ feature 'chitter homepage' do
 
   scenario 'the user is not signed up' do
     visit('/')
-    expect(page).to have_content 'Sign up or sign in to post a peep'
+    expect(page).to have_content 'Sign in'
     click_button('Sign up')
     expect(current_path).to eq '/users/new'
   end
@@ -17,7 +17,7 @@ feature 'chitter homepage' do
     visit('/')
     click_button('Sign up')
     sign_up
-    expect(page).to have_content 'Insert the message:'
+    expect(page).to have_content 'Peeps'
   end
 
   scenario 'the user cannot sign up because email or username already in use' do
@@ -29,10 +29,11 @@ feature 'chitter homepage' do
     expect(page).to_not have_content 'Insert the message:'
   end
 
-  scenario 'the user log in' do
+  scenario 'the user cannot sign in because invalid password' do
+    Chitter.create_user('test@test.com', 'password', 'John Doe', 'J')
     visit('/')
     click_button('Sign in')
-    sign_in_correct
-    expect(page).to have_content 'Sign up'
+    sign_in_incorrect
+    expect(page).to have_content 'Sign in'
   end
 end
