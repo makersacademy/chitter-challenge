@@ -2,7 +2,8 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c 'CREATE DATABASE peep_manager_test;'
+  - psql -d peep_manager_test -U postgres -f db/migrations/03_create_tables.sql
 
 script:
   - bundle exec rspec

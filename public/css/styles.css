@@ -1,0 +1,36 @@
+* {
+  
+}
+
+body {
+  color: white;
+  background: #38A1F3;
+  font-family: Helvetica;
+}
+
+.homepage_body {
+  color: white;
+  height: 100%;
+  background: linear-gradient(90deg, #38A1F3 50%, white 50%);
+}
+
+body {}
+
+.homepage_image {
+  position: absolute;
+  right: 5%;
+  width: 400;
+}
+
+.peep {
+  background: grey;
+  border: 2px white solid;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.peep_user {
+  float: left;
+}
+
+

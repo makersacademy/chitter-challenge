@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peeps</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <h1>Peeps</h1>
+      <% if @user %>
+        <h2>Welcome, <%= @user.name %></h2>
+        <a href="/peeps/new" id='create_peep'><button>Create new peep</button></a>
+        <form action="/sessions/destroy" method='post'>
+          <input type='submit' value='Sign out' />
+        </form>
+      <% end %>
+    <%= flash[:notice] %>  
+    <a href="/"><button>Homepage</button></a>
+    <% if !@user %>
+      <a href="/users/new"><button>Sign up</button></a>
+      <a href="/sessions/new" title="sign_in"><button>Sign in</button></a>
+    <% end %>
+    <h2>Here are the peeps:</h2>
+
+    <% @peeps.each do |peep| %>
+      <div class='peep'>
+        <div class="peep_user">
+          <strong><%= peep.name %></strong> (@<%= peep.username %>)
+          <em>on <%= peep.time %></em>
+        </div></br>
+        <div class="peep_content">
+          <%= peep.content %>
+        </div>               
+      </div></br>
+    <% end %>
+  </body>
+</html>
