@@ -61,7 +61,7 @@ I want to receive an email if I am tagged in a Peep
 ```
 
 ## Domain Model
-![Bookmark Manager domain model](./public/chitter-dm.png)
+![Bookmark Manager domain model](./public/images/chitter-dm.png)
 
 | Component   | Responsibility                                | Refactor                                |
 |------------ |---------------------------------------------  |---------------------------------------- |
