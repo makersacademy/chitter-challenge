@@ -1,0 +1,8 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>
+
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
