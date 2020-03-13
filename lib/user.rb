@@ -10,7 +10,6 @@ class User
     result = DatabaseConnection.query("INSERT INTO users (email, password, username, name) VALUES ('#{email}', '#{encrypted_password}', '#{username}', '#{name}') RETURNING id, email, username, name;")
     User.new(
       id: result[0]['id'],
-
       email: result[0]['email'],
       username: result[0]['username'],
       name: result[0]['name']

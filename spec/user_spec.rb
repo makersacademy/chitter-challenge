@@ -2,6 +2,8 @@
 
 require 'database_helpers'
 
+describe User do
+
 describe '.create' do
   it 'creates a new user' do
     user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
@@ -13,6 +15,20 @@ describe '.create' do
     expect(user.email).to eq 'test@example.com'
     expect(user.username).to eq 'Jane Doe'
     expect(user.name).to eq 'Jane'
+  end
+
+  it 'raises an error if someone tries to sign in with an email that is already in use' do
+    user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+    user = User.create(email: 'test@example.com', password: 'password123', username: 'John Doe', name: 'John')
+
+    expect{subject.create}.to raise_error
+  end
+
+  it 'raises an error if someone tries to sign in with a username that is already in use' do
+    user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+    user = User.create(email: 'test2@example.com', password: 'password123', username: 'Jane Doe', name: 'John')
+
+    expect(page).not_to have_content "Welcome, John"
   end
 end
 
@@ -49,4 +65,5 @@ describe '.find' do
 
     User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
   end
+end
 end

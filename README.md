@@ -44,6 +44,14 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
+As a Maker
+So that my identity remain unique
+I don't want anyone else having the same username as me
+
+As a Maker
+So that my identity remains secure
+I want my email address to remain unique
+
 HARDER
 
 As a Maker
