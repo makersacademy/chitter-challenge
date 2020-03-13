@@ -48,6 +48,20 @@ Technical Approach:
 
 This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
 
+## Databases
+
+In chitter and chitter_test databases these two tables exit:
+
+Messages
+
+id | content | time_created | user_id
+----+---------+--------------+---------
+Users
+id | email | password | name
+----+-------+----------+------
+
+User_id is a foreign key that links to the Users id.
+
 
 Notes on functionality:
 ------
