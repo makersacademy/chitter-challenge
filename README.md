@@ -4,6 +4,7 @@ Makers weekend challenge (week 4)
 **Tech used**:
 Ruby,
 Sinatra,
+PostgreSQL,
 Capybara,
 Rspec,
 Rubocop

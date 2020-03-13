@@ -1,3 +1,5 @@
+require_relative './setup_test_database'
+
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'

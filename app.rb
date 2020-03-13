@@ -18,5 +18,5 @@ class Chitter < Sinatra::Base
     'Chitter'
   end
 
-  run! if app_file == $PROGRAM_NAME
+  run! if app_file == $0
 end

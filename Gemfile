@@ -5,6 +5,7 @@ ruby '2.6.5'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'bcrypt'
+gem 'pg'
 
 
 group :test do
