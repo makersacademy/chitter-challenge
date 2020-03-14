@@ -3,6 +3,7 @@
 <% if @user %>
   <h2>Welcome, <%= @user.name %></h2>
   <div>
+  <p> What's happening? </p>
     <form action="/chitter" method="POST">
       <input name="text" type="text" maxlength="255">
       <input value="Submit" type="submit" />

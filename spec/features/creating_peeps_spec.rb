@@ -2,6 +2,11 @@
 
 feature 'adding a new peep' do
 
+  scenario 'A user cannot add a peep to Chitter unless signed in' do
+    visit '/chitter'
+    expect(page).not_to have_content("What's happening?")
+  end  
+
   scenario 'A user can add a peep to Chitter' do
     visit '/users/new'
     fill_in('email', with: 'test@example.com')
