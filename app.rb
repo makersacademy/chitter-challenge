@@ -5,12 +5,9 @@ class Chitter < Sinatra::Base
 
   get '/' do
 
-    peeps = [
-    'peep test 1',
-    'peep test 2',
-    'peep test 3'
-    ]
+    @peeps = Peep.all
 
+    erb :'index'
   end
 
   run! if app_file == $0
