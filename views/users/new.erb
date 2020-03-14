@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+  <head>
+    <title></title>
+    <link type='text/css' rel='stylesheet' href='/css/style.css'>
+  </head>
+  <body>
+  <%= flash[:notice] %>
+    <form style='text-align:center' action='/users' method=post>
+      Sign Up:<br>
+      Name: <input type=text name='name'><br>
+      Username: <input type=text name='username'><br>
+      Email: <input type=text name='email'><br>
+      Password: <input type=text name='password'><br>
+      <input type=submit value='Sign Up'/>
+    </form>
+  </body>
+</html>

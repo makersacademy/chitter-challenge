@@ -1,0 +1,19 @@
+$ psql postgres
+$ postgres=# CREATE DATABASE "chitter_app";
+$ postgres=# \c chitter_app;
+$ bookmark_manager=# CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20), email VARCHAR(60), password VARCHAR(20), name VARCHAR(20));
+$ bookmark_manager=# \dt
+$ bookmark_manager=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(250), timestamp TIMESTAMP, user_id INTEGER REFERENCES users(id));
+$ bookmark_manager=# \dt
+
+$ psql postgres
+$ postgres=# CREATE DATABASE "chitter_app_test";
+$ postgres=# \c chitter_app_test;
+$ bookmark_manager=# CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(20), email VARCHAR(60), password VARCHAR(20), name VARCHAR(20));
+$ bookmark_manager=# \dt
+$ bookmark_manager=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(250), timestamp TIMESTAMP, user_id INTEGER REFERENCES users(id));
+$ bookmark_manager=# \dt
+
+
+
+

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+  <head>
+    <title></title>
+    <link type='text/css' rel='stylesheet' href='/css/style.css'>
+  </head>
+  <body>
+    <%= flash[:notice] %>
+    <form style='text-align:center' action='/sessions' method=post>
+    Sign In:<br>
+    Username: <input type=text name=username>
+    Password: <input type=text name=password>
+    <input type=submit value='Sign In'/>
+  </form>
+
+  </body>
+</html>
