@@ -11,7 +11,15 @@
 <% end %>
 
 <form action="/users/new" method="get">
-<input type="submit" value="Sign up" />
+  <input type="submit" value="Sign up" />
+</form>
+
+<form action="/sessions" method="post">
+  <input type="submit" value="Sign in" />
+</form>
+
+<form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
 </form>
 
 <div>
