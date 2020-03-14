@@ -45,6 +45,12 @@ describe User do
   
       expect(User.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
     end
+
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+  
+      User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+    end
   end
 
   describe '.find' do
@@ -59,11 +65,22 @@ describe User do
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email
     end
-  
-    it 'hashes the password using BCrypt' do
-      expect(BCrypt::Password).to receive(:create).with('password123')
-  
-      User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
-    end
   end
+
+
+  # let(:user_class) { double(:user_class) }
+
+  # describe '.where' do
+  #   it 'gets the relevant username from the database' do
+  #     user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+  #     Peep.create(text: 'This is a test', user_id: user.id)
+
+  #     user = User.where(user_id: user.id)
+  #     # persisted_data = persisted_data(table: 'users', id: user.id)
+  #     # expect(user_class).to receive(:where).with(user_id: user.id)
+
+  #     expect(user.username).to eq 'Jane Doe'
+  #   end
+  # end
+
 end

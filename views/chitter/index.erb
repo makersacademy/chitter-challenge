@@ -27,16 +27,16 @@
 
 <div>
   <% @peeps.reverse.each do |peep| %>
-
-      <%= peep.users.each do |user| %>
-        <%= user.username %>
-      <% end %>  
-
-      <br>    
-      <%= peep.text %>
-      <br>
-      <%= peep.created_at %>
-      </p>
+      
+    <% peep.users.each do |user| %>
+      <%= user.username %>
+    <% end %>
+    
+    <br>    
+    <%= peep.text %>
+    <br>
+    <%= peep.created_at %>
+    </p>
   <% end %>
 </div>
 

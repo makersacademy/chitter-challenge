@@ -39,6 +39,18 @@ class User
     )
   end
 
+  def self.where(user_id:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{user_id};")
+    result.map do |user|
+      User.new(
+      id: result[0]['id'],
+      email: result[0]['email'],
+      username: result[0]['username'],
+      name: result[0]['name']
+    )
+    end
+  end
+
   attr_reader :id, :email, :username, :name
 
   def initialize(id:, email:, username:, name:)

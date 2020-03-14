@@ -38,5 +38,31 @@ describe Peep do
     end
   end
 
+  describe '.where' do
+    it 'gets the relevant id number from the user database' do
+      user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+      peep = Peep.create(text: 'This is a test', user_id: user.id)
+      Peep.create(text: 'This is a second test', user_id: user.id)
+  
+      peeps = Peep.where(user_id: user.id)
+      peep = peeps.first
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
+  
+      expect(peep.user_id).to eq user.id
+    end
+  end
+
+let(:user_class) { double(:user_class) }
+
+describe '#users' do
+  it 'calls .where on the User class' do
+    user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+    peep = Peep.create(text: 'This is a test', user_id: user.id)
+    expect(user_class).to receive(:where).with(user_id: user.id)
+
+    peep.users(user_class)
+  end
+end
+
 
 end

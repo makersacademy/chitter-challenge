@@ -36,18 +36,20 @@ class Peep
       )
   end
 
-
-  def users(user_class = User)
-    user_class.find(user_id: id)
+  def self.where(user_id:)
+    result = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = #{user_id};")
+    result.map do |peep|
+      Peep.new(
+      id: result[0]['id'],
+      text: result[0]['text'],
+      created_at: result[0]['created_at'],
+      user_id: result[0]['user_id']
+      )
+    end
   end
 
-  # def tags(tag_class = Tag)
-  #   tag_class.where(bookmark_id: id)
-  # end
+  def users(user_class = User)
+    user_class.where(user_id: user_id)
+  end
 
-  # private
-
-  # def self.is_url?(url)
-  #   url =~ /\A#{URI.regexp(%w[http https])}\z/
-  # end
 end
