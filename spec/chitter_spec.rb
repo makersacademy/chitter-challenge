@@ -18,7 +18,7 @@ describe Chitter do
       # How to test they are displayed in order?
 
       expect(chitter.length).to eq 2
-      expect(chitter.first).to be_a Chitter
+      expect(chitter.first).to be_a Peep
       expect(chitter.first.peep).to eq 'I am the first peep'
       expect(chitter.first.post_time).to eq '12:00:00'
     end

@@ -21,7 +21,7 @@ feature 'Seeing peeps' do
     Chitter.post_peep(peep: 'You can see the time', post_time: '12:00')
 
     visit('/chitter')
-    expect(page).to have_content ('12:00')
+    expect(page).to have_content '12:00'
   end
 end
 
