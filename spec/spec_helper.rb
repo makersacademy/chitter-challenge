@@ -1,5 +1,16 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'rspec'
+require 'capybara/rspec'
+
+# will try and replace this with a rakefile :-)
+# require_relative './test_database'
+
+ENV['ENVIRONMENT'] = 'test'
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
