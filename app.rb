@@ -14,6 +14,8 @@ require './lib/user'
 require './lib/peep'
 require './lib/database_connection_setup'
 
+set :public_folder, Proc.new { File.join(root, 'static') }
+
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
   disable :strict_paths
@@ -41,7 +43,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter' do
-    Peep.create(text: params[:text])
+    @user_id = params[:id]
+    Peep.create(text: params[:text], user_id: params[:user_id])
     redirect('/chitter')
   end
 
@@ -55,7 +58,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect('/chitter')
     else
-      flash[:notice] = 'Please check your email or password.'
+      flash.next[:notice] = 'Please check your email or password.'
       redirect('/sessions/new')
     end
   end
