@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './lib/chitter'
 
 class ChitterChallenge < Sinatra::Base
+
   get '/chitter' do
     @peeps = Chitter.print_peeps
     erb :chitter
@@ -12,7 +13,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/chitter/post_peep' do
-    Chitter.post_peep(peep: params[:peep])
+    Chitter.post_peep(peep: params[:peep], post_time: '12:00')
     redirect '/chitter'
   end
 
