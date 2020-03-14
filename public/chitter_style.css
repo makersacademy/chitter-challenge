@@ -1,0 +1,50 @@
+
+header {    
+      display: flex;
+      justify-content: center;
+      margin-top: 1%;
+			background-color: #ec5d0ade;
+			margin-top: 0%;
+			padding-top: 1%;
+      border-radius: 25px;
+      text-align: center;
+}
+
+nav {
+    display: block;
+}
+
+body { 
+    text-align: center;
+    background-color: #dcdcdc;
+    font-family: 'Delius Unicase', cursive; 
+}
+
+h1 {
+  font-family: 'Autour One', cursive;
+  font-size: 4vw;
+}
+
+input[type=submit] {
+  display: inline-block;
+  background-color: #ec5d0ade;
+  border: none;
+  border-color: white;
+  color: white;
+  padding: 16px 16px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 15px;
+  margin: 0.5em 1em;
+  cursor: pointer;
+}
+
+input[type=text] {
+  width: 30%;
+  height: 100px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+

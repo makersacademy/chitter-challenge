@@ -1,45 +1,61 @@
-<h1> Chitter </h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/chitter_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Autour+One|Delius+Unicase&display=swap" rel="stylesheet">
+  </head> 
+<main>
+  <header>
+    <h1> Chitter </h1>
+  </header>
 
-<% if @user %>
-  <h2>Welcome, <%= @user.name %></h2>
-  <div>
-  <p> Tell us something </p>
-    <form action="/chitter" method="POST">
-      <input name="text" type="text" maxlength="255">
-      <input type="hidden" name="user_id" value="<%= session[:user_id] %>">
-      <input value="Submit" type="submit" />
+  <nav>
+    <form action="/users/new" method="get">
+      <input type="submit" value="Sign up" />
     </form>
-  </div>
-<% end %>
-<div>
-  <form action="/users/new" method="get">
-    <input type="submit" value="Sign up" />
-  </form>
 
-  <form action="/sessions" method="post">
-    <input type="submit" value="Sign in" />
-  </form>
+    <form action="/sessions" method="post">
+      <input type="submit" value="Sign in" />
+    </form>
 
-  <form action="/sessions/destroy" method="post">
-      <input type="submit" value="Sign out" />
-  </form>
-</div>
+    <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out" />
+    </form>
+  </nav>
 
-<div>
-  <% @peeps.reverse.each do |peep| %>
-      
-    <% peep.users.each do |user| %>
-      <%= user.username %>
+  <body>
+
+  <h2>
+      <%= flash[:notice] %>
+  </h2>
+
+    <% if @user %>
+      <h2>Welcome, <%= @user.name %></h2>
+      <section>
+        <p> Tell us something... </p>
+        <form action="/chitter" method="POST">
+          <input name="text" type="text" maxlength="255">
+          <input type="hidden" name="user_id" value="<%= session[:user_id] %>">
+          <br>
+          <input value="Submit" type="submit" />
+        </form>
+      </section>
     <% end %>
 
-    <br>    
-    <%= peep.text %>
-    <br>
-    <%= peep.created_at %>
-    </p>
-  <% end %>
-</div>
+    <section>
+      <% @peeps.reverse.each do |peep| %>
+          
+        <% peep.users.each do |user| %>
+          <%= user.username %>
+        <% end %>
 
-<h2>
-  <%= flash[:notice] %>
-</h2>
+        <br>    
+        <%= peep.text %>
+        <br>
+        <%= peep.created_at %>
+        </p>
+      <% end %>
+    </section>
+
+  </body>
+</main>
