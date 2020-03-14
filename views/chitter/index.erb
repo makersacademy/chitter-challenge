@@ -6,6 +6,8 @@
   <% @peeps.reverse.each do |peep| %>
         <p>
           <%= peep.text %>
+          <br>
+          <%= peep.created_at %>
         </p>
   <% end %>
 </div>
