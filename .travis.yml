@@ -3,6 +3,8 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(120), post_time TIME (0), post_date DATE);'
+
 
 script:
   - bundle exec rspec

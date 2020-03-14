@@ -1,7 +1,7 @@
 require 'pg'
 
 feature 'Seeing peeps' do
-  scenario 'I want to see all peeps in chitter' do # in chronological order
+  scenario 'I want to see all peeps in chitter in reverse chronological order' do
     connection = PG.connect(dbname: 'chitter_test')
     connection.exec("INSERT INTO peeps (message) VALUES ('I am the first peep');")
 
