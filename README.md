@@ -106,7 +106,8 @@ This will show you the port that you should use in your browser (in this case it
 6. Input the following into your browser:
 ```http://localhost:9292/```
 
-
+### Challenges
+* Took a long time to correctly link the users and peeps table together so that the user_id column was the user.id number.
 
 Some useful resources:
 **DataMapper**

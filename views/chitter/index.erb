@@ -3,10 +3,10 @@
 <% if @user %>
   <h2>Welcome, <%= @user.name %></h2>
   <div>
-  <p> What's happening? </p>
+  <p> Tell us something </p>
     <form action="/chitter" method="POST">
       <input name="text" type="text" maxlength="255">
-      #  <input type="hidden" name="user_id" value="<%= session[:user_id] %>">
+      <input type="hidden" name="user_id" value="<%= session[:user_id] %>">
       <input value="Submit" type="submit" />
     </form>
   </div>
@@ -27,10 +27,16 @@
 
 <div>
   <% @peeps.reverse.each do |peep| %>
-          <%= peep.text %>
-          <br>
-          <%= peep.created_at %>
-        </p>
+
+      <%= peep.users.each do |user| %>
+        <%= user.username %>
+      <% end %>  
+
+      <br>    
+      <%= peep.text %>
+      <br>
+      <%= peep.created_at %>
+      </p>
   <% end %>
 </div>
 
