@@ -13,7 +13,10 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/chitter/post_peep' do
-    Chitter.post_peep(peep: params[:peep], post_time: '12:00')
+    time = Time.now
+
+
+    Chitter.post_peep(peep: params[:peep], post_time: time.strftime('%H:%M'))
     redirect '/chitter'
   end
 
