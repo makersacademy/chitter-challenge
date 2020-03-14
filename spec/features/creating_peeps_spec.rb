@@ -9,8 +9,7 @@ feature 'adding a new peep' do
     fill_in('name', with: 'Jane Doe')
     fill_in('username', with: '@username')
     click_button('Submit')
-
-    visit('/peeps/new')
+    
     fill_in('text', with: 'This is a test peep')
     click_button('Submit')
 

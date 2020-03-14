@@ -4,19 +4,17 @@ require 'pg'
 
 feature 'Viewing peeps' do
   scenario 'visiting the index page' do
-    visit '/'
+    visit '/chitter'
     expect(page).to have_content 'Chitter'
   end
 end
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
-
-    # Add the test data
-    Peep.create(text: 'This is a test peep')
-
     visit '/chitter'
+    fill_in('text', with: 'This is a test peep')
+
+    click_button('Submit')
 
     expect(page).to have_content('This is a test peep')
   end

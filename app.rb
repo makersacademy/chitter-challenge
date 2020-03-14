@@ -40,22 +40,7 @@ class Chitter < Sinatra::Base
     redirect '/chitter'
   end
 
-  # get '/chitter/:id/peeps/new' do
-  #   @user_id = params[:id]
-  #   erb :'users/new'
-  # end
-
-  # post '/chitter/:id/peeps' do
-  #   Peep.create(id: params[:id], peep: params[:peep])
-  #   redirect '/chitter'
-  # end
-
-
-  get '/peeps/new' do
-    erb :'peeps/new'
-  end
-
-  post '/peeps/new' do
+  post '/chitter' do
     Peep.create(text: params[:text])
     redirect('/chitter')
   end

@@ -3,10 +3,9 @@
 feature 'reversing the order of the peeps' do
 
   scenario 'A user can view the newest peep first' do
-    visit '/peeps/new'
+    visit '/chitter'
     fill_in('text', with: '1st peep')
     click_button('Submit')
-    visit '/peeps/new'
     fill_in('text', with: '2nd peep')
     click_button('Submit')
 
