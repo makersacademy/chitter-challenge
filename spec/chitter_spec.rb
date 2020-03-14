@@ -11,6 +11,8 @@ describe Chitter do
 
       chitter = Chitter.print_peeps
 
+      # How to test they are displayed in order?
+
       expect(chitter).to include ('I am the first peep')
       expect(chitter).to include ('And I am the second one')
     end
