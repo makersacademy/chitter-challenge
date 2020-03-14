@@ -2,20 +2,29 @@ require 'pg'
 
 feature 'Seeing peeps' do
   scenario 'I want to see all peeps in chitter in reverse chronological order' do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (message) VALUES ('I am the first peep');")
-    connection.exec("INSERT INTO peeps (message) VALUES ('I am the second peep');")
+  #   connection = PG.connect(dbname: 'chitter_test')
+  #   connection.exec("INSERT INTO peeps (peep) VALUES ('I am the first peep');")
+  #   connection.exec("INSERT INTO peeps (peep) VALUES ('I am the second peep');")
+
+  # Refactor
+    Chitter.post_peep(peep: 'I am the first peep')
+    Chitter.post_peep(peep: 'I am the second peep')
 
     visit('/chitter')
-    
+
     # Test the reverse chronological order
     expect(page.find('li:nth-child(1)')).to have_content 'I am the second peep'
     expect(page.find('li:nth-child(2)')).to have_content 'I am the first peep'
   end
 end
 
-# feature 'Posting a peep' do
-#   scenario 'I can post a peep in chitter' do
-#
-#   end
-# end
+feature 'Posting a peep' do
+  scenario 'I can post a peep in chitter' do
+    Chitter.post_peep(peep: 'I am a posted peep')
+
+    visit('/chitter/post_peep')
+    fill_in 'peep', with: 'I am a posted peep'
+    click_button 'submit'
+    expect(page).to have_content 'I am a posted peep'
+  end
+end
