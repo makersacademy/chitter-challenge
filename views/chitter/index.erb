@@ -1,7 +1,16 @@
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
 <% end %>
+<div>
+  <% @peeps.each do |peep| %>
+    # <li class="peep" id="peep-<%= peep.id %>">
+        <%= peep.peep %>
+    # </li>
+  <% end %>
+</div>
 
+<p>
+<h2>
 
 <h2>
   <%= flash[:notice] %>

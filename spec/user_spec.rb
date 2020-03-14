@@ -17,19 +17,19 @@ describe '.create' do
     expect(user.name).to eq 'Jane'
   end
 
-  it 'raises an error if someone tries to sign in with an email that is already in use' do
-    user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
-    user = User.create(email: 'test@example.com', password: 'password123', username: 'John Doe', name: 'John')
+  # it 'raises an error if someone tries to sign in with an email that is already in use' do
+  #   user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+  #   user = User.create(email: 'test@example.com', password: 'password123', username: 'John Doe', name: 'John')
 
-    expect{subject.create}.to raise_error
-  end
+  #   expect{subject.create}.to raise_error
+  # end
 
-  it 'raises an error if someone tries to sign in with a username that is already in use' do
-    user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
-    user = User.create(email: 'test2@example.com', password: 'password123', username: 'Jane Doe', name: 'John')
+  # it 'raises an error if someone tries to sign in with a username that is already in use' do
+  #   user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+  #   user = User.create(email: 'test2@example.com', password: 'password123', username: 'Jane Doe', name: 'John')
 
-    expect(page).not_to have_content "Welcome, John"
-  end
+  #   expect(page).not_to have_content "Welcome, John"
+  # end
 end
 
 # describe '.authenticate' do
