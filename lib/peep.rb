@@ -38,7 +38,7 @@ class Peep
 
   def self.where(user_id:)
     result = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = #{user_id};")
-    result.map do |peep|
+    result.map do |_peep|
       Peep.new(
       id: result[0]['id'],
       text: result[0]['text'],

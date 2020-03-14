@@ -7,15 +7,14 @@ require 'database_helpers'
 describe Peep do
   describe '.all' do
     it 'returns a list of peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
+      PG.connect(dbname: 'chitter_test')
 
-      # Add the test data
       user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
       peep = Peep.create(text: 'This is a test', user_id: user.id)
       Peep.create(text: 'This is also a test', user_id: user.id)
 
       peeps = Peep.all
-      persisted_data = persisted_data(table: 'peeps', id: peep.id)
+      persisted_data(table: 'peeps', id: peep.id)
 
       expect(peeps.length).to eq 2
       expect(peeps.first).to be_a Peep
@@ -41,28 +40,27 @@ describe Peep do
   describe '.where' do
     it 'gets the relevant id number from the user database' do
       user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
-      peep = Peep.create(text: 'This is a test', user_id: user.id)
+      Peep.create(text: 'This is a test', user_id: user.id)
       Peep.create(text: 'This is a second test', user_id: user.id)
   
       peeps = Peep.where(user_id: user.id)
       peep = peeps.first
-      persisted_data = persisted_data(table: 'peeps', id: peep.id)
+      persisted_data(table: 'peeps', id: peep.id)
   
       expect(peep.user_id).to eq user.id
     end
   end
 
-let(:user_class) { double(:user_class) }
+  let(:user_class) { double(:user_class) }
 
-describe '#users' do
-  it 'calls .where on the User class' do
-    user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
-    peep = Peep.create(text: 'This is a test', user_id: user.id)
-    expect(user_class).to receive(:where).with(user_id: user.id)
+  describe '#users' do
+    it 'calls .where on the User class' do
+      user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+      peep = Peep.create(text: 'This is a test', user_id: user.id)
+      expect(user_class).to receive(:where).with(user_id: user.id)
 
-    peep.users(user_class)
+      peep.users(user_class)
+    end
   end
-end
-
 
 end

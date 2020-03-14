@@ -1,12 +1,3 @@
-# RESTful routes
-# GET /peeps
-# GET /peeps/:id
-# GET /peeps/new
-# GET /peeps/update
-# POST /peeps
-# POST /peeps/:id/update
-# POST /peeps/:id/delete
-
 require 'uri'
 require 'sinatra'
 require 'sinatra/flash'
@@ -14,7 +5,7 @@ require './lib/user'
 require './lib/peep'
 require './lib/database_connection_setup'
 
-set :public_folder, Proc.new { File.join(root, 'static') }
+set :public_folder, (Proc.new { File.join(root, 'static') })
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
