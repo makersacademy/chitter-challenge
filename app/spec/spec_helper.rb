@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+require 'capybara'
+require 'rspec'
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
-require './setup_database_test'
+require_relative './setup_database_test'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -12,17 +13,14 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-ENV['ENVIRONMENT'] = 'test'
+ENV['RACK_ENV'] = 'test'
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = ChitterManager
 
 RSpec.configure do |config|
   config.before(:each) do
     setup_test_database
-  end
-  config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
