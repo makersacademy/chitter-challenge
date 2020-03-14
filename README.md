@@ -5,9 +5,15 @@ As a Maker
 So that I can know what people are saying
 I would like to see a list of peeps
 ```
+```
+As a Maker
+So that I can let people know what I am doing
+I want to post a peep to chitter
+```
+
 ## Domain Model
 
-![Chitter domain model](./public/images/chitter_01.png)
+![Chitter domain model](./public/images/chitter_02.png)
 
 ### To set up the Project
 Clone this repository and then run:

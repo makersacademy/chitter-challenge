@@ -6,9 +6,9 @@ describe Peep do
     it 'returns a list of peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      connection.exec("INSERT INTO peeps VALUES (1, 'this is a peep about a cat');")
-      connection.exec("INSERT INTO peeps VALUES (2, 'the cat is soft and fluffy');")
-      connection.exec("INSERT INTO peeps VALUES (3, 'and if you die, it will eat your face');")
+       Peep.create(peep: 'this is a peep about a cat')
+       Peep.create(peep: 'the cat is soft and fluffy')
+       Peep.create(peep: 'and if you die, it will eat your face')
 
       peeps = Peep.all
 
@@ -17,4 +17,13 @@ describe Peep do
       expect(peeps).to include('and if you die, it will eat your face')
     end
   end
+
+  describe ".create" do
+    it "creates a new peep" do
+      Peep.create(peep: 'this is a new peep')
+
+      expect(Peep.all).to include 'this is a new peep'
+    end
+  end
+
 end
