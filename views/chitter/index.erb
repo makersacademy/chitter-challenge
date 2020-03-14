@@ -2,11 +2,16 @@
 
 <% if @user %>
   <h2>Welcome, <%= @user.name %></h2>
+  <div>
+    <form action="/chitter" method="POST">
+      <input name="text" type="text" maxlength="255">
+      <input value="Submit" type="submit" />
+    </form>
+  </div>
 <% end %>
 
-<form action="/chitter" method="POST">
-  <input name="text" type="text" maxlength="255">
-  <input value="Submit" type="submit" />
+<form action="/users/new" method="get">
+<input type="submit" value="Sign up" />
 </form>
 
 <div>
