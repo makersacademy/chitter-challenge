@@ -14,7 +14,7 @@ feature 'Viewing peeps' do
     connection = PG.connect(dbname: 'chitter_test')
 
     # Add the test data
-    Peep.create(peep: 'This is a test peep')
+    Peep.create(text: 'This is a test peep')
 
     visit '/chitter'
 

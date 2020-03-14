@@ -4,28 +4,28 @@ require_relative 'database_connection'
 require 'uri'
 
 class Peep
-  attr_reader :id, :peep
+  attr_reader :id, :text
 
-  def initialize(id:, peep:)
+  def initialize(id:, text:)
     @id = id
-    @peep = peep
+    @text = text
   end
 
   def self.all
     peeps = DatabaseConnection.query('SELECT * FROM peeps;')
     peeps.map do |peep|
       Peep.new(
-        id: peeps[0]['id'],
-        peep: peeps[0]['peep']
+        id: peep['id'],
+        text: peep['text']
       )
     end
   end
 
-  def self.create(peep:)
-    result = DatabaseConnection.query("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep;")
+  def self.create(text:)
+    result = DatabaseConnection.query("INSERT INTO peeps (text) VALUES('#{text}') RETURNING id, text;")
     Peep.new(
       id: result[0]['id'],
-      peep: result[0]['peep']
+      text: result[0]['text']
       )
   end
 

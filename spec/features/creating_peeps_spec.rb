@@ -11,7 +11,7 @@ feature 'adding a new peep' do
     click_button('Submit')
 
     visit('/peeps/new')
-    fill_in('peep', with: 'This is a test peep')
+    fill_in('text', with: 'This is a test peep')
     click_button('Submit')
 
     expect(page).to have_content('This is a test peep')

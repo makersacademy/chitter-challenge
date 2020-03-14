@@ -1,11 +1,12 @@
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
 <% end %>
+
 <div>
-  <% @peeps.each do |peep| %>
-    # <li class="peep" id="peep-<%= peep.id %>">
-        <%= peep.peep %>
-    # </li>
+  <% @peeps.reverse.each do |peep| %>
+        <p>
+          <%= peep.text %>
+        </p>
   <% end %>
 </div>
 
