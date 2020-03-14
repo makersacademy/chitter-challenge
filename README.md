@@ -1,3 +1,62 @@
+
+For this challenge, I divided the user stories into the following requirements:
+
+1) Set up a database for posts to be stored on
+2) set up a test database to mimic the real one, and have tests add and delete off that. This Truncates at the end of every test.
+3) Have the connection to the database decided in its own class, wrapped in a Database Connection object.
+
+4) Be able to post a 'peep' that is then stored on the database
+5) View the peeps stored on the database in reverse chronological order
+6) Be able to login to chitter, via a sign up page
+7) password will be encrypted
+
+
+I managed to make all of the above, the time i had some issues with my table in the 'chitter' database, i will work on this tomorrrow morning to finidh and implement. I also got the login and out partially completed, again i will finish this in the morning. 
+
+Overall i am happy with how this went. It was a tough week and i found it very helpful to spend the weekend going over the build of the database again and setting up the tables. I was pleased to ba able to code this, and have good SRP, encapsulation and DRY code throughout. I am looking forward to spending tomorrow morning with my partner going through, recieving feedback and making further progress.
+
+I used the following to build this program;
+
+Capybara
+Rspec
+Rubocop
+Simplecov
+-
+bcrypt
+pg
+postresql
+rake
+sinatra
+thin
+tableplus
+ruby
+
+
+
+
+Instructions:
+
+- Connect to psql
+- Create the database using the psql command:
+    CREATE DATABASE chitter;
+- Connect to the database using the pqsl command:
+    \c chitter;
+- Run the query we have saved in the file:                        
+
+01_create_bookmarks_table.sql
+02_test_peeps.sql
+03_create_users_table.sql
+
+
+
+
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
