@@ -12,7 +12,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-Capybara.app = Chitter
+Capybara.app = ChitterChallenge
 
 # clears the test database before each test
 
