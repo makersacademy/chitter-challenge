@@ -5,23 +5,25 @@ describe User do
   describe '.create' do
     it 'creates a new user' do
       user = User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
-      # puts "the user.id is: #{user.id}"
-      # puts "the persisted_data.first id is: #{persisted_data.first}"
-      # puts "the user.id is: #{user.id}"
       persisted_data = persisted_data(table: :users, id: user.id)
-      # p persisted_data.first
+
       expect(user).to be_a User
       expect(user.name).to eq 'Josie'
       expect(user.id).to eq persisted_data.first['id']
       expect(user.email).to eq 'test@example.com'
 
     end
+
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+
+      User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+    end
   end
 
   describe '.find' do
     it 'finds a user by ID' do
       user = User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
-      # p user.id.class
       result = User.find(user.id)
 
       expect(result.id).to eq user.id
@@ -29,6 +31,15 @@ describe User do
     end
     it 'returns nil if there is no ID given' do
       expect(User.find(nil)).to eq nil
+    end
+  end
+
+  describe '.authenticate' do
+    it 'returns a user given a correct username and password, if one exists' do
+      user = User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+      autenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
+
+      expect(autenticated_user.id).to eq user.id
     end
   end
 end

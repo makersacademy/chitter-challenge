@@ -1,14 +1,25 @@
+require 'bcrypt'
+
 class User
 
   def self.create(name:, email:, password:)
-    puts "I'm in create"
-    result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{password}') RETURNING id, name, email;")
+    # encrypt the plaintext password
+    encrypted_password = BCrypt::Password.create(password)
+
+    # insert the encrypted password into the database, instead of the plaintext one
+    result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{encrypted_password}') RETURNING id, name, email;")
     User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'])
   end
 
   def self.find(id)
     return nil unless id
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}';")
+    User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'])
+  end
+
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';")
+    
     User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'])
   end
 
