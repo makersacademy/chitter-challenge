@@ -17,4 +17,12 @@ describe Peep do
       expect(peeps).to include('Coronavirus is really killing the mood here')
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      Peep.create(peep: 'Testing a peep!')
+
+      expect(Peep.all).to include 'Testing a peep!'
+    end
+  end
 end
