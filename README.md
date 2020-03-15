@@ -117,3 +117,10 @@ https://github.com/sinatra-activerecord/sinatra-activerecord
 Added helpers to my Capybrara feature tests to help keep them DRY.
 
 Had some issues midway through the project with travis builds. Updated the YAML to correct the database setup and SQL queries that were causing the builds to fail.
+
+
+### Next steps
+
+- To make the username and email fields unique
+- To add a logout button
+- To add CSS 
