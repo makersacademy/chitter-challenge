@@ -7,12 +7,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'CREATE DATABASE chitter_test;' -U postgres
-  - psql -c chitter_test 
-  - CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60), name VARCHAR(60), email VARCHAR(60), password VARCHAR(140));
-  - ALTER TABLE users ADD CONSTRAINT unique_email UNIQUE (email);
-  - ALTER TABLE users ADD CONSTRAINT unique_username UNIQUE (username);
-  - CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(255), created_at TIMESTAMP DEFAULT NOW(), user_id INTEGER REFERENCES users (id));
-
+  - psql -c 'create database travis_ci_test;' -U postgres
+  
 script:
   - bundle exec rspec
