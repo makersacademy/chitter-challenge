@@ -6,6 +6,9 @@
     <p>
         <% if @user != nil%>
         Hello <%=@user.name%>
+        <form action="/message" method="get">
+            <input type="submit" value="New Message">
+        </form>
         <% end %>
     </p>
     <form action="/register" method="get">
