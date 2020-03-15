@@ -9,6 +9,8 @@ Capybara,
 Rspec,
 Rubocop
 
+[![Build Status](https://travis-ci.com/Kittaru87/chitter-challenge.svg?branch=master)](https://travis-ci.com/Kittaru87/chitter-challenge)
+
 ## Project aim
 To write a small Twitter clone that will allow the users to post messages to a public stream.
 
@@ -110,27 +112,6 @@ This will show you the port that you should use in your browser (in this case it
 * Took a long time to correctly link the users and peeps table together so that the user_id column was the user.id number.
 * Trying to work out how to change the display of the peep timestamp has also been difficult. I've managed to remove the milliseconds.
 * I haven't managed to do the last user story (under Advanced). I would have also have liked to add in functionality to allow for replies to peeps as well.
-
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
+* For some reason the picture is broken on the sign up and sign in pages, although the code is identical to the index page.
 
 
