@@ -1,10 +1,9 @@
 services:
   - postgresql
-  - activerecord
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  
+
 script:
   - bundle exec rspec
 
