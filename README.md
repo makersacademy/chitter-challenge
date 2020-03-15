@@ -91,7 +91,7 @@ Message is responsible for fetching the messages, fetching messages of a certain
 Notes on functionality:
 ------
 
-## Databases
+### Databases
 
 In the chitter and chitter_test databases two tables exit:
 
@@ -123,4 +123,4 @@ Had some issues midway through the project with travis builds. Updated the YAML 
 
 - To make the username and email fields unique
 - To add a logout button
-- To add CSS 
+- To add CSS
