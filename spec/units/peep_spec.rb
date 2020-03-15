@@ -10,8 +10,8 @@ describe Peep do
       expect(peep).to be_a Peep
       expect(peep.id).to eq all_peeps.first['id']
       expect(peep.peep).to eq 'The news is depressing'
-      expect(peep.date).to eq all_peeps.first['date']
-      # expect(peep.user_id).to eq user.id
+      expect(peep.date).to eq DateTime.strptime(all_peeps.first['date'], '%Y-%m-%d %H:%M:%S').strftime("%d %b %Y %k:%M")
+      expect(peep.user_name).to eq 'Josie'
     end
   end
 
