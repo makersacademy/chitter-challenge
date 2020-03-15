@@ -13,10 +13,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/chitter/sign_up' do
-    # @name = params[:name]
-    # @username = params[:username]
-    # @email = params[:email]
-    # @password = params[:password]
+    Chitter.sign_up(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     redirect '/chitter/user'
   end
 

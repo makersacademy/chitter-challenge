@@ -34,4 +34,16 @@ describe Chitter do
       expect(peep.peep).to eq 'I am a new peep'
     end
   end
+
+  context '#sign_up' do
+    it 'an user can sign up for chitter' do
+
+      user = Chitter.sign_up(name: 'Evaristo', username: 'SuperCactus', email: 'evaristo@supercactus.com', password: 'itsasecret')
+
+      expect(user.name).to eq 'Evaristo'
+      expect(user.username).to eq 'SuperCactus'
+      expect(user.email).to eq 'evaristo@supercactus.com'
+      expect(user.password).to eq 'itsasecret'
+    end
+  end
 end

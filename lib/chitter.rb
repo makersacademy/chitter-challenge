@@ -1,5 +1,6 @@
 require 'pg'
 require_relative 'peep'
+require_relative 'user'
 
 class Chitter
 
@@ -25,5 +26,16 @@ class Chitter
 
     result = connection.exec("INSERT INTO peeps (peep, post_time, post_date) VALUES('#{peep}', '#{post_time}', '#{post_date}') RETURNING id, peep, post_time, post_date;")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], post_time: result[0]['post_time'], post_date: result[0]['post_date'])
+  end
+
+  def self.sign_up(name:, username:, email:, password:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+
+    result = connection.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}') RETURNING id, name, username, email, password;")
+    User.new(id: result[0]['id'], name: result[0]['name'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
   end
 end
