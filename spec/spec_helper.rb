@@ -1,4 +1,3 @@
-
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIROMENT'] = 'test'
 

@@ -1,4 +1,3 @@
-
 feature 'new peep' do
   scenario 'create a new peep' do
     visit '/'

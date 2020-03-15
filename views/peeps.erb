@@ -1,7 +1,13 @@
 <br>
-<ul>
- <li><%= @peeps %></li>
- </ul>
+
+ <% @peeps.each do |peep| %>
+
+   <li><%= peep %></li>
+   <% end %>
+
+  <br>
+  <br>
+   <%=@single_peep%>
 <br>
 <br>
 <br>

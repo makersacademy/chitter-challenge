@@ -71,4 +71,13 @@ So at this point:
 
 At this point i am making my third commit.
 
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+## FORTH STEP
+- Little implementation just to adjust with the goals of the last steps.
+At this poing peeps.erb is implemented with the html and ruby code to show properly the hard code array which return the method #posted_peeps.
+
+- Tests are implemented for the class and the method and at this point all is green, even my friend rubocop is giving me its total permission to go forward.
+
+At this point i am making my forth commit.
+
+------------------------------------------------------------------------------

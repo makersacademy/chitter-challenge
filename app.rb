@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -26,13 +27,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    # what we see now in peeps is the message, storaged in the session param,
-    # i call that value and pass it to to the view in peeps.erb, which is
-    # referenced in the line below (erb :peeps)
-    @peeps = session[:peep]
+    # At this point i am refactoring to be able to show several peeps.
+    # To do that i am gonna create a new variable to one single peep and
+    # another variable to call the method which show me all the peeps.
+    @single_peep = session[:peep]
+    @peeps = Peep.posted_peeps
     erb :peeps
   end
 
-run! if app_file == $0
+  run! if app_file == $0
 
 end

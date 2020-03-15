@@ -1,4 +1,3 @@
-
 feature 'Welcome page' do
   scenario 'Welcoming message' do
     visit '/'
