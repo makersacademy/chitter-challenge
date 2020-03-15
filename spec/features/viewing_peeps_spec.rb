@@ -5,6 +5,12 @@ feature 'Viewing peeps' do
   end
 
   scenario 'user can see peeps' do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    Peep.create(text: 'I woke up today')
+    Peep.create(text: 'I had breakfast')
+    Peep.create(text: 'Then went to Makers')
+
     visit('/peeps')
     expect(page).to have_content 'I woke up today'
     expect(page).to have_content 'I had breakfast'
