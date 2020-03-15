@@ -8,6 +8,7 @@ require './lib/user'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/peeps' do
     # fetch the user from the database, using an ID stored in the session
@@ -33,11 +34,14 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    # result = DatabaseConnection.query("SELECT * FROM users WHERE email = #{params[:email]}")
-    # user = User.new(result[0]['id'], result[0]['name'], result[0]['email'], result[0]['password'])
 
-    session[:user_id] = user.id
-    redirect '/peeps'
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect '/sessions/new'
+    end
   end
 
   run! if app_file == $0

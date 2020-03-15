@@ -1,4 +1,7 @@
 <!-- User sign in page -->
+<h2>
+  <%= flash[:notice] %>
+</h2>
 
 <form action="/sessions" method="post">
   <input type="email" name="email" placeholder="Enter email:">
