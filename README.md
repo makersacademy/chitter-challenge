@@ -51,14 +51,14 @@ post '/chitter/post_peep' -->  redirect to ./chitter/user (saves peep to peeps t
 post '/chitter/log_out'   -->  redirect to ./chitter (clears log_in data)
 ```
 
-**Instructions to set up Database:**
+## Instructions to set up Database:
 - Connect to psql
 - Create the database using the psql command `CREATE DATABASE chitter;`
 - Connect to the database using the pqsl command `\c chitter;`
 - Run the query we have saved in the file 01_create_peeps_table.sql
 - Run the query we have saved in the file 02_create_users_table.sql
 
-# create a test environment
+### create a test environment
 - Create the database using the psql command `CREATE DATABASE chitter_test;`
 - Connect to the database using the pqsl command `\c chitter_test;`
 - Run the query we have saved in the file 01_create_peeps_table.sql
