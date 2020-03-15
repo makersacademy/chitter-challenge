@@ -82,6 +82,10 @@ Known issues:
 Future developments
 ---
 1. Allow users to add a user handle when they register.
-2. Add capability to heart peeps you like
-3. Add capability to reply to peeps
-3. Add CSS.
+2. Add some more buttons to assist with navigating:
+  - On register page add a back button
+  - On log in page add a sign up button (or maybe as a link)
+3. Add capability to heart peeps you like
+4. Add capability to reply to peeps
+5. Add CSS
+6. Tests could be refactored - currently there's a lot of repetition

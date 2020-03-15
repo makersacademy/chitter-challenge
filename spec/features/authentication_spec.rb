@@ -1,6 +1,6 @@
 feature 'authentication' do
   scenario 'a user can sign in' do
-    User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+    User.create(name: 'Josie', handle: 'JCV19', email: 'test@example.com', password: 'password123')
 
     # Then sign in as them:
     visit '/sessions/new'
@@ -12,7 +12,7 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their email wrong' do
-    User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+    User.create(name: 'Josie', handle: 'JCV19', email: 'test@example.com', password: 'password123')
 
     visit '/sessions/new'
     fill_in :email, with: 'nottherightemail@example.com'
@@ -24,7 +24,7 @@ feature 'authentication' do
   end
 
   scenario 'a user sees an error if they get their password wrong' do
-    User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+    User.create(name: 'Josie', handle: 'JCV19', email: 'test@example.com', password: 'password123')
 
     visit '/sessions/new'
     fill_in :email, with: 'test@example.com'
@@ -36,7 +36,7 @@ feature 'authentication' do
   end
 
   scenario 'a user can sign out' do
-    User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+    User.create(name: 'Josie', handle: 'JCV19', email: 'test@example.com', password: 'password123')
 
     # Then sign in as them:
     visit '/sessions/new'
@@ -48,6 +48,6 @@ feature 'authentication' do
     click_button 'Log out'
 
     expect(page).not_to have_content "Welcome, Josie"
-    expect(page).to have_content "You have signed out"
+    expect(page).to have_content "You have logged out"
   end
 end

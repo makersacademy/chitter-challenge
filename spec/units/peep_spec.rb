@@ -4,7 +4,7 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      user = User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+      user = User.create(name: 'Josie', handle: 'JCV19', email: 'test@example.com', password: 'password123')
       peep = Peep.create(peep: 'The news is depressing', user_id: user.id)
       all_peeps = DatabaseConnection.query("SELECT * FROM peeps;")
       expect(peep).to be_a Peep
@@ -17,7 +17,7 @@ describe Peep do
 
   describe '.all' do
     it 'creates a list of peep instances in chronological order' do
-      user = User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+      user = User.create(name: 'Josie', handle: 'JCV19', email: 'test@example.com', password: 'password123')
       Peep.create(peep: 'The news is depressing', user_id: user.id)
       Peep.create(peep: 'And yet my cats are unfazed', user_id: user.id)
 

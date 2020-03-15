@@ -2,7 +2,7 @@ feature 'adding and viewing peeps' do
 
   feature 'a user can add and then view a peep' do
     scenario 'a user adds a peep' do
-      User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+      User.create(name: 'Josie', handle: 'JCV19', email: 'test@example.com', password: 'password123')
 
       # Then sign in as them:
       visit '/sessions/new'
