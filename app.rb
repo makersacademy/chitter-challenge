@@ -3,7 +3,7 @@ require 'sinatra/flash'
 require 'uri'
 require './database_connection_setup'
 require './lib/user'
-# require './lib/peep'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -13,8 +13,14 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     # fetch the user from the database, using an ID stored in the session
     @user = User.find(session[:user_id])
-    # @peeps = Peep.all
+    @peeps = Peep.all
+    p @peeps
     erb :index
+  end
+
+  get '/peeps/new' do
+    Peep.create(peep: params[:peep], user_id: session[:user_id])
+    redirect '/peeps'
   end
 
   get '/users/new' do

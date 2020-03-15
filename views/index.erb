@@ -1,10 +1,36 @@
 <% if @user %>
-  <h1>Welcome, <%= @user.name %> </h1>
+  <h1>Welcome <%= @user.name %>!</h1>
+
   <form action='sessions/destroy' method="post" >
     <input type="submit" value="Sign out">
   </form>
+
+  <form action='/peeps/new' method="get">
+    <input type='text' name="peep" placeholder="What's happening?">
+    <input type='submit' value="Peep">
+  </form>
+
 <% end %>
 
 <h2>
   <%= flash[:notice] %>
 </h2>
+
+<% unless @user %>
+  <form action='/sessions/new'>
+    <input type='submit' value="Log in">
+  </form>
+  <form action='/users/new'>
+    <input type='submit' value="Sign up">
+  </form>
+<% end %>
+
+<% unless @peeps.empty? %>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li class='peep'>
+        <p><%= peep.peep %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

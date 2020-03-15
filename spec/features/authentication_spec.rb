@@ -8,7 +8,7 @@ feature 'authentication' do
     fill_in :password, with: 'password123'
     click_button 'Sign in'
 
-    expect(page).to have_content "Welcome, Josie"
+    expect(page).to have_content "Welcome Josie"
   end
 
   scenario 'a user sees an error if they get their email wrong' do
@@ -19,7 +19,7 @@ feature 'authentication' do
     fill_in :password, with: 'password123'
     click_button 'Sign in'
 
-    expect(page).not_to have_content "Welcome, Josie"
+    expect(page).not_to have_content "Welcome Josie"
     expect(page).to have_content "Please check your email or password"
   end
 
@@ -31,7 +31,7 @@ feature 'authentication' do
     fill_in :password, with: 'wrongpassword'
     click_button 'Sign in'
 
-    expect(page).not_to have_content "Welcome, Josie"
+    expect(page).not_to have_content "Welcome Josie"
     expect(page).to have_content "Please check your email or password"
   end
 
