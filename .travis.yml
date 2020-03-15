@@ -8,10 +8,10 @@ services:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-  - psql 'CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60), name VARCHAR(60), email VARCHAR(60), password VARCHAR(140));'
-  - psql 'ALTER TABLE users ADD CONSTRAINT unique_email UNIQUE (email);''
-  - psql 'ALTER TABLE users ADD CONSTRAINT unique_username UNIQUE (username);'
-  - psql 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(255), created_at TIMESTAMP DEFAULT NOW(), user_id INTEGER REFERENCES users (id));'
+  - psql -d chitter_test -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(60), name VARCHAR(60), email VARCHAR(60), password VARCHAR(140));' -U postgres
+  - psql -d chitter_test -c 'ALTER TABLE users ADD CONSTRAINT unique_email UNIQUE (email);' -U postgres
+  - psql -d chitter_test -c 'ALTER TABLE users ADD CONSTRAINT unique_username UNIQUE (username);' -U postgres
+  - psql -d chitter_test -c 'CREATE TABLE peeps(id SERIAL PRIMARY KEY, text VARCHAR(255), created_at TIMESTAMP DEFAULT NOW(), user_id INTEGER REFERENCES users (id));' -U postgres
   
 script:
   - bundle exec rspec
