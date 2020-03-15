@@ -7,6 +7,8 @@ class ChitterManager < Sinatra::Base
 
   register Sinatra::ActiveRecordExtension
 
+  enable :sessions
+
   configure :development do
     set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'chitter'}
   end
@@ -27,6 +29,14 @@ class ChitterManager < Sinatra::Base
   post '/new' do
     Message.create(content: params[:content], time_created: Time.now)
     redirect('/')
+  end
+
+  get '/login' do
+    erb :register
+  end
+
+  post '/login' do
+
   end
 
   run! if app_file == $0
