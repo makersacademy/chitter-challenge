@@ -6,8 +6,15 @@ describe Message do
     expect(Message.create).to be_a Message
   end
 
+  before(:each) do
+    @message = Message.create(content: "this is a test peep", time_created: Time.now)
+  end
+
   it 'should have content' do
-    message = Message.create(content: "this is a test peep", time_created: Time.now)
-    expect(message.content).to eq "this is a test peep"
+    expect(@message.content).to eq "this is a test peep"
+  end
+
+  it 'should have a time stamp' do
+    expect(@message).to have_attribute (:time_created)
   end
 end
