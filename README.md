@@ -4,6 +4,7 @@ Chitter Challenge
 Challenge:
 -------
 
+
 Features:
 -------
 
@@ -14,7 +15,7 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a Maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
@@ -46,7 +47,39 @@ I want to receive an email if I am tagged in a Peep
 Technical Approach:
 -----
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
+Integrated the databases using active record.  
+
+The MVC should look like:
+
+Views and Routes -
+
+index
+
+/ - homepage, with list of peeps in reverse chronological order, login button, new peep button
+
+new
+
+/:id/new - form to enter a new peep, saves the time and id and content, redirect to homepage
+
+login
+
+/login - where users can login, if they don't already have an account
+
+register
+
+/:id/registration - where users can create a new user account. Form collects, name, user name, assigns a user id and takes and email and password. redirects to homepage 'logged in view'
+
+/:user_id/account
+displays just the peeps and details of a specific user
+
+Models -
+
+User and Message
+
+User contains all of the information regarding the user - their name and login details, is responsible for speaking to the users table in the database.
+
+Message is responsible for fetching the messages, fetching messages of a certain user and for adding new messages to the database with their timestamp, user details and content
+
 
 Notes on functionality:
 ------
@@ -61,32 +94,17 @@ id | content | time_created | user_id
 Users
 id | email | password | name
 
-User_id is a foreign key that links to the Users id.
+User_id is a foreign key that links to the Users id and maps the one to many relationship.
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+## Models
 
-Bonus:
------
+Integrated my databases using ActiveRecord. Cleared test databases with PG and SQL.
 
-If you have time you can implement the following:
+Used the following resources to setup and drive my first ActiveRecord application:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+https://guides.rubyonrails.org/active_record_basics.html
+https://github.com/sinatra-activerecord/sinatra-activerecord
 
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
 Automated Tests:
 -----
@@ -97,23 +115,3 @@ If you want a green tick against your pull request you'll need to configure Trav
 
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!

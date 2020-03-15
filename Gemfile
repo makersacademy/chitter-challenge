@@ -6,7 +6,8 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'rake'
-  gem 'capybara'
+  gem 'capybara', require: false
   gem 'sinatra'
   gem 'pg'
+  gem "sinatra-activerecord"
 end
