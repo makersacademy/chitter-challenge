@@ -1,5 +1,7 @@
 require "sinatra/activerecord"
 require './spec/setup_database_test'
+require './lib/message'
+require './lib/user'
 
 class ChitterManager < Sinatra::Base
 
@@ -14,7 +16,17 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    @messages = Message.all
+    erb :index
+  end
+
+  get '/new' do
+    erb :new
+  end
+
+  post '/new' do
+    Message.create(content: params[:content], time_created: Time.now)
+    redirect('/')
   end
 
   run! if app_file == $0

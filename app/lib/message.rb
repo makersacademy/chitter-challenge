@@ -1,3 +1,4 @@
-class Message
+
+class Message < ActiveRecord::Base
 
 end

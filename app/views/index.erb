@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id ="heading">
+    <h1>Chitter</h1>
+    <form action="/new" method="get">
+      <input type="submit" value="Peep"/>
+      </form>
+      <form action='/login' method="get">
+        <input type="submit" value="Login"/>
+      </form>
+    </div>
+      <ul>
+        <% @messages.each do | message | %>
+          <li class="peep"><%=message.content%>
+            <%=message.time_created%>
+            </li>
+        </ul>
+      <%end%>
+    </body>
+</html>
