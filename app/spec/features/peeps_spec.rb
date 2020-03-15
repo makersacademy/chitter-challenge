@@ -1,16 +1,19 @@
 require_relative '../helpers'
+require 'message'
 
 feature 'peeps' do
 
   scenario 'should list all peeps' do
-  create_peep
-  expect(page).to have_content("this is a test peep")
+    create_peep
+    expect(page).to have_content("this is a test peep")
   end
 
-  xscenario 'should list all peeps in reverse chronological order' do
+  scenario 'should list all peeps in reverse chronological order' do
     create_peep
-    Message.create(content: "another test peep", time_created: Time.now)
-    expect(page).to have_content
+    visit('/new')
+    fill_in('content', with: "another test peep")
+    click_button("Submit")
+    expect(first('.peep')).to have_content "another test peep"
   end
 
   scenario 'should create peep' do
