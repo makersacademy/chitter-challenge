@@ -17,4 +17,12 @@ describe Peeps do
       expect(peeps).to include("test peep 3")
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      Peeps.create(peep: 'test peep 4')
+
+      expect(Peeps.all).to include  'test peep 4'
+    end
+  end
 end
