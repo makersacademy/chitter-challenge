@@ -13,6 +13,10 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/chitter/sign_up' do
+    # @name = params[:name]
+    # @username = params[:username]
+    # @email = params[:email]
+    # @password = params[:password]
     redirect '/chitter/user'
   end
 
@@ -26,7 +30,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/chitter/post_peep' do
-    Chitter.post_peep(peep: params[:peep], post_time: Time.now.strftime('%H:%M'), post_date: Date.today)
+    Chitter.post_peep(peep: params[:peep], post_time: Peep.time, post_date: Peep.date)
     redirect '/chitter/user'
   end
 

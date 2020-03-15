@@ -19,10 +19,13 @@ We are going to write a small Twitter clone that will allow the users to post me
 - Create the database using the psql command `CREATE DATABASE chitter;`
 - Connect to the database using the pqsl command `\c chitter;`
 - Run the query we have saved in the file 01_create_peeps_table.sql
+- Run the query we have saved in the file 02_create_users_table.sql
+
 # create a test environment
 - Create the database using the psql command `CREATE DATABASE chitter_test;`
 - Connect to the database using the pqsl command `\c chitter_test;`
 - Run the query we have saved in the file 01_create_peeps_table.sql
+- Run the query we have saved in the file 02_create_users_table.sql
 
 
 Features:

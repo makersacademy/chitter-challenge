@@ -1,8 +1,8 @@
-<p> Hello SuperCactus </p>
+<h2> Hello SuperCactus </h2>
 
 <p> <button> <a href='/chitter/post_peep'> Post Peep </a> </button> </p>
 
-<p> PEEP, PEEP, PEEP LIST </p>
+<h3> PEEP, PEEP, PEEP LIST </h3>
 <ul>
   <% @peeps.reverse.each do |peep| %>
   <li> <b> <%= peep.peep %> </b> <i> Posted on <%= peep.post_date %> at <%= peep.post_time %> </i> </li>
