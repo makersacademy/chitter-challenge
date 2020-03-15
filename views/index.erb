@@ -29,7 +29,8 @@
   <ul>
     <% @peeps.each do |peep| %>
       <li class='peep'>
-        <p><%= peep.peep %></p>
+        <p> <b><%= peep.user_name %></b> <%= peep.date %></br>
+        <%= peep.peep %></p>
       </li>
     <% end %>
   </ul>

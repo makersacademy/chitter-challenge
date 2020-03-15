@@ -14,7 +14,6 @@ class Chitter < Sinatra::Base
     # fetch the user from the database, using an ID stored in the session
     @user = User.find(session[:user_id])
     @peeps = Peep.all
-    p @peeps
     erb :index
   end
 
