@@ -6,10 +6,11 @@ rvm:
 services:
   - postgresql
 
+before_install:
+  - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
   - psql -c 'CREATE DATABASE chitter_test;' -U postgres
-  - bundle exec db:migrations
 
 script:
-  - bundle exec rspec
+  - mkdir -p spec && bundle exec rspec spec
