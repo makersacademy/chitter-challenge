@@ -22,8 +22,9 @@
         null,
         null,
         1,
-        4,
-        4,
+        5,
+        5,
+        5,
         null,
         null,
         1,
@@ -36,11 +37,13 @@
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
-        null,
+        1,
+        1,
+        1,
         null,
         null,
         1,
@@ -54,6 +57,7 @@
       ],
       "/Users/student/Documents/projects/week_4/chitter-challenge/app/lib/user.rb": [
         null,
+        1,
         1,
         1,
         null
@@ -94,14 +98,14 @@
       "/Users/student/Documents/projects/week_4/chitter-challenge/app/spec/features/user_login_spec.rb": [
         1,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
-        0,
+        1,
         null,
         null
       ],
@@ -128,6 +132,6 @@
         null
       ]
     },
-    "timestamp": 1584281027
+    "timestamp": 1584285391
   }
 }

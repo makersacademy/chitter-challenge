@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id ="heading">
+    <div id="heading">
     <h1>Chitter</h1>
     <form action="/new" method="get">
       <input type="submit" value="Peep"/>
@@ -12,6 +12,10 @@
       <form action='/login' method="get">
         <input type="submit" value="Login"/>
       </form>
+    <div id="login_details">
+      <% if @user %>
+      <%=@user.username%> <%=@user.email%>
+      <%end%>
     </div>
       <ul>
         <% @messages.each do | message | %>

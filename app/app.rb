@@ -19,6 +19,7 @@ class ChitterManager < Sinatra::Base
 
   get '/' do
     @messages = Message.order(time_created: :desc)
+    @user = session[:user]
     erb :index
   end
 
@@ -36,7 +37,9 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/login' do
-
+    @user = User.create(name: params[:name], email: params[:email],password: params[:password], username: params[:username])
+    session[:user] = @user
+    redirect('/')
   end
 
   run! if app_file == $0
