@@ -1,5 +1,8 @@
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
 <% end %>
 <ul>
   <% @peeps.each do |peep| %>
@@ -7,3 +10,6 @@
     <li><%= peep.time %></li>
   <% end %>
 </ul>
+<h2>
+ <%= flash[:notice] %>
+</h2>
