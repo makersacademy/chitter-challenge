@@ -16,8 +16,9 @@ class Peep
 
   def self.all
     peeps = DatabaseConnection.query('SELECT * FROM peeps')
-    peeps.map do |peep|
+    result = peeps.map do |peep|
       Peep.new(id: peep['id'], text: peep['text'], time: peep['time'])
     end
+    result.sort_by { |peep| -Time.parse(peep.time).to_i }
   end
 end
