@@ -7,6 +7,20 @@ Challenge:
 
  Built with Ruby, Sinatra, ActiveRecord and tested with Rspec and Capybara.
 
+
+ #### Master branch build status:
+ ![](https://travis-ci.org/naeglinghaff/chitter-challenge.svg?branch=master)
+
+
+ ## Setup
+
+ ```
+ $ git clone https://github.com/naeglinghaff/chitter_challenge
+ $ bundle
+ $ rspec
+ $ rackup
+ ```
+
 Features:
 -------
 The web application should address the following user stories:
@@ -103,16 +117,3 @@ https://github.com/sinatra-activerecord/sinatra-activerecord
 Added helpers to my Capybrara feature tests to help keep them DRY.
 
 Had some issues midway through the project with travis builds. Updated the YAML to correct the database setup and SQL queries that were causing the builds to fail.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-#### Master branch build status:
-![](https://travis-ci.org/naeglinghaff/chitter-challenge.svg?branch=master)
