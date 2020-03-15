@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Chitter: Where we never steal other people's intellectual property</title>
+</head>
+<body>
+    <p>
+        <% if @user != nil%>
+        Hello <%=@user.name%>
+        <% end %>
+    </p>
+    <form action="/register" method="get">
+        <input type="submit" value="Register">
+    </form>
+    <div>
+        <% @messages.each do |message|%>
+        <p><%= message.content %></p>
+        <p><%= message.time.to_s%></p>
+        <% end %>
+    </div>
+</body>
+</html>
