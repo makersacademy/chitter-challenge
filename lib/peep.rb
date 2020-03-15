@@ -3,7 +3,7 @@ require_relative 'database_connection'
 class Peep
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps;")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY time DESC;")
 
     result.map { |peep| peep['peep'] }
   end

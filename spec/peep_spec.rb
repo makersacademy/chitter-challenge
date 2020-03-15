@@ -3,18 +3,17 @@ require 'peep'
 describe Peep do
 
   describe ".all" do
-    it 'returns a list of peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
+    it 'returns peeps in reverse chronologial order' do
+      PG.connect(dbname: 'chitter_test')
 
-       Peep.create(peep: 'this is a peep about a cat')
-       Peep.create(peep: 'the cat is soft and fluffy')
-       Peep.create(peep: 'and if you die, it will eat your face')
+      Peep.create(peep: 'this is a peep about a cat')
+      Peep.create(peep: 'the cat is soft and fluffy')
+      Peep.create(peep: 'and if you die, it will eat your face')
 
       peeps = Peep.all
 
-      expect(peeps).to include('this is a peep about a cat')
-      expect(peeps).to include('the cat is soft and fluffy')
-      expect(peeps).to include('and if you die, it will eat your face')
+      expect(peeps.first).to eq('and if you die, it will eat your face')
+      expect(peeps.last).to eq('this is a peep about a cat')
     end
   end
 

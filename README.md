@@ -10,6 +10,11 @@ As a Maker
 So that I can let people know what I am doing
 I want to post a peep to chitter
 ```
+```
+As a Maker
+So that I can see what others are saying
+I want to see all peeps in reverse chronological order
+```
 
 ## Domain Model
 
