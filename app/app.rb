@@ -16,7 +16,7 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/' do
-    @messages = Message.all
+    @messages = Message.order(time_created: :desc)
     erb :index
   end
 
