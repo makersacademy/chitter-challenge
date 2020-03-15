@@ -10,11 +10,11 @@ class ChitterManager < Sinatra::Base
   enable :sessions
 
   configure :development do
-    set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'chitter'}
+    set :database, { adapter: 'postgresql',  encoding: 'unicode', database: 'chitter' }
   end
 
   configure :test do
-    set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'chitter_test'}
+    set :database, { adapter: 'postgresql',  encoding: 'unicode', database: 'chitter_test' }
   end
 
   get '/' do
@@ -50,7 +50,7 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/register' do
-    @user = User.create(name: params[:name], email: params[:email],password: params[:password], username: params[:username])
+    @user = User.create(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
     session[:user] = @user
     redirect('/')
   end

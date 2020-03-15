@@ -1,6 +1,6 @@
 feature 'registration' do
-   scenario 'user can setup an account' do
-     register
+  scenario 'user can setup an account' do
+    register
 
     expect(page).to have_content('testusername', 'testemail@gmail.com')
   end

@@ -15,6 +15,6 @@ describe Message do
   end
 
   it 'should have a time stamp' do
-    expect(@message).to have_attribute (:time_created)
+    expect(@message).to have_attribute :time_created
   end
 end
