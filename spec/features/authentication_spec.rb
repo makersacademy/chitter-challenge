@@ -1,5 +1,5 @@
 feature 'authentication' do
-  it 'a user can sign in' do
+  scenario 'a user can sign in' do
     User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
 
     # Then sign in as them:
@@ -11,7 +11,7 @@ feature 'authentication' do
     expect(page).to have_content "Welcome, Josie"
   end
 
-  it 'a user sees an error if they get their email wrong' do
+  scenario 'a user sees an error if they get their email wrong' do
     User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
 
     visit '/sessions/new'
@@ -23,7 +23,7 @@ feature 'authentication' do
     expect(page).to have_content "Please check your email or password"
   end
 
-  it 'a user sees an error if they get their password wrong' do
+  scenario 'a user sees an error if they get their password wrong' do
     User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
 
     visit '/sessions/new'
@@ -32,6 +32,22 @@ feature 'authentication' do
     click_button 'Sign in'
 
     expect(page).not_to have_content "Welcome, Josie"
-    expect(page).to have_content "Please check your email or password"    
+    expect(page).to have_content "Please check your email or password"
+  end
+
+  scenario 'a user can sign out' do
+    User.create(name: 'Josie', email: 'test@example.com', password: 'password123')
+
+    # Then sign in as them:
+    visit '/sessions/new'
+    fill_in :email, with: 'test@example.com'
+    fill_in :password, with: 'password123'
+    click_button 'Sign in'
+
+    # Then sign out
+    click_button 'Sign out'
+
+    expect(page).not_to have_content "Welcome, Josie"
+    expect(page).to have_content "You have signed out"
   end
 end
