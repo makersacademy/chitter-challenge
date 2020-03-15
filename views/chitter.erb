@@ -1,5 +1,7 @@
+<button> <a href='/chitter/sign_up'> Sign Up </a> </button>
+
 <ul>
   <% @peeps.reverse.each do |peep| %>
-  <li> <%= peep.peep %> Posted on: <%= peep.post_date %> at: <%= peep.post_time %> </li>
+  <li> <b> <%= peep.peep %> </b> <i> Posted on <%= peep.post_date %> at <%= peep.post_time %> </i> </li>
   <% end %>
 </ul>

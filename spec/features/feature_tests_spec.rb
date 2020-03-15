@@ -1,6 +1,6 @@
 require 'pg'
 
-feature 'Seeing peeps' do
+feature 'Main Page /chitter' do
   scenario 'I want to see all peeps in chitter in reverse chronological order' do
   #   connection = PG.connect(dbname: 'chitter_test')
   #   connection.exec("INSERT INTO peeps (peep) VALUES ('I am the first peep');")
@@ -24,9 +24,14 @@ feature 'Seeing peeps' do
     expect(page).to have_content '12:00'
     expect(page).to have_content '2020-03-14'
   end
+
+  scenario 'I want to see a sign up button that takes me to a form' do
+    visit('/chitter')
+    expect(page).to have_link('Sign Up', href: '/chitter/sign_up')
+  end
 end
 
-feature 'Posting a peep' do
+feature 'Page Post_Peep' do
   scenario 'I can post a peep in chitter' do
     Chitter.post_peep(peep: 'I am a posted peep', post_time: '12:00', post_date: '2020-03-14')
 
@@ -36,5 +41,17 @@ feature 'Posting a peep' do
     expect(page).to have_content 'I am a posted peep'
     expect(page).to have_content '12:00'
     expect(page).to have_content '2020-03-14'
+  end
+
+  feature 'Page Sign_Up' do
+    scenario 'I want to sign up for chitter' do
+      visit('/chitter/sign_up')
+      fill_in 'name', with: 'Evaristo'
+      fill_in 'username', with: 'SuperCactus'
+      fill_in 'email', with: 'evaristo@supercactus.com'
+      fill_in 'password', with: 'itsasecret'
+      click_button 'submit'
+      expect(page).to have_content 'Hello SuperCactus'
+    end
   end
 end
