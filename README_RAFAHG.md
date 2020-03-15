@@ -81,3 +81,66 @@ At this poing peeps.erb is implemented with the html and ruby code to show prope
 At this point i am making my forth commit.
 
 ------------------------------------------------------------------------------
+## FITH STEP. CREATING DATABASES
+
+- In this step of the web app implementation i will create the databases and the test enviroment for them.
+
+    ----INTRUCTIONS TO CREATE THE DATA BASES-----
+
+    1. First of all get into psql and type the following
+       ```
+       > CREATE DATABASE chitter;
+       > CREATE TABLE peeps (id SERIAL PRIMARY KEY, body VARCHAR(200));
+       ```
+    2. Repeat the process for the test database.
+      ```
+      > CREATE DATABASE chitter_test;
+      > \c chitter_test
+      > CREATE TABLE peeps (id SERIAL PRIMARY KEY, body VARCHAR(200));
+      ```
+    3. Once the above is done we have 2 databases, one for the real app and the other one for testing purposes.
+
+    The carachteristics of both of them are stored by me previously in:
+      - db/migrations/01_create_chitter_database.sql
+      - db/migrations/02_create_chitter_test_database.sql
+
+      --- SETTING THE TEST ENVIROMENT ---
+
+      1. In spec/spec_helper.rb
+
+         ```
+         require_relative './setup_test_database'
+         ENV['ENVIROMENT'] = 'test'
+         RSpec.configure do |config|
+           config.before(:each) do
+             setup_test_database
+           end
+          end
+
+### rest of the file ###
+
+            ```
+        2. in spec/setup_test_database.rb
+
+           ```
+           require 'pg'
+
+           def setup_test_database
+
+           connection = PG.connect(dbname: 'chitter_test')
+
+           connection.exec("TRUNCATE chitter_test;")
+
+           end
+           ```
+
+  ----------------------------------------------------------------------------
+
+   Once the databases and the test enviroment is configured it is time to run the test(which are going to fail horrendously) and refactor the code to move forward from a hardcoding mode a database mode.
+
+     As it is possible to see in the code of this commit, the Peep class have been refactored to reference to the database as the tests in a similar way.
+    At the end of this step it is possible to test the database proper functionality and i am ready to implement methods to add data to the dababase and test it.
+
+    At this point i am making my fith commit.
+
+    --------------------------------------------------------------------------
