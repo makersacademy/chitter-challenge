@@ -7,21 +7,22 @@
 <main>
   <header>
     <h1> Chitter </h1>
+    <img src="images/peeper.png" class="peeper">
   </header>
 
-  <nav>
+  <section class="wrapper">
     <form action="/users/new" method="get">
-      <input type="submit" value="Sign up" />
+      <input type="submit" value="Sign up" class="hover-form" />
     </form>
 
     <form action="/sessions" method="post">
-      <input type="submit" value="Sign in" />
+      <input type="submit" value="Sign in" class="hover-form"/>
     </form>
 
     <form action="/sessions/destroy" method="post">
-        <input type="submit" value="Sign out" />
+        <input type="submit" value="Sign out" class="hover-form"/>
     </form>
-  </nav>
+  </section>
 
   <body>
 
@@ -37,23 +38,23 @@
           <input name="text" type="text" maxlength="255">
           <input type="hidden" name="user_id" value="<%= session[:user_id] %>">
           <br>
-          <input value="Submit" type="submit" />
+          <input value="Submit" type="submit" class="hover-form"/>
         </form>
       </section>
     <% end %>
 
     <section>
       <% @peeps.reverse.each do |peep| %>
-          
-        <% peep.users.each do |user| %>
+        <label>     
+        "<%= peep.text %>"
+        <br>
+        - <% peep.users.each do |user| %>
           <%= user.username %>
         <% end %>
-
-        <br>    
-        <%= peep.text %>
         <br>
         <%= peep.created_at %>
         </p>
+        </label>
       <% end %>
     </section>
 

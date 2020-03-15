@@ -38,7 +38,7 @@ class Peep
 
   def self.where(user_id:)
     result = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = #{user_id};")
-    result.map do |_peep|
+    result.map do |peep|
       Peep.new(
       id: result[0]['id'],
       text: result[0]['text'],
@@ -47,6 +47,10 @@ class Peep
       )
     end
   end
+
+  def date(created_at:)
+    DatabaseConnection.query("SELECT TO_CHAR("created_at", 'HH24:MI DD-MM-YY') FROM peeps WHERE created_at = #{created_at};")
+  end  
 
   def users(user_class = User)
     user_class.where(user_id: user_id)

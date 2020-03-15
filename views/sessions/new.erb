@@ -1,11 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/chitter_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Autour+One|Delius+Unicase&display=swap" rel="stylesheet">
+  </head> 
+
+  <header>
+    <h1> Chitter </h1>
+    <img src="./images/peeper.png" class="peeper">
+  </header>
+
+<main>
+<body>
+<section class="signing">
 <form action="/sessions" method="post">
-  Email:
+  <label>
+  Email: 
   <input type="email" name="email" />
-  Password:
+  </label>
+  <label>
+  Password: 
   <input type="password" name="password" />
-  <input type="submit" value="Sign in" />
+  </label>
+  <input type="submit" value="Sign in" class="hover-form"/>
 </form>
+</section>
 
 <h2>
   <%= flash[:notice] %>
 </h2>
+</body>
+</main>
