@@ -6,3 +6,5 @@ before_script:
 
 script:
   - bundle exec rspec
+
+  language: ruby
