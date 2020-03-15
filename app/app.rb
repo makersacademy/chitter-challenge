@@ -33,6 +33,7 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/login' do
+    @user = session[:user]
     erb :register
   end
 

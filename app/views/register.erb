@@ -3,7 +3,12 @@
 <head>
   </<head>
   <body>
+    <% if @user%>
+    <h1> Welcome back <%=@user.username%> </h1>
+    <h2> Here are your tweets </h2>
+    <% else %>
     <h1>Login or create a new account</h1>
+    <% end %>
     <form action="/login" method="post">
       <input type="text" name="email" placeholder="Enter your email"/>
       <input type="text" name="name" placeholder="Enter your name"/>
