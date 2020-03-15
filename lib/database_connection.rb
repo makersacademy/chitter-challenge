@@ -10,4 +10,8 @@ class DatabaseConnection
     @connection.exec(sql)
   end
 
+  def self.prepare(text)
+    @connection.escape(text)
+  end
+
 end

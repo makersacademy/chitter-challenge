@@ -1,6 +1,8 @@
 class Peep
 
   def self.create(peep:, user_id:)
+    peep = DatabaseConnection.prepare(peep)
+    p peep
     result = DatabaseConnection.query("INSERT INTO peeps (peep, user_id) VALUES('#{peep}', '#{user_id}') RETURNING id, peep, date;")
     user = User.find(user_id)
     Peep.new(
