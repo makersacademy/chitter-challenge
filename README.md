@@ -81,11 +81,12 @@ Known issues:
 
 Future developments
 ---
-1. Allow users to add a user handle when they register.
-2. Add some more buttons to assist with navigating:
+1. Add some more buttons to assist with navigating:
   - On register page add a back button
   - On log in page add a sign up button (or maybe as a link)
+2. Allow customers to delete their own peeps
 3. Add capability to heart peeps you like
-4. Add capability to reply to peeps
+4. Add capability to reply to peeps and start a thread
+5. Be able to load pictures / gifs and videos
 5. Add CSS
 6. Tests could be refactored - currently there's a lot of repetition
