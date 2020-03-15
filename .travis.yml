@@ -6,15 +6,10 @@ rvm:
 services:
   - postgresql
 
-  addons:
-  postgresql: '9.4'
-  apt:
-    packages:
-      - postgresql-server-dev-9.4
-
 
 before_script:
-  - psql -c 'CREATE DATABASE chitter_test;' -U postgres
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
 
 script:
   - bundle exec rspec
