@@ -7,6 +7,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/chitter' do 
+    p ENV
     @peeps = Peep.read
     erb :'chitter/index'
   end
