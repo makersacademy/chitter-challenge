@@ -15,5 +15,17 @@ class Chitter < Sinatra::Base
     erb :"view-peeps"
   end
 
+  get '/new-peep' do
+    erb :"new-peep"
+  end
+
+  post '/view-peeps' do
+    # p params
+    # puts "Form data submitted to the /view-peeps route"
+    peep = params['peep']
+    
+  
+  end
+
   run! if app_file == $0
 end
