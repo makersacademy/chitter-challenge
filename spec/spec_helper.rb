@@ -1,5 +1,14 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'rspec'
+require 'sinatra'
+require 'rubocop'
+require 'capybara'
+require 'selenium-webdriver'
+require 'capybara/rspec'
+
+
+ENV['ENVIRONMENT'] = 'test'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -15,3 +24,6 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+Capybara.app = ChitterChallenge
