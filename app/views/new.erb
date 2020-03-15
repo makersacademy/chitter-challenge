@@ -3,10 +3,14 @@
 <head>
   </<head>
   <body>
+    <%if @user %>
     <h1>Peep your heart out</h1>
     <form action="/new" method="post">
       <input type="text" name="content" placeholder="Peep goes here"/>
       <input type="submit" value="Submit"/>
       </form>
+      <%else%>
+      <a href='/login'>Please login to peep</a>
+      <%end%>
     </body>
   </html>

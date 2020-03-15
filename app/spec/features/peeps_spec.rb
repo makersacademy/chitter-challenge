@@ -4,11 +4,13 @@ require 'message'
 feature 'peeps' do
 
   scenario 'should list all peeps' do
+    register
     create_peep
     expect(page).to have_content("this is a test peep")
   end
 
   scenario 'should list all peeps in reverse chronological order' do
+    register
     create_peep
     visit('/new')
     fill_in('content', with: "another test peep")
@@ -17,6 +19,7 @@ feature 'peeps' do
   end
 
   scenario 'should create peep' do
+    register
     create_peep
     expect(page).to have_content("this is a test peep")
   end
