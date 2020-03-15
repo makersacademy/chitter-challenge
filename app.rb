@@ -19,11 +19,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
+    # now the peep is stored in a session param when the form is filled
+    # with the peep.
+    session[:peep] = params[:peep]
     redirect '/peeps'
   end
 
   get '/peeps' do
-    "New peep posted"
+    # what we see now in peeps is the message, storaged in the session param,
+    # i call that value and pass it to to the view in peeps.erb, which is
+    # referenced in the line below (erb :peeps)
+    @peeps = session[:peep]
+    erb :peeps
   end
 
 run! if app_file == $0

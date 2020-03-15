@@ -56,3 +56,19 @@ At this point, all the test are passing and the web app is able to send a peep a
 
  - At this point i am making my second commit.
 -------------------------------------------------------------------------------
+
+## THIRD STEP.
+
+In this step i am starting to refactor the MVC, i want at this point that the user can insert as many peeps as he wants. At this poing i am gonna create a hard code just for the 3 initial messages, which will be displayed in the screen.
+To do that i created a separated class with a method which return an array of 3 messages.
+The array have been tested, and of course at this stage the test are failing because, just to show the difference in the code in smaller steps i am not going to implement the views code.
+
+So at this point:
+
+- Class Peep has been created. in peep.rb
+- Test for the method #posted_peeps has been implemented.
+- Feature test for peeps.erb showing the very fist message has been implemented.
+
+At this point i am making my third commit.
+
+-------------------------------------------------------------------------------
