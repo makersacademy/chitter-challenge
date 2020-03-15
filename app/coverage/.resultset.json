@@ -35,6 +35,7 @@
         1,
         4,
         4,
+        4,
         null,
         null,
         1,
@@ -68,7 +69,6 @@
         null
       ],
       "/Users/student/Documents/projects/week_4/chitter-challenge/app/lib/user.rb": [
-        1,
         null,
         1,
         1,
@@ -198,6 +198,6 @@
         null
       ]
     },
-    "timestamp": 1584292546
+    "timestamp": 1584292896
   }
 }

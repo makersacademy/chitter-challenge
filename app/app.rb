@@ -29,7 +29,8 @@ class ChitterManager < Sinatra::Base
   end
 
   post '/new' do
-    Message.create(content: params[:content], time_created: Time.now, user_id: params[:user])
+    @user = session[:user]
+    Message.create(content: params[:content], time_created: Time.now, user_id: @user.id)
     redirect('/')
   end
 
