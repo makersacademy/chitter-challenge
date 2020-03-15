@@ -4,11 +4,11 @@ def create_peep
   click_button("Submit")
 end
 
-def login
-  visit('/login')
+def register
+  visit('/register')
   fill_in('username', with: "testusername")
   fill_in('email', with: 'testemail@gmail.com')
   fill_in('name', with: 'testname')
   fill_in('password', with: 'testpassword')
-  click_button("Submit")
+  click_button("Register")
 end

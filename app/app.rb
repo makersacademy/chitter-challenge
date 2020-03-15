@@ -34,10 +34,21 @@ class ChitterManager < Sinatra::Base
 
   get '/login' do
     @user = session[:user]
-    erb :register
+    erb :login
   end
 
   post '/login' do
+    # @user = User.create(name: params[:name], email: params[:email],password: params[:password], username: params[:username])
+    # session[:user] = @user
+    # redirect('/')
+  end
+
+  get '/register' do
+    @user = session[:user]
+    erb :register
+  end
+
+  post '/register' do
     @user = User.create(name: params[:name], email: params[:email],password: params[:password], username: params[:username])
     session[:user] = @user
     redirect('/')
