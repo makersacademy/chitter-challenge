@@ -17,6 +17,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/chitter/user' do
+    @peeps = Chitter.print_peeps
     erb :'/chitter/user'
   end
 
@@ -26,7 +27,7 @@ class ChitterChallenge < Sinatra::Base
 
   post '/chitter/post_peep' do
     Chitter.post_peep(peep: params[:peep], post_time: Time.now.strftime('%H:%M'), post_date: Date.today)
-    redirect '/chitter'
+    redirect '/chitter/user'
   end
 
   run! if app_file == $0

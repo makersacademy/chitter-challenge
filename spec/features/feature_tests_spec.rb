@@ -54,4 +54,25 @@ feature 'Page Post_Peep' do
       expect(page).to have_content 'Hello SuperCactus'
     end
   end
+
+  feature 'Page User' do
+    scenario 'I want to see a welcome username message' do
+      # hardcoded
+    end
+
+    scenario 'I want to see a post peep button that takes me to the form' do
+      visit('/chitter/user')
+      expect(page).to have_link('Post Peep', href: '/chitter/post_peep')
+    end
+
+    scenario 'I want to see all the peeps' do
+      Chitter.post_peep(peep: 'I am the first peep', post_time: '12:00', post_date: '2020-03-14')
+      Chitter.post_peep(peep: 'I am the second peep', post_time: '12:00', post_date: '2020-03-14')
+
+      visit('/chitter/user')
+
+      expect(page).to have_content 'I am the first peep'
+      expect(page).to have_content 'I am the second peep'
+    end
+  end
 end
