@@ -45,7 +45,7 @@ feature 'authentication' do
     click_button 'Log in'
 
     # Then sign out
-    click_button 'Sign out'
+    click_button 'Log out'
 
     expect(page).not_to have_content "Welcome, Josie"
     expect(page).to have_content "You have signed out"
