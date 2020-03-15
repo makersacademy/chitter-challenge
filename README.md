@@ -1,3 +1,30 @@
+***How to set up your Chitter database!***
+
+* Open PSQL
+
+```
+psql
+```
+
+* Type in the following to make a database
+
+```
+CREATE DATABASE chitter;
+```
+
+* Connect to that database
+```
+\c chitter;
+```
+
+* Type in the following to make a table
+
+```
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(250));
+```
+
+
+
 Chitter Challenge
 =================
 
