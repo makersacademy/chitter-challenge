@@ -17,9 +17,14 @@
       <%=@user.username%> <%=@user.email%>
       <%end%>
     </div>
+    </div>
       <ul>
         <% @messages.each do | message | %>
-          <li class="peep"><%=message.content%> |
+          <li class="peep"><%=message.content%> <br>
+            <% @message_id = message.user_id %>
+            <% poster = User.find_by(id: @message_id)%>
+            <%=poster.name%> |
+            <%=poster.username%>
             <%=message.time_created%><br>
             </li>
         </ul>
