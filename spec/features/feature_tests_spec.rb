@@ -51,14 +51,14 @@ feature 'Page Post_Peep' do
       fill_in 'email', with: 'evaristo@supercactus.com'
       fill_in 'password', with: 'itsasecret'
       click_button 'submit'
-      expect(page).to have_content 'Hello SuperCactus'
+      expect(page).to have_content 'Hello User'
     end
   end
 
   feature 'Page User' do
-    scenario 'I want to see a welcome username message' do
-      # hardcoded
-    end
+    # scenario 'I want to see a welcome username message' do
+    #   # hardcoded
+    # end
 
     scenario 'I want to see a post peep button that takes me to the form' do
       visit('/chitter/user')

@@ -18,6 +18,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/chitter/user' do
+    @user = Chitter.sign_up(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     @peeps = Chitter.print_peeps
     erb :'/chitter/user'
   end
