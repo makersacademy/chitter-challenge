@@ -20,11 +20,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/view-peeps' do
-    # p params
-    # puts "Form data submitted to the /view-peeps route"
     peep = params['peep']
-    
-  
+    connection = PG.connect(dbname: 'chitter')
+    connection.exec("INSERT INTO chitter (peep) VALUES ('#{peep}');")
+    redirect '/view-peeps'
   end
 
   run! if app_file == $0
