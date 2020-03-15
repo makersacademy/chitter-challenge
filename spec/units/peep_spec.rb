@@ -22,10 +22,8 @@ describe Peep do
       Peep.create(peep: 'And yet my cats are unfazed', user_id: user.id)
 
       peep = Peep.all
-      # p peep
       expect(peep.first.peep).to eq 'And yet my cats are unfazed'
     end
   end
-
 
 end

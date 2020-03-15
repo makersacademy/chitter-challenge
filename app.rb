@@ -11,10 +11,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/peeps' do
-    # fetch the user from the database, using an ID stored in the session
     @user = User.find(session[:user_id])
     @peeps = Peep.all
-    p @peeps
     erb :index
   end
 
@@ -24,7 +22,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
-    # sign_up form:
     erb :"users/new"
   end
 
@@ -54,7 +51,6 @@ class Chitter < Sinatra::Base
     session.clear
     flash[:notice] = "You have signed out."
     redirect '/peeps'
-    # "HELLO"
   end
 
   run! if app_file == $0

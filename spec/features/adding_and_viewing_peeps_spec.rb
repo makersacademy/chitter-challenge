@@ -14,8 +14,6 @@ feature 'adding and viewing peeps' do
       fill_in 'peep', with: 'The news is depressing'
       click_button 'Peep'
 
-      # This will post to '/peeps/new', create the peep instance then redirect to /peeps
-
       expect(current_path).to eq '/peeps'
       expect(first('.peep')).to have_content 'The news is depressing'
     end
