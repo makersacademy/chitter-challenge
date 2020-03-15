@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature 'registration' do
    xscenario 'user can setup an account' do
     visit('/register')

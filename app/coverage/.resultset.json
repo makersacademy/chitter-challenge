@@ -58,6 +58,29 @@
         1,
         null
       ],
+      "/Users/student/Documents/projects/week_4/chitter-challenge/app/spec/features/peeps_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/student/Documents/projects/week_4/chitter-challenge/app/spec/helpers.rb": [
         1,
         2,
@@ -66,8 +89,6 @@
         null
       ],
       "/Users/student/Documents/projects/week_4/chitter-challenge/app/spec/features/user_login_spec.rb": [
-        1,
-        null,
         1,
         1,
         0,
@@ -104,6 +125,6 @@
         null
       ]
     },
-    "timestamp": 1584278251
+    "timestamp": 1584279591
   }
 }

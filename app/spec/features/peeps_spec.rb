@@ -1,4 +1,3 @@
-require 'spec_helper'
 require_relative '../helpers'
 
 feature 'peeps' do
