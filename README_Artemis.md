@@ -32,3 +32,8 @@ bundle install
 ```
 
 ## Instructions for Setting up the Database ##
+
+## To run the Chitter app: ##
+```
+rackup -p 3000
+```
