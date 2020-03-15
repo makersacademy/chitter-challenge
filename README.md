@@ -113,3 +113,6 @@ If you want a green tick against your pull request you'll need to configure Trav
 
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
+
+####Master branch build status:
+![](https://travis-ci.org/naeglinghaff/chitter-challenge.svg?branch=master)
