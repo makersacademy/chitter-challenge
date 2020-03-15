@@ -48,10 +48,6 @@ class Peep
     end
   end
 
-  def date(created_at:)
-    DatabaseConnection.query("SELECT TO_CHAR("created_at", 'HH24:MI DD-MM-YY') FROM peeps WHERE created_at = #{created_at};")
-  end  
-
   def users(user_class = User)
     user_class.where(user_id: user_id)
   end

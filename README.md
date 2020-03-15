@@ -108,28 +108,9 @@ This will show you the port that you should use in your browser (in this case it
 
 ### Challenges
 * Took a long time to correctly link the users and peeps table together so that the user_id column was the user.id number.
+* Trying to work out how to change the display of the peep timestamp has also been difficult. I've managed to remove the milliseconds.
+* I haven't managed to do the last user story (under Advanced). I would have also have liked to add in functionality to allow for replies to peeps as well.
 
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
 
 Code Review
 -----------
@@ -152,22 +133,4 @@ If you want a green tick against your pull request you'll need to configure Trav
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
-Notes on test coverage
-----------------------
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
