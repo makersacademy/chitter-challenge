@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
     <meta charset="utf-8">
     <title>Chitter</title>
   </head>
   <body>
-<h1>Chitter <img src="./poo.png" alt="poo" width=30px> </h1>
+<h1>Chitter</h1>
+<a href="/new">Add new peep!</a>
 <p>Peeps:</p>
 <ul>
   <% @peeps.each do |peep| %>
-    <li> <%= peep %> </li>
+    <li> <%= peep.message %> <br>
+      Posted: <%= peep.time %>
+    </li>
   <% end %>
 </ul>
-
 
   </body>
 </html>
