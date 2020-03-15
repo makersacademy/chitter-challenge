@@ -6,6 +6,12 @@ feature 'registration' do
   end
 
   scenario 'user can login' do
+    login
+
+    expect(page).to have_content('testusername', 'testemail')
+  end
+
+  scenario 'logged in user sees tweets on login page' do
     register
     visit('/login')
 

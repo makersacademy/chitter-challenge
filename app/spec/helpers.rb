@@ -12,3 +12,11 @@ def register
   fill_in('password', with: 'testpassword')
   click_button("Register")
 end
+
+def login
+  @user = User.create(name: "testname", username: "testusername", password: "testpassword", email: "testemail")
+  visit('/login')
+  fill_in('email', with: "testemail")
+  fill_in('password', with: "testpassword")
+  click_button("Login")
+end
