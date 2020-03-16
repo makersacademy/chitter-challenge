@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/chitter_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Autour+One|Delius+Unicase&display=swap" rel="stylesheet">
+  </head> 
+<main>
+  <header>
+    <h1> Chitter </h1>
+  </header>
+
+<body>
+  <section class="signing">
+    <form action="/sessions" method="post">
+      <label>
+        Email: 
+        <input type="email" name="email" />
+      </label>
+      <label>
+        Password: 
+        <input type="password" name="password" />
+      </label>
+        <input type="submit" value="Sign in" class="hover-form"/>
+    </form>
+  </section>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+</body>
+</main>

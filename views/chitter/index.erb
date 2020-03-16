@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/chitter_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Autour+One|Delius+Unicase&display=swap" rel="stylesheet">
+  </head> 
+<main>
+  <header>
+    <h1> Chitter </h1>
+    <img src="images/peeper.png" class="peeper">
+    <nav>
+    </nav>
+  </header>
+
+  <section class="wrapper">
+    <form action="/users/new" method="get">
+      <input type="submit" value="Sign up" class="hover-form" />
+    </form>
+
+    <form action="/sessions" method="post">
+      <input type="submit" value="Sign in" class="hover-form"/>
+    </form>
+
+    <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Sign out" class="hover-form"/>
+    </form>
+  </section>
+
+  <body>
+
+  <h2>
+      <%= flash[:notice] %>
+  </h2>
+
+    <% if @user %>
+      <h2>Welcome, <%= @user.name %></h2>
+      <section>
+        <p> Tell us something... </p>
+        <form action="/chitter" method="POST">
+          <input name="text" type="text" maxlength="255" placeholder="write something">
+          <input type="hidden" name="user_id" value="<%= session[:user_id] %>">
+          <br>
+          <input value="Submit" type="submit" class="hover-form" />
+        </form>
+      </section>
+    <% end %>
+
+    <section>
+      <% @peeps.reverse.each do |peep| %>
+        <label>   
+          <h3>"<%= peep.text %>"</h3>
+        </label>
+        <label>
+          <% peep.users.each do |user| %>
+            <%= user.name %>, 
+            <%= user.username %> 
+          <% end %>
+          <br>
+          <%= peep.created_at %>
+          <br>
+        </label>
+        <p> ---------- </p>
+      <% end %>
+    </section>
+
+  </body>
+</main>
