@@ -1,133 +1,92 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Quick start
+___
+Need to add steps here for setting up the database etc.
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+User Stories
+___
 ```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+```
+To sign up, users press the 'Sign up' button on the peeps
+(add screenshot). This takes them to a registration page (route /users/new), with a form to fill in. Users enter their name, email and password and press the Sign up button.
 
-HARDER
+This is routed to post /users where a new User is created in the .create method in the User class and the user_id is saved to the session.
 
+The .create method in the User class encrypts the password entered by the user using BCrypt, and inserts into the user table. It returns the user as a class instance.
+
+```
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
+```
+An existing user can log in by pressing the 'Log in' button on the peeps. This takes them to a log in form (route sessions/new). Users enter their email address and password.
 
+This is routed to post /sessions where the authenticate method is called on the User class to verify if the correct username and password have been entered.
+
+If the email does not exist in the database, or the password doesn't match (unhappy paths) then the user is given the message: 'Please check your email or password.'
+
+The authenticate method queries the database for users with the email address entered. If the email is found in the database then the password entered is checked against the password entered (using BCrypt). If this matches then a user instance is created and returned (happy path).
+
+If a users is authenticated their user id (the primary key from the database) is stored in the sessions hash.
+
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
+```
+To log out of Chitter the user presses the 'Log out' button on the peeps screen.
 
-ADVANCED
+This routes to /sessions/destroy which clears the user id from the sessions hash and serves a message to the page: "You have logged out."
 
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+Once the user has logged in, a form is available to them to type messages and press the Peep button.
+
+When they type out a Peep this routes to /peeps/new which calls the .create method on the Peep class. This method takes the peep text from the form and the user id from the session. This method then inserts this into the peeps table in the database, and the database automatically generates an id and timestamp, which is returned.
+
+This method also finds the user using the method .find on the User class in order to return the users name. The .find method queries the user table using a WHERE clause to access the users information then stores this in an instance of a user class.
+
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+The method .all in the Peeps class queries the database using a left join query to return the peep, date and username and an ORDER BY date desc to achieve reverse chronological order. This is then converted into an array of Peep instances.
+
+The app.rb stores the result of Peep.all in an instance variable so the view can access this. The view then loops around this array, inserting each peep into a html list, displaying the user name (in bold), and date (in format dd mmm yyyy hh:mm) and tweet below.
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+As part of displaying the peeps in reverse chronological order, the date is also accessed from each Peep instance and displayed in the browser
+```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+Haven't implemented this one yet
 
-Technical Approach:
------
+Known issues:
+---
+1. There are currently no checks in place to ensure a user trying to sign up doesn't already exist. Need to add a guard clause for this with a useful message to the user.
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+Future developments
+---
+1. Add some more buttons to assist with navigating:
+  - On register page add a back button
+  - On log in page add a sign up button (or maybe as a link)
+2. Allow customers to delete their own peeps
+3. Add capability to heart peeps you like
+4. Add capability to reply to peeps and start a thread
+5. Be able to load pictures / gifs and videos
+5. Add CSS
+6. Tests could be refactored - currently there's a lot of repetition
