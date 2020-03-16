@@ -9,4 +9,4 @@ Test Database
 $ psql
 $ student=# CREATE DATABASE "chitter_test";
 $ student=# \c chitter_test;
-$ chitter=# CREATE TABLE peeps_test(id SERIAL PRIMARY KEY, message VARCHAR(140) NOT NULL, time VARCHAR(30) NOT NULL);
+$ chitter=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, message VARCHAR(140) NOT NULL, time VARCHAR(30) NOT NULL);
