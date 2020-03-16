@@ -1,5 +1,4 @@
 require "sinatra/activerecord"
-require './spec/setup_database_test'
 require './lib/message'
 require './lib/user'
 
@@ -19,9 +18,6 @@ class ChitterManager < Sinatra::Base
 
   get '/' do
     @messages = Message.order(time_created: :desc)
-    # @messages.each do |message|
-    #   @message_id = message.user_id
-    # end
     @user = session[:user]
     erb :index
   end

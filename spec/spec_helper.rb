@@ -4,7 +4,7 @@ require 'rspec'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-require_relative './setup_database_test'
+require 'database_cleaner/active_record'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -18,9 +18,10 @@ ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = ChitterManager
+DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |config|
   config.before(:each) do
-    setup_test_database
+    DatabaseCleaner.clean
   end
 end
