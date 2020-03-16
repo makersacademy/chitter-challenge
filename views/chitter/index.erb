@@ -48,8 +48,10 @@
         <label>     
         "<%= peep.text %>"
         <br>
-        - <% peep.users.each do |user| %>
-          <%= user.username %>
+        <% peep.users.each do |user| %>
+          <%= user.name %>
+          <br>
+          @<%= user.username %>
         <% end %>
         <br>
         <%= peep.created_at %>
