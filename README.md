@@ -1,20 +1,71 @@
 Chitter Challenge
 =================
-
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+**Domain Model:**
+
+| CHITTER        | PEEP             | USER             |
+| :------------- |:-----------------|:-----------------|
+| -------------- |------------------|------------------|
+|                | @id              | @id              |
+|                | @peep            | @name            |
+|                | @post_time       | @username        |
+|                | @post_date       | @email           |
+|                |                  | @password        |
+| -------------- |------------------|------------------|
+| #print_peeps   | #time            | #valid_log_in    |
+| #post_peep     | #date            |                  |
+| #sign_up       |                  |                  |
+| #log_in        |                  |                  |
+| #log_out       |                  |                  |
+
+
+**Databases Plan:**
+
+- Table Peeps:
+
+|  id  |    peep   | post_time |  post_date | users_id  |
+|------|-----------|-----------|------------|-----------|
+|  1   |  'Hello'  |  13:25:00 | 2020-01-14 |     1     |
+|  2   |  'World'  |  17:05:00 | 2020-03-12 |     1     |
+
+- Table Users:
+
+|  id  |    name   |   username  |      email      |  password  |
+|------|-----------|-------------|-----------------|------------|
+|  1   |  'Dino'   | SuperCactus | dino@cactus.com | itsasecret |
+
+
+
+**Views Plan:**
+```
+get '/chitter'            -->  display chitter.erb (link to sign_up - link to log_in - peep list)
+get '/chitter/sign_up'    -->  display sign_up.erb (sign_up form)
+post '/chitter/sign_up'   -->  redirect to ./chitter/log_in (saves data to users table in DB)
+  # at this point redirects to '/chitter/user'
+get '/chitter/log_in'     -->  display log_in.erb (log_in form)
+post '/chitter/log_in'    -->  redirect to ./chitter/user (authenticates data)
+get '/chitter/user'       -->  display user.erb (link to log_out - link to post_peep - peep list)
+get '/chitter/post_peep'  -->  display post_peep.erb (post_peep form)
+post '/chitter/post_peep' -->  redirect to ./chitter/user (saves peep to peeps table in DB)
+post '/chitter/log_out'   -->  redirect to ./chitter (clears log_in data)
+```
+
+## Instructions to set up Database:
+- Connect to psql
+- Create the database using the psql command `CREATE DATABASE chitter;`
+- Connect to the database using the pqsl command `\c chitter;`
+- Run the query we have saved in the file 01_create_peeps_table.sql
+- Run the query we have saved in the file 02_create_users_table.sql
+
+### create a test environment
+- Create the database using the psql command `CREATE DATABASE chitter_test;`
+- Connect to the database using the pqsl command `\c chitter_test;`
+- Run the query we have saved in the file 01_create_peeps_table.sql
+- Run the query we have saved in the file 02_create_users_table.sql
+
+
+**Features:**
 -------
 
 ```
@@ -53,7 +104,7 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
+**Technical Approach:**
 -----
 
 This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
