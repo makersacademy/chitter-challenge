@@ -32,7 +32,7 @@ class Peep
     Peep.new(
       id: result[0]['id'],
       text: result[0]['text'],
-      created_at: date_format(result['created_at']),
+      created_at: date_format(result[0]['created_at']),
       user_id: result[0]['user_id']
       )
   end
@@ -43,7 +43,7 @@ class Peep
       Peep.new(
       id: result[0]['id'],
       text: result[0]['text'],
-      created_at: date_format(result['created_at']),
+      created_at: date_format(result[0]['created_at']),
       user_id: result[0]['user_id']
       )
     end

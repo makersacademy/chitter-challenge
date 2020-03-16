@@ -13,7 +13,7 @@ describe User do
       expect(user).to be_a User
       expect(user.id).to eq persisted_data.first['id']
       expect(user.email).to eq 'test@example.com'
-      expect(user.username).to eq 'Jane Doe'
+      expect(user.username).to eq '@Jane Doe'
       expect(user.name).to eq 'Jane'
     end
   
