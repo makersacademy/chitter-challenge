@@ -63,4 +63,14 @@ describe Peep do
     end
   end
 
+  describe '.date_format' do
+    it 'displays the created at date in the correct way' do
+      user = User.create(email: 'test@example.com', password: 'password123', username: 'Jane Doe', name: 'Jane')
+      peep = Peep.create(text: 'This is a test', user_id: user.id)
+      persisted_data = persisted_data(table: 'peeps', id: peep.id)
+
+      expect(peep.created_at).to eq DateTime.strptime(persisted_data.first['created_at'], '%Y-%m-%d %H:%M:%S').strftime("%d %b %Y %k:%M")
+    end
+  end
+
 end
