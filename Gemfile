@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+gem 'pg'
+gem 'capybara'
+gem 'sinatra'
+
 
 group :test do
   gem 'rspec'
