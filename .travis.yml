@@ -3,6 +3,6 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - \c chitter_test
+  - psql \c chitter_test
 script:
   - bundle exec rspec
