@@ -1,0 +1,11 @@
+img {
+  margin: 0 auto;
+  width: 30px;
+  /* vertical-align: bottom; */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
