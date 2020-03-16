@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="heading">
+    <h1>Chitter</h1>
+    <form action="/new" method="get">
+      <input type="submit" value="Peep"/>
+      </form>
+      <form action='/login' method="get">
+        <input type="submit" value="Login"/>
+      </form>
+    <div id="login_details">
+      <% if @user %>
+      <%=@user.username%> <%=@user.email%>
+      <%end%>
+    </div>
+    </div>
+      <ul>
+        <% @messages.each do | message | %>
+          <li class="peep"><%=message.content%> <br>
+            <% @message_id = message.user_id %>
+            <% poster = User.find_by(id: @message_id)%>
+            <%=poster.name%> |
+            <%=poster.username%>
+            <%=message.time_created%><br>
+            </li>
+        </ul>
+      <%end%>
+    </body>
+</html>

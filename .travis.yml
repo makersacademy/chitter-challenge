@@ -2,7 +2,11 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -c 'CREATE DATABASE chitter_test;' -U postgres
+  - psql -d chitter_test -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), username VARCHAR(80), password VARCHAR(140), name VARCHAR(250));' -U postgres
+  - psql -d chitter_test -c 'CREATE TABLE messages (id SERIAL PRIMARY KEY, content VARCHAR(300), time_created TIMESTAMP, user_id INTEGER REFERENCES users (id));' -U postgres
 
 script:
   - bundle exec rspec
+
+language: ruby

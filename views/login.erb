@@ -1,0 +1,13 @@
+<% if @user%>
+<h1> Welcome back <%=@user.username%> </h1>
+<h2> Here are your tweets </h2>
+<% else %>
+<h1>Login</h1>
+<% end %>
+<h2> Login </h2>
+<form id ="login_form" action="/login" method ="post">
+  <input type="text" name="email" placeholder="Enter your email"/>
+  <input type="text" name="password" placeholder="Enter your password"/>
+  <input type="submit" value="Login"/>
+</form>
+<a href ="/register"> Or create a new account</a>
