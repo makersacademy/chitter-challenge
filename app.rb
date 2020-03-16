@@ -19,14 +19,6 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/peeps/new' do
-    # now the peep is stored in a session param when the form is filled
-    # with the peep.
-    # session[:peep] = params[:peep] , now this is not neccesary, as long there
-    # is table in the database with the data.
-    redirect '/peeps'
-  end
-
   get '/peeps' do
     # At this point i am refactoring to be able to show several peeps.
     # To do that i am gonna create a new variable to one single peep and
@@ -38,6 +30,22 @@ class Chitter < Sinatra::Base
     # the database and the table. So at the moment only the instance variable
     # is necessary.
   end
+
+  get '/peeps/new' do
+    erb :'new_peeps/created_peep'
+  end
+  post '/peeps/new' do
+    # now the peep is stored in a session param when the form is filled
+    # with the peep.
+    # session[:peep] = params[:peep] , now this is not neccesary, as long there
+    # is table in the database with the data.
+    Peep.create_peep(peep: params[:peep])
+    redirect '/peeps'
+  end
+
+
+
+
 
   run! if app_file == $0
 

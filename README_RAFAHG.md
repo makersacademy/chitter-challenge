@@ -144,3 +144,17 @@ At this point i am making my forth commit.
     At this point i am making my fith commit.
 
     --------------------------------------------------------------------------
+## SIXTH STEP.
+
+  At this point i ve created a new class for new peeps and a new method for post peeps and add them to the database.
+
+  The feature test in the web shows that the app at this point works properly.
+  The time and date data are still to be implemented.
+
+  Next steps will be , add date and time to show the user the chronology of the post in a more useful way.
+
+  Also is needed the signup functionality.
+
+  At this point i am making my sixth commit.
+
+  ----------------------------------------------------------------------------
