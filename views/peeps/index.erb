@@ -1,11 +1,17 @@
 <% if @user %>
   <h1>Welcome, <%= @user.username %></h1>
+  <form action="/peeps/<%= @user.id %>/new" method="get">
+          <input type="submit" value="Write Peep" />
+  </form>
 <% end %>
-<h1>Today's Peeps!</h1>
 
-
+<h1>Todays Peeps!</h1>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.text %></li>
+    <li class='peep' id='<%= peep.id %>'>
+      <h3><%= peep.text %></h3>
+      <h5>Time posted:</h5><p> <%= peep.time[0..18] %></p>
+      <p><%= peep.user_id %></p>
+    </li>
   <% end %>
 </ul>

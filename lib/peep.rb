@@ -9,7 +9,21 @@ class Peep
     @user_id = user_id
   end
 
+  def self.create(user_id:, text:)
+    if ENV['ENVIRONMENT'] == 'test'
+     connection = PG.connect(dbname: 'chitter_test')
+    else
+     connection = PG.connect(dbname: 'chitter')
+    end
 
+    connection = connection.exec("INSERT INTO peeps (time, text, user_id) VALUES ('#{Time.now}', '#{text}', '#{user_id}') RETURNING id, time, text, user_id;")
+    Peep.new(
+    id: connection[0]['id'],
+    time: connection[0]['time'],
+    text: connection[0]['text'],
+    user_id: connection[0]['user_id']
+    )
+  end
   def self.all
     # [
     #     "I just ate an apple",
