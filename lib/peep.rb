@@ -20,7 +20,7 @@ class Peep
       Peep.new(
         id: peep['id'],
         text: peep['text'],
-        created_at: peep['created_at'],
+        created_at: date_format(peep['created_at']),
         user_id: peep['user_id']
       )
     end
@@ -32,7 +32,7 @@ class Peep
     Peep.new(
       id: result[0]['id'],
       text: result[0]['text'],
-      created_at: result[0]['created_at'],
+      created_at: date_format(result['created_at']),
       user_id: result[0]['user_id']
       )
   end
@@ -43,7 +43,7 @@ class Peep
       Peep.new(
       id: result[0]['id'],
       text: result[0]['text'],
-      created_at: result[0]['created_at'],
+      created_at: date_format(result['created_at']),
       user_id: result[0]['user_id']
       )
     end
@@ -51,6 +51,10 @@ class Peep
 
   def users(user_class = User)
     user_class.where(user_id: user_id)
+  end
+
+  def self.date_format(date)
+    DateTime.strptime(date, '%Y-%m-%d %H:%M:%S').strftime("%d %b %Y %k:%M")
   end
 
 end
