@@ -8,6 +8,8 @@
   <header>
     <h1> Chitter </h1>
     <img src="images/peeper.png" class="peeper">
+    <nav>
+    </nav>
   </header>
 
   <section class="wrapper">
@@ -45,9 +47,10 @@
 
     <section>
       <% @peeps.reverse.each do |peep| %>
-        <label>     
-          "<%= peep.text %>"
-          <br>
+        <label>   
+          <h3>"<%= peep.text %>"</h3>
+        </label>
+        <label>
           <% peep.users.each do |user| %>
             <%= user.name %>, 
             <%= user.username %> 

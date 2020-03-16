@@ -21,6 +21,10 @@ h1 {
   font-size: 4vw;
 }
 
+h3 {
+  font-size: 26px;
+}
+
 input[type=submit] {
                   position: relative;
                   display: inline-block;
