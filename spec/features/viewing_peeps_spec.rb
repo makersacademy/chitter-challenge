@@ -10,14 +10,14 @@ end
 feature 'Viewing peeps' do
   scenario ' a user can see peeps' do
 
-    Peep.create(peeps: "First Peep")
-    Peep.create(peeps: "Second Peep")
-    Peep.create(peeps: "Third Peep")
+    Peep.create(peeps: "First Peep", author: "Swarbzz")
+    Peep.create(peeps: "Second Peep", author: "Swarbzz")
+    Peep.create(peeps: "Third Peep", author: "Swarbzz")
 
     visit('/peeps')
 
-    expect(page).to have_content "First Peep"
-    expect(page).to have_content "Second Peep"
-    expect(page).to have_content "Third Peep"
+    expect(page).to have_content("First Peep", "Swarbzz")
+    expect(page).to have_content("Second Peep", "Swarbzz")
+    expect(page).to have_content("Third Peep", "Swarbzz")
   end
 end
