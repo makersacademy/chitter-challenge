@@ -1,9 +1,9 @@
 class Peep
 
-  attr_reader :id, :peep, :post_time, :post_date
+  attr_reader :peep_id, :peep, :post_time, :post_date
 
-  def initialize(id:, peep:, post_time:, post_date:)
-    @id = id
+  def initialize(peep_id:, peep:, post_time:, post_date:)
+    @peep_id = peep_id
     @peep = peep
     @post_time = post_time
     @post_date = post_date
