@@ -3,7 +3,7 @@
 Chitter Ruby Challenge - original README [here](https://github.com/makersacademy/chitter-challenge/blob/master/README.md)
 -
 
-[Outline](#Outline) | [Specifications](#Specifications) | [User Stories](#User_Stories) | [Installation Instructions](#Installation_Instructions) | [Tech stack](#Tech_stack) | [Future work](#Future_work)
+[Outline](#Outline) | [User Stories](#User_Stories) | [Installation Instructions](#Installation_Instructions) | [Tech stack](#Tech_stack) | [Future work](#Future_work)
 
 ## <a name="Outline">Outline</a>
 
@@ -79,4 +79,4 @@ Linting:
 
 ## <a name="Future_Work">Future Work</a>
 
-Right now a user can post a peep, and view peeps in reverse chronological order with a timestamp on each. On a revisit of the project, I would like to build out the rest of the functionality described in the user stories. 
+Right now, a user can post a peep and view peeps in reverse chronological order with a timestamp on each. On a revisit of the project, I would like to build out the rest of the functionality described in the user stories. 
