@@ -8,7 +8,7 @@ Must have:
 
 > As a Maker  
 > So that I can let people know what I am doing  
-> I want to post a message (peep) to chitter
+> I want to post a message (peep) to Chitter
 
 > As a maker  
 > So that I can see what others are saying  
@@ -50,9 +50,9 @@ Nice to have:
 
 - Use the `PG` gem and `SQL` queries to interact with the database.
 - You don't have to be logged in to see the peeps.
-- Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+- Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 - The username and email are unique.
-- Peeps (posts to chitter) have the name of the maker and their user handle.
+- Peeps (posts to Chitter) have the name of the maker and their user handle.
 - Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 - High test coverage and all tests passing
 - Configure Travis,[Travis Basics](https://docs.travis-ci.com/user/tutorial/), [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
@@ -99,6 +99,9 @@ In order to keep code clear and readable, I used rubocop for linting.
 
 ### Domain Modelling
 
+I wrote a short CRC card model and an outline of Table Scheme:
+
+![CRC Cards and Table Schema](./images/Chitter_CRC_Table_Schema.png)
 
 ### Prepare Testing Infrastructure
 
@@ -114,7 +117,7 @@ In order to keep code clear and readable, I used rubocop for linting.
 
 > As a Maker  
 > So that I can let people know what I am doing  
-> I want to post a message (peep) to chitter
+> I want to post a message (peep) to Chitter
 
 > As a maker  
 > So that I can see what others are saying  
@@ -132,5 +135,4 @@ Core functionality:
 
 #### Seeing some preloaded peeps
 
-On the home page there should be a list of peeps
-
+On the home page there should be a list of peeps.
