@@ -4,6 +4,6 @@ class User
   def initialize(name: , pw: , email: )
     @username = name
     @password = pw
-    email_address = email
+    @email_address = email
   end
 end
