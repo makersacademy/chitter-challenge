@@ -99,12 +99,28 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 Steps:
-- write feature test
+- write feature test - done
 - create maker table in db - done
 - create sign up page - done
 - link signup details to what is stored in db - done
 - store current user id in session - done
 - encrypt passwords in the db - done
+
+### 3rd user story
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+Steps:
+- write feature test
+- create add-peep form page
+- link form to correct route
+- use Peep.create to put new peep in database
+- reload peeps list
+
+
 - add link between maker and peep tables
 - amend peep creation so they store the maker id 
 - show the maker details on the peeps list
