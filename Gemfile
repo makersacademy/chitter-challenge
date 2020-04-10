@@ -8,6 +8,7 @@ group :test do
   gem 'simplecov-console', require: false
 end
 
+gem 'bcrypt'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'

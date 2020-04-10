@@ -102,8 +102,9 @@ Steps:
 - write feature test
 - create maker table in db - done
 - create sign up page - done
-- link signup details to what is stored in db
-- store current user id in session
+- link signup details to what is stored in db - done
+- store current user id in session - done
+- encrypt passwords in the db - done
 - add link between maker and peep tables
 - amend peep creation so they store the maker id 
 - show the maker details on the peeps list
