@@ -13,5 +13,20 @@ describe User do
   end
 
   context "databasics: " do
+    it " should be able to add a user to the database:" do
+      User.create(usr: 'ed', pass: 'ed_pass', email: 'ed_email')
+      expect(User.all[-1].username).to eq('ed')
+     end
+  end
+
+  describe '.all' do
+    it 'returns a list of users' do
+      User.create(usr: 'Steven', pass: 'Steve_secure', email: 'Steve_email')
+      people = User.all
+      users = []
+      people.each {|page| users.push(page.username) }
+  
+      expect(users).to include('Steven')
+    end
   end
 end

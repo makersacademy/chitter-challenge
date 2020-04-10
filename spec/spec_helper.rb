@@ -4,6 +4,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'setup_test_database'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 
@@ -26,6 +27,6 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.before(:each) do
-    #setup_test_database
+    setup_test_database
   end
 end
