@@ -1,3 +1,5 @@
+require 'pg'
+
 class DBConnection
   def self.connect(test_db = 'chitter_test', prod_db = 'chitter')
     database = ENV['ENVIRONMENT'] == 'test' ? test_db : prod_db
