@@ -99,6 +99,13 @@ In order to keep code clear and readable, I used rubocop for linting.
 
 ### Domain Modelling
 
+
+### Prepare Testing Infrastructure
+
+Added Sinatra and Capybara to the gemfile.
+
+
+
 ### User Stories 1, 2, 3
 
 > As a Maker  
@@ -120,4 +127,6 @@ Core functionality:
 - Post a peep, entering the content
 
 #### Seeing some preloaded peeps
+
+On the home page there should be a list of peeps
 
