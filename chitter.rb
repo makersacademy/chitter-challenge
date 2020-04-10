@@ -34,5 +34,10 @@ class Chitter < Sinatra::Base
     erb :"peeps/new"
   end
 
+  get '/sessions/destroy' do
+    session[:maker_id] = nil
+    redirect '/peeps'
+  end
+
   run! if app_file == $0
 end

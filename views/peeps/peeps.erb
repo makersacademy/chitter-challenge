@@ -2,6 +2,11 @@
   <h1>Not currently logged in</h1>
 <% else %>
   <h1> Hello <%= @maker.username %>!</h1>
+  <div>
+    <form action="/sessions/destroy" method="get">
+      <input type="submit" value="Log out">
+    </form>
+  </div>
 <% end %>
 
 <div>

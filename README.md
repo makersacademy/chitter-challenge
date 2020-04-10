@@ -114,11 +114,45 @@ So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
 Steps:
+- write feature test - done
+- create add-peep form page - done
+- link form to correct route - done
+- use Peep.create to put new peep in database - done
+- reload peeps list - done
+
+### 4th user story
+
+```
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+```
+
+- Write feature test - done
+- Add log-out button to peeps list page when someone is logged in - done
+- Go to an appropriate route and delete the maker_id session variabe - done
+- Reload the peeps list page - done
+
+
+
+
+```
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+```
+
+Steps:
 - write feature test
-- create add-peep form page
-- link form to correct route
-- use Peep.create to put new peep in database
-- reload peeps list
+- create log-in page
+- add log-in method to Maker class
+- use it
+- assuming success, update the session user id and reload peeps list
+- assuming fail, warn the user
+
+
+
+
 
 
 - add link between maker and peep tables
