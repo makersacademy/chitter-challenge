@@ -1,3 +1,5 @@
+require 'capybara'
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -15,3 +17,6 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+Capybara.app = Chitter
