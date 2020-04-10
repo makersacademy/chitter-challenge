@@ -3,7 +3,12 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
 
   get '/' do
-    "Hello World"
+    @peeps = [
+      'This is so cool',
+      'I am sending a peep',
+      'Isolation #COVID-19'
+    ]
+    erb :index
   end
 
 end
