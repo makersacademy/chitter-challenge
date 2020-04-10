@@ -102,9 +102,13 @@ In order to keep code clear and readable, I used rubocop for linting.
 
 ### Prepare Testing Infrastructure
 
-Added Sinatra and Capybara to the gemfile.
+- Added Sinatra and Capybara to the gemfile.
 
+- Added testing gems and app file to `spec_helper.rb`, also configures Capybara app.
 
+- Wrote Hello World test to check Sinatra and Capyara all working correctly. Red.
+
+- Created `app.rb` with route for '/' returning Hello World. Green.
 
 ### User Stories 1, 2, 3
 
