@@ -6,6 +6,6 @@ feature 'you can sign up to chitter' do
     fill_in 'email', with: 'here@there.com'
     fill_in 'password', with: '1234'
     click_button 'Submit'
-    expect(page).to have_content 'Congratulations on signing up to Chitter!'
+    expect(page).to have_content 'Hello Squirrel!'
   end
 end
