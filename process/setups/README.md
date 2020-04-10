@@ -1,5 +1,5 @@
 # App Setup
 
-1. Setup Capybara
-2. Setup Rackup 
-3. Setup Sinatra
+1. Setup [Capybara](capybara.md)
+2. Setup [Rackup](rackup.md) 
+3. Setup [Sinatra](sinatra.md)
