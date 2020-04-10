@@ -132,6 +132,7 @@ SimpleCov.start
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
 
+<<<<<<< HEAD
 ##Rackup setup
 - Add config.ru for rackup
 
@@ -147,3 +148,7 @@ Test Database Setup
 2 - Create the database using the psql command CREATE DATABASE chitter_peeps_test;
 3 - Connect to the database using the pqsl command \c chitter_peeps;
 4 - Run the query we have saved in the file 01_create_bookmarks_table.sql
+=======
+##Extra setup
+- Add config.ru for rackup
+>>>>>>> ea38a010acdb864682f138155a8a1e3ee542ca8d
