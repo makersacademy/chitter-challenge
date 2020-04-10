@@ -2,14 +2,14 @@ require 'pg'
 
 class Peep
 
-  def initialize
-    @peeps = []
-  end
-  
-  attr_reader :peeps
-
-  def create(peep)
-    @peeps << peep
+  def self.create(peep)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    
+    connection.exec "INSERT INTO peeps(peep, peeper) VALUES('#{peep}', 'none')"
   end
 
 end
