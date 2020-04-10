@@ -5,6 +5,8 @@ require 'rake'
 require 'simplecov'
 require 'simplecov-console'
 require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
+require_relative './features/web_helpers.rb'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
