@@ -14,6 +14,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+Capybara.app = Chitter
+
 #RSpec.configure do |config|
 #  config.after(:suite) do
 #    puts
@@ -24,6 +26,6 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:each) do
-    setup_test_database
+    #setup_test_database
   end
 end
