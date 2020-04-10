@@ -13,7 +13,7 @@ class DBConnection
   def self.run_query(query)
     begin
       result = @conn.exec(query)
-    rescue Exception => e
+    rescue StandardError => e
       disconnect
       raise e
     end
