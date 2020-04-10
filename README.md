@@ -136,3 +136,7 @@ Core functionality:
 #### Seeing some preloaded peeps
 
 On the home page there should be a list of peeps.
+
+Wrote a feature test to visit '/' and see a list of peeps. Red.
+
+- 
