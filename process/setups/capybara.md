@@ -20,6 +20,7 @@
   require File.join(File.dirname(__FILE__), '..', 'app.rb')
   Capybara.app = Chitter
 
+
 # in app.rb
 
   class Chitter
