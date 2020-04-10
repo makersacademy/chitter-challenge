@@ -24,7 +24,7 @@ I want to post a message (peep) to chitter
 ## Requirements
 
 *  A Peep can be created through Chitter 
-  - [ ] Test that a peep can be created
+  - [X] Test that a peep can be created
   - [ ] Write Code to pass test 
 
 *  A Peep can be created

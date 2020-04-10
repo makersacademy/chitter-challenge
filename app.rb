@@ -6,4 +6,8 @@ class Chitter < Sinatra::Base
     "Hello world"
   end
 
+  get '/add' do
+    erb :'chitter/add'
+  end
+
 end
