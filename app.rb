@@ -5,4 +5,11 @@ class Chitter < Sinatra::Base
   get '/' do
     erb(:index)
   end
+
+  get '/users/new' do
+    erb(:signup)
+  end
+  post '/users/' do
+    redirect '/'
+  end
 end
