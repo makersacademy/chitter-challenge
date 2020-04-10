@@ -1,6 +1,6 @@
-feature "test infrastructure working" do
+feature "Home page loads" do
   scenario "has content on the home page" do
     visit '/'
-    expect(page).to have_content "Hello world"
+    expect(page).to have_content "Welcome to Chitter"
   end
 end
