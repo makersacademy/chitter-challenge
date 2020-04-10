@@ -10,4 +10,8 @@ class Chitter < Sinatra::Base
     erb :'chitter/add'
   end
 
+  post '/add' do
+    "You Peeped"
+  end
+
 end
