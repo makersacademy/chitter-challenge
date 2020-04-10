@@ -10,8 +10,12 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+    motivation = [
+      'Red Green Refactor!',
+      'Commit after each RGR cycle!',
+      'Focus on the simplest problem!',
+      'Only change code to pass tests!',
+    ].sample
+    puts "\e[33m#{motivation}\e[0m"
   end
 end
