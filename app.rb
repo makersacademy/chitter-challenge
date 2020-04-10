@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
     erb(:signup)
   end
   post '/users/' do
+    p params
     redirect '/'
   end
 end
