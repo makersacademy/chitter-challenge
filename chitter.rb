@@ -1,7 +1,10 @@
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  
   get '/' do
+    @new_peep = session[:submit_peep]
     erb :index
   end
 
@@ -11,5 +14,10 @@ class Chitter < Sinatra::Base
 
   get '/compose_peep' do
     erb :send_peep
+  end
+
+  post "/submit_peep" do
+    session[:submit_peep] = params[:peep_text]
+    redirect '/'
   end
 end

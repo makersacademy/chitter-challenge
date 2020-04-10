@@ -4,4 +4,12 @@ feature "User can send a peep" do
     click_button "Post a new Peep"
     expect(page).to have_content "Compose a Peep!"
   end
+
+  scenario "User can type their peep, submit and view it" do
+    visit '/compose_peep'
+    fill_in 'peep_text', with: "Sunny sunny day!"
+    click_button "Submit Peep"
+
+    expect(page).to have_content "Sunny sunny day!"
+  end
 end
