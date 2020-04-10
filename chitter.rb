@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/peep'
-require_relative './lib/db_connection'
+require_relative './lib/maker'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -14,13 +14,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    DBConnection.connect
-    DBConnection.run_query("INSERT INTO makers (name, user_name, email, password) VALUES($$#{params['name']}$$, $$#{params['username']}$$, $$#{params['email']}$$, $$#{params['password']}$$);")
-    DBConnection.disconnect
+    maker = Maker.create(params['name'], params['username'], params['email'], params['password'])
+    session[:maker_id] = maker.id
     redirect '/peeps'
   end
 
   get '/peeps' do
+    @maker = Maker.find(session[:maker_id]) unless session[:maker_id].nil?
     @peeps = Peep.all
     erb :peeps
   end

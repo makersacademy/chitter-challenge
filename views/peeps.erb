@@ -1,3 +1,9 @@
+<% if @maker.nil? %>
+  <h1>Not currently logged in</h1>
+<% else %>
+  <h1> Hello <%= @maker.username %>!</h1>
+<% end %>
+
 <% @peeps.each do |peep| %>
   <div>
     <%= peep.text %>

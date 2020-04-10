@@ -12,7 +12,7 @@ task :clean_test_db do
   raise 'unable to clean test db - does not exist' unless db_exists? 'chitter_test'
 
   conn = PG.connect(dbname: 'chitter_test')  
-  conn.exec('TRUNCATE peeps')
+  conn.exec('TRUNCATE peeps, makers')
   conn.close
 end
 
