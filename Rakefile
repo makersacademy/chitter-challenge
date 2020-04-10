@@ -30,5 +30,6 @@ def create_db(db_name)
   conn.exec("CREATE DATABASE #{db_name};")
   conn = PG.connect(dbname: db_name)
   conn.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR(280), time TIMESTAMP(0));')
+  conn.exec('CREATE TABLE makers (id SERIAL PRIMARY KEY, name VARCHAR(30), user_name VARCHAR(30), email VARCHAR(30), password VARCHAR(60));')
   conn.close
 end
