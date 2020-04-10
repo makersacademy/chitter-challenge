@@ -15,18 +15,12 @@ class Chitter < Sinatra::Base
 
   post '/users/new' do
     maker = Maker.create(params['name'], params['username'], params['email'], params['password'])
-    p 'maker details'
-    p maker
     session[:maker_id] = maker.id
-    p session[:maker_id]
     redirect '/peeps'
   end
 
   get '/peeps' do
-    p 'in peeps'
-    p session[:maker_id]
     @maker = Maker.find(session[:maker_id]) unless session[:maker_id].nil?
-    p @maker
     @peeps = Peep.all
     erb :peeps
   end
