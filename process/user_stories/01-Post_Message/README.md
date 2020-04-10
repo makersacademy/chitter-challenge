@@ -28,5 +28,11 @@ I want to post a message (peep) to chitter
   - [X] Write Code to pass test 
 
 *  A Peep can be created
-  - [ ] Test that a peep can be created
-  - [ ] Write Code to pass test 
+  - [X] Test that a peep can be created
+  - [X] Write Code to pass test 
+
+*  Refactor Peep to use a database
+  - [ ] Create Chitter Database
+  - [ ] Create Peeps Table
+  - [ ] Create Test Database/ Table
+  - [ ] Setup Testing Environment

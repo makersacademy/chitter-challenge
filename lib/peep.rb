@@ -1,3 +1,5 @@
+require 'pg'
+
 class Peep
 
   def initialize
