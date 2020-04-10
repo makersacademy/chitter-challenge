@@ -1,5 +1,10 @@
 <% if @maker.nil? %>
   <h1>Not currently logged in</h1>
+    <div>
+    <form action="/sessions/new" method="get">
+      <input type="submit" value="Log in">
+    </form>
+  </div>
 <% else %>
   <h1> Hello <%= @maker.username %>!</h1>
   <div>

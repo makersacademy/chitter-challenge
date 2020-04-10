@@ -133,9 +133,6 @@ I want to log out of Chitter
 - Go to an appropriate route and delete the maker_id session variabe - done
 - Reload the peeps list page - done
 
-
-
-
 ```
 As a Maker
 So that only I can post messages on Chitter as me
@@ -143,11 +140,11 @@ I want to log in to Chitter
 ```
 
 Steps:
-- write feature test
-- create log-in page
-- add log-in method to Maker class
-- use it
-- assuming success, update the session user id and reload peeps list
+- write feature test - done
+- create log-in page which will take you to sign up if you don't have an account - done
+- add log-in method to Maker class to test the credentials - done
+- use it - done
+- assuming success, update the session user id and reload peeps list - done
 - assuming fail, warn the user
 
 

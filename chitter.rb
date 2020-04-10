@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @maker = Maker.find(session[:maker_id]) unless session[:maker_id].nil?
+    @maker = Maker.find_by_id(session[:maker_id]) unless session[:maker_id].nil?
     @peeps = Peep.all
     erb :"peeps/peeps"
   end
@@ -37,6 +37,18 @@ class Chitter < Sinatra::Base
   get '/sessions/destroy' do
     session[:maker_id] = nil
     redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  post '/sessions/new' do
+    if Maker.valid_credentials?(params['username'], params['password'])
+      maker = Maker.find_by_username(params['username'])
+      session[:maker_id] = maker.id
+      redirect '/peeps'
+    end
   end
 
   run! if app_file == $0
