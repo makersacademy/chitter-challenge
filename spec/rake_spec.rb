@@ -1,5 +1,5 @@
 require 'rake'
-require 'pg'
+require 'db_connection'
 
 describe 'rake tasks' do
   before(:all) do
@@ -31,9 +31,9 @@ describe 'rake tasks' do
   describe 'create_db' do
     it 'creates the specified db' do
       expect { create_db('new_db') }.not_to raise_error
-      conn = PG.connect
-      conn.exec("DROP DATABASE new_db")
-      conn.close
+      DBConnection.connect
+      DBConnection.run_query("DROP DATABASE new_db")
+      DBConnection.disconnect
     end
   end
 end

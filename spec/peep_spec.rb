@@ -1,5 +1,5 @@
 require 'peep'
-require 'pg'
+require 'db_connection'
 
 describe Peep do
   describe '.all' do
@@ -18,8 +18,10 @@ describe Peep do
     it 'adds a peep to the database and returns it' do
       time = Time.now
       peep = Peep.create('My first peep', time)
-      conn = PG.connect(dbname: 'chitter_test')
-      peep_in_db = conn.exec("SELECT * FROM peeps WHERE id =#{peep.id};")
+      DBConnection.connect
+      peep_in_db = DBConnection.run_query("SELECT * FROM peeps WHERE id =#{peep.id};")
+      DBConnection.disconnect
+
       expect(peep.id).to eq peep_in_db.first['id']
       expect(peep.text).to eq 'My first peep'
       expect(peep.time).to eq time.strftime('%Y-%m-%d %H:%M:%S')
