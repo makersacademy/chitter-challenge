@@ -12,10 +12,13 @@ class Chitter < Sinatra::Base
     erb :"users/new"
   end
 
+<<<<<<< HEAD
   post '/users/new' do
     "wibble"
   end
 
+=======
+>>>>>>> 7c44869758a14850f24c57ad74dae9c37bb6ef31
   get '/peeps' do
     @peeps = Peep.all
     erb :peeps
