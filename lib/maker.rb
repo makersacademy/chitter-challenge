@@ -19,10 +19,12 @@ class Maker
   end
 
   def self.find(id)
+    p 'in find'
+    p id
     DBConnection.connect
-    result = DBConnection.run_query("SELECT id, name, user_name, email FROM makers")
+    result = DBConnection.run_query("SELECT id, name, user_name, email FROM makers WHERE id=#{id}")
     DBConnection.disconnect
-
+    p result[0]
     Maker.new(result[0]['id'], result[0]['name'], result[0]['user_name'], result[0]['email'])
   end
 end
