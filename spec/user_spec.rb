@@ -11,4 +11,7 @@ describe User do
       expect(eddo.email_address).to eq('example@examples.com')
     end
   end
+
+  context "databasics: " do
+  end
 end

@@ -9,11 +9,22 @@ create the chitter and chitter_test databases:
 CREATE DATABASE chitter
 CREATE DATABASE chitter_test
 
-create the user tables in both databases:
+create the users table in both databases:
+
 \c #database
 CREATE TABLE users(
-chitter(# id serial PRIMARY KEY,
-chitter(# username VARCHAR(50) UNIQUE NOT NULL,
-chitter(# password VARCHAR(50) NOT NULL,
-chitter(# email VARCHAR(3555) UNIQUE NOT NULL
-chitter(# );
+id serial PRIMARY KEY,
+username VARCHAR(50) UNIQUE NOT NULL,
+password VARCHAR(50) NOT NULL,
+email VARCHAR(3555) UNIQUE NOT NULL
+);
+
+next create the peeps table in both databases:
+
+\c #database
+CREATE TABLE peeps(
+id serial PRIMARY KEY,
+text VARCHAR(280) NOT NULL,
+time TIMESTAMP NOT NULL,
+user_id INTEGER REFERENCES users(id)
+);
