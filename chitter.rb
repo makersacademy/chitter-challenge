@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -8,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = ['First peep', 'Second peep']
+    @peeps = Peep.all
     erb :peeps
   end
 
