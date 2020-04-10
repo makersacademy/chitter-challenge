@@ -100,8 +100,8 @@ I want to sign up for Chitter
 ```
 Steps:
 - write feature test
-- create maker table in db
-- create sign up page
+- create maker table in db - done
+- create sign up page - done
 - link signup details to what is stored in db
 - store current user id in session
 - add link between maker and peep tables
