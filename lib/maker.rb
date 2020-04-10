@@ -13,7 +13,7 @@ class Maker
 
   def self.create(name, username, email, password)
     encrypted_password = BCrypt::Password.create(password)
-    p encrypted_password.length
+    
     DBConnection.connect
     result = DBConnection.run_query("INSERT INTO makers (name, user_name, email, password) VALUES($$#{name}$$, $$#{username}$$, $$#{email}$$, $$#{encrypted_password}$$) RETURNING id, name, user_name, email;")
     DBConnection.disconnect

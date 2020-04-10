@@ -7,8 +7,8 @@ feature 'create a new peep' do
     fill_in 'password', with: '1234'
     click_button 'Submit'
     click_button 'New peep'
-    fill_in 'text', with: 'This is a brand new peep - wayhay!!!'
+    fill_in 'peep', with: 'This is a brand new peep - wayhay!!!'
     click_button 'Submit'
-    expect(page).to have_content 'This is a brand new peep - wahay!!!'
+    expect(page).to have_content 'This is a brand new peep - wayhay!!!'
   end
 end

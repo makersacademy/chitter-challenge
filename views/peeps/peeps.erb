@@ -4,6 +4,12 @@
   <h1> Hello <%= @maker.username %>!</h1>
 <% end %>
 
+<div>
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="New peep">
+  </form>
+</div>
+
 <% @peeps.each do |peep| %>
   <div>
     <%= peep.text %>

@@ -22,7 +22,16 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @maker = Maker.find(session[:maker_id]) unless session[:maker_id].nil?
     @peeps = Peep.all
-    erb :peeps
+    erb :"peeps/peeps"
+  end
+
+  post '/peeps' do
+    Peep.create(params['peep'], Time.now)
+    redirect '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :"peeps/new"
   end
 
   run! if app_file == $0
