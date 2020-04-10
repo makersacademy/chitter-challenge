@@ -32,7 +32,12 @@ I want to post a message (peep) to chitter
   - [X] Write Code to pass test 
 
 *  Refactor Peep to use a database
-  - [ ] Create Chitter Database
-  - [ ] Create Peeps Table
-  - [ ] Create Test Database/ Table
-  - [ ] Setup Testing Environment
+  - [X] Create Chitter Database
+  - [X] Create Peeps Table
+  - [X] Create Test Database/ Table
+  - [X] Setup Testing Environment
+
+*  Refactor database Connection
+  - [ ] Create tests for database connection
+  - [ ] Create database connection class
+  - [ ] Create connection setup file
