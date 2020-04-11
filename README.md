@@ -229,9 +229,22 @@ In order to handle the logic for this, and also provide a persistent connection 
 
 Wrote a test for DatabaseConnection.setup to create a connection to 'chitter_test'. Red.
 
+- Wrote DatabaseConnection.setup to connect to the passed database using PG.connect.
 
+Green.
 
+Wrote a test for the connection to persist as DatabaseConnection.connection. Red.
 
+- In .setup assigned the connection to class instance variable @connection.
+- Wrote a class attribute reader (self.connection) to return @connection.
+
+Green.
+
+Wrote a test for DatabaseConnection.query to send an exec call to the connection created with .setup with the passed query string as arg. Red.
+
+- Added .query to call exec on @connection with the passed query string.
+
+Green.
 
 As the peep has an id, content, and time it probably should not be presented as an array of strings, but as an array of Peep instances that respond to id, content and time.
 
