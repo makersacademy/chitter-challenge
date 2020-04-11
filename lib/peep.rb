@@ -1,6 +1,8 @@
 require 'pg'
+require 'sinatra/activerecord'
 
-class Peep
+
+class Peep # < ApplicationRecord
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
