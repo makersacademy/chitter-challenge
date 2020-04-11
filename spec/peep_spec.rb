@@ -2,21 +2,20 @@ require 'peep'
 
 describe Peep do
   describe '.all' do
-    it 'returns a list of peeps' do
+    it 'returns a list of peeps, in reverse chronological order, when combined with order' do
       # add test data
       Peep.create(content: 'This is so cool')
       Peep.create(content: 'I am sending a peep')
-      most_recent_peep = Peep.create(content: 'Isolation #COVID-19')
-      time_of_peep = Time.now
-      time_of_peep_pretty = time_of_peep.strftime('%b %e %I:%M%P')
+      Peep.create(content: 'Isolation #COVID-19')
 
-      peeps = Peep.all
+      peeps = Peep.all.order(created_at: :desc)
+
+      most_recent_peep = Peep.last
 
       expect(peeps.length).to eq 3
       expect(peeps.first.content).to eq 'Isolation #COVID-19'
       expect(peeps.first.id).to eq most_recent_peep.id
-      expect(peeps.first.time).to eq time_of_peep_pretty
-      
+      expect(peeps.first.time).to eq most_recent_peep.time
     end
   end
 
