@@ -24,6 +24,7 @@
     <% @peeps.each do |peep| %>
       <li>
         <%= peep.peep %>
+        @<%= peep.peeper %>
         <%= peep.date %>
       </li>
     <% end %>
