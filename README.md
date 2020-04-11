@@ -245,6 +245,12 @@ Added a new scenario to the view peeps feature tests. The last peep added should
 
 Green.
 
+### Peeps Labeled with Date and Time
+
+Wrote a new scenario in the view peeps feature tests. The time of the peeps should be displayed in an appropriate format.
+
+The format I have chosen, for example: Apr 10, 1:35pm
+
 <!-- 
 
 In order to provide a persistent connection to the correct database, rather than setting it up every time access is required, I decided to create a DatabaseConnection class.
