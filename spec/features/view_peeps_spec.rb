@@ -23,7 +23,6 @@ feature 'View Peeps' do
 
     visit '/'
     expect(first('.peep')).to have_content 'Isolation #COVID-19'
-    expect(second('.peep')).to have_content 'Isolation #COVID-19'
   end
 
 end
