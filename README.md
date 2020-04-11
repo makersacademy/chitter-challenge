@@ -221,11 +221,11 @@ The model needs to be updated to access the database. This is achieved using the
 
 Tests still green.
 
-#### Using the Appropriate Database
+#### Extracting DatabaseConnection and Using Correct Database 
 
 Now is probably a good time make sure than tests use `chitter_test` and the production site uses `chitter`.
 
-In order to handle the logic for this, and also provide a persistent connection to the database, rather than setting it up every time access is required, I decided to create a DatabaseConnection class.
+In order to provide a persistent connection to the correct database, rather than setting it up every time access is required, I decided to create a DatabaseConnection class.
 
 Wrote a test for DatabaseConnection.setup to create a connection to 'chitter_test'. Red.
 
@@ -245,6 +245,22 @@ Wrote a test for DatabaseConnection.query to send an exec call to the connection
 - Added .query to call exec on @connection with the passed query string.
 
 Green.
+
+Now, when tests are run there needs to be an environmental variable to distinguish test from production.
+
+- In spec_helper.rb, set ENV['ENVIRONMENT'] with 'test'.
+
+The app should set up a database once at the start.
+
+- Created database_connection_setup.rb
+- Simple script to decide which database to connect to based on ENV, and use DatabaseConnection.setup to connect to it.
+- Required this script in app.rb
+
+Now Peep.all can use DatabaseConnection
+
+#### 
+
+
 
 As the peep has an id, content, and time it probably should not be presented as an array of strings, but as an array of Peep instances that respond to id, content and time.
 
