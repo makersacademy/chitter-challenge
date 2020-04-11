@@ -8,6 +8,11 @@ describe DbConnection do
 
       DbConnection.setup('chitter_test')
     end
-  end
 
+    it 'this connection stays conencted' do
+      connection = DbConnection.setup('chitter_test')
+    
+      expect(DbConnection.connection).to eq connection
+    end
+  end
 end
