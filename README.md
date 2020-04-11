@@ -289,13 +289,14 @@ At this point I also refactored tests that need test peeps added to use the new 
 
 Rather than generating an array of hashes containing the peep data, an array of peep instances should be created. This way the peep can respond to #content and #time neatly rather than messily accessing hash keys.
 
-Updated the unit test for Peep.all to expect an array of Peep instances, that respond to #content, #id, and #time.
+Updated the unit test for Peep.all to expect an array of Peep instances, that respond to #content, #id, and #time. Red.
 
 - Added an initialize method accepting id, content, and time, assigned to instance variables
 - Added attribute readers for id and content, and a custom getter that converts the time from the database timestamp to a formatted string.
 - Rewrote the Peep.all method to map through and return newly constructed peeps for each row of the sql query result.
-- 
--->
+- Refactored the index.erb to call content and time on the peep instance rather than trying to access a hash.
+
+Green.
 
 <!-- 
 
