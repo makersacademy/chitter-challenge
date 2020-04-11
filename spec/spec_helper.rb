@@ -5,6 +5,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'setup_test_database'
+require 'pg'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 
