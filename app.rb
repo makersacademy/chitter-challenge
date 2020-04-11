@@ -4,6 +4,7 @@ require './lib/peep'
 require 'date'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
     "Hello world"
@@ -12,6 +13,7 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     @peeps = Peep.all
+    @peeper = session[:peeper] 
     erb :'chitter/home'
   end
 
@@ -31,6 +33,11 @@ class Chitter < Sinatra::Base
 
   get '/login' do
     erb :'chitter/login'
+  end
+
+  post '/login' do
+    session[:peeper] = params[:username]
+    redirect '/home'
   end
 
 end

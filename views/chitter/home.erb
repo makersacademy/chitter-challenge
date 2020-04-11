@@ -4,6 +4,9 @@
 </head>
 <body>
   <h1>Peep Central</h1>
+  <% if @peeper != nil %>
+    <p> Peeper: <%= @peeper %></p>
+  <% end%>
   <form action="/create" method="post">
     <input class="button" type="submit" name="add" value="Do a Peep">
   </form>
