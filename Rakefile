@@ -12,7 +12,7 @@ task :clean_test_db do
   raise 'unable to clean test db - does not exist' unless db_exists? 'chitter_test'
 
   conn = PG.connect(dbname: 'chitter_test')  
-  conn.exec('TRUNCATE peeps, makers, tags')
+  conn.exec('TRUNCATE peeps, makers')
   conn.close
 end
 
@@ -31,6 +31,5 @@ def create_db(db_name)
   conn = PG.connect(dbname: db_name)
   conn.exec('CREATE TABLE makers (id SERIAL PRIMARY KEY, name VARCHAR(30), user_name VARCHAR(30), email VARCHAR(30), password VARCHAR(60));')
   conn.exec('CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR(280), time TIMESTAMP(0), maker_id INTEGER REFERENCES makers(id));')
-  conn.exec('CREATE TABLE tags (id SERIAL PRIMARY KEY, peep_id INTEGER REFERENCES peeps(id), maker_id INTEGER REFERENCES makers(id));')
   conn.close
 end

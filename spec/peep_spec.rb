@@ -18,8 +18,8 @@ describe Peep do
       peeps = Peep.all(maker_class)
       
       expect(peeps.length).to eq 2
-      expect(peeps[0].text).to eq 'My first peep'
-      expect(peeps[1].text).to eq 'My second peep' 
+      expect(peeps[0].text).to eq 'My first peep' 
+      expect(peeps[1].text).to eq 'My second peep'
     end
   end
 
