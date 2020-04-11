@@ -1,10 +1,10 @@
+require 'pg'
+
 class Peep
   def self.all
-    [
-      "I miss the football!",
-      "Time for some socially distanced excercise",
-      "I think I deserve some chocolate"
-    ]
+    connection = PG.connect(dbname: 'chitter_peeps')
+    result = connection.exec('SELECT * FROM peeps')
+    result.map { |peeps| peeps['peep'] }
   end
 
   def peep_time
