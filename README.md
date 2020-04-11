@@ -238,10 +238,12 @@ Each test should have an empty database to run on, and they should insert the da
 
 ### Ordering the peeps correctly
 
-Added a new scenario to the view peeps feature tests. The last peep added should be the first peep displayed.
+Added a new scenario to the view peeps feature tests. The last peep added should be the first peep displayed. Red.
 
-- Edited the query to return the peeps
+- Added "peep" class to lsit items so capybara can find the first('.peep').
+- Edited the query in Peep.all to return the peeps ordered by time descending.
 
+Green.
 
 <!-- 
 
