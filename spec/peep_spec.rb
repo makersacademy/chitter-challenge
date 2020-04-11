@@ -18,4 +18,13 @@ describe Peep do
       expect(peeps[2][:content]).to eq 'This is so cool'
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      Peep.create(content: 'this is a test peep')
+  
+      expect(Peep.all[0][:content]).to include 'this is a test peep'
+    end
+  end
+  
 end

@@ -262,7 +262,20 @@ This also broke the previous peep_spec test as it was expecting an array of stri
 
 A user should be able to send a peep.
 
-Wrote a feature test for sending a peep. The peep content should be able to be entered in a form, the form submitted, then the peep should be displayed.
+Wrote a feature test for sending a peep. The peep content should be able to be entered in a form, the form submitted, then the peep should be displayed back on the homepage.
+
+- Added button on homepage to go to /peeps/new.
+- Added form posting to /peeps, with field for content and 'Peep' button.
+- Added route for post /peeps.
+- In that route, added logic to connect to the correct database with PG, then insert the peep content into the peep table, then redirect to homepage.
+
+Green.
+
+### Refactoring to Peep.create
+
+The logic currently in the controller should be handled by the model.
+
+Wrote a unit test for Peep.create, which creates a new peep
 
 <!-- 
 
