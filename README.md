@@ -76,6 +76,24 @@ ActiveRecord
 
 _Coming soon_
 
+### Dependencies
+
+- Ruby
+- Postgresql
+
+
+
+### Database Setup
+
+1. With `psql` set up the production and test databases with the following commands:
+
+    ```psql
+    CREATE DATABASE chitter;
+    CREATE DATABASE chitter_test;
+    ```
+
+2. Run the commands in the files in `db/migrations` in order for each of the production and test databases.
+
 ## Screen Previews
 
 _Coming soon_
@@ -158,4 +176,42 @@ The second part of this is to be able to see them in reverse chronological order
 
 This is a good point to move the peeps to a database, before things get too messy in the model.
 
-- Created a new PostgreSQL database: chitter
+- Created a new PostgreSQL database: chitter using the psql command:
+  
+  ```psql
+  CREATE DATABASE chitter;
+  ```
+
+- Also created a testing database with:
+  
+  ```psql
+  CREATE DATABASE chitter_test;
+  ```
+
+- According to the table schema I had drawn up, the peeps table needs the following columns:
+  - id - serial primary key.
+  - content - variable characters up to 240 in length.
+  - time - a timestamp.
+  - user_id - representing which user authored the peep. (this will be added later when users are implemented)
+
+- The query to set up a table to this schema is:
+
+  ```sql
+  CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(240), time TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+  ```
+
+- This query was saved in `01_create_peeps_table.sql` in the db/migrations dir for later reference.
+
+Now to add some data into the databases.
+
+- Manually inserted three peeps using the following command(The id and time are generated automatically):
+
+  ```sql
+  INSERT INTO peeps (content) VALUES ('This is so cool');
+  INSERT INTO peeps (content) VALUES ('I am sending a peep');
+  INSERT INTO peeps (content) VALUES ('Isolation #COVID-19');
+  ```
+
+The model needs to be updated to access the database. This is achieved using the PG gem.
+
+- 
