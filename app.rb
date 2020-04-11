@@ -58,4 +58,9 @@ class Chitter < Sinatra::Base
     redirect '/login'
   end
 
+  post '/logout' do
+    session[:peeper] = nil
+    redirect '/home'
+  end
+
 end
