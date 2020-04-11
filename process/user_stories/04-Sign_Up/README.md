@@ -21,9 +21,9 @@ I want to sign up for Chitter
   - [X]  Requires Username
 
 *  Created User table
-  - [ ] Setup User table in database
+  - [X] Setup User table in database
   - [ ] 
 
 *  Created User Class
-  - [ ] User can be created
+  - [X] User can be created
   - [ ] 
