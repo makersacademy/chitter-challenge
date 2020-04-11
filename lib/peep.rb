@@ -11,16 +11,16 @@ class Peep
     @maker = maker
   end
 
-  def self.all
+  def self.all(maker_class = Maker)
     DBConnection.connect
     result = DBConnection.run_query("SELECT * FROM peeps;")
     DBConnection.disconnect
-    result.map { |row| Peep.new(row['id'], row['text'], row['time'], row['maker_id']) }
+    result.map { |row| Peep.new(row['id'], row['text'], row['time'], maker_class.find_by_id(row['maker_id'])) }
   end
 
   def self.create(text, time, maker_id, maker_class = Maker)
     DBConnection.connect
-    result = DBConnection.run_query("INSERT INTO peeps (text, time) VALUES ($$#{text}$$, $$#{time}$$) RETURNING id, text, time;")
+    result = DBConnection.run_query("INSERT INTO peeps (text, time, maker_id) VALUES ($$#{text}$$, $$#{time}$$, $$#{maker_id}$$) RETURNING id, text, time;")
     DBConnection.disconnect
 
     maker = maker_class.find_by_id(maker_id)

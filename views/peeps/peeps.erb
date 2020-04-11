@@ -18,9 +18,15 @@
     </form>
   </div>
 <% end %>
-
+<hr>
+<h3>Peeps</h3>
 <% @peeps.each do |peep| %>
+  <div>
+    Author - <%= peep.maker.name %> (@<%= peep.maker.username %>)
+  </div>
+  <hr>
   <div>
     <%= peep.text %>
   </div>
+  <hr>
 <% end %>

@@ -7,6 +7,7 @@ feature 'see all peeps in reverse chronological order' do
     Peep.create('My second peep', Time.now, maker.id)
     visit '/peeps'
 
+    expect(page).to have_content 'Author - Su (@Fox)'
     expect(page).to have_content 'My first peep'
     expect(page).to have_content 'My second peep'
     expect(page.body.index('My first peep')).to be < page.body.index('My second peep')

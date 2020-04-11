@@ -152,9 +152,9 @@ Steps:
 
 
 
-- add link between maker and peep tables
-- amend peep creation so they store the maker id 
-- show the maker details on the peeps list
+- add link between maker and peep tables - done
+- amend peep creation so they store the maker id - done
+- show the maker details on the peeps list - done
 
 Improvements
 - refactor validation into a single method that returns nil or the validated maker
