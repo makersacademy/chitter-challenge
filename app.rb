@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
+    @peeps = Peeps.all
     erb :'chitter/home'
   end
 
