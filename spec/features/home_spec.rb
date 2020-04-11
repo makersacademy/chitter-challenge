@@ -3,6 +3,7 @@ feature 'Homepage loads' do
   scenario "User can't enter a peep if notlogged in" do
     visit '/home'
     expect(page).not_to have_button 'add'
+    expect(page).not_to have_button 'logout'
   end
 
   scenario 'User can get to Login' do
