@@ -18,12 +18,12 @@ class Peep
     result.map { |row| Peep.new(row['id'], row['text'], row['time'], row['maker_id']) }
   end
 
-  def self.create(text, time, maker_id = 4)
+  def self.create(text, time, maker_id, maker_class = Maker)
     DBConnection.connect
     result = DBConnection.run_query("INSERT INTO peeps (text, time) VALUES ($$#{text}$$, $$#{time}$$) RETURNING id, text, time;")
     DBConnection.disconnect
 
-    maker = Maker.find_by_id(maker_id)
+    maker = maker_class.find_by_id(maker_id)
     Peep.new(result[0]['id'], result[0]['text'], result[0]['time'], maker)
   end
 end
