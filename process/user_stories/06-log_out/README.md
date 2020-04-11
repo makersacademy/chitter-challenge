@@ -15,6 +15,6 @@ I want to log out of Chitter
   - [X] Route Log out button
 
 *  Peeps are created by multiple users
-  - [ ] Test that user can post, log out and a new user posts to them
-  - [ ] Peeps to display Users name and handle
+  - [X] Test that user can post, log out and a new user posts to them
+  - [X] Peeps to display handle
 
