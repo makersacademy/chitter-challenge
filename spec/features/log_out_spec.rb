@@ -1,17 +1,11 @@
-feature 'Login Page Loads' do
+require 'peeper'
 
-  scenario 'Page loads with content' do
-    visit '/login' 
-    fill_in 'username', with: "Bruce"
-    fill_in 'password', with: "password"
-    click_button 'log_in'
-    expect(page).to have_content "Peep Central"
+feature 'User can log out' do
+
+  scenario 'Log out Button showing when not logged in' do
     visit '/home' 
-    expect(page).to have_button 'logout'
-    expect(page).not_to have_button 'log_in'
-    click_button 'log_in'
     expect(page).not_to have_button 'logout'
-    expect(page).to have_button 'log_in'
+    expect(page).to have_button 'Login'
   end
 
 end

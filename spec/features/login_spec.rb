@@ -6,7 +6,6 @@ feature 'Login Page Loads' do
     fill_in 'password', with: "password"
     click_button 'log_in'
     expect(page).to have_content "Peep Central"
-    expect(page).to have_button 'logout'
   end
 
 end
