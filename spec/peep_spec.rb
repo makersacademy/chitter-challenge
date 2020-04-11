@@ -23,9 +23,9 @@ describe Peep do
       peeps = Peep.all
    
       expect(peeps.length).to eq 2
-      expect(peeps.first).to be_a Peep
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.peep).to eq "First Peep"
+      expect(peeps.last).to be_a Peep
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.peep).to eq "First Peep"
     end
   end
 
