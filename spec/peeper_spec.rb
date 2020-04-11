@@ -17,4 +17,16 @@ describe Peeper do
     end
   end
 
+  describe '#get' do
+    it 'A peeper can be accessed' do
+      first_peeper = Peeper.create("Bruce", "Bruce@Bruceiscool.com", "Bruce123", "password")
+
+      user = Peep.get(peeper)
+   
+      expect(user.name).to eq "Bruce"
+      expect(user.email).to eq "Bruce@Bruceiscool.com"
+      expect(user.password).to eq "password"
+    end
+  end
+
 end
