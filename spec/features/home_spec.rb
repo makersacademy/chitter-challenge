@@ -11,7 +11,7 @@ feature 'Homepage loads' do
   scenario 'User can Login' do
     visit '/home'
     click_button 'Login'
-    ill_in 'username', with: "Bruce"
+    fill_in 'username', with: "Bruce"
     fill_in 'password', with: "password"
     click_button 'log_in'
     expect(page).to have_content "Peeper: Bruce"

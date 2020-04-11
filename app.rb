@@ -31,6 +31,10 @@ class Chitter < Sinatra::Base
     redirect '/home'
   end
 
+  post '/MainLogin' do
+    redirect '/login'
+  end
+
   get '/login' do
     erb :'chitter/login'
   end
