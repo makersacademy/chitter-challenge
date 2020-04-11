@@ -24,9 +24,9 @@ class Peep
     result = DbConnection.query("SELECT * FROM peeps")
     result.map do |peep|
       Peep.new(
-        id: result[0]['id'], 
-        peep: result[0]['peep'], 
-        peeper: result[0]['peeper']
+        id: peep['id'], 
+        peep: peep['peep'], 
+        peeper: peep['peeper']
       )
     end
 
