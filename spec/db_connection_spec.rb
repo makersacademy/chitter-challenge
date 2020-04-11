@@ -1,12 +1,12 @@
-require 'database_connection'
+require 'db_connection'
 
-describe DatabaseConnection do
-  
+describe DbConnection do
+
   describe '.setup' do
     it 'sets up a connection to a database through PG' do
-      expect(PG).to receive(:connect).with(dbname: 'bookmark_manager_test')
+      expect(PG).to receive(:connect).with(dbname: 'chitter_test')
 
-      DatabaseConnection.setup('bookmark_manager_test')
+      DbConnection.setup('chitter_test')
     end
   end
 
