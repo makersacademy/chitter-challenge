@@ -26,4 +26,12 @@ class Peep
     maker = maker_class.find_by_id(maker_id)
     Peep.new(result[0]['id'], result[0]['text'], result[0]['time'], maker)
   end
+
+  def self.find_by_id(id)
+    DBConnection.connect
+    result = DBConnection.run_query("SELECT * FROM peeps WHERE id=#{id};")
+    DBConnection.disconnect
+  
+    Peep.new(result[0]['id'], result[0]['text'], result[0]['time'], result[0]['maker_id'])
+  end
 end

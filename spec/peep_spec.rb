@@ -40,4 +40,15 @@ describe Peep do
       expect(peep.maker.username).to eq maker.username
     end
   end
+
+  describe '.find_by_id' do
+    it 'finds the peep with the specified id from the database' do
+      peep = Peep.create('My first peep', Time.now, @result[0]['id'], maker_class)
+      peep_in_db = Peep.find_by_id(peep.id)
+
+      expect(peep_in_db.id).to eq peep.id
+      expect(peep_in_db.text).to eq peep.text
+      expect(peep_in_db.time).to eq peep.time
+    end
+  end
 end
