@@ -1,7 +1,12 @@
 feature 'Homepage loads' do
   
-  scenario 'User can enter a peep' do
+  scenario 'User can enter a peep only if logged in' do
     visit '/home'
+    expect(page).not_to have_button 'add'
+    click_button 'Login'
+    fill_in 'username', with: "Bruce"
+    fill_in 'password', with: "password"
+    click_button 'log_in'
     click_button 'add'
     fill_in 'message', with: 'This is the first Peep!'
     click_button 'Peep'
