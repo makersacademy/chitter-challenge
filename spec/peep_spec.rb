@@ -21,6 +21,7 @@ describe Peep do
       maker = Maker.create('Phil', 'Squirrel', 'here@there.com', '1234')
       time = Time.now
       peep = Peep.create('My first peep', time, maker.id)
+      
       DBConnection.connect
       peep_in_db = DBConnection.run_query("SELECT * FROM peeps WHERE id =#{peep.id};")
       DBConnection.disconnect

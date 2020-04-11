@@ -47,12 +47,12 @@ class Maker
     Maker.new(result[0]['id'], result[0]['name'], result[0]['user_name'], result[0]['email'])
   end
 
-  private
-
   def self.valid_new_maker?(username, email)
     DBConnection.connect
     result = DBConnection.run_query("SELECT * FROM makers WHERE email=$$#{email}$$ OR user_name=$$#{username}$$")
     DBConnection.disconnect
-    result.ntuples == 1 ? false : true
+    result.ntuples.zero?
   end
+
+  private_class_method :valid_new_maker?
 end

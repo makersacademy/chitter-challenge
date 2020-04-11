@@ -1,8 +1,5 @@
 feature 'makers can log in to chitter' do
   scenario 'a maker successfully logs in' do
-    maker = Maker.create('Su', 'Fox', 'there@here.com', '1234')
-    Peep.create('My first peep', Time.now, maker.id)
-    Peep.create('My second peep', Time.now, maker.id)
     sign_up
     click_button 'Log out'
     click_button 'Log in'
