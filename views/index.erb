@@ -3,7 +3,10 @@
 </head>
 <body>
   <p>Welcome to Chitter</p>
-
+  <ul>
+  <% @current_peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
   <p><%= @new_peep %></p>
     <form action="/send_compose_peep" method="post">
       <input class="button" type="submit" name="Post a new Peep" value="Compose Peep">

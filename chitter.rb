@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  
+
   get '/' do
+    @current_peeps = Peep.all
     @new_peep = session[:submit_peep]
     erb :index
   end
