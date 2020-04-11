@@ -46,13 +46,18 @@ $ bundle
 ```
 
 * Add Sinatra and Capybara to gemfile
-* Update ```spec_helper.rb``` with test gems and Capybara.app file
+* Update `spec_helper.rb` with test gems and Capybara.app file
 * Write test to check test gems - red
-* Create ```app.rb``` and '/' route with content to match test
+* Create `app.rb` and '/' route with content to match test
 * Run test - green.
 
-```
 
+
+## Database/Table Setup instructions
+1. Connect to `psql`
+2. Create the database using the psql command `CREATE DATABASE chitter;`
+3. Connect to the database using the pqsl command `\c chitter;`
+4. Run the query we have saved in the file `01_create_peeps_table.sql`
 
 
 Chitter Challenge
