@@ -25,7 +25,7 @@ class Peeper
   end
 
   def self.get(peeper)
-    result = DbConnection.query("SELECT * FROM peepers WHERE peeper = '#{peeper.peeper}'")
+    result = DbConnection.query("SELECT * FROM peepers WHERE peeper = '#{peeper}'")
 
     result.map do |peeper|
       Peeper.new(

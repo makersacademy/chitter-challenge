@@ -5,7 +5,7 @@
 <body>
   <h1>Peep Central</h1>
   <% if @peeper != nil %>
-    <p> Peeper: <%= @peeper %></p>
+    <p> Peeper: <%= @peeper.peeper %></p>
   <% else%>  
     <form action="/MainLogin" method="post">
       <input class="button" type="submit" name="Login" value="Login">
