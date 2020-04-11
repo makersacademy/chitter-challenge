@@ -30,3 +30,18 @@ chitter=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(500), peeper VA
   end
 
 ```
+
+5. Setup database connection in a helper file
+
+```
+# in db_setup.rb
+
+  require './lib/db_connection'
+
+  if ENV['ENVIRONMENT'] == 'test'
+    DbConnection.setup('chitter_test')
+  else
+    DbConnection.setup('chitter')
+  end
+
+```
