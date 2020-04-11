@@ -1,7 +1,7 @@
 require 'peeper'
 require_relative 'database_helpers'
 
-describe Peep do
+describe Peeper do
   
   describe '.create' do
     it 'A peeper can be created' do
@@ -12,7 +12,7 @@ describe Peep do
       expect(first_peeper.id).to eq persisted_data.first['id']
       expect(first_peeper.name).to eq persisted_data.first['name']
       expect(first_peeper.email).to eq persisted_data.first['email']
-      expect(first_peeper.username).to eq persisted_data.first['username']
+      expect(first_peeper.peeper).to eq persisted_data.first['peeper']
       expect(first_peeper.password).to eq persisted_data.first['password']
     end
   end
