@@ -24,4 +24,19 @@ class Peeper
     )
   end
 
+  def self.get(peeper)
+    result = DbConnection.query("SELECT * FROM peepers WHERE peeper = '#{peeper.peeper}'")
+
+    result.map do |peeper|
+      Peeper.new(
+        id: peeper['id'], 
+        name: peeper['name'], 
+        email: peeper['email'],
+        peeper: peeper['peeper'],
+        password: peeper['password']
+      )
+    end
+  end
+
+
 end
