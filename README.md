@@ -50,7 +50,8 @@ $ bundle
 * Write test to check test gems - red
 * Create `app.rb` and '/' route with content to match test
 * Run test - green.
-
+--------
+'pg' added to Gemfile to allow connection to and querying of PostgreSQL
 
 
 ## Database/Table Setup instructions

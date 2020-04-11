@@ -1,10 +1,10 @@
+require 'pg'
+
 class Peep
 
   def self.all
-    [
-      "900 people die from Coronavirus",
-      "Lockdown is lifted",
-      "Coronavirus is over!"
-    ]
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec("SELECT * FROM peeps;")
+    result.map { |peep| peep['content'] }
   end
 end
