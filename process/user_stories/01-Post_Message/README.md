@@ -12,7 +12,8 @@ I want to post a message (peep) to chitter
 
 | Responsibility | Collaborator |
 |----------------|--------------|
-| Create         |              |
+| Create         | Database     |
+| All            |              |
 
 ### User Class (?)
 
@@ -38,6 +39,12 @@ I want to post a message (peep) to chitter
   - [X] Setup Testing Environment
 
 *  Refactor database Connection
-  - [ ] Create tests for database connection
-  - [ ] Create database connection class
-  - [ ] Create connection setup file
+  - [X] Create tests for database connection
+  - [X] Create database connection class
+  - [X] Create connection setup file
+
+*  Refactor Chitter app to use Peep class
+  - [ ] Can see posted Peep on index page
+  - [ ] Connect Chitter to Database
+  - [ ] Can see multiple peeps on index page
+  - [ ] Connect Chitter to Database

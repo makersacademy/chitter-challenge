@@ -4,3 +4,4 @@
 2. Setup [Rackup](rackup.md) 
 3. Setup [Sinatra](sinatra.md)
 4. Setup [Database](database.md)
+5. Setup [Test Environment](test_environement.md)
