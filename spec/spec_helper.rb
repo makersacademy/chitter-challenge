@@ -18,10 +18,18 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
+# database cleanup
+require_relative 'setup_test_database'
+
+
 # configure capybara app
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+
   config.after(:suite) do
     motivation = [
       'Red Green Refactor!',
