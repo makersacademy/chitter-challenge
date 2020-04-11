@@ -11,4 +11,4 @@ I want to see the time at which it was made
 ## Requirements
 
 *  A Peep has a date 
-  - [ ] Update home display to include date
+  - [X] Update home display to include date
