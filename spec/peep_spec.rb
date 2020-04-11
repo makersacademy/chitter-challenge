@@ -16,9 +16,15 @@ describe Peep do
 
   describe '.all' do
     it 'peeps can be views' do
-      Peep.create("First Peep")
+      peep = Peep.create("First Peep")
       Peep.create("Second Peep")
-      expect(Peep.all).to eq ["First Peep", "Second Peep"]
+   
+      peeps = Peep.all
+   
+      expect(peeps.length).to eq 2
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.peep).to eq "First Peep"
     end
   end
 
