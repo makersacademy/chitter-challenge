@@ -11,6 +11,7 @@ describe Peep do
       expect(first_peep).to be_a Peep
       expect(first_peep.id).to eq persisted_data.first['id']
       expect(first_peep.peep).to eq persisted_data.first['peep']
+      expect(first_peep.date).to eq persisted_data.first['date']
     end
   end
 
