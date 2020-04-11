@@ -29,4 +29,9 @@ class User
     rs.map { |row| User.new(name: row['username'], pw: row['password'], email: row['email'], user_id: row['id'])}    
   end
 
+  def self.authenticate(username:, pw:)
+    self.connect
+    res = @con.exec("SELECT * WHERE username = '#{username}' AND password = '#{pw}'")
+  end
+
 end

@@ -1,0 +1,10 @@
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+        <%= post.message %>
+        <%= post.time %>
+        <%= post.user %>
+      </a>
+    </li>
+  <% end %>
+</ul>
