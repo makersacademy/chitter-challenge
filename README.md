@@ -133,6 +133,8 @@ I want to log out of Chitter
 - Go to an appropriate route and delete the maker_id session variabe - done
 - Reload the peeps list page - done
 
+### 5th user story
+
 ```
 As a Maker
 So that only I can post messages on Chitter as me
@@ -148,13 +150,21 @@ Steps:
 - assuming fail, warn the user - done
 
 
-
-
-
-
 - add link between maker and peep tables - done
 - amend peep creation so they store the maker id - done
 - show the maker details on the peeps list - done
 
+### 6th user story
+
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+- write feature test - done
+- update peeps list to show date - done
+
 Improvements
 - refactor validation into a single method that returns nil or the validated maker
+- formatting of time display in peeps list
