@@ -13,4 +13,14 @@ class Chitter < Sinatra::Base
     p params
     redirect '/'
   end
+  get '/peeps/new' do
+    erb(:new_peep)
+  end
+
+  post '/peeps' do
+    message = params['peep text']
+    person = params['username']
+    Peep.create(text: message, user: person) 
+    redirect '/'
+  end
 end

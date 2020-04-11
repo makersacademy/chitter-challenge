@@ -9,6 +9,10 @@ feature "making a peep" do
     love and waffles,
     
     t3h PeNgU1N oF d00m')
+    expect(page).to have_field('username')
+    User.create(usr:'testy', pass:'testy_secure', email:'test@test.com')
+    who = User.all[-1].id
+    fill_in('username', :with => who )
     expect(page).to have_button('Submit Peep to Chitter')
     click_button('Submit Peep to Chitter')
   end
