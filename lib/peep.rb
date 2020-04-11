@@ -22,7 +22,14 @@ class Peep
 
   def self.all
     result = DbConnection.query("SELECT * FROM peeps")
-    result.map { |peep| peep['peep'] }
+    result.map do |peep|
+      Peep.new(
+        id: result[0]['id'], 
+        peep: result[0]['peep'], 
+        peeper: result[0]['peeper']
+      )
+    end
+
   end
 
 end
