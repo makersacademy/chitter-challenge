@@ -1,5 +1,3 @@
-require 'peep'
-
 feature 'see all peeps in reverse chronological order' do
   scenario 'when visiting the peeps path, you can see all peeps in reverse chronological order' do
     maker = Maker.create('Su', 'Fox', 'there@here.com', '1234')
