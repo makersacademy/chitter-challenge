@@ -1,9 +1,11 @@
-feature 'User can create a peep' do
+feature 'Homepage loads with peeps' do
   
-  scenario 'User can enter a peep' do
+  scenario 'home has peeps' do
     visit '/add'
     fill_in 'message', with: 'This is the first Peep!'
     click_button 'Peep'
-    expect(page).to have_content "You Peeped"
+    expect(current_path).to eq '/home'
+    expect(page).to have_content 'This is the first Peep!'
   end
+
 end
