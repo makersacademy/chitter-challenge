@@ -145,3 +145,17 @@ Green. Now should refactor the peeps from controller to model.
 Wrote a test for a Peep class. The #all class method should return the previously hardcoded peep array. Red.
 
 - Created lib dir, and peep.rb
+- Wrote Peep class with class method all returning the hardcoded peep array.
+
+Green. Now refactor for controller to use model.
+
+- Required peep.rb in app.rb 
+- Removed hardcoded peep array from '/' route and replaced with Peep.all call.
+
+Tests still green.
+
+The second part of this is to be able to see them in reverse chronological order. Newest first. In order for that, each peep needs to have a timestamp attached.
+
+This is a good point to move the peeps to a database, before things get too messy in the model.
+
+- Created a new PostgreSQL database: chitter
