@@ -15,4 +15,14 @@ describe DbConnection do
       expect(DbConnection.connection).to eq connection
     end
   end
+
+  describe '.query' do
+    it 'can query tables using PG' do
+      connection = DbConnection.setup('chitter_test')
+  
+      expect(connection).to receive(:exec).with("SELECT * FROM peeps;")
+  
+      DbConnection.query("SELECT * FROM peeps;")
+    end
+  end
 end
