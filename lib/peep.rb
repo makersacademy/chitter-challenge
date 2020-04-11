@@ -2,21 +2,24 @@ require 'pg'
 require_relative 'db_connection'
 
 class Peep
-
-  attr_reader :id, :peep, :peeper
   
-  def initialize(id:, peep:, peeper:)
+
+  attr_reader :id, :peep, :peeper, :date
+  
+  def initialize(id:, peep:, peeper:, date:)
     @id = id
     @peep = peep
     @peeper = peeper
+    @date = date
   end
 
-  def self.create(peep)    
-    result = DbConnection.query("INSERT INTO peeps(peep, peeper) VALUES('#{peep}', 'none') RETURNING id, peep, peeper;")
+  def self.create(peep, time)    
+    result = DbConnection.query("INSERT INTO peeps(peep, peeper, date) VALUES('#{peep}', 'none', #{time}) RETURNING id, peep, peeper, date;")
     Peep.new(
       id: result[0]['id'], 
       peep: result[0]['peep'], 
-      peeper: result[0]['peeper']
+      peeper: result[0]['peeper'],
+      date: result[0]['date']
     )
   end
 

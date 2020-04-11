@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './db_setup'
 require './lib/peep'
+require 'date'
 
 class Chitter < Sinatra::Base
 
@@ -19,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/add' do
-    @peep = Peep.create(params[:message])
+    @peep = Peep.create(params[:message], Time.now)
     "You Peeped"
     redirect '/home'
   end

@@ -8,8 +8,8 @@ feature 'User can create a peep' do
   end
 
   scenario 'User can enter a peep' do
-    peep_1 = Peep.create("Peep 1")
-    peep_2 = Peep.create("Peep 2")
+    peep_1 = Peep.create("Peep 1", '2020-04-09 10:52:57.960784')
+    peep_2 = Peep.create("Peep 2", '2020-04-10 10:52:57.960784')
     visit '/add'
     fill_in 'message', with: 'This is the Newest Peep!'
     click_button 'Peep'

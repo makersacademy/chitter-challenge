@@ -5,7 +5,7 @@ describe Peep do
   
   describe '.create' do
     it 'A peep can be created' do
-      first_peep = Peep.create("First Peep")
+      first_peep = Peep.create("First Peep", '2020-04-11 10:52:57.960784')
       persisted_data = persisted_data(table: 'peeps', id: first_peep.id)
 
       expect(first_peep).to be_a Peep
@@ -17,8 +17,8 @@ describe Peep do
 
   describe '.all' do
     it 'peeps can be views' do
-      peep = Peep.create("First Peep")
-      Peep.create("Second Peep")
+      peep = Peep.create("First Peep", '2020-04-10 10:52:57.960784')
+      Peep.create("Second Peep", '2020-04-11 10:52:57.960784')
    
       peeps = Peep.all
    
