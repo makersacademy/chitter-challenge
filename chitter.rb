@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './lib/peep'
 require_relative './lib/maker'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
   
   get '/' do
     redirect '/peeps'
@@ -48,6 +50,9 @@ class Chitter < Sinatra::Base
       maker = Maker.find_by_username(params['username'])
       session[:maker_id] = maker.id
       redirect '/peeps'
+    else
+      flash[:invalid_credentials] = 'Your login details were invalid, please try again'
+      redirect '/sessions/new'
     end
   end
 

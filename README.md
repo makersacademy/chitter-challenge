@@ -145,7 +145,7 @@ Steps:
 - add log-in method to Maker class to test the credentials - done
 - use it - done
 - assuming success, update the session user id and reload peeps list - done
-- assuming fail, warn the user
+- assuming fail, warn the user - done
 
 
 
@@ -155,3 +155,6 @@ Steps:
 - add link between maker and peep tables
 - amend peep creation so they store the maker id 
 - show the maker details on the peeps list
+
+Improvements
+- refactor validation into a single method that returns nil or the validated maker

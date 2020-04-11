@@ -1,3 +1,7 @@
+<% if flash[:invalid_credentials] %>
+  <%= flash[:invalid_credentials] %>
+<% end %>
+
 <form method="post" action="/sessions/new">
   <div>
     <label for="username">Username:</label>
@@ -11,6 +15,6 @@
     <input type="submit" value="Log in">
   </div>
 </form>
-<form>
+<form method="get" action="/users/new">
   <input type="submit" value="Register">
 </form>
