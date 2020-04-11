@@ -13,9 +13,9 @@ describe Peep do
 
       peeps = Peep.all
 
-      expect(peeps).to include 'This is so cool'
-      expect(peeps).to include 'I am sending a peep'
-      expect(peeps).to include 'Isolation #COVID-19'
+      expect(peeps[0][:content]).to eq 'Isolation #COVID-19'
+      expect(peeps[1][:content]).to eq 'I am sending a peep'
+      expect(peeps[2][:content]).to eq 'This is so cool'
     end
   end
 end
