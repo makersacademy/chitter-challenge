@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './db_setup'
 require './lib/peep'
 require 'date'
+require './lib/peeper'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -53,6 +54,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
+    @peeper = Peeper.new(params[:name], params[:email], params[:username], params[:password])
     redirect '/login'
   end
 
