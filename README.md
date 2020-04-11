@@ -174,6 +174,8 @@ Tests still green.
 
 The second part of this is to be able to see them in reverse chronological order. Newest first. In order for that, each peep needs to have a timestamp attached.
 
+#### Switching to Databases
+
 This is a good point to move the peeps to a database, before things get too messy in the model.
 
 - Created a new PostgreSQL database: chitter using the psql command:
@@ -217,4 +219,20 @@ The model needs to be updated to access the database. This is achieved using the
 - Refactored Peep.all to use a PG connection, executing a query to select all columns from the peeps table.
 - The result of the query is an object containing a series of hashes that are the rows of the table. The can be mapped through putting out the 'content' value as each item of an array.
 
-Tests still green
+Tests still green.
+
+#### Using the Appropriate Database
+
+Now is probably a good time make sure than tests use `chitter_test` and the production site uses `chitter`.
+
+In order to handle the logic for this, and also provide a persistent connection to the database, rather than setting it up every time access is required, I decided to create a DatabaseConnection class.
+
+Wrote a test for DatabaseConnection.setup to create a connection to 'chitter_test'. Red.
+
+
+
+
+
+As the peep has an id, content, and time it probably should not be presented as an array of strings, but as an array of Peep instances that respond to id, content and time.
+
+Wrote a test
