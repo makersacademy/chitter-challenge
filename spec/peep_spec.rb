@@ -22,8 +22,10 @@ describe Peep do
   describe '.create' do
     it 'creates a new peep' do
       Peep.create(content: 'this is a test peep')
-  
-      expect(Peep.all[0][:content]).to include 'this is a test peep'
+      
+      test_peep = Peep.all.first
+
+      expect(test_peep[:content]).to include 'this is a test peep'
     end
   end
   
