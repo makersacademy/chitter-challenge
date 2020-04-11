@@ -6,4 +6,8 @@ class Peep
       "I think I deserve some chocolate"
     ]
   end
+
+  def peep_time
+    Time.now
+  end
 end
