@@ -5,12 +5,12 @@ describe Peep do
   
   describe '.create' do
     it 'A peep can be created' do
-      peep = Peep.create("First Peep")
-      persisted_data = persisted_data(table: 'peeps', id: peep.id)
+      first_peep = Peep.create("First Peep")
+      persisted_data = persisted_data(table: 'peeps', id: first_peep.id)
 
-      expect(peep).to be_a Peep
-      expect(peep.id).to eq persisted_data.first['id']
-      expect(peep.peep).to eq "First Peep"
+      expect(first_peep).to be_a Peep
+      expect(first_peep.id).to eq persisted_data.first['id']
+      expect(first_peep.peep).to eq persisted_data.first['peep']
     end
   end
 

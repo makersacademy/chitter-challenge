@@ -4,7 +4,7 @@ require_relative 'db_connection'
 class Peep
 
   attr_reader :id, :peep, :peeper
-
+  
   def initialize(id:, peep:, peeper:)
     @id = id
     @peep = peep
@@ -16,7 +16,7 @@ class Peep
     Peep.new(
       id: result[0]['id'], 
       peep: result[0]['peep'], 
-      peeper: result[0]['url']
+      peeper: result[0]['peeper']
     )
   end
 

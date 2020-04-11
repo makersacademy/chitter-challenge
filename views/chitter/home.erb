@@ -5,5 +5,13 @@
 <body>
   <h1>Peep Central</h1>
   <%= @peeps %>
+
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= peep.peep %>
+      </li>
+    <% end %>
+  </ul>
 </body>
 </html>
