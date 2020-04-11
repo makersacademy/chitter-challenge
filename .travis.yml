@@ -4,9 +4,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -c '\c chitter_test;'
-  - psql -U postgres -c 'CREATE TABLE makers (id SERIAL PRIMARY KEY, name VARCHAR(30), user_name VARCHAR(30), email VARCHAR(30), password VARCHAR(60));'
-  - psql -U postgres -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, text VARCHAR(280), time TIMESTAMP(0), maker_id INTEGER REFERENCES makers(id));'
+
 script:
+  - bundle exec rake create_test_db
   - bundle exec rspec
