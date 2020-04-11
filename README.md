@@ -2,6 +2,11 @@ Chitter Challenge
 =================
 This is a project to create a twitter clone using web apps that interact with databases using ODD and TDD.
 
+## Domain Modelling
+
+```
+Input Image of post it diagram and CRC cards
+```
 
 ## User Stories
 
@@ -27,12 +32,28 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 
+Summary of steps
+* Post peep
+* See Peep - chronological order
+* Each peep has time stamp
+* Sign up to Chitter
 
-## Steps
+
+## Set-up Steps
 ```
 $ git clone https://github.com/alexakearns/chitter-challenge.git
 $ bundle
 ```
+
+* Add Sinatra and Capybara to gemfile
+* Update ```spec_helper.rb``` with test gems and Capybara.app file
+* Write test to check test gems - red
+* Create ```app.rb``` and '/' route with content to match test
+* Run test - green.
+
+```
+
+
 
 Chitter Challenge
 =================
