@@ -4,8 +4,10 @@ describe Peep do
   
   describe '.create' do
     it 'A peep can be created' do
-      Peep.create("First Peep")
-      expect(Peep.all).to include "First Peep"
+      peep = Peep.create("First Peep")
+       
+      expect(peep).to be_a Peep
+      expect(peep.peep).to eq "First Peep"
     end
   end
 

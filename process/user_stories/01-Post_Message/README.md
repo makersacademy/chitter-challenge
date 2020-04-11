@@ -46,5 +46,9 @@ I want to post a message (peep) to chitter
 *  Refactor Chitter app to use Peep class
   - [X] Can see posted Peep on index page
   - [X] Connect Chitter to Database
-  - [ ] Can see multiple peeps on index page
-  - [ ] Connect Chitter to Database
+  - [X] Can see multiple peeps on index page
+  - [X] Connect Chitter to Database
+
+*  Refactor Peep class to create objects
+  - [ ] Create initializes object
+  - [ ] Chitter app uses objects
