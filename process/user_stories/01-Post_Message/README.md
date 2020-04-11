@@ -44,7 +44,7 @@ I want to post a message (peep) to chitter
   - [X] Create connection setup file
 
 *  Refactor Chitter app to use Peep class
-  - [ ] Can see posted Peep on index page
-  - [ ] Connect Chitter to Database
+  - [X] Can see posted Peep on index page
+  - [X] Connect Chitter to Database
   - [ ] Can see multiple peeps on index page
   - [ ] Connect Chitter to Database

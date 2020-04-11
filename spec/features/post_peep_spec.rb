@@ -1,11 +1,12 @@
+require 'peep'
+
 feature 'Homepage loads with peeps' do
   
   scenario 'home has peeps' do
-    visit '/add'
-    fill_in 'message', with: 'This is the first Peep!'
-    click_button 'Peep'
-    expect(current_path).to eq '/home'
-    expect(page).to have_content 'This is the first Peep!'
+    peep_1 = Peep.create("Peep 1")
+    peep_2 = Peep.create("Peep 2")
+    visit '/home'
+    expect(page).to have_content '"Peep 1", "Peep 2"'
   end
 
 end
