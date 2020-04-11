@@ -12,6 +12,8 @@ class Maker
   end
 
   def self.create(name, username, email, password)
+    return nil unless valid_new_maker?(username, email)
+
     encrypted_password = BCrypt::Password.create(password)
     
     DBConnection.connect
@@ -43,5 +45,14 @@ class Maker
     DBConnection.disconnect
 
     Maker.new(result[0]['id'], result[0]['name'], result[0]['user_name'], result[0]['email'])
+  end
+
+  private
+
+  def self.valid_new_maker?(username, email)
+    DBConnection.connect
+    result = DBConnection.run_query("SELECT * FROM makers WHERE email=$$#{email}$$ OR user_name=$$#{username}$$")
+    DBConnection.disconnect
+    result.ntuples == ? false : true
   end
 end

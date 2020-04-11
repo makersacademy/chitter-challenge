@@ -14,6 +14,16 @@ describe Maker do
       expect(maker.username).to eq 'Squirrel'
       expect(maker.email).to eq 'here@there.com'
     end
+
+    it 'returns nil if the email already exists in the db' do
+      Maker.create('Su', 'Rabbit', 'here@there.com', '1234')
+      expect(Maker.create('Phil', 'Squirrel', 'here@there.com', '1234')).to be_nil
+    end
+
+    it 'returns nil if the username already exists in the db' do
+      Maker.create('Su', 'Squirrel', 'there@here.com', '1234')
+      expect(Maker.create('Phil', 'Squirrel', 'here@there.com', '1234')).to be_nil
+    end
   end
 
   describe '.find_by_id' do

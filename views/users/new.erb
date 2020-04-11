@@ -1,3 +1,6 @@
+<% if flash[:invalid_new_user] %>
+  <%= flash[:invalid_new_user] %>
+<% end %>
 <div>
   <form action="/users" method="post">
     <div>

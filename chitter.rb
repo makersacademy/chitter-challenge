@@ -17,8 +17,13 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     maker = Maker.create(params['name'], params['username'], params['email'], params['password'])
-    session[:maker_id] = maker.id
-    redirect '/peeps'
+    if maker
+      session[:maker_id] = maker.id
+      redirect '/peeps'
+    else
+      flash[:invalid_new_user] = 'Your username or email are already in use. Please try again'
+      redirect 'users/new'
+    end
   end
 
   get '/peeps' do
