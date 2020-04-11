@@ -8,6 +8,12 @@ class Peep
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec('SELECT * FROM peeps ORDER BY time DESC;')
-    result.map { |peep| peep['content'] }
+    output = result.map do |peep|
+      {
+        content: peep['content'],
+        time: Time.parse(peep['time']).strftime('%b %e %I:%M%P')
+      }
+    end
+    p output
   end
 end

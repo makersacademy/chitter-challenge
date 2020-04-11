@@ -247,9 +247,11 @@ Green.
 
 ### Peeps Labeled with Date and Time
 
-Wrote a new scenario in the view peeps feature tests. The time of the peeps should be displayed in an appropriate format.
+Wrote a new scenario in the view peeps feature tests. The time of the peeps should be displayed in an appropriate format. Red.
 
-The format I have chosen, for example: Apr 10, 1:35pm
+The format I have chosen, for example: Apr 10, 1:35pm.
+
+
 
 <!-- 
 

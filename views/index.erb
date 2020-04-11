@@ -8,7 +8,10 @@
 <body>
   <ul>
     <% @peeps.each do |peep| %>
-      <li class="peep"><%= peep %></li>
+      <li class="peep">
+        <p><%= peep[:content] %></p>
+        <p><%= peep[:time] %></p>
+      </li>
     <% end %>
   </ul>
 </body>
