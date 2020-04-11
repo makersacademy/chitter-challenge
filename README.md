@@ -106,11 +106,9 @@ I wrote a short CRC card model and an outline of Table Scheme:
 ### Prepare Testing Infrastructure
 
 - Added Sinatra and Capybara to the gemfile.
-
+- Added config.ru to allow rackup.
 - Added testing gems and app file to `spec_helper.rb`, also configures Capybara app.
-
 - Wrote Hello World test to check Sinatra and Capyara all working correctly. Red.
-
 - Created `app.rb` with route for '/' returning Hello World. Green.
 
 ### User Stories 1, 2, 3
@@ -139,4 +137,10 @@ On the home page there should be a list of peeps.
 
 Wrote a feature test to visit '/' and see a list of peeps. Red.
 
-- 
+- Updated '/' with a hardcoded array of peeps, and to render index.erb.
+- index.erb in views dir uses executive ruby to iterate over peeps array and print each one as a list item.
+
+Green. Now should refactor the peeps from controller to model.
+
+Wrote a test for a Peep class. The #all class method should return the previously hardcoded peep array.
+
