@@ -1,3 +1,5 @@
+require 'pg'
+
 feature 'Viewing peeps' do
   scenario 'visit the index page' do
     visit('/')
@@ -5,8 +7,12 @@ feature 'Viewing peeps' do
   end
 
   scenario 'user can see peeps' do
-    visit('/')
-    click_button "Add Peep"
+    connection =  PG.connect(dbname: 'chitter_test')
+
+    connection.exec("INSERT INTO peeps (content) VALUES('What a day to peep!');")
+    connection.exec("INSERT INTO peeps (content) VALUES('Happy Easter');")
+
+    visit('/peeps')
 
     expect(page).to have_content "What a day to peep!"
     expect(page).to have_content "Happy Easter"

@@ -7,10 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    peeps = [
-          "What a day to peep!",
-          " Happy Easter"
-          ]
+    @peeps = Peep.all
 
     erb :'peeps/index'
   end
