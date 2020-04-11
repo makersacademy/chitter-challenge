@@ -4,6 +4,9 @@
 </head>
 <body>
   <h1>Peep Central</h1>
+  <form action="/create" method="post">
+    <input class="button" type="submit" name="add" value="Do a Peep">
+  </form>
   <ul>
     <% @peeps.each do |peep| %>
       <li>

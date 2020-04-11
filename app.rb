@@ -11,8 +11,11 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     @peeps = Peep.all
-    p @peeps
     erb :'chitter/home'
+  end
+
+  post '/create' do
+    redirect '/add'
   end
 
   get '/add' do
