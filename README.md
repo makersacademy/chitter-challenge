@@ -142,5 +142,6 @@ Wrote a feature test to visit '/' and see a list of peeps. Red.
 
 Green. Now should refactor the peeps from controller to model.
 
-Wrote a test for a Peep class. The #all class method should return the previously hardcoded peep array.
+Wrote a test for a Peep class. The #all class method should return the previously hardcoded peep array. Red.
 
+- Created lib dir, and peep.rb
