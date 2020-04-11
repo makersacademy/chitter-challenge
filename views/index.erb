@@ -2,12 +2,12 @@
 <head>
 </head>
 <body>
-<p>Welcome to Chitter</p>
+  <p>Welcome to Chitter</p>
 
-<p><% @new_peep %></p>
-<form action="/send_compose_peep" method="post">
-  <input class="button" type="submit" name="Post a new Peep" value="Compose Peep">
-</form>
+  <p><%= @new_peep %></p>
+    <form action="/send_compose_peep" method="post">
+      <input class="button" type="submit" name="Post a new Peep" value="Compose Peep">
+    </form>
 
 </body>
 </html>
