@@ -44,4 +44,16 @@ class Chitter < Sinatra::Base
     redirect '/home'
   end
 
+  post '/MainSignup' do
+    redirect '/signup'
+  end
+
+  get '/signup' do
+    erb :'chitter/signup'
+  end
+
+  post '/signup' do
+    redirect '/login'
+  end
+
 end
