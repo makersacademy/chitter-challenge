@@ -214,4 +214,7 @@ Now to add some data into the databases.
 
 The model needs to be updated to access the database. This is achieved using the PG gem.
 
-- 
+- Refactored Peep.all to use a PG connection, executing a query to select all columns from the peeps table.
+- The result of the query is an object containing a series of hashes that are the rows of the table. The can be mapped through putting out the 'content' value as each item of an array.
+
+Tests still green

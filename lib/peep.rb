@@ -1,11 +1,10 @@
-class Peep
-  
-  def self.all
-    [
-      'This is so cool',
-      'I am sending a peep',
-      'Isolation #COVID-19'
-    ]
-  end
+require 'pg'
 
+class Peep
+  def self.all
+    connection = PG.connect(dbname: 'chitter_test')
+    result = connection.exec('SELECT * FROM peeps;')
+    p result
+    result.map { |peep| peep['content'] }
+  end
 end

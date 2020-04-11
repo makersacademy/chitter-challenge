@@ -9,11 +9,5 @@ describe Peep do
       expect(peeps).to include 'I am sending a peep'
       expect(peeps).to include 'Isolation #COVID-19'
     end
-  
-    it 'causes .exec to be called on the PG class' do
-      expect(PG).to receive(:exec).with('SELECT * FROM peeps;')
-
-      peeps = Peep.all
-    end
   end
 end
