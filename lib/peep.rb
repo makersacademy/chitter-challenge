@@ -13,7 +13,7 @@ class Peep
 
   def self.all(maker_class = Maker)
     DBConnection.connect
-    result = DBConnection.run_query("SELECT * FROM peeps;")
+    result = DBConnection.run_query("SELECT * FROM peeps ORDER BY time DESC;")
     DBConnection.disconnect
     result.map { |row| Peep.new(row['id'], row['text'], row['time'], maker_class.find_by_id(row['maker_id'])) }
   end
