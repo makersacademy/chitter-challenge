@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     @peeps = Peep.all
-    @peeper = session[:peeper] 
+    @peepers = Peeper.get(session[:peeper]).first
     erb :'chitter/home'
   end
 
@@ -41,7 +41,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    session[:peeper] = Peeper.get(params[:username])
+    session[:peeper] = params[:username]
     redirect '/home'
   end
 

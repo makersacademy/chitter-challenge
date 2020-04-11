@@ -5,7 +5,7 @@ feature 'Login Page Loads' do
     fill_in 'username', with: "Bruce"
     fill_in 'password', with: "password"
     click_button 'log_in'
-    expect(page).to have_content "Peeper: Bruce"
+    expect(page).to have_content "Peep Central"
   end
 
 end
