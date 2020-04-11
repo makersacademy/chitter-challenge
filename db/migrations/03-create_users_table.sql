@@ -1,0 +1,1 @@
+CREATE TABLE peepers(id SERIAL PRIMARY KEY, name VARCHAR(30), email VARCHAR(50), peeper VARCHAR(20), password VARCHAR(20));

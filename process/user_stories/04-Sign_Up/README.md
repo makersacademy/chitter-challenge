@@ -15,11 +15,10 @@ I want to sign up for Chitter
   - [X] Requires Username
 
 *  Build Signup Page
-  - [ ] Requires Email
-  - [ ]  Requires Password
-  - [ ]  Requires Name
-  - [ ]  Requires Username
-
+  - [X]  Requires Email
+  - [X]  Requires Password
+  - [X]  Requires Name
+  - [X]  Requires Username
 
 *  Created User table
   - [ ] Setup User table in database
