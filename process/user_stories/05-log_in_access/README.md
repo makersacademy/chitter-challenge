@@ -14,4 +14,4 @@ I want to log in to Chitter
   - [X] 
 
 *  Add user in Peep creation user column
-  - [ ] Update Peep.create to take username
+  - [X] Update Peep.create to take username
