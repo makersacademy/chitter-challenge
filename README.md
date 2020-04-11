@@ -81,16 +81,14 @@ _Coming soon_
 - Ruby
 - Postgresql
 
-
-
 ### Database Setup
 
 1. With `psql` set up the production and test databases with the following commands:
 
-    ```psql
-    CREATE DATABASE chitter;
-    CREATE DATABASE chitter_test;
-    ```
+   ```psql
+   CREATE DATABASE chitter;
+   CREATE DATABASE chitter_test;
+   ```
 
 2. Run the commands in the files in `db/migrations` in order for each of the production and test databases.
 
@@ -167,7 +165,7 @@ Wrote a test for a Peep class. The #all class method should return the previousl
 
 Green. Now refactor for controller to use model.
 
-- Required peep.rb in app.rb 
+- Required peep.rb in app.rb
 - Removed hardcoded peep array from '/' route and replaced with Peep.all call.
 
 Tests still green.
@@ -179,18 +177,19 @@ The second part of this is to be able to see them in reverse chronological order
 This is a good point to move the peeps to a database, before things get too messy in the model.
 
 - Created a new PostgreSQL database: chitter using the psql command:
-  
+
   ```psql
   CREATE DATABASE chitter;
   ```
 
 - Also created a testing database with:
-  
+
   ```psql
   CREATE DATABASE chitter_test;
   ```
 
 - According to the table schema I had drawn up, the peeps table needs the following columns:
+
   - id - serial primary key.
   - content - variable characters up to 240 in length.
   - time - a timestamp.
@@ -285,7 +284,7 @@ Refactored the controller to use new Peep.create instead of accessing the databa
 
 At this point I also refactored tests that need test peeps added to use the new Peep.create method.
 
-### Refactoring to Peep instances
+### Refactoring to Peep Instances
 
 Rather than generating an array of hashes containing the peep data, an array of peep instances should be created. This way the peep can respond to #content and #time neatly rather than messily accessing hash keys.
 
@@ -298,9 +297,17 @@ Updated the unit test for Peep.all to expect an array of Peep instances, that re
 
 Green.
 
+### Refactoring with ActiveRecord
+
+ActiveRecord is a Object Relational Mapping (ORM) gem. It controls the way that objects (in this case peeps) are transfered into the database, and pulled out from the database.
+
+
+
 <!-- 
 
-In order to provide a persistent connection to the correct database, rather than setting it up every time access is required, I decided to create a DatabaseConnection class.
+### Refactoring to a Persistent Database Connection
+
+In order to provide a persistent connection to the correct database, rather than setting it up every time access is required, the connection can be handled by a DatabaseConnection class.
 
 Wrote a test for DatabaseConnection.setup to create a connection to 'chitter_test'. Red.
 
@@ -321,24 +328,10 @@ Wrote a test for DatabaseConnection.query to send an exec call to the connection
 
 Green.
 
-Now, when tests are run there needs to be an environmental variable to distinguish test from production.
-
-- In spec_helper.rb, set ENV['ENVIRONMENT'] with 'test'.
-
 The app should set up a database once at the start.
 
 - Created database_connection_setup.rb
 - Simple script to decide which database to connect to based on ENV, and use DatabaseConnection.setup to connect to it.
-- Required this script in app.rb
-
-Now Peep.all can use DatabaseConnection
-
-
-
-
-
-As the peep has an id, content, and time it probably should not be presented as an array of strings, but as an array of Peep instances that respond to id, content and time.
-
-Wrote a test 
+- Required this script in app.rb 
 
 -->
