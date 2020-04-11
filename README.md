@@ -149,7 +149,7 @@ Core functionality:
 - Each peep has a timestamp
 - Post a peep, entering the content
 
-#### Seeing some preloaded peeps
+### Seeing some preloaded peeps
 
 On the home page there should be a list of peeps.
 
@@ -174,7 +174,7 @@ Tests still green.
 
 The second part of this is to be able to see them in reverse chronological order. Newest first. In order for that, each peep needs to have a timestamp attached.
 
-#### Switching to Databases
+### Switching to Databases
 
 This is a good point to move the peeps to a database, before things get too messy in the model.
 
@@ -221,19 +221,27 @@ The model needs to be updated to access the database. This is achieved using the
 
 Tests still green.
 
-#### Using Test Database 
+### Using Test Database
 
 Now is probably a good time make sure than tests use `chitter_test`.
 
 - At the top of spec_helper, set ENV['ENVIRONMENT'] to 'test'
 - In Peep.all, connect to either the production or test database based on the ENVIRONMENT value.
 
-#### Resetting Database for Every Test
+### Resetting Database for Every Test
 
 Each test should have an empty database to run on, and they should insert the data that is needed for the test.
 
 - Wrote a setup_test_database method in file of the same name, which connects to `chitter_test` and truncates the peeps table.
 - Required this in spec_helper.rb and configured the method to run before each test.
+- Updated tests to insert the data required for using PG.connect
+
+### Ordering the peeps correctly
+
+Added a new scenario to the view peeps feature tests. The last peep added should be the first peep displayed.
+
+- Edited the query to return the peeps
+
 
 <!-- 
 
