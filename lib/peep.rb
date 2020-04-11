@@ -1,5 +1,5 @@
 require 'pg'
-require 'db_connection'
+require_relative 'db_connection'
 
 class Peep
 
