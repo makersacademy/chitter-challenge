@@ -41,7 +41,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    session[:peeper] = params[:username]
+    session[:peeper] = Peeper.get(params[:username])
     redirect '/home'
   end
 
