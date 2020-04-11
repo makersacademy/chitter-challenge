@@ -53,6 +53,6 @@ class Maker
     DBConnection.connect
     result = DBConnection.run_query("SELECT * FROM makers WHERE email=$$#{email}$$ OR user_name=$$#{username}$$")
     DBConnection.disconnect
-    result.ntuples == ? false : true
+    result.ntuples == 1 ? false : true
   end
 end
