@@ -21,7 +21,6 @@ require 'rspec'
 # database cleanup
 require_relative 'setup_test_database'
 
-
 # configure capybara app
 Capybara.app = Chitter
 
