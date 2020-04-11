@@ -275,7 +275,15 @@ Green.
 
 The logic currently in the controller should be handled by the model.
 
-Wrote a unit test for Peep.create, which creates a new peep
+Wrote a unit test for Peep.create, expecting a new peep to be created and pulled out of the database with Peep.all. Red.
+
+- Moved logic from controller into Peep.create
+
+Test green.
+
+Refactored the controller to use new Peep.create instead of accessing the database itself.
+
+
 
 <!-- 
 
