@@ -9,9 +9,9 @@ I want to see all peeps in reverse chronological order
 ## Requirements
 
 *  A Peep has a date 
-  - [ ] Add date column to tables
-  - [ ] Date is added in creation of Peep
+  - [X] Add date column to tables
+  - [X] Date is added in creation of Peep
 
 *  Peep all uses date
-  - [ ] Home displays in reverse chronological oder
+  - [X] Home displays in reverse chronological oder
 
