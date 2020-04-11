@@ -283,7 +283,7 @@ Test green.
 
 Refactored the controller to use new Peep.create instead of accessing the database itself.
 
-
+At this point I also refactored tests that need test peeps added to use the new Peep.create method.
 
 <!-- 
 

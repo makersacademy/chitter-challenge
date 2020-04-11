@@ -1,11 +1,9 @@
 feature 'View Peeps' do
   scenario 'list of peeps on homepage' do
     # add test data
-    connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("INSERT INTO peeps (content) VALUES ('This is so cool');")
-    connection.exec("INSERT INTO peeps (content) VALUES ('I am sending a peep');")
-    connection.exec("INSERT INTO peeps (content) VALUES ('Isolation #COVID-19');")
+    Peep.create(content: 'This is so cool')
+    Peep.create(content: 'I am sending a peep')
+    Peep.create(content: 'Isolation #COVID-19')
 
     visit '/'
     expect(page).to have_content 'This is so cool'
@@ -15,11 +13,9 @@ feature 'View Peeps' do
 
   scenario 'list of peeps should start with the newest first' do
     # add test data
-    connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("INSERT INTO peeps (content) VALUES ('This is so cool');")
-    connection.exec("INSERT INTO peeps (content) VALUES ('I am sending a peep');")
-    connection.exec("INSERT INTO peeps (content) VALUES ('Isolation #COVID-19');")
+    Peep.create(content: 'This is so cool')
+    Peep.create(content: 'I am sending a peep')
+    Peep.create(content: 'Isolation #COVID-19')
 
     visit '/'
     expect(first('.peep')).to have_content 'Isolation #COVID-19'
@@ -27,8 +23,7 @@ feature 'View Peeps' do
 
   scenario 'peeps should be labeled with the time they were peeped' do
     # add test data
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("INSERT INTO peeps (content) VALUES ('This is so cool');")
+    Peep.create(content: 'This is so cool')
 
     time_now = Time.now
     time_now_pretty = time_now.strftime('%b %e %I:%M%P')

@@ -1,15 +1,12 @@
 require 'peep'
-require 'pg'
 
 describe Peep do
   describe '.all' do
     it 'returns a list of peeps' do
       # add test data
-      connection = PG.connect(dbname: 'chitter_test')
-
-      connection.exec("INSERT INTO peeps (content) VALUES ('This is so cool');")
-      connection.exec("INSERT INTO peeps (content) VALUES ('I am sending a peep');")
-      connection.exec("INSERT INTO peeps (content) VALUES ('Isolation #COVID-19');")
+      Peep.create(content: 'This is so cool')
+      Peep.create(content: 'I am sending a peep')
+      Peep.create(content: 'Isolation #COVID-19')
 
       peeps = Peep.all
 
