@@ -29,7 +29,8 @@ class Peep
       Peep.new(
         id: peep['id'], 
         peep: peep['peep'], 
-        peeper: peep['peeper']
+        peeper: peep['peeper'],
+        date: peep['date']
       )
     end
 
