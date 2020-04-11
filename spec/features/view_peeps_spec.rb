@@ -25,11 +25,10 @@ feature 'View Peeps' do
     # add test data
     Peep.create(content: 'This is so cool')
 
-    time_now = Time.now
-    time_now_pretty = time_now.strftime('%b %e %I:%M%P')
+    peep_time = Peep.first.time
 
     visit '/'
-    expect(first('.peep')).to have_content time_now_pretty
+    expect(first('.peep')).to have_content peep_time
   end
 
 end
