@@ -30,10 +30,11 @@ feature 'View Peeps' do
     connection = PG.connect(dbname: 'chitter_test')
     connection.exec("INSERT INTO peeps (content) VALUES ('This is so cool');")
 
-    time_now = Time.now.strftime('%b %e %I:%M%P')
+    time_now = Time.now
+    time_now_pretty = time_now.strftime('%b %e %I:%M%P')
 
     visit '/'
-    expect(first('.peep')).to have_content time_now
+    expect(first('.peep')).to have_content time_now_pretty
   end
 
 end
