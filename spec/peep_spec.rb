@@ -6,13 +6,17 @@ describe Peep do
       # add test data
       Peep.create(content: 'This is so cool')
       Peep.create(content: 'I am sending a peep')
-      Peep.create(content: 'Isolation #COVID-19')
+      most_recent_peep = Peep.create(content: 'Isolation #COVID-19')
+      time_of_peep = Time.now
+      time_of_peep_pretty = time_of_peep.strftime('%b %e %I:%M%P')
 
       peeps = Peep.all
 
-      expect(peeps[0][:content]).to eq 'Isolation #COVID-19'
-      expect(peeps[1][:content]).to eq 'I am sending a peep'
-      expect(peeps[2][:content]).to eq 'This is so cool'
+      expect(peeps.length).to eq 3
+      expect(peeps.first.content).to eq 'Isolation #COVID-19'
+      expect(peeps.first.id).to eq most_recent_peep.id
+      expect(peeps.first.time).to eq time_of_peep_pretty
+      
     end
   end
 
@@ -22,7 +26,7 @@ describe Peep do
       
       test_peep = Peep.all.first
 
-      expect(test_peep[:content]).to eq 'this is a test peep'
+      expect(test_peep.content).to eq 'this is a test peep'
     end
   end
   
