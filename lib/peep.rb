@@ -9,10 +9,7 @@ class Peep
     end
     result = connection.exec('SELECT * FROM peeps ORDER BY time DESC;')
     result.map do |peep|
-      {
-        content: peep['content'],
-        time: Time.parse(peep['time']).strftime('%b %e %I:%M%P')
-      }
+      Peep.new(id: peep['id'], content: peep['content'], time: peep['time'])
     end
   end
 
@@ -22,6 +19,21 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter_test')
     end
-    connection.exec("INSERT INTO peeps (content) VALUES ('#{content}');")
+    result = connection.exec("INSERT INTO peeps (content)
+                                   VALUES ('#{content}')
+                                RETURNING id, content, time;")
+    Peep.new(id: result[0]['id'], content: result[0]['content'], time: result[0]['time'])
+  end
+
+  def initialize(id:, content:, time:)
+    @id = id
+    @content = content
+    @time = time
+  end
+
+  attr_reader :id, :content
+
+  def time
+    Time.parse(@time).strftime('%b %e %I:%M%P')
   end
 end
