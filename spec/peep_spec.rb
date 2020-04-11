@@ -18,8 +18,8 @@ describe Peep do
 
   describe '.all' do
     it 'peeps can be views' do
-      peep = Peep.create("First Peep", '2020-04-10 10:52:57.960784')
-      Peep.create("Second Peep", '2020-04-11 10:52:57.960784')
+      peep = Peep.create("First Peep", '2020-04-10 10:52:57.960784', 'Bruce123')
+      Peep.create("Second Peep", '2020-04-11 10:52:57.960784', 'Bruce123')
    
       peeps = Peep.all
    
@@ -27,6 +27,7 @@ describe Peep do
       expect(peeps.last).to be_a Peep
       expect(peeps.last.id).to eq peep.id
       expect(peeps.last.peep).to eq "First Peep"
+      expect(peeps.last.peeper).to eq 'Bruce123'
     end
   end
 
