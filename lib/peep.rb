@@ -13,8 +13,8 @@ class Peep
     @date = date
   end
 
-  def self.create(peep, time)    
-    result = DbConnection.query("INSERT INTO peeps(peep, peeper, date) VALUES('#{peep}', 'none', '#{time}') RETURNING id, peep, peeper, date;")
+  def self.create(peep, time, peeper)    
+    result = DbConnection.query("INSERT INTO peeps(peep, peeper, date) VALUES('#{peep}', '#{peeper}', '#{time}') RETURNING id, peep, peeper, date;")
     Peep.new(
       id: result[0]['id'], 
       peep: result[0]['peep'], 
