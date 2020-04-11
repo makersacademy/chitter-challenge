@@ -11,10 +11,15 @@ I want to sign up for Chitter
 ## Requirements
 
 *  Build Login Page
+  - [X] Requires Password
+  - [X] Requires Username
+
+*  Build Signup Page
   - [ ] Requires Email
-  - [ ] Requires Password
-  - [ ] Requires Name
-  - [ ] Requires Username
+  - [ ]  Requires Password
+  - [ ]  Requires Name
+  - [ ]  Requires Username
+
 
 *  Created User table
   - [ ] Setup User table in database
