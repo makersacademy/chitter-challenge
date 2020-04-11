@@ -245,13 +245,34 @@ Added a new scenario to the view peeps feature tests. The last peep added should
 
 Green.
 
-### Peeps Labeled with Date and Time
+### Peeps Labelled with Date and Time
 
 Wrote a new scenario in the view peeps feature tests. The time of the peeps should be displayed in an appropriate format. Red.
 
 The format I have chosen, for example: Apr 10, 1:35pm.
 
+- Adjusted Peep.all to map through and return a hash with the content and time as a time object parsed from time in the database, converted to the pretty format.
+- Updated the view to render separate paragraphs in the list item, one for content and one for time, from the peep hash.
 
+Green.
+
+This also broke the previous peep_spec test as it was expecting an array of strings rather than an array of hashes. Updated that test to work with the new solution.
+
+### Sending Peeps
+
+A user should be able to send a peep.
+
+Wrote a feature test for sending a peep. The peep content should be able to be entered in a form, the form submitted, then the peep should be displayed.
+
+<!-- 
+
+### Refactoring to Peep instances
+
+Rather than generating an array of hashes containing the peep data, an array of peep instances should be created. This way the peep can respond to #content and #time neatly rather than messily accessing hash keys.
+
+Wrote test for the peep instance to respond to 
+
+-->
 
 <!-- 
 
