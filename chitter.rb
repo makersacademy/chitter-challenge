@@ -33,7 +33,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(params['peep'], Time.now)
+    Peep.create(params['peep'], Time.now, session[:maker_id])
     redirect '/peeps'
   end
 
