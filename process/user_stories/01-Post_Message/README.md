@@ -50,5 +50,5 @@ I want to post a message (peep) to chitter
   - [X] Connect Chitter to Database
 
 *  Refactor Peep class to create objects
-  - [ ] Create initializes object
-  - [ ] Chitter app uses objects
+  - [X] Create initializes object
+  - [X] Chitter app uses objects
