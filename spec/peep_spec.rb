@@ -25,7 +25,7 @@ describe Peep do
       
       test_peep = Peep.all.first
 
-      expect(test_peep[:content]).to include 'this is a test peep'
+      expect(test_peep[:content]).to eq 'this is a test peep'
     end
   end
   
