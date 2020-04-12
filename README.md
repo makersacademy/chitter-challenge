@@ -299,9 +299,17 @@ Green.
 
 ### Refactoring with ActiveRecord
 
-ActiveRecord is a Object Relational Mapping (ORM) gem. It controls the way that objects (in this case peeps) are transfered into the database, and pulled out from the database.
+ActiveRecord is a Object Relational Mapping (ORM) gem. It controls the way that objects (in this case peeps) are transferred into the database, and pulled out from the database.
 
+_Wow, I should definitely have just started with this, it has replaced almost all of code in the Peep class, providing even more functionality right out of the box._
 
+- Added activerecord, sinatra-activerecord, and rake gems to gemfile.
+- Created a migration to create the peeps table use `rake dg:create_migration NAME=create_peeps`
+- Filled in the generated migration file with the table schema
+- Used the built in timestamps feature to set the `created_at` column of the peeps table
+- Rewrote Peep.time method to use the result of self.created_at and format it as the pretty time string.
+- Updated the controller to use ActiveRecords syntax for ordering by `created_at` descending.
+- Tweaked tests to use 'created_at' as this was previously known as 'time'
 
 <!-- 
 
