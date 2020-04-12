@@ -7,6 +7,9 @@
 </head>
 <body>
   
+  <h2>
+    <%= flash[:notice] %>
+  </h2>
   <form action="/sessions" method="post">
     <label for="email">Email:</label>
     <input type="email" name="email">
