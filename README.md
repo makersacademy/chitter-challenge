@@ -475,7 +475,10 @@ Green.
 
 Wrote a feature test for a new user to attempt to sign up with an existing username, expecting a notice to be raised on the new user page. Red.
 
+- Added user_name to the validates helper method.
+- Updated the flash notice text to cover both scenarios.
 
+Green.
 
 ## Reflections
 
