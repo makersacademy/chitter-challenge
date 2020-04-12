@@ -4,77 +4,125 @@ A small Twitter clone project to practice TDD, OOP, Database Integrated Web Apps
 
 ## User Stories
 
-Must have:
+### Must have
 
-> As a Maker  
-> So that I can let people know what I am doing  
-> I want to post a message (peep) to Chitter
+- [x] User story 1:  
+  > As a Maker  
+  > So that I can let people know what I am doing  
+  > I want to post a message (peep) to Chitter
 
-> As a maker  
-> So that I can see what others are saying  
-> I want to see all peeps in reverse chronological order
+- [x] User story 2:  
+  > As a maker  
+  > So that I can see what others are saying  
+  > I want to see all peeps in reverse chronological order
 
-> As a Maker  
-> So that I can better appreciate the context of a peep  
-> I want to see the time at which it was made
+- [x] User story 3:  
+  > As a Maker  
+  > So that I can better appreciate the context of a peep  
+  > I want to see the time at which it was made
 
-> As a Maker  
-> So that I can post messages on Chitter as me  
-> I want to sign up for Chitter
+- [x] User story 4:  
+  > As a Maker  
+  > So that I can post messages on Chitter as me  
+  > I want to sign up for Chitter
 
-Should have:
+### Should have
 
-> As a Maker  
-> So that only I can post messages on Chitter as me  
-> I want to log in to Chitter
+- [x] User story 5:  
+  > As a Maker  
+  > So that only I can post messages on Chitter as me  
+  > I want to log in to Chitter
 
-> As a Maker  
-> So that I can avoid others posting messages on Chitter as me  
-> I want to log out of Chitter
+- [x] User story 6:  
+  > As a Maker  
+  > So that I can avoid others posting messages on Chitter as me  
+  > I want to log out of Chitter
 
-Nice to have:
+### Nice to have
 
-> As a Maker  
-> So that I can stay constantly tapped in to the shouty box of Chitter  
-> I want to receive an email if I am tagged in a Peep
+- [ ] User story 7:  
+  > As a Maker  
+  > So that I can stay constantly tapped in to the shouty box of Chitter  
+  > I want to receive an email if I am tagged in a Peep
+  > As a Maker  
 
-> As a Maker  
-> In order to start a conversation  
-> I want to reply to a peep from another Maker
+- [ ] User story 8:  
+  > In order to start a conversation  
+  > I want to reply to a peep from another Maker
 
-> As a Maker  
-> So that my eyes do not hurt  
-> I want the site to be nicely styled
+- [ ] User story 9:  
+  > As a Maker  
+  > So that my eyes do not hurt  
+  > I want the site to be nicely styled
 
 ## Additional requirements
 
 - [x] You don't have to be logged in to see the peeps.
-- [x] Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+- [x] Makers sign up to Chitter with their email, password, name and a username (e.g. davedude@example.com, password123, Dave Dude, davedude).
 - [x] The username and email are unique.
-- [ ] Peeps (posts to Chitter) have the name of the maker and their user handle.
-- [ ] Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-- [ ] High test coverage and all tests passing
-- [ ] Configure Travis,[Travis Basics](https://docs.travis-ci.com/user/tutorial/), [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
+- [x] Peeps (posts to Chitter) have the name of the maker and their user handle.
+- [x] Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+- [x] High test coverage and all tests passing
+- [ ] Configure Travis:[Travis Basics](https://docs.travis-ci.com/user/tutorial/), [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
 ## Instructions
 
-_Coming soon_
+You must have Ruby and PostgreSQL installed.
 
-### Dependencies
+1. Install all gems with bundler:
+
+  ```bash
+  bundle
+  ```
+
+2. Configure `config/database.yml` with your `psql` username for each of development, production and test.
+
+3. Create the databases and run migrations with:
+
+  ```bash
+  rake db:setup
+  ```
+
+4. Run tests with:
+
+  ```bash
+  rspec
+  ```
+
+5. Run server with:
+
+  ```bash
+  rackup
+  ```
+
+6. Visit <http://localhost:9292> to view the local development server.
+
+## Tech Stack
 
 - Ruby
-- Postgresql
+- Sinatra as web framework
+- Active Record as Object Relational Mapper
+- PostgreSQL as database
 
-### Database Setup
+### Gems
 
-1. With `psql` set up the production and test databases with the following commands:
+Functionality:
 
-   ```psql
-   CREATE DATABASE chitter;
-   CREATE DATABASE chitter_test;
-   ```
+- activerecord
+- bcrypt
+- pg
+- rake
+- sinatra
+- sinatra-activerecord
+- sinatra-flash
 
-2. Run the commands in the files in `db/migrations` in order for each of the production and test databases.
+Testing:
+
+- capybara
+- rspec
+- rubocop
+- simplecov
+- simplecov-console
 
 ## Screen Previews
 
