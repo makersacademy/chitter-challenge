@@ -356,10 +356,19 @@ Feature green.
 
 At the moment passwords are stored as plaintext, a big no no.
 
-For this the bcrypt gem.
+For this the bcrypt gem can be used, which is already part of ActiveRecord as part of ActiveModel::SecurePassword.
 
 - Added bcrypt to the gemfile.
-- 
+- `bundle` to install
+
+Updated the User.create unit test to check if user.authenticate('password123') returns the user (it will return false if that is not the correct password). Red.
+
+- Required in user.rb.
+- Created a new migration to rename `password` to `password_digest`, as this is how hashed passwords need to be stored for ActiveRecord
+- `rake db:reset` to recreate databased with new schema.
+- Included the ActiveModel::SecurePassword method has_secure_password in User.
+
+
 
 ## Reflections
 
