@@ -8,7 +8,14 @@ Chitter Challenge
 - [x] rackup
 - [x] rspec
 ### Database
-- [x] Create table with three columns 'id' 'message' & 'name' 
+- [x] Connect to psql 
+  ```
+    psql
+  ```
+- [x] Create the database using the psql command 
+  ```CREATE DATABASE  chitter; ```
+- [x] Connect to the database using the pqsl command ```\c bookmark_manager;```
+- [ ] Run the query we have saved in the file ```01_create_bookmarks_table.sql ```
 - [x] install pg gem  
 
 ## User Stories 
@@ -36,6 +43,7 @@ I want to post a message (peep) to chitter
 |                |                     |          |                         |
 
 ```mermaid
+
 sequenceDiagram
 	User->>+Client: goes to HOMEPAGE
 	Client->>+Server: GET request
