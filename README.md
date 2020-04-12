@@ -410,12 +410,15 @@ Wrote a feature test for a happy path for the an existing user to click 'Log in'
 
 Green.
 
-Refactored this from controller to model. Wrote test for User.log_in method, to take the a correct email and password, and return the id of the user.
+Refactored this from controller to model. Wrote test for User.authenticate method, to take the a correct email and password, and return the id of the user.
 
-- Made new method, User.log_in.
-- Extracted the logic from controller to User.log_in.
+- Made new class method, User.authenticate.
+- Extracted the logic from controller to User.authenticate.
 
 Tests still green.
+
+Wrote feature test scenario for the user attempting log in with an email that has not been registered. Red.
+
 
 ## Reflections
 
