@@ -8,6 +8,7 @@
 <body>
   <% if @user %>
     <p><%= @user.handle %></p>
+    <a href="">Log out</a>
     <a href="/peeps/new">Compose Peep</a>
   <% else %>
     <a href="/users/new">Sign up</a>
