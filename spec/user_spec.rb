@@ -2,7 +2,7 @@ require 'user'
 
 describe User do
   describe '.create' do
-    it 'creates a new user' do
+    it 'creates a new user with hashed password' do
       User.create(
         first_name: 'Dave',
         last_name: 'Dude',
@@ -17,8 +17,9 @@ describe User do
       expect(test_user.last_name).to eq 'Dude'
       expect(test_user.email).to eq 'davedude@example.com'
       expect(test_user.user_name).to eq 'davedude'
-      expect(test_user.password).to eq 'password123'
-    end
+      expect(test_user.authenticate('password123')).to eq test_user
+      expect(test_user.authenticate('badpassword')).to eq false
+    end  
   end
 
   describe '.handle' do
