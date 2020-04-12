@@ -7,6 +7,7 @@ Chitter Challenge
 - [x] controller file
 - [x] rackup
 - [x] rspec
+- [x] install pg gem
 ### Database
 - [x] Connect to psql 
   ```
@@ -16,7 +17,7 @@ Chitter Challenge
   ```CREATE DATABASE  chitter; ```
 - [x] Connect to the database using the pqsl command ```\c bookmark_manager;```
 - [ ] Run the query we have saved in the file ```01_create_bookmarks_table.sql ```
-- [x] install pg gem  
+-   
 
 ## User Stories 
 As a Maker
