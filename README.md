@@ -9,6 +9,12 @@ So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
 
+## Domain model
+
+Objects | Messages
+--------|---------
+User | peep
+
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own

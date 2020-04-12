@@ -6,4 +6,9 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/' do 
+    @peep = params[:peep]
+    erb :index
+  end
+
 end
