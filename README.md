@@ -419,15 +419,27 @@ Tests still green.
 
 Wrote feature test scenario for the user attempting log in with an email that has not been registered, should be shown a flashed message that there is an error. Red.
 
-Wrote a unit test
-- Wrote logic in User.authenticate to return nil if that user is not in the database.
+Wrote a unit test for User.authenticate to return nil if email doesn't exist as a user. Also Red.
+
+- Added guard clause to User.authenticate to return nil if that user is not in the database.
+
+Unit test green.
+
 - Restructured the post /sessions route to set user_id with the result of User.authenticate.
 - If user_id is nil a flash notice is set up and redirected to /sessions/new.
 - Otherwise sessions[:user_id] is set and redirected to the homepage as normal (happy path).
 - Added sinatra-flash to gemfile, `bundle` to install, required it in app.rb, and registered it in Chitter class.
 - Added the flash notice to the sessions/new erb view.
 
-Green.
+Feature green.
+
+Wrote feature test scenario for the user attempting log in with a correct email, but incorrect password, should be shown a flashed message that there is an error. Red.
+
+Wrote a unit test for User.authenticate to return nil if password doesn't match for that user. Also Red.
+
+- Added guard clause to User.authenticate to return nil if the password does not match (user.authenticate(password) returns false).
+
+Unit and feature green.
 
 ## Reflections
 

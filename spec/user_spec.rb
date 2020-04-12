@@ -56,7 +56,5 @@ describe User do
 
       expect(User.authenticate(email: 'davedude@example.com', password: 'incorrect')). to eq nil
     end
-
-
   end
 end

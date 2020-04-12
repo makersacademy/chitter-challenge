@@ -17,8 +17,10 @@ class User < ActiveRecord::Base
   def self.authenticate(email:, password:)
     user = User.find_by(email: email)
     return nil if user.nil?
-    
+
     auth = user.authenticate(password)
+    return nil unless auth
+
     auth.id
   end
 end
