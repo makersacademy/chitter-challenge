@@ -13,5 +13,6 @@ feature 'Registration' do
 
     expect(current_path).to eq '/'
     expect(page).to have_content '@davedude'
+    expect(page).to_not have_content 'Sign up'
   end
 end
