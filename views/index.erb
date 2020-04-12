@@ -6,7 +6,12 @@
   <title>Chitter</title>
 </head>
 <body>
-  <a href="/peeps/new">Compose Peep</a> | <a href="/users/new">Sign up</a>
+  <a href="/peeps/new">Compose Peep</a>
+  <% if @user %>
+    <p><%= @user.handle %></p>
+  <% else %>
+    <a href="/users/new">Sign up</a>
+  <% end %>
 
   <ul>
     <% @peeps.each do |peep| %>
