@@ -9,12 +9,14 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @title = "Chitter"
     @user = session[:user_id] ? User.find(session[:user_id]) : nil 
     @peeps = Peep.all.order(created_at: :desc)
     erb :index
   end
 
   get '/peeps/new' do
+    @title = "Compose Peep"
     erb :'peeps/new'
   end
 
@@ -24,6 +26,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @title = "Sign Up"
     erb :'users/new'
   end
 
@@ -45,6 +48,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
+    @title = "Log In"
     erb :'sessions/new'
   end
 
