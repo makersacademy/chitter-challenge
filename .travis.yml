@@ -3,9 +3,9 @@ language: ruby
 services:
   - postgresql
 
-test:
-  adapter: postgresql
-  database: chitter_test
+before_script:
+  - psql -c 'create database chitter_test;' -U postgres
+  - rake db:setup
 
 script:
   - bundle exec rspec
