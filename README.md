@@ -445,13 +445,14 @@ Now to allow the user to log out.
 
 Wrote a feature test for the user to see log out link only if they are already logged in. Red.
 
-- Added Log out link in ER that displays if user logged in.
+- Added Log out button in form, using ER that displays if user logged in.
 
 Green.
 
-Wrote a feature test for a logged in user to be able to click Log out and for it to log them out (no longer see their handle displayed, and see log in link). Red.
+Wrote a feature test for a logged in user to be able to click Log out and for it to log them out (no longer see their handle displayed, and see flash notice). Red.
 
-- 
+- Wrote log out form to post to /sessions/destroy.
+- Added route for /sessions/destroy to clear the session, set a flash notice, and redirect to homepage. 
 
 ## Reflections
 

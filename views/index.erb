@@ -6,9 +6,14 @@
   <title>Chitter</title>
 </head>
 <body>
+
+  <h2>
+    <%= flash[:notice] %>
+  </h2>
+  
   <% if @user %>
     <p><%= @user.handle %></p>
-    <form action="">
+    <form action="/sessions/destroy" method="post">
       <input type="submit" value="Log out">
     </form>
     <a href="/peeps/new">Compose Peep</a>

@@ -64,9 +64,10 @@ feature 'authentication' do
     
     # Then log in as them
     dave_log_in
-    
+
     click_button 'Log out'
     expect(current_path).to eq '/'
     expect(page).to_not have_content '@davedude'
+    expect(page).to have_content 'You have logged out'
   end
 end
