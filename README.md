@@ -1,6 +1,63 @@
 Chitter Challenge
 =================
 
+##  Set up
+### web 
+- [x] Gemfile
+- [x] controller file
+- [x] rackup
+- [x] rspec
+### Database
+- [x] Create table with three columns 'id' 'message' & 'name' 
+- [x] install pg gem  
+
+## User Stories 
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+
+## Domain model  
+| chitter       |
+| ------------- |
+| peep(message) |
+|               |
+
+
+## Database
+
+* Database name: Chitter
+* Table: Peeps
+
+| Primary number | message             | name     | time (later user story) |
+| -------------- | ------------------- | -------- | ----------------------- |
+| 1              | 'hi'                | Gina     |                         |
+| 2              | 'databases are fun' | Angelica |                         |
+|                |                     |          |                         |
+
+```mermaid
+sequenceDiagram
+	User->>+Client: goes to HOMEPAGE
+	Client->>+Server: GET request
+  Server->>+Database: SELECT Chitter-Peep-message + name
+  Database->>- Server: messages + names
+	Server->>-Client:  HTML List- messages & names
+  Client->>-User: HTML rendered
+  User->>+Client: types message + clicks 'send' button
+  Client->>+Server: POST request
+  Server->>-Client: redirects to message page??
+  Client->>-User: new page with "messages"
+	
+```
+
+
+## Wireframes
+![](mockups/2020-04-12-09-12-01.png)
+
+
+
+
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
@@ -23,6 +80,7 @@ STRAIGHT UP
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+
 
 As a maker
 So that I can see what others are saying  
