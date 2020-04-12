@@ -1,34 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chitter</title>
-</head>
-<body>
+<% if @user %>
+  <p><%= @user.handle %></p>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Log out">
+  </form>
+  <a href="/peeps/new">Compose Peep</a>
+<% else %>
+  <a href="/users/new">Sign up</a>
+  <a href="/sessions/new">Log in</a>
+<% end %>
 
-  <h2>
-    <%= flash[:notice] %>
-  </h2>
-  
-  <% if @user %>
-    <p><%= @user.handle %></p>
-    <form action="/sessions/destroy" method="post">
-      <input type="submit" value="Log out">
-    </form>
-    <a href="/peeps/new">Compose Peep</a>
-  <% else %>
-    <a href="/users/new">Sign up</a>
-    <a href="/sessions/new">Log in</a>
-  <% end %>
 
-  <ul>
-    <% @peeps.each do |peep| %>
-      <li class="peep">
-        <p><%= peep.author_handle %> <%= peep.author_name %> at <%= peep.time %></p>
-        <p><%= peep.content %></p>
-      </li>
-    <% end %>
-  </ul>
-</body>
-</html>
+<% @peeps.each do |peep| %>
+  <div class="card peep container my-4">
+    <div class="card-header row align-items-center">
+      <h5 class="mb-0 mr-2"><%= peep.author_name %></h5>
+      <h6 class="mb-0 mr-2 text-muted"><%= peep.author_handle %> at <%= peep.time %></h6>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= peep.content %></p>
+    </div>
+  </div>
+<% end %>
+
+

@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Log In</title>
-</head>
-<body>
-  
-  <h2>
-    <%= flash[:notice] %>
-  </h2>
-  <form action="/sessions" method="post">
-    <label for="email">Email:</label>
-    <input type="email" name="email">
-    <label for="password">Password:</label>
-    <input type="text" name="password">
-    <input type="submit" value="Log in">
-  </form>
-
-</body>
-</html>
+<form action="/sessions" method="post">
+  <label for="email">Email:</label>
+  <input type="email" name="email">
+  <label for="password">Password:</label>
+  <input type="text" name="password">
+  <input type="submit" value="Log in">
+</form>

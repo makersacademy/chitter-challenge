@@ -575,6 +575,19 @@ Refactored peep.author_name to use user.full_name, as it is not the job of the p
 
 Also extracted out a method, peep.author to return the user who peeped it, replacing the User.finds in the author name and handle methods.
 
+### Refactoring To Database Cleaner
+
+Added the 'database_cleaner-active_record' gem to the gemfile, and used it to clean the database in spec_helper instead of the PG version used previously.
+
+### Refactored to layout.erb
+
+The erb call in routes will check for `views/layout.erb` and if it exists will render that, then the erb file where the layout has a yield. This is very useful for keeping erb files dry, as the html head etc can be kept in the layout, and the individual views are only concerned with their business.
+
+### Styling with Bootstrap
+
+Given that this is a twitter clone, what could be more fitting than styling it with
+
+
 ## Reflections
 
 - The peep input will throw an error if you innocently try to use an apostrophe in your peep (I guess this is also vulnerable to sql injection perhaps?). This could be solved I think by subbing out any problem characters with escaped alternatives before submitting that to Peep.create. Perhaps some class or module for this task. Unfortunately I have no idea how to TDD this as trying to express that entering an unescaped string will not raise an error seems impossible as preparing an unescaped string in the test breaks the file.
@@ -582,3 +595,7 @@ Also extracted out a method, peep.author to return the user who peeped it, repla
 - I like ActiveRecord, but I am a noob, and I am definitely using it wrong, especially as rspec and hosting the server with rackup both appear to use the development env in database.yml, and I don't know how to make rspec use test and localhost use production. I have duped it with some ER tags for now.
 
 - ActiveRecord makes things very simple, for example the create methods for peeps and users are pretty much written for you, just need to inherit from ActiveRecord::Base and off you go. However, though it is simple now that I know how, researching how to get things to work was quite difficult almost every resource refers to ActiveRecords use in Rails, rather than in Sinatra. Ah well.
+
+- I would like to refactor the controller to be separate controllers to handle each of users, peeps and sessions, but try as I might I cannot get it working.
+
+- I am having a tricky time with Travis, 

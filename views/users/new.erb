@@ -1,29 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-</head>
-<body>
-  
-  <h2>
-    <%= flash[:notice] %>
-  </h2>
+<h2>
+  <%= flash[:notice] %>
+</h2>
 
-  <form action="/users" method="post">
-    <label for="first_name">First name:</label>
-    <input type="text" name="first_name">
-    <label for="last_name">Last name:</label>
-    <input type="text" name="last_name">
-    <label for="email">Email:</label>
-    <input type="email" name="email">
-    <label for="user_name">User name:</label>
-    <input type="text" name="user_name">
-    <label for="password">Password:</label>
-    <input type="text" name="password">
-    <input type="submit" value="Submit">
-  </form>
-
-</body>
-</html>
+<form action="/users" method="post">
+  <label for="first_name">First name:</label>
+  <input type="text" name="first_name">
+  <label for="last_name">Last name:</label>
+  <input type="text" name="last_name">
+  <label for="email">Email:</label>
+  <input type="email" name="email">
+  <label for="user_name">User name:</label>
+  <input type="text" name="user_name">
+  <label for="password">Password:</label>
+  <input type="text" name="password">
+  <input type="submit" value="Submit">
+</form>
