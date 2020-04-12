@@ -4,7 +4,8 @@ services:
   - postgresql
 
 before_script:
-  - rake db:setup
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
 
 script:
   - bundle exec rspec
