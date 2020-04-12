@@ -29,4 +29,11 @@ describe User do
       expect(users).to include('Steven')
     end
   end
+  
+  describe '.authenticate' do
+    it " returns true if the PW & username match one one the users table" do
+      User.create(usr:'Gerald', pass: 'Gerald_secure', email: 'Gerald_email')
+      expect(User.authenticate(usr: 'Gerald', pass: 'Gerald_secure')).to eq(true)
+    end
+  end
 end

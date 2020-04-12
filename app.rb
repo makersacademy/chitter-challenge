@@ -15,6 +15,10 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/sign_in' do
+    erb(:sign_in)
+  end
+
   get '/peeps' do
     @posts = Peep.all
     erb(:view_peeps)
