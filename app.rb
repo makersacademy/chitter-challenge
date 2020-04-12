@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
-require 'pg'
 
 class Chitter < Sinatra::Base
 

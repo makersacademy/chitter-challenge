@@ -125,6 +125,7 @@ Functionality:
 Testing:
 
 - capybara
+- database_cleaner/active_record
 - rspec
 - rubocop
 - simplecov
