@@ -7,4 +7,8 @@ ActiveRecord::Base.logger = nil
 
 class User < ActiveRecord::Base
 
+  def handle
+    "@#{self.user_name}"
+  end
+
 end
