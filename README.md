@@ -50,7 +50,7 @@ Nice to have:
 
 - [x] You don't have to be logged in to see the peeps.
 - [x] Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-- [ ] The username and email are unique.
+- [x] The username and email are unique.
 - [ ] Peeps (posts to Chitter) have the name of the maker and their user handle.
 - [ ] Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 - [ ] High test coverage and all tests passing
@@ -365,7 +365,7 @@ Updated the User.create unit test to check if user.authenticate('password123') r
 
 - Required in user.rb.
 - Created a new migration to rename `password` to `password_digest`, as this is how hashed passwords need to be stored for ActiveRecord
-- `rake db:reset` to recreate databased with new schema.
+- `rake db:reset` to recreate databases with new schema.
 - Included the ActiveModel::SecurePassword method has_secure_password in User.
 
 Green.
@@ -479,6 +479,17 @@ Wrote a feature test for a new user to attempt to sign up with an existing usern
 - Updated the flash notice text to cover both scenarios.
 
 Green.
+
+### Displaying User Names and Handles on Peeps
+
+- Peeps have the name of the maker and their user handle.
+
+For this the peeps table needs a new row with the id of the user who peeped it.
+
+- Created a new migration to add `user_id` to the peeps table as a reference to `id` in the users table as a foreign key.
+- `rake db:reset` to recreate databases with new schema.
+
+Updated feature tests for sending a peep to make sure the user's handle and name are present in the peep.
 
 ## Reflections
 
