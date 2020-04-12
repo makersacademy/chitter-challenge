@@ -48,7 +48,6 @@ Nice to have:
 
 ## Additional requirements
 
-- Use the `PG` gem and `SQL` queries to interact with the database.
 - You don't have to be logged in to see the peeps.
 - Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 - The username and email are unique.
@@ -56,21 +55,6 @@ Nice to have:
 - Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 - High test coverage and all tests passing
 - Configure Travis,[Travis Basics](https://docs.travis-ci.com/user/tutorial/), [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-## Technical Approach
-
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-DataMapper
-
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-ActiveRecord
-
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
 ## Instructions
 
@@ -305,11 +289,46 @@ _Wow, I should definitely have just started with this, it has replaced almost al
 
 - Added activerecord, sinatra-activerecord, and rake gems to gemfile.
 - Created a migration to create the peeps table use `rake dg:create_migration NAME=create_peeps`
-- Filled in the generated migration file with the table schema
-- Used the built in timestamps feature to set the `created_at` column of the peeps table
+- Filled in the generated migration file with the table schema.
+- Created a database/yml with details of where databases to connect to.
+- Used the built in timestamps feature to set the `created_at` column of the peeps table.
+- Peep inherits from `ActiveRecord::Base`.
 - Rewrote Peep.time method to use the result of self.created_at and format it as the pretty time string.
 - Updated the controller to use ActiveRecords syntax for ordering by `created_at` descending.
-- Tweaked tests to use 'created_at' as this was previously known as 'time'
+- Tweaked tests to use .created_at as this was previously known as .time.
+
+### User Stories 4, 5, 6
+
+> As a Maker  
+> So that I can post messages on Chitter as me  
+> I want to sign up for Chitter
+
+> As a Maker  
+> So that only I can post messages on Chitter as me  
+> I want to log in to Chitter
+
+> As a Maker  
+> So that I can avoid others posting messages on Chitter as me  
+> I want to log out of Chitter
+
+These user stories complete the must haves (signing up), but also logging in and out are tightly linked to having signed up.
+
+- Makers sign up to Chitter with their email, password, name and a username (e.g. davedude@example.com, password123, Dave Dude, dave).
+- The username and email are unique.
+
+#### Signing up
+
+Wrote a feature test for user to click Sign up, enter details and submit, and to be routed back to the homepage expecting it to have their username. Red.
+
+- Added link to Sign up, to /users/new.
+- Added form with relevant fields and submit button
+
+
+## Reflections
+
+- The tweet input is vulnerable to sql injection, and will throw an error if you innocently try to use an apostrophe in your peep. This could be solved I think by subbing out any problem characters with escaped alternatives before submitting that to Peep.create. Perhaps some class or module for this. Unfortunately I have no idea how to TDD this as trying to express that entering an unescaped string will not raise an error seems impossible as preparing an unescaped string in the test breaks the file.
+
+- I like ActiveRecord, but I am a noob, and I am definitely using it wrong, especially as rspec and hosting the server with rackup both appear to use the development env in database.yml, and I don't know how to make rspec use test and localhost use production. I have duped it with some ER tags for now.
 
 <!-- 
 
