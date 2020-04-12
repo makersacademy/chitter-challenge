@@ -13,7 +13,46 @@ I want to post a message (peep) to chitter
 
 Objects | Messages
 --------|---------
-User | peep
+Peeps | peep
+
+# CRC cards
+
+|Class name: | Peeps|
+|---------|--------|
+|Responsibilites | Collaborators|
+|Knows all peeps |
+
+-----------
+
+|Class name: | User|
+|---------|--------|
+|Responsibilites | Collaborators|
+|can make a post | Peeps |
+| view peeps|  |
+| has a name |  |
+| can tag other user |   |
+
+# Tables
+
+Table: | peeps | | | |
+------|-|-|-|-|
+id | message|time/date | username | tags |
+1 | hello | 01/12 12:34 | mrbloop | Jessica |
+
+
+
+-------------------
+
+
+
+Table: | User | | | |
+------|-|-|-|-|
+id | username | email | password | name |
+1 | mrbloop | tom@gmail.com | password1234 | Tom |
+
+
+
+
 
 
 * Challenge time: rest of the day and weekend, until Monday 9am
