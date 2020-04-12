@@ -491,6 +491,17 @@ For this the peeps table needs a new row with the id of the user who peeped it.
 
 Updated feature tests for sending a peep to make sure the user's handle and name are present in the peep. Red.
 
+The peep should hold responsibility for fetching its authors name and handle.
+
+Wrote a unit test for peep.author_name to returns the name of the author (first and last name). Red.
+
+- Wrote peep.author_name to look in the users table and fetch the user with the id matching the peep's user_id, then return the users first and last name interpolated together.
+
+Green.
+
+Wrote a unit test for peep.author_handle to returns the handle of the author (@username). Red.
+
+
 ## Reflections
 
 - The peep input will throw an error if you innocently try to use an apostrophe in your peep (I guess this is also vulnerable to sql injection perhaps?). This could be solved I think by subbing out any problem characters with escaped alternatives before submitting that to Peep.create. Perhaps some class or module for this task. Unfortunately I have no idea how to TDD this as trying to express that entering an unescaped string will not raise an error seems impossible as preparing an unescaped string in the test breaks the file.
