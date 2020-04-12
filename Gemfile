@@ -10,6 +10,7 @@ gem 'sinatra-flash'
 
 group :test do
   gem "capybara"
+  gem 'database_cleaner-active_record'
   gem 'rspec'
   gem 'rubocop'
   gem 'simplecov'
