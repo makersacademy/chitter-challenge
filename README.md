@@ -489,7 +489,7 @@ For this the peeps table needs a new row with the id of the user who peeped it.
 - Created a new migration to add `user_id` to the peeps table as a reference to `id` in the users table as a foreign key.
 - `rake db:reset` to recreate databases with new schema.
 
-Updated feature tests for sending a peep to make sure the user's handle and name are present in the peep.
+Updated feature tests for sending a peep to make sure the user's handle and name are present in the peep. Red.
 
 ## Reflections
 

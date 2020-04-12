@@ -5,7 +5,7 @@ feature 'Sending a Peep' do
     expect(page).to_not have_content 'Compose Peep'
   end
 
-  scenario 'signed in user can send a peep and see it back on the homepage' do
+  scenario 'signed in user can send a peep and see it with name and handle' do
     dave_sign_up
     
     click_on 'Compose Peep'
@@ -13,6 +13,8 @@ feature 'Sending a Peep' do
     click_on 'Peep'
 
     expect(current_path).to eq '/'
-    expect(page).to have_content 'This is a test peep'
+    expect(first('.peep')).to have_content 'This is a test peep'
+    expect(first('.peep')).to have_content '@davedude'
+    expect(first('.peep')).to have_content 'Dave Dude'
   end
 end
