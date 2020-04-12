@@ -40,5 +40,23 @@ describe User do
 
       expect(User.authenticate(email: 'davedude@example.com', password: 'password123')). to eq test_user.id
     end
+
+    it 'returns nil if the email is not found' do
+      user_create_dave
+
+      test_user = User.all.first
+
+      expect(User.authenticate(email: 'wrongemail@example.com', password: 'password123')). to eq nil
+    end
+
+    it 'returns nil if the wrong password is used for an existing email' do
+      user_create_dave
+
+      test_user = User.all.first
+
+      expect(User.authenticate(email: 'davedude@example.com', password: 'incorrect')). to eq nil
+    end
+
+
   end
 end
