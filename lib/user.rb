@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   
   has_secure_password
 
+  validates :email, uniqueness: true
+
   def handle
     "@#{self.user_name}"
   end

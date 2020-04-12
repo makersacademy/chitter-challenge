@@ -48,13 +48,13 @@ Nice to have:
 
 ## Additional requirements
 
-- You don't have to be logged in to see the peeps.
-- Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-- The username and email are unique.
-- Peeps (posts to Chitter) have the name of the maker and their user handle.
-- Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-- High test coverage and all tests passing
-- Configure Travis,[Travis Basics](https://docs.travis-ci.com/user/tutorial/), [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
+- [x] You don't have to be logged in to see the peeps.
+- [x] Makers sign up to Chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+- [ ] The username and email are unique.
+- [ ] Peeps (posts to Chitter) have the name of the maker and their user handle.
+- [ ] Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+- [ ] High test coverage and all tests passing
+- [ ] Configure Travis,[Travis Basics](https://docs.travis-ci.com/user/tutorial/), [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
 
 ## Instructions
 
@@ -452,7 +452,30 @@ Green.
 Wrote a feature test for a logged in user to be able to click Log out and for it to log them out (no longer see their handle displayed, and see flash notice). Red.
 
 - Wrote log out form to post to /sessions/destroy.
-- Added route for /sessions/destroy to clear the session, set a flash notice, and redirect to homepage. 
+- Added route for /sessions/destroy to clear the session, set a flash notice, and redirect to homepage.
+
+Green.
+
+### Ensuring Users Are Unique
+
+- The username and email are unique.
+
+This additional requirement means that if either the username or the email are already in the database, the user should not be created.
+
+Happy path is that the user signs up with unique email and username
+Unhappy path is that the user attempts to sign up with a email or username already in use.
+
+Wrote a feature test for a new user to attempt to sign up with an existing email, expecting a notice to be raised on the new user page. Red.
+
+- Added to user class the validates helper method, specifying that email should have uniqueness.
+- Added logic to controller to check if the new_user.id is nil, setting a flash notice and redirecting back to /users/new, otherwise follow the regular happy path back to homepage.
+- Added flash notice to homepage view to display.
+
+Green.
+
+Wrote a feature test for a new user to attempt to sign up with an existing username, expecting a notice to be raised on the new user page. Red.
+
+
 
 ## Reflections
 

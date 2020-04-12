@@ -36,8 +36,13 @@ class Chitter < Sinatra::Base
       user_name: params[:user_name],
       password: params[:password],
     )
-    session[:user_id] = new_user.id
-    redirect '/'
+    if new_user.id.nil?
+      flash[:notice] = 'There is already a user with that email'
+      redirect '/users/new'
+    else
+      session[:user_id] = new_user.id
+      redirect '/'
+    end
   end
 
   get '/sessions/new' do
