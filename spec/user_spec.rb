@@ -20,4 +20,20 @@ describe User do
       expect(test_user.password).to eq 'password123'
     end
   end
+
+  describe '.handle' do
+    it 'returns the user handle' do
+      User.create(
+        first_name: 'Dave',
+        last_name: 'Dude',
+        email: 'davedude@example.com',
+        user_name: 'davedude',
+        password: 'password123'
+      )
+      
+      test_user = User.all.first
+
+      expect(test_user.handle).to eq '@davedude'
+    end
+  end
 end
