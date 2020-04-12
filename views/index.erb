@@ -3,8 +3,10 @@
   <input type="text" id="peep" name="peep">
   <input type="submit" value ="Peep">
 </form>
-<%if @messages != nil
-    @messages.reverse.each do |peep| %>
-    <li><%= peep %></li>
-    <% end
-  end %>
+<ul>
+  <% @messages.reverse.each do |peep| %>
+    <li>
+    <%= peep.peep %> - <%= peep.time %>
+    </li>
+  <%end%>
+</ul>

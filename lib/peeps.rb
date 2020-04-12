@@ -2,6 +2,14 @@ require 'pg'
 
 class Peeps
 
+  attr_reader :peep, :time
+
+  def initialize(id:, peep:, time:)
+    @id = id
+    @peep = peep
+    @time = time
+  end
+
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -10,7 +18,10 @@ class Peeps
     end
 
     result = connection.exec('SELECT * FROM peeps')
-    result.map { |peep| peep['peep'] }
+
+    result.map do |peep|
+      Peeps.new(id: peep['id'], peep: peep['peep'], time: peep['time'])
+    end
   end
 
   def self.add(peep)
@@ -20,7 +31,10 @@ class Peeps
       connection = PG.connect(dbname: 'chitter')
     end
 
-    connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}');")
+    result = connection.exec("INSERT INTO peeps (peep, time) 
+    VALUES('#{peep}', '#{Time.now}') RETURNING id, peep, time;")
+    Peeps.new(id: result[0]['id'], peep: result[0]['peep'], 
+      time: result[0]['time'])
   end
 
 end
