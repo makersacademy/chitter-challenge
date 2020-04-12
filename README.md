@@ -368,13 +368,37 @@ Updated the User.create unit test to check if user.authenticate('password123') r
 - `rake db:reset` to recreate databased with new schema.
 - Included the ActiveModel::SecurePassword method has_secure_password in User.
 
+Green.
 
+### Compose Peep Only If Logged In
+
+- You don't have to be logged in to see the peeps.
+
+This additional requirement says you do not need to be logged in to see peeps, but implies that you need to be logged in to compose peeps.
+
+Added a scenario to Sending Peeps feature test, that the Compose peep link is not present when the user is not signed in. Red.
+
+- Added ER in the view to only display Compose Peep if the user is @user is not nil.
+
+Green.
+
+The other scenario now fails, updated it to be a scenario for a signed in user can send a peep, which passes again.
+
+### Logging Out
+
+> As a Maker  
+> So that I can avoid others posting messages on Chitter as me  
+> I want to log out of Chitter
+
+Now the user is signed up, they are permanently stuck
 
 ## Reflections
 
 - The tweet input is vulnerable to sql injection, and will throw an error if you innocently try to use an apostrophe in your peep. This could be solved I think by subbing out any problem characters with escaped alternatives before submitting that to Peep.create. Perhaps some class or module for this. Unfortunately I have no idea how to TDD this as trying to express that entering an unescaped string will not raise an error seems impossible as preparing an unescaped string in the test breaks the file.
 
 - I like ActiveRecord, but I am a noob, and I am definitely using it wrong, especially as rspec and hosting the server with rackup both appear to use the development env in database.yml, and I don't know how to make rspec use test and localhost use production. I have duped it with some ER tags for now.
+
+- ActiveRecord makes things very simple, for example the create methods for peeps and users are pretty much written for you, just need to inherit from ActiveRecord::Base and off you go. However, though it is simple now that I know how, researching how to get things to work was quite difficult almost every resource refers to ActiveRecords use in Rails, rather than in Sinatra. Ah well.
 
 <!-- 
 
