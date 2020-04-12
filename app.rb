@@ -1,12 +1,16 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/user'
 require 'pg'
 # require './database_connection_setup'
 
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
+    @user = session[:user_id] ? User.find(session[:user_id]) : nil 
     @peeps = Peep.all.order(created_at: :desc)
     erb :index
   end
@@ -25,7 +29,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    p params
+    new_user = User.create(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      user_name: params[:user_name],
+      password: params[:password],
+    )
+    session[:user_id] = new_user.id
     redirect '/'
   end
 
