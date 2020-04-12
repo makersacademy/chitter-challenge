@@ -20,3 +20,11 @@ def user_create_dave
     password: 'password123'
   )
 end
+
+def dave_log_in
+  visit '/'
+  click_on 'Log in'
+  fill_in(:email, with: 'davedude@example.com')
+  fill_in(:password, with: 'password123')
+  click_button('Log in')
+end

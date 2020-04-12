@@ -441,9 +441,21 @@ Wrote a unit test for User.authenticate to return nil if password doesn't match 
 
 Unit and feature green.
 
+Now to allow the user to log out.
+
+Wrote a feature test for the user to see log out link only if they are already logged in. Red.
+
+- Added Log out link in ER that displays if user logged in.
+
+Green.
+
+Wrote a feature test for a logged in user to be able to click Log out and for it to log them out (no longer see their handle displayed, and see log in link). Red.
+
+- 
+
 ## Reflections
 
-- The peep input is vulnerable to sql injection, and will throw an error if you innocently try to use an apostrophe in your peep. This could be solved I think by subbing out any problem characters with escaped alternatives before submitting that to Peep.create. Perhaps some class or module for this. Unfortunately I have no idea how to TDD this as trying to express that entering an unescaped string will not raise an error seems impossible as preparing an unescaped string in the test breaks the file.
+- The peep input will throw an error if you innocently try to use an apostrophe in your peep (I guess this is also vulnerable to sql injection perhaps?). This could be solved I think by subbing out any problem characters with escaped alternatives before submitting that to Peep.create. Perhaps some class or module for this task. Unfortunately I have no idea how to TDD this as trying to express that entering an unescaped string will not raise an error seems impossible as preparing an unescaped string in the test breaks the file.
 
 - I like ActiveRecord, but I am a noob, and I am definitely using it wrong, especially as rspec and hosting the server with rackup both appear to use the development env in database.yml, and I don't know how to make rspec use test and localhost use production. I have duped it with some ER tags for now.
 
