@@ -288,7 +288,7 @@ ActiveRecord is a Object Relational Mapping (ORM) gem. It controls the way that 
 _Wow, I should definitely have just started with this, it has replaced almost all of code in the Peep class, providing even more functionality right out of the box._
 
 - Added activerecord, sinatra-activerecord, and rake gems to gemfile.
-- Created a migration to create the peeps table use `rake dg:create_migration NAME=create_peeps`
+- Created a migration to create the peeps table use `rake db:create_migration NAME=create_peeps`
 - Filled in the generated migration file with the table schema.
 - Created a database/yml with details of where databases to connect to.
 - Used the built in timestamps feature to set the `created_at` column of the peeps table.
@@ -316,13 +316,50 @@ These user stories complete the must haves (signing up), but also logging in and
 - Makers sign up to Chitter with their email, password, name and a username (e.g. davedude@example.com, password123, Dave Dude, dave).
 - The username and email are unique.
 
-#### Signing up
+### Signing up
 
-Wrote a feature test for user to click Sign up, enter details and submit, and to be routed back to the homepage expecting it to have their username. Red.
+Wrote a feature test for user to click Sign up, enter details and submit, and to be routed back to the homepage expecting it to have their handle (@username), and no longer to have Sign up. Red.
 
 - Added link to Sign up, to /users/new.
-- Added form with relevant fields and submit button
+- Added form with relevant fields and submit button, posting to /users.
 
+Now the post /users route needs to create a new User and add it to the database. Wrote test for User class create method.
+
+- Added a migration for users table with `rake db:create_migration NAME=create_users`
+- Added the relevant details to the generated migration file to set up the table.
+- Ran the migration with `rake db:migrate` to create the users table.
+
+Green.
+
+Back to fixing the feature test.
+
+- Required users.rb in app.rb.
+- Added User.create call using the params in post /users.
+- Enabled sessions
+- Captured the User.create call in a variable new_user.
+- Set the session user_id key to new_user.id.
+- Redirected to homepage.
+- In get / created an instance variable @user
+- @user is set to the user instance found from the session user_id, or if session user_id is nil, set to nil.
+
+Now the user's handle needs to be displayed in the view. Wrote a test for user.handle to return the users handle (@username). Red.
+
+- Wrote .handle to add a @ to the front of self.user_name.
+
+Green. Now back to display that in the view
+
+- In the homepage view, used ER to display user.handle only if @user is not nil, and otherwise show the Sign up link.
+
+Feature green.
+
+### Securing passwords
+
+At the moment passwords are stored as plaintext, a big no no.
+
+For this the bcrypt gem.
+
+- Added bcrypt to the gemfile.
+- 
 
 ## Reflections
 

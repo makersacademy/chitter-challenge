@@ -4,7 +4,6 @@ require './lib/user'
 require 'pg'
 # require './database_connection_setup'
 
-
 class Chitter < Sinatra::Base
 
   enable :sessions
