@@ -15,7 +15,7 @@ def user_create_dave
   User.create(
     first_name: 'Dave',
     last_name: 'Dude',
-    user_name: 'dave',
+    user_name: 'davedude',
     email: 'davedude@example.com', 
     password: 'password123'
   )
