@@ -12,12 +12,14 @@ class Peep < ActiveRecord::Base
   end
 
   def author_name
-    user = User.find(self.user_id)
-    "#{user.first_name} #{user.last_name}"
+    author.full_name
   end
 
   def author_handle
-    user = User.find(self.user_id)
-    user.handle
+    author.handle
+  end
+
+  def author
+    User.find(self.user_id)
   end
 end

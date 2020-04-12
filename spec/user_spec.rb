@@ -24,11 +24,17 @@ describe User do
 
   describe '.handle' do
     it 'returns the user handle' do
-      user_create_dave
-
-      test_user = User.all.first
+      test_user = user_create_dave
 
       expect(test_user.handle).to eq '@davedude'
+    end
+  end
+
+  describe '.full_name' do
+    it 'returns the user first and last name interpolated' do
+      test_user = user_create_dave
+
+      expect(test_user.full_name).to eq 'Dave Dude'
     end
   end
 

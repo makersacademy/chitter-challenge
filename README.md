@@ -513,6 +513,12 @@ Now peeps need to be created with the user's id as the peep's user_id.
 
 Feature green.
 
+Refactored peep.author_name to use user.full_name, as it is not the job of the peep to stick together a users first and last name. Wrote a test for user.full_name. Red.
+
+- Wrote user.full_name to interpolate first and last name.
+- Altered peep.author_name to use user.full_name.
+
+Also extracted out a method, peep.author to return the user who peeped it, replacing the User.finds in the author name and handle methods.
 
 ## Reflections
 
