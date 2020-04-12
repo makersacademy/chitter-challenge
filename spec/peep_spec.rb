@@ -28,5 +28,4 @@ describe Peep do
       expect(test_peep.content).to eq 'this is a test peep'
     end
   end
-  
 end
