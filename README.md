@@ -1,6 +1,13 @@
 Chitter Challenge
 =================
 
+
+## Database setup
+
+```
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCH(60), time_and_date TIMESTAMP);
+````
+
 ## User Story
 
 ```

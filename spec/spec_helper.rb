@@ -5,6 +5,8 @@ require 'capybara/rspec'
 require 'rspec'
 require File.join(File.dirname(__FILE__), '../', 'app.rb')
 
+ENV['ENVIRONMENT'] = 'test'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
