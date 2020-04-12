@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: <%= ENV['ENVIRONMENT'] == 'test' ? 'chitter_test' : 'chitter' %> # RSpec appears to use development, as does rackup. Don't yet know how to do this properly
   pool: 2
-  username: harry
+  username: postgres
   password: 
 
 production:
@@ -11,7 +11,7 @@ production:
   encoding: unicode
   database: chitter
   pool: 2
-  username: harry
+  username: postgres
   password: 
 
 test:
@@ -19,5 +19,5 @@ test:
   encoding: unicode
   database: chitter_test
   pool: 2
-  username: harry
+  username: postgres
   password: 
