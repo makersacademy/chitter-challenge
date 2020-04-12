@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: <%= ENV['ENVIRONMENT'] == 'test' ? 'chitter_test' : 'chitter' %> # RSpec appears to use development, as does rackup. Don't yet know how to do this properly
+  database: chitter_test
   pool: 2
   username: postgres
   password: 
