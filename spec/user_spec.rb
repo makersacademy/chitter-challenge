@@ -32,13 +32,13 @@ describe User do
     end
   end
 
-  describe '.log_in' do
+  describe '.authenticate' do
     it 'returns the user id if the credentials are correct' do
       user_create_dave
 
       test_user = User.all.first
 
-      expect(User.log_in(email: 'davedude@example.com', password: 'password123')). to eq test_user.id
+      expect(User.authenticate(email: 'davedude@example.com', password: 'password123')). to eq test_user.id
     end
   end
 end

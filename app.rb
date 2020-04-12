@@ -44,7 +44,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    session[:user_id] = User.log_in(email: params[:email],password: params[:password])
+    session[:user_id] = User.authenticate(email: params[:email],password: params[:password])
     redirect '/'
   end
 end
