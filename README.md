@@ -67,35 +67,41 @@ A small Twitter clone project to practice TDD, OOP, Database Integrated Web Apps
 
 ## Instructions
 
+### Installation
+
 You must have Ruby and PostgreSQL installed.
 
-1. Install all gems with bundler:
+- Install all gems with bundler:
 
   ```bash
   bundle
   ```
 
-2. Configure `config/database.yml` with your `psql` username for each of development, production and test.
+- Configure `config/database.yml` with your `psql` username for each of development, production and test.
 
-3. Create the databases and run migrations with:
+- Create the databases and run migrations with:
 
   ```bash
   rake db:setup
   ```
 
-4. Run tests with:
+### Tests
+
+- Run tests with:
 
   ```bash
   rspec
   ```
 
-5. Run server with:
+### Use
+
+- Run server with:
 
   ```bash
   rackup
   ```
 
-6. Visit <http://localhost:9292> to view the local development server.
+- Visit <http://localhost:9292> to view the local development server.
 
 ## Tech Stack
 

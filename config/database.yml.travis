@@ -16,8 +16,4 @@ production:
 
 test:
   adapter: postgresql
-  encoding: unicode
   database: chitter_test
-  pool: 2
-  username: postgres
-  password: 
