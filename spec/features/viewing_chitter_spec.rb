@@ -7,11 +7,11 @@ feature 'Viewing peeps' do
   end
 
   scenario 'user can see peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO peeps (content) VALUES ('900 People die from Coronavirus');")
-    connection.exec("INSERT INTO peeps (content) VALUES ('Lockdown is lifted');")
-    connection.exec("INSERT INTO peeps (content) VALUES ('Coronavirus is over!');")
+
+    DatabaseConnection.query("INSERT INTO peeps (content) VALUES ('900 People die from Coronavirus');")
+    DatabaseConnection.query("INSERT INTO peeps (content) VALUES ('Lockdown is lifted');")
+    DatabaseConnection.query("INSERT INTO peeps (content) VALUES ('Coronavirus is over!');")
 
     visit('/peeps')
 
