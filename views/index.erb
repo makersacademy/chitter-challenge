@@ -25,8 +25,8 @@
   <ul>
     <% @peeps.each do |peep| %>
       <li class="peep">
+        <p><%= peep.author_handle %> <%= peep.author_name %> at <%= peep.time %></p>
         <p><%= peep.content %></p>
-        <p><%= peep.time %></p>
       </li>
     <% end %>
   </ul>

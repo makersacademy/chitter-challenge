@@ -501,6 +501,18 @@ Green.
 
 Wrote a unit test for peep.author_handle to returns the handle of the author (@username). Red.
 
+Wrote a similar method, peep.author_handle to return the users handle.
+
+Green.
+
+Now peeps need to be created with the user's id as the peep's user_id.
+
+- Updated all tests where peeps are created to user a user and its id.
+- Updated post /peeps route to create peeps with the session user_id.
+- Updated the view to display the peep's author name and handle.
+
+Feature green.
+
 
 ## Reflections
 
