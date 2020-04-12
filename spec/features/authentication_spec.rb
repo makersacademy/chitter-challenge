@@ -29,4 +29,21 @@ feature 'authentication' do
     expect(page).to_not have_content '@davedude'
     expect(page).to have_content 'Email or password incorrect'
   end
+
+  it 'a user cannot log in if password is incorrect, sees error at login screen' do
+    # Create a test user
+    user_create_dave
+
+    # Attempt log in with incorrect password
+    visit '/'
+    click_on 'Log in'
+    fill_in(:email, with: 'davedude@example.com')
+    fill_in(:password, with: 'incorrect')
+    click_button('Log in')
+
+    expect(current_path).to eq '/sessions/new'
+    expect(page).to_not have_content '@davedude'
+    expect(page).to have_content 'Email or password incorrect'
+  end
+
 end
