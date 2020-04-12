@@ -18,6 +18,9 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
+# test helper methods
+require 'features/web_helpers'
+
 # database cleanup
 require_relative 'setup_test_database'
 

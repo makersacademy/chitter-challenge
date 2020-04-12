@@ -1,5 +1,3 @@
-require './spec/capybara_helpers'
-
 feature 'Sending a Peep' do
   scenario 'compose peep button not present when user not signed in' do
     visit '/'

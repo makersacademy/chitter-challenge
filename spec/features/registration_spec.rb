@@ -1,5 +1,3 @@
-require './spec/capybara_helpers'
-
 feature 'Registration' do
   scenario 'a user can sign up' do
     dave_sign_up
