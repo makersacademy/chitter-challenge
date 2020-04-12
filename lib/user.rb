@@ -31,7 +31,8 @@ class User
 
   def self.authenticate(username:, pw:)
     self.connect
-    res = @con.exec("SELECT * WHERE username = '#{username}' AND password = '#{pw}'")
+    res = @con.exec("SELECT * FROM users WHERE username = '#{username}' AND password = '#{pw}'")
+    res.any?
   end
 
 end

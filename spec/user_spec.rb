@@ -31,9 +31,9 @@ describe User do
   end
   
   describe '.authenticate' do
-    it " returns true if the PW & username match one one the users table" do
+    it " returns true if the PW & username match one row on the users table" do
       User.create(usr:'Gerald', pass: 'Gerald_secure', email: 'Gerald_email')
-      expect(User.authenticate(usr: 'Gerald', pass: 'Gerald_secure')).to eq(true)
+      expect(User.authenticate(username: 'Gerald', pw: 'Gerald_secure')).to eq(true)
     end
   end
 end
