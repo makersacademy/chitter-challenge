@@ -108,7 +108,7 @@ I wrote a short CRC card model and an outline of Table Scheme:
 - Added Sinatra and Capybara to the gemfile.
 - Added config.ru to allow rackup.
 - Added testing gems and app file to `spec_helper.rb`, also configures Capybara app.
-- Wrote Hello World test to check Sinatra and Capyara all working correctly. Red.
+- Wrote Hello World test to check Sinatra and Capybara all working correctly. Red.
 - Created `app.rb` with route for '/' returning Hello World. Green.
 
 ### User Stories 1, 2, 3
@@ -384,13 +384,35 @@ Green.
 
 The other scenario now fails, updated it to be a scenario for a signed in user can send a peep, which passes again.
 
-### Logging Out
+### Logging In and Out
+
+> As a Maker  
+> So that only I can post messages on Chitter as me  
+> I want to log in to Chitter
 
 > As a Maker  
 > So that I can avoid others posting messages on Chitter as me  
 > I want to log out of Chitter
 
-Now the user is signed up, they are permanently stuck
+Now the user is signed up, they are permanently stuck logged in. They should be able to log in and out (called authentication).
+
+There is one happy path, the email and password are correct.
+The unhappy paths are if either the email or password are incorrect.
+
+Wrote a feature test for a happy path for the an existing user to click 'Log in', enter the correct details, and to be returned to the homepage and see their handle. Red
+
+- Added a link to Log in, directing to /sessions/new.
+- Added route for /sessions/new, rendering sessions/new.erb.
+- Added a form for login in the view, posting to /sessions.
+- Added /sessions route, which assigns user by finding the row in users based on the email given.
+- It then assigns auth with the result of user.authenticate(password), which will return the user if the password is correct, otherwise it will return false.
+- The session user_id is set with auth.id, and redirects to homepage.
+
+Green.
+
+Refatored this from controller to model.
+
+
 
 ## Reflections
 
