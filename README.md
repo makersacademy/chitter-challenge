@@ -410,47 +410,17 @@ Wrote a feature test for a happy path for the an existing user to click 'Log in'
 
 Green.
 
-Refatored this from controller to model.
+Refactored this from controller to model. Wrote test for User.log_in method, to take the a correct email and password, and return the id of the user.
 
+- Made new method, User.log_in.
+- Extracted the logic from controller to User.log_in.
 
+Tests still green.
 
 ## Reflections
 
-- The tweet input is vulnerable to sql injection, and will throw an error if you innocently try to use an apostrophe in your peep. This could be solved I think by subbing out any problem characters with escaped alternatives before submitting that to Peep.create. Perhaps some class or module for this. Unfortunately I have no idea how to TDD this as trying to express that entering an unescaped string will not raise an error seems impossible as preparing an unescaped string in the test breaks the file.
+- The peep input is vulnerable to sql injection, and will throw an error if you innocently try to use an apostrophe in your peep. This could be solved I think by subbing out any problem characters with escaped alternatives before submitting that to Peep.create. Perhaps some class or module for this. Unfortunately I have no idea how to TDD this as trying to express that entering an unescaped string will not raise an error seems impossible as preparing an unescaped string in the test breaks the file.
 
 - I like ActiveRecord, but I am a noob, and I am definitely using it wrong, especially as rspec and hosting the server with rackup both appear to use the development env in database.yml, and I don't know how to make rspec use test and localhost use production. I have duped it with some ER tags for now.
 
 - ActiveRecord makes things very simple, for example the create methods for peeps and users are pretty much written for you, just need to inherit from ActiveRecord::Base and off you go. However, though it is simple now that I know how, researching how to get things to work was quite difficult almost every resource refers to ActiveRecords use in Rails, rather than in Sinatra. Ah well.
-
-<!-- 
-
-### Refactoring to a Persistent Database Connection
-
-In order to provide a persistent connection to the correct database, rather than setting it up every time access is required, the connection can be handled by a DatabaseConnection class.
-
-Wrote a test for DatabaseConnection.setup to create a connection to 'chitter_test'. Red.
-
-- Wrote DatabaseConnection.setup to connect to the passed database using PG.connect.
-
-Green.
-
-Wrote a test for the connection to persist as DatabaseConnection.connection. Red.
-
-- In .setup assigned the connection to class instance variable @connection.
-- Wrote a class attribute reader (self.connection) to return @connection.
-
-Green.
-
-Wrote a test for DatabaseConnection.query to send an exec call to the connection created with .setup with the passed query string as arg. Red.
-
-- Added .query to call exec on @connection with the passed query string.
-
-Green.
-
-The app should set up a database once at the start.
-
-- Created database_connection_setup.rb
-- Simple script to decide which database to connect to based on ENV, and use DatabaseConnection.setup to connect to it.
-- Required this script in app.rb 
-
--->

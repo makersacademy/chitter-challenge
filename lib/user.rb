@@ -14,4 +14,9 @@ class User < ActiveRecord::Base
     "@#{self.user_name}"
   end
 
+  def self.log_in(email:, password:)
+    user = User.find_by(email: email)
+    auth = user.authenticate(password)
+    auth.id
+  end
 end
