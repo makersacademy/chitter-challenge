@@ -21,11 +21,19 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create(content: 'this is a test peep')
+      test_peep = Peep.create(content: 'this is a test peep')
       
-      test_peep = Peep.all.first
-
       expect(test_peep.content).to eq 'this is a test peep'
+    end
+  end
+
+  describe '.author_name' do
+    it 'returns the name of the author' do
+      user = user_create_dave
+
+      test_peep = Peep.create(content: 'this is a test peep', user_id: user.id)
+
+      expect(test_peep.author_name).to eq "#{user.first_name} #{user.last_name}"
     end
   end
 end
