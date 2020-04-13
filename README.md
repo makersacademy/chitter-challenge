@@ -3,24 +3,38 @@ Chitter Challenge
 
 
 ## Database setup
-
+Enter psql from the command line:
 ```
-CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCH(60), time_and_date TIMESTAMP);
+$> psql
+```
+Create two databases.
+```
+user=# CREATE DATABASE chitter;
+user=# CREATE DATABSE chitter_test;
+```
+Connect to a database.
+```
+user=# \c chitter;
+chitter=#
+```
+Then create the tables in each database.
+```
+chitter=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60), time_and_date TIMESTAMP);
+
+chitter=# CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), username VARCHAR(60), name VARCHAR(60));
 ````
-
-## User Story
-
+Connect to chitter_test and create the same databases there.
 ```
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+user=# \c chitter_test
+chitter_test=# CREATE TABLE...
 ```
 
 ## Domain model
 
 Objects | Messages
 --------|---------
-Peeps | peep
+Peeps | @id </br> @peep </br> @time
+User | @username </br> @email </br> @password </br> @name
 
 # CRC cards
 
@@ -39,18 +53,14 @@ Peeps | peep
 | has a name |  |
 | can tag other user |   |
 
-# Tables
+# Database Tables
 
 Table: | peeps | | | |
 ------|-|-|-|-|
 id | message|time/date | username | tags |
 1 | hello | 01/12 12:34 | mrbloop | Jessica |
 
-
-
 -------------------
-
-
 
 Table: | User | | | |
 ------|-|-|-|-|
@@ -60,7 +70,7 @@ id | username | email | password | name |
 
 
 
-
+-----------
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
@@ -80,6 +90,10 @@ Features:
 
 ```
 STRAIGHT UP
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
 
 As a maker
 So that I can see what others are saying  
