@@ -28,7 +28,8 @@ class Peep
     self.connect
     message = text.split("'")
     body = message.join("''")
-    @con.exec("INSERT INTO peeps(text,user_id, time) VALUES('#{body}', '#{user}', '#{Time.now.utc}')")
+    result = @con.exec("INSERT INTO peeps(text,user_id, time) VALUES('#{body}', '#{user}', '#{Time.now.utc}') RETURNING id;")
+    @con.exec("INSERT INTO tags(peep_id,user_id) VALUES('#{result['id']}','#{user}');")
   end
 
   def self.username(userid)

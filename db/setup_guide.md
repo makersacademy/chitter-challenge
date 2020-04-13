@@ -28,3 +28,9 @@ text VARCHAR(280) NOT NULL,
 time TIMESTAMP NOT NULL,
 user_id INTEGER REFERENCES users(id)
 );
+
+CREATE TABLE tags(
+ id serial PRIMARY KEY,
+ user_id INTEGER REFERENCES users(id),
+ peep_id INTEGER REFERENCES peeps(id)
+  );
