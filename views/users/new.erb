@@ -1,17 +1,31 @@
-<h2>
-  <%= flash[:notice] %>
-</h2>
+<h1>Please sign up</h1>
 
 <form action="/users" method="post">
-  <label for="first_name">First name:</label>
-  <input type="text" name="first_name">
-  <label for="last_name">Last name:</label>
-  <input type="text" name="last_name">
-  <label for="email">Email:</label>
-  <input type="email" name="email">
-  <label for="user_name">User name:</label>
-  <input type="text" name="user_name">
-  <label for="password">Password:</label>
-  <input type="text" name="password">
-  <input type="submit" value="Submit">
+  <div class="form-group">
+    <label for="first_name">First name:</label>
+    <input class="form-control" type="text" name="first_name">
+  </div>
+
+  <div class="form-group">
+    <label for="last_name">Last name:</label>
+    <input class="form-control" type="text" name="last_name">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input class="form-control" type="email" name="email">
+  </div>
+
+  <div class="form-group">
+    <label for="user_name">User name:</label>
+    <input class="form-control" type="text" name="user_name">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input class="form-control" type="text" name="password">
+  </div>
+
+
+  <input input class="btn btn-primary" type="submit" value="Submit">
 </form>
