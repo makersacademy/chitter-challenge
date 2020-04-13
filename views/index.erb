@@ -2,11 +2,17 @@
 <% if @user %>
   <h2>Welcome, <%= @user.name %></h2>
 <% end %>
+<% if @notice %>
+  <h2>Welcome, <%= @notice %></h2>
+<% end %>
 <form action="/signup" method="get">
   <input type="submit" value ="Sign Up">
 </form>
 <form action="/signin" method="get">
   <input type="submit" value ="Sign in">
+</form>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value ="Sign out">
 </form>
 <form action="/" method="post">
   <input type="text" name="peep">

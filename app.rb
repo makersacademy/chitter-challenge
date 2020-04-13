@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @notice = session[:signed_out]
     @user = User.find(session[:user_id])
 
     @messages = Peeps.all
@@ -42,11 +43,18 @@ class Chitter < Sinatra::Base
     if user
       session[:user_id] = user.id
       session[:login_error] = 0
+      session[:signed_out] = nil
       redirect('/')
     else 
       session[:login_error] = 'Please check your email or password.'
       redirect('/signin')
     end
 
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    session[:signed_out] = 'you signed out.'
+    redirect('/')
   end
 end
