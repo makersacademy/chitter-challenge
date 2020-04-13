@@ -18,16 +18,6 @@ feature 'User can see peeps in reverse chronological order' do
   end
 end
 
-# feature 'User can see the time a and date a peep was made' do
-#   scenario 'when adding a new peep' do
-#     p "sometimes this test fails by a second due to lag"
-#     make_peep('timed peep')
-    
-#     time = Time.now.strftime('%Y-%m-%d %k:%M:%S')
-#     expect(page).to have_content("timed peep - #{time}")
-#   end
-# end
-
 feature 'User can see the time a and date a peep was made' do
   scenario 'when adding a new peep' do
     p "sometimes this test fails by a second due to lag"
