@@ -20,7 +20,7 @@ def db_exists?(db_name)
   conn = PG.connect
   result = conn.exec("SELECT datname FROM pg_catalog.pg_database WHERE datname='#{db_name}';")
   conn.close
-  result.ntuples == 1
+  result.any?
 end
 
 def create_db(db_name)
