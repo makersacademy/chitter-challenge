@@ -66,6 +66,11 @@ $ bundle
 3. Connect to the database using the pqsl command `\c chitter_test;`
 4. Run the query we have saved in the file `01_create_peeps_table.sql`
 
+### Add date column to both databases
+1. Connect to `psql'
+2. Connect to the database using the psql command `\c chitter;` or `\c chitter_test;`
+3. Run the query we have saved in the file '02_alter_peeps_table_timestamp.sql` 
+
 Chitter Challenge
 =================
 

@@ -8,7 +8,6 @@ feature 'Viewing peeps' do
 
   scenario 'user can see peeps' do
 
-
     DatabaseConnection.query("INSERT INTO peeps (content) VALUES ('900 People die from Coronavirus');")
     DatabaseConnection.query("INSERT INTO peeps (content) VALUES ('Lockdown is lifted');")
     DatabaseConnection.query("INSERT INTO peeps (content) VALUES ('Coronavirus is over!');")

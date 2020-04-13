@@ -7,6 +7,12 @@ describe DatabaseConnection do
 
       DatabaseConnection.setup('chitter_test')
     end
+
+    it 'connection stays connected' do
+      connected = DatabaseConnection.setup('chitter_test')
+
+      expect(DatabaseConnection.connection).to eq connected
+    end
   end
 
   describe '.query' do
