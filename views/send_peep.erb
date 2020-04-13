@@ -4,7 +4,11 @@
   <body>
     <h1>Compose a Peep!</h1>
       <form action='/submit_peep' method='post'>
-        <input type='text' name='peep_text' /><button type="submit" name="Submit">Submit Peep</button>
+        <ul>
+          <li><p>Username:</p><input type='text' name='username' /></li>
+          <li><p>Peep:</p><input type='text' name='peep_text'/></li>
+          <button type="submit" name="Submit">Submit Peep</button>
+        </ul>
       </form>
   </body>
 </html>

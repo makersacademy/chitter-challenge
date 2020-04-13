@@ -1,2 +1,2 @@
 CREATE TABLE peeps(id SERIAL PRIMARY KEY, username VARCHA
-R(30), peep VARCHAR(100), time VARCHAR(20));
+R(30), peep VARCHAR(100), time VARCHAR(40));
