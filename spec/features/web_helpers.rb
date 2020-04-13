@@ -4,13 +4,13 @@ def make_peep(peep)
   click_button('Peep')
 end
 
-def sign_up
+def sign_up(email = 'test@example.com', username = 'testusername', name = 'testname')
   visit '/'
   click_button('Sign Up')
-  fill_in('email', with: 'test@example.com')
+  fill_in('email', with: email)
   fill_in('password', with: 'password123')
-  fill_in('username', with: 'testusername')
-  fill_in('name', with: 'testname')
+  fill_in('username', with: username)
+  fill_in('name', with: name)
   click_button('Submit')
 end
 
