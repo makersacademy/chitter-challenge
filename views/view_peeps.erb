@@ -1,11 +1,15 @@
+<h2>Welcome,  <%=@username%></h2>
+<form action='/sign_out' method='get'>
+<input type='submit' value='Sign Out'>
+</form>
+<br>
 <form action='/peeps' method='post'>
 <label for="peep text">type your message here (280 char limit)</label>
-<input type='text' name='peep text'> <br>
-<label for='username'>how would you like to sign off your message?</label>
-<input type='text' name='username'> <br>
+<input type='text' name='peep text' maxlength='280'>
+<input type='hidden' name='username' value='<%= @username%>'> <br>
 <input type="submit" value="Submit Peep to Chitter">
-</form> <br>
-
+</form>
+<br>
 <ul>
   <% @posts.each do |post| %>
     <li>

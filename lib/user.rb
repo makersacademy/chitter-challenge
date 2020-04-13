@@ -29,10 +29,40 @@ class User
     rs.map { |row| User.new(name: row['username'], pw: row['password'], email: row['email'], user_id: row['id'])}    
   end
 
+  def self.sign_in(user:, pass:)
+    if self.authenticate(username: user, pw: pass)
+      self.log_in(user)
+    else 
+      self.log_out
+    end
+  end
+
+  def self.valid_signup(handle:, mail:)
+    self.connect
+    check = @con.exec("SELECT * FROM users WHERE username = '#{handle}' OR email = '#{mail}'")
+    check.any?
+  end
+
   def self.authenticate(username:, pw:)
     self.connect
     res = @con.exec("SELECT * FROM users WHERE username = '#{username}' AND password = '#{pw}'")
     res.any?
   end
 
+  def self.log_in(username)
+    @login = username
+  end
+
+  def self.log_out
+    @login = false
+  end
+
+  def self.logged_in
+    @login
+  end
+
+  def self.email_validator(email)
+    Truemail.validate(email, with: regex)
+  end
+  
 end

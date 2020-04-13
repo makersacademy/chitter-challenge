@@ -26,7 +26,9 @@ class Peep
 
   def self.create(text:, user:)
     self.connect
-    @con.exec("INSERT INTO peeps(text,user_id, time) VALUES('#{text}', '#{user}', '#{Time.now.utc}')")
+    message = text.split("'")
+    body = message.join("''")
+    @con.exec("INSERT INTO peeps(text,user_id, time) VALUES('#{body}', '#{user}', '#{Time.now.utc}')")
   end
 
   def self.username(userid)
@@ -35,4 +37,9 @@ class Peep
     person[0]['username']
   end
 
+  def self.userid(username)
+    self.connect
+    person = @con.exec("SELECT * FROM users WHERE username = '#{username}'")
+    person[0]['id']
+  end
 end

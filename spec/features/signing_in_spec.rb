@@ -17,6 +17,6 @@ feature 'signing in' do
     click_button('log in')
     expect(page).to have_content('Welcome, eddoddo')
     expect(page).to have_current_path('/peeps')
-    expect(page).to have_button('new peep')
+    expect(page).to have_button('Submit Peep to Chitter')
   end
 end
