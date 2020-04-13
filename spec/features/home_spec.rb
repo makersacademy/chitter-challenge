@@ -3,7 +3,7 @@ feature 'Homepage loads' do
   scenario "User can't enter a peep if not logged in" do
     visit '/home'
     expect(page).to have_no_link('Do a Peep', href: '/create')
-    expect(page).to have_no_link('Log Out', href: '/logout')
+    expect(page).to have_no_button 'Log Out'
     expect(page).to have_link('Log in', href: '/login')
   end
 

@@ -4,10 +4,21 @@
   <title>Add peep</title>
 </head>
 <body>
-  <h1>Add your Peep</h1>
-  <form action="/add" method="post">
-    <input class="text" name="message">
-    <input class="button" type="submit" value="Peep" name="peep">
-  </form>
+
+  <h1>Chitter</h1>
+  <nav>
+      <a href="/">Peep Central</a>
+      <a href="/add">Do a Peep</a>
+      <form action="/logout" method="post">
+        <input class="button" type="submit" name="logout" value="Log Out">
+      </form>
+  </nav>
+
+  <section>
+    <form action="/add" method="post">
+      <input class="text" name="message">
+      <input class="button" type="submit" value="Peep" name="peep">
+    </form>
+  </section>
 </body>
 </html>
