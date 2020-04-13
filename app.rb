@@ -16,7 +16,12 @@ class Chitter < Sinatra::Base
 
   post '/' do 
     peep = params[:peep]
-    Peeps.add(peep)
+    @user = User.find(session[:user_id])
+    if @user
+      Peeps.add(peep, @user.id)
+    else
+      Peeps.add(peep)
+    end
     redirect('/')
   end
 
