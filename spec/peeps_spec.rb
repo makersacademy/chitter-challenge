@@ -22,4 +22,9 @@ describe Peeps do
     expect(peep.peep).to eq 'new test peep'
   end
   
+  it 'creates a peep with a user_id' do
+    peep = Peeps.add('test peep', 43)
+
+    expect(peep.user_id).to eq 43
+  end
 end
