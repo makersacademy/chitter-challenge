@@ -1,4 +1,9 @@
-<form action="/peeps" method="post">
-  <input type="text" name="content" maxlength="240">
-  <input type="submit" value="Peep">
+<h1 class="text-center">Compose your peep</h1>
+
+<form class="form" action="/peeps" method="post">
+  <div class="form-group">
+    <textarea class="form-control" type="text" name="content" maxlength="240" rows="10"></textarea>
+    <small class="form-text text-muted">Peeps must be 240 characters maximum.</small>
+  </div>
+  <input class="btn btn-primary btn-block" type="submit" value="Peep">
 </form>

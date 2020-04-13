@@ -1,6 +1,6 @@
-<h1>Please sign up</h1>
+<h1 class="text-center">Please sign up</h1>
 
-<form action="/users" method="post">
+<form class="form" action="/users" method="post">
   <div class="form-group">
     <label for="first_name">First name:</label>
     <input class="form-control" type="text" name="first_name">
@@ -18,7 +18,12 @@
 
   <div class="form-group">
     <label for="user_name">User name:</label>
-    <input class="form-control" type="text" name="user_name">
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
+      </div>
+      <input class="form-control" type="text" name="user_name">
+    </div>
   </div>
 
   <div class="form-group">
@@ -26,6 +31,5 @@
     <input class="form-control" type="text" name="password">
   </div>
 
-
-  <input input class="btn btn-primary" type="submit" value="Submit">
+  <input class="btn btn-primary btn-block" type="submit" value="Submit">
 </form>

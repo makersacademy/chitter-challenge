@@ -8,9 +8,12 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  before do
+    @user = session[:user_id] ? User.find(session[:user_id]) : nil 
+  end
+
   get '/' do
     @title = "Chitter"
-    @user = session[:user_id] ? User.find(session[:user_id]) : nil 
     @peeps = Peep.all.order(created_at: :desc)
     erb :index
   end
