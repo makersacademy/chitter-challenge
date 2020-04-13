@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <head>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
   <title>Chitter</title>
 </head>
-<body>
-  <h1>Peep Central</h1>
-  <% if @peepers != nil %>
-    <p> Peeper: <%= @peepers.peeper %></p>
-      <form action="/create" method="post">
-        <input class="button" type="submit" name="add" value="Do a Peep">
+  <body>
+    <h1>Chitter</h1>
+    <nav>
+        <a href="/">Peep Central</a>
+        <% if @peepers != nil %>
+          <a href="/create">Do a Peep</a>
+          <a href="/logout">Log Out</a>
+        <% else %>  
+          <a href="/login">Log in</a>
+          <a href="/signup">Sign up</a>
+        <% end %> 
+    </nav>
+
+<!--
+
+    <% if @peepers != nil %>
+      <p> Peeper: <%= @peepers.peeper %></p>
+        <form action="/create" method="post">
+          <input class="button" type="submit" name="add" value="Do a Peep">
+        </form>
+        <form action="/logout" method="post">
+          <input class="button" type="submit" name="logout" value="logout">
+        </form>
+    <% else%>  
+      <form action="/MainLogin" method="post">
+        <input class="button" type="submit" name="Login" value="Login">
       </form>
-      <form action="/logout" method="post">
-        <input class="button" type="submit" name="logout" value="logout">
+      <form action="/MainSignup" method="post">
+            <input class="button" type="submit" name="Signup" value="Signup">
       </form>
-  <% else%>  
-    <form action="/MainLogin" method="post">
-      <input class="button" type="submit" name="Login" value="Login">
-    </form>
-    <form action="/MainSignup" method="post">
-          <input class="button" type="submit" name="Signup" value="Signup">
-    </form>
-  <% end%>
-  <ul>
-    <% @peeps.each do |peep| %>
-      <li>
-        <%= peep.peep %>
-        <%= peep.peeper_name %>
-        @<%= peep.peeper %>
-        <%= peep.date %>
-      </li>
-    <% end %>
-  </ul>
-</body>
+    <% end%>
+ -->
+
+    <section>
+      <ul>
+        <% @peeps.each do |peep| %>
+          <li>
+            <%= peep.peep %>
+            <%= peep.peeper_name %>
+            @<%= peep.peeper %>
+            <%= peep.date %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  </body>
 </html>

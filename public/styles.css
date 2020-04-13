@@ -1,0 +1,71 @@
+html, body {
+  font-family: Helvetica;
+  margin: 0;
+  height: 100%;
+  color:white;
+  font-size: 20px;
+  background-color: rgb(35, 45, 58);
+}
+
+nav {
+  height: 100%;
+  width: 25%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  overflow: auto;
+}
+nav a {
+  color:white;
+  text-decoration: none; 
+  display: block;
+  padding: 16px;
+}
+nav a.active {
+  background-color: rgb(89, 163, 248);;
+  color: white;
+}
+
+nav a:hover {
+  color: rgb(89, 163, 248);
+}
+
+h1 {
+  font-size: 80px;
+}
+  
+body {
+  margin: 0px;
+  display: table;
+  width: 100%;
+}
+
+section {
+  margin-left: 25%;
+}
+
+.colour-text, h2 {
+  color: rgb(89, 163, 248);
+  font-size: 50px;
+}
+
+body > span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.button {
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 150px;
+  border: none;
+  color: rgb(35, 45, 58);
+  padding: 10px 32px;
+  text-align: center;
+  font-size: 16px;
+}
+
+div {
+  padding: 10px;
+}
