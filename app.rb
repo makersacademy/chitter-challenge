@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/add' do
-    @peep = Peep.create(params[:message], Time.now, session[:peeper])
+    @peep = Peep.create(params[:message], Time.now, session[:peeper], Peeper.get(session[:peeper]).first.name)
     "You Peeped"
     redirect '/home'
   end

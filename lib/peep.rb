@@ -4,22 +4,24 @@ require_relative 'db_connection'
 class Peep
   
 
-  attr_reader :id, :peep, :peeper, :date
+  attr_reader :id, :peep, :peeper, :date, :peeper_name
   
-  def initialize(id:, peep:, peeper:, date:)
+  def initialize(id:, peep:, peeper:, date:, peeper_name:)
     @id = id
     @peep = peep
     @peeper = peeper
     @date = date
+    @peeper_name = peeper_name
   end
 
-  def self.create(peep, time, peeper)    
-    result = DbConnection.query("INSERT INTO peeps(peep, peeper, date) VALUES('#{peep}', '#{peeper}', '#{time}') RETURNING id, peep, peeper, date;")
+  def self.create(peep, time, peeper, peeper_name)    
+    result = DbConnection.query("INSERT INTO peeps(peep, peeper, date, name) VALUES('#{peep}', '#{peeper}', '#{time}', '#{peeper_name}') RETURNING id, peep, peeper, date, name;")
     Peep.new(
       id: result[0]['id'], 
       peep: result[0]['peep'], 
       peeper: result[0]['peeper'],
-      date: result[0]['date']
+      date: result[0]['date'],
+      peeper_name: result[0]['name']
     )
   end
 
@@ -30,7 +32,8 @@ class Peep
         id: peep['id'], 
         peep: peep['peep'], 
         peeper: peep['peeper'],
-        date: peep['date']
+        date: peep['date'],
+        peeper_name: peep['name']
       )
     end
 

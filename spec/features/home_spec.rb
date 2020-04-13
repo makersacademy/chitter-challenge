@@ -14,8 +14,8 @@ feature 'Homepage loads' do
   end
 
   scenario 'Home displays peeps' do
-    peep_1 = Peep.create("Peep 1", '2020-04-09 10:52:57.960784', 'Bruce123')
-    peep_2 = Peep.create("Peep 2", '2020-04-10 10:52:57.960784', 'Bruce123')
+    peep_1 = Peep.create("Peep 1", '2020-04-09 10:52:57.960784', 'Bruce123', 'Bruce')
+    peep_2 = Peep.create("Peep 2", '2020-04-10 10:52:57.960784', 'Bruce123', 'Bruce')
     visit '/add'
     fill_in 'message', with: 'This is the Newest Peep!'
     click_button 'Peep'
