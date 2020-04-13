@@ -29,7 +29,9 @@ class Maker
 
   def self.valid_credentials?(username, password)
     result = DBConnection.query("SELECT id, name, user_name, email, password FROM makers WHERE user_name=$$#{username}$$")
-    result.ntuples == 1 && BCrypt::Password.new(result[0]['password']) == password
+    #result.ntuples == 1 && BCrypt::Password.new(result[0]['password']) == password
+    result.any? && BCrypt::Password.new(result[0]['password']) == password
+
   end
 
   def self.find_by_username(username)
@@ -39,7 +41,8 @@ class Maker
 
   def self.valid_new_maker?(username, email)
     result = DBConnection.query("SELECT * FROM makers WHERE email=$$#{email}$$ OR user_name=$$#{username}$$")
-    result.ntuples.zero?
+    #result.ntuples.zero?
+    !result.any?
   end
 
   private_class_method :valid_new_maker?

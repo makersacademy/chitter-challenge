@@ -319,9 +319,10 @@ The basis for this analysis is the impact of the improvements on the user and/or
 | Improvement | User Priority | Reasoning |
 | ----------- | -------- | --------- |
 | Implement tagging user story | high | The site implements all other user stories successfully. However, this story would add significant functionality and make it more fun to use.
+| Improve visuals | high | This was not my focus during the challenge, but improving the visuals would clearly have a very high impact on the user. |
 | Refactor validation into a single method that returns nil or the validated maker | low | This has no impact on site functionaliy, and would be more important for a more complex app where this would make the code more consistent. |
 | Formatting of time display in peeps list | medium | The time is readable if unfriendly. Reformatting would make the site easier for makers to use. |
 | Refactor overuse of $$ strings in database calls | low | I realised I'd overused/used these inappropriately towards the end of the time-box. It makes the code less readable, but it still functions.
 | Look at alernatives to the number of expects in individual tests | low | It would make tests easier to read, but little impact to the user. |
-| Rethink test strategy for the rake file | low | The rake tasks clearly work, even without tests and it's easy to determine this as they are quite simple. However the tests are brittle, and built more for coverage than anything. They need a rethink, but this has low importance. |
+| Rethink test strategy for the rake file | low | The tests are brittle, and built more for coverage than anything. They need a rethink, but this has low importance. |
 | Consider which model initialize methods can be made private | low | A code design issue. Most of the model class initialize methods can probably be made private, as the controller accesses the model through the create methods. However, some tests might need them. There is a design issue here that needs addressing, but it doesn't impact the user |
