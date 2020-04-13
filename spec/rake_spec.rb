@@ -8,7 +8,7 @@ describe 'rake tasks' do
 
   describe 'db_exists?' do
     it 'returns true if a db exists' do
-      expect(db_exists?('chitter')).to eq true
+      expect(db_exists?('chitter_test')).to eq true
     end
 
     it 'returns false if a db doesnt exist' do
