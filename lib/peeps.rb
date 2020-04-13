@@ -3,7 +3,7 @@ require_relative 'database_connection'
 
 class Peeps
 
-  attr_reader :peep, :time
+  attr_reader :peep, :time, :id
 
   def initialize(id:, peep:, time:)
     @id = id
