@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative 'database_connection'
 
 class User
 
@@ -13,11 +13,18 @@ class User
     name: result[0]['name'])
   end
 
+  def self.find(id)
+    return nil unless id
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    User.new(id: result[0]['id'], email: result[0]['email'], username: result[0]['username'], 
+      name: result[0]['name'])
+    end
+
   def initialize(id:, email:, username:, name:)
     @id = id
     @email = email
     @username = username
     @name = name
   end
-  
+
 end

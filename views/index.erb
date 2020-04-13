@@ -1,4 +1,7 @@
 <h1>Welcome to Chitter!</h1>
+<% if @user %>
+  <h2>Welcome, <%= @user.name %></h2>
+<% end %>
 <form action="/signup" method="get">
   <input type="submit" value ="Sign Up">
 </form>
@@ -11,5 +14,5 @@
     <li>
     <%= peep.peep %> - <%= peep.time %>
     </li>
-  <%end%>
+  <% end %>
 </ul>
