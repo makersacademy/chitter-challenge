@@ -19,7 +19,7 @@ feature 'Homepage loads' do
     visit '/add'
     fill_in 'message', with: 'This is the Newest Peep!'
     click_button 'Peep'
-    expect(page).to have_content 'This is the Newest Peep! @ 2020-04-11 Peep 2 @Bruce123 2020-04-10 Peep 1 @Bruce123 2020-04-09'
+    expect(page).to have_content 'This is the Newest Peep! @ 2020-04-13 Peep 2 @Bruce123 2020-04-10 Peep 1 @Bruce123 2020-04-09'
   end
 
 end
