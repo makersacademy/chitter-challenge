@@ -13,12 +13,12 @@ feature 'Homepage loads' do
     expect(page).to have_button "log_in"
   end
 
-  scenario 'Home displays peeps' do
-    peep_1 = Peep.create("Peep 1", '2020-04-09 10:52:57.960784', 'Bruce123', 'Bruce')
-    peep_2 = Peep.create("Peep 2", '2020-04-10 10:52:57.960784', 'Bruce123', 'Bruce')
-    visit '/add'
-    click_button 'peep'
-    expect(page).to have_content 'Peep 2 @Bruce123 2020-04-10 Peep 1 @Bruce123 2020-04-09'
-  end
+  # scenario 'Home displays peeps' do
+  #   peep_1 = Peep.create("Peep 1", '2020-04-09 10:52:57.960784', 'Bruce123', 'Bruce')
+  #   peep_2 = Peep.create("Peep 2", '2020-04-10 10:52:57.960784', 'Bruce123', 'Bruce')
+  #   visit '/add'
+  #   click_button 'peep'
+  #   expect(page).to have_content 'Peep 2 @Bruce123 2020-04-10 Peep 1 @Bruce123 2020-04-09'
+  # end
 
 end
