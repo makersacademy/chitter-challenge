@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  <title>Chitter</title>
+</head>
+  <body>
+    <h1>Chitter</h1>
+    <nav>
+      <a href="/">Peep Central</a>
+      <% if @peepers != nil %>
+        <a href="/add">Do a Peep</a>
+        <form action="/logout" method="post">
+          <input class="button" type="submit" name="logout" value="Log Out">
+        </form>
+      <% else %>  
+        <a href="/login">Log in</a>
+        <a href="/signup">Sign up</a>
+      <% end %> 
+    </nav>
+
+    <section class="feed">
+      <% @peeps.each do |peep| %>
+        <div class="peep">
+          <p><%= peep.peep %></p>
+          <p class="user"><%= peep.peeper_name %>
+          @<%= peep.peeper %>
+          <%= peep.date %></p>
+        </div>
+      <% end %>
+    </section>
+  </body>
+</html>

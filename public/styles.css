@@ -1,0 +1,110 @@
+html, body {
+  font-family: Helvetica;
+  margin: 0;
+  height: 100%;
+  color:white;
+  font-size: 20px;
+  background-color: rgb(35, 45, 58);
+}
+h1 {
+  height: 150px;
+  width: 100%;
+  font-size: 80px;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  overflow: auto;
+  background-color: rgb(35, 45, 58);
+}
+nav {
+  height: 70%;
+  width: 25%;
+  margin-top: 150px;
+  padding: 0;
+  position: fixed;
+  overflow: auto;
+}
+
+nav a {
+  color:white;
+  text-decoration: none; 
+  display: block;
+  padding: 16px;
+}
+nav a.active {
+  background-color: rgb(89, 163, 248);;
+  color: white;
+}
+
+nav a:hover {
+  color: rgb(89, 163, 248);
+}
+  
+body {
+  margin: 0px;
+  display: table;
+  width: 100%;
+}
+
+section {
+  margin-top: 150px;
+  margin-left: 25%;
+  width: 75%;
+  height: 100%;
+}
+
+.feed {
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  width: 60%;
+}
+
+.peep {
+  border: 1px solid white;
+  padding: 20px;
+}
+.peep:hover {
+  background-color: rgb(48, 56, 66);
+  border: 1px solid white;
+  padding: 20px;
+}
+
+
+.enter {
+  margin-top: 50px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.text-field {
+  width: 50%;
+  height: 50px;
+  padding 20px;
+  margin: 30px;
+}
+
+.button {
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 200px;
+  border: none;
+  color: rgb(35, 45, 58);
+  padding: 10px 32px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.new-peep {
+  font-size: 50px;
+  height: 250px;
+  width: 500px;
+  padding: 20px;
+}
+
+.user {
+  font-size: 12px;
+  text-align: right;
+  color:  rgb(89, 163, 248);
+  font-style: italic;
+}

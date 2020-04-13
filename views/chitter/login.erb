@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  <title>Chitter - Login</title>
+</head>
+<body>
+  <h1>Chitter</h1>
+  <nav>
+    <a href="/">Peep Central</a>
+    <a href="/signup">Sign up</a>
+  </nav>
+
+  <section class="enter">
+    <form action='/login' method="post">
+      <div>
+        <input class="text-field" type="text" name="username" placeholder="Enter your Username">
+        <input class="text-field" type="text" name="password" placeholder="Enter your Password">
+      </div>
+        <input class="button" type="submit" name="log_in" value="Get Peeping">
+    </form>
+  </section>
+</body>
+</html>
