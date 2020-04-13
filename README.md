@@ -19,7 +19,7 @@ chitter=#
 ```
 Then create the tables in each database.
 ```
-chitter=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60), time_and_date TIMESTAMP, user_id VARCHAR(60));
+chitter=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60), time_and_date TIMESTAMP, user_id int8);
 
 chitter=# CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), username VARCHAR(60), name VARCHAR(60));
 ````
