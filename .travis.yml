@@ -9,5 +9,6 @@ before_script:
   - psql -U postgres -d chitter_test -f db/migrations/02_update_with_date.sql
   - psql -U postgres -d chitter_test -f db/migrations/03_create_users_table.sql
   - psql -U postgres -d chitter_test -f db/migrations/04-update_peeps_wit_peep_name.sql
+  
 script:
   - bundle exec rspec
