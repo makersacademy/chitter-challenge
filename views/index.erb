@@ -2,12 +2,13 @@
 <head>
 </head>
 <body>
-  <h2>Welcome to Chitter</h2>
 
-  <form>
-    <input class="button" type="submit" name="sign up" value="Sign up">
+  <h2>Welcome to Chitter <%= @handle %></h2>
+
+
+  <form action="/signup" method="get">
+    <input class="button" type="submit" name="signup" value="Sign Up">
   </form>
-
 
   <ul>
   <% @current_peeps.each do |peep| %>

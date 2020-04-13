@@ -7,8 +7,18 @@ class Chitter < Sinatra::Base
   get '/' do
     @current_peeps = Peep.all
     #line below now won't work as I am inserting to database
+    @handle = session[:handle]
     @new_peep = session[:submit_peep]
     erb :index
+  end
+
+  get "/signup" do
+    erb :signup
+  end
+
+  post "/sign_in_details" do
+    session[:handle] = params[:handle]
+    redirect '/'
   end
 
   post "/send_compose_peep" do

@@ -8,10 +8,9 @@ end
 feature "User can sign up" do
   scenario "User can navigate to sign up page" do
     visit '/'
-    expect(page).to have_button "Sign up"
+    expect(page).to have_button "Sign Up"
   end
 end
-
 
 feature "User can send a peep" do
   scenario "Home page has a Compose Peep button" do
@@ -19,7 +18,6 @@ feature "User can send a peep" do
     expect(page).to have_button "Compose Peep"
   end
 end
-
 
 feature "User wants to see other peeps" do
   scenario "displays peeps on the home page" do
