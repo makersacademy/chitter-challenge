@@ -3,7 +3,7 @@ feature "user can sign up" do
     visit '/signup'
     fill_in :name, with: 'Alex'
     fill_in :handle, with: 'Alex1'
-    fill_in :email, with: 'alex@fake.com'
+    fill_in :email, with: 'test email'
     fill_in :password, with: 'fakepassword'
     click_button 'Submit'
 
