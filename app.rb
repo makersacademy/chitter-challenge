@@ -16,8 +16,9 @@ class Chitter < Sinatra::Base
     who = params['username']
     password = params['password']
     email = params['email address']
+    name = params['name']
     unless User.valid_signup(handle: who, mail: email)
-      User.create(usr: who, pass: password, email: email)
+      User.create(usr: who, pass: password, email: email, name: name)
       User.sign_in(user: who, pass: password)
       redirect '/peeps'
     else

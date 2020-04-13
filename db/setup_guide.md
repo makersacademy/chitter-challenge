@@ -34,3 +34,11 @@ CREATE TABLE tags(
  user_id INTEGER REFERENCES users(id),
  peep_id INTEGER REFERENCES peeps(id)
   );
+
+
+OH NO! We forgot to add in the name column to the user table!
+
+Quick, connect to each database in turn and run the following commands:
+
+TRUNCATE users, tags, peeps;
+ALTER TABLE users ADD COLUMN name VARCHAR (60) NOT NULL;

@@ -14,25 +14,24 @@ describe User do
 
   context "databasics: " do
     it " should be able to add a user to the database:" do
-      User.create(usr: 'ed', pass: 'ed_pass', email: 'ed_email')
+      User.create(usr: 'ed', pass: 'ed_pass', email: 'ed_email', name:'Edward')
       expect(User.all[-1].username).to eq('ed')
      end
   end
 
   describe '.all' do
     it 'returns a list of users' do
-      User.create(usr: 'Steven', pass: 'Steve_secure', email: 'Steve_email')
+      User.create(usr: 'Steven', pass: 'Steve_secure', email: 'Steve_email', name: 'Steve-O')
       people = User.all
       users = []
       people.each {|page| users.push(page.username) }
-  
       expect(users).to include('Steven')
     end
   end
   
   describe '.authenticate' do
     it " returns true if the PW & username match one row on the users table" do
-      User.create(usr:'Gerald', pass: 'Gerald_secure', email: 'Gerald_email')
+      User.create(usr:'Gerald', pass: 'Gerald_secure', email: 'Gerald_email', name: 'Geraldine')
       expect(User.authenticate(username: 'Gerald', pw: 'Gerald_secure')).to eq(true)
     end
   end
