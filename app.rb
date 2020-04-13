@@ -57,7 +57,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     message = params['peep text']
     person = Peep.userid(params['username'])
-    Peep.create(text: message, user: person) 
+    Peep.create(text: message, user: person, tags: params['tags']) 
     redirect '/peeps'
   end
 end
