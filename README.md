@@ -17,7 +17,6 @@ Still to work on:
 
 How to setup project:
 ---
-
 Setup database
 ```shell
 # Open PSQL
@@ -36,9 +35,8 @@ CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(500), peeper VARCHAR(30),
 CREATE TABLE peepers(id SERIAL PRIMARY KEY, name VARCHAR(30), email VARCHAR(50), peeper VARCHAR(20), password VARCHAR(20));
 ```
 
-
 ```shell
-# To run the Rock Paper Scissors
+# To run the Chitter
 rackup -p 9393     
 
 # Open in browser
