@@ -133,7 +133,7 @@ Testing:
 
 ## Screen Previews
 
-_Coming soon_
+![Chitter Demo](./images/chitter_demo.gif)
 
 ## Development Journal
 
