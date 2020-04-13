@@ -10,7 +10,7 @@ feature 'Homepage loads' do
   scenario 'User can get to Login' do
     visit '/home'
     click_link 'Log in'
-    expect(page).to have_content "Login to your Peeps"
+    expect(page).to have_button "log_in"
   end
 
   scenario 'Home displays peeps' do

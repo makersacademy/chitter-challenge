@@ -7,7 +7,7 @@ feature 'Signup Page Loads' do
     fill_in 'username', with: "Bruce123"
     fill_in 'password', with: "password"
     click_button 'sign_up'
-    expect(page).to have_content "Login to your Peeps"
+    expect(page).to have_button "log_in"
   end
 
 end

@@ -4,13 +4,21 @@
   <title>Chitter - Signup</title>
 </head>
 <body>
-  <h1>Become a Peeper</h1>
-  <form action='/signup' method="post">
-    <label>Enter your details</label>
-    <input type="text" name="name" placeholder="Enter your Name">
-    <input type="text" name="email" placeholder="Enter your Email">
-    <input type="text" name="username" placeholder="Enter a Username">
-    <input type="text" name="password" placeholder="Enter a Password">
-    <input class="button" type="submit" name="sign_up" value="Become a Peeper">
+  <h1>Chitter</h1>
+  <nav>
+    <a href="/">Peep Central</a>
+    <a href="/login">Log in</a>
+  </nav>
+  <section class="enter">
+    <form action='/signup' method="post">
+      <div>
+        <input class="text-field" type="text" name="name" placeholder="Enter your Name">
+        <input class="text-field" type="text" name="email" placeholder="Enter your Email">
+        <input class="text-field" type="text" name="username" placeholder="Enter a Username">
+        <input class="text-field" type="text" name="password" placeholder="Enter a Password">
+      </div>
+      <input class="button" type="submit" name="sign_up" value="Become a Peeper">
+    </form>
+  </section>
 </body>
 </html>

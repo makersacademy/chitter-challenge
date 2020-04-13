@@ -6,29 +6,27 @@
   <body>
     <h1>Chitter</h1>
     <nav>
-        <a href="/">Peep Central</a>
-        <% if @peepers != nil %>
-          <a href="/add">Do a Peep</a>
-          <form action="/logout" method="post">
-            <input class="button" type="submit" name="logout" value="Log Out">
-          </form>
-        <% else %>  
-          <a href="/login">Log in</a>
-          <a href="/signup">Sign up</a>
-        <% end %> 
+      <a href="/">Peep Central</a>
+      <% if @peepers != nil %>
+        <a href="/add">Do a Peep</a>
+        <form action="/logout" method="post">
+          <input class="button" type="submit" name="logout" value="Log Out">
+        </form>
+      <% else %>  
+        <a href="/login">Log in</a>
+        <a href="/signup">Sign up</a>
+      <% end %> 
     </nav>
 
-    <section>
-      <ul>
-        <% @peeps.each do |peep| %>
-          <li>
-            <%= peep.peep %>
-            <%= peep.peeper_name %>
-            @<%= peep.peeper %>
-            <%= peep.date %>
-          </li>
-        <% end %>
-      </ul>
+    <section class="feed">
+      <% @peeps.each do |peep| %>
+        <div class="peep">
+          <p><%= peep.peep %></p>
+          <p><%= peep.peeper_name %>
+          @<%= peep.peeper %>
+          <%= peep.date %></p>
+        </div>
+      <% end %>
     </section>
   </body>
 </html>
