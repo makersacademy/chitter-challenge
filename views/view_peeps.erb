@@ -17,8 +17,10 @@
   <% @posts.each do |post| %>
     <li>
         <%= post.message %>
-        <%= post.time %>
-        <%= post.user %>
+        <h5> users tagged in this post:</h5>
+        <%= post.tagged_users.join(", ")%> <br>
+        <h5> posted by: <%= post.user %></h5>
+        <h6> at: <%= post.time %></h6>
       </a>
     </li>
   <% end %>

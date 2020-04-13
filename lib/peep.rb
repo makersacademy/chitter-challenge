@@ -1,7 +1,7 @@
 require 'pg'
 
 class Peep
-  attr_reader :message, :peep_id, :time, :user
+  attr_reader :message, :peep_id, :time, :user, :tagged_users
 
   def initialize(text:, time: Time.now.utc, id:, peeper:, tagged:)
     @message = text
@@ -23,8 +23,9 @@ class Peep
     usernames = []
     rs.each { |tag| 
       interim = @con.exec("SELECT * FROM users where id = '#{tag['user_id']}'") 
-      interim.map{|user| usernames.push(user['username']) }
+      interim.each { |user| usernames.push(user['username']) }
     }
+    usernames
   end
 
   def self.connect
@@ -49,7 +50,9 @@ class Peep
       names.push(self.userid(tag))
     }
     if names.any?
-      names.each {|name| @con.exec("INSERT INTO tags (peep_id, user_id) VALUES ('#{result[0]['id']}','#{name}');")}
+      names.each {|name| 
+        name = name[0]
+        @con.exec("INSERT INTO tags (peep_id, user_id) VALUES ('#{result[0]['id']}','#{name}');")}
     end
     end
 
