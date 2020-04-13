@@ -5,5 +5,9 @@ class Chitter < Sinatra::Base
     erb :'chitter_feed'
   end
 
+  post '/' do
+    'My first peep'
+  end
+
   run! if app_file == $0
 end
