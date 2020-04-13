@@ -50,7 +50,7 @@ A small Twitter clone project to practice TDD, OOP, Database Integrated Web Apps
   > In order to start a conversation  
   > I want to reply to a peep from another Maker
 
-- [ ] User story 9:  
+- [x] User story 9:  
   > As a Maker  
   > So that my eyes do not hurt  
   > I want the site to be nicely styled
@@ -583,10 +583,13 @@ Added the 'database_cleaner-active_record' gem to the gemfile, and used it to cl
 
 The erb call in routes will check for `views/layout.erb` and if it exists will render that, then the erb file where the layout has a yield. This is very useful for keeping erb files dry, as the html head etc can be kept in the layout, and the individual views are only concerned with their business.
 
-### Styling with Bootstrap
+### User Story 9
 
-Given that this is a twitter clone, what could be more fitting than styling it with
+> As a Maker  
+> So that my eyes do not hurt  
+> I want the site to be nicely styled
 
+Given that this is a twitter clone, what could be more fitting than styling it with Bootstrap.
 
 ## Reflections
 
@@ -598,4 +601,4 @@ Given that this is a twitter clone, what could be more fitting than styling it w
 
 - I would like to refactor the controller to be separate controllers to handle each of users, peeps and sessions, but try as I might I cannot get it working.
 
-- I am having a tricky time with Travis, 
+- I am having a tricky time with Travis, All the advice is on how to set up a database with rails, but not sinatra/activerecord.
