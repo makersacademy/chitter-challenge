@@ -101,3 +101,10 @@ section {
   width: 500px;
   padding: 20px;
 }
+
+.user {
+  font-size: 12px;
+  text-align: right;
+  color:  rgb(89, 163, 248);
+  font-style: italic;
+}
