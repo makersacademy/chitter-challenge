@@ -5,19 +5,25 @@ describe Messages do
     connection = PG.connect(dbname: 'chitter_test')
     it 'returns all messages' do 
       # test data set up 
-      connection.exec("INSERT INTO peeps (message, name) VALUES('hi', 'Gina');")
-      connection.exec("INSERT INTO peeps (message, name) VALUES('databases are fun', 'Guy');")
+      
+      new_message = Messages.create(message: 'hi', name: 'Gina')
+      
       messages = Messages.get_all
-      expect(messages).to include('hi')
-      expect(messages).to include('databases are fun')
-      #expect(messages).to include('Gina')
-      #expect(messages).to include('Guy')
+
+      #expect(messages.length). to eq 3
+      expect(messages.first).to be_a Messages # Messages class 
+      expect(messages.first.id).to eq new_message.id
+      expect(messages.first.message).to eq 'hi'
+      expect(messages.first.name).to eq 'Gina'
+      
     end 
   end 
   context '.create' do 
     it 'creates a new message' do 
-      Messages.create(message: "testing .create")
-      expect(Messages.get_all).to include "testing .create"
+      new_message = Messages.create(message: "testing create method", name: "Mr Create")
+      #expect(new_message[0]['name']).to include "Mr Create"
+      expect(new_message.name).to eq "Mr Create"
+      expect(new_message.message).to eq "testing create method"
     end 
   end 
 

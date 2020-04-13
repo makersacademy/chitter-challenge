@@ -5,7 +5,9 @@ feature 'writing messages' do
     #connection.exec("INSERT INTO peeps (message, name) VALUES('hi', 'Gina');")
     #connection.exec("INSERT INTO peeps (message, name) VALUES('databases are fun', 'Guy');")
     fill_in('message', with: 'testing writing messages' )
+    fill_in('name', with: 'Mr feature test' )
     click_button('peep')
     expect(page).to have_content 'testing writing messages'
+    expect(page).to have_content 'Mr feature test'
   end
 end   

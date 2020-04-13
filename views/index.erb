@@ -1,12 +1,24 @@
-Chitter
+<header class="page-header">
+  <h1>Chitter </h1>
+</header>
+
+
+<main>
+    <p> Welcome to  <em>Chitter</em> !</p>
+</main>
+
+
 <ul>
   <% @messages.each do |message|%>
-    <li><%= message %> </li>
+    <li><%= message.name %> : <%= message.message %>
+     </li>
   <% end %>
 </ul> 
 
 <form action "/messages" method = "post" >
-<input type="text" name="message">
+<input type="text" name="message" placeholder ="What is  happening?">
+<input type="text" name="name" placeholder ="name">
 <input type="submit" value="peep">
+
 </form>
 

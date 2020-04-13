@@ -9,7 +9,7 @@ require_relative 'lib/messages'
     end 
 
     post '/' do 
-      Messages.create(message: params['message'])
+      Messages.create(message: params[:message],name: params[:name])
       redirect '/'
     end 
 
