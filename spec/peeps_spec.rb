@@ -15,10 +15,10 @@ describe Peeps do
 
   it 'creates a new peep' do
     peep = Peeps.add('new test peep')
-    persisted_data = persisted_data(id: peep.id)
+    persisted_data = persisted_data(table: 'peeps', id: peep.id)
 
     expect(peep).to be_a Peeps
-    expect(peep.id).to eq persisted_data['id']
+    expect(peep.id).to eq persisted_data.first['id']
     expect(peep.peep).to eq 'new test peep'
   end
   
