@@ -12,12 +12,12 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-xl">
+
       <a class="navbar-brand" href="/">Chitter</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
 
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav ml-auto">
@@ -44,40 +44,19 @@
         </ul>
       </div>
 
-<!--
-
-
-      <div class="collapse navbar-collapse" id="navbar">
-        <div class="navbar-nav ml-auto">
-          <% if @user %>
-            <%# <div class="btn-group" role="group" aria-label="Compose and Log Out" > %>
-              <form action="/sessions/destroy" method="post">
-                <input class="btn btn-light" type="submit" value="Log out">
-              </form>
-              <a class="btn btn-light" href="/peeps/new">Compose Peep</a>
-            <%# </div> %>
-          <% else %>
-            <%# <div class="btn-group" role="group" aria-label="Sign in or Log in" > %>
-              <a class="btn btn-light" href="/users/new">Sign up</a>
-              <a class="btn btn-light" href="/sessions/new">Log in</a>
-            <%# </div> %>
-          <% end %>
-        </div>
-      </div>
-
--->
-
-
     </div>
   </nav>
 
   <div class="container">
+
     <% if flash[:notice] %>
       <h2 class="alert alert-primary my-4" role="alert">
         <%= flash[:notice] %>
       </h2>
     <% end %>
+
     <%= yield %>
+    
   </div>
 
 <%# Bootstrap JS %>
