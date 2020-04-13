@@ -1,0 +1,35 @@
+<% if @maker.nil? %>
+  <h1>Not currently logged in</h1>
+    <div>
+      <form action="/sessions/new" method="get">
+        <input type="submit" value="Log in">
+      </form>
+    </div>
+<% else %>
+  <h1> Hello <%= @maker.username %>!</h1>
+  <div>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Log out">
+    </form>
+  </div>
+  <div>
+    <form action="/peeps/new" method="get">
+      <input type="submit" value="New peep">
+    </form>
+  </div>
+<% end %>
+<hr>
+<h3>Peeps</h3>
+<% @peeps.each do |peep| %>
+  <div>
+    Author - <%= peep.maker.name %> (@<%= peep.maker.username %>)
+  </div>
+  <div>
+    Time - <%= peep.time %>
+  </div>
+  <hr>
+  <div>
+    <%= peep.text %>
+  </div>
+  <hr>
+<% end %>
