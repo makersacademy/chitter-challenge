@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './db_setup'
+require './Db_setup'
 require './lib/peep'
 require 'date'
 require './lib/peeper'
