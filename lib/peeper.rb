@@ -1,5 +1,6 @@
 require 'pg'
 require_relative 'db_connection'
+require 'bcrypt'
 
 class Peeper
   
@@ -13,7 +14,10 @@ class Peeper
     @password = password
   end
 
-  def self.create(name, email, peeper, password)    
+  def self.create(name, email, peeper, password) 
+    
+    encrypted_password = BCrypt::Password.create(password)
+    
     result = DbConnection.query("INSERT INTO peepers(name, email, peeper, password) VALUES('#{name}', '#{email}', '#{peeper}', '#{password}') RETURNING id, name, email, peeper, password;")
     Peeper.new(
       id: result[0]['id'], 

@@ -19,9 +19,9 @@ describe Peeper do
     it 'hashes the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('password123')
   
-      User.create(email: 'test@example.com', password: 'password123')
+      Peeper.create("Barb", "test@example.com", "Barb88", "password123")
     end
-    
+
   end
 
   describe '.get' do
