@@ -54,7 +54,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
-    session[:signed_out] = 'you signed out.'
+    session[:signed_out] = 'You have signed out.'
     redirect('/')
   end
 end

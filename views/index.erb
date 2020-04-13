@@ -1,19 +1,23 @@
 <h1>Welcome to Chitter!</h1>
+<% if @notice %>
+  <h2><%= @notice %></h2>
+<% end %>
 <% if @user %>
   <h2>Welcome, <%= @user.name %></h2>
-<% end %>
-<% if @notice %>
-  <h2>Welcome, <%= @notice %></h2>
-<% end %>
-<form action="/signup" method="get">
-  <input type="submit" value ="Sign Up">
-</form>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value ="Sign out">
+  </form>
+<% else %>
 <form action="/signin" method="get">
   <input type="submit" value ="Sign in">
 </form>
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value ="Sign out">
+<% end %>
+
+<form action="/signup" method="get">
+  <input type="submit" value ="Sign Up">
 </form>
+
+
 <form action="/" method="post">
   <input type="text" name="peep">
   <input type="submit" value ="Peep">

@@ -2,6 +2,8 @@ feature 'authentication' do
   scenario 'a user can sign in' do
     sign_up
 
+    click_button('Sign out')
+
     sign_in('test@example.com', 'password123')
     expect(page).to have_content 'Welcome, testname'
   end
@@ -38,7 +40,7 @@ feature 'authentication' do
     click_button('Sign out')
 
     expect(page).not_to have_content 'Welcome, testname'
-    expect(page).to have_content 'you signed out.'
+    expect(page).to have_content 'You have signed out.'
   end
 
 end
