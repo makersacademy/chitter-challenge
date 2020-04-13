@@ -1,0 +1,14 @@
+<h1 class="text-center">Peep feed</h1>
+
+<% @peeps.each do |peep| %>
+  <div class="card peep container my-4">
+    <div class="card-header row align-items-center bg-primary">
+      <h5 class="mb-0 mr-2 text-light"><%= peep.author_name %></h5>
+      <h6 class="mb-0 mr-auto text-light"><%= peep.author_handle %></h6>
+      <h6 class="mb-0 text-light"><%= peep.time %></h6>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= peep.content %></p>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['ENVIRONMENT'] == 'test' ? 'chitter_test' : 'chitter' %> # RSpec appears to use development, as does rackup. Don't yet know how to do this properly
+  pool: 2
+  username: harry
+  password: 
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter
+  pool: 2
+  username: harry
+  password: 
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: chitter_test
+  pool: 2
+  username: harry
+  password: 
