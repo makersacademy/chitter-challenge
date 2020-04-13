@@ -32,3 +32,10 @@ describe ".all" do
     expect(peeps).to include "User: Dave Peep: I think I deserve some chocolate Time: 2020-04-09 11:00:10"
   end
 end
+
+describe '.create' do
+  it 'creates a new peep' do
+    Peep.create(username: 'Alex', peep: "Hello, this is a new peep")
+    expect(Peep.all).to include "User: Alex Peep: Hello, this is a new peep Time: #{Time.now}"
+  end
+end
