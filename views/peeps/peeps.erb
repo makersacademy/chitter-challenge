@@ -8,7 +8,7 @@
 <% else %>
   <h1> Hello <%= @maker.username %>!</h1>
   <div>
-    <form action="/sessions/destroy" method="get">
+    <form action="/sessions/destroy" method="post">
       <input type="submit" value="Log out">
     </form>
   </div>

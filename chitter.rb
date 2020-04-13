@@ -41,7 +41,7 @@ class Chitter < Sinatra::Base
     erb :"peeps/new"
   end
 
-  get '/sessions/destroy' do
+  post '/sessions/destroy' do
     session[:maker_id] = nil
     redirect '/peeps'
   end
