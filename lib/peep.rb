@@ -7,7 +7,7 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter_peeps')
     end
-    result = connection.exec('SELECT * FROM peeps')
+    result = connection.exec('SELECT * FROM peeps ORDER BY id DESC')
     result.map { |peeps| "User: #{peeps['username']} Peep: #{peeps['peep']} Time: #{peeps['time']}" }
   end
 
