@@ -6,9 +6,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @current_peeps = Peep.all
-    #line below now won't work as I am inserting to database
     @handle = session[:handle]
-    @new_peep = session[:submit_peep]
     erb :index
   end
 
@@ -19,12 +17,6 @@ class Chitter < Sinatra::Base
   post "/sign_in_details" do
     session[:handle] = params[:handle]
     User.create(name: params[:name], handle: params[:handle], email: params[:email], password: params[:password])
-    #name = params[:name]
-    #handle = params[:handle]
-    #email = params[:email]
-    #password = params[:password]
-    #connection = PG.connect(dbname: 'chitter_users_test')
-    #connection.exec("INSERT INTO users (name, handle, email, password) VALUES('#{name}', '#{handle}', '#{email}', '#{password}');")
     redirect '/'
   end
 

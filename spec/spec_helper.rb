@@ -30,8 +30,3 @@ ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
 
 Capybara.app = Chitter
-
-
-"name: Alex handle: Alex1 email: test email password: password"
-"name: Alex, handle: Alex1, email: test email password: password
-ssword"
