@@ -38,12 +38,9 @@ class Chitter < Sinatra::Base
   post '/signin' do
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
     user = User.new(result[0]['id'], result[0]['email'], result[0]['password'], 
-      result[0]['username'], result[0]['name'])
+                    result[0]['username'], result[0]['name'])
 
     session[:user_id] = user.id
-    p "within /signin"
-    p "user.id"
-    p user.id
     redirect('/bookmarks')
   end
 end
