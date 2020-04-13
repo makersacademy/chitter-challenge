@@ -7,16 +7,18 @@
 
   <h1>Chitter</h1>
   <nav>
-      <a href="/">Peep Central</a>
-      <a href="/add">Do a Peep</a>
-      <form action="/logout" method="post">
-        <input class="button" type="submit" name="logout" value="Log Out">
-      </form>
+    <a href="/">Peep Central</a>
+    <a href="/add">Do a Peep</a>
+    <form action="/logout" method="post">
+      <input class="button" type="submit" name="logout" value="Log Out">
+    </form>
   </nav>
 
-  <section>
+  <section class="enter">
     <form action="/add" method="post">
-      <input class="text" name="message">
+      <div>
+        <textarea class="new-peep" name="message" rows ="3"></textarea>
+      </div>
       <input class="button" type="submit" value="Peep" name="peep">
     </form>
   </section>

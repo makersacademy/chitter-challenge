@@ -94,3 +94,10 @@ section {
   text-align: center;
   font-size: 16px;
 }
+
+.new-peep {
+  font-size: 50px;
+  height: 250px;
+  width: 500px;
+  padding: 20px;
+}
