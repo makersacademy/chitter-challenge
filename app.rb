@@ -23,4 +23,13 @@ class Chitter < Sinatra::Base
     erb :'peeps/new'
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    @username = params[:username] 
+    erb :welcome 
+  end
+
 end

@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name = "viewport" content="width=device-width, intial-scale=1.0">
-  <title>Chitter</title>
+  <title>Welcome User</title>
 </head>
 <body>
-  <h1>Welcome to Chitter</h1>
+  <h1>Welcome to Chitter, <%= @username%></h1>
   <form action="/peeps" method="get">
   <button type="submit">See All Peeps</button>
 </form>
   <form action="/peeps/new" method="get">
     <button type="submit">Add Peep</button>
   </form>
-  <form action="/signup" method="get">
-  <button type="submit">Sign Up</button>
 </form>
 </body>
 </html>
