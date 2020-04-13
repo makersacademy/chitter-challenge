@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
 
   post '/' do
     'My first peep'
+    redirect '/'
   end
 
   run! if app_file == $0
