@@ -29,6 +29,7 @@ class Chitter < Sinatra::Base
       username: params[:username], name: params[:name])
 
     session[:user_id] = user.id
+    session[:signed_out] = nil
     redirect('/')
   end
 
