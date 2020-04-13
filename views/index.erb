@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+
+  <h2>Welcome to Chitter <%= @handle %></h2>
+
+
+  <form action="/signup" method="get">
+    <input class="button" type="submit" name="signup" value="Sign Up">
+  </form>
+
+  <ul>
+  <% @current_peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+
+  <p><%= @new_peep %></p>
+    <form action="/send_compose_peep" method="post">
+      <input class="button" type="submit" name="Post a new Peep" value="Compose Peep">
+    </form>
+
+</body>
+</html>
