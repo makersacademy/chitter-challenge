@@ -6,9 +6,9 @@ describe Peep do
   describe '.all' do
     it 'returns all peeps' do
 
-      peep = Peep.create(content: '900 People die from Coronavirus')
-      Peep.create(content: 'Lockdown is lifted')
-      Peep.create(content: 'Coronavirus is over!')
+      peep = Peep.create(content: '900 People die from Coronavirus', time: '2020-03-01 09:47:23.716273')
+      Peep.create(content: 'Lockdown is lifted', time: '2020-02-08 03:48:23.716273')
+      Peep.create(content: 'Coronavirus is over!', time: '2020-02-01 02:13:25.716273')
       
       peeps = Peep.all
       
@@ -18,7 +18,7 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      a_peep = Peep.create(content: 'Today is going to be a great day')
+      a_peep = Peep.create(content: 'Today is going to be a great day', time: '2020-02-01 09:47:23.716273')
       persisted_data = persisted_data(id: a_peep.id)
 
       peeps = Peep.all
@@ -26,7 +26,7 @@ describe Peep do
       expect(a_peep).to be_a Peep
       expect(a_peep.id).to eq persisted_data['id']
       expect(a_peep.content).to eq persisted_data['content']
-      expect(a_peep.date).to eq persisited_data['date']
+      expect(a_peep.date).to eq persisted_data['date']
     end
   end
 =begin
