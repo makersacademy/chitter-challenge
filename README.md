@@ -4,46 +4,60 @@ Chitter Challenge
 Features:
 -------
 
+Chitter is a twitter clone. Users can Sign up and login to chitter to post a Peep to Chitter. Users can view every peep on chitter on the chitter homepage listed in reverse chronological order.
+
+![Chitter](/process/chitter.gif) 
+
+Still to work on:
+---
+- [ ] Authentication for user log in
+- [ ] User profile page
+- [ ] Tagging users
+- [ ] Comments
+
+How to setup project:
+---
+
+Setup database
+```shell
+# Open PSQL
+psql 
+
+# Create chitter database
+CREATE DATABASE chitter;
+
+# Connect to chitter database
+\c chitter
+
+# Create peeps table
+CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(500), peeper VARCHAR(30), date TIMESTAMP, name VARCHAR(30);
+
+# Create peepers table
+CREATE TABLE peepers(id SERIAL PRIMARY KEY, name VARCHAR(30), email VARCHAR(50), peeper VARCHAR(20), password VARCHAR(20));
 ```
-STRAIGHT UP
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+```shell
+# To run the Rock Paper Scissors
+rackup -p 9393     
 
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+# Open in browser
+http://localhost:9393/
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
 Technical Approach:
 -----
 
 [Link to process](process/user_stories/README.md)
+
+Technologies used
+----
+
+* Project language - Ruby/Sinatra
+* Databases - Postgresql
+* Encryption - Bcrypt
+* Testing - Rspec, Capybara
 
 Notes on functionality:
 ------
@@ -58,11 +72,7 @@ Bonus:
 -----
 
 If you have time you can implement the following:
-
 - [ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
 
 And/Or:
-
-- [ ] Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
+- [X] Work on the CSS to make it look good.
