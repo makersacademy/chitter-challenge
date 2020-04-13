@@ -12,9 +12,14 @@ class Peep
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM peeps")
+    result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY date DESC")
 
-    result.map { |peep| peep['content'] }
+    result.map { |peep| 
+      Peep.new(
+        id: peep['id'],
+        content: peep['content'],
+        date: peep['date']
+      )}
   end
 
   def self.create(content:, time:)

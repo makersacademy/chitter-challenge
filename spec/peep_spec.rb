@@ -6,13 +6,16 @@ describe Peep do
   describe '.all' do
     it 'returns all peeps' do
 
-      peep = Peep.create(content: '900 People die from Coronavirus', time: '2020-03-01 09:47:23.716273')
-      Peep.create(content: 'Lockdown is lifted', time: '2020-02-08 03:48:23.716273')
-      Peep.create(content: 'Coronavirus is over!', time: '2020-02-01 02:13:25.716273')
+      Peep.create(content: 'Miraculous recovery from the PM', time: '2020-03-09 09:47:23.716273')
+      peep = Peep.create(content: 'Lockdown is lifted', time: '2020-02-08 03:48:23.716273')
+      #Peep.create(content: 'Coronavirus is over!', time: '2020-04-01 02:13:25.716273')
       
       peeps = Peep.all
       
-      expect(peeps[0]).to eq "900 People die from Coronavirus"
+      expect(peeps.length).to eq 2
+      expect(peeps.last).to be_a Peep
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.content).to eq 'Lockdown is lifted'
     end
   end
 

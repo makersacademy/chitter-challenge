@@ -9,7 +9,7 @@
   <h1>Your Peeps!</h1>
   <ul>
     <% @peeps.each do |peep| %>
-      <li><%= peep %></li>
+      <li><%= peep.content %> <%= peep.date%> </li>
     <% end %>
   </ul>
   </form>
