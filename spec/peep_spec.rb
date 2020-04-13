@@ -6,9 +6,7 @@ describe Peep do
   let(:maker_class) { double(:Maker, find_by_id: maker) }
 
   before do
-    DBConnection.connect
-    @result = DBConnection.run_query("INSERT INTO makers (name, user_name, email, password) VALUES($$Phil$$, $$Squirrel$$, $$here@there.com$$, $$1234$$) RETURNING id;")
-    DBConnection.disconnect
+    @result = DBConnection.query("INSERT INTO makers (name, user_name, email, password) VALUES($$Phil$$, $$Squirrel$$, $$here@there.com$$, $$1234$$) RETURNING id;")
   end
 
   describe '.all' do
@@ -27,10 +25,7 @@ describe Peep do
     it 'adds a peep to the database and returns it' do
       time = Time.now
       peep = Peep.create('My first peep', time, @result[0]['id'], maker_class)
-
-      DBConnection.connect
-      peep_in_db = DBConnection.run_query("SELECT * FROM peeps WHERE id =#{peep.id};")
-      DBConnection.disconnect
+      peep_in_db = DBConnection.query("SELECT * FROM peeps WHERE id =#{peep.id};")
 
       expect(peep.id).to eq peep_in_db.first['id']
       expect(peep.text).to eq 'My first peep'

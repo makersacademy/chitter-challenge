@@ -31,9 +31,7 @@ describe 'rake tasks' do
   describe 'create_db' do
     it 'creates the specified db' do
       expect { create_db('new_db') }.not_to raise_error
-      DBConnection.connect
-      DBConnection.run_query("DROP DATABASE new_db")
-      DBConnection.disconnect
+      DBConnection.query("DROP DATABASE new_db")
     end
   end
 end

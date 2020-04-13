@@ -1,23 +1,18 @@
 require 'pg'
 
 class DBConnection
-  def self.connect(test_db = 'chitter_test', prod_db = 'chitter')
-    database = ENV['ENVIRONMENT'] == 'test' ? test_db : prod_db
-    @conn = PG.connect(dbname: database)
-  end
+  def self.query(query)
+    database = ENV['ENVIRONMENT'] == 'test' ? 'chitter_test' : 'chitter'
+    conn = PG.connect(dbname: database)
 
-  def self.disconnect
-    @conn.close
-  end
-
-  def self.run_query(query)
     begin
-      result = @conn.exec(query)
+      result = conn.exec(query)
     rescue StandardError => e
-      disconnect
+      conn.close
       raise e
     end
 
+    conn.close
     result
   end
 end

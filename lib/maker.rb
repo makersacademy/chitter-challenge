@@ -16,41 +16,29 @@ class Maker
 
     encrypted_password = BCrypt::Password.create(password)
     
-    DBConnection.connect
-    result = DBConnection.run_query("INSERT INTO makers (name, user_name, email, password) VALUES($$#{name}$$, $$#{username}$$, $$#{email}$$, $$#{encrypted_password}$$) RETURNING id, name, user_name, email;")
-    DBConnection.disconnect
+    result = DBConnection.query("INSERT INTO makers (name, user_name, email, password) VALUES($$#{name}$$, $$#{username}$$, $$#{email}$$, $$#{encrypted_password}$$) RETURNING id, name, user_name, email;")
 
     Maker.new(result[0]['id'], result[0]['name'], result[0]['user_name'], result[0]['email'])
   end
 
   def self.find_by_id(id)
-    DBConnection.connect
-    result = DBConnection.run_query("SELECT id, name, user_name, email FROM makers WHERE id=#{id}")
-    DBConnection.disconnect
+    result = DBConnection.query("SELECT id, name, user_name, email FROM makers WHERE id=#{id}")
 
     Maker.new(result[0]['id'], result[0]['name'], result[0]['user_name'], result[0]['email'])
   end
 
   def self.valid_credentials?(username, password)
-    DBConnection.connect
-    result = DBConnection.run_query("SELECT id, name, user_name, email, password FROM makers WHERE user_name=$$#{username}$$")
-    DBConnection.disconnect
-
+    result = DBConnection.query("SELECT id, name, user_name, email, password FROM makers WHERE user_name=$$#{username}$$")
     result.ntuples == 1 && BCrypt::Password.new(result[0]['password']) == password
   end
 
   def self.find_by_username(username)
-    DBConnection.connect
-    result = DBConnection.run_query("SELECT id, name, user_name, email FROM makers WHERE user_name=$$#{username}$$")
-    DBConnection.disconnect
-
+    result = DBConnection.query("SELECT id, name, user_name, email FROM makers WHERE user_name=$$#{username}$$")
     Maker.new(result[0]['id'], result[0]['name'], result[0]['user_name'], result[0]['email'])
   end
 
   def self.valid_new_maker?(username, email)
-    DBConnection.connect
-    result = DBConnection.run_query("SELECT * FROM makers WHERE email=$$#{email}$$ OR user_name=$$#{username}$$")
-    DBConnection.disconnect
+    result = DBConnection.query("SELECT * FROM makers WHERE email=$$#{email}$$ OR user_name=$$#{username}$$")
     result.ntuples.zero?
   end
 
