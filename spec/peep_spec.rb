@@ -1,4 +1,4 @@
-require 'peep'
+require 'peep' 
 
 describe Peep do
   
@@ -10,6 +10,14 @@ describe Peep do
       peeps = Peep.all
 
       expect(peeps).to include 'Lorem ipsum dolor sit amet'
+    end
+  end
+
+  describe '.post' do
+    it 'Posts a users peep' do
+      connection = PG.connect(dbname: 'posted_peeps_test')
+      Peep.post(text: 'My first peep')
+      expect(Peep.all).to include 'My first peep'
     end
   end
 end
