@@ -1,4 +1,9 @@
 <h1>Sign in here!</h1>
+<h2>
+  <% if @login_error != nil %>
+    <%= @login_error %>
+  <% end %>
+</h2>
 <form action="/signin" method="post">
   Email
   <input type="text" name="email">

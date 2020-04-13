@@ -32,16 +32,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/signin' do
+    @login_error = session[:login_error]
     erb :signin
   end
 
   post '/signin' do
-    # result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
-    # user = User.new(result[0]['id'], result[0]['email'], result[0]['password'], 
-    #                 result[0]['username'], result[0]['name'])
-    
     user = User.authenticate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/')
+
+    if user
+      session[:user_id] = user.id
+      session[:login_error] = 0
+      redirect('/')
+    else 
+      session[:login_error] = 'Please check your email or password.'
+      redirect('/signin')
+    end
+
   end
 end
