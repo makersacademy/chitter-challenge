@@ -18,10 +18,15 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      peep = Peep.create(content: 'Today is going to be a great day')
-      persisted_data = persisted_data(id: peep.id)
+      a_peep = Peep.create(content: 'Today is going to be a great day')
+      persisted_data = persisted_data(id: a_peep.id)
 
-      expect(Peep.all).to include 'Today is going to be a great day'
+      peeps = Peep.all
+      
+      expect(a_peep).to be_a Peep
+      expect(a_peep.id).to eq persisted_data['id']
+      expect(a_peep.content).to eq persisted_data['content']
+      expect(a_peep.date).to eq persisited_data['date']
     end
   end
 =begin
