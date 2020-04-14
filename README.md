@@ -20,16 +20,44 @@ Chitter Challenge
 -   
 
 ## User Stories 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+
+- [x]  User story 1: 
+  - As a Maker
+  -  So that I can let people know what I am doing 
+  -  I want to post a message (peep) to chitter
+  
+- [x] User story 2: 
+  - As a maker
+  - So that I can see what others are saying  
+  - I want to see all peeps in reverse chronological order
+  
+- [ ]  User story 3:
+  - As a Maker
+  -  So that I can better appreciate the context of a peep
+  -  I want to see the time at which it was made
+  1.  How do I write  a feature test to test ther order
+  2.  should reversing the order of the array by a method in Messages class (messages.rb) rather than here ?
+
+1. research how to extrapolate the time from the client -- research Time & Date Class  https://www.rubyguides.com/2015/12/ruby-time/
+2. html  formatting - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
+   
+
+
 
 
 ## Domain model  
-| chitter       |
-| ------------- |
-| peep(message) |
-|               |
+| chitter      |
+| ------------ |
+| ATTRIBUTES:  |
+| @id          |
+| @message     |
+| @name        |
+| @time        |
+|              |
+| METHODS:     |
+| self.get.all |
+| self.create  |
+|              |
 
 
 ## Database
@@ -56,6 +84,7 @@ sequenceDiagram
   Client->>+Server: POST request
   Server->>-Client: redirects to message page??
   Client->>-User: new page with "messages"
+  
 	
 ```
 

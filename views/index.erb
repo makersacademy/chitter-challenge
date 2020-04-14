@@ -1,6 +1,12 @@
+
+
 <header class="page-header">
   <h1>Chitter </h1>
 </header>
+
+<img class="fit-picture"
+     src="https://i.ytimg.com/vi/TTe-4vqT-10/maxresdefault.jpg"
+     alt="Grapefruit slice atop a pile of other slices">
 
 
 <main>
@@ -8,12 +14,15 @@
 </main>
 
 
-<ul>
-  <% @messages.each do |message|%>
-    <li><%= message.name %> : <%= message.message %>
-     </li>
+<dl>
+  <% @messages.reverse_each do |message|%>
+    <dt><strong><%= message.name %></strong>  </dt>
+    <dd> <em>PEEPS</em> <%= message.message %> <%=Time.now%>  </dd>
+    
   <% end %>
-</ul> 
+</dl> 
+
+
 
 <form action "/messages" method = "post" >
 <input type="text" name="message" placeholder ="What is  happening?">

@@ -7,6 +7,8 @@ describe Messages do
       # test data set up 
       
       new_message = Messages.create(message: 'hi', name: 'Gina')
+      Messages.create(message: "2nd new message", name: "Mr get all")
+      Messages.create(message: "3rd new message", name: "Doctor get all")
       
       messages = Messages.get_all
 
@@ -21,6 +23,7 @@ describe Messages do
   context '.create' do 
     it 'creates a new message' do 
       new_message = Messages.create(message: "testing create method", name: "Mr Create")
+      
       #expect(new_message[0]['name']).to include "Mr Create"
       expect(new_message.name).to eq "Mr Create"
       expect(new_message.message).to eq "testing create method"

@@ -17,9 +17,11 @@ class Messages
       connection = PG.connect(dbname: 'chitter');
     end 
       result = connection.exec('SELECT * FROM peeps')
-      result.map do |row| 
+       message_objects = result.map do |row| 
+        p row
         Messages.new(id: row['id'], message: row['message'], name: row['name'])
       end 
+     
   end 
  
   def self.create(message:, name:)
