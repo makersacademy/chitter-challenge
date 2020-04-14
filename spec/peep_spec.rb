@@ -22,7 +22,7 @@ describe Peep do
   describe '.create' do
     it 'creates a new peep' do
       a_peep = Peep.create(content: 'Today is going to be a great day', time: '2020-02-01 09:47:23.716273')
-      persisted_data = persisted_data(id: a_peep.id)
+      persisted_data = persisted_data(table: 'peeps', id: a_peep.id)
 
       peeps = Peep.all
       

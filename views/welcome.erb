@@ -6,13 +6,16 @@
   <title>Welcome User</title>
 </head>
 <body>
-  <h1>Welcome to Chitter, <%= @username%></h1>
+  <h1>Welcome to Chitter, <%= @user_name%></h1>
   <form action="/peeps" method="get">
   <button type="submit">See All Peeps</button>
 </form>
   <form action="/peeps/new" method="get">
     <button type="submit">Add Peep</button>
   </form>
+<form action="/" method="get">
+  <button type="submit">Back to HOME</button>
+</form>
 </form>
 </body>
 </html>

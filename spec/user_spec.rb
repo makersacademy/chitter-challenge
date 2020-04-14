@@ -1,13 +1,12 @@
 require 'user'
+require_relative 'database_helpers'
 
 describe User do
 
-  let (:johnsmith) {User.new(username: 'John Smith', password: "password123")}
+  it 'create a new user' do
+      the_peeper = User.add_user(name: 'John Smith', email: 'johnsmith@makers.com', username: 'johnsmithsmooth', password: 'password1234')
+      persisted_data = persisted_data(table: 'user', id: the_peeper.id)
 
-  it 'creates new user with username and password' do
-    
-    expect(subject.username).to eq 'John Smith'
-    expect(subject.password).to eq 'password123'
+      expect(the_peeper.username).to eq 'johnsmithsmooth'
   end
-
 end

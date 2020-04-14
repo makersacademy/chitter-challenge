@@ -5,7 +5,7 @@ feature 'user can sign up to Chitter' do
     fill_in('password', with: 'password12345')
     click_button 'Sign up'
 
-    expect(page).to have_content 'Welcome to Chitter, John Smith'
+    expect(page).to have_content 'Welcome to Chitter'
   end
 end
     

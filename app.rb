@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require './lib/peep'
 require './database_connection_setup'
+require './lib/user'
+
 
 class Chitter < Sinatra::Base
 
@@ -28,8 +30,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    @username = params[:username] 
-    erb :welcome 
+    User.add_user(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
+    redirect '/'
   end
 
 end
