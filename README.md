@@ -30,13 +30,16 @@ Chitter Challenge
   - As a maker
   - So that I can see what others are saying  
   - I want to see all peeps in reverse chronological order
+
+TODO: Testing incomplete
+1.  How do I write  a feature test to test ther order
+  2.  should reversing the order of the array by a method in Messages class (messages.rb) rather than here ?
   
 - [ ]  User story 3:
   - As a Maker
   -  So that I can better appreciate the context of a peep
   -  I want to see the time at which it was made
-  1.  How do I write  a feature test to test ther order
-  2.  should reversing the order of the array by a method in Messages class (messages.rb) rather than here ?
+  
 
 1. research how to extrapolate the time from the client -- research Time & Date Class  https://www.rubyguides.com/2015/12/ruby-time/
 2. html  formatting - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
