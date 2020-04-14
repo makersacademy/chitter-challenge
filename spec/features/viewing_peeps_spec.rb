@@ -1,6 +1,6 @@
 feature 'viewing peeps' do
   scenario 'should be able to see peeps from the landing page' do
-    User.create(usr:'testy', pass:'testy_secure', email:'test@test.com', name: 'testes')
+    User.create(usr:'testy', pass:'testy_secure', email:'test@test.com')
     who = User.all[-1].id
     p who
     Peep.create(text: "you are beginning to test me you know", user: who)

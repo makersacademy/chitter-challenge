@@ -18,9 +18,9 @@ class User
     end
   end
 
-  def self.create(usr:, pass:, email:, name:)
+  def self.create(usr:, pass:, email:)
     self.connect
-    @con.exec("INSERT INTO users (username, password, email, name) VALUES ('#{usr}', '#{pass}', '#{email}', '#{name}')")
+    @con.exec("INSERT INTO users (username, password, email) VALUES ('#{usr}', '#{pass}', '#{email}')")
   end
 
   def self.all
@@ -59,6 +59,10 @@ class User
 
   def self.logged_in
     @login
+  end
+
+  def self.email_validator(email)
+    Truemail.validate(email, with: regex)
   end
   
 end
