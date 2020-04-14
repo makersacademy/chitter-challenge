@@ -12,5 +12,6 @@ before_script:
   - psql -U postgres -d chitter_test -f db/migrations/02_create_users_table.sql
   - psql -U postgres -c 'CREATE DATABASE chitter;'
 
+
 script:
   - bundle exec rspec
