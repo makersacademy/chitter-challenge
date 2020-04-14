@@ -18,9 +18,9 @@ class User
     end
   end
 
-  def self.create(usr:, pass:, email:)
+  def self.create(usr:, pass:, email:, name: 'unknown_user')
     self.connect
-    @con.exec("INSERT INTO users (username, password, email) VALUES ('#{usr}', '#{pass}', '#{email}')")
+    @con.exec("INSERT INTO users (username, password, email, name) VALUES ('#{usr}', '#{pass}', '#{email}', '#{name}')")
   end
 
   def self.all

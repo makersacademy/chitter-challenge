@@ -22,8 +22,9 @@ class Peep
     rs = @con.exec("SELECT * FROM tags WHERE peep_id = '#{peep_tag}'")
     usernames = []
     rs.each { |tag| 
-      interim = @con.exec("SELECT * FROM users where id = '#{tag['user_id']}'") 
-      interim.each { |user| usernames.push(user['username']) }
+      interim = @con.exec("SELECT * FROM users where id = '#{tag['user_id']}'")
+      interim.each { |user| 
+      usernames.push(user['username']) }
     }
     usernames
   end
@@ -47,12 +48,15 @@ class Peep
     tags = tags.split(",").map{|tag| tag.strip}
     names =[]
     tags.each{ |tag|
-      names.push(self.userid(tag))
+      query = @con.exec("SELECT id FROM users WHERE username = '#{tag}'")
+      names.push(query.map{|me| me['id']})
     }
     if names.any?
       names.each {|name| 
-        name = name[0]
-        @con.exec("INSERT INTO tags (peep_id, user_id) VALUES ('#{result[0]['id']}','#{name}');")}
+        if name.any?
+          @con.exec("INSERT INTO tags (peep_id, user_id) VALUES ('#{result[0]['id']}','#{name[0]}');")
+        end
+      }
     end
     end
 

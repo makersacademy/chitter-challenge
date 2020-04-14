@@ -9,6 +9,7 @@ feature "making a peep" do
     fill_in('password', :with => 'testy_secure')
     expect(page).to have_field('email address')
     fill_in('email address', :with => 'testy_email')
+    fill_in('name', :with => 'testes')
     click_button('submit')
     expect(page).to have_current_path('/peeps')
     expect(page).to have_field('peep text')
