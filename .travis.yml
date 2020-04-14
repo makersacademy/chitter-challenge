@@ -8,6 +8,10 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U -d chitter_test -f db/migrations/01_create_peeps_table.sql
+  - psql -U -d chitter_test -f db/migrations/02_alter_peeps_table_timestamp.sql
+  - psql -U -d chitter_test -f db/migrations/03_create_user_table.sql
+  - psql -U postgres -c 'CREATE DATABASE chitter;'
 
 script:
   - bundle exec rspec
