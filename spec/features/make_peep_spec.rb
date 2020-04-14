@@ -23,7 +23,7 @@ feature 'User can see the time a and date a peep was made' do
     p "sometimes this test fails by a second due to lag"
     make_peep('timed peep')
     
-    time = Time.now.strftime('%Y-%m-%d %k:%M:%S')
+    time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
     expect(page).to have_content("timed peep - #{time}")
   end
 end
@@ -33,11 +33,11 @@ feature 'User can see who made a peep - name and username' do
     visit('/')
     sign_up
     make_peep('1st peep')
-    time = Time.now.strftime('%Y-%m-%d %k:%M:%S')
+    time = Time.now.strftime('%Y-%m-%d %H:%M:%S')
     click_button('Sign out')
     sign_up('newemail@me.com', 'newusername', 'newname')
     make_peep('2nd peep')
-    time2 = Time.now.strftime('%Y-%m-%d %k:%M:%S')
+    time2 = Time.now.strftime('%Y-%m-%d %H:%M:%S')
 
     expect(page).to have_content("2nd peep - #{time2} - newname - newusername")
     expect(page).to have_content("1st peep - #{time} - testname - testusername")
