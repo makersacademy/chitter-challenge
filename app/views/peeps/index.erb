@@ -10,33 +10,38 @@
   </form>
 <% end %>
 
-<section class="card-columns" id="peeps">
+<div class="row" id="peeps">
   <% @peeps.each do |peep| %>
-    <div class=”col-auto”>
-      <article class="peep card d-flex border-secondary mb-3" id="peep-<%= peep.id %>">
-        <div class="card-header border-0 bg-transparent d-flex mb-n4">
-          <h5 class="card-title mr-2"> <%= (User.find_by id: peep.user_id).name %> </h5>
-          <p class="text-muted mr-2"> @<%= (User.find_by id: peep.user_id).username %> </p>
-          <p class="card-text"><small class="text-muted"><%= peep.created_at.strftime("%e %b %Y %k:%M") %></small></p>
+    <div class=”col”>
+      <article class="peep card rounded-0 d-flex border-secondary border-2 m-1" id="peep-<%= peep.id %>">
+        <div class="card-header border-0 bg-transparent d-flex mb-n4 justify-content-between">
+          <div class="d-flex">
+            <h5 class="card-title mr-2"> <%= (User.find_by id: peep.user_id).name %> </h5>
+            <p class="text-muted mr-2"> @<%= (User.find_by id: peep.user_id).username %> </p>
+            <p class="card-text"><small class="text-muted"><%= peep.created_at.strftime("%e %b %Y %k:%M") %></small></p>
+          </div>
+          <% if @user && @user.id == peep.user_id %>
+            <div class="btn-group" role="group" aria-label="tweet options" >
+              <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" aria-label="expand tweet options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              </button>
+              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <form action="/peeps/<%= peep.id %>/edit" method="get">
+                  <input class="dropdown-item" type="submit" value="Edit" >
+                </form>
+                <form action="/peeps/<%= peep.id %>" method="post">
+                  <input type='hidden' name='_method' value='DELETE'/>
+                  <input class="dropdown-item" type="submit" value="Delete">
+                </form>
+              </div>
+            </div>
+          <% end %>
         </div>
         <div class="card-body">
           <p class="card-text mb-1"><%= peep.body %></p>
-        </div>
-        <% if @user && @user.id == peep.user_id %>
-          <div class="card-footer border-0 bg-transparent d-flex justify-content-end">
-            <form action="/peeps/<%= peep.id %>/edit" method="get">
-              <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Edit">
-            </form>
-            <form action="/peeps/<%= peep.id %>" method="post">
-              <input type='hidden' name='_method' value='DELETE'/>
-              <input class="btn btn-sm btn-link-muted disabled" type="submit" value="Delete">
-            </form>
-          </div>
-        <% end %>
-    </article> 
-    </div>
-   
+        </div>  
+      </article> 
+    </div> 
   <% end %>
-</section>
+</div>
 
 

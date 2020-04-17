@@ -1,4 +1,5 @@
 # require 'bcrypt'
+require 'bootstrap' 
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/base'
