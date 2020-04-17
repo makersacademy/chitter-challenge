@@ -1,14 +1,15 @@
-
 <% if @user %>
   <form action="/peeps/new" method="post">
-    <%= erb :'peeps/form', locals: {body: ""}%>
+    <%= erb :'peeps/_form', locals: {body: ""}%>
   </form>
 <% end %>
+
 <h1><strong>Peeps</strong></h1>
+
 <div class="row mb-4 mt-2" id="peeps">
   <% @peeps.each do |peep| %>
     <div class="col-sm-auto">
-      <%= erb :'peeps/peep', locals: {peep: peep} %>
+      <%= erb :'peeps/_card', locals: {peep: peep} %>
     </div>
   <% end %>
 </div>
