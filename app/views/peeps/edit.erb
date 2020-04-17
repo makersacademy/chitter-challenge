@@ -1,14 +1,7 @@
 <article class="container-fluid">
   <h3>Edit Peep</h3>
   <form action=/peeps/<%= @peep.id %> method="post">
-    <section class="form-row">
-      <div class="input-group col mb-4">
-        <input type="hidden" name="_method" value="PATCH">
-        <textarea class="form-control border-secondary" type="text" name="body" maxlength="240" aria-describedby="button-addon" required><%= @peep.body %></textarea>
-        <div class="input-group-append">
-          <input class="btn btn-lg btn-outline-secondary" type="submit" id="button-addon" value="Update">
-        </div>
-      </div>
-    </section>
+    <input type="hidden" name="_method" value="PATCH">
+      <%= erb :'peeps/form', locals: {peep: @peep, body: @peep.body}%>
   </form>
 </article>

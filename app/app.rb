@@ -1,5 +1,4 @@
 # require 'bcrypt'
-require 'bootstrap' 
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/base'
@@ -17,6 +16,10 @@ class App < Sinatra::Base
 
   before do
     @user = (User.find_by id: session[:user_id])
+  end
+
+  before /.*\.css/ do
+    content_type 'text/css'
   end
 
   get '/' do
