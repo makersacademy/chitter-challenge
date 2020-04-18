@@ -20,6 +20,15 @@ def sign_up_alt
   click_on 'Join Now'
 end
 
+def log_in(username, password)
+    click_on 'new-session'
+
+    fill_in 'username', with: username
+    fill_in 'password', with: password
+
+    click_on 'log-in-form'
+end
+
 def add_peep
   fill_in 'body', with: 'My first peep'
   click_on 'Post' 

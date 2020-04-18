@@ -31,6 +31,6 @@ class Chitter < Sinatra::Base
   private
 
   def peep_params
-    {body: params[:body]}
+    { body: params[:body] }
   end
 end
