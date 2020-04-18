@@ -4,7 +4,7 @@
     <h3 class="card-text mb-3 w-100"><%= print(peep) %></h3>
     <h4 class="card-title mr-2"> 
       —<%= peep.author %> 
-      <span class="small text-muted mr-2">@<%= peep.username %></span>
+      <a href="/<%= peep.username %>" class="small text-muted">@<%= peep.username %></a>
     </h4>
   </div>
 
