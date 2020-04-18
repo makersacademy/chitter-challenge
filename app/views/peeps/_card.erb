@@ -1,7 +1,7 @@
 <article class="peep card rounded-0 d-flex border-0 mb-4" id="peep-<%= peep.id %>">
 
   <div class="card-body">
-    <h3 class="card-text mb-3 w-100"><%= peep.body %></h3>
+    <h3 class="card-text mb-3 w-100"><%= print(peep) %></h3>
     <h4 class="card-title mr-2"> 
       —<%= peep.author %> 
       <span class="small text-muted mr-2">@<%= peep.username %></span>
@@ -13,7 +13,7 @@
       <p class="card-text"><small class="text-muted"><%= date_and_time(peep.created_at) %></small></p>
     </div>
 
-    <% if @user && @user.id == peep.user_id %>
+    <% if @current_user && @current_user.id == peep.user_id %>
       <div class="btn-group" role="group" aria-label="tweet options" >
         <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" aria-label="expand tweet options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         </button>

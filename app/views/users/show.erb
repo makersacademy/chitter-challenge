@@ -1,10 +1,5 @@
-<% if @current_user %>
-  <form action="/peeps/new" method="post">
-    <%= erb :'peeps/_form', locals: {body: ""}%>
-  </form>
-<% end %>
-
-<h1><strong>Peeps</strong></h1>
+<h1><strong><%= @user.name %>'s peeps</strong></h1>
+<p>@<%= @user.username %></p>
 
 <div class="row mb-4 mt-2" id="peeps">
   <% @peeps.each do |peep| %>
@@ -13,5 +8,3 @@
     </div>
   <% end %>
 </div>
-
-

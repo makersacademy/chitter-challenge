@@ -1,13 +1,12 @@
-require_relative '../models/peep'
-
 class Chitter < Sinatra::Base
+
   get '/peeps' do
     @peeps = Peep.all.sort_by(&:created_at).reverse! 
     erb :'peeps/index'
   end
 
   get '/peeps/new' do
-    if @user 
+    if @current_user 
       erb :'peeps/new'
     else 
       flash[:notice] = 'You must be signed in to post a peep'
@@ -16,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    @user.peeps.create(peep_params)
+    @current_user.peeps.create(peep_params)
     redirect '/peeps'
   end
 

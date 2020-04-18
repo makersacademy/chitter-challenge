@@ -23,13 +23,13 @@
 
       <div>
         <ul class="nav justify-content-end">
-          <% if @user %>
+          <% if @current_user %>
             <li class="nav-item dropdown">
               <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= @user.username %>
+                <%= @current_user.username %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" arialabel="View profile" href="#">Profile</a>
+                <a class="dropdown-item" arialabel="View profile" href="/<%= @current_user.username%>">Profile</a>
                 <a class="dropdown-item" href="/users/logout">Log Out</a>
               </div>
             </li>

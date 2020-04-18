@@ -1,5 +1,11 @@
 class Chitter < Sinatra::Base
 
+  get '/:username' do
+    @user = User.find_by(username: params[:username])
+    @peeps = Peep.where(user_id: @user.id)
+    erb :'users/show'
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
