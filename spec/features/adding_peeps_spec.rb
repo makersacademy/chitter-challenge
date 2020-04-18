@@ -3,7 +3,7 @@ feature 'adding peeps' do
     sign_up
     visit '/peeps'
     fill_in 'body', with: 'My first peep'
-    click_on 'Peep' 
+    click_on 'Post' 
 
     expect(page).to have_content "My first peep" 
     expect(first('.peep')).to have_content "peterpan"

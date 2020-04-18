@@ -5,7 +5,7 @@ feature 'editing peeps' do
 
     first('.peep').click_button 'Edit'
     fill_in 'body', with: 'Hello world!'
-    click_button 'Update'
+    click_button 'Post'
 
     expect(current_path).to eq '/peeps'
     expect(page).not_to have_content 'My first peep'

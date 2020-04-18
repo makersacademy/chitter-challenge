@@ -18,10 +18,6 @@ class App < Sinatra::Base
     @user = (User.find_by id: session[:user_id])
   end
 
-  before /.*\.css/ do
-    content_type 'text/css'
-  end
-
   get '/' do
     erb :index
   end
@@ -38,7 +34,7 @@ class App < Sinatra::Base
       flash[:notice] = "Sorry the email you entered is already taken. Please try another"
       redirect '/users/new'
     else
-      user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+      user = User.create(user_params)
       session[:user_id] = user.id
       redirect '/peeps'
     end
@@ -89,6 +85,12 @@ class App < Sinatra::Base
     peep = (Peep.find_by id: params[:id])
     peep.destroy
     redirect '/peeps'
+  end
+
+  private
+
+  def user_params
+    return { name: params[:name], username: params[:username], email: params[:email], password: params[:password] }
   end
 
 end
