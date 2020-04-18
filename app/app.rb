@@ -6,7 +6,6 @@ require 'json'
 require 'sinatra/flash'
 require_relative './models/user'
 
-
 ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'chitter_development')
 
 class Chitter < Sinatra::Base

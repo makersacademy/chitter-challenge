@@ -10,9 +10,7 @@ feature 'deleting peeps' do
   end
 
   scenario 'disabled for peeps created by another user' do
-    sign_up('Peter Pan', 'peterpan', 'peter@neverland.com', 'password')
-    add_peep
-    click_on :'Log Out'
+    other_user_adds_peep
     sign_up_alt
 
     expect(first('.peep')).not_to have_selector(:link_or_button, 'Delete')

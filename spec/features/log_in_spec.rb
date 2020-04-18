@@ -2,7 +2,7 @@ feature 'Log in' do
   scenario 'signed up user can log in again' do
     sign_up('Peter Pan', 'peterpan', 'peter@neverland.com', 'password')
     click_on 'Log Out'
-    log_in('peterpan','password')
+    log_in('peterpan', 'password')
     
     expect(current_path).to eq '/peeps'
     expect(page).to have_content 'peterpan'

@@ -6,6 +6,15 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
+  get '/peeps/new' do
+    if @user 
+      erb :'peeps/new'
+    else 
+      flash[:notice] = 'You must be signed in to post a peep'
+      redirect '/users/login'
+    end
+  end
+
   post '/peeps/new' do
     @user.peeps.create(peep_params)
     redirect '/peeps'
