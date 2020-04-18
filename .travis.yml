@@ -3,12 +3,21 @@ rvm:
 - 2.6.5
 cache: 
   bundler: true
+env:
+  global:
+  - CC_TEST_REPORTER_ID=8e64a7a6145814115d2494547d1515be89e52d59393f12701de41c3c74118b8e
 services:
 - postgresql
 before_script:
 - bundle exec rake db:create
 - bundle exec rake db:migrate
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
 - bundle
 - bundle exec rspec
 - bundle exec rubocop
+after_script:
+- "./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT"
