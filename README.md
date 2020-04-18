@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/lookupdaily/chitter-challenge.svg?branch=master)](https://travis-ci.org/lookupdaily/chitter-challenge)
+[![Maintainability](https://api.codeclimate.com/v1/badges/22636cea6c62e030c822/maintainability)](https://codeclimate.com/github/lookupdaily/chitter-challenge/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/22636cea6c62e030c822/test_coverage)](https://codeclimate.com/github/lookupdaily/chitter-challenge/test_coverage)
 # Chitter Challenge #
 
 This app is a basic social media platform for Makers students based on the popular platform 'Twitter'.
