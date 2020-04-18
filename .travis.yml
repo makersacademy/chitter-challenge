@@ -1,7 +1,7 @@
 language: ruby
 rvm:
 - 2.6.5
-cache: 
+cache:
   bundler: true
 env:
   global:
@@ -21,3 +21,14 @@ script:
 - bundle exec rubocop
 after_script:
 - "./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT"
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  app: chit-ter
+  on:
+    repo: lookupdaily/chitter-challenge
+  run:
+  # - bundle exec rake db:create
+  # - bundle exec rake db:migrate
+  api_key:
+    secure: C5Amli0m/fTXFlDyz6YMKsXptyMTbPlF8iecOH/iCoirkEg9ZLSnxVkxFy5Xav8YBq9fIJerBZ0A+0t0Abhn+IcfmWobra296o0hG9vaqUNCvjPnWjCefIgC4E4HxKryYW2a1b29QqsD0LnCFtPecBk+8pMAduxqP4jnamK9QP2zUal3pcRbRA2Acd7G7zuHVAWeZ1f5//z3ZputR0Eok2R4nMTa2Njpt9qxFdym8Pv6j7N3aNggWi6GszvoC4NlXvO7a3JuCZU8Iv23PAiGPKk0mAAu5q6oNq8tCuXFLkaoGmndJU7trRj6o38pBqfjYwe5Q67NfGrtHlgRwVorn5K7xbistaSGWsZIPcf56tiXaBem8+fAu0NAKC0+JyEHiJ0PHVeWd6dFfcnrV9uQmKXHMDkcQ6kHiMSrCMeKy93gupaIfDD/wyNI0HYMNHPq82ix0t1D9rVV+zdX8ZWS2wt93cksoIEetx7j1cQGC36Dp2ehEqhjlYvAsQ2qFi1V8SbEyZf1AslpWgE9kFvymPaCiZNOExVM6SH9cnP/Nis840L8uUE4fEZ5nW9IUqmcKYRZ1PVJViwqZOmvsHqUU/h9VVtXqml7VrdO/E9CyB212crjPG5Y2qJHpsqXkHuvcnq4nDRHgrJjPYqIwGzUwjupAjpK4RNt19J5o0BEdNU=
