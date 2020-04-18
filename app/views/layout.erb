@@ -15,22 +15,24 @@
   <body>
     <nav class="navbar border-dark">
 
-      <div>
-        <a class="navbar-brand text-dark" href="/">
+      <div class="nav">
+        <a class="navbar-brand text-dark" href="/peeps">
           Chitter
         </a>
       </div>
 
       <div>
-        <ul class="nav nav-pills justify-content-end">
+        <ul class="nav justify-content-end">
           <% if @user %>
-            <li class="nav-item">
-              <span class="nav-link disabled" href="#"><%= @user.username %></a>
+            <li class="nav-item dropdown">
+              <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= @user.username %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" arialabel="View profile" href="#">Profile</a>
+                <a class="dropdown-item" href="/users/logout">Log Out</a>
+              </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="/users/logout">Log Out</a>
-            </li>
-            
           <% else %>
             <li class="nav-item">
               <a class="nav-link text-dark" href="/users/new">Sign Up</a>
@@ -39,6 +41,9 @@
               <a class="nav-link text-dark" href="/users/login">Log In</a>
             </li>
           <% end %>
+          <li class="nav-item">
+            <a class="nav-link btn-outline-dark active" href="/peeps/new" arialabel="Create a peep">Peep +</a>
+          </li>
         </ul>
       </div>
 
