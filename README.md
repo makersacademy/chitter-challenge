@@ -17,7 +17,10 @@ I created this programme as part of a challenge at [Makers Academy](https://make
 * [How I built it](#How-i-built-it)
 
 
+
 ## Getting Started ##
+
+You can check out the app live at [chit-ter.herokuapp.com/](https://chit-ter.herokuapp.com/), or follow the steps below to run it locally.
 
 1. Fork this repo, and clone to your local machine. Navigate into the folder.
 2. Run the command `gem install bundle` (if you don't have bundle already).
