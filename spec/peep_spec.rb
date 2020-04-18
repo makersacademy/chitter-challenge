@@ -9,4 +9,17 @@ describe Peep do
       expect(peep.id).to eq persisted_data.id
     end
   end
+
+  describe 'user details' do
+    let(:user) { User.create(username: 'username', name: 'name') }
+    let(:user_peep) { user.peeps.create(body: 'My first peep') }
+
+    it 'finds the username of the post author' do
+      expect(user_peep.username).to eq 'username'
+    end
+
+    it 'finds the name of the user' do
+      expect(user_peep.author).to eq 'name'
+    end
+  end
 end

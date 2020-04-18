@@ -37,6 +37,12 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  helpers do
+    def date_and_time(created_at)
+      created_at.strftime("%e %b %Y %k:%M")
+    end
+  end
+
   private
 
   def peep_params
