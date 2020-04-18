@@ -1,6 +1,6 @@
 feature 'logging in' do
   scenario 'from home' do
-    User.create(name: 'Peter Pan', username: 'peterpan', email: 'p@p.com', password: 'password', joined: Time.now)
+    sign_up_and_log_out
     visit '/'
     click_on 'new-session'
 

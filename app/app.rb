@@ -50,7 +50,7 @@ class App < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash[:notice] = 'The username and password you entered did not match our records. Please double-check and try again.'
+      flash[:notice] = 'Username or password invalid.'
       redirect '/sessions/new'
     end
   end
@@ -90,7 +90,12 @@ class App < Sinatra::Base
   private
 
   def user_params
-    return { name: params[:name], username: params[:username], email: params[:email], password: params[:password] }
+    { 
+      name: params[:name], 
+      username: params[:username], 
+      email: params[:email], 
+      password: params[:password] 
+    }
   end
 
 end

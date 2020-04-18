@@ -44,13 +44,13 @@
 
 Metrics/LineLength:
   Exclude:
-    - 'spec/**/*'
+    # - 'spec/**/*'
     - 'test/**/*'
   Max: 100
 
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*'
+    # - 'spec/**/*'
     - 'test/**/*'
 
 # Code Style

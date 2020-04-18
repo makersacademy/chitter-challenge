@@ -43,6 +43,12 @@
       </div>
 
     </nav>
+    <% flash.keys.each do |type| %>
+      <div data-alert class="flash <%= type %> alert-box radius">
+        <%= flash[type] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
     <div class="container-fluid p-4">
       <%= yield %>
     </div>
