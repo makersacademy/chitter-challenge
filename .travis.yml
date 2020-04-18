@@ -1,8 +1,14 @@
+language: ruby
+rvm:
+- 2.6.5
+cache: 
+  bundler: true
 services:
-  - postgresql
-
+- postgresql
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-
+- bundle exec rake db:create
+- bundle exec rake db:migrate
 script:
-  - bundle exec rspec
+- bundle
+- bundle exec rspec
+- bundle exec rubocop
