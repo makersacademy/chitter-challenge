@@ -27,7 +27,7 @@ deploy:
   app: chit-ter
   on:
     repo: lookupdaily/chitter-challenge
-  run:
+  # run:
   # - bundle exec rake db:create
   # - bundle exec rake db:migrate
   api_key:

@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'pg'
 gem 'activerecord'
 gem 'bcrypt'
+gem 'pg'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
