@@ -1,6 +1,6 @@
 feature 'editing peeps' do
   scenario 'user edits a peep' do
-    sign_up
+    sign_up('Peter Pan', 'peterpan', 'peter@neverland.com', 'password')
     add_peep
 
     first('.peep').click_button 'Edit'
@@ -13,7 +13,7 @@ feature 'editing peeps' do
   end
 
   scenario 'user cannot edit a peep which is not theirs' do
-    sign_up
+    sign_up('Peter Pan', 'peterpan', 'peter@neverland.com', 'password')
     add_peep
     click_on :'Log Out'
     sign_up_alt

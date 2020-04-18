@@ -1,6 +1,6 @@
 feature 'deleting peeps' do
   scenario 'which belong to user' do
-    sign_up 
+    sign_up('Peter Pan', 'peterpan', 'peter@neverland.com', 'password') 
     add_peep
 
     first('.peep').click_button 'Delete'
@@ -10,7 +10,7 @@ feature 'deleting peeps' do
   end
 
   scenario 'disabled for peeps created by another user' do
-    sign_up
+    sign_up('Peter Pan', 'peterpan', 'peter@neverland.com', 'password')
     add_peep
     click_on :'Log Out'
     sign_up_alt
@@ -19,7 +19,7 @@ feature 'deleting peeps' do
   end
 
   scenario 'disabled when logged out' do
-    sign_up
+    sign_up('Peter Pan', 'peterpan', 'peter@neverland.com', 'password')
     add_peep
     click_on :'Log Out'
     visit '/peeps'

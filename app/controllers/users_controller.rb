@@ -27,9 +27,12 @@ class Chitter < Sinatra::Base
     if user && user.password == params[:password]
       session[:user_id] = user.id
       redirect '/peeps'
+    elsif user.nil?
+      flash[:notice] = 'Sorry this username does not exist'
+      redirect '/users/login'
     else
-      flash[:notice] = 'Username or password invalid.'
-      redirect '/sessions/new'
+      flash[:notice] = 'Incorrect password entered'
+      redirect '/users/login'
     end
   end
 

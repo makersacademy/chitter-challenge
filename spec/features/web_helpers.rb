@@ -1,17 +1,12 @@
-def sign_up
+def sign_up(name, username, email, password)
   visit '/users/new'
 
-  fill_in :name, with: 'Peter Pan'
-  fill_in :username, with: 'peterpan'
-  fill_in :email, with: 'peter@neverland.com'
-  fill_in :password, with: 'password'
+  fill_in :name, with: name
+  fill_in :username, with: username
+  fill_in :email, with: email
+  fill_in :password, with: password
 
   click_on 'Join Now'
-end
-
-def sign_up_and_log_out
-  sign_up
-  click_on 'Log Out'
 end
 
 def sign_up_alt
