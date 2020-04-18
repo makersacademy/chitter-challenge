@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+- 2.5
+services:
+- postgresql
+before_script:
+- bundle exec rails db:create
+- bundle exec rails db:migrate
+script:
+- bundle
+- bundle exec rspec
+- bundle exec rubocop
