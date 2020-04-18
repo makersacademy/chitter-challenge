@@ -11,15 +11,7 @@ end
 
 def sign_up_and_log_out
   sign_up
-  click_on :'Log Out'
-end
-
-def log_in
-  click_on :'Log In'
-
-  fill_in :username, with: 'peterpan'
-  fill_in :password, with: 'password'
-  click_on 'log-in-form'
+  click_on 'Log Out'
 end
 
 def sign_up_alt
