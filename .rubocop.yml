@@ -487,4 +487,3 @@ WordArray:
   Enabled: false
 ZeroLengthPredicate:
   Enabled: false
-# Configure Rubocop to use the config file in the Scaffolint GitHub repo

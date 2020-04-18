@@ -56,19 +56,19 @@ GEM
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
       rspec-mocks (~> 3.9.0)
-    rspec-core (3.9.1)
-      rspec-support (~> 3.9.1)
-    rspec-expectations (3.9.1)
+    rspec-core (3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-expectations (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.1)
+    rspec-mocks (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-support (3.9.2)
-    rubocop (0.79.0)
+    rspec-support (3.9.0)
+    rubocop (0.71.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
-      parser (>= 2.7.0.1)
+      parser (>= 2.6)
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
@@ -76,8 +76,9 @@ GEM
     ruby2_keywords (0.0.2)
     simplecov (0.17.1)
       docile (~> 1.1)
-      simplecov-html (~> 0.11)
-    simplecov-console (0.7.2)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-console (0.5.0)
       ansi
       simplecov
       terminal-table
@@ -113,7 +114,7 @@ DEPENDENCIES
   pg
   rake
   rspec
-  rubocop (= 0.79.0)
+  rubocop (= 0.71.0)
   simplecov
   simplecov-console
   sinatra
@@ -121,4 +122,4 @@ DEPENDENCIES
   sinatra-flash
 
 BUNDLED WITH
-   2.1.4
+   1.17.3
