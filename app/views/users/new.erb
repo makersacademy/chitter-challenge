@@ -1,22 +1,21 @@
 <h2>Join Chitter</h2>
 <div class="container">
-<small class="text-danger"><%= flash[:notice] %></small>
-<form action="/users/new" method="post">
-  <div class="form-group mb-3">
-    <input type="text" class="form-control border-secondary" name="name" placeholder="Name">
-  </div>
-  <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text border-secondary bg-transparent" id="inputGroupPrepend">@</span>
-      </div>
-      <input class="form-control border-secondary" type="text" name="username" placeholder="Username" maxlength="50" aria-describedby="inputGroupPrepend" required/>
-  </div>
-  <div class="form-group mb-3">
-    <input type="email" class="form-control border-secondary" name="email" placeholder="Email" required>
-  </div>
-  <div class="form-group mb-3">
-    <input class="form-control border-secondary submit" type="password" name="password" placeholder="Password" maxlength="50" required/>
-  </div>
-  <input type="submit" class="btn btn-dark btn-lg" value="Join Now">
-</form>
+  <form action="/users/new" method="post">
+    <div class="form-group mb-3">
+      <input type="text" class="form-control border-secondary" name="name" placeholder="Name">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text border-secondary bg-transparent" id="inputGroupPrepend">@</span>
+        </div>
+        <input class="form-control border-secondary" type="text" name="username" placeholder="Username" maxlength="50" aria-describedby="inputGroupPrepend" required/>
+    </div>
+    <div class="form-group mb-3">
+      <input type="email" class="form-control border-secondary" name="email" placeholder="Email" required>
+    </div>
+    <div class="form-group mb-3">
+      <input class="form-control border-secondary submit" type="password" name="password" placeholder="Password" maxlength="50" required/>
+    </div>
+    <input type="submit" class="btn btn-dark btn-lg" value="Join Now">
+  </form>
 </div>

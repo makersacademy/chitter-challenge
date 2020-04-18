@@ -22,7 +22,7 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'features/web_helpers'
 
 # tell Capybara about our app class
-Capybara.app = App
+Capybara.app = Chitter
 
 # configure test databases
 RSpec.configure do |config|

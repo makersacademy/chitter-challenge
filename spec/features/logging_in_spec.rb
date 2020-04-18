@@ -14,6 +14,5 @@ feature 'logging in' do
     expect(page).to have_content 'Log Out'
     expect(page).not_to have_content 'Sign Up'
     expect(page).not_to have_content 'Log In'
-
   end
 end

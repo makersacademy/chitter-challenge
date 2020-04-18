@@ -4,7 +4,7 @@ feature 'logging out' do
 
     click_on 'Log Out'
 
-    expect(current_path).to eq '/sessions/new'
+    expect(current_path).to eq '/'
     expect(page).to have_selector(:link_or_button, 'Sign Up')
     expect(page).to have_selector(:link_or_button, 'Log In')
     expect(page).not_to have_selector(:link_or_button, 'Log Out')

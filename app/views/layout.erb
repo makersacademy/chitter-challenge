@@ -28,7 +28,7 @@
               <span class="nav-link disabled" href="#"><%= @user.username %></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="/sessions/destroy">Log Out</a>
+              <a class="nav-link text-dark" href="/users/logout">Log Out</a>
             </li>
             
           <% else %>
@@ -36,7 +36,7 @@
               <a class="nav-link text-dark" href="/users/new">Sign Up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="/sessions/new">Log In</a>
+              <a class="nav-link text-dark" href="/users/login">Log In</a>
             </li>
           <% end %>
         </ul>
