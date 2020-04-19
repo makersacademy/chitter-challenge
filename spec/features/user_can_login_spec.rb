@@ -16,4 +16,9 @@ feature 'login' do
     login
     expect(current_path).to eq '/'
   end
+
+  scenario 'user sees username on homepage after login' do
+    login
+    expect(page).to have_content 'fakeuser'
+  end
 end

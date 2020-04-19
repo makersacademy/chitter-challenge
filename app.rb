@@ -34,6 +34,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
+    @user = User.find_by(
+      email: params['email'],
+      encrypted_password: params['encrypted_password']
+    )
+    session[:user_id] = @user.id
     redirect '/'
   end
 
