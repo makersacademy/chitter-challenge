@@ -5,9 +5,7 @@ feature 'Tag user in peep' do
     fill_in 'body', with: 'Hey @peterpan'
     click_on 'Post'
 
-    expect(page).to have_link 'peterpan'
-
-    click_on 'peterpan'
+    first('.message').click_link 'peterpan'
 
     expect(current_path).to eq '/peterpan'
     expect(page).not_to have_content 'Hey @peterpan'
