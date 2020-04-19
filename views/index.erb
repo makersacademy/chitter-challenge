@@ -1,4 +1,8 @@
-<h1>Welcome to Chitter!</h1>
+<% if @user %>
+    <h1>Welcome to Chitter, <%= @user.username %>!</h1>
+<% else %>
+    <h1>Welcome to Chitter!</h1>
+<% end %>
 
 <form action="/register">
     <input type="submit" value="Sign Up" />

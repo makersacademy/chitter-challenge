@@ -14,11 +14,12 @@ feature 'sign up' do
   end
 
   scenario 'user is redirected to homepage after sign up' do
-    visit '/register'
-    fill_in 'Username', with: 'fakeuser'
-    fill_in 'Email', with: 'fake@fake.com'
-    fill_in 'Password', with: 'password'
-    click_button 'Register'
+    register
     expect(current_path).to eq '/'
+  end
+
+  scenario 'user sees username on homepage after sign up' do
+    register
+    expect(page).to have_content 'fakeuser'
   end
 end
