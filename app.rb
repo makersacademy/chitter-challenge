@@ -33,9 +33,5 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
-  post '/login' do
-    
-  end
-
   run! if app_file == $0
 end
