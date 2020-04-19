@@ -15,7 +15,7 @@ feature 'sign up' do
 
     sign_up('Peter Pan', 'peterpan', 'peter1@neverland.com', 'password')
     expect(current_path).to eq '/users/new'
-    expect(page).to have_content 'Sorry the username you entered is already taken'
+    expect(page).to have_content 'Sorry, username already taken. Please try again'
   end
 
   scenario 'email not unique' do
@@ -24,7 +24,7 @@ feature 'sign up' do
 
     sign_up('Peter Pan', 'peterpanner', 'peter@neverland.com', 'password')
     expect(current_path).to eq '/users/new'
-    expect(page).to have_content 'Sorry the email you entered is already taken'
+    expect(page).to have_content 'Sorry, email already taken. Please try again'
   end
 
 end

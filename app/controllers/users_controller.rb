@@ -12,10 +12,10 @@ class Chitter < Sinatra::Base
 
   post '/users/new' do
     if !User.unique_username?(params[:username])
-      flash[:notice] = ERR_UNIQUE_USERNAME
+      flash[:notice] = error_not_unique('username')
       redirect '/users/new'
     elsif !User.unique_email?(params[:email])
-      flash[:notice] = ERR_UNIQUE_EMAIL
+      flash[:notice] = error_not_unique('email')
       redirect '/users/new'
     else
       user = User.create(user_params)
