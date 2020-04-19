@@ -18,8 +18,7 @@ class Chitter < Sinatra::Base
       flash[:notice] = error_not_unique('email')
       redirect '/users/new'
     else
-      user = User.create(user_params)
-      session[:user_id] = user.id
+      session[:user_id] = User.create(user_params).id
       redirect '/peeps'
     end
   end
@@ -29,7 +28,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/login' do
-    user = User.where({ username: params[:username] }).first
+    user = User.find_by(username: params[:username])
     if user && user.password == params[:password]
       session[:user_id] = user.id
       redirect '/peeps'
@@ -48,9 +47,6 @@ class Chitter < Sinatra::Base
   end
 
   private
-
-  ERR_UNIQUE_EMAIL = "Sorry the email you entered is already taken. Please try another"
-  ERR_UNIQUE_USERNAME = "Sorry the username you entered is already taken. Please try another"
 
   def user_params
     { 
