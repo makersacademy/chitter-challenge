@@ -103,7 +103,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
   capybara
   pg
   rake
