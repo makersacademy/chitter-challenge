@@ -11,4 +11,9 @@ feature 'login' do
     expect(page).to have_content 'Password'
     expect(page).to have_button 'Login'
   end
+
+  scenario 'user is redirected to homepage after login' do
+    login
+    expect(current_path).to eq '/'
+  end
 end

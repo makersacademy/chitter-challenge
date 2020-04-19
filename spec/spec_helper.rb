@@ -8,6 +8,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'helpers/signup_helper'
+require 'helpers/login_helper'
 
 Capybara.app = Chitter
 
