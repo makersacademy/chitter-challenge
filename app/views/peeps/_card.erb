@@ -1,7 +1,7 @@
 <article class="peep card rounded-0 d-flex border-0 mb-4 p-4" id="peep-<%= peep.id %>">
 
   <div class="card-body">
-    <h3 class="card-text mb-3 w-100 message"><%= print(peep) %></h3>
+    <h3 class="card-text mb-3 w-100 message"><%= print_with_tags(peep) %></h3>
     <h4 class="card-title mr-2"> 
       —<%= peep.author %> 
       <a href="/<%= peep.username %>" class="small text-muted">@<%= peep.username %></a>

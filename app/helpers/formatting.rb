@@ -1,9 +1,9 @@
 require 'sinatra/base'
 
 module Sinatra
-  module Peeps
+  module Formatting
 
-    def print(peep)
+    def print_with_tags(peep)
       words = peep.body.split().map do |word|
         if word.include?('@')
           chars = word.split(/[^a-zA-Z0-9_]/)
@@ -16,6 +16,10 @@ module Sinatra
       words.join(" ")
     end
 
+    def date_and_time(created_at)
+      created_at.strftime("%e %b %Y %k:%M")
+    end
+
   end
-  helpers Peeps
+  helpers Formatting
 end
