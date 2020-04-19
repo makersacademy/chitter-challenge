@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Zilla+Slab:400,600&display=swap" rel="stylesheet">
+  </head>
+  <style>
+    body { font-family: 'Lato', sans-serif; }
+    h1 { font-family: 'Zilla Slab', serif; font-weight: 600;}
+    h2, h3, h4 { font-family: 'Zilla Slab', serif; }
+    .bg-greygreen { background-color: #edecd8; }
+  </style>
+  <body class="bg-greygreen">
+    <nav class="navbar border-dark mx-2">
+
+      <div class="nav">
+        <a class="navbar-brand text-dark" href="/peeps">
+          Chitter
+        </a>
+      </div>
+
+      <div>
+        <ul class="nav justify-content-end">
+          <% if @current_user %>
+            <li class="nav-item dropdown">
+              <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= @current_user.username %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" arialabel="View profile" href="/<%= @current_user.username%>">Profile</a>
+                <a class="dropdown-item" href="/users/logout">Log Out</a>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/users/new">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/users/login">Log In</a>
+            </li>
+          <% end %>
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-dark rounded-0" href="/peeps/new" arialabel="Create a peep">+ Peep</a>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+    <% flash.keys.each do |type| %>
+      <div data-alert class="flash <%= type %> alert-box radius">
+        <%= flash[type] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
+    <div class="container-fluid p-4">
+      <%= yield %>
+    </div>
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<section class="card bg-white border-0 rounded-0 mx-auto mt-5 p-3" style="max-width: 45rem">
+  <div class="card-body mb-2 p-4">
+    <h2 class="card-title">Welcome back!</h2>
+    <form action="/users/login" class="py-3" method="post">
+
+      <div class="input-group my-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-greygreen px-3 border-dark" id="inputGroupPrepend">@</span>
+          </div>
+          <input class="form-control form-control-lg bg-transparent rounded-0 border-dark" type="text" name="username" placeholder="Username" maxlength="50" aria-describedby="inputGroupPrepend" required/>
+      </div>
+
+      <div class="form-group mb-4">
+        <input class="form-control form-control-lg border-dark bg-transparent rounded-0" type="password" name="password" placeholder="Password" maxlength="50" required/>
+      </div>
+
+      <input type="submit" class="btn btn-outline-dark btn-lg rounded-0 mb-2" id="log-in-form" value="Log In">
+    
+    </form>
+    <a href="/users/new" class="text-secondary">Sign Up</a>
+  </div>
+</section>

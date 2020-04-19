@@ -1,5 +1,4 @@
 /**/.DS_Store
+.vscode/*
 /coverage
-
-# Local cache of Rubocop remote config
-.rubocop-*
+db/schema.rb

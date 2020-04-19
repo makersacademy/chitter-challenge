@@ -1,0 +1,7 @@
+<article class="container">
+  <h3>Edit Peep</h3>
+  <form action=/peeps/<%= @peep.id %> method="post">
+    <input type="hidden" name="_method" value="PATCH">
+      <%= erb :'peeps/_form', locals: {peep: @peep, body: @peep.body}%>
+  </form>
+</article>

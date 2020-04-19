@@ -79,6 +79,35 @@ then commit and push.  Please also ensure you follow the Ruby style guide regard
 
 https://github.com/bbatsov/ruby-style-guide
 
+## Ensure Rakefile has Appropriate Tasks
+
+Any scripts that touch the database or working area should be moved to the Rakefile.
+
+```ruby
+task :setup do
+  # Set up development and test databases
+end
+
+task :teardown do
+  # Destroy development and test databases
+end
+
+task :seed do
+  # Add some dummy data to the development database
+end
+```
+
+> The Rakefile makes it simpler to run common tasks where your code runs remotely. For instance: as part of deployment to Heroku and Continuous Integration ('CI').
+
+You can also add descriptions to Rake tasks, so when you run `rake -T`, you get a little description of each:
+
+```ruby
+desc "Add some dummy data to the development database"
+task :seed do
+  # do it
+end
+```
+
 ## Gemfile should Use Test Groups
 
 Gemfiles can be split into environments. Ensure that all test related gems are in test group, e.g. capybara etc.
@@ -520,36 +549,5 @@ module Helpers
   def current_user
     @user ||=  User.get(session[:user_id])
   end
-end
-```
-
-## Nice-to-have: Ensure Rakefile has Appropriate Tasks
-
-(We removed Rake from the Bookmark Manager sequence in 2018, but it's nice to know about. Here is [the step](../bookmark_manager/using_rake.md) and here's [the walkthrough](../bookmark_manager/using_rake.md).)
-
-Any scripts that touch the database or working area should be moved to the Rakefile.
-
-```ruby
-task :setup do
-  # Set up development and test databases
-end
-
-task :teardown do
-  # Destroy development and test databases
-end
-
-task :seed do
-  # Add some dummy data to the development database
-end
-```
-
-> The Rakefile makes it simpler to run common tasks where your code runs remotely. For instance: as part of deployment to Heroku and Continuous Integration ('CI').
-
-You can also add descriptions to Rake tasks, so when you run `rake -T`, you get a little description of each:
-
-```ruby
-desc "Add some dummy data to the development database"
-task :seed do
-  # do it
 end
 ```

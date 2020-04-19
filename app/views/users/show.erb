@@ -1,0 +1,10 @@
+<h1><strong><%= @user.name %>'s peeps</strong></h1>
+<p>@<%= @user.username %></p>
+
+<div class="row mb-4 mt-2" id="peeps">
+  <% @peeps.each do |peep| %>
+    <div class="col-sm-auto">
+      <%= erb :'peeps/_card', locals: {peep: peep} %>
+    </div>
+  <% end %>
+</div>

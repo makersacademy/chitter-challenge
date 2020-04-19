@@ -1,0 +1,33 @@
+<article class="peep card rounded-0 d-flex border-0 mb-4 p-4" id="peep-<%= peep.id %>">
+
+  <div class="card-body">
+    <h3 class="card-text mb-3 w-100 message"><%= print_with_tags(peep) %></h3>
+    <h4 class="card-title mr-2"> 
+      —<%= peep.author %> 
+      <a href="/<%= peep.username %>" class="small text-muted">@<%= peep.username %></a>
+    </h4>
+  </div>
+
+  <div class="card-footer border-0 bg-transparent d-flex justify-content-between">
+    <div class="d-flex">
+      <p class="card-text"><small class="text-muted"><%= date_and_time(peep.created_at) %></small></p>
+    </div>
+
+    <% if @current_user && @current_user.id == peep.user_id %>
+      <div class="btn-group" role="group" aria-label="tweet options" >
+        <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" aria-label="expand tweet options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <form action="/peeps/<%= peep.id %>/edit" method="get">
+            <input class="dropdown-item" type="submit" value="Edit" >
+          </form>
+          <form action="/peeps/<%= peep.id %>" method="post">
+            <input type='hidden' name='_method' value='DELETE'/>
+            <input class="dropdown-item" type="submit" value="Delete">
+          </form>
+        </div>
+      </div>
+    <% end %>
+  </div> 
+  
+</article> 
