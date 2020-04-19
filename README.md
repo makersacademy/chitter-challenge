@@ -50,6 +50,7 @@ Sign up and start posting!
 - **Frameworks:** Sinatra
 - **Testing and code quality:** RSpec, Capybara, Simplecov, Travis CI, Code Climate
 - **Services:** Postgresql with Active Record
+- **Styling:** Bootstrap CSS
 
 ## Running tests ##
 
@@ -166,6 +167,9 @@ When planning my code I thought about the tests I might need, and tried to order
 4. User can log in
 5. User can add a tweet *when* logged in
 5. User can log out
+6. User cannot access create peep form without logging in
+7. If message includes an @symbol the peep contains a link
+8. If user clicks on a tag in a peep it takes them to user's profile
 
 
 #### Unit Tests ####
@@ -176,14 +180,18 @@ When planning my code I thought about the tests I might need, and tried to order
 4. Object on user?? Adds a users details to session
 5. Object on user?? Removes a users details from session
 6. Tweet.create adds a new tweet IF session contains a user
+7. User - check an email is unique
+8. User - check a password is unique
+   
 
 #### Edge Cases ####
 
 * Null fields
 * User tries to sign up with a username or email that already exists
 * User enters '' or "" in body
+* Tag contains a symbol at the end (e.g. !)
 
 ## Further Improvements ##
 
-* If a user tries to create a peep when not signed in the app asks them to log in
-* User can tag other users in peeps
+* User recieves an email notification when another user tags them in a peep
+* Change date on peep to how long ago it was posted - e.g. '1 hour ago, 1 day ago'
