@@ -7,10 +7,10 @@ This app is a basic social media platform for Makers students based on the popul
 
 Users can post messages about their learnings and thoughts, which all students can see. A user needs to log in to post, but can see all peeps without logging in. Logged in users can also edit or delete their own peeps.
 
-I created this programme as part of a challenge at [Makers Academy](https://makers.tech). See [Specification](#Specification) for more information on the programme's requirements.
+I created this programme as part of a challenge at [Makers Academy](https://makers.tech). See [Specification](#Specification) for more information on the program's requirements.
 
 * [Getting started](#Getting-Started)
-* [Useage](#useage)
+* [Usage](#usage)
 * [Tech stack](#tech-stack)
 * [Running tests](#Running-tests)
 * [Specification](#Specification)
@@ -26,9 +26,9 @@ You can check out the app live at [chit-ter.herokuapp.com/](https://chit-ter.her
 2. Run the command `gem install bundle` (if you don't have bundle already).
 3. When the installation completes, run `bundle`.
 
-## Useage ##
+## Usage ##
 
-1. Set up test and devlopment databases locally:
+1. Set up test and development databases locally:
 
   ```shell
   $ rake db: create
@@ -150,7 +150,7 @@ Table: Tweets
 
 Table: Users
 
-| username | name | email | password | signup_date |
+| username | name | email | password | join_date |
 |:--------:|:-----:|:-----:|:--------:|:-----------:|
 | string(PK) | string | string | string(authenticated?) | date |
 |1|lookupdaily| Liz Daly | test@gmail.com| *** | 2020-01-13 11:00 GMT |
@@ -193,5 +193,5 @@ When planning my code I thought about the tests I might need, and tried to order
 
 ## Further Improvements ##
 
-* User recieves an email notification when another user tags them in a peep
+* User receives an email notification when another user tags them in a peep
 * Change date on peep to how long ago it was posted - e.g. '1 hour ago, 1 day ago'
