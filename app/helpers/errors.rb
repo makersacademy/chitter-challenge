@@ -6,7 +6,7 @@ module Sinatra
       "Sorry, #{field} already taken. Please try again"
     end
 
-
+    
   end
 
   helpers Errors
