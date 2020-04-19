@@ -10,5 +10,9 @@ class Chitter < Sinatra::Base
     erb :register
   end
 
+  post '/register' do
+    redirect '/'
+  end
+
   run! if app_file == $0
 end
