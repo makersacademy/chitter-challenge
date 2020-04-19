@@ -17,4 +17,15 @@ feature "Viewing Peeps" do
     expect(page).to have_content "the cat is soft and fluffy"
     expect(page).to have_content "and if you die, it will eat your face"
   end
+
+  scenario "shows the time the peep was created" do
+    connection = PG.connect(dbname: 'chitter_test')
+
+    connection.exec("INSERT INTO peeps VALUES (1, 'this is a peep about a cat');")
+
+    visit '/peeps'
+
+    expect(page).to have_content "this is a peep about a cat"
+    expect(page).to have_content "#{Time.now}"
+  end
 end

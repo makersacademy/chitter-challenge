@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require_relative './database_connection_setup.rb'
 require './lib/peep'
-require 'pg'
 
 class Chitter < Sinatra::Base
 
@@ -20,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(peep: params[:peep])
+    Peep.create(id: params[:id], peep: params[:peep], time: params[:time])
     redirect '/peeps'
   end
 
