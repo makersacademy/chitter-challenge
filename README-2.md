@@ -122,7 +122,6 @@ user_id | user_name | user_handle | email | password | created_at |
 - Sinatra  
 - Capybara  
 - PostgreSQL
-- ERM
 - CSS (including Bootstrap)
 
 ### Test coverage  
