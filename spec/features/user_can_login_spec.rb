@@ -5,7 +5,7 @@ feature 'login' do
     expect(current_path).to eq '/login'
   end
 
-   scenario 'user is prompted to provide email and password' do
+  scenario 'user is prompted to provide email and password' do
     visit '/login'
     expect(page).to have_content 'Email'
     expect(page).to have_content 'Password'
