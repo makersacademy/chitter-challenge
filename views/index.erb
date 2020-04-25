@@ -1,13 +1,19 @@
 <% if @user %>
     <h1>Welcome to Chitter, <%= @user.username %>!</h1>
+
+    <form action="/logout">
+        <input type="submit" value="Log Out" />
+    </form>
 <% else %>
     <h1>Welcome to Chitter!</h1>
+
+    <form action="/register">
+        <input type="submit" value="Sign Up" />
+    </form>
+
+    <form action="/login">
+        <input type="submit" value="Login" />
+    </form>
 <% end %>
 
-<form action="/register">
-    <input type="submit" value="Sign Up" />
-</form>
 
-<form action="/login">
-    <input type="submit" value="Login" />
-</form>
