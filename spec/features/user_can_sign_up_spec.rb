@@ -22,4 +22,10 @@ feature 'sign up' do
     register
     expect(page).to have_content 'fakeuser'
   end
+
+  scenario 'user no longer sees links to sign up or login' do
+    register
+    expect(page).not_to have_content 'Sign Up'
+    expect(page).not_to have_content 'Login'
+  end
 end
