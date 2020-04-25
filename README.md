@@ -14,6 +14,8 @@ Rubocop
 ## Project aim
 To write a small Twitter clone that will allow the users to post messages to a public stream.
 
+![Chitter home page](./public/images/chitter-home.png)
+
 ### Primary aims
 * Post a message (peep) to Chitter. Peeps must have the name of the maker and their user handle.
 * View peeps in reverse chronological order (newest first).
