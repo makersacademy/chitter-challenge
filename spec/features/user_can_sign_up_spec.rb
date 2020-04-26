@@ -28,4 +28,16 @@ feature 'sign up' do
     expect(page).not_to have_content 'Sign Up'
     expect(page).not_to have_content 'Login'
   end
+
+  scenario 'user can go to the login page' do
+    visit '/register'
+    click_button 'Login'
+    expect(current_path).to eq '/login'
+  end
+
+  scenario 'user can go back to homepage' do
+    visit '/register'
+    click_button 'Go Back'
+    expect(current_path).to eq '/'
+  end
 end

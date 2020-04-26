@@ -49,4 +49,17 @@ feature 'login' do
     expect(page).not_to have_content 'Welcome to Chitter, fakeuser!'
     expect(page).to have_content 'Please check your email or password.'
   end
+
+  scenario 'user can go to the sign up page' do
+    visit '/login'
+    click_button 'Sign Up'
+    expect(current_path).to eq '/register'
+  end
+
+  scenario 'user can go back to homepage' do
+    visit '/login'
+    click_button 'Go Back'
+    expect(current_path).to eq '/'
+  end
+
 end
