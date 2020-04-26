@@ -1,3 +1,4 @@
+require 'bcrypt'
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require_relative './models/user'
@@ -20,11 +21,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/register' do
-    @user = User.create(
-      username: params['username'],
-      email: params['email'],
-      encrypted_password: params['encrypted_password']
+    @user = User.new(
+      username: params[:username],
+      email: params[:email],
     )
+
+    @user.password = params[:password]
+    @user.save!
+
     session[:user_id] = @user.id
     redirect '/'
   end

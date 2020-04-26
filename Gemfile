@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'sinatra-activerecord'
 
 group :test do
+  gem 'bcrypt'
   gem 'capybara'
   gem 'database_cleaner-active_record'
   gem 'rspec'
