@@ -1,4 +1,6 @@
 def login
+  register
+  click_button 'Log Out'
   visit '/'
   click_button 'Login'
   fill_in 'Email', with: 'fake@fake.com'
