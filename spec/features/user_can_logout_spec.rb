@@ -7,6 +7,12 @@ feature 'logout' do
     expect(page).to have_content 'Welcome to Chitter!'
   end
 
+  scenario 'user sees message that they have logged out' do
+    login
+    click_button 'Log Out'
+    expect(page).to have_content 'You have signed out.'
+  end
+
   scenario 'user can sign up for new account or log back in after logging out' do
     login
     click_button 'Log Out'
