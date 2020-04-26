@@ -1,6 +1,7 @@
 require 'bcrypt'
-require 'sinatra/base'
 require 'sinatra/activerecord'
+require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './models/user'
 
 class Chitter < Sinatra::Base
@@ -8,6 +9,8 @@ class Chitter < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
   enable :sessions
+
+  register Sinatra::Flash
 
   get '/' do
     if session[:user_id]
@@ -38,12 +41,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    @user = User.find_by(
-      email: params['email'],
-      encrypted_password: params['encrypted_password']
-    )
-    session[:user_id] = @user.id
-    redirect '/'
+    @user = User.find_by_email(params[:email])
+    if @user&.password == params[:password]
+      session[:user_id] = @user.id
+      redirect '/'
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect '/login'
+    end
   end
 
   get '/logout' do
