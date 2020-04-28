@@ -6,7 +6,7 @@
 
 [Task](#Task) | [Installation Instructions](#Installation) | [Database setup](#Database) | [Functional Description](#Functional_Description) | [User Stories](#User_Stories) | [Domain Model](#Domain_Model) | [Objects & Methods](#Objects_&_Methods) | [Testing](#Testing) | [Further improvements](#Further_Improvements) |
 
-![chitter](chitter.jpg)
+![chitter](Chitter_screenshot.png)
 
 ## <a name="Task">The Task</a>
 
