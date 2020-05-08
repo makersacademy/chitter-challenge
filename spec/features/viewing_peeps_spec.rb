@@ -9,13 +9,13 @@ feature 'Viewing peeps' do
   # So that I can see what others are saying
   # I want to see all peeps in reverse chronological order
 
-  # scenario 'see a list of peeps on homepage' do
-  #   visit('/peeps')
-  #
-  #   expect(page).to have_content "Feeling those summer vibes today"
-  #   expect(page).to have_content "Got the frisbee out for the first time in months!"
-  #   expect(page).to have_content "Damn, it's suncream o'clock!"
-  # end
+  scenario 'see a list of peeps on homepage' do
+    visit('/peeps')
+
+    expect(page).to have_content "Feeling those summer vibes today"
+    expect(page).to have_content "Got the frisbee out for the first time in months!"
+    expect(page).to have_content "Damn, it's suncream o'clock!"
+  end
 
   # See the tweets in reverse chronological order
 

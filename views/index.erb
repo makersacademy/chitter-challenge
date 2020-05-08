@@ -5,3 +5,7 @@
 <%= @peep_text %>
 
 <ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
