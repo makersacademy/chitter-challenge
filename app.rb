@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -8,10 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = [
-      "Feeling those summer vibes today",
-      "Got the frisbee out for the first time in months!",
-      "Damn, it's suncream o'clock!"]
+    @peeps = Peep.all
 
     @peep_text = session[:text]
     erb :"index"
