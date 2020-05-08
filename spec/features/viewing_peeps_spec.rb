@@ -10,6 +10,11 @@ feature 'Viewing peeps' do
   # I want to see all peeps in reverse chronological order
 
   scenario 'see a list of peeps on homepage' do
+    connection = PG.connect(dbname: 'chitter_test')
+    connection.exec("INSERT INTO peeps (text) VALUES ('Feeling those summer vibes today');")
+    connection.exec("INSERT INTO peeps (text) VALUES ('Got the frisbee out for the first time in months!');")
+    connection.exec("INSERT INTO peeps (text) VALUES ('Damn, it''s suncream o''clock!');")
+
     visit('/peeps')
 
     expect(page).to have_content "Feeling those summer vibes today"

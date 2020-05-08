@@ -3,14 +3,17 @@ Chitter Challenge
 
 Project has been completed using a combination of Sinatra, PostgreSQL, PG and Capybara.
 
-How to setup database:
+How to setup development database:
 1. Connect to `psql`
 2. Create the database using the `psql` command `CREATE DATABASE "chitter";`
 3. Connect to the database using the `pqsl` command `\c chitter;`
 4. Run the query we have saved in the file `01_create_peeps_table.sql`
 
-
-
+Also need to set up a test database:
+1. Connect to `psql`
+2. Create the database using the `psql` command `CREATE DATABASE "chitter_test";`
+3. Connect to the database using the `pqsl` command `\c chitter_test;`
+4. Run the query we have saved in the file `01_create_peeps_table.sql`
 
 Features:
 -------
