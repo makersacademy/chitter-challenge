@@ -1,16 +1,22 @@
 - Class Maker					database					
 - Responsibilities:	Collaborators:				Table1 - peeps
 
-- post_message	- add to database 				id 	user_id	peeps 	date and time		
+- post_message	- add to database 				id 	username	peeps 	date and time		
 - view_peeps - chronologically -
-- with time made			-view database		   1					
+- with time made			-view database		   1		LizzieTurns		"hello"
 
 - sign_up 										
-- log_in to Chitter 					             Table2 user		
+- log_in to Chitter 					             Table2 user_profile		
 
-- log_out of Chitter					            id	name 	gender 	birthday 	username	password
-				                               	1	lizzie	female	09/06/1994	lturns	*****
+- log_out of Chitter					           username        name        email (must be unique from name)    password
+				                               	 LizzieTurns		Lizzie  	    
 
 - Receive email if Tagged in a peep 		very advanced 			log-in and log-out will relate to table 2. 					
-
+= username and email must be unique (can't sign up if someone has used it already)
 - class - Maker 	app.rb Chitter									
+
+
+Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* The username and email are unique.
+* Peeps (posts to chitter) have the name of the maker and their user handle.
+* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
