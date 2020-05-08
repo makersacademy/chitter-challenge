@@ -3,10 +3,9 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
 
   get '/peeps' do
-  peeps =[  'Good morning!',
+  @peeps =[  'Good morning!',
     'This is a peep!' ]
-
-    peeps.join
+    erb(:index)
   end
 
 end
