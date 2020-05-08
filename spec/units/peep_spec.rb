@@ -2,7 +2,7 @@ require 'peep'
 
 describe Peep do
   describe '.all' do
-    it 'returns all bookmarks' do
+    it 'returns all peeps' do
       peep = Peep.all
 
       expect(peep).to include "Feeling those summer vibes today"

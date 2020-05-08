@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-Project has been completed using a combination of Sinatra, PostgreSQL and Capybara.
+Project has been completed using a combination of Sinatra, PostgreSQL, PG and Capybara.
 
 How to setup database:
 1. Connect to `psql`
