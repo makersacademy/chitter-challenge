@@ -1,11 +1,16 @@
 require 'sinatra/base'
-require './lib/maker.rb'
+require './lib/maker_peep.rb'
+require './lib/maker_sign_up.rb'
+
+#use routes overview for what to call the different routes
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/' do
-    @maker = Maker.all
-    redirect '/sign_up'    ## we be multiple routes and conditionals
+    @maker = MakerPeep.all
+    erb :list_of_peeps
+    ## we be multiple routes and conditionals
     #shows list of peeps before you need to sign up. Goes to sign_up button
     #also cannot show add_peep until user has signed up and logged in - this button can only be viewed if user logged in.
     #use conditional here = if logged in, display logout button (and vise versa) --
@@ -14,12 +19,21 @@ class Chitter < Sinatra::Base
 
   get '/sign_up' do
     erb :sign_up
-    redirect '/login'
+  end
+
+  post '/sign_up' do
+    #work out how to do astorix for password
+     MakerSignUp.signup(username: params[:username], name: params[:name], email: params[:email],
+        password: params[:password])
+     redirect '/login'
   end
 
   get '/login' do
+    MakerSignUp.login
    erb :login
-   redirect '/'
+  end
+
+
    #now shows all the features to add peep
   end
 

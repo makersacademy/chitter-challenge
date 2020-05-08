@@ -1,15 +1,16 @@
 require 'pg'
-require_relative 'maker_sign_up' #maker_peep might need to take name and user_name from sign_up
+require_relative 'maker_profile' #maker_peep might need to take name and user_name from sign_up
 
 class MakerPeep
 
   attr_reader :peep, :username, :datetime, :name, :email
 
-  def initialize(id:, peep:, datetime:, maker_sign_up: MakerSignUp.new(username:'#{@username}',  #fill in parameters later)
+  def initialize(id:, peep:, datetime:)
     @id = id
     @peep = peep
     @datetime = datetime
-    @maker_sign_up = maker_sign_up
+    @maker_sign_up = MakerSignUp.new(username: "#{username}", name: "#{name}", email: "#{email}", password: "#{password}") #may need to put in initialize
+    #parameters as another default = for the sake of testing and mocking.
   end
 
   def self.all
