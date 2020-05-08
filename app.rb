@@ -4,7 +4,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'Peeps'
+    redirect '/peeps'
   end
 
   get '/peeps' do
