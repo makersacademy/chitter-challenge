@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
     self.encrypted_password = @password
   end
 
+  has_many :peeps, dependent: :destroy
+
 end
