@@ -6,10 +6,14 @@
 - with time made			-view database		   1		LizzieTurns		"hello"
 
 - sign_up 										
-- log_in to Chitter 					             Table2 user_profile		
+- log_in to Chitter 					             Table2 profile		
 
 - log_out of Chitter					           username        name        email (must be unique from name)    password
-				                               	 LizzieTurns		Lizzie  	    
+				                               	 LizzieTurns		Lizzie  	
+
+																				 table3 logged_in
+
+																				 username logged_in     
 
 - Receive email if Tagged in a peep 		very advanced 			log-in and log-out will relate to table 2. 					
 = username and email must be unique (can't sign up if someone has used it already)
