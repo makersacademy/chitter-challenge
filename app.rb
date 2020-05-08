@@ -10,7 +10,6 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-
     @peep_text = session[:text]
     erb :"index"
   end
