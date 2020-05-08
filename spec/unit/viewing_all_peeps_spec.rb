@@ -1,21 +1,24 @@
 require 'spec_helper'
-require 'peep'
+require 'database_helpers'
 
 describe Peep do
   describe '.all' do
     it "returns all peeps" do
-    connection = PG.connect(dbname: 'chitter_test')
+      connection = PG.connect(dbname: 'chitter_test')
+      
+      #test data
+      peep = Peep.create(message: "Message 1", name: "Jo")
+      Peep.create(message: "Message 2", name: "John")
+      Peep.create(message: "Message 3", name: "Sam")
+      persisted_data = persisted_data(id: peep.id)
 
-    # Add the test data
-    connection.exec("INSERT INTO peeps (message) VALUES ('Message 1');")
-    connection.exec("INSERT INTO peeps (message) VALUES('Message 2');")
-    connection.exec("INSERT INTO peeps (message) VALUES('Message 3');")
-
-    peeps = Peep.all 
-
-    expect(peeps).to include('Message 1')
-    expect(peeps).to include('Message 2')
-    expect(peeps).to include('Message 3')
+      peeps = Peep.all 
+      
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peep.id).to eq persisted_data['id']
+      expect(peeps.first.name).to eq 'Jo'
+      expect(peeps.first.message).to eq 'Message 1'
     end
   end
 end
