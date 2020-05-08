@@ -27,6 +27,6 @@ RSpec.configure do |config|
   require 'rspec'
 
   # Tell Capybara to talk to Peep
-  Capybara.app = Peep
+  Capybara.app = Chitter
   
 end
