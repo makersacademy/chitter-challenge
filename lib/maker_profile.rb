@@ -34,11 +34,8 @@ class MakerProfile
    result = connection.exec("INSERT INTO profile (username, name, email, password) VALUES ('#{username}', '#{name}', '#{email}', '#{password}') RETURNING username, name, email, password, id;")
    MakerProfile.new(username: result[0]['username'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'], id: result[0]['id'])
   end
-
-
-
-
- # def self.login(username:, password:)
+ # 
+ # def self.login
  #   if ENV['ENVIRONMENT'] == "test"
  #     connection = PG.connect(dbname: 'chitter_test')
  #   else

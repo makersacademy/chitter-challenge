@@ -22,27 +22,28 @@ class Chitter < Sinatra::Base
   end
 
   get '/profile' do
-    @makersignup = session[:username]
+    # @makerusername = session[:username]
     @maker = MakerProfile.all
      erb :profile
   end
 
-  # post '/profile' do
-  #   "Hello World"
-  # end
-
   get '/login' do
+    @makerusername = session[:username]
+    @makerpassword = session[:password]
     erb :login
   end
 
-  # post '/login' do
-  #   @makerlogin = MakerProfile.login(username: params[:username], password: params[:password])
-  #
-  #     redirect '/'
-  #   else
-  #     redirect '/try_again'
-  #   end
-  # end
+  post '/login' do
+    @makerusername = session[:username]
+    @makerpassword = session[:password]
+    session[:uname] = params[:login1]
+    session[:pword] = params["login2"]
+    redirect '/'
+  end
+
+  get '/login_error' do
+    erb :login_error
+  end
 
   get '/add_peep' do
     erb :add_peep
