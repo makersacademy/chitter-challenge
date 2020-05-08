@@ -8,13 +8,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peep_name = session[:name]
+    @peeps = [
+      "Feeling those summer vibes today",
+      "Got the frisbee out for the first time in months!",
+      "Damn, it's suncream o'clock!"]
+
     @peep_text = session[:text]
     erb :"index"
   end
 
   post '/peeps' do
-    session[:name] = params[:name]
     session[:text] = params[:text]
     redirect '/peeps'
   end
