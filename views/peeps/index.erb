@@ -12,12 +12,16 @@
       <div class="row justify-content-center">
         <div class="col-md-7">
           <h1 class="font-weight-light mt-4 text-white">Sticky Footer using Flexbox</h1>
-          <p class="lead text-white-50">Use just two Bootstrap 4 utility classes and three custom CSS rules and you will have a flexbox enabled sticky footer for your website!</p>
+          <p class="lead text-white-50">Here is all of the peep messages!</p>
           <ul>
             <% @peeps.each do |peep| %>
-              <li>
-                <%= peep.message %>- <%= peep.name %>
-              </li> 
+              <li class="peep" id="peep-<%= peep.id %>">
+                <%= peep.message %> <%= peep.name %> 
+                <form action="/peeps/<%= peep.id %>"method="post">
+                  <input type='hidden' name='_method' value='DELETE'/>
+                  <input type="submit" value="Delete" />
+                </form>
+              </li>
             <% end %>
           </ul>
         
