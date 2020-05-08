@@ -25,6 +25,7 @@ RSpec.configure do |config|
   require 'capybara'
   require 'capybara/rspec'
   require 'rspec'
+  
 
   # Tell Capybara to talk to Peep
   Capybara.app = Chitter
