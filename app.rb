@@ -8,4 +8,13 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
+  get '/peeps/new' do
+    erb(:new)
+  end
+
+  post '/peeps' do
+    p "Form data submitted to the /peeps route!"
+    Peep.add(peep: params[:peep])
+    redirect('/peeps')
+  end
 end
