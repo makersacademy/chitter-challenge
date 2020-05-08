@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'pg'
+gem 'sinatra'
+gem 'sinatra-flash'
+
 group :test do
   gem 'rspec'
   gem 'rubocop', '0.79.0'
