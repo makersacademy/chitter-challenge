@@ -7,9 +7,8 @@ group :test do
   gem 'simplecov-console', require: false
 end
 
+ruby '2.6.5'
 
-gem 'pg'
-gem 'sinatra'
-
-gem 'capybara', group: :test
-gem 'rspec', group: :test
+gem "sinatra"
+gem "capybara"
+gem "pg"

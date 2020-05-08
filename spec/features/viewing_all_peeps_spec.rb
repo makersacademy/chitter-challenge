@@ -9,9 +9,9 @@ feature 'Viewing peeps' do
 
     visit('/peeps')
 
-    expect(page).to have_content("Message 1 - Jo")
-    expect(page).to have_content("Message 2 - John")
-    expect(page).to have_content("Message 3 - Sam")
+    expect(page).to have_content("Message 1")
+    expect(page).to have_content("Message 2")
+    expect(page).to have_content("Message 3")
   end
 end
 

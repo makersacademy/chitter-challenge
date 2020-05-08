@@ -86,7 +86,7 @@ Gemfiles can be split into environments. Ensure that all test related gems are i
 ```ruby
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+ruby  '2.6.5'
 
 gem 'sinatra'
 gem 'sinatra-flash'

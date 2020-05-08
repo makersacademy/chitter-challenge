@@ -23,7 +23,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     parallel (1.19.1)
-    parser (2.7.0.4)
+    parser (2.7.1.2)
       ast (~> 2.4.0)
     pg (1.2.3)
     public_suffix (4.0.4)
@@ -38,15 +38,15 @@ GEM
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
       rspec-mocks (~> 3.9.0)
-    rspec-core (3.9.1)
-      rspec-support (~> 3.9.1)
-    rspec-expectations (3.9.1)
+    rspec-core (3.9.2)
+      rspec-support (~> 3.9.3)
+    rspec-expectations (3.9.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-support (3.9.2)
+    rspec-support (3.9.3)
     rubocop (0.79.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -87,6 +87,9 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
+
+RUBY VERSION
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.1.4
