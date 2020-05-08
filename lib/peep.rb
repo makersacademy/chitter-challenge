@@ -22,4 +22,14 @@ class Peep
       Peep.new(id: peep['id'], peep: peep['peep'], time: peep['ts'])
     end
   end
+
+  def self.add(peep:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_manager_test')
+    else
+      connection = PG.connect(dbname: 'chitter_manager')
+    end
+    result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep, ts;")
+    Peep.new(id: result[0]['id'], peep: result[0]['peep'], time: result[0]['ts'])
+  end
 end
