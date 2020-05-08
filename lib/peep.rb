@@ -1,6 +1,7 @@
 require 'pg'
 
 class Peep
+
    def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
@@ -12,13 +13,13 @@ class Peep
     result.map { |result| result['message'] }
    end
 
-   def self.create(message:)
+   def self.create(message:, name:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
   
-    connection.exec("INSERT INTO peeps (message) VALUES('#{message}')")
+    connection.exec("INSERT INTO peeps (message, name) VALUES('#{message}', '#{name}') RETURNING id, message, name")
   end
 end

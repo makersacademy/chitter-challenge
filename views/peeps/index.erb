@@ -3,3 +3,12 @@
     <li><%= peep %></li>
   <% end %>
 </ul>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.message %>"> - <%= peep.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>

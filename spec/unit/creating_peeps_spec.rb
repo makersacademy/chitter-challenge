@@ -1,7 +1,8 @@
 describe '.create' do
   it 'creates a new peep' do
-    Peep.create(message: 'This is my first peep')
+    peep = Peep.create(message: 'This is my first peep', name: 'Jo').first
 
-    expect(Peep.all).to include 'This is my first peep'
+    expect(peep['message']).to eq 'This is my first peep'
+    expect(peep['name']).to eq 'Jo'
   end
 end
