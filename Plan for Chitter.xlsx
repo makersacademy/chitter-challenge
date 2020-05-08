@@ -1,0 +1,16 @@
+- Class Maker					database					
+- Responsibilities:	Collaborators:				Table1 - peeps
+
+- post_message	- add to database 				id 	user_id	peeps 	date and time		
+- view_peeps - chronologically -
+- with time made			-view database		   1					
+
+- sign_up 										
+- log_in to Chitter 					             Table2 user		
+
+- log_out of Chitter					            id	name 	gender 	birthday 	username	password
+				                               	1	lizzie	female	09/06/1994	lturns	*****
+
+- Receive email if Tagged in a peep 		very advanced 			log-in and log-out will relate to table 2. 					
+
+- class - Maker 	app.rb Chitter									
