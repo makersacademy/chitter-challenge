@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require './lib/maker_peep.rb'
-require './lib/maker_sign_up.rb'
+require './lib/maker_profile.rb'
 
 #use routes overview for what to call the different routes
 
@@ -8,14 +8,8 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @maker = MakerPeep.all
+    @maker = MakerProfile.all
     erb :list_of_peeps
-    #will also need a login button that goes directly to the login page.
-    ## we be multiple routes and conditionals
-    #shows list of peeps before you need to sign up. Goes to sign_up button
-    #also cannot show add_peep until user has signed up and logged in - this button can only be viewed if user logged in.
-    #use conditional here = if logged in, display logout button (and vise versa) --
-    #may need another table (user logged in or out)
   end
 
   get '/sign_up' do
@@ -23,32 +17,39 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    #work out how to do astorix for password
-    MakerProfile.signup(username: params[:username], name: params[:name], email: params[:email],
-    password: params[:password])
-    redirect '/login'
+    MakerProfile.signup(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
+    redirect '/profile'
   end
 
+  get '/profile' do
+    @makersignup = session[:username]
+    @maker = MakerProfile.all
+     erb :profile
+  end
 
+  # post '/profile' do
+  #   "Hello World"
+  # end
 
   get '/login' do
-    MakerProfile.login(username: params[:username], password: params[:password])
     erb :login
   end
 
-  post '/login' do
-    MakerProfile.login(url: params[:url], title: params[:title])
-    redirect '/'
-  end
-
-
-
-   #now shows all the features to add peep
-  end
+  # post '/login' do
+  #   @makerlogin = MakerProfile.login(username: params[:username], password: params[:password])
+  #
+  #     redirect '/'
+  #   else
+  #     redirect '/try_again'
+  #   end
+  # end
 
   get '/add_peep' do
     erb :add_peep
     redirect '/'
     #see peep
   end
+
+    run! if app_file == $0
+
 end

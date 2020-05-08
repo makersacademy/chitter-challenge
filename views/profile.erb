@@ -1,0 +1,13 @@
+
+  <% @maker.each do |info| %>
+    <% #if @makersignup == info.username %>
+     <%= info.name %>
+     <%= info.username %>
+     <%= info.email %>
+    <% end %>
+    <% #end %>
+
+<h4>If this information is correct, select below.</h4>
+    <form action="/login" method="get">
+    <input type="submit" value="Log In"/>
+    </form>

@@ -3,9 +3,8 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require 'pg'
 
-ENV['ENVIRONMENT'] = 'test'
+ENV['ENVIRONMENT'] == 'test'
 
 RSpec.configure do |config|
   config.before(:each) do

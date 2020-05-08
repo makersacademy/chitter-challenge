@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'session'
-gem 'pg'
 
 group :test do
   gem 'capybara', group: :test
@@ -11,4 +10,5 @@ group :test do
   gem 'rubocop', '0.79.0'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'pg'
 end
