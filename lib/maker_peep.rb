@@ -1,15 +1,15 @@
 require 'pg'
+require_relative 'maker_sign_up' #maker_peep might need to take name and user_name from sign_up
 
+class MakerPeep
 
-class Maker
+  attr_reader :peep, :username, :datetime, :name, :email
 
-  attr_reader :peep, :username, :datetime #and all additional ones for other database
-
-  def initialize(id:, peep:, username:, datetime:)
+  def initialize(id:, peep:, datetime:, maker_sign_up: MakerSignUp.new(username:'#{@username}',  #fill in parameters later)
     @id = id
     @peep = peep
-    @username = username
     @datetime = datetime
+    @maker_sign_up = maker_sign_up
   end
 
   def self.all
@@ -25,7 +25,7 @@ class Maker
     end
   end
 
-  def self.create_peep(peep:, datetime:)  #shouldn't have to fill in username, will pop up automatically.
+  def self.create_peep(peep:, datetime:)  #shouldn't have to fill in username, will pop up automatically in website.
     if ENV['ENVIRONMENT'] == "test"
       connection = PG.connect(dbname:'chitter_test')
     else
