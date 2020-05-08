@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/user'
+require_relative './models/peep'
 
 class Chitter < Sinatra::Base
 
@@ -13,6 +14,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all
     if session[:user_id]
       @user = User.find(session[:user_id])
     end
@@ -54,6 +56,14 @@ class Chitter < Sinatra::Base
   get '/logout' do
     session.clear
     flash[:notice] = 'You have signed out.'
+    redirect '/'
+  end
+
+  post '/new' do
+    @peep = Peep.create(
+      message: params[:message],
+      user_id: session[:user_id]
+    )
     redirect '/'
   end
 

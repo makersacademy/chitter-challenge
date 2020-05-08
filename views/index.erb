@@ -1,21 +1,37 @@
 <h2><%= flash[:notice] %></h2>
 
 <% if @user %>
-    <h1>Welcome to Chitter, <%= @user.username %>!</h1>
 
-    <form action="/logout">
-        <input type="submit" value="Log Out" />
-    </form>
+  <h1>Welcome to Chitter, <%= @user.username %>!</h1>
+
+  <form action="/logout">
+    <input type="submit" value="Log Out" />
+  </form>
+
+  <form action='/new' method="post">
+    <input type="text" id="message" name="message" placeholder="Add your thoughts here">
+    <br>
+    <input type="submit" value="Peep">
+  </form>
+
 <% else %>
-    <h1>Welcome to Chitter!</h1>
 
-    <form action="/register">
-        <input type="submit" value="Sign Up" />
-    </form>
+  <h1>Welcome to Chitter!</h1>
 
-    <form action="/login">
-        <input type="submit" value="Login" />
-    </form>
+  <form action="/register">
+    <input type="submit" value="Sign Up" />
+  </form>
+
+  <form action="/login">
+    <input type="submit" value="Login" />
+  </form>
+
+<% end %>
+
+<% @peeps.each do |peep| %>
+  <ul>
+    <li><%= peep.message %></li>
+  </ul>
 <% end %>
 
 
