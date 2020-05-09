@@ -11,7 +11,7 @@ class User
   def self.create(name:, email:, password:)
     result = DatabaseConnection.query("INSERT INTO users (name, email, password)
       VALUES('#{name}', '#{email}', '#{password}')
-      RETURNING name, email, password;")
+      RETURNING id, name, email, password;")
 
     instance(result[0])
   end
