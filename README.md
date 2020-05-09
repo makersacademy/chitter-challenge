@@ -16,6 +16,8 @@
  rackup
  ```
 
+ To view Chitter app in action navigate to "localhost:9292/"
+
  ### To run tests:
 
  ```
@@ -44,6 +46,16 @@ psql postgres
 # quit psql
 \q
 ```
+
+## To set up the database
+
+Connect to 'psql' and create 'chitter' database:
+
+```
+CREATE DATABASE chitter;
+```
+
+To set up the tables for the ```chitter``` database run the SQL scripts inside the "db/migrations" folder.
 
 ## Running tests
 
@@ -81,3 +93,4 @@ Steps:
 - add text-area and form for creating and posting peeps to the index.erb
 - create get and post routes
 - make the test pass in the simplest way
+-
