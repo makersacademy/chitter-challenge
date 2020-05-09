@@ -2,6 +2,12 @@
   <h1>Peep it all the way!</h1>
 </div>
 
+<textarea form="peep" name="peep"></textarea>
+
+<form id="peep" action="/peeps" method="post">
+  <input type="submit" value="Peep it"/>
+</form>
+
 <div>
   <% @peep.each do |peep| %>
     <p>
@@ -9,9 +15,3 @@
     </p>
     <% end %>
 </div>
-
-<textarea form="peep" name="peep"></textarea>
-
-<form id="peep" action="/peeps" method="post">
-  <input type="submit" value="Peep it"/>
-</form>

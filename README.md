@@ -88,10 +88,17 @@ So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
 
-Steps:
+* write the feature test
+* add text-area and form for creating and posting peeps to the index.erb
+* create get and post routes
+* make the test pass in the simplest way
+* create and connect to database
+* configured testing environment
+* implemented class methods to facilitate the creation and retrieval of peeps from database
 
-- write the feature test
-- add text-area and form for creating and posting peeps to the index.erb
-- create get and post routes
-- make the test pass in the simplest way
-- create and connect to database to retrieve peeps
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+* changed the query string in ```Peep.all``` to reflect the user story
