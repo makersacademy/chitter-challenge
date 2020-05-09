@@ -3,5 +3,6 @@ AllCops:
   Exclude:
     - 'tmp/*'
     - 'secret/*'
+    - 'db/**/*.rb'
 inherit_from:
   - https://raw.githubusercontent.com/makersacademy/scaffolint/v1.1.0/.rubocop.yml
