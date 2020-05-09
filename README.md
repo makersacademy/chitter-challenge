@@ -37,4 +37,4 @@ To run this you will need to set up 2 databases, each with 2 tables. Run the com
 
   -----
 
-  There were other aspects I would like to learn more about, mainly how I can use '.travis.yml'. Also I couldn't work out how each .erb page could get the css from the same .css file so each one has a fair bit of repeated css. Also rubocop flagged up a few errors, mostly because it didn't like the long SQL commands.
+  There were other aspects I would like to learn more about, mainly how I can use '.travis.yml'.
