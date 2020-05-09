@@ -1,6 +1,12 @@
 <h1>Chitter Home</h1>
 
-<h3>Welcome <%= @user_name %> <%= @user_email %></h3>
+<% if session[:user_name] != nil %>
+  <h3>Welcome <%= @user_name %> <%= @user_email %></h3>
+<% end %>
+
+<form action='/chitter/log-out' method='get' >
+  <input value='Log Out' type='submit' >
+</form>
 
 <form action='/chitter-post' method='post' >
   <input placeholder='peep' type='text' name='peep' >

@@ -50,5 +50,10 @@ class ChitterApp < Sinatra::Base
     erb :'users/log_in'
   end
 
+  get '/chitter/log-out' do
+    session.destroy
+    redirect '/chitter'
+  end
+
   run! if app_file == $0
 end
