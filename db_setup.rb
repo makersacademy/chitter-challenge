@@ -2,6 +2,7 @@ require 'sinatra'
 require 'data_mapper'
 
 require './models/peep'
+require './models/user'
 
 configure :test do
   DataMapper.setup :default, 'postgres://localhost/chitter_test'

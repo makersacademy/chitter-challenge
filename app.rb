@@ -15,4 +15,12 @@ class Chitter < Sinatra::Base
     Peep.new(body: params[:body]).save
     redirect('/peeps')
   end
+
+  get '/sign-up' do
+    erb(:sign_up)
+  end
+
+  post '/sign-up' do
+    User.new(name: params[:name], user_name: params[:username], email: params[:email], password: params[:password]).save
+  end
 end
