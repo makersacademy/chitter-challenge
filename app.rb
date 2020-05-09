@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = MakerPeep.all
+    @makerall = MakerProfile.all
     erb :list_of_peeps
   end
 

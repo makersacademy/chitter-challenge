@@ -1,16 +1,49 @@
+<center>
+  <head>
+  <link href='https://fonts.googleapis.com/css?family=Averia Gruesa Libre' rel='stylesheet'>
+  </head>
+<body>
+  <h1>CHITTER</h1>
+<style>
+  h1 {
+  font-size: 200px;
+}
+body {
+   padding: 50px;
+   font-family: 'Averia Gruesa Libre';
+   font-size: 30px;
+   color: white;
+   background-color: powderblue;
+}
+ table,
+ th,td {
+   padding: 10px;
+   border: 1px solid black;
+   border-collapse: collapse;
+   border-color: white;
+   width:700px;
+ }
+/* <div class=container1>
+  <h1>CHITTER</h1>
+</div>
+<style>
+  div.container1 {
+    height: 10em;
+    position: relative } */
+ </style>
 
-
-<ul>
+ <% @makerall.each do |info| %>
   <% @peeps.each do |peep| %>
-   <%= peep.username %>
-   <%= peep.peep %>
-   <%= peep.datetime %>
-  <% end %>
+<body>
+<ul>
+  <li><%= peep.username %>,<%= peep.peep %>,<%= peep.datetime %></li>
 </ul>
-
-
-
-
+<% end %>
+<% end %>
+<table style="#FFB6C1",style="width:400px">
+</table>
+</body>
+<footer>
 <form action="/sign_up" type="get">
   <input type="submit" value="Sign Up">
 </form>
@@ -18,3 +51,4 @@
 <form action="/login" type="get">
   <input type="submit" value="login">
 </form>
+</footer>

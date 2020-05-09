@@ -2,11 +2,13 @@
 
 <h1>Welcome<%= info.name %>!</h1>
 <h3>Add your peep below...</h3>
-<input type="text" name="username" value=<%= info.username %>>
 <% end %>
 
 <form action="/add_peep" method="post">
-  <input type="text" name="peep" placeholder="add peep here"/>
+  <label>Peep:</label>
+<input type="text" name="peep" placeholder="add peep here"/>
+<label>Username:</label>
+  <input type="text" name="username">
   <input type="submit" value="Add Peep!"/>
 </form>
 
