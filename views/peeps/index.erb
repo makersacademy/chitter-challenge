@@ -1,5 +1,9 @@
+<h1> Chitter </h1>
+
+<p> Signed in as <%= @user.name %>
+
 <% @peeps.reverse.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
-    <p class="peep"><%= peep.message %></p>
+    <p class="peep"><%= peep.message %> <%= peep.date_time %></p>
   </li>
 <% end %>

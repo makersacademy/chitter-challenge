@@ -2,19 +2,19 @@ require 'pg'
 require_relative 'database_connection'
 
 class Peep
-  attr_reader :id, :username, :message, :date_time
+  attr_reader :id, :user_id, :message, :date_time
 
-  def initialize(id, username, message, date_time)
+  def initialize(id, user_id, message, date_time)
     @id         = id
-    @username   = username
+    @user_id    = user_id
     @message    = message
     @date_time  = date_time
   end
 
-  def self.create(username:, message:)
-    result = DatabaseConnection.query("INSERT INTO peeps (username, message, date_time)
-      VALUES('#{username}', '#{message}', '#{Time.new}')
-      RETURNING username, message, date_time;")
+  def self.create(user_id:, message:)
+    result = DatabaseConnection.query("INSERT INTO peeps (user_id, message, date_time)
+      VALUES('#{user_id}', '#{message}', '#{Time.new}')
+      RETURNING id, user_id, message, date_time;")
 
     instance(result[0])
   end
@@ -25,7 +25,7 @@ class Peep
   end
 
   def self.instance(peep)
-    Peep.new(peep['id'], peep['username'], peep['message'], peep['date_time'])
+    Peep.new(peep['id'], peep['user_id'], peep['message'], peep['date_time'])
   end
 
   private_class_method :instance

@@ -1,12 +1,18 @@
 feature 'Viewing peeps' do
   scenario 'views peeps in reverse cronological order' do
-    Peep.create(username: "Gareth", message: "First message")
-    sleep 1
-    Peep.create(username: "Gareth", message: "Second message")
-    sleep 1
-    Peep.create(username: "Gareth", message: "Third message")
+    user = User.create(name: "Gareth", email: "gareth@gmail.com", password: '12345')
 
-    visit('/')
+    Peep.create(user_id: user.id, message: "First message")
+    sleep 1
+    Peep.create(user_id: user.id, message: "Second message")
+    sleep 1
+    Peep.create(user_id: user.id, message: "Third message")
+
+    visit('/users/login')
+
+    fill_in('email', with: 'gareth@gmail.com')
+    fill_in('password', with: '12345')
+    click_button('Login')
 
     expect(page.first('.peep p').text).to have_content "Third message"
   end
