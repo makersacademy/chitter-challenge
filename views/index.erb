@@ -13,9 +13,7 @@
 		<h4>Hello <%= session[:person].real_name %></h4>
 	<% end %>
 	<h3>Most Recent Peeps</h3>
-
 	<% session[:peeps].reverse.each do |peep|%>
-		
 		<div class="peep">
 			<h4><%=peep.real_name%> aka @<%=peep.user_name%></h4>
 			<p><%=peep.body%></p>
