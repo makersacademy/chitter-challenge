@@ -17,7 +17,15 @@ require 'capybara/rspec'
 
 Capybara.app = Chitter
 
+require_relative './per_test_db_setup.rb'
+
 RSpec.configure do |config|
+
+  # truncates database before each test
+  config.before(:each) do
+    per_test_db_setup
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
