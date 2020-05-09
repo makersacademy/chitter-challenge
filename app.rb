@@ -3,7 +3,12 @@ require 'sinatra/base'
 class ChitterChatter < Sinatra::Base
 
   get '/' do
-    "It's Chitter Chatter Time!"
+    erb :index
+  end
+
+  post '/' do
+    @peep = params['new_peep']
+    erb :index
   end
 
   run! if app_file == $0

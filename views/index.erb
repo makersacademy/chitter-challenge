@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+
+input[name="text"] {padding: height: width: color:}
+input[type="image"] {display: inline-block; vertical-align: top;}
+
+</style>
+</head>
+<body>
+
+<h1>chitter</h1>
+<form action="/" method="post">
+<label> what are you up to?</label> <br>
+  <textarea id="new_peep" name="new_peep" placeholder="peep something.." maxlength="300" style="width:250px;height:125px"></textarea><br>
+  <input type="submit" value="peep"><br>
+</form>
+<h3> latest peeps </h3>
+<%= @peep %>
+
+</body>
+</html>
