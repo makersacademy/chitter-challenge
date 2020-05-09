@@ -8,13 +8,17 @@ class Chitter
     @user_id = user_id
   end
 
-  def self.chitter_post(peep:, user_id:)
+  def self.peep_post(peep:, user_id:)
     time = Time.now.strftime('%H:%M')
     connect_to_database.exec("INSERT INTO peeps (peep, created_on, user_id) VALUES('#{peep}', '#{time}', '#{user_id}');")
   end
 
-  def self.chitter_all
+  def self.peep_all
     connect_to_database.exec("SELECT * FROM peeps")
+  end
+
+  def self.peep_delete(id:)
+    connect_to_database.exec("DELETE FROM peeps WHERE id = #{id}")
   end
 
   private

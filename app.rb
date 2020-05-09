@@ -11,12 +11,17 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/chitter-post' do
-    Chitter.chitter_post(peep: params[:peep], user_id: 1)
+    Chitter.peep_post(peep: params[:peep], user_id: 1)
+    redirect '/chitter'
+  end
+
+  post '/chitter-delete/:id' do
+    Chitter.peep_delete(id: params[:id])
     redirect '/chitter'
   end
 
   get '/chitter' do
-    @peeps = Chitter.chitter_all
+    @peeps = Chitter.peep_all
     erb :'chitter/index'
   end
 

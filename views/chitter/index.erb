@@ -5,10 +5,15 @@
   <input value='Post Peep' type='submit' >
 </form>
 
-<ul>
-  <% @peeps.each do |peep| %>
-    <li>
-      <%= peep['peep'] %>
-    </li>
-  <% end %>
-</ul>
+<div>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <p><%= peep['peep'] %></p>
+        <form action='/chitter-delete/<%= peep['id'] %>' method='post' >
+          <input value='Delete Peep' type='submit' >
+        </form>
+      </li>
+    <% end %>
+  </ul>
+</div>
