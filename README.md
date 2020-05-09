@@ -96,9 +96,19 @@ I want to post a message (peep) to chitter
 * configured testing environment
 * implemented class methods to facilitate the creation and retrieval of peeps from database
 
+### 2nd user story
+
 ```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 ```
 * changed the query string in ```Peep.all``` to reflect the user story
+
+### 2nd user story
+
+```
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```

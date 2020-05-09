@@ -4,18 +4,29 @@ describe Peep do
 
   describe '.all' do
     it 'retrieves all the peeps from the database' do
-      PG.connect(dbname: 'chitter-test')
-        .exec("INSERT INTO peeps (peep) VALUES('This is a test peep!');")
+      peep = Peep.create(peep: 'This is a test peep!')
+      Peep.create(peep: 'This is another test peep!')
 
-      expect(Peep.all).to include 'This is a test peep!'
+      peeps = Peep.all
+
+      expect(peeps.length).to eq 2
+      expect(peeps.last).to be_a Peep
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.peep).to eq 'This is a test peep!'
+      expect(peeps.last.created_at).to eq peep.created_at
     end
   end
 
   describe '.create' do
     it 'creates and stores a peep in the database' do
-      Peep.create(peep: 'This is a peep')
+      peep = Peep.create(peep: 'This is a peep')
+      persisted_data = PG.connect(dbname: 'chitter-test')
+                         .exec("SELECT * FROM peeps WHERE id = '#{peep.id}';")
 
-      expect(Peep.all).to include 'This is a peep'
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq persisted_data.first['id']
+      expect(peep.peep).to eq 'This is a peep'
+      expect(peep.created_at).to eq persisted_data.first['created_at']
     end
   end
 end
