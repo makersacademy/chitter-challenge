@@ -1,8 +1,8 @@
 <% if @user %>
   <p> You're signed in as <%= @user.user_name %>.</p>
+<% else %>
+  <a name="log in" href="/log-in">log in</a>
 <% end %>
-
-<a name="log in" href="/log-in">log in</a>
 
 <form action="/peeps" method="post">
   <label for="body">Body:</label><br>
