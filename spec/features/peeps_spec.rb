@@ -22,4 +22,11 @@ feature 'peeps' do
     expect(element_3).to appear_before(element_2)
     expect(element_2).to appear_before(element_1)
   end
+
+  scenario 'date is displayed' do
+    date_posted = Time.new(2020, 10, 31, 17, 20, 3)
+    Peep.new(body: 'cats', created_at: date_posted).save
+    visit('/peeps')
+    expect(page).to have_content('Posted at 17:20 on 10/31/2020')
+  end
 end
