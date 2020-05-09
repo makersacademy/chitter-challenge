@@ -13,4 +13,9 @@ feature 'sign up' do
     visit('/peeps')
     expect(page).to have_link('Sign up')
   end
+
+  scenario 'sign up link is NOT dispalyed if user IS logged in' do
+    log_in
+    expect(page).to_not have_link('Sign up')
+  end
 end
