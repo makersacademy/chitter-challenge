@@ -32,4 +32,11 @@ feature 'post peep' do
     expect(page).to have_text "Second Peep #{time}\nFirst peep #{time}"
   end
 
+  scenario 'able to see time the peep been posted' do
+    post_peep_to_chitter
+    time = Time.now.strftime('%H:%M')
+
+    expect(page).to have_text "First peep #{time}"
+  end
+
 end
