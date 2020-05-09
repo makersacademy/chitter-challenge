@@ -10,6 +10,7 @@ class Chitter
 
   def self.peep_post(peep:, user_id:)
     time = Time.now.strftime('%H:%M')
+    peep = 'Empty Peep' if peep == ''
     connect_to_database.exec("INSERT INTO peeps (peep, created_on, user_id) VALUES('#{peep}', '#{time}', '#{user_id}');")
   end
 
@@ -19,6 +20,14 @@ class Chitter
 
   def self.peep_delete(id:)
     connect_to_database.exec("DELETE FROM peeps WHERE id = #{id}")
+  end
+
+  def self.peep_sort
+    connect_to_database.exec("SELECT * FROM peeps ORDER BY id DESC")
+  end
+
+  def self.toggle
+    peep_sort = true
   end
 
   private

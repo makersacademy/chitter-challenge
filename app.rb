@@ -20,8 +20,13 @@ class ChitterApp < Sinatra::Base
     redirect '/chitter'
   end
 
+  post '/chitter-sort' do
+    session[:toggle] = params[:peep_sort]
+    redirect '/chitter'
+  end
+
   get '/chitter' do
-    @peeps = Chitter.peep_all
+    session[:toggle] != 'DESC' ? @peeps = Chitter.peep_all : @peeps = Chitter.peep_sort
     erb :'chitter/index'
   end
 

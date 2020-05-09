@@ -5,15 +5,27 @@
   <input value='Post Peep' type='submit' >
 </form>
 
+<form action='/chitter-sort' method='post' >
+  <select name='peep_sort'>
+  <option value= '' selected disabled hidden>Choose Peep Option</option>
+  <option value='ASCE' >Sort Peeps Ascending</option>
+  <option value='DESC' >Sort Peeps Descending<option>
+  </select>
+  <input value='Sort Peeps' type='submit' >
+<form>
+
 <div>
-  <ul>
-    <% @peeps.each do |peep| %>
-      <li>
-        <p><%= peep['peep'] %></p>
-        <form action='/chitter-delete/<%= peep['id'] %>' method='post' >
-          <input value='Delete Peep' type='submit' >
-        </form>
-      </li>
-    <% end %>
-  </ul>
+    <ul>
+      <% @peeps.each do |peep| %>
+        <li>
+          <form action='/chitter-delete/<%= peep['id'] %>' method='post' >
+            <%= peep['peep'] %>
+            <%= peep['created_on'] %>
+            <input value='Delete Peep' type='submit' >
+          </form>
+        </li>
+      <% end %>
+    </ul>
 </div>
+
+<%= @toggle %>

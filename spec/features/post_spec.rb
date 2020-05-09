@@ -16,8 +16,20 @@ feature 'post peep' do
     post_peep_to_chitter
     fill_in 'peep', with: 'Second Peep'
     click_button 'Post Peep'
+    time = Time.now.strftime('%H:%M')
 
-    expect(page).to have_content "First peep\nSecond Peep"
+    expect(page).to have_text "First peep #{time}\nSecond Peep #{time}"
+  end
+
+  scenario 'bale to see peeps in reverse' do
+    post_peep_to_chitter
+    fill_in 'peep', with: 'Second Peep'
+    click_button 'Post Peep'
+    page.select 'Sort Peeps Descending', from: 'peep_sort'
+    click_button 'Sort Peeps'
+    time = Time.now.strftime('%H:%M')
+
+    expect(page).to have_text "Second Peep #{time}\nFirst peep #{time}"
   end
 
 end

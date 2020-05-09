@@ -38,4 +38,18 @@ describe Chitter do
     end
   end
 
+  describe '.peep_sort' do
+    it 'should sort peeps' do
+      Chitter.peep_post(peep: 'First peep', user_id: 1)
+      Chitter.peep_post(peep: 'Second peep', user_id: 1)
+      peep_sort = Chitter.peep_sort
+
+      peeps = []
+      peep_sort.each do |sort|
+        peeps << sort['peep']
+      end
+      expect(peeps[0]).to eq 'Second peep'
+    end
+  end
+
 end
