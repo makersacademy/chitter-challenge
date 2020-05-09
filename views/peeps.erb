@@ -1,5 +1,8 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li>
+      <p><%= peep.author %> said at <%= peep.created_at %>:</p>
+      <p><%= peep.content %></p>
+    </li>
   <% end %>
 </ul>
