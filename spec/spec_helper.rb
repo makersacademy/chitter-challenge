@@ -30,3 +30,11 @@ require 'rspec'
 
 # Tell Capybara to talk to ChitterApp
 Capybara.app = ChitterApp
+
+require_relative './setup_test_database.rb'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
