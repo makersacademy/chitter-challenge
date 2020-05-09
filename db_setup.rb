@@ -15,8 +15,8 @@ end
 DataMapper.auto_migrate!
 
 configure :development do
-  Peep.new(body: 'cats', created_at: Time.now).save
-  Peep.new(body: 'pancakes', created_at: Time.now + 3600).save
-  Peep.new(body: 'feelings', created_at: Time.now - 2000).save
-  User.new(name: 'Dec', user_name: 'd', password: '12', email: 'd@d').save
+  User.new(id: 20, name: 'D Kolakowski', user_name: 'Dec', password: '12', email: 'd@d').save
+  Peep.new(body: 'cats', created_at: Time.now, created_by: 20).save
+  Peep.new(body: 'pancakes', created_at: Time.now - 3600, created_by: 20).save
+  Peep.new(body: 'feelings', created_at: Time.now - 2000, created_by: 20).save
 end

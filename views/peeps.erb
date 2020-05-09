@@ -15,6 +15,6 @@
 
 <% @peeps.each do |peep| %>
   <p id="<%= peep.body %>"> <%= peep.body %> </p>
-  </br>
   <p> Posted at <%= peep.created_at_time %> on <%= peep.created_at_date %> by <%= peep.creator_name %> </p>
+  </br>
 <% end %>
