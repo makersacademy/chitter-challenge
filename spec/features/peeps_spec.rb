@@ -27,6 +27,6 @@ feature 'peeps' do
     date_posted = Time.new(2020, 10, 31, 17, 20, 3)
     Peep.new(body: 'cats', created_at: date_posted).save
     visit('/peeps')
-    expect(page).to have_content('Posted at 17:20 on 10/31/2020')
+    expect(page).to have_content('Posted at 17:20 on 31/10/2020')
   end
 end
