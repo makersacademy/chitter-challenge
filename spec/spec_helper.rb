@@ -38,4 +38,3 @@ RSpec.configure do |config|
     empty_and_fill_test_db
   end
 end
-

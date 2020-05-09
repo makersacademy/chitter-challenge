@@ -12,6 +12,6 @@ class Person
   end
 
   def add(peep)
-      @peeps << peep
+    @peeps << peep
   end
 end
