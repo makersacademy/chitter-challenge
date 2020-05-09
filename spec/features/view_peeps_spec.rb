@@ -1,8 +1,4 @@
 feature 'Viewing peeps' do
-  # scenario 'visits index page' do
-  #   visit('/')
-  #   expect(page).to have_content 'First peep!'
-  # end
   scenario 'views peeps in reverse cronological order' do
     Peep.create(username: "Gareth", message: "First message")
     sleep 1
@@ -12,6 +8,6 @@ feature 'Viewing peeps' do
 
     visit('/')
 
-    expect(page.first('.peep p').text).to eq "Third message"
+    expect(page.first('.peep p').text).to have_content "Third message"
   end
 end
