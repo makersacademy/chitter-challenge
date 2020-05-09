@@ -2,15 +2,13 @@
 
 ## Setup
 
-
-
 ```
 $ bundle install
-$ rake db:create_migration NAME=create_posts
+$ psql < db/migrate/01-create_databases.sql
 $ rake db:migrate
 ```
 
-This will instll all required Gems and
+This will install all required Gems and create the databases and tables needed.
 
 ## Usage
 
