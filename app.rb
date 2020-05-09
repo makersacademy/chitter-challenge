@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
+require './lib/user'
 require './database_connection_setup'
 
 class ChitterApp < Sinatra::Base
@@ -20,6 +21,10 @@ class ChitterApp < Sinatra::Base
   # Submit peep
   post '/peeps' do
     @user = session[:current_user]
+
+    # Redirects to login page unless signed in
+    redirect '/users/login' unless @user
+
     Peep.create(user_id: @user.id, message: params[:peep])
     redirect '/'
   end
@@ -38,6 +43,11 @@ class ChitterApp < Sinatra::Base
   # Form to login
   get '/users/login' do
     erb :'/users/login'
+  end
+
+  get '/users/logout' do
+    session[:current_user] = nil
+    redirect '/'
   end
 
   post '/users/login' do
