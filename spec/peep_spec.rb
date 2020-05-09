@@ -5,7 +5,7 @@ describe Peep do
     it 'lists all peeps' do
       peeps = Peep.all
       expect(peeps).to include 'Good morning all!'
-      expect(peeps).to include 'Summer is here'
+      expect(peeps).to include 'Summer is here yay'
     end
   end
 end

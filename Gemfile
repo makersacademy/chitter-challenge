@@ -9,3 +9,4 @@ group :test do
 end
 
 gem 'sinatra'
+gem 'pg'
