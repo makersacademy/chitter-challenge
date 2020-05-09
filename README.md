@@ -100,6 +100,7 @@ As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 ```
+* write the feature test
 * changed the query string in ```Peep.all``` to reflect the user story
 
 
@@ -110,4 +111,4 @@ I want to see the time at which it was made
 ```
 * refactored unit tests and wrapped database data in Ruby objects
 * write the feature test
-* updated index.erb 
+* updated index.erb

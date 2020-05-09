@@ -9,11 +9,12 @@
 </form>
 
 <div>
-  <% @peep.each do |peep| %>
-    <p>
-      <%= peep.peep %>
-    </p>
-    <p id='posted_on'>Posted on: <%= peep.created_at %></p>
-
+  <ul>
+    <% @peep.each do |peep| %>
+      <li class='peep'>
+        <%= peep.peep %>
+        <p id='posted_on'>Posted on: <%= peep.created_at %></p>
+      </li>
     <% end %>
+  </ul>
 </div>
