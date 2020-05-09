@@ -6,6 +6,7 @@ class Peep
   property :id, Serial
   property :body, String
   property :created_at, DateTime
+  property :created_by, Integer # => foreign key
 
   def self.sort_by_date_created(peeps)
     peeps.sort_by { |peep| peep.created_at }.reverse

@@ -5,13 +5,16 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
+  before do
+    @user = session[:current_user]
+  end
+
   get '/' do
     'testing fraemwork working'
   end
 
   get '/peeps' do
     @peeps = Peep.sort_by_date_created(Peep.all)
-    @user = session[:current_user]
     erb(:peeps)
   end
 

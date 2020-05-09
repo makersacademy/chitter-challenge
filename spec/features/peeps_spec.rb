@@ -13,6 +13,13 @@ feature 'peeps' do
     expect(page).to_not have_content("What's up?")
   end
 
+  scenario 'peeps display the name of the user that posted them' do
+    log_in
+    fill_in('body', with: '#waffles')
+    click_button('post')
+    expect(page).to have_content('posted by dk')
+  end
+
   scenario 'user can see peeps in chronological order' do
     Peep.new(body: 'cats', created_at: Time.now).save
     Peep.new(body: 'pancakes', created_at: Time.now + 3600).save
