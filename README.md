@@ -53,6 +53,7 @@ Connect to 'psql' and create 'chitter' database:
 
 ```
 CREATE DATABASE chitter;
+CREATE DATABASE chitter-test;
 ```
 
 To set up the tables for the ```chitter``` database run the SQL scripts inside the "db/migrations" folder.
@@ -93,4 +94,4 @@ Steps:
 - add text-area and form for creating and posting peeps to the index.erb
 - create get and post routes
 - make the test pass in the simplest way
--
+- create and connect to database to retrieve peeps

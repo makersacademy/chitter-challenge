@@ -1,5 +1,9 @@
 feature 'Posting a peep' do
   scenario 'a user can post a peep' do
+    peep = 'This is a test peep!'
+    connection = PG.connect(dbname: 'chitter-test')
+    connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}');")
+
     visit '/peeps'
 
     expect(page).to have_field 'peep'
@@ -8,6 +12,6 @@ feature 'Posting a peep' do
     click_button 'Peep it'
 
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content 'This is a peep from a feature test!'
+    expect(page).to have_content peep
   end
 end
