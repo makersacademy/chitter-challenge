@@ -1,3 +1,16 @@
+# Chitter Challenge
+
+## Usage
+
+```
+$ bundle install
+$ ./run
+```
+
+This will open the default browser and load http://localhost:9292, probably before the server is running, so need to refresh to see page.
+
+# Original README.md
+
 Chitter Challenge
 =================
 
