@@ -5,7 +5,8 @@ class ChitterApp < Sinatra::Base
 
   # Returns list of peeps
   get '/' do
-    @peep = session[:peep]
+    #@peep = session[:peep]
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
@@ -16,7 +17,8 @@ class ChitterApp < Sinatra::Base
 
   # Submit peep
   post '/peeps' do
-    session[:peep] = params[:peep]
+    #session[:peep] = params[:peep]
+    Peep.create(username: "Gareth", message: params[:peep])
     redirect '/'
   end
 end
