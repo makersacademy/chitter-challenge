@@ -1,12 +1,15 @@
 require 'sinatra/base'
+require 'sinatra/activerecord'
+require './environments'
 
 # Global for verbose output
 # $verbose = true
 
-class PeerPair < Sinatra::Base
+class Chitter < Sinatra::Base
 
   before '/' do
     verbose_output(request.url) if $verbose
+
   end
 
   get '/' do

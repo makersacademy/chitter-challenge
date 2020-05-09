@@ -1,13 +1,30 @@
 # Chitter Challenge
 
-## Usage
+## Setup
+
+
 
 ```
 $ bundle install
+$ rake db:create_migration NAME=create_posts
+$ rake db:migrate
+```
+
+This will instll all required Gems and
+
+## Usage
+
+```
 $ ./run
 ```
 
 This will open the default browser and load http://localhost:9292, probably before the server is running, so need to refresh to see page.
+
+## Todo
+
+* Remove commented code from environments.rb
+* Remove test environment
+
 
 # Original README.md
 

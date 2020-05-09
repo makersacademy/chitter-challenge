@@ -3,9 +3,12 @@
 source 'https://rubygems.org'
 
 # gem "rails"
+gem 'activerecord'
 gem 'pg'
+gem 'rake' # to apply migrations
 gem 'sinatra'
-group :test do
+gem 'sinatra-activerecord'
+group :test, :development do
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop', '0.79.0'
