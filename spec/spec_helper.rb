@@ -7,6 +7,7 @@ ENV['ENVIRONMENT'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
+require 'features/web_helpers'
 
 Capybara.app = Chitter
 

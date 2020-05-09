@@ -32,4 +32,21 @@ describe User do
     end
   end
 
+  describe '#check' do
+    context 'Correct username and password' do
+      it 'checks username and password' do
+        first_user = User.add(name: 'James Smith', username: 'james_smith', password: 'Password123')
+
+        expect(User.check(username: 'james_smith', password: 'Password123')).to eq true 
+      end
+    end
+
+    context 'Incorrect username and password' do
+      it 'checks username and password' do
+        first_user = User.add(name: 'James Smith', username: 'james_smith', password: 'Password123')
+
+        expect( User.check(username: 'james_smith', password: 'kassword123') ).to eq false
+      end
+    end
+  end
 end

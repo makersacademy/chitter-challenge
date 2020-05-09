@@ -4,6 +4,7 @@ gem 'capybara'
 gem 'pg'
 gem 'rack'
 gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

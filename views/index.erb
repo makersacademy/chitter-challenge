@@ -1,5 +1,6 @@
 <center>
 <h1> Chitter Feed </h1>
+<h1> Welcome, <%= @username %> </h1>
 
 <ul>
   <% @result.sort! { |a, b|  b.time <=> a.time } %>

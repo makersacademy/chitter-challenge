@@ -1,10 +1,12 @@
 require 'sinatra/base'
 require './lib/peep'
 require './lib/user'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/peeps' do
     @result = Peep.all
@@ -40,8 +42,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/login' do
-    session[:username] = params[:username]
-    redirect('/peeps')
+    if User.check(username:params[:username], password:params[:password])
+      session[:username] = params[:username]
+      redirect('/peeps')
+    else
+      flash[:notice] = "The details do not match our records, please try again."
+    end 
   end
 
 end
