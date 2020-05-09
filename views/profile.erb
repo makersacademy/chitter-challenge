@@ -1,13 +1,37 @@
-
+<center><h2>Your Profile!</h2>
   <% @makerall.each do |info| %>
     <% #if @makersignup == info.username %>
-     <%= info.name %>
-     <%= info.username %>
-     <%= info.email %>
+    <h4> <%= info.name %></h4>
+     <h4><%= info.username %></h4>
+    <h4> <%= info.email %></h4>
     <% end %>
     <% #end %>
 
-<h4>If this information is correct, select below.</h4>
+<h4>If this information is correct, select below.</h4><br><br>
     <form action="/login" method="get">
     <input type="submit" value="Log In"/>
     </form>
+
+    <style>
+
+      h4 {3
+        font-size: 30px;
+      }
+
+      h2 {
+        font-size: 100px;
+        margin-top: 3px;
+        margin-bottom: -5px;
+      }
+
+      input[type=submit] {
+       box-sizing: border-box; width: 15%;
+       font-family: 'Athiti';
+       font-size: 25px;
+       border: 0.3rem outset white;
+       border-radius: 10px;
+       background: #FFFFCC;
+       outline-offset: 0.5rem;
+     }
+     </style>
+</center>

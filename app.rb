@@ -5,11 +5,11 @@ require './lib/maker_profile.rb'
 #use routes overview for what to call the different routes
 
 class Chitter < Sinatra::Base
+  Rack::Session::Pool
   enable :sessions
 
   get '/' do
     @peeps = MakerPeep.all
-    @makerall = MakerProfile.all
     erb :list_of_peeps
   end
 
@@ -19,9 +19,6 @@ class Chitter < Sinatra::Base
 
   post '/sign_up' do
     @makersignup = MakerProfile.signup(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
-    # @makerusername = session[:username]
-    # @makerpassword = session[:password]
-    # @makername = session[:name]
     redirect '/profile'
   end
 
@@ -58,7 +55,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_peep' do
-    MakerPeep.create(peep: params[:peep], username: params[:username], datetime: params[Time.now])
+    MakerPeep.create(peep: params[:peep], username: params[:username], datetime: params[:datetime])
     redirect '/home'
   end
 
