@@ -23,8 +23,8 @@ class MakerPeep
 
     result = connection.exec("SELECT * FROM peeps ORDER BY datetime DESC")
     result.map do |peep|
-       puts peep[peep: peep], peep[username: username], peep[time: date_and_time]
-    end
+     MakerPeep.new(id: peep['id'], peep: peep['peep'], username: peep['username'], datetime: peep['datetime'])
+   end
   end
 
   def self.create(peep:, username:, datetime:)  #shouldn't have to fill in username, will pop up automatically in website, and date can do without user input
@@ -34,7 +34,7 @@ class MakerPeep
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("INSERT INTO peeps (peep, username, datetime) VALUES ('#{peep}'), ('#{username}'), ('#{Time.now}') RETURNING id, username, peep, datetime;")
-    Maker.new(id: result[0]['id'], peep: result[0]['peep'], username: result[0]['username'], datetime: result[0]['datetime'])
+    result = connection.exec("INSERT INTO peeps (peep, username, datetime) VALUES('#{peep}', '#{username}', '#{Time.now}') RETURNING id, username, peep, datetime;")
+    MakerPeep.new(id: result[0]['id'], peep: result[0]['peep'], username: result[0]['username'], datetime: result[0]['datetime'])
   end
 end
