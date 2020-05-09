@@ -12,7 +12,6 @@ describe Peep do
 
   describe '.create' do
     it 'adds new peep' do
-      connection = PG.connect(dbname: 'chitter_test')
       Peep.create('Zsofi', 'Test')
       peeps = Peep.all
       expect(peeps).to include 'Test'
