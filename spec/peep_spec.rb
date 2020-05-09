@@ -10,4 +10,12 @@ describe Peep do
       expect(Peep.all).to include 'This is a test peep!'
     end
   end
+
+  describe '.create' do
+    it 'creates and stores a peep in the database' do
+      Peep.create(peep: 'This is a peep')
+
+      expect(Peep.all).to include 'This is a peep'
+    end
+  end
 end
