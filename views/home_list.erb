@@ -1,0 +1,10 @@
+<% @makerall.each do |info| %>
+<h3>Welcome, <%= info.name %> <% end %></h3>
+
+<form action="/add_peep" type="get">
+<input type="submit" value="Add Peep!">
+</form>
+
+<form action="/" type="get">
+  <input type="submit" value="=logout">
+</form>

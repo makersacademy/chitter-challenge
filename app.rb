@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @maker = MakerProfile.all
+    @peeps = MakerPeep.all
     erb :list_of_peeps
   end
 
@@ -17,38 +17,48 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    MakerProfile.signup(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
+    @makersignup = MakerProfile.signup(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
+    # @makerusername = session[:username]
+    # @makerpassword = session[:password]
+    # @makername = session[:name]
     redirect '/profile'
   end
 
   get '/profile' do
     # @makerusername = session[:username]
-    @maker = MakerProfile.all
+    @makerall = MakerProfile.all
      erb :profile
   end
 
   get '/login' do
-    @makerusername = session[:username]
-    @makerpassword = session[:password]
     erb :login
   end
 
   post '/login' do
-    @makerusername = session[:username]
-    @makerpassword = session[:password]
+    @makerall = MakerProfile.all
     session[:uname] = params[:login1]
-    session[:pword] = params["login2"]
-    redirect '/'
+    session[:pword] = params[:login2]
+    redirect '/home'
   end
 
   get '/login_error' do
     erb :login_error
   end
 
+  get '/home' do
+    @peeps = MakerPeep.all
+    @makerall = MakerProfile.all
+    erb :home_list
+  end
+
   get '/add_peep' do
+    @makerall = MakerProfile.all
     erb :add_peep
-    redirect '/'
-    #see peep
+  end
+
+  post '/add_peep' do
+    MakerPeep.create(peep: params[:peep], username: params[:username], datetime: params[Time.now])
+    redirect '/home'
   end
 
     run! if app_file == $0
