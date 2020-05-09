@@ -1,6 +1,10 @@
+<center>
+<h1> Chitter Feed </h1>
+
 <ul>
   <% @result.sort! { |a, b|  b.time <=> a.time } %>
   <% @result.each do |peep| %>
     <li><%= peep.peep %> <%= peep.time %></li>
   <% end %>
 </ul>
+</center>

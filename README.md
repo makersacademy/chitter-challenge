@@ -1,24 +1,30 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This web application is a Twitter clone that allows users to post messages, known as peeps, to a public stream.
 
-Challenge:
--------
+[INSERT ENTITY RELATIONSHIP DIAGRAM]
 
-As usual please start by forking this repo.
+[INSERT MODEL]
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+[INSERT SCREENSHOTS OF WEBSITE]
 
-Features:
+## Features
+
+A user can accomplish the following:
+
+  * Post a message (peep) to Chitter
+  * See all peeps in reverse chronological order
+  * See the time at which a peep was made
+  * Sign up to Chitter with a username and password
+  * Log into Chitter and post peeps as themselves
+  * Log out of Chitter
+  * Receive an email if they are tagged in a peep
+
+The following user stories were satisfied:
 -------
 
 ```
-STRAIGHT UP
 
 As a Maker
 So that I can let people know what I am doing  
@@ -111,23 +117,3 @@ If you want a green tick against your pull request you'll need to configure Trav
 
 - [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
 - [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
