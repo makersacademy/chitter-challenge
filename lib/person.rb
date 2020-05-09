@@ -11,9 +11,7 @@ class Person
     @peeps = []
   end
 
-  def update(peeps)
-    peeps.each{
+  def add(peep)
       @peeps << peep
-    }
   end
 end

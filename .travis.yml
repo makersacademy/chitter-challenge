@@ -5,9 +5,12 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(50), real_name VARCHAR(50), user_handle VARCHAR(20), password VARCHAR(20));
+  - CREATE TABLE peeps (id SERIAL PRIMARY KEY, timestamp VARCHAR(100), body VARCHAR(500), user_handle VARCHAR(20), real_name VARCHAR(50));
+
+  - psql -U postgres -c 'CREATE DATABASE chitter;'
+  - CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(50), real_name VARCHAR(50), user_handle VARCHAR(20), password VARCHAR(20));
+  - CREATE TABLE peeps (id SERIAL PRIMARY KEY, timestamp VARCHAR(100), body VARCHAR(500), user_handle VARCHAR(20), real_name VARCHAR(50));
 
 script:
   - bundle exec rspec
-
-# CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(50), real_name VARCHAR(50), user_handle VARCHAR(20), password VARCHAR(20));
-# CREATE TABLE peeps (id SERIAL PRIMARY KEY, timestamp VARCHAR(100), body VARCHAR(500), user_handle VARCHAR(20), real_name VARCHAR(50));

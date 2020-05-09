@@ -3,7 +3,8 @@ require_relative './lib/database_scripts.rb'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
+  # enable :sessions
+  use Rack::Session::Pool
 
   get '/' do
     session[:peeps] = getpeeps
@@ -39,7 +40,9 @@ class Chitter < Sinatra::Base
 
   post '/added' do
     addpeep(params[:body], session[:person].user_name, session[:person].real_name)
-    # add peeps to person object
+    user_name = session[:person].user_name
+    password = session[:person].password
+    session[:person] = get_person(user_name, password)
     redirect '/'
   end
 

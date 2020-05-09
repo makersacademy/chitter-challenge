@@ -32,3 +32,10 @@ end
 # end
 
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+  config.before(:each) do
+    empty_and_fill_test_db
+  end
+end
+

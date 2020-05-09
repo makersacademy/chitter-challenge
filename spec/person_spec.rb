@@ -12,4 +12,12 @@ describe Person do
       expect(subject.peeps).to eq []
     end
   end
+  describe 'add' do 
+    it 'adds to the peeps arrray' do 
+      subject = Person.new(1, 2, 3, 4, 5)
+      subject.add('test1')
+      subject.add('test2')
+      expect(subject.peeps).to eq ['test1', 'test2']
+    end
+  end
 end
