@@ -1,15 +1,7 @@
-language: ruby
-
-services:
-  - postgresql
-
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -d chitter_test 'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(50), real_name VARCHAR(50), user_handle VARCHAR(20), password VARCHAR(20));'
-  - psql -U postgres -d chitter_test 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, timestamp VARCHAR(100), body VARCHAR(500), user_handle VARCHAR(20), real_name VARCHAR(50));'
-  - psql -U postgres -c 'CREATE DATABASE chitter;'
-  - psql -U postgres -d chitter 'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(50), real_name VARCHAR(50), user_handle VARCHAR(20), password VARCHAR(20));'
-  - psql -U postgres -d chitter 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, timestamp VARCHAR(100), body VARCHAR(500), user_handle VARCHAR(20), real_name VARCHAR(50));'
+  - psql -U postgres -d chitter_test -f db/migrations/01_create_users_table.sql
+  - psql -U postgres -d chitter_test -f db/migrations/01_create_peeps_table.sql
 
 script:
   - bundle exec rspec
