@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'pg'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'orderly'
 
 group :test do
   gem 'rspec'

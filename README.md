@@ -18,7 +18,7 @@ I want to see all peeps in reverse chronological order
 | --- | --- |
 | id | PRIMARY SERIAL ID |
 | body | VARCHAR(240) |
-| created_at | DATE |
+| created_at | DATE TIME |
 
 ## Models
 

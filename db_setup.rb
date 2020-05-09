@@ -12,3 +12,9 @@ configure :development do
 end
 
 DataMapper.auto_migrate!
+
+configure :development do
+  Peep.new(body: 'cats', created_at: Time.now).save
+  Peep.new(body: 'pancakes', created_at: Time.now + 3600).save
+  Peep.new(body: 'feelings', created_at: Time.now - 2000).save
+end

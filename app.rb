@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.sort_by_date_created(Peep.all)
     erb(:peeps)
   end
 
