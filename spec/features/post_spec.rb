@@ -12,4 +12,12 @@ feature 'post peep' do
     expect(page).not_to have_content 'First Peep'
   end
 
+  scenario 'bale to post multiple peeps' do
+    post_peep_to_chitter
+    fill_in 'peep', with: 'Second Peep'
+    click_button 'Post Peep'
+
+    expect(page).to have_content "First peep\nSecond Peep"
+  end
+
 end
