@@ -8,4 +8,8 @@ class User
   property :user_name, String
   property :email, String
   property :password, String
+
+  def self.get_user_by_name(name)
+
+  end
 end

@@ -2,7 +2,7 @@ require './models/peep'
 
 describe Peep do
 
-  let(:subject) { described_class.new(created_at: Time.new(2020, 10, 31, 17, 52, 3)) }
+  let(:subject) { described_class.new(created_at: Time.new(2020, 10, 31, 17, 52, 3), created_by: 20) }
 
   describe ".sort_by_date_created" do
     it 'sorts an array of peeps by created_at date' do
@@ -25,6 +25,13 @@ describe Peep do
   describe '#created_at_date' do
     it 'returns the date it was created as a string' do
       expect(subject.created_at_date).to eq('31/10/2020')
+    end
+  end
+
+  describe '#creator_name' do
+    it 'returns the name of the user that created it' do
+      User.new(id: 20, name: 'Dec', user_name: 'dk', email: 'dec@dec.com', password: 'pa55word').save
+      expect(subject.creator_name).to eq('dk')
     end
   end
 end

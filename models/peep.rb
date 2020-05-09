@@ -19,4 +19,8 @@ class Peep
   def created_at_date
     @created_at.strftime('%d/%m/%Y')
   end
+
+  def creator_name
+    created_by.nil? ? 'Unknown' : User.get(created_by).user_name
+  end
 end

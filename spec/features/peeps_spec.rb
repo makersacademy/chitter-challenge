@@ -17,13 +17,14 @@ feature 'peeps' do
     log_in
     fill_in('body', with: '#waffles')
     click_button('post')
-    expect(page).to have_content('posted by dk')
+    expect(page).to have_content('by dk')
   end
 
   scenario 'user can see peeps in chronological order' do
-    Peep.new(body: 'cats', created_at: Time.now).save
-    Peep.new(body: 'pancakes', created_at: Time.now + 3600).save
-    Peep.new(body: 'feelings', created_at: Time.now - 2000).save
+    User.new(id: 20, user_name: 'dec').save
+    Peep.new(body: 'cats', created_at: Time.now, created_by: 20).save
+    Peep.new(body: 'pancakes', created_at: Time.now + 3600, created_by: 20).save
+    Peep.new(body: 'feelings', created_at: Time.now - 2000, created_by: 20).save
 
     visit('/peeps')
 

@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.new(body: params[:body]).save
+    Peep.new(body: params[:body], created_by: @user.id).save
     redirect('/peeps')
   end
 
@@ -29,6 +29,7 @@ class Chitter < Sinatra::Base
 
   post '/sign-up' do
     User.new(name: params[:name], user_name: params[:username], email: params[:email], password: params[:password]).save
+    redirect('/peeps')
   end
 
   get '/log-in' do
@@ -36,12 +37,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/log-in' do
+    p params[:username]
+    p User.all
     if @current_user = User.all(User.user_name => params[:username]).first
       if @current_user.password == params[:password]
         session[:current_user] = @current_user
         redirect('/peeps')
       end
     end
+    'failed to log in'
   end
 
   get '/log-out' do
