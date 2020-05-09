@@ -7,7 +7,8 @@ class Peep
   def initialize(id:, peep:, created_at:)
     @id = id
     @peep = peep
-    @created_at = created_at
+    @created_at = Time.parse(created_at).strftime("%B %e, %Y at %I:%M %p")
+
   end
 
   def self.all
