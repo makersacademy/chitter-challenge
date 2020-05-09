@@ -2,9 +2,10 @@ require 'pg'
 require_relative 'database_connection'
 
 class Peep
-  attr_reader :username, :message, :date_time
+  attr_reader :id, :username, :message, :date_time
 
-  def initialize(username, message, date_time)
+  def initialize(id, username, message, date_time)
+    @id         = id
     @username   = username
     @message    = message
     @date_time  = date_time
@@ -24,7 +25,7 @@ class Peep
   end
 
   def self.instance(peep)
-    Peep.new(peep['username'], peep['message'], peep['date_time'])
+    Peep.new(peep['id'], peep['username'], peep['message'], peep['date_time'])
   end
 
   private_class_method :instance

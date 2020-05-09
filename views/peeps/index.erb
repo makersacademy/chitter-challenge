@@ -1,4 +1,5 @@
-<% @peeps.each do |peep| %>
-  <%= peep.message %>
+<% @peeps.reverse.each do |peep| %>
+  <li class="peep" id="peep-<%= peep.id %>">
+    <p class="peep"><%= peep.message %></p>
+  </li>
 <% end %>
-First peep!
