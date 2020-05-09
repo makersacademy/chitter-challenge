@@ -1,3 +1,7 @@
+<% if @user %>
+  <p> You're signed in as <%= @user.user_name %>.</p>
+<% end %>
+
 <form action="/peeps" method="post">
   <label for="body">Body:</label><br>
   <input type="text" name="body" value="">
