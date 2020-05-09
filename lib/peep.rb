@@ -11,6 +11,11 @@ class Peep
     @date_time  = date_time
   end
 
+  def user
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{@user_id}")
+    User.new(result[0]['id'], result[0]['name'], result[0]['email'], result[0]['password'])
+  end
+
   def self.create(user_id:, message:)
     result = DatabaseConnection.query("INSERT INTO peeps (user_id, message, date_time)
       VALUES('#{user_id}', '#{message}', '#{Time.new}')
