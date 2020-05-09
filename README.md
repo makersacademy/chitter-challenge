@@ -1,4 +1,4 @@
-#CHITTER CHALLENGE
+CHITTER CHALLENGE
 
 This is a simple clone of a famous social media website.
 
