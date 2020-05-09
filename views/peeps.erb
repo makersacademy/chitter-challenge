@@ -1,0 +1,9 @@
+<form action="/peeps" method="post">
+  <label for="body">Body:</label><br>
+  <input type="text" name="body" value="">
+  <input type="submit" name="post" value="Post">
+</form>
+
+<% @peeps.each do |peep| %>
+  <p> <%= peep.body %> </p>
+<% end %>
