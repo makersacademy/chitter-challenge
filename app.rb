@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.order(created_at: :desc)
     if session[:user_id]
       @user = User.find(session[:user_id])
     end
