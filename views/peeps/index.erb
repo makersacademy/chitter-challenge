@@ -3,7 +3,11 @@
 </div>
 
 <div>
-  <p>This is a peep from a feature test!</p>
+  <% @peep.each do |peep| %>
+    <p>
+      <%= peep['peep'] %>
+    </p>
+    <% end %>
 </div>
 
 <textarea form="peep" name="peep"></textarea>
