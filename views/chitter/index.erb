@@ -1,0 +1,14 @@
+<h1>Chitter Home</h1>
+
+<form action='/chitter-post' method='post' >
+  <input placeholder='peep' type='text' name='peep' >
+  <input value='Post Peep' type='submit' >
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep['peep'] %>
+    </li>
+  <% end %>
+</ul>

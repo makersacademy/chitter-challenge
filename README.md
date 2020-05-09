@@ -70,7 +70,7 @@ And/Or:
 
 Chitter | Peep | User
 :--- | :--- | :---
-#post_chitter | #peep_time | #user_sign_up
+#chitter_post | #peep_time | #user_sign_up
 #chitter_all |  | #user_log_in
 #chitter_delete |  | #user_log_out
 
