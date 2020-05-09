@@ -1,0 +1,32 @@
+#!/bin/bash
+
+USAGE='usage:\ttdd.test [object-name]'
+
+# TODO Logic needs to add case to print USAGE
+
+if [[ "$1" ]] ; then
+  SPEC_FILE="./spec/"$1"_spec.rb"
+  if [[ ! -f $SPEC_FILE ]] ; then
+    echo -e "$SPEC_FILE not found"
+    exit 1
+  fi
+else
+  SPEC_FILE=""
+fi
+
+clear
+CMD=rspec $SPEC_FILE
+echo -e "$HOSTNAME\$ $CMD\n"
+$CMD
+
+if [[ "$1" ]] ; then
+  LIB_FILE="./lib/$1.rb"
+  if [[ ! -f $LIB_FILE ]] ; then
+    $LIB_FILE=""
+  fi
+fi
+
+
+CMD=rubocop $SPEC_FILE $LIB_FILE
+echo -e "$HOSTNAME\$ $CMD\n"
+$CMD
