@@ -25,12 +25,20 @@ class ChitterApp < Sinatra::Base
     redirect '/chitter'
   end
 
-  post '/user/sign-up' do
+  post '/user/sign-up/new' do
+    session[:user_name] = params[:user_name]
+    session[:user_email] = params[:user_email]
     redirect '/chitter'
+  end
+
+  post '/user/log-in/new' do
+    redirect '/chiiter' 
   end
 
   get '/chitter' do
     session[:toggle] != 'DESC' ? @peeps = Chitter.peep_all : @peeps = Chitter.peep_sort
+    @user_name = session[:user_name]
+    @user_email = session[:user_email]
     erb :'chitter/index'
   end
 
