@@ -23,4 +23,8 @@ I want to post a peep to chitter
 As a user
 So that I can see what others are saying
 I want to see all peeps in reverse chronological order
+
+As a user
+So that I know who posted the peep
+I want to see the name of the user who posted the peep
 ```

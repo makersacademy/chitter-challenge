@@ -33,6 +33,8 @@
     <li class="peep">
       <%= peep.created_at.strftime('%d/%m/%Y %H:%M') %>
       <br>
+      <%= peep.user.username %>
+      <br>
       <%= peep.message %>
     </li>
   </ul>
