@@ -23,7 +23,7 @@ To run this you will need to set up 2 databases, each with 2 tables. Run the com
 
   Homepage - With signin and signup buttons. Also displays peeps in reverse chronological order with name, username and timestamp.
 
-  Sign up page - here a user can add name, username, email and password to sign up. If the username or password have been used before, it will just go back to the homepage. If they are both new, it will register the data in the database and sign the person in, taking them back to the home page, but the user is now signed in.
+  Sign up page - here a user can add name, username, email and password to sign up. If the username or password have been used before, it will just go back to the homepage. If they are both new, it will register the data in the database and sign the person in, taking them back to the home page.
 
   Sign in page - Here it asks for user name and password, if they are a match with something in the database, it will take you back to the homepage, but you will now be signed in.
 
