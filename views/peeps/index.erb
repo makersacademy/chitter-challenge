@@ -1,9 +1,25 @@
-<h1> Chitter </h1>
+<h1> Chitter Board </h1>
 
-<p> Signed in as <%= @user.name %>
+<% if @user %>
+  <p>Signed in as <%= @user.name %></p>
+  <a href="http://localhost:9292/peeps/new">Make a peep</a>
+  <a href="http://localhost:9292/users/logout">Log out</a>
+<% else %>
+  <a href="http://localhost:9292/users/login">Log in</a>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
 
 <% @peeps.reverse.each do |peep| %>
   <li class="peep" id="peep-<%= peep.id %>">
-    <p class="peep"><%= peep.message %> <%= peep.date_time %></p>
+    <%= peep.user.name.capitalize %>
+    <br>
+    Date: <%= peep.date_time %> </p>
+    <p class="peep"><%= peep.message %> </p>
   </li>
+  __________________________________
+  <br>
 <% end %>
