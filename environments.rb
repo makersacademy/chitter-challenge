@@ -1,17 +1,17 @@
 require 'sinatra'
 
-configure :test do
-  set :database, {
-    adapter: 'postgresql',
-    encoding: 'unicode', 
-    database: 'chitter_test', 
-    # pool: 2, 
-    # username: 'your_username', 
-    # password: 'your_password'
-  }
+# configure :test do
+#   set :database, {
+#     adapter: 'postgresql',
+#     encoding: 'unicode', 
+#     database: 'chitter_test', 
+#     # pool: 2, 
+#     # username: 'your_username', 
+#     # password: 'your_password'
+#   }
 
-  set :show_exceptions, true
-end
+#   set :show_exceptions, true
+# end
 
 configure :development do
   set :database, {

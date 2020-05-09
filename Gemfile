@@ -8,7 +8,7 @@ gem 'pg'
 gem 'rake' # to apply migrations
 gem 'sinatra'
 gem 'sinatra-activerecord'
-group :test, :development do
+group :development do
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop', '0.79.0'
