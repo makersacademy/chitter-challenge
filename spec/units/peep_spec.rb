@@ -21,4 +21,10 @@ describe Peep do
       expect(subject.created_at_time).to eq('17:52')
     end
   end
+
+  describe '#created_at_date' do
+    it 'returns the date it was created as a string' do
+      expect(subject.created_at_date).to eq('31/10/2020')
+    end
+  end
 end

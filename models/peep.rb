@@ -14,4 +14,8 @@ class Peep
   def created_at_time
     @created_at.strftime('%H:%M')
   end
+
+  def created_at_date
+    @created_at.strftime('%d/%m/%Y')
+  end
 end
