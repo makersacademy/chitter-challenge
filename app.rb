@@ -7,7 +7,7 @@ class ChitterApp < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    "Chitter App"
+    erb :index
   end
 
   post '/chitter-post' do
@@ -25,9 +25,21 @@ class ChitterApp < Sinatra::Base
     redirect '/chitter'
   end
 
+  post '/user/sign-up' do
+    redirect '/chitter'
+  end
+
   get '/chitter' do
     session[:toggle] != 'DESC' ? @peeps = Chitter.peep_all : @peeps = Chitter.peep_sort
     erb :'chitter/index'
+  end
+
+  get '/user/sign-up' do
+    erb :'users/sign_up'
+  end
+
+  get '/user/log-in' do
+    erb :'users/log_in'
   end
 
   run! if app_file == $0
