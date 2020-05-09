@@ -1,5 +1,6 @@
 <% if @user %>
   <p> You're signed in as <%= @user.user_name %>.</p>
+  <a name="log out" href="/log-out">log out</a>
 <% else %>
   <a name="log in" href="/log-in">log in</a>
 <% end %>

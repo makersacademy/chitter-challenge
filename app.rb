@@ -40,4 +40,9 @@ class Chitter < Sinatra::Base
       end
     end
   end
+
+  get '/log-out' do
+    session[:current_user] = nil
+    redirect('/peeps')
+  end
 end
