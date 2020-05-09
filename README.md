@@ -1,6 +1,27 @@
 Chitter Challenge
 =================
+This was a weekend challenge during Week 4 at Makers Academy to create a Twitter clone.
 
+Development steps:
+-----
+* Set up web project with Sinatra, Rack, and testing environment with RSpec and Capybara
+* Create route for viewing peeps and Peep class - reading peeps from array
+* Set up test and development databases
+
+How to use:
+-----
+1. Install dependencies:
+```
+$ bundle install
+```
+2. Set up databases:
+* Connect to `psql`
+* Create database using `psql` command `CREATE DATABASE chitter`
+* Connect to the db using the `psql` command `\c chitter;`
+* Run the query I saved in file `01_create_peeps_table.sql`
+* Set up test database in a similar way (`chitter_test`)
+
+------
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
@@ -52,6 +73,7 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
 
 Technical Approach:
 -----
