@@ -10,11 +10,16 @@ Approach:
 --------
 1. Domain & database modelling (see domain_modelling.md)
 2. Set up a basic Ruby web project
-2.1 Install necessary gems: Sinatra, Rspec, Capybara
-2.2 Set up a Sinatra application
-2.3 Test drive a simple index page
-2.4 Set up config.ru file
-2.5 Make Capybara talk to Sinatra
+    2.1 Install necessary gems: Sinatra, Rspec, Capybara
+    2.2 Set up a Sinatra application
+    2.3 Test drive a simple index page
+    2.4 Set up config.ru file
+    2.5 Make Capybara talk to Sinatra
+3. Test drive first user story feature: post a message to chitter
+    3.1 Write a failing feature test
+    3.2 Pass the feature test
+    3.3. Refactor the code to use View & Controller
+    3.4 Test drive a refactor of the code to use a Model
 
 Features:
 -------

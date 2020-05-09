@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sintatra'
+gem 'sinatra'
 gem 'capybara'
 gem 'rspec'
 
