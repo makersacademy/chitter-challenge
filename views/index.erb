@@ -30,7 +30,11 @@
 
 <% @peeps.each do |peep| %>
   <ul>
-    <li class="peep"><%= peep.message %></li>
+    <li class="peep">
+      <%= peep.created_at.strftime('%d/%m/%Y %H:%M') %>
+      <br>
+      <%= peep.message %>
+    </li>
   </ul>
 <% end %>
 
