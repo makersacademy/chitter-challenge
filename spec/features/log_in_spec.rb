@@ -1,10 +1,6 @@
 feature 'log in' do
   scenario 'user can log in' do
-    User.new(name: 'Dec', user_name: 'dk', email: 'dec@dec.com', password: 'pa55word').save
-    visit('/log-in')
-    fill_in('username', with: 'dk')
-    fill_in('password', with: 'pa55word')
-    click_button('log in')
+    log_in
     expect(page).to have_content("You're signed in as dk.")
   end
 
@@ -15,11 +11,7 @@ feature 'log in' do
   end
 
   scenario 'log in link does not appear when signed in' do
-    User.new(name: 'Dec', user_name: 'dk', email: 'dec@dec.com', password: 'pa55word').save
-    visit('/log-in')
-    fill_in('username', with: 'dk')
-    fill_in('password', with: 'pa55word')
-    click_button('log in')
+    log_in
     expect(page).to_not have_content('log in')
   end
 end

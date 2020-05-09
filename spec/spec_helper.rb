@@ -18,6 +18,7 @@ require 'capybara/rspec'
 Capybara.app = Chitter
 
 require_relative './per_test_db_setup.rb'
+require_relative './features/helpers/log_in.rb'
 
 RSpec.configure do |config|
 

@@ -2,11 +2,7 @@ require 'orderly'
 
 feature 'peeps' do
   scenario 'user can add a peep if logged in' do
-    User.new(name: 'Dec', user_name: 'dk', email: 'dec@dec.com', password: 'pa55word').save
-    visit('/log-in')
-    fill_in('username', with: 'dk')
-    fill_in('password', with: 'pa55word')
-    click_button('log in')
+    log_in
     fill_in('body', with: '#waffles')
     click_button('post')
     expect(page).to have_content('#waffles')
