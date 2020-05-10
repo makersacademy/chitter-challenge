@@ -26,10 +26,6 @@ class Chitter
     connect_to_database.exec("SELECT * FROM peeps ORDER BY id DESC")
   end
 
-  def self.toggle
-    peep_sort = true
-  end
-
   private
 
   def self.connect_to_database

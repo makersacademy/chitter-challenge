@@ -1,8 +1,31 @@
-<h1>Chitter Sign Up Page</h1>
+<html>
+  <head>
+    <link type='text/css' rel='stylesheet' href='../css/style.css'>
+  </head>
+  <body>   
+   
+    <h1 class='red' >Chitter Sign Up Page</h1>
+    <div class='main_div'>
+      <form action='/user/sign-up/new' method='post' >
+        <input placeholder='Nme' type='text' name='user_name' >
+        <input placeholder='email' type='text' name='user_email' >
+        <input placeholder='Password' type='text' name='user_password' >
+        <input value='Sign Up' type='submit' >
+      </form>
+    </div>
 
-<form action='/user/sign-up/new' method='post' >
-  <input placeholder='Nme' type='text' name='user_name' >
-  <input placeholder='email' type='text' name='user_email' >
-  <input placeholder='Password' type='text' name='user_password' >
-  <input value='Sign Up' type='submit' >
-</form>
+    <div class='main_div'>
+      <div class='flex_div' >
+         <form action='/' method='get' >
+          <input value='User' type='submit' >
+        </form>
+      </div>
+      <div class='flex_div' >
+        <form action='/chitter' method='get' >
+          <input value='Chitter' type='submit' >
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>

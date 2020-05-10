@@ -14,18 +14,25 @@ feature 'user' do
   end
 
   scenario 'as a user want to see log in credentials' do
-    user_log_in_to_chitter
+    user_sign_up_to_chitter
 
     expect(current_path).to eq '/chitter'
     expect(page).to have_content 'User Name user-email@email.com'
   end
 
   scenario 'able to log user out' do
-    user_log_in_to_chitter
+    user_sign_up_to_chitter
     click_button 'Log Out'
 
     expect(current_path).to eq '/chitter'
     expect(page).not_to have_content 'User Name user-email@email.com'
+  end
+
+  scenario 'able to log in user' do
+    user_log_in_to_chitter
+
+    expect(current_path).to eq '/chitter'
+    expect(page).to have_content 'User Name user-email@email.com'
   end
 
 end

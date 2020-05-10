@@ -28,12 +28,8 @@ class ChitterApp < Sinatra::Base
   post '/user/sign-up/new' do
     session[:user_name] = params[:user_name]
     session[:user_email] = params[:user_email]
-    User.sign_up(name: params[:user_name], email: params[:user_email], password: params[:user_password])
+    # User.sign_up(name: params[:user_name], email: params[:user_email], password: params[:user_password])
     redirect '/chitter'
-  end
-
-  post '/user/log-in/new' do
-    redirect '/chiiter' 
   end
 
   get '/chitter' do
@@ -53,6 +49,13 @@ class ChitterApp < Sinatra::Base
 
   get '/chitter/log-out' do
     session.destroy
+    redirect '/chitter'
+  end
+
+  get '/chitter/log-in' do
+    session[:user_name] = params[:login_user_name]
+    session[:user_email] = params[:login_user_email]
+    # User.log_in(email: session[:login_user_email], password: session[:login_user_password])
     redirect '/chitter'
   end
 

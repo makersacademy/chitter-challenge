@@ -1,0 +1,55 @@
+* { 
+  font-family: "Gupter", sans-serif; 
+  background-color: efefef;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, p, .form {
+  text-align: center;
+}
+
+.button {
+  box-shadow: 0rem 0.1rem 0.5rem rgb(70, 70, 70, 0.5);
+}
+
+.main_div {
+  display: flex;
+  justify-content: center;
+  margin-left: 5em;
+  margin-right: 5em;
+  margin-top: 2em;
+}
+
+.peep_div {
+  display: flex;
+  justify-content: center;
+  margin-left: 5em;
+  margin-right: 5em;
+  background-color: blueviolet;
+}
+
+.flex_div {
+  margin-left: 1em;
+  margin-right: 1em;
+  text-align: center;
+}
+
+.list_remove {
+  list-style-type: none;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+#img {
+  margin-top: 2em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}

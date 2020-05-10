@@ -1,44 +1,74 @@
-<h1>Chitter Home</h1>
+<html>
+  <head>
+    <link type='text/css' rel='stylesheet' href='../css/style.css'>
+  </head>
+  <body>
+    
+    <h1>Chitter Home</h1>
 
-<% if session[:user_name] != nil %>
-  <h3>Welcome <%= @user_name %> <%= @user_email %></h3>
-<% end %>
+    <% if session[:user_name] != nil %>
+      <h3>Welcome <%= @user_name %> <%= @user_email %></h3>
+    <% end %>
 
-<%= session[:user_name] %>
+    <%= session[:user_name] %>
 
-<form action='/chitter/log-out' method='get' >
-  <input value='Log Out' type='submit' >
-</form>
+    <div class='main_div'>
+      <div class='flex_div' >
+        <form action='/chitter/log-out' method='get' >
+          <input value='Log Out' type='submit' >
+        </form>
+      </div>
+      <div class='flex_div' >
+         <form action='/' method='get' >
+          <input value='User' type='submit' >
+        </form>
+      </div>
+      <div class='flex_div' >
+        <form action='/chitter' method='get' >
+          <input value='Chitter' type='submit' >
+        </form>
+      </div>
+    </div>
 
-<form action='/' method='get' >
-  <input value='User' type='submit' >
-</form>
+    <div class='main_div'>
+      <form action='/chitter-post' method='post' >
+        <input placeholder='peep' type='text' name='peep' >
+        <input value='Post Peep' type='submit' >
+      </form>
+    </div>
 
-<form action='/chitter-post' method='post' >
-  <input placeholder='peep' type='text' name='peep' >
-  <input value='Post Peep' type='submit' >
-</form>
+    <div class='main_div'>
+      <form action='/chitter-sort' method='post' >
+        <select name='peep_sort'>
+        <option value= '' selected disabled hidden>Choose Peep Option</option>
+        <option value='ASCE' >Sort Peeps Ascending</option>
+        <option value='DESC' >Sort Peeps Descending<option>
+        </select>
+        <input value='Sort Peeps' type='submit' >
+      <form>
+    </div>
 
-<form action='/chitter-sort' method='post' >
-  <select name='peep_sort'>
-  <option value= '' selected disabled hidden>Choose Peep Option</option>
-  <option value='ASCE' >Sort Peeps Ascending</option>
-  <option value='DESC' >Sort Peeps Descending<option>
-  </select>
-  <input value='Sort Peeps' type='submit' >
-<form>
+    <div class='red' >
+      <ul class='list_remove'>
+        <% @peeps.each do |peep| %>
+          <li>
+            <form action='/chitter-delete/<%= peep['id'] %>' method='post' >
+              <div class='peep_div' >
+                <div class='flex_div'>
+                  <p><%= peep['peep'] %></p>
+                </div>
+                <div class='flex_div'>
+                  <p><%= peep['created_on'] %></p>
+                </div>
+                <div class='flex_div'>
+                  <p><input value='Delete Peep' type='submit' ></p>
+                </div>
+              </div>
+            </form>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-<div>
-    <ul>
-      <% @peeps.each do |peep| %>
-        <li>
-          <form action='/chitter-delete/<%= peep['id'] %>' method='post' >
-            <%= peep['peep'] %>
-            <%= peep['created_on'] %>
-            <input value='Delete Peep' type='submit' >
-          </form>
-        </li>
-      <% end %>
-    </ul>
-</div>
-
+  </body>
+</html>
