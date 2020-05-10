@@ -14,7 +14,7 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create(peep: 'I am feeling ok')
+      Peep.create(peep: 'I am feeling ok', time: 'now')
       expect(Peep.all).to include 'I am feeling ok'
     end
   end

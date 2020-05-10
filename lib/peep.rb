@@ -11,12 +11,12 @@ class Peep
     result.map { |peep| peep['peep'] }.reverse
   end
 
-  def self.create(peep:)
+  def self.create(peep:, time:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'Chitter_Manager_test')
     else
       connection = PG.connect(dbname: 'Chitter_Manager')
     end
-    connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')")
+    connection.exec("INSERT INTO peeps (peep, time) VALUES('#{peep}', '#{time}')")
   end
 end
