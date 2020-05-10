@@ -11,7 +11,7 @@ class Peep
   end
 
   def self.all
-    if ENV['RACK_ENV'] = 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'chitter-test')
     else
       connection = PG.connect(dbname: 'chitter')
@@ -24,13 +24,14 @@ class Peep
   end
 
   def self.create(peep:)
-    if ENV['RACK_ENV'] = 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'chitter-test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
 
-    result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep, created_at;")
+    result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}')
+    RETURNING id, peep, created_at;")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'], created_at: result[0]['created_at'])
   end
 end

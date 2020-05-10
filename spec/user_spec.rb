@@ -2,12 +2,10 @@ require 'user'
 
 describe User do
 
-  let(:user) { User.create(
-                name: 'Marius',
-                username: 'mbrad26',
+  let(:user) { User.create(name: 'Marius', username: 'mbrad26',
                 email: 'marius2020@gmail.com',
-                password: 'apassword'
-              ) }
+                password: 'apassword')
+  }
 
   describe '.create' do
     it 'creates and stores a user in the database' do

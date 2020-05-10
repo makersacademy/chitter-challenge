@@ -74,10 +74,6 @@ rackup
 
 ```
 
-## Approach
-
-To do...
-
 ## Implementation
 
 ```
@@ -126,5 +122,12 @@ As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ```
-* write the feature test
+* write the feature tests
 * create the log in view and update the controller with the required paths
+* write unit tests for authentication in User class
+
+## To do
+
+* to implement the last two user story
+* to add some CSS
+* to extract the database setup into an object
