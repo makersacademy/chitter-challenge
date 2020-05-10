@@ -28,16 +28,25 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
+Notes on functionality:
+
+* You don't have to be logged in to see the peeps.
+* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* The username and email are unique.
+* Peeps (posts to chitter) have the name of the maker and their user handle.
+* Your README should indicate the technologies used, and give instructions on how to install and run the tests.:
+
+
 
 ```
 
 Domain Model (RESTFUL Approach)::
 
-GET /                      | Sign in button 
+GET /                      |-Sign in button 
 
-GET /chitter               | Shows peeps
+GET /chitter               |-Shows peeps
 
-GET /chitter/post_message  | Form that POST's 
+GET /chitter/post_message  |-Form that POST's 
                               > Text input named 'peep'
                               > Submit button
 
@@ -45,22 +54,41 @@ POST /chitter/post_message |- Saves the peep as a param
                             - redirects to /chitter
 
 
+Databases:
+--------
+
+Users 
+      ID
+      Email 
+      Password
+
+Peep_record 
+            ID 
+            Forgein Key (user ID)
+            Peep Text 
+            Time posted 
+
+Tags? 
 
 
-
-
-Notes on functionality:
+Database Instructions:
 ------
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+Chitter Database:
+1. Create database with psql command CREATE DATABASE 'chitter'
+2. Run the query we have saved in the file 01_create_chitter_user_table.sql
+3. Run the query we have saved in the file 02_create_peep_record_table.sql
+
+Chitter_test database:
+1. Create database with psql command CREATE DATABASE 'chitter_test'
+2. Run the query we have saved in the file 01_create_chitter_user_table.sql
+3. Run the query we have saved in the file 02_create_peep_record_table.sql
+
+*
 
 
 Technical Approach:
------
+-------
 
 Using PG/ SQL to intergrate a database withing a Object Relational Mapper.
 

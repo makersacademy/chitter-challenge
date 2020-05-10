@@ -11,13 +11,17 @@ class Chitter < Sinatra::Base
   end 
 
   get '/chitter' do
-    @peep = session[:peep]
+    @peep = [
+      "This is a test peep",
+      "This is a second test",
+      "This is a third test"
+    ]
     erb(:'main_page')
   end
 
   post '/chitter/new_peep' do
     session[:peep] = params[:peep]
-    #Peep.create(text: params[:text], time: Time.new)
+    # Peep.create(text: session[:text], time: Time.new)
     redirect '/chitter'
   end 
 
