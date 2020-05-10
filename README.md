@@ -2,7 +2,7 @@ CHITTER CHALLENGE
 
 This is a simple clone of a famous social media website.
 
-To run this you will need to set up 2 databases, each with 2 tables. Run the commands below in PSQL.
+To run this you will need to set up 2 databases, each with 2 tables. Run bundle to install all the required gems. Run the commands below in PSQL.
 
   - CREATE DATABASE chitter_test;
   - CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(50), real_name VARCHAR(50), user_handle VARCHAR(20), password VARCHAR(20));

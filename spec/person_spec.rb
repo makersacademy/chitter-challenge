@@ -1,5 +1,3 @@
-require 'person'
-
 describe Person do 
   describe 'variables' do
     it 'saves variable' do

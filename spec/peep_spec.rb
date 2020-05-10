@@ -1,5 +1,3 @@
-require 'peep'
-
 describe Peep do 
   describe 'variables' do
     it 'stores variables' do 

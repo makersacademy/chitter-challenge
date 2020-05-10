@@ -5,6 +5,10 @@ require 'rspec'
 require 'capybara/rspec'
 require 'capybara'
 require 'pg'
+require 'database_scripts'
+require 'peep'
+require 'person'
+
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 ENV['RACK_ENV'] = 'test'

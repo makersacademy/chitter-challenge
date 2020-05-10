@@ -1,4 +1,5 @@
 before_script:
+  
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
   - psql -U postgres -d chitter_test -f db/migrations/01_create_users_table.sql
   - psql -U postgres -d chitter_test -f db/migrations/01_create_peeps_table.sql
