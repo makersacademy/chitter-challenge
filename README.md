@@ -35,10 +35,27 @@ $ bundle install
 ```
 $ rspec
 ```
-What I learnt from the process:
+
+Technologies used:
 ------
+* Ruby
+* RSpec
+* Sinatra
+* Capybara
+* PostgreSQL
 
+What I learnt from the process
+------
+* how to develop a web app with a database
+* how to work with relational databases create a database
+* how to set up a test environment
+* following the MVC pattern
 
+What I want to improve and what's left to be done
+______
+* implement a one-to-many relationship e.g. comments for tweets
+* better refactor
+* validating username and email
 
 
 ------
