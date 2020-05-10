@@ -8,7 +8,7 @@ gem 'pg'
 gem 'rake' # to apply migrations
 gem 'sinatra'
 gem 'sinatra-activerecord'
-group :development do
+group :test, :development do
   gem 'capybara'
   gem 'database_cleaner-active_record'
   gem 'rspec'

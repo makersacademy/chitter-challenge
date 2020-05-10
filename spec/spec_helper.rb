@@ -19,7 +19,7 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 
-  ENV['RACK_ENV'] = 'development'
+  ENV['RACK_ENV'] = 'test'
   
   require File.join(File.dirname(__FILE__), '..', 'app.rb')
   Capybara.app = Chitter
