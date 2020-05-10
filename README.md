@@ -1,3 +1,9 @@
+# Chitter
+
+A simple clone of Twitter that allows users to sign up, log in, make a "peep",
+view the peeps of others and sign out. Data models were created using Datamapper,
+there are two models in the current version `Peep` and `User`.
+
 ## User Stories
 
 ```
