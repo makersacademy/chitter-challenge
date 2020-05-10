@@ -9,8 +9,13 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require_relative './setup_test_database'
+require 'rack_session_access/capybara'
 
 Capybara.app = Chitter
+
+Chitter.configure do |app|
+  app.use RackSessionAccess::Middleware
+end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

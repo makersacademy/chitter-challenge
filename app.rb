@@ -2,10 +2,12 @@ require 'sinatra/base'
 require './lib/peep'
 require './lib/user'
 require 'sinatra/flash'
+require 'rack_session_access'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  use RackSessionAccess::Middleware if environment == :test
   register Sinatra::Flash
 
   get '/' do
@@ -13,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    p @user = User.find(id: session[:user_id])
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :'peeps'
   end
@@ -23,7 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    Peep.create(author: params[:author], content: params[:content])
+    Peep.create(author: session[:username], content: params[:content])
     redirect '/peeps'
   end
 
@@ -42,6 +44,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
+    session[:username] = params[:username]
     user = User.authenticate(username: params[:username], password: params[:password])
     if user
       session[:user_id] = user.id
