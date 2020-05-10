@@ -1,0 +1,24 @@
+<div class="col-md-6 offset-md-3">
+  <p><%= flash[:notice] %></p>
+  <% if @user %>
+    <h1>What's up?</h1>
+    <form action="/peeps" method="post">
+      <div class="form-group">
+        <textarea class="form-control" name="body" rows="1"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" name="post" class="btn btn-primary">Post</button>
+      </div>
+    </form>
+    <br>
+  <% end %>
+  <% @peeps.each do |peep| %>
+    <div class="card">
+      <div class="card-body">
+        <p id="<%= peep.body %>"> <%= peep.body %> </p>
+        <p> Posted at <%= peep.created_at_time %> on <%= peep.created_at_date %> by <%= peep.creator_name %> </p>
+      </div>
+    </div>
+    <br>
+  <% end %>
+</div>
