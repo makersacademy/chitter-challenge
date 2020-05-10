@@ -11,4 +11,11 @@ describe Peep do
       expect(peeps).to include("An interesting day")
     end
   end
+
+  describe '.create' do
+    it 'creates a new peep' do
+      Peep.create(peep: 'I am feeling ok')
+      expect(Peep.all).to include 'I am feeling ok'
+    end
+  end
 end
