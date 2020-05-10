@@ -1,7 +1,6 @@
 require 'peep'
 
 describe Peep do
-
   let(:peep) { Peep.create(peep: 'This is a test peep!') }
   let(:another_peep) { Peep.create(peep: 'This is another test peep!') }
 

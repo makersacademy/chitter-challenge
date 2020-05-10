@@ -120,3 +120,11 @@ I want to sign up for Chitter
 * create the ```users``` table
 * write unit test and implement ```User``` class method for the creation of users
 * write unit test and implement password encryption
+
+```
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+```
+* write the feature test
+* create the log in view and update the controller with the required paths
