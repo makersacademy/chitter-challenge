@@ -4,7 +4,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_development;'
+  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
   # - bundle exec rake db:create
   - bundle exec rake db:migrate
 
