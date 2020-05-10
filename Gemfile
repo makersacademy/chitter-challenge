@@ -10,3 +10,4 @@ end
 
 gem 'sinatra'
 gem 'pg'
+gem 'bcrypt'

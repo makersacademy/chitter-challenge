@@ -1,3 +1,8 @@
+<h1>Here's all the peeps</h1>
+<% if @user %>
+<h2>Hello <%= @user.username %></h2>
+<% end %>
+
 <ul>
   <% @peeps.each do |peep| %>
     <li>
@@ -6,3 +11,7 @@
     </li>
   <% end %>
 </ul>
+
+<form action="/peeps/new" method="get">
+  <input type="submit" value="Add new peep">
+</form>

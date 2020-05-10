@@ -1,6 +1,7 @@
 feature 'Adding new peep' do
   scenario 'user can add new peep' do
-    visit '/peeps/new'
+    visit '/peeps'
+    click_on('Add new peep')
     fill_in('author', with: 'Zsofi')
     fill_in('content', with: 'Test')
     click_on('Submit')
