@@ -1,5 +1,3 @@
-require 'database_scripts'
-
 describe 'add_person' do 
   it 'adds person to db' do
     add_person('Patty', 'Pat Sawyer', 'pat@pat.com', 'password')
