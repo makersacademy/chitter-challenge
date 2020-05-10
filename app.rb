@@ -12,12 +12,12 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peep = Peep.all
-    p "@peep #{@peep}"
+    # p "@peep #{@peep}"
     erb :'/peeps/index'
   end
 
   post '/peeps' do
-    p "Params #{params}"
+    # p "Params #{params}"
     Peep.create(peep: params['peep'])
     redirect '/peeps'
   end
@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    p "Params #{params}"
+    # p "Params #{params}"
     user = User.create(
       name: params[:name],
       username: params[:username],

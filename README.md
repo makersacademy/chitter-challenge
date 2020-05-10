@@ -119,3 +119,4 @@ I want to sign up for Chitter
 * make the test pass by creating the controllers and '/users/new.erb'
 * create the ```users``` table
 * write unit test and implement ```User``` class method for the creation of users
+* write unit test and implement password encryption

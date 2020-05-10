@@ -1,5 +1,5 @@
 <div>
-  <% if @user != nil %>
+  <% if @user %>
     <h1>
       Welcome to Chitter, <%= @user.name %>!
     </h1>
@@ -9,6 +9,5 @@
     </h1>
   <% end %>
   <h3>Follow <a href='/peeps'>this link</a> to enter Chitter.</h3>
-
   <h3><a href="/users/new">Create an account</a></h3>
 </div>
