@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require './lib/peep'
 
 
 class Chitter < Sinatra::Base
@@ -11,17 +12,12 @@ class Chitter < Sinatra::Base
   end 
 
   get '/chitter' do
-    @peep = [
-      "This is a test peep",
-      "This is a second test",
-      "This is a third test"
-    ]
+    @peep = Peep.all 
     erb(:'main_page')
   end
 
   post '/chitter/new_peep' do
     session[:peep] = params[:peep]
-    # Peep.create(text: session[:text], time: Time.new)
     redirect '/chitter'
   end 
 
