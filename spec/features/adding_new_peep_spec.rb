@@ -2,8 +2,8 @@ require 'spec_helper'
 
 feature 'Adding new peep' do
   scenario 'user can add new peep' do
-    User.create(email: 'test@example.com', password: 'password123', name: 'Ricky Martin', username: 'ricky')
-    page.set_rack_session(username: 'ricky')
+    user = User.create(email: 'test@example.com', password: 'password123', name: 'Ricky Martin', username: 'ricky')
+    page.set_rack_session(username: 'ricky', user_id: user.id)
 
     visit '/peeps'
     click_on('Add new peep')

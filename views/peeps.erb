@@ -12,6 +12,8 @@
   <% end %>
 </ul>
 
+<% if @user %>
 <form action="/peeps/new" method="get">
   <input type="submit" value="Add new peep">
 </form>
+<% end %>
