@@ -16,32 +16,14 @@ feature 'Main Chitter Page' do
     expect(page).to have_content('This is a second test')
     expect(page).to have_content('This is a third test')
   end 
-end 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=begin 
   scenario 'Has a Peep Post box' do 
     visit('/chitter')
-    fill_in('peep', with: 'This is a test peep')
+    click_button('new_post')
+    fill_in('peep', with: 'This is a new peep test')
     click_button('post')
 
     expect(page).to have_content('Welcome to Chitter')
     expect(page).to have_content('This is a new peep test')
   end 
-=end 
+end 

@@ -1,9 +1,8 @@
 <h> Welcome to Chitter </h>
 
-<form action="/chitter/new_peep" method="post">
-  <input type="text" name="peep"  >
-  <input type="submit" value="post">
-</form>
+<form action='/chitter/new_peep' method="get">
+  <input type='submit' value='new_post' >
+</form> 
 
 <ul>
   <% @peep.each do |peep| %>

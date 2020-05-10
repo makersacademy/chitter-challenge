@@ -44,7 +44,8 @@ Domain Model (RESTFUL Approach)::
 
 GET /                      |-Sign in button 
 
-GET /chitter               |-Shows peeps
+GET /chitter               |-Shows all peeps
+                            - Shows in reverse order
 
 GET /chitter/post_message  |-Form that POST's 
                               > Text input named 'peep'
@@ -52,6 +53,8 @@ GET /chitter/post_message  |-Form that POST's
 
 POST /chitter/post_message |- Saves the peep as a param  
                             - redirects to /chitter
+                            - Saves the peep with timestamp
+                            
 
 
 Databases:

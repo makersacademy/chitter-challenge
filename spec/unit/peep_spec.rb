@@ -18,4 +18,9 @@ describe Peep do
       expect(peep_all).to include('This is a third test')
     end 
   end 
+
+ ## describe '.create' do 
+   # it 'creates a new peep post' do 
+
+
 end 
