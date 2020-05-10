@@ -1,12 +1,12 @@
 feature 'Log out User' do
   scenario 'Logs out current user' do
-    user = User.create(name: "Gareth", email: "gareth@gmail.com", password: '12345')
+    email, password = "gareth@gmail.com", 'password123'
+    user = User.create(name: "Gareth", email: email, password: password)
 
     visit('users/login')
 
-    fill_in('email', with: 'gareth@gmail.com')
-    fill_in('password', with: '12345')
-    click_button('Login')
+    expect(current_path).to eq '/users/login'
+    login_user(email, password)
 
     click_link('Log out')
     expect(page).to have_link("Log in")
