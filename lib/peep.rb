@@ -2,7 +2,7 @@ require 'pg'
 
 class Peep
 
-  attr_reader :id, :message, :name
+  attr_reader :id, :message, :name, :time
 
   def initialize(id:, message:, name:)
     @id = id
@@ -45,4 +45,5 @@ class Peep
     end
     connection.exec("DELETE FROM peeps WHERE id = #{id}")
   end
+
 end

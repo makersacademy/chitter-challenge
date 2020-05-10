@@ -3,6 +3,9 @@ require 'database_helpers'
 require 'peep'
 
 describe Peep do
+
+  let(:subject) { described_class.new(created_at: Time.new(2020, 10, 31, 17, 52, 3)) }
+
   describe '.all' do
     it "returns all peeps" do
 
@@ -43,4 +46,5 @@ describe Peep do
       expect(Peep.all.length).to eq 0
     end
   end
+
 end

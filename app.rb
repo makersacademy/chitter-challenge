@@ -26,6 +26,15 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/signup' do
+    erb:'signup/index'
+  end
+
+  post '/signup' do
+    User.create(name: params['name'], email: params[:email], password: params[:password])
+   redirect '/'
+  end
+
 
   run! if app_file == $0
 end
