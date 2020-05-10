@@ -5,7 +5,6 @@ require './lib/user.rb'
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
   get '/' do
-    @thankyoumessage = "Thanks for signing up!"
     erb :index
   end
 
@@ -34,8 +33,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
+    session[:name] = params[:name]
     User.create(name: params['name'], email: params[:email], password: params[:password])
-    erb:'/signup/thankyou'
+    redirect 'signup/thankyou'
+  end
+
+  get '/signup/thankyou' do
+    @thankyoumessagename = session[:name]
+    erb:'signup/thankyou'
   end
 
 

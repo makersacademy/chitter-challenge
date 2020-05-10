@@ -12,7 +12,8 @@ feature "displays the homepage" do
     fill_in('email', with: 'test')
     fill_in('password', with: 'password')
     click_button('Submit')
-
-    expect(page).to have_content 'Thanks for signing up!'
+    
+    expect(current_path).to eq '/signup/thankyou'
+    expect(page).to have_content 'Thanks for signing up'
   end
 end
