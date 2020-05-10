@@ -5,6 +5,10 @@ require './config/environment'
 # Global for verbose output
 # $verbose = true
 
+class Peep < ActiveRecord::Base 
+
+end
+
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
@@ -14,7 +18,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    "<h1>Welcome to Chitter!</h1>"
+    erb :"peeps/new"
+  end
+
+  post '/' do
+    peep = Peep.new(params["peep"])
+    if peep.save
+      redirect "peeps/#{peep.id}"
+    else
+      erb :"peeps/new"
+    end
+  end
+
+  get '/peeps/:id' do
+    @peep = Peep.find(params[:id])
+    erb :"peeps/show"
   end
 
   # start the server if ruby file executed directly

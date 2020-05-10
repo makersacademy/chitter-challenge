@@ -1,6 +1,6 @@
 class CreatePosts < ActiveRecord::Migration[6.0]
  def self.up
-   create_table :posts do |t|
+   create_table :peeps do |t|
      t.integer :user_id
      t.text :body
      t.timestamps
@@ -14,7 +14,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
  end
 
  def self.down
-   drop_table :posts
+   drop_table :peeps
    drop_table :users
  end
 end
