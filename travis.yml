@@ -10,6 +10,5 @@ script:
 
 before_script:
   - psql -c 'create database chitter_manager_test;' -U postgres
-  - psql -c 'create database chitter_manager;' -U postgres
-  - psql -U postgres -d chitter_manager_test -f db/migrations/01_chitter_database.sql
-  - psql -U postgres -d chitter_manager -f db/migrations/01_chitter_database.sql
+  - psql -U postgres -d chitter_manager_test -f db/migrations/01_peeps_table.sql
+  - psql -U postgres -d chitter_manager_test -f db/migrations/02_user_table.sql
