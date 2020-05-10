@@ -1,0 +1,1 @@
+ALTER TABLE chatter ADD COLUMN timestamp VARCHAR(60);

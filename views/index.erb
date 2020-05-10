@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <style>
 
+  #{
+  background-color: lightblue;
+  color: black;
+  padding: 40px;
+  text-align: center;
+
 input[name="text"] {padding: height: width: color:}
 input[type="image"] {display: inline-block; vertical-align: top;}
 
@@ -20,7 +26,9 @@ input[type="image"] {display: inline-block; vertical-align: top;}
 <h3> latest peeps </h3>
 <ul>
   <% @peeps.reverse.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep %><br>
+     <time> created: <%=Time.now.strftime("%c")%> </time>
+    </li>
   <% end %>
 </ul>
 </body>
