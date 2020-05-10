@@ -4,11 +4,18 @@
 
 ```
 $ bundle install
-$ psql < db/migrate/01-create_databases.sql
+$ rake db:create
 $ rake db:migrate
 ```
 
 This will install all required Gems and create the databases and tables needed.
+
+To remove tables and database use:
+
+```
+rake db:rollback
+rake db:drop
+```
 
 ## Usage
 
