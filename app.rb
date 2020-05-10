@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    @date_and_time = session[:date_and_time]
+    # @date_and_time = session[:date_and_time]
 
     erb :"index"
   end
@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     Peep.add(text: params[:text])
 
-    session[:date_and_time] = Time.new
+    # session[:date_and_time] = Time.new
 
     redirect '/peeps'
   end

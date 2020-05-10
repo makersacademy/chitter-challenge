@@ -4,6 +4,6 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %> - <%= @date_and_time %></li>
+    <li><%= peep.text %> - <%= peep.date_and_time %></li>
   <% end %>
 </ul>
