@@ -15,7 +15,7 @@ To run this you will need to set up 2 databases, each with 2 tables. Run bundle 
 
   ---------------------------------
 
-  For this I created 2 classes, Person and Peep (a peep is like a tweet). The functionality of those was very simple. For better or worse, I ended up leaving alot of the code in standalone methods, as opposed to class methods. I wish I hadn't done this now, as it is not particularly great. However, that being said it completely behaves as it should, so I am pretty pleased with the result.
+  For this I created 2 classes, Person and Peep (a peep is like a tweet). The functionality of those was very simple. For better or worse, I ended up leaving alot of the code in standalone methods, as opposed to class instance methods. I wish I hadn't done this now, as it is not particularly great. However, that being said it completely behaves as it should, so I am pretty pleased with the result.
 
   ----------
 
