@@ -3,10 +3,20 @@ Chitter Challenge
 
 Challenge:
 -------
+Write a small Twitter clone
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+Set-up:
+--------
+1. bundle install
+2. set up production & test databases, see folder db, file set_up.sql
 
-Approach:
+Learnings:
+--------
+I originally created three classes (User, Peep, and Chitter) to reflect the single responsibility principle. However, I refactored this down to two classes (Peep and User) because it seemed to introduce unnecessary complexity. In particular, it would be a pain to query the database.
+
+The database "Chitter" has two tables (User and Peep). Good practice means the Peep table contains the User's username (and this is unique), and this serves as the foreign key. It is more efficient to do it this way around because you have less repetition (compared to if you did it the other way around with peeps going into the User table).
+
+Steps:
 --------
 1. Domain & database modelling (see domain_modelling.md)
 2. Set up a basic Ruby web project
@@ -15,13 +25,13 @@ Approach:
     2.3 Test drive a simple index page
     2.4 Set up config.ru file
     2.5 Make Capybara talk to Sinatra
-3. Test drive first user story feature: post a message to chitter
+3. Test drive first user story feature
     3.1 Write a failing feature test
     3.2 Pass the feature test
     3.3. Refactor the code to use View & Controller
     3.4 Test drive a refactor of the code to use a Model
 
-Features:
+Uswer stories:
 -------
 
 ```

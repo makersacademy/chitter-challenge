@@ -2,7 +2,7 @@ require 'simplecov'
 require 'simplecov-console'
 
 # Set environment to test
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'local'
 
 # Bring in the contents of the `app.rb` file
 require_relative "../app.rb"

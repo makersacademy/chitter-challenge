@@ -1,10 +1,12 @@
-Domain modelling
+Domain modelling from user stories
 
 Objects         Messages
-Message         post message to Chitter
+----------------------------
+Peep            create peep
                 see all peeps (newest to oldest) (peeps contain name and username)
                 see peep time
-User            sign up to chitter (email, pass, name, username)
-                *log into chitter
-                *log out of chitter
-                ** receive an email if I am tagged in a peep
+
+User            register (email, pass, name, username)
+                *login
+                *logout
+                ** receive an email if tagged in a peep
