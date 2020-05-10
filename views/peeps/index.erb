@@ -1,7 +1,12 @@
 <div >
   <form action="/sessions/new" method="get">
-    <input type="submit" name="" value="Log In">
+    <input type="submit" value="Log In">
   </form>
+</div>
+<div>
+  <% if @user %>
+    <h3 id='welcome'>Welcome <%= @user.name %>!</h3>
+  <% end %>
 </div>
 <div>
   <h1>Peep it all the way!</h1>

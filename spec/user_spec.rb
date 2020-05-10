@@ -44,4 +44,27 @@ describe User do
       expect(User.find(id: nil)).to eq nil
     end
   end
+
+  describe '.authenticate' do
+    it 'returns a user from database if credentials check' do
+      user
+      authenticated_user = User.authenticate(email: 'marius2020@gmail.com', password: 'apassword')
+
+      expect(authenticated_user.id).to eq user.id
+    end
+
+    it 'returns nil if the email doesn\'t match' do
+      user
+      signing_in_user = User.authenticate(email: 'wrongemail@gmail.com', password: 'apassword')
+
+      expect(signing_in_user).to be_nil
+    end
+
+    it 'returns nil if the password doesn\'t match' do
+      user
+      signing_in_user = User.authenticate(email: 'marius2020@gmail.com', password: 'wrongpassword')
+
+      expect(signing_in_user).to be_nil
+    end
+  end
 end

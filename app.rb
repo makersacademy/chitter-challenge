@@ -1,10 +1,11 @@
 require 'sinatra/base'
 require './lib/peep'
 require './lib/user'
-require 'pg'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @user = User.find(id: session[:user_id])
@@ -13,6 +14,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peep = Peep.all
+    @user = User.find(id: session[:userid])
     erb :'/peeps/index'
   end
 
@@ -36,7 +38,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    redirect '/peeps'
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if !user
+      flash[:notice] = "Email and/or password do not match"
+      redirect '/sessions/new'
+    else
+      session[:userid] = user.id
+      redirect '/peeps'
+    end
   end
 
   run! if app_file == $0
