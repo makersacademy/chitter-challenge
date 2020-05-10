@@ -45,6 +45,7 @@ class ChitterApp < Sinatra::Base
     erb :'/users/login'
   end
 
+  # Logs out user
   get '/users/logout' do
     session[:current_user] = nil
     redirect '/'
