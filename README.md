@@ -14,12 +14,20 @@ As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-How to set up database
+How to set up the database
 -------
 
 1. Connect to psql
 2. Create the database using the psql command CREATE DATABASE Chitter_Manager;
 3. Connect to the database using the psql command \c Chitter_Manager;
+4. Run the query we have saved in the file 01_create_peeps_table.sql
+
+How to set up the test database
+-------
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE Chitter_Manager_test;
+3. Connect to the database using the psql command \c Chitter_Manager_test;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
 
 Features:
