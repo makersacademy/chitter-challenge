@@ -15,6 +15,6 @@ class CreatePosts < ActiveRecord::Migration[6.0]
 
  def self.down
    drop_table :posts
-   drop_tabee :users
+   drop_table :users
  end
 end
