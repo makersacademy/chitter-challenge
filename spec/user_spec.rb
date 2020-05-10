@@ -1,14 +1,17 @@
 require 'user'
 
 describe User do
+
+  let(:user) { User.create(
+                name: 'Marius',
+                username: 'mbrad26',
+                email: 'marius2020@gmail.com',
+                password: 'apassword'
+              ) }
+
   describe '.create' do
     it 'creates and stores a user in the database' do
-      user = User.create(
-        name: 'Marius',
-        username: 'mbrad26',
-        email: 'marius2020@gmail.com',
-        password: 'apassword'
-      )
+      user
       persisted_data = PG.connect(dbname: 'chitter-test')
                          .exec("SELECT * FROM users WHERE id = '#{user.id}';")
 
@@ -22,23 +25,13 @@ describe User do
     it 'creates a password hash' do
       expect(BCrypt::Password).to receive(:create).with('apassword')
 
-      User.create(
-        name: 'Marius',
-        username: 'mbrad26',
-        email: 'marius2020@gmail.com',
-        password: 'apassword'
-      )
+      user
     end
   end
 
   describe '.find' do
     it ' retrieves a user from database' do
-      user = User.create(
-        name: 'Marius',
-        username: 'mbrad26',
-        email: 'marius2020@gmail.com',
-        password: 'apassword'
-      )
+      user
       found_user = User.find(id: user.id)
 
       expect(found_user.id).to eq user.id
