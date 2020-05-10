@@ -35,4 +35,15 @@ feature 'Posting peeps' do
     expect(page).to have_content('Chitter > Twitter')
   end
 
+  scenario 'Shows time that peep was submitted' do
+    visit('/peeps/new')
+    fill_in('text', with: 'Hello guys!')
+    click_button('Peep')
+
+    date_and_time = Time.new
+
+    expect(page).to have_content('Hello guys!')
+    expect(page).to have_content("#{date_and_time}")
+
+  end
 end
