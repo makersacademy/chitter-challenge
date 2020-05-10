@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'rack'
 gem 'sinatra'
 gem 'pg'
 
 group :test do
   gem 'capybara'
-  gem 'rack'
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'rubocop', '0.79.0'
