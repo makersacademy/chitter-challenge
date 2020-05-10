@@ -3,7 +3,11 @@ Chitter Challenge
 
 This web application is a Twitter clone that allows users to post messages, known as peeps, to a public stream.
 
+Entity relationship diagram:
+
 ![Entity relationship diagram](images/chitter_erd.png)
+
+Chitter homepage: 
 ![Screenshot of homepage](images/chitter_homepage.png)
 
 ## Features
