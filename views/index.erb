@@ -3,3 +3,9 @@
 <form>
   <input type="text" name="peep">
 </form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
