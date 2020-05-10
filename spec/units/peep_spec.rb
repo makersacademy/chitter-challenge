@@ -16,4 +16,17 @@ describe Peep do
 
     end
   end
+
+  describe '.add' do
+    it 'adds user entries to the database' do
+      Peep.add(text: 'Hello guys!')
+      Peep.add(text: 'Chitter > Twitter')
+
+      peep = Peep.all
+
+      expect(peep).to include 'Hello guys!'
+      expect(peep).to include 'Chitter > Twitter'
+
+    end
+  end
 end

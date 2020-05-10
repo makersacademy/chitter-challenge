@@ -19,4 +19,20 @@ feature 'Posting peeps' do
     click_button('New Peep')
     expect(current_path).to eq '/peeps/new'
   end
+
+
+  scenario 'Add multiple peeps to list' do
+    visit('/peeps/new')
+    fill_in('text', with: 'Hello guys!')
+    click_button('Peep')
+
+    click_button('New Peep')
+    fill_in('text', with: 'Chitter > Twitter')
+    click_button('Peep')
+
+    expect(current_path).to eq '/peeps'
+    expect(page).to have_content('Hello guys!')
+    expect(page).to have_content('Chitter > Twitter')
+  end
+
 end
