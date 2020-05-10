@@ -1,0 +1,81 @@
+:root {
+  --dark-color: #6A097D;
+  --light-color: #FFDCB4;
+}
+body {
+  background-color: var(--light-color);
+  font-family: 'Quicksand', sans-serif;
+  color: var(--dark-color);
+  font-size: 1rem;
+  text-align: center;
+}
+h1 {
+  margin: 3rem;
+  color: var(--dark-color);
+}
+h2 {
+  margin: 2rem;
+}
+form {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+}
+input {
+  margin-bottom: 0.7rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid gainsboro;
+  padding: 0.5rem;
+  text-align: center;
+}
+::placeholder {
+  color: gainsboro;
+}
+input, label {
+  display: block;
+  width: 100%;
+}
+label {
+  color: var(--dark-color);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+input[type="submit"] {
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  margin: 1rem auto;
+  padding: 0.7rem;
+  width: 100%;
+  overflow: hidden;
+  font-size: 1.2rem;
+  border: none;
+}
+ul {
+  text-align: center;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+  padding-top: 1rem;
+  padding-bottom: 0.6rem;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+a:hover {
+  font-weight: bold;
+}
+p {
+  font-size: 1.2rem;
+  text-align: left;
+}
+.result {
+  margin-top: 4rem;
+}
+.peep {
+  font-size: 1rem;
+  margin-left: 2rem;
+}
