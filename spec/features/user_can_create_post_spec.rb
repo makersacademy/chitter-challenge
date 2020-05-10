@@ -1,7 +1,7 @@
 feature '/' do 
 
   scenario 'create peep' do
-    visit "/"
+    visit "/peeps/create"
 
     fill_in "peep[body]", with: "This is a test peep"
 
@@ -13,6 +13,7 @@ feature '/' do
 
     expect(current_path).to eq "/peeps/#{new_peep.id}"
     expect(page).to have_content "This is a test peep"
+    expect(page).to have_link "Take me home", href: "/"
   end
 
 end

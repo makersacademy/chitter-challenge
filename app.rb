@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :"peeps/new"
+    erb :index
   end
 
   post '/' do
@@ -28,6 +28,10 @@ class Chitter < Sinatra::Base
     else
       erb :"peeps/new"
     end
+  end
+
+  get '/peeps/create' do
+    erb :"peeps/new"
   end
 
   get '/peeps/:id' do
