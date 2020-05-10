@@ -1,4 +1,5 @@
 <div class="col-md-6 offset-md-3">
+  <p><%= flash[:notice] %></p>
   <% if @user %>
     <h1>What's up?</h1>
     <form action="/peeps" method="post">

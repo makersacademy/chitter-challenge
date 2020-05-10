@@ -1,8 +1,10 @@
 require 'sinatra'
+require 'sinatra/flash'
 require './db_setup'
 
 class Chitter < Sinatra::Base
 
+  register Sinatra::Flash
   enable :sessions
 
   before do
@@ -42,6 +44,7 @@ class Chitter < Sinatra::Base
     if @current_user = User.all(User.user_name => params[:username]).first
       if @current_user.password == params[:password]
         session[:current_user] = @current_user
+        flash[:notice] = "You're signed in as #{@current_user.user_name}."
         redirect('/peeps')
       end
     end
