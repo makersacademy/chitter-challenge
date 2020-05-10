@@ -2,10 +2,7 @@ require 'sinatra/base'
 require './lib/maker_peep.rb'
 require './lib/maker_profile.rb'
 
-#use routes overview for what to call the different routes
-
 class Chitter < Sinatra::Base
-  Rack::Session::Pool
   enable :sessions
 
   get '/' do
@@ -18,14 +15,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    @makersignup = MakerProfile.signup(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
+    @makersignup = MakerProfile.signup(username: params[:username], name: params[:name],
+      email: params[:email], password: params[:password])
     redirect '/profile'
   end
 
   get '/profile' do
-    # @makerusername = session[:username]
     @makerall = MakerProfile.all
-     erb :profile
+    erb :profile
   end
 
   get '/login' do
@@ -59,6 +56,6 @@ class Chitter < Sinatra::Base
     redirect '/home'
   end
 
-    run! if app_file == $0
+  run! if app_file == $0
 
 end

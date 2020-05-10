@@ -1,5 +1,5 @@
 require 'pg'
-require_relative 'maker_profile' #maker_peep might need to take name and user_name from sign_up
+require_relative 'maker_profile'
 
 class MakerPeep
 
@@ -14,25 +14,29 @@ class MakerPeep
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname:'chitter_test')
+      connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
 
     result = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
     result.map do |peep|
-     MakerPeep.new(id: peep['id'], peep: peep['peep'], datetime: peep['datetime'], username: peep['username'])
-   end
+      MakerPeep.new(id: peep['id'], peep: peep['peep'], datetime: peep['datetime'],
+       username: peep['username'])
+    end
   end
 
   def self.create(peep:, username:, datetime:)
-     time = Time.new
+    time = Time.new
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname:'chitter_test')
+      connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("INSERT INTO peeps (peep, datetime, username) VALUES('#{peep}', '#{time.strftime("%d/%m/%Y, %k:%M")}', '#{username}') RETURNING id, username, peep, datetime;")
-    MakerPeep.new(id: result[0]['id'], peep: result[0]['peep'], datetime: result[0]['datetime'], username: result[0]['username'])
+    result = connection.exec("INSERT INTO peeps (peep, datetime, username) VALUES
+    ('#{peep}', '#{time.strftime("%d/%m/%Y, %k:%M")}', '#{username}') RETURNING id,
+    username, peep, datetime;")
+    MakerPeep.new(id: result[0]['id'], peep: result[0]['peep'], datetime: result[0]['datetime'],
+    username: result[0]['username'])
   end
 end
