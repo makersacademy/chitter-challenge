@@ -28,6 +28,8 @@ This will open the default browser and load http://localhost:9292, probably befo
 ## Todo
 
 * Implement reverse chronological view of peeps
+* Refactor code into app/controllers app/models  app/views folders
+
 
 # Original README.md
 
