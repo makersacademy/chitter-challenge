@@ -7,7 +7,9 @@ require 'rack_session_access'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  # Rack session access for testing with session values
   use RackSessionAccess::Middleware if environment == :test
+  # Flash for messages to user
   register Sinatra::Flash
 
   get '/' do
@@ -35,6 +37,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    #saving user id & username in sessions so they can be referenced on /peeps/new and /peeps routes.
     session[:user_id] = user.id
     session[:username] = user.username
     redirect '/peeps'
@@ -45,6 +48,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
+    #saving user id & username in sessions so they can be referenced on /peeps/new and /peeps routes.
     session[:username] = params[:username]
     user = User.authenticate(username: params[:username], password: params[:password])
     if user
