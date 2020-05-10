@@ -85,7 +85,6 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 ```
-
 * write the feature test
 * add text-area and form for creating and posting peeps to the index.erb
 * create get and post routes
@@ -112,3 +111,11 @@ I want to see the time at which it was made
 * refactored unit tests and wrapped database data in Ruby objects
 * write the feature test
 * updated index.erb
+
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+* write the feature test
+* create the ```users``` table 
