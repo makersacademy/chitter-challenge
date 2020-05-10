@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
-require './environments'
+require './config/environment'
 
 # Global for verbose output
 # $verbose = true
