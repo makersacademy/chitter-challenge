@@ -3,11 +3,8 @@ Chitter Challenge
 
 This web application is a Twitter clone that allows users to post messages, known as peeps, to a public stream.
 
-[INSERT ENTITY RELATIONSHIP DIAGRAM]
-
-[INSERT MODEL]
-
-[INSERT SCREENSHOTS OF WEBSITE]
+![Entity relationship diagram](images/chitter_erd.png)
+![Screenshot of homepage](images/chitter_homepage.png)
 
 ## Features
 
@@ -17,7 +14,7 @@ A user can accomplish the following:
   * See all peeps in reverse chronological order
   * See the time at which a peep was made
   * Sign up to Chitter with a username and password
-  * Log into Chitter and post peeps as themselves
+  * Log into Chitter
   * Log out of Chitter
 
 ## Notes on functionality:
