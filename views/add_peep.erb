@@ -1,0 +1,48 @@
+<center><% @makerall.each do |info| %>
+
+<h2>Welcome <%= info.name %>!</h2>
+ <h3>Add your peep below:</h3>
+
+<% end %>
+<% time = Time.new %>
+
+<form action="/add_peep" method="post">
+  <label>Peep:</label>
+<input type="text" name="peep" placeholder="add peep here"/>
+<label>Username:</label>
+  <input type="text" name="username" placeholder="add username here"/><br><br>
+  <input type="submit" value="Add Peep!"/>
+</form>
+</center>
+
+
+<style>
+
+  h2 {
+    font-size: 100px;
+    margin-bottom: -10px;
+  }
+
+  h3 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  input[type=submit] {
+   box-sizing: border-box; width: 15%;
+   font-family: 'Athiti';
+   font-size: 25px;
+   border: 0.3rem outset white;
+   border-radius: 10px;
+   background: #FFFFCC;
+   outline-offset: 0.5rem;
+ }
+ input[type=text] {
+  font-family: 'Athiti';
+  font-size: 15px;
+  border: 0.2rem outset white;
+  border-radius: 5px;
+  background: #FFFFCC;
+  outline-offset: 0.5rem;
+}
+ </style>

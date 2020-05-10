@@ -1,0 +1,57 @@
+<center>
+  <head>
+  <link href='https://fonts.googleapis.com/css?family=Athiti' rel='stylesheet'>
+  </head>
+<body>
+  <h1>CHITTER</h1>
+<style>
+
+    input[type=submit] {
+     box-sizing: border-box; width: 15%;
+     font-family: 'Athiti';
+     font-size: 25px;
+     border: 0.3rem outset white;
+     border-radius: 10px;
+     background: #FFFFCC;
+     outline-offset: 0.5rem;
+     display: inline-block;
+   }
+
+   .peeps {
+     width: 90%;
+     height: 50px;
+     border: 1px solid red;
+   }
+
+   input[type=submit]:hover {
+    color: coral;
+   }
+
+  tr:hover {background-color: #f5f5f5;}
+
+   td {
+  border-bottom: 1px solid #ddd;
+}
+
+ </style>
+<form action="/sign_up" type="get">
+   <input type="submit" value="Sign Up">
+ </form>
+ <form action="/login" type="get">
+   <input type="submit" value="login">
+ </form>
+
+
+   <% @peeps.each do |peep| %>
+   <table>
+     <tr>
+       <td><h4>      <%= peep.username %>      </h4></td>
+       <td><h3>      <%= peep.peep %>      </h3></td>
+       <td><h4>      <%= peep.datetime %>      </h4></td>
+     </tr>
+   </table>
+   <br>
+<ul>
+  <!-- <li><%= peep.username %> : <%= peep.peep %> : <%= peep.datetime %></li> -->
+</ul>
+<% end %>
