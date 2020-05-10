@@ -3,7 +3,10 @@
 </form>
 
 <ul>
+  <% @peeps.sort! { |a, b| b.date_and_time <=> a.date_and_time } %>
   <% @peeps.each do |peep| %>
-    <li><%= peep.text %> - <%= peep.date_and_time %></li>
+    <li class="peep">
+      <%= peep.text %> - <%= peep.date_and_time %>
+    </li>
   <% end %>
 </ul>

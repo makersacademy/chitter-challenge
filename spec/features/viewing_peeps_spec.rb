@@ -21,6 +21,18 @@ feature 'Viewing peeps' do
     expect(page).to have_content "Damn, it's suncream o'clock!"
   end
 
+  scenario 'views peeps in reverse chronological order' do
+    Peep.add(text: "Feeling those summer vibes today")
+    sleep 1
+    Peep.add(text: "Got the frisbee out for the first time in months!")
+    sleep 1
+    Peep.add(text: "Damn, it''s suncream o''clock!")
+
+    visit('/peeps')
+
+    expect(page.first('.peep').text).to include "Damn, it's suncream o'clock!"
+  end
+
   # See the tweets in reverse chronological order
 
 end

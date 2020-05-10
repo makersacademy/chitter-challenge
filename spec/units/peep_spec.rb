@@ -10,10 +10,6 @@ describe Peep do
       Peep.add(text: "Got the frisbee out for the first time in months!")
       Peep.add(text: "Damn, it''s suncream o''clock!")
 
-      # connection.exec("INSERT INTO peeps (text) VALUES ('Feeling those summer vibes today');")
-      # connection.exec("INSERT INTO peeps (text) VALUES ('Got the frisbee out for the first time in months!');")
-      # connection.exec("INSERT INTO peeps (text) VALUES ('Damn, it''s suncream o''clock!');")
-
       peep = Peep.all
 
       expect(peep.length).to eq 3
@@ -21,10 +17,6 @@ describe Peep do
       expect(peep.first.id).to eq test.id
       expect(peep.first.text).to eq 'Feeling those summer vibes today'
       expect(peep.first.date_and_time).to eq "#{date_and_time}"
-
-      # expect(peep).to include "Feeling those summer vibes today"
-      # expect(peep).to include "Got the frisbee out for the first time in months!"
-      # expect(peep).to include "Damn, it's suncream o'clock!"
 
     end
   end
