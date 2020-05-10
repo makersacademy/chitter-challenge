@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
 
   before '/' do
-    verbose_output(request.url) if $verbose
+    verbose_output(request) if $verbose
   end
 
   get '/' do
@@ -23,8 +23,8 @@ class Chitter < Sinatra::Base
   private
 
   # :nocov:
-  def verbose_output(where)
-    puts "\nin:\n#{where}"
+  def verbose_output(request)
+    puts "\n#{request.request_method}: #{request.path}"
     puts "session: "; p session
     puts "params: "; p params
   end
