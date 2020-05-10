@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
 
   post '/signup' do
     User.create(name: params['name'], email: params[:email], password: params[:password])
-    redirect '/'
+    erb:'/signup/thankyou'
   end
 
 
