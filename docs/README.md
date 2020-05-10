@@ -37,6 +37,7 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+Done
 
 HARDER
 

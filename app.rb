@@ -1,14 +1,17 @@
 require 'sinatra/base'
 require './lib/peep.rb'
+require './lib/user.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions, :method_override
   get '/' do
+    @thankyoumessage = "Thanks for signing up!"
     erb :index
   end
 
   get '/peeps' do
     @peeps = Peep.all
+    
     erb:'peeps/index'
   end
 
@@ -32,7 +35,7 @@ class Chitter < Sinatra::Base
 
   post '/signup' do
     User.create(name: params['name'], email: params[:email], password: params[:password])
-   redirect '/'
+    redirect '/'
   end
 
 
