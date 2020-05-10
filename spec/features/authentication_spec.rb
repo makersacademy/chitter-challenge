@@ -23,7 +23,9 @@ feature 'Sign in' do
   end
 
   scenario 'password incorrect' do
-    User.create(email: 'test@example.com', password: 'password123', name: 'Ricky Martin', username: 'ricky_m')
+    user = User.create(email: 'test@example.com', password: 'password123', name: 'Ricky Martin', username: 'ricky_m')
+    page.set_rack_session(user_id: user.id)
+
 
     visit '/sessions/new'
     fill_in('username', with: 'ricky_m')
@@ -41,7 +43,7 @@ feature 'Sign in' do
     fill_in('username', with: 'ricky_m')
     fill_in('password', with: 'password123')
     click_on('Submit')
-    click_on('Sign out')
+    click_on('Log out')
 
     expect(page).to have_content "You have signed out."
   end

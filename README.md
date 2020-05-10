@@ -7,6 +7,17 @@ Development steps:
 * Set up web project with Sinatra, Rack, and testing environment with RSpec and Capybara
 * Create route for viewing peeps and Peep class - reading peeps from array
 * Set up test and development databases
+* Connect db to project with Peep class
+* Post new peep - create class method, saving peep to db with current time
+* Wrap database data (peep) in object (instance of Peep class)
+* Create User model & users table
+* Implement new user registration using BCrypt, enable sessions
+* Implement authentication, using Flash to display messages to users
+* Save username to session, display username as author of peep
+* Use Rack Session Access to be able to test session values
+* Amend erb files so Sign up and Login buttons only visible when logged out, and Log out only visible when logged in
+* Implement log out
+* Add CSS
 
 How to use:
 -----
@@ -18,8 +29,17 @@ $ bundle install
 * Connect to `psql`
 * Create database using `psql` command `CREATE DATABASE chitter`
 * Connect to the db using the `psql` command `\c chitter;`
-* Run the query I saved in file `01_create_peeps_table.sql`
-* Set up test database in a similar way (`chitter_test`)
+* Run the query I saved in file `01_create_peeps_table.sql` & `02_create_users_table.sql`
+* Set up a test database in a similar way (`chitter_test`)
+3. Run tests
+```
+$ rspec
+```
+What I learnt from the process:
+------
+
+
+
 
 ------
 * Challenge time: rest of the day and weekend, until Monday 9am
