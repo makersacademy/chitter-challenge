@@ -27,9 +27,7 @@ This will open the default browser and load http://localhost:9292, probably befo
 
 ## Todo
 
-* ~~Remove commented code from environments.rb~~
-* ~~Remove test environment~~
-
+* Implement reverse chronological view of peeps
 
 # Original README.md
 
