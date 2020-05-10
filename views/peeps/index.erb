@@ -1,20 +1,17 @@
 <div>
   <h1>Peep it all the way!</h1>
-</div>
-
-<textarea form="peep" name="peep"></textarea>
-
-<form id="peep" action="/peeps" method="post">
-  <input type="submit" value="Peep it"/>
-</form>
-
-<div>
-  <ul>
-    <% @peep.each do |peep| %>
-      <li class='peep'>
-        <%= peep.peep %>
-        <p id='posted_on'>Posted on: <%= peep.created_at %></p>
-      </li>
-    <% end %>
-  </ul>
+  <textarea form="peep" name="peep" placeholder="Peep it"></textarea>
+  <form id="peep" action="/peeps" method="post">
+    <input type="submit" value="Peep it"/>
+  </form>
+  <div>
+    <ul>
+      <% @peep.each do |peep| %>
+        <li class='peep'>
+          <%= peep.peep %>
+          <p id='posted_on'>Posted on: <%= peep.created_at %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
