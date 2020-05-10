@@ -1,0 +1,27 @@
+<div >
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Log In">
+  </form>
+</div>
+<div>
+  <% if @user %>
+    <h3 id='welcome'>Welcome <%= @user.name %>!</h3>
+  <% end %>
+</div>
+<div>
+  <h1>Peep it all the way!</h1>
+  <textarea form="peep" name="peep" placeholder="Peep it" required></textarea>
+  <form id="peep" action="/peeps" method="post">
+    <input type="submit" value="Peep it"/>
+  </form>
+  <div>
+    <ul>
+      <% @peep.each do |peep| %>
+        <li class='peep'>
+          <%= peep.peep %>
+          <p id='posted_on'>Posted on: <%= peep.created_at %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

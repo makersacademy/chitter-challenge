@@ -1,0 +1,9 @@
+<div>
+  <% flash[:notice] %>
+  <h3>Log In</h3>
+  <form action="/sessions" method="post">
+    <input type="email" name="email" placeholder="email@example.com" required>
+    <input type="password" name="password" placeholder="password" required>
+    <input type="submit" value="Sign In">
+  </form>
+</div>

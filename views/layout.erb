@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <meta name="description" content="Chitter">
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+  </head>
+
+<body>
+  <% flash.keys.each do |type| %>
+    <div data-alert class="flash <%= type %> alert-box radius">
+      <%= flash[type] %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% end %>
+  <%= yield %>
+</body>
+</html>
