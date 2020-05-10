@@ -1,0 +1,14 @@
+<p> You have successfully signed up for chitter! </p>
+
+<br>
+<p> Name: <%= @user.name %> </p>
+
+<p> Username: <%= @user.username %> </p>
+
+<p> Email: <%= @user.email %> </p>
+
+<p> Password: <%= @user.password %> </p>
+
+<form action="/peeps" method="get">
+  <input type="submit" value="Log in!">
+</form>
