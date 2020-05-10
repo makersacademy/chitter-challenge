@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    p @user = User.find(id: session[:user_id])
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :'peeps'
   end
@@ -54,6 +54,12 @@ class Chitter < Sinatra::Base
       flash[:notice] = "Your username or password is incorrect."
       redirect '/sessions/new'
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = "You have signed out."
+    redirect '/peeps'
   end
 
   run! if app_file == $0

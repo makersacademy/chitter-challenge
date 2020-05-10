@@ -17,3 +17,11 @@
   <input type="submit" value="Add new peep">
 </form>
 <% end %>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out">
+</form>
+
+<p>
+  <%= flash[:notice] %>
+</p>
