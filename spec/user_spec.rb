@@ -33,4 +33,25 @@ describe User do
       expect(User.find(id: nil)).to eq nil
     end
   end
+
+  describe '.authenticate' do
+    it 'checks if password and email are correct' do
+      user = User.create(email: 'test@example.com', password: 'password123', name: 'Ricky Martin', username: 'ricky_m')
+      auth_user = User.authenticate(username: 'ricky_m', password: 'password123')
+
+      expect(auth_user.id).to eq user.id
+    end
+
+    it 'returns nil if username is incorrect' do
+      user = User.create(email: 'test@example.com', password: 'password123', name: 'Ricky Martin', username: 'ricky_m')
+
+      expect(User.authenticate(username: 'wrongRicky', password: 'password123')).to be_nil
+    end
+
+    it 'returns nil if password is incorrect' do
+      user = User.create(email: 'test@example.com', password: 'password123', name: 'Ricky Martin', username: 'ricky_m')
+
+      expect(User.authenticate(username: 'ricky_m', password: 'wrongPassword')).to be_nil
+    end
+  end
 end
