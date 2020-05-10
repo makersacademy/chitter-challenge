@@ -93,7 +93,6 @@ I want to post a message (peep) to chitter
 * configured testing environment
 * implemented class methods to facilitate the creation and retrieval of peeps from database
 
-
 ```
 As a maker
 So that I can see what others are saying  
@@ -101,7 +100,6 @@ I want to see all peeps in reverse chronological order
 ```
 * write the feature test
 * changed the query string in ```Peep.all``` to reflect the user story
-
 
 ```
 As a Maker
@@ -118,4 +116,6 @@ So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
 * write the feature test
-* create the ```users``` table 
+* make the test pass by creating the controllers and '/users/new.erb'
+* create the ```users``` table
+* write unit test and implement ```User``` class method for the creation of users

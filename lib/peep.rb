@@ -8,7 +8,6 @@ class Peep
     @id = id
     @peep = peep
     @created_at = Time.parse(created_at).strftime("%B %e, %Y at %I:%M %p")
-
   end
 
   def self.all

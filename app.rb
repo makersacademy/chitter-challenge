@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require './lib/peep'
-require 'pg'
+require './lib/user'
 
 class Chitter < Sinatra::Base
 
@@ -25,6 +25,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
+    p "Params #{params}"
+    User.create(
+      name: params[:name],
+      username: params[:username],
+      email: params[:email],
+      password: params[:password]
+    )
     redirect '/'
   end
 

@@ -26,7 +26,8 @@ describe Peep do
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data.first['id']
       expect(peep.peep).to eq 'This is a peep'
-      expect(peep.created_at).to eq Time.parse(persisted_data.first['created_at']).strftime("%B %e, %Y at %I:%M %p")
+      expect(peep.created_at).to eq Time.parse(persisted_data.first['created_at'])
+                                        .strftime("%B %e, %Y at %I:%M %p")
     end
   end
 end
