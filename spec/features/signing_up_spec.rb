@@ -15,5 +15,6 @@ feature 'Signing up to Chitter' do
     click_button 'Create account'
 
     expect(current_path).to eq '/'
+    expect(page).to have_content 'Welcome to Chitter, Marius!'
   end
 end
