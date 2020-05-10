@@ -1,6 +1,8 @@
 require 'capybara/rspec'
+require 'database_cleaner/active_record'
 require 'simplecov'
 require 'simplecov-console'
+require 'support/database_cleaner.rb'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -10,6 +12,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
