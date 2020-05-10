@@ -10,8 +10,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @result = Peep.all
-    @name = session[:name]
-    @username = session[:username]
+    @user = session[:user]
     erb(:index)
   end
 
@@ -31,9 +30,8 @@ class Chitter < Sinatra::Base
 
   post '/peeps/signup' do
     p "Form data submitted to the /signup route!"
-    User.add(name: params[:name], username: params[:username], password: params[:password])
-    session[:name] = params[:name]
-    session[:username] = params[:username]
+    session[:user] = User.add(name: params[:name], email: params[:email],
+      username: params[:username], password: params[:password])
     redirect('/peeps')
   end
 
@@ -42,12 +40,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/login' do
-    if User.check(username:params[:username], password:params[:password])
-      session[:username] = params[:username]
+    if User.authenticate(username: params[:username], password: params[:password])
+      session[:user] = User.get(username: params[:username])
       redirect('/peeps')
     else
       flash[:notice] = "The details do not match our records, please try again."
-    end 
+    end
   end
 
+  post '/peeps/logout' do
+    session[:user] = nil
+    redirect('/peeps')
+  end
 end

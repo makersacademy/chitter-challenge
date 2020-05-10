@@ -1,11 +1,31 @@
+<form action="/peeps/signup" method="get">
+  <input type="submit" value="Sign up">
+</form>
+
+<form action="/peeps/new" method="get">
+  <input type="submit" value="Post peep">
+</form>
+
+<% if @user != nil %>
+<form action="/peeps/logout" method="post">
+  <input type="submit" value="Log out">
+</form>
+<% end %>
+
 <center>
 <h1> Chitter Feed </h1>
-<h1> Welcome, <%= @username %> </h1>
 
-<ul>
-  <% @result.sort! { |a, b|  b.time <=> a.time } %>
-  <% @result.each do |peep| %>
-    <li><%= peep.peep %> <%= peep.time %></li>
-  <% end %>
-</ul>
+<% if @user != nil %>
+<h1> Welcome, <%= @user.name %> </h1>
+<% end %>
+
+
+<% @result.sort! { |a, b|  b.time <=> a.time } %>
+<% @result.each do |peep| %>
+  <br>
+  <%= peep.name %> @(<%= peep.username %>) Posted at: <%=peep.time %>
+  <%= peep.peep %>
+  <br>
+<% end %>
+
 </center>

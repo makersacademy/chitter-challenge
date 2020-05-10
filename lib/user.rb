@@ -2,10 +2,11 @@ require 'pg'
 
 class User
 
-  attr_reader :name, :username, :password
+  attr_reader :name, :email, :username, :password
 
-  def initialize(name:, username:, password:)
+  def initialize(name:, email:, username:, password:)
     @name = name
+    @email = email
     @username = username
     @password = password
   end
@@ -18,26 +19,34 @@ class User
     end
   end
 
-  def self.add(name:, username:, password:)
-    self.connection
-    result = connection.exec("INSERT INTO users (name, username, password) VALUES
-    ('#{name}', '#{username}', '#{password}') RETURNING name, username, password;")
+  def self.add(name:, email:, username:, password:)
+    connection
+    result = connection.exec("INSERT INTO users (name, email, username, password)
+     VALUES ('#{name}', '#{email}', '#{username}', '#{password}')
+      RETURNING name, email, username, password;")
     User.new(name: result[0]['name'], username: result[0]['username'],
-      password: result[0]['password'])
+      email: result[0]['email'], password: result[0]['password'])
   end
 
   def self.all
-    self.connection
+    connection
     result = connection.exec('SELECT * FROM users;')
     result.map do |user|
-      User.new(name: user['name'], username: user['username'], password: user['password'])
+      User.new(name: user['name'], email: user['email'],
+        username: user['username'], password: user['password'])
     end
   end
 
-  def self.check(username:, password:)
-    self.connection
-    result = connection.exec("SELECT EXISTS(SELECT * FROM users WHERE username = '#{username}' AND password = '#{password}');")
-    return false if result.getvalue(0,0) == "f"
-    result.getvalue(0,0) == "t"
+  def self.authenticate(username:, password:)
+    connection
+    result = connection.exec("SELECT EXISTS(SELECT * FROM users WHERE
+      username = '#{username}' AND password = '#{password}');")
+    result.getvalue(0, 0) == "t"
+  end
+
+  def self.get(username:)
+    result = connection.exec("SELECT * FROM users WHERE username = '#{username}';")
+    User.new(name: result[0]['name'], email: result[0]['email'],
+      username: result[0]['username'], password: result[0]['password'])
   end
 end

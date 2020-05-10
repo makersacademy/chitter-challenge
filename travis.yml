@@ -1,0 +1,15 @@
+language: ruby
+ rvm:
+   - 2.6.5
+
+script:
+  - mkdir -p spec && bundle exec rspec spec
+
+ services:
+   - postgresql
+
+before_script:
+  - psql -c 'create database chitter_manager_test;' -U postgres
+  - psql -c 'create database chitter_manager;' -U postgres
+  - psql -U postgres -d chitter_manager_test -f db/migrations/01_chitter_database.sql
+  - psql -U postgres -d chitter_manager -f db/migrations/01_chitter_database.sql
