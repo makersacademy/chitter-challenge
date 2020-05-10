@@ -3,14 +3,14 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'set_up_test1'
 
-ENV['ENVIRONMENT'] == 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
   config.before(:each) do
-    connection = PG.connect(dbname: 'chitter_test')
-    connection.exec("TRUNCATE profile;")
-    connection.exec("TRUNCATE peeps;")
+    set_up_profile
+    set_up_peeps
   end
 end
 

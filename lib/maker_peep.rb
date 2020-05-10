@@ -13,7 +13,7 @@ class MakerPeep
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == "test"
+    if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname:'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
@@ -27,7 +27,7 @@ class MakerPeep
 
   def self.create(peep:, username:, datetime:)
      time = Time.new
-    if ENV['ENVIRONMENT'] == "test"
+    if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname:'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')

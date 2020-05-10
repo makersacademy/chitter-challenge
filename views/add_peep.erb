@@ -1,7 +1,8 @@
 <center><% @makerall.each do |info| %>
 
-<h1>Welcome<%= info.name %>!</h1>
-<h3>Add your peep below...</h3>
+<h2>Welcome <%= info.name %>!</h2>
+ <h3>Add your peep below:</h3>
+
 <% end %>
 <% time = Time.new %>
 
@@ -16,6 +17,17 @@
 
 
 <style>
+
+  h2 {
+    font-size: 100px;
+    margin-bottom: -10px;
+  }
+
+  h3 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
   input[type=submit] {
    box-sizing: border-box; width: 15%;
    font-family: 'Athiti';
