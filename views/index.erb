@@ -18,7 +18,10 @@ input[type="image"] {display: inline-block; vertical-align: top;}
   <input type="submit" value="peep"><br>
 </form>
 <h3> latest peeps </h3>
-<%= @peep %>
-
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
 </body>
 </html>
