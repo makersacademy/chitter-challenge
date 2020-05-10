@@ -1,0 +1,14 @@
+<center>
+<h1> Log into Chitter!</h1>
+
+<form action="/peeps/login" method="post">
+
+<input type="text" name="username" placeholder="username">
+<input type="text" name="password" placeholder="password">
+<input type="submit" value="Log in">
+</form>
+
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+</center>
