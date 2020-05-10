@@ -2,7 +2,7 @@ require 'user'
 
 describe User do
   require 'database_helpers'
-  
+
   describe '.create' do
     it 'creates a new user' do
       user = User.create(email: 'email@email.com', password: 'password123')
@@ -17,7 +17,7 @@ describe User do
   describe '.find' do
     it 'finds a user by ID' do
       user = User.create(email: 'email@email.com', password: 'password123')
-      result = User.find(id: user)
+      result = User.find(id: user.id)
 
       expect(result.id).to eq user.id
       expect(result.email).to eq user.email
