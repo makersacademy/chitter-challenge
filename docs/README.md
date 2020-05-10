@@ -1,3 +1,15 @@
+Personal note:
+I thought this weeks challenge went reasonably well. I started off with the 'peep' class, added the method .all, .create and as an extra, .delete. I then created a User class, which asks users for their name, email and password via the /signup route.
+
+I then wanted to add some optional styling so for this I used bootstrap, combined with some extra CSS styling which can be found i the layout.erb file.
+
+To set up the databases please refer to docs/01. set up databases.
+
+Thanks,
+Jo
+
+
+
 Chitter Challenge
 =================
 
@@ -23,18 +35,22 @@ STRAIGHT UP
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+Done
 
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
+Done
 
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+Done
 
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+Done
 
 HARDER
 
