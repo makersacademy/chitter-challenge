@@ -143,6 +143,7 @@ DEPENDENCIES
   capybara
   data_mapper
   dm-postgres-adapter
+  do_postgres (= 0.10.17)
   orderly
   pg
   rspec
