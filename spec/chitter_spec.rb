@@ -5,17 +5,21 @@ describe Chitter do
   it 'returns a list of .all peeps' do
     connection = PG.connect(dbname: 'chitter_test')
     # Add the test data
-    connection.exec("INSERT INTO chatter (peep) VALUES ('Rememeber to submit your ideas for our finmtec hackathon before 6pm today!');")
+    connection.exec("INSERT INTO chatter (peep) VALUES ('Rememeber to submit your ideas for our fintec hackathon before 6pm today!');")
     connection.exec("INSERT INTO chatter (peep) VALUES ('Lost: Grey and White Pigeon with black bits. Normal size. A bit mangy looking. Does not hava a name.');")
     peeps = Chitter.all
-    expect(peeps).to include('Rememeber to submit your ideas for our finmtec hackathon before 6pm today!')
-    expect(peeps).to include('Lost: Grey and White Pigeon with black bits. Normal size. A bit mangy looking. Does not hava a name.')
-  end
+    expect(peeps.length).to eq 2
+    expect(peeps.first).to be_a Chitter
+    expect(peeps.first.id).to eq peeps.id
+    # expect(peeps.first.timestamp).to be_kind_of(DateTime)
+    expect(peeps.first.peep).to eq('Rememeber to submit your ideas for our fintec hackathon before 6pm today!')
+ end
+
 
   it '.add creates a new peep' do
     new_peep = 'The Big Brother House is much smaller than it looks on TV.'
-    Chitter.add(new_peep)
-    expect(Chitter.all).to include new_peep
+    peep = Chitter.add(new_peep)
+    expect(peep.peep).to eq new_peep
   end
 
   it '.add timestamps each peep' do

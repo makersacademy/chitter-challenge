@@ -26,8 +26,8 @@ input[type="image"] {display: inline-block; vertical-align: top;}
 <h3> latest peeps </h3>
 <ul>
   <% @peeps.reverse.each do |peep| %>
-    <li><%= peep %><br>
-     <time> created: <%=Time.now.strftime("%c")%> </time>
+    <li><%= peep.peep %><br>
+     <time style="font-size:70%"><i>created: <%=peep.timestamp%></i></time>
     </li>
   <% end %>
 </ul>
