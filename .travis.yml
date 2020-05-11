@@ -4,7 +4,11 @@ services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c 'CREATE DATABASE chitter_test;' -U postgres
 
 script:
-  - bundle exec rspec
+  - mkdir -p spec && bundle exec rspec spec
+
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install -qq postgresql-server-dev-12
