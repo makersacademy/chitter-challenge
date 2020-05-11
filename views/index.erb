@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <form action='/diary' method='post'>
+      <ul>
+        <li>
+        <label for='title'>Title:</label>
+        <input type='text' id='title' name='title'>
+        </li>
+        <li>
+          <label for='msg'>Message:</label>
+          <textarea id='msg' name='msg'></textarea>
+        </li>
+        <li>
+          <input type='submit' name='add' value='add to the diary'>
+        </li>
+      </ul>
+    </form>
+    <form action = '/diary' method = 'get' >
+      <li>
+        <input type='submit' name='show' value='see the diaries'>
+      </li>
+    </form>
+  </body>
+</html>
