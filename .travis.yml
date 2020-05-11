@@ -8,8 +8,4 @@ before_script:
   bundle exec rake db:migrate
 
 script:
-  - mkdir -p spec && bundle exec rspec spec
-
-before_install:
-- sudo apt-get update -qq
-- sudo apt-get install -qq postgresql-server-dev-12
+  - bundle exec rspec
