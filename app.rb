@@ -6,7 +6,7 @@ class ChitterChatter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    # @user = User.find(session[:user_id]) requires debug
+    @user = User.find(id: session[:user_id])
     @peeps = Chitter.all
     erb :index
   end
@@ -22,7 +22,7 @@ class ChitterChatter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password])
+    user = User.create(email: params['email'], password: params['password'])
     session[:user_id] = user.id
     redirect '/'
   end

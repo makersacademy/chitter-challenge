@@ -16,13 +16,12 @@ input[type="image"] {display: inline-block; vertical-align: top;}
 </style>
 </head>
 <body>
-<p><a href="users/new">register</a></p>
+<p><a href="users/new">register</a>
+<% if @user %>
+&emsp;&emsp;&emsp;&emsp;&emsp; user: <%= @user.email %></p>
+<% end %>
 
 <h1>chitter</h1>
-
-<% if @user %>
-  <h2>Welcome, <%= @user.email %></h2>
-<% end %>
 
 <form action="/" method="post">
 <label> what are you up to?</label> <br>
