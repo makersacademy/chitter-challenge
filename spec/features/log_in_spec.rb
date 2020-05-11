@@ -13,6 +13,6 @@ feature 'sign in' do
     fill_in('username', with: "ellischitter")
     fill_in('password', with: "ellis123")
 
-    expect(page).to have_content("Body:")
+    expect(page).to have_content("What's on your mind?")
   end
 end
