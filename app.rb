@@ -34,7 +34,7 @@ class Chitter < Sinatra::Base
 
   post '/log-in' do 
     @user = User.log_in(username: params[:username], password: params[:password])
-    if !@user.nil?  
+    if !@user.nil? 
       redirect('/peeps')
     else 
       redirect('/incorrect')
