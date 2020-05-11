@@ -1,0 +1,25 @@
+<h1>Welcome to Chitter!</h1>
+
+<form action="/sign-up" method="get">
+  <input type="submit" value="Sign up!">
+</form>
+
+<form action="/log-in" method="post">
+  Username:
+  <input type="text" name="username">
+  <br>
+  Password:
+  <input type="text" name="password">
+  <br>
+  <input type="submit" value ="Log in!">
+</form>
+
+<form action="/peeps" method="post">
+  <label for="body">What's on your mind?</label><br>
+  <input type="text" name="body" value="">
+  <input type="submit" name="post" value="Post">
+</form>
+
+<% @peeps.each do |peep| %>
+  <p> <%= peep.body %> @ <%= peep.created_at %></p>
+<% end %>
