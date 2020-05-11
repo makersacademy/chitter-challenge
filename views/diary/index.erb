@@ -1,0 +1,11 @@
+<form>
+ <% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+ </form>
+
+<form>
+<%@diaries.each do |diary|%>
+  <%=diary.writing_date%>: <%=diary.title%>: <%=diary.body%>
+<%end%>
+ </form>
