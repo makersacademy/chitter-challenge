@@ -1,0 +1,25 @@
+<div class="container">
+	<nav id="nav">
+		<% if session[:person] == nil %>
+			<a href="/signin" id="signin"><button class="myButton">Sign-in</button></a>
+			<a href="/signup" id="signup"><button class="myButton">Sign-up</button></a>
+		<% else %>
+			<a href="/add_peep" id="add_peep"><button class="myButton">Add peep</button></a>
+			<a href="/my_peeps" id="my_peeps"><button class="myButton">My peeps</button></a>
+			<a href="/logout" id="logout"><button class="myButton">Log out</button></a>
+		<% end %>
+	</nav>
+	<% if session[:person] != nil %>
+		<h4>Hello <%= session[:person].real_name %></h4>
+	<% end %>
+	<h3>Most Recent Peeps</h3>
+	<% session[:peeps].reverse.each do |peep|%>
+		<div class="peep">
+			<h4><%=peep.real_name%> aka @<%=peep.user_name%></h4>
+			<p><%=peep.body%></p>
+			<small><%=peep.time_stamp%></small>
+		</div>
+		<br>
+		<br>
+	<% end %>
+</div>

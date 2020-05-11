@@ -1,0 +1,15 @@
+<div class="container">
+	<nav id="nav">
+		<a href="/" id="home"><button class="myButton">Home</button></a>
+	</nav>
+	<h3>My Peeps</h3>
+	<% session[:person].peeps.reverse.each do |peep|%>
+		<div class="peep">
+			<h4><%=peep.real_name%> aka @<%=peep.user_name%></h4>
+			<p><%=peep.body%></p>
+			<small><%=peep.time_stamp%></small>
+		</div>
+		<br>
+		<br>
+	<% end %>
+</div>
