@@ -9,7 +9,7 @@ describe User do
     expect(user.password).to eq("ellis123")
   end
 
-  it 'adds a new user to the database' do
+  it 'signs up a user' do
     User.sign_up(name: 'Ellis', username: 'ellischitter', email: 'ellis@ellis.com', password: 'ellis123')
     user = User.last
     expect(user.name).to eq("Ellis")
@@ -17,4 +17,11 @@ describe User do
     expect(user.email).to eq("ellis@ellis.com")
     expect(user.password).to eq("ellis123")
   end
+
+  it 'logs in a user' do 
+    User.sign_up(name: 'Ellis', username: 'ellischitter', email: 'ellis@ellis.com', password: 'ellis123')
+    user = User.log_in(username: 'ellischitter', password: 'ellis123')
+    expect(user.name).to eq("Ellis")
+  end
 end
+

@@ -8,10 +8,10 @@ feature 'sign up' do
     fill_in('password', with: "ellis123")
     click_button("Submit")
 
-    expect(page).to have_content "You have successfully signed up for chitter!"
-    expect(page).to have_content "Name: Ellis"
-    expect(page).to have_content "Username: ellischitter"
-    expect(page).to have_content "Email: ellis@ellis.com"
-    expect(page).to have_content "Password: ellis123"
+    expect(page).to have_content("You have successfully signed up for chitter!")
+    expect(page).to have_content("Name: Ellis")
+    expect(page).to have_content("Username: ellischitter")
+    expect(page).to have_content("Email: ellis@ellis.com")
+    expect(page).to have_content("Password: ellis123")
   end
 end

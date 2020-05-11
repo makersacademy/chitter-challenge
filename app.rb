@@ -10,7 +10,6 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do 
     @peeps = Peep.all
-    @user = $user
     erb(:peeps)
   end
 
@@ -33,4 +32,15 @@ class Chitter < Sinatra::Base
     erb :confirm_signup
   end
 
+  post '/log-in' do 
+    @user = User.log_in(username: params[:username], password: params[:password])
+    if !@user.nil?  
+      redirect('/peeps')
+    else 
+      redirect('/incorrect')
+    end
+  end
+
+  get '/incorrect' do 
+  end
 end

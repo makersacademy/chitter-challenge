@@ -19,6 +19,11 @@ class User
     User.new(id: last_user[0]['id'], name: last_user[0]['name'], username: last_user[0]['username'], email: last_user[0]['email'], password: last_user[0]['password'])
   end
 
+  def self.log_in(username:, password:)
+    match = connect_to_database.exec("SELECT * FROM users WHERE username='#{username}';")
+    User.new(id: match[0]['id'], name: match[0]['name'], username: match[0]['username'], email: match[0]['email'], password: match[0]['password']) if match.any? && match[0]['password'] == password
+  end
+
   private
 
   def self.connect_to_database
