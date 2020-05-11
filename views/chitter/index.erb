@@ -14,8 +14,6 @@
       <h3>Welcome <%= @user_name %> <%= @user_email %></h3>
     <% end %>
 
-    <%= session[:user_name] %>
-
     <div class='main_div'>
       <div class='flex_div' >
         <form action='/chitter/log-out' method='get' >
@@ -42,7 +40,7 @@
     </div>
 
     <div class='main_div'>
-      <form action='/chitter-sort' method='post' >
+      <form action='/chitter-sort' method='get' >
         <select name='peep_sort'>
         <option value= '' selected disabled hidden>Choose Peep Option</option>
         <option value='ASCE' >Sort Peeps Ascending</option>

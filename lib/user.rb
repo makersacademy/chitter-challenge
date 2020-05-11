@@ -13,7 +13,7 @@ class User
   private
   
   def self.connect_to_db
-    if ENV['ENVIRONMENT'] = 'test'
+    if ENV['ENVIRONMENT'] == 'test'
       PG.connect dbname: 'chitter_user_test'
     else
       PG.connect dbname: 'chitter_user'
@@ -22,17 +22,18 @@ class User
 
   def self.user_exist(email)
     user = connect_to_db.exec("SELECT * FROM users WHERE email = '#{email}';")
-    user.each do |user|
-      return user['email'] == email
+    user.each do |user_find|
+      return user_find['email'] == email
     end
   end
   
+  # Not returning correct validation
   def self.user_valid(email, password)
     user = connect_to_db.exec("SELECT * FROM users WHERE email = '#{email}';")
     user.each do |user|
       return user['email'] == email && user['user_password'] == password
     end
-
+    # user['email'] == email && user['user_password'] == password
   end
 
 end

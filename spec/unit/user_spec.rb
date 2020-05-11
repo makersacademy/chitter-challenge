@@ -5,10 +5,10 @@ describe User do
     it 'able to save user' do
       user = User.sign_up(name: 'Frodo', email: 'frodo@email.com', password: 'password')
       
-      user.each do |user|
-        expect(user['user_name']).to eq 'Frodo'
-        expect(user['email']).to eq 'frodo@email.com'
-        expect(user['user_password']).to eq 'password'
+      user.each do |user_find|
+        expect(user_find['user_name']).to eq 'Frodo'
+        expect(user_find['email']).to eq 'frodo@email.com'
+        expect(user_find['user_password']).to eq 'password'
       end
     end
   end

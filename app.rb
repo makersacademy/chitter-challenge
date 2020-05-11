@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/chitter'
+require_relative './lib/user'
 
 class ChitterApp < Sinatra::Base 
   enable :sessions
@@ -21,7 +22,7 @@ class ChitterApp < Sinatra::Base
     redirect '/chitter'
   end
 
-  post '/chitter-sort' do
+  get '/chitter-sort' do
     session[:toggle] = params[:peep_sort]
     redirect '/chitter'
   end
@@ -29,7 +30,6 @@ class ChitterApp < Sinatra::Base
   post '/user/sign-up/new' do
     session[:user_name] = params[:user_name]
     session[:user_email] = params[:user_email]
-    # User.sign_up(name: params[:user_name], email: params[:user_email], password: params[:user_password])
     redirect '/chitter'
   end
 
@@ -57,8 +57,15 @@ class ChitterApp < Sinatra::Base
   get '/chitter/log-in' do
     session[:user_name] = params[:login_user_name]
     session[:user_email] = params[:login_user_email]
-    # User.log_in(email: session[:login_user_email], password: session[:login_user_password])
-    redirect '/chitter'
+    user = User.log_in?(email: params[:login_user_name], password: params[:login_user_email])
+    
+    if user
+      flash[:error] = 'Welcome back to Chitter!'
+      redirect '/chitter'
+    else
+      flash[:error] = 'Something went wrong'
+      redirect '/user/log-in'
+    end
   end
 
   run! if app_file == $0
