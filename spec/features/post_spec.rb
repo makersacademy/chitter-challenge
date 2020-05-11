@@ -39,4 +39,11 @@ feature 'post peep' do
     expect(page).to have_text "First peep\n#{time}"
   end
 
+  scenario 'message flash if message deleted' do
+    post_peep_to_chitter
+    click_button 'Delete Peep'
+
+    expect(page).to have_content 'Message been deleted!'
+  end
+
 end

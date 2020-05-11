@@ -17,6 +17,7 @@ class ChitterApp < Sinatra::Base
 
   post '/chitter-delete/:id' do
     Chitter.peep_delete(id: params[:id])
+    flash[:error] = 'Message been deleted!'
     redirect '/chitter'
   end
 
@@ -49,6 +50,7 @@ class ChitterApp < Sinatra::Base
 
   get '/chitter/log-out' do
     session.destroy
+    flash[:error] = 'You successfully logged out'
     redirect '/chitter'
   end
 

@@ -35,4 +35,11 @@ feature 'user' do
     expect(page).to have_content 'User Name user-email@email.com'
   end
 
+  scenario 'log out message if user logs out' do
+    user_log_in_to_chitter
+    click_button 'Log Out'
+    
+    expect(page).to have_content 'You successfully logged out'
+  end
+
 end
