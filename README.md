@@ -44,7 +44,8 @@ Domain Model (RESTFUL Approach)::
 
 GET /                      |-Sign in button 
 
-GET /chitter               |-Shows all peeps
+GET /chitter               |- Add post button
+                            - Shows all peeps
                             - Shows in reverse order
 
 GET /chitter/post_message  |-Form that POST's 

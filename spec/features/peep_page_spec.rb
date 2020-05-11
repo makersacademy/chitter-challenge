@@ -26,4 +26,8 @@ feature 'Main Chitter Page' do
     expect(page).to have_content('Welcome to Chitter')
     expect(page).to have_content('This is a new peep test')
   end 
-end 
+end  
+
+
+
+

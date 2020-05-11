@@ -17,10 +17,23 @@ describe Peep do
       expect(peep_all).to include('This is a second test')
       expect(peep_all).to include('This is a third test')
     end 
+
+    it "returns Peeps in reverse chronological order" do 
+ 
+      Peep.create(text: "This is the first (earlier) peep", time: Time.new(2020,02,02))
+      Peep.create(text: "This is the second (later) peep", time: Time.new)
+
+      expect(Peep.all.first).to eq('This is the second (later) peep')
+    end 
   end 
 
- ## describe '.create' do 
-   # it 'creates a new peep post' do 
+  describe '.create' do 
+    it 'creates a new peep post' do 
+      time = Time.new
+      
+      Peep.create(text: 'This is a new test peep', time: "#{time}")
 
-
+      expect(Peep.all).to include 'This is a new test peep'
+    end 
+  end 
 end 

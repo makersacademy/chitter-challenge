@@ -9,6 +9,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
   gem 'sinatra-flash'
   gem 'bcrypt'
   gem 'pg'
+  gem 'orderly'
 
   gem 'capybara', group: :test
   gem 'rspec', group: :test
