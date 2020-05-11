@@ -11,7 +11,7 @@ get '/' do
   erb :'homepage'
 end
 
-post '/cheeps' do
+get '/cheeps' do
   @cheeps = Cheep.all.reverse!
   erb :'cheeps/index'
 end

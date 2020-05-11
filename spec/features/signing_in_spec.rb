@@ -6,7 +6,7 @@ feature 'signing in' do
     fill_in('email', with: "example@example.com")
     fill_in('password', with: "swordfish")
     fill_in('username', with: "A-dog")
-    click_button 'Submit'
-    expect(page).to have_content ("Alice's cheeps")
+    click_button 'Sign up'
+    expect(page).to have_content ("A-dog's cheeps")
   end
 end
