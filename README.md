@@ -1,11 +1,61 @@
 Chitter Challenge
 =================
+This was a weekend challenge during Week 4 at Makers Academy to create a Twitter clone.
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Development steps:
+-----
+* Set up web project with Sinatra, Rack, and testing environment with RSpec and Capybara
+* Create route for viewing peeps and Peep class - reading peeps from array
+* Set up test and development databases
+* Connect db to project with Peep class
+* Post new peep - create class method, saving peep to db with current time
+* Wrap database data (peep) in object (instance of Peep class)
+* Create User model & users table
+* Implement new user registration using BCrypt, enable sessions
+* Implement authentication, using Flash to display messages to users
+* Save username to session, display username as author of peep
+* Use Rack Session Access to be able to test session values
+* Amend erb files so Sign up and Login buttons only visible when logged out, and Log out only visible when logged in
+* Implement log out
+* Add CSS
+
+How to use:
+-----
+1. Install dependencies:
+```
+$ bundle install
+```
+2. Set up databases:
+* Connect to `psql`
+* Create database using `psql` command `CREATE DATABASE chitter`
+* Connect to the db using the `psql` command `\c chitter;`
+* Run the query I saved in file `01_create_peeps_table.sql` & `02_create_users_table.sql`
+* Set up a test database in a similar way (`chitter_test`)
+3. Run tests
+```
+$ rspec
+```
+
+Technologies used:
+------
+* Ruby
+* RSpec
+* Sinatra
+* Capybara
+* PostgreSQL
+
+What I learnt from the process
+------
+* how to develop a web app with a database
+* how to work with relational databases create a database
+* how to set up a test environment
+* following the MVC pattern
+
+What I want to improve and what's left to be done
+------
+* implement a one-to-many relationship e.g. comments for tweets
+* better refactor
+* validating username and email
 
 Challenge:
 -------
@@ -52,6 +102,7 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
 
 Technical Approach:
 -----

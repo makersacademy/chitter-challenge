@@ -1,0 +1,36 @@
+<h1>All the peeps<h1>
+  <% if @user %>
+<h2>Hello <%= @user.username %></h2>
+<% end %>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <p><%= peep.author %> said at <%= peep.created_at %>:</p>
+      <p class='peep'><%= peep.content %></p>
+    </li>
+  <% end %>
+</ul>
+
+<% unless @user %>
+<form action="/users/new" method="get">
+  <input type="submit" name="" value="Sign up">
+</form>
+<form action="/sessions/new" method="get">
+  <input type="submit" name="" value="Log in">
+</form>
+<% end %>
+
+<% if @user %>
+<form action="/peeps/new" method="get">
+  <input type="submit" value="Add new peep">
+</form>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Log out">
+</form>
+<% end %>
+
+<p>
+  <%= flash[:notice] %>
+</p>
