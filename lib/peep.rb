@@ -12,7 +12,13 @@ class Peep
     end
 
     result = connection.exec("SELECT * FROM peep_record ORDER BY time DESC;")
-    result.map { |peep| peep['text'] }
+    result.map do |peep|
+      text = peep['text']
+      time = peep['time']
+      dated_text = "#{text} made on #{time}"
+    end 
+
+    #result.map { |peep| peep['teßxt'] }
   end 
 
   def self.create(text:, time:)
@@ -21,9 +27,6 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-
-    p time
-
     connection.exec("INSERT INTO peep_record (text, time) VALUES('#{text}','#{time}')")
   end 
 end 

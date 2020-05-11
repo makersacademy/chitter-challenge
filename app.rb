@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
   end 
 
   get '/chitter' do
-    @peep = Peep.all 
+    p Peep.all
+    @peep = Peep.all
     erb(:'main_page')
   end
 

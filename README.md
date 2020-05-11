@@ -47,6 +47,7 @@ GET /                      |-Sign in button
 GET /chitter               |- Add post button
                             - Shows all peeps
                             - Shows in reverse order
+                            - When showing the text show the time as time as well
 
 GET /chitter/post_message  |-Form that POST's 
                               > Text input named 'peep'
