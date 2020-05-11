@@ -1,8 +1,12 @@
 require 'sinatra/base'
 require './lib/chitter'
+require './lib/user'
+
 class ChitterChatter < Sinatra::Base
+  enable :sessions
 
   get '/' do
+    # @user = User.find(session[:user_id]) requires debug
     @peeps = Chitter.all
     erb :index
   end
@@ -10,6 +14,16 @@ class ChitterChatter < Sinatra::Base
   post '/' do
     peep = params['new_peep']
     Chitter.add(peep)
+    redirect '/'
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/'
   end
 

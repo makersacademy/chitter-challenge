@@ -16,8 +16,14 @@ input[type="image"] {display: inline-block; vertical-align: top;}
 </style>
 </head>
 <body>
+<p><a href="users/new">register</a></p>
 
 <h1>chitter</h1>
+
+<% if @user %>
+  <h2>Welcome, <%= @user.email %></h2>
+<% end %>
+
 <form action="/" method="post">
 <label> what are you up to?</label> <br>
   <textarea id="new_peep" name="new_peep" placeholder="peep something.." maxlength="300" style="width:250px;height:125px"></textarea><br>

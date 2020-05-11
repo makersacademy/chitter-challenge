@@ -10,11 +10,8 @@ describe Chitter do
     peeps = Chitter.all
     expect(peeps.length).to eq 2
     expect(peeps.first).to be_a Chitter
-    expect(peeps.first.id).to eq peeps.id
-    # expect(peeps.first.timestamp).to be_kind_of(DateTime)
     expect(peeps.first.peep).to eq('Rememeber to submit your ideas for our fintec hackathon before 6pm today!')
- end
-
+  end
 
   it '.add creates a new peep' do
     new_peep = 'The Big Brother House is much smaller than it looks on TV.'
