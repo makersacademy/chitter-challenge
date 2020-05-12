@@ -1,31 +1,32 @@
-require_relative './setup_test_database'
-
-ENV['ENVIRONMENT'] = 'test'
-
-RSpec.configure do |config|
-  config.before(:each) do
-    setup_test_database
-  end
-end
+ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
+require 'database_cleaner/active_record'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'helpers/signup_helper'
+require 'helpers/login_helper'
+require 'helpers/peep_helper'
 
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
+DatabaseCleaner.strategy = :truncation
+
 RSpec.configure do |config|
+  config.before(:each) do
+    DatabaseCleaner.clean
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

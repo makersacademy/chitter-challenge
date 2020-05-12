@@ -1,69 +1,29 @@
-### User Stories
+Chitter Challenge
+
+## User Stories
 
 ```
-As a Maker
-So that I can know what people are saying
-I would like to see a list of peeps
-```
-```
-As a Maker
+As a user
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+As a user
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a user
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+As a user
 So that I can let people know what I am doing
 I want to post a peep to chitter
-```
-```
-As a Maker
+
+As a user
 So that I can see what others are saying
 I want to see all peeps in reverse chronological order
-```
-```
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
 
-## Domain Model
-
-![Chitter domain model](./public/images/chitter_02.png)
-
-### To set up the Project
-Clone this repository and then run:
-```
-bundle install
-```
-
-### Instructions for Setting up the Database
-
-```
-$ brew install postgresql
-$ psql postgres
-postgres=# CREATE DATABASE peeps;
-postgres=# \c peeps
-```
-Then run the query saved in the file `01_create_peeps_table.sql`
-
-### Instructions for Setting up the Test Database
-
-```
-$ psql postgres
-postgres=# CREATE DATABASE peeps_test;
-postgres=# \c peeps_test
-```
-Then run the query saved in the file `01_create_peeps_table.sql`
-
-### To run the Chitter app:
-
-```
-rackup -p 3000
-```
-
-To view peeps, navigate to `localhost:3000/peeps`
-
-### To run tests:
-
-```
-rspec
-```
-### To run linting:
-```
-rubocop
+As a user
+So that I know who posted the peep
+I want to see the name of the user who posted the peep
 ```
