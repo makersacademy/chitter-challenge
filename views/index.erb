@@ -1,43 +1,64 @@
-<h2><%= flash[:notice] %></h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<% if @user %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Chitter</title>
+</head>
 
-  <h1>Welcome to Chitter, <%= @user.username %>!</h1>
+<body>
+  <h2><%= flash[:notice] %></h2>
 
-  <form action="/logout">
-    <input type="submit" value="Log Out" />
-  </form>
+  <% if @user %>
 
-  <form action='/new' method="post">
-    <input type="text" id="message" name="message" placeholder="Add your thoughts here">
-    <br>
-    <input type="submit" value="Peep">
-  </form>
+    <h1>Welcome to Chitter, <%= @user.username %>!</h1>
 
-<% else %>
+    <form action="/logout">
+      <input type="submit" value="Log Out" />
+    </form>
 
-  <h1>Welcome to Chitter!</h1>
-
-  <form action="/register">
-    <input type="submit" value="Sign Up" />
-  </form>
-
-  <form action="/login">
-    <input type="submit" value="Login" />
-  </form>
-
-<% end %>
-
-<% @peeps.each do |peep| %>
-  <ul>
-    <li class="peep">
-      <%= peep.created_at.strftime('%d/%m/%Y %H:%M') %>
+    <form action='/new' method="post">
+      <input type="text" id="message" name="message" placeholder="Add your thoughts here">
       <br>
-      <%= peep.user.username %>
-      <br>
-      <%= peep.message %>
-    </li>
-  </ul>
-<% end %>
+      <input type="submit" value="Peep">
+    </form>
 
+  <% else %>
 
+    <h1>Welcome to Chitter!</h1>
+
+    <form action="/register">
+      <input type="submit" value="Sign Up" />
+    </form>
+
+    <form action="/login">
+      <input type="submit" value="Login" />
+    </form>
+
+  <% end %>
+
+  <ul class="peeps">
+    <% @peeps.each do |peep| %>
+      <li class="peep">
+
+        <div class="message">
+          <%= peep.message %>
+        </div>
+
+        <div class="username">
+          @<%= peep.user.username %>
+        </div>
+
+        <div class="date">
+          <%= peep.created_at.strftime('%d/%m/%Y %H:%M') %>
+        </div>
+
+      </li>
+      <% end %>
+    </ul>
+
+</body>
+
+</html>
