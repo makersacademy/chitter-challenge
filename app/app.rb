@@ -13,28 +13,6 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
-  get '/register' do
-    erb :register
-  end
-
-  post '/register' do
-    @user = User.new(
-      username: params[:username],
-      email: params[:email],
-      )
-
-      @user.password = params[:password]
-
-      if @user.save
-        session[:user_id] = @user.id
-        redirect '/'
-      else
-        flash[:notice] = 'The username or email provided is already in use. Please try again.'
-        redirect '/register'
-      end
-
-    end
-
     get '/login' do
       erb :login
     end
@@ -59,5 +37,5 @@ class Chitter < Sinatra::Base
     run! if app_file == $0
   end
 
-  require_relative './controllers/peeps_controller'
-  
+require_relative './controllers/peeps_controller'
+require_relative './controllers/users_controller'
