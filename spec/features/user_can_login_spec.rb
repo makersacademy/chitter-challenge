@@ -2,11 +2,11 @@ feature 'login' do
   scenario 'user is redirected to the login page' do
     visit '/'
     click_button 'Login'
-    expect(current_path).to eq '/login'
+    expect(current_path).to eq '/sessions/login'
   end
 
   scenario 'user is prompted to provide email and password' do
-    visit '/login'
+    visit '/sessions/login'
     expect(page).to have_content 'Email'
     expect(page).to have_content 'Password'
     expect(page).to have_button 'Login'
@@ -51,13 +51,13 @@ feature 'login' do
   end
 
   scenario 'user can go to the sign up page' do
-    visit '/login'
+    visit '/sessions/login'
     click_button 'Sign Up'
     expect(current_path).to eq '/register'
   end
 
   scenario 'user can go back to homepage' do
-    visit '/login'
+    visit '/sessions/login'
     click_button 'Go Back'
     expect(current_path).to eq '/'
   end

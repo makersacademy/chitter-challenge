@@ -1,6 +1,6 @@
 <h2><%= flash[:notice] %></h2>
 
-<form action='/login' method="post">
+<form action='/sessions' method="post">
   <label for="email">Email:</label>
   <input type="text" id="email" name="email"><br>
   <label for="password">Password:</label>
@@ -9,7 +9,7 @@
   <input type="submit" value="Login">
 </form>
 
-<form action="/register">
+<form action="/users/register">
   <input type="submit" value="Sign Up" />
 </form>
 

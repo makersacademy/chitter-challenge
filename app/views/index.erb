@@ -15,7 +15,7 @@
 
     <h1>Welcome to Chitter, <%= @user.username %>!</h1>
 
-    <form action="/logout">
+    <form action="/sessions/logout">
       <input type="submit" value="Log Out" />
     </form>
 
@@ -33,7 +33,7 @@
       <input type="submit" value="Sign Up" />
     </form>
 
-    <form action="/login">
+    <form action="/sessions/login">
       <input type="submit" value="Login" />
     </form>
 
