@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates_presence_of :username, :email, :encrypted_password
+  validates :username, :email, uniqueness: true 
 
   include BCrypt
 
