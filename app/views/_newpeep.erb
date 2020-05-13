@@ -1,0 +1,7 @@
+<% if @user %>
+  <form action='/peeps' method="post">
+    <input type="text" id="message" name="message" placeholder="Add your thoughts here">
+    <br>
+    <input type="submit" value="Peep">
+  </form>
+<% end %>

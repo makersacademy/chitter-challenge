@@ -1,0 +1,19 @@
+<ul class="peeps">
+  <% @peeps.each do |peep| %>
+    <li class="peep">
+
+      <div class="message">
+        <%= peep.message %>
+      </div>
+
+      <div class="username">
+        @<%= peep.user.username %>
+      </div>
+
+      <div class="date">
+        <%= peep.created_at.strftime('%d/%m/%Y %H:%M') %>
+      </div>
+
+    </li>
+  <% end %>
+</ul>

@@ -95,6 +95,8 @@ GEM
       sinatra (>= 1.0)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
+    sinatra-partial (1.0.1)
+      sinatra (>= 1.4)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thread_safe (0.3.6)
@@ -122,6 +124,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-flash
+  sinatra-partial
 
 BUNDLED WITH
    2.1.4
