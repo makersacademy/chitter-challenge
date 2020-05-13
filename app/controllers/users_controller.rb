@@ -10,16 +10,16 @@ class Chitter < Sinatra::Base
       email: params[:email],
       )
 
-      @user.password = params[:password]
+    @user.password = params[:password]
 
-      if @user.save
-        session[:user_id] = @user.id
-        redirect '/'
-      else
-        flash[:notice] = 'The username or email provided is already in use. Please try again.'
-        redirect '/users/register'
-      end
-
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/'
+    else
+      flash[:notice] = 'The username or email provided is already in use. Please try again.'
+      redirect '/users/register'
     end
+
+  end
 
 end
