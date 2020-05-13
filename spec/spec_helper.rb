@@ -21,8 +21,6 @@ require 'helpers/signup_helper'
 require 'helpers/login_helper'
 require 'helpers/peep_helper'
 
-
-
 Capybara.app = Chitter
 
 DatabaseCleaner.strategy = :truncation
