@@ -12,7 +12,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner-active_record'
   gem 'rspec'
-  gem 'rubocop', '0.79.0'
+  gem 'rubocop', '0.79.0', require: false
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'travis'
