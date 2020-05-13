@@ -32,7 +32,7 @@ feature 'sign up' do
   scenario 'user can go to the login page' do
     visit '/users/register'
     click_button 'Login'
-    expect(current_path).to eq '/login'
+    expect(current_path).to eq '/sessions/login'
   end
 
   scenario 'user can go back to homepage' do
