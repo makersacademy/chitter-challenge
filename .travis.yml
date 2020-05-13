@@ -1,9 +1,12 @@
 language: ruby
-
+rvm:
+- 2.6.5
 services:
   - postgresql
-
 before_script:
-
+  - bundle install
+  - psql -c 'create database chitter_test;' -U postgres
+  - bundle exec rake db:migrate
 script:
   - bundle exec rspec
+  - bundle exec rubocop
