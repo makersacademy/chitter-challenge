@@ -1,24 +1,29 @@
-ENV['RACK_ENV'] = 'test'
-
-require './app/app'
-
-require 'capybara'
-require 'capybara/rspec'
-require 'database_cleaner/active_record'
-require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
-require 'helpers/signup_helper'
-require 'helpers/login_helper'
-require 'helpers/peep_helper'
 
-Capybara.app = Chitter
+SimpleCov.start do
+  add_filter '/spec'
+end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   SimpleCov::Formatter::HTMLFormatter
 ])
-SimpleCov.start
+
+ENV['RACK_ENV'] = 'test'
+
+require './app/app'
+require 'capybara'
+require 'capybara/rspec'
+require 'database_cleaner/active_record'
+require 'rspec'
+require 'helpers/signup_helper'
+require 'helpers/login_helper'
+require 'helpers/peep_helper'
+
+
+
+Capybara.app = Chitter
 
 DatabaseCleaner.strategy = :truncation
 
