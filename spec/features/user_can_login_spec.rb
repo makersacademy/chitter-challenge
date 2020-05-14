@@ -7,8 +7,8 @@ feature 'login' do
 
   scenario 'user is prompted to provide email and password' do
     visit '/sessions/login'
-    expect(page).to have_content 'Email'
-    expect(page).to have_content 'Password'
+    expect(page).to have_field 'email'
+    expect(page).to have_field 'password'
     expect(page).to have_button 'Login'
   end
 

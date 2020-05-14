@@ -1,7 +1,15 @@
 <% if @user %>
-  <form action='/peeps' method="post">
-    <input type="text" id="message" name="message" placeholder="Add your thoughts here">
-    <br>
-    <input type="submit" value="Peep">
-  </form>
+
+  <div class="new-peep-form">
+
+    <h3>What's your peep?</h3>
+
+    <form action='/peeps' method="post">
+      <textarea id="message" name="message"></textarea>
+      <br>
+      <input type="submit" value="Peep">
+    </form>
+
+  </div>
+
 <% end %>

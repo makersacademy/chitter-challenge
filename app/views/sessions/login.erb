@@ -1,18 +1,24 @@
-<h2><%= flash[:notice] %></h2>
+<h3><%= flash[:notice] %></h3>
 
-<form action='/sessions' method="post">
-  <label for="email">Email:</label>
-  <input type="text" id="email" name="email"><br>
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password"><br>
-  <br>
+<form class="sessions-form" action="/sessions" method="post">
+
+  <h2>Login to Chitter</h2>
+
+  <input type="text" id="email" name="email" placeholder="Email">
+  <input type="password" id="password" name="password" placeholder="Password">
+
   <input type="submit" value="Login">
+
 </form>
 
-<form action="/users/register">
-  <input type="submit" value="Sign Up" />
-</form>
+<div class="bottom-nav">
 
-<form action="/">
-  <input type="submit" value="Go Back" />
-</form>
+  <form action="/users/register">
+    <input type="submit" value="Sign Up" />
+  </form>
+
+  <form action="/">
+    <input type="submit" value="Go Back" />
+  </form>
+
+</div>

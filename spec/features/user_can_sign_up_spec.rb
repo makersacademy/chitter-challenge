@@ -7,9 +7,9 @@ feature 'sign up' do
 
   scenario 'user is prompted to provide username, email and password' do
     visit '/users/register'
-    expect(page).to have_content 'Username'
-    expect(page).to have_content 'Email'
-    expect(page).to have_content 'Password'
+    expect(page).to have_field 'username'
+    expect(page).to have_field 'email'
+    expect(page).to have_field 'password'
     expect(page).to have_button 'Register'
   end
 

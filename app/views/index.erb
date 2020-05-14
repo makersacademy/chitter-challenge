@@ -1,4 +1,8 @@
-<h2><%= flash[:notice] %></h2>
 <%= partial :header %>
-<%= partial :newpeep %>
-<%= partial :peeps %>
+
+<h3><%= flash[:notice] %></h3>
+
+<div class="container">
+  <%= partial :newpeep %>
+  <%= partial :peeps %>
+</div>

@@ -1,21 +1,28 @@
 <% if @user %>
 
-  <h1>Welcome to Chitter, <%= @user.username %>!</h1>
+  <div class="header">
+    <h1>Welcome to Chitter, <%= @user.username %>!</h1>
 
-  <form action="/sessions/logout">
-    <input type="submit" value="Log Out" />
-  </form>
+    <form action="/sessions/logout">
+      <input type="submit" value="Log Out" />
+    </form>
+  </div>
 
 <% else %>
 
-  <h1>Welcome to Chitter!</h1>
+  <div class="header">
+    <h1>Welcome to Chitter!</h1>
 
-  <form action="/users/register">
-    <input type="submit" value="Sign Up" />
-  </form>
+    <div class="nav-buttons">
+      <form action="/users/register">
+        <input type="submit" value="Sign Up" />
+      </form>
 
-  <form action="/sessions/login">
-    <input type="submit" value="Login" />
-  </form>
+      <form action="/sessions/login">
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+
+  </div>
 
 <% end %>
