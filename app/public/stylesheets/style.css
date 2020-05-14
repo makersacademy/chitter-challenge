@@ -1,0 +1,132 @@
+body {
+  background-image: url(/images/defocused-image-of-lights-255379.jpg);
+  background-size: cover;
+  background-color: #80D0CB;
+  font-family: Roboto;
+}
+
+.container {
+  padding: 1em;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+.peeps {
+  padding: 0;
+}
+
+.peep {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px #888888;
+  display: block;
+  list-style: none;
+  padding: 1em;
+  margin-bottom: 1.5em;
+}
+
+.peep div {
+  margin-bottom: 10px;
+}
+
+.message {
+  font-size: 18px;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.date {
+  color: grey;
+  font-size: 14px;
+}
+
+.new-peep-form {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px #888888;
+  padding: 1em;
+  padding-bottom: 3em;
+  margin-bottom: 1.5em;
+}
+
+textarea {
+  background: none;
+  border: none;
+  font-size: 22px;
+  height: 70px;
+  width: 100%;
+}
+
+h3 {
+  font-style: italic;
+}
+
+.new-peep-form input[type="submit"] {
+  float: right;
+  margin: 0;
+}
+
+input[type="submit"] {
+  color: black;
+  border-radius: 10px;
+  box-shadow: 5px 5px #888888;
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 8px;
+  margin: 15px;
+  margin-left: 10px;
+}
+
+.sessions-form {
+  align-items: center;
+  background-color: #dae7e8;
+  border: 0px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px #888888;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  margin-top: 80px;
+  max-width: 450px;
+  padding: 40px;
+  width: 70vw;
+}
+
+input[type="text"], [type="password"] {
+  border-radius: 10px;
+  border-width: 0;
+  box-shadow: 5px 5px #888888;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  max-width: 300px;
+  padding: 10px;
+  width: 70vw;
+}
+
+input:focus {
+  outline: none;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: row;
+}
