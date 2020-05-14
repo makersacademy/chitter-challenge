@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @user = User.find(session[:user_id])
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb(:index)
   end
