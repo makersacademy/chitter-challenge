@@ -1,4 +1,3 @@
-require 'database_connection'
 require 'pg'
 
 class User
