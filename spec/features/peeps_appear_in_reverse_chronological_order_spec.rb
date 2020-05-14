@@ -1,5 +1,5 @@
-feature 'peeps appear in reverse choronologial order' do
-  scenario 'the most current peep appears at the top of the list' do
+feature 'peep order' do
+  scenario 'peeps appear in reverse chronological order' do
     login
     add_peep('This is the first peep')
     add_peep('This is the second peep')

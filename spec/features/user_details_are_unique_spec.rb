@@ -1,4 +1,4 @@
-feature 'User is Unique' do
+feature 'user is unique' do
   scenario 'user cannot signup with the same details again' do
     register
     click_button 'Log Out'

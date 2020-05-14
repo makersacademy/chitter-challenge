@@ -1,5 +1,4 @@
 feature 'date of peep' do
-
   before do
     @time_now = Time.parse('01/01/2020 12:12')
     allow(Time).to receive(:now).and_return(@time_now)
