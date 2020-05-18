@@ -4,6 +4,7 @@ require_relative './lib/chitter'
 require_relative './lib/user'
 
 class ChitterApp < Sinatra::Base 
+  # Rack::Session::Pool 
   enable :sessions
   register Sinatra::Flash
 
