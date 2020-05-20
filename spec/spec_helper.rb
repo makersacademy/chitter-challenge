@@ -2,10 +2,10 @@ require 'simplecov'
 require 'simplecov-console'
 
 # Set environment to test
-ENV['ENVIRONMENT'] = 'local'
+ENV['ENVIRONMENT'] = 'test'
 
 # Bring in the contents of the `app.rb` file
-require_relative "../app.rb"
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 # Require all the testing gems
 require 'capybara'
