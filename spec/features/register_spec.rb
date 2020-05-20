@@ -1,5 +1,5 @@
 feature 'register' do
-  scenario 'user registers for chitter' do
+  scenario 'on register page, user can register' do
     visit('/register')
     expect(page).to have_content "Create a new Chitter account!"
     fill_in(:username, with: "JCash")

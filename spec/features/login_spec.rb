@@ -1,5 +1,5 @@
 feature 'login' do
-  scenario 'user logs in' do
+  scenario 'on login page, user can log in' do
     visit('/login')
     expect(page).to have_content "Log back into Chitter!"
     fill_in(:username, with: "JCash")
