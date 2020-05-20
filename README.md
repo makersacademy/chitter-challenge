@@ -1,5 +1,8 @@
 Chitter Challenge
 =================
+Note:
+------
+This App is not finished!
 
 Challenge:
 -------
