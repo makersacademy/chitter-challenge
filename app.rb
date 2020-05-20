@@ -13,5 +13,13 @@ class Chitter < Sinatra::Base
      erb :register
    end
 
+   get '/peeps' do
+     erb :peeps
+   end
+
+   get '/peeps/new' do
+     erb :create_peep
+   end
+
    run! if app_file == $0
 end
