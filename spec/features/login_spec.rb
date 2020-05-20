@@ -5,5 +5,6 @@ feature 'login' do
     fill_in(:username, with: "JCash")
     fill_in(:password, with: 12345)
     click_on('Login')
+    expect(page).to have_content "Catch up on the latest peeps!"
   end
 end

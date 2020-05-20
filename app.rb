@@ -9,8 +9,18 @@ class Chitter < Sinatra::Base
      erb :login
    end
 
+   post '/login' do
+     #params here
+     redirect '/peeps'
+   end
+
    get '/register' do
      erb :register
+   end
+
+   post '/register' do
+     #params here
+     redirect '/peeps'
    end
 
    get '/peeps' do

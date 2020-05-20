@@ -8,5 +8,6 @@ feature 'register' do
     fill_in(:last_name, with: "Cash")
     fill_in(:email, with: "JCash@gmail.com")
     click_on('Register')
+    expect(page).to have_content "Catch up on the latest peeps!"
   end
 end
