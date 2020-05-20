@@ -1,61 +1,81 @@
 Chitter Challenge
 =================
+Note
+------
+This App is not finished!
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Challenge
 -------
+Write a small Twitter clone
 
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+User stories
 -------
-
 ```
-STRAIGHT UP
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a Maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-
-As a Maker
+As a User
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
-As a Maker
+As a User
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
-As a Maker
+As a User
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
+As a User
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a User
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a User
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
 ADVANCED
 
-As a Maker
+As a User
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+
 ```
+Notes on functionality
+------
+* Users sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
+* The username and email are unique.
+* Peeps (posts to chitter) have the name of the maker and their user handle.
 
-Technical Approach:
+Set-up
+--------
+1. bundle install
+2. set up production & test databases
+
+Learnings
+--------
+I originally created three classes (User, Peep, and Chitter) to reflect the single responsibility principle. However, I refactored this down to two classes (Peep and User) because it seemed to introduce unnecessary complexity. In particular, it would be a pain to query the database.
+
+The database "Chitter" has two tables (User and Peep). Good practice means the Peep table contains the User's username (and this is unique), and this serves as the foreign key. It is more efficient to do it this way around because you have less repetition (compared to if you did it the other way around with peeps going into the User table).
+
+Steps
+--------
+1. Domain & database modelling
+2. Set up a basic Ruby web project
+    - Install necessary gems: Sinatra, Rspec, Capybara
+    - Set up a Sinatra application
+    - Test drive a simple index page
+    - Set up config.ru file
+    - Make Capybara talk to Sinatra
+3. Test drive first user story feature
+    - Write a failing feature test
+    - Pass the feature test
+    - Refactor the code to use View & Controller
+    - Test drive a refactor of the code to use a Model
+    
+Technical Approach
 -----
-
 This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
 
 If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
@@ -69,15 +89,6 @@ Some useful resources:
 - [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
 - [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
-Notes on functionality:
-------
-
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
 Bonus:
 -----
 
@@ -88,8 +99,6 @@ If you have time you can implement the following:
 And/Or:
 
 * Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
 
 Code Review
 -----------
