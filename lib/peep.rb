@@ -2,7 +2,13 @@ require 'pg'
 
 class Peep
 
-  attr_reader :text, :time
+  attr_reader :text, :time, :id
+
+  def initialize(text:, time:, id:)
+    @text = text
+    @time = time 
+    @id = id 
+  end 
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
@@ -13,13 +19,10 @@ class Peep
 
     result = connection.exec("SELECT * FROM peep_record ORDER BY time DESC;")
     result.map do |peep|
-      text = peep['text']
-      time = peep['time']
-      dated_text = "#{text} made on #{time}"
-    end 
+      Peep.new(id: peep['id'], text: peep['text'], time: peep['time'])
+    end
+  end
 
-    #result.map { |peep| peep['teßxt'] }
-  end 
 
   def self.create(text:, time:)
     if ENV['ENVIRONMENT'] == 'test'
@@ -27,6 +30,8 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peep_record (text, time) VALUES('#{text}','#{time}')")
+    
+    result = connection.exec("INSERT INTO peep_record (text, time) VALUES('#{text}','#{time}') RETURNING id, text, time;")
+    Peep.new(id: result[0]['id'], text: result[0]['text'], time: result[0]['time'])
   end 
 end 

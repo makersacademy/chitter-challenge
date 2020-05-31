@@ -6,6 +6,11 @@
 
 <ul>
   <% @peep.each do |peep| %>
-    <li><%= peep %></li>
+    <li> <li class="peep" id="peep-<%= peep.id %>">
+    
+    
+      <%= peep %>
+    
+    </li>
   <% end %>
 </ul>

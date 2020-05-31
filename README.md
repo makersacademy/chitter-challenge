@@ -48,6 +48,8 @@ GET /chitter               |- Add post button
                             - Shows all peeps
                             - Shows in reverse order
                             - When showing the text show the time as time as well
+                            - Has an edit button > GET /chitter/update_pos
+                            - Has a delete button
 
 GET /chitter/post_message  |-Form that POST's 
                               > Text input named 'peep'
@@ -56,6 +58,32 @@ GET /chitter/post_message  |-Form that POST's
 POST /chitter/post_message |- Saves the peep as a param  
                             - redirects to /chitter
                             - Saves the peep with timestamp
+
+GET/chitter/delete_post    | 
+
+POST/chitter/delete_post   |   
+
+
+
+GET/chitter/update_post    | > Clicks edit 
+                             - Text box form for new text 
+                             - BONUS: Already be filled with comment before?
+                             - Saves ID for peep into params
+
+
+PATCH/chitter/update_post   | - runs . update to update text in database
+
+TTD:: 
+Update > 
+
+Create feature test for update / 
+Create view 
+Controller = logic 
+Get passing test
+CReate unit test 
+Create passing test
+Refactor logic out of controller 
+
                             
 
 
