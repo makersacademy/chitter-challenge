@@ -1,0 +1,1 @@
+CREATE TABLE peep_record(id SERIAL PRIMARY KEY, users_id INTEGER REFERENCES users(id), text VARCHAR(240), time TIMESTAMP); 

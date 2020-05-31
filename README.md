@@ -1,16 +1,8 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
 Challenge:
 -------
-
-As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
@@ -36,60 +28,103 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
-```
-
-Technical Approach:
------
-
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
 Notes on functionality:
-------
 
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+* Your README should indicate the technologies used, and give instructions on how to install and run the tests.:
 
-Bonus:
------
 
-If you have time you can implement the following:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+```
 
-And/Or:
+Domain Model (RESTFUL Approach)::
 
-* Work on the CSS to make it look good.
+GET /                      |-Sign in button 
 
-Good luck and let the chitter begin!
+GET /chitter               |- Add post button
+                            - Shows all peeps
+                            - Shows in reverse order
+                            - When showing the text show the time as time as well
+                            - Has an edit button > GET /chitter/update_pos
+                            - Has a delete button
+
+GET /chitter/post_message  |-Form that POST's 
+                              > Text input named 'peep'
+                              > Submit button
+
+POST /chitter/post_message |- Saves the peep as a param  
+                            - redirects to /chitter
+                            - Saves the peep with timestamp
+
+GET/chitter/delete_post    | 
+
+POST/chitter/delete_post   |   
+
+
+
+GET/chitter/update_post    | > Clicks edit 
+                             - Text box form for new text 
+                             - BONUS: Already be filled with comment before?
+                             - Saves ID for peep into params
+
+
+PATCH/chitter/update_post   | - runs . update to update text in database
+
+TTD:: 
+Update > 
+
+Create feature test for update / 
+Create view 
+Controller = logic 
+Get passing test
+CReate unit test 
+Create passing test
+Refactor logic out of controller 
+
+                            
+
+
+Databases:
+--------
+
+Users 
+      ID
+      Email 
+      Password
+
+Peep_record 
+            ID 
+            Forgein Key (user ID)
+            Peep Text 
+            Time posted 
+
+Tags? 
+
+
+Database Instructions:
+------
+
+Chitter Database:
+1. Create database with psql command CREATE DATABASE 'chitter'
+2. Run the query we have saved in the file 01_create_chitter_user_table.sql
+3. Run the query we have saved in the file 02_create_peep_record_table.sql
+
+Chitter_test database:
+1. Create database with psql command CREATE DATABASE 'chitter_test'
+2. Run the query we have saved in the file 01_create_chitter_user_table.sql
+3. Run the query we have saved in the file 02_create_peep_record_table.sql
+
+*
+
+
+Technical Approach:
+-------
+
+Using PG/ SQL to intergrate a database withing a Object Relational Mapper.
+
 
 Code Review
 -----------
@@ -115,19 +150,33 @@ If you want a green tick against your pull request you'll need to configure Trav
 Notes on test coverage
 ----------------------
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+Extra Features: 
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+HARDER
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+
+Bonus:
+-----
+
+If you have time you can implement the following:
+
+* In order to start a conversation as a maker I want to reply to a peep from another maker.
+
+And/Or:
+
+* Work on the CSS to make it look good.
+
+Good luck and let the chitter begin!
