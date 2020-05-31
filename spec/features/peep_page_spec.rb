@@ -21,11 +21,11 @@ feature 'Main Chitter Page' do
 
     time = Time.new(2002,02,02)
 
-    peep1 = Peep.create(text: 'This is a test timstamp peep', time: "#{time}" )
+    peep1 = Peep.create(text: 'This is a test timstamp peep made on', time: "#{time}" )
 
     visit ('/chitter')
 
-    expect(page).to have_content("This is a test timstamp peep made on 2002-02-02 00:00:00")
+    expect(page).to have_content("This is a test timstamp peep made on\n2002-02-02 00:00:00")
   end
 end 
 

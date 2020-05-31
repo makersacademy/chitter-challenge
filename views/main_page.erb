@@ -5,12 +5,9 @@
 </form> 
 
 <ul>
-  <% @peep.each do |peep| %>
-    <li> <li class="peep" id="peep-<%= peep.id %>">
-    
-    
-      <%= peep %>
-    
-    </li>
+  <% @peep.each do |x| %>
+    <ul><%= x.text %> 
+      <ul><%= x.time %> </ul>
+    </ul>
   <% end %>
 </ul>

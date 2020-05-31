@@ -12,8 +12,8 @@ class Chitter < Sinatra::Base
   end 
 
   get '/chitter' do
-    p Peep.all
     @peep = Peep.all
+    p @peep
     erb(:'main_page')
   end
 
@@ -22,8 +22,7 @@ class Chitter < Sinatra::Base
   end 
   
   post '/chitter/new_peep' do
-    session[:peep] = params[:peep]
-    Peep.create(text: session[:peep], time: Time.new)
+    Peep.create(text: params[:peep], time: Time.new)
     redirect '/chitter'
   end 
 
