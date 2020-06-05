@@ -1,5 +1,19 @@
+require 'capybara/rspec'
+require 'rspec'
+require 'capybara'
 require 'simplecov'
 require 'simplecov-console'
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+ENV['RACK_ENV'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    clear_table
+  end
+end
+
+Capybara.app = BookmarkManager
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
