@@ -7,13 +7,13 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 ENV['RACK_ENV'] = 'test'
 
-RSpec.configure do |config|
-  config.before(:each) do
-    clear_table
-  end
-end
+# RSpec.configure do |config|
+#   config.before(:each) do
+#     clear_table
+#   end
+# end
 
-Capybara.app = BookmarkManager
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
