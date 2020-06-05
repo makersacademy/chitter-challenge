@@ -1,3 +1,7 @@
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+
 require 'simplecov'
 require 'simplecov-console'
 
@@ -11,7 +15,7 @@ SimpleCov.start
 RSpec.configure do |config|
   config.after(:suite) do
     puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+    puts "\e[33mYOU GO GIRL!\e[0m"
+    puts "\e[33mdont forget to drink water\e[0m"
   end
 end

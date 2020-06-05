@@ -1,0 +1,11 @@
+# Notes n stuff
+
+
+## First:
+
+1) Install Gem files
+2) Add config to spec helpers and curse bundler
+3) check testing environment and write first useless but funny feature test
+4) see it fail
+5) make it pass by cursing a bit more at bundler
+6) lets go to the first user story!
