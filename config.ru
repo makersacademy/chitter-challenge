@@ -1,3 +1,3 @@
-require ''
+require_relative 'app'
 
-run 
+run ChitterWebApp
