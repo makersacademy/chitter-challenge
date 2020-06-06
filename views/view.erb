@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <link href='/style.css' rel='stylesheet' type='text/css'>
+</head>
   <body>
     <h1>Welcome to Chitter</h1>
     <form action='peep' method='POST'>
@@ -8,7 +11,7 @@
     </form>
     <div>
       <%@peeps.each do |peep|%>
-        <p><%=peep.context%></p>
+        <p><%=peep.context%></p><p><%=peep.time%></p><br>
       <%end%>
     </div>
   </body>
