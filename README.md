@@ -36,6 +36,38 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
+## Plan.
+
+### Controller
+
+get '/chitter'
+list of peeps, button to add new peep
+
+get '/chitter/add_peep'
+form for a new peep
+
+post 'new_peep'
+adds peep to database
+
+### Model
+Peep and DB class
+
+Peep
+.all()
+=> Array(peep instances)
+#text, #time
+
+.new(text)
+=> adds to database with text and time
+
+Database
+links Peep to database
+
+### Database
+table - peeps
+id, text, time
+
+---------------
 HARDER
 
 As a Maker
