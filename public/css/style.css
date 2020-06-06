@@ -62,18 +62,17 @@ body {
 }
 
 .my-container {
-  border: 1px solid black;
   font-weight: 500;
   font-size: 0.8rem;
   margin-bottom: 2rem;
 }
 
 .my-row {
-  border: 3px solid grey;
 }
 
 .my-col {
-  border: 3px dotted blue;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .button {
@@ -89,5 +88,8 @@ h2 {
   font-weight: 500;
   font-size: 2em;
   margin-bottom: 1rem;
-  margin-top: 0;
+}
+
+img {
+    width: 100%;
 }
