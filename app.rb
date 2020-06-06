@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'chitter_test')
+      connection = PG.connect(dbname: 'chitter')
     end
     connection.exec("INSERT INTO peeps (content) VALUES ('#{params[:content]}');")
     redirect '/'

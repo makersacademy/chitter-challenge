@@ -4,6 +4,7 @@ Chitter Challenge
 
 Write a small Twitter clone, make it look awesome.
 
+![](public/img/picofbird.png)
 
 
 Features:

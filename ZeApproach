@@ -28,4 +28,9 @@ So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
 
-1)
+1) setting up feature test, seeing it fail
+2) changing index.erb, adding button and specify new route
+3) creating peeps/new.erb file with submit form
+4) setting new route in controller, GET and POST
+5) establishing connection to database
+6) refactor so we use the model instead of the controller to deal with data
