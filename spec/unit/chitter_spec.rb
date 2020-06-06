@@ -14,7 +14,7 @@ describe Chitter do
       chitter = Chitter.view
       expect(chitter.length).to eq(3)
       expect(chitter.first).to be_instance_of(Chitter)
-      expect(chitter.first.context).to eq('This is my first peep')
+      expect(chitter.first.context).to eq('no body expects the spanish inquisition')
     end
   end
 end
