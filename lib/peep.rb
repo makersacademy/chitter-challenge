@@ -18,18 +18,14 @@ class Peep
     sql_query("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{Time.now}')")
   end
 
-  private
-
   def self.sql_query(string)
     connection.exec(string)
   end
 
   def self.connection
-    if ENV['RACK_ENV'] == 'test'
-      return PG.connect :dbname => 'chitter_test'
-    else
-      return PG.connect :dbname => 'chitter'
-    end
+    return PG.connect :dbname => 'chitter_test' if ENV['RACK_ENV'] == 'test'
+
+    return PG.connect :dbname => 'chitter'
   end
 
 end
