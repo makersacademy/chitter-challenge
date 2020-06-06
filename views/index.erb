@@ -2,18 +2,60 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chitter</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<meta content= "width=device-width, height=device-height, initial-scale=1" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/index.css">
+
+
+  <title>Chitter</title>
   </head>
-  <body>
-    <a href="/peeps/new">New Peep</a>
-    <ul>
-      <% @peeps.each do |peep| %>
-      <li class="peep">
-     <p><%= peep.content %></p>
-     <p><%= peep.time %></p>
-   </li>
-      <% end %>
-    </ul>
+  <body class='container full-height-grow'>
+
+
+    <header class="main-header">
+      <a href="/" class='brand-logo'>
+        <img src="public/img/logo.png">
+        <div class="brand-logo-name">Chitter</div>
+        </a>
+
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="/peeps/new">New Peep</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            </ul>
+            </nav>
+
+
+            </header>
+            <section class='home-main-section'>
+              <div class="img-wrapper">
+                <div class="girl-img"></div>
+              </div>
+              <div>
+                <h1 class='title'>What's on your mind?</h1>
+                <span class="peep_box">
+
+
+                  <ul>
+                    <% @peeps.each do |peep| %>
+                    <li class="peep">
+                   <p><%= peep.content %></p>
+                   <p><%= peep.time %></p>
+                 </li>
+                    <% end %>
+                  </ul>
+
+
+                </span>
+
+                <a href="/peeps/new">New Peep</a>
+
+              </div>
+              </section>
   </body>
 </html>
