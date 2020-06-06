@@ -41,3 +41,15 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+
+## Initial Domain Model Diagrams:
+
+### Add Peep:
+<p align="center">
+<img src=/images/add_peep_sequence.svg width=50%>
+</p><br><br>
+
+### View Peeps:
+<p align="center">
+<img src=/images/view_peeps_sequence.svg width=50%>
+</p><br><br>
