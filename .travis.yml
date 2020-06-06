@@ -4,7 +4,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'CREATE DATABASE chitter_test;' -U postgres
+  - psql -c -U postgres 'CREATE DATABASE chitter_test;'
   
 
 script:
