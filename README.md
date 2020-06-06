@@ -56,7 +56,15 @@ Functionality:
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
 
+
 Design Choices:
 -----
 
 ![](public/img/designdraft.png)
+
+
+
+How to actually use it:
+------
+
+data base setup blabla will write later blah
