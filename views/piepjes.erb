@@ -8,13 +8,13 @@
 <% end %>
 
 <ul>
-  <% @peeps.each do |peep|  %>
+  <% @piepjes.each do |piepje|  %>
     <div>
-      <%= peep.user %>: <%= peep.text %> <%= peep.time %>
+      <%= piepje.user %>: <%= piepje.text %> <%= piepje.time %>
     </div>
   <% end %>
 </ul>
 
-<form action='/chitter/add_peep' method=get>
-  <input type='submit' name='new' value='new peep'/>
+<form action='/chitter/add_piepje' method=get>
+  <input type='submit' name='new' value='new piepje'/>
 </form>

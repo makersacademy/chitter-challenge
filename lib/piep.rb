@@ -1,6 +1,6 @@
 require 'pg'
 
-class Peep
+class Piep
 
   attr_reader :text, :time, :user
 
@@ -11,13 +11,14 @@ class Peep
   end
 
   def self.all
-    rs = sql_query("SELECT text, time, username FROM peeps ORDER BY time DESC")
+    rs = sql_query("SELECT text, time, username FROM piepjes ORDER BY time DESC")
 
-    rs.map { |peep| Peep.new(peep['text'], peep['time'], peep['username']) }
+    rs.map { |piepje| Piep.new(piepje['text'], piepje['time'], piepje['username']) }
   end
 
   def self.create(text, user)
-    sql_query("INSERT INTO peeps (text, time, username) VALUES ('#{text}', '#{Time.now}', '#{user}')")
+    sql_query("INSERT INTO piepjes (text, time, username)
+      VALUES ('#{text}', '#{Time.now}', '#{user}')")
   end
 
   def self.sql_query(string)

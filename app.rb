@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require_relative './lib/peep.rb'
+require_relative './lib/piep.rb'
 
 class Chitter < Sinatra::Base
 
@@ -7,16 +7,16 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     @username = session[:username]
-    @peeps = Peep.all
-    erb :peeps
+    @piepjes = Piep.all
+    erb :piepjes
   end
 
-  get '/chitter/add_peep' do
-    erb :new_peep
+  get '/chitter/add_piepje' do
+    erb :new_piepje
   end
 
-  post '/new_peep_data' do
-    Peep.create(params[:text], session[:username])
+  post '/new_piepje_data' do
+    Piep.create(params[:text], session[:username])
     redirect('/chitter')
   end
 
