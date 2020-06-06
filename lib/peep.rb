@@ -1,8 +1,14 @@
 
 class Peep
 
-  def self.all
-    [Peep.new, Peep.new]
+  attr_reader :text
+
+  def initialize(text)
+    @text = text
   end
 
-end 
+  def self.all
+    [Peep.new('peep1'), Peep.new('peep2')]
+  end
+
+end

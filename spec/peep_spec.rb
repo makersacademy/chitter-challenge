@@ -8,4 +8,11 @@ describe Peep do
       expect(array[0]).to be_an_instance_of(Peep)
     end
   end
+
+  describe '#text' do
+    it 'returns the correct text' do
+      peep = Peep.new('text')
+      expect(peep.text).to eq('text')
+    end
+  end
 end
