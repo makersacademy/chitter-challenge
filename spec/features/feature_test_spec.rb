@@ -11,10 +11,16 @@ feature 'has an opening browser page' do
 end
 
 feature 'Peep' do
-  it 'confirms when a peep has been saved' do
+  it 'Shows all peeps in reverse chronological order' do
     visit('/')
     fill_in 'new_peep', with: 'This is my first peep'
     click_button('Peep')
-    expect(page).to have_content('Peep saved')
+    fill_in 'new_peep', with: 'tis but a peep'
+    click_button('Peep')
+    fill_in 'new_peep', with: 'no body expects the spanish inquisition'
+    click_button('Peep')
+    expect(page).to have_content('This is my first peep')
+    expect(page).to have_content('tis but a peep')
+    expect(page).to have_content('no body expects the spanish inquisition')
   end
 end
