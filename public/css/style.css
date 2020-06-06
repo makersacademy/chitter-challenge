@@ -46,7 +46,8 @@ body {
 .main-nav ul {
   display: flex;
   margin: 0;
-  padding: 0;
+  padding: 2rem;
+  padding-left: 2rem;
   list-style: none;
 }
 
