@@ -10,6 +10,8 @@ class Chitter < Sinatra::Base
     erb :new_peep
   end
 
-  post '/submit_peep' do
-  end
+  # post '/submit_peep' do
+  #   Peep.create(title: params['title'], entry: params['peep'])
+  #   redirect '/view_peeps'
+  # end
 end

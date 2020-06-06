@@ -1,11 +1,18 @@
-require 'spec_helper'
+# require 'spec_helper'
+
+feature 'Welcome page' do
+  scenario 'Two option buttons' do
+    visit('/')
+    expect(page).to have_content('Chitter')
+  end
+end
 
 feature 'Adding a new peep' do
   scenario 'A user can add a new peep to Peep db' do
     visit('/create_peep')
-    fill_in('Peep', with: 'Test peep')
+    fill_in('peep', with: 'Test peep')
     click_button('Peep peep')
-    # expect(page).to have_content('Test title', 'Test peep')
+    # expect(page).to have_content('Test peep')
   end
 
   # scenario 'The bookmark must be a valid URL' do
