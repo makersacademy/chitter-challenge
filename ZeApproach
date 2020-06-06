@@ -1,14 +1,23 @@
 # Notes n stuff
 
 
-## First:
+## First things first:
 
 1) Install Gem files
 2) Add config to spec helpers and curse bundler
 3) check testing environment and write first useless but funny feature test
 4) see it fail – RED
 5) make it pass by cursing a bit more at bundler - GREEN
-6) lets go to the first user story!
+
+
+## Setting up database
+
+1) Hard code data in controller
+2) add view folder and index.erb file
+3) set up spec for peep class – RED
+4) create peep.rb file - GREEN
+5) linked Peep class in controller, now making use of model - REFACTOR
+6) setting up database & test database, making sure test database gets wiped
 
 
 ## User Story 1
@@ -19,9 +28,4 @@ So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
 
-1) Hard code data in controller
-2) add view folder and index.erb file
-3) set up spec for peep class – RED
-4) create peep.rb file - GREEN
-5) linked Peep class in controller, now making use of model - REFACTOR
-6) setting up database & test database
+1)
