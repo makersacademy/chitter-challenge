@@ -41,18 +41,18 @@ I want to sign up for Chitter
 ### Controller
 
 get '/chitter'
-list of peeps, button to add new peep
+list of pieps, button to add new piep
 
-get '/chitter/add_peep'
-form for a new peep
+get '/chitter/add_piepjep'
+form for a new piepje
 
-post 'new_peep'
-adds peep to database
+post 'new_piepje'
+adds piepje to database
 
 ### Model
-Peep and DB class
+Piep and DB class
 
-Peep
+Piep
 .all()
 => Array(peep instances)
 #text, #time
@@ -61,11 +61,17 @@ Peep
 => adds to database with text and time
 
 Database
-links Peep to database
+links Piepjes to database
 
 ### Database
 table - peeps
 id, text, time
+
+## 4th user story
+
+username page in controller.
+
+add username to piepjes database.
 
 ---------------
 HARDER
