@@ -7,7 +7,6 @@
 <meta name="HandheldFriendly" content="true">
 <meta content= "width=device-width, height=device-height, initial-scale=1" name="viewport">
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link rel="stylesheet" href="./css/style.css">
 
   <title>Chitter</title>
@@ -32,24 +31,37 @@
 
             </header>
 
-    <div class='container my-container'>
-          <div class="row justify-content-around my-row">
-  <div class="col-4 my col">
-    <h2>What's on your mind?</h2>
+  <div class='container'>
+            <div class="row">
+
+  <div class="column">
+    <h2>Column 1</h2>
+    <img src="public/img/background.jpg">
+  </div>
+
+
+              <div class="column">
+                <h1 class='title'>What's on your mind?</h1>
+                <span class="peep_box">
+
+
+                  <ul>
+                    <% @peeps.each do |peep| %>
+                    <li class="peep">
+                   <p><%= peep.content %></p>
+                   <p><%= peep.time %></p>
+                 </li>
+                    <% end %>
+                  </ul>
+
+
+                </span>
+<br>
+
+                <a href="/peeps/new" class="button">New Peep</a>
+
+              </div>
               </div>
 
-              <div class="col-4 my-col">
-
-                <ul>
-                  <% @peeps.each do |peep| %>
-                  <li class="peep">
-                 <p><%= peep.content %></p>
-                 <p><%= peep.time %></p>
-                </li>
-                  <% end %>
-                </ul>
-
-                          </div>
-</div>
   </body>
 </html>

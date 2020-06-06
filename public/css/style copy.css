@@ -5,7 +5,7 @@
 
 body {
   padding: 0;
-  margin: 10px;
+  margin: 0;
   background-color: #2F303A;
   font-family: 'Poppins', sans-serif;
   font-size: 1.1rem;
@@ -15,6 +15,20 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .brand-logo {
@@ -61,19 +75,11 @@ body {
   margin-top: 0;
 }
 
-.my-container {
-  border: 1px solid black;
+.peep_box {
   font-weight: 500;
   font-size: 0.8rem;
   margin-bottom: 2rem;
-}
-
-.my-row {
-  border: 3px solid grey;
-}
-
-.my-col {
-  border: 3px dotted blue;
+  padding-left: 2rem;
 }
 
 .button {
@@ -83,11 +89,4 @@ body {
   border-radius: .5rem;
   text-decoration: none
   font-size: .9rem;
-}
-
-h2 {
-  font-weight: 500;
-  font-size: 2em;
-  margin-bottom: 1rem;
-  margin-top: 0;
 }
