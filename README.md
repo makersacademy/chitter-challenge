@@ -10,6 +10,13 @@
 3. Connect to the database: `\c chitter`
 4. Create Table: Run the query saved in 01_create_peeps_table.sql
 
+### SQL INstructions used to create 'chitter_test' database for rspec testing purposes
+
+1. Connect to psql
+2. Create the database : `CREATE DATABASE chitter_test;`
+3. Connect to the database: `\c chitter`
+4. Create Table: Run the query saved in 01_create_peeps_table.sql
+
 ### Initial 'peeps' table layout:
 
  id | peep | peeped_at | peeped_by 

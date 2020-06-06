@@ -1,3 +1,5 @@
+require 'pg'
+
 class Peep
 
   attr_reader :id, :peep, :peeped_at, :peeped_by
