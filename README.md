@@ -14,4 +14,8 @@ Along side the table to store peoples 'peeps' you will also need to store user i
 - Connect to psql
 - Connect to the database using the pqsl command \c chitter;
 - Run the query we have saved in the file user_info_db_setup.sql located - in db/migrations.
-- In order to test code you will want to look at setting up a test database. 
+- In order to test code you will want to look at setting up a test database.
+
+To start the Challenge I used the below CSC set up. I like using these as I don't have to plan out a rigid path for the application right away. By having an understanding of what methods or responsibilities each class will have along with the data I need to collect, I feel like I have the freedom to change the flow as I progress through the challenge.
+
+<image src='./public/csc.png'>
