@@ -28,6 +28,7 @@ end
 
 RSpec.configure do |config|
   config.before(:each) do
-    clean_test_db
+    clean_peep_db
+    clean_user_db
   end
 end

@@ -25,6 +25,6 @@ class Chitter
       con = PG.connect(dbname: 'chitter')
     end
     result = con.exec("SELECT * FROM peeps ORDER BY id DESC")
-    result.map { |peep| Chitter.new(peep['context'], peep['time_added'])}
+    result.map { |peep| Chitter.new(peep['context'], peep['time_added']) }
   end
 end
