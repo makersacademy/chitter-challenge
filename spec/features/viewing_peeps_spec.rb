@@ -13,4 +13,8 @@ feature 'Viewing peeps' do
     expect(page).to have_content "look at my cat"
     expect(page).to have_content "HUNGRY"
   end
+
+  scenario 'peeps should be labeled with the time they were peeped' do
+
+  end
 end

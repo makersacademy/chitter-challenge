@@ -9,7 +9,10 @@
     <a href="/peeps/new">New Peep</a>
     <ul>
       <% @peeps.each do |peep| %>
-        <li><%= peep %></li>
+      <li class="peep">
+     <p><%= peep.content %></p>
+     <p><%= peep.time %></p>
+   </li>
       <% end %>
     </ul>
   </body>

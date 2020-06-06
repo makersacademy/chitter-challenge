@@ -1,32 +1,33 @@
 require 'peep'
 
 describe Peep do
+  describe '.all' do
+    it 'shows list of peeps' do
+      # add test data
+      Peep.create(content: 'I need a holiday')
+      Peep.create(content: 'look at my cat')
+      newest_peep = Peep.create(content: 'HUNGRY')
+      timestamp = Time.now
+      timestamp_format = timestamp.strftime('%b %e %I:%M%P')
 
-describe '.all' do
-  it 'returns a list of peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
+      peeps = Peep.all
 
-    # Add the test data
-    connection.exec("INSERT INTO peeps (content) VALUES('i need a holiday');")
-    connection.exec("INSERT INTO peeps (content) VALUES('look at my cat');")
-    connection.exec("INSERT INTO peeps (content) VALUES('HUNGRY');")
-
-    peeps = Peep.all
-
-    expect(peeps).to include 'i need a holiday'
-    expect(peeps).to include 'look at my cat'
-    expect(peeps).to include 'HUNGRY'
+      expect(peeps.length).to eq 3
+      expect(peeps.first.content).to eq 'HUNGRY'
+      expect(peeps.first.id).to eq newest_peep.id
+      expect(peeps.first.time).to eq timestamp_format
 
     end
   end
 
-
   describe '.create' do
-  it 'creates a new peep' do
-    Peep.create(content: 'meow')
+    it 'creates a new peep' do
+      Peep.create(content: 'Meow')
 
-    expect(Peep.all).to include 'meow'
+      test_peep = Peep.all.first
+
+      expect(test_peep.content).to eq 'Meow'
+    end
   end
-end
 
 end
