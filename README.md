@@ -1,6 +1,6 @@
 ### Early domain model used as a base for the first two user stories:
 <p align="center">
-<img src=/images/Domain_model_for_early_user_stories.png width=60%>
+<img src=/images/Domain_model_for_early_user_stories.png width=80%>
 </p>
 
 Features:
