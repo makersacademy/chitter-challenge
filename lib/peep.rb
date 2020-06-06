@@ -9,19 +9,20 @@ class Peep
   end
 
   def self.all
-    @connection = connection
-    rs = @connection.exec( "SELECT text FROM peeps" )
+    rs = sql_query("SELECT text FROM peeps")
 
     rs.map { |peep| Peep.new(peep['text']) }
   end
 
   def self.create(text)
-    @connection = connection
-
-    rs = @connection.exec( "INSERT INTO peeps (text, time) VALUES ('#{text}', '#{Time.now}')" )
+    sql_query("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{Time.now}')")
   end
 
   private
+
+  def self.sql_query(string)
+    connection.exec(string)
+  end
 
   def self.connection
     if ENV['RACK_ENV'] == 'test'
