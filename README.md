@@ -63,7 +63,7 @@ Design Choices:
 
 ![](public/img/designdraft.png)
 
-I took this challenge as an opportunity to brush up on CSS flexbox and using containers
+I took this challenge as an opportunity to brush up on CSS flexbox and using containers, as this was always something I've found quite difficult. 
 
 
 
