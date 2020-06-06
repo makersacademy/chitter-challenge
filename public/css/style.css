@@ -137,3 +137,22 @@ p {
   color: #8899A6;
   font-family: 'Poppins', sans-serif;
 }
+
+.footer-nav ul {
+  display: flex;
+  margin: 0;
+  padding: 2rem;
+  padding-left: 2rem;
+  list-style: none;
+  text-align: center;
+  font-size: 1rem;
+  color: #8899A6;
+}
+
+.footer-nav a {
+  color: #8899A6;
+  text-decoration: none;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
