@@ -7,12 +7,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/peeps' do
-    
-  end
-
   get '/peeps/new' do
     erb :"peeps/new"
+  end
+
+  post '/peeps' do
+    p params
+    p "form data"
   end
 
 end
