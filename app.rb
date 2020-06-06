@@ -36,8 +36,24 @@ class ChitterWebApp < Sinatra::Base
     redirect '/feed'
   end
 
+  post '/edit_peep' do
+    @user = User.current_user
+    @peep = Chitter.find_peep(params[:peep_id])
+    erb(:edit)
+  end
+
+  post '/edit' do
+    Chitter.edit(params['peep'], params['peep_id'])
+    redirect '/feed'
+  end
+
+  post '/delete' do
+    Chitter.delete(params[:peep_id])
+    redirect '/feed'
+  end
+
   post '/logout' do
-    User.logout 
+    User.logout
     redirect '/'
   end
 
@@ -54,7 +70,7 @@ class ChitterWebApp < Sinatra::Base
       redirect '/sign_up'
     else
       User.add_user(params[:username], params[:password], params[:email])
-      User.find_user(paramas[:username])
+      User.find_user(params[:username])
       redirect '/feed'
     end
   end

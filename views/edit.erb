@@ -1,0 +1,22 @@
+<head>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<h1 class='user for feed'><%= @user.username %> the Chitter*rer</h1>
+<form action='\logout' method=post>
+  <input type=submit value='log out'>
+</form>
+<div>
+  <form action='/edit' method=post>
+    <ul>
+    <li>
+      <input type=hidden name=peep_id value="<%= @peep.peep_id %>">
+      <input type=text name=peep value="<%=@peep.body%>">
+    </li>
+    <li>
+      <input type=submit value='done'>
+    </li>
+  </form>
+  <form action='/feed'>
+    <input type=submit value=cancel>
+  </form>
