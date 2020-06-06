@@ -3,11 +3,14 @@ require_relative './lib/peep.rb'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     "text"
   end
 
   get '/chitter' do
+    @username = session[:username]
     @peeps = Peep.all
     erb :peeps
   end
@@ -18,6 +21,15 @@ class Chitter < Sinatra::Base
 
   post '/new_peep_data' do
     Peep.create(params[:text])
+    redirect('/chitter')
+  end
+
+  get '/new_user' do
+    erb :new_user_form
+  end
+
+  post '/new_user_data' do
+    session[:username] = params[:username]
     redirect('/chitter')
   end
 

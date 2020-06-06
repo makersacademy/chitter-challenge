@@ -1,3 +1,12 @@
+<h1> Chitter </h1>
+<% if @username == nil %>
+<form action='/new_user' method=get>
+  <input type='submit' value='new user'>
+</form>
+<% else %>
+<h2> username: <%= @username %> </h2>
+<% end %>
+
 <ul>
   <% @peeps.each do |peep|  %>
     <div>
