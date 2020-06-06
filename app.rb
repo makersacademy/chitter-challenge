@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require_relative './lib/chitter.rb'
+
 
 class ChitterApp < Sinatra::Base
 
@@ -7,6 +9,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peep' do
+    Chitter.create(params[:new_peep])
     'Peep saved'
   end
 
