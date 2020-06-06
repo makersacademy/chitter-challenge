@@ -1,0 +1,33 @@
+<head>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<div>
+  <h1 class="chitter_header">We have another Chitter*rer</h1>
+  <ul class="login_list">
+  <form action='/new_user' method='post'>
+    <li>
+      <label for=username>username:</label>
+      <input type=text name=username placeholder='Choose your username...'>
+    </li>
+    <li>
+      <label for=email>email:</label>
+      <input type=text name=email placeholder='Enter your email...'>
+    </li>
+    <li>
+      <label for=password>password:</label>
+      <input type=text name=password>
+    </li>
+    <li>
+      <label for=confrim_password>confirm password:</label>
+      <input type=text name=confirm_password>
+    </li>
+    <li>
+      <input type=submit name=sign_up value="Sign up">
+    </li>
+    </form>
+    <form action="/" method=get>
+      <input type=submit name=back value=back>
+    </form>
+
+  </div>

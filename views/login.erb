@@ -8,17 +8,17 @@
   <form action='/feed' method='post'>
     <li>
       <label for=username>username:</label>
-      <input type=text name=username>
+      <input type=text name=username><div class=flash_notice> <%= flash[:username] %> </div>
     </li>
     <li>
       <label for=password>password:</label>
-      <input type=text name=password>
+      <input type=text name=password><div class=flash_notice> <%= flash[:password] %> </div>
     </li>
     <li>
-      <input type=submit name=login value=Login>
+      <input type=submit name='login' value=Login>
     </form>
-    <form action='/sign_up' method=post>
-      <input type=submit name=sign_up value="Sign up">
+    <form action='/sign_up' method=get>
+      <input type=submit value="Sign up">
     </form>
     </li>
 

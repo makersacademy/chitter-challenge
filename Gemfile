@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 group :development do
   gem 'pg'
   gem 'sinatra'
+  gem 'sinatra-flash'
 end
 
 group :test do
