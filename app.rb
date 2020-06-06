@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/submit_peep' do
-    Peep.create(peep: params['peep'])
+    p Time.now
+    Peep.create(peep: params['peep'], time_stamp: @time)
     redirect '/view_peeps'
   end
 
