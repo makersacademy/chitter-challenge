@@ -6,7 +6,7 @@ class Chitter
   attr_reader :body, :time, :username, :peep_id
 
   def self.all
-    results = DatabaseConnection.query("SELECT * FROM peeps JOIN users ON peeps.user_id = users.id ORDER BY datetime DESC LIMIT 10")
+    results = DatabaseConnection.query("SELECT * FROM peeps JOIN users ON peeps.user_id = users.id ORDER BY datetime DESC")
     results.map { |peep| Chitter.new(peep['body'], peep['datetime'], peep['username'], peep['peep_id'])}
   end
 
@@ -36,7 +36,11 @@ class Chitter
   end
 
   def format_date(date)
+    if Date.today == Date.parse(date)
+      DateTime.parse(date).strftime('%k:%M')
+    else
       Time.parse(date).strftime('%d %b %y')
+    end
   end
 
 end
