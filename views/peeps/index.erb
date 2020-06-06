@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<style>
+body { background-color:#33d6ff; }
+h2 { text-align:center; }
+h3 {text-align:center; }
+</style>
+</head>
+
+<body>
+  <% @peeps.each do |peep| %>
+    <h2 style='color:white;'> <%= peep['title']%></h2>
+    <h3 style='color:white;'> <%= peep['peep'] %></h3><br>
+  <% end %>
+</body>
+</html>

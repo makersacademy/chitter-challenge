@@ -15,7 +15,7 @@ button[type='submit'] {
 <form action="/peeps" method='post' id="form1">
   <label for='title'>Title:</label>
   <input type='text' name='title'/><br><br>
-  <textarea name="peep" cols="50" rows="10" placeholder="What's on your mind?"></textarea><br><br>
+  <textarea maxlength="200" name="peep" cols="50" rows="10" placeholder="What's on your mind?"></textarea><br><br>
   <button type="submit" form="form1" value="Submit">Post Peep</button>
 </form>
 </body>
