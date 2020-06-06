@@ -9,7 +9,9 @@ class User
   end
 
   def self.add_user(username, password, email)
-    DatabaseConnection.query("INSERT INTO users (username, password, email) VALUES ('#{username}', '#{password}', '#{email}')")
+    add_query = "INSERT INTO users (username, password, email)
+      VALUES ('#{username}', '#{password}', '#{email}')"
+    DatabaseConnection.query(add_query)
   end
 
   def self.find_user(username)
@@ -17,7 +19,7 @@ class User
 
     users = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}'")
     users_array = users.map { |user| User.new(user['username'], user['email'], user['password'], user['id']) }
-      @current_user = users_array[0]
+    @current_user = users_array[0]
   end
 
   def self.current_user

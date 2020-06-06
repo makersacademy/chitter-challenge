@@ -18,8 +18,8 @@ class ChitterWebApp < Sinatra::Base
       flash[:username] = 'username does not exist'
       redirect '/'
     elsif User.login_correct?(params[:password]) == false
-       flash[:password] = 'incorrect password'
-       redirect '/'
+      flash[:password] = 'incorrect password'
+      redirect '/'
     else
       redirect '/feed'
     end
