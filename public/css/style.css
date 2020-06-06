@@ -8,7 +8,7 @@ body {
   margin: 0;
   background-color: #2F303A;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: white;
   min-height: 100vh;
 }
@@ -71,4 +71,12 @@ body {
   font-weight: 500;
   font-size: 0.8rem;
   margin-bottom: 2rem;
+}
+
+.button {
+  color: white;
+  background-color: #FF5400;
+  padding: .75rem 1.5rem;
+  border-radius: .5rem;
+  text-decoration: none
 }
