@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/chitter.rb'
+require_relative './lib/register.rb'
 
 class ChitterApp < Sinatra::Base
 
@@ -22,6 +23,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peep/register' do
+    Register.sign_up(params[:name], params[:user_name], params[:email], params[:password])
     erb :registered
   end
 
