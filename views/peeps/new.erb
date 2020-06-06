@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<style>
+body { background-color:#33d6ff; }
+form { text-align:center; font-size:16px; }
+button[type='submit'] {
+    width: 7em;  height: 3em; font-size:15px; border-radius: 50%;
+}
+</style>
+</head>
+
+<body>
+<form action="/peeps" method='post' id="form1">
+  <label for='title'>Title:</label>
+  <input type='text' name='title'/><br><br>
+  <label for='peep'>What's on your mind?:</label><br>
+  <textarea name="peep" cols="50" rows="10"></textarea><br><br>
+  <button type="submit" form="form1" value="Submit">Add Peep</button>
+</form>
+</body>
+</html>
