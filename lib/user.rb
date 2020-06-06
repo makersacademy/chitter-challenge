@@ -1,12 +1,16 @@
 require 'bcrypt'
-require_relative 'database_connection'
+# require_relative 'database_connection'
 
 class User
 
   def self.create(email:, password:)
     encrypted_password = BCrypt::Password.create(password)
-
-    result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{email}', '#{password}') RETURNING id, email;")
+    if ENV["ENVIRONMENT"] == "test"
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    result = connection.query("INSERT INTO users (email, password) VALUES('#{email}', '#{password}') RETURNING id, email;")
     User.new(
       id: result[0]['id'], 
       email: result[0]['email'],
@@ -15,7 +19,12 @@ class User
 
   def self.find(id)
     return nil unless id
-    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
+    if ENV["ENVIRONMENT"] == "test"
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    result = connection.query("SELECT * FROM users WHERE id = '#{id}'")
     User.new(
       id: result[0]['id'],
       email: result[0]['email'],
