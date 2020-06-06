@@ -20,11 +20,8 @@ describe User do
   end
 
   it 'should return the username and password based on the username' do
-    expect(User.login_correct?('testperson1', 'wrongpassword')).to be false
-  end
-
-  it 'should return the username and password based on the username' do
-    expect(User.login_correct?('testperson1', 'wrongpassword')).to be false
+    User.find_user('testperson1')
+    expect(User.login_correct?('wrongpassword')).to be false
   end
 
 end

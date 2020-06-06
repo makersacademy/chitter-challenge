@@ -14,13 +14,13 @@ class User
 
   def self.find_user(username)
     return false if user_exists?(username) == false
-    
+
     users = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}'")
     users_array = users.map { |user| User.new(user['username'], user['email'], user['password']) }
       @current_user = users_array[0]
   end
 
-  def self.login_correct?(username, password)
+  def self.login_correct?(password)
     password == @current_user.password
   end
 

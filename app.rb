@@ -12,18 +12,32 @@ class ChitterWebApp < Sinatra::Base
     erb(:login)
   end
 
-  get '/sign_up' do
-    erb(:sign_up)
-  end
-
   post '/feed' do
     if User.find_user(params[:username]) == false
       flash[:username] = 'username does not exist'
       redirect '/'
-    elsif User.login_correct?(params[:username], params[:password]) == false
+    elsif User.login_correct?(params[:password]) == false
        flash[:password] = 'incorrect password'
        redirect '/'
     else
+      redirect '/feed'
+    end
+  end
+
+  get '/sign_up' do
+    erb(:sign_up)
+  end
+
+  post '/new_user' do
+    if User.find_user(params[:username])
+      flash[:username_dup] = 'username already exist'
+      redirect '/sign_up'
+    elsif params[:password] != params[:confirm_password]
+      flash[:confirm_password] = "passwords don't match"
+      redirect '/sign_up'
+    else
+      User.add_user(params[:username], params[:password], params[:email])
+      User.find_user(paramas[:username])
       redirect '/feed'
     end
   end

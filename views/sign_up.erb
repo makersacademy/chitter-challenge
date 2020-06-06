@@ -8,7 +8,7 @@
   <form action='/new_user' method='post'>
     <li>
       <label for=username>username:</label>
-      <input type=text name=username placeholder='Choose your username...'>
+      <input type=text name=username placeholder='Choose your username...'><div class=flash_notice> <%= flash[:username_dup] %> </div>
     </li>
     <li>
       <label for=email>email:</label>
@@ -16,10 +16,10 @@
     </li>
     <li>
       <label for=password>password:</label>
-      <input type=text name=password>
+      <input type=text name=password><div class=flash_notice> <%= flash[:confirm_password] %> </div>
     </li>
     <li>
-      <label for=confrim_password>confirm password:</label>
+      <label for=confirm_password>confirm password:</label>
       <input type=text name=confirm_password>
     </li>
     <li>
