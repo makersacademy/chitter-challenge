@@ -21,5 +21,9 @@ class ChitterApp < Sinatra::Base
     erb :sign_up
   end
 
+  post '/peep/register' do
+    erb :registered
+  end
+
   run! if app_file == $0
 end

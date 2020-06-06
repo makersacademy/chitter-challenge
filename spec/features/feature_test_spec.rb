@@ -37,4 +37,15 @@ feature 'Sign up' do
     expect(page).to have_field('user_name')
     expect(page).to have_field('password')
   end
+
+  it 'Should confirm that you have signed up on submitting details' do
+    visit('/')
+    click_button('Sign up')
+    fill_in 'name', with: 'Chris Cooney'
+    fill_in 'email', with: 'test@testing.co.uk'
+    fill_in 'user_name', with: 'ChrisCooney05'
+    fill_in 'password', with: 'PasSWoRd'
+    click_button('Submit')
+    expect(page).to have_content('Welcome to Chitter!')
+  end
 end
