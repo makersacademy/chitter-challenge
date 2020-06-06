@@ -22,3 +22,10 @@ feature 'Peep' do
     expect(page).to have_content(time)
   end
 end
+
+feature 'Sign up' do
+  it 'Should have a sign up button' do
+    visit('/')
+    expect(page).to have_button('Sign up')
+  end
+end
