@@ -20,14 +20,22 @@ class User
       @current_user = users_array[0]
   end
 
-  def self.login_correct?(password)
-    password == @current_user.password
+  def self.current_user
+    @current_user
+  end
+
+  def self.logout
+    @current_user = nil
   end
 
   def initialize(username, email, password)
     @username = username
     @email = email
     @password = password
+  end
+
+  def self.login_correct?(password)
+    password == @current_user.password
   end
 
 end

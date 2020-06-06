@@ -2,6 +2,7 @@ require_relative 'database_connection_setup'
 require 'sinatra'
 require 'sinatra/flash'
 require_relative './lib/user'
+require_relative './lib/chitter'
 
 class ChitterWebApp < Sinatra::Base
 
@@ -22,6 +23,12 @@ class ChitterWebApp < Sinatra::Base
     else
       redirect '/feed'
     end
+  end
+
+  get '/feed' do
+    @user = User.current_user
+    @peeps = Chitter.all
+    erb(:feed)
   end
 
   get '/sign_up' do

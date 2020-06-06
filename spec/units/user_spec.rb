@@ -24,4 +24,9 @@ describe User do
     expect(User.login_correct?('wrongpassword')).to be false
   end
 
+  it 'sets the current user to nil on .logout' do
+    User.logout
+    expect(User.current_user).to be nil
+  end
+
 end

@@ -74,6 +74,7 @@ GEM
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     tilt (2.0.10)
+    timecop (0.9.1)
     unicode-display_width (1.6.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -90,6 +91,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-flash
+  timecop
 
 BUNDLED WITH
    2.1.4

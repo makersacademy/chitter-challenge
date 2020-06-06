@@ -1,0 +1,31 @@
+<head>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<h1 class='user for feed'><%= @user.username %> the Chitter*rer</h1>
+<form action='\logout' method=post>
+  <input type=submit value='log out'>
+</form>
+<div>
+  <form action='new peep' method=post>
+    <ul>
+    <li>
+      <input type=text name=peep placeholder='peep...peep...'>
+    </li>
+    <li>
+      <input type=submit value='add peep'>
+    </li>
+  </form>
+  <div class='feed'>
+    <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.username %> <%= peep.time %>
+    </li>
+    <li>
+      <%= peep.body %>
+    </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
