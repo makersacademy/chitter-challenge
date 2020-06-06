@@ -2,12 +2,10 @@ require 'pg'
 
 feature 'Viewing peeps' do
   scenario 'A user can see peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
 
-    # Add the test data
-    connection.exec("INSERT INTO peeps VALUES(1, 'i need a holiday');")
-    connection.exec("INSERT INTO peeps VALUES(2, 'look at my cat');")
-    connection.exec("INSERT INTO peeps VALUES(3, 'HUNGRY');")
+    Peep.create(content: "i need a holiday")
+    Peep.create(content: "look at my cat")
+    Peep.create(content: "HUNGRY")
 
     visit('/')
 
