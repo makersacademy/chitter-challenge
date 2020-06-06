@@ -3,6 +3,18 @@
 <img src=/images/Domain_model_for_early_user_stories.png width=80%>
 </p>
 
+### SQL Instructions used to create 'chitter' database and 'peeps' table
+
+1. Connect to psql
+2. Create the database : `CREATE DATABASE chitter;`
+3. Connect to the database: `\c chitter`
+4. Create Table: Run the query saved in 01_create_peeps_table.sql
+
+### Initial 'peeps' table layout:
+
+ id | peep | peeped_at | peeped_by 
+----+------+-----------+-----------
+
 Features:
 -------
 
