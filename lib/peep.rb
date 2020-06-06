@@ -9,7 +9,7 @@ class Peep
   end
 
   def self.all
-    rs = sql_query("SELECT text FROM peeps")
+    rs = sql_query("SELECT text FROM peeps ORDER BY time DESC")
 
     rs.map { |peep| Peep.new(peep['text']) }
   end
