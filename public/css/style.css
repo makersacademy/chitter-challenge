@@ -156,3 +156,30 @@ p {
   text-align: center;
   font-size: 1rem;
 }
+
+input[type=text] {
+  background-color: #192834;
+  width: 80%;
+  height: 150px;
+  box-sizing: border-box;
+  border: 3px solid #192834;
+  padding-bottom: 20px;
+  border-radius: 1.2rem;
+  color: #8899A6;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding: 2rem;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #1b91da;
+  border: none;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  padding: 16px 32px;
+  font-size: 1rem;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
