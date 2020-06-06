@@ -17,4 +17,11 @@ feature '/new_user' do
     click_button('Submit')
     expect(page).to have_content('user1: piep3')
   end
+  scenario 'user has a password' do
+    visit '/chitter'
+    click_button('new user')
+    fill_in('username', with: 'user1')
+    fill_in('password', with: 'passsword123')
+    click_button('Submit')
+  end
 end
