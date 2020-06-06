@@ -2,21 +2,22 @@ require 'pg'
 
 class Peep
 
-  attr_reader :text, :time
+  attr_reader :text, :time, :user
 
-  def initialize(text, time)
+  def initialize(text, time, user)
     @text = text
     @time = time
+    @user = user
   end
 
   def self.all
-    rs = sql_query("SELECT text, time FROM peeps ORDER BY time DESC")
+    rs = sql_query("SELECT text, time, username FROM peeps ORDER BY time DESC")
 
-    rs.map { |peep| Peep.new(peep['text'], peep['time']) }
+    rs.map { |peep| Peep.new(peep['text'], peep['time'], peep['username']) }
   end
 
-  def self.create(text)
-    sql_query("INSERT INTO peeps (text, time) VALUES ('#{text}', '#{Time.now}')")
+  def self.create(text, user)
+    sql_query("INSERT INTO peeps (text, time, username) VALUES ('#{text}', '#{Time.now}', '#{user}')")
   end
 
   def self.sql_query(string)

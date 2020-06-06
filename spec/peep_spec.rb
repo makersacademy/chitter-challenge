@@ -16,7 +16,7 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new entry in the peeps database' do
-      Peep.create('peep3')
+      Peep.create('peep3','user')
       expect(Peep.all[0].text).to eq('peep3')
     end
   end
