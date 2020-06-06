@@ -1,13 +1,10 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
   get '/' do
-    @peeps = [
-      'i need a holiday',
-      'look at my cat',
-      'HUNGRY'
-    ]
+    @peeps = Peep.all
     erb :index
   end
 
