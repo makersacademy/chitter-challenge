@@ -18,10 +18,19 @@ body {
 }
 
 /* Create two equal columns that floats next to each other */
+.row {
+  width: 100%
+}
+
 .column {
   float: left;
-  width: 50%;
-  padding: 10px;
+  width: 60%;
+}
+
+.column2 {
+  float: left;
+  width: 40%;
+  padding-left: 40px;
 }
 
 /* Clear floats after the columns */
@@ -37,10 +46,11 @@ body {
   font-size: 1.25em;
   color: inherit;
   text-decoration: none;
+  padding-left: 2rem;
 }
 
 .brand-logo-name {
-  margin-left: 1rem;
+  padding-left: 1rem;
 }
 
 .main-nav ul {
@@ -83,12 +93,23 @@ body {
   padding-left: 2rem;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.peep_box ul li {
+  background: #2e2d34;
+  margin: 5px;
+}
+
 .button {
   color: white;
   background-color: #FF5400;
   padding: .75rem 1.5rem;
   border-radius: .5rem;
-  text-decoration: none
+  text-decoration: none;
   font-size: .9rem;
 }
 
