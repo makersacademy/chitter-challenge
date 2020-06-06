@@ -31,6 +31,16 @@ class ChitterWebApp < Sinatra::Base
     erb(:feed)
   end
 
+  post '/new_peep' do
+    Chitter.add_peep(params[:peep])
+    redirect '/feed'
+  end
+
+  post '/logout' do
+    User.logout 
+    redirect '/'
+  end
+
   get '/sign_up' do
     erb(:sign_up)
   end

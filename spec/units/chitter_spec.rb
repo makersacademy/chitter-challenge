@@ -14,8 +14,4 @@ describe Chitter do
     expect(Chitter.all[0].body).to eq('chitter 1')
   end
 
-  it 'sets the current user to nil on .logout' do
-
-  end
-
 end

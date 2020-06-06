@@ -14,4 +14,10 @@ feature 'feed' do
     expect(page).to have_content('chitter 1')
   end
 
+  scenario 'add peep' do
+    fill_in('peep', with: "body of peep")
+    click_on('add peep')
+    expect(page).to have_content("body of peep")
+  end
+
 end

@@ -1,6 +1,6 @@
 class User
 
-  attr_reader :username, :email, :password
+  attr_reader :username, :email, :password, :id
 
   def self.user_exists?(username)
     users = DatabaseConnection.query('SELECT username FROM users')
@@ -16,7 +16,7 @@ class User
     return false if user_exists?(username) == false
 
     users = DatabaseConnection.query("SELECT * FROM users WHERE username='#{username}'")
-    users_array = users.map { |user| User.new(user['username'], user['email'], user['password']) }
+    users_array = users.map { |user| User.new(user['username'], user['email'], user['password'], user['id']) }
       @current_user = users_array[0]
   end
 
@@ -28,7 +28,8 @@ class User
     @current_user = nil
   end
 
-  def initialize(username, email, password)
+  def initialize(username, email, password, id)
+    @id = id
     @username = username
     @email = email
     @password = password
