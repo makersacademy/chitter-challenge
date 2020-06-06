@@ -1,3 +1,4 @@
+require 'pg'
 
 class Peep
 
@@ -8,7 +9,22 @@ class Peep
   end
 
   def self.all
-    [Peep.new('peep1'), Peep.new('peep2')]
+    @connection = connection
+    rs = @connection.exec( "SELECT text FROM peeps" )
+
+    puts rs
+
+    rs.map { |peep| Peep.new(peep['text']) }
+  end
+
+  private
+
+  def self.connection
+    if ENV['RACK_ENV'] == 'test'
+      return PG.connect :dbname => 'chitter_test'
+    else
+      return PG.connect :dbname => 'chitter'
+    end
   end
 
 end

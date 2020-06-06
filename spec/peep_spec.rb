@@ -11,8 +11,8 @@ describe Peep do
 
   describe '#text' do
     it 'returns the correct text' do
-      peep = Peep.new('text')
-      expect(peep.text).to eq('text')
+      peep = Peep.all
+      expect(peep[0].text).to eq('peep1')
     end
   end
 end
