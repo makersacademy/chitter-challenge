@@ -5,10 +5,6 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
-  get '/' do
-    "text"
-  end
-
   get '/chitter' do
     @username = session[:username]
     @peeps = Peep.all
@@ -20,7 +16,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_peep_data' do
-    p session[:username]
     Peep.create(params[:text], session[:username])
     redirect('/chitter')
   end
