@@ -12,9 +12,13 @@ class Peep
     @connection = connection
     rs = @connection.exec( "SELECT text FROM peeps" )
 
-    puts rs
-
     rs.map { |peep| Peep.new(peep['text']) }
+  end
+
+  def self.create(text)
+    @connection = connection
+
+    rs = @connection.exec( "INSERT INTO peeps (text, time) VALUES ('#{text}', '#{Time.now}')" )
   end
 
   private

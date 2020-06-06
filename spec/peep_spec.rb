@@ -9,6 +9,13 @@ describe Peep do
     end
   end
 
+  describe '.create' do
+    it 'creates a new entry in the peeps database' do
+      Peep.create('peep3')
+      expect(Peep.all[-1].text).to eq('peep3')
+    end
+  end
+
   describe '#text' do
     it 'returns the correct text' do
       peep = Peep.all

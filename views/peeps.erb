@@ -1,7 +1,11 @@
 <ul>
   <% @peeps.each do |peep|  %>
-    <li>
+    <div>
       <%= peep.text %>
-    </li>
+    </div>
   <% end %>
 </ul>
+
+<form action='/chitter/add_peep' method=get>
+  <input type='submit' name='new' value='new peep'/>
+</form>
