@@ -13,11 +13,11 @@ describe '.all' do
   end
 end
 
-describe '.create' do
-  it 'creates a new peep' do
-    Peep.create(peep: 'Test peep', time_stamp: Time.now)
-    expect(Peep.all).to include "Test peep" 
-  end
-end
+# describe '.create' do
+#   it 'creates a new peep' do
+#     Peep.create(peep: 'Test peep', time_stamp: Time.now)
+#     expect(Peep.all).to include "Test peep" 
+#   end
+# end
 
 end
