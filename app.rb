@@ -10,7 +10,6 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    p @peeps
     erb :"peeps/index"
   end
 
@@ -19,10 +18,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    title = params['title']
-    peep = params['peep']
-    connection = PG.connect(dbname: chitter)
-    connection.exec("INSERT INTO peep_manager (title, peep) VALUES('#{title}', '#{peep}')")
+    Peep.create(title: params['title'], peep: params['peep'])
+    redirect '/peeps'
   end
 
   run! if app_file == $0

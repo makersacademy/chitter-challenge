@@ -4,8 +4,17 @@ require 'sinatra'
 require 'simplecov'
 require 'simplecov-console'
 require_relative '../app'
+require_relative './setup_test_database'
 
 Capybara.app = Chitter
+
+ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
