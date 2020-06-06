@@ -20,9 +20,10 @@ end
       connection = PG.connect(dbname: 'chitter_test')
 
       # Add the test data
-      connection.exec("INSERT INTO peeps VALUES(1, 'This is my first peep!');")
-      connection.exec("INSERT INTO peeps VALUES(2, 'This is my second peep!');")
-      connection.exec("INSERT INTO peeps VALUES(3, 'This is my third peep!');")
+      @time = Time.now
+      connection.exec("INSERT INTO peeps (id, peep, time_stamp) VALUES(1, 'This is my first peep!', '#{@time}');")
+      connection.exec("INSERT INTO peeps (id, peep, time_stamp) VALUES(2, 'This is my second peep!','#{@time}');")
+      connection.exec("INSERT INTO peeps (id, peep, time_stamp) VALUES(3, 'This is my third peep!','#{@time}');")
 
       visit '/view_peeps'
 

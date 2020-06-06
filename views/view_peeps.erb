@@ -1,5 +1,20 @@
+<center>
+<form action='/' method='get'>
+<input type=submit value='Take me home' style= "background-color:#1DA1F2; 
+border-radius: 12px; 
+color:white; 
+padding: 12px 28px; 
+font-family:rockwell;" />
+</form>
+<br><br>
+<div style="background-color:#1DA1F2;
+color:white;
+font-family:rockwell;">
+<br><br><br>
 <% @peeps.each do |peep| %>
-<div>
- <%= peep.peep %>
-</div>
-<% end %>
+<h3> <%= peep.peep %></h3>
+ <i><%= peep.time_stamp %></i><br><br><br>
+ <% end %>
+ </div>
+ <br><br>
+</center>

@@ -2,19 +2,21 @@ require 'pg'
 
 class Peep 
 
-  attr_reader :peep
+  attr_reader :peep, :time_stamp
 
-  def initialize(peep:)
+  def initialize(peep:, time_stamp:)
     @peep = peep
+    @time_stamp = time_stamp
   end
 
-  def self.create(peep:)
+  def self.create(peep:, time_stamp:)
     if ENV["ENVIRONMENT"] == "test"
       connection = PG.connect(dbname: 'chitter_test')
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    connection.exec("INSERT INTO peeps (peep) VALUES ('#{peep}');")
+    result = connection.exec("INSERT INTO peeps(peep, time_stamp) VALUES ('#{peep}','#{time_stamp}') RETURNING peep, time_stamp;")
+    Peep.new(peep: result[0]['peep'], time_stamp: result[0]['time_stamp'])
   end
 
   def self.all
@@ -23,9 +25,10 @@ class Peep
     else 
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec('SELECT * FROM peeps;')
+    result = connection.exec('SELECT peep, time_stamp FROM peeps ORDER BY time_stamp DESC;')
+    p result
     result.map do |hash|
-      Peep.new(peep: hash['peep'])   
+      Peep.new(peep: hash['peep'], time_stamp: hash['time_stamp'])   
     end
   end
 
