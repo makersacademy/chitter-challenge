@@ -1,5 +1,6 @@
+require_relative './reset_database.rb'
 
-ENV['ENVIRONMENT'] = 'test'
+ENV["ENVIRONMENT"] = "test"
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -21,10 +22,10 @@ SimpleCov.start
 
 
 RSpec.configure do |config|
+  config.before(:each) do
+    refresh_database
+  end
 
-  # config.before(:each) do
-  #   setup_test_database
-  # end
 
   config.after(:suite) do
     puts

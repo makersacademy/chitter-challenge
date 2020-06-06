@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -10,8 +11,13 @@ class Chitter < Sinatra::Base
     erb :new_peep
   end
 
-  # post '/submit_peep' do
-  #   Peep.create(title: params['title'], entry: params['peep'])
-  #   redirect '/view_peeps'
-  # end
+  post '/submit_peep' do
+    Peep.create(peep: params['peep'])
+    redirect '/view_peeps'
+  end
+
+  get '/view_peeps' do
+    @peeps = Peep.all
+    erb :view_peeps
+  end
 end
