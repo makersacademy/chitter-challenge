@@ -28,4 +28,13 @@ feature 'Sign up' do
     visit('/')
     expect(page).to have_button('Sign up')
   end
+
+  it 'Should take you to a sign up page and request info' do
+    visit('/')
+    click_button('Sign up')
+    expect(page).to have_field('name')
+    expect(page).to have_field('email')
+    expect(page).to have_field('user_name')
+    expect(page).to have_field('password')
+  end
 end
