@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/peep'
 
 class Chitter < Sinatra::Base
 
@@ -15,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/save-peep' do
+    Peep.post(peep: params[:peep])
     redirect '/view-peeps'
   end
 

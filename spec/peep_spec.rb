@@ -8,5 +8,12 @@ describe Peep do
     expect(test_peep.peeped_at).to eq("today")
     expect(test_peep.peeped_by).to eq("me")
   end
+
+  describe '#post' do
+    it "adds a new peep to the database" do
+      test_peep = Peep.post(new_peep: "Test Peep")
+      expect(test_peep.peep).to eq("Test Peep")
+    end
+  end
   
 end
