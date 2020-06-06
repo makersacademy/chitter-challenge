@@ -7,13 +7,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/post-peep' do
-    "post here"
+    erb(:post_peep)
   end
 
   get '/view-peeps' do
-    "View all peeps here"
+    "View all peeps here!"
   end
-  
+
+  post '/save-peep' do
+    redirect '/view-peeps'
+  end
+
   run! if app_file == $PROGRAM_NAME
 
 end
