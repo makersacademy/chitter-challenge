@@ -9,6 +9,8 @@ describe '.all ' do
     add_test_data
     expect(Chitter.all.first).to be_an_instance_of(Chitter)
     expect(Chitter.all.length).to eq 3
+    expect(Chitter.all.last.content).to include("Its freezing and snowing in New York--we need global warming!")
+    expect(Chitter.all.last.time).to eq (Time.now.strftime("%H:%M"))
   end
 end
 
