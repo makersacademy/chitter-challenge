@@ -12,3 +12,4 @@ end
 
 gem 'pg'
 gem 'sinatra'
+gem 'date'
