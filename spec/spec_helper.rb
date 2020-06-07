@@ -1,5 +1,8 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'setup_test_database'
+
+ENV['ENVIRONMENT'] = 'test'
 
 # Set the environment to "test"
 ENV['RACK_ENV'] = 'test'
