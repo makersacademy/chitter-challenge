@@ -10,8 +10,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     txt = params[:peep]
-    @peep = Message.new(txt)
-    p @peep.body
+    @peep = Message.new('Victor', txt, '2020-06-07 21:54:00')
     erb :peeps
   end
   run! if app_file == $0
