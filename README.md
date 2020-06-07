@@ -1,12 +1,20 @@
-### Issues I've had:
+### Progress summary
 
-1. Finding rspec/capybara matchers that would allow me to check whetehr sometyhing is a timestamp
-2. Checking for chronological order, or order generally, in rspec
+* I think  the first three user stories are covered reasonably well, even if the HTML/CSS is pretty rubbish!
+* I made a rough diagram model for the fourth user story but didn't have time to implement it. I would have liked to create a new class (User) in the model section, and a second database table for users. My Peeps database already has a "username" column, which defaults to anon, and which is displayed as part of the view_peeps.erb file. I had planned to join the two tables on "username" when presenting the peeps.
+* I certainly didn't have time for the 'harder' user stories
+* I couldn't find ways to test for a timestamp, so that test is very flimsy.
+* I also couldn't find a way to use capybara to test the order in which things appear, so that feature is covered by another flimsy unit test
 
 
 ### Early domain model used as a base for the first two user stories:
 <p align="center">
 <img src=/images/Domain_model_for_early_user_stories.png width=80%>
+</p>
+
+### Domain model for the fourth user story, which I didn't have time to implement:
+<p align="center">
+<img src=/images/Domain_model_for_fourth_user_story.png width=80%>
 </p>
 
 ### SQL Instructions used to create 'chitter' database and 'peeps' table
@@ -16,17 +24,28 @@
 3. Connect to the database: `\c chitter`
 4. Create Table: Run the query saved in 01_create_peeps_table.sql
 
-### SQL INstructions used to create 'chitter_test' database for rspec testing purposes
+### SQL Instructions used to create 'chitter_test' database for rspec testing purposes
 
 1. Connect to psql
 2. Create the database : `CREATE DATABASE chitter_test;`
 3. Connect to the database: `\c chitter`
 4. Create Table: Run the query saved in 01_create_peeps_table.sql
 
-### Initial 'peeps' table layout:
+### Additional notes on set-up:
 
- id | peep | peeped_at | peeped_by 
-----+------+-----------+-----------
+1. IN order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle
+
+### Example 'peeps' table layout:
+
+ id |         peep         |           peeped_at           | peeped_by 
+----+----------------------+-------------------------------+-----------
+ 12 | My first peep!       | 2020-06-07 17:41:26.161455+01 | Anon
+ 13 | I have some thoughts | 2020-06-07 17:46:41.201732+01 | Anon
+ 14 | I have more thoughts | 2020-06-07 17:49:13.228644+01 | Anon
+
+### Additional notes on set-up:
+
+1. IN order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle
 
 Features:
 -------
@@ -66,22 +85,6 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
-Technical Approach:
------
-
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
 Notes on functionality:
 ------

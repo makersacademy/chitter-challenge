@@ -9,10 +9,17 @@ describe Peep do
     expect(test_peep.peeped_by).to eq("me")
   end
 
+  it 'displays a timestamp with the instance variable @peeped_at' do
+    Peep.post(peep: "test peep")
+    results = Peep.all
+    expect(results[0].peeped_at).to include("2020")
+  end
+
   describe '#post' do
     it "adds a new peep to the database" do
       test_peep = Peep.post(peep: "Test Peep")
       expect(test_peep.peep).to eq("Test Peep")
+      expect(test_peep).to be_an_instance_of(Peep)
     end
   end
 
