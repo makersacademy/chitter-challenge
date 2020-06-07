@@ -6,6 +6,13 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative '../app'
+require_relative 'clear_test_database'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    clear_table
+  end
+end
 
 Capybara.app = Chitter
 

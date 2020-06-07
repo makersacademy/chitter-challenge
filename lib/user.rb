@@ -1,0 +1,29 @@
+class User
+  # class methods
+  def self.create(username, email, password, full_name)
+    result = DatabaseConnection.query("INSERT INTO users (username, email, password, full_name) VALUES('#{username}', '#{email}', '#{password}', '#{full_name}') RETURNING id, username, email, password, full_name")
+    User.new(result[0]['id'], result[0]['username'], result[0]['email'], result[0]['password'], result[0]['full_name'])
+  end
+
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM users")
+    result.map { |user| User.new(user['id'], user['username'], user['email'], user['password'], user['full_name']) }
+  end
+
+  def self.find(id)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    User.new(result[0]['id'], result[0]['username'], result[0]['email'], result[0]['password'], result[0]['full_name'])
+  end
+
+  # instance methods
+
+  attr_reader :id, :username, :email, :password, :full_name
+
+  def initialize(id, username, email, password, full_name)
+    @id = id
+    @username = username
+    @email = email
+    @password = password
+    @full_name = full_name
+  end
+end

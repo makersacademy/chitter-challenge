@@ -1,0 +1,11 @@
+<%= @user.full_name %><br>
+<%= @user.username %><br>
+<%= @user.email %><br>
+<%= @user.password %><br>
+<%= @user.id %><br>
+
+<form action="/chitter/account/<%= @user.username %>/post_peep" method="post">
+  <textarea name="peep_body" placeholder="What's on your mind?'" cols="40" rows="10" max_length="280">
+  </textarea><br>
+  <input type="submit" value="Peep">
+</form>
