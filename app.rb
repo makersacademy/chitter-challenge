@@ -7,10 +7,8 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-
   post '/all_peeps' do
     Chitterer.login(uname: params['uname'], psw: params['psw'])
-    @chit = Chitterer.all
     erb :all_chits
   end
 
