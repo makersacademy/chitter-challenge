@@ -4,7 +4,7 @@ Chitter Challenge
 
 Write a small Twitter clone, make it look awesome.
 
-![](public/img/peep.png)
+![](public/img/Screenshot.png)
 
 
 Features:
