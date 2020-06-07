@@ -2,7 +2,7 @@ require 'pg'
 
 class Chitterer
 
-  attr_reader :uname, :psw, :chit, :t1, :chit, :t1
+  attr_reader :uname, :psw, :chit
 
   def initialize(uname:, chit:)
 
@@ -31,7 +31,7 @@ class Chitterer
     end
     connection.exec("SELECT username FROM chitter WHERE username='#{uname}' AND password='#{psw}';")
   end
-# INSERT INTO chitter(username, password) VALUES ('#{uname}','#{psw}');")
+
   def self.create(chit:, uname:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'chitterdatabase_test')

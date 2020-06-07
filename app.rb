@@ -27,7 +27,6 @@ class Chitter < Sinatra::Base
     erb :all_peeps
   end
 
-
   run! if app_file == $0
 
 end
