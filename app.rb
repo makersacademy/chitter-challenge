@@ -1,5 +1,5 @@
 require 'sinatra/base'
 
-class Chitter < Sinatra::base
-    
+class Chitter < Sinatra::Base
+
 end
