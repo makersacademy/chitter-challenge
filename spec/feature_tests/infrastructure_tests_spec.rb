@@ -10,18 +10,15 @@ end
 
 feature 'index page' do
   scenario 'new post added' do
-    visit('/posts')
+    visit('/')
+    fill_in 'username', with: 'Big Dom Cummings'
+    fill_in 'password', with: 'BarnardCastle260' 
+    click_button('submit')
+    
     fill_in 'content', with: 'We MUST BUILD THE WALL NOW!'
     click_button('post')
     expect(page).to have_content('We MUST BUILD THE WALL NOW!')
   end
 end
 
-feature 'index page' do
-  scenario 'new post added' do
-    visit('/posts')
-    fill_in 'content', with: 'We MUST BUILD THE WALL NOW!'
-    click_button('post')
-    expect(page).to have_content('We MUST BUILD THE WALL NOW!')
-  end
-end
+

@@ -120,7 +120,14 @@ html {
   h1 {
     font-size: 2rem;
     color: rgba(211, 221, 228, 0.25);
-    
+    display: grid;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2rem;
+    color: rgba(211, 221, 228, 0.25);
+    display: grid;
+  text-align: center;
   }
   
    footer {

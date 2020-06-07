@@ -13,12 +13,13 @@ class ChitterBox < Sinatra::Base
   end
 
   get '/posts' do
+    @username = $identity.name
     @posts = Chitter.all
     erb :index
   end
 
   post '/posts' do
-    @identity = Identity.new(params[:username], params[:password])
+    $identity = Identity.new(params[:username], params[:password])
     redirect '/posts'
   end
 
