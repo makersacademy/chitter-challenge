@@ -45,18 +45,7 @@
 
 ### Additional notes on set-up:
 
-1. In order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle. My gemfile was is follows:
-```
-gem 'sinatra'
-group :test do
-  gem 'capybara'
-  gem 'pg', '~> 1.2', '>= 1.2.3'
-  gem 'rspec'
-  gem 'rubocop', '0.79.0'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
-end
-```
+1. In order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle.
 
 Features:
 -------
