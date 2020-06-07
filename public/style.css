@@ -1,0 +1,135 @@
+html {
+    font-size: calc(12px + 0.75vw);
+  }
+  
+  body {
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(95, 205, 233, 0.25);
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    line-height: 2;
+    max-width: 100w;
+  }
+  
+  
+  .form * {
+    margin: .4rem;
+  }
+  
+  .span {
+    grid-column: span 2;
+  }
+  
+  
+  input.span {
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    border-radius: .5rem;
+    
+    border: 3px solid hsl(39, 100%, 40%);
+    padding: .5rem;
+    
+    text-align: center; 
+  
+  }
+  
+  select {
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    border-radius: .5rem;
+    
+    border: 3px solid hsl(39, 100%, 40%);
+    padding: .5rem;
+    
+    text-align: center; 
+    width: fit-content;
+   
+  }
+  
+  
+  
+  
+  .form  {
+    margin: 1.5rem;
+    padding: .5rem 2rem;
+    font-weight: 900;
+    background: hsl(30, 80%, 84%);
+    color: #fff;
+    border: 3px solid hsl(39, 100%, 40%);
+    cursor: pointer;
+    border-radius: .5rem;
+    box-shadow: 0 9px hsl(39, 100%, 40%);
+    outline: none;
+    transition: ease-in;
+    transition-duration: 100ms;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    
+  }
+  
+  input.button {
+  
+    background-color: hsl(14, 57%, 50%);
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    border-radius: .5rem;
+    color: #fff;
+    border: 3px solid hsl(39, 100%, 40%);
+    padding: 1rem;
+    
+    text-align: center; 
+  }
+  
+  
+  input.button:hover {
+    background: hsl(39, 91%, 48%);;
+    
+  }
+  
+  input[type="text"]::placeholder {  
+    text-align: center; 
+    color: black;
+  } 
+  
+  .button:active {
+    background: hsl(60, 33%, 1%);
+    box-shadow: 0 5px hsl(39, 100%, 40%);
+    transform: translateY(4px);
+  }
+  
+  form.form {
+    background-color: red;
+  }
+  
+  section {
+    display: flex;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: red;
+    
+  }
+  
+   footer {
+    text-align:center
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .wiggle {
+    padding: .5rem;
+    font-size: 2rem;
+    animation: wiggle 2s ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  
