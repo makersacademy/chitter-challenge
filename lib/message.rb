@@ -4,7 +4,7 @@ class Message
 
     attr_reader :body, :author, :date
   
-  def initialize(author, body, date)
+  def initialize(author:, body:, date:)
     @author = author
     @body = body
     @date = date
@@ -13,6 +13,6 @@ class Message
   def self.all
     connection = PG.connect(dbname: 'chitter')
     result = connection.exec("SELECT * FROM peeps")
-    result.map { |peep| Message.new(:author => peep['author'], :body => bookmark['body'], :date => ['date']) }
+    result.map { |peep| Message.new( author: peep['author'], body: peep['body'], date: peep['date'] ) }
   end
 end
