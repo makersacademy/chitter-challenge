@@ -1,9 +1,11 @@
 class Message
 
-    attr_reader :body
+    attr_reader :body, :author, :date
   
-  def initialize(message)
-    @body = message
+  def initialize(author, body, date)
+    @author = author
+    @body = body
+    @date = date
   end
     
 end
