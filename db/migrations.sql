@@ -1,1 +1,1 @@
-CREATE TABLE chitter (id serial PRIMARY KEY, username varchar(20) NOT NULL, email varchar(20) NOT NULL);
+CREATE TABLE chitter (id serial PRIMARY KEY, username varchar(20) NOT NULL, password varchar(20) NOT NULL);
