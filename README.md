@@ -34,7 +34,7 @@
 
 ### Additional notes on set-up:
 
-1. IN order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle
+* In order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle
 
 ### Example 'peeps' table layout:
 
@@ -43,10 +43,6 @@
 | 1  | My first peep!       | 2020-06-07 17:41:26.161455+01 | Anon      |
 | 2  | I have some thoughts | 2020-06-07 17:46:41.201732+01 | Anon      |
 | 3  | I have more thoughts | 2020-06-07 17:49:13.228644+01 | Anon      |
-
-### Additional notes on set-up:
-
-1. In order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle.
 
 Features:
 -------
