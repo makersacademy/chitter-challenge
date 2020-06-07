@@ -15,5 +15,10 @@ describe Peep do
       expect(test_peep.peep).to eq("Test Peep")
     end
   end
+
+  # describe '#all' do
+  # it "creates a an array containing instances of Peeps" do
+  #   Peep.post()
+
   
 end

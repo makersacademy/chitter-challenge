@@ -24,4 +24,11 @@ class Peep
     result[0]['peeped_at'], peeped_by: result[0]['peeped_by'])
   end
 
+  # def self.all
+  #   if ENV['RACK_ENV'] == 'test'
+  #     connection = PG.connect(dbname: 'chitter_test')
+  #   else
+  #     connection = PG.connect(dbname: 'chitter')
+  #   end
+
 end
