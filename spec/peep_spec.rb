@@ -16,9 +16,15 @@ describe Peep do
     end
   end
 
-  # describe '#all' do
-  # it "creates a an array containing instances of Peeps" do
-  #   Peep.post()
+  describe '#all' do
+  it "creates a an array containing instances of Peeps" do
+    Peep.post(peep: "test peep")
+    Peep.post(peep: "another peep")
+    Peep.post(peep: "a third peep")
+    results = Peep.all
+    expect(results.first.peep).to eq("test peep")
+  end
+end
 
   
 end

@@ -1,3 +1,9 @@
+### Issues I've had:
+
+1. Finding rspec/capybara matchers that would allow me to check whetehr sometyhing is a timestamp
+2. Checking for chronological order, or order generally, in rspec
+
+
 ### Early domain model used as a base for the first two user stories:
 <p align="center">
 <img src=/images/Domain_model_for_early_user_stories.png width=80%>
