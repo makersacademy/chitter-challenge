@@ -60,7 +60,7 @@ I want to receive an email if I am tagged in a Peep
 2. Create the database using the `psql` command `CREATE DATABASE chitter;`
 3. Connect to the database using the `pqsl` command `\c chitter;`
 4. Run the query we have saved in the file `01_create_peep_manager_table.sql`
-5. Run the query we have saved in the file `02_add_time_to_peeps.sql`
+5. Run the query we have saved in the file `02_add_time_to_peeps.sql` to add column for timestamp
 
 ## Test Database Setup:
 
@@ -68,4 +68,4 @@ I want to receive an email if I am tagged in a Peep
 2. Create the database using the `psql` command `CREATE DATABASE chitter_test;`
 3. Connect to the database using the `pqsl` command `\c chitter_test;`
 4. Run the query we have saved in the file `01_create_peep_manager_table.sql`
-5. Run the query we have saved in the file `02_add_time_to_peeps.sql`
+5. Run the query we have saved in the file `02_add_time_to_peeps.sql` to add column for timestamp
