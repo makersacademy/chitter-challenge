@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
 group :test, :development do
-  gem 'sinatra'
   gem 'pg'
+  gem 'sinatra'
+  gem 'sinatra-flash'
 end
 
 group :test do

@@ -13,8 +13,6 @@ feature 'User sign up' do
     click_on 'Sign Up'
 
     expect(current_path).to eq '/chitter/account/user234'
-    expect(page).to have_content('user234@gmail.com')
-    expect(page).to have_content('user234')
-    expect(page).to have_content('password123')
+    #within('textarea') { expect(page).to have_content("What's on your mind, Alex?") }
   end
 end

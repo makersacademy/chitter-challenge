@@ -4,15 +4,14 @@ describe Peep do
   describe ".create" do
     it 'creates a new peep and returns peep instance' do
       now = Time.new(2020)
-      allow(Time).to receive(:new) { now }
+      allow(Time).to receive(:now) { now }
 
       peep = Peep.create('Hello, world!')
       persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM peeps WHERE id = #{peep.id};")
 
       expect(peep.id).to eq persisted_data[0]['id']
       expect(peep.body).to eq 'Hello, world!'
-      #expect(peep.time_date).to eq now.strftime("%k:%M%p %d %B %Y")
-      #expect(peep.time_date).to eq now
+      expect(peep.time_date).to eq ' 0:00 1 Jan 20'
     end
   end
 

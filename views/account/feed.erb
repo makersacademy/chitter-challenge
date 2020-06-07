@@ -1,19 +1,14 @@
-<%= @user.full_name %><br>
-<%= @user.username %><br>
-<%= @user.email %><br>
-<%= @user.password %><br>
-<%= @user.id %><br>
-
 <form action="/chitter/account/<%= @user.username %>/post_peep" method="post">
-  <textarea name="peep_body" placeholder="What's on your mind?'" cols="40" rows="10" max_length="280"></textarea>
+  <textarea name="peep_body" placeholder="What's on your mind, <%= @user.full_name.split.first %>?" cols="40" rows="10" max_length="280"></textarea>
   <br>
   <input type="submit" value="Peep">
 </form>
 
 <% unless @feed.empty? %>
   <% @feed.each do |feed_entry| %>
-    Name: <%= feed_entry.user.full_name %><br>
-    Body: <%= feed_entry.peep.body %><br>
-    Time: <%= feed_entry.peep.time_date %><br>
+    <%= feed_entry.user.full_name %> @<%= feed_entry.user.username %> <%= feed_entry.peep.time_date %>
+    <br><br>
+    <%= feed_entry.peep.body %>
+    <br><br>
   <% end %>
 <% end %>

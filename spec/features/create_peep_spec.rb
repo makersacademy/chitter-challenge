@@ -19,6 +19,8 @@ feature 'Create peep' do
 
     expect(current_path).to eq '/chitter/account/user234'
     expect(page).to have_content('Alex Smith')
+    expect(page).to have_content('user234')
     expect(page).to have_content('My first peep!')
+    expect(page).to have_content(Time.now.strftime("%k:%M %-d %b %y"))
   end
 end

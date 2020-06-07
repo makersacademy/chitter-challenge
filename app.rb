@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './lib/user'
 require_relative './lib/peep'
 require_relative './lib/feed'
@@ -6,6 +7,7 @@ require_relative 'connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -16,10 +18,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/account/new' do
-    user = User.create(params[:username],params[:email],params[:password],params[:full_name])
-    session[:username] = params[:username]
-    session[:user_id] = user.id
-    redirect "/chitter/account/#{session[:username]}"
+    #flash[:username] = 'Your username is not unique' unless User.unique?('username', params[:username])
+    if User.unique?('username', params[:username])
+      user = User.create(params[:username], params[:email], params[:password], params[:full_name])
+      session[:user_id] = user.id
+      redirect "/chitter/account/#{params[:username]}"
+    else
+      flash[:notice] = 'Your username is not unique'
+      redirect "/chitter/account/new"
+    end
   end
 
   get '/chitter/account/:username' do
@@ -29,12 +36,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/account/:username/post_peep' do
-    peep = Peep.create(params["peep_body"])
+    peep = Peep.create(params[:peep_body])
     user = User.find(session[:user_id])
     Feed.add(user, peep)
-
-
-    redirect "/chitter/account/#{session[:username]}"
+    redirect "/chitter/account/#{params[:username]}"
   end
 
   run! if app_file == $0

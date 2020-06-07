@@ -18,6 +18,3 @@ describe DatabaseConnection do
     end
   end
 end
-
-# run .setup pass in a database name (test database)
-# expect 

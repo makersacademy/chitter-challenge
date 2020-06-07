@@ -26,8 +26,8 @@ describe Feed do
       allow(Peep).to receive(:find).with('10').and_return(peep)
       allow(Peep).to receive(:find).with('11').and_return(peep_2)
 
-      expect(described_class.all.last.user).to eq user_2
-      expect(described_class.all.last.peep).to eq peep_2
+      expect(described_class.all.first.user).to eq user_2
+      expect(described_class.all.first.peep).to eq peep_2
     end
   end
 end
