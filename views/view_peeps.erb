@@ -1,0 +1,6 @@
+<ul>
+  <% @peeps.each do |row| %>
+    <li> At <%= row.peeped_at %> <%= row.peeped_by %> wrote: <%= row.peep %> </li>
+  <% end %>
+</ul>
+      

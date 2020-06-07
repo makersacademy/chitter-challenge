@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/view-peeps' do
-    "View all peeps here!"
+    @peeps = Peep.all
+    erb(:view_peeps)
   end
 
   post '/save-peep' do
