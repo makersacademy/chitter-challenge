@@ -1,10 +1,13 @@
+require 'bcrypt'
+
 class User
   # class methods
 
   def self.create(username, email, password, full_name)
+    encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query("INSERT INTO users (username, email, password, full_name) 
                                       VALUES('#{username}', '#{email}', 
-                                             '#{password}', '#{full_name}') 
+                                             '#{encrypted_password}', '#{full_name}') 
                                       RETURNING id, username, email, password, full_name")
     User.new(result[0]['id'], result[0]['username'], result[0]['email'], 
              result[0]['password'], result[0]['full_name'])
@@ -33,7 +36,7 @@ class User
   def self.authenticate(username, password)
     result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}'")
     return false unless result.any?
-    return false unless result[0]['password'] == password
+    return false unless BCrypt::Password.new(result[0]['password']) == password
 
     User.new(result[0]['id'], result[0]['username'], result[0]['email'], result[0]['password'], 
              result[0]['full_name'])

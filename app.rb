@@ -55,5 +55,11 @@ class Chitter < Sinatra::Base
     redirect "/chitter/account/#{params[:username]}"
   end
 
+  post '/chitter/logout' do
+    session.clear
+    flash[:logout] = 'You have signed out.'
+    redirect('/')
+  end
+
   run! if app_file == $0
 end

@@ -8,7 +8,12 @@ describe User do
       expect(user.full_name).to eq 'Test Two'
       expect(user.username).to eq 'test2'
       expect(user.email).to eq 'test2@email.com'
-      expect(user.password).to eq 'test2password'
+    end
+
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('test2password')
+  
+      User.create('test2', 'test2@email.com', 'test2password', 'test two')
     end
   end
 

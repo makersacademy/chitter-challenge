@@ -1,3 +1,7 @@
+<form action="/chitter/logout" method="post">
+  <input type="submit" value="Log Out">  
+</form>
+
 <form action="/chitter/account/<%= @user.username %>/post_peep" method="post">
   <textarea name="peep_body" placeholder="What's on your mind, <%= @user.full_name.split.first %>?" cols="40" rows="10" max_length="280"></textarea>
   <br>
