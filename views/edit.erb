@@ -7,10 +7,10 @@
   <input type=submit value='log out'>
 </form>
 <div>
-  <form action='/edit' method=post>
+  <form action='/feed/<%=@peep.peep_id%>' method=post>
     <ul>
     <li>
-      <input type=hidden name=peep_id value="<%= @peep.peep_id %>">
+      <input type='hidden' name='_method' value='PATCH'/>
       <input type=text name=peep value="<%=@peep.body%>">
     </li>
     <li>

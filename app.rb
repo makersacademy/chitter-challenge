@@ -6,7 +6,7 @@ require_relative './lib/chitter'
 
 class ChitterWebApp < Sinatra::Base
 
-  enable :sessions
+  enable :sessions, :method_override
   register Sinatra::Flash
 
   get '/' do
@@ -36,19 +36,19 @@ class ChitterWebApp < Sinatra::Base
     redirect '/feed'
   end
 
-  post '/edit_peep' do
+  get '/feed/edit/:id' do
     @user = User.current_user
-    @peep = Chitter.find_peep(params[:peep_id])
+    @peep = Chitter.find_peep(params[:id])
     erb(:edit)
   end
 
-  post '/edit' do
-    Chitter.edit(params['peep'], params['peep_id'])
+  patch '/feed/:id' do
+    Chitter.edit(params[:peep], params[:id])
     redirect '/feed'
   end
 
-  post '/delete' do
-    Chitter.delete(params[:peep_id])
+  delete '/feed/:id' do
+    Chitter.delete(params[:id])
     redirect '/feed'
   end
 

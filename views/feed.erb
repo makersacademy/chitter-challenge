@@ -27,13 +27,12 @@
     </li>
     <li>
       <% if peep.username == @user.username%>
-      <form method=post action='/edit_peep'>
+      <form method=get action='/feed/edit/<%=peep.peep_id%>'>
         <input type=submit value=edit name=edit<%= peep.peep_id %>>
-        <input type=hidden name=peep_id value=<%= peep.peep_id %>>
       </form>
-      <form method=post action='/delete'>
+      <form method=post action='/feed/<%=peep.peep_id%>'>
+        <input type='hidden' name='_method' value='DELETE'/>
         <input type=submit value=delete name="delete<%= peep.peep_id %>">
-        <input type=hidden name=peep_id value=<%= peep.peep_id %>>
       </form>
     </li>
     <% end %>

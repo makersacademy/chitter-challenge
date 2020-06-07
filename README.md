@@ -19,6 +19,8 @@ rackup
 
 ## Approach
 
+ISSUE: apostrophe's in peep body throws an error as it closes query early. Didn't have time to solve.
+
 Followed TDD and had a specific focus on coverage of feature tests
 
 Started with signin capability, creating index(signin) page and the User class and users table. Completed with sign up capability. Chose to have one page for the feed to show all peeps, and create peep. Added a timestamp of the peep with condition of showing time if sent in same day, or date if longer.
