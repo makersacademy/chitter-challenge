@@ -1,10 +1,11 @@
 ### Progress summary
 
 * I think  the first three user stories are covered reasonably well, even if the HTML/CSS is pretty rubbish!
-* I made a rough diagram model for the fourth user story but didn't have time to implement it. I would have liked to create a new class (User) in the model section, and a second database table for users. My Peeps database already has a "username" column, which defaults to anon, and which is displayed as part of the view_peeps.erb file. I had planned to join the two tables on "username" when presenting the peeps.
+* I made a rough diagram model for the fourth user story but didn't have time to implement it. I would have liked to create a new class (User) in the model section, and a second database table for users. My Peeps database already has a "username" column, which defaults to anon, and which is displayed as part of the view_peeps.erb file. I had planned to join the two tables on "username" when presenting the peeps
 * I certainly didn't have time for the 'harder' user stories
 * I couldn't find ways to test for a timestamp, so that test is very flimsy.
 * I also couldn't find a way to use capybara to test the order in which things appear, so that feature is covered by another flimsy unit test
+* Afraid I also ran out of time to set things up in the 'travis.yml' file so as to allow Travis CI build the databases necessary to run and pass my rspec tests
 
 
 ### Early domain model used as a base for the first two user stories:
