@@ -1,3 +1,5 @@
+require 'pg'
+
 class Message
 
     attr_reader :body, :author, :date
@@ -7,5 +9,7 @@ class Message
     @body = body
     @date = date
   end
-    
+  
+  def self.all
+  end
 end
