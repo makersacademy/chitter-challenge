@@ -6,6 +6,7 @@ require './lib/user'
 class Chitter < Sinatra::Base
 
   get '/' do
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :index
   end
@@ -24,7 +25,7 @@ class Chitter < Sinatra::Base
  end
 
  post '/signup' do
-   User.add_user(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
+   User.create(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
    redirect '/'
  end
 
