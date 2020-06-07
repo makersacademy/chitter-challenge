@@ -1,6 +1,56 @@
-<ul>
+
+<html>
+<head>
+<style>
+.center {
+  padding: 70px 0;
+  text-align: center;
+}
+body {
+  background-color: lightblue;
+}
+b {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #3CBC8D;
+  color: white;
+}
+h1 {
+  color: hotpink;
+  text-align: center;
+  font-family: verdana;
+}
+h2 {
+  color: white;
+  text-align: center;
+  font-family: verdana;
+}
+a {
+  color: darkmagenta;
+  text-align: center;
+}
+c {
+  color: hotpink
+}
+d {
+  color: navy
+}
+</style>
+</head>
+<body>
+
+<div class="center">
+
+
   <% @peeps.each do |row| %>
-    <li> At <%= row.peeped_at %> <%= row.peeped_by %> wrote: <%= row.peep %> </li>
+    <p> <d>At</d> <a><%= row.peeped_at %></a> </p>
+    <p><c><%= row.peeped_by %></c> <d>peeped:</d></p>
+    <p> <b> <%= row.peep %> </b></P>
   <% end %>
-</ul>
-      
+</div>
+
+</body>  
+</html>

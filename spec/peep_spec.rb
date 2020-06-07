@@ -22,6 +22,8 @@ describe Peep do
       Peep.post(peep: "another peep")
       Peep.post(peep: "a third peep")
       results = Peep.all
+      expect(results[0].peep).to eq("a third peep")
+      expect(results[1].peep).to eq("another peep")
       expect(results[2].peep).to eq("test peep")
     end
   end
