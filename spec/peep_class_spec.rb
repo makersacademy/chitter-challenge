@@ -3,11 +3,9 @@ require "peep"
 describe Peep do
   describe ".all" do
     it "returns a list of peeps" do
-      connection = PG.connect(dbname: 'peeps_manager_test')
-      connection.exec("INSERT INTO peeps (message) VALUES ('Hello everyone!')")
-      
+      Peep.create(message: "Hello everyone!")
+   
       peeps = Peep.all
-      p peeps
 
       expect(peeps).to include("Hello everyone!")
     end
