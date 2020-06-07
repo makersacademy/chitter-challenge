@@ -13,6 +13,8 @@
     <li>
       <label for=email>email:</label>
       <input type=text name=email placeholder='Enter your email...'>
+        <div class=flash_notice> <%= flash[:email_dup] %> </div>
+        <div class=flash_notice> <%= flash[:email_format] %> </div>
     </li>
     <li>
       <label for=password>password:</label>

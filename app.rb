@@ -68,6 +68,12 @@ class ChitterWebApp < Sinatra::Base
     elsif params[:password] != params[:confirm_password]
       flash[:confirm_password] = "passwords don't match"
       redirect '/sign_up'
+    elsif User.email_dup?(params[:email])
+      flash[:email_dup] = "Email already in use"
+      redirect '/sign_up'
+    elsif User.email_correct_format?(params[:email])
+      flash[:email_format] = "Not an email"
+      redirect '/sign_up'
     else
       User.add_user(params[:username], params[:password], params[:email])
       User.find_user(params[:username])

@@ -39,6 +39,8 @@ class Chitter
     @username = username
   end
 
+  private
+
   def format_date(date)
     if Date.today == Date.parse(date)
       DateTime.parse(date).strftime('%k:%M')

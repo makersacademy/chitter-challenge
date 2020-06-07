@@ -29,4 +29,12 @@ describe User do
     expect(User.current_user).to be nil
   end
 
+  it 'should return false if email not right format' do
+    expect(User.email_correct_format?('email')).to be true
+  end
+
+  it 'should return false if email not right format' do
+    expect(User.email_correct_format?('email@hotmail.com')).to be false
+  end
+
 end

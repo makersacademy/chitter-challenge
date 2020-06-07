@@ -31,4 +31,34 @@ feature "/sign_up" do
     expect(page).to have_content("passwords don't match")
   end
 
+  scenario 'shows error when email not right format' do
+    visit('/sign_up')
+    fill_in('username', with: 'testperson2')
+    fill_in('password', with: 'password')
+    fill_in('confirm_password', with: 'password')
+    fill_in('email', with: 'testemail.com')
+    click_on('sign_up')
+    expect(page).to have_content("Not an email")
+  end
+
+  scenario 'shows error when email not right format' do
+    visit('/sign_up')
+    fill_in('username', with: 'testperson2')
+    fill_in('password', with: 'password')
+    fill_in('confirm_password', with: 'password')
+    fill_in('email', with: 'test@email.com')
+    click_on('sign_up')
+    expect(page).to have_content("testperson2 the Chitter*rer")
+  end
+
+  scenario 'shows error when email not right format' do
+    visit('/sign_up')
+    fill_in('username', with: 'testperson2')
+    fill_in('password', with: 'password')
+    fill_in('confirm_password', with: 'password')
+    fill_in('email', with: 'email@email.com')
+    click_on('sign_up')
+    expect(page).to have_content("Email already in use")
+  end
+
 end

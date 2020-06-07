@@ -76,6 +76,7 @@ GEM
     tilt (2.0.10)
     timecop (0.9.1)
     unicode-display_width (1.6.1)
+    uri (0.10.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -92,6 +93,7 @@ DEPENDENCIES
   sinatra
   sinatra-flash
   timecop
+  uri
 
 BUNDLED WITH
    2.1.4
