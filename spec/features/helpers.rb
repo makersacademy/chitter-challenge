@@ -1,6 +1,5 @@
-
 def log_in
-  expect(page).to have_content 'Welcome to Chitter'
+  visit '/'
   fill_in 'name', with: 'Olatunji'
   fill_in 'username', with: 'ola123'
   fill_in 'email', with: 'olatunji@gmail.com'

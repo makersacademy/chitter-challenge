@@ -1,5 +1,13 @@
+require_relative './setup_test_database'
 # Set the environment to "test"
 ENV['RACK_ENV'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    truncate
+  end
+end
+
 
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
@@ -8,6 +16,7 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'features/helpers'
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = Chitter

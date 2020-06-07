@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require 'pg'
+require './lib/chitter_account'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -8,12 +10,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    session[:username] = params[:username]
+    session[:name] = params[:name]
+    session[:user] = params[:username]
+    session[:email] = params[:email]
+    session[:password] = params[:password]
     redirect '/login'
   end
 
   get '/login' do
-    @username = session[:username]
+    @chitter_account = ChitterAccount.sign_up(session[:name], session[:user], session[:email], session[:password])
     erb :login
   end
 
