@@ -17,15 +17,28 @@ class Chitter < Sinatra::Base
     erb :'account/new'
   end
 
-  post '/chitter/account/new' do
-    #flash[:username] = 'Your username is not unique' unless User.unique?('username', params[:username])
-    if User.unique?('username', params[:username])
-      user = User.create(params[:username], params[:email], params[:password], params[:full_name])
+  post '/chitter/account/login' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
       session[:user_id] = user.id
       redirect "/chitter/account/#{params[:username]}"
     else
-      flash[:notice] = 'Your username is not unique'
+      flash[:login] = 'Incorrect email or password. Please double-check and try again.'
+      redirect "/"
+    end
+  end
+
+  post '/chitter/account/new' do
+    if User.exists?('username', params[:username])
+      flash[:username] = 'This username is already in use.'
       redirect "/chitter/account/new"
+    elsif User.exists?('email', params[:email])
+      flash[:email] = 'This email address is already in use.'
+      redirect "/chitter/account/new"
+    else
+      user = User.create(params[:username], params[:email], params[:password], params[:full_name])
+      session[:user_id] = user.id
+      redirect "/chitter/account/#{params[:username]}"
     end
   end
 

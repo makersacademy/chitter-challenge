@@ -1,10 +1,11 @@
 <form action="/chitter/account/new" method="post">
-
+  <%= flash[:email] %><%= flash[:username] %>
+  <br>
   <input type="text" name="full_name" placeholder="Name">
   <br>
-  <input type="text" name="username" placeholder="Username"> <%= flash[:notice] %>
+  <input type="text" name="username" placeholder="Username"> 
   <br>
-  <input type="text" name="email" placeholder="Email">
+  <input type="text" name="email" placeholder="Email"> 
   <br>
   <input type="text" name="password" placeholder="Password">
   <br>

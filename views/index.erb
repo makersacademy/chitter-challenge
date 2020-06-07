@@ -1,3 +1,14 @@
+<form action="/chitter/account/login" method="post">
+  <%= flash[:login] %>
+  <br>
+  <input type="text" name="username" placeholder="Username">
+  <br>
+  <input type="text" name="password" placeholder="Password">
+  <br>
+  <input type="submit" value="Log In">
+  <br>
+</form>
+
 <form action="/chitter/account/new" method="get">
   <input type="submit" value="Sign Up">
 </form>

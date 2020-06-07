@@ -1,6 +1,6 @@
 def clear_table
-  conn = PG.connect(dbname: 'chitter_test')
-  conn.exec("TRUNCATE TABLE users;")
-  conn.exec("TRUNCATE TABLE peeps;")
-  conn.exec("TRUNCATE TABLE feed;")
+  DatabaseConnection.setup('chitter_test')
+  DatabaseConnection.query('TRUNCATE TABLE feed, users, peeps')
+  DatabaseConnection.query("INSERT INTO users (username, email, password, full_name) 
+                           VALUES('test1', 'test1@email.com', 'test1password', 'test one');")
 end
