@@ -1,12 +1,14 @@
 <ul> 
   <% @posts.each do |post| %>
-  
-<%= post.content %>
-    
+  <li>
+<%= post.content %> : <%= post.time %> 
+    </li>
   <% end %>
 
   <form action="/new" method="post">
-      <input type="text" value='content' name ='content'>
+      <input type="text" value='' name ='content'>
       <input type="submit" value='POST' name ='post'>
       </form>
 </ul> 
+
+

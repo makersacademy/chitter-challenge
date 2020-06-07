@@ -5,10 +5,10 @@ require './spec/database_helper.rb'
 require 'date'
 class Chitter
 
-  attr_accessor :content
-  def initialize(content)
+  attr_accessor :content , :time
+  def initialize(content, time)
     @content = content
-   # @time = Time.now.strftime("%d/%m/%Y %H:%M")
+    @time = time.chomp(':00')
   end
 
   def self.all
@@ -18,9 +18,9 @@ class Chitter
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec('SELECT * FROM posts')
+    result = connection.exec('SELECT * FROM posts ORDER BY time DESC ')
 
-    result.map { |row| Chitter.new(row['content']) }
+    result.map { |row| Chitter.new(row['content'], row['time']) }
   end
 
   def self.create(content)
@@ -30,7 +30,8 @@ class Chitter
       else
         connection = PG.connect(dbname: 'chitter')
       end
-    result = connection.exec("INSERT INTO posts (content) VALUES ('#{content}') ")
+    time_stamp = Time.now.strftime(" %H:%M")
+    result = connection.exec("INSERT INTO posts (content, time) VALUES ('#{content}' , '#{time_stamp}') ")
   
    end
 end

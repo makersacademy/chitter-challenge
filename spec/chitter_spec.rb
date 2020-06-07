@@ -17,5 +17,6 @@ describe '.create' do
  
     Chitter.create('My daughters are beautiful!')
     expect(Chitter.all.first.content).to include('My daughters are beautiful!')
+    expect(Chitter.all.first.time).to eq (Time.now.strftime("%H:%M"))
   end
 end
