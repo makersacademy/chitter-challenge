@@ -11,8 +11,6 @@ Features:
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -28,22 +26,6 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
 
@@ -61,15 +43,20 @@ Functionality:
 Design Choices:
 -----
 
+I took this challenge as an opportunity to brush up on using containers without Bootstrap or any library, as this was always something I found quite difficult.
+
+Extra challenge I've set myself: Having no Photoshop on this Makers MacBook (I unfortunately had to bury mine), I made use of other software like Affinity Photo and Figma for prototyping and basic edits. Will properly re-edit later.
+
+My first idea was to get as far away from the normal Twitter as possible and to create some sort of secret club, thus the color choices and the picture with the girl, including a landing page which you can see here:
+
 ![](public/img/designdraft.png)
 
-I took this challenge as an opportunity to brush up on CSS flexbox and using containers, as this was always something I've found quite difficult.
 
-Extra challenge I've set myself: Having no Photoshop on this Makers MacBook (I unfortunately had to bury mine), I made use of Affinity's 3 month free trial to create the edit the pictures.
+While I was coding the website I changed my mind through and switched to a design that was closely inspired by Twitter.
+The colour palette I've used is the exact same as Twitters' dark mode. To keep some sort of link to my first prototype, I've kept the lock logo to refer to it. Instead for going for a cartoonish looking bird like in the original, I decided to go a bit more realistic and to crop 3 different bird photos.
+See the finished design in action here:
 
-
-To read about the  evolution of the design, click here:
-
+![](public/img/preview.gif)
 
 
 
