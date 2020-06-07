@@ -37,15 +37,15 @@
 
 ### Example 'peeps' table layout:
 
- id |         peep         |           peeped_at           | peeped_by 
-----+----------------------+-------------------------------+-----------
- 12 | My first peep!       | 2020-06-07 17:41:26.161455+01 | Anon
- 13 | I have some thoughts | 2020-06-07 17:46:41.201732+01 | Anon
- 14 | I have more thoughts | 2020-06-07 17:49:13.228644+01 | Anon
+| id | peep | peeped_at | peeped_by |
+|----|------|-----------|-----------|
+|    |      |           |           |
+|    |      |           |           |
+|    |      |           |           |
 
 ### Additional notes on set-up:
 
-1. IN order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle
+1. In order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle
 
 Features:
 -------
