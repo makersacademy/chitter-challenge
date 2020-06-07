@@ -11,7 +11,7 @@ describe Peep do
 
   describe '#post' do
     it "adds a new peep to the database" do
-      test_peep = Peep.post(new_peep: "Test Peep")
+      test_peep = Peep.post(peep: "Test Peep")
       expect(test_peep.peep).to eq("Test Peep")
     end
   end
