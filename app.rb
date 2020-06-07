@@ -2,7 +2,7 @@
 
 require 'sinatra/base'
 require './lib/chitter.rb'
-
+require './lib/identity.rb'
 class ChitterBox < Sinatra::Base
   get '/' do
     erb :sign_in
@@ -18,6 +18,7 @@ class ChitterBox < Sinatra::Base
   end
 
   post '/posts' do
+    @identity = Identity.new(params[:username], params[:password])
     redirect '/posts'
   end
 

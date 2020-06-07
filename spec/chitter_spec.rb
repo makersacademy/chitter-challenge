@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pg'
-require './lib/chitter.rb'
 require './spec/database_helper.rb'
 describe '.all ' do
   it 'returns the post objects from a database' do
