@@ -24,6 +24,7 @@ class Chitter < Sinatra::Base
 
   get '/chitter/account/:username' do
     @user = User.find(session[:user_id])
+    @feed = Feed.all
     erb :'account/feed'
   end
 

@@ -12,6 +12,8 @@ class User
 
   def self.find(id)
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id}")
+    fail ".find method in User class returns nil" if result.first == nil # testing purposes only
+
     User.new(result[0]['id'], result[0]['username'], result[0]['email'], result[0]['password'], result[0]['full_name'])
   end
 
