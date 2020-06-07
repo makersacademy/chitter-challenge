@@ -1,12 +1,13 @@
 require 'sinatra/base'
+require './lib/chitter.rb'
 
-
-class Chitter < Sinatra::Base
+class ChitterBox < Sinatra::Base
 
 
   
   get '/' do
-    'I am the best president OF ALL TIME!'
+    @posts = Chitter.all
+    erb :index
   end
 
   run! if app_file == $PROGRAM_NAME
