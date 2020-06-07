@@ -4,7 +4,7 @@ Chitter Challenge
 
 Write a small Twitter clone, make it look awesome.
 
-![](public/img/picofbird.png)
+![](public/img/screamingbird.png)
 
 
 Features:
@@ -66,6 +66,11 @@ Design Choices:
 I took this challenge as an opportunity to brush up on CSS flexbox and using containers, as this was always something I've found quite difficult.
 
 Extra challenge I've set myself: Having no Photoshop on this Makers MacBook (I unfortunately had to bury mine), I made use of Affinity's 3 month free trial to create the edit the pictures.
+
+
+To read about the  evolution of the design, click here:
+
+
 
 
 
