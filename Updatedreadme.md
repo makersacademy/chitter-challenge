@@ -8,10 +8,10 @@ $ rackup
 $
 
 instructions for setting up database for projects:
-
+see 01_create_peep_manager_table
 
 instructions for setting up test database for projects:
-
+see 02_create_peep_manager_table_test
 
 first user story:
 
