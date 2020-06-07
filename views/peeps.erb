@@ -1,0 +1,37 @@
+<html>
+<head>
+  <style type="text/css">
+    h1 {text-align: center;}
+    h2 {text-align: center;}
+    form {text-align: center;}
+    body {
+      color: white;
+      font-size: 30px;
+      font-family: arial;
+      background-color: #00acee
+    }
+
+    h2 {
+      color: black;
+      Font-size: 20px;
+      font-family: arial;
+    }
+</style>
+</head>
+<body>
+  <h1> <%= $username %>'s PeepFeed </h1>
+  <form action='/peeps' method='post'>
+    <input type='text' placeholder='Whats on your mind?...' style="height:70px;width:300px" name='peep'>
+    <div>
+      <input type='submit' value='Peep'>
+    </div>
+  </form>
+
+  <h2>
+    <ul>
+      <% @peeps.each do |peep| %>
+      <p <li> <%= peep %></li> </p>
+      <% end %>
+    </ul>
+  </body>
+  </html>

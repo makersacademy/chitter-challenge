@@ -1,0 +1,23 @@
+<html>
+<head>
+  <style type="text/css">
+    h1 {text-align: center;}
+    h2 {text-align: center;}
+    form {text-align: center;}
+  body {
+    color: white;
+    Font-size: 35px;
+    font-family: arial;
+    background-color: #00acee
+   }
+  </style>
+</head>
+<body>
+
+<h1> Welcome to Chitter <%= $username %>! </h1>
+<h2>Thanks for signing up</h2>
+<form action="/peeps" method='post'>
+  <input type="submit" value="Start peepin!">
+</form>
+</body>
+</html>
