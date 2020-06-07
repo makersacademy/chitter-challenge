@@ -1,4 +1,3 @@
-
 # Set the environment to "test"
 ENV['RACK_ENV'] = 'test'
 
