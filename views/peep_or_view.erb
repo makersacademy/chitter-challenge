@@ -15,14 +15,13 @@
  <img src="avatar.png" style="width:120px;" class="center">
 </picture>
 <body>
-<form action="/peep_added" method="post">
-
-  <label for="chit">PEEP: </label>
-  <textarea name="chit" id="chit"
-      rows="5" cols="20">
-      </textarea>
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
+  <h1> do you wanna PEEP! </h1>
+  <form action="/add_peep" method="post">
    <button type="submit">PEEP</button>
-</form>
+
+</body>
+<body>
+<h1> or go to the PEEPS! </h1>
+<form action="/view_all" method="get">
+<button type="submit">VIEW</button>
+</body>

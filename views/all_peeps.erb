@@ -1,0 +1,18 @@
+<style>
+  h2 {text-align: center;}
+  h3  {text-align: center;}
+</style>
+  <% @chits.each do |chit| %>
+  <div style="background-color:#e6ffff;
+color:black;
+font-family:verdana; width: 800px;
+padding: 0px;
+border: 10px black;
+margin: 8;
+border-radius: 50px;">
+
+  <h2>  <%= chit.chit %> </h2>
+  <h3>  <%= chit.uname %></h3></div>
+
+
+  <% end %>

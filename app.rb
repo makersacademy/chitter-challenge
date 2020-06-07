@@ -7,19 +7,26 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/all_peeps' do
+  post '/peep_or_view' do
     Chitterer.login(uname: params['uname'], psw: params['psw'])
-    erb :all_chits
+    erb :peep_or_view
   end
 
   post '/add_peep' do
-    erb :chitter_timeline
+    erb :create_peep
   end
 
-  post '/peep_added' do
+  post '/timeline' do
     Chitterer.create(chit: params['chit'], uname: params['uname'])
-    redirect('/all_peeps')
+    @chits = Chitterer.all
+    erb :all_peeps
   end
+
+  get '/view_all' do
+    @chits = Chitterer.all
+    erb :all_peeps
+  end
+
 
   run! if app_file == $0
 
