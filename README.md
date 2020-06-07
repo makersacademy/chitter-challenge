@@ -54,10 +54,17 @@ My first idea was to get as far away from the normal Twitter as possible and to 
 
 While I was coding the website I changed my mind through and switched to a design that was closely inspired by Twitter.
 The colour palette I've used is the exact same as Twitters' dark mode. To keep some sort of link to my first prototype, I've kept the lock logo to refer to it. Instead for going for a cartoonish looking bird like in the original, I decided to go a bit more realistic and to crop 3 different bird photos.
-See the finished design in action here:
+See screenshots of the finished design (colour true) here:
 
 ![](public/img/Screenshot.png)
+![](public/img/Screenshot2.png)
+![](public/img/Screenshot3.png)
+
+
+And see it in action here:
+
 ![](public/img/preview.gif)
+
 
 
 Summary of how I approached this challenge:
@@ -92,7 +99,7 @@ Summary of how I approached this challenge:
 6) REFACTOR so we use the model instead of the controller to deal with data
 
 
-## Layout
+### Layout
 
 1) setting HTML structure to work with nav bar and containers
 2) style.css for general page Layout
@@ -106,5 +113,4 @@ Summary of how I approached this challenge:
 How to actually use the finished product:
 ------
 
-CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(280), time TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
-CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(10), email VARCHAR(40), username VARCHAR(12), password VARCHAR(15));
+Run psql, head over to db/migrations and copy and paste it.
