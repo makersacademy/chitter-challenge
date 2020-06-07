@@ -4,7 +4,6 @@ Chitter Challenge
 
 Write a small Twitter clone, make it look awesome.
 
-![](public/img/Screenshot.png)
 
 
 Features:
@@ -55,6 +54,8 @@ My first idea was to get as far away from the normal Twitter as possible and to 
 While I was coding the website I changed my mind through and switched to a design that was closely inspired by Twitter.
 The colour palette I've used is the exact same as Twitters' dark mode. To keep some sort of link to my first prototype, I've kept the lock logo to refer to it. Instead for going for a cartoonish looking bird like in the original, I decided to go a bit more realistic and to crop 3 different bird photos.
 See the finished design in action here:
+
+![](public/img/Screenshot.png)
 
 ![](public/img/preview.gif)
 
