@@ -26,7 +26,7 @@ I want to post a message (peep) to chitter
 ```
 Domain model for first user story:
 <p align="center">
-<img src=/images/user_story_1.svg width=60%>
+<img src="/images/user_story_1.svg" width=60%>
 </p>
 
 
