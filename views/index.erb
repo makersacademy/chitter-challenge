@@ -1,3 +1,27 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chitter</title>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+  <section>
+    <h1>Your Feed</h1>
+  </section>
+  
+  <form action="/new" method="post">
+      <input class="span" type="text" value='' name ='content' placeholder = "What's happening?"  required>
+      <input class = "button" type="submit" value='POST' name ='post'>
+      </form>
+</ul> 
 <ul> 
   <% @posts.each do |post| %>
   <li>
@@ -5,10 +29,15 @@
     </li>
   <% end %>
 
-  <form action="/new" method="post">
-      <input type="text" value='' name ='content'>
-      <input type="submit" value='POST' name ='post'>
-      </form>
-</ul> 
 
+
+  
+  <footer>
+ 
+  
+</footer>
+ 
+ 
+</body>
+</html>
 

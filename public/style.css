@@ -7,12 +7,13 @@ html {
     font-size: 1rem;
     margin: 0;
     padding: 0;
-    background-color: rgba(95, 205, 233, 0.25);
+    background-color: rgb(26, 82, 165);
     height: 100vh;
     display: grid;
     place-items: center;
     line-height: 2;
     max-width: 100w;
+    color: white;
   }
   
   
@@ -57,7 +58,7 @@ html {
     margin: 1.5rem;
     padding: .5rem 2rem;
     font-weight: 900;
-    background: hsl(30, 80%, 84%);
+    background: hsl(31, 21%, 23%);
     color: #fff;
     border: 3px solid hsl(39, 100%, 40%);
     cursor: pointer;
@@ -95,6 +96,11 @@ html {
     text-align: center; 
     color: black;
   } 
+
+  input[type="password"]::placeholder {  
+    text-align: center; 
+    color: black;
+  } 
   
   .button:active {
     background: hsl(60, 33%, 1%);
@@ -103,7 +109,7 @@ html {
   }
   
   form.form {
-    background-color: red;
+    background-color: rgba(160, 186, 235, 0.25);
   }
   
   section {
@@ -113,7 +119,7 @@ html {
   
   h1 {
     font-size: 2rem;
-    color: red;
+    color: rgba(211, 221, 228, 0.25);
     
   }
   

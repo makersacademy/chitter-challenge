@@ -4,18 +4,14 @@ require 'sinatra/base'
 require './lib/chitter.rb'
 
 class ChitterBox < Sinatra::Base
-  
   get '/' do
     erb :sign_in
   end
-  
-  
- 
 
+  post '/' do
+    redirect '/'
+  end
 
-  
-  
-  
   get '/posts' do
     @posts = Chitter.all
     erb :index

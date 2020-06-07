@@ -19,19 +19,11 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                ])
 SimpleCov.start
 
-
-
-
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.before(:each) do
     clear_table
-
   end
 end
-
-
-
-
