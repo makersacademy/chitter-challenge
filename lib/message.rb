@@ -1,7 +1,9 @@
 class Message
+
+    attr_reader :body
   
   def initialize(message)
-    @message = message
+    @body = message
   end
     
 end

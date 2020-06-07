@@ -9,7 +9,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Message.new(params[:peep])
+    txt = params[:peep]
+    @peep = Message.new(txt)
+    p @peep.body
     erb :peeps
   end
   run! if app_file == $0
