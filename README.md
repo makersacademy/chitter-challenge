@@ -1,18 +1,48 @@
-Chitter Challenge
-=================
+### Progress summary
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+* I think  the first three user stories are covered reasonably well, even if the HTML/CSS is pretty rubbish!
+* I made a rough diagram model for the fourth user story but didn't have time to implement it. I would have liked to create a new class (User) in the model section, and a second database table for users. My Peeps database already has a "username" column, which defaults to anon, and which is displayed as part of the view_peeps.erb file. I had planned to join the two tables on "username" when presenting the peeps
+* I certainly didn't have time for the 'harder' user stories
+* I couldn't find ways to test for a timestamp, so that unit test in peep_spec.rb is very flimsy.
+* I also couldn't find a way to use capybara to test the order in which things appear, so that feature is covered by another flimsy unit test
+* Afraid I also ran out of time to set things up in the 'travis.yml' file so as to allow Travis CI build the databases necessary to run and pass my rspec tests
 
-Challenge:
--------
 
-As usual please start by forking this repo.
+### Early domain model used as a base for the first three user stories:
+<p align="center">
+<img src=/images/Domain_model_for_early_user_stories.png width=80%>
+</p>
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+### Domain model for the fourth user story, which I didn't have time to implement:
+<p align="center">
+<img src=/images/Domain_model_for_fourth_user_story.png width=80%>
+</p>
+
+### SQL Instructions used to create 'chitter' database and 'peeps' table
+
+1. Connect to psql
+2. Create the database : `CREATE DATABASE chitter;`
+3. Connect to the database: `\c chitter`
+4. Create Table: Run the query saved in 01_create_peeps_table.sql
+
+### SQL Instructions used to create 'chitter_test' database for rspec testing purposes
+
+1. Connect to psql
+2. Create the database : `CREATE DATABASE chitter_test;`
+3. Connect to the database: `\c chitter`
+4. Create Table: Run the query saved in 01_create_peeps_table.sql
+
+### Additional notes on set-up:
+
+* In order to interact with the databases the 'pg' gem will need to be installed by adding it to the gemfile and running bundle
+
+### Example 'peeps' table layout:
+
+| id | peep                 | peeped_at                     | peeped_by |
+|----|----------------------|-------------------------------|-----------|
+| 1  | My first peep!       | 2020-06-07 17:41:26.161455+01 | Anon      |
+| 2  | I have some thoughts | 2020-06-07 17:46:41.201732+01 | Anon      |
+| 3  | I have more thoughts | 2020-06-07 17:49:13.228644+01 | Anon      |
 
 Features:
 -------
@@ -52,22 +82,6 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
-
-Technical Approach:
------
-
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
 
 Notes on functionality:
 ------
