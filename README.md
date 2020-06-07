@@ -8,7 +8,7 @@
 * Afraid I also ran out of time to set things up in the 'travis.yml' file so as to allow Travis CI build the databases necessary to run and pass my rspec tests
 
 
-### Early domain model used as a base for the first two user stories:
+### Early domain model used as a base for the first three user stories:
 <p align="center">
 <img src=/images/Domain_model_for_early_user_stories.png width=80%>
 </p>
