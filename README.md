@@ -56,13 +56,54 @@ While I was coding the website I changed my mind through and switched to a desig
 The colour palette I've used is the exact same as Twitters' dark mode. To keep some sort of link to my first prototype, I've kept the lock logo to refer to it. Instead for going for a cartoonish looking bird like in the original, I decided to go a bit more realistic and to crop 3 different bird photos.
 See the finished design in action here:
 
-
+![](public/img/Screenshot.png)
 ![](public/img/preview.gif)
 
 
+Summary of how I approached this challenge:
+------
+
+### General setup:
+
+1) Install Gem files
+2) Add config to spec helpers and curse bundler
+3) check testing environment and write first useless but funny feature test
+4) see it fail – RED
+5) make it pass by cursing a bit more at bundler - GREEN
 
 
-How to actually use it:
+### Setting up database
+
+1) Hard code data in controller
+2) add view folder and index.erb file
+3) set up spec for peep class – RED
+4) create peep.rb file - GREEN
+5) linked Peep class in controller, now making use of model - REFACTOR
+6) setting up database & test database, making sure test database gets wiped
+
+
+### User Stories
+
+1) setting up feature test, seeing it fail - RED
+2) changing view files, adding button and specify new route
+3) creating new .rb files with submit forms
+4) setting new route in controller, GET and POST
+5) establishing connection to database - GREEN
+6) REFACTOR so we use the model instead of the controller to deal with data
+
+
+## Layout
+
+1) setting HTML structure to work with nav bar and containers
+2) style.css for general page Layout
+3) changing design to birds
+4) changing design again back to original
+5) nah. let's stay with birds.
+6) analyzed colour scheme from twitter, copying it ("homage")
+7) edited pictures of birds and made sure I have a different one for every page
+
+
+How to actually use the finished product:
 ------
 
 data base setup blabla will write later blah
