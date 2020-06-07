@@ -11,5 +11,8 @@ class Message
   end
   
   def self.all
+    connection = PG.connect(dbname: 'chitter')
+    result = connection.exec("SELECT * FROM peeps")
+    result.map { |peep| Message.new(:author => peep['author'], :body => bookmark['body'], :date => ['date']) }
   end
 end
