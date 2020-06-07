@@ -6,7 +6,6 @@ require './lib/user'
 class Chitter < Sinatra::Base
 
   get '/' do
-    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :index
   end
