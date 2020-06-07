@@ -106,4 +106,5 @@ Summary of how I approached this challenge:
 How to actually use the finished product:
 ------
 
-data base setup blabla will write later blah
+CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(280), time TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(10), email VARCHAR(40), username VARCHAR(12), password VARCHAR(15));
