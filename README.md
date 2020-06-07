@@ -25,9 +25,19 @@ So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
 Domain model for first user story:
-<p align="center">
-<img src="/images/user_story_1.svg" width=60%>
-</p>
+ * controller->view: "Get request"
+ * view->controller: "200 ok HTML"
+ * user->controller: "visit homepage"
+ * controller->user: "display welcome message"
+ * controller->view: "Get request render a form"
+ * view->controller: "200 ok HTML"
+ * controller->user: "display box to fill in 'peep'"
+ * user->controller: "'peep' and push 'post' button"
+ * controller->model: "create a instance of 'peep'"
+ * model->controller: "return an array of 'peep's"
+ * controller->view: "Get request"
+ * view->controller: "200 ok HTML"
+ * controller->user: "display 'peep'"
 
 
 ```
