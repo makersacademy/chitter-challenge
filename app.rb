@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    p @peeps
     erb :"peeps/index"
   end
 

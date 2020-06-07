@@ -1,4 +1,6 @@
 require 'peep'
+require 'date'
+require 'timecop'
 
 describe Peep do
   
@@ -23,6 +25,15 @@ describe Peep do
 
       expect(new_peep.title).to eq "Morning"
       expect(new_peep.peep).to eq "Hi"
+    end
+  end
+
+  describe '.all' do
+    it 'includes a time stamp of when peep was created' do
+      Timecop.freeze(Date.parse('07 June 2020'))
+      peep = Peep.create(title: "Hello", peep: "Feeling good")
+
+      expect(peep.created_at).to eq('2020-06-07 00:00:00')
     end
   end
 

@@ -69,9 +69,12 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     tilt (2.0.10)
+    timecop (0.9.1)
     unicode-display_width (1.6.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -87,6 +90,8 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
+  sinatra-flash
+  timecop
 
 BUNDLED WITH
    2.1.4
