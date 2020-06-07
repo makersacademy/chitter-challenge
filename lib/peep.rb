@@ -27,6 +27,16 @@ class Peep
       #   Peep.new(id: peep['id'], title: peep['title'], peep: peep['peep'])
       # end
     # end
+
+def self.add(peep:)
+  if ENV['ENVIRONMENT'] == 'test'
+    connection = PG.connect(dbname: 'chitter_test')
+  else
+    connection = PG.connect(dbname: 'chitter')
+  end
+
+  result = connection.exec("INSERT INTO peep_manager (peep) VALUES('#{peep}')")
+
 end
 
-  
+end
