@@ -17,6 +17,10 @@ rackup
 
 `rspec`
 
+## Domain Model
+
+![alt text](https://github.com/tristanlangford/chitter-challenge/blob/master/diagrams/Chitter_Domain_Model.jpg)
+
 ## Approach
 
 ISSUE: apostrophe's in peep body throws an error as it closes query early. Didn't have time to solve.
