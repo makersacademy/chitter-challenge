@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require_relative './lib/bookmark'
+require_relative './lib/chitter'
 
 class Chitter < Sinatra::Base
 
@@ -8,7 +8,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitters' do
-    "Chitters"
+    @chit = Chitterer.all
+    erb :chitter_timeline
   end
 
   run! if app_file == $0
