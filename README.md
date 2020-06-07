@@ -1,24 +1,27 @@
-Chitter Challenge
-=================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+# RPS Challenge
 
-Challenge:
--------
+A small weekend project at Makers Academy to making a Twitter clone that will allow the users to post messages to a public stream.
 
-As usual please start by forking this repo.
+## Instructions
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+- Install dependencies from the main directory with:
 
 ```
-STRAIGHT UP
+bundle install
+```
+
+- Run the server from the main directory with:
+
+```
+rackup
+```
+
+- Navigate to <http://localhost:9292> and give it a go!
+
+## User Stories
+
+```
 
 As a Maker
 So that I can let people know what I am doing  
@@ -35,6 +38,19 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+```
+
+
+## Screenshots
+
+![Homescreen](images/sign-in.png?raw=true)
+
+![Homescreen2](images/posts.png?raw=true)
+
+
+
+STRAIGHT UP
+
 
 HARDER
 
@@ -94,40 +110,6 @@ Good luck and let the chitter begin!
 Code Review
 -----------
 
-In code review we'll be hoping to see:
+I
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
