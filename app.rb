@@ -22,5 +22,14 @@ class Chitter < Sinatra::Base
     erb :login
   end
 
+  post '/login/post' do
+    session[:text] = params[:text]
+    redirect '/login/post'
+  end
+
+  get '/login/post' do
+    "I am a life long learner"
+  end
+
   run! if app_file == $0
 end
