@@ -41,3 +41,46 @@ As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
+<br>
+<p align="center">
+<img src="images/pg1.png" width="75%">
+<br><br>
+  Top Page.
+</p>
+<br>
+<br>
+<p align="center">
+<img src="images/pg2.png" width="75%">
+<br><br>
+  PEEP or View.
+</p>
+<br>
+<p align="center">
+<img src="images/pg3.png" width="50%">
+<br><br>
+  Add your PEEP.
+</p>
+<br>
+<p align="center">
+<img src="images/pg4.png" width="50%">
+<br><br>
+  View all PEEPS.
+</p>
+
+**Sequence Diagram**
+
+<!-- </p>
+<br>
+<p align="center">
+<img src="images/sequence_diagram.png" width="50%">
+<br><br>
+</p> -->
+
+**Domain model**
+
+<!-- </p>
+<br>
+<p align="center">
+<img src="images/domain_model.png" width="50%">
+<br><br>
+</p> -->
