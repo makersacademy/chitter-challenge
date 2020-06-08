@@ -1,5 +1,36 @@
+This program aims to store, display and allow users to say whats on their mind through 'peeps'. Instructions of running this program are as follows:
+
+install dependencies for project/ how to run the project
+
+$ git clone git@github.com:Katie-McDonagh/chitter-challenge.git
+$ bundle
+$ rackup
+
+instructions for setting up database for projects:
+see 01_create_peep_manager_table
+
+instructions for setting up test database for projects:
+see 02_create_peep_manager_table_test
+
+The user story included in my program:
+
+first user story:
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+---------------
+
+I found this challenge quite difficult. Both setting up the project and also deciding how to structure it, I spent a lot of time trying out different paths, and deciding on the one currently in the project. I still have a failing feature test, any feedback on how to fix this would be appreciated, as would hints on how to move the project forward from here.
+
+If I were to carry on this project I would include some css styling in what I have already written, and tackle some more of the features.
+
+
+
 Chitter Challenge
 =================
+
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own

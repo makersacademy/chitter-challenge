@@ -6,7 +6,6 @@ require 'sinatra'
 require_relative '../app'
 require_relative './setup_test_database.rb'
 
-
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -14,11 +13,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-
 Capybara.app = Chitter
 
 ENV['RACK_ENV'] = 'test'
-
 
 ENV['ENVIRONMENT'] = 'test'
 
