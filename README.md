@@ -69,12 +69,12 @@ I want to receive an email if I am tagged in a Peep
 
 **Sequence Diagram**
 
-<!-- </p>
+</p>
 <br>
 <p align="center">
-<img src="images/sequence_diagram.png" width="50%">
+<img src="images/sequence.png" width="50%">
 <br><br>
-</p> -->
+</p>
 
 **Domain model**
 
