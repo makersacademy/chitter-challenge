@@ -22,7 +22,6 @@ feature 'Viewing messages in reverse chronological order' do
     fill_in('date', with: '2020-10-02 11:00:00')
     click_button('post')
 
-    # expect(page).to have_tag("ul:first-child", :text => "John says Hello gang! at 2020-10-02 11:00:00")
     expect('John').to appear_before('Victor')
   end
 end

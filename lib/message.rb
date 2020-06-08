@@ -17,7 +17,7 @@ class Message
     else
       connection = PG.connect(dbname: 'chitter')
     end
-    result = connection.exec("SELECT * FROM peeps")
+    result = connection.exec("SELECT * FROM peeps ORDER BY dt DESC;")
     result.map { |peep| Message.new(id: peep['id'], author: peep['author'], body: peep['body'], date: peep['dt'] ) }
   end
 
