@@ -1,4 +1,4 @@
-require 'chitter'
+require 'peep'
 
 describe Peep do
 
