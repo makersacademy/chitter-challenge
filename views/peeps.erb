@@ -1,0 +1,19 @@
+<style>
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+body { 
+    background-color: #ffcc99; 
+    }
+</style>
+<body>
+
+<div class="content">
+  <% @peeps.each do |peep|%>
+    <li><%= peep.message %></li>
+  <% end %>
+
+</div>
+
+</body>
