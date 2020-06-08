@@ -1,0 +1,38 @@
+ <body style="background-color:#e6ffff;">
+<style>
+  h1 {text-align: center;}
+  form {text-align: center;}
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+</style>
+<h1 style="font-family:verdana;"> Welcome to Chitter!</h1>
+<picture>
+  <img src="avatar.png" style="width:120px;" class="center">
+</picture>
+
+<form action="/peep_or_view" method="post">
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+</body>
