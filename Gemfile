@@ -8,4 +8,5 @@ group :test do
   gem 'sinatra'
   gem 'capybara'
   gem 'pg'
+  gem 'orderly'
 end
