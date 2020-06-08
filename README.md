@@ -1,7 +1,7 @@
 
 # RPS Challenge
 
-A small weekend project at Makers Academy to making a Twitter clone that will allow the users to post messages to a public stream.
+A small weekend project at Makers Academy making a Twitter clone that will allow the users to post messages to a public stream.
 
 ## Instructions
 
@@ -22,7 +22,6 @@ rackup
 ## User Stories
 
 ```
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -48,9 +47,15 @@ I want to sign up for Chitter
 ![Homescreen2](images/posts.png?raw=true)
 
 
+## Next Steps would have been
 
-STRAIGHT UP
+- Make a class for Database connection.
+-build database for usernames.
+-build username class.
+- improve the css.
+-check email is valid.
 
+## Further user stories. 
 
 HARDER
 
