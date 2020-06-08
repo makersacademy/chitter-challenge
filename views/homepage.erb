@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<style>
+body { background-color:#33d6ff; }
+h1 { text-align:center; }
+form { text-align:center; font-size:16px; }
+button[type='submit'] {
+    width: 8em;  height: 4em; font-size:20px; border-radius: 50%;
+}
+</style>
+</head>
+
+<body>
+  <h1>Welcome to <span >Chitter</span></h1><br>
+
+  <form action='/peeps/new' method='get'>
+    <button name="add" type="submit" value='add'>Post a Peep</button>
+  </form><br><br><br>
+
+  <form action='/peeps' method='get'>
+    <button name='peeps' type='submit' value='peeps'>View Peeps</button>
+  </form><br><br><br>
+</body>
+</html>
