@@ -1,0 +1,11 @@
+<div>
+<h4>
+<ul>
+<% @peeps.each do |peep| %>
+  <li><%= peep.author %> says <%= peep.body %> at <%= peep.date %></li>
+<% end %>
+</ul>
+</div>
+
+
+
