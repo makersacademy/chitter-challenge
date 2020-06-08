@@ -78,9 +78,9 @@ I want to receive an email if I am tagged in a Peep
 
 **Domain model**
 
-<!-- </p>
+</p>
 <br>
 <p align="center">
 <img src="images/domain_model.png" width="50%">
 <br><br>
-</p> -->
+</p>
