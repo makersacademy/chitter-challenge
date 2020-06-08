@@ -9,7 +9,6 @@ class Chitter < Sinatra::Base
 
   end
 
-
   get '/peeps' do
     @peeps = Message.all
     erb :peeps

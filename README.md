@@ -77,28 +77,29 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-
-# DATABASE COMMAND INSTRUCTIONS
+DATABASE COMMAND INSTRUCTIONS :
+-------
 
 1. psql
 2. CREATE DATABASE chitter;
 3. \c chitter;
 4. \dt
 
-Lets create a directory for the database setup called db, and a sub-directory within it, migrations.
+Let's create a directory for the database setup called db, and a sub-directory within it, migrations.
 
 1. - db/
 2.   - migrations/
 3. 01_create_peeps_table.sql
 
-# DATABASE TEST COMMAND INSTRUCTIONS
+DATABASE TEST COMMAND INSTRUCTIONS :
+-------
 
 1. psql
 2. CREATE DATABASE chitter_test;
 3. \c chitter_test;
 4. \dt
 
-Lets create a directory for the database setup called db, and a sub-directory within it, migrations.
+Let's create a directory for the database setup called db, and a sub-directory within it, migrations.
 
 1. - db/
 2.   - migrations/
