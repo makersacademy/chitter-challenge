@@ -1,0 +1,148 @@
+html {
+    font-size: calc(12px + 0.75vw);
+  }
+  
+  body {
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(26, 82, 165);
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    line-height: 2;
+    max-width: 100w;
+    color: white;
+  }
+  
+  
+  .form * {
+    margin: .4rem;
+  }
+  
+  .span {
+    grid-column: span 2;
+  }
+  
+  
+  input.span {
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    border-radius: .5rem;
+    
+    border: 3px solid hsl(39, 100%, 40%);
+    padding: .5rem;
+    
+    text-align: center; 
+  
+  }
+  
+  select {
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    border-radius: .5rem;
+    
+    border: 3px solid hsl(39, 100%, 40%);
+    padding: .5rem;
+    
+    text-align: center; 
+    width: fit-content;
+   
+  }
+  
+  
+  
+  
+  .form  {
+    margin: 1.5rem;
+    padding: .5rem 2rem;
+    font-weight: 900;
+    background: hsl(31, 21%, 23%);
+    color: #fff;
+    border: 3px solid hsl(39, 100%, 40%);
+    cursor: pointer;
+    border-radius: .5rem;
+    box-shadow: 0 9px hsl(39, 100%, 40%);
+    outline: none;
+    transition: ease-in;
+    transition-duration: 100ms;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    
+  }
+  
+  input.button {
+  
+    background-color: hsl(14, 57%, 50%);
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    border-radius: .5rem;
+    color: #fff;
+    border: 3px solid hsl(39, 100%, 40%);
+    padding: 1rem;
+    
+    text-align: center; 
+  }
+  
+  
+  input.button:hover {
+    background: hsl(39, 91%, 48%);;
+    
+  }
+  
+  input[type="text"]::placeholder {  
+    text-align: center; 
+    color: black;
+  } 
+
+  input[type="password"]::placeholder {  
+    text-align: center; 
+    color: black;
+  } 
+  
+  .button:active {
+    background: hsl(60, 33%, 1%);
+    box-shadow: 0 5px hsl(39, 100%, 40%);
+    transform: translateY(4px);
+  }
+  
+  form.form {
+    background-color: rgba(160, 186, 235, 0.25);
+  }
+  
+  section {
+    display: flex;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: rgba(211, 221, 228, 0.25);
+    display: grid;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2rem;
+    color: rgba(211, 221, 228, 0.25);
+    display: grid;
+  text-align: center;
+  }
+  
+   footer {
+    text-align:center
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .wiggle {
+    padding: .5rem;
+    font-size: 2rem;
+    animation: wiggle 2s ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  
