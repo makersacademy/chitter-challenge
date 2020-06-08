@@ -18,7 +18,7 @@ class Message
       connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("SELECT * FROM peeps")
-    result.map { |peep| Message.new(id: peep['id'], author: peep['author'], body: peep['body'], date: peep['date'] ) }
+    result.map { |peep| Message.new(id: peep['id'], author: peep['author'], body: peep['body'], date: peep['dt'] ) }
   end
 
   def self.add(author:, body:, date:)

@@ -1,4 +1,9 @@
-<p><%= @peep.author %> says <%= @peep.body %> at <%= @peep.date %></p>
+<div>
+<h4>
+<% @peeps.each do |peep| %>
+  <li><%= peep.author %> says <%= peep.body %> at <%= peep.date %></li>
+<% end %>
+</div>
 
 
 
