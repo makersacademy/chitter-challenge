@@ -15,11 +15,9 @@ end
 feature 'Peep' do
   it 'Shows all peeps in reverse chronological order' do
     fill_db
-    time = Time.now.strftime("%k:%M")
     expect(page).to have_content('This is my first peep')
     expect(page).to have_content('tis but a peep')
     expect(page).to have_content('nobody expects the spanish inquisition')
-    expect(page).to have_content(time)
   end
 end
 
