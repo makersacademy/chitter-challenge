@@ -1,0 +1,6 @@
+<h1>Welcome <%= @chitter_account.username %> </h1>
+
+<form action='/login/post' method='post'>
+  <input type='text' name='peep' placeholder='peep message' required><br><br>
+  <input type='submit' value='send peep'>
+</form> 
