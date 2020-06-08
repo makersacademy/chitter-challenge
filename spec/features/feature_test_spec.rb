@@ -37,13 +37,7 @@ feature 'Sign up' do
   end
 
   it 'Should confirm that you have signed up on submitting details' do
-    visit('/')
-    click_button('Sign up')
-    fill_in 'name', with: 'Chris Cooney'
-    fill_in 'email', with: 'test@testing.co.uk'
-    fill_in 'user_name', with: 'ChrisCooney05'
-    fill_in 'password', with: 'PasSWoRd'
-    click_button('Submit')
+    sign_up
     expect(page).to have_content('Welcome to Chitter!')
   end
 end
