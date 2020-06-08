@@ -101,7 +101,7 @@ Summary of how I approached this challenge:
 
 ### Layout
 
-I didn't use bootstrap or jQuery or any library for this, as I like to design everything myself.
+I didn't use bootstrap or any library for this, as I like to design everything myself.
 
 1) setting HTML structure to work with nav bar and containers
 2) style.css for general page Layout

@@ -24,5 +24,5 @@ class User
     )
   end
 
-  
+
 end
