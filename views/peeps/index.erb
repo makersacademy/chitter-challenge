@@ -14,6 +14,7 @@ h3 {text-align:center; }
   <% @peeps.each do |peep| %>
     <h2 style='color:white;'> <%= peep.title%></h2>
     <h3 style='color:white;'> <%= peep.peep %></h3><br>
+    <h3 style='color:white;'> <%= peep.time %></h3><br>
   <% end %>
 </body>
 </html>

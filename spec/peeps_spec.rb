@@ -33,7 +33,7 @@ describe Peep do
       Timecop.freeze(Date.parse('07 June 2020'))
       peep = Peep.create(title: "Hello", peep: "Feeling good")
 
-      expect(peep.created_at).to eq('2020-06-07 00:00:00')
+      expect(peep.time).to eq('2020-06-07 00:00:00')
     end
   end
 
