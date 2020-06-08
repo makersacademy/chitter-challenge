@@ -101,6 +101,8 @@ Summary of how I approached this challenge:
 
 ### Layout
 
+I didn't use bootstrap or jQuery or any library for this, as I like to design everything myself.
+
 1) setting HTML structure to work with nav bar and containers
 2) style.css for general page Layout
 3) changing design to birds
@@ -113,4 +115,4 @@ Summary of how I approached this challenge:
 How to actually use the finished product:
 ------
 
-Run psql, head over to db/migrations and copy and paste it.
+Run psql, head over to db/migrations and copy and paste it to create the tables needed.
