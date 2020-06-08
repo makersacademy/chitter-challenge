@@ -1,11 +1,26 @@
 
 # Steps 
 
-Set up a web project. (Sinatra, Capybara and rspec)
+## Project set up
+
+- Set up a web project. (Sinatra, Capybara and rspec)
+- (More info on technology here...)
+
+
+## Planning the challenge
+
+Object Domain Model Diagram:
 
 ![domain-model](images/chitter-w4-domain-model-objects.png)
 
+Web Domain Model Diagram:
+
 ![domain-model-2](images/chitter-w4-domain-model-web.png)
+
+Webpage functionality:
+
+![webpages](images/chitter-w4-webpages.png)
+<hr>
 
 ### User story 1
 
