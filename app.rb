@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
     erb :peep_or_view
   end
 
-  post '/add_peep' do
+  get '/add_peep' do
     erb :create_peep
   end
 
