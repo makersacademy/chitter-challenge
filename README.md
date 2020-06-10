@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.com/tommyrharper/chitter-challenge.svg?branch=master)](https://travis-ci.com/tommyrharper/chitter-challenge) <img src="https://img.shields.io/badge/coverage-100%25-brightgreen"
-
+[![Build Status](https://travis-ci.com/tommyrharper/chitter-challenge.svg?branch=master)](https://travis-ci.com/tommyrharper/chitter-challenge) <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="">
 
 Chitter Challenge
 =================
