@@ -1,5 +1,78 @@
+[![Build Status](https://travis-ci.com/tommyrharper/chitter-challenge.svg?branch=master)](https://travis-ci.com/tommyrharper/chitter-challenge) <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="">
+
 Chitter Challenge
 =================
+
+
+## Database setup
+Enter psql from the command line:
+```
+$> psql
+```
+Create two databases.
+```
+user=# CREATE DATABASE chitter;
+user=# CREATE DATABSE chitter_test;
+```
+Connect to a database.
+```
+user=# \c chitter;
+chitter=#
+```
+Then create the tables in each database.
+```
+chitter=# CREATE TABLE peeps(id SERIAL PRIMARY KEY, peep VARCHAR(60), time TIMESTAMP, user_id int8);
+
+chitter=# CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), username VARCHAR(60), name VARCHAR(60));
+````
+Connect to chitter_test and create the same databases there.
+```
+user=# \c chitter_test
+chitter_test=# CREATE TABLE...
+```
+
+## Domain model
+
+Objects | Messages
+--------|---------
+Peeps | @id </br> @peep </br> @time
+User | @username </br> @email </br> @password </br> @name
+
+# CRC cards
+
+|Class name: | Peeps|
+|---------|--------|
+|Responsibilites | Collaborators|
+|Knows all peeps |
+
+-----------
+
+|Class name: | User|
+|---------|--------|
+|Responsibilites | Collaborators|
+|can make a post | Peeps |
+| view peeps|  |
+| has a name |  |
+| can tag other user |   |
+
+# Database Tables
+
+Table: | peeps | | | |
+------|-|-|-|-|
+id | message|time/date | username | tags |
+1 | hello | 01/12 12:34 | mrbloop | Jessica |
+
+-------------------
+
+Table: | User | | | |
+------|-|-|-|-|
+id | username | email | password | name |
+1 | mrbloop | tom@gmail.com | password1234 | Tom |
+
+
+
+
+-----------
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own

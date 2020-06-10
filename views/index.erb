@@ -1,0 +1,34 @@
+<h1>Welcome to Chitter!</h1>
+<% if @notice %>
+  <h2><%= @notice %></h2>
+<% end %>
+<% if @user %>
+  <h2>Welcome, <%= @user.name %></h2>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value ="Sign out">
+  </form>
+<% else %>
+<form action="/signin" method="get">
+  <input type="submit" value ="Sign in">
+</form>
+<form action="/signup" method="get">
+  <input type="submit" value ="Sign Up">
+</form>
+<% end %>
+
+<form action="/" method="post">
+  <input type="text" name="peep">
+  <input type="submit" value ="Peep">
+</form>
+<ul>
+  <% @messages.reverse.each do |peep| %>
+  <% user_id = peep.user_id %>
+    <li>
+    <%= peep.peep %> - <%= peep.time %> 
+    <% if user_id != 0 %>
+      <% @peep_maker = User.find(user_id) %>
+      - <%= @peep_maker.name %> - <%= @peep_maker.username %>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
