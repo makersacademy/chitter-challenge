@@ -1,25 +1,16 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
+Write a small Twitter clone, make it look awesome.
 
-As usual please start by forking this repo.
+![](public/img/peep.png)
 
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -35,41 +26,10 @@ I want to see the time at which it was made
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-HARDER
-
-As a Maker
-So that only I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```
 
-Technical Approach:
------
 
-This week you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge this weekend, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
-Notes on functionality:
+Functionality:
 ------
 
 * You don't have to be logged in to see the peeps.
@@ -78,56 +38,81 @@ Notes on functionality:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
 
-Bonus:
+
+
+Design Choices:
 -----
 
-If you have time you can implement the following:
+I took this challenge as an opportunity to brush up on using containers without Bootstrap or any library, as this was always something I found quite difficult.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+Extra challenge I've set myself: Having no Photoshop on this Makers MacBook (I unfortunately had to bury mine), I made use of other software like Affinity Photo and Figma for prototyping and basic edits. Will properly re-edit later.
 
-And/Or:
+My first idea was to get as far away from the normal Twitter as possible and to create some sort of secret club, thus the color choices and the picture with the girl, including a landing page which you can see here:
 
-* Work on the CSS to make it look good.
+![](public/img/designdraft.png)
 
-Good luck and let the chitter begin!
 
-Code Review
------------
+While I was coding the website I changed my mind through and switched to a design that was closely inspired by Twitter.
+The colour palette I've used is the exact same as Twitters' dark mode. To keep some sort of link to my first prototype, I've kept the lock logo to refer to it. Instead for going for a cartoonish looking bird like in the original, I decided to go a bit more realistic and to crop 3 different bird photos.
+See screenshots of the finished design (colour true) here:
 
-In code review we'll be hoping to see:
+![](public/img/Screenshot.png)
+![](public/img/Screenshot2.png)
+![](public/img/Screenshot3.png)
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+And see it in action here:
 
-Automated Tests:
------
+![](public/img/preview.gif)
 
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
 
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
 
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
+Summary of how I approached this challenge:
+------
 
-Notes on test coverage
-----------------------
+### General setup:
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+1) Install Gem files
+2) Add config to spec helpers and curse bundler
+3) check testing environment and write first useless but funny feature test
+4) see it fail – RED
+5) make it pass by cursing a bit more at bundler - GREEN
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
+### Setting up database
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+1) Hard code data in controller
+2) add view folder and index.erb file
+3) set up spec for peep class – RED
+4) create peep.rb file - GREEN
+5) linked Peep class in controller, now making use of model - REFACTOR
+6) setting up database & test database, making sure test database gets wiped
+
+
+### User Stories
+
+1) setting up feature test, seeing it fail - RED
+2) changing view files, adding button and specify new route
+3) creating new .rb files with submit forms
+4) setting new route in controller, GET and POST
+5) establishing connection to database - GREEN
+6) REFACTOR so we use the model instead of the controller to deal with data
+
+
+### Layout
+
+I didn't use bootstrap or any library for this, as I like to design everything myself.
+
+1) setting HTML structure to work with nav bar and containers
+2) style.css for general page Layout
+3) changing design to birds
+4) changing design again back to original
+5) nah. let's stay with birds.
+6) analyzed colour scheme from twitter, copying it ("homage")
+7) edited pictures of birds and made sure I have a different one for every page
+
+
+How to actually use the finished product:
+------
+
+Run psql, head over to db/migrations and copy and paste it to create the tables needed.
