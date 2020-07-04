@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .entrylist {
+        border: 5px outset red;
+        background-color: lightblue;    
+        text-align: left;
+      }
+      .heading {
+        font: "Comic Sans MS";
+
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1 class="heading">Diary Entries</h1>
+
+    <div class="entrylist">
+      <% @list.each do | entry | %>
+        <%= entry[:date] %> : <%= entry[:title] %>
+      <% end %>
+    </div>
+
+  </body>
+</html>
