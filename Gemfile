@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem "rubocop", require: false
-gem "sinatra"
 gem "pg"
+gem "sinatra"
 gem "sinatra-flash"
 
 gem "capybara", require: false, group: :test

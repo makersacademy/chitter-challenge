@@ -1,7 +1,7 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
-    <a href="<%= peep.text %>" target="_blank">
+    <a href="/peeps/<%= peep.id %>/view" target="_self">
       <%= peep.name %>
     </a>
       <form action="/peeps/<%= peep.id %>" method="post">

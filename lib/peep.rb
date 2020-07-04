@@ -8,7 +8,7 @@ class Peep
     result.map do |peep|
       Peep.new(text: peep["text"], name: peep["name"], id: peep["id"])
     end
-    end
+  end
 
   def self.create(text:, name:)
     # return true unless empty?
@@ -22,7 +22,7 @@ class Peep
 
   def self.update(id:, text:, name:)
     result = DatabaseConnection.query("UPDATE peeps SET text = '#{text}', name = '#{name}' WHERE id = #{id} RETURNING id, text, name;")
-    Peep.new(id: result[0]['id'], name: name[0]['name'], text: result[0]['text'])
+    Peep.new(id: result[0]['id'], name: result[0]['name'], text: result[0]['text'])
   end
   
   def self.find(id:)
