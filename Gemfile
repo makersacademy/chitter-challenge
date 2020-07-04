@@ -10,3 +10,4 @@ end
 gem 'capybara'
 gem 'shotgun'
 gem 'sinatra'
+gem 'pg'

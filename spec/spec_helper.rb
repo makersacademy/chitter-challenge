@@ -4,6 +4,7 @@ require './app.rb'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'pg'
 # require 'features/web_helper'
 Capybara.app = Chitter
 RACK_ENV = 'test'
