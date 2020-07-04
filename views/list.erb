@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      .entrylist {
-        border: 5px outset red;
-        background-color: lightblue;    
-        text-align: left;
-      }
-      .heading {
-        font: "Comic Sans MS";
+<link rel="stylesheet" href="style.css">
 
-      }
-    </style>
-  </head>
-  <body>
+<body>
 
-    <h1 class="heading">Diary Entries</h1>
+<h1>Peeps List</h1>
 
-    <div class="entrylist">
-      <% @list.each do | entry | %>
-        <%= entry[:date] %> : <%= entry[:title] %>
-      <% end %>
-    </div>
+<% @list.each do | peep | %>
+  <div class="peepblock">
+    <%= peep.created.slice(0...(peep.created.index('.'))) %> <br>
+    <%= peep.message %>
+  </div><br>
+<% end %>
 
-  </body>
-</html>
+</body>

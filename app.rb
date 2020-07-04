@@ -1,22 +1,30 @@
 require 'sinatra/base'
 require 'pg'
-require './lib/chitter'
-
-
+require './lib/peeps'
+require './lib/dbwrapper'
+require 'active_record'
 
 class ChitterApp < Sinatra::Base
 
-  enable :sessions
+  #enable :sessions
 
   get '/' do
-    p ENV
-    erb: index
+    erb :index
+  end
+  
+  get '/add' do
+    erb :add_form
   end
 
-  post '/list' do
-    @list = Chitter.all
+  post '/add_submit' do
+    Peeps.create(params[:message])
+    redirect '/'
+  end
+
+  get '/list' do
+    @list = Peeps.all
     p @list
-    erb: list
+    erb :list
   end
 
 end

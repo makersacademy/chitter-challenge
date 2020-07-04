@@ -1,0 +1,26 @@
+h1 { color: black; font-family: 'Helvetica Neue', sans-serif; font-size: 275px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+
+
+h2 { color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; }
+
+
+p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
+
+body {
+  background-image: url("images/background.jpg");
+}
+.peepblock {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    line-height: 1.65em;
+    font-weight: bold;
+    width: 400px;
+    margin: 0px 50px 0px 50px;
+    padding: 30px 30px 30px 50px;
+    color: #fff;
+    border-top: 5px solid #77818d;
+    background: #77818d url(images/icon_blockquote.png) no-repeat 20px 25px;
+  }
+  .blockquote p {
+    margin: 0;
+  }
