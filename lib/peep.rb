@@ -1,10 +1,11 @@
 require './lib/database_manager.rb'
 
 class Peep
-  attr_reader :message, :name
+  attr_reader :message, :name, :timestamp
   def initialize(message, name)
     @message = message
     @name = name
+    @timestamp = Time.now.strftime("%d/%m/%Y %H:%M:%S")
   end
 
   def add_to_database

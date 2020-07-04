@@ -29,7 +29,7 @@ class DatabaseManager
     else
       con = PG.connect :dbname => 'chitter_db'
     end
-    con.exec "INSERT INTO messages(name, message) VALUES('#{@peep.name}', '#{@peep.message}');"
+    con.exec "INSERT INTO messages(name, message, timestamp) VALUES('#{@peep.name}', '#{@peep.message}', '#{@peep.timestamp}');"
   end
 
 end

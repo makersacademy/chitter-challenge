@@ -1,6 +1,6 @@
 def add_peep
   connection = PG.connect(dbname: 'chitter_test_db')
-  connection.exec("INSERT INTO messages(name, message) VALUES('James', 'This is my very first peep!');")
+  connection.exec("INSERT INTO messages(name, message, timestamp) VALUES('James', 'This is my very first peep!', '#{Time.now.strftime("%d/%m/%Y %H:%M:%S")}');")
 end
 
 def post_message
