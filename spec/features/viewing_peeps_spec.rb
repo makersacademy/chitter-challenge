@@ -3,7 +3,7 @@ feature 'Viewing peeps' do
     visit '/'
     click_button 'View Peeps'
     visit '/peeps'
-    expect(page).to have_content "Peep 1"
-    expect(page).to have_content "Peep 2"
+    expect(page).to have_content "First Peep"
+    expect(page).to have_content "Second Peep"
   end
 end
