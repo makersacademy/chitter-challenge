@@ -6,3 +6,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
+
+gem 'capybara'
+gem 'shotgun'
+gem 'sinatra'
