@@ -3,6 +3,8 @@ require 'pg'
 class User
   attr_reader :username, :password, :email
 
+  @user_id = 0
+
   def self.all
     database_selector
     result = @connection.exec( "SELECT * FROM account" )
@@ -12,13 +14,19 @@ class User
 
   def self.check(email,password) #checks to see if password exists
     database_selector
-    @result = 0
     results = @connection.exec( "SELECT user_id FROM account
     WHERE email = '#{email}' AND  password = '#{password}';" )
     results.each do |result|
-      @result = result["user_id"].to_i
+      @user_id = result["user_id"].to_i
    end
-   @result > 0
+   @user_id > 0
+  end
+
+  def self.access
+    database_selector
+    result = @connection.exec( "SELECT * FROM account
+    WHERE user_id = '#{@user_id}';" )
+    result.map { |account| User.new(account['username'],account['password'],account['email']) }
   end
 
   def initialize(username,password,email)

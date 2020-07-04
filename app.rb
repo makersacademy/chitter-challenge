@@ -16,6 +16,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
+    # @user = User.access
+    # p @user
+    # p @user.username
     erb :home
   end
 
