@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_peep' do
-    Entry.add(params[:addpeep])
+    Entry.add(params[:add])
     redirect '/'
   end
 
