@@ -2,10 +2,8 @@ require 'pg'
 
 feature 'Viewing peeps' do
   scenario 'viewing a list of peeps' do
-    connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("INSERT INTO peeps (peep) VALUES('First Peep');")
-    connection.exec("INSERT INTO peeps (peep) VALUES('Second Peep');")
+    Peep.create(peep: "First Peep")
+    Peep.create(peep: "Second Peep")
 
     visit '/'
     click_button 'View Peeps'
@@ -13,5 +11,10 @@ feature 'Viewing peeps' do
 
     expect(page).to have_content "First Peep"
     expect(page).to have_content "Second Peep"
+  end
+
+  scenario 'peeps page has a button to post a new peep' do
+    visit '/peeps'
+    expect(page).to have_button 'New Peep'
   end
 end
