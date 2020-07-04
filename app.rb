@@ -9,11 +9,13 @@ class Chitter < Sinatra::Base
 
   post '/message' do
     session[:message] = params[:message]
+    session[:user] = params[:user]
     redirect to('/chitter_board')
   end
 
   get '/chitter_board' do
     @message = session[:message]
+    @user = session[:user]
     erb :chitter_board
   end
 
