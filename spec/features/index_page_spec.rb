@@ -9,3 +9,14 @@ feature 'View Homepage' do
     expect(page).to have_button("Log in")
   end
 end
+
+feature 'Login' do
+  scenario 'User visits homepage, completes details, and logs in' do
+    visit '/'
+    fill_in'Email', with: "test@test.com"
+    fill_in'Password', with: "test123"
+    click_button("Log in")
+    expect(page).to have_content("Username")
+    expect(page).to have_button("Add Peep")
+  end
+end
