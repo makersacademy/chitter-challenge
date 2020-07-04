@@ -1,3 +1,5 @@
+require_relative 'web_helper'
+
 feature 'View Homepage' do
   scenario 'User visits Hompage and sees Chitter, Email and Login' do
     visit '/'
@@ -12,10 +14,7 @@ end
 
 feature 'Login' do
   scenario 'User visits homepage, completes details, and logs in' do
-    visit '/'
-    fill_in'Email', with: "test@test.com"
-    fill_in'Password', with: "test123"
-    click_button("Log in")
+    logintopage
     expect(page).to have_content("Username")
     expect(page).to have_button("Add Peep")
   end

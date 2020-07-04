@@ -1,2 +1,15 @@
 <h1> Username: </h1>
-<button name="Add Cheet" >Add Peep </button>
+
+<ul>
+  <% @peep.each do |peep| %>
+    <h3>
+    <%= peep.body %>
+    </h3>
+    <div></div>
+  <% end %>
+</ul>
+
+
+<form action='/addpeep'>
+<button action='/addpeep' name="Add Peep" >Add Peep </button>
+</form>

@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'pg'
 require './lib/user.rb'
+require './lib/peep.rb'
 
 class Chitter < Sinatra::Base
 
@@ -16,10 +17,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    # @user = User.access
-    # p @user
-    # p @user.username
+    @user = User.access
+    @peep = Peep.all
     erb :home
+  end
+
+  get '/addpeep' do
+    erb :addpeep
+  end
+
+  post '/addpeep' do
+    redirect '/home'
   end
 
   run! if app_file == $0
