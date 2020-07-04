@@ -7,6 +7,44 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
+Planning:
+-------
+#### Page layout
+
+'/' - Route page - Welcome page, post message text box, submit button. (reroutes to /live)
+
+'/live' - List page - Will contain the list of all peeps in reverse chronological order with time/date stamp.
+
+'/sign_up' - Sign up page - Will contain fields (email, password, submit) for a user to sign up to Chitter. (reroutes to confirmation page)
+
+'/confirmation' - Confirmation sign up page - Will confirm the user has signed up.
+
+#### Step 1:
+
+User Story 1
+
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+
+Required Elements:
+- Welcome page
+- Database to store new peep and time created
+- Text form to enter text
+- Submit button
+
+Input:      Output:
+Peep        New page shows 
+Submit
+
+Progress So Far:
+-------
+
+1. Gems have been setup. Including Rspec, capybara, sinatra, pg and simplecov.
+
+
 Challenge:
 -------
 
