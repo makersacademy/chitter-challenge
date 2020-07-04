@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pg'
 gem 'sinatra'
 
 group :test do
