@@ -4,7 +4,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "Hello world"
+    erb :index
   end
-  
+
 end
