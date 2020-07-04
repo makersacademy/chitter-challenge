@@ -1,6 +1,11 @@
-def add_peeps_test
+def add_peep
   connection = PG.connect(dbname: 'chitter_test_db')
   connection.exec("INSERT INTO messages(name, message) VALUES('James', 'This is my very first peep!');")
-  connection.exec("INSERT INTO messages(name, message) VALUES('Vera', 'I would also like to say something and this is what I want to say');")
-  connection.exec("INSERT INTO messages(name, message) VALUES('Maureen', 'I have something to say as well');")
+end
+
+def post_message
+  visit('/')
+  fill_in :message, with: 'Hello Chitter!'
+  fill_in :user, with: 'James'
+  click_button 'Submit'
 end

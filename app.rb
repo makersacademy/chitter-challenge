@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   post '/chitter_board' do
     @peep = Peep.new(@params[:message], @params[:user])
     @peep.add_to_database
+    @db = DatabaseManager.new
     erb :chitter_board
   end
 

@@ -5,9 +5,14 @@
   <meta charset="utf-8"><link rel="stylesheet" href="/css/style.css">
 </head>
 
+
+
 <body>
-  <p><%= @peep.message %>
-  <p><%= @peep.user %>
+  <% @db.display.each do |peep| %>
+    <%= peep.message %> <br>
+    <%= peep.name %> <br>
+  <% end %>
 </body>
+
 
 </html>
