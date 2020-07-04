@@ -28,7 +28,6 @@ feature 'Login' do
     fill_in'Password', with: "INCORRECT PASSWORD"
     click_button("Log in")
     expect(page).to have_content("Sorry")
-    expect(page).to have_button("Log In Again")
   end
 end
 

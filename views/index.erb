@@ -3,8 +3,12 @@
 
 <form action='/' method='post'>
 <h2> Email </h2>
-<input ="text" id="Email">
+<input ="text" id="Email" name="email">
 <h2> Password </h2>
-<input ="text" id="Password">
-<button id="Log in" name="Log in" >
+<input ="text" id="Password" name="password">
+<button id="Log in" name="Log in" >Log in</button>
 </form>
+
+<% if @loginagain == true %>
+<h3> Sorry, please try again </h3>
+<% end %>

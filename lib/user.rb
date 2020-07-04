@@ -10,8 +10,15 @@ class User
     result.map { |account| User.new(account['username'],account['password'],account['email']) }
   end
 
-  def self.check #checks to see if password exists
-    true
+  def self.check(email,password) #checks to see if password exists
+    database_selector
+    @result = 0
+    results = @connection.exec( "SELECT user_id FROM account
+    WHERE email = '#{email}' AND  password = '#{password}';" )
+    results.each do |result|
+      @result = result["user_id"].to_i
+   end
+   @result > 0
   end
 
   def initialize(username,password,email)
