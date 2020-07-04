@@ -9,7 +9,7 @@ class Peep
 
   def self.add(body)
     database_selector
-    @connection.exec("INSERT INTO peep (body) VALUES('#{body})")
+    @connection.exec("INSERT INTO peep (body) VALUES('#{body})'")
   end
 
   def initialize(body)

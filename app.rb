@@ -27,6 +27,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/addpeep' do
+    peep = params[:peep_text]
+    Peep.add(peep)
     redirect '/home'
   end
 
