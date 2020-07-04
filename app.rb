@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/display' do
+    @entry = Entry.all
     erb :display
   end
 
