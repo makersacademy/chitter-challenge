@@ -1,5 +1,5 @@
 require 'sinatra/base'
-
+require './lib/peep.rb'
 class Chitter < Sinatra::Base
   enable :sessions
 
@@ -7,16 +7,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/message' do
-    session[:message] = params[:message]
-    session[:user] = params[:user]
-    redirect to('/chitter_board')
+  post '/chitter_board' do
+    @peep = Peep.new(@params[:message], @params[:user])
+    erb :chitter_board
   end
 
   get '/chitter_board' do
-    @message = session[:message]
-    @user = session[:user]
-    erb :chitter_board
+    erb :chitterboard
   end
 
 end
