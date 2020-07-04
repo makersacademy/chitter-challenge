@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-**PLEASE REFER TO README_NEW.md FILE WITHIN THIS REPOSITORY FOR OVERVIEW OF USER STORIES COMPLETED**
+**PLEASE REFER TO README_NEW.md FILE WITHIN THIS REPOSITORY FOR OVERVIEW OF USER STORIES COMPLETED https://github.com/Dhara-95/chitter-challenge/blob/master/README_NEW.md**
 
 
 * Challenge time: rest of the day and weekend, until Monday 9am
