@@ -1,3 +1,4 @@
+require 'clear_test_database.rb'
 require 'simplecov'
 require 'simplecov-console'
 require './app.rb'
@@ -8,6 +9,13 @@ require 'pg'
 # require 'features/web_helper'
 Capybara.app = Chitter
 RACK_ENV = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    clear_test_database
+  end
+end
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
