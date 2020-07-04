@@ -43,6 +43,7 @@ Progress So Far:
 -------
 
 1. Gems have been setup. Including Rspec, capybara, sinatra, pg and simplecov.
+2. Initial '/' page has been created and tested to run a simple hello world application to test infrastructure.
 
 
 Challenge:
