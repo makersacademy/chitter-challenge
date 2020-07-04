@@ -1,6 +1,25 @@
 Chitter Challenge
 =================
 
+SETUP//
+
+* bundle - to install the gems
+* rackup - to load the server
+* visit localhost:9292 in browser
+* rspec to run Tests
+
+DATABASE SETUP//
+
+* need to have local postgres installed
+* open psql
+* CREATE DATABASE chitter
+* \c chitter
+* CREATE TABLE chitter(id SERIAL PRIMARY KEY, Peeps VARCHAR(140));
+
+
+
+
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
