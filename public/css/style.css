@@ -1,0 +1,22 @@
+body {
+  background-color: hsl(192, 4%, 23%);
+  font-family: "Arial", Gadget, sans-serif, Times, serif;
+  font-size: medium;
+}
+
+form {color: #ffffff}
+
+.top_bar {
+  color: #94ddff;
+  font-family: "Arial Black", Gadget, sans-serif, Times, serif;
+  font-size: larger;
+}
+.peep {
+  background-color: #c3dbf0;
+  width: 400px;
+  height: 80px;
+}
+
+.peeps {
+  text-align: center;
+}

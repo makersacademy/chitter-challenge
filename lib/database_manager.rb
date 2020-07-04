@@ -14,7 +14,7 @@ class DatabaseManager
     arr = []
 
     results.map do |peep|
-      arr << Peep.new(peep["message"], peep["name"])
+      arr << peep
     end
 
     arr

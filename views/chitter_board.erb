@@ -6,12 +6,21 @@
   </head>
 
   <body>
+
+    <div class="top_bar">
+    <h1>Chitter.</h1> 
+  </div>
+
+  <div class=peeps>
     <% @db.display.each do |peep| %>
-      <%= peep.message %> <br>
-      <%= peep.name %> <br>
-      <%= peep.timestamp %> <br>
-      <br>
-    <% end %>
+      <div class="peep">
+        <%= peep["name"] %> <br>
+        <%= peep["message"] %> <br>
+        <%= peep["timestamp"] %> <br>
+        <br>
+      </div>
+      <% end %>
+  </div>
 
     <form action="/" method="get">
       <input type="submit" value="Home">

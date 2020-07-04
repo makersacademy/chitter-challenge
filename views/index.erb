@@ -6,12 +6,16 @@
   </head>
 
   <body>
-    <h1>Welcome to Chitter</h1> 
+
+  <div class="top_bar">
+    <h1>Chitter.</h1> 
+  </div>
+
     <form action="/chitter_board" method="post">
-      <legend>Please make your Peep!</legend>
+      <legend>Make a peep below:</legend>
       <br>
+      <label>Name: <input type="text" name="user"></label>
       <label>Message: <input type="text" name="message"></label>
-      <label>User: <input type="text" name="user"></label>
       <input type="submit" value="Submit">
     </form>
   </body>
