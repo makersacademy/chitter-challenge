@@ -7,15 +7,16 @@ class Entry
   end
 
   def self.add(peep)
+    ENV['ENVIRONMENT'] == 'test' ? db_name = 'chitter_test' : db_name = 'chitter'
     connection = PG.connect(dbname: 'chitter')
     connection.exec("INSERT INTO entry (text) VALUES ('#{peep}');")
   end
 
-  def self.all 
+  def self.all
+    ENV['ENVIRONMENT'] == 'test' ? db_name = 'chitter_test' : db_name = 'chitter' 
     connection = PG.connect(dbname: 'chitter')
     result = connection.exec("SELECT * FROM entry;")
     result.map do |peep| Entry.new(peep['text'], peep['posting_date'])
-    #result.map do |peep| peep['text']
     end
   end
 
