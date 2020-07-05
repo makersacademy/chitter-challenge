@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'pg'
 require './lib/peeps'
 require './lib/dbwrapper'
-require 'active_record'
 
 class ChitterApp < Sinatra::Base
 

@@ -1,9 +1,5 @@
 h1 { color: black; font-family: 'Helvetica Neue', sans-serif; font-size: 275px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
-
-
 h2 { color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; }
-
-
 p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
 
 body {
@@ -23,4 +19,12 @@ body {
   }
   .blockquote p {
     margin: 0;
+  }
+
+  .button-link
+    { color: black; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+  }
+  .button-link:hover {
+    text-decoration: none;
+    color: rgb(21, 255, 0);
   }
