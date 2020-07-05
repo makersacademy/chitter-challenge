@@ -16,4 +16,12 @@ describe Peep do
       expect(peeps).to include("another peep")
     end
   end
+
+  describe '.send' do
+  it 'sends a new peep' do
+    Peep.send(peep: 'Hello I am a peep')
+
+    expect(Peep.all).to include 'Hello I am a peep'
+  end
+end
 end
