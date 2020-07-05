@@ -14,6 +14,11 @@
     </li>
   <% end %>
 </ul>
+
+<form action="/peeps/new" method="get">
+  <input type="submit" value="New peep" />
+</form>
+
 <p>
   <%= flash[:notice] %>
 </p>
