@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+<h1>Peeps List</h1>
+
+<% @list.each do | peep | %>
+  <div class="peepblock">
+    <%= peep.created.slice(0...(peep.created.index('.'))) %> <br>
+    <%= peep.message %>
+  </div><br>
+<% end %>
+
+</body>
