@@ -1,6 +1,19 @@
 Chitter Challenge
 =================
 
+For help with the timestamp user story I referred to this person's chitter-challenge: https://github.com/Benjamin-Tomkins/chitter-challenge
+
+USER STORIES//
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+
 SETUP//
 
 * bundle - to install the gems
@@ -23,7 +36,7 @@ TEST DATABASE SETUP//
 * CREATE TABLE chitter(id PRIMARY KEY, Peeps VARCHAR(140));
 
 
-
+============================================================
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
