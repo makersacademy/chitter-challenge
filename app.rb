@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    @user = User.access
+    @user = User.all
     @peep = Peep.all
     erb :home
   end
@@ -27,8 +27,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/addpeep' do
-    peep = params[:peep_text]
-    Peep.add(peep)
+    Peep.add(params[:peep_text])
+    redirect '/home'
+  end
+
+  get '/deletepeep' do
+    @peep = Peep.all
+    erb :deletepeep
+  end
+
+  post '/deletepeep' do
+    Peep.delete(params[:id])
     redirect '/home'
   end
 

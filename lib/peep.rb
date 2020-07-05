@@ -1,10 +1,12 @@
+require 'pg'
+
 class Peep
-  attr_reader :body
+  attr_reader :body, :id
 
   def self.all
     database_selector
     result = @connection.exec('SELECT * FROM peep;')
-    result.map { |peep| Peep.new(peep['body']) }
+    result.map { |peep| Peep.new(peep['id'],peep['body']) }
   end
 
   def self.add(body)
@@ -12,7 +14,13 @@ class Peep
     @connection.exec("INSERT INTO peep (body) VALUES('#{body}')")
   end
 
-  def initialize(body)
+  def self.delete(id)
+    database_selector
+    @connection.exec("DELETE FROM peep WHERE id = #{id}")
+  end
+
+  def initialize(id, body)
+    @id = id
     @body = body
   end
 

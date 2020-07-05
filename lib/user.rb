@@ -1,7 +1,7 @@
 require 'pg'
 
 class User
-  attr_reader :username, :password, :email, :user_session
+  attr_reader :username, :email, :user_session
 
   @@user_id = 0
   @user_session = 0

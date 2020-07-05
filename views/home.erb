@@ -1,4 +1,4 @@
-<h1> Username: </h1>
+<h1> Username: <%=@user[0].username%> </h1>
 
 <ul>
   <% @peep.each do |peep| %>
@@ -12,4 +12,8 @@
 
 <form action='/addpeep'>
 <button action='/addpeep' name="Add Peep" >Add Peep </button>
+</form>
+
+<form action='/deletepeep'>
+<button action='/deletepeep' name="Delete Peep" >Delete Peep </button>
 </form>

@@ -20,13 +20,13 @@ feature 'Login' do
   end
 end
 
-feature 'Login' do
-  scenario 'User visits homepage, completes details, and logs in with incorrect details' do
-    visit '/'
-    fill_in'Email', with: "test@test.com"
-    fill_in'Password', with: "INCORRECT PASSWORD"
-    click_button("Log in")
-    expect(page).to have_content("Sorry")
-  end
-end
+# feature 'Login' do
+#   scenario 'User visits homepage, completes details, and logs in with incorrect details' do
+#     visit '/'
+#     fill_in'Email', with: "test@test.com"
+#     fill_in'Password', with: "INCORRECT PASSWORD"
+#     click_button("Log in")
+#     expect(page).to have_content("Sorry")
+#   end
+# end
 
