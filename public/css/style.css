@@ -1,0 +1,34 @@
+body {
+  background-color: #262f36;
+  font-family: "Arial", Gadget, sans-serif, Times, serif;
+  font-size: medium;
+}
+
+form {color: #ffffff;}
+
+.top_bar {
+  color: #94ddff;
+  font-family: "Arial Black", Gadget, sans-serif, Times, serif;
+  font-size: larger;
+}
+.peep {
+  color: white;
+  background-color: #434e57;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.peepalign {
+  text-align: center;
+}
+
+a { 
+  color: #94ddff;
+  text-decoration: none;
+}
+
+.time { 
+  font-size: small;
+  color: rgb(160, 179, 187);
+}
+
