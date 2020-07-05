@@ -12,9 +12,9 @@ describe Peep do
       peeps = Peep.all
 
       expect(peeps.length).to eq 2
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.username).to eq "makers"
-      expect(peeps.first.peep).to eq 'Hello, Twitter!'
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.last.username).to eq peep.username
+      expect(peeps.last.peep).to eq 'Hello, Twitter!'
     end
   end
 
