@@ -1,10 +1,10 @@
 body {
-  background-color: hsl(192, 4%, 23%);
+  background-color: #262f36;
   font-family: "Arial", Gadget, sans-serif, Times, serif;
   font-size: medium;
 }
 
-form {color: #ffffff}
+form {color: #ffffff;}
 
 .top_bar {
   color: #94ddff;
@@ -12,11 +12,23 @@ form {color: #ffffff}
   font-size: larger;
 }
 .peep {
-  background-color: #c3dbf0;
-  width: 400px;
-  height: 80px;
+  color: white;
+  background-color: #434e57;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.peeps {
+.peepalign {
   text-align: center;
 }
+
+a { 
+  color: #94ddff;
+  text-decoration: none;
+}
+
+.time { 
+  font-size: small;
+  color: rgb(160, 179, 187);
+}
+

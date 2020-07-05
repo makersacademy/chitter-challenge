@@ -6,26 +6,32 @@
   </head>
 
   <body>
-
     <div class="top_bar">
-    <h1>Chitter.</h1> 
+    <a href='/'><h1>Chitter.</h1></a>
   </div>
 
-  <div class=peeps>
-    <% @db.display.each do |peep| %>
-      <div class="peep">
-        <%= peep["name"] %> <br>
-        <%= peep["message"] %> <br>
-        <%= peep["timestamp"] %> <br>
-        <br>
-      </div>
-      <% end %>
+  <div class =peepalign>
+    <div class=peeps>
+      <% @db.display.reverse_each do |peep| %>
+        <div class="peep">
+          <%= peep["message"] %> <br>
+          <br>
+          <%= peep["name"] %> <br>
+          <div class =time>
+            <%= peep["timestamp"] %>
+          </div>
+          <br>
+        </div>
+          <br>
+          <br>
+        <% end %>
+    </div>
   </div>
 
-    <form action="/" method="get">
-      <input type="submit" value="Home">
-    </form>
+  <form action="/" method="get">
+    <input type="submit" value="Home">
+  </form>
 
-  </body>
+</body>
 
 </html>
