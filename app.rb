@@ -41,5 +41,16 @@ class Chitter < Sinatra::Base
     redirect '/home'
   end
 
+  get '/editpeep' do
+    @peep = Peep.all
+    erb :editpeep
+  end
+
+  post '/editpeep' do
+    p params
+    Peep.edit(params[:id],params[:peep_text])
+    redirect '/home'
+  end
+
   run! if app_file == $0
 end

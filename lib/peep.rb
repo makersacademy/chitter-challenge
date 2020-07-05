@@ -19,6 +19,11 @@ class Peep
     @connection.exec("DELETE FROM peep WHERE id = #{id}")
   end
 
+  def self.edit(id,text)
+    database_selector
+    @connection.exec("UPDATE peep SET body = '#{text}' WHERE id = #{id}")
+  end
+
   def initialize(id, body)
     @id = id
     @body = body
