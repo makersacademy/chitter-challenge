@@ -1,0 +1,24 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li class="peep" id="peep-<%= peep.id %>">
+    <a href="/peeps/<%= peep.id %>/view" target="_self">
+      <%= peep.name %>
+    </a>
+      <form action="/peeps/<%= peep.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="submit" value="Delete" />
+      </form>
+      <form action="/peeps/<%= peep.id %>/edit" method="get">
+        <input type="submit" value="Edit" />
+      </form>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/peeps/new" method="get">
+  <input type="submit" value="New peep" />
+</form>
+
+<p>
+  <%= flash[:notice] %>
+</p>

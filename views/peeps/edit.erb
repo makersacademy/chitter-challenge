@@ -1,0 +1,6 @@
+<form action="/peeps/<%= @peep.id %>" method="post">
+  <input type="hidden" name="_method" value="PATCH" />
+  <input type="text" name="text" value="<%= @peep.text %>" />
+  <input type="text" name="name" value="<%= @peep.name %>" />
+  <input type="submit" value="Submit" />
+</form>
