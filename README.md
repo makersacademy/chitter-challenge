@@ -45,6 +45,19 @@ Progress So Far:
 1. Gems have been setup. Including Rspec, capybara, sinatra, pg and simplecov.
 2. Initial '/' page has been created and tested to run a simple hello world application to test infrastructure.
 
+Installation:
+-------
+
+### Program installation
+
+
+
+### How to run tests
+
+1. Fork/Clone this repository.
+2. Run bundle install in your terminal
+3. Then run rspec to see tests.
+
 
 Challenge:
 -------
