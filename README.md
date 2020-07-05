@@ -16,7 +16,11 @@ DATABASE SETUP//
 * \c chitter
 * CREATE TABLE chitter(id SERIAL PRIMARY KEY, Peeps VARCHAR(140));
 
+TEST DATABASE SETUP//
 
+* CREATE DATABASE chitter_test
+* \c chitter_test
+* CREATE TABLE chitter(id PRIMARY KEY, Peeps VARCHAR(140));
 
 
 
