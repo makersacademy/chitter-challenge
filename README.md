@@ -44,13 +44,26 @@ Progress So Far:
 
 1. Gems have been setup. Including Rspec, capybara, sinatra, pg and simplecov.
 2. Initial '/' page has been created and tested to run a simple hello world application to test infrastructure.
+3. I've written the next test to expect a user to input a peep on a new page and display on the /live page.
+4. From here, I worked through the application to create new pages and elements for the page.
+5. I then created the chitter.rb file to house the new .all method. This allowed me to use the /live page as the main place to see all new peeps.
+6. On the chitter.rb file, I then created the .create method so that a new peep can be made. I also added the testing database connections to the methods at this stage.
+7. I then added the connections and inputs from the page to my routing page and connected those to my chitter.rb file.
+
+Tests written so far: 3
+Test coverage: 100%
 
 Installation:
 -------
 
 ### Program installation
 
-
+1. Fork/Clone this repository.
+2. Run bundle install in your terminal
+3. Then you want to run psql in your terminal.
+4. Here you want to create 2 new tables called, "chitter" and "chitter-test" using "CREATE DATABASE (name)" and "CREATE TABLE peep".
+5. Then run 'rackup' in your terminal.
+6. On your web browser, go to localhost:9292
 
 ### How to run tests
 
