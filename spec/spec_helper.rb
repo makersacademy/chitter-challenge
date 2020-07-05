@@ -3,6 +3,7 @@ require 'simplecov-console'
 require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
+require './spec/db_helpers'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -15,7 +16,14 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+ENV['RACK_ENV'] = 'test'
+
 RSpec.configure do |config|
+  config.before(:each) do
+    amend_db("TRUNCATE bookmarks")
+    amend_db("INSERT INTO peeps (user_name, user_handle, message) VALUES('latest', '@latest', 'first')")
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

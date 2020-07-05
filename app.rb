@@ -1,5 +1,6 @@
 require 'sinatra'
 require './lib/peep'
+require 'pg'
 
 class Chitter < Sinatra::Base
 
@@ -7,18 +8,18 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/message' do
-    erb :message
+  get '/peep/new' do
+    erb :peep_new
   end
 
-  post '/create' do
-    Peep.new(user: params[:user], handle: params[:user_handle], message: params[:message])
-    redirect '/peep'
+  post '/peep/new' do
+    Peep.create(params[:user], params[:user_handle], params[:message])
+    redirect '/peep/all'
   end
 
-  get '/peep' do
-    @peeps = Peep.all
-    erb :peep
+  get '/peep/all' do
+    @peeps = Peep.all.reverse
+    erb :peep_all
   end
 
   run! if app_file == $PROGRAM_NAME

@@ -1,0 +1,8 @@
+<% value = 0%>
+
+<% @peeps.each do |peep| %>
+  <% value += 1%>
+  <%=value%>. <%= peep.message %>
+  by <%= peep.handle %>, <%= peep.user %>
+  <br></br>
+<% end %>
