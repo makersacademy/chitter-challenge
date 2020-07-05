@@ -18,8 +18,6 @@ class Chitter < Sinatra::Base
 
   post '/send_peep' do
     Peep.send(peep: params[:peep])
-    p 'time?'
-    p params[:datetime]
     redirect '/chitter'
   end
 

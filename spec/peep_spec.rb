@@ -11,9 +11,9 @@ describe Peep do
 
       peeps = Peep.all
 
-      expect(peeps).to include("Hello this is a peep")
-      expect(peeps).to include("also a peep")
-      expect(peeps).to include("another peep")
+      expect(peeps[0].peep).to include("Hello this is a peep")
+      expect(peeps[1].peep).to include("also a peep")
+      expect(peeps[2].peep).to include("another peep")
     end
   end
 
@@ -21,7 +21,7 @@ describe Peep do
   it 'sends a new peep' do
     Peep.send(peep: 'Hello I am a peep')
 
-    expect(Peep.all).to include 'Hello I am a peep'
+    expect(Peep.all[0].peep).to include 'Hello I am a peep'
   end
 end
 end
