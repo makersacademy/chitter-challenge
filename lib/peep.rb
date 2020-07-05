@@ -9,7 +9,7 @@ class Peep
     result.map { |peep| Peep.new(peep['id'],peep['body']) }
   end
 
-  def self.add(body)
+  def self.add(body,time=nil)
     database_selector
     @connection.exec("INSERT INTO peep (body) VALUES('#{body}')")
   end
