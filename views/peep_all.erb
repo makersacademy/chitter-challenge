@@ -1,8 +1,10 @@
+<h1>Welcome Peeps</h1>
+
 <% value = 0%>
 
 <% @peeps.each do |peep| %>
   <% value += 1%>
   <%=value%>. <%= peep.message %>
-  by <%= peep.handle %>, <%= peep.user %>
+  by <%= peep.handle %>, <%= peep.user %>. at <%= peep.created_at%>
   <br></br>
 <% end %>

@@ -20,7 +20,7 @@ ENV['RACK_ENV'] = 'test'
 
 RSpec.configure do |config|
   config.before(:each) do
-    amend_db("TRUNCATE bookmarks")
+    amend_db("TRUNCATE peeps")
     amend_db("INSERT INTO peeps (user_name, user_handle, message) VALUES('latest', '@latest', 'first')")
   end
 

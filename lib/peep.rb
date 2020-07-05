@@ -1,11 +1,12 @@
 class Peep
-  attr_reader :user, :handle, :message
+  attr_reader :user, :handle, :message, :created_at
   @@all = []
 
-  def initialize(user:, handle:, message:)
+  def initialize(user:, handle:, message:, created_at:)
     @user = user
     @handle = handle
     @message = message
+    @created_at = created_at
     @@all << self
   end
 
@@ -15,15 +16,14 @@ class Peep
     result = connection.exec "SELECT * FROM peeps"
 
     result.map do |peep|
-      Peep.new(user: peep["user_name"], handle: peep["user_handle"], message: peep["message"])
+      Peep.new(user: peep["user_name"], handle: peep["user_handle"], message: peep["message"], created_at: peep["create_time"])
     end
   end
 
-  def self.create(user, user_handle, message)
+  def self.create(user, user_handle, message, create_time)
     connection = db_connect
     
-    result = connection.exec "INSERT INTO peeps (user_name, user_handle, message) VALUES('#{user}', '#{user_handle}', '#{message}')"
-    
+    result = connection.exec "INSERT INTO peeps (user_name, user_handle, message, create_time) VALUES('#{user}', '#{user_handle}', '#{message}', '#{create_time}')"
 
   end
 

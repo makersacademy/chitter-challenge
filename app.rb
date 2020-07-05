@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    Peep.create(params[:user], params[:user_handle], params[:message])
+    Peep.create(params[:user], params[:user_handle], params[:message], Time.now.strftime("%I:%M %p %d/%m/%Y"))
     redirect '/peep/all'
   end
 
