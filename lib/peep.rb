@@ -2,12 +2,12 @@ require 'pg'
 
 class Peep
 
-  attr_reader :id, :peep, :current_t_stamp
+  attr_reader :id, :peep, :time
 
   def initialize(id, peep, current_t_stamp)
     @id = id
     @peep = peep
-    @timestamp = current_t_stamp
+    @time = current_t_stamp
   end
 
   def self.all
@@ -30,7 +30,7 @@ class Peep
     end
 
     connection.exec("INSERT INTO chitter (peeps) VALUES('#{peep}')")
-  
+
   end
 
   # def time

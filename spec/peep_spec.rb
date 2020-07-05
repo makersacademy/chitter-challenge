@@ -18,10 +18,17 @@ describe Peep do
   end
 
   describe '.send' do
-  it 'sends a new peep' do
-    Peep.send(peep: 'Hello I am a peep')
+    it 'sends a new peep' do
+      Peep.send(peep: 'Hello I am a peep')
 
-    expect(Peep.all[0].peep).to include 'Hello I am a peep'
+      expect(Peep.all[0].peep).to include 'Hello I am a peep'
+    end
   end
-end
+
+  describe '.time' do
+    it 'returns time a peep was posted' do
+      peep = Peep.new(1, 'peep_1', '2018-06-10 10:27:58.348763')
+      expect(peep.time).to eq('2018-06-10 10:27:58.348763')
+    end
+  end
 end
