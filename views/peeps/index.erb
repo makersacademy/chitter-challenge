@@ -1,0 +1,16 @@
+<html>
+<body>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <%= peep.username %>
+      <%= peep.peep %>
+      <%= peep.time_created %>
+    <% end %>
+  </ul>
+
+  <form action='/'>
+    <input type="text" name="home">
+    <input type="submit" value="Home"/>
+  </form>
+</body>
+</html>
