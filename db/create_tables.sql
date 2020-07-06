@@ -8,7 +8,7 @@ CREATE TABLE peeps
 
 CREATE TABLE users
 (
-  username VARCHAR PRIMARY KEY(25), 
+  username VARCHAR PRIMARY KEY, 
   email VARCHAR(75), 
   name VARCHAR(30), 
   password VARCHAR(10)
