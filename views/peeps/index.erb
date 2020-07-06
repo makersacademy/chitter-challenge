@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peeps</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+  <body>
+
+    <div class="forepage">
+      <h1> Chitter Board </h1>
+
+      <% if @user %>
+        <p>Signed in as <%= @user.name %></p>
+        <a href="http://localhost:9292/peeps/new">Make a peep</a>
+        <a href="http://localhost:9292/users/logout">Log out</a>
+      <% else %>
+        <a href="http://localhost:9292/users/login">Log in</a>
+      <% end %>
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="container">
+        <div class="center">
+          <% @peeps.reverse.each do |peep| %>
+            <li class="peep" id="peep-<%= peep.id %>">
+              <%= peep.user.name.capitalize %>
+              <br>
+              Date: <%= peep.date_time %> </p>
+              <p class="peep"><%= peep.message %> </p>
+            </li>
+            <br>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
