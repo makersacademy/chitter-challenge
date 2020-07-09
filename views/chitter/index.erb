@@ -1,5 +1,6 @@
 <html>
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link type='text/css' rel='stylesheet' href='../css/style.css'>
   </head>
   <body>
@@ -51,7 +52,7 @@
     </div>
 
     <div class='red' >
-      <ul class='list_remove'>
+      <ul class='list-inline '>
         <% @peeps.each do |peep| %>
           <li>
             <form action='/chitter-delete/<%= peep['id'] %>' method='post' >
@@ -71,6 +72,18 @@
         <% end %>
       </ul>
     </div>
+
+    <% @peeps.each do |peep| %>
+      <form action='/chitter-delete/<%= peep['id'] %>' method='post' >
+        <ul class="list-group">
+          <li class="list-group-item"><%= peep['peep'] %><span class="badge"><%= peep['created_on'] %></span></li>
+        </ul>
+        <div>
+          <button type="button" class="btn btn-primary">Delete Peep</button>
+        </div>
+      </form>
+    <% end %>
+
 
   </body>
 </html>
