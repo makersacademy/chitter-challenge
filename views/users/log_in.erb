@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link type='text/css' rel='stylesheet' href='../css/style.css'>
+  </head>
+  <body>
+
+    <h1 class='blue' >Chitter Log In Page</h1>
+     <div class='main_div'>
+      <form action='/chitter/log-in' method='get' >
+        <input placeholder='Name' type='text' name='login_user_name' >
+        <input placeholder='Email' type='text' name='login_user_email' >
+        <input placeholder='Password' type='text' name='login_password' >
+        <input value='Log In' type='submit' >
+      <form>
+    </div>
+
+    <div class='main_div'>
+      <div class='flex_div' >
+         <form action='/' method='get' >
+          <input value='User' type='submit' >
+        </form>
+      </div>
+      <div class='flex_div' >
+        <form action='/chitter' method='get' >
+          <input value='Chitter' type='submit' >
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>
