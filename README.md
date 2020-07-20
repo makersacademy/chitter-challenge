@@ -22,7 +22,7 @@ How to set up the database
 3. Connect to the database using the psql command \c Chitter_Manager;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
 5. Run the query we have saved in the file 02_add_time_to_peeps.sql
-6. Run the query we have saved in the file 03_create_person_table.sql
+6. Run the query we have saved in the file 03_create_users_table.sql
 
 How to set up the test database
 -------
