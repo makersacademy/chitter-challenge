@@ -4,7 +4,8 @@
   <h1>Welcome, <%= @user.email %></h1>
 <% end %>
 
-<form action="/new-peep" method="post">
+<form action="/chitter/new-peep" method="post">
+  <label for="peep">Peep:</label>
   <input type="text" name="peep">
   <input type="submit" value="Post">
 </form>

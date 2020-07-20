@@ -1,7 +1,13 @@
+<h3>Sign up for Chitter!</h3>
+
 <form action="/users" method="post">
-  <input type="email" name="email">
-  <input type="password" name="password">
-  <input type="name" name="name">
-  <input type="username" name="username">
+  <label for="email">Email:</label>
+  <input type="email" name="email" required><br>
+  <label for="password">Password:</label>
+  <input type="password" name="password" required><br>
+  <label for="name">Name:</label>
+  <input type="text" name="name" required><br>
+  <label for="username">Username:</label>
+  <input type="text" name="username" required><br>
   <input type="submit" value="Submit">
 </form>
