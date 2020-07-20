@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'bcrypt'
 gem 'pg'
-gem 'rake'
 gem 'sinatra'
 
 group :test do
