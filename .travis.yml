@@ -1,10 +1,12 @@
 language: ruby
+rvm:
+ - 2.6.5
 
 services:
   - postgresql
 
 before_script:
-  - psql -U postgres -c 'CREATE DATABASE Chitter_Manager_test;'
+  - psql -c 'CREATE DATABASE Chitter_Manager_test;' -U postgres
   - psql -U postgres -d Chitter_Manager_test -f db/migrations/01_create_peeps_table.sql
   - psql -U postgres -d Chitter_Manager_test -f db/migrations/02_add_time_to_peeps.sql
   - psql -U postgres -d Chitter_Manager_test -f db/migrations/03_create_users_table.sql
