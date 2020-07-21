@@ -6,7 +6,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database hitter_test;' -U postgres
+  - psql -c 'create database chitter_test;' -U postgres
   - psql -U postgres -d chitter_test -f db/migrations/01_create_peeps_table.sql
   - psql -U postgres -d chitter_test -f db/migrations/02_create_users_table.sql
 
