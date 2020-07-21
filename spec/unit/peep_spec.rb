@@ -3,7 +3,6 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      PG.connect(dbname: 'chitter_test')
       peep = Peep.create(peep: "A lovely day", time: 'now')
       Peep.create(peep: "An interesting day", time: 'now')
 
