@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
 require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/chitter' do
     @user = User.find(id: session[:user_id])
@@ -34,8 +36,13 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/chitter'
+    if user
+      session[:user_id] = user.id
+      redirect '/chitter'
+    else
+      flash[:notice] = 'Please check your email or password'
+      redirect '/sessions/new'
+    end
   end
 
   run! if app_file == $0

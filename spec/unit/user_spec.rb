@@ -1,8 +1,7 @@
 require 'user'
+require 'database_helpers'
 
 describe User do
-  require 'database_helpers'
-
   describe '.create' do
     it 'creates a new user' do
       user = User.create(email: 'cat@email.com', password: 'password123', name: 'Cat', username: 'catty')
@@ -42,6 +41,11 @@ describe User do
       user = User.create(email: 'cat@email.com', password: 'password123', name: 'Cat', username: 'catty')
       authenticated_user = User.authenticate(email: 'cat@email.com', password: 'password123')
       expect(authenticated_user.id).to eq user.id
+    end
+
+    it 'returns nil if given an incorrect email address' do
+      user = User.create(email: 'cat@email.com', password: 'password123', name: 'Cat', username: 'catty')
+      expect(User.authenticate(email: 'cate@email.com', password: 'password123')).to be_nil
     end
   end
 end
