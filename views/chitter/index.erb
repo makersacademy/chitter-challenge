@@ -1,5 +1,13 @@
 <h1>Chitter!</h1>
 
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out">
+</form>
+
+<h3>
+  <%= flash[:notice] %>
+</h3>
+
 <% if @user %>
   <h1>Welcome, <%= @user.email %></h1>
 <% end %>
