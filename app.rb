@@ -40,7 +40,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/chitter'
     else
-      flash[:notice] = 'Please check your email or password'
+      flash[:notice] = 'Please check your email or password!'
       redirect '/sessions/new'
     end
   end
