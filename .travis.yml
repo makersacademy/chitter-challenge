@@ -6,10 +6,9 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database Chitter_Manager_test;' -U postgres
-  - psql -U postgres -d chitter_manager_test -f db/migrations/01_create_peeps_table.sql
-  - psql -U postgres -d chitter_manager_test -f db/migrations/02_add_time_to_peeps.sql
-  - psql -U postgres -d chitter_manager_test -f db/migrations/03_create_users_table.sql
+  - psql -c 'create database hitter_test;' -U postgres
+  - psql -U postgres -d chitter_test -f db/migrations/01_create_peeps_table.sql
+  - psql -U postgres -d chitter_test -f db/migrations/02_create_users_table.sql
 
 script:
   - bundle exec rspec
