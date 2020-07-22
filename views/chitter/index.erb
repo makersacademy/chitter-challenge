@@ -9,7 +9,7 @@
 </h3>
 
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
+  <h1>Welcome, <%= @user.name %>!</h1>
 <% end %>
 
 <form action="/chitter/new-peep" method="post">
