@@ -1,0 +1,36 @@
+<div align="right">
+  <% if @user == nil %>
+  <form action="/sessions/new">
+    <input type="submit" value="Sign in">
+  </form>
+  <form action="/users/new">
+    <input type="submit" value="Sign up">
+  </form>
+  <% else %>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out">
+  </form>
+  <% end %>
+</div>
+
+<h1>Chitter!</h1>
+
+<h3>
+  <%= flash[:notice] %>
+</h3>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.name %>!</h1>
+<% end %>
+
+<form action="/chitter/new-peep" method="post">
+  <label for="peep">Peep:</label>
+  <input type="text" name="peep">
+  <input type="submit" value="Post">
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.peep %> <%= peep.time %></li>
+  <% end %>
+</ul>

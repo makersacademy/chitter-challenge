@@ -1,0 +1,13 @@
+<h2>Sign in!</h2>
+
+<h3>
+  <%= flash[:warning] %>
+</h3>
+
+<form action="/sessions" method="post">
+  <label for="email">Email:</label><br>
+  <input type="email" name="email" required><br>
+  <label for="password">Password:</label><br>
+  <input type="password" name="password" required><br><br>
+  <input type="submit" value="Sign in">
+</form>

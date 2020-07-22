@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cmb84scd/chitter-challenge.svg?branch=master)](https://travis-ci.org/cmb84scd/chitter-challenge)
+
 Chitter Challenge
 =================
 
@@ -12,6 +14,24 @@ Challenge:
 As usual please start by forking this repo.
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
+
+How to set up the database
+-------
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE chitter;
+3. Connect to the database using the psql command \c chitter;
+4. Run the query we have saved in the file 01_create_peeps_table.sql
+5. Run the query we have saved in the file 02_create_users_table.sql
+
+How to set up the test database
+-------
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE chitter_test;
+3. Connect to the database using the psql command \c chitter_test;
+4. Run the query we have saved in the file 01_create_peeps_table.sql
+5. Run the query we have saved in the file 02_create_users_table.sql
 
 Features:
 -------
