@@ -1,73 +1,79 @@
 [![Build Status](https://travis-ci.org/cmb84scd/chitter-challenge.svg?branch=master)](https://travis-ci.org/cmb84scd/chitter-challenge)
 
-Chitter Challenge
-=================
+## This is my Chitter Challenge!
+This is Makers Academy's week 4 weekend challenge.
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
-
-How to set up the database
--------
-
+### How to use
+To use clone this repo and then do the following:
+```
+run 'bundle'
+set up databases (see below)
+run 'ruby app.rb'
+open browser and go to localhost:XXXX
+nb: XXXX is the port number eg 4567
+```
+#### How to set up the database
 1. Connect to psql
 2. Create the database using the psql command CREATE DATABASE chitter;
 3. Connect to the database using the psql command \c chitter;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
 5. Run the query we have saved in the file 02_create_users_table.sql
 
-How to set up the test database
--------
-
+#### How to set up the test database
 1. Connect to psql
 2. Create the database using the psql command CREATE DATABASE chitter_test;
 3. Connect to the database using the psql command \c chitter_test;
 4. Run the query we have saved in the file 01_create_peeps_table.sql
 5. Run the query we have saved in the file 02_create_users_table.sql
 
-Features:
+### User stories and requirements
+These are <a href="#userstories">here</a>
+
+### How it went
+I was reasonably happy with the progress I made. However, while doing the user sign up functionality I hit upon some bugs and as a result, I didn't get any further. With some help in the ensuing week I did fix these so the user can now sign up but the password is not protected. I think I might also have a database issue so this is something I'll have to look into, along with completing sign up. I'd also like to do sign-in/sign-out as well. Overall, I'm happy with what I achieved and in fixing the bugs I feel like I now have a better understanding of how certain parts of the code works.
+
+##### Edit: 22/7/2020
+I have now encrypted the password using BCrypt as well as doing sign-in and sign-out functionality. I also sorted Travis but in doing so I discovered that I did indeed have a problem with my database. I created it with a capital letter at the start and as a result it has caused me a lot of problems. Yes, the tests and app knew the database was there so everything worked but because psql defaults the database names to lowercase, Travis didn't like me. I was even unable to rename or drop the database locally due to this problem so I created new ones and pointed my app to them, which in turn made Travis happy. I've definitely learnt a lot from doing this challenge and am really glad I went back to it.
+
+<a name="userstories"></a>
+Challenge:
 -------
 
-```
+We are going to write a small Twitter clone that will allow the users to post messages to a public stream. The user stories are as follows:<br><br>
 STRAIGHT UP
-
+```
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
-
+```
+```
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
-
+```
+```
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
-
+```
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
+```
 HARDER
-
+```
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
-
+```
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
+```
 ADVANCED
-
+```
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
