@@ -1,8 +1,19 @@
-<h1>Chitter!</h1>
+<div align="right">
+  <% if @user == nil %>
+  <form action="/sessions/new">
+    <input type="submit" value="Sign in">
+  </form>
+  <form action="/users/new">
+    <input type="submit" value="Sign up">
+  </form>
+  <% else %>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out">
+  </form>
+  <% end %>
+</div>
 
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out">
-</form>
+<h1>Chitter!</h1>
 
 <h3>
   <%= flash[:notice] %>

@@ -1,13 +1,21 @@
-<h3>Sign up for Chitter!</h3>
+<div align="right">
+  <form action="/chitter">
+    <input type="submit" value="Home">
+  </form>
+</div>
 
-<form action="/users" method="post">
-  <label for="email">Email:</label>
-  <input type="email" name="email" required><br>
-  <label for="password">Password:</label>
-  <input type="password" name="password" required><br>
-  <label for="name">Name:</label>
-  <input type="text" name="name" required><br>
-  <label for="username">Username:</label>
-  <input type="text" name="username" required><br>
-  <input type="submit" value="Submit">
-</form>
+<div>
+  <h3>Sign up for Chitter!</h3>
+
+  <form action="/users" method="post">
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" required><br>
+    <label for="password">Password:</label><br>
+    <input type="password" name="password" required><br>
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" required><br>
+    <label for="username">Username:</label><br>
+    <input type="text" name="username" required><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
