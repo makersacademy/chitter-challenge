@@ -5,9 +5,7 @@ services:
 
 before_script:
   - psql -c 'CREATE DATABASE chitter_test;' -U postgres
-  - psql -c '\c chitter_test' -U postgres
-  - psql -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(280), time VARCHAR(60));' -U chitter_test
-  - psql -c 'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), name VARCHAR(60), username VARCHAR(60));' -U chitter_test
-
+  - psql --file=./db/migrations/create_peep_table.sql -U postgres
+  - psql --file=./db/migrations/create_user_table.sql -U postgres
 script:
   - bundle exec rspec
