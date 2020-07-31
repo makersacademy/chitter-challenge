@@ -1,0 +1,16 @@
+<h1> Your Peep Feed: </h1> 
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <li class="peep" id="peep-<%=peep.id %>">
+    <%= peep.content %>
+  </li>
+  <% end %>
+</ul>
+
+   
+
+<form action="/peeps/new" method="post">
+  <input type="text" name="New_peep">
+  <input type="submit" value="Submit new peep">
+</form>
