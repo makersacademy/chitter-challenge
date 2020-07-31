@@ -13,11 +13,6 @@ feature 'being logged in' do
     expect(page).to have_content('Guest at')
     expect(page).to have_content('This is a test peep')
   end
-  scenario 'there is a button for logging in' do
-    visit '/'
-    click_button 'Log in'
-    expect(current_path).to eq '/sessions/new'
-  end
   scenario 'logging in as existing user posts tweets with username and name' do
     create_test_user
     log_in_test

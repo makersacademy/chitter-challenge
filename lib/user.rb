@@ -3,8 +3,9 @@ require 'bcrypt'
 
 class User
   def self.create(email:, password:, name:, username:)
-    encrypted_password = BCrypt::Password.create(password)
+    return if DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';").any?
 
+    encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query("INSERT INTO users (email, password, name, username) 
       VALUES('#{email}', '#{encrypted_password}', '#{name}', '#{username}') 
       RETURNING id, email, name, username;")
@@ -18,7 +19,7 @@ class User
 
   def self.find(id)
     return nil unless id
-    
+
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}';")
 
     User.new(id: result[0]['id'], 
