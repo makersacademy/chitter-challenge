@@ -21,7 +21,6 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
@@ -66,5 +65,13 @@ To run tests:
 To run site: 
 ------
 - Run 'bundle install' if not already done.
+- Run the following commands in postgresql:
+
+```
+  'CREATE DATABASE chitter;'
+  '\c chitter'
+  'CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(280), time VARCHAR(60));'
+  'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), name VARCHAR(60), username VARCHAR(60));'
+```
 - Run 'rackup'
 - Navigate in browser to 'localhost:9292/'
