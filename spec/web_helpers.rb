@@ -11,3 +11,11 @@ def create_test_user
   User.create(email: 'test@example.com', password: 'password123',
       name: 'testy mctestface', username: 'test123')
 end
+
+def log_in_test
+  visit '/'
+  click_button 'Log in'
+  fill_in(:email, with: 'test@example.com')
+  fill_in(:password, with: 'password123')
+  click_button 'Sign in'
+end
