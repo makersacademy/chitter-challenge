@@ -10,4 +10,5 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'sinatra'
   gem 'sinatra-flash'
+  gem 'rake'
 end
