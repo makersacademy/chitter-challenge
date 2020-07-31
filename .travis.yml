@@ -3,6 +3,9 @@ language: ruby
 services:
   - postgresql
 
+env: 
+  - RACK_ENV = 'test'
+
 before_script:
   - psql -c 'CREATE DATABASE chitter_test;' -U postgres
   - psql -c 'CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(280), time VARCHAR(60));' -U postgres
