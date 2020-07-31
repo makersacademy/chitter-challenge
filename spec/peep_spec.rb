@@ -16,7 +16,7 @@ describe Peep do
   describe '.add' do
     it 'adds a peep to the database' do
       peep = Peep.add(content: "This is a test peep")
-      persisted_data = DatabaseConnection.query("SELECT * FROM peeps WHERE id = '#{peep.id}';")
+      persisted_data = persisted_data(table: :peeps, id: peep.id)
       expect(peep).to be_a Peep
       expect(peep.id).to eq persisted_data.first['id']
       expect(peep.content).to eq 'This is a test peep'

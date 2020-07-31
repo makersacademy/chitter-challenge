@@ -3,8 +3,7 @@ require 'user'
 
 describe '.create' do
   it 'creates a new user' do
-    user = User.create(email: 'test@example.com', password: 'password123',
-      name: 'testy mctestface', username: 'test123')
+    user = create_test_user
     
     persisted_data = persisted_data(table: :users, id: user.id)
     
@@ -17,7 +16,7 @@ describe '.create' do
   it 'hashes the password using BCrypt' do 
     expect(BCrypt::Password).to receive(:create).with('password123')
 
-    User.create(email: 'test@example.com', password: 'password123', name: 'testy mctestface', username: 'test123')
+    create_test_user
   end
 end
 
@@ -44,11 +43,11 @@ describe '.find' do
       expect(authenticated_user.id).to eq user.id
     end
     it 'returns nil given an incorrect email' do
-      user = create_test_user
+      create_test_user
       expect(User.authenticate(email: 'incorrectemail@me.com', password: 'password123')).to be_nil
     end
     it 'returns nil given an incorrect password' do
-      user = create_test_user
+      create_test_user
       expect(User.authenticate(email: 'test@example.com', password: 'incorrectpassword')).to be_nil
     end
   end

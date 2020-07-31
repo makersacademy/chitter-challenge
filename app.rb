@@ -39,7 +39,7 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else 
       flash[:notice] = 'Please check your email or password.'
-      redirect'/sessions/new'
+      redirect '/sessions/new'
     end
   end
 
@@ -53,7 +53,8 @@ class Chitter < Sinatra::Base
     user = User.create(email: params[:email],
       password: params[:password],
       name: params[:name],
-      username: params[:username])
+      username: params[:username]
+    )
     session[:user_id] = user.id
     redirect '/peeps'
   end

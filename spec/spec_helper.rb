@@ -7,6 +7,7 @@ require 'setup_test_database'
 require 'simplecov'
 require 'simplecov-console'
 require 'web_helpers'
+require 'database_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

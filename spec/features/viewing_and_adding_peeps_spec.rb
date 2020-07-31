@@ -32,7 +32,7 @@ feature 'shows peeps' do
     Peep.add(content: "This is a test peep")
     Peep.add(content: "This is another test peep")
 
-    visit ('/peeps')
+    visit '/peeps'
 
     expect(first('.peep')).to have_content 'This is another test peep'
   end
