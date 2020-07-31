@@ -58,7 +58,7 @@ To run tests:
 
 ```
   'CREATE DATABASE chitter_test;'
-  '\c chitter_test'
+  '\c chitter_test;'
   'CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(280), time VARCHAR(60));'
   'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), name VARCHAR(60), username VARCHAR(60));'
 ```
@@ -71,7 +71,7 @@ To run site:
 
 ```
   'CREATE DATABASE chitter;'
-  '\c chitter'
+  '\c chitter;'
   'CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(280), time VARCHAR(60));'
   'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), name VARCHAR(60), username VARCHAR(60));'
 ```
