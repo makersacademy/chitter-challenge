@@ -7,8 +7,12 @@
 <ul>
   <% @peeps.reverse_each do |peep| %>
   <li class="peep" id="peep-<%=peep.id %>">
-    Guest at <%= peep.time %>:
-    <%= peep.content %>
+    <% if @user %>
+      <%= @user.name %> (<%= @user.username %>) at <%= peep.time %>:
+    <% else %>
+      Guest at <%= peep.time %>:
+    <% end %>
+      <%= peep.content %>
   </li>
   <% end %>
 </ul>
