@@ -1,5 +1,7 @@
 # Chitter Challenge
 
+[![Build Status](https://travis-ci.org/harrylb14/chitter-challenge.svg?branch=master)](https://travis-ci.org/harrylb14/chitter-challenge)
+
 Features:
 -------
 
