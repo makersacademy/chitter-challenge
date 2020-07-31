@@ -1,19 +1,19 @@
 <% if @user %>
-  <h1> Welcome, <%= @user.username %>! </h1>
+  <b><h1 style="text-align:center"> Welcome, <%= @user.username %>! </h1></b>
   <form action="/sessions/destroy" method="post">
     <input type="submit" value="Sign out" />
   </form>
 <% end %>
 
-<h2> Your Peep Feed: </h1> 
+<h2 style="text-align:center"> Your Peep Feed: </h1> 
 
-<ul>
+<ul style="text-align:center">
   <% @peeps.reverse_each do |peep| %>
   <li class="peep" id="peep-<%=peep.id %>">
     <% if @user %>
-      <%= @user.name %> (<%= @user.username %>) at <%= peep.time %>:
+      <i><%= @user.name %> (<%= @user.username %>) at <%= peep.time %>: </i>
     <% else %>
-      Guest at <%= peep.time %>:
+      <i> Guest at <%= peep.time %>: </i>
     <% end %>
       <%= peep.content %>
   </li>
@@ -22,7 +22,7 @@
 
    
 
-<form action="/peeps/new" method="post">
+<form style="text-align:center" action="/peeps/new" method="post">
   <input type="text" name="New_peep">
   <input type="submit" value="Submit new peep">
 </form>

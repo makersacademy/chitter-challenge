@@ -1,15 +1,15 @@
-<h1> Welcome to Chitter! </h1>
+<h1 style="text-align:center"> <b> Welcome to Chitter! </b> </h1>
 
-<form action='/peeps'>
-  <input type='submit' value = 'Continue as Guest'>
-</form>
-
-<form action='/users/new'>
-  <input type='submit' value = 'Sign Up'>
-</form>
-
-<form action='/sessions/new'>
+<form action='/sessions/new' style="text-align:center">
   <input type='submit' value = 'Log in'>
 </form>
 
-<%= flash[:notice] %>
+<form action='/users/new' style="text-align:center">
+  <input type='submit' value = 'Sign Up'>
+</form>
+
+<form action='/peeps' style="text-align:center">
+  <input type='submit' value = 'Continue as Guest'>
+</form>
+
+<i><%=  flash[:notice] %> </i> 
