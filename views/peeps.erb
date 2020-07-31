@@ -1,7 +1,11 @@
-<h1> Your Peep Feed: </h1> 
+<% if @user %>
+  <h1> Welcome, <%= @user.username %>! </h1
+<% end %>
+
+<h2> Your Peep Feed: </h1> 
 
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
   <li class="peep" id="peep-<%=peep.id %>">
     Guest at <%= peep.time %>:
     <%= peep.content %>

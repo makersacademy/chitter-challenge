@@ -7,7 +7,7 @@ feature 'there is a welcome and login page' do
     visit '/'
     expect(page).to have_button 'Continue as Guest'
   end
-  scenario 'logging in takes you to the bookmarks page' do
+  scenario 'logging in takes you to the peeps page' do
     visit '/'
     click_button 'Continue as Guest'
     expect(current_path).to eq '/peeps'

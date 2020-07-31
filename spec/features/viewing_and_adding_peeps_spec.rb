@@ -19,7 +19,7 @@ feature 'shows peeps' do
     expect(page).to have_content('This is a test peep')
   end
 
-  scenario 'user wants to see bookmarks' do
+  scenario 'user wants to see peeps' do
     Peep.add(content: "This is a test peep")
     Peep.add(content: "This is another test peep")
 
@@ -27,5 +27,13 @@ feature 'shows peeps' do
     
     expect(page).to have_content "This is a test peep"
     expect(page).to have_content "This is another test peep"
+  end
+  scenario 'user sees peeps in chronological order' do
+    Peep.add(content: "This is a test peep")
+    Peep.add(content: "This is another test peep")
+
+    visit ('/peeps')
+
+    expect(first('.peep')).to have_content 'This is another test peep'
   end
 end
