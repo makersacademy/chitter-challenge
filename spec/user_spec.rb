@@ -23,7 +23,7 @@ end
 
 describe '.find' do
   it 'finds a user by ID' do
-    user = User.create(email: 'test@example.com', password: 'password123', name: 'testy mctestface', username: 'test123')
+    user = create_test_user
     result = User.find(user.id)
 
     expect(result.id).to eq user.id
@@ -34,5 +34,22 @@ describe '.find' do
 
   it 'returns Guest if there is no ID given' do
     expect(User.find(nil)).to eq nil
+  end
+
+  describe '#authenticate' do
+    it 'returns a user given a correct username and password' do
+      user = create_test_user
+      authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
+
+      expect(authenticated_user.id).to eq user.id
+    end
+    it 'returns nil given an incorrect email' do
+      user = create_test_user
+      expect(User.authenticate(email: 'incorrectemail@me.com', password: 'password123')).to be_nil
+    end
+    it 'returns nil given an incorrect password' do
+      user = create_test_user
+      expect(User.authenticate(email: 'test@example.com', password: 'incorrectpassword')).to be_nil
+    end
   end
 end

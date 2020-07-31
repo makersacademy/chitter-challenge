@@ -6,3 +6,8 @@ def register_test
   fill_in('username', with: 'test123')
   click_button 'Submit'
 end
+
+def create_test_user
+  User.create(email: 'test@example.com', password: 'password123',
+      name: 'testy mctestface', username: 'test123')
+end
