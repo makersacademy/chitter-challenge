@@ -32,22 +32,6 @@ I want to log out of Chitter
 
 ```
 
-Technical Approach:
------
-
-In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
-
-If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
-
-Some useful resources:
-**DataMapper**
-- [DataMapper ORM](https://datamapper.org/)
-- [Sinatra, PostgreSQL & DataMapper recipe](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper)
-
-**ActiveRecord**
-- [ActiveRecord ORM](https://guides.rubyonrails.org/active_record_basics.html)
-- [Sinatra, PostgreSQL & ActiveRecord recipe](http://recipes.sinatrarb.com/p/databases/postgresql-activerecord?#article)
-
 Notes on functionality:
 ------
 
@@ -55,5 +39,32 @@ Notes on functionality:
 * Sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
+* Peeps contain the time and date of when they were posted.
+* You can register, log in, and log out. 
 
+Technologies Used:
+-----
+- Capybara
+- Sinatra (and Sinatra-Flash)
+- postgresql
+- PG
+- BCrypt for password encryption
+
+To run tests: 
+------
+- Run 'bundle install'
+- Run the following commands in postgresql:
+
+```
+  'CREATE DATABASE chitter_test;'
+  '\c chitter_test'
+  'CREATE TABLE peeps (id SERIAL PRIMARY KEY, content VARCHAR(280), time VARCHAR(60));'
+  'CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140), name VARCHAR(60), username VARCHAR(60));'
+```
+- Run rspec
+
+To run site: 
+------
+- Run 'bundle install' if not already done.
+- Run 'rackup'
+- Navigate in browser to 'localhost:9292/'
