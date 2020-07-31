@@ -5,7 +5,6 @@ services:
 
 before_script:
   - psql -c 'CREATE DATABASE chitter_test;' -U postgres
-  - psql --file=./db/migrations/create_peep_table.sql -U postgres
-  - psql --file=./db/migrations/create_user_table.sql -U postgres
+  - rake db:migrate
 script:
   - bundle exec rspec
