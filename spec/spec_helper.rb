@@ -11,7 +11,6 @@ require 'rspec'
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = Chitter
 
-
 require 'simplecov'
 require 'simplecov-console'
 
