@@ -10,10 +10,8 @@ feature 'Viewing peeps' do
   end
 
   scenario 'user wants to see time peep was posted' do
-    allow(DatabaseConnection).to receive(:query) { "2020-08-01 17:26:00+01" }
-    allow(DatabaseConnection).to receive(:query).with("First test peep") {}
-    Peep.create('First test peep')
+    peep = Peep.create('First test peep')
     visit('/peeps')
-    expect(page).to have_content('2020-08-01 17:26:00+01')
+    expect(page).to have_content(peep.timestamp)
   end
 end

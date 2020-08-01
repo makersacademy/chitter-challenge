@@ -2,6 +2,6 @@
 
 <ul>
   <% @peep.reverse.each do |peep| %>
-  <li class='peep'><%= peep %></li>
+  <li class='peep'><%= peep.text + " " + peep.timestamp%></li>
   <% end %>
 </ul>

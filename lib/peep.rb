@@ -1,19 +1,26 @@
 require_relative 'database_connection'
 
 class Peep
-
-  def initialize(text)
+  attr_reader :text, :timestamp
+  def initialize(text, timestamp)
+    @text = text
+    @timestamp = timestamp
   end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM peeps;")
-    result.map { |peep| peep['text'] }
+    result.map do |peep| 
+      Peep.new(peep['text'], peep['timestamp']) 
+    end
   end
 
   def self.create(text)
-    result_ts = DatabaseConnection.query("SELECT date_trunc('minute' , now()) RETURNING *;")
-    timestamp = result_ts[0]['timestamp']
-    DatabaseConnection.query("INSERT INTO peeps (text, timestamp) VALUES ('#{text}'), ('#{timestamp}');")
-    Peep.new(text)
+    result = DatabaseConnection.query(
+      "INSERT INTO peeps (text, timestamp) VALUES ('#{text}', current_timestamp) RETURNING *;"
+    )
+    Peep.new(
+      result[0]['text'],
+      result[0]['timestamp']
+    )
   end
 end
