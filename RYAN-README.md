@@ -52,14 +52,21 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
 ```
 
 <img src="./domain-model-diagrams/chitter-challenge-add-peep.png" alt="Domain Model Diagram for Adding a Peep">
 
-#### Walkthrough - NEED TO EDIT
+#### Walkthrough
 
 - When the User visits the '/peeps/new' path, their browser sends a request to the Controller.
-- The Controller gets the request and requests all the 'peeps' from the Peep class (Peep.all).
+- The Controller receives the request and requests the html information from the peep/new view.
+- The Controller recives the html and sends it as a response to the Client.
+- The User submits the form to post a new 'peep', and so the Client sends a post request to the Controller.
+- The Controller receives the request and sends the 'peep' params to the Model for it to create a new 'peep' object with.
+-The Controller recives the 'peep' object from the Controller and makes a redirect to the '/peeps' route, thus requesting all the 'peeps' from the Peep class (Peep.all).
 - The Peep class returns all the 'peeps' in an array to the controller, (which have been stored as an instance variable on the Peep class object).
-- The Controller renders the array of 'peeps' to a webpage, which it sends as a response to the user
+- The Controller renders the array of 'peeps' to a webpage, which it sends as a response to the user.
 
