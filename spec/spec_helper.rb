@@ -1,5 +1,9 @@
+Env['ENVIRONMENT'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
+
+Capybara.app = ChitterApp
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
