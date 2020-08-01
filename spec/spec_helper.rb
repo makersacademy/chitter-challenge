@@ -5,14 +5,14 @@ require 'simplecov-console'
 # require 'features/web_helpers.rb'
 # require 'database_helpers.rb'
 require_relative '../app'
-# require_relative './setup_test_database.rb'
-# require_relative '../database_connection_setup.rb'
+require_relative './setup_test_database.rb'
+require_relative '../database_connection_setup.rb'
 
 ENV['ENV'] = 'test'
 
 RSpec.configure do |config|
   config.before(:each) do
-    # setup_test_database
+    setup_test_database
   end
 end
 

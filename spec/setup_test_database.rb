@@ -1,4 +1,3 @@
-require 'pg'
 require_relative '../lib/database_connection'
 
 def setup_test_database
@@ -14,6 +13,7 @@ def setup_test_database
   sleep 0.01
   puts '##### 100%'
   puts 'Reset is complete!'
-  connection = PG.connect(dbname: ‘chitter_test’)
-  connection.exec(“TRUNCATE peeps RESTART IDENTITY;“)
+  conn = DatabaseConnection.setup('chitter_test')
+  conn.query("DROP TABLE peeps;")
+  conn.query("CREATE TABLE peeps(id SERIAL PRIMARY KEY, content VARCHAR(60), date TIMESTAMP);")
 end

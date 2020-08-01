@@ -6,4 +6,9 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :peeps
+  end
+
 end
