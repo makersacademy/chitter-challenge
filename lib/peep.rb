@@ -1,7 +1,9 @@
+require_relative 'database_connection.rb'
 
 class Peep
 
-  # Time.new.strftime("%Y-%m-%d %H:%M:%S")
+  attr_reader :id, :content, :date
+
   def initialize(id:, content:, date:)
     @id = id
     @content = content

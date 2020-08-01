@@ -3,4 +3,7 @@
   <% @peeps.each do |peep| %>
     <%= peep %>
   <% end %>
+  <form action='peeps/new' method='get'>
+    <input type=submit value='Write a new peep'>
+  </form>
 </center>
