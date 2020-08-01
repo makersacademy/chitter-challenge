@@ -1,9 +1,9 @@
 feature 'Posting a peep' do
   scenario 'view posted peep' do
     visit('/peeps/new')
-    fill_in('text', with: "Test peep text")
+    fill_in('text', with: "New peep text")
     click_button('Peep')
 
-    expect(page).to have_content("Test peep text")
+    expect(page).to have_content("New peep text")
   end
 end

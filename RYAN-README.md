@@ -10,14 +10,16 @@ RSpec for unit testing
 PostgreSQL for the database
 Ruby Gemfile ```pg``` for connecting and executing SQL on PostgreSQL database
 
-#### Database Set Up
+#### Setting Up Databases
 
+##### Test Database
+To utilise the tests within the ```spec``` directory please set up the following database:
 1. Connect to ```psql```
 2. Create the database using the ```psql``` command <br>
-```CREATE DATABASE chitter;```
+```CREATE DATABASE chitter_test;```
 3. Connect to the database using the ```psql``` command <br>
-```\c chitter;```
-4. Run the queries saved as files within the <br>
+```\c chitter_test;```
+4. Run the all the queries detailed in the ```migrations``` directory <br>
 ```
 .
 ├── db
@@ -25,6 +27,23 @@ Ruby Gemfile ```pg``` for connecting and executing SQL on PostgreSQL database
         └── 01_create_chitter_table.sql
         └── etc
 ``` 
+
+##### Development Database
+The following database should be set up for when the application is run locally:
+1. Connect to ```psql```
+2. Create the database using the ```psql``` command <br>
+```CREATE DATABASE chitter;```
+3. Connect to the database using the ```psql``` command <br>
+```\c chitter;```
+4. Run the all the queries detailed in the ```migrations``` directory <br>
+```
+.
+├── db
+    └── migrations
+        └── 01_create_chitter_table.sql
+        └── etc
+``` 
+
 
 ### User Stories
 
@@ -37,9 +56,9 @@ I want to post a message (peep) to chitter
 
 <img src="./domain-model-diagrams/chitter-challenge-add-peep.png" alt="Domain Model Diagram for Adding a Peep">
 
-#### Walkthrough
+#### Walkthrough - NEED TO EDIT
 
-- When the User visits the '/peeps' path, their browser sends a request to the Controller.
+- When the User visits the '/peeps/new' path, their browser sends a request to the Controller.
 - The Controller gets the request and requests all the 'peeps' from the Peep class (Peep.all).
 - The Peep class returns all the 'peeps' in an array to the controller, (which have been stored as an instance variable on the Peep class object).
 - The Controller renders the array of 'peeps' to a webpage, which it sends as a response to the user
