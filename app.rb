@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/test' do
-    Peep.test
+    @peeps = Peep.all
   end
 
   run! if app_file == $0

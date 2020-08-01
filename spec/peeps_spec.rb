@@ -6,7 +6,7 @@ describe Peep do
     it 'returns all peeps' do
       connection = PG.connect(dbname: 'chitter_test')
 
-      peep = Peep.create(message: 'Wow it was hot yesterday...')
+      Peep.create(message: 'Wow it was hot yesterday...')
       Peep.create(message: 'Busy doing some coding today')
       Peep.create(message: 'Heading to the pub later!')
 
@@ -14,8 +14,7 @@ describe Peep do
 
       expect(peeps.length).to eq 3
       expect(peeps.first).to be_a Peep
-      expect(peeps.first.id).to eq peep.id
-      expect(peeps.first.message).to eq 'Wow it was hot yesterday...'
+      expect(peeps.first.message).to eq 'Heading to the pub later!'
 
     end
   end

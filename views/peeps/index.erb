@@ -11,7 +11,7 @@ body {
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.message %></li>
+    <li><%= peep.message %>  -  <%= peep.time[0..15] %></li>
   <% end %>
 </ul>
 
