@@ -8,6 +8,7 @@ Sinatra and Rack for handling requests and responses
 Capybara for feature testing
 RSpec for unit testing
 PostgreSQL for the database
+Ruby Gemfile ```pg``` for connecting and executing SQL on PostgreSQL database
 
 #### Database Set Up
 
@@ -31,9 +32,10 @@ PostgreSQL for the database
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+
 ```
 
-<img src="./domain-model-diagrams/chitter-challenge-spec-1.png" alt="Domain Model Diagram for User Story">
+<img src="./domain-model-diagrams/chitter-challenge-add-peep.png" alt="Domain Model Diagram for Adding a Peep">
 
 #### Walkthrough
 
