@@ -6,6 +6,6 @@ feature 'welcoming user' do
 
   scenario 'it can redirect the user somewhere' do
     visit('/')
-    expect(page).to have_button('Post and see some useless messages')
+    expect(page).to have_button('Enter in Chitter')
   end
 end
