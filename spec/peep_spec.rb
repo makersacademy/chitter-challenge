@@ -4,8 +4,8 @@ describe Peep do
 
   describe '.all' do
     it 'returns a list of peeps' do
-      DatabaseConnection.query("INSERT INTO peeps (text) VALUES ('Test peep text');")
-      DatabaseConnection.query("INSERT INTO peeps (text) VALUES ('Another test peep text');")
+      Peep.create('Test peep text')
+      Peep.create('Another test peep text')
       peeps = Peep.all
       
       expect(peeps).to include "Test peep text"
