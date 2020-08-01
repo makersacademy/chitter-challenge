@@ -2,6 +2,12 @@
 
 To write a small Twitter clone that will allow the users to post messages to a public stream.
 
+### Technologies Used
+
+Sinatra and Rack for handling resquests and responses
+Capybara for feature testing
+RSpec for unit testing
+
 ### User Stories
 
 ```
