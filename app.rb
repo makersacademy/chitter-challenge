@@ -3,6 +3,22 @@ require './lib/users.rb'
 require './lib/messages.rb'
 
 class Chitter < Sinatra::Base
+  
+  get '/' do
+    erb :index
+  end
+
+  get '/chitter' do
+    erb :chitter
+  end
+
+  post '/chitter' do
+    
+  end
+
+  get '/messages' do
+    erb :posting_messages
+  end
 
   run! if app_file == $0
 end
