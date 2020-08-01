@@ -42,6 +42,12 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
+Setting up database:
+------
+* Set up databases, using 01_database_creation.sql
+* Add tables to both the test and the actual database using 02_setup_user_table.sql and 03_setup_peep_table.sql
+
+
 Notes on functionality:
 ------
 

@@ -1,17 +1,21 @@
+
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+# require 'features/web_helpers.rb'
+# require 'database_helpers.rb'
+require_relative '../app'
+# require_relative './setup_test_database.rb'
+# require_relative '../database_connection_setup.rb'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+ENV['ENV'] = 'test'
 
 RSpec.configure do |config|
-  config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  config.before(:each) do
+    # setup_test_database
   end
 end
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::Console])
+SimpleCov.start
+Capybara.app = ChitterApp
