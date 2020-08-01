@@ -4,9 +4,26 @@ To write a small Twitter clone that will allow the users to post messages to a p
 
 ### Technologies Used
 
-Sinatra and Rack for handling resquests and responses
+Sinatra and Rack for handling requests and responses
 Capybara for feature testing
 RSpec for unit testing
+PostgreSQL for the database
+
+#### Database Set Up
+
+1. Connect to ```psql```
+2. Create the database using the ```psql``` command <br>
+```CREATE DATABASE chitter;```
+3. Connect to the database using the ```psql``` command <br>
+```\c chitter;```
+4. Run the queries saved as files within the <br>
+```
+.
+├── db
+    └── migrations
+        └── 01_create_chitter_table.sql
+        └── etc
+``` 
 
 ### User Stories
 
