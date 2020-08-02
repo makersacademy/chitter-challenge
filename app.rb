@@ -4,6 +4,8 @@ require './database_connection_setup'
 
 class ChitterApp < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     erb :index
   end

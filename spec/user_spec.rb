@@ -19,9 +19,13 @@ describe User do
     it 'Finds a user by its ID' do
       user = User.create(email: 'test@example.com',
         password: 'password', name: 'test', username: 'test123')
-      result = User.find(id: user)
+      result = User.find(id: user.id)
       expect(result.id).to eq user.id
-      expect(result.email).to eq 'text@example.com'
+      expect(result.email).to eq user.email
+    end
+
+    it 'Returns nil when there is no user in session' do
+      expect(User.find(id: nil)).to eq nil
     end
   end
 end
