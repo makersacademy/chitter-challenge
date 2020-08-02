@@ -8,7 +8,16 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :list
+    erb :'peeps/list'
+  end
+
+  post '/peeps' do
+    Peep.create(message: params[:message])
+    redirect '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
   run! if app_file == $0
