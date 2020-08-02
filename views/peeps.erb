@@ -4,7 +4,7 @@
   <% end %>
   <h2> Peep feed: </h2>
   <% @peeps.each do |peep| %>
-  <ul>
+  <ul reversed>
     <%= peep.content %> - <%= peep.date %>
   </ul>
   <% end %>
