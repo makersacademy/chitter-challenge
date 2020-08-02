@@ -3,7 +3,7 @@ require "pg"
 
 describe Post do
   it "can return a list of posts" do
-    connection = PG.connect(dbname: 'chitters')
+    connection = PG.connect(dbname: 'chitters_test')
 
     connection.exec("INSERT INTO chitters (chitter_text) VALUES('First chitter!');")
     connection.exec("INSERT INTO chitters (chitter_text) VALUES('Second chitter!');")
