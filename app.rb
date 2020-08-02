@@ -24,10 +24,27 @@ class ChitterApp < Sinatra::Base
     redirect '/home'
   end
 
-  post '/user' do
+  post '/users' do
     user = User.create(name: params[:name], email: params[:email_address], password: params[:password])
     session[:user_id] = user.id
     redirect '/home'
+  end
+
+  post'/sessions' do
+    user = User.authenticate(email: params[:login_email_address], password: params[:login_password])
+    if !user
+      flash[:notice] = "Invalid information submitted"
+      redirect '/'
+    else
+      session[:user_id] = user.id
+      redirect '/home'
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have successfully signed out'
+    redirect '/'
   end
 
 end

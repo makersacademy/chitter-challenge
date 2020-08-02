@@ -5,14 +5,13 @@ feature 'sign in' do
   let(:user) {  User.create(name: 'test', email: 'test@test.com', password: 'password123') }
 
   scenario 'a user is able to sign in' do
+    sign_in
+    expect(page).to have_content "Welcome to your dashboard, Test"
+  end
 
-    user
-    visit '/'
-    fill_in 'login_name', with: 'test'
-    fill_in 'login_email', with: 'test@test.com'
-    fill_in 'login_password', with: 'password123'
-    click_button 'login'
-
+  scenario 'sign in failure' do
+    bad_email_sign_in
+    expect(page).to have_content 'Invalid information'
   end
 
 end

@@ -12,20 +12,19 @@
       </ul>
     </nav>
   </div>
-  <form action="/session" method="post">
-    <label for="login_name">Name</label>
-    <input type=text name=name id=login_name>
+  <form action="/sessions" method="post">
     <label for="login_email_address">Email Address</label>
-    <input type=text name=email_address id=login_email_address>
+    <input type=text name=login_email_address id=login_email_address>
     <label for="login_password">Password</label>
-    <input type=text name=password id=login_password>
+    <input type=text name=login_password id=login_password>
     <input type="submit" name=login id=login value=Login>
   </form>
   <br>
-
-  <br>
+  <h3>
+    <%= flash[:notice] %>
+  </h3>
   <h4 style="margin-top: 30px;"><b>Sign up below</b></h4>
-  <form action="/user" method="post">
+  <form action="/users" method="post">
     <label for="name">Name</label>
     <input type=text name=name id=name>
     <label for="email_address">Email Address</label>

@@ -35,3 +35,17 @@ describe '#find' do
   end
 
 end
+
+describe '#authenticate' do
+
+  let(:user) {  User.create(name: 'test', email: 'test@test.com', password: 'password123') }
+
+  it 'returns a user if email is found' do
+    user
+    authenticated_user = User.authenticate(email: user.email, password: 'password123')
+    expect(user.id).to eq authenticated_user.id
+    expect(user.email).to eq authenticated_user.email
+  end
+
+
+end

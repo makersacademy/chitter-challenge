@@ -20,9 +20,16 @@ class User
 
   def self.find(id:)
     return nil unless id
-
     record = DatabaseConnection.query("SELECT * FROM USERS WHERE ID = #{id}")[0]
     User.new(id: record['id'], name: record['name'], email:record['email_address'])
+  end
+
+  def self.authenticate(email:, password:)
+    record = DatabaseConnection.query("SELECT * FROM users WHERE email_address='#{email}';")
+    return unless record.any?
+    return User.new(id: record[0]['id'], name: record[0]['name'], email: record[0]['email_address']) if password == record[0]['password'] # because of my unencrypted users lol.
+    return unless BCrypt::Password.new(record[0]['password']) == password
+    User.new(id: record[0]['id'], name: record[0]['name'], email: record[0]['email_address'])
   end
 
 end

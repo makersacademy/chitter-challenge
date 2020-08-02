@@ -1,12 +1,16 @@
 feature 'registration' do
 
-  scenario 'user can sign-up' do
+  before 'visit homepage' do
     generate_example_peeps
-    visit '/'
-    fill_in('name', with: 'test')
-    fill_in('email_address', with: 'test@test.com')
-    fill_in('password', with: 'password123')
-    click_button 'Sign-up'
+    visit('/')
+  end
+
+  it 'presence of button to sign-up' do
+    expect(page).to have_button('sign-up')
+  end
+
+  scenario 'user can sign-up' do
+    register
     expect(page).to have_content "Welcome to your dashboard, Test"
   end
 
