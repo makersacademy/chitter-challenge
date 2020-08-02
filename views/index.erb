@@ -1,0 +1,29 @@
+<div style="margin: auto; text-align: center; color: black">
+  <div class="intro-info" style="text-align: center;">
+    <h1><b>Welcome to Chitter</b></h1>
+    <div class="logo">
+      <img src="images/tsmile2.png" style="position: relative; width: 5%; height: auto;">
+    </div>
+    <nav class="main-nav float-right d-none d-lg-block">
+      <ul style="display: inline-block">
+        <li class style="margin: 10px;">
+          <a href="#login">Login</a>
+        </li>
+        <li class>
+
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <h4 style="margin-top: 30px;"><b>Sign up below</b></h4>
+  <form action="/user/new" method="post">
+    <label for="name">Name</label>
+    <input type=text name=name id=name>
+    <label for="email_address">Email Address</label>
+    <input type=text name=email_address id=email_address>
+    <label for="password">Password</label>
+    <input type=text name=password id=password>
+    <input type="submit" name=sign-up id=sign-up value=Sign-up>
+  </form>
+</div>
