@@ -1,9 +1,10 @@
-require 'sinatra'
+require 'sinatra/base'
 
-class Chitterapp < Sinatra::Base
+class ChitterApp < Sinatra::Base
 
   get '/' do
-    erb:index
+    "My first peep."
   end
 
+  run! if app_file == $0
 end
