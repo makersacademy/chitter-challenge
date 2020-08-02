@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/peep.rb'
+require_relative './lib/user.rb'
 require './database_connection_setup'
 
 class ChitterApp < Sinatra::Base
@@ -22,7 +23,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps' do
-    @user = User.find(session[:user_id])
+    @user = User.find(id: session[:user_id])
     @peeps = Peep.all
     erb :peeps
   end
