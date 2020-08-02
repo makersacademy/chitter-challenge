@@ -1,10 +1,8 @@
+require 'web_helpers'
+
 feature 'Posting a peep' do
   scenario 'view posted peep' do
-    User.create(
-      username: 'FirstAuthor',
-      email: 'test@makers.com',
-      password: '12345'
-    )
+    register_user
     visit('/peeps/new')
     fill_in('text', with: "New peep text")
     click_button('Post your Peep!')

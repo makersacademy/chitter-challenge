@@ -1,11 +1,9 @@
+require 'web_helpers'
+
 feature 'registration' do
   scenario 'a user can sign up' do
-    visit '/users/new'
-    fill_in('username', with: 'FirstAuthor')
-    fill_in('email', with: 'test@example.com')
-    fill_in('password', with: 'password123')
-    click_button('Submit')
+    register_user
 
-    expect(page).to have_content "Welcome, TestAuthor"
+    expect(page).to have_content "Welcome, FirstAuthor"
   end
 end
