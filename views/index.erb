@@ -1,0 +1,35 @@
+
+<html>
+<body>
+
+<h1>Leave your peep on the wall:</h1>
+<form action="/wall" method ="post" id="userid">
+  Name:
+  <br>
+  <br>
+  <input type="text" name="username">
+
+<br>
+<br>
+Peep:
+<br>
+<br>
+<textarea rows="4" cols="50" name="peep">
+</textarea>
+<br>
+<br>
+<input type="submit" value="Submit" />
+</form>
+<br>
+<br>
+
+
+</body>
+</html>
+
+<h1>THE WALL:</h1>
+<ul>
+  <% @peeps.reverse.each do |line| %>
+    <p><%= "#{line['username']} [#{Time.new.strftime("%Y-%m-%d %H:%M").to_s}]: #{line['peep']}" %></p>
+  <% end %>
+</ul>
