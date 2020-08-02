@@ -90,7 +90,7 @@ I want the authors of peeps displayed.
 
 As the User
 So that other Users can identify me as the author of my posted messages
-I want to have to sign up and log in to use Chitter. 
+I want to have to sign up to use Chitter. 
 ```
 
 <img src="./domain-model-diagrams/chitter-challenge-add-peep.png" alt="Domain Model Diagram for Adding a Peep">
