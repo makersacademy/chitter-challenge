@@ -3,11 +3,10 @@ require 'bcrypt'
 
 class User
   attr_reader :id, :username, :email
-  def initialize(id:, username:, email:, password:)
+  def initialize(id:, username:, email:)
     @id = id
     @username = username
     @email = email
-    @password = password
   end
 
   def self.all
@@ -17,7 +16,6 @@ class User
         id: user['id'],
         username: user['username'], 
         email: user['email'], 
-        password: user['password']
         )
     end
   end
@@ -32,19 +30,28 @@ class User
       id: result[0]['id'],
       username: result[0]['username'],
       email: result[0]['email'],
-      password: result[0]['password']
     )
   end
 
   def self.find(id)
     return nil unless id
-
+    
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
     User.new(
       id: result[0]['id'], 
       username: result[0]['username'], 
       email: result[0]['email'],
-      password: result[0]['password']
     )
+  end
+
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query(
+      "SELECT * FROM users WHERE email='#{email}';"
+      )
+    User.new(
+      id: result[0]['id'],
+      username: result[0]['username'],
+      email: result[0]['email'],
+      )
   end
 end

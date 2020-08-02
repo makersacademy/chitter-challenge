@@ -92,6 +92,10 @@ I want the authors of peeps displayed.
 As the User
 So that other Users can identify me as the author of my posted messages
 I want to have to sign up to post on Chitter. 
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
 ```
 
 <img src="./domain-model-diagrams/chitter-challenge-add-peep.png" alt="Domain Model Diagram for Adding a Peep">

@@ -1,6 +1,7 @@
 <h1> Posted Peeps </h1>
 <% if @user %>
-  <h2> Welcome, <%= @user.username %></h2>
+  <h2> Welcome <%= @user.username %></h2>
+  <h3> Logged in as: <%= @user.email %></h3>
 <% end %>
 <ul>
   <% @peeps.reverse.each do |peep| %>

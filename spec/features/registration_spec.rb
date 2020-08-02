@@ -4,6 +4,6 @@ feature 'registration' do
   scenario 'a user can sign up' do
     register_user
 
-    expect(page).to have_content "Welcome, FirstAuthor"
+    expect(page).to have_content "Welcome FirstAuthor"
   end
 end

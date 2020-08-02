@@ -48,4 +48,16 @@ describe User do
       expect(result.email).to eq user.email
     end
   end
+
+  describe '.authenticate' do
+    it 'returns a user given a correct email and password, if one exists' do
+      user = create_user
+      authenticated_user = User.authenticate(
+        email: 'test@makers.com',
+        password: 'password123'
+      )
+
+      expect(authenticated_user.id).to eq user.id
+    end
+  end
 end
