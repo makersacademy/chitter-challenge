@@ -2,13 +2,14 @@ require_relative './database_start_script'
 
 class Peep
 
-  attr_reader :published, :edited, :id, :content
+  attr_reader :published, :edited, :id, :content, :poster
 
   def initialize(id:,content:,published:,edited:)
     @id = id
     @content = content
     @published = DateTime.parse(published).strftime("%k:%M:%S %d-%m-%Y")
     @edited = DateTime.parse(edited).strftime("%k:%M:%S %d-%m-%Y")
+    @poster = poster
   end
 
   def self.add(content)
@@ -27,12 +28,11 @@ class Peep
                                   published: record['published'],
                                   edited: record['edited'])
     end
-
-    #def poster
-    #  DatabaseConnection.query("SELECT users.name FROM user_peeps INNER JOIN users WHERE user_peeps.id IN '#{@id}' ")[0]['name']
-    # end
-
   end
 
+  def poster
+    DatabaseConnection.query("SELECT users.name FROM user_peeps INNER JOIN users ON users.id = (SELECT user_peeps.user_id WHERE user_peeps.peep_id = '#{@id}');")
+        .map { |record| record['name'] }.join.capitalize
+  end
 
 end
