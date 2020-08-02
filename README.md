@@ -1,10 +1,43 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+<h2>Instructions to connect </h2>
+
+- Connect to psql
+- Create the database using the psql command CREATE DATABASE chitter;
+- Connect to the database using the pqsl command \c chitter
+- Run the query saved in the file create_tables.sql
+
+<h4>Initial thoughts</h4>
+- Per user requirements
+- A user can view all peeps using threads via my infrastructural design choice (listed via Thread.all)
+- A user can create many threads (listed via user.get_threads(user_id))
+<h5>Definitions</h5>
+- A thread is an identifier with "descendent" peeps (thread.get_peeps(thread_id)).
+<br>In other words a thread establishes which "conversation" a peep belongs to, running in parallel with database schema
+- A peep is a message representing responses to a given thread.<br>
+ NB: Publish date enables chronological ordering in reverse for both thread and peeps (youngest to oldest, top to bottom)
+
+<img src="https://i.gyazo.com/f0bb3e2d3f18129066b2578ff7ad6dca.png"></img>
+
+<h2>Database schema</h2>
+
+<img src="https://i.gyazo.com/9e0c4f0960fe6656001ca0066e2a5bae.png"></img>
+
+<h3>Notes on functionality</h3>
+
+- A user can appear many times on user_peeps
+- A thread can appear many times on user_peeps
+- An individual peep can only appear once on user_peeps as it belongs to a particular thread
+- The application is unable to, outside of explicit tagging, be certain which user a response is targeted towards. <br>
+The application can only determine the targeted thread.
+
+- A thread is created at the same time as a peep, 
+however for ease of use thread creation is also time-stamped, removing the necessity to find the first peep to implicitly determine a threads birth time.
+
+
+========
+
 
 Challenge:
 -------

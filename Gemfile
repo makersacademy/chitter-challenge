@@ -1,12 +1,17 @@
 source 'https://rubygems.org'
 
+gem 'activerecord'
 gem 'addressable'
+gem 'rake'
 gem 'bcrypt'
-#gem 'data_mapper'
-#gem 'dm-core'
+gem 'data_mapper'
 gem 'pg'
 gem 'rack-flash3'
+gem 'rom'
+gem 'rom-sql'
 gem 'sinatra'
+gem 'sinatra-activerecord'
+
 
 
 group :test do
