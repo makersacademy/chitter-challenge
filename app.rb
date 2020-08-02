@@ -7,6 +7,15 @@ class Chitter < Sinatra::Base
     'Testing Chitter App'
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/welcome' do
+    @username = params[:username]
+    erb :welcome
+  end
+
   get '/peeps' do
     @peeps = Peep.all
 
