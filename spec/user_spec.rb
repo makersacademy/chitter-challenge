@@ -59,5 +59,14 @@ describe User do
 
       expect(authenticated_user.id).to eq user.id
     end
+
+    it 'returns nil if no user account has provided email' do
+      create_user
+      authenticated_user = User.authenticate(
+        email: 'wrongemail@makers.com',
+        password: 'password123'
+      )
+      expect(authenticated_user).to be_nil
+    end
   end
 end

@@ -48,6 +48,8 @@ class User
     result = DatabaseConnection.query(
       "SELECT * FROM users WHERE email='#{email}';"
       )
+    return unless result.any?
+    
     User.new(
       id: result[0]['id'],
       username: result[0]['username'],
