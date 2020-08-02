@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel=”stylesheet” type=”text/css” href=”/style.css” />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text {
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+<img src = "images/chitter_logo.png" alt = "Chitter logo"><br>
+
+<div class="text">
 <h1> Posted Peeps </h1>
 <% if @user %>
   <h2> Welcome <%= @user.username %></h2>
@@ -11,3 +33,6 @@
   </li>
   <% end %>
 </ul>
+</div>
+</body>
+</html>
