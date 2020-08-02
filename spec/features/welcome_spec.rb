@@ -1,4 +1,3 @@
-
 feature 'Welcome message' do
   scenario 'The user visits the homepage and a welcome message is displayed' do
     visit '/'
