@@ -13,12 +13,14 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email], password: params[:password],
+    user = User.create(email: params[:email], password: params[:password],
       name: params[:name], username: params[:username])
+    session[:user_id] = user.id
     redirect '/peeps'
   end
 
   get '/peeps' do
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :peeps
   end

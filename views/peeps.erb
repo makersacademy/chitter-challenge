@@ -1,4 +1,7 @@
 <center>
+  <% if @user %>
+    <h4> Welcome, <%= @user.username %> </h4>
+  <% end %>
   <h2> Peep feed: </h2>
   <% @peeps.each do |peep| %>
   <ul>
