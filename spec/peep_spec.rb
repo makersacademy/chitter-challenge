@@ -11,7 +11,7 @@ describe Peep do
   let(:peeps) { Peep.all }
 
   it 'adds a peep' do
-    peep = Peep.add("Hi, this is a tweet!")[0]
+    peep = Peep.add("Hi, this is a tweet!")
     expect(peep.id).to eq '4'
     expect(peep.content).to eq "Hi, this is a tweet!"
     #p peep.published[0..18]

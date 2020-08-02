@@ -19,7 +19,7 @@ class ChitterApp < Sinatra::Base
     erb(:home)
   end
 
-  get '/home/peep/new' do #convert to peep_id or user_id via params
+  post '/home/:user_id/peep/new' do #convert to peep_id or user_id via params
     p params
     redirect '/home'
   end

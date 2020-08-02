@@ -18,16 +18,18 @@
       </div>
     </div>
     <br>
-    <h2>Post a new peep</h2>
-    <form action="/home/peep/new">
-      <label for="new_peep"><b>Submit new peep</b></label>
-      <input type=text name=new_peep id=new_peep>
+    <% if @user %><h2>Post a new peep</h2>
+    <form action="/home/<%= @user.id %>/peep/new" method="post">
+      <input type=text name=content id=new_peep>
       <input type=submit value='Peep'>
     </form>
+    <br><br>
+    <form action="/sessions/destroy" method="post">
+      <input type=submit value='Sign out'>
+    </form>
+    <% else %>
+    <h3> Please login to be able to peep! </h3>
+    <% end %>
   </div>
 
-  <form action="/sessions/destroy" method="post">
-    <label for="sign_out"><b>Sign out</b></label>
-    <input type=submit value='Sign out'>
-  </form>
 </div>

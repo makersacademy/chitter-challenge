@@ -13,12 +13,8 @@ class Peep
   end
 
   def self.add(content)
-    DatabaseConnection.query("INSERT INTO peeps (content) VALUES('#{content}') RETURNING *;")
-        .map do |record| Peep.new(id: record['id'],
-                                  content: record['content'],
-                                  published: record['published'],
-                                  edited: record['edited'])
-        end
+    record = DatabaseConnection.query("INSERT INTO peeps (content) VALUES('#{content}') RETURNING *;")[0]
+    Peep.new(id: record['id'], content: record['content'], published: record['published'], edited: record['edited'])
   end
 
   def self.all
