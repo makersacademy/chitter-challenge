@@ -1,6 +1,6 @@
 <div style="margin: auto; text-align: center; color: black">
   <div class="intro-info" style="text-align: center;">
-    <h1><b>Welcome to Chitter ™</b></h1>
+    <h1><b>Welcome to Chitter™</b></h1>
     <div class="logo">
       <img src="images/tsmile2.png" style="position: relative; width: 5%; height: auto;">
     </div>
@@ -9,15 +9,23 @@
         <li class style="margin: 10px;">
           <a href="#login">Login</a>
         </li>
-        <li class>
-
-        </li>
       </ul>
     </nav>
   </div>
+  <form action="/session" method="post">
+    <label for="login_name">Name</label>
+    <input type=text name=name id=login_name>
+    <label for="login_email_address">Email Address</label>
+    <input type=text name=email_address id=login_email_address>
+    <label for="login_password">Password</label>
+    <input type=text name=password id=login_password>
+    <input type="submit" name=login id=login value=Login>
+  </form>
+  <br>
 
+  <br>
   <h4 style="margin-top: 30px;"><b>Sign up below</b></h4>
-  <form action="/user/new" method="post">
+  <form action="/user" method="post">
     <label for="name">Name</label>
     <input type=text name=name id=name>
     <label for="email_address">Email Address</label>

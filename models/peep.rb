@@ -2,14 +2,14 @@ require_relative './database_start_script'
 
 class Peep
 
-  attr_reader :published, :edited, :id, :content, :poster
+  attr_reader :published, :edited, :id, :content, :owner
 
   def initialize(id:,content:,published:,edited:)
     @id = id
     @content = content
     @published = DateTime.parse(published).strftime("%k:%M:%S %d-%m-%Y")
     @edited = DateTime.parse(edited).strftime("%k:%M:%S %d-%m-%Y")
-    @poster = poster
+    @owner = poster
   end
 
   def self.add(content)

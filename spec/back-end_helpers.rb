@@ -41,6 +41,10 @@ def generate_examples_wait
   database.query("INSERT INTO peeps (content) VALUES('Thank you!')")
 end
 
+def db_data(params = '*', id:, table:)
+  database.query("SELECT #{params} FROM #{table} WHERE id=#{id}")
+end
+
 def truncate_db
   return unless ENV['RACK_ENV'] == 'test'
 
