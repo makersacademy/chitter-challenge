@@ -43,9 +43,10 @@ The following database should be set up for when the application is run locally:
         └── 01_create_chitter_table.sql
         └── etc
 ``` 
+5. It is recommended to truncate the tables in the ```chitter``` database after using it locally using the following ```sql``` command: <br>
+```TRUNCATE peeps, users RESTART IDENTITY```
 
-
-### User Stories
+### Features
 
 ```
 As a Maker
@@ -59,11 +60,42 @@ I want to see all peeps in reverse chronological order
 As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+```
+
+### User Stories
+```
+As the User
+So that I can see all the peeps posted
+I would like to see a list of posted messages (peeps).
+
+As the User
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter.
+
+As a User
+So the peeps can be ordered in reverse chronological order
+I want the peeps to record when they were posted.
+
+As the User
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made.
+
+As the User
+So that other Users can identify who has authored posted messages
+I want the authors of peeps displayed. 
+
+As the User
+So that other Users can identify me as the author of my posted messages
+I want to have to sign up and log in to use Chitter. 
 ```
 
 <img src="./domain-model-diagrams/chitter-challenge-add-peep.png" alt="Domain Model Diagram for Adding a Peep">
 
-#### Walkthrough
+#### Walkthrough of Domain Model Diagram
 
 - When the User visits the '/peeps/new' path, their browser sends a request to the Controller.
 - The Controller receives the request and requests the html information from the peep/new view.
@@ -74,3 +106,20 @@ I want to see the time at which it was made
 - The Peep class returns all the 'peeps' in an array to the controller, (which have been stored as an instance variable on the Peep class object).
 - The Controller renders the array of 'peeps' to a webpage, which it sends as a response to the user.
 
+
+One To Many Relations
+
+```
+ONE    ––≡≡   MANY
+User   ––≡≡  Peeps
+```
+
+
+
+
+
+SQL TimeStamp
+```
+INSERT INTO peeps (text, timestamp) VALUES ('Test2', current_timestamp);
+SELECT text, to_char(timestamp, 'yyyymmdd hh:mi') as timestamp_round from peeps;
+```

@@ -1,7 +1,10 @@
 <h1> Posted Peeps </h1>
 
+<h2> Welcome </h2>
 <ul>
-  <% @peep.reverse.each do |peep| %>
-  <li class='peep'><%= peep.text + " " + peep.timestamp%></li>
+  <% @peeps.reverse.each do |peep| %>
+  <li class='peep'><%= peep.text %>
+    <%= peep.timestamp[0, 16]%>
+  </li>
   <% end %>
 </ul>

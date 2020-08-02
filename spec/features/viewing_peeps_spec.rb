@@ -1,7 +1,12 @@
 feature 'Viewing peeps' do
   scenario 'user wants to see peeps in reverse chronological order' do
-    Peep.create('First test peep')
-    Peep.create('Second test peep')
+    User.create(
+      username: 'FirstAuthor',
+      email: 'test@makers.com',
+      password: '12345'
+    )
+    Peep.create(text: 'First test peep', user_id: '1')
+    Peep.create(text: 'Second test peep', user_id: '1')
     visit('/peeps')
     
     expect(page).to have_content('First test peep')
@@ -10,8 +15,29 @@ feature 'Viewing peeps' do
   end
 
   scenario 'user wants to see time peep was posted' do
-    peep = Peep.create('First test peep')
+    User.create(
+      username: 'FirstAuthor',
+      email: 'test@makers.com',
+      password: '12345'
+    )
+    peep = Peep.create(text: 'First test peep', user_id: '1')
     visit('/peeps')
-    expect(page).to have_content(peep.timestamp)
+
+    expect(page).to have_content(peep.timestamp[0, 16])
+  end
+
+  scenario 'user wants to see author of peep' do
+    User.create(
+      username: 'FirstAuthor',
+      email: 'test@makers.com',
+      password: '12345'
+    )
+    Peep.create(
+      text: 'First test peep', 
+      user_id: '1'
+      )
+    visit('/peeps')
+
+    expect(page).to have_content('FirstAuthor')
   end
 end
