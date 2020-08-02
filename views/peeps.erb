@@ -4,7 +4,7 @@ Your peep stream:
   <% @peeps.each do |peep| %>
   <li>
     <%= peep.content %>
-    <%= "posted at '#{peep.time}'" %>
+    <%= " - - posted at '#{peep.time}'" %>
   </li>
   <% end %>
 </ul>

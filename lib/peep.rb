@@ -11,7 +11,7 @@ class Peep
   def self.all
     select_env
     results = @connection.exec("SELECT * FROM peeps;")
-    results.map { |peep| Peep.new(id: peep['id'], content: peep['content'], time: peep['time']) }
+    results.map { |peep| Peep.new(id: peep['id'], content: peep['content'], time: peep['time']) }.reverse
   end
 
   def self.create(content:, time: Time.now)
