@@ -26,6 +26,7 @@ Chitter Challenge
 
 <h3>Notes on functionality</h3>
 
+- All primary IDs are serialized and unique
 - A user can appear many times on user_peeps
 - A thread can appear many times on user_peeps
 - An individual peep can only appear once on user_peeps as it belongs to a particular thread

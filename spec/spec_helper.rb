@@ -11,9 +11,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                ])
 SimpleCov.start
 
-#require_relative './features/web_helpers'
+require_relative './features/web_helpers'
 require_relative '../app'
-#require_relative './backend_helpers'
+require_relative './back-end_helpers'
 
 
 
@@ -22,7 +22,7 @@ Capybara.app = ChitterApp
 RSpec.configure do |config|
 
   config.after(:each) do
-    #truncation
+    truncate_db
   end
 
 end

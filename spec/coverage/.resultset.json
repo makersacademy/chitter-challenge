@@ -1,7 +1,50 @@
 {
   "RSpec": {
     "coverage": {
+      "C:/Users/Danie/Desktop/Makers/chitter-challenge/spec/features/web_helpers.rb": {
+        "lines": [
+          null
+        ]
+      },
+      "C:/Users/Danie/Desktop/Makers/chitter-challenge/spec/back-end_helpers.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          5,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      }
     },
-    "timestamp": 1596289934
+    "timestamp": 1596379146
   }
 }

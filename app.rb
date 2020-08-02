@@ -12,5 +12,8 @@ class ChitterApp < Sinatra::Base
     erb(:index)
   end
 
+  get '/home' do
+    erb(:home)
+  end
 
 end
