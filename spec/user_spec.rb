@@ -47,5 +47,11 @@ describe User do
         password: 'password', name: 'test', username: 'test123')
       expect(User.authenticate(email: 'wrongemail@example.com', password: 'password')).to be_nil
     end
+
+    it 'Returns nil if given incorrect password' do
+      user = User.create(email: 'test@example.com',
+        password: 'password', name: 'test', username: 'test123')
+      expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword'))
+    end
   end
 end

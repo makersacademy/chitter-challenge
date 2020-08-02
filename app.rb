@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './lib/peep.rb'
 require_relative './lib/user.rb'
 require './database_connection_setup'
@@ -6,6 +7,8 @@ require './database_connection_setup'
 class ChitterApp < Sinatra::Base
 
   enable :sessions
+
+  register Sinatra::Flash
 
   get '/' do
     erb :index

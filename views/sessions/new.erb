@@ -1,4 +1,7 @@
 <center>
+  <h2>
+    <%= flash[:notice] %>
+  </h2>
   <h3> Sign in to Chitter </h3>
   <form action="/sessions" method="post">
     <input type="email" name="email" />
