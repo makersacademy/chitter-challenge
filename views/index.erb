@@ -30,6 +30,6 @@ Peep:
 <h1>THE WALL:</h1>
 <ul>
   <% @peeps.reverse.each do |line| %>
-    <p><%= "#{line['username']} [#{Time.new.strftime("%Y-%m-%d %H:%M").to_s}]: #{line['peep']}" %></p>
+    <p><%= "#{line['username']} [#{line['time']}]: #{line['peep']}" %></p>
   <% end %>
 </ul>
