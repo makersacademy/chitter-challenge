@@ -9,6 +9,7 @@ Capybara for feature testing
 RSpec for unit testing
 PostgreSQL for the database
 Ruby Gemfile ```pg``` for connecting and executing SQL on PostgreSQL database
+Ruby Gemfile ```bcrypt``` for encrypting User passwords
 
 #### Setting Up Databases
 
@@ -90,7 +91,7 @@ I want the authors of peeps displayed.
 
 As the User
 So that other Users can identify me as the author of my posted messages
-I want to have to sign up to use Chitter. 
+I want to have to sign up to post on Chitter. 
 ```
 
 <img src="./domain-model-diagrams/chitter-challenge-add-peep.png" alt="Domain Model Diagram for Adding a Peep">
@@ -113,10 +114,6 @@ One To Many Relations
 ONE    ––≡≡   MANY
 User   ––≡≡  Peeps
 ```
-
-
-
-
 
 SQL TimeStamp
 ```
