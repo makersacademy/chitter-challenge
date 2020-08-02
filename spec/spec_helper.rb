@@ -1,7 +1,9 @@
+require_relative './setup_test_database'
+
+ENV['ENVIRONMENT'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
-
-ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 

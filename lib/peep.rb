@@ -2,8 +2,13 @@ require 'pg'
 
 class Peep
   def self.all
-    connection = PG.connect(dbname: 'chitter')
-    result = connection.exec("SELECT * FROM chitters ORDER BY id DESC;")
-    result.map { |chitter| chitter['message'] }
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'chitter_test')
+    else
+      connection = PG.connect(dbname: 'chitter')
+    end
+    
+    peeps = connection.exec("SELECT * FROM peeps ORDER BY id DESC;")
+    peeps.map { |peep| peep['message'] }
   end
 end

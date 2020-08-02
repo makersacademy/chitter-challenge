@@ -3,6 +3,11 @@ require './lib/peep.rb'
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
+      connection = PG.connect(dbname: 'chitter_test')
+      connection.exec("INSERT INTO peeps (message) VALUES('Good morning');")
+      connection.exec("INSERT INTO peeps (message) VALUES('Good afternoon');")
+      connection.exec("INSERT INTO peeps (message) VALUES('Good night');")
+
       peeps = Peep.all
 
       expect(peeps).to include("Good morning")
