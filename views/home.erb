@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+
+<h3> Username: <%=@user[0].username%> </h3>
+<h3> Email: <%=@user[0].email%> </h3>
+
+<ul>
+  <% @peep.reverse.each do |peep| %>
+    <div></div>
+    <div class="boxed">
+    <h3><%= peep.body %></h3>
+    </div>
+    <div></div>
+  <% end %>
+</ul>
+
+
+<form class="button1" action='/addpeep'>
+<button action='/addpeep' name="Add Peep" >Add Peep </button>
+</form>
+
+<form action='/deletepeep'>
+<button action='/deletepeep' name="Delete Peep" >Delete Peep </button>
+</form>
+
+<form action='/editpeep'>
+<button action='/editpeep' name="Edit Peep" >Edit Peep </button>
+</form>

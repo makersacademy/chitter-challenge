@@ -1,0 +1,18 @@
+<div></div>
+
+<form action="/editpeep" method="post">
+
+
+<ul>
+  <% @peep.each do |item| %>
+    <input type='hidden' name ='id' value =<%=item.id%>>
+    <input type='text_long' id='peep_text' name='peep_text' value =<%=item.body%> >
+    <input type='submit' id='Edit Peep' value='Edit Peep' ></input>
+    <div></div>
+    </h3>
+  <% end %>
+</ul>
+
+</form>
+
+</form>

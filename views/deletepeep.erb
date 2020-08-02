@@ -1,0 +1,19 @@
+<div></div>
+
+<form action="/deletepeep" method="post">
+
+
+<ul>
+  <% @peep.each do |item| %>
+    <h3>
+    <%= item.body %>
+    <input type='hidden' name ="id" value = <%=item.id%>>
+    <input type='submit' id='Delete Peep' value='Delete Peep' ></input>
+    <div></div>
+    </h3>
+  <% end %>
+</ul>
+
+</form>
+
+</form>

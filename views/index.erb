@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+
+<h1 class="logo-title"> Chitter <h1>
+
+
+<form class="login-form" action='/' method='post'>
+<h3> Email: <input ="text" id="Email" name="email"> </h2>
+<h3> Password: <input ="text" id="Password" name="password"></h2>
+<button id="Log in" name="Log in" >Log in</button>
+</form>
+
+<% if @loginagain == true %>
+<h4> Sorry, please try again </h3>
+<% end %>
