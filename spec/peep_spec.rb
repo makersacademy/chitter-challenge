@@ -20,7 +20,8 @@ describe Peep do
   it 'lists all the peeps' do
     generate_all_examples
     # generate_examples_wait # USE FOR SLEEP!
-    peeps = Peep.all
+    p peeps = Peep.all
+    p peeps[0].content
     expect(peeps[0]).to be_an_instance_of Peep
     expect(peeps).to satisfy { |peep_s| peep_s.size >= 3}
   end

@@ -9,6 +9,7 @@ feature 'add peep' do
 
   it 'presence of peeps' do
     expect(page).to have_content /peeps/i
+    expect(page).to have_content /that is a great peep/i
   end
 
 

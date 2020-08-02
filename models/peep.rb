@@ -27,6 +27,11 @@ class Peep
                                   published: record['published'],
                                   edited: record['edited'])
     end
+
+    #def poster
+    #  DatabaseConnection.query("SELECT users.name FROM user_peeps INNER JOIN users WHERE user_peeps.id IN '#{@id}' ")[0]['name']
+    # end
+
   end
 
 
