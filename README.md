@@ -4,9 +4,9 @@ Chitter Challenge
 Challenge:
 -------
 
-This challenge involved building a write a small Twitter clone that will allow the users to post messages to a public stream.
+This challenge involved building a write a small Twitter clone that will allow the users to post messages to a public stream. The user stores are listed below.
 
-The technologies used were ruby, sinatra, postgres, and the application was tested with capybara and rspec.
+The technologies used were ruby, sinatra, postgreSQL, html, and the application was tested with capybara and rspec.
 
 Features:
 -------
@@ -61,3 +61,9 @@ Instructions to setup test and production database:
 
 Progress and next steps
 ----------------------
+- The four user stores in STRAIGHT UP above have been completed
+- At present when signing up, only the users username is stored, and this is in a parameter
+- The next stage I plan to implement is to create a USER model annd table which would store the users name, email and password
+- The USER table would join to the PEEP table and I would then plan to implement functionality to interact with users and to display their details next to a peep
+- I would then look to create the ability to login and logout a user
+- Finally I would like to add styling to the views using CSS style sheets
