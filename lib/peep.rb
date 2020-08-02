@@ -13,9 +13,9 @@ class Peep
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'peeps_test')
+      connection = PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'peeps')
+      connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec('SELECT * FROM peeps')
     result.map { |line| line }
@@ -24,9 +24,9 @@ class Peep
   def self.add(username:, message:)
     time = Time.new.strftime("%Y-%m-%d %H:%M").to_s
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'peeps_test')
+      connection = PG.connect(dbname: 'chitter_test')
     else
-      connection = PG.connect(dbname: 'peeps')
+      connection = PG.connect(dbname: 'chitter')
     end
     result = connection.exec("INSERT INTO peeps (username, peep, time)
     VALUES('#{username}', '#{message}',

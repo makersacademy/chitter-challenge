@@ -5,7 +5,7 @@ feature 'Chitter' do
   end
 
   scenario 'user can post a message' do
-    visit('/wall/new')
+    visit('/wall')
     fill_in('username', with: 'Jo')
     fill_in('peep', with: 'hi')
     click_button('Submit')

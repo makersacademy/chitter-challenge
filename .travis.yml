@@ -6,7 +6,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database peeps_test;' -U postgres
+  - psql -U postgres -c 'CREATE DATABASE peeps_test;'
 
 script:
   - bundle exec rspec
