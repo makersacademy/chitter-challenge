@@ -1,3 +1,21 @@
+```
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+```
+Completed. Post a peep by visiting the homepage and putting your peep into the bar.
+```
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+
+
+
+
+
+pg_ctl -D /home/linuxbrew/.linuxbrew/var/postgres start
+
 Chitter Challenge
 =================
 
