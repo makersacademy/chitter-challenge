@@ -1,4 +1,7 @@
-<center>
+<center
+<h3>
+  <%= flash[:notice] %>
+</h3>
   <% if @user %>
     <h4> Welcome, <%= @user.username %> </h4>
   <% end %>
@@ -12,6 +15,10 @@
     <input type=submit value='Write a new peep'>
   </form>
 </center>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>
+
 
 <style>
 body {

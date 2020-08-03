@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/peep.rb'
 require_relative './lib/user.rb'
+require_relative 'database_connection_setup'
 
 class ChitterApp < Sinatra::Base
 
@@ -38,6 +39,12 @@ class ChitterApp < Sinatra::Base
       flash[:notice] = 'Please check your email or password.'
       redirect('/sessions/new')
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect '/peeps'
   end
 
   get '/peeps' do
