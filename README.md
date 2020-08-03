@@ -63,7 +63,7 @@ Progress and next steps
 ----------------------
 - The four user stores in STRAIGHT UP above have been completed
 - At present when signing up, only the users username is stored, and this is in a parameter
-- The next stage I plan to implement is to create a USER model annd table which would store the users name, email and password
+- The next stage I plan to implement is to create a USER model and table which would store the users name, email and password
 - The USER table would join to the PEEP table and I would then plan to implement functionality to interact with users and to display their details next to a peep
 - I would then look to create the ability to login and logout a user
 - Finally I would like to add styling to the views using CSS style sheets
