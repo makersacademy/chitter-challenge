@@ -15,7 +15,7 @@ class Message
   end
 
   def self.create(user_id:, content:)
-    result = DatabaseConnection.query("INSERT INTO messages (user_id, bookmark) VALUES('#{user_id}', '#{content}') 
+    result = DatabaseConnection.query("INSERT INTO messages (user_id, content) VALUES('#{user_id}', '#{content}') 
     RETURNING id, user_id, content, time;")
     Message.new(id: result[0]['id'], user_id: result[0]['user_id'], content: result[0]['content'], time: result[0]['time'])
   end

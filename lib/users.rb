@@ -1,5 +1,5 @@
 class User
-  attr_reader id:, :name, :email
+  attr_reader :id, :name, :email
 
   def initialize(id:, name:, email:)
     @name = name
@@ -12,9 +12,10 @@ class User
   end
 
   def self.all
-    result = DatabaseConnection.query(SELECT * FROM users)
+    result = DatabaseConnection.query("SELECT * FROM users")
     result.map do |user|
       User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'])
+    end
   end
 
   def self.create(name:, email:, password:)

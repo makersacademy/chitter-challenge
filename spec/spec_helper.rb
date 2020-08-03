@@ -12,7 +12,7 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = Chitter
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.before(:each) do
     set_up_chitter_test
   end

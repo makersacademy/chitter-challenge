@@ -5,7 +5,7 @@ describe DatabaseConnection do
   end
 
   it 'can access the data base' do
-    Message.create(1, "A test, again")
+    Message.create(user_id: 1, content: "A test, again")
     connection = PG.connect(dbname: 'chitter_test')
     result = connection.exec("SELECT content FROM messages;")
     expect(DatabaseConnection.query("SELECT content FROM messages;")).to eq(result)

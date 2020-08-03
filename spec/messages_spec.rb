@@ -3,13 +3,13 @@ require 'messages'
 describe Message do
 
   before do
-    Message.create(1, 'This a test')
-    Message.create(1, 'This is a second test')  
+    Message.create(user_id: 1, content: 'This a test')
+    Message.create(user_id: 1, content: 'This is a second test')  
   end
 
   messages = Message.all
 
-  it 'returns a list of messages'
+  it 'returns a list of messages' do
     expect(messages.first).to be_a Message
     expect(messages.length).to eq(2)
     expect(messages.first.user_id).to eq(1)
