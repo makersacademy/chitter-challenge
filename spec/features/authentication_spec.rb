@@ -8,8 +8,7 @@ feature 'Authentication' do
     click_button 'Sign in'
     expect(page).to have_content 'Welcome, test123'
   end
-end
-feature 'Authentication' do
+  
   scenario 'User gets error if they put the wrong email' do
     User.create(email: 'test@example.com',
       password: 'password', name: 'test', username: 'test123')

@@ -3,7 +3,7 @@ Chitter Challenge
 
 We are going to write a small Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+Features (Checklist):
 -------
 
 ```
@@ -27,7 +27,7 @@ I want to sign up for Chitter
 
 HARDER
 
-[] 5. As a Maker
+[X] 5. As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
