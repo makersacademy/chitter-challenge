@@ -30,6 +30,8 @@ Chitter Challenge
 - All primary IDs are serialized and unique
 - A user can appear many times on user_peeps
 - A thread can appear many times on user_peeps
+- Functionality is limited if you're not logged in, but you have access to the feed
+- Due to design choice, it is relatively simple to implement notification and have a feed showing peeps distinctly relevant to the user
 - An individual peep can only appear once on user_peeps as it belongs to a particular thread
 - The application is unable to, outside of explicit tagging, be certain which user a response is targeted towards. <br>
 The application can only determine the targeted thread.
