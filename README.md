@@ -1,13 +1,6 @@
 Chitter Challenge
 =================
 
-<h2>Instructions to connect </h2>
-
-- Connect to psql
-- Create the database using the psql command CREATE DATABASE chitter;
-- Connect to the database using the pqsl command \c chitter
-- Run the query saved in the file create_tables.sql
-
 <h4>Initial thoughts</h4>
 - Per user requirements
 - A user can view all peeps using threads via my infrastructural design choice (listed via Thread.all)
@@ -22,7 +15,15 @@ Chitter Challenge
 
 <h2>Database schema</h2>
 
+
 <img src="https://i.gyazo.com/9e0c4f0960fe6656001ca0066e2a5bae.png"></img>
+
+<h2>Instructions to connect </h2>
+
+- Connect to psql
+- Create the database using the psql command CREATE DATABASE chitter;
+- Connect to the database using the pqsl command \c chitter
+- Run the query saved in the file create_tables.sql
 
 <h3>Notes on functionality</h3>
 
@@ -45,6 +46,8 @@ however for ease of use thread creation is also time-stamped, removing the neces
 - Profile image upload
 - Use industry-standard data mapper
 
+
+<h2>User stories</h2>
 ```
 STRAIGHT UP
 
@@ -82,34 +85,3 @@ I want to post messages to a particular conversation
 (In order to start a conversation as a maker I want to reply to a peep from another maker)
 
 * Work on the CSS to make it look good.
-
-
-Automated Tests:
------
-
-Opening a pull request against this repository will will trigger Travis CI to perform a build of your application and run your full suite of RSpec tests. If any of your tests rely on a connection with your database - and they should - this is likely to cause a problem. The build of your application created by has no connection to the local database you will have created on your machine, so when your tests try to interact with it they'll be unable to do so and will fail.
-
-If you want a green tick against your pull request you'll need to configure Travis' build process by adding the necessary steps for creating your database to the `.travis.yml` file.
-
-- [Travis Basics](https://docs.travis-ci.com/user/tutorial/)
-- [Travis - Setting up Databases](https://docs.travis-ci.com/user/database-setup/)
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
