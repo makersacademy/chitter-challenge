@@ -1,1 +1,11 @@
-# home page here with all the messages and the possibility to post some
+<ul>
+  <% @message.each do |message| %>
+  <li>
+    <%= @user.identification(message.user_id) %> wrote: <%= message.content %> at: <%= message.time %>
+  </li>
+  <% end %>
+</ul>
+
+<form action='/chitter' method='post'>
+  <input type='text' name='message' placeholder='Your message here'/>
+</form>>
