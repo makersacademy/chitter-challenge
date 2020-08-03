@@ -3,6 +3,9 @@ language: ruby
 rvm:
   - 2.7.1
 
+env:
+  - RACK_ENV = 'test
+
 install:
   - bundle install
 
@@ -11,7 +14,7 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
-  - psql -U postgres -c 'chitter_test' <  db/migrations/create_tables.sql
+  - psql -U postgres -d chitter_test -f db/migrations/create_user_table.sql
 
 script:
   - bundle exec rspec
