@@ -1,0 +1,15 @@
+Your peep stream:
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep.content %>
+    <%= " - - posted at '#{peep.time}'" %>
+  </li>
+  <% end %>
+</ul>
+
+<form action='/peeps' method='post'>
+  <input type='text' name='peep_content'>
+  <input type='submit' value='Post peep'>
+</form>
