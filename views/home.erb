@@ -1,6 +1,8 @@
 <div style="position: center; margin: auto; text-align: center; color: black">
   <div class="intro-info" style="position: center; text-align: center;">
-    <h1>Welcome to your dashboard, <%= @user.name.capitalize if @user %></h1> <h7>User ID: <%= @user.id if @user.id %></h7>
+    <% if @user %>
+    <h1>Welcome to your dashboard, <%= @user.name.capitalize if @user %></h1> <h7>User ID: <%= @user.id  %></h7>
+    <% end %>
     <h3>Here's your feed</h3>
    <form action="/home"><br><input type=submit value='refresh'></form><br>
         <% if @peeps.size > 0 %>
@@ -11,11 +13,13 @@
               <% thread.get_peeps(thread.id).each do |peep| %>
                 <li style="padding: 10px;">
                  <%= peep.owner %>: <b><%= peep.content %></b> (Posted on:  <%= peep.published %>)
+                  <% if @user %>
                   <form action="/home/<%= @user.id %>/<%= thread.id %>/reply/new" method="post">
                     <label for="reply">Peep back</label>
                     <input type=text name=reply id=reply>
                     <input type=submit value='Reply'>
                   </form>
+                  <% end  %>
                </li>
               <% end %>
                 </div>
