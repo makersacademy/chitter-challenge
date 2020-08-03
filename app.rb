@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/users.rb'
 require './lib/messages.rb'
+require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   
