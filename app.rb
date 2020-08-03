@@ -10,9 +10,10 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
-  # get '/peep/new' do
-  #   erb :index
-  # end
+  get '/peep/new' do
+    @peep = Peep.all
+    erb :peep
+  end
 
 
   run! if app_file == $0

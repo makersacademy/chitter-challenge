@@ -7,4 +7,12 @@ feature 'Post Peep' do
     expect(page).to have_content 'Welcome to Chitter'
   end
 
+
+  scenario "a user can post a peep to Chitter" do
+    visit '/peep/new'
+    fill_in "message", :with => 'Chitter'
+    click_button('Post')
+    expect(page).to have_button?
+  end
+
 end
