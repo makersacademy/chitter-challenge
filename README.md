@@ -2,47 +2,47 @@ Chitter Challenge
 =================
 
 <h2>User stories</h2>
-```
-STRAIGHT UP
 
-As a Maker
+<h5>
+
+- As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+- As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a Maker
+- As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-As a Maker
+- As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
-As a Maker
+- As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
-As a Maker
+- As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-EXTRA
-
-As a Maker
+- As a Maker
 So that I can post targeted messages
 I want to post messages to a particular conversation
 (In order to start a conversation as a maker I want to reply to a peep from another maker)
 
-Configured Rake to serve static resources including CSS and images to make it look good.
-```
+- Configured Rake to serve static resources including CSS and images to make it look good.</h5>
 
-<h4>Initial thoughts</h4>
-- Per user requirements
+
+<u><h4>Initial thoughts</h4></u>
+
+
+<img src="https://i.gyazo.com/f0bb3e2d3f18129066b2578ff7ad6dca.png"></img>
+
+Per user requirements
 - A user can view all peeps using threads via my infrastructural design choice (listed via Thread.all)
 - A user can create many threads (listed via user.get_threads(user_id))
 <h5>Definitions</h5>
@@ -51,7 +51,6 @@ Configured Rake to serve static resources including CSS and images to make it lo
 - A peep is a message representing responses to a given thread.<br>
  NB: Publish date enables chronological ordering in reverse for both thread and peeps (youngest to oldest, top to bottom)
 
-<img src="https://i.gyazo.com/f0bb3e2d3f18129066b2578ff7ad6dca.png"></img>
 
 <h2>Database schema</h2>
 
