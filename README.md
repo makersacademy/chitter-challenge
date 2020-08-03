@@ -31,12 +31,12 @@ HARDER
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 
-[] So that I can avoid others posting messages on Chitter as me
+[X] So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 ADVANCED
 
-As a Maker
+[ ] 6. As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
@@ -51,21 +51,8 @@ Setting up database:
 Notes on functionality:
 ------
 
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a username (e.g. samm@makersacademy.com, password123, Sam Morgan, sjmog).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the CSS to make it look good.
-
-Good luck and let the chitter begin!
+* [X] You don't have to be logged in to see the peeps.
+* [X] Makers sign up to chitter with their email, password, name and a username (e.g. dill@makersacademy.com, password123, Dillon Barker, dilfyg).
+* [X] The username and email are unique.
+* [ ] Peeps (posts to chitter) have the name of the maker and their user handle.
+* [X] Your README should indicate the technologies used, and give instructions on how to install and run the tests.
