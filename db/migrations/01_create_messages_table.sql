@@ -1,0 +1,1 @@
+CREATE TABLE messgaes(id SERIAL PRIMARY KEY, message VARCHAR(240));
