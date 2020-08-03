@@ -8,7 +8,7 @@ feature 'Authentication' do
     click_button 'Sign in'
     expect(page).to have_content 'Welcome, test123'
   end
-  
+
   scenario 'User gets error if they put the wrong email' do
     User.create(email: 'test@example.com',
       password: 'password', name: 'test', username: 'test123')
@@ -28,5 +28,9 @@ feature 'Authentication' do
     click_button 'Sign in'
     expect(page).not_to have_content 'Welcome, test123'
     expect(page).to have_content 'Please check your email or password.'
+  end
+
+  scenario 'User can sign out of Chitter' do
+    
   end
 end
