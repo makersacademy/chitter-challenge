@@ -19,7 +19,7 @@ img {
 
 <img src = "images/chitter_logo.png" alt = "Chitter logo"><br>
 <div class="landing-page"> 
-<form action='/sessions' method='post'>
+<form action='/sessions/new' method='post'>
   <label for="login">Already a member?</label>
   <input type="submit" id="login" value="Log in">
 </form>
@@ -28,6 +28,9 @@ img {
   <label for="login">New to Chitter?</label>
   <input type="submit" id="new_user" value="Create a User">
 </form>
+<h2>
+  <%= flash[:notice] %>
+</h2>
 </div>
 </body>
 </html>

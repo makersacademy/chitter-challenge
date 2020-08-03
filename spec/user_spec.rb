@@ -68,5 +68,14 @@ describe User do
       )
       expect(authenticated_user).to be_nil
     end
+
+    it 'returns nil if user has provided incorrect password' do
+      create_user
+      authenticated_user = User.authenticate(
+        email: 'test@makers.com',
+        password: 'wrongpassword'
+      )
+      expect(authenticated_user).to be_nil
+    end
   end
 end

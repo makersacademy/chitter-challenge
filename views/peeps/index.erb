@@ -33,6 +33,12 @@ img {
   </li>
   <% end %>
 </ul>
+<h2>
+  <%= flash[:notice] %>
+</h2>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Log out" />
+</form>
 </div>
 </body>
 </html>

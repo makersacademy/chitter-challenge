@@ -51,7 +51,7 @@ class Chitter < Sinatra::Base
     erb :"/sessions/new"
   end
 
-  post '/sessions' do
+  post '/sessions/new' do
     redirect '/sessions/new'
   end
 
@@ -62,9 +62,14 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash[:notice] = "Please check your email or password"
-      p flash[:notice]
       redirect '/sessions/new'
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have logged out.'
+    redirect '/'
   end
 
   run! if app_file == $0
