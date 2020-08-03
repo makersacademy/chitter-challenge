@@ -1,0 +1,27 @@
+<center>
+  <h2>
+    <%= flash[:notice] %>
+  </h2>
+  <h3> Sign in to Chitter </h3>
+  <form action="/sessions" method="post">
+    <input type="email" name="email" />
+    <input type="password" name="password" />
+    <input type="submit" value="Sign in" />
+  </form>
+
+</center>
+
+
+<style>
+body {
+  height:100%;
+}
+body {
+  margin:50px;
+  font-size:100%;
+  line-height:1.5;
+  font-family: Roboto;
+  background:#617478;
+  background: radial-gradient(circle, lighten(#617478,1%), darken(#617478,20%));
+}
+</style>
