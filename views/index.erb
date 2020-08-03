@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel=”stylesheet” type=”text/css” href=”/style.css” />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.landing-page {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+
+<img src = "images/chitter_logo.png" alt = "Chitter logo"><br>
+<div class="landing-page"> 
+<form action='/sessions/new' method='post'>
+  <label for="login">Already a member?</label>
+  <input type="submit" id="login" value="Log in">
+</form>
+<br>
+<form action='/users/new' method='post'>
+  <label for="login">New to Chitter?</label>
+  <input type="submit" id="new_user" value="Create a User">
+</form>
+<h2>
+  <%= flash[:notice] %>
+</h2>
+</div>
+</body>
+</html>

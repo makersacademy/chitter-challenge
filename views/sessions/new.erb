@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel=”stylesheet” type=”text/css” href=”/style.css” />
+<style>
+
+.text {
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+<div class="text">
+<h1> Log in to Chitter </h1>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>
+<form action='/sessions' method='post'>
+  <input type="text" name="email" placeholder="Email">
+  <input type="text" name="password" placeholder="Password">
+  <input type="submit" value="Log in">
+</form>
+</div>
+</body>
+</html>
