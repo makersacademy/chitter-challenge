@@ -17,7 +17,7 @@ class ParentThread
   end
 
   def self.all
-    DatabaseConnection.query("SELECT id, published from threads").map { |record| ParentThread.new(published: record['published'], id: record['id'])}
+    DatabaseConnection.query("SELECT id, published from threads ORDER BY published DESC").map { |record| ParentThread.new(published: record['published'], id: record['id'])}
   end
 
   def get_peeps(id)

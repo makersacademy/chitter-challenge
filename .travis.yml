@@ -1,10 +1,17 @@
 language: ruby
 
+rvm:
+  - 2.7.1
+
+install:
+  - bundle install
+
 services:
   - postgresql
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c 'chitter_test' <  db/migrations/create_tables.sql
 
 script:
   - bundle exec rspec

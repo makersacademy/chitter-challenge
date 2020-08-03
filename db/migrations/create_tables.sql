@@ -1,25 +1,25 @@
-CREATE TABLE "users" (
+CREATE TABLE IF NOT EXISTS "users" (
   "id" SERIAL PRIMARY KEY,
   "name" varchar(60),
   "email_address" varchar(60),
   "password" varchar(140)
 );
 
-CREATE TABLE "peeps" (
+CREATE TABLE IF NOT EXISTS "peeps" (
   "id" SERIAL PRIMARY KEY,
   "content" varchar,
   "published" timestamp default (now() at time zone 'utc'),
   "edited" timestamp default (now() at time zone 'utc')
 );
 
-CREATE TABLE "user_peeps" (
+CREATE TABLE IF NOT EXISTS "user_peeps" (
   "id" SERIAL PRIMARY KEY,
   "thread_id" integer,
   "peep_id" integer,
   "user_id" integer
 );
 
-CREATE TABLE "threads" (
+CREATE TABLE IF NOT EXISTS "threads" (
   "id" SERIAL PRIMARY KEY,
   "published" timestamp default (now() at time zone 'utc')
 );
