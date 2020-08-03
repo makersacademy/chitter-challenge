@@ -2,16 +2,24 @@
   <div class="intro-info" style="position: center; text-align: center;">
     <h1>Welcome to your dashboard, <%= @user.name.capitalize if @user %></h1>
       <h3>Here's your feed</h3>
+    <h7>Metrics: User#: <%= @user.id %></h7> <form action="/home"><br><input type=submit value='refresh'></form><br>
     <div style="margin: 0 auto; width:800px; height: auto; border-radius:15px; border: 5px solid black; ">
       <div style="background-color: white; opacity: 0.7; border-radius:10px;">
         <% if @peeps.size > 0 %>
-        <ul style="list-style-type: none">
-          <% @peeps.each do |peep| %>
-            <li style="padding: 5px;">
-              <%= peep.owner %>: <b><%= peep.content %></b> (Posted on:  <%= peep.published %>)
-            </li>
-          <% end %>
-        </ul>
+          <ul style="list-style-type: none">
+            <% @threads.each do |thread| %>
+              <% thread.get_peeps(thread.id).each do |peep| %>
+                <li style="padding: 10px;">
+                 <%= peep.owner %>: <b><%= peep.content %></b> (Posted on:  <%= peep.published %>)
+                  <form action="/home/<%= @user.id %>/<%= thread.id %>/reply/new" method="post">
+                    <label for="reply">Peep back</label>
+                    <input type=text name=reply id=reply>
+                    <input type=submit value='Reply'>
+                  </form>
+               </li>
+              <% end %>
+            <% end %>
+          </ul>
         <% else %>
           Oh no, there are no recent peeps! <br> Why not <i>create one?</i>
         <% end %>
@@ -19,7 +27,7 @@
     </div>
     <br>
     <% if @user %><h2>Post a new peep</h2>
-    <form action="/home/<%= @user.id %>/peep/new" method="post">
+    <form action="/home/<%= @user.id %>/thread/new" method="post">
       <input type=text name=content id=new_peep>
       <input type=submit value='Peep'>
     </form>

@@ -3,8 +3,10 @@ require_relative '../models/thread'
 
 describe 'thread'  do
 
-  let (:thread) { Thread }
-
+  it 'adds a new thread' do
+    expect(ParentThread.add.id).to eq '1'
+    expect(ParentThread.add.id).to eq '2'
+  end
 
 
 end

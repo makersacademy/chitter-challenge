@@ -3,6 +3,8 @@ require 'rack-flash'
 require_relative './models/database_start_script'
 require_relative './models/peep'
 require_relative './models/user'
+require_relative './models/thread'
+require_relative './models/user-peeps'
 
 class ChitterApp < Sinatra::Base
   set :static, true
@@ -15,13 +17,23 @@ class ChitterApp < Sinatra::Base
 
   get '/home' do
     @user = User.find(id: session[:user_id])
+    @threads = ParentThread.all
     @peeps = Peep.all
     erb(:home)
   end
 
-  post '/home/:user_id/peep/new' do #convert to peep_id or user_id via params
+  post '/home/:user_id/:thread_id/reply/new' do
     p params
+    peep_id = Peep.add(params[:reply]).id
+    UserPeep.add(user_id: params[:user_id], peep_id: peep_id, thread_id: params[:thread_id])
     redirect '/home'
+  end
+
+  post '/home/:user_id/thread/new' do
+    thread_id = ParentThread.add.id
+    peep_id = Peep.add(params[:content]).id
+    UserPeep.add(user_id: params[:user_id], peep_id: peep_id, thread_id: thread_id)
+    redirect '/home' #convert to peep_id or user_id via params
   end
 
   post '/users' do

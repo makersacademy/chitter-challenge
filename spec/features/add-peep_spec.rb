@@ -21,5 +21,13 @@ feature 'add peep' do
     expect(page).to have_button 'Peep'
   end
 
+end
 
+feature 'add a new parent peep' do
+  scenario 'new parent peep' do
+      register
+      fill_in 'new_peep', with: 'example peep!'
+      click_button 'Peep'
+      expect(page).to have_content 'example peep!'
+  end
 end
