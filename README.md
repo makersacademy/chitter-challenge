@@ -3,8 +3,7 @@ Chitter
 
 ## How to run
 
-Clone repository
-Run the following commands:  
+Clone repository and run the following commands:  
 bundle install  
 rake db:create  
 rake db:migrate  
