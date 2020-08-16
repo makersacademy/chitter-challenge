@@ -1,13 +1,10 @@
-env:
-  global:
-    - CC_TEST_REPORTER_ID=f77449bd6fe9dcbc7c9bb5206294e21d5d222148764e141a93801a9d3d579ea0
+# env:
+#   global:
+#     - CC_TEST_REPORTER_ID=f77449bd6fe9dcbc7c9bb5206294e21d5d222148764e141a93801a9d3d579ea0
 
 language: ruby
 rvm: 
   - 2.5.0
-
-services:
-  - postgresql
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -23,3 +20,6 @@ script:
  
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT -d
+
+services:
+  - postgresql
