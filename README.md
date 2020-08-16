@@ -1,6 +1,8 @@
 Chitter Challenge
 =================
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/4b5f01d41b05890e8acc/maintainability)](https://codeclimate.com/github/ad13380/chitter-challenge/maintainability)
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
