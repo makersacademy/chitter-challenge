@@ -1,6 +1,6 @@
 Chitter Challenge
 =================
-
+[![Build Status](https://travis-ci.org/ad13380/chitter-challenge.svg?branch=master)](https://travis-ci.org/ad13380/chitter-challenge)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4b5f01d41b05890e8acc/maintainability)](https://codeclimate.com/github/ad13380/chitter-challenge/maintainability)
 
 * Challenge time: rest of the day and weekend, until Monday 9am
