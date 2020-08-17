@@ -2,6 +2,7 @@ Chitter Challenge
 =================
 [![Build Status](https://travis-ci.org/ad13380/chitter-challenge.svg?branch=master)](https://travis-ci.org/ad13380/chitter-challenge)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4b5f01d41b05890e8acc/maintainability)](https://codeclimate.com/github/ad13380/chitter-challenge/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4b5f01d41b05890e8acc/test_coverage)](https://codeclimate.com/github/ad13380/chitter-challenge/test_coverage)
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use Google, your notes, books, etc. but work on your own
