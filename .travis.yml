@@ -1,6 +1,6 @@
-# env:
-#   global:
-#     - CC_TEST_REPORTER_ID=f77449bd6fe9dcbc7c9bb5206294e21d5d222148764e141a93801a9d3d579ea0
+env:
+  global:
+    - CC_TEST_REPORTER_ID=e46656e43f752c45ed68a6962cbfe1dc5fa4fd6d829709dfe4d0cf7c58b3eb4c
 
 language: ruby
 
@@ -17,10 +17,10 @@ script:
   - psql -d chitter_test -f db/migrations/01_create_users_table.sql
   - psql -d chitter_test -f db/migrations/02_create_peeps_table.sql
   - psql -d chitter_test -f db/migrations/03_create_feed_table.sql
-  - bundle exec rspec
+  - bundle exec rspec spec
  
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT -d
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 services:
   - postgresql
