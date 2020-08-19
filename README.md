@@ -4,7 +4,26 @@ Chitter Challenge
 [![Maintainability](https://api.codeclimate.com/v1/badges/4b5f01d41b05890e8acc/maintainability)](https://codeclimate.com/github/ad13380/chitter-challenge/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4b5f01d41b05890e8acc/test_coverage)](https://codeclimate.com/github/ad13380/chitter-challenge/test_coverage)
 
-This purpose of this project is to emulate the core functionality of twitter using Ruby with a Sinatra web framework and a PostgreSQL database.
+This purpose of this project is to emulate the core functionality of twitter using Ruby with a Sinatra web framework and a PostgreSQL database. The PostgreSQL database uses foreign key constraints to link a given user with their corresponding tweets (if they have created any)
+
+Setup
+-------
+In order to run this application, you would need to have PostgresQL installed. To install postgresQL via Homebrew, you can run the following commands:
+```
+$ brew install postgresql
+$ brew services start postgresql
+$ psql postgres
+```
+Clone this repo, then run:
+```
+$ bundle install
+```
+Set up the database by running:
+```
+CREATE DATABASE chitter;
+\c chitter;
+```
+Then follow the commands outlined in the ```.sql``` files located in the subdirectory ```./db/migrations/```
 
 User Stories:
 -------
