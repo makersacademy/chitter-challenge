@@ -1,9 +1,24 @@
 require 'sinatra/base'
+require_relative './lib/peeps'
 
 class Chitter < Sinatra::Base
 
 get '/' do
-   'Welcome to Chitter!'
+   erb(:index)
+end
+
+get '/peeps' do
+  @peeps = Peeps.all
+  erb(:peeps)
+end
+
+get '/peeps/new_peep' do
+  erb :'peeps/new_peep'
+end
+
+post '/peeps' do
+  Peeps.new_peep(text: params[:text])
+  redirect '/peeps'
 end
 
    run! if app_file == $0
