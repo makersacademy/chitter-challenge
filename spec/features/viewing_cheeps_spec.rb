@@ -1,6 +1,10 @@
 feature 'View cheeps' do 
-  scenario 'visit the index page' do
+  scenario 'A user can view cheeps' do
     visit('/')
-    expect(page).to have_content 'Chitter'
+    cheeps = Cheep.all 
+
+    expect(cheeps).to include('Hello Chitter!')
+    expect(cheeps).to include('What shall I eat for dinner?')
+    expect(cheeps).to include(':)')
   end
 end
