@@ -73,4 +73,9 @@ Screenshots of app:
 
 App set up:
 -----
-
+```
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE Chitter;
+3. Connect to the database using the pqsl command \c Chitter;
+4. Run the query we have saved in the file 01_create_cheep_table.sql
+```
