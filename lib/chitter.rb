@@ -1,9 +1,8 @@
-class Cheep
+require 'pg'
 
- def self.all 
-   ['Hello Chitter!',
-    'What shall I eat for dinner?',
-    ':)',
-   ]
+
+class Cheep
+  def self.all 
+   connection = PG.connect(dbname: 'chitter')
   end
 end
