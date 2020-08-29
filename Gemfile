@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'activerecord'
 gem 'sinatra'
+gem 'shotgun'
 
 group :test do
   gem 'rspec'
