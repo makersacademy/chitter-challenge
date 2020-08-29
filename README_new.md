@@ -19,5 +19,8 @@
 >I want to sign up for Chitter
 
 ## Database Setup
-
-## 
+1. CREATE DATABASE chitter;
+2. 
+## Test Database Setup
+1. CREATE DATABASE chitter_test;
+2. 
