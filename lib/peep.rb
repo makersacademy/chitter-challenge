@@ -1,5 +1,6 @@
 require 'pg'
 require_relative 'database_connection'
+require 'date'
 
 class Peep
   attr_reader :id, :post, :time
@@ -7,7 +8,7 @@ class Peep
   def initialize(id:, post:, time:)
     @id = id
     @post = post
-    @time = time
+    @time = Time.parse(time).strftime("%d %B %Y, at %k:%M")
   end
 
   def self.all
