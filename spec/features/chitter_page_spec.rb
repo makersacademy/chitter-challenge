@@ -12,11 +12,11 @@ feature "Chitter page" do
   end
 
   scenario "User want to see the oldest posts first" do
-    Chitter.create("First post") 
-    Chitter.create("Second post")
+    post_1 = Chitter.create("First post") 
+    post_2 = Chitter.create("Second post")
     visit("/chitter")
     select "Old First", :from => "Display"
     click_button "Ok"
-    expect(page).to have_content "First post\nSecond post"
+    expect(page).to have_css('table', text: "Post Created At First post #{post_1[0]["created_at"][0..18]} Second post #{post_2[0]["created_at"][0..18]}")
   end
 end
