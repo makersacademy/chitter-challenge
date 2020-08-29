@@ -1,5 +1,11 @@
 <h1>Welcome to Chitter<h1>
+<br>
 <form action="/chitter/create" method="POST">
   <input type=text name="text">
   <input type=submit name="Send">
 </form>
+<br>
+<h2>Posts</h2>
+<% @posts.map do |each| %>
+<p><%= each["post"]%></p>
+<% end %>
