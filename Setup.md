@@ -4,11 +4,11 @@ Create PostgreSQL db
 
 rake db:create
 
-## migrate the development db
+## migrate development db
 
 rake db:migrate
 
-## migrate to the test db
+## migrate the test db
 
 rake db:migrate RACK_ENV=test
 
