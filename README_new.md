@@ -19,8 +19,25 @@
 >I want to sign up for Chitter
 
 ## Database Setup
-1. CREATE DATABASE chitter;
-2. 
+1. Connect to 'psql'.
+2. Create database using 'psql' command:
+```
+CREATE DATABASE chitter;
+```
+3. Connect to newly created database:
+```
+\c chitter;
+```
+4. Run scripts in 'db/migration' directory in order.
+
 ## Test Database Setup
-1. CREATE DATABASE chitter_test;
-2. 
+1. Connect to 'psql'.
+2. Create database using 'psql' command:
+```
+CREATE DATABASE chitter_test;
+```
+3. Connect to newly created database:
+```
+\c chitter;
+```
+4. Run scripts in 'db/migration' directory in order.
