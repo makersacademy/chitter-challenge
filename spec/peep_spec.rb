@@ -17,7 +17,7 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create([peep: "Testing a Peep"])
+      Peep.create(peep: "Testing a Peep")
 
       expect(Peep.all).to include "Testing a Peep"
     end
