@@ -5,15 +5,27 @@
   <input type=submit value="Send">
 </form>
 <br>
+
 <h2>Posts</h2>
+
 <form action="/chitter" method="GET" >
-<label>Display:</label>
-<select name="Display">
-  <option value="new">New First</option>
-  <option value="old">Old First</option>
-</select>
+  <label>Display:</label>
+  <select name="Display">
+    <option value="new">New First</option>
+    <option value="old">Old First</option>
+  </select>
 <input type=submit value="Ok" >
 </form>
-<% @posts.map do |each| %>
-<p><%= each["post"]%></p>
-<% end %>
+
+<table>
+  <tr>
+    <th>Post</th>
+    <th>Created At</th>
+  </tr>
+  <% @posts.map do |each| %>
+    <tr>
+      <td><%= each["post"]%></td>
+      <td><%= each["created_at"][0..18]%></td>
+    </tr>
+  <% end %>
+</table>
