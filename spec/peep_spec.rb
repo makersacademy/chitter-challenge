@@ -3,23 +3,26 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
-
-      connection.exec("INSERT INTO peeps (peep) VALUES('This is my first Peep');")
-      connection.exec("INSERT INTO peeps (peep) VALUES('And this is my second');")
+      peep = Peep.create(post: "This is my first Peep")
+      Peep.create(post: "And this is my second")
 
       peeps = Peep.all
 
-      expect(peeps).to include "This is my first Peep"
-      expect(peeps).to include "And this is my second"
+      expect(peeps.last.post).to include "This is my first Peep"
+      expect(peeps.last.id).to eq peep.id
+      expect(peeps.length).to eq 2
+      expect(peeps.first).to be_a Peep
     end
   end
 
   describe '.create' do
     it 'creates a new peep' do
-      Peep.create(peep: "Testing a Peep")
+      peep = Peep.create(post: "Testing a Peep")
+      table_data = DatabaseConnection.query("SELECT * FROM peeps WHERE id = #{peep.id};")
 
-      expect(Peep.all).to include "Testing a Peep"
+      expect(peep).to be_a Peep
+      expect(peep.id).to eq table_data.first['id']
+      expect(peep.post).to eq 'Testing a Peep'
     end
   end
 end

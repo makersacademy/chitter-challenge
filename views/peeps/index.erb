@@ -1,7 +1,49 @@
-<h1>Chitter</h1>
-
-<ul>
-  <% @peeps.each do |peep| %>
-    <li> <%= peep %> </li>
-  <% end %>
-</ul>
+<head>
+  <title>Chitter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto&display=swap" 
+        rel="stylesheet"/>
+  <style> 
+    h1 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 50px;
+      color: white;
+    }
+    li {
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      list-style-type: none;
+      outline-style: solid;
+      outline-width: thin;
+      margin-right: 500px;
+      padding: 25px 50px;
+    }
+    body {
+      background-color: #1DA1F2;
+    }
+    footer {
+      color: white;
+      background-color: rgb(21, 32, 43);
+      text-align: center;
+      padding: 10px;
+      font-family: 'Noto Sans JP', sans-serif;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chitter</h1>
+  <br>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li class="peep" id="peep-<%= peep.id %>">
+        <%= peep.post %> | <%= peep.time %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+  <footer>
+    Chitter Challenge | JR-G | Makers 2020
+  </footer>
+</body>
