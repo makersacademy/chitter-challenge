@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peep = session[:peep]
+    @peeps = [session[:peep]]
     erb :"peeps/index"
   end
 
