@@ -4,6 +4,26 @@ Makers End of Unit Challenge - Chitter Challenge
 Write a small Twitter clone that will allow the users to post messages to a public stream.
 
 
+Instructions
+---
+### Project Setup
+```
+$ git clone https://github.com/JR-G/chitter-challenge
+$ bundle
+```
+### Database Setup
+```
+$ psql
+
+CREATE DATABASE chitter;
+CREATE DATABASE chitter_test;
+```
+### To run the app
+```
+$ rackup -p 3000
+```
+Then in your browser navigate to `localhost:3000/chitter`
+
 User Stories
 ---
 ```
