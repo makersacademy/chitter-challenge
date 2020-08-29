@@ -35,6 +35,10 @@
 <body>
   <h1>Chitter</h1>
   <br>
+  <form action="peeps/new" method="get">
+    <input type="submit" value="Make a Peep">
+  </form>
+  <br>
   <ul>
     <% @peeps.each do |peep| %>
       <li class="peep" id="peep-<%= peep.id %>">

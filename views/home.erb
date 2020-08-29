@@ -7,14 +7,17 @@
       font-family: 'Noto Sans JP', sans-serif;
       font-size: 50px;
       color: white;
+      text-align: center;
+      padding: 150px
     }
-    h3 {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: white;
-    }
-    label {
+    li {
       font-family: 'Roboto', sans-serif;
       color: white;
+      list-style-type: none;
+      outline-style: solid;
+      outline-width: thin;
+      margin-right: 500px;
+      padding: 25px 50px;
     }
     body {
       background-color: #1DA1F2;
@@ -29,17 +32,15 @@
       bottom: 0;
       width: 100%;
     }
+    form {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <h1>Chitter</h1>
-  <br>
-  <form action='/peeps' method='post'>
-    <label for="peep">
-      <h3>What's Happening?</h3>
-      <input type="text" name="peep"/>
-    </label>
-    <input type="submit" value="Peep!">
+  <h1>Welcome to Chitter</h1>
+  <form action="/peeps" method="get">
+    <input type="submit" value="See what's going on"/>
   </form>
   <footer>
     Chitter Challenge | JR-G | Makers 2020
