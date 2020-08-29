@@ -38,6 +38,6 @@ CREATE DATABASE chitter_test;
 ```
 3. Connect to newly created database:
 ```
-\c chitter;
+\c chitter_test;
 ```
 4. Run scripts in 'db/migration' directory in order.
