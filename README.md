@@ -1,7 +1,7 @@
 Makers End of Unit Challenge - Chitter Challenge
 ====
 
-Write a small Twitter clone that will allow the users to post messages to a public stream.
+A small Twitter clone that will allow the users to post messages to a public stream.
 
 
 Instructions
