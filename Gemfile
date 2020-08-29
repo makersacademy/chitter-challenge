@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'activerecord'
 gem 'sinatra'
 gem 'shotgun'
+gem 'pg'
 
 group :test do
   gem 'rspec'
