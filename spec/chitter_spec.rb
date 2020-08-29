@@ -16,4 +16,12 @@ describe Chitter do
     end
   end
 
+  describe "#reverse_all" do 
+    it "Gets all entries in reverse order" do
+      Chitter.create("First post in chitter")
+      new_post = Chitter.create("Second post in chitter")
+      expect(Chitter.reverse_all.first).to eq new_post.entries.first 
+    end
+  end
+
 end

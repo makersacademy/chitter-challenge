@@ -10,7 +10,7 @@ class App < Sinatra::Base
   end
 
   get "/chitter" do 
-    @posts = Chitter.all
+    @posts = params[:Display] == "old" ? Chitter.all : Chitter.reverse_all
     erb :create
   end
 
