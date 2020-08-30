@@ -18,5 +18,13 @@ class App < Sinatra::Base
     Chitter.create(params[:text])
     redirect "/chitter" 
   end
+
+  get "/user/sign_up" do 
+    erb :sign_up
+  end
+
+  post "/user/new" do 
+    "Account created"
+  end
   
 end
