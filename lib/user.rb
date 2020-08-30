@@ -6,15 +6,16 @@ class User
 
   def initialize(id:, handle:, name:)
     @id = id
-    @handle = '@' + handle
+    @handle = handle
     @name = name
   end
 
   def self.create(handle:, email:, password:, name:)
     encrypted_password = BCrypt::Password.create(password)
+    modified_handle = '@' + handle
     entry = DatabaseConnection.query(
       "INSERT INTO users (handle, email, password, name) 
-        VALUES('#{handle}', '#{email}', '#{encrypted_password}', '#{name}') 
+        VALUES('#{modified_handle}', '#{email}', '#{encrypted_password}', '#{name}') 
        RETURNING id, handle, name;")
 
     User.new(id: entry[0]['id'], handle: entry[0]['handle'], name: entry[0]['name'])
@@ -29,5 +30,16 @@ class User
        WHERE id = #{id};")
 
     User.new(id: search[0]['id'], handle: search[0]['handle'], name: search[0]['name'])
+  end
+
+  def self.authenticate(email:, password:)
+    search = DatabaseConnection.query(
+      "SELECT * 
+        FROM users 
+       WHERE email = '#{email}'")
+
+    return unless search.any?  
+
+    User.new(id: search[0]['id'], email: search[0]['email'], password: search[0]['password'])
   end
 end
