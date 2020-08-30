@@ -35,4 +35,13 @@ describe User do
     end
 
   end
+
+  describe "#encrypt" do 
+    it "Encrypt user password" do 
+      User.create("Test", "test@test.com", "pass123")
+      get_password = DataBase.query("SELECT password FROM users WHERE name='Test'")
+      expect(get_password[0]["password"]).not_to eq "pass123"
+    end
+  end
+
 end
