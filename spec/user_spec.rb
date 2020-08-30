@@ -10,7 +10,7 @@ describe User do
 
     it "Return error if user is already registred" do 
       User.create("Test User", "test@test.com", "pass123")
-      expect(User.create("Test User", "test@test.com", "pass123")).to eq "This email is already registered"
+      expect(User.create("Test User", "test@test.com", "pass123")).to eq "Email Error"
     end
 
   end

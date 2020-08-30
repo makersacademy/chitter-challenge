@@ -29,14 +29,15 @@ class App < Sinatra::Base
   end
 
   post "/user/sign_up" do 
-    if User.create(params[:name], params[:email], params[:password]).is_a?(String)
+    begin
+      session[:user] = User.create(params[:name], params[:email], params[:password])
+      session[:user].name #checks for error
+      
+      erb :user_sign_up_status
+    rescue
       flash[:notice] = "This email is already registered"
       redirect "/user/sign_up"
-    else
-      session[:user] = User.create(params[:name], params[:email], params[:password])
-      erb :user_sign_up_status
     end
-
   end
 
   get "/user/login" do

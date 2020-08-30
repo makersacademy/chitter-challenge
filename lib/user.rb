@@ -11,7 +11,7 @@ class User
   end
 
   def self.create(name, email, password)
-    return "This email is already registered" unless email_check(email)
+    return "Email Error" unless email_check(email)
 
     user = DataBase.query("INSERT INTO users (name,email,password) VALUES ('#{name}', '#{email}','#{password}') RETURNING id, name, email;")
     User.new(user.first["id"], user.first["name"], user.first["email"] )
@@ -26,7 +26,7 @@ class User
     User.new(user.first["id"], user.first["name"], user.first["email"] )
   end
 
-  private 
+  private
   
   def self.email_check(email)
     user = DataBase.query("SELECT email FROM users WHERE email='#{email}';")
