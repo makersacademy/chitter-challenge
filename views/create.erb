@@ -1,4 +1,4 @@
-<h1>Welcome to Chitter<h1>
+<h1>Welcome to Chitter <%= @user["name"] unless @user.nil? %> <h1>
 <br>
 <form action="/chitter/create" method="POST">
   <input type=text name="text">

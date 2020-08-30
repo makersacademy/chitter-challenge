@@ -1,4 +1,4 @@
-require "database"
+require_relative "database"
 
 class User
 

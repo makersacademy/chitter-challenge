@@ -6,11 +6,14 @@ require './lib/user'
 
 class App < Sinatra::Base
 
+  enable :sessions
+
   get "/" do 
     "Home"
   end
 
   get "/chitter" do 
+    @user = session[:user]
     @posts = params[:Display] == "old" ? Chitter.all : Chitter.reverse_all
     erb :create
   end
@@ -24,9 +27,19 @@ class App < Sinatra::Base
     erb :sign_up
   end
 
-  post "/user/new" do 
+  post "/user/sign_up" do 
     User.create(params[:name], params[:email], params[:password])
     erb :user_sign_up_status
+  end
+
+  get "/user/login" do
+    erb :login
+  end
+
+  post "/user/login" do 
+    user = DataBase.query("SELECT id, name, email FROM users WHERE email='#{params[:email]}' AND password='#{params[:password]}';")
+    session[:user] = user.entries.first
+    redirect "/chitter"
   end
   
 end
