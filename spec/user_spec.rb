@@ -23,5 +23,10 @@ describe User do
       expect { User.log_in("test@test.com", "pass123") }.to raise_error "User doesn't exist"
     end
 
+    it "Return error if user doesn't exist" do 
+      User.create("Test User", "test@test.com", "pass123")
+      expect { User.log_in("test@test.com", "pass12") }.to raise_error "Incorrect password"
+    end
+
   end
 end
