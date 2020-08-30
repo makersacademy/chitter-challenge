@@ -10,10 +10,6 @@ class App < Sinatra::Base
   register Sinatra::Flash
 
   get "/" do 
-    redirect "/chitter"
-  end
-
-  get "/chitter" do 
     @user = session[:user]
     @posts = params[:Display] == "old" ? Chitter.all : Chitter.reverse_all
     erb :chitter_home
@@ -21,7 +17,7 @@ class App < Sinatra::Base
 
   post "/chitter/create" do
     Chitter.create(params[:text])
-    redirect "/chitter" 
+    redirect "/"
   end
 
   get "/user/sign_up" do 
@@ -54,7 +50,7 @@ class App < Sinatra::Base
         redirect "/user/login"
       else
         session[:user] = User.log_in(params[:email], params[:password])
-        redirect "/chitter"
+        redirect "/"
       end
   end
 

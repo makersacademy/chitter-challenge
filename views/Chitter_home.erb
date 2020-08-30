@@ -18,7 +18,7 @@
   </form>
   <% end %>
   <h2>Posts</h2>
-  <form action="/chitter" method="GET" >
+  <form action="/" method="GET" >
     <label>Display:</label>
     <select name="Display">
       <option value="new">New First</option>
@@ -34,7 +34,7 @@
     </tr>
     <% @posts.map do |each| %>
       <tr>
-        
+
         <td class="td_post" ><%= each["post"]%></td>
      
         <td><%= each["created_at"][0..18]%></td>
