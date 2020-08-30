@@ -5,5 +5,6 @@ feature 'Writing a new cheep' do
     click_button('Submit')
 
     expect(page).to have_content 'Hello everyone!'
+    expect(page).to have_content '2020-08-30 19:10:25'
   end
 end

@@ -6,9 +6,9 @@ describe Cheep do
     it 'returns all cheeps' do
     connection = PG.connect(dbname: 'chitter_test')
 
-    connection.exec("INSERT INTO chitter (cheep) VALUES ('Hello Chitter!');")
-    connection.exec("INSERT INTO chitter (cheep) VALUES ('What shall I eat for dinner?');")
-    connection.exec("INSERT INTO chitter (cheep) VALUES (':)');")
+    Cheep.create(cheep: 'Hello Chitter!')
+    Cheep.create(cheep: 'What shall I eat for dinner?')
+    Cheep.create(cheep: ':)')
 
 
     cheeps = Cheep.all 
@@ -16,6 +16,7 @@ describe Cheep do
     expect(cheeps).to include('Hello Chitter!')
     expect(cheeps).to include('What shall I eat for dinner?')
     expect(cheeps).to include(':)')
+
     end
   end
 

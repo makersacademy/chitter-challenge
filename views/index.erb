@@ -1,7 +1,9 @@
 <h1>Chitter</h1>
-<br>
-<ul>
-<% @cheeps.each do |cheep| %>
-  <li><%= cheep %></li>
+<br><ul>
+  <% @cheeps.each do |cheep| %>
+      <%= cheep.cheep %>
+      <%= cheep.timestamp %>
+  <br>
+  <br>
   <% end %>
 </ul>
