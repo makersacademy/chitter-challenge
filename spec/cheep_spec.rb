@@ -6,25 +6,30 @@ describe Cheep do
     it 'returns all cheeps' do
     connection = PG.connect(dbname: 'chitter_test')
 
-    Cheep.create(cheep: 'Hello Chitter!')
+    cheep = Cheep.create(cheep: 'Hello Chitter!')
     Cheep.create(cheep: 'What shall I eat for dinner?')
     Cheep.create(cheep: ':)')
 
 
     cheeps = Cheep.all 
 
-    expect(cheeps).to include('Hello Chitter!')
-    expect(cheeps).to include('What shall I eat for dinner?')
-    expect(cheeps).to include(':)')
-
+    expect(cheeps.length).to eq 3
+    expect(cheeps.first).to be_a Cheep
+    expect(cheeps.first.id).to eq cheep.id
+    expect(cheeps.first.cheep).to eq 'Hello Chitter!'
+    expect(cheeps.first.timestamp).to eq "#{Time.now}" 
     end
   end
 
   describe '.create' do
     it 'creates a new cheep' do
-      Cheep.create(cheep: 'Good morning!')
+      cheep = Cheep.create(cheep: 'Good morning!')
+      persisted_data = PG.connect(dbname: 'chitter_test').query("SELECT * FROM chitter WHERE id = #{cheep.id};")
 
-      expect(Cheep.all).to include('Good morning!')
+      expect(cheep).to be_a Cheep
+      expect(cheep.id).to eq persisted_data.first['id']
+      expect(cheep.cheep).to eq 'Good morning!'
+      expect(cheep.timestamp).to eq "#{Time.now}"
     end
   end
 end
