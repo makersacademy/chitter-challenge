@@ -1,10 +1,14 @@
 <h1>Chitter, home of the peeps</h1>
 
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
       <b><%= peep.peep %></b>
     </li>
   <% end %>
 </ul>
+
+<form action="/peep/new">
+  <input type="submit" value="Compose Peep">
+</form>
       
