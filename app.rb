@@ -8,6 +8,12 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  helpers do
+    def current_user
+      @current_user ||= User.find(id: session[:user_id])
+    end
+  end
+
   get '/' do
     erb :home
   end
@@ -15,7 +21,6 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @user = User.find(id: session[:user_id])
     @peeps = Peep.all
-    p @peeps
     erb :"peeps/index"
   end
 
@@ -24,7 +29,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(post: params[:peep])
+    Peep.create(post: params[:peep], poster: current_user.handle, poster_name: current_user.name)
     redirect '/peeps'
   end
 

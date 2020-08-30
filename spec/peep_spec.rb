@@ -3,8 +3,8 @@ require 'peep'
 describe Peep do
   describe '.all' do
     it 'returns all peeps' do
-      peep = Peep.create(post: "This is my first Peep")
-      Peep.create(post: "And this is my second")
+      peep = Peep.create(post: "This is my first Peep", poster: '@tester', poster_name: 'Mr Test')
+      Peep.create(post: "And this is my second", poster: '@tester', poster_name: 'Other Test')
 
       peeps = Peep.all
 
@@ -17,7 +17,7 @@ describe Peep do
 
   describe '.create' do
     it 'creates a new peep' do
-      peep = Peep.create(post: "Testing a Peep")
+      peep = Peep.create(post: "Testing a Peep", poster: '@tester', poster_name: 'Mr Test')
       table_data = DatabaseConnection.query("SELECT * FROM peeps WHERE id = #{peep.id};")
 
       expect(peep).to be_a Peep
