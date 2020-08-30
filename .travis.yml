@@ -8,4 +8,4 @@ before_script:
 
 script:
   - bundle exec rspec
-  - bundle exec rake db:migrate RACK_ENV=test
+  - RACK_ENV=test bundle exec rake db:migrate --trace
