@@ -11,4 +11,11 @@ describe Peep do
     end
   end
 
+  describe '#.create' do
+    it 'adds to peeps table the message' do
+      Peep.create('testing create method')
+      expect(described_class.all).to include('testing create method')
+    end
+  end
+
 end
