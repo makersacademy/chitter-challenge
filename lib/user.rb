@@ -11,7 +11,8 @@ class User
   end
 
   def self.create(name, email, password)
-    DataBase.query("INSERT INTO users (name,email,password) VALUES ('#{name}', '#{email}','#{password}') RETURNING id, name, email;")
+    user = DataBase.query("INSERT INTO users (name,email,password) VALUES ('#{name}', '#{email}','#{password}') RETURNING id, name, email;")
+    User.new(user.first["id"], user.first["name"], user.first["email"] )
   end
 
   def self.log_in(email, password)

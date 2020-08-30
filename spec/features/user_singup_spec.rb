@@ -8,4 +8,11 @@ feature "User can singup" do
     click_button "Create Account"
     expect(page).to have_content "Account created"
   end
+
+  scenario "User try to register twice with same email" do 
+    create_acc 
+    create_acc 
+    expect(page).to have_content "This email is already registered"
+  end
+
 end

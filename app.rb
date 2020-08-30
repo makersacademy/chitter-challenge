@@ -29,7 +29,7 @@ class App < Sinatra::Base
   end
 
   post "/user/sign_up" do 
-    User.create(params[:name], params[:email], params[:password])
+    session[:user] = User.create(params[:name], params[:email], params[:password])
     erb :user_sign_up_status
   end
 
