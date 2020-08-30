@@ -5,7 +5,9 @@ services:
 
 before_script:
   - psql -U postgres -c 'CREATE DATABASE chitter_test;'
+  - psql -U postgres -c 'CREATE TABLE posts(id SERIAL PRIMARY KEY, post VARCHAR, created_at TIMESTAMP);'
+  - psql -U postgres -c 'CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR, password VARCHAR, name VARCHAR(40));'
+  - psql -U postgres -c 'ALTER TABLE posts ALTER COLUMN created_at SET DEFAULT now();'
 
 script:
-  - RACK_ENV=test bundle exec rake db:migrate
   - bundle exec rspec
