@@ -46,12 +46,13 @@
     </form>
   <% end %>
   <h3> <%= flash[:notice] %> </h3>
-  <br>
-  <form action="peeps/new" method="get">
-    <input type="submit" value="Make a Peep">
-  </form>
+  <% if !@user %>
   <form action="sessions/new" method="get">
     <input type="submit" value="Sign in">
+  </form>
+  <% end %>
+  <form action="peeps/new" method="get">
+    <input type="submit" value="Make a Peep">
   </form>
   <br>
   <ul>
