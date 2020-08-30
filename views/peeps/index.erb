@@ -41,10 +41,17 @@
   <br>
   <% if @user %>
     <h3>Hello <%= @user.handle %></h3>
+    <form action="sessions/destroy" method="post">
+      <input type="submit" value="Sign out"/>
+    </form>
   <% end %>
+  <h3> <%= flash[:notice] %> </h3>
   <br>
   <form action="peeps/new" method="get">
     <input type="submit" value="Make a Peep">
+  </form>
+  <form action="sessions/new" method="get">
+    <input type="submit" value="Sign in">
   </form>
   <br>
   <ul>
