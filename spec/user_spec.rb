@@ -14,6 +14,9 @@ describe User do
       User.create("Test User", "test@test.com", "pass123")
       user = User.log_in("test@test.com", "pass123")
       expect(user).to be_an_instance_of(User)
+      expect(user).to respond_to(:id)
+      expect(user).to respond_to(:name)
+      expect(user).to respond_to(:email)
     end
   end
 end
