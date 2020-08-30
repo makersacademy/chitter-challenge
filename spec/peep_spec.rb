@@ -26,7 +26,6 @@ describe 'Peep' do
       expect(peep).to be_a Peep
       expect(peep.peep).to eq "Im peeping!"
       expect(peep.posted_time).to eq Time.now.strftime("%Y/%m/%d %k:%M")
-
     end
   end
 end

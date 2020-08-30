@@ -4,6 +4,7 @@
   <% @peeps.reverse_each do |peep| %>
     <li class="peep" id="peep-<%= peep.id %>">
       <b><%= peep.peep %></b>
+      <sub><%= peep.posted_time %></sub>
     </li>
   <% end %>
 </ul>
