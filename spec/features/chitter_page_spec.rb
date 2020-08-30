@@ -5,7 +5,8 @@ feature "Chitter page" do
   end
 
   scenario "User creates first post" do 
-    visit("/chitter")
+    User.create("Test", "test@test.com", "test123")
+    log_in
     fill_in("text", with: "My first post")
     click_button "Send"
     expect(page).to have_content "My first post"
@@ -17,6 +18,6 @@ feature "Chitter page" do
     visit("/chitter")
     select "Old First", :from => "Display"
     click_button "Ok"
-    expect(page).to have_css('table', text: "Post Created At First post #{post_1[0]["created_at"][0..18]} Second post #{post_2[0]["created_at"][0..18]}")
+    expect(page).to have_css('table', text: "Created At First post #{post_1[0]["created_at"][0..18]} Second post #{post_2[0]["created_at"][0..18]}")
   end
 end
