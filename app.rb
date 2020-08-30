@@ -2,6 +2,7 @@ require "sinatra/base"
 require 'sinatra/activerecord'
 require './db_connection_setup'
 require "./lib/chitter"
+require './lib/user'
 
 class App < Sinatra::Base
 
@@ -24,7 +25,8 @@ class App < Sinatra::Base
   end
 
   post "/user/new" do 
-    "Account created"
+    User.create(params[:name], params[:email], params[:password])
+    erb :user_sign_up_status
   end
   
 end
