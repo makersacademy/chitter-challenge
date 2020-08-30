@@ -15,8 +15,8 @@ class User
   end
 
   def self.log_in(email, password)
-    
     fail "User doesn't exist" if email_check(email)
+    fail "Incorrect password" if password_check(password)
 
     user = DataBase.query("SELECT id, name, email FROM users WHERE email='#{email}' AND password='#{password}';")
 
@@ -27,6 +27,11 @@ class User
   
   def self.email_check(email)
     user = DataBase.query("SELECT email FROM users WHERE email='#{email}';")
+    user.first.nil?
+  end
+
+  def self.password_check(password)
+    user = DataBase.query("SELECT password FROM users WHERE password='#{password}';")
     user.first.nil?
   end
 
