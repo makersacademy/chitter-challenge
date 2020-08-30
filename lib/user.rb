@@ -11,6 +11,8 @@ class User
   end
 
   def self.create(name, email, password)
+    return "This email is already registered" unless email_check(email)
+
     user = DataBase.query("INSERT INTO users (name,email,password) VALUES ('#{name}', '#{email}','#{password}') RETURNING id, name, email;")
     User.new(user.first["id"], user.first["name"], user.first["email"] )
   end

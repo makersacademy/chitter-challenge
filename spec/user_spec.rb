@@ -7,6 +7,12 @@ describe User do
       expect(new_user.name).to eq "Test User"
       expect(new_user.email).to eq "test@test.com"
     end
+
+    it "Return error if user is already registred" do 
+      User.create("Test User", "test@test.com", "pass123")
+      expect(User.create("Test User", "test@test.com", "pass123")).to eq "This email is already registered"
+    end
+
   end
 
   describe "#log_in" do 
