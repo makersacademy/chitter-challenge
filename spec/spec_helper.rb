@@ -4,6 +4,7 @@ require 'capybara/rspec'
 require_relative 'setup_test_db'
 require 'simplecov'
 require 'simplecov-console'
+require_relative './features/web_helper'
 
 
 Capybara.app = App
