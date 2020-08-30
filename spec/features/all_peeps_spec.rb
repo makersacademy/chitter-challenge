@@ -10,4 +10,5 @@ feature 'all peeps'  do
     click_button 'Post'
     expect(page).to have_content('Posted at: ')
   end
+
 end
