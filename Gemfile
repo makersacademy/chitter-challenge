@@ -13,3 +13,5 @@ gem 'sinatra-activerecord'
 gem 'rake'
 gem 'pg'
 gem 'rack'
+
+gem "sinatra-flash", "~> 0.3.0"

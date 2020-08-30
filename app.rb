@@ -1,12 +1,13 @@
 require "sinatra/base"
+require "sinatra/flash"
 require 'sinatra/activerecord'
 require './db_connection_setup'
 require "./lib/chitter"
 require './lib/user'
 
 class App < Sinatra::Base
-
   enable :sessions
+  register Sinatra::Flash
 
   get "/" do 
     "Home"
@@ -37,8 +38,15 @@ class App < Sinatra::Base
   end
 
   post "/user/login" do 
-    session[:user] = User.log_in(params[:email], params[:password])
-    redirect "/chitter"
+    case User.log_in(params[:email], params[:password]) 
+      when "Email Error"
+        flash[:notice] = "User doesn't exist"
+      when "Incorrect password"
+        flash[:notice] = "Incorrect password"
+      else
+        session[:user] = User.log_in(params[:email], params[:password])
+        redirect "/chitter"
+      end
   end
   
 end
