@@ -1,24 +1,22 @@
-<%= flash[:notice] %>
 <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
 <div class="outer_div">
-
+  <%= flash[:notice] %>
   <h1>Welcome to Chitter <%= @user.name unless @user.nil? %> <h1>
     <% if @user.nil? %>
     <div>
-      <a href="/user/sign_up">Sign Up</a>
-      <a href="/user/login">Log In</a>
+      <a class="a_btn" href="/user/sign_up">Sign Up</a>
+      <a class="a_btn" href="/user/login">Log In</a>
     </div>
   <% else %>
-    <a href="/user/destroy">Log Out</a>
-  <% end %>
-  
+    <a class="a_btn" id="out_btn" href="/user/destroy">Log Out</a>
 
   <br>
 
   <form action="/chitter/create" method="POST">
-    <input type=text name="text">
-    <input type=submit value="Send">
+    <input class="text_field" style="min-width: 350px" type=text name="text">
+    <input class="a_btn" type=submit value="Send">
   </form>
+  <% end %>
   <h2>Posts</h2>
   <form action="/chitter" method="GET" >
     <label>Display:</label>
@@ -36,8 +34,8 @@
     </tr>
     <% @posts.map do |each| %>
       <tr>
-     
-        <td id="td_post" ><%= each["post"]%></td>
+        
+        <td class="td_post" ><%= each["post"]%></td>
      
         <td><%= each["created_at"][0..18]%></td>
        

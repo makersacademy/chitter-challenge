@@ -29,6 +29,140 @@ th {
 td {
   padding: 0.5em;
 }
-#td_post {
+.td_post {
   margin-right: 3em;
+}
+
+.a_btn {
+  color: black;
+  text-decoration: none;
+  font-size: x-large;
+  border: 0.6px solid grey;
+  padding: 0.4em;
+  border-radius: 8px;
+  background: rgba(0, 255, 183, 1);
+  position: relative;
+  top: 0;
+  transition: all 0.4s ease-out;
+}
+
+.a_btn:hover {
+  background: violet;
+  position: relative;
+  top: -3.5px;
+}
+
+.text_field {
+  border-radius: 6px;
+  padding: 0.4em;
+  border-width: 1px;
+  outline: none;
+  transition: all 0.5s ease-out;
+}
+.text_field:focus {
+  box-shadow: 0 0 10px rgb(0, 255, 136);
+  padding: 0.8em;
+  border: 0.8px solid rgb(238, 255, 0);
+}
+
+#out_btn {
+  position: relative;
+  top: -2.9em;
+  left: 17em;
+}
+
+body {
+  animation: example 3.1s infinite;
+  -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+  animation-timing-function: linear;
+}
+
+@keyframes example {
+  0% {
+    background: linear-gradient(
+      90deg,
+      rgba(174, 238, 220, 1) 6%,
+      rgba(187, 156, 232, 1) 70%,
+      rgba(148, 187, 233, 1) 100%
+    );
+  }
+  8% {
+    background: linear-gradient(
+      88deg,
+      rgba(174, 238, 220, 1) 5%,
+      rgba(189, 158, 232, 1) 68%,
+      rgba(148, 187, 233, 1) 99%
+    );
+  }
+
+  15% {
+    background: linear-gradient(
+      87deg,
+      rgba(174, 238, 220, 1) 4%,
+      rgba(190, 160, 232, 1) 65%,
+      rgba(148, 187, 233, 1) 98%
+    );
+  }
+
+  25% {
+    background: linear-gradient(
+      86deg,
+      rgba(174, 238, 220, 1) 3%,
+      rgba(191, 161, 232, 1) 62%,
+      rgba(148, 187, 233, 1) 97%
+    );
+  }
+
+  35% {
+    background: linear-gradient(
+      85deg,
+      rgba(174, 238, 220, 1) 2%,
+      rgba(192, 163, 232, 1) 60%,
+      rgba(148, 187, 233, 1) 96%
+    );
+  }
+
+  50% {
+    background: linear-gradient(
+      84deg,
+      rgba(174, 238, 220, 1) 0%,
+      rgba(193, 164, 232, 1) 58%,
+      rgba(148, 187, 233, 1) 95%
+    );
+  }
+
+  60% {
+    background: linear-gradient(
+      85deg,
+      rgba(174, 238, 220, 1) 3%,
+      rgba(191, 162, 232, 1) 60%,
+      rgba(148, 187, 233, 1) 96%
+    );
+  }
+  75% {
+    background: linear-gradient(
+      86deg,
+      rgba(174, 238, 220, 1) 4%,
+      rgba(190, 160, 232, 1) 62%,
+      rgba(148, 187, 233, 1) 97%
+    );
+  }
+
+  85% {
+    background: linear-gradient(
+      88deg,
+      rgba(174, 238, 220, 1) 5%,
+      rgba(189, 158, 232, 1) 65%,
+      rgba(148, 187, 233, 1) 98%
+    );
+  }
+
+  100% {
+    background: linear-gradient(
+      89deg,
+      rgba(174, 238, 220, 1) 6%,
+      rgba(187, 156, 232, 1) 68%,
+      rgba(148, 187, 233, 1) 99%
+    );
+  }
 }

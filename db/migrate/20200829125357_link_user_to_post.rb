@@ -2,13 +2,13 @@ class LinkUserToPost < ActiveRecord::Migration[6.0]
   def up
     execute <<-SQL
       ALTER TABLE posts
-      ADD COLUMN user_id INT references users(id);
+      ADD COLUMN user_name VARCHAR references users(name);
     SQL
   end
   def down
     execute <<-SQL
       ALTER TABLE posts
-      DROP COLUMN user_id;
+      DROP COLUMN user_name;
     SQL
   end
 end
