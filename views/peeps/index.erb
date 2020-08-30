@@ -18,8 +18,8 @@
       list-style-type: none;
       outline-style: solid;
       outline-width: thin;
-      margin-right: 500px;
-      padding: 25px 50px;
+      margin-right: 450px;
+      padding: 15px 25px;
     }
     body {
       background-color: #1DA1F2;
@@ -44,21 +44,24 @@
     <form action="sessions/destroy" method="post">
       <input type="submit" value="Sign out"/>
     </form>
+    <form action="peeps/new" method="get">
+      <input type="submit" value="Make a Peep">
+    </form>
   <% end %>
   <h3> <%= flash[:notice] %> </h3>
   <% if !@user %>
   <form action="sessions/new" method="get">
     <input type="submit" value="Sign in">
   </form>
-  <% end %>
-  <form action="peeps/new" method="get">
-    <input type="submit" value="Make a Peep">
+  <form action="/users/new" method=get>
+    <input type="submit" value="Sign up for Chitter">
   </form>
+  <% end %>
   <br>
   <ul>
     <% @peeps.each do |peep| %>
       <li class="peep" id="peep-<%= peep.id %>">
-        <%= peep.post %> | <%= peep.time %>
+        <b><%= peep.poster_name %></b> <%= peep.poster%> • <%= peep.time %> <br><br> <%= peep.post %> 
       </li>
       <br>
     <% end %>
