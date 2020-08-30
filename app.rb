@@ -3,6 +3,7 @@ require './database_connection_setup'
 
 class Chitter < Sinatra::Base
   get '/' do
+    @peeps = chitter.peeps
     erb :index
   end
 
