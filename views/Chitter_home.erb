@@ -1,5 +1,7 @@
 <%= flash[:notice] %>
-<div>
+<link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+<div class="outer_div">
+
   <h1>Welcome to Chitter <%= @user.name unless @user.nil? %> <h1>
     <% if @user.nil? %>
     <div>
@@ -12,6 +14,7 @@
   
 
   <br>
+
   <form action="/chitter/create" method="POST">
     <input type=text name="text">
     <input type=submit value="Send">
@@ -28,14 +31,18 @@
 
   <table>
     <tr>
-      <th>Post</th>
+      <th></th>
       <th>Created At</th>
     </tr>
     <% @posts.map do |each| %>
       <tr>
-        <td><%= each["post"]%></td>
+     
+        <td id="td_post" ><%= each["post"]%></td>
+     
         <td><%= each["created_at"][0..18]%></td>
+       
       </tr>
     <% end %>
   </table>
+
 </div>

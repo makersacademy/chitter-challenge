@@ -1,0 +1,34 @@
+.outer_div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.inner_div {
+  display: flex;
+}
+
+table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+tbody {
+  width: 100%;
+}
+tr {
+  border-bottom: 1.5px dashed whitesmoke;
+  display: flex;
+  justify-content: space-between;
+}
+th {
+  margin-right: 1.2em;
+}
+td {
+  padding: 0.5em;
+}
+#td_post {
+  margin-right: 3em;
+}
