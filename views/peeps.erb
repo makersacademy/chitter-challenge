@@ -8,7 +8,10 @@
 </form>
 
 <ul>
-  <% @peeps.each do |peep| %>
-      <p> <%= peep.text %> </p>
+  <% @peeps.reverse.each do |peep| %>
+      <h2> <%= peep.text %> </h2>
+        <p>Posted at: <%= peep.posted_at %></p>
+        <p><%= peep.id %></p>
+        <br>
   <% end %>
 </ul>
