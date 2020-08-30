@@ -4,4 +4,6 @@ Welcome to Chitter!
   <input type='submit' value='New Peep'>
 </form>
 
-<%= @peep %>
+<% @peeps.each do |peep| %>
+<%= peep %><br>
+<% end %>
