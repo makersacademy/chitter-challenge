@@ -38,6 +38,21 @@
       bottom: 0;
       width: 100%;
     }
+    .button {
+      background-color: rgb(29, 161, 242);
+      border-radius: 4px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      border: 2px solid #1da1f2;
+      width: 15%;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .button:hover {
+      background-color: white;
+      color: #1da1f2;
+      border: 2px solid white;
+    }
   </style>
 </head>
 <body>
@@ -54,7 +69,7 @@
       <input type="email" name="email" maxlength="60" /><br><br>
     <label for ="password">Enter a password:</label><br>
       <input type="password" name="password" maxlength="140" /><br><br>
-    <input type="submit" value="Sign Up"/>
+    <input type="submit" class="button" value="Sign Up"/>
   </form>
   <footer>
     Chitter Challenge | JR-G | Makers 2020
