@@ -1,4 +1,5 @@
 require_relative "database"
+require 'bcrypt'
 
 class User
 
@@ -13,28 +14,26 @@ class User
   def self.create(name, email, password)
     return "Email Error" unless email_check(email)
 
-    user = DataBase.query("INSERT INTO users (name,email,password) VALUES ('#{name}', '#{email}','#{password}') RETURNING id, name, email;")
+    encrypted_password = BCrypt::Password.create(password)
+
+    user = DataBase.query("INSERT INTO users (name,email,password) VALUES ('#{name}', '#{email}','#{encrypted_password}') RETURNING id, name, email;")
     User.new(user.first["id"], user.first["name"], user.first["email"] )
   end
 
   def self.log_in(email, password)
     return "Email Error" if email_check(email)
-    return "Incorrect password" if password_check(password)
+    
+    user = DataBase.query("SELECT * FROM users WHERE email='#{email}';")
 
-    user = DataBase.query("SELECT id, name, email FROM users WHERE email='#{email}' AND password='#{password}';")
+    return "Incorrect password" unless BCrypt::Password.new(user[0]['password']) == password
 
     User.new(user.first["id"], user.first["name"], user.first["email"] )
   end
 
   private
-  
+
   def self.email_check(email)
     user = DataBase.query("SELECT email FROM users WHERE email='#{email}';")
-    user.first.nil?
-  end
-
-  def self.password_check(password)
-    user = DataBase.query("SELECT password FROM users WHERE password='#{password}';")
     user.first.nil?
   end
 
