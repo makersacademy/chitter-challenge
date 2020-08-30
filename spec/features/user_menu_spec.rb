@@ -6,4 +6,12 @@ feature "Youser can choose options" do
     expect(page).to have_field("email")
     expect(page).to have_field("password")
   end
+
+  scenario "User click button Sign Up" do 
+    visit("/")
+    click_link "Log In"
+    expect(page).to have_field("email")
+    expect(page).to have_field("password")
+  end
+
 end
