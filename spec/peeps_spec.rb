@@ -21,15 +21,6 @@ describe Peeps do
 
     end
 
-    it 'displays the time each peep was posted at' do
-      con = PG.connect :dbname => 'peeps_test'
-      peep = Peeps.new_peep(text: "Test peep")
-
-      peeps = Peeps.all
-
-      expect(peeps.first.posted_at).to eq peep.posted_at
-    end
-
   end
 
   describe '#.new_peep' do
@@ -40,13 +31,19 @@ describe Peeps do
     end
   end
 
-  let(:peep) { Peeps.new_peep(text: "Test peep") }
-
-   describe "#posted_at" do
-     it 'checks an accurate time and date are posted with every peep' do
-       expect(peep).to respond_to(:posted_at)
-       expect(peep.posted_at).to be_a_kind_of(Time)
+   describe ".posted_at" do
+     it 'displays the time each peep was posted at' do
+       peep = Peeps.new(id: 1, text: "Test text", posted_at: '20:30:49')
+       expect(peep.posted_at).to eq '20:30:49'
      end
+
+     it 'displays the time each peep was posted at' do
+       con = PG.connect :dbname => 'peeps_test'
+       peep = Peeps.new_peep(text: "Test peep")
+       peeps = Peeps.all
+       expect(peeps.first.posted_at).to eq peep.posted_at
+     end
+
    end
 
 end
