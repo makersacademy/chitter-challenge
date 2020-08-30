@@ -8,6 +8,18 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/cheep/new' do 
+    erb :"cheep/new"
+  end
+
+  post '/' do
+    cheep = params['cheep']
+    connection = PG.connect(dbname: 'cheep_Test')
+    connection.exec("INSERT INTO chitter (cheep) VALUES('#{url}')")
+    redirect '/'
+  end
+
+
   run! if app_file == $0
 
 end
