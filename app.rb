@@ -13,9 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    cheep = params['cheep']
-    connection = PG.connect(dbname: 'cheep_Test')
-    connection.exec("INSERT INTO chitter (cheep) VALUES('#{url}')")
+    Cheep.create(cheep: params[:cheep])
     redirect '/'
   end
 

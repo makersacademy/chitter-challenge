@@ -1,10 +1,8 @@
 feature 'View cheeps' do 
   scenario 'A user can view cheeps' do
-    connection = PG.connect(dbname: 'chitter_test')
-
-    connection.exec("INSERT INTO chitter VALUES(1, 'Hello Chitter!');")
-    connection.exec("INSERT INTO chitter VALUES(2, 'What shall I eat for dinner?');")
-    connection.exec("INSERT INTO chitter VALUES(3, ':)');")
+    Cheep.create(cheep: 'Hello Chitter!')
+    Cheep.create(cheep: 'What shall I eat for dinner?')
+    Cheep.create(cheep: ":)")
 
     visit('/')
   

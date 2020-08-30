@@ -18,4 +18,12 @@ describe Cheep do
     expect(cheeps).to include(':)')
     end
   end
+
+  describe '.create' do
+    it 'creates a new cheep' do
+      Cheep.create(cheep: 'Good morning!')
+
+      expect(Cheep.all).to include('Good morning!')
+    end
+  end
 end
