@@ -1,3 +1,4 @@
+<%= flash[:notice] %>
 <div>
   <h1>Welcome to Chitter <%= @user.name unless @user.nil? %> <h1>
     <% if @user.nil? %>
@@ -6,7 +7,7 @@
       <a href="/user/login">Log In</a>
     </div>
   <% else %>
-    <a href="">Log Out</a>
+    <a href="/user/destroy">Log Out</a>
   <% end %>
   
 

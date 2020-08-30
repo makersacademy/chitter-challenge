@@ -57,5 +57,12 @@ class App < Sinatra::Base
         redirect "/chitter"
       end
   end
+
+  get "/user/destroy" do 
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect "/"
+  end
+
   
 end
