@@ -15,8 +15,19 @@ class User
   end
 
   def self.log_in(email, password)
+    
+    fail "User doesn't exist" if email_check(email)
+
     user = DataBase.query("SELECT id, name, email FROM users WHERE email='#{email}' AND password='#{password}';")
+
     User.new(user.first["id"], user.first["name"], user.first["email"] )
+  end
+
+  private 
+  
+  def self.email_check(email)
+    user = DataBase.query("SELECT email FROM users WHERE email='#{email}';")
+    user.first.nil?
   end
 
 end

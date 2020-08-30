@@ -20,7 +20,7 @@ describe User do
     end
 
     it "Return error if user doesn't exist" do 
-      expect(User.log_in("test@test.com", "pass123")).to raise_error "User doesn't exist"
+      expect { User.log_in("test@test.com", "pass123") }.to raise_error "User doesn't exist"
     end
 
   end
