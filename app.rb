@@ -11,7 +11,7 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/new' do
-       Peep.add_peeps(params['message'])
+       Peep.add_peeps(params['message'], Time.now)
        redirect '/'
     end
 

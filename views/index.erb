@@ -5,5 +5,8 @@
 </form>
 
 <% @peeps.each do |peep| %>
-    <p> <%=peep.peep%>
+    <div>
+      <%= peep.time %>
+      <p> <%=peep.peep%>
+    </div>
     <%end%>
