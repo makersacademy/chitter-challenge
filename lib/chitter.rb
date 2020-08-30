@@ -3,8 +3,8 @@ require_relative 'database'
 class Chitter
 
   def self.all 
-    get_all_posts = DataBase.query("SELECT * FROM posts;")
-    get_all_posts.entries
+    posts = DataBase.query("SELECT * FROM posts;")
+    posts.entries
   end
 
   def self.create(text)
