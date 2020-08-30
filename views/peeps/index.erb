@@ -12,6 +12,12 @@
       font-family: 'Noto Sans JP', sans-serif;
       color: white;
     }
+    info {
+      color: #d9d9d9;
+    }
+    handle {
+      color: #cccccc;
+    }
     li {
       font-family: 'Roboto', sans-serif;
       color: white;
@@ -19,10 +25,11 @@
       outline-style: solid;
       outline-width: thin;
       margin-right: 450px;
-      padding: 15px 25px;
+      padding: 15px 20px;
+      background-color: #223344;
     }
     body {
-      background-color: #1DA1F2;
+      background-color: #15202b;
     }
     footer {
       color: white;
@@ -30,17 +37,16 @@
       text-align: center;
       padding: 10px;
       font-family: 'Noto Sans JP', sans-serif;
-      position: absolute;
-      bottom: 0;
+      position: relative;
+      bottom: -10;
       width: 100%;
     }
   </style>
 </head>
 <body>
   <h1>Chitter</h1>
-  <br>
   <% if @user %>
-    <h3>Hello <%= @user.handle %></h3>
+    <h3>Hello <handle><%= @user.handle %></handle></h3>
     <form action="sessions/destroy" method="post">
       <input type="submit" value="Sign out"/>
     </form>
@@ -57,11 +63,11 @@
     <input type="submit" value="Sign up for Chitter">
   </form>
   <% end %>
-  <br>
+  <hr class="solid">
   <ul>
     <% @peeps.each do |peep| %>
       <li class="peep" id="peep-<%= peep.id %>">
-        <b><%= peep.poster_name %></b> <%= peep.poster%> • <%= peep.time %> <br><br> <%= peep.post %> 
+        <b><%= peep.poster_name %></b> <info><%= peep.poster%> • <%= peep.time %></info> <br><br> <%= peep.post %> 
       </li>
       <br>
     <% end %>

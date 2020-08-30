@@ -7,8 +7,23 @@
       font-family: 'Noto Sans JP', sans-serif;
       font-size: 50px;
       color: white;
-      text-align: center;
-      padding: 50px
+    }
+    a {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: white;
+      background-color: rgb(29, 161, 242);
+      text-decoration: none;
+      display:inline-block;
+      padding: 6px;
+    }
+    a:hover {
+      color: #1DA1F2;
+    }
+    p {
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      padding: 10px;
+      font-size: 20px;
     }
     h3 {
       font-family: 'Noto Sans JP', sans-serif;
@@ -22,9 +37,10 @@
       outline-width: thin;
       margin-right: 500px;
       padding: 25px 50px;
+      
     }
     body {
-      background-color: #1DA1F2;
+      background-color: #15202b;
     }
     footer {
       color: white;
@@ -43,15 +59,14 @@
 </head>
 <body>
   <h1>Welcome to Chitter</h1>
-  <form action="/peeps" method="get">
-    <input type="submit" value="See what's going on"/>
-  </form>
-  <form action="/users/new" method=get>
-    <input type="submit" value="Sign up for Chitter">
-  </form>
-  <form action="sessions/new" method="get">
-    <input type="submit" value="Sign in">
-  </form>
+  <p>
+    🔎 Follow your interests<br><br>
+    👥 Hear what people are talking about<br><br>
+    💬 Join the conversation<br><br>
+  </p>
+  <a href="/peeps">See what's going on</a>
+  <a href="/users/new">Sign up</a>
+  <a href="/sessions/new">Log in</a>
   <footer>
     Chitter Challenge | JR-G | Makers 2020
   </footer>
