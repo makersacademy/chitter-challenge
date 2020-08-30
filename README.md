@@ -73,9 +73,22 @@ Screenshots of app:
 
 App set up:
 -----
+
+Creating the database
 ```
 1. Connect to psql
 2. Create the database using the psql command CREATE DATABASE Chitter;
 3. Connect to the database using the pqsl command \c Chitter;
 4. Run the query we have saved in the file 01_create_cheep_table.sql
 ```
+
+Creating the test Database
+```
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE Chitter_test;
+3. Connect to the database using the pqsl command \c Chitter_test;
+4. Run the query we have saved in the file 02_create_cheep_test_table.sql
+```
+
+
+
