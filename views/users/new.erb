@@ -1,5 +1,5 @@
 <head>
-  <title>Sign Up</title>
+  <title>Sign up for Chitter</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto&display=swap" 
         rel="stylesheet"/>
   <style> 
@@ -7,11 +7,13 @@
       font-family: 'Noto Sans JP', sans-serif;
       font-size: 50px;
       color: white;
-      text-align: center;
-      padding: 150px
     }
     h3 {
       font-family: 'Noto Sans JP', sans-serif;
+      color: white;
+    }
+    label {
+      font-family: 'Roboto', sans-serif;
       color: white;
     }
     li {
@@ -36,18 +38,21 @@
       bottom: 0;
       width: 100%;
     }
-    form {
-      text-align: center;
-    }
   </style>
 </head>
 <body>
   <h1>Chitter</h1>
   <br>
+  <h3>Create your account</h3>
+  <br>
   <form action="/users" method="post">
-    <input type="text" name="handle" />
-    <input type="email" name="email" />
-    <input type="password" name="password" />
+    <label for="handle">Enter a user handle:</label><br>
+      <input type="text" name="handle" maxlength="60" /><br>
+    <label for="email">Enter your email:</label><br>
+      <input type="email" name="email" maxlength="60" /><br>
+    <label for ="password">Enter a password:</label><br>
+      <input type="password" name="password" maxlength="140" /><br><br>
+    
     <input type="submit" value="Sign Up"/>
   </form>
   <footer>

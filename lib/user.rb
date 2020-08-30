@@ -1,4 +1,4 @@
-require 'database_connection'
+require_relative 'database_connection'
 
 class User
   attr_reader :id, :handle
@@ -11,8 +11,20 @@ class User
   def self.create(handle:, email:, password:)
     entry = DatabaseConnection.query(
       "INSERT INTO users (handle, email, password) 
-       VALUES('#{handle}', '#{email}', '#{password}') 
+        VALUES('#{handle}', '#{email}', '#{password}') 
        RETURNING id, handle;")
+
     User.new(id: entry[0]['id'], handle: entry[0]['handle'])
+  end
+
+  def self.find(id:)
+    return nil unless id
+
+    search = DatabaseConnection.query(
+      "SELECT * 
+        FROM users 
+       WHERE id = #{id};")
+
+    User.new(id: search[0]['id'], handle: search[0]['handle'])
   end
 end

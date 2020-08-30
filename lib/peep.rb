@@ -28,7 +28,7 @@ class Peep
   def self.create(post:)
     entry = DatabaseConnection.query(
       "INSERT INTO peeps (peep) 
-       VALUES('#{post}') 
+        VALUES('#{post}') 
        RETURNING id, peep, peep_time;")
 
     Peep.new(

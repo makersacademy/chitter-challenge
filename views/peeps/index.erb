@@ -8,6 +8,10 @@
       font-size: 50px;
       color: white;
     }
+    h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: white;
+    }
     li {
       font-family: 'Roboto', sans-serif;
       color: white;
@@ -38,6 +42,7 @@
   <% if @user %>
     <h3>Hello <%= @user.handle %></h3>
   <% end %>
+  <br>
   <form action="peeps/new" method="get">
     <input type="submit" value="Make a Peep">
   </form>
