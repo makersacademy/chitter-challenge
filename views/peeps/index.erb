@@ -35,6 +35,9 @@
 <body>
   <h1>Chitter</h1>
   <br>
+  <% if @user %>
+    <h3>Hello <%= @user.handle %></h3>
+  <% end %>
   <form action="peeps/new" method="get">
     <input type="submit" value="Make a Peep">
   </form>

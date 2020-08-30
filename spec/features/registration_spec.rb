@@ -6,6 +6,6 @@ feature 'registration' do
     fill_in 'password', with: 'password123'
     click_button 'Sign Up'
 
-    expect(page).to have_content "Welcome tester"
+    expect(page).to have_content "Hello tester"
   end
 end
