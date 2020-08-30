@@ -10,7 +10,7 @@ class App < Sinatra::Base
   register Sinatra::Flash
 
   get "/" do 
-    "Home"
+    redirect "/chitter"
   end
 
   get "/chitter" do 
@@ -32,7 +32,7 @@ class App < Sinatra::Base
     begin
       session[:user] = User.create(params[:name], params[:email], params[:password])
       session[:user].name #checks for error
-      
+
       erb :user_sign_up_status
     rescue
       flash[:notice] = "This email is already registered"

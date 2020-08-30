@@ -1,4 +1,7 @@
 <h1>Welcome to Chitter <%= @user.name unless @user.nil? %> <h1>
+<div>
+<a href="/user/sign_up">Sign Up</a>
+</div>
 <br>
 <form action="/chitter/create" method="POST">
   <input type=text name="text">
