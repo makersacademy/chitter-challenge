@@ -18,5 +18,10 @@ describe User do
       expect(user).to respond_to(:name)
       expect(user).to respond_to(:email)
     end
+
+    it "Return error if user doesn't exist" do 
+      expect(User.log_in("test@test.com", "pass123")).to raise_error "User doesn't exist"
+    end
+
   end
 end
