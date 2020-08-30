@@ -37,8 +37,7 @@ class App < Sinatra::Base
   end
 
   post "/user/login" do 
-    user = DataBase.query("SELECT id, name, email FROM users WHERE email='#{params[:email]}' AND password='#{params[:password]}';")
-    session[:user] = user.entries.first
+    session[:user] = User.log_in(params[:email], params[:password])
     redirect "/chitter"
   end
   
